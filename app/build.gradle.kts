@@ -1,18 +1,20 @@
 plugins {
+    id("com.android.compose.screenshot")
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jetbrains.kotlin.kapt")
 }
 android {
+    experimentalProperties["android.experimental.enableScreenshotTest"] = true
     namespace = "app.pockettavern"
     compileSdk = 35
     defaultConfig {
         applicationId = "app.pockettavern"
         minSdk = 26
         targetSdk = 35
-        versionCode = 3
-        versionName = "0.1.2"
+        versionCode = 4
+        versionName = "0.1.3"
         testInstrumentationRunner = "android.test.InstrumentationTestRunner"
     }
     useLibrary("android.test.runner", false)
@@ -39,6 +41,9 @@ android {
     packaging { resources.excludes += "/META-INF/{AL2.0,LGPL2.1}" }
 }
 dependencies {
+    // The annotation API stays compatible with the app's Kotlin 2.0 compiler.
+    screenshotTestImplementation("com.android.tools.screenshot:screenshot-validation-api:0.0.1-alpha10")
+    screenshotTestImplementation("androidx.compose.ui:ui-tooling:1.7.6")
     implementation("androidx.core:core-ktx:1.15.0")
     implementation("androidx.tracing:tracing:1.2.0")
     implementation("androidx.activity:activity-compose:1.9.3")

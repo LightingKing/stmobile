@@ -10,6 +10,7 @@
 | 模型价格 | 已实现，待设备验收 | 从 Venice 目录原始数据解析并直接展示货币、金额、计费单位及分档价格，兼容旧缓存；模型卡片和媒体工具均可查看。未知单位或缺失价格明确提示，视频通过参数报价；其他平台的定价格式尚未适配。 |
 | Provider 查询 | 已实现，待设备验收 | 模型目录支持按已配置平台筛选，搜索匹配平台名称/ID/协议/地址及模型名称/ID/类型，多词和类型筛选可组合，空结果支持清除筛选。 |
 | 十类目录标签 | 已实现 | UI 按 `text`、`image`、`inpaint`、`upscale`、`tts`、`asr`、`video`、`music`、`embedding`、`decision` 展示。未知类型可展示但没有自动适配器。 |
+| 聊天阅读界面 | 已实现，主机原生渲染已检查 | 暖白/深森林主题、通栏助手正文、用户气泡、菜单式操作、历史抽屉、带 Provider 筛选的模型面板、会话草稿保存、流式跟随与回到底部；8 种 Compose 画面已检查，软键盘与触摸交互仍待真机验收。 |
 | OpenAI 兼容聊天 | 已实现 | 使用 `/chat/completions`，支持流式响应、JSON 回退、工具调用和推理字段；聊天入口要求可用的文本模型。 |
 | Anthropic 聊天 | 已实现 | 使用 `/messages`、`x-api-key` 和 Anthropic 工具格式转换，支持 SSE；聊天入口要求可用的文本模型。 |
 | Venice 媒体请求 | 已实现 | 支持 image、inpaint、upscale、tts、asr、video、music、embedding、decision；按接口要求使用 JSON 或 multipart，并允许高级参数。视频和音乐采用 quote 后 queue 流程。 |

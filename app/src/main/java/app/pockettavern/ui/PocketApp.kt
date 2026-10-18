@@ -13,6 +13,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -23,8 +27,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.Send
-import androidx.compose.material.icons.outlined.AccountTree
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.AttachFile
 import androidx.compose.material.icons.outlined.AutoAwesome
@@ -32,7 +34,6 @@ import androidx.compose.material.icons.outlined.Cached
 import androidx.compose.material.icons.outlined.ChatBubbleOutline
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Cloud
-import androidx.compose.material.icons.outlined.Code
 import androidx.compose.material.icons.outlined.DeleteOutline
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.FileDownload
@@ -42,7 +43,6 @@ import androidx.compose.material.icons.outlined.Group
 import androidx.compose.material.icons.outlined.History
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.MenuBook
-import androidx.compose.material.icons.outlined.MoreVert
 import androidx.compose.material.icons.outlined.PersonOutline
 import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.material.icons.outlined.RemoveCircleOutline
@@ -50,12 +50,10 @@ import androidx.compose.material.icons.outlined.Save
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.Security
 import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material.icons.outlined.Stop
 import androidx.compose.material.icons.outlined.Visibility
 import androidx.compose.material.icons.outlined.WarningAmber
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -69,7 +67,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.FilterChip
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -97,13 +94,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.Role
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import androidx.compose.ui.unit.dp
 import app.pockettavern.domain.AppActions
 import app.pockettavern.domain.AppSettings
@@ -139,6 +137,8 @@ private enum class AppTab(val label: String, val icon: ImageVector) {
 fun PocketApp(state: UiSession, actions: AppActions) {
     var tab by rememberSaveable { mutableStateOf(AppTab.Chats.name) }
     val selectedTab = AppTab.valueOf(tab)
+    val tabState = rememberSaveableStateHolder()
+    val keyboardOpen = WindowInsets.ime.getBottom(LocalDensity.current) > 0
     val snackbar = remember { SnackbarHostState() }
     LaunchedEffect(state.status) {
         if (state.status.isNotBlank()) {
@@ -148,7 +148,10 @@ fun PocketApp(state: UiSession, actions: AppActions) {
     }
     PocketTheme(state.data.settings.darkMode) {
         Scaffold(
+            modifier = Modifier.imePadding(),
+            containerColor = MaterialTheme.colorScheme.background,
             topBar = {
+                if (selectedTab != AppTab.Chats || state.loading) {
                 TopAppBar(
                     title = {
                         Column {
@@ -161,30 +164,34 @@ fun PocketApp(state: UiSession, actions: AppActions) {
                         if (state.busy) LinearProgressIndicator(Modifier.width(56.dp).padding(end = 12.dp))
                     }
                 )
+                }
             },
             bottomBar = {
-                if (!state.loading) {
-                    BottomAppBar(tonalElevation = 3.dp) {
+                if (!state.loading && !keyboardOpen) {
+                    Surface(color = MaterialTheme.colorScheme.surface) {
+                    Row(Modifier.fillMaxWidth().navigationBarsPadding().height(64.dp).selectableGroup(), verticalAlignment = Alignment.CenterVertically) {
                         AppTab.values().forEach { item ->
                             val selected = selectedTab == item
-                            Box(Modifier.weight(1f), contentAlignment = Alignment.Center) {
                                 Column(
                                     Modifier
-                                        .clickable { tab = item.name }
-                                        .padding(vertical = 8.dp),
-                                    horizontalAlignment = Alignment.CenterHorizontally
+                                        .weight(1f).fillMaxSize()
+                                        .selectable(selected = selected, role = Role.Tab, onClick = { tab = item.name }),
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.Center
                                 ) {
-                                    Icon(item.icon, item.label, tint = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant)
-                                    Text(item.label, style = MaterialTheme.typography.labelSmall, color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant)
+                                    Surface(shape = RoundedCornerShape(12.dp), color = if (selected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surface) {
+                                        Icon(item.icon, null, Modifier.padding(horizontal = 15.dp, vertical = 3.dp).size(22.dp), tint = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant)
+                                    }
+                                    Text(item.label, style = MaterialTheme.typography.labelSmall, fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal, color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant)
                                 }
-                            }
                         }
+                    }
                     }
                 }
             },
             snackbarHost = { SnackbarHost(snackbar) }
         ) { padding ->
-            Box(Modifier.fillMaxSize().padding(padding)) {
+            Box(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding)) {
                 if (state.loading) {
                     Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
                         CircularProgressIndicator()
@@ -193,13 +200,13 @@ fun PocketApp(state: UiSession, actions: AppActions) {
                         Text("数据加载完成后才能开始操作", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                 } else {
-                    when (selectedTab) {
+                    tabState.SaveableStateProvider(selectedTab.name) { when (selectedTab) {
                         AppTab.Chats -> ChatTab(state, actions)
                         AppTab.Characters -> CharactersTab(state, actions)
                         AppTab.Models -> ModelsTab(state, actions)
                         AppTab.Skills -> SkillsTab(state, actions)
                         AppTab.Settings -> SettingsTab(state, actions)
-                    }
+                    } }
                 }
             }
         }
@@ -234,217 +241,8 @@ private fun Chip(text: String, icon: ImageVector? = null) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ChatTab(state: UiSession, actions: AppActions) {
-    val chats = state.data.chats.sortedByDescending { it.updatedAt }
-    val selectedChat = chats.firstOrNull { it.id == state.selectedChatId } ?: chats.firstOrNull()
-    var search by rememberSaveable { mutableStateOf("") }
-    var draft by rememberSaveable(selectedChat?.id) { mutableStateOf("") }
-    var showOptions by remember { mutableStateOf(false) }
-    var editMessage by remember { mutableStateOf<Message?>(null) }
-    var branchMessage by remember { mutableStateOf<Message?>(null) }
-    var titleDialog by remember { mutableStateOf<Chat?>(null) }
-    var contextOpen by remember { mutableStateOf(false) }
-
-    if (selectedChat == null) {
-        Column(Modifier.fillMaxSize().imePadding()) {
-            Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
-                OutlinedTextField(search, { search = it }, Modifier.weight(1f), singleLine = true, leadingIcon = { Icon(Icons.Outlined.Search, null) }, placeholder = { Text("搜索会话") })
-                Spacer(Modifier.width(8.dp))
-                FloatingActionButton(onClick = { actions.createChat() }, modifier = Modifier.size(48.dp), containerColor = MaterialTheme.colorScheme.primaryContainer) { Icon(Icons.Outlined.Add, "新建会话") }
-            }
-            EmptyState(Icons.Outlined.ChatBubbleOutline, "还没有会话", "添加模型后新建会话，聊天记录会保存在本机。", "新建会话") { actions.createChat() }
-        }
-        return
-    }
-    val selected = selectedChat
-    Column(Modifier.fillMaxSize().imePadding()) {
-        Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
-            OutlinedTextField(search, { search = it }, Modifier.weight(1f), singleLine = true, leadingIcon = { Icon(Icons.Outlined.Search, null) }, placeholder = { Text("搜索会话") })
-            Spacer(Modifier.width(8.dp))
-            FloatingActionButton(onClick = { actions.createChat() }, modifier = Modifier.size(48.dp), containerColor = MaterialTheme.colorScheme.primaryContainer) { Icon(Icons.Outlined.Add, "新建会话") }
-        }
-        val visible = chats.filter { search.isBlank() || it.title.contains(search, true) }
-        LazyColumn(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(8.dp), contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 12.dp, vertical = 4.dp)) {
-            item {
-                ChatSelector(selected, visible, state, actions, onRename = { titleDialog = it }, onDelete = { actions.deleteChat(it.id) }, onOptions = { showOptions = true })
-            }
-            if (selected.messages.isEmpty()) {
-                item { EmptyState(Icons.Outlined.AutoAwesome, "开始一次新的对话", "先在上方选择模型。你发送的消息和附件会归档在当前会话。") }
-            }
-            items(selected.messages, key = { it.id }) { message ->
-                MessageCard(message, actions, onEdit = { editMessage = it }, onBranch = { branchMessage = it })
-            }
-            if (state.busy) item { Row(Modifier.fillMaxWidth().padding(16.dp), horizontalArrangement = Arrangement.Center) { CircularProgressIndicator(Modifier.size(26.dp)) } }
-        }
-        state.pendingAttachments.takeIf { it.isNotEmpty() }?.let { pending ->
-            Row(Modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 12.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                pending.forEach { attachment ->
-                    AssistChip(onClick = { actions.removeAttachment(attachment.id) }, label = { Text(attachment.name, maxLines = 1, overflow = TextOverflow.Ellipsis) }, trailingIcon = { Icon(Icons.Outlined.Close, "移除附件", Modifier.size(16.dp)) })
-                }
-            }
-        }
-        Row(Modifier.fillMaxWidth().padding(10.dp), verticalAlignment = Alignment.Bottom) {
-            IconButton(onClick = { actions.pickAttachment() }) { Icon(Icons.Outlined.AttachFile, "添加附件") }
-            OutlinedTextField(draft, { draft = it }, Modifier.weight(1f), minLines = 1, maxLines = 5, placeholder = { Text("写下你的消息…") })
-            IconButton(onClick = { if (state.busy) actions.stop() else if (actions.send(draft.trim())) { draft = "" } }, enabled = state.busy || draft.isNotBlank() || state.pendingAttachments.isNotEmpty()) {
-                Icon(if (state.busy) Icons.Outlined.Stop else Icons.AutoMirrored.Outlined.Send, if (state.busy) "停止生成" else "发送", tint = MaterialTheme.colorScheme.primary)
-            }
-        }
-    }
-    if (showOptions) ChatOptionsDialog(selected, state, actions, onDismiss = { showOptions = false }, onPreview = { actions.previewContext(); showOptions = false; contextOpen = true })
-    titleDialog?.let { RenameChatDialog(it, actions) { titleDialog = null } }
-    editMessage?.let { EditMessageDialog(it, actions) { editMessage = null } }
-    branchMessage?.let { message ->
-        AlertDialog(onDismissRequest = { branchMessage = null }, title = { Text("创建会话分支") }, text = { Text("从“${message.content.take(36)}”之后创建新的会话副本？") }, confirmButton = { Button({ actions.branchAt(message.id); branchMessage = null }) { Text("创建分支") } }, dismissButton = { TextButton({ branchMessage = null }) { Text("取消") } })
-    }
-    if (contextOpen) ContextPreviewDialog(state, actions) { contextOpen = false }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun ChatSelector(selected: Chat, visible: List<Chat>, state: UiSession, actions: AppActions, onRename: (Chat) -> Unit, onDelete: (Chat) -> Unit, onOptions: () -> Unit) {
-    var expanded by remember { mutableStateOf(false) }
-    var confirmDelete by remember { mutableStateOf(false) }
-    ElevatedCard(Modifier.fillMaxWidth(), colors = CardDefaults.elevatedCardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)) {
-        Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                ExposedDropdownMenuBox(expanded, { expanded = !expanded }, Modifier.weight(1f)) {
-                    OutlinedTextField(selected.title, {}, Modifier.menuAnchor().fillMaxWidth(), readOnly = true, label = { Text("当前会话") }, trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded) })
-                    DropdownMenu(expanded, { expanded = false }) {
-                        visible.forEach { chat -> DropdownMenuItem(text = { Text(chat.title) }, onClick = { actions.selectChat(chat.id); expanded = false }) }
-                        DropdownMenuItem(text = { Text("＋ 新建会话") }, onClick = { actions.createChat(); expanded = false })
-                    }
-                }
-                IconButton(onClick = onOptions) { Icon(Icons.Outlined.MoreVert, "会话设置") }
-            }
-            Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                val provider = state.data.providers.firstOrNull { it.id == selected.providerId }
-                val model = provider?.models?.firstOrNull { it.id == selected.modelId }
-                Chip(provider?.name ?: "未选择平台", Icons.Outlined.Cloud)
-                Chip(model?.name ?: selected.modelId.ifBlank { "未选择模型" })
-                Chip(state.data.presets.firstOrNull { it.id == selected.presetId }?.name ?: "未选择预设", Icons.Outlined.MenuBook)
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                ModelChoiceMenu(state, selected, actions, Modifier.weight(1f))
-                PresetChoiceMenu(state, selected, actions, Modifier.weight(1f))
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                TextButton(onClick = { onRename(selected) }) { Icon(Icons.Outlined.Edit, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text("重命名") }
-                TextButton(onClick = { confirmDelete = true }) { Icon(Icons.Outlined.DeleteOutline, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text("删除") }
-            }
-        }
-    }
-    if (confirmDelete) ConfirmDeleteDialog("会话“${selected.title}”", { onDelete(selected); confirmDelete = false }) { confirmDelete = false }
-}
-
-@Composable
-private fun ModelChoiceMenu(state: UiSession, chat: Chat, actions: AppActions, modifier: Modifier = Modifier) {
-    var expanded by remember { mutableStateOf(false) }
-    val current = state.data.providers.flatMap { provider -> provider.models.map { provider to it } }.firstOrNull { it.first.id == chat.providerId && it.second.id == chat.modelId }
-    Box(modifier) {
-        OutlinedButton(onClick = { expanded = true }, Modifier.fillMaxWidth()) { Icon(Icons.Outlined.Settings, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text(current?.second?.name ?: chat.modelId.ifBlank { "选择聊天模型" }, maxLines = 1, overflow = TextOverflow.Ellipsis) }
-        DropdownMenu(expanded, { expanded = false }) {
-            state.data.providers.flatMap { provider -> provider.models.filter { it.type == "text" && !it.offline }.map { provider to it } }.forEach { (provider, model) ->
-                DropdownMenuItem(text = { Text("${provider.name} · ${model.name.ifBlank { model.id }}") }, onClick = { actions.chooseModel(provider.id, model.id); expanded = false })
-            }
-            if (state.data.providers.none { it.models.any { model -> model.type == "text" && !model.offline } }) DropdownMenuItem(text = { Text("请先刷新可用的 text 模型目录") }, onClick = { expanded = false })
-        }
-    }
-}
-
-@Composable
-private fun PresetChoiceMenu(state: UiSession, chat: Chat, actions: AppActions, modifier: Modifier = Modifier) {
-    var expanded by remember { mutableStateOf(false) }
-    val current = state.data.presets.firstOrNull { it.id == chat.presetId }
-    Box(modifier) {
-        OutlinedButton(onClick = { expanded = true }, Modifier.fillMaxWidth()) { Icon(Icons.Outlined.MenuBook, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text(current?.name ?: "选择预设", maxLines = 1, overflow = TextOverflow.Ellipsis) }
-        DropdownMenu(expanded, { expanded = false }) {
-            state.data.presets.forEach { preset -> DropdownMenuItem(text = { Text(preset.name) }, onClick = { actions.updateChat(chat.copy(presetId = preset.id)); expanded = false }) }
-            if (state.data.presets.isEmpty()) DropdownMenuItem(text = { Text("请先在设置中创建预设") }, onClick = { expanded = false })
-        }
-    }
-}
-
-@Composable
-private fun MessageCard(message: Message, actions: AppActions, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit) {
-    val user = message.role == "user"
-    Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = if (user) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant)) {
-        Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(if (user) "你" else if (message.role == "assistant") "助手" else message.role, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
-                Text(message.status, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            }
-            if (message.reasoning.isNotBlank()) {
-                var open by remember(message.id) { mutableStateOf(false) }
-                TextButton(onClick = { open = !open }) { Icon(Icons.Outlined.Code, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text(if (open) "收起推理过程" else "查看推理过程") }
-                if (open) SelectionContainer { Text(message.reasoning, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
-            }
-            SafeMarkdownText(message.content.ifBlank { if (message.status == "streaming") "正在生成…" else "（空消息）" })
-            if (message.attachments.isNotEmpty()) Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(5.dp)) { message.attachments.forEach { Chip(it.name, Icons.Outlined.AttachFile) } }
-            Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
-                if (user) TextButton(onClick = { onEdit(message) }) { Icon(Icons.Outlined.Edit, null, Modifier.size(16.dp)); Text("编辑") }
-                if (!user) TextButton(onClick = { actions.regenerate() }) { Icon(Icons.Outlined.Refresh, null, Modifier.size(16.dp)); Text("重试") }
-                TextButton(onClick = { onBranch(message) }) { Icon(Icons.Outlined.AccountTree, null, Modifier.size(16.dp)); Text("分支") }
-            }
-        }
-    }
-}
-
-/**
- * A deliberately small, native Markdown renderer. It only formats readable text
- * (headings, bullets, emphasis and fenced code); it never interprets HTML or
- * executes links/scripts from model output.
- */
-@Composable
-private fun SafeMarkdownText(content: String) {
-    SelectionContainer {
-        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            var inCode = false
-            content.replace("\r\n", "\n").lines().forEach { rawLine ->
-                val line = rawLine.trimEnd()
-                if (line.trimStart().startsWith("```")) {
-                    inCode = !inCode
-                } else if (inCode) {
-                    Text(line, style = MaterialTheme.typography.bodyMedium.copy(fontFamily = FontFamily.Monospace), modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 1.dp), color = MaterialTheme.colorScheme.onSurfaceVariant)
-                } else {
-                    val heading = line.takeWhile { it == '#' }.length
-                    when {
-                        heading > 0 && line.drop(heading).startsWith(" ") -> Text(line.drop(heading).trim(), style = when (heading) { 1 -> MaterialTheme.typography.titleLarge; 2 -> MaterialTheme.typography.titleMedium; else -> MaterialTheme.typography.titleSmall }, fontWeight = FontWeight.Bold)
-                        line.trimStart().startsWith("- ") || line.trimStart().startsWith("* ") -> Row(verticalAlignment = Alignment.Top) { Text("• ", fontWeight = FontWeight.Bold); MarkdownInlineText(line.trimStart().drop(2)) }
-                        line.isBlank() -> Spacer(Modifier.height(3.dp))
-                        else -> MarkdownInlineText(line)
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun MarkdownInlineText(text: String) {
-    val codeBackground = MaterialTheme.colorScheme.surfaceVariant
-    val annotated = buildAnnotatedString {
-        val token = Regex("(\\*\\*[^*]+\\*\\*|\\*[^*]+\\*|`[^`]+`)")
-        var cursor = 0
-        token.findAll(text).forEach { match ->
-            append(text.substring(cursor, match.range.first))
-            val value = match.value
-            when {
-                value.startsWith("**") -> withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(value.removeSurrounding("**")) }
-                value.startsWith("*") -> withStyle(SpanStyle(fontStyle = androidx.compose.ui.text.font.FontStyle.Italic)) { append(value.removeSurrounding("*")) }
-                else -> withStyle(SpanStyle(fontFamily = FontFamily.Monospace, background = codeBackground)) { append(value.removeSurrounding("`")) }
-            }
-            cursor = match.range.last + 1
-        }
-        append(text.substring(cursor))
-    }
-    Text(annotated, style = MaterialTheme.typography.bodyLarge)
-}
-
-@Composable
-private fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions, onDismiss: () -> Unit, onPreview: () -> Unit) {
+internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions, onDismiss: () -> Unit, onPreview: () -> Unit) {
     var selected by remember { mutableStateOf(chat.skillIds.toSet()) }
     val skills = state.data.skills
     val activeSummary = chat.summaries.firstOrNull { it.id == chat.activeSummaryId }
@@ -454,7 +252,7 @@ private fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions,
         Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text("上下文与记忆", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
             OutlinedButton(onClick = onPreview, Modifier.fillMaxWidth()) { Icon(Icons.Outlined.Visibility, null); Spacer(Modifier.width(6.dp)); Text("预览实际上下文") }
-            OutlinedButton(onClick = { actions.compress() }, Modifier.fillMaxWidth()) { Icon(Icons.Outlined.Cached, null); Spacer(Modifier.width(6.dp)); Text("压缩当前会话") }
+            OutlinedButton(onClick = { actions.compress() }, Modifier.fillMaxWidth(), enabled = !state.busy) { Icon(Icons.Outlined.Cached, null); Spacer(Modifier.width(6.dp)); Text("压缩当前会话") }
             Text("当前摘要", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
             if (activeSummary == null) {
                 Text(if (chat.summaries.isEmpty()) "当前会话还没有摘要；执行压缩后会在这里出现。" else "当前没有激活的摘要版本；可从历史版本中恢复。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -477,11 +275,11 @@ private fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions,
                             }
                             Text("$coveredCount · 模型：${summary.modelId.ifBlank { "未记录" }}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                             Text(summary.text.replace("\n", " ").ifBlank { "（空摘要）" }, maxLines = 2, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.bodySmall)
-                            if (summary.id != chat.activeSummaryId) TextButton(onClick = { actions.restoreSummary(summary.id) }) { Icon(Icons.Outlined.History, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text("恢复此版本") }
+                            if (summary.id != chat.activeSummaryId) TextButton(onClick = { actions.restoreSummary(summary.id) }, enabled = !state.busy) { Icon(Icons.Outlined.History, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text("恢复此版本") }
                         }
                     }
                 }
-                OutlinedButton(onClick = { actions.restoreSummary("") }, Modifier.fillMaxWidth()) { Icon(Icons.Outlined.History, null); Spacer(Modifier.width(6.dp)); Text("恢复全部原文") }
+                OutlinedButton(onClick = { actions.restoreSummary("") }, Modifier.fillMaxWidth(), enabled = !state.busy) { Icon(Icons.Outlined.History, null); Spacer(Modifier.width(6.dp)); Text("恢复全部原文") }
             }
             Divider()
             Text("本会话 Skills", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
@@ -514,21 +312,21 @@ private fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions,
 private fun summaryTime(timestamp: Long): String = if (timestamp <= 0L) "时间未知" else SimpleDateFormat("MM-dd HH:mm", Locale.CHINA).format(Date(timestamp))
 
 @Composable
-private fun RenameChatDialog(chat: Chat, actions: AppActions, onDismiss: () -> Unit) {
+internal fun RenameChatDialog(chat: Chat, actions: AppActions, onDismiss: () -> Unit) {
     var title by remember { mutableStateOf(chat.title) }
     var error by remember { mutableStateOf<String?>(null) }
     AlertDialog(onDismissRequest = onDismiss, title = { Text("重命名会话") }, text = { Column(verticalArrangement = Arrangement.spacedBy(6.dp)) { OutlinedTextField(title, { title = it; error = null }, label = { Text("名称") }, singleLine = true, isError = error != null); error?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall) } } }, confirmButton = { Button(onClick = { if (title.isBlank()) error = "请输入会话名称。" else { actions.updateChat(chat.copy(title = title.trim())); onDismiss() } }) { Text("保存") } }, dismissButton = { TextButton(onClick = onDismiss) { Text("取消") } })
 }
 
 @Composable
-private fun EditMessageDialog(message: Message, actions: AppActions, onDismiss: () -> Unit) {
+internal fun EditMessageDialog(message: Message, actions: AppActions, onDismiss: () -> Unit) {
     var text by remember { mutableStateOf(message.content) }
     var error by remember { mutableStateOf<String?>(null) }
     AlertDialog(onDismissRequest = onDismiss, title = { Text("编辑消息") }, text = { Column(verticalArrangement = Arrangement.spacedBy(6.dp)) { OutlinedTextField(text, { text = it; error = null }, Modifier.fillMaxWidth().height(180.dp), label = { Text("内容") }, isError = error != null); error?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall) } } }, confirmButton = { Button(onClick = { if (text.isBlank()) error = "消息内容不能为空。" else { actions.editMessage(message.id, text); onDismiss() } }) { Text("保存并重新整理上下文") } }, dismissButton = { TextButton(onClick = onDismiss) { Text("取消") } })
 }
 
 @Composable
-private fun ContextPreviewDialog(state: UiSession, actions: AppActions, onDismiss: () -> Unit) {
+internal fun ContextPreviewDialog(state: UiSession, actions: AppActions, onDismiss: () -> Unit) {
     AlertDialog(onDismissRequest = { actions.dismissPreview(); onDismiss() }, title = { Text("上下文预览") }, text = {
         SelectionContainer { Text(state.contextPreview.ifBlank { "正在准备上下文预览…" }, Modifier.verticalScroll(rememberScrollState())) }
     }, confirmButton = { Button({ actions.dismissPreview(); onDismiss() }) { Text("关闭") } })
@@ -1202,7 +1000,7 @@ private fun kindLabel(kind: String): String = when (kind) {
 }
 
 @Composable
-private fun ConfirmDeleteDialog(label: String, onConfirm: () -> Unit, onDismiss: () -> Unit) {
+internal fun ConfirmDeleteDialog(label: String, onConfirm: () -> Unit, onDismiss: () -> Unit) {
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text("确认删除") },
