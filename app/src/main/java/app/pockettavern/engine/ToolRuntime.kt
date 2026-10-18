@@ -1,0 +1,307 @@
+package app.pockettavern.engine
+
+import app.pockettavern.domain.AppData
+import app.pockettavern.domain.Chat
+import app.pockettavern.domain.Memory
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.InputStream
+import java.net.URI
+import java.net.URLDecoder
+import java.nio.charset.StandardCharsets
+import java.util.concurrent.TimeUnit
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONArray
+import org.json.JSONObject
+
+data class ToolResult(val content: String, val memories: List<Memory>? = null)
+
+/** Small, bounded, permission-gated runtime for the first-party mobile tools. */
+class ToolRuntime(
+    private val workspace: File,
+    private val credentialResolver: (String) -> String = { "" }
+) {
+    private val client = OkHttpClient.Builder()
+        .connectTimeout(10, TimeUnit.SECONDS)
+        .readTimeout(15, TimeUnit.SECONDS)
+        .writeTimeout(15, TimeUnit.SECONDS)
+        .callTimeout(20, TimeUnit.SECONDS)
+        .followRedirects(false)
+        .retryOnConnectionFailure(false)
+        .build()
+    private val root: File = workspace.canonicalFile
+
+    fun definitions(permissions: List<String>): String = definitionsForPermissions(permissions.toSet())
+
+    /** Cancels any in-flight network tool call so the UI Stop action is responsive. */
+    fun cancel() {
+        client.dispatcher.cancelAll()
+    }
+
+    suspend fun execute(
+        name: String,
+        argumentsJson: String,
+        skills: List<app.pockettavern.domain.SkillRecord>,
+        data: AppData,
+        chat: Chat
+    ): ToolResult = withContext(Dispatchers.IO) {
+        if (argumentsJson.toByteArray(Charsets.UTF_8).size > MAX_ARGUMENT_BYTES) {
+            return@withContext ToolResult("工具参数超过大小限制")
+        }
+        // The caller normally supplies the already selected list. If it supplies all
+        // installed skills, the chat selection still narrows it when present.
+        val enabled = skills.filter { it.enabled && (chat.skillIds.isEmpty() || it.id in chat.skillIds) }
+        val grants = enabled.flatMap { it.permissions }.toSet()
+        val required = permissionFor(name)
+        if (required != null && required !in grants) return@withContext ToolResult("工具权限被拒绝：$name 需要 $required")
+        if (name == "skill_read" && enabled.isEmpty()) return@withContext ToolResult("工具权限被拒绝：没有启用的 Skill")
+        try {
+            executeChecked(name, JSONObject(argumentsJson), enabled, data, chat)
+        } catch (cancelled: CancellationException) {
+            throw cancelled
+        } catch (failure: Throwable) {
+            ToolResult("工具执行失败：${failure.message ?: "参数无效"}")
+        }
+    }
+
+    private fun executeChecked(name: String, args: JSONObject, skills: List<app.pockettavern.domain.SkillRecord>, data: AppData, chat: Chat): ToolResult {
+        return when (name) {
+            "workspace_list" -> listWorkspace(args)
+            "workspace_read" -> readWorkspace(args)
+            "workspace_write" -> writeWorkspace(args)
+            "web_fetch" -> networkRequest(args, "GET", data, chat, false)
+            "http_request" -> networkRequest(args, args.optString("method", "GET").uppercase(), data, chat, true)
+            "memory_search" -> memorySearch(args, data, chat)
+            "memory_save" -> memorySave(args, data, chat)
+            "skill_read" -> readSkill(args, skills)
+            else -> ToolResult("未知工具：$name")
+        }
+    }
+
+    private fun listWorkspace(args: JSONObject): ToolResult {
+        val dir = safePath(args.optString("path", ""), false)
+        if (!dir.isDirectory) return ToolResult("工作区目录不存在")
+        val result = JSONArray()
+        dir.listFiles()?.filterNot(::isSecretPath)?.sortedBy { it.name }?.take(MAX_LIST_ITEMS)?.forEach { file ->
+            result.put(JSONObject().put("name", file.name).put("directory", file.isDirectory).put("size", file.length()))
+        }
+        return ToolResult(result.toString())
+    }
+
+    private fun readWorkspace(args: JSONObject): ToolResult {
+        val file = safePath(args.optString("path"), true)
+        if (!file.isFile) return ToolResult("工作区文件不存在")
+        if (file.length() > MAX_RESULT_BYTES) return ToolResult("文件超过读取大小限制")
+        return ToolResult(file.readText(Charsets.UTF_8).take(MAX_RESULT_BYTES))
+    }
+
+    private fun writeWorkspace(args: JSONObject): ToolResult {
+        val file = safePath(args.optString("path"), true)
+        val content = args.optString("content", "")
+        if (content.toByteArray(Charsets.UTF_8).size > MAX_WRITE_BYTES) return ToolResult("写入内容超过大小限制")
+        file.parentFile?.mkdirs()
+        file.writeText(content, Charsets.UTF_8)
+        return ToolResult("已写入 ${root.toPath().relativize(file.toPath())}")
+    }
+
+    private fun safePath(raw: String, fileExpected: Boolean): File {
+        if (raw.isBlank() && fileExpected) throw IllegalArgumentException("缺少 path")
+        val candidate = if (raw.isBlank()) root else File(root, raw)
+        val canonical = candidate.canonicalFile
+        val rootPath = root.toPath()
+        if (!canonical.toPath().startsWith(rootPath)) throw SecurityException("路径超出工作区")
+        if (isSecretPath(canonical)) throw SecurityException("禁止访问敏感文件")
+        if (fileExpected && canonical.exists() && canonical.isDirectory) throw IllegalArgumentException("path 必须是文件")
+        return canonical
+    }
+
+    private fun networkRequest(args: JSONObject, method: String, data: AppData, chat: Chat, allowProvider: Boolean): ToolResult {
+        val providerId = args.optString("providerId")
+        if (providerId.isNotBlank() && !allowProvider) throw SecurityException("web_fetch 不支持 Provider 认证")
+        val url = if (providerId.isNotBlank()) providerUrl(args, providerId, data, chat) else args.optString("url")
+        val uri = URI(url)
+        if (uri.scheme?.lowercase() != "https") throw SecurityException("网络工具只允许 HTTPS")
+        if (method !in setOf("GET", "POST", "PUT", "PATCH", "DELETE")) throw IllegalArgumentException("不支持的 HTTP 方法")
+        val builder = Request.Builder().url(url)
+        val headers = args.optJSONObject("headers")
+        if (headers != null) {
+            val keys = headers.keys()
+            while (keys.hasNext()) {
+                val key = keys.next()
+                if (key.lowercase() !in SAFE_HEADERS) throw SecurityException("禁止模型设置敏感或未批准的请求头")
+                builder.header(key, headers.optString(key))
+            }
+        }
+        val bodyText = args.optString("body", "")
+        if (bodyText.toByteArray(Charsets.UTF_8).size > MAX_WRITE_BYTES) throw IllegalArgumentException("请求体超过大小限制")
+        if (method == "GET" && bodyText.isNotBlank()) throw IllegalArgumentException("GET 请求不支持 body")
+        val credential = if (providerId.isNotBlank()) {
+            val key = try {
+                credentialResolver(providerId)
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (_: Throwable) {
+                throw IllegalStateException("Provider credential unavailable")
+            }
+            if (key.isBlank()) throw IllegalStateException("Provider 未配置 API key")
+            val provider = data.providers.first { it.id == providerId }
+            if (provider.kind.equals("anthropic", true) || provider.baseUrl.contains("anthropic", true)) {
+                builder.header("x-api-key", key)
+                builder.header("anthropic-version", "2023-06-01")
+            } else {
+                builder.header("Authorization", "Bearer $key")
+            }
+            key
+        } else null
+        val body = if (method == "GET") null
+        else bodyText.toRequestBody((headers?.optString("Content-Type") ?: "application/json").toMediaTypeOrNull())
+        builder.method(method, body)
+        client.newCall(builder.build()).execute().use { response ->
+            val responseText = response.body?.byteStream()?.use(::readBounded).orEmpty()
+            val text = credential?.takeIf { it.isNotBlank() }?.let { responseText.replace(it, "[REDACTED]") } ?: responseText
+            return ToolResult(JSONObject().put("status", response.code).put("body", text).toString())
+        }
+    }
+
+    private fun providerUrl(args: JSONObject, providerId: String, data: AppData, chat: Chat): String {
+        if (chat.providerId.isNotBlank() && providerId != chat.providerId) throw SecurityException("Provider 必须是当前会话已选择的 Provider")
+        val provider = data.providers.firstOrNull { it.id == providerId } ?: throw IllegalArgumentException("Provider 不存在")
+        val path = args.optString("path")
+        val pathUri = runCatching { URI(path) }.getOrNull()
+        val rawPath = pathUri?.rawPath.orEmpty()
+        if (path.isBlank() || path.startsWith("/") || path.contains("\\") || pathUri == null || pathUri.isAbsolute || pathUri.host != null || pathUri.fragment != null || rawPath.split('/').any { it == ".." || it.isBlank() } || containsEncodedTraversal(rawPath)) {
+            throw SecurityException("Provider API path 无效")
+        }
+        val base = URI(provider.baseUrl)
+        if (base.scheme?.lowercase() != "https" || base.host.isNullOrBlank()) throw SecurityException("Provider base URL 必须是 HTTPS")
+        val basePath = base.path.trimEnd('/')
+        val baseDirectory = URI(base.scheme, base.authority, "$basePath/", null, null)
+        val resolved = baseDirectory.resolve(pathUri)
+        val sameOrigin = resolved.scheme.equals(base.scheme, true) && resolved.host.equals(base.host, true) && resolved.port == base.port && resolved.userInfo == base.userInfo
+        val resolvedPath = resolved.path
+        val requiredPrefix = if (basePath.isBlank()) "/" else "$basePath/"
+        if (!sameOrigin || !(resolvedPath == basePath || resolvedPath.startsWith(requiredPrefix)) || containsEncodedTraversal(resolved.rawPath.orEmpty())) {
+            throw SecurityException("Provider API path 超出 base URL")
+        }
+        return resolved.toString()
+    }
+
+    private fun containsEncodedTraversal(rawPath: String): Boolean {
+        var decoded = rawPath
+        repeat(3) {
+            decoded = runCatching { URLDecoder.decode(decoded, StandardCharsets.UTF_8.name()) }.getOrNull() ?: return true
+            if (decoded.split('/').any { it == ".." }) return true
+        }
+        return false
+    }
+
+    private fun readBounded(input: InputStream): String {
+        val output = ByteArrayOutputStream(MAX_RESULT_BYTES)
+        val buffer = ByteArray(8192)
+        var total = 0
+        while (total < MAX_RESULT_BYTES) {
+            val read = input.read(buffer, 0, minOf(buffer.size, MAX_RESULT_BYTES - total))
+            if (read < 0) break
+            output.write(buffer, 0, read)
+            total += read
+        }
+        return output.toByteArray().toString(Charsets.UTF_8)
+    }
+
+    private fun memorySearch(args: JSONObject, data: AppData, chat: Chat): ToolResult {
+        val query = args.optString("query").trim()
+        if (query.isBlank()) return ToolResult("query 不能为空")
+        val terms = query.lowercase().split(Regex("\\s+")).filter(String::isNotBlank)
+        val matches = data.memories.filter { memory ->
+            memory.enabled && (memory.scope.equals("global", true) ||
+                (memory.scope.equals("chat", true) && memory.targetId.isNotBlank() && memory.targetId == chat.id) ||
+                (memory.scope.equals("character", true) && memory.targetId.isNotBlank() && memory.targetId == chat.characterId)) &&
+                terms.any { memory.text.lowercase().contains(it) }
+        }.take(MAX_MEMORY_RESULTS)
+        val result = JSONArray()
+        matches.forEach { result.put(JSONObject().put("id", it.id).put("text", it.text).put("scope", it.scope).put("targetId", it.targetId)) }
+        return ToolResult(result.toString())
+    }
+
+    private fun memorySave(args: JSONObject, data: AppData, chat: Chat): ToolResult {
+        val text = args.optString("text").trim()
+        if (text.isBlank()) return ToolResult("text 不能为空")
+        if (text.codePointCount(0, text.length) > MAX_MEMORY_TEXT_CHARS) return ToolResult("记忆文本超过大小限制")
+        if (data.memories.size >= MAX_MEMORY_ENTRIES) return ToolResult("记忆条目数量已达到限制")
+        val totalTextBytes = data.memories.sumOf { it.text.toByteArray(Charsets.UTF_8).size.toLong() }
+        if (totalTextBytes + text.toByteArray(Charsets.UTF_8).size > MAX_MEMORY_TEXT_BYTES) return ToolResult("记忆总文本超过大小限制")
+        val requestedGlobal = args.optString("scope").equals("global", true)
+        val scope = "chat"
+        val target = chat.id
+        val memory = Memory(text = text, scope = scope, targetId = target, sourceMessageId = chat.messages.lastOrNull()?.id.orEmpty())
+        val note = if (requestedGlobal) "（模型不能直接提升为全局记忆，请在记忆管理中由用户手动提升）" else ""
+        return ToolResult("已保存会话记忆：${memory.text}$note", listOf(memory))
+    }
+
+    private fun readSkill(args: JSONObject, skills: List<app.pockettavern.domain.SkillRecord>): ToolResult {
+        val skill = skills.firstOrNull { it.id == args.optString("skillId") || it.name == args.optString("skill") }
+            ?: return ToolResult("未找到已启用的 Skill")
+        val requested = args.optString("path", "SKILL.md").replace('\\', '/')
+        if (requested.startsWith('/') || requested.split('/').any { it == ".." || it.isBlank() }) return ToolResult("Skill 路径无效")
+        val content = skill.files[requested] ?: if (requested == "SKILL.md") skill.content else null
+            ?: return ToolResult("Skill 引用文件不存在")
+        return ToolResult(content.take(MAX_RESULT_BYTES))
+    }
+
+    companion object {
+        private const val MAX_RESULT_BYTES = 100_000
+        private const val MAX_WRITE_BYTES = 500_000
+        private const val MAX_ARGUMENT_BYTES = 64 * 1024
+        private const val MAX_MEMORY_TEXT_CHARS = 8_000
+        private const val MAX_MEMORY_ENTRIES = 2_000
+        private const val MAX_MEMORY_TEXT_BYTES = 4L * 1024 * 1024
+        private const val MAX_LIST_ITEMS = 500
+        private const val MAX_MEMORY_RESULTS = 20
+        private val SAFE_HEADERS = setOf("accept", "content-type", "user-agent", "cache-control")
+
+        internal fun definitionsForPermissions(permissions: Set<String>): String {
+            val tools = JSONArray()
+            fun add(name: String, description: String, properties: JSONObject, required: List<String> = emptyList()) {
+                if (permissionFor(name)?.let(permissions::contains) != true) return
+                tools.put(JSONObject().put("type", "function").put("function", JSONObject()
+                    .put("name", name).put("description", description)
+                    .put("parameters", JSONObject().put("type", "object").put("properties", properties).put("required", JSONArray(required)))))
+            }
+            add("workspace_list", "列出应用工作区中的文件", JSONObject().put("path", JSONObject().put("type", "string")))
+            add("workspace_read", "读取应用工作区中的 UTF-8 文件", JSONObject().put("path", JSONObject().put("type", "string")), listOf("path"))
+            add("workspace_write", "写入应用工作区中的 UTF-8 文件", JSONObject().put("path", JSONObject().put("type", "string")).put("content", JSONObject().put("type", "string")), listOf("path", "content"))
+            add("web_fetch", "获取 HTTPS 网页", JSONObject().put("url", JSONObject().put("type", "string")), listOf("url"))
+            add("http_request", "向公共 HTTPS URL 或已配置 Provider API 发起受限请求", JSONObject()
+                .put("url", JSONObject().put("type", "string")).put("providerId", JSONObject().put("type", "string"))
+                .put("path", JSONObject().put("type", "string")).put("method", JSONObject().put("type", "string"))
+                .put("body", JSONObject().put("type", "string")))
+            add("memory_search", "检索当前会话可见的记忆", JSONObject().put("query", JSONObject().put("type", "string")), listOf("query"))
+            add("memory_save", "保存一条属于当前会话的记忆；是否提升为全局记忆由用户在界面中决定", JSONObject().put("text", JSONObject().put("type", "string")), listOf("text"))
+            add("skill_read", "读取已启用 Skill 的引用资源", JSONObject().put("skillId", JSONObject().put("type", "string")).put("path", JSONObject().put("type", "string")), listOf("skillId"))
+            return tools.toString()
+        }
+
+        private fun permissionFor(name: String): String? = when (name) {
+            "workspace_list", "workspace_read", "skill_read" -> "files.read"
+            "workspace_write" -> "files.write"
+            "web_fetch", "http_request" -> "network"
+            "memory_search", "memory_save" -> "memory"
+            else -> null
+        }
+
+        private fun isSecretPath(file: File): Boolean {
+            for (component in file.toPath()) {
+                val name = component.toString().lowercase()
+                if (name == ".env" || name.startsWith(".env.") || name.endsWith(".pem") || name.endsWith(".key") ||
+                    name.contains("secret") || name.contains("password") || name.contains("token") || name.contains("credential")) return true
+            }
+            return false
+        }
+    }
+}
