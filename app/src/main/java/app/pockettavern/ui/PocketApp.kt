@@ -112,6 +112,7 @@ import app.pockettavern.domain.Character
 import app.pockettavern.domain.Chat
 import app.pockettavern.domain.MediaJob
 import app.pockettavern.domain.Memory
+import app.pockettavern.domain.ModelCatalog
 import app.pockettavern.domain.Message
 import app.pockettavern.domain.ModelInfo
 import app.pockettavern.domain.Preset
@@ -119,6 +120,7 @@ import app.pockettavern.domain.ProviderConfig
 import app.pockettavern.domain.SkillRecord
 import app.pockettavern.domain.UiSession
 import app.pockettavern.domain.WorldEntry
+import app.pockettavern.provider.ModelPricing
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -697,8 +699,12 @@ private fun ModelsTab(state: UiSession, actions: AppActions) {
     var providerDialog by remember { mutableStateOf<ProviderConfig?>(null) }
     var search by rememberSaveable { mutableStateOf("") }
     var filter by rememberSaveable { mutableStateOf("全部") }
+    var providerId by rememberSaveable { mutableStateOf("") }
     var mediaModel by remember { mutableStateOf<ModelSelection?>(null) }
     val visibleProviders = state.data.providers
+    LaunchedEffect(visibleProviders.map { it.id }) {
+        if (providerId.isNotBlank() && visibleProviders.none { it.id == providerId }) providerId = ""
+    }
     LazyColumn(Modifier.fillMaxSize(), contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 24.dp)) {
         item {
             SectionTitle("平台账户", action = {
@@ -709,14 +715,32 @@ private fun ModelsTab(state: UiSession, actions: AppActions) {
         items(visibleProviders, key = { it.id }) { provider -> ProviderCard(provider, state, actions) { providerDialog = it } }
         item {
             SectionTitle("模型目录", action = { IconButton(onClick = { actions.refreshModels("*") }) { Icon(Icons.Outlined.Refresh, "刷新所有模型") } })
-            OutlinedTextField(search, { search = it }, Modifier.fillMaxWidth().padding(horizontal = 12.dp), singleLine = true, leadingIcon = { Icon(Icons.Outlined.Search, null) }, placeholder = { Text("搜索模型 ID 或名称") })
+            OutlinedTextField(search, { search = it }, Modifier.fillMaxWidth().padding(horizontal = 12.dp), singleLine = true, leadingIcon = { Icon(Icons.Outlined.Search, null) }, placeholder = { Text("搜索模型或平台（Provider）") })
+            Row(Modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 12.dp, vertical = 6.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                FilterChip(providerId.isBlank(), { providerId = "" }, label = { Text("全部平台") })
+                visibleProviders.forEach { provider ->
+                    FilterChip(providerId == provider.id, { providerId = provider.id }, label = { Text("${provider.name}（${provider.models.size}）") })
+                }
+            }
             Row(Modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 12.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 listOf("全部", "text", "image", "inpaint", "upscale", "tts", "asr", "video", "music", "embedding", "decision").forEach { type -> FilterChip(filter == type, { filter = type }, label = { Text(type) }) }
             }
         }
-        val models = visibleProviders.flatMap { provider -> provider.models.map { provider to it } }.filter { (provider, model) -> (filter == "全部" || model.type.equals(filter, true)) && (search.isBlank() || model.id.contains(search, true) || model.name.contains(search, true)) }
-        if (models.isEmpty()) item { EmptyState(Icons.Outlined.Search, "没有匹配模型", "先刷新真实模型目录，或在平台卡片里手动添加模型。") }
-        items(models, key = { it.first.id + it.second.id }) { (provider, model) -> ModelCard(provider, model, state, actions) { mediaModel = ModelSelection(provider, model) } }
+        val models = ModelCatalog.filter(visibleProviders, search, filter, providerId)
+        if (models.isEmpty()) item {
+            val hasFilter = search.isNotBlank() || filter != "全部" || providerId.isNotBlank()
+            EmptyState(
+                Icons.Outlined.Search,
+                "没有匹配模型",
+                if (hasFilter) "当前筛选条件没有结果，可清除筛选或刷新真实模型目录。" else "先刷新真实模型目录，或在平台卡片里手动添加模型。",
+                if (hasFilter) "清除筛选" else null
+            ) {
+                search = ""
+                filter = "全部"
+                providerId = ""
+            }
+        }
+        items(models, key = { "${it.first.id}:${it.second.type}:${it.second.id}" }) { (provider, model) -> ModelCard(provider, model, state, actions) { mediaModel = ModelSelection(provider, model) } }
         item {
             SectionTitle("媒体工具", action = { Text("选择 image / inpaint / upscale / tts / asr / video / music 模型进入") })
             if (state.data.mediaJobs.isEmpty()) Text("还没有媒体任务。视频和音乐会先 quote 再 queue，并保留队列状态。", Modifier.padding(horizontal = 16.dp), color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -747,7 +771,12 @@ private fun ProviderCard(provider: ProviderConfig, state: UiSession, actions: Ap
                 OutlinedButton(onClick = { onEdit(provider) }) { Icon(Icons.Outlined.Edit, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text("编辑") }
                 IconButton(onClick = { confirmDelete = true }) { Icon(Icons.Outlined.DeleteOutline, "删除平台") }
             }
-            Text("${provider.models.size} 个已发现模型${if (provider.refreshedAt > 0) " · 已刷新" else " · 尚未刷新"}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
+            Text(
+                if (provider.refreshedAt > 0) "${provider.models.size} 个已发现模型 · 目录及价格缓存于 ${summaryTime(provider.refreshedAt)}"
+                else "${provider.models.size} 个已发现模型 · 尚未刷新，价格未缓存",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.primary
+            )
         }
     }
     if (confirmDelete) ConfirmDeleteDialog("平台“${provider.name}”", { actions.deleteProvider(provider.id); confirmDelete = false }) { confirmDelete = false }
@@ -776,6 +805,7 @@ private fun ModelCard(provider: ProviderConfig, model: ModelInfo, state: UiSessi
                 if (model.supportsReasoning) Chip("推理")
                 if (model.offline) Chip("离线")
             }
+            ModelPriceBlock(model, provider.kind)
             TextButton(onClick = { showRaw = !showRaw }) { Text(if (showRaw) "收起原始能力" else "查看原始能力") }
             if (showRaw) SelectionContainer { Text(model.rawJson, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
             if (isMedia && !isVenice) Text("媒体工具目前仅支持 Venice；该模型可查看能力，但不会发送媒体请求。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error)
@@ -825,6 +855,7 @@ private fun MediaDialog(provider: ProviderConfig, model: ModelInfo, state: UiSes
     AlertDialog(onDismissRequest = onDismiss, title = { Text("${type.uppercase()} 工具") }, text = {
         Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Text("${provider.name} · ${model.id}", fontWeight = FontWeight.SemiBold)
+            ModelPriceBlock(model, provider.kind)
             Text("模型原始能力：${model.rawJson}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             if (type == "video" || type == "music") ChoiceRow("执行方式", listOf("quote" to "报价（不提交任务）", "queue" to "排队生成"), mode) { mode = it }
             if (type == "inpaint" || type == "upscale" || type == "asr") {
@@ -842,6 +873,43 @@ private fun MediaDialog(provider: ProviderConfig, model: ModelInfo, state: UiSes
             OutlinedTextField(request, { request = it }, Modifier.fillMaxWidth().height(220.dp), label = { Text("请求 JSON") })
         }
     }, confirmButton = { Button({ actions.runMedia(provider.id, model.id, if (type == "video" || type == "music") request.replaceFirst("{", "{\"_action\":\"$mode\",") else request); onDismiss() }) { Text(if (mode == "quote") "获取报价" else "提交") } }, dismissButton = { TextButton(onDismiss) { Text("取消") } })
+}
+
+@Composable
+private fun ModelPriceBlock(model: ModelInfo, providerKind: String, modifier: Modifier = Modifier) {
+    val pricing = remember(model.rawJson, model.type, providerKind) { ModelPricing.describe(model, providerKind) }
+    var expanded by remember(model.rawJson, model.type, providerKind) { mutableStateOf(false) }
+    val lines = pricing.lines
+    Card(
+        modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)
+    ) {
+        Column(Modifier.padding(horizontal = 10.dp, vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(3.dp)) {
+            Text("价格参考", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onTertiaryContainer)
+            if (lines.isEmpty()) {
+                Text(
+                    pricing.note.ifBlank { "价格未提供；可能按参数报价，请以平台实际返回为准。" },
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onTertiaryContainer
+                )
+            } else {
+                val visibleLines = if (expanded) lines else lines.take(3)
+                visibleLines.forEach { line ->
+                    Text(line, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onTertiaryContainer)
+                }
+                if (pricing.note.isNotBlank()) {
+                    Text(pricing.note, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onTertiaryContainer)
+                }
+                if (lines.size > 3) {
+                    TextButton(
+                        onClick = { expanded = !expanded },
+                        modifier = Modifier.align(Alignment.Start)
+                    ) { Text(if (expanded) "收起价格详情" else "更多价格详情（${lines.size - 3}）") }
+                }
+            }
+            Text("平台目录价格仅供参考；刷新模型目录可更新缓存。", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onTertiaryContainer)
+        }
+    }
 }
 
 private fun mediaTemplate(type: String, ttsVoice: String = "af_sky", ttsFormat: String = "mp3"): String = when (type) {

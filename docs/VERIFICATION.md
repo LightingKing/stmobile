@@ -1,6 +1,22 @@
 # 口袋酒馆验证记录
 
-验证日期：2026-10-18（Asia/Shanghai）。本文件区分源码实现、JVM/接口验证、APK 构建和 Android 设备验收。构建成功不能代替手机端验收。
+最新验证日期：2026-10-19（Asia/Shanghai）；0.1.0 和 0.1.1 的历史记录为 2026-10-18。本文件区分源码实现、JVM/接口验证、APK 构建和 Android 设备验收。构建成功不能代替手机端验收。
+
+## 0.1.2 模型价格与 Provider 查询
+
+问题原因：模型目录已在 `ModelInfo.rawJson` 完整保存 `model_spec.pricing`，但模型卡片只有能力标签与原始 JSON 折叠入口，没有价格展示区。本次从已有目录数据解析价格，无需迁移数据库或清空已有模型缓存；新增可见的价格区、完整档位展开、媒体工具价格及平台目录缓存时间。
+
+模型目录新增 Provider 筛选和平台搜索；按应用已配置的平台账户查询，可与模型类型组合。多个搜索词可分别命中平台和模型（例如 `Venice Gemini`）；模型名称相同时仍按所属平台区分。平台被删除时筛选恢复到全部，空匹配提供清除筛选按钮。列表 key 包含平台、模型类型和模型 ID，避免跨类型重名碰撞。
+
+单位与结构对照 Venice 官方 [模型目录](https://docs.venice.ai/api-reference/endpoint/models/list) 和 [价格说明](https://docs.venice.ai/overview/pricing)：文本/embedding 按百万 tokens、TTS 按百万字符、ASR 按音频秒；图片按分辨率/质量/倍率，音乐按时长档/秒/字符/次展示。保留长上下文阈值、额外输入图片条件与不同货币，缺失和异常不会转成零价；Decision 未明确的单位保守提示未提供。视频和音乐最终价格通过现有 [Video Quote](https://docs.venice.ai/api-reference/endpoint/video/quote) / [Audio Quote](https://docs.venice.ai/api-reference/endpoint/audio/quote) 流程查询。
+
+2026-10-19 直接 GET Venice `/models?type=all` 返回 394 个目录项，其中 255 个含静态 pricing，139 个视频目录项没有静态 pricing。该请求只读取目录，没有提交生成任务。快照保存在开发机忽略目录 `evidence/venice-models-pricing-20261019.json`；数量和价格会随平台更新，未将此快照写入 APK。
+
+使用本次编译的实际 `ModelPricing` 类逐项读取上述 394 条原始目录：255 个静态价格均能输出金额，未出现解析异常；139 个视频均给出参数报价提示。27 个长上下文价格树的阈值保留，未误当货币金额。证据为开发机 `evidence/price-catalog-audit-0.1.2.txt`。这是 JVM 上的真实目录解析检查，不是手机画面或付费生成验收。
+
+最终构建本地单元测试 **70 项通过，0 失败**，7 项付费 API 测试按配置跳过。新增 ModelPricingTest 14 项、ModelCatalogTest 5 项和 ProviderClient 目录获取→持久化→价格展示回归 1 项；覆盖零价/极小金额、档位/阈值、未知单位、图片质量回退、多币种不相加、平台名称/ID/协议/地址查询、多词/类型/Provider 组合与同名模型区分。Debug lint 为 0 错误、12 条警告，release vital lint 通过。
+
+签名包 `dist/PocketTavern-0.1.2.apk` 的版本 code 为 3、name 为 0.1.2，SHA-256 为 `5873D10A7D6395614D6D3443FFD3F17C920E176CDF61D7F9433E02C862A6DE36`。v2 签名验证成功，证书与 0.1.1 相同。源码包为 `dist/PocketTavern-0.1.2-source.zip`。本次未进行 Android 实机安装和界面操作验收；此前设备限制仍见下方。
 
 ## 0.1.1 GitHub Skills 更新
 

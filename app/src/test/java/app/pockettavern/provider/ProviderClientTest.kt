@@ -54,6 +54,24 @@ class ProviderClientTest {
         assertTrue(model.rawJson.contains("private_field"))
     }
 
+    @Test fun modelPricesRemainDisplayableAfterDirectoryFetchAndStateReload() = runBlocking {
+        server.enqueue(MockResponse().setBody("""
+            {"data":[{"id":"priced-model","type":"text","model_spec":{"name":"Priced Model","pricing":{"input":{"usd":0.4},"cache_input":{"usd":0.0001},"output":{"usd":0}}}}]}
+        """.trimIndent()))
+        val config = provider()
+        val models = ProviderClient(allowInsecureHttpForTests = true).models(config, "key")
+        // The mock HTTP transport is test-only; persisted provider settings require HTTPS.
+        val stored = app.pockettavern.domain.AppData(providers = listOf(config.copy(baseUrl = "https://api.example.test/v1", models = models)))
+        val reloaded = app.pockettavern.data.DataCodec.decode(app.pockettavern.data.DataCodec.encode(stored))
+        val cachedModel = reloaded.providers.single().models.single()
+        assertEquals(models.single().rawJson, cachedModel.rawJson)
+        val prices = ModelPricing.describe(cachedModel, config.kind)
+        assertEquals(3, prices.lines.size)
+        assertTrue(prices.lines.any { it.contains("0.0001") })
+        assertTrue(prices.lines.any { it.contains("0.4") })
+        assertEquals(ModelPricing.describe(models.single(), config.kind), prices)
+    }
+
     @Test fun fragmentedOpenAiSseNormalizesReasoningAndToolArguments() = runBlocking {
         server.enqueue(MockResponse().setHeader("Content-Type", "text/event-stream")
             .setBody("""

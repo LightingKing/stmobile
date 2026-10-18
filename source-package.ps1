@@ -2,7 +2,7 @@ param([string]$Destination='')
 $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $taskRoot=[IO.Path]::GetFullPath($PSScriptRoot)
-if (!$Destination) { $Destination=Join-Path $taskRoot 'dist\PocketTavern-0.1.1-source.zip' }
+if (!$Destination) { $Destination=Join-Path $taskRoot 'dist\PocketTavern-0.1.2-source.zip' }
 $taskDestination=[IO.Path]::GetFullPath($Destination)
 New-Item -ItemType Directory -Path ([IO.Path]::GetDirectoryName($taskDestination)) -Force | Out-Null
 $taskFiles=@()
