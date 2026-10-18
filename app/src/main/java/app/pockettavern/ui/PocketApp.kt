@@ -103,6 +103,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import app.pockettavern.domain.AppActions
 import app.pockettavern.domain.AppSettings
@@ -482,20 +483,27 @@ private fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions,
             }
             Divider()
             Text("本会话 Skills", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            Text("新勾选的 Skill 会自动打开“允许启用”并加入本会话；已经在本会话但总开关后来被关闭的 Skill 不会被悄然重新启用，请到 Skills 页明确打开。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             if (skills.isEmpty()) Text("还没有已安装的 Skill。", color = MaterialTheme.colorScheme.onSurfaceVariant)
             skills.forEach { skill ->
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Checkbox(selected.contains(skill.id), { selected = if (it) selected + skill.id else selected - skill.id })
-                    Column { Text(skill.name); Text(skill.description, style = MaterialTheme.typography.bodySmall, maxLines = 2, overflow = TextOverflow.Ellipsis) }
+                    Checkbox(selected.contains(skill.id), { selected = if (it) selected + skill.id else selected - skill.id }, enabled = !state.busy)
+                    Column(Modifier.weight(1f)) {
+                        Text(skill.name)
+                        Text(skill.description, style = MaterialTheme.typography.bodySmall, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                        if (selected.contains(skill.id) && !skill.enabled) Text("总开关已关闭，请到 Skills 页明确启用。", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.error)
+                    }
                 }
             }
         }
-    }, confirmButton = { Button(onClick = {
+    }, confirmButton = { Button(enabled = !state.busy, onClick = {
         if (activeSummary != null && summaryText.isBlank()) {
             summaryError = "摘要内容不能为空；如需重新生成，请使用“压缩当前会话”。"
         } else {
             val summaries = if (activeSummary == null) chat.summaries else chat.summaries.map { if (it.id == activeSummary.id) it.copy(text = summaryText) else it }
+            val newlySelected = selected - chat.skillIds.toSet()
             actions.updateChat(chat.copy(skillIds = selected.toList(), summaries = summaries))
+            newlySelected.forEach { id -> actions.setSkillForCurrentChat(id, true) }
             onDismiss()
         }
     }) { Text("保存") } }, dismissButton = { TextButton(onClick = onDismiss) { Text("取消") } })
@@ -871,64 +879,135 @@ private fun SkillsTab(state: UiSession, actions: AppActions) {
     var selected by remember { mutableStateOf<SkillRecord?>(null) }
     var showImport by remember { mutableStateOf(false) }
     var showUrlInstall by remember { mutableStateOf(false) }
+    var category by rememberSaveable { mutableStateOf("all") }
+    val locked = state.loading || state.busy
+    val currentChat = state.data.chats.firstOrNull { it.id == state.selectedChatId }
+    val categories = listOf("all" to "全部", "novel" to "小说写作", "relationship" to "言情与关系", "custom" to "自定义")
+    val visibleSkills = state.data.skills.filter { skill ->
+        when (category) {
+            "novel" -> skill.source == "GitHub精选 · 小说写作"
+            "relationship" -> skill.source == "GitHub精选 · 言情与关系"
+            "custom" -> !skill.source.startsWith("GitHub精选 ·")
+            else -> true
+        }
+    }
     LazyColumn(Modifier.fillMaxSize(), contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 24.dp)) {
         item {
             SectionTitle("已安装 Skills", action = {
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    OutlinedButton(onClick = { showUrlInstall = true }) { Icon(Icons.Outlined.Cloud, null); Spacer(Modifier.width(4.dp)); Text("从链接安装") }
-                    OutlinedButton(onClick = { showImport = true }) { Icon(Icons.Outlined.FileUpload, null); Spacer(Modifier.width(4.dp)); Text("导入文件") }
+                    OutlinedButton(enabled = !locked, onClick = { showUrlInstall = true }) { Icon(Icons.Outlined.Cloud, null); Spacer(Modifier.width(4.dp)); Text("从链接安装") }
+                    OutlinedButton(enabled = !locked, onClick = { showImport = true }) { Icon(Icons.Outlined.FileUpload, null); Spacer(Modifier.width(4.dp)); Text("导入文件") }
                 }
             })
         }
         item {
             Card(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp), colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)) {
-                Row(Modifier.padding(14.dp), verticalAlignment = Alignment.Top) { Icon(Icons.Outlined.Security, null, tint = MaterialTheme.colorScheme.primary); Spacer(Modifier.width(10.dp)); Column { Text("工具型 Skill 权限", fontWeight = FontWeight.Bold); Text("每个 Skill 只允许 files.read、files.write、network、memory 四类权限。正文和引用作为上下文载入；本版不执行 Python、Bash、Node 或桌面 MCP 脚本。", style = MaterialTheme.typography.bodySmall) } }
+                Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(7.dp)) {
+                    Row(verticalAlignment = Alignment.Top) { Icon(Icons.Outlined.Security, null, tint = MaterialTheme.colorScheme.primary); Spacer(Modifier.width(10.dp)); Column { Text("工具型 Skill 权限", fontWeight = FontWeight.Bold); Text("每个 Skill 只允许 files.read、files.write、network、memory 四类权限。正文和引用作为上下文载入；本版不执行 Python、Bash、Node 或桌面 MCP 脚本。", style = MaterialTheme.typography.bodySmall) } }
+                    Text("GitHub 精选内容保留上游 SKILL.md 原文；其中 Read、Grep 等工具声明是上游约定，手机端仍只按已授权项提供工具能力。GitHub 精选默认关闭，请逐项审核后启用。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSecondaryContainer)
+                    if (currentChat == null) {
+                        Text("当前没有会话。创建会话后，才能把 Skill 加入本会话。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSecondaryContainer)
+                        Button(enabled = !locked, onClick = { actions.createChat() }) { Text("创建会话") }
+                    } else {
+                        Text("当前会话：${currentChat.title.ifBlank { "新会话" }}。勾选“用于本会话”只影响当前会话；关闭 Skill 的“允许启用”后，任何会话都不会实际加载它。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSecondaryContainer)
+                    }
+                }
             }
         }
-        if (state.data.skills.isEmpty()) item { EmptyState(Icons.Outlined.AutoAwesome, "还没有 Skill", "导入 SKILL.md、ZIP，或使用 HTTPS 链接安装后，在详情中确认权限并启用。", "导入 Skill") { showImport = true } }
-        items(state.data.skills, key = { it.id }) { skill ->
-            SkillCard(skill, actions, onDetails = { selected = skill })
+        item {
+            Row(Modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 12.dp, vertical = 4.dp), horizontalArrangement = Arrangement.spacedBy(7.dp)) {
+                categories.forEach { (value, label) -> FilterChip(selected = category == value, onClick = { category = value }, label = { Text(label) }) }
+            }
+        }
+        if (state.data.skills.isEmpty()) item {
+            if (locked) EmptyState(Icons.Outlined.AutoAwesome, "还没有 Skill", "当前操作进行中，请完成后再导入 SKILL.md 或 ZIP。")
+            else EmptyState(Icons.Outlined.AutoAwesome, "还没有 Skill", "导入 SKILL.md、ZIP，或使用 HTTPS 链接安装后，在详情中确认权限并启用。", "导入 Skill") { showImport = true }
+        }
+        else if (visibleSkills.isEmpty()) item { EmptyState(Icons.Outlined.AutoAwesome, "此分类暂无 Skill", "可切换分类，或把本地导入的 Skill 放在“自定义”中查看。") }
+        items(visibleSkills, key = { it.id }) { skill ->
+            SkillCard(skill, currentChat, locked, actions, onDetails = { selected = skill })
         }
     }
     selected?.let { SkillDetailsDialog(it, state, actions) { selected = null } }
-    if (showImport) ImportDialog("skill", actions) { showImport = false }
-    if (showUrlInstall) SkillUrlDialog(actions) { showUrlInstall = false }
+    if (showImport && !locked) ImportDialog("skill", actions) { showImport = false }
+    if (showUrlInstall && !locked) SkillUrlDialog(actions) { showUrlInstall = false }
 }
 
 @Composable
-private fun SkillCard(skill: SkillRecord, actions: AppActions, onDetails: () -> Unit) {
+private fun SkillCard(skill: SkillRecord, currentChat: Chat?, busy: Boolean, actions: AppActions, onDetails: () -> Unit) {
     var confirmDelete by remember { mutableStateOf(false) }
     ElevatedCard(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp)) {
-        Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
-            Icon(Icons.Outlined.AutoAwesome, null, tint = MaterialTheme.colorScheme.primary)
-            Spacer(Modifier.width(10.dp))
-            Column(Modifier.weight(1f)) { Text(skill.name.ifBlank { "未命名 Skill" }, fontWeight = FontWeight.Bold); Text(skill.description.ifBlank { "没有说明" }, maxLines = 2, overflow = TextOverflow.Ellipsis); Text("${skill.files.size} 个文件 · 权限 ${skill.permissions.joinToString(", ").ifBlank { "未授予" }}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
-            Switch(skill.enabled, { actions.saveSkill(skill.copy(enabled = it)) }, modifier = Modifier.padding(horizontal = 4.dp))
-            IconButton(onClick = onDetails) { Icon(Icons.Outlined.Info, "查看 Skill 详情") }
-            IconButton(onClick = { confirmDelete = true }) { Icon(Icons.Outlined.DeleteOutline, "卸载 Skill") }
+        Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(7.dp)) {
+            Row(verticalAlignment = Alignment.Top) {
+                Icon(Icons.Outlined.AutoAwesome, null, tint = MaterialTheme.colorScheme.primary)
+                Spacer(Modifier.width(10.dp))
+                Column(Modifier.weight(1f)) {
+                    Text(skill.name.ifBlank { "未命名 Skill" }, fontWeight = FontWeight.Bold)
+                    Text(skill.description.ifBlank { "没有说明" }, maxLines = 3, overflow = TextOverflow.Ellipsis)
+                    Text("来源：${skill.source.ifBlank { "本地导入" }} · ${skill.files.size} 个文件", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text("权限：${skill.permissions.joinToString(", ").ifBlank { "未授予" }}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+                Column(horizontalAlignment = Alignment.End) {
+                    Text("允许启用", style = MaterialTheme.typography.labelSmall)
+                    Switch(checked = skill.enabled, onCheckedChange = { if (!busy) actions.saveSkill(skill.copy(enabled = it)) }, enabled = !busy)
+                }
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = currentChat?.skillIds?.contains(skill.id) == true,
+                    onCheckedChange = { checked -> if (!busy && currentChat != null) actions.setSkillForCurrentChat(skill.id, checked) },
+                    enabled = !busy && currentChat != null
+                )
+                Text("用于本会话", style = MaterialTheme.typography.bodyMedium, modifier = Modifier.weight(1f))
+                TextButton(enabled = !busy, onClick = onDetails) { Icon(Icons.Outlined.Info, null, Modifier.size(18.dp)); Spacer(Modifier.width(4.dp)); Text("查看详情") }
+                IconButton(enabled = !busy, onClick = { confirmDelete = true }) { Icon(Icons.Outlined.DeleteOutline, "卸载 Skill") }
+            }
         }
     }
-    if (confirmDelete) ConfirmDeleteDialog("Skill“${skill.name.ifBlank { "未命名" }}”", { actions.deleteSkill(skill.id); confirmDelete = false }) { confirmDelete = false }
+    if (confirmDelete && !busy) ConfirmDeleteDialog("Skill“${skill.name.ifBlank { "未命名" }}”", { actions.deleteSkill(skill.id); confirmDelete = false }) { confirmDelete = false }
 }
 
 @Composable
 private fun SkillDetailsDialog(skill: SkillRecord, state: UiSession, actions: AppActions, onDismiss: () -> Unit) {
     var permissions by remember { mutableStateOf(skill.permissions.toSet()) }
+    var linkError by remember { mutableStateOf<String?>(null) }
+    var showLicense by rememberSaveable(skill.id) { mutableStateOf(false) }
+    val locked = state.loading || state.busy
     val known = listOf("files.read", "files.write", "network", "memory")
+    val uriHandler = LocalUriHandler.current
+    val licenseText = skill.files["LICENSE"]
     AlertDialog(onDismissRequest = onDismiss, title = { Text(skill.name.ifBlank { "Skill 详情" }) }, text = {
         Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Text(skill.description.ifBlank { "没有说明" })
             Text("来源：${skill.source}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            if (skill.sourceUrl.isNotBlank()) {
+                TextButton(enabled = !locked, onClick = {
+                    runCatching { uriHandler.openUri(skill.sourceUrl) }.onFailure { linkError = "无法打开 GitHub 来源链接：${it.message ?: "未知错误"}" }
+                }) { Icon(Icons.Outlined.Cloud, null, Modifier.size(18.dp)); Spacer(Modifier.width(4.dp)); Text("打开 GitHub 来源") }
+            }
+            Text("Commit：${skill.sourceCommit.ifBlank { "未记录" }}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text("许可证：${skill.sourceLicense.ifBlank { "未记录" }}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            linkError?.let { Text(it, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error) }
+            Text("正文", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            Surface(Modifier.fillMaxWidth(), color = MaterialTheme.colorScheme.surfaceVariant, shape = RoundedCornerShape(8.dp)) {
+                SelectionContainer { Text(skill.content.ifBlank { "（此 Skill 没有正文）" }, Modifier.padding(10.dp), style = MaterialTheme.typography.bodySmall) }
+            }
             Text("工具权限", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
-            known.forEach { permission -> Row(verticalAlignment = Alignment.CenterVertically) { Checkbox(permissions.contains(permission), { permissions = if (it) permissions + permission else permissions - permission }); Text(permission) } }
+            known.forEach { permission -> Row(verticalAlignment = Alignment.CenterVertically) { Checkbox(permissions.contains(permission), { permissions = if (it) permissions + permission else permissions - permission }, enabled = !locked); Text(permission) } }
             Divider()
             Text("文件清单", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
             skill.files.keys.forEach { Text("• $it", style = MaterialTheme.typography.bodySmall) }
+            if (!licenseText.isNullOrBlank()) {
+                TextButton(enabled = !locked, onClick = { showLicense = !showLicense }) { Text(if (showLicense) "收起 LICENSE" else "展开 LICENSE") }
+                if (showLicense) Surface(Modifier.fillMaxWidth(), color = MaterialTheme.colorScheme.surfaceVariant, shape = RoundedCornerShape(8.dp)) {
+                    SelectionContainer { Text(licenseText, Modifier.padding(10.dp), style = MaterialTheme.typography.bodySmall) }
+                }
+            }
             if (skill.warnings.isNotEmpty()) {
                 Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Top) { Icon(Icons.Outlined.WarningAmber, null, tint = MaterialTheme.colorScheme.error); Spacer(Modifier.width(6.dp)); Column { skill.warnings.forEach { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall) } } }
             }
         }
-    }, confirmButton = { Button({ actions.saveSkill(skill.copy(permissions = permissions.toList())); onDismiss() }) { Text("保存权限") } }, dismissButton = { TextButton(onDismiss) { Text("取消") } })
+    }, confirmButton = { Button(enabled = !locked, onClick = { actions.saveSkill(skill.copy(permissions = permissions.toList())); onDismiss() }) { Text("保存权限") } }, dismissButton = { TextButton(onClick = onDismiss) { Text("取消") } })
 }
 
 @Composable

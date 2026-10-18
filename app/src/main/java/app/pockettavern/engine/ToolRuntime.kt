@@ -54,9 +54,10 @@ class ToolRuntime(
         if (argumentsJson.toByteArray(Charsets.UTF_8).size > MAX_ARGUMENT_BYTES) {
             return@withContext ToolResult("工具参数超过大小限制")
         }
-        // The caller normally supplies the already selected list. If it supplies all
-        // installed skills, the chat selection still narrows it when present.
-        val enabled = skills.filter { it.enabled && (chat.skillIds.isEmpty() || it.id in chat.skillIds) }
+        // An empty selection means that this chat has no Skills enabled. Never treat
+        // it as a wildcard: callers may pass the installed catalog for convenience,
+        // but only an explicit per-chat selection can grant a tool.
+        val enabled = skills.filter { it.enabled && it.id in chat.skillIds }
         val grants = enabled.flatMap { it.permissions }.toSet()
         val required = permissionFor(name)
         if (required != null && required !in grants) return@withContext ToolResult("工具权限被拒绝：$name 需要 $required")

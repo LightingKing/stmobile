@@ -17,6 +17,7 @@
 | 记忆 | 已实现但有边界 | 支持 global/chat/character 范围和用户/Skill 保存；当前 `memory_search` 是本地词项匹配。语义 vector 记忆索引尚未集成。 |
 | 上下文压缩 | 已实现但有边界 | 按摘要提示词和摘要 Provider/模型生成摘要，校验源消息 hash；摘要失败停止本次发送并保留旧数据；摘要来源失效时使用原文并重新校验预算。 |
 | Skills 导入 | 已实现 | 支持 `SKILL.md` 或 HTTPS ZIP；限制输入/解压大小、条目数和文件路径，保留文本或受控的 base64 文件内容。导入后默认禁用且无权限。 |
+| GitHub 写作 Skills | 已实现，待设备验收 | 7 个上游原版 Skill，附 MIT 许可证、固定 commit 链接和 SHA-256。按小说/言情分类，可在 Skills 页直接勾选当前会话；默认关闭且不自动授权工具。详见 THIRD_PARTY_SKILLS.md。 |
 | Skills 工具 | 已实现 | 按能力归为 7 类：工作区列举、读取、写入，网页读取，一般 HTTPS 请求，记忆搜索/保存，Skill 文件读取。源码注册 8 个函数：`workspace_list`、`workspace_read`、`workspace_write`、`web_fetch`、`http_request`、`memory_search`、`memory_save`、`skill_read`。 |
 | Skills 授权 | 已实现 | 文件读写、network、memory 分开授权；启用的 Skill 和所授权限共同决定可用工具。网络要求 HTTPS、不跟随重定向；Provider 认证头由应用注入。 |
 | 工作区边界 | 已实现 | 所有工作区操作限制在应用私有 `filesDir/workspace`；路径规范化后检查边界，敏感文件名拒绝或隐藏，读写有大小和数量上限。 |

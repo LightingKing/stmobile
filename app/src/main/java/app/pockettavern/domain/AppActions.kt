@@ -23,6 +23,7 @@ interface AppActions {
     fun saveWorldEntry(entry: WorldEntry)
     fun deleteWorldEntry(id: String)
     fun saveSkill(skill: SkillRecord)
+    fun setSkillForCurrentChat(id: String, selected: Boolean)
     fun installSkillUrl(url: String)
     fun deleteSkill(id: String)
     fun saveSettings(settings: AppSettings)

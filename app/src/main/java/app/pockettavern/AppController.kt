@@ -32,6 +32,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     private val providerClient = ProviderClient()
     private val mediaClient = MediaClient()
     private val tools = ToolRuntime(File(app.filesDir,"workspace").apply { mkdirs() }) { id -> key(id) }
+    private val builtinSkills by lazy { BuiltinSkills.load { path -> app.assets.open(path).bufferedReader(Charsets.UTF_8).use { it.readText() } } }
     private val saves = Channel<AppData>(Channel.CONFLATED)
     private var loadFailed = false
     private var operation: Job? = null
@@ -48,8 +49,10 @@ class AppController(application: Application) : AndroidViewModel(application), A
         viewModelScope.launch {
             try {
                 val loaded = withContext(Dispatchers.IO) { app.database.state().load()?.let { DataCodec.decode(it.json) } ?: AppData() }
-                val restored = loaded.copy(chats=loaded.chats.map { chat -> chat.copy(messages=chat.messages.map { if(it.status=="streaming") it.copy(status="interrupted") else it }) })
+                val seeded = withContext(Dispatchers.IO) { BuiltinSkills.merge(loaded,builtinSkills) }
+                val restored = seeded.copy(chats=seeded.chats.map { chat -> chat.copy(messages=chat.messages.map { if(it.status=="streaming") it.copy(status="interrupted") else it }) })
                 mutable.value = mutable.value.copy(data=restored,selectedChatId=restored.chats.firstOrNull()?.id ?: "",loading=false,hasKeys=restored.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet())
+                if(restored != loaded) saves.trySend(restored)
                 restored.chats.forEach { repairPendingTools(it.id) }
             } catch (error: Exception) {
                 loadFailed = true
@@ -281,6 +284,15 @@ class AppController(application: Application) : AndroidViewModel(application), A
     override fun saveWorldEntry(entry: WorldEntry) { change(data.copy(worldEntries=data.worldEntries.filterNot { it.id==entry.id }+entry)) }
     override fun deleteWorldEntry(id: String) { change(data.copy(worldEntries=data.worldEntries.filterNot { it.id==id })) }
     override fun saveSkill(skill: SkillRecord) { change(data.copy(skills=data.skills.filterNot { it.id==skill.id }+skill)) }
+    override fun setSkillForCurrentChat(id: String, selected: Boolean) {
+        if(mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
+        if(mutable.value.busy) { status("请先停止当前任务再修改会话 Skills"); return }
+        val chat=this.selected ?: run { status("请先创建或选择会话"); return }
+        runCatching {
+            change(BuiltinSkills.selectForChat(data,chat.id,id,selected))
+            status(if(selected) "Skill 已启用并加入当前会话" else "Skill 已移出当前会话，其它会话不受影响")
+        }.onFailure { status(it.message ?: "无法更新 Skill 选择") }
+    }
     override fun installSkillUrl(url: String) = action {
         val uri=Uri.parse(url.trim())
         require(uri.scheme=="https" && !uri.host.isNullOrBlank() && uri.userInfo==null) { "请输入 HTTPS 的 SKILL.md 或 ZIP 下载地址" }
@@ -303,7 +315,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     override fun deleteSkill(id: String) { change(data.copy(skills=data.skills.filterNot { it.id==id },chats=data.chats.map { it.copy(skillIds=it.skillIds-id) })) }
     override fun saveSettings(settings: AppSettings) {
         if(settings.keepRecentTurns !in 1..100 || settings.compressionThreshold !in 0.2..0.95 || settings.maxToolSteps !in 1..16 || settings.contextOverride !in 0..2000000) { status("设置超出允许范围"); return }
-        change(data.copy(settings=settings)); status("设置已保存")
+        change(data.copy(settings=settings.copy(builtinSkillsSeen=data.settings.builtinSkillsSeen))); status("设置已保存")
     }
     override fun compress() { selected?.id?.let { id -> action { summarize(id); status("摘要已保存，原始消息完整保留") } } }
     private suspend fun summarize(chatId: String) {
@@ -367,7 +379,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         runCatching {
             require(!mutable.value.busy) { "请先停止当前任务再导入" }
             when(kind) {
-                "backup" -> { val restored=BackupArchive.restore(bytes,app.filesDir,app.cacheDir).let { it.copy(skills=it.skills.map { s -> s.copy(enabled=false,permissions=emptyList()) }) }; loadFailed=false; change(restored); mutable.value=mutable.value.copy(selectedChatId=restored.chats.firstOrNull()?.id ?: "",hasKeys=restored.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet()); status("备份已恢复；技能权限需重新授予，未配置平台请重新填写密钥") }
+                "backup" -> { val restored=BackupArchive.restore(bytes,app.filesDir,app.cacheDir).let { BuiltinSkills.merge(it.copy(skills=it.skills.map { s -> s.copy(enabled=false,permissions=emptyList()) }),builtinSkills) }; loadFailed=false; change(restored); mutable.value=mutable.value.copy(selectedChatId=restored.chats.firstOrNull()?.id ?: "",hasKeys=restored.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet()); status("备份已恢复；技能权限需重新授予，未配置平台请重新填写密钥") }
                 "skill" -> { val skills=SkillImporter.importFile(name,bytes); change(data.copy(skills=data.skills+skills)); status("已安装 ${skills.size} 个 Skill。请检查权限并在会话中启用") }
                 "character" -> { val c=Exchange.character(bytes); saveCharacter(c); val root=runCatching { JSONObject(c.originalJson).optJSONObject("data")?.optJSONObject("character_book") }.getOrNull(); if(root!=null) change(data.copy(worldEntries=data.worldEntries+Exchange.worldbook(root.toString(),c.id))); status("角色卡已导入") }
                 "worldbook" -> { val entries=Exchange.worldbook(bytes.toString(Charsets.UTF_8)); change(data.copy(worldEntries=data.worldEntries+entries)); status("已导入 ${entries.size} 个世界书条目") }

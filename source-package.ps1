@@ -2,11 +2,11 @@ param([string]$Destination='')
 $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $taskRoot=[IO.Path]::GetFullPath($PSScriptRoot)
-if (!$Destination) { $Destination=Join-Path $taskRoot 'dist\PocketTavern-0.1.0-source.zip' }
+if (!$Destination) { $Destination=Join-Path $taskRoot 'dist\PocketTavern-0.1.1-source.zip' }
 $taskDestination=[IO.Path]::GetFullPath($Destination)
 New-Item -ItemType Directory -Path ([IO.Path]::GetDirectoryName($taskDestination)) -Force | Out-Null
 $taskFiles=@()
-$taskTop=@('.gitignore','README.md','build.gradle.kts','settings.gradle.kts','gradle.properties','build.ps1','package.ps1','source-package.ps1','gradlew','gradlew.bat')
+$taskTop=@('.gitignore','.gitattributes','README.md','build.gradle.kts','settings.gradle.kts','gradle.properties','build.ps1','package.ps1','source-package.ps1','gradlew','gradlew.bat')
 foreach($taskName in $taskTop) { $taskPath=Join-Path $taskRoot $taskName; if(Test-Path -LiteralPath $taskPath -PathType Leaf) { $taskFiles+=Get-Item -LiteralPath $taskPath } }
 foreach($taskDir in @('app\src','docs','examples','gradle\wrapper')) {
     $taskPath=Join-Path $taskRoot $taskDir

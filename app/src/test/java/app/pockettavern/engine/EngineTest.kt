@@ -22,7 +22,7 @@ import org.junit.Test
 
 class EngineTest {
     @Test fun memorySearchIsolatedToChatUnlessGlobal() = runBlocking {
-        val first = Chat(id = "first", messages = listOf(Message(role = "user", content = "hi")))
+        val first = Chat(id = "first", skillIds = listOf("memory"), messages = listOf(Message(role = "user", content = "hi")))
         val second = Chat(id = "second")
         val skill = SkillRecord(id = "memory", name = "memory", permissions = listOf("memory"))
         val data = AppData(skills = listOf(skill), memories = listOf(
@@ -153,6 +153,18 @@ class EngineTest {
         assertTrue(denied.content.contains("失败") || denied.content.contains("超出"))
     }
 
+    @Test fun emptyChatSelectionCannotWriteEvenWhenSkillIsEnabled() = runBlocking {
+        val workspace = createTempDir(prefix = "pocket-engine")
+        val skill = SkillRecord(id = "writer", enabled = true, permissions = listOf("files.write"))
+        val target = File(workspace, "should-not-exist.txt")
+        val result = ToolRuntime(workspace).execute(
+            "workspace_write", "{\"path\":\"should-not-exist.txt\",\"content\":\"secret\"}",
+            listOf(skill), AppData(skills = listOf(skill)), Chat(id = "c", skillIds = emptyList())
+        )
+        assertTrue(result.content.contains("权限被拒绝"))
+        assertFalse(target.exists())
+    }
+
     @Test fun providerApiRejectsDestinationSwitchBeforeCredentialLookup() = runBlocking {
         var lookedUp = false
         val provider = app.pockettavern.domain.ProviderConfig(id = "api", kind = "openai-compatible", baseUrl = "https://api.example.test/v1")
@@ -163,13 +175,13 @@ class EngineTest {
         }
         val result = runtime.execute(
             "http_request", "{\"providerId\":\"api\",\"path\":\"../evil\"}", listOf(skill),
-            AppData(providers = listOf(provider)), Chat(id = "c")
+            AppData(providers = listOf(provider)), Chat(id = "c", skillIds = listOf(skill.id))
         )
         assertFalse(lookedUp)
         assertFalse(result.content.contains("super-secret-key"))
         val scopeResult = runtime.execute(
             "http_request", "{\"providerId\":\"api\",\"path\":\"chat/completions\"}", listOf(skill),
-            AppData(providers = listOf(provider)), Chat(id = "c", providerId = "other")
+            AppData(providers = listOf(provider)), Chat(id = "c", providerId = "other", skillIds = listOf(skill.id))
         )
         assertTrue(scopeResult.content.contains("当前会话"))
         assertFalse(lookedUp)
@@ -178,7 +190,7 @@ class EngineTest {
     @Test fun modelCannotPromoteMemoryToGlobal() = runBlocking {
         val skill = SkillRecord(id = "memory", enabled = true, permissions = listOf("memory"))
         val result = ToolRuntime(createTempDir(prefix = "pocket-engine")).execute(
-            "memory_save", "{\"text\":\"fact\",\"scope\":\"global\"}", listOf(skill), AppData(), Chat(id = "chat")
+            "memory_save", "{\"text\":\"fact\",\"scope\":\"global\"}", listOf(skill), AppData(), Chat(id = "chat", skillIds = listOf(skill.id))
         )
         assertEquals("chat", result.memories!!.single().scope)
         assertEquals("chat", result.memories.single().targetId)

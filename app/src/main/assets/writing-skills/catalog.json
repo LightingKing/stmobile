@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "skills": [
+    {
+      "id": "wf-fantasy",
+      "name": "奇幻世界构建",
+      "category": "小说写作",
+      "description": "原版中文 Skill：魔法体系、世界观、角色成长和奇幻类型规范。",
+      "sourceUrl": "https://github.com/wordflowlab/novel-writer-skills/blob/5bc9b373ff609e8910e0e8d179e4a697bf2b1268/templates/skills/genre-knowledge/fantasy/SKILL.md",
+      "commit": "5bc9b373ff609e8910e0e8d179e4a697bf2b1268",
+      "license": "MIT",
+      "licensePath": "licenses/wordflowlab-LICENSE",
+      "sha256": "afaa802c1bc9611a9d072e12cb18ce600251687b4d53d494da008bbae784da9e"
+    },
+    {
+      "id": "wf-mystery",
+      "name": "悬疑小说规范",
+      "category": "小说写作",
+      "description": "原版中文 Skill：公平线索、误导、推理逻辑与真相揭示。",
+      "sourceUrl": "https://github.com/wordflowlab/novel-writer-skills/blob/5bc9b373ff609e8910e0e8d179e4a697bf2b1268/templates/skills/genre-knowledge/mystery/SKILL.md",
+      "commit": "5bc9b373ff609e8910e0e8d179e4a697bf2b1268",
+      "license": "MIT",
+      "licensePath": "licenses/wordflowlab-LICENSE",
+      "sha256": "fbdb55abc0d5293602154d64ada127f519f4396fd032a8e7829e0c5daf87bc3e"
+    },
+    {
+      "id": "wf-dialogue",
+      "name": "自然对白技巧",
+      "category": "小说写作",
+      "description": "原版中文 Skill：人物声音、潜台词、对白节奏与动作配合。",
+      "sourceUrl": "https://github.com/wordflowlab/novel-writer-skills/blob/5bc9b373ff609e8910e0e8d179e4a697bf2b1268/templates/skills/writing-techniques/dialogue-techniques/SKILL.md",
+      "commit": "5bc9b373ff609e8910e0e8d179e4a697bf2b1268",
+      "license": "MIT",
+      "licensePath": "licenses/wordflowlab-LICENSE",
+      "sha256": "bf4e48d259a7376c04f93bb3c1c97ae97c3f5bbc15c6ccf298a9b2cd03bae197"
+    },
+    {
+      "id": "wf-scene",
+      "name": "场景结构技巧",
+      "category": "小说写作",
+      "description": "原版中文 Skill：目标、冲突、后果和反应、困境、决定的场景结构。",
+      "sourceUrl": "https://github.com/wordflowlab/novel-writer-skills/blob/5bc9b373ff609e8910e0e8d179e4a697bf2b1268/templates/skills/writing-techniques/scene-structure/SKILL.md",
+      "commit": "5bc9b373ff609e8910e0e8d179e4a697bf2b1268",
+      "license": "MIT",
+      "licensePath": "licenses/wordflowlab-LICENSE",
+      "sha256": "6957bcefb32c7591855b6329c52d5b9520635873ba6c99c3f68990108455fe09"
+    },
+    {
+      "id": "wf-romance",
+      "name": "言情小说规范",
+      "category": "言情与关系",
+      "description": "原版中文 Skill：情感发展、关系冲突、浪漫张力与结局规范。",
+      "sourceUrl": "https://github.com/wordflowlab/novel-writer-skills/blob/5bc9b373ff609e8910e0e8d179e4a697bf2b1268/templates/skills/genre-knowledge/romance/SKILL.md",
+      "commit": "5bc9b373ff609e8910e0e8d179e4a697bf2b1268",
+      "license": "MIT",
+      "licensePath": "licenses/wordflowlab-LICENSE",
+      "sha256": "a3d899c702bf40256986a9120bbe35fc33499ab8403eb445ed722a18f9ab8202"
+    },
+    {
+      "id": "sm-story-structure",
+      "name": "剧情结构设计",
+      "category": "小说写作",
+      "description": "原版英文 Skill：故事前提、人物弧线、节拍表、章节安排和结构诊断。可用中文提出写作需求。",
+      "sourceUrl": "https://github.com/SkillMedev/skills/blob/97a13607d669157a4a16d5ba79b77f208319f7b9/skills/story-structure-architect/SKILL.md",
+      "commit": "97a13607d669157a4a16d5ba79b77f208319f7b9",
+      "license": "MIT",
+      "licensePath": "licenses/skillmedev-LICENSE",
+      "sha256": "689a403eb020e2ba6a572c15d61a7819a52953cba4cb0407b446b62b3334e339"
+    },
+    {
+      "id": "sm-fiction-scene",
+      "name": "小说场景写作",
+      "category": "小说写作",
+      "description": "原版英文 Skill：根据场景简报组织视角、冲突、对话和场景转折。可用中文提出写作需求。",
+      "sourceUrl": "https://github.com/SkillMedev/skills/blob/97a13607d669157a4a16d5ba79b77f208319f7b9/skills/fiction-scene-writer/SKILL.md",
+      "commit": "97a13607d669157a4a16d5ba79b77f208319f7b9",
+      "license": "MIT",
+      "licensePath": "licenses/skillmedev-LICENSE",
+      "sha256": "59e0ef744e9aaa986093a05c6a65e7b556938a466db26f4a5b2449b43005c64d"
+    }
+  ]
+}

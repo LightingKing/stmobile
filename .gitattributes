@@ -1,0 +1,2 @@
+# Preserve upstream bytes and original Markdown spacing for SHA-256 verification.
+app/src/main/assets/writing-skills/** -text -whitespace
