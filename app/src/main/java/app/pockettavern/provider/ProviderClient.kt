@@ -2,6 +2,7 @@ package app.pockettavern.provider
 
 import app.pockettavern.domain.CompletionResult
 import app.pockettavern.domain.ModelInfo
+import app.pockettavern.domain.ModelTypes
 import app.pockettavern.domain.Preset
 import app.pockettavern.domain.ProviderConfig
 import app.pockettavern.domain.StreamDelta
@@ -67,7 +68,7 @@ class ProviderClient(
             try {
                 val body = response.body?.string().orEmpty()
                 if (!response.isSuccessful) throw httpError(response.code, body, key)
-                val parsed = parseModelsPage(body)
+                val parsed = parseModelsPage(body, kind)
                 all += parsed.models
                 after = if (parsed.hasMore) parsed.afterId else null
             } finally {
@@ -203,9 +204,7 @@ class ProviderClient(
 
     private data class ModelsPage(val models: List<ModelInfo>, val hasMore: Boolean, val afterId: String?)
 
-    private fun parseModels(body: String): List<ModelInfo> = parseModelsPage(body).models
-
-    private fun parseModelsPage(body: String): ModelsPage {
+    private fun parseModelsPage(body: String, providerKind: String): ModelsPage {
         val root = try { JSONObject(body) } catch (e: JSONException) { throw ProviderException(ProviderException.Kind.HTTP, "模型目录格式无效", e) }
         val data = root.optJSONArray("data") ?: root.optJSONArray("models") ?: JSONArray()
         val result = buildList(data.length()) {
@@ -215,7 +214,7 @@ class ProviderClient(
                 if (id.isBlank()) continue
                 val spec = model.optJSONObject("model_spec") ?: model.optJSONObject("spec")
                 val caps = model.optJSONObject("capabilities") ?: spec?.optJSONObject("capabilities")
-                val type = model.optString("type", spec?.optString("type", "text") ?: "text").ifBlank { "text" }
+                val type = model.optString("type", "")
                 val context = firstInt(model, "context_tokens", "context_length", "max_context_tokens", "contextTokens")
                     ?: spec?.let { firstInt(it, "availableContextTokens", "context_tokens", "context_length", "max_context_tokens") }
                     ?: 32768
@@ -226,7 +225,10 @@ class ProviderClient(
                 val reasoning = firstBool(model, "supports_reasoning", "supportsReasoning", "reasoning")
                     ?: caps?.let { firstBool(it, "supportsReasoning", "reasoning", "thinking") } ?: false
                 val offline = firstBool(model, "offline") ?: spec?.let { firstBool(it, "offline") } ?: false
-                add(ModelInfo(id, spec?.optString("name", model.optString("name", id)) ?: model.optString("name", id), type, context, tools, vision, reasoning, offline, model.toString()))
+                val name = spec?.optString("name")?.takeIf { it.isNotBlank() }
+                    ?: model.optString("name").takeIf { it.isNotBlank() }
+                    ?: model.optString("display_name").takeIf { it.isNotBlank() } ?: id
+                add(ModelTypes.normalize(ModelInfo(id, name, type, context, tools, vision, reasoning, offline, model.toString()), providerKind))
             }
         }
         val hasMore = root.optBoolean("has_more", root.optBoolean("hasMore", false))

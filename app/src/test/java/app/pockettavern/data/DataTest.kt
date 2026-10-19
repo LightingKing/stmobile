@@ -9,6 +9,21 @@ import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
 class DataTest {
+    @Test fun oldCachedResourceTypesBecomeSelectableWithoutRefreshing() {
+        val chatModel = ModelInfo(id = "cached-chat", type = "model", contextTokens = 131072, supportsTools = true,
+            rawJson = """{"id":"cached-chat","type":"model","pricing":{"input":0.4}}""")
+        val nestedImage = ModelInfo(id = "cached-image", type = "model", rawJson = """{"type":"model","spec":{"type":"image"}}""")
+        val config = ProviderConfig(id = "coffee", name = "冷咖啡", kind = "openai", baseUrl = "https://coffee.example/v1",
+            models = listOf(chatModel, nestedImage, ModelInfo(id = "video", type = "video")))
+        val source = AppData(providers = listOf(config), chats = listOf(Chat(providerId = config.id, modelId = chatModel.id)))
+        val restored = DataCodec.decode(DataCodec.encode(source))
+        val selectable = ModelCatalog.filter(restored.providers, type = "text", providerId = config.id)
+        assertEquals(listOf(chatModel.copy(type = "text")), selectable.map { it.second })
+        assertEquals(listOf("text", "image", "video"), restored.providers.single().models.map { it.type })
+        assertEquals(source.chats, restored.chats)
+        assertEquals(restored, DataCodec.decode(DataCodec.encode(restored)))
+    }
+
     @Test fun backupRoundTripKeepsRolesAndSummary() {
         val chat=Chat(messages=listOf(Message(content="你好"),Message(role="assistant",content="你好。")),summaries=listOf(Summary(text="摘要")))
         val source=AppData(chats=listOf(chat),memories=listOf(Memory(text="用户偏好中文",scope="global")))

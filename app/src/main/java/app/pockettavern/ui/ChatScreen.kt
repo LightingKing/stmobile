@@ -364,21 +364,99 @@ private fun ConversationHistory(chats: List<Chat>, selectedId: String?, busy: Bo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ConversationModels(chat: Chat?, state: UiSession, actions: AppActions, onDismiss: () -> Unit) {
-    var query by rememberSaveable { mutableStateOf("") }
-    var providerId by rememberSaveable { mutableStateOf("") }
+internal fun ConversationModels(
+    chat: Chat?,
+    state: UiSession,
+    actions: AppActions,
+    initialQuery: String = "",
+    initialProviderId: String = "",
+    onDismiss: () -> Unit
+) {
+    ModalBottomSheet(
+        onDismissRequest = onDismiss,
+        sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
+        containerColor = MaterialTheme.colorScheme.background
+    ) {
+        Box(Modifier.fillMaxWidth().fillMaxHeight(0.85f)) {
+            ConversationModelsContent(chat, state, actions, initialQuery, initialProviderId, onDismiss)
+        }
+    }
+}
+
+@Composable
+internal fun ConversationModelsContent(
+    chat: Chat?,
+    state: UiSession,
+    actions: AppActions,
+    initialQuery: String = "",
+    initialProviderId: String = "",
+    onDismiss: () -> Unit
+) {
+    var query by rememberSaveable { mutableStateOf(initialQuery) }
+    var providerId by rememberSaveable { mutableStateOf(initialProviderId) }
+    var localStatus by rememberSaveable { mutableStateOf(state.status) }
+    LaunchedEffect(state.status) {
+        if (state.status.isNotBlank()) localStatus = state.status
+    }
+    LaunchedEffect(state.data.providers.map { it.id }) {
+        if (providerId.isNotBlank() && state.data.providers.none { it.id == providerId }) providerId = ""
+    }
     val models = remember(state.data.providers, query, providerId) { ModelCatalog.filter(state.data.providers, query, "text", providerId).filter { !it.second.offline } }
-    ModalBottomSheet(onDismissRequest = onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true), containerColor = MaterialTheme.colorScheme.background) {
-        Column(Modifier.fillMaxWidth().fillMaxHeight(0.85f)) {
-            Text("选择聊天模型", Modifier.padding(horizontal = 20.dp), style = MaterialTheme.typography.headlineSmall)
+    val scopedProviders = state.data.providers.filter { providerId.isBlank() || it.id == providerId }
+    val scopedCatalog = scopedProviders.flatMap { it.models }
+    val availableChatCount = { provider: ProviderConfig -> provider.models.count { it.type.equals("text", true) && !it.offline } }
+    val hasFilter = query.trim().isNotEmpty() || providerId.isNotBlank()
+    val hasAvailableInScope = scopedCatalog.any { it.type.equals("text", true) && !it.offline }
+    val typeSummary = scopedCatalog.groupingBy { modelTypeLabel(it.type) }.eachCount().entries.joinToString("、") { "${it.key} ${it.value} 个" }
+    val offlineCount = scopedCatalog.count { it.offline }
+    val refresh = {
+        localStatus = ""
+        actions.refreshModels(providerId.ifBlank { "*" })
+    }
+    Column(Modifier.fillMaxWidth().fillMaxHeight()) {
+            Row(Modifier.fillMaxWidth().padding(start = 20.dp, end = 12.dp, top = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text("选择聊天模型", Modifier.weight(1f), style = MaterialTheme.typography.headlineSmall)
+                FilledTonalButton(onClick = refresh, enabled = !state.busy) {
+                    Icon(Icons.Outlined.Refresh, "刷新模型目录", Modifier.size(17.dp))
+                    Spacer(Modifier.width(5.dp))
+                    Text(if (state.busy) "请求中…" else "刷新目录")
+                }
+            }
+            if (localStatus.isNotBlank()) {
+                Card(Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 8.dp), colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)) {
+                    Text(localStatus, Modifier.padding(12.dp), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurface)
+                }
+            }
             OutlinedTextField(query, { query = it }, Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 16.dp), singleLine = true, shape = RoundedCornerShape(16.dp), leadingIcon = { Icon(Icons.Outlined.Search, null) }, placeholder = { Text("搜索模型或平台") })
             Row(Modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 20.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 FilterChip(providerId.isBlank(), { providerId = "" }, label = { Text("全部平台") })
-                state.data.providers.forEach { provider -> FilterChip(providerId == provider.id, { providerId = provider.id }, label = { Text(provider.name) }) }
+                state.data.providers.forEach { provider -> FilterChip(providerId == provider.id, { providerId = provider.id }, label = { Text("${provider.name}（${availableChatCount(provider)}）") }) }
             }
             LazyColumn(Modifier.weight(1f), contentPadding = PaddingValues(horizontal = 12.dp, vertical = 12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                if (models.isEmpty()) item { Text("没有可用的聊天模型。可清除筛选，或到模型页刷新平台目录。", Modifier.padding(12.dp), color = MaterialTheme.colorScheme.onSurfaceVariant) }
-                items(models, key = { "${it.first.id}:${it.second.id}" }) { (provider, model) ->
+                if (models.isEmpty()) item {
+                    val title: String
+                    val description: String
+                    if (scopedCatalog.isEmpty()) {
+                        title = "这个平台还没有模型目录"
+                        description = "点击“刷新目录”获取真实模型；如果刚刚修改了平台地址，请先保存平台设置。"
+                    } else if (!hasAvailableInScope) {
+                        title = "目录里还没有可用的聊天模型"
+                        description = "当前目录：$typeSummary；其中离线模型 ${offlineCount} 个。聊天选择只展示在线文本模型，请刷新目录或检查平台配置。"
+                    } else {
+                        title = "筛选没有匹配结果"
+                        description = "当前筛选没有找到在线文本模型，可清除筛选或刷新目录。"
+                    }
+                    Column(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 28.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Icon(Icons.Outlined.Search, null, Modifier.size(36.dp), tint = MaterialTheme.colorScheme.primary)
+                        Text(title, style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSurface)
+                        Text(description, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            if (hasFilter) OutlinedButton(onClick = { query = ""; providerId = "" }) { Text("清除筛选") }
+                            Button(onClick = refresh, enabled = !state.busy) { Text(if (state.busy) "请求中…" else "刷新目录") }
+                        }
+                    }
+                }
+                items(models, key = { "${it.first.id}:${it.second.type}:${it.second.id}" }) { (provider, model) ->
                     val selected = chat?.providerId == provider.id && chat.modelId == model.id
                     Surface(onClick = { actions.chooseModel(provider.id, model.id); onDismiss() }, enabled = !state.busy, shape = RoundedCornerShape(14.dp), color = if (selected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.background) {
                         Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -391,6 +469,19 @@ private fun ConversationModels(chat: Chat?, state: UiSession, actions: AppAction
                     }
                 }
             }
-        }
     }
+}
+
+private fun modelTypeLabel(type: String): String = when (type.lowercase(Locale.ROOT)) {
+    "text" -> "文本"
+    "image" -> "图像"
+    "inpaint" -> "局部重绘"
+    "upscale" -> "超分辨率"
+    "tts" -> "语音合成"
+    "asr" -> "语音识别"
+    "video" -> "视频"
+    "music" -> "音乐"
+    "embedding" -> "向量"
+    "decision" -> "决策"
+    else -> type.ifBlank { "未知" }
 }

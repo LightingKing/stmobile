@@ -1,6 +1,7 @@
 package app.pockettavern.provider
 
 import app.pockettavern.domain.ModelInfo
+import app.pockettavern.domain.ModelCatalog
 import app.pockettavern.domain.Preset
 import app.pockettavern.domain.ProviderConfig
 import kotlinx.coroutines.runBlocking
@@ -155,6 +156,35 @@ class ProviderClientTest {
         assertEquals(listOf("m1", "m2"), models.map { it.id })
         server.takeRequest()
         assertEquals("cursor-1", server.takeRequest().requestUrl?.queryParameter("after_id"))
+    }
+
+    @Test fun anthropicResourceTypeIsAvailableInChatPicker() = runBlocking {
+        server.enqueue(MockResponse().setBody("""
+            {"data":[{"id":"claude-fixture","type":"model","display_name":"Claude Fixture"}]}
+        """.trimIndent()))
+        val config = provider("anthropic")
+        val models = ProviderClient(allowInsecureHttpForTests = true).models(config, "key")
+        assertEquals("text", models.single().type)
+        assertEquals("Claude Fixture", models.single().name)
+        assertEquals(listOf("claude-fixture"), ModelCatalog.filter(listOf(config.copy(models = models)), type = "text", providerId = config.id).map { it.second.id })
+    }
+
+    @Test fun compatibleGatewayResourceTypeKeepsExplicitMediaOutOfChat() = runBlocking {
+        server.enqueue(MockResponse().setBody("""
+            {"data":[
+              {"id":"gateway-chat","type":"model"},
+              {"id":"nested-image","type":"model","model_spec":{"type":"image"}},
+              {"id":"embedding","type":"embedding"},
+              {"id":"unknown","type":"vendor-special"},
+              {"id":"offline","type":"model","offline":true}
+            ]}
+        """.trimIndent()))
+        val config = provider("openai")
+        val models = ProviderClient(allowInsecureHttpForTests = true).models(config, "key")
+        val selectable = ModelCatalog.filter(listOf(config.copy(models = models)), type = "text", providerId = config.id).filter { !it.second.offline }
+        assertEquals(listOf("gateway-chat"), selectable.map { it.second.id })
+        assertEquals(listOf("text", "image", "embedding", "vendor-special", "text"), models.map { it.type })
+        assertEquals("model", JSONObject(models.first().rawJson).getString("type"))
     }
 
     @Test fun anthropicUsesMessagesHeadersAndContentBlocks() = runBlocking {

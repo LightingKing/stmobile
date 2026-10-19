@@ -32,7 +32,9 @@ object DataCodec {
         data.chats.forEach { chat -> chat.messages.flatMap { it.attachments }.forEach { require(it.path.isBlank()) { "备份附件必须嵌入数据，不能引用本地路径" } } }
         data.presets.forEach { require(it.maxOutput in 1..131072 && it.temperature in 0.0..2.0) { "预设参数无效" } }
         require(data.settings.keepRecentTurns in 1..100 && data.settings.compressionThreshold in 0.2..0.95 && data.settings.maxToolSteps in 1..16) { "压缩或工具设置无效" }
-        return data
+        return data.copy(providers = data.providers.map { provider ->
+            provider.copy(models = provider.models.map { ModelTypes.normalize(it, provider.kind) })
+        })
     }
 
     private fun requireJsonSize(json: String) {
