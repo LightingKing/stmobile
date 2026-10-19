@@ -4,9 +4,13 @@
 
 ## 0.1.4 第三方模型在聊天选择中缺失
 
-用户提供了手机上的模型面板截图，并确认“冷咖啡”在模型页能看到目录、在聊天页没有模型。代码中发现可复现的兼容错误：目录解析直接把 `type: "model"` 保存为能力类型，而聊天选择、默认模型和发送前检查均要求 `text`。[Anthropic 官方模型列表](https://platform.claude.com/docs/en/api/models/list) 明确将 `model` 用作对象标记；它并非模型的输入输出类型。本轮尚未取得用户“冷咖啡”带有效 Key 的模型目录响应，因此只确认该兼容错误，不声称已实测该账户。
+用户提供了手机上的模型面板截图，并确认“冷咖啡”在模型页能看到目录、在聊天页没有模型。代码中发现可复现的兼容错误：目录解析直接把 `type: "model"` 保存为能力类型，而聊天选择、默认模型和发送前检查均要求 `text`。[Anthropic 官方模型列表](https://platform.claude.com/docs/en/api/models/list) 明确将 `model` 用作对象标记；它并非模型的输入输出类型。后续取得该站真实模型目录，确认返回形状与这一故障一致，具体证据如下。
 
 用户随后提供 `https://coldcoffeeai.com` 并要求直接获取目录。2026-10-19 分别无认证 GET `/v1/models` 和 `/models`，两者均返回 HTTP **401**、JSON `code: API_KEY_REQUIRED`，说明当前请求必须带该站凭据，不能据此判断模型类型。本机项目配置、专用环境变量与已知 Codex provider 配置中未找到该站凭据；未使用其他平台的 Key，未发起生成请求。公开 [接入说明](https://github.com/3641397194-wq/gpt6-Astra/blob/main/docs/RELAY-API.md) 给出的 Base URL 为 `https://coldcoffeeai.com/v1`，目录请求使用 Bearer 认证。
+
+2026-10-19 用户随后提供该站凭据。使用该凭据直接 GET `https://coldcoffeeai.com/v1/models`，返回 **200、11 个目录项**，全部为 `type: "model"`、`object: "model"`，包含 `display_name`，均没有 `offline` 字段。仅查询目录，没有发送生成请求；凭据没有写入项目、环境文件、测试记录或 APK。只将不含凭据的模型响应保存在忽略目录 `evidence/coldcoffee-models-20261019.json`。
+
+使用 0.1.4 实际编译的 `ProviderClient.parseModelsPage`、`ModelCatalog.filter` 与 `DataCodec.decode` 回放这份完整真实响应：旧类型缓存可选数 **0**，新目录解析后可选数 **11**，旧缓存恢复后可选数 **11**；ID、原始 JSON、显示名均保留，恢复结果再次保存/读取仍一致。证据为忽略目录 `evidence/coldcoffee-catalog-audit-0.1.4.txt`。这确认了真实目录兼容性，不等同于 11 个模型的生成成功、底层模型身份或手机触摸验收。现有 0.1.4 修复已覆盖，未改动 APK。
 
 新目录解析与 `DataCodec.decode` 共用类型归一化，兼容 OpenAI / Anthropic 平台的对象标记，并保留明确的嵌套能力类型。缓存加载、JSON / ZIP 备份恢复均经过同一处理，保留模型 ID、原始 JSON、价格、能力标记和聊天内容；无须删平台或清数据。显式图片、视频、向量、未知类型及离线状态不会被改成可选聊天模型。另支持 Anthropic `display_name` 显示名称。
 
@@ -16,7 +20,7 @@
 
 最终打包全部 **76 项 JVM 测试通过，0 失败，7 项付费接口测试跳过**。主机原生截图比较 **11 项通过**（原 8 项聊天 + 新 3 项面板内容），新画面已逐张检查；独立 Dialog 窗口不在主机截图范围内，见 [界面验证补充](CHAT_UI_ACCEPTANCE.md)。Debug lint 0 错误、13 警告，release vital lint 通过；debug/release APK 和 instrumentation APK 构建成功。
 
-签名发布包 `dist/PocketTavern-0.1.4.apk` 为 **11,679,367 字节**，versionCode **5**、versionName **0.1.4**，SHA-256 为 `FCC38DBFD9B76554CC3CCDF135D882C8B9C8041516196075CCC2065835744227`。v2 签名有效，证书与 0.1.3 相同；最终 DEX 含 `ModelTypes` 和 `ConversationModelsContent`，不含截图测试类或基线。源码包为 `dist/PocketTavern-0.1.4-source.zip`。具备同签名覆盖升级条件，但本轮未在手机安装、触摸测试或联测“冷咖啡”账户。
+签名发布包 `dist/PocketTavern-0.1.4.apk` 为 **11,679,367 字节**，versionCode **5**、versionName **0.1.4**，SHA-256 为 `FCC38DBFD9B76554CC3CCDF135D882C8B9C8041516196075CCC2065835744227`。v2 签名有效，证书与 0.1.3 相同；最终 DEX 含 `ModelTypes` 和 `ConversationModelsContent`，不含截图测试类或基线。源码包为 `dist/PocketTavern-0.1.4-source.zip`。具备同签名覆盖升级条件，但本轮未在手机安装、触摸测试或验证“冷咖啡”生成请求；真实目录查询已完成。
 
 ## 0.1.3 聊天界面重设计
 
