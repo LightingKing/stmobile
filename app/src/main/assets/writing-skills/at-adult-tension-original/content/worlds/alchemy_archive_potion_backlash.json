@@ -1,0 +1,2701 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "魔导院正式聘用的成年药剂师。",
+   "age_range": [
+    20,
+    24
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_lab_assistant_trapped",
+   "line": "{npc.name}：“分馏塔的读数又往上跳了，要不要先停火？”",
+   "location_ids": [
+    "forbidden_alchemy_laboratory"
+   ],
+   "name": null,
+   "role": "留在暗室角落的值夜药剂师"
+  },
+  {
+   "adult_context": "在册的帝国成年风纪骑士。",
+   "age_range": [
+    21,
+    25
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_paladin_shield_sentinel",
+   "line": "{npc.name}：“闸门封着，谁都不许擅自靠近。”",
+   "location_ids": [
+    "dragonscale_gate_vestibule"
+   ],
+   "name": null,
+   "role": "守在回廊的重甲骑士"
+  },
+  {
+   "adult_context": "魔导院在编的成年禁书管理员。",
+   "age_range": [
+    22,
+    26
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_vault_librarian",
+   "line": "{npc.name}：“第三排书架后面有条老暗道，能通到排烟夹层。”",
+   "location_ids": [
+    "ancient_grimoire_vault"
+   ],
+   "name": null,
+   "role": "禁书库值夜管理员"
+  },
+  {
+   "adult_context": "魔导院后勤部的成年锅炉匠。",
+   "age_range": [
+    21,
+    25
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_flue_stoker",
+   "line": "{npc.name}：“讲师让我传话：解药已经顺着风道放下去了！”",
+   "location_ids": [
+    "ventilation_flue_chamber"
+   ],
+   "name": null,
+   "role": "排烟夹层的锅炉匠"
+  },
+  {
+   "adult_context": "魔导院在籍的成年高阶魔导士。",
+   "age_range": [
+    21,
+    24
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_corridor_gossip_mage",
+   "line": "{npc.name}：“听说首席今晚又把谁留在暗室里了？那个高岭之花？”",
+   "location_ids": [
+    "dragonscale_gate_vestibule"
+   ],
+   "name": null,
+   "role": "回廊里看热闹的高年级魔导士"
+  },
+  {
+   "adult_context": "魔导院注册的成年结界法师。",
+   "age_range": [
+    22,
+    26
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_purge_sentinel_mage",
+   "line": "{npc.name}：“净水程序已经预备，进出前厅的人先登记。”",
+   "location_ids": [
+    "dragonscale_gate_vestibule"
+   ],
+   "name": null,
+   "role": "守着秘银净水阀门的结界法师"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "人前是严苛疏离的首席与随侍递材料的后辈；锁上暗室，你是唯一能与首席十指交握、贴着后心同步回路的人。",
+   "id": "combo_ayaka_obsidian_conduction",
+   "identity_ids": [
+    "junior_alchemy_partner"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "first_seat_ayaka",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月在禁书库三层结界骤停，两人在书架间贴身导引了整晚魔力，首席把刻家徽的备用银戒塞进你掌心，只准你在暗室直呼其名",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "first_seat_ayaka"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "陪首席平稳渡过这轮过载，守住暗室里的事。",
+    "limit_gap": "首席的骄傲不许自己在后辈面前失态，可导流离不开你的手。",
+    "meeting_reason": "分馏塔逸出一缕共鸣雾气，{first_seat_ayaka.name}把银法杖按进你掌心。",
+    "resource_gap": "{first_seat_ayaka.name}握着你的实训成绩和公爵家的门第，你只有九成的魔力相容度。"
+   },
+   "tags": [
+    "intimate",
+    "supernatural"
+   ],
+   "tension_engine_ids": [
+    "te_pride_vs_fever",
+    "te_lockdown_vs_heat"
+   ]
+  },
+  {
+   "chemistry": "执掌院规的风纪团长与成年的低阶魔导士：嘴上总拿禁闭条例吓你，真出了事却第一个拔剑挡门。",
+   "id": "combo_reinhard_gate_command",
+   "identity_ids": [
+    "junior_alchemy_partner"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "commander_reinhard",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "秋猎演武你替团长修补过震裂的剑锷，对方把能免宵禁盘查的风纪铜徽借你贴身收着，只要你夜入禁书库前先报备",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "commander_reinhard"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让团长替你担下今夜的出入记录，又不连累对方。",
+    "limit_gap": "团长护得了你一次，护不了违规的禁术。",
+    "meeting_reason": "{commander_reinhard.name}巡夜到闸门前厅，看见你又没报备就下了暗室。",
+    "resource_gap": "{commander_reinhard.name}握着全院搜查权和拘捕符文，你只有那枚借来的风纪铜徽。"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_treason_vs_devotion",
+    "te_purge_countdown"
+   ]
+  },
+  {
+   "chemistry": "同在地下工坊授课的同僚，常借夜间配药在残卷密室独处小酌，知晓彼此所有学术越界。",
+   "id": "combo_clara_herb_cabinet",
+   "identity_ids": [
+    "runic_engineer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "lecturer_clara",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "暴雨冲毁温室药圃那夜，你陪讲师在烘干房抢救月光草到凌晨，对方用热药巾擦干你的湿发，把私配的安神香膏留在你床头",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "lecturer_clara"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "一起配好中和剂，再说清两人之间那句没挑明的话。",
+    "limit_gap": "两人都替首席瞒过事，一旦查起来谁也脱不了身。",
+    "meeting_reason": "{lecturer_clara.name}提着药箱来残卷密室，说今晚的月光草该分装了。",
+    "resource_gap": "{lecturer_clara.name}握着全院的解毒配方，你握着工坊的结界钥匙。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_pride_vs_fever",
+    "te_treason_vs_devotion"
+   ]
+  },
+  {
+   "chemistry": "平级共事的讲师与符文总工匠，共享地下工坊全部暗门钥匙，随时替对方遮掩违规痕迹。",
+   "id": "combo_bruno_flue_blueprint",
+   "identity_ids": [
+    "potion_lecturer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "engineer_bruno",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "三年前翻修排烟井时，你帮工匠瞒下私扩夹层储酒格的事，对方把禁书库副风门暗锁的位置全教给了你",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "engineer_bruno"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让排风井重新抽风，守住暗道的秘密。",
+    "limit_gap": "暗道一旦公开，两人这些年的方便都要交代。",
+    "meeting_reason": "{engineer_bruno.name}在排烟夹层倒好两杯黑啤，叫你上来看看停转的排风井。",
+    "resource_gap": "{engineer_bruno.name}握着整座禁书库的暗道图纸，你握着对方私扩储酒格的秘密。"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_lockdown_vs_heat",
+    "te_purge_countdown"
+   ]
+  },
+  {
+   "chemistry": "学术观点针锋相对的首席与青年教席，借验证禁书配方的名义在深夜暗室里互相试探。",
+   "id": "combo_ayaka_equal_formula",
+   "identity_ids": [
+    "potion_lecturer",
+    "runic_engineer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "first_seat_ayaka",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上周教务评议会你当众指出首席论文里的导流盲区，散会后对方亲自把丝绒手札送到你值班室，约今晚在暗室单独验证",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "first_seat_ayaka"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在暗室里验证那处盲区，也验证彼此的心意。",
+    "limit_gap": "输掉这场验证，就要当众承认对方是对的。",
+    "meeting_reason": "{first_seat_ayaka.name}把丝绒手札放在你值班室门口，约你下班后来暗室。",
+    "resource_gap": "{first_seat_ayaka.name}握着禁书库三层借阅权，你握着那处导流盲区的完整推导。"
+   },
+   "tags": [
+    "intimate",
+    "supernatural"
+   ],
+   "tension_engine_ids": [
+    "te_pride_vs_fever",
+    "te_treason_vs_devotion"
+   ]
+  },
+  {
+   "chemistry": "手握考评大权的上司与低阶后辈；后辈什么都会护在你身前，连私密日记都替你守住。",
+   "id": "combo_yuma_velvet_diary",
+   "identity_ids": [
+    "senior_alchemist_first_seat",
+    "disciplinary_commander",
+    "inquisition_adjutant"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "junior_partner_yuma",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "冬至夜测试高危坩埚时，后辈用玄武岩护腕替你挡下飞溅的药液，当晚你在藏书密室替对方涂药，默许对方留在内室值夜",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "junior_partner_yuma"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "护住后辈的前途，也说清你们之间的事。",
+    "limit_gap": "上司偏袒后辈的事一旦传开，两人都要受审。",
+    "meeting_reason": "{junior_partner_yuma.name}端着两杯热可可来暗室，说今晚值夜还是自己来。",
+    "resource_gap": "你握着后辈的考评和前途，{junior_partner_yuma.name}握着与首席九成的魔力相容度。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_pride_vs_fever",
+    "te_treason_vs_devotion"
+   ]
+  },
+  {
+   "chemistry": "魔导院高层与裁决所特派副官，心照不宣地握着旧日人情，在条文与通融之间来回拉锯。",
+   "id": "combo_cecilia_seal_audit",
+   "identity_ids": [
+    "senior_alchemist_first_seat",
+    "disciplinary_commander"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "adjutant_cecilia",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "上季度北境异端卷宗复核时，你替副官按下一桩证物火漆破损的疏漏，今晚对方奉命来查禁书库，等着看你开什么条件",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "adjutant_cecilia"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让副官把今晚定为合规教研，又不欠下还不清的人情。",
+    "limit_gap": "副官今晚是奉命来查，通融过头就是包庇。",
+    "meeting_reason": "{adjutant_cecilia.name}奉命来查禁书库，在闸门前厅等你开条件。",
+    "resource_gap": "你握着副官那桩火漆疏漏的旧账，{adjutant_cecilia.name}握着圣裁火漆印章。"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_treason_vs_devotion",
+    "te_purge_countdown"
+   ]
+  },
+  {
+   "chemistry": "偶尔借用工坊器皿的同僚；私下为你备齐全套中和剂与后路，利益与心意早已绑在一起。",
+   "id": "combo_clara_moonlight_tincture",
+   "identity_ids": [
+    "junior_alchemy_partner",
+    "senior_alchemist_first_seat"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "lecturer_clara",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "半年来每次深夜导流试验后，讲师都带着私配的中和剂在排烟夹层接应你，两人约好共同署名那篇共鸣手稿",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "lecturer_clara"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "定下手稿的署名，也定下两人以后的关系。",
+    "limit_gap": "手稿发表前，深夜导流试验的事绝不能外泄。",
+    "meeting_reason": "导流试验结束，{lecturer_clara.name}照例在排烟夹层等你。",
+    "resource_gap": "{lecturer_clara.name}握着月华中和剂，你握着两人那篇共鸣手稿的数据。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_lockdown_vs_heat",
+    "te_pride_vs_fever"
+   ]
+  },
+  {
+   "chemistry": "讲师事先托你带话，把首席与搭档约进残卷密室核对禁书拓印；一张借阅底单，决定首席肯不肯合作。",
+   "id": "combo_vault_rubbing_trio",
+   "identity_ids": [
+    "disciplinary_commander",
+    "runic_engineer",
+    "inquisition_adjutant"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "lecturer_clara",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "入夜前讲师把第三层禁书的借阅拓印底单交给你过目，约好在残卷密室摊牌，把首席拉进共同课题",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "first_seat_ayaka",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "你昨晚刚在暗室帮首席稳住第一轮共鸣回路，知道对方面对要挟时最在意的是别让你受牵连",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "junior_partner_yuma",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "后辈按事先的约定守在书架外侧把风，一旦谈妥课题合作，就立刻销毁那份原始借阅登记",
+     "stage": "committed"
+    },
+    {
+     "a": "lecturer_clara",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "first_seat_ayaka",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "讲师收着首席未批先借共鸣残卷的符文拓印，正借送药之机要首席共享核心导流数据",
+     "stage": "testing"
+    },
+    {
+     "a": "lecturer_clara",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "junior_partner_yuma",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "讲师带过后辈两年实训课，常把多配的安神圣露塞进后辈的药箱",
+     "stage": "familiar"
+    },
+    {
+     "a": "first_seat_ayaka",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "junior_partner_yuma",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "首席训了后辈两年，丝绒日记第十二页写满的却是同一个名字",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "lecturer_clara",
+    "first_seat_ayaka",
+    "junior_partner_yuma"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "谈妥课题合作，让借阅底单在巡检前消失。",
+    "limit_gap": "密室巡检符文半小时后扫描借阅台账。",
+    "meeting_reason": "入夜前{lecturer_clara.name}把拓印底单交给你过目；现在你把{first_seat_ayaka.name}请进残卷密室，{junior_partner_yuma.name}已守在书架外侧。",
+    "resource_gap": "{lecturer_clara.name}握着拓印底单，{first_seat_ayaka.name}握着导流数据，{junior_partner_yuma.name}守着借阅登记，你居中定夺。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_pride_vs_fever",
+    "te_treason_vs_devotion"
+   ]
+  },
+  {
+   "chemistry": "团长事先与你设局，在闸门前厅拿伪造火漆的副卷当面质问副官；工匠守着副风门做后路。",
+   "id": "combo_vestibule_warrant_trio",
+   "identity_ids": [
+    "junior_alchemy_partner",
+    "potion_lecturer",
+    "senior_alchemist_first_seat"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "commander_reinhard",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "半小时前团长在回廊石柱阴影里把截获的空白火漆伪造底稿塞进你怀里，约好在前厅联手压住副官",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "adjutant_cecilia",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你按计划把副官请到闸门前厅核对火漆编号，只要亮出底稿，就能逼对方签下无害化结案",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "engineer_bruno",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "工匠受你所托守在排烟夹层入口，前厅一签字就开副风门排净暗室余雾",
+     "stage": "committed"
+    },
+    {
+     "a": "commander_reinhard",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "adjutant_cecilia",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "团长查获副官上月私盖空白圣裁火漆、伪造审讯记录的副卷，一直等着今夜当面拿捏",
+     "stage": "testing"
+    },
+    {
+     "a": "commander_reinhard",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "engineer_bruno",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "团长的破魔剑每季都送去工匠那里回火，两人常在工坊喝一杯",
+     "stage": "familiar"
+    },
+    {
+     "a": "adjutant_cecilia",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "engineer_bruno",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "副官查过工匠改装排气管偷运黑啤的事，卷宗还压在裁决所没结",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "commander_reinhard",
+    "adjutant_cecilia",
+    "engineer_bruno"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "逼副官签下无害化结案，排净暗室余雾。",
+    "limit_gap": "子夜钟声后值夜书记官就会下楼收卷。",
+    "meeting_reason": "半小时前{commander_reinhard.name}把伪造火漆的底稿塞给你；现在你把{adjutant_cecilia.name}请到前厅核对编号，{engineer_bruno.name}已守在夹层入口。",
+    "resource_gap": "{commander_reinhard.name}握着伪造副卷，{adjutant_cecilia.name}握着火漆印章，{engineer_bruno.name}握着副风门，你居中压阵。"
+   },
+   "tags": [
+    "crime",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_treason_vs_devotion",
+    "te_purge_countdown"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_mana_resonance",
+   "reach": "吸入同一炉共鸣雾气后建立的感知回路，皮肤相触时，一方的羞意、心跳与魔力余温会清楚地传到另一方。",
+   "text": "魔力回路的共鸣"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_barrier_whisper",
+   "reach": "三重隔音结界里，声音只能在几公分内以极轻的气声传递。",
+   "text": "结界内的耳语"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_runic_loudspeaker",
+   "reach": "受狂暴魔力干扰的传音法石，团长的警告被扭成断续刺耳的风雷杂音。",
+   "text": "扩音符石杂音"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "魔导院注册在籍的首席高阶魔导师，年满二十一岁，具独立行法权与完全责任能力。",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "黑底滚金边的首席制服风衣，白衬衫领口一丝不苟，及膝百褶裙配薄黑丝；长马尾高束，手里握着那柄银法杖。",
+    "风衣搭在臂弯，领扣解开两颗，耳根泛红，攥着银法杖靠在石台边调息。"
+   ],
+   "decision": {
+    "avoids": [
+     "唯唯诺诺的庸人",
+     "满嘴教条的伪君子"
+    ],
+    "contrast": "白天是金冠束发、傲睨全院的首席，暗室里是攥着法杖、不敢让人看见日记的年轻魔导师。",
+    "core_value": "公爵家的长女不会向区区药力低头——也不会向任何人承认心事。",
+    "goal_options": [
+     "攥着法杖和那只手平稳渡过这轮回路过载",
+     "守住丝绒日记第十二页的心事不被外人翻看",
+     "在教务处追责前拿到无害化结题批文"
+    ],
+    "never": [
+     "事后为了保全名誉，把违规炼药的黑锅甩给搭档。"
+    ],
+    "prefers": [
+     "魔力纯粹、在自己失控时敢沉着接住局面的人"
+    ],
+    "pressure_responses": {
+     "breaking": "看见日记银锁被人碰开时羞得发抖，把脸埋进对方手心不肯抬头。",
+     "high": "闸门警报亮起时第一次乱了方寸，靠在对方肩头调息。",
+     "low": "耳根泛红，仍扬起下巴命令对方不许乱看。",
+     "mid": "指尖发颤，咬住下唇，攥着对方袖口不放。"
+    },
+    "relationship_stance": "平日用冷酷筑墙，把最在意的后辈训得最狠；回路过载让面具松动，认不认心事仍由自己决定。",
+    "withdrawal": "坐在长椅角落贴着对方肩头，慢慢调匀呼吸。"
+   },
+   "gender": "female",
+   "gender_reason": "标题人物“冷面学姐”，固定性别不改变成年、自愿与清醒的亲密前提",
+   "id": "first_seat_ayaka",
+   "identity": {
+    "authority": "禁书库三层借阅权、高阶实验台调度权与后辈实训成绩否决权。",
+    "exposure": "私自炼制明令禁止的精神干涉秘药。",
+    "hidden": "制服内衬口袋里有一枚亲手编的红绳护符，刻着搭档的名字。",
+    "limits": [
+     "回路过载发热时指尖微颤，单靠自己稳不住银法杖导流",
+     "回路受创未愈，强行施法会伤及经络"
+    ],
+    "obligations": [
+     "完成古代共鸣秘法的毕业论文，捍卫公爵家声誉，护住搭档不受除名。"
+    ],
+    "resources": [
+     "刻有家徽的纯银导流权杖",
+     "记录魔导院地脉符文拓印的古代羊皮密卷"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "魔力暴走边缘仍面不改色的担当",
+     "触碰时既坚定又始终珍惜的分寸"
+    ],
+    "boundaries": [
+     "回路过载未平时只接受导引救护，不谈私情",
+     "首席的学术尊严不容践踏"
+    ],
+    "desire_range": [
+     3,
+     5
+    ],
+    "desired_position": "洗脱罪责后与搭档并肩执掌炼成研究所的伴侣",
+    "dislikes": [
+     "轻浮的言语与居高临下的亵渎",
+     "无助时的冷漠背叛"
+    ],
+    "expression": "回路平稳之后，红着耳根把日记推过去：“第十二页，平时写的。要怎么回答，随你。”",
+    "likes": [
+     "被扣住腰按在胸口，听那阵擂鼓般的心跳",
+     "耳边一句低哑的“别怕，交给我”"
+    ],
+    "preconditions": [
+     "冷面天才首席魔导师与对方都已完全清醒，眼前的危机已经解除",
+     "冷面天才首席魔导师出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "冷面天才首席魔导师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "dragonscale_gate_vestibule",
+     "to": 19
+    },
+    {
+     "from": 20,
+     "location_id": "forbidden_alchemy_laboratory",
+     "to": 199
+    },
+    {
+     "from": 200,
+     "location_id": "forbidden_alchemy_laboratory",
+     "to": 379
+    },
+    {
+     "from": 380,
+     "location_id": "ancient_grimoire_vault",
+     "to": 559
+    },
+    {
+     "from": 560,
+     "location_id": "dragonscale_gate_vestibule",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人在暗室里呼吸交缠、心跳同步，平日冷硬的上下级防线松动了",
+      "option": "从身后环住首席合握银法杖，掌心贴住后心，把过载魔力一寸寸导入石台"
+     },
+     {
+      "cost": "要向讲师坦白今晚私下试验的真实配方",
+      "option": "先饮下讲师配的月华中和剂压住魔力波峰，再慢慢拆解法阵"
+     }
+    ],
+    "pressure": "导流不及时，过载会伤及心脉，还会触发禁书库的警报。",
+    "trigger": "首席的纯银法杖因共鸣过载泛起幽蓝电弧，回路发烫，需要搭档合握法杖，把过剩魔力导入黑曜石台。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "这个人的手比任何清心药剂都让人安心……被这样扶着，我竟然第一次不想当什么首席了……",
+    "surface": "“收起你放肆的眼神！跟着我的节拍呼吸，法杖握紧！今晚的事敢泄露半个字，我用天火把你烧成灰……别、别抱这么紧……”"
+   }
+  },
+  {
+   "adult_context": "年满二十岁、持二级魔导师认证的成年魔导士。",
+   "age_range": [
+    20,
+    22
+   ],
+   "appearance_options": [
+    "深灰魔导长袍，身形挺拔，袖口被药火燎焦一块，眼神沉着如寒星。",
+    "单臂护着怀里的首席，另一只手的掌心抵在对方后心，指缝间透出导引魔力的微光。"
+   ],
+   "decision": {
+    "avoids": [
+     "推卸责任的贵族",
+     "拿后辈当耗材的人"
+    ],
+    "contrast": "讲堂角落里最不起眼的平民后辈，暗室里却是最沉得住气的人。",
+    "core_value": "先把魔力导稳，把人带出去。剩下的话，等前辈清醒了再说。",
+    "goal_options": [
+     "稳住首席的回路与体温",
+     "在清场程序启动前交上平复报告",
+     "等对方平静下来，听一句真话"
+    ],
+    "never": [
+     "趁对方神智不清时套出任何对方清醒后不愿说的话。"
+    ],
+    "prefers": [
+     "刻薄但从不撒谎的人"
+    ],
+    "pressure_responses": {
+     "breaking": "跪在石台边喘了口气，又撑起来护回原位。",
+     "high": "挡在石台和闸门之间，不让外人闯进来打断导流。",
+     "low": "掌心抵着对方后心，一遍遍报着周天的节拍。",
+     "mid": "把法杖塞回对方手里，自己的魔力分一半过去。"
+    },
+    "relationship_stance": "挨了两年训，从没服过；今晚才发现，自己一直在等对方先低头。",
+    "withdrawal": "坐在长椅边，一只手始终没离开对方后背。"
+   },
+   "gender": "male",
+   "gender_reason": "原稿以“学弟”“男子汉”书写的搭档，固定性别不改变成年、自愿与清醒的亲密前提",
+   "id": "junior_partner_yuma",
+   "identity": {
+    "authority": "全系魔力亲和体质带来的导引能力，以及今夜现场唯一清醒者的处置权。",
+    "exposure": "曾偷看过首席落在讲堂的笔记。",
+    "hidden": "答应深夜来帮忙，是想问清楚对方为什么总针对自己。",
+    "limits": [
+     "平民出身，在魔导院毫无背景",
+     "也吸入了药雾，导流太久指尖会发麻"
+    ],
+    "obligations": [
+     "把首席的魔力导稳、带出暗室，保住两人的前途。"
+    ],
+    "resources": [
+     "与首席高达九成的魔力相容度",
+     "一副几乎不受药雾侵蚀的体质"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "高傲面具下终于露出的脆弱",
+     "清醒之后仍然认账的勇气"
+    ],
+    "boundaries": [
+     "对方回路未平时只导引不越线",
+     "不翻对方不愿公开的日记"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "不再是后辈，而是与对方并肩的搭档与爱人",
+    "dislikes": [
+     "被当成残次品",
+     "居高临下的施舍"
+    ],
+    "expression": "等对方的呼吸平稳下来，才把法杖放回对方掌心：“前辈缓过来了。日记我没往后翻，你自己说。”",
+    "likes": [
+     "钟楼露台上一起看日出",
+     "对方第一次直呼自己的名字"
+    ],
+    "preconditions": [
+     "首席的炼药搭档后辈与对方都已完全清醒，眼前的危机已经解除",
+     "首席的炼药搭档后辈出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "首席的炼药搭档后辈",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "dragonscale_gate_vestibule",
+     "to": 19
+    },
+    {
+     "from": 20,
+     "location_id": "forbidden_alchemy_laboratory",
+     "to": 199
+    },
+    {
+     "from": 200,
+     "location_id": "forbidden_alchemy_laboratory",
+     "to": 379
+    },
+    {
+     "from": 380,
+     "location_id": "ancient_grimoire_vault",
+     "to": 559
+    },
+    {
+     "from": 560,
+     "location_id": "dragonscale_gate_vestibule",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "退进密室后两人贴在书架旁，书案上的丝绒日记近在咫尺",
+      "option": "握住对方执杖的手，保持回路相连，一步步退进禁书残卷密室"
+     },
+     {
+      "cost": "后辈吸了不少残余雾气，下来时指尖也带着滚烫的共感",
+      "option": "先用湿斗篷替对方挡住雾气，自己登上排烟夹层打开副风门"
+     }
+    ],
+    "pressure": "强行中断导流会引发魔力反冲，留在原地又会吸入更多雾气。",
+    "trigger": "排烟副风门还没打开，共鸣雾气在石台周围萦绕，首席仍攥着银法杖站在法阵中央。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "掌心底下的回路烫得像要烧穿……那个在讲堂上把我骂得一文不值的人，原来这么怕黑。",
+    "surface": "“前辈，看着我。数到三，吸气。法杖在你手里，我也在。”"
+   }
+  },
+  {
+   "adult_context": "年满二十四岁、持皇家骑士团统领衔的成年执法长官。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "纤尘不染的秘银雕花重铠，血红斗篷猎猎作响，金发璀璨，单手按着破魔圣剑。",
+    "巡夜回来的板甲沾着夜露，按着闸门石案翻看值夜登记簿。"
+   ],
+   "decision": {
+    "avoids": [
+     "暗箭伤人的宵小",
+     "贪生怕死的懦夫"
+    ],
+    "contrast": "看似只知奉命的执法机器，心底把护卫同窗性命当成最高信条。",
+    "core_value": "法纪是立院之本，涉足禁术者不可饶恕——但无辜的人不能死在门里。",
+    "goal_options": [
+     "药雾外泄前控制现场",
+     "查清违规炼药的真相",
+     "执法中不伤人、不毁魔典"
+    ],
+    "never": [
+     "为了军功把门里的人就地正法。"
+    ],
+    "prefers": [
+     "光明磊落、敢作敢当的人"
+    ],
+    "pressure_responses": {
+     "breaking": "看见闸门符文全亮，咬牙立誓替门里的人担责。",
+     "high": "排烟道冒烟时下令全员后撤，亲自守住闸门。",
+     "low": "按剑立于门外，沉声指挥骑士布阵。",
+     "mid": "察觉门内魔力激增，用重剑抵住闸门符文槽延缓自锁。"
+    },
+    "relationship_stance": "敬重首席的天才与门第，痛恨其违规；对那个平民后辈怀着武者的审视。",
+    "withdrawal": "拄剑立于回廊角落，解开斗篷重重喘息。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "commander_reinhard",
+   "identity": {
+    "authority": "全院武装搜查权、违禁魔导士拘捕权与军事戒严权。",
+    "exposure": "默许过家族商队夹带未检疫草药入境。",
+    "hidden": "铠甲内袋里有一瓶教廷特赐的圣愈甘露。",
+    "limits": [
+     "刚直教条，容易把药理事故误判为叛乱",
+     "受繁琐军法程序束缚"
+    ],
+    "obligations": [
+     "肃清违规禁术，保全全体在院人员安全。"
+    ],
+    "resources": [
+     "能斩断高阶结界的破魔圣剑",
+     "直通教务长的传讯水晶"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "强权面前威武不屈的英雄品格",
+     "坦荡无瑕的灵魂"
+    ],
+    "boundaries": [
+     "骑士八德",
+     "大义第一"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "魔导防卫军大元帅兼风纪法庭首席审判长",
+    "dislikes": [
+     "背信弃义",
+     "欺凌弱者"
+    ],
+    "expression": "归剑入鞘行抚胸礼：“今夜你以身护人，本团长亲眼所见。查明非叛逆，我以家族荣誉为你作保。”",
+    "likes": [
+     "用剑捍卫公道",
+     "与真正的强者背靠背作战"
+    ],
+    "preconditions": [
+     "风纪骑士团青年团长与对方都已完全清醒，眼前的危机已经解除",
+     "风纪骑士团青年团长出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "风纪骑士团青年团长",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "ancient_grimoire_vault",
+     "to": 19
+    },
+    {
+     "from": 20,
+     "location_id": "dragonscale_gate_vestibule",
+     "to": 199
+    },
+    {
+     "from": 200,
+     "location_id": "dragonscale_gate_vestibule",
+     "to": 379
+    },
+    {
+     "from": 380,
+     "location_id": "forbidden_alchemy_laboratory",
+     "to": 559
+    },
+    {
+     "from": 560,
+     "location_id": "ancient_grimoire_vault",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "团长独自扛着结界回弹，等于替里面的人担下了渎职之责",
+      "option": "用破魔重剑抵住闸门符文枢轴延缓自锁，替门内的人争取收拾的时间"
+     },
+     {
+      "cost": "引来了异端裁决副官旁听插手",
+      "option": "按章程启动传讯阵，要门内交出试验手札接受风纪备案"
+     }
+    ],
+    "pressure": "闸门落锁上报元老院，门内的私下试验就会升级为全院公审。",
+    "trigger": "闸门外的防御符文因内室魔力波动开始自锁计时，风纪团长必须在封门前核清门内实情。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "那个平日高傲清冷的首席，今夜为了一个后辈冒这种险……那个后辈面对圣剑毫无惧色，不可冤枉好人。",
+    "surface": "“退后！结界有回弹！把首席扶到防爆台后，闸门我替你们顶着！”"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁、持魔药学硕士学位的成年讲师。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "墨绿丝绒长裙，长卷发微挽，鼻梁架着水晶单片镜，腰间挂满银链药瓶。",
+    "裙角沾着烟灰，跪在排风口前调配中和剂。"
+   ],
+   "decision": {
+    "avoids": [
+     "视后辈为弃子的官僚",
+     "落井下石的人"
+    ],
+    "contrast": "温柔文弱的女学者，抢险时临危不乱。",
+    "core_value": "炼药是为了探索真理，不是为了惩罚年轻的灵魂。",
+    "goal_options": [
+     "配出中和药送进暗室",
+     "指导搭档导引首席的魔力",
+     "向骑士团说明实验性质求宽大处理"
+    ],
+    "never": [
+     "解药配到一半时独自逃生。"
+    ],
+    "prefers": [
+     "有情有义、舍生护人的人"
+    ],
+    "pressure_responses": {
+     "breaking": "首席的回路迟迟不稳时，双手抖得握不住药匙。",
+     "high": "药雾外溢时脱下斗篷挡住风口，护着药箱不退。",
+     "low": "飞快翻阅药典，轻声指导穴位按压。",
+     "mid": "爬上排烟夹层，把中和药粉顺风道送下去。"
+    },
+    "relationship_stance": "像姐姐一样关爱两个后辈，懂首席要强背后的脆弱。",
+    "withdrawal": "退到书架阴影里研磨草药，闭目祈祷。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "lecturer_clara",
+   "identity": {
+    "authority": "实验原料审查权、中毒急救配方调拨权与实验室安全评定权。",
+    "exposure": "曾把地下工坊钥匙借给首席做研究。",
+    "hidden": "药箱底层有一盒能抚平经络灼伤的鲛人油膏。",
+    "limits": [
+     "不会战斗，挡不住崩塌碎石",
+     "在骑士团面前话语权有限"
+    ],
+    "obligations": [
+     "救治中毒者，防止禁药泄露全院。"
+    ],
+    "resources": [
+     "三株三百年份的月露龙胆解毒草",
+     "天青醒神熏香的配方"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "勇挑重担的担当",
+     "百折不挠的赤子之心"
+    ],
+    "boundaries": [
+     "师道尊严",
+     "救死扶伤第一"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "魔导医药学院常务院长",
+    "dislikes": [
+     "漠视生命",
+     "无端构陷"
+    ],
+    "expression": "递过鲛人药膏：“你的手导流导得发烫了……别动，我来涂。”",
+    "likes": [
+     "看奄奄一息的人转危为安",
+     "劫后炉火旁一杯热红茶"
+    ],
+    "preconditions": [
+     "魔药学年轻知性讲师与对方都已完全清醒，眼前的危机已经解除",
+     "魔药学年轻知性讲师出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "魔药学年轻知性讲师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "ancient_grimoire_vault",
+     "to": 19
+    },
+    {
+     "from": 20,
+     "location_id": "dragonscale_gate_vestibule",
+     "to": 199
+    },
+    {
+     "from": 200,
+     "location_id": "ventilation_flue_chamber",
+     "to": 379
+    },
+    {
+     "from": 380,
+     "location_id": "forbidden_alchemy_laboratory",
+     "to": 559
+    },
+    {
+     "from": 560,
+     "location_id": "ancient_grimoire_vault",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "讲师也进了封闭暗室，三人在石台旁再无秘密可言",
+      "option": "顺检修铁梯下到暗室，亲手替首席喂下圣露，用冰晶贴敷后颈"
+     },
+     {
+      "cost": "欠下讲师一份赖不掉的人情",
+      "option": "把药瓶从通风滑道送进暗室，自己留在夹层把风"
+     }
+    ],
+    "pressure": "圣露要在回路过载到顶前服下，而讲师手里还捏着首席私借禁书的拓印底单。",
+    "trigger": "魔药讲师带着刚配好的天青醒神圣露赶到排烟夹层，正隔着铸铁格栅向暗室递药。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这两个人平时在工坊里那样别扭较劲……到了要紧时竟能为对方做到这一步。",
+    "surface": "“按住首席的天柱穴！喝半瓶就够！冰晶贴后颈，我马上下来！”"
+   }
+  },
+  {
+   "adult_context": "年满二十三岁、具高阶结界检修资质的成年工匠。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "身材敦实，披着满是焦痕的牛皮工匠围裙，护目镜推在额头上。",
+    "半个身子探在闸门符文槽旁，满脸烟灰，手里攥着黄铜卡尺。"
+   ],
+   "decision": {
+    "avoids": [
+     "把责任推给工人的官僚",
+     "贪生怕死的软骨头"
+    ],
+    "contrast": "满嘴粗话的工匠，重情重义。",
+    "core_value": "什么神圣教条，我只认符文槽和承重梁——谁也别想让两个年轻人在我的工坊里出事。",
+    "goal_options": [
+     "稳住龙鳞闸门的自锁符文",
+     "让停转的排风井重新抽风",
+     "保住暗室里那套珍贵的炼金分馏器皿"
+    ],
+    "never": [
+     "通道没打通前丢下同伴独自爬出天井。"
+    ],
+    "prefers": [
+     "讲义气、骨头硬的人"
+    ],
+    "pressure_responses": {
+     "breaking": "符文槽全亮时一拳砸在门边石柱上。",
+     "high": "湿布裹手，转动排风井的手动副风门。",
+     "low": "一边调卡尺一边大骂采购买劣质符文石。",
+     "mid": "敲击停滞的符文轴承，火星四溅。"
+    },
+    "relationship_stance": "敬佩那个后辈的骨气，当成兄弟；对首席的眼高于顶早有耳闻，此刻却也同情。",
+    "withdrawal": "坐在工具箱上灌水，扯衣角包扎伤口。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "engineer_bruno",
+   "identity": {
+    "authority": "地下建筑结构维修权与防爆结界逆载切断权。",
+    "exposure": "曾改装排气管偷运矮人黑啤。",
+    "hidden": "工具箱里有一柄能震碎结界核心的精金破魔锤。",
+    "limits": [
+     "不懂药理",
+     "脾气暴，容易用过激手段引发次生损伤"
+    ],
+    "obligations": [
+     "排除塌方隐患，打通救援通道。"
+    ],
+    "resources": [
+     "能暂缓龙鳞门自锁的秘银锥与急冻符文水晶",
+     "禁书库全套暗道与副风门图纸"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "并肩作战的互信",
+     "豪迈胆魄"
+    ],
+    "boundaries": [
+     "兄弟界限",
+     "患难与共"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "皇家魔导工程院总工程师",
+    "dislikes": [
+     "官僚主义",
+     "践踏工匠心血"
+    ],
+    "expression": "沾油的大手拍在对方肩上：“好样的！门我替你们看着，带首席去歇着，外面的烂摊子我扛！”",
+    "likes": [
+     "一把锤子打破绝境",
+     "酒馆里痛饮烈酒"
+    ],
+    "preconditions": [
+     "地下工坊符文总工匠与对方都已完全清醒，眼前的危机已经解除",
+     "地下工坊符文总工匠出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "地下工坊符文总工匠",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "forbidden_alchemy_laboratory",
+     "to": 19
+    },
+    {
+     "from": 20,
+     "location_id": "dragonscale_gate_vestibule",
+     "to": 199
+    },
+    {
+     "from": 200,
+     "location_id": "dragonscale_gate_vestibule",
+     "to": 379
+    },
+    {
+     "from": 380,
+     "location_id": "ventilation_flue_chamber",
+     "to": 559
+    },
+    {
+     "from": 560,
+     "location_id": "forbidden_alchemy_laboratory",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "水晶裂了一道纹，工匠虎口冻得发麻",
+      "option": "用急冻符文水晶压住主节点，留出一道够一人侧身进出的门缝"
+     },
+     {
+      "cost": "要向同行者公开自己私藏的禁书库暗道图纸",
+      "option": "不顶大门，带人从排烟夹层的检修暗道绕进内室"
+     }
+    ],
+    "pressure": "闸门一旦闭合，只能等天亮后长老会持双印开启。",
+    "trigger": "龙鳞闸门的自锁符文正一格格亮起，工匠守在门廊枢轴旁盯着读数。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "那个后辈为了护那个傲慢首席连前途都不要了，今天说什么也得把两人护住。",
+    "surface": "“按稳那个铜栓！一、二、三——好！副风门开了，药雾马上就散！”"
+   }
+  },
+  {
+   "adult_context": "年满二十三岁、持现场查封执照的宗教裁判所成年副官。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "纯白神官风衣纤尘不染，白发如雪、眸若紫晶，腰佩锁魔银链与裁决天平。",
+    "风衣下摆溅着粉色药雾，紫眸里第一次透出动容，握着圣水金瓶。"
+   ],
+   "decision": {
+    "avoids": [
+     "欺瞒神明的伪善者",
+     "鱼肉后辈的贪鄙小人"
+    ],
+    "contrast": "冷若冰霜的宗教鹰犬，心底崇尚公义。",
+    "core_value": "神圣法典不容亵渎，但罪名必须建立在真相上。",
+    "goal_options": [
+     "清场前封存原始证物",
+     "查清首席是否受暗黑教派胁迫",
+     "在法理内公正定性，保护无辜"
+    ],
+    "never": [
+     "为了升迁罗织罪名构陷无辜。"
+    ],
+    "prefers": [
+     "刚正不阿、挺直脊梁的人"
+    ],
+    "pressure_responses": {
+     "breaking": "核心魔典险些被药液浸坏时脸色煞白。",
+     "high": "闸门一开就进去封存坩埚，防止药液外溢。",
+     "low": "在门外手托天平，冷冷记录魔力波谱。",
+     "mid": "甩出封魔银链缠住闸门把手，压住外溢的魔力。"
+    },
+    "relationship_stance": "把首席当重点嫌疑人，却同情其受药力折磨；被那个后辈的守护触动。",
+    "withdrawal": "立在回廊阴影里起草调查通报。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "adjutant_cecilia",
+   "identity": {
+    "authority": "违禁邪法定罪权、涉案人员移交权与禁忌器具封印权。",
+    "exposure": "私自调查过裁决所高层与黑市勾结的卷宗。",
+    "hidden": "袖口藏着一枚提供绝对人身豁免的赦免金币。",
+    "limits": [
+     "必须固定证据，容易被程序拖延",
+     "不懂魔药工程"
+    ],
+    "obligations": [
+     "查明禁药流入魔导院的真相，维护法纪。"
+    ],
+    "resources": [
+     "压制暴走魔力的封魔银链",
+     "直通教皇厅的裁决信道"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "威权面前坚守良知的灵魂",
+     "刚直坦荡"
+    ],
+    "boundaries": [
+     "神官圣洁",
+     "公道第一"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "帝国宗教与法理道德巡按长",
+    "dislikes": [
+     "虚伪说教",
+     "滥用神权"
+    ],
+    "expression": "收起银链，伸出戴白丝手套的手：“你不是异端，你是真正的骑士。有我在，谁也别想颠倒黑白。”",
+    "likes": [
+     "阴谋在铁证前土崩瓦解",
+     "为蒙冤者洗刷罪名"
+    ],
+    "preconditions": [
+     "异端裁决所特派副官与对方都已完全清醒，眼前的危机已经解除",
+     "异端裁决所特派副官出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "异端裁决所特派副官",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "ancient_grimoire_vault",
+     "to": 19
+    },
+    {
+     "from": 20,
+     "location_id": "dragonscale_gate_vestibule",
+     "to": 199
+    },
+    {
+     "from": 200,
+     "location_id": "dragonscale_gate_vestibule",
+     "to": 379
+    },
+    {
+     "from": 380,
+     "location_id": "forbidden_alchemy_laboratory",
+     "to": 559
+    },
+    {
+     "from": 560,
+     "location_id": "ancient_grimoire_vault",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "要私下答应副官一个古籍借阅权限的附加条件",
+      "option": "抢在火漆落下前盖上无害化备案章，把今晚定为合规的夜间联合教研"
+     },
+     {
+      "cost": "前厅剑拔弩张，双方结下梁子",
+      "option": "请风纪团长亮出副官越权调档的旧账，逼副官收起火漆"
+     }
+    ],
+    "pressure": "羊皮卷一旦盖上异端火漆，今晚在场的人都难逃停职审查。",
+    "trigger": "异端裁决副官捧着圣裁天平站在前厅，目光落在那份记着全套配方与批文的羊皮卷上。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这个后辈为了护那个傲慢的首席，连前途都押上了……我绝不能让权贵毁了这两个人。",
+    "surface": "“团长，住手！门内有中和药力反应！我是裁决所特派副官，这里由我接管！”"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "帝国历九百年，学期末的考试周",
+  "minute": 20
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "bodily_harm",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "supernatural",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "私自炼制精神干涉类魔药者，一律剥夺魔导师资格，流放北境边陲。",
+  "暗室魔力浓度超标、龙鳞闸门自锁后，只有院长金印能从内部开启。",
+  "中毒者在药性未退时所说的话，按院规不得作为任何处分或承诺的依据。",
+  "中和过载魔力，须由魔力相容度高的魔导士以掌心抵住后心，缓缓导引周天。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "在月光石下的黑曜石台前并肩站定，把纯银法杖插进法阵中枢",
+    "一人执杖底、一人覆住对方手背，把各自的魔力波长调到同频",
+    "顺着掌心的温度感知对方平稳的心跳，低声核对今晚的配比"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [
+    "hk_ayaka_uniform_approach",
+    "hk_yuma_grounding_approach",
+    "hk_chamber_glow_observe"
+   ],
+   "id": "a_lab_dual_staff_calibration",
+   "location_ids": [
+    "forbidden_alchemy_laboratory"
+   ],
+   "start_minute": 20,
+   "tags": [
+    "intimate",
+    "supernatural"
+   ],
+   "title": "炼药台银杖双人调律"
+  },
+  {
+   "beats": [
+    "点亮案头的苔藓古灯，从橡木书架上取下要两人合参的古籍",
+    "把夹着干花书签的笔记推到同伴手边，肩挨着肩辨认羊皮纸上的符文",
+    "趁对方低头抄录，把那本丝绒日记收进最里侧的书匣"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [
+    "hk_vault_diary_observe",
+    "hk_yuma_close_diary_approach",
+    "hk_ayaka_clear_confession_approach"
+   ],
+   "id": "a_vault_velvet_diary_reading",
+   "location_ids": [
+    "ancient_grimoire_vault"
+   ],
+   "start_minute": 35,
+   "tags": [
+    "intimate"
+   ],
+   "title": "残卷密室古灯夜读"
+  },
+  {
+   "beats": [
+    "导完一轮回路，扶着疲惫的同伴在天鹅绒软垫上坐下",
+    "替对方解开拘束的领扣，把浸过月华圣露的凉湿帕敷在颈侧",
+    "分饮银杯里的镇定草药茶，听平日冷若冰霜的人放柔了嗓音聊私话"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_ayaka_fever_request",
+    "hk_ayaka_stockings_observe",
+    "hk_lecturer_potion_approach"
+   ],
+   "id": "a_lab_collar_cooling_tea",
+   "location_ids": [
+    "forbidden_alchemy_laboratory",
+    "ancient_grimoire_vault"
+   ],
+   "start_minute": 50,
+   "tags": [
+    "intimate"
+   ],
+   "title": "暗室软垫安神茶"
+  },
+  {
+   "beats": [
+    "端两杯热可可登上铸铁夹层，坐在检修铁梯旁俯瞰工坊灯火",
+    "推开通往天井的副风门，让雪山的夜风吹散身上的药草味",
+    "在只有蒸汽管低鸣的平台上靠在一起，聊白天不便外传的院内趣闻"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_flue_pipe_observe",
+    "hk_engineer_hammer_approach",
+    "hk_yuma_grounding_approach"
+   ],
+   "id": "a_flue_catwalk_cocoa_break",
+   "location_ids": [
+    "ventilation_flue_chamber"
+   ],
+   "start_minute": 65,
+   "tags": [
+    "intimate"
+   ],
+   "title": "排烟夹层热可可"
+  },
+  {
+   "beats": [
+    "提着符文提灯走到闸门前厅，例行检查门轴的防护结界",
+    "与巡夜经过的团长或副官在石案旁停步，顺手拂去对方斗篷上的夜露",
+    "在登记表上签完名没有立刻走，借着昏黄的灯光多聊了一会儿"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_commander_blade_approach",
+    "hk_adjutant_scale_approach",
+    "hk_vestibule_lock_observe"
+   ],
+   "id": "a_vestibule_night_patrol_chat",
+   "location_ids": [
+    "dragonscale_gate_vestibule"
+   ],
+   "start_minute": 80,
+   "tags": [
+    "workplace"
+   ],
+   "title": "龙鳞门廊夜巡"
+  },
+  {
+   "beats": [
+    "打开恒温水晶药柜，把新烘干的月光草与天青花瓣按年份装瓶",
+    "指尖沾上清冽的草木香，身旁的人凑近闻了闻，笑着替你挽起袖口",
+    "把多配的一小瓶安神圣露塞进对方衣袋，叮嘱回去按时服下"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_lecturer_potion_approach",
+    "hk_vault_diary_observe",
+    "hk_ayaka_fever_request"
+   ],
+   "id": "a_vault_herb_sorting",
+   "location_ids": [
+    "ancient_grimoire_vault",
+    "forbidden_alchemy_laboratory"
+   ],
+   "start_minute": 95,
+   "tags": [
+    "intimate"
+   ],
+   "title": "密室药柜分拣月光草"
+  },
+  {
+   "beats": [
+    "在夹层工作台前擦净手，用黄铜卡尺校准新做的几盏符文灯",
+    "挑出光线最柔和的一盏递给值夜的同伴，手把手教对方调灯芯",
+    "暖黄的灯光映在两人靠近的眉眼间，地下石室安静下来"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_engineer_hammer_approach",
+    "hk_flue_pipe_observe",
+    "hk_commander_blade_approach"
+   ],
+   "id": "a_flue_lantern_tuning",
+   "location_ids": [
+    "ventilation_flue_chamber",
+    "dragonscale_gate_vestibule"
+   ],
+   "start_minute": 110,
+   "tags": [
+    "workplace"
+   ],
+   "title": "工坊夹层符文灯调光"
+  },
+  {
+   "beats": [
+    "忙完一整夜，并肩走出闸门前厅通往中庭的石阶",
+    "远眺钟楼顶端的晨雾被雪山朝阳染成金红，晨钟回荡在城堡上空",
+    "在早课的人到来前，替彼此整理好衣冠，约好今晚再见"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_dawn_castle_observe",
+    "hk_ayaka_clear_confession_approach",
+    "hk_adjutant_scale_approach"
+   ],
+   "id": "a_vestibule_dawn_bell_watch",
+   "location_ids": [
+    "dragonscale_gate_vestibule",
+    "forbidden_alchemy_laboratory"
+   ],
+   "start_minute": 125,
+   "tags": [
+    "intimate"
+   ],
+   "title": "钟楼破晓迎晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.45,
+  "nonbinary": 0.05
+ },
+ "default_person": "second",
+ "era": "帝国皇家魔导院地下禁书库，古代秘药暴走之夜",
+ "extends": null,
+ "forbidden_terms": [
+  "修仙",
+  "斗气",
+  "宗门",
+  "掌门",
+  "老祖",
+  "妖丹",
+  "飞剑",
+  "灵石",
+  "洞天",
+  "老朽",
+  "贫道"
+ ],
+ "hooks": [
+  {
+   "id": "hk_ayaka_uniform_approach",
+   "kind": "approach",
+   "location_ids": [
+    "forbidden_alchemy_laboratory",
+    "ancient_grimoire_vault",
+    "dragonscale_gate_vestibule"
+   ],
+   "slot": "first_seat_ayaka",
+   "text": "{first_seat_ayaka.name}金边风衣领口微敞，耳根泛红却眼神清明，把纯银法杖按进你掌心：“别松手……回路过载太快了，陪我握稳法杖，把这股热流导进石台。”"
+  },
+  {
+   "id": "hk_yuma_grounding_approach",
+   "kind": "approach",
+   "location_ids": [
+    "forbidden_alchemy_laboratory",
+    "dragonscale_gate_vestibule"
+   ],
+   "slot": "junior_partner_yuma",
+   "text": "{junior_partner_yuma.name}稳稳托住首席微颤的手腕，掌心贴在对方后心导引魔力，抬头对你说：“帮我盯着石台符文的光。导流结束前，谁也别碰书案上那本丝绒日记。”"
+  },
+  {
+   "id": "hk_commander_blade_approach",
+   "kind": "approach",
+   "location_ids": [
+    "dragonscale_gate_vestibule",
+    "forbidden_alchemy_laboratory"
+   ],
+   "slot": "commander_reinhard",
+   "text": "{commander_reinhard.name}斗篷翻卷，以破魔重剑抵住闸门符文槽，隔着门缝低声道：“自锁结界我替你们顶着！先把里面的魔力波动压下来，别惊动地面巡逻队！”"
+  },
+  {
+   "id": "hk_lecturer_potion_approach",
+   "kind": "approach",
+   "location_ids": [
+    "ventilation_flue_chamber",
+    "forbidden_alchemy_laboratory"
+   ],
+   "slot": "lecturer_clara",
+   "text": "{lecturer_clara.name}托着天青醒神圣露走下铁梯，把冰晶敷帖递到你手里：“喝半瓶就能平复回路燥热，剩下的冰晶贴在后颈。今晚的事我替你们瞒着。”"
+  },
+  {
+   "id": "hk_engineer_hammer_approach",
+   "kind": "approach",
+   "location_ids": [
+    "dragonscale_gate_vestibule",
+    "ventilation_flue_chamber"
+   ],
+   "slot": "engineer_bruno",
+   "text": "{engineer_bruno.name}擦去护目镜上的白雾，冲你招手：“闸门的自锁我先替你们压住了，要进要出趁现在；排风井的副风门我也给你们留着！”"
+  },
+  {
+   "id": "hk_adjutant_scale_approach",
+   "kind": "approach",
+   "location_ids": [
+    "dragonscale_gate_vestibule",
+    "ancient_grimoire_vault",
+    "ventilation_flue_chamber"
+   ],
+   "slot": "adjutant_cecilia",
+   "text": "{adjutant_cecilia.name}托着裁决天平走到你面前：“裁判所特派副官。今晚暗室的事要有个说法——你先说，我再决定要不要落火漆。”"
+  },
+  {
+   "id": "hk_yuma_close_diary_approach",
+   "kind": "approach",
+   "location_ids": [
+    "ancient_grimoire_vault",
+    "forbidden_alchemy_laboratory"
+   ],
+   "slot": "junior_partner_yuma",
+   "text": "{junior_partner_yuma.name}把日记合上压在古灯下，转向你低声说：“这本东西，等首席自己决定给不给人看。现在先帮我把排风副风门打开。”"
+  },
+  {
+   "id": "hk_ayaka_clear_confession_approach",
+   "kind": "approach",
+   "location_ids": [
+    "forbidden_alchemy_laboratory",
+    "dragonscale_gate_vestibule"
+   ],
+   "slot": "first_seat_ayaka",
+   "text": "回路平稳下来，{first_seat_ayaka.name}攥着法杖看你，眼神清明：“刚才导流时说的话不算。日记第十二页是平时写的——那个，算数。”"
+  },
+  {
+   "id": "hk_ayaka_fever_request",
+   "kind": "request",
+   "location_ids": [
+    "forbidden_alchemy_laboratory",
+    "ancient_grimoire_vault"
+   ],
+   "slot": "first_seat_ayaka",
+   "text": "{first_seat_ayaka.name}靠在黑曜石台边平复呼吸，微烫的指节勾住你的袖口：“再坐一会儿……回路刚稳下来，白天在讲堂上没说完的话，我想单独跟你说清楚。”"
+  },
+  {
+   "id": "hk_ayaka_stockings_observe",
+   "kind": "observe",
+   "location_ids": [
+    "forbidden_alchemy_laboratory",
+    "ancient_grimoire_vault"
+   ],
+   "slot": "first_seat_ayaka",
+   "text": "天鹅绒软垫上，{first_seat_ayaka.name}解开了两颗领扣，金边风衣搭在椅背，纯金发簪斜在枕边，手里还攥着那柄银法杖，呼吸渐渐平稳。"
+  },
+  {
+   "id": "hk_vestibule_lock_observe",
+   "kind": "observe",
+   "location_ids": [
+    "dragonscale_gate_vestibule",
+    "forbidden_alchemy_laboratory"
+   ],
+   "slot": "commander_reinhard",
+   "text": "龙鳞闸门的门轴处，自锁符文一格格亮起，生铁插销悬在地槽上方，门缝里涌出带寒霜的冷风。"
+  },
+  {
+   "id": "hk_vault_diary_observe",
+   "kind": "observe",
+   "location_ids": [
+    "ancient_grimoire_vault",
+    "forbidden_alchemy_laboratory"
+   ],
+   "slot": "junior_partner_yuma",
+   "text": "书案上，丝绒日记在苔藓古灯下翻到第十二页，娟秀的字迹写满一个名字：“那个人今天又在实训课上反驳我了……为什么偏偏是那个人。”"
+  },
+  {
+   "id": "hk_flue_pipe_observe",
+   "kind": "observe",
+   "location_ids": [
+    "ventilation_flue_chamber",
+    "dragonscale_gate_vestibule",
+    "forbidden_alchemy_laboratory"
+   ],
+   "slot": "engineer_bruno",
+   "text": "排烟夹层的黄铜管透着暗红余温，重新转起来的合金扇叶把淡粉色药雾一口一口抽向天井。"
+  },
+  {
+   "id": "hk_chamber_glow_observe",
+   "kind": "observe",
+   "location_ids": [
+    "forbidden_alchemy_laboratory",
+    "ancient_grimoire_vault"
+   ],
+   "slot": "lecturer_clara",
+   "text": "幽紫月光石下，黑天鹅绒帘半挽，血红符文在石壁上流转，两人贴在一起的影子映在昏暗的石镜里。"
+  },
+  {
+   "id": "hk_dawn_castle_observe",
+   "kind": "observe",
+   "location_ids": [
+    "dragonscale_gate_vestibule",
+    "forbidden_alchemy_laboratory"
+   ],
+   "slot": "junior_partner_yuma",
+   "text": "中庭千年钟楼的露台上，金色朝阳从雪山之巅升起，万道金光刺破晨雾，把整座魔法城堡镀上金顶，晨风掠过发梢。"
+  }
+ ],
+ "id": "alchemy_archive_potion_backlash",
+ "locations": [
+  {
+   "affordances": [
+    "在黑曜石台内侧让清醒但回路发烫的首席靠进怀里，掌心抵住后心导引魔力",
+    "两人合握纯银法杖插进导流槽，把过载魔力平稳泄入石台符文阵",
+    "解开金边风衣的领扣替回路过载的首席透气"
+   ],
+   "detail": "整块千年玄武岩雕成的密室，墙上密布防爆血红符文。正中是黑曜石炼药台，一人高的水晶分馏塔与三具青铜坩埚冒着淡粉色药雾。月光石凹槽洒下幽紫光，黑玫瑰与麝香的甜气若有若无。角落一张铺黑天鹅绒软垫的长椅，是唯一能歇脚的地方。",
+   "exits": [
+    "dragonscale_gate_vestibule",
+    "ancient_grimoire_vault"
+   ],
+   "id": "forbidden_alchemy_laboratory",
+   "name": "禁忌炼药暗室",
+   "pressure_modifiers": {
+    "p_clara_ayaka_grimoire_leverage": "石台旁的共鸣法阵正在运转，署名与底单的条件都能当场验证。",
+    "p_inquisition_license_freeze": "石台导流孔直连前厅石碑，双人合握银法杖就能从内侧回传合规波长。",
+    "p_mana_circuit_overheat": "暗室温热静谧，天鹅绒软垫与导流法阵就在手边。",
+    "p_velvet_diary_rumor": "幽紫月光石与黑天鹅绒帘隔绝了外人视线。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "淡粉药雾与幽紫荧光交织，屋里光线昏暗。",
+   "witnesses": [
+    "bg_lab_assistant_trapped"
+   ]
+  },
+  {
+   "affordances": [
+    "在石案登记簿上签下夜间出入记录",
+    "在结界节点涂中和药剂解除隔音，向门内传话",
+    "退到防爆石柱内侧避开闸门散出的寒霜雾气"
+   ],
+   "detail": "重五吨的生铁龙鳞闸门平日半开，精钢插销悬在地槽上方。两侧石壁是三重隔音结界的嗡鸣符文，中央一块红色魔石警报，石案上摆着值夜登记簿。",
+   "exits": [
+    "forbidden_alchemy_laboratory",
+    "ventilation_flue_chamber"
+   ],
+   "id": "dragonscale_gate_vestibule",
+   "name": "龙鳞闸门前厅",
+   "pressure_modifiers": {
+    "p_dragonscale_gate_seal": "五吨重的闸门近在眼前，值夜法师的登记簿就在石案上。",
+    "p_inquisition_license_freeze": "律法石碑与紧急豁免印鉴槽就在前厅正中。",
+    "p_reinhard_cecilia_warrant_leverage": "门廊两侧的执法石雕之间，亮出伪造火漆的副卷足以让副官退让。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "violence"
+   ],
+   "visibility": "幽蓝结界光映着石案，巡夜的骑士、裁决官与工匠常在这里交接。",
+   "witnesses": [
+    "bg_paladin_shield_sentinel",
+    "bg_corridor_gossip_mage",
+    "bg_purge_sentinel_mage"
+   ]
+  },
+  {
+   "affordances": [
+    "查阅古籍里的正统解药与周天导引路线",
+    "把解毒圣草粉末撒进银杯调一碗镇定药汤",
+    "在书架间的软榻上并肩调息"
+   ],
+   "detail": "炼药台后石壁暗门里的小书库，紫檀书架上陈列着被列为禁书的羊皮卷与封印魔典。雕花书案上亮着荧光苔藓古灯，案头一本带银锁扣的深蓝丝绒日记——首席魔导师随身带了两年。这里是唯一没被药雾污染的地方。",
+   "exits": [
+    "forbidden_alchemy_laboratory",
+    "ventilation_flue_chamber"
+   ],
+   "id": "ancient_grimoire_vault",
+   "name": "禁书残卷密室",
+   "pressure_modifiers": {
+    "p_clara_ayaka_grimoire_leverage": "那份私拓禁书的底单就摊在苔藓古灯下。",
+    "p_mana_circuit_overheat": "石壁沁着微凉的地脉寒气，书架间的软榻适合敷着冰晶并肩调息。",
+    "p_velvet_diary_rumor": "日记就在书案上，转身就能锁进暗格，或翻到第十二页当面对质。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "苔藓古灯一圈柔绿的光，书香让人神魂一清。",
+   "witnesses": [
+    "bg_vault_librarian"
+   ]
+  },
+  {
+   "affordances": [
+    "爬上铸铁平台拨正排风井的导流银管恢复抽风",
+    "在夹层平台铺开斗篷让体力透支的同伴靠坐调息",
+    "转动排风井手动副风门向地表天井放出求援信标"
+   ],
+   "detail": "暗室上方的挑空维护夹层，黄铜排烟管横贯穹顶，管壁透着暗红余温。脚下是镂空铸铁格栅，能俯瞰整座工坊。正中一台蒸汽齿轮排风机因符文过载暂停运转，检修铁梯直通地表天井，是闸门之外唯一的备用通路。",
+   "exits": [
+    "dragonscale_gate_vestibule",
+    "ancient_grimoire_vault"
+   ],
+   "id": "ventilation_flue_chamber",
+   "name": "地热排烟夹层",
+   "pressure_modifiers": {
+    "p_dragonscale_gate_seal": "黄铜排烟总管与手动副风门就在铸铁平台正中。",
+    "p_reinhard_cecilia_warrant_leverage": "铸铁格栅上方远离耳目，适合私下敲定不外传的条件。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "铜管的暗红热芒与天井漏下的冷月光交错。",
+   "witnesses": [
+    "bg_flue_stoker"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "神乐坂",
+   "西园寺",
+   "橘川",
+   "御子柴",
+   "白河",
+   "黑崎",
+   "皇",
+   "冯·霍恩",
+   "洛伦",
+   "阿什福德",
+   "瓦伦丁",
+   "克劳迪亚"
+  ],
+  "given_female": [
+   "绚香",
+   "蕾娜",
+   "艾丽西亚",
+   "千冬",
+   "雪乃",
+   "克莉丝",
+   "真理奈",
+   "优姬",
+   "伊芙",
+   "露西娅",
+   "菲奥娜",
+   "赛莲"
+  ],
+  "given_male": [
+   "悠真",
+   "雷恩",
+   "修奈尔",
+   "浩二",
+   "凯尔",
+   "宗一郎",
+   "隼人",
+   "亚瑟",
+   "莱昂",
+   "埃德温",
+   "卡斯",
+   "奥兰"
+  ],
+  "given_neutral": [
+   "塞拉",
+   "诺亚",
+   "理央",
+   "尤里安",
+   "千寻",
+   "艾尔",
+   "洛",
+   "希尔",
+   "雅瑟",
+   "米亚",
+   "温",
+   "珀"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "保留地下炼药暗室、分馏塔爆裂、银法杖导流、金边制服与黑丝的反差、丝绒日记、龙鳞闸门、圣剑与破锁锥破障、秘银水倒计时与钟楼日出的主线。改动：“古代魅魔秘药”改为只致高烧与回路过载的古代共鸣秘药，删去催情、“肌肤饥渴”与“真言咒印无法撒谎”，院规改为药性未退时说的话不作数；“必须由异性贴身周天循环”改为魔力相容者掌心抵后心导引；高烧期间只写救护，“求欢”“淫乱不堪”“只要你肯要我”“你只是我的女人”“彻底霸占征服”全部删去，告白挪到药性退尽、首席清醒之后，以清醒时写的日记为准；工匠“大小姐……跟个小鸟似的”改为不带贬损的拍肩；转折“以身相许”改为“舍身”；团长台词里的禁词“斗气”删去；学姐/学弟改称首席/后辈，id 去掉 apprentice；物件类背景人物改为真人；补搭档人物模板与首席玩家身份，工匠与副官补进组合；剧情家族名九条移出姓氏池并补满名字池；内容标签去掉 coercion_theme 与 substance；首席与搭档固定性别，其余不限。\n2026-10-18 按写作规则 v2 改造：人物组合改为 8 单人 + 2 多人；讲师握首席私拓禁书、团长握副官伪造火漆两条把柄；回路过载改为头脑清醒，保留“回路过载未平时只接受导引救护，不谈私情”的界线；各角色的秒级生死情境改为潜在风险；删六条泛用钩子；日常补到八条。",
+ "player_identities": [
+  {
+   "age_range": [
+    20,
+    22
+   ],
+   "baseline": "年满二十岁、持二级魔导师认证的平民出身后辈，受首席之邀深夜协助炼药，平日没少挨对方的训。",
+   "gender": "any",
+   "id": "junior_alchemy_partner",
+   "reputation": "院里公认潜能最高的平民黑马，实战考核中硬扛过高阶魔兽。",
+   "resources": [
+    "逆转炼成阵法力回流的逆旋解构咒印",
+    "祖传的耐腐蚀玄武岩坩埚钳"
+   ],
+   "risks": [
+    "违规炼药一旦被抓，将被剥夺法术回路逐出魔导院。"
+   ],
+   "role": "炼药搭档后辈",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}魔导士"
+    },
+    {
+     "gender": "any",
+     "pattern": "炼药助手"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    22
+   ],
+   "baseline": "年满二十一岁、公爵家嫡系出身的首席魔导师，以刻薄冷傲著称，今夜违规炼制古代共鸣秘药。",
+   "gender": "any",
+   "id": "senior_alchemist_first_seat",
+   "reputation": "院里的高岭之花，斥退过无数追求者。",
+   "resources": [
+    "禁书库三层高级借阅权",
+    "刻有家徽的纯银导流法杖"
+   ],
+   "risks": [
+    "违规炼药曝光，公爵家千年声誉毁于一旦。"
+   ],
+   "role": "冷面首席魔导师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}前辈"
+    },
+    {
+     "gender": "any",
+     "pattern": "首席大人"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "年满二十四岁、奉命查抄禁书库的风纪骑士团长，院里最年轻的圣殿骑士统领。",
+   "gender": "any",
+   "id": "disciplinary_commander",
+   "reputation": "铁面无私，嫉恶如仇。",
+   "resources": [
+    "能破开禁书库中层大门的破魔重剑",
+    "直通教务处的紧急拘捕符文卷轴"
+   ],
+   "risks": [
+    "强行破门引发地脉坍塌，将受元老院军事审判。"
+   ],
+   "role": "风纪骑士团长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}团长"
+    },
+    {
+     "gender": "any",
+     "pattern": "首席风纪官"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十二岁、持魔药学硕士学位的讲师，深夜巡查时撞上暗室警报。",
+   "gender": "any",
+   "id": "potion_lecturer",
+   "reputation": "后辈们爱戴的温柔讲师，精通禁忌药理。",
+   "resources": [
+    "月华中和剂的独门配方材料",
+    "暗室排烟道隐藏副风门的开启符印"
+   ],
+   "risks": [
+    "吸入过量药雾，自身魔力也会失调瘫软。"
+   ],
+   "role": "魔药学年轻讲师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}讲师"
+    },
+    {
+     "gender": "any",
+     "pattern": "魔药讲师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    24
+   ],
+   "baseline": "年满二十三岁、负责禁书库结界维护的符文工匠，地下建筑的活地图。",
+   "gender": "any",
+   "id": "runic_engineer",
+   "reputation": "古代符文锁在其眼中如同儿戏。",
+   "resources": [
+    "切断龙鳞门自锁魔力流的秘银破锁锥",
+    "能短暂停滞结界循环的聚能符文水晶"
+   ],
+   "risks": [
+    "徒手拆解爆裂结界，面临魔力反噬粉碎骨折。"
+   ],
+   "role": "结界符文工匠",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工匠"
+    },
+    {
+     "gender": "any",
+     "pattern": "符文专家"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    24
+   ],
+   "baseline": "年满二十三岁、宗教裁判所特遣的裁决副官，奉命督查禁药流入魔导院一案。",
+   "gender": "any",
+   "id": "inquisition_adjutant",
+   "reputation": "裁决所令人闻风丧胆的冷血督察。",
+   "resources": [
+    "冻结涉事者执照的圣裁火漆印章",
+    "净化诅咒的圣水金瓶"
+   ],
+   "risks": [
+    "遭遇狂暴魔力冲击，护体光环会碎裂反噬。"
+   ],
+   "role": "异端裁决副官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}副官"
+    },
+    {
+     "gender": "any",
+     "pattern": "裁决督察"
+    }
+   ]
+  }
+ ],
+ "premise": "皇家魔导院地下的禁忌炼药暗室里，冷面首席魔导师带着后辈搭档复原一种古代共鸣秘药，已经熬了一个学期：白天上课、审稿，夜里守着琉璃导管看药色。暗室的龙鳞闸门遇到异常会自锁；首席有一本丝绒日记，从不让人碰。",
+ "pressures": [
+  {
+   "choice": "劝首席答应联合署名换讲师销毁底单，还是由你担下借书名义、另拿配药权交换？",
+   "exits": [
+    {
+     "cost": "今晚的导流实测数据要对讲师敞开，连两人的心率同步曲线都瞒不住",
+     "option": "在密室灯下签定共鸣课题联合署名，看着讲师用中和药水化掉底单"
+    },
+    {
+     "cost": "首席被你替自己顶下大过触动，关上密室门后握紧了你的手",
+     "option": "把借阅记录揽到自己名下，用下季度的月光草配额换讲师闭口"
+    }
+   ],
+   "far": {
+    "consequence": "未获三印联署私拓禁书，首席席位当场剥夺。",
+    "due_days": 1,
+    "trigger": "底单送进长老会"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "hk_lecturer_potion_approach",
+    "hk_ayaka_fever_request",
+    "hk_vault_diary_observe"
+   ],
+   "id": "p_clara_ayaka_grimoire_leverage",
+   "immediate": {
+    "minutes": 5,
+    "text": "高傲的首席指节发白，却无从抵赖。"
+   },
+   "leverage": {
+    "basis": "{lecturer_clara.name}握着{first_seat_ayaka.name}绕过长老会联署、私拓第三层共鸣禁书残卷的符文登记底单",
+    "holder": "lecturer_clara",
+    "subject": "first_seat_ayaka"
+   },
+   "location_ids": [
+    "ancient_grimoire_vault",
+    "forbidden_alchemy_laboratory"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "密室巡检符文半小时后扫描本夜借阅台账。"
+   },
+   "objective": "在巡检符文扫描台账前，谈妥底单的去留。",
+   "source": "person",
+   "start_minute": 30,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "禁书库三层违规借阅拓印",
+   "trigger": "在残卷密室书案前，{lecturer_clara.name}一边放下醒神圣露，一边把{first_seat_ayaka.name}私拓禁书的符文底单推到古灯下。"
+  },
+  {
+   "choice": "逼副官当场在无害化批文上盖印结案，还是留着副卷换副官今后做内应？",
+   "exits": [
+    {
+     "cost": "今晚的指控免了，你们也得替副官守住北境旧案",
+     "option": "盯着副官在石案上签发无害化结案，当面把副卷封进风纪密匣"
+    },
+    {
+     "cost": "副官交出豁免令牌，看你的眼神多了几分忌惮",
+     "option": "只还副卷抄件、扣下原件，要副官批下禁书库三层的夜间豁免"
+    }
+   ],
+   "far": {
+    "consequence": "私用空白火漆是重罪，副官从审查者沦为阶下囚，今晚的事也一并掀开。",
+    "due_days": 1,
+    "trigger": "副卷呈交枢机院"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "hk_commander_blade_approach",
+    "hk_adjutant_scale_approach",
+    "hk_engineer_hammer_approach"
+   ],
+   "id": "p_reinhard_cecilia_warrant_leverage",
+   "immediate": {
+    "minutes": 5,
+    "text": "副官托着天平的手一滞，目光在几人之间权衡。"
+   },
+   "leverage": {
+    "basis": "{commander_reinhard.name}握着{adjutant_cecilia.name}上月在北境私盖空白圣裁火漆、伪造审讯日期的原始副卷",
+    "holder": "commander_reinhard",
+    "subject": "adjutant_cecilia"
+   },
+   "location_ids": [
+    "dragonscale_gate_vestibule",
+    "ventilation_flue_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 25,
+    "text": "值夜书记官子夜后就下楼收卷。"
+   },
+   "objective": "在书记官下楼收卷前，让副官收起火漆。",
+   "source": "person",
+   "start_minute": 45,
+   "tags": [
+    "crime",
+    "workplace_power"
+   ],
+   "title": "空白圣裁火漆伪造副卷",
+   "trigger": "{adjutant_cecilia.name}在闸门前厅举起火漆印章准备封存炼药房时，{commander_reinhard.name}冷着脸亮出那份北境伪造审讯日期的副卷。"
+  },
+  {
+   "choice": "抢先合上日记收进贴身暗袋、单独听对方亲口承认那一页，还是把夹层里的草图改成公开讲义？",
+   "exits": [
+    {
+     "cost": "窗户纸彻底挑明，讲堂和暗室里都回不到从前",
+     "option": "把日记收进怀里，在书架暗影里等对方郑重承认那页心意"
+    },
+    {
+     "cost": "流言堵住了，两人约好明晚再来把真正的话说完",
+     "option": "和对方在草图边补上教研批注，对外说整晚在编下学期的导流教材"
+    }
+   ],
+   "far": {
+    "consequence": "首席高冷的名声碎了一地，学派政敌借题发挥。",
+    "due_days": 1,
+    "trigger": "日记被外人看见"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_yuma_close_diary_approach",
+    "hk_ayaka_clear_confession_approach",
+    "hk_adjutant_scale_approach"
+   ],
+   "id": "p_velvet_diary_rumor",
+   "immediate": {
+    "minutes": 5,
+    "text": "有人正顺着排烟夹层往密室书案方向张望。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "ancient_grimoire_vault",
+    "forbidden_alchemy_laboratory"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "日记夹层里还夹着一张画有双人导引节点的亲笔草图。"
+   },
+   "objective": "在流言传开前，护住日记和首席的名声。",
+   "source": "rumor",
+   "start_minute": 20,
+   "tags": [
+    "intimate"
+   ],
+   "title": "丝绒日记第十二页与私会风声",
+   "trigger": "苔藓古灯下，首席的丝绒日记翻在第十二页，门廊外已有值夜的人在议论暗室里的彻夜独处。"
+  },
+  {
+   "choice": "在暗室完成双人导流、用首席银杖点亮合规印记，还是请门廊的高阶执事动用紧急豁免叫停石碑？",
+   "exits": [
+    {
+     "cost": "石碑拓下了两人高度契合的魔力波长，成了档案库里抹不掉的记录",
+     "option": "两人在石台前十指交扣合握银法杖，把平稳的魔力注入石碑完成认证"
+    },
+    {
+     "cost": "动用了每年一次的最高豁免，下月要向元老院交一份润色过的简报",
+     "option": "在前厅用风纪重剑与裁决印章联署保密令，关闭夜间清场机关"
+    }
+   ],
+   "far": {
+    "consequence": "公爵家声誉与工坊职位一并毁掉，秘银净水冲走暗室里的全部手稿。",
+    "due_days": 1,
+    "trigger": "石碑自动冻结执照"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_adjutant_scale_approach",
+    "hk_commander_blade_approach",
+    "hk_vestibule_lock_observe"
+   ],
+   "id": "p_inquisition_license_freeze",
+   "immediate": {
+    "minutes": 10,
+    "text": "前厅与暗室之间的传音符文受残余药雾干扰。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "dragonscale_gate_vestibule",
+    "forbidden_alchemy_laboratory"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "石碑上的沙漏已流过一半。"
+   },
+   "objective": "按时交上平复报告，保住执照和手稿。",
+   "source": "institution",
+   "start_minute": 60,
+   "tags": [
+    "workplace_power",
+    "supernatural"
+   ],
+   "title": "执照冻结与秘银清场令",
+   "trigger": "闸门前厅的律法石碑亮起红芒：四十分钟内不交双人签署的魔力平复报告，就冻结在场者执照、降下秘银净水。"
+  },
+  {
+   "choice": "在暗室里解开领扣、掌心贴住后心做完整套周天导引，还是退进古籍密室敷着冰晶慢慢分流？",
+   "exits": [
+    {
+     "cost": "导流结束时两人都出了一身汗，靠在一起很久没说话",
+     "option": "解开风衣领扣，从身后合握法杖、掌心抵住后心，按节拍把过剩魔力导入石台"
+    },
+    {
+     "cost": "耗时很长，两人要在书架间的软榻上依偎调息半宿",
+     "option": "退进凉爽的残卷密室，冰晶敷在颈侧，十指相扣慢慢引导魔力归位"
+    }
+   ],
+   "far": {
+    "consequence": "首席半个月不能施法，毕业论文的实验被迫中断。",
+    "due_days": 1,
+    "trigger": "过载伤及经络"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_ayaka_uniform_approach",
+    "hk_yuma_grounding_approach",
+    "hk_lecturer_potion_approach"
+   ],
+   "id": "p_mana_circuit_overheat",
+   "immediate": {
+    "minutes": 5,
+    "text": "金边制服的领口被汗浸湿，共感回路把彼此的心跳传得清清楚楚。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "forbidden_alchemy_laboratory",
+    "ancient_grimoire_vault"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "再不导完一个周天，过载会让经络酸软整夜。"
+   },
+   "objective": "在回路伤及经络前，把过剩魔力平稳导出。",
+   "source": "nature",
+   "start_minute": 80,
+   "tags": [
+    "supernatural",
+    "intimate"
+   ],
+   "title": "共鸣回路过载",
+   "trigger": "分馏器皿逸出的共鸣微光融进呼吸，头脑依旧清醒，回路温度却持续攀升，一个人握杖已压不住经络里的燥热。"
+  },
+  {
+   "choice": "登上排烟夹层打开手动副风门抽走雾气，还是去前厅请值夜法师登记开门？",
+   "exits": [
+    {
+     "cost": "衣衫被蒸汽熏透，下来后要同伴帮忙擦汗整理衣领",
+     "option": "顺铁梯爬上排烟夹层，拨开副风门让扇叶把雾气抽向天井"
+    },
+    {
+     "cost": "开门记录写进值夜簿，明早教务处会过问",
+     "option": "去前厅请值夜结界法师登记开门，留出一道随时可进出的门缝"
+    }
+   ],
+   "far": {
+    "consequence": "暗室与外界隔绝到明早，屋里越来越闷热。",
+    "due_days": 1,
+    "trigger": "闸门完全落槽"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_engineer_hammer_approach",
+    "hk_flue_pipe_observe",
+    "hk_adjutant_scale_approach"
+   ],
+   "id": "p_dragonscale_gate_seal",
+   "immediate": {
+    "minutes": 5,
+    "text": "闸门下的通行缝隙缩到不足半米。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "ventilation_flue_chamber",
+    "dragonscale_gate_vestibule"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "排烟夹层的黄铜管发出低沉的蒸汽共鸣。"
+   },
+   "objective": "在闸门落槽前，留住出入的路，把雾气排出去。",
+   "source": "accident",
+   "start_minute": 100,
+   "tags": [
+    "disaster"
+   ],
+   "title": "龙鳞闸门防爆自锁",
+   "trigger": "分馏塔读数一跳，龙鳞闸门的防爆结界被触发，开始缓缓下沉；排烟夹层的副风门也跟着闭合，温热的雾气往暗室低处沉降。"
+  }
+ ],
+ "region": "皇家魔导院地下百米月光石禁忌炼药暗室",
+ "rules": [
+  {
+   "id": "r_resonance_potion_fever",
+   "text": "古代共鸣晶簇挥发入肺后，魔力回路会过载发热；头脑始终清醒，但要由相容者合握法杖、掌心相抵，把过剩魔力慢慢导出。"
+  },
+  {
+   "id": "r_acoustic_barrier_isolation",
+   "text": "暗室三重隔音结界隔绝内外声响，室内施放高阶法术会让结界回弹。"
+  },
+  {
+   "id": "r_silver_stave_grounding",
+   "text": "纯银法杖是首席导流魔力的专用法器，导流时须握在两人手里。"
+  },
+  {
+   "id": "r_dragonscale_lockdown",
+   "text": "暗室魔力浓度超标时龙鳞闸门会防爆自锁，教务处随后启动秘银净水清场程序。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "指尖微触",
+  "committed": "钟楼之约",
+  "familiar": "药雾中守护",
+  "flirting": "法杖相托",
+  "intimate": "石台相拥",
+  "stranger": "讲堂审视",
+  "testing": "日记摊开"
+ },
+ "status": "released",
+ "style_hint": "渲染封闭炼药暗室的压迫：粉紫荧光在符文石壁上流转，琉璃碎裂的脆响，坩埚甜腻的热雾，金边制服与黑丝长袜的破损，冷傲前辈理智剥落后的动摇。",
+ "tension_engines": [
+  {
+   "id": "te_pride_vs_fever",
+   "text": "平日言辞如刀、断绝私情的首席，在清醒的回路过载中不得不攥着法杖靠在搭档怀里导引。"
+  },
+  {
+   "id": "te_lockdown_vs_heat",
+   "text": "五吨龙鳞闸门的幽闭隔绝，与回路发热必须解开领扣、贴身导引的急迫。"
+  },
+  {
+   "id": "te_purge_countdown",
+   "text": "教务处清场程序的期限，与必须在期限前交上平复报告、保住手稿的压力。"
+  },
+  {
+   "id": "te_treason_vs_devotion",
+   "text": "一旦查实就流放北境的法纪重压，与押上前程护人的真心。"
+  }
+ ],
+ "title": "皇家魔导院禁书库",
+ "tone": [
+  "魔药失控",
+  "前辈反差",
+  "禁书暗室",
+  "回路高热"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "t_alchemy_1",
+   "requires": [],
+   "text": "工匠排查风道时查明：分馏塔那次过载不是操作失误，而是元老院政敌为扳倒公爵家，在供气管里掺了微量狂暴火灵矿粉。"
+  },
+  {
+   "category": "人事",
+   "id": "t_alchemy_2",
+   "requires": [],
+   "text": "副官调出的教廷宗卷显示：这个平民后辈是十年前为守护魔导院牺牲的前代圣魔导师的最后一位传人，今夜答应帮忙，是在暗中护着恩师挚友的女儿。"
+  },
+  {
+   "category": "资源",
+   "id": "t_alchemy_3",
+   "requires": [],
+   "text": "紫檀书架夹层里，前代大魔导士封存了一枚水月冰心石与完整的禁咒解构结界，能平复回路过载，也能挡住秘银净水。"
+  },
+  {
+   "category": "制度",
+   "id": "t_alchemy_4",
+   "requires": [],
+   "text": "副官宣读元老院特许赦免法案：在重大实验事故中舍身救下首席的自愿助手，依法享有与首席同等的学术发明权与免予处分权。"
+  },
+  {
+   "category": "时限",
+   "id": "t_alchemy_5",
+   "requires": [
+    "pressure"
+   ],
+   "text": "排风管余温让温控符文误判，清场程序的期限一下提前了一半。"
+  },
+  {
+   "category": "关系",
+   "id": "t_alchemy_6",
+   "requires": [],
+   "text": "导引魔力时，首席衣袋里滑出那枚红绳护符，背面刻着搭档入院那年实战考核时丢失的铭牌——原来从第一眼起，这个人就被记住了。"
+  },
+  {
+   "category": "意外",
+   "id": "t_alchemy_7",
+   "requires": [],
+   "text": "闸门重新开启时的对流吹散了残余药雾，也把政敌安插在骑士团的奸细包里的药粉吹到了裁决副官眼前。"
+  }
+ ]
+}

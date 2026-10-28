@@ -1,0 +1,2282 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满五十二岁，资深机工钳工长，成年老船员。",
+   "age_range": [
+    52,
+    58
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_chief_motorman_old_chen",
+   "line": "先往回扳半扣！大小姐，把螺栓里的海水盐霜震碎，螺母才能顺着牙退！",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "name": "老陈",
+   "role": "特级老机工长老陈"
+  },
+  {
+   "adult_context": "年满五十岁，远洋特级船长，成年指挥官。",
+   "age_range": [
+    50,
+    56
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_fleet_captain_he",
+   "line": "压载调整完毕！有三十秒平稳窗口，抓紧拧开螺母推开人孔！",
+   "location_ids": [
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "name": "何船长",
+   "role": "旗舰总船长老船长"
+  },
+  {
+   "adult_context": "年满二十二岁，船东助理职员，成年女助手。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_apprentice_steward_miss_pan",
+   "line": "缠住把手的烂尼龙绳全剪断了！大小姐、水手长儿，三二一用力，螺丝动了！",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "name": "阿宝",
+   "role": "女事务助理阿宝"
+  },
+  {
+   "adult_context": "年满二十二岁，见习三副学员，成年见习生。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_deck_cadet_xiao_liang",
+   "line": "探照灯打准蝶形螺母了！水深涨到八十公分了，推开盖板快爬上来！",
+   "location_ids": [
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "name": "小梁",
+   "role": "见习三副学员小梁"
+  },
+  {
+   "adult_context": "年满四十二岁，商业货主代表，成年商人。",
+   "age_range": [
+    42,
+    48
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_cargo_supercargo_mr_zheng",
+   "line": "破坏人孔盖是违背保险公约的！几十个集装箱落水我们要破产的！",
+   "location_ids": [
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "name": "郑襄理",
+   "role": "货主随船押运代表郑襄理"
+  },
+  {
+   "adult_context": "年满三十四岁，海事督察官，成年官员。",
+   "age_range": [
+    34,
+    40
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_maritime_rescue_inspector",
+   "line": "十号风球中心正在移出！大马力拖轮和消防船已在船坞外待命！",
+   "location_ids": [
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "name": "海事督察",
+   "role": "海事搜救总值班督察"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "傲娇骄矜的港岛船王千金与沉稳刚烈的水手长在万吨巨轮漫水底舱中同生共死，两人在翻滚涌浪中十指紧扣，借航海六分仪特制合金钢调节扳手卡死偏心螺母，合力反扳卸盖推门脱困。",
+   "id": "cc_heiress_and_bosun_wrench_lever",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "heiress_fok_mingchu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "冰冷浑水中共同紧握扳手，建立起生死托付的坚实同盟。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "bosun_lu_yuan_deck",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "航海抢险并肩作战的过硬同伴。",
+     "stage": "familiar"
+    },
+    {
+     "a": "heiress_fok_mingchu",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "bosun_lu_yuan_deck",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "傲娇千金与草根水手长在怒海狂涛绝境中跨越阶层相依为命。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "heiress_fok_mingchu",
+    "bosun_lu_yuan_deck"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在货轮倾覆或水位漫顶前拧下人孔蝶形螺母推开盖板撤离至主甲板。",
+    "limit_gap": "千金身娇体弱在冰冷污浪中体力骤降，水手长受困于缺乏重装破拆设备且必须以身体顶住滑动集装箱。",
+    "meeting_reason": "进坞第十天，千金拿着验收清单跟水手长下到三号舱，为一块锈穿的舱底板该换还是该补，两人在二十米深的舱里争到收工。",
+    "resource_gap": "千金拥有淬火冷锻极硬六分仪扳手与全船最高海事裁决权，水手长具备顶尖的船舶结构力学公差测算与强悍体魄力量。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_cargo_hold_flood_vs_sextant_wrench",
+    "te_sea_water_hypothermia_vs_manhole_hug"
+   ]
+  },
+  {
+   "chemistry": "老船长在坞控室调压载抢出三十秒低横倾平稳窗口，傲娇千金在底舱果断调度抓紧时机破拆脱险。",
+   "id": "cc_heiress_and_captain_steering_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "heiress_fok_mingchu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "密切关注千金人身安危与旗舰状态。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "captain_he_zhenghao_master",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "钦佩老船长顶风破浪的精湛航海技艺。",
+     "stage": "familiar"
+    },
+    {
+     "a": "heiress_fok_mingchu",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 4
+     },
+     "b": "captain_he_zhenghao_master",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 4
+     },
+     "reason": "两代海运领袖共同护船的深厚忠诚羁绊。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "heiress_fok_mingchu",
+    "captain_he_zhenghao_master"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "抓住低横摇窗口迅速完成扳手插入与合力下扳脱险。",
+    "limit_gap": "老船长隔在坞控室无法下舱作业，千金独自在底舱承受巨浪撞击与冰冷海水漫灌痛苦。",
+    "meeting_reason": "老船长在坞控室教千金看压载水舱的读数，窗外龙门吊正把一节新舱盖吊上船。",
+    "resource_gap": "老船长掌握浮坞压载泵与系泊绞车，千金身在底舱一线掌控扳手发力时机。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_container_collapse_vs_hull_rolling"
+   ]
+  },
+  {
+   "chemistry": "见习学员顶着巨浪在人孔上方稳稳固定探照灯光束，水手长沉着指导发力，在黑暗中开辟生路。",
+   "id": "cc_bosun_and_cadet_spotlight_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "bosun_lu_yuan_deck",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "支持水手长沉着救人的担当。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "deck_cadet_xiao_liang_apprentice",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "时刻警惕见习学员因恐慌失手摔落探照灯。",
+     "stage": "stranger"
+    },
+    {
+     "a": "bosun_lu_yuan_deck",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "deck_cadet_xiao_liang_apprentice",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "航海师徒在灭顶风浪中的严峻意志考验。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "bosun_lu_yuan_deck",
+    "deck_cadet_xiao_liang_apprentice"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "探照灯聚光照亮螺母死槽协助扳手毫厘不差咬合脱险。",
+    "limit_gap": "学员缺乏大风浪心理定力浑身颤抖，水手长独自承受倾斜钢管的剪切重压。",
+    "meeting_reason": "十号风球预警挂出，水手长带着见习三副在甲板上加绑集装箱，一箱一箱地拉角锁。",
+    "resource_gap": "学员掌握高流明防爆探照灯光源，水手长身在激流前线掌控高硬度扳手咬合牙槽。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_cargo_hold_flood_vs_sextant_wrench"
+   ]
+  },
+  {
+   "chemistry": "老机工口授先逆后顺震碎盐结晶祖传绝学，傲娇千金奉上六分仪扳手精准卡死，里应外合破解死扣。",
+   "id": "cc_heiress_and_motorman_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "heiress_fok_mingchu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "深信千金心明眼亮指尖定力。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "motorman_old_chen_fitter",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "老机工的经验指引令人拨云见日。",
+     "stage": "familiar"
+    },
+    {
+     "a": "heiress_fok_mingchu",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "motorman_old_chen_fitter",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "两代远洋航海建设者之间的默契互敬。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "heiress_fok_mingchu",
+    "motorman_old_chen_fitter"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "震碎海盐结晶使蝶形螺母顺畅旋脱推开人孔脱险。",
+    "limit_gap": "老机工年迈腰痛在晃动积水中难以发力，千金独自承受猛烈反向扭矩冲击。",
+    "meeting_reason": "老机工在机舱给千金讲这条船三十年前的来历，说霍老太爷当年就是在这条船上求的婚。",
+    "resource_gap": "老机工掌握三十五年船舶螺纹死锁经验，千金手握淬火高硬度合金钢薄型扳手卡槽。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_cargo_hold_flood_vs_sextant_wrench"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_cargo_hold_typhoon_roar",
+   "reach": "all",
+   "text": "万吨轮空旷货舱回声与十号风球滔天巨浪撞击声"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_escape_trunk_sound_powered_phone",
+   "reach": "local",
+   "text": "逃生竖井无电源水密电话机与应急警报"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "英国海商法学士毕业回港三年，霍氏航运执行董事兼此次进坞大修的船东代表，签字算数，去留进退由本人拿主意。",
+   "age_range": [
+    23,
+    26
+   ],
+   "appearance_options": [
+    "身穿深黑修身航海夹克与战术长裤，身段修长，容貌冷艳骄矜，两腮带成年青年女性特有的健康紧致微婴儿肥与水润胶原蛋白，发丝贴在白皙脖颈，两颊泛起酡红，微婴儿肥面颊英气逼人，眼神兼具名媛高贵与海上将门悍勇。",
+    "航海工装湿透紧紧包裹出健美优美曲线，双手死死握住纯钢六分仪特制扳手，两腮微婴儿肥的下颌扬起，在摇晃漫水的幽暗货舱中宛如带刺黑玫瑰，典雅骄傲中透着摧山破浪般的惊人魄力。"
+   ],
+   "decision": {
+    "avoids": [
+     "唯唯诺诺的软弱推诿",
+     "遇到险情就跳海等死的懦夫"
+    ],
+    "contrast": "外表娇生惯养的千亿船王千金且两腮带着娇憨微婴儿肥，面临狂暴黑风暴与万吨铁流碾压时果断凶猛胜过全船水手。",
+    "core_value": "霍家的女人从不靠求救信号活命，船是我的，命也是我的，水手长，给我拧开这颗螺母！",
+    "goal_options": [
+     "利用随身六分仪合金钢扳手反向拧松蝶形螺母自救",
+     "协助水手长扛住滑动集装箱防止舱壁挤塌"
+    ],
+    "never": [
+     "在身旁同伴脱离死舱前独自爬出人孔逃生"
+    ],
+    "prefers": [
+     "硬核利落的力学处置",
+     "顶天立地的男儿气魄"
+    ],
+    "pressure_responses": {
+     "breaking": "整个人紧贴水手长宽阔后背将全身自重压在扳手长柄上拼死下压",
+     "high": "将合金扳手端头精准咬死变形蝶形螺母狭窄卡槽",
+     "low": "骄傲扬起下巴喝令全员不得慌乱听从指令",
+     "mid": "敏捷甩掉多余防寒外罩赤足踩水稳固重心奔向人孔"
+    },
+    "relationship_stance": "进坞半个月，千金天天跟着水手长下舱验收，嘴上嫌对方身上一股铁锈和机油味，却每晚收工都在船东套房里多留一盏灯、多热一碗冬瓜盅。",
+    "withdrawal": "退守在货舱前壁地势最高的防浪减摇骨架角隅上方，单手挽紧安全钢缆傲然直立。"
+   },
+   "gender": "female",
+   "gender_reason": "港岛船王霍氏航运集团正牌接班千金大小姐",
+   "id": "heiress_fok_mingchu",
+   "identity": {
+    "authority": "对全船避险决策、货物损弃与高风险脱困方案拥有董事最高签批权。",
+    "exposure": "为了坚持亲自督运曾顶撞董事会元老在无护航拖轮下强行穿越风暴圈",
+    "hidden": "防寒夹克贴身内袋里暗藏着一张水手长三年前在红磡码头舍命加固缆绳的背影特写照",
+    "limits": [
+     "虽精通航海理论但徒手绝对力量有限无法独自对抗数十吨钢构",
+     "脚踩防滑航海靴在晃动翻滚的油水泥泞甲板上极易滑倒失重"
+    ],
+    "obligations": [
+     "誓死保全全船船员生命安全与三万吨旗舰绝不沉没倾覆"
+    ],
+    "resources": [
+     "一枚装在实心桃花心木防震盒内的英国古法航海六分仪（配淬火冷锻加厚高硬度特制合金钢调节扳手，硬度HRC58，厚度三毫米薄型极硬柄端开槽）",
+     "一枚纯金雕刻的霍氏家族远洋航运金印印章"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在三十米滔天浊浪与钢铁倾覆中犹如定海神针般的如山体魄",
+     "两人悬空十指交扣合力扳动合金扳手时体温相濡以沫的生命震撼"
+    ],
+    "boundaries": [
+     "严守世家名门礼法体面与未婚礼节分寸",
+     "不以救命之恩行私下利益交换"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被从身后环抱住纤腰固定在舱壁门框上，四手相叠握住扳手长柄一同猛烈下压。",
+    "dislikes": [
+     "轻浮浪荡的世家阔少",
+     "临阵脱逃的自私懦夫"
+    ],
+    "expression": "脱险后俏脸泛红傲娇地递过自己绣着金丝的真丝手帕轻斥对方鲁莽，眼神却深情如蜜。",
+    "likes": [
+     "蝶形螺母嘎哒一声彻底松扣时对方眼中绽放的璀璨光芒",
+     "被强健臂弯一把从深水中抱起跨过人孔时的滚烫安全感"
+    ],
+    "preconditions": [
+     "逃生人孔盖板成功卸除全员平安撤出主货舱",
+     "全船险情控制安全靠泊维多利亚港码头",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "港岛航运集团接班千金",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_cargo_hold_double_bottom_vault",
+     "to": 1035
+    },
+    {
+     "from": 1035,
+     "location_id": "loc_cargo_hold_double_bottom_vault",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "扳手卡槽边缘出现微小受力压痕，{npc.name}掌心被金属边缘硌破红肿渗血。",
+      "option": "用六分仪特制高硬度合金钢调节扳手卡死偏心螺母双翼合力猛扳拧开人孔自救。"
+     },
+     {
+      "cost": "钢管反冲猛烈震伤水手长胸腹皮肉。",
+      "option": "水手长挥舞钢管撬棍别向盖板铰链偏心受力点硬撬脱险。"
+     }
+    ],
+    "pressure": "货舱冰冷涌浪正以每分钟八公分上涨，货轮横摇逼近三十度极限，若不能在四分钟内拧开逃生人孔蝶形螺母推盖逃生，全员将被溺毙在二十米深钢铁水棺。",
+    "trigger": "数十吨重型集装箱脱扣侧翻砸扁主货舱垂直逃生铁梯，双层底压载水管破裂漫灌。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "风暴潮已经把逃生梯砸扁了……水手长，别慌，有本小姐在，霍家的船绝不会沉，我们一定能出去！",
+    "surface": "水手长！你发什么呆！本小姐这柄六分仪扳手是伯明翰原厂特制淬火铬钒钢！硬度比你的破铁管硬十倍！卡进螺母槽里，跟我一起使劲，扳开这颗螺母！"
+   }
+  },
+  {
+   "adult_context": "年满二十五岁，大连海事大学航海技术成年本科毕业，持有一级无限航区大副适任证书，具备完全民事行为能力与甲板部战时应急指挥权。",
+   "age_range": [
+    25,
+    28
+   ],
+   "appearance_options": [
+    "身穿带有高反光条的深蓝耐磨航海连体工作服，挽起袖管，手臂肌肉结实筋骨隆起布满刮痕，面容英朗刚毅，被咸湿海水浇透的黑发贴在额前。",
+    "浑身散发着大洋硬汉的狂野与沉稳，眼神如鹰隼般死死锁定人孔螺栓咬死死角。"
+   ],
+   "decision": {
+    "avoids": [
+     "临阵脱逃的胆小懦夫",
+     "不知死活的鲁莽蛮干"
+    ],
+    "contrast": "平日少言寡语的硬汉水手长，置身黑风暴万吨钢铁解体大绝境时爆发出排山倒海的野兽般爆发力。",
+    "core_value": "大海不讲情面，但钢铁讲力矩公差，只要扳手卡进了牙槽，千斤闸我也能扳出一条生路！",
+    "goal_options": [
+     "接下千金扳手找准蝶形螺母逆牙死点反向破扣",
+     "用宽阔身躯顶住倾斜集装箱防止二次滑动碾压"
+    ],
+    "never": [
+     "在千金安全跨出人孔前收手退后半步"
+    ],
+    "prefers": [
+     "分毫不差的硬核力矩",
+     "同生共死的过硬担当"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂发力青筋暴起将千金护在怀里咬牙死命下扳",
+     "high": "接过六分仪扳手利落插进仅有三毫米空隙的扣槽",
+     "low": "迅速测算货轮横摇周期计算人孔卸荷最佳窗口秒数",
+     "mid": "涉水奔至人孔前用肩膀死死扛住倾斜悬挂的箱角"
+    },
+    "relationship_stance": "将船王千金视作毕生守护的海上明月，嘴上一口一个大小姐，心里早把人放在了所有缆绳的前头。",
+    "withdrawal": "退守在横向强力舱壁立柱背风面凹槽内，双手死死攥住防浪扶手稳固重心。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "bosun_lu_yuan_deck",
+   "identity": {
+    "authority": "对主货舱集装箱受损隔离、压载水舱重力自流平衡、人孔破障规程拥有第一现场技术处置权。",
+    "exposure": "曾因在风暴中擅自加固系泊缆绳违抗过大副提前撤离的避险指令",
+    "hidden": "工作服贴身防水袋里一直藏着一枚胸针，是千金在海运大厦入职仪式上亲手给水手长别上的",
+    "limits": [
+     "体能受持续超强台风剧烈晃动严重消耗透支",
+     "赤手空拳无大型油压千斤顶与气动切割机具"
+    ],
+    "obligations": [
+     "誓死保全千金人身安全与全船货物不致全损"
+    ],
+    "resources": [
+     "一把加长铸造纯铜防滑偏心敲击大扳手",
+     "一套带有抗拉抗海水腐蚀芳纶双织带挂钩安全带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "豪门千金傲娇面具下赤诚勇敢的坚韧灵魂",
+     "两具身躯在剧烈横摇的漆黑货舱中抵死相依的心跳共振"
+    ],
+    "boundaries": [
+     "恪守男女大防与水手对船东的忠诚分寸",
+     "不以救命大恩挟恩图报"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "将千金护在身前稳在人孔门槛前，双手包覆千金的手，借重力大力下压扳手柄。",
+    "dislikes": [
+     "官僚的教条规章",
+     "见风使舵的投机嘴脸"
+    ],
+    "expression": "脱险后迅速解下自己干燥的防风保暖外套严严实实裹住千金湿透颤抖的双肩，低声宽慰。",
+    "likes": [
+     "偏心螺栓嘎哒一声彻底松开时的金属轻响",
+     "千金眼眸泛红却依然不肯认输的倔强神情"
+    ],
+    "preconditions": [
+     "逃生人孔盖板成功卸除推开生路通道",
+     "全员平安脱险返回主甲板安全舱室",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "旗舰甲板部总水手长",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_cargo_hold_double_bottom_vault",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}右手虎口被金属棱角割裂渗血。",
+      "option": "{npc.name}指导千金将合金钢扳手垂直卡死螺母两翼以两人自重合力猛扳拧开螺栓自救。"
+     },
+     {
+      "cost": "纯铜扳手头部发生严重塑性变形报废。",
+      "option": "用纯铜扳手强行砸击螺栓根部震裂滑丝自锁爪脱险。"
+     }
+    ],
+    "pressure": "若不能在三分钟内借合金钢扳手卸除螺母，巨浪下一次剧烈横摇将把集装箱彻底压塌在人孔盖上方永封通道。",
+    "trigger": "人孔盖最后一枚备用双头蝶形螺母受横向剪切强力挤压死锁在防尘钢套内。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "就算这万吨轮真折在船坞里，我也绝不会让大小姐受半点伤，老天爷保佑给我拧开！",
+    "surface": "大小姐！抓紧舱壁扶手！横摇周期到最低点了！扳手卡槽咬死螺母了，听我倒数三二一，我们合力往死里压，给我开！"
+   }
+  },
+  {
+   "adult_context": "年满五十岁，高级无限航区一等船长，成年公职人员，具备完全民事行为能力与船舶最高海事战时决断权。",
+   "age_range": [
+    50,
+    56
+   ],
+   "appearance_options": [
+    "身穿带有四条金杠肩章的黑色双排扣船长制服与防风雨衣，面容如风化花岗岩般坚毅，双手死死握住舵轮把手对抗涌浪。",
+    "满脸雨水海水交织，眼神在大风大浪中如灯塔般沉稳凝视着雷达测深仪与风暴中心路径。"
+   ],
+   "decision": {
+    "avoids": [
+     "自乱阵脚的慌张逃生",
+     "违规冒险的野蛮蛮干"
+    ],
+    "contrast": "平日威严古板的老船长，在家族接班人遇险时流露出重于泰山的长辈担当与定力。",
+    "core_value": "人在船在，只要压载泵还在转，霍氏的旗帜就绝不沉进维港！",
+    "goal_options": [
+     "调浮坞压载水舱压平横倾，为底舱抢修抢出稳定窗口",
+     "通过舱内广播向受困人员报出风眼减弱秒数"
+    ],
+    "never": [
+     "在全体船员脱险前擅自离开坞控室岗位"
+    ],
+    "prefers": [
+     "严谨精准的航海力学",
+     "临危不乱的从容气度"
+    ],
+    "pressure_responses": {
+     "breaking": "下令全部压载泵满负荷，再加挂两道系泊钢缆",
+     "high": "驳回轮机长提前放弃三号货舱注入消防泡沫的危险建议",
+     "low": "在坞控室连续核准各货舱吃水与进水率",
+     "mid": "果断开左舷压载泵，把船身横倾压回五度以内"
+    },
+    "relationship_stance": "将船王千金视如己出悉心护持，深知水手长的过硬骨气，在坞控室给底舱撑住最稳的船身。",
+    "withdrawal": "站在坞控室中央的背风立柱前，双手死死撑住控制台边缘。"
+   },
+   "gender": "male",
+   "gender_reason": "航运财团全航区无限级执役老掌舵官",
+   "id": "captain_he_zhenghao_master",
+   "identity": {
+    "authority": "对浮坞压载调配、系泊钢缆与全船最高弃船紧急程序启动拥有终决权。",
+    "exposure": "年轻时曾遭遇海盗劫持为了全员活命被迫交出过全船现金保险箱",
+    "hidden": "暗中启动了深海应急示位标卫星频点锁定以备万一沉船时立即激活",
+    "limits": [
+     "必须死守坞控室操控压载泵把浮坞横倾压平，无法亲身下舱",
+     "风暴潮与暴雨让坞控室的视线几乎归零"
+    ],
+    "obligations": [
+     "誓死守卫全船二十八条人命与船东家族千金安全靠港"
+    ],
+    "resources": [
+     "一台带双向频移抗风噪高清晰航海超高频话台",
+     "一套用铅封完好保管的货轮压载应急隔舱切断控制器"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "同生共死的大洋航海家脊梁",
+     "在滔天巨浪中顶风破浪的崇高职业担当"
+    ],
+    "boundaries": [
+     "恪守航海职业伦理与雇佣尊卑",
+     "不介入东家私人感情"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "站在坞控室窗前，大声向底舱报出风暴潮两波之间的平稳间隙秒数。",
+    "dislikes": [
+     "海难对船员生命的吞噬",
+     "背信弃义的逃兵行为"
+    ],
+    "expression": "快步走下舷梯双手紧紧握住水手长和千金的双手，布满沧桑皱纹的眼眶泛起欣慰热泪。",
+    "likes": [
+     "雷达屏幕上风暴中心渐渐远去的航迹",
+     "全船船员点名全员到齐的洪亮应答声"
+    ],
+    "preconditions": [
+     "全员平安脱困登上主甲板",
+     "货轮恢复稳定姿态航出台风圈"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "霍家旗舰远洋总船长",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_cargo_hold_escape_trunk_manhole",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "巨轮受浪头猛击导致船首一道防浪板断裂受损。",
+      "option": "老船长调浮坞压载，压出三十秒低横倾窗口，协助两人合力拧松螺母脱险。"
+     },
+     {
+      "cost": "坞控室对讲机因受潮发生轻度杂音损坏。",
+      "option": "通过广播倒数浪峰节拍指引两人踩点盲拧自救。"
+     }
+    ],
+    "pressure": "若不能抓住船长操舵创造的横摇极小期发力，错失窗口后集装箱将发生剧烈位移压垮平台。",
+    "trigger": "剧烈横摇导致两人在泥泞积水中无法平稳站立施加扳手力矩。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "只要这两个年轻人能活着出来，我{npc.name}这条老命就算交代在这维港风浪里也死而无憾！",
+    "surface": "大小姐！水手长！压载调好了！右舷横倾压下去一大半，抓紧拧开螺母推开人孔！"
+   }
+  },
+  {
+   "adult_context": "年满五十二岁，远洋船舶轮机部资深高级装配技师，成年老工人，具备完全民事行为能力。",
+   "age_range": [
+    52,
+    58
+   ],
+   "appearance_options": [
+    "身穿满是重油与铁锈污渍的深灰厚帆布连体工装，腰间别着防爆手电筒与样冲袋，胡子花白面庞黝黑刻满沧桑，眼神老练笃定。",
+    "双手满是厚厚的老茧与烫伤疤痕，在摇晃的舱底熟练摸索螺母防尘罩弹簧卡销。"
+   ],
+   "decision": {
+    "avoids": [
+     "投机取巧的粗制滥造",
+     "遇到风浪就哭爹喊娘的孬种"
+    ],
+    "contrast": "看似卑微土气的老机工，在洋人建造的重型万吨轮死锁机关面前展现出中国老钳工的夺天神技。",
+    "core_value": "认准螺丝的顺逆牙，一把小扳手就能卸下万斤顶！",
+    "goal_options": [
+     "口授千金与水手长先回旋半圈震碎海盐结晶的秘诀",
+     "递送极压螺纹松动剂减小咬合摩擦"
+    ],
+    "never": [
+     "在关键螺距与旋转方向上误导年轻人"
+    ],
+    "prefers": [
+     "分毫不差的工匠规矩",
+     "同舟共济的江湖情义"
+    ],
+    "pressure_responses": {
+     "breaking": "用身躯抵住侧方滑动小推车为年轻人分担后顾之忧",
+     "high": "冒着海水冲刷危险涉水上前喷涂极压松动剂",
+     "low": "在晃动管隧里用手电光仔细辨别螺纹氧化红锈类型",
+     "mid": "大声向水中两人喊出先逆后顺震碎盐结晶的关键口诀"
+    },
+    "relationship_stance": "钦佩霍家大小姐没有富家千金娇气、身怀虎女英风，愿倾囊相助传授钳工秘法。",
+    "withdrawal": "坐在前壁管隧入口干燥配电台台阶上方，紧抱工具袋大口喘息。"
+   },
+   "gender": "male",
+   "gender_reason": "轮机舱三十年工龄老装配钳工班长",
+   "id": "motorman_old_chen_fitter",
+   "identity": {
+    "authority": "对全船所有暗埋人孔螺栓规格、螺纹反牙走向与海水锈蚀死角拥有三十五年拆装经验裁决权。",
+    "exposure": "曾因私下将机舱废旧紫铜管件卖给废品收购站补贴家用被轮机长警告",
+    "hidden": "深知逃生人孔备用蝶形螺母受力后必须先逆向回旋半圈震碎海盐结晶才能顺畅旋出",
+    "limits": [
+     "严重腰肌劳损与膝关节风湿在刺骨海水中行动迟缓",
+     "体力有限无法单独抗衡数十公斤变形铁件"
+    ],
+    "obligations": [
+     "将一辈子船舶钳工绝活传给后辈保全同胞全员生还"
+    ],
+    "resources": [
+     "一整套不同规格的铬钼合金淬火平口凿与洋冲",
+     "一听特制船舶高压管路螺纹除锈防卡死润滑脂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对硬核重工业机械力学的崇高敬畏",
+     "在生死灾祸中不分尊卑贵贱的患难真情"
+    ],
+    "boundaries": [
+     "恪守老海员本分规矩长幼尊卑次序",
+     "不介入年轻男女私情波澜"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "半蹲在人孔盖板边，用粗糙拇指死死按住螺栓侧翼，为六分仪扳手提供固定支点。",
+    "dislikes": [
+     "轻视底层老机工的傲慢嘴脸",
+     "破坏船舶规矩的荒唐行径"
+    ],
+    "expression": "用沾满重柴油污渍但粗壮有力的大手重重拍了拍水手长的肩膀，欣慰踏实地笑了起来。",
+    "likes": [
+     "螺母清脆弹脱时的金属脆响",
+     "后生年轻人青出于蓝的过硬本领"
+    ],
+    "preconditions": [
+     "险情化解全员平安推开人孔脱离底舱",
+     "工具包完好无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "机舱老机工长兼钳工",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_cargo_hold_double_bottom_vault",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "六分仪扳手卡槽边缘出现微小晶格磨损压痕。",
+      "option": "依老陈指点先往回扳动半扣震碎海盐结晶再顺势发力拧脱蝶形螺母自救。"
+     },
+     {
+      "cost": "样冲尖端受震动崩断。",
+      "option": "用合金样冲硬砸螺母两翼脱险。"
+     }
+    ],
+    "pressure": "若不知晓先回旋半扣震碎晶块而盲目硬推，扳手合金钢卡槽将被剧烈反扭力崩裂脱口。",
+    "trigger": "蝶形螺母牙槽内部灌满高浓度海水结晶硬块导致螺纹摩擦力暴增数倍。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好俊的一对年轻人……妈祖保佑，咱们华资船队的老底子骨气，绝不能淹死在这港内黑浪里！",
+    "surface": "大小姐！水手长老弟！听老陈一句！这蝶形螺母被海水盐霜咬死了！用扳手千万别死命往前拧，先往回扳半扣震碎盐块，再合力往前推！"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁，香港理工大学酒店海运管理成年毕业生，船东行政助理，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    25
+   ],
+   "appearance_options": [
+    "身穿带有霍氏徽章的浅蓝色制服衬衫与深灰西装长裤，神情慌乱小脸煞白，怀中死死抱着装有全船航海日志与卫星电话备用电源的防水保全盒。",
+    "浑身湿透瑟瑟发抖，踩着漫水钢板紧紧跟随在千金身后。"
+   ],
+   "decision": {
+    "avoids": [
+     "深海巨浪的无情颠簸",
+     "粗野无礼的打骂训斥"
+    ],
+    "contrast": "平日文弱害羞常被晕船折磨的小秘书，在生死存亡面前能用身体为大小姐阻挡风浪锈渣。",
+    "core_value": "誓死守护千金，大小姐在我就在！",
+    "goal_options": [
+     "用救生剪刀割开缠绕在人孔把手上的废弃尼龙绳网",
+     "协助大小姐扶稳身体保持重心平衡"
+    ],
+    "never": [
+     "在千金脱困前自顾自逃离底舱"
+    ],
+    "prefers": [
+     "井井有条的文书秩序",
+     "大小姐温柔温和的鼓励笑容"
+    ],
+    "pressure_responses": {
+     "breaking": "哭着抱住千金双腿协助稳固下盘支撑点",
+     "high": "用单薄身躯替大小姐挡住集装箱落下的锈铁片",
+     "low": "在管隧入口死死抱住保全盒瑟瑟发抖",
+     "mid": "鼓起勇气涉水上前递过救生剪清理人孔杂物"
+    },
+    "relationship_stance": "对千金忠心耿耿崇敬万分，在灭顶之灾面前爆发出难以置信的护主勇气。",
+    "withdrawal": "缩在人孔立壁干燥电缆托架上方，紧抱保全箱抽泣。"
+   },
+   "gender": "female",
+   "gender_reason": "货轮船东特派客舱青年女事务员兼侍从",
+   "id": "steward_miss_pan_mei_po",
+   "identity": {
+    "authority": "对随船船东文书档案、应急备用卫星电话电源箱拥有现场保管权。",
+    "exposure": "曾因严重晕船在一次重要海商签约仪式上打翻过名贵红酒",
+    "hidden": "暗自将千金视作当代港岛最有魄力与魅力的完美女性偶像",
+    "limits": [
+     "严重晕船在三十米横摇下恶心呕吐体力几乎虚脱",
+     "身材娇小力气不足无法参与重型钢件推拉"
+    ],
+    "obligations": [
+     "誓死守护千金安危与全船关键航运保全文件"
+    ],
+    "resources": [
+     "一盒特制大容量防水防爆锂电池组",
+     "一把精巧不锈钢多功能救生剪刀"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危难时刻大小姐犹如海上女王般的霸道安全感",
+     "同龄女性患难与共的炽热羁绊"
+    ],
+    "boundaries": [
+     "严守雇佣下属本分规矩长幼秩序",
+     "不逾矩干涉大小姐私事"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "半蹲在人孔门槛内侧跳板边缘，双手用力按住电缆盒，大声为大小姐与陆水手长加油鼓劲。",
+    "dislikes": [
+     "暴风海浪的无情吞噬",
+     "孤立无援的恐惧"
+    ],
+    "expression": "眼含热泪扑入千金怀中，小脸紧紧贴在千金湿透的战术夹克上喜极而泣。",
+    "likes": [
+     "人孔盖板轰然推开时涌入的温暖新鲜气流",
+     "大小姐轻抚自己湿透发丝的温柔宽慰"
+    ],
+    "preconditions": [
+     "全员平安撤出主货舱航海日志完好无损",
+     "脱离台风险区安全复温"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "船东随船女事务助理",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_cargo_hold_double_bottom_vault",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "救生剪刀刃磨损钝化割伤阿宝右手拇指。",
+      "option": "阿宝递上救生剪迅速割断缠绕在螺母周遭的加厚尼龙绳为扳手清理通道脱险。"
+     },
+     {
+      "cost": "机油水面上产生局部微小明火被扑灭造成呛咳。",
+      "option": "用打火机烧断绳索融化塑料自救。"
+     }
+    ],
+    "pressure": "若不先割断尼龙绳，扳手将无法插到底部咬死螺母。",
+    "trigger": "人孔锁扣外部被破损集装箱散落的粗硬尼龙捆扎绳死死缠绕打结阻塞。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "大小姐千万别出事，只要大小姐能平安，我阿宝以后天天晕船天天吐也心甘情愿！",
+    "surface": "大小姐！陆水手长！我用剪刀把缠在人孔把手上的烂绳子剪干净了！电池箱我也绑紧了，你们千万小心啊！"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁，海运学院航海专业成年毕业生，见习三副职员，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "身穿带有见习单杠肩章的工作服与防滑救生鞋，脸色煞白满身泥水，双手死死抱住便携式高光防爆探照灯。",
+    "在剧烈晃动中因缺氧和恐惧双腿发抖，紧紧跟随在水手长身后协助照明。"
+   ],
+   "decision": {
+    "avoids": [
+     "凶狠残暴的无能狂怒",
+     "自生自灭的绝望放弃"
+    ],
+    "contrast": "平日胆小生涩的年轻学员，在大难关头能咬紧牙关在刺骨风浪中稳稳托举起照亮生路的光束。",
+    "core_value": "保命第一，坚决服从千金与水手长的排险口令！",
+    "goal_options": [
+     "用探照灯为螺栓槽口提供高亮度聚焦照明",
+     "协助水手长拉紧防滑绳分担冲击"
+    ],
+    "never": [
+     "擅自丢下探照灯独自逃跑"
+    ],
+    "prefers": [
+     "严谨清晰的航海指令",
+     "勇往直前的硬汉担当"
+    ],
+    "pressure_responses": {
+     "breaking": "跪倒在人孔台阶上死死拉紧安全引绳协助二人登梯",
+     "high": "用身体扑在探照灯上方挡住喷溅的海水浑浪",
+     "low": "在人孔通道上方慌乱核算海水每分钟上涨公分读数",
+     "mid": "双手紧握探照灯稳稳照射在蝶形螺母牙槽中心"
+    },
+    "relationship_stance": "视水手长为人生导师，视千金为高不可攀的集团领袖，生死关头愿尽绵薄之力拼死协助。",
+    "withdrawal": "缩在人孔竖井第一级固定防滑踏板后方，用雨衣裹住探照灯。"
+   },
+   "gender": "male",
+   "gender_reason": "万吨散货轮甲板部青年见习三副学员",
+   "id": "deck_cadet_xiao_liang_apprentice",
+   "identity": {
+    "authority": "对甲板部消防救生设备台账、人孔逃生路线图拥有核对与指引权。",
+    "exposure": "在靠港作业中曾误将压载水阀门排空导致船身轻微倾斜被船长训斥",
+    "hidden": "暗自将水手长视作自己航海生涯最崇拜的导师英雄",
+    "limits": [
+     "首次经历超强台风缺乏大风大浪实战心理定力",
+     "力气不足无法独自对抗重型螺栓扭矩"
+    ],
+    "obligations": [
+     "确保高空应急探照灯持续照明并向坞控室报告水深数据"
+    ],
+    "resources": [
+     "一具大功率防爆LED强光探照手电筒",
+     "一卷高强力耐海水特种荧光指示自粘胶带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危难时刻力挽狂澜的绝对领袖定力",
+     "在风浪深渊中同舟共济的钢铁羁绊"
+    ],
+    "boundaries": [
+     "恪守学员本分不逾矩",
+     "严守下属规矩"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "半蹲在人孔竖井铁梯边按住探照灯，大声为水下二人报出光束对准螺母位置。",
+    "dislikes": [
+     "巨浪破舱的冰冷绝望",
+     "被当作累赘抛弃"
+    ],
+    "expression": "手忙脚乱地将探照灯双手递过，紧张得连连向千金鞠躬致敬并红着脸打气。",
+    "likes": [
+     "人孔盖板轰然推开时的天光曙光",
+     "被水手长拍打肩膀时的认可夸奖"
+    ],
+    "preconditions": [
+     "全员平安撤出主货舱登上安全甲板",
+     "确保自身生命安全得到保障"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "见习三副驾驶学员",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_cargo_hold_escape_trunk_manhole",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "探照灯外壳撞击钢梁导致铝合金反光罩发生轻微内凹。",
+      "option": "小梁用防爆LED探照灯在剧烈横摇中死死锁准螺母反光点协助二人精准对位自救。"
+     },
+     {
+      "cost": "荧光胶带在浑水中部分脱胶剥落。",
+      "option": "在螺栓四周贴满荧光指示胶带指引盲扳脱险。"
+     }
+    ],
+    "pressure": "若无持续强光聚焦指引，扳手将在光滑金属表面盲目空转打滑错失良机。",
+    "trigger": "底舱主照明灯受潮短路跳闸陷入一片漆黑绝境。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要水手长和大小姐还在下面拼命，我就不能当缩头乌龟，我得把这条生路给两人照亮！",
+    "surface": "大小姐！水手长儿！强光灯照准螺栓缝隙了！水面已经快漫到人孔下沿了，推开盖板快爬上来！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "八月，台风季",
+  "minute": 1020
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "workplace_power",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "港岛船员下舱前习惯将纯铜救生哨用细红绳牢牢系在工装胸口拉链环上。",
+  "远洋远航名媛登临家族旗舰前习惯随身佩带祖辈传授的英制航海六分仪箱。",
+  "水手长在暴风雨巡舱时习惯用铁扳手敲击舱壁防浪横梁确认焊缝有无应力撕裂。",
+  "深海遭遇十二级台风时全船习惯开启货舱底层双向防爆应急红色导引射灯。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "使用纯铜敲击扳手逐颗核验角锁自锁舌咬合深度",
+    "使用卡尺测量绑扎桥拉紧花篮螺丝丝扣外露长度",
+    "在船舶海事抗风巡查记录表加盖当值水手长印章"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_cargo_hold_twistlock_tension_audit",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "start_minute": 1020,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "三号货舱底层集装箱全自动角锁预紧度巡检"
+  },
+  {
+   "beats": [
+    "涂抹食品级防水氟硅润滑脂保护耐油丁腈胶条",
+    "清除蝶形螺母双翼咬合面附着的白色微细海盐晶霜",
+    "测试人孔铰链销轴在受潮海水冲刷下的摆动回弹"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_escape_trunk_manhole_gasket_check",
+   "location_ids": [
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "start_minute": 1025,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "前壁隔离空舱逃生人孔耐压橡胶密封垫养护"
+  },
+  {
+   "beats": [
+    "用镜头软布轻拭指标镜与地平镜镀银表面浮尘",
+    "使用特制合金钢调节扳手微调游标微动鼓轮偏心轴",
+    "检查六分仪黄铜弧面刻度对准零点分划的重合度"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_marine_sextant_optical_calibration",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "start_minute": 1030,
+   "tags": [
+    "workplace"
+   ],
+   "title": "英制古法航海六分仪指标差与游标卡尺校验"
+  },
+  {
+   "beats": [
+    "使用黄铜测深锤投下测量管测录污水井实时水深",
+    "记录双层底三号压载水舱吸入口真空表指针跳动",
+    "在货舱舱壁用荧光粉标出横摇倾斜危险警戒刻度"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_double_bottom_bilge_level_sound",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "start_minute": 1035,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "双层底污水井水尺量度与压载泵压差测录"
+  },
+  {
+   "beats": [
+    "紧固海水压载主管法兰处三颗高强度镀锌螺栓",
+    "缠裹加厚耐高压氯丁橡胶管道紧急防漏自粘补片",
+    "测试管隧防爆防水密闭滑动门应急手动关闭行程"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_pipe_tunnel_valve_packing_tightening",
+   "location_ids": [
+    "loc_engine_room_pipe_tunnel_corridor"
+   ],
+   "start_minute": 1040,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "贯通式管隧破损管道应急堵漏抱箍安装巡查"
+  },
+  {
+   "beats": [
+    "通过防爆手持终端校验北斗遇险信号自动发射状态",
+    "测试便携式搜救雷达应答机锂电池剩余放电电压",
+    "向香港海事处救援协调中心上传当前船位经纬度"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_maritime_rescue_satellite_beacon_log",
+   "location_ids": [
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "start_minute": 1045,
+   "tags": [
+    "workplace_power",
+    "disaster"
+   ],
+   "title": "超短波应急示位标卫星频点握手巡检"
+  },
+  {
+   "beats": [
+    "人孔推开、全员撤上甲板、风暴潮退去、船稳稳落回墩木之后，千金回到船东套房，航海夹克湿透了，拉链被海盐咬得拉不动。",
+    "千金背过身，让人一点点拉开卡住的拉链，再用热毛巾擦去肩颈上的海盐和油污，毛巾擦到腰际时，千金哼了一声，却没躲开。",
+    "千金转过身，揪住对方的衣领，脸红到耳根：本小姐今晚不想一个人睡。……你愿意，就别走。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_wet_jacket",
+   "location_ids": [
+    "loc_owner_suite_cabin"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "套房里替千金解开湿透的航海夹克"
+  },
+  {
+   "beats": [
+    "千金换了身丝质睡袍，赤脚盘在套房的沙发上，面前搁着一盅从船上厨房端来的冬瓜盅，说是阿嫲的方子。",
+    "千金舀了一勺吹凉，递到人嘴边：张嘴。……就这一次，不许说出去。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_winter_melon",
+   "location_ids": [
+    "loc_owner_suite_cabin"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "一盅冬瓜盅"
+  },
+  {
+   "beats": [
+    "大修的最后一夜，千金站在舷窗前，看着对岸的霓虹一盏盏亮起，手里攥着一枚旧胸针，是入职那天别给水手长的那一枚。",
+    "千金把胸针按进人掌心：明天船就出坞了。……今晚我想留你，你说好，我才放手。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_harbour_night",
+   "location_ids": [
+    "loc_owner_suite_cabin"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "坞墙上的维港夜色"
+  },
+  {
+   "beats": [
+    "清晨船厂的第一声汽笛还没响，千金在大床上醒来，头发散在人的胸口，伸手去够床头的手机又缩了回来。",
+    "千金把脸埋回人怀里：董事会八点开……再躺十分钟。谁敲门都别开。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_morning_horn",
+   "location_ids": [
+    "loc_owner_suite_cabin"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "汽笛响之前"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代香港船王家族与青衣船厂的十号风球风暴潮之夜",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_sea_surge_roars_in_hold",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "heiress_fok_mingchu",
+   "text": "{heiress_fok_mingchu.name}一手扶住倾斜的货舱钢构立柱，两腮微婴儿肥的面庞泛着红晕，眼神霸道坚毅：水手长！铁梯被砸扁了，水漫过大腿了！别慌，跟我一起把这柄六分仪扳手卡进螺母里！"
+  },
+  {
+   "id": "hook_hull_groans_under_rolling",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "heiress_fok_mingchu",
+   "text": "{heiress_fok_mingchu.name}甩开被海水打湿的长发，两腮微婴儿肥的面颊紧绷，眼神透着海上将门的凛然从容：横摇三十度了！集装箱要滑过来了，水手长，顶住箱角，合金扳手咬死人孔蝶形螺母了，用力扳！"
+  },
+  {
+   "id": "hook_manhole_nut_jams_tight",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "heiress_fok_mingchu",
+   "text": "{heiress_fok_mingchu.name}双手死死按在水手长粗糙宽阔的大手上，在剧烈晃动中将全身重力压在扳手长柄上：螺栓松动了！听老陈的口诀，先往回扳半扣震碎海盐，三、二、一，给我开！"
+  },
+  {
+   "id": "hook_bosun_checks_rolling_gauge",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "bosun_lu_yuan_deck",
+   "text": "{bosun_lu_yuan_deck.name}大步踏入齐胸深的激流，宽阔结实的双臂从身后一把将千金护在怀里：大小姐站稳！数十吨重钢下坠的冲力全交给我，扳手卡进狭窄扣槽了，听我口令一起下压！"
+  },
+  {
+   "id": "hook_old_chen_inspects_wrench_jaw",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "motorman_old_chen_fitter",
+   "text": "{motorman_old_chen_fitter.name}抹了把脸上的冷沙大吼：大小姐手真稳！别直着撬，先往回扳半扣把海水盐霜震碎，把全身分量压下去，老汉保你一扳就退！"
+  },
+  {
+   "id": "hook_captain_orders_heading_change",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "slot": "captain_he_zhenghao_master",
+   "text": "{captain_he_zhenghao_master.name}在坞控室拉响汽笛高呼：大小姐！压载稳住了！船身现在横倾最小，赶紧把人孔最后这颗螺母别开爬出来！"
+  },
+  {
+   "id": "hook_cadet_steers_floodlight_beam",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "slot": "deck_cadet_xiao_liang_apprentice",
+   "text": "{deck_cadet_xiao_liang_apprentice.name}在竖井上方踩着铁梯奋力挥手：探照灯光斑死死咬住扣件死角了！底舱水位马上漫顶，快拉住引绳上梯！"
+  },
+  {
+   "id": "hook_hold_lights_snap_darkness",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "bosun_lu_yuan_deck",
+   "text": "{bosun_lu_yuan_deck.name}胸膛紧贴着千金湿透单薄的后背，双臂宛如铁钳般环紧姑娘柔荑：千金，别怕！听船长广播横摇停了！咬紧牙关，我们把全身分量压下去！"
+  },
+  {
+   "id": "hook_diesel_vapor_chokes_hold",
+   "kind": "request",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "heiress_fok_mingchu",
+   "text": "{heiress_fok_mingchu.name}深吸一口气，工装衣襟浸满油水，两腮微婴儿肥的面容毫无惧色：水手长！油气太呛了，用面罩护住口鼻，把你的力气全压在扳手上，绝不能让霍家的船沉入维港！"
+  },
+  {
+   "id": "hook_sextant_wrench_creaks_under_load",
+   "kind": "request",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "bosun_lu_yuan_deck",
+   "text": "{bosun_lu_yuan_deck.name}浑身肌肉紧绷青筋暴起，手臂青筋如虬龙般鼓起：千金，扳手受力到极限了，最后一次机会！跟我数三二一，拼尽全力往下一挫！"
+  },
+  {
+   "id": "hook_mingchu_checks_sextant_box",
+   "kind": "request",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "heiress_fok_mingchu",
+   "text": "{heiress_fok_mingchu.name}反手死死扣紧水手长满是油污的大手，美眸中绽放出动人光芒：水手长，本小姐的名字叫{heiress_fok_mingchu.name}！有你在我什么都不怕，给我开！"
+  },
+  {
+   "id": "hook_pan_protects_document_case",
+   "kind": "observe",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "heiress_fok_mingchu",
+   "text": "女助手阿宝紧紧抱着电池箱缩在门边，泪眼模糊地看着漫水门槛上两人紧密相拥、十指交扣合力扳动合金钢扳手的决死身姿，被大家同舟共济的气魄感动得热泪长流。"
+  },
+  {
+   "id": "hook_observe_heiress_heroic_pose",
+   "kind": "observe",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "heiress_fok_mingchu",
+   "text": "{heiress_fok_mingchu.name}湿透的战术工装勾勒出豪门将女绝美挺拔的身段，两腮微婴儿肥的面颊在昏暗红光映衬下晶莹如玉，微婴儿肥的面容与手中寒光森森的六分仪扳手形成极度傲娇又刚烈的反差张力。"
+  },
+  {
+   "id": "hook_observe_manhole_cover_bursts_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "slot": "heiress_fok_mingchu",
+   "text": "伴随着一声清脆震耳的金属崩退巨响，咬死的蝶形螺母被六分仪合金钢扳手硬生生旋松退扣，厚重的人孔盖板在两人合力猛推下轰然洞开，涌入上层干燥通道的温暖气流，生路畅通危机化解。"
+  },
+  {
+   "id": "hook_mingchu_winter_melon",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "heiress_fok_mingchu",
+   "text": "{npc.name}把一盅冬瓜盅推过来，别开脸：厨房多炖的。……喝完把碗洗了，别让人看见。"
+  },
+  {
+   "id": "hook_mingchu_star_ferry",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "heiress_fok_mingchu",
+   "text": "{npc.name}站在天星小轮的船尾，海风吹乱了头发，回头看人：小时候阿爷每晚带我坐一趟。……今晚你陪我。"
+  },
+  {
+   "id": "hook_mingchu_gantry_night",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "heiress_fok_mingchu",
+   "text": "{npc.name}踩着高跟鞋爬上龙门吊的检修平台，指着对岸的霓虹：从这里看，维港是我们家的。……也是你的。"
+  },
+  {
+   "id": "hook_yuan_rope_knot",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "bosun_lu_yuan_deck",
+   "text": "{npc.name}拉过人的手腕，用一截细缆打了个水手结，又解开：学会了，以后绑什么都不会松。"
+  },
+  {
+   "id": "hook_mingchu_suite_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_owner_suite_cabin"
+   ],
+   "slot": "heiress_fok_mingchu",
+   "text": "{npc.name}倚在套房的水密门边，手里晃着一杯红酒：船厂今晚不开工。……进来陪我喝一杯。"
+  }
+ ],
+ "id": "hongkong_shipping_cargo_hold",
+ "locations": [
+  {
+   "affordances": [
+    "抓牢纵向肋骨钢梁稳住下盘抗衡剧烈横摇",
+    "掏出六分仪特制合金钢扳手咬死人孔螺母",
+    "合力向上顶推备用逃生人孔盖板"
+   ],
+   "detail": "深度达二十米的长方形开阔平底货舱，巨大的纵向肋骨钢构纵横交错，地面是坚硬如铁的双层底钢板。此时货轮受三十米巨浪剧烈横摇，前方堆叠的三只四十英尺集装箱底锁脱扣，数十吨重的巨箱侧翻倾倒，横向钢梁死死砸瘪了通往甲板的垂直铁梯，混杂着柴油与泥浆的海水已漫过膝盖。",
+   "exits": [
+    "loc_cargo_hold_escape_trunk_manhole",
+    "loc_engine_room_pipe_tunnel_corridor"
+   ],
+   "id": "loc_cargo_hold_double_bottom_vault",
+   "name": "三号货舱底",
+   "pressure_modifiers": {
+    "p_cargo_hold_inundation_rising_water": "破损压载管海水以每分钟十吨疯狂漫灌，底舱积水急剧暴涨逼近蓄电池组。",
+    "p_freighter_hull_extreme_rolling_torque": "横摇幅度达到惊人的三十度，倾覆的集装箱在冰冷浑水中发生二次滑动碾压。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_chief_motorman_old_chen"
+   ]
+  },
+  {
+   "affordances": [
+    "用六分仪扳手卡槽卡入螺母双翼",
+    "借身体重力与舱壁支点全力向下压扳",
+    "通过人孔缝隙向上层呼喊报讯"
+   ],
+   "detail": "位于主货舱前壁隔舱角隅处的加厚耐压椭圆形人孔盖，平时由六枚重型高强度蝶形螺母紧固封死，通往上层干燥救生通道，此时其中五枚已被震脱，最后一枚偏心螺母被严重剪切受力咬死在防尘扣槽内。",
+   "exits": [
+    "loc_cargo_hold_double_bottom_vault",
+    "loc_engine_room_pipe_tunnel_corridor",
+    "loc_owner_suite_cabin"
+   ],
+   "id": "loc_cargo_hold_escape_trunk_manhole",
+   "name": "逃生人孔",
+   "pressure_modifiers": {
+    "p_manhole_cover_hydrostatic_jamming": "舱内上涨水流在盖板单侧形成数吨静水推力，锁扣摩擦力倍增濒临彻底抱死。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_fleet_captain_he",
+    "bg_deck_cadet_xiao_liang"
+   ]
+  },
+  {
+   "affordances": [
+    "手动关闭破损压载水舱截断蝶阀手柄",
+    "搜寻被冲落的特种管钳与润滑脂",
+    "敲击管壁向轮机舱发送紧急求援信号"
+   ],
+   "detail": "货舱底板正下方的逼仄管隧，一米二见方的狭窄通道内布满燃料与压载水阀门管线，应急红色警报灯闪烁，远处传来高压水流穿透隔舱壁的刺耳啸叫。",
+   "exits": [
+    "loc_cargo_hold_double_bottom_vault",
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "id": "loc_engine_room_pipe_tunnel_corridor",
+   "name": "双层底管隧",
+   "pressure_modifiers": {
+    "p_tunnel_pipe_burst_asphyxiation": "压载管水雾与残余油气在封闭狭小长廊弥漫，氧气稀薄令人呼吸困难剧烈呛咳。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace_power",
+    "disaster"
+   ],
+   "visibility": "dark",
+   "witnesses": [
+    "bg_apprentice_steward_miss_pan"
+   ]
+  },
+  {
+   "affordances": [
+    "替千金解开湿透的航海夹克",
+    "陪千金在舷窗边看维港夜景",
+    "合上套房的水密门"
+   ],
+   "detail": "旗舰上层建筑里的船东套房，一张铺着白色亚麻床品的大床、一张堆着验收清单和图纸的柚木书桌、一只嵌在舱壁里的小酒柜，舷窗外是青衣船厂的龙门吊和对岸的霓虹。",
+   "exits": [
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "id": "loc_owner_suite_cabin",
+   "name": "船上的船东套房",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "水密门一合，船厂的打桩声和汽笛声就闷成了很远的一层，只剩空调的低鸣和床头一盏黄灯。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "霍",
+   "陆",
+   "包",
+   "董",
+   "李",
+   "郑",
+   "何",
+   "许",
+   "庄",
+   "郭",
+   "梁",
+   "潘"
+  ],
+  "given_female": [
+   "明珠",
+   "泳诗",
+   "嘉欣",
+   "雅婷",
+   "佩仪",
+   "楚晴",
+   "曼玲",
+   "若兰",
+   "美宝",
+   "静文",
+   "丽珊",
+   "晓琳"
+  ],
+  "given_male": [
+   "远",
+   "家骏",
+   "浩天",
+   "秉德",
+   "耀祖",
+   "振东",
+   "绍基",
+   "文瀚",
+   "天成",
+   "志强",
+   "敬轩",
+   "博涛"
+  ],
+  "given_neutral": [
+   "澜",
+   "涛",
+   "海",
+   "洲",
+   "澄",
+   "泽",
+   "泉",
+   "渊",
+   "泊",
+   "洋",
+   "源",
+   "航"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留港岛船王千金、三万吨散货轮二十米深平底货舱、十号风球、集装箱角锁脱扣砸瘪逃生梯、六分仪特制扳手拧人孔偏心蝶形螺母的骨架与港味。为与已有的远洋台风货轮世界拉开，用户拍板把船从南海公海搬进霍家在青衣的浮船坞：货轮进坞大修，十号风球的风暴潮漫过坞墙，浮坞压载失衡，船身离墩起浮、在坞里横摇；老船长改在坞控室调压载抢平稳窗口。用户已放开内容限制，只守红线；外貌描写照留，只改写死的人名、代词、年龄。新增千金在船上的船东套房与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    25,
+    30
+   ],
+   "baseline": "负责整船重型集装箱绑扎系固、压载调配与货舱应急抢修的硬派青年航海骨干。",
+   "gender": "any",
+   "id": "pi_hongkong_cargo_deck_bosun",
+   "reputation": "身手矫健胆大心细，在台风巨浪中走甲板如履平地，精通各类船舶机械结构。",
+   "resources": [
+    "一柄特制高强度防爆纯铜敲击扳手",
+    "一具带有加长安全绳的双钩高空防坠自锁扣"
+   ],
+   "risks": [
+    "直接暴露在翻滚涌浪与重钢碰撞死角面临骨折粉碎",
+    "海水浸泡诱发低体温症失能"
+   ],
+   "role": "万吨散货轮资深甲板部总水手长",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}水手长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}头领"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    48,
+    56
+   ],
+   "baseline": "为霍氏航运效力三十年的功勋老船长，掌控全船舵机操纵与航速配载终决权。",
+   "gender": "any",
+   "id": "pi_hongkong_shipping_fleet_captain",
+   "reputation": "经验极其丰富处事威严沉稳，将货舱内大小姐的安全视为毕生最高信条。",
+   "resources": [
+    "一台船长专用防爆对讲集群手持机",
+    "一套整船双层底压载水泵遥控应急切断钥匙"
+   ],
+   "risks": [
+    "必须坚守坞控室调压载水，无法亲自下舱营救",
+    "风暴潮拍打坞控室玻璃，视线受阻"
+   ],
+   "role": "船王家族旗舰远洋特级航海老船长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}船长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}船长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    34,
+    44
+   ],
+   "baseline": "协调十号风球下维港各船厂搜救、消防船与大马力拖轮的高级海事指挥官。",
+   "gender": "any",
+   "id": "pi_hongkong_maritime_rescue_officer",
+   "reputation": "决策果断技术精湛，对港内大型船舶进水失稳救援拥有丰富调度经验。",
+   "resources": [
+    "一部军品级海事卫星直通加密电话",
+    "一份十号风球中心与维港风暴潮实时水位图"
+   ],
+   "risks": [
+    "十号风球风速超过搜救直升机起降极限无法立即空投吊篮",
+    "雷达通信时有黑障"
+   ],
+   "role": "香港海事处港内搜救总值班督察",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}督察"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}专员"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    50,
+    58
+   ],
+   "baseline": "对全船每一个逃生人孔、舱底阀门与管线走向了如指掌的退役老轮机机工。",
+   "gender": "any",
+   "id": "pi_freighter_chief_motorman_fitter",
+   "reputation": "沉默寡言手艺通神，闭着眼睛都能摸出每一颗蝶形螺母的卡滞锈死部位。",
+   "resources": [
+    "一袋特制高硬度合金钢敲击样冲与凿子",
+    "一瓶特级耐海水防腐极压螺纹松动剂"
+   ],
+   "risks": [
+    "严重风湿性关节炎在冰冷涌浪中四肢发僵剧痛",
+    "视力受机油与昏暗风浪影响模糊"
+   ],
+   "role": "货轮机舱特级老机工兼装配钳工长",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}机工长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老钳工"
+    }
+   ]
+  }
+ ],
+ "premise": "霍家旗舰三万吨散货轮进了青衣船厂的浮船坞大修，接班千金跟着甲板总水手长在船上验收了半个月，白天爬舱底、对图纸，夜里在船员餐厅吃宵夜。老船长和海事处的督察隔几天就来看一次进度。台风季到了，浮坞的压载系统是三十年前的。",
+ "pressures": [
+  {
+   "choice": "等待甲板水手切断通风筒，还是千金与水手长合力在深水中扳松螺母脱险。",
+   "exits": [
+    {
+     "cost": "扳手卡槽边缘出现微小应力压痕，千金掌心被金属边缘硌破红肿渗血。",
+     "option": "两人将六分仪高硬度特制合金扳手卡死螺母双翼合力向下猛扳拧开人孔自救。"
+    },
+    {
+     "cost": "安全带挂钩受强烈拉伸变形报废。",
+     "option": "两人合力用双钩安全带合金挂钩充当辅助支点强行别转人孔脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "货舱沦为注满冰水的钢铁水牢，滞留水下的船王千金与水手长全员溺毙殉难。",
+    "due_days": 1,
+    "trigger": "海水彻底注满二十米深散货轮主货舱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cargo_hold_inundation_rising_water",
+   "immediate": {
+    "minutes": 6,
+    "text": "黑色浑水如咆哮瀑布从头顶通风格栅狂喷而下，冰冷刺骨的水流卷着油污撞击底板，巨响震耳欲聋。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "near": {
+    "deadline_minutes": 9,
+    "text": "水位已经漫过胸口逼近下巴，冰冷的海水冻得四肢发僵，舱内漂浮着碎木块与油桶，呼吸空间被水汽严重压缩。"
+   },
+   "objective": "在海水彻底没顶前用六分仪特制扳手拧开逃生人孔蝶形螺母。",
+   "source": "nature",
+   "start_minute": 1020,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "十号风球滔天巨浪灌入货舱积水暴涨",
+   "trigger": "风暴潮漫过坞墙拍裂主货舱前部空气管，冰冷海水顺着通风筒每分钟十吨疯狂倒灌，底舱积水已漫过膝盖逼近大腿，距离淹没蓄电池组仅剩最后四分钟。"
+  },
+  {
+   "choice": "留在原地等待货轮姿态自然改平，还是两人迎着横摇发力扳开螺母。",
+   "exits": [
+    {
+     "cost": "水手长肩胛骨被粗糙集装箱铁皮擦出一片血肉模糊。",
+     "option": "水手长用后背死死抵住倾斜集装箱，千金抓住船长压平横倾的窗口一击拧开螺母自救。"
+    },
+    {
+     "cost": "粗木杠受强力扭矩崩裂折断。",
+     "option": "老机工用木杠支顶集装箱角锁延缓滑移脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "逃生竖井被数吨重钢板挤碎焊死，人员被碾压粉碎或被困溺亡。",
+    "due_days": 1,
+    "trigger": "集装箱全量滑动将人孔竖井彻底压扁压死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_freighter_hull_extreme_rolling_torque",
+   "immediate": {
+    "minutes": 5,
+    "text": "万吨钢铁龙骨发出惊心动魄的呻吟扭曲声，数十吨重的集装箱在冰冷浑水中轰鸣滑移两米，撞碎了铁梯扶手。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "横摇幅度达到三十度极限，倾倒箱体距离人孔竖井只剩最后三十公分，若再发生一次剧烈晃动将被彻底挤碎。"
+   },
+   "objective": "在集装箱滑移压塌人孔前完成破门并逃入隔离空舱。",
+   "source": "accident",
+   "start_minute": 1022,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "三万吨巨轮受三十度巨浪横摇失稳侧倾",
+   "trigger": "十二级狂风卷起三十米狂涛猛击船体，货轮产生高达三十度的极限制剧烈横摇，侧翻的重型集装箱顺着倾角滑动，即将彻底撞塌逃生人孔竖井外壁。"
+  },
+  {
+   "choice": "盲目加大蛮力赌一把，还是依老机工指点先回旋半扣震碎海盐结晶巧力退丝。",
+   "exits": [
+    {
+     "cost": "扳手长柄出现微细金属疲劳痕迹。",
+     "option": "两人十指相扣将六分仪高硬度合金扳手反向顺牙大力向下扳压拧脱蝶形螺母脱险。"
+    },
+    {
+     "cost": "冲子尖端折断飞溅划伤老机工手背。",
+     "option": "老机工用合金冲子硬敲螺母边缘震碎锈扣自救。"
+    }
+   ],
+   "far": {
+    "consequence": "人孔盖板焊死在通道上无法开启，逃生路径彻底断绝溺死底舱。",
+    "due_days": 1,
+    "trigger": "蝶形螺母发生彻底剪切咬死无法拆解"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_manhole_cover_hydrostatic_jamming",
+   "immediate": {
+    "minutes": 4,
+    "text": "蝶形螺母双翼在挤压下发出刺耳的微鸣，螺纹缝隙溢出白色被压碎的海盐粉末，螺母与螺栓紧密贴合如一体。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "螺纹间隙仅剩不到两毫米公差，若再不能插入坚硬扳手，螺母边缘将被彻底挤扁无法施力。"
+   },
+   "objective": "在螺母滑丝前将三毫米厚六分仪合金钢扳手插到底部拧脱。",
+   "source": "accident",
+   "start_minute": 1024,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "人孔盖板受双向剪切应力绝对死锁",
+   "trigger": "倒塌钢架将逃生人孔盖板边框挤压变形，最后一枚高强度蝶形螺母受横向数千牛顿剪切力死死咬合在防尘扣槽内，普通扳手根本插不进缝隙。"
+  },
+  {
+   "choice": "等待轮机舱合上备用电源，还是小梁冒死用防爆手电持续聚焦照明自救。",
+   "exits": [
+    {
+     "cost": "防爆电池在低温与高负荷下迅速耗尽最后残余电量。",
+     "option": "小梁用防爆LED探照灯在巨浪中死死锁准螺母反光点协助二人精准对位脱险。"
+    },
+    {
+     "cost": "高频频闪刺伤眼底视网膜引发短暂雪盲。",
+     "option": "点亮救生衣高频闪光灯借微弱闪烁光线摸索自救。"
+    }
+   ],
+   "far": {
+    "consequence": "被困人员在漆黑激流中撞击钢梁昏迷沉底溺毙。",
+    "due_days": 1,
+    "trigger": "绝对黑暗中人员迷失方位被卷入漩涡淹没"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_engine_room_power_trip_darkness",
+   "immediate": {
+    "minutes": 3,
+    "text": "眼前瞬间漆黑如墨，只剩狂暴的巨浪撞击声与冰冷海水漫过胸膛的绝望触感，人在黑暗中极易丧失方位感与重心。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cargo_hold_double_bottom_vault"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "黑暗中水流湍急暗涌，四肢在冰水中摸索屡屡撞上锋利钢构，恐惧感如毒蛇般噬咬神经。"
+   },
+   "objective": "在探照灯辅助下锁定人孔螺栓牙槽并完成拆除。",
+   "source": "accident",
+   "start_minute": 1026,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "底舱配电分箱进水短路引发绝对黑暗",
+   "trigger": "上涨的冰冷海水浸没二十米深货舱配电接线箱，发生剧烈电弧打火后主断路器跳闸，二十米深开阔平底货舱瞬间陷入伸手不见五指的绝对黑暗。"
+  },
+  {
+   "choice": "退入干燥隔舱避风，还是全员集中于人孔门前拼死一搏破开螺栓。",
+   "exits": [
+    {
+     "cost": "水手长吸入大量柴油有害气体肺部受损干咳咯血数日。",
+     "option": "水手长将自己的湿防毒面罩捂在千金脸上两人憋足最后一口气扳开螺母脱险。"
+    },
+    {
+     "cost": "制服沾满油污彻底报废。",
+     "option": "用湿透的制服包裹口鼻强行过滤空气脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "人员在漫水底板上晕厥倒地无意识溺亡。",
+    "due_days": 1,
+    "trigger": "封闭货舱内油气中毒与极度缺氧引发全员休克昏厥"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_tunnel_pipe_burst_asphyxiation",
+   "immediate": {
+    "minutes": 4,
+    "text": "空气中弥漫着刺鼻的重柴油恶臭，呼吸道如火烧般灼痛，千金眼眶通红剧烈呛咳，两腮泛起因缺氧导致的高热艳红。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_engine_room_pipe_tunnel_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "肺部针扎般剧痛，眼前开始浮现黑色雪花，阿宝已瘫软在积水中几乎无法自主站立。"
+   },
+   "objective": "戴上防烟面罩并在油气爆燃前破开人孔冲入通风口。",
+   "source": "nature",
+   "start_minute": 1028,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "双层底破裂压载水管混合油气致急性窒息",
+   "trigger": "龙骨扭转扯裂双层底重油管道与高压压载水管，浓烈刺鼻的柴油挥发物与海水水雾在封闭货舱内弥漫，空气含氧量骤降，人员剧烈呛咳视线模糊。"
+  },
+  {
+   "choice": "继续加大蛮力赌一把，还是收回半寸微调受力轴向巧力挫开螺牙。",
+   "exits": [
+    {
+     "cost": "六分仪扳手卡槽边缘留下永久性轻度弧形弯曲伤痕。",
+     "option": "千金与水手长依老机工口诀朝回回旋半扣震碎晶块再顺牙猛力下压震开螺母自救。"
+    },
+    {
+     "cost": "样冲尖端受强烈挤压报废。",
+     "option": "垫入纯铜样冲分担局部剪应力完成撬动脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "唯一救命的高硬度扳手化为乌有，死锁人孔无法开启，全员困死舱底。",
+    "due_days": 1,
+    "trigger": "六分仪调节扳手彻底崩折断裂解体"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_sextant_wrench_bending_strain_limit",
+   "immediate": {
+    "minutes": 3,
+    "text": "六分仪合金钢扳手长柄处传来金属细微的紧绷哀鸣，三毫米厚钢体在两人重压下出现肉眼可见的弹性形变弧度，火星从螺栓缝隙中激溅。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cargo_hold_escape_trunk_manhole"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "卡槽边缘出现微小白亮金属应力疲劳白痕，若再发生一次盲目硬扳，这柄百年传家合金扳手将发生塑性断裂彻底报废。"
+   },
+   "objective": "依老机工指点震碎盐霜后再行下压一鼓作气旋脱螺母。",
+   "source": "accident",
+   "start_minute": 1030,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "航海六分仪特制合金钢扳手濒临屈服断裂",
+   "trigger": "蝶形螺母极为坚硬，两人施加的全身反向力矩让这柄三毫米厚特制淬火铬钒钢扳手承受了超过六百兆帕的极限抗弯剪切力，卡槽边缘发出尖锐微鸣濒临塑性脆断。"
+  },
+  {
+   "choice": "以接班人的名义先签字认下，还是查清货损是不是风暴之前就有",
+   "exits": [
+    {
+     "cost": "叔伯们会说，接班人第一次掌船就赔了三千万",
+     "option": "签字先认下"
+    },
+    {
+     "cost": "日志里也记着你们两个那一夜在哪里",
+     "option": "请老陈翻机舱日志"
+    }
+   ],
+   "far": {
+    "consequence": "这笔账若算在验收的人头上，水手长的牌照和千金的接班都要重新讨论",
+    "due_days": 4,
+    "trigger": "董事会表决"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_mingchu_winter_melon",
+    "hook_yuan_rope_knot"
+   ],
+   "id": "p_cargo_damage_claim",
+   "immediate": {
+    "minutes": 5,
+    "text": "郑襄理不肯坐，站在门边等回复"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_owner_suite_cabin"
+   ],
+   "near": {
+    "deadline_minutes": 180,
+    "text": "中午十二点，霍家董事会开会"
+   },
+   "objective": "在霍家董事会开会之前，决定这三千万由谁来认",
+   "source": "money",
+   "start_minute": 540,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "货主的索赔函",
+   "trigger": "风球除下的第二天早上，郑襄理把一封索赔函放在船东套房的茶几上：货损三千万，要霍家先认，再去谈保险"
+  },
+  {
+   "choice": "公开说那一夜是在船上验收，还是去求周刊撤稿",
+   "exits": [
+    {
+     "cost": "就得解释为什么验收要验到凌晨",
+     "option": "公开说明"
+    },
+    {
+     "cost": "周刊老板要千金接受一次独家专访",
+     "option": "请周刊撤稿"
+    }
+   ],
+   "far": {
+    "consequence": "千金接班的事再拖一年，水手长被调去跑最远的航线",
+    "due_days": 5,
+    "trigger": "股东们定下接班人选"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_mingchu_winter_melon",
+    "hook_mingchu_star_ferry",
+    "hook_mingchu_gantry_night",
+    "hook_yuan_rope_knot",
+    "hook_mingchu_suite_door"
+   ],
+   "id": "p_tabloid_photo",
+   "immediate": {
+    "minutes": 5,
+    "text": "阿宝把周刊摊在套房桌上，家族的群组已经炸了"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_owner_suite_cabin"
+   ],
+   "near": {
+    "deadline_minutes": 720,
+    "text": "明早八点，股东早餐会"
+   },
+   "objective": "在明早股东早餐会之前，把照片的说法讲圆",
+   "source": "rumor",
+   "start_minute": 1200,
+   "tags": [],
+   "title": "周刊的照片",
+   "trigger": "风球过后第三天晚上，八卦周刊登了一张照片：船王千金凌晨从浮坞里被抬出来，身上裹着水手长的外套，标题问船东为何深夜留在船上"
+  }
+ ],
+ "region": "香港青衣霍家船厂浮船坞里进坞大修的三万吨级散货轮二十米深主货舱底板区",
+ "rules": [
+  {
+   "id": "r_ship_double_bottom_bilge_limit_rule",
+   "text": "双层底污水井积水超过一米五前必须在八分钟内撤出主货舱。"
+  },
+  {
+   "id": "r_sextant_adjust_wrench_torque_limit",
+   "text": "六分仪调节扳手施力时咬合深度不得低于螺母厚度三分之二。"
+  },
+  {
+   "id": "r_container_twistlock_shear_statute",
+   "text": "堆垛倾角超过十五度时严禁直接在箱脚剪切死角下方徒步穿越。"
+  },
+  {
+   "id": "r_typhoon_manhole_airlock_seal_statute",
+   "text": "逃生人孔盖备用双头蝶形螺母卸除后必须逆时针旋转九十度脱钩。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "星盘验钢",
+  "committed": "瀚海同舟",
+  "familiar": "狂浪共涉",
+  "flirting": "暗室温存",
+  "intimate": "破盖相拥",
+  "stranger": "货舱戒备",
+  "testing": "借柄拧栓"
+ },
+ "status": "released",
+ "style_hint": "港岛豪门与船厂重工的反差：青衣的龙门吊、浮坞的压载泵、霓虹倒映的维港。写骄矜千金湿透工装下的曲线与喘息，动作落在六分仪扳手拧人孔螺母上。",
+ "tension_engines": [
+  {
+   "id": "te_cargo_hold_flood_vs_sextant_wrench",
+   "text": "十号风球万吨货舱倒灌淹没灭顶危机与用六分仪特制合金钢调节扳手拆解人孔蝶形螺母的硬核自救。"
+  },
+  {
+   "id": "te_container_collapse_vs_hull_rolling",
+   "text": "数十吨集装箱倾斜滑动碾压倒计时与三十度极限横摇下誓死保全船员生路的意志较量。"
+  },
+  {
+   "id": "te_tsundere_heiress_vs_rough_bosun",
+   "text": "港岛千亿船王千金骄矜傲娇与硬派水手长刚猛狂野在怒海狂涛中的反差共鸣。"
+  },
+  {
+   "id": "te_sea_water_hypothermia_vs_manhole_hug",
+   "text": "冰冷油污水浪侵袭致肌体失温颤抖与两人在摇晃人孔门槛前十指紧扣合力下压扳手的生死羁绊。"
+  }
+ ],
+ "title": "港岛船王千金·浮坞货轮深舱",
+ "tone": [
+  "万吨巨轮货舱空旷回响",
+  "风暴潮漫过坞墙拍击外板",
+  "集装箱重钢崩裂倾轧呻吟",
+  "合金扳手别动螺母刺耳锐响"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_sextant_wrench_vanadium_steel",
+   "requires": [
+    "heiress_fok_mingchu"
+   ],
+   "text": "{heiress_fok_mingchu.name}随身佩带的这柄百年航海六分仪特制调节扳手系英国伯明翰原厂特供加硬淬火铬钒钢冷锻制造，硬度高达HRC58且厚度仅有三毫米，刚好切入人孔锁扣狭窄咬合死缝。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_motorman_back_turn_salt_break_reveal",
+   "requires": [
+    "motorman_old_chen_fitter"
+   ],
+   "text": "{motorman_old_chen_fitter.name}指出了该偏心蝶形螺母被海水盐霜咬死，指导先往回反挫半扣彻底震碎海盐结晶，解除了螺栓卡死死锁。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_assistant_shears_cut_nylon_ropes",
+   "requires": [
+    "steward_miss_pan_mei_po"
+   ],
+   "text": "{steward_miss_pan_mei_po.name}递送的不锈钢多功能救生剪利落剪断了缠绕在人孔把手上的硬化尼龙绳网，彻底清除了扳手插入障碍。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_captain_steers_thirty_second_window",
+   "requires": [
+    "captain_he_zhenghao_master"
+   ],
+   "text": "{captain_he_zhenghao_master.name}在坞控室调平浮坞压载，为货舱抢出长达三十秒的低横倾平稳窗口，使两人在昏暗风浪中毫厘不差地定位、沉稳发力。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_cadet_floodlight_guides_slot_target",
+   "requires": [
+    "deck_cadet_xiao_liang_apprentice"
+   ],
+   "text": "{deck_cadet_xiao_liang_apprentice.name}用防爆探照灯精准穿透浑水照亮螺母反光点，为两人提供了清晰视觉引导。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_bosun_shields_mingchu_falling_girder",
+   "requires": [
+    "heiress_fok_mingchu",
+    "bosun_lu_yuan_deck"
+   ],
+   "text": "{bosun_lu_yuan_deck.name}在盖板弹开的一瞬挺身扑倒，用宽阔结实的后背替{heiress_fok_mingchu.name}硬生生抗下了头顶坠落的一截断裂铁梯钢构冲击。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_hongkong_freighter_rescue_triumph",
+   "requires": [
+    "heiress_fok_mingchu",
+    "bosun_lu_yuan_deck"
+   ],
+   "text": "人孔推开后全员顺着竖井撤至甲板安全舱室，风暴潮退去，三万吨巨轮稳稳落回坞底墩木，朝霞洒在两人紧紧相拥的身上，定格成叱咤维港的豪门船王传奇。"
+  }
+ ]
+}

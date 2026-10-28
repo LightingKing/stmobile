@@ -1,0 +1,2242 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "跟着登临组上了几年船的警员。",
+   "age_range": [
+    22,
+    28
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_boarding_officer",
+   "line": "组长！缓降滑轨下面清出来了！上面的人换好绳就能滑下来！",
+   "location_ids": [
+    "loc_container_descent_rail",
+    "loc_cutter_aft_deck"
+   ],
+   "name": "警员小赵",
+   "role": "登临组的年轻警员"
+  },
+  {
+   "adult_context": "在缉私船上值了几年班的报务员。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_radio_operator",
+   "line": "我一直在频道上！听得见就回一声！",
+   "location_ids": [
+    "loc_container_descent_rail",
+    "loc_cutter_aft_deck"
+   ],
+   "name": "报务员阿梅",
+   "role": "缉私船的值班报务员"
+  },
+  {
+   "adult_context": "跟着副局长出海的秘书。",
+   "age_range": [
+    26,
+    35
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_deputy_aide",
+   "line": "副局长有令，箱子没稳之前，谁也不许再上去！",
+   "location_ids": [
+    "loc_container_descent_rail"
+   ],
+   "name": "秘书小钱",
+   "role": "副局长的秘书"
+  },
+  {
+   "adult_context": "在船上帮厨的年轻人。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_galley_hand",
+   "line": "警官每天晚饭都坐在工程师对面，四十天了，一天都没换过位置。",
+   "location_ids": [
+    "loc_cutter_aft_deck"
+   ],
+   "name": "帮厨小周",
+   "role": "船员餐厅的帮厨"
+  },
+  {
+   "adult_context": "在缉私船上干了二十年的水手长。",
+   "age_range": [
+    45,
+    60
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_deck_bosun",
+   "line": "那个工程师修吊机的时候，眼睛老往后甲板上的警官瞟。",
+   "location_ids": [
+    "loc_cutter_aft_deck"
+   ],
+   "name": "水手长老马",
+   "role": "缉私船的水手长"
+  },
+  {
+   "adult_context": "在机舱里干了几年的加油工。",
+   "age_range": [
+    25,
+    38
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_engine_oiler",
+   "line": "工程师每天下午三点准时去餐厅泡咖啡，泡两杯，一杯放两包糖。",
+   "location_ids": [
+    "loc_cutter_aft_deck"
+   ],
+   "name": "加油工阿强",
+   "role": "机舱的加油工"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "女警官与工程师在箱顶上胸腹相贴，四只手叠在手电筒身上，一个数着钢缆的响声一个跟着往前顶。",
+   "id": "cc_officer_engineer_switch",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "customs_officer_qinghan",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一起被困在悬空的箱顶上，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "cutter_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "一起出过好几趟海，一个抓人一个修船。",
+     "stage": "familiar"
+    },
+    {
+     "a": "customs_officer_qinghan",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "cutter_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个冷一个闷，三年里说过的话不多，句句都记得。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "customs_officer_qinghan",
+    "cutter_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "顶退卡舌，换挂缓降绳，两人一起滑回缉私艇。",
+    "limit_gap": "女警官在八级阵风里站不稳，工程师的工具包掉进了海里。",
+    "meeting_reason": "钢缆崩断前，两人一起爬上集装箱顶找吊钩的放缆销。",
+    "resource_gap": "女警官有那支战术手电和一身登临练出来的胆子，工程师有那副安全背带和对吊机的了解。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_last_cable_tearing",
+    "te_flashlight_chest_press"
+   ]
+  },
+  {
+   "chemistry": "女警官与工程师在缓降滑轨前四只手叠在一起，一边争该先换绳还是先保证据，一边一下一下把挂环推出来。",
+   "id": "cc_officer_engineer_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "customs_officer_qinghan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "为夜里登不登船争了一晚上，谁都不肯先认输。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "cutter_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "四十天里在餐厅对面坐过每一顿晚饭。",
+     "stage": "familiar"
+    },
+    {
+     "a": "customs_officer_qinghan",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "cutter_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个嘴硬一个嘴笨，谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "customs_officer_qinghan",
+    "cutter_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "先把人滑下去，再想办法保住箱子。",
+    "limit_gap": "女警官不懂吊机，工程师不懂缉私。",
+    "meeting_reason": "两人为这一趟该不该冒险夜里登临，在餐厅里争了一晚上，争到风暴来都没分出胜负。",
+    "resource_gap": "女警官知道这箱货有多要紧，工程师知道这根钢缆还能撑多久。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_hook_latch_jammed",
+    "te_gale_on_slope"
+   ]
+  },
+  {
+   "chemistry": "副局长在缉私艇上等着消息，女警官和工程师一个顶卡舌一个抱着腰，谁也不肯在领导面前先喊险。",
+   "id": "cc_officer_engineer_deputy",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "customs_officer_qinghan",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "头一回在副局长面前把命交出去。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "cutter_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "亲自跟船督办，早听说这个女警官和那个工程师。",
+     "stage": "familiar"
+    },
+    {
+     "a": "customs_officer_qinghan",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "cutter_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在副局长面前不敢多看一眼，可每一声数数都只说给一个人听。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "customs_officer_qinghan",
+    "cutter_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让副局长亲眼看见，缉私的人和修船的人能一起把命捡回来。",
+    "limit_gap": "女警官不肯在副局长面前失了王牌的样子，工程师不习惯被领导盯着干活。",
+    "meeting_reason": "副局长要亲眼看看那只可疑的冷藏箱，女警官带人登船，工程师跟上去看吊机。",
+    "resource_gap": "女警官手里有手电和登临装备，工程师手里有背带和缓降绳。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_gale_on_slope",
+    "te_hook_latch_jammed"
+   ]
+  },
+  {
+   "chemistry": "女警官一边顶卡舌一边冲新警员喊着怎么勾住波纹筋，工程师抱着两人的腰，把三个人的力气拧成一股。",
+   "id": "cc_officer_engineer_rookie",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "customs_officer_qinghan",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "女警官嫌新警员晕船碍事，今晚却要把命交到这双手上。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "cutter_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "第一次登船就遇上了钢缆崩断。",
+     "stage": "familiar"
+    },
+    {
+     "a": "customs_officer_qinghan",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "cutter_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "女警官和工程师一个眼神就知道对方要干什么，新警员都看在眼里。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "customs_officer_qinghan",
+    "cutter_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "带着新警员一起平安滑回去，明天照常巡逻。",
+    "limit_gap": "新警员什么都不懂，女警官得一边自救一边教。",
+    "meeting_reason": "新警员第一次登临走私船，工程师正在讲吊机的结构。",
+    "resource_gap": "女警官有手电和登临的经验，工程师有背带和缓降绳。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_last_cable_tearing",
+    "te_hook_latch_jammed"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_roof_whisper",
+   "reach": "all",
+   "text": "风暴里贴着耳朵喊的话和粗重的喘息"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_cutter_horn",
+   "reach": "local",
+   "text": "缉私船的汽笛和对讲机里断断续续的呼叫"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "警校毕业就上了缉私船，在海上追了六年走私船，是缉私局里抓人最多的一个，去留进退由本人拿主意。",
+   "age_range": [
+    26,
+    31
+   ],
+   "appearance_options": [
+    "一头乌黑干练的短发在海风中纷飞，身着贴身战术背心与深蓝特战制服，勾勒出青年女警紧致矫健的身姿，白皙瓜子脸线条利落，寒星凤眸透着果决，冷艳飒爽中洋溢着动人的反差美感。",
+    "防风特战目镜被推至额前，面颊因承受狂风呼啸而泛起诱人绯红，双手紧握战术强光手电，防滑靴底紧紧卡在同伴脚踝内侧稳住重心，从容冷静中流露出将生死完全相托的动人信赖。"
+   ],
+   "decision": {
+    "avoids": [
+     "临阵退缩的人",
+     "嘴上说得好听的人"
+    ],
+    "contrast": "在走私船上冷得像一把刀，审起人来能让老油条开口；可悬在半空时，却是女警官第一个把手电递过去，说一句：你稳，我就稳。",
+    "core_value": "海上没有退路，只有往前。",
+    "goal_options": [
+     "用手电破窗齿顶退卡舌，把挂环推出角件孔",
+     "换挂缓降绳，和工程师一起滑回缉私艇"
+    ],
+    "never": [
+     "丢下搭档自己滑下去"
+    ],
+    "prefers": [
+     "关键时刻靠得住的人",
+     "说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "被风刮得睁不开眼也不松手，咬着牙数着钢缆的响声。",
+     "high": "让对方抱住自己的腰，把全身重量压在手电筒身上。",
+     "low": "先趴低身子勾住箱顶的波纹筋，看清钢缆还剩几股。",
+     "mid": "把手电拔出来，指给对方看卡舌的死角。"
+    },
+    "relationship_stance": "工程师在缉私船上待了三年，两人一起出过好几趟海；这一趟四十天，女警官每天晚饭都坐在工程师对面，谁也没说为什么。",
+    "withdrawal": "滑回缉私艇后头一件事是清点登临组的人数，确认都回来了，才肯靠着船舷坐下，把湿透的短发往后一捋。"
+   },
+   "gender": "female",
+   "gender_reason": "缉私船的王牌女警官，按原稿写作女性。",
+   "id": "customs_officer_qinghan",
+   "identity": {
+    "authority": "登临走私船怎么上、先查哪里、抓不抓人，女警官一句话就能定。",
+    "exposure": "被风浪打得浑身湿透，战术背心贴在身上，只能整个人趴进对方怀里抵着风。",
+    "hidden": "舱室的折叠桌抽屉里压着一张船员合影，合影边上的工程师被女警官用笔圈了一个小圈，谁也没看见。",
+    "limits": [
+     "八级阵风里站不稳",
+     "湿透的战术背心沉得拖人"
+    ],
+    "obligations": [
+     "抓到走私的人，保住箱子里的证据",
+     "把登临组的人都带回缉私船"
+    ],
+    "resources": [
+     "一支重型战术强光手电，航空铝外壳，灯头镶钨钢直角破窗齿",
+     "一套登临装备",
+     "缉私船上下的信任"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "悬在半空时把自己的腰死死抱住的那双手",
+     "每天在机舱里满手油污的那道背影"
+    ],
+    "boundaries": [
+     "人前守着王牌警官的冷静，心意只给认定的人",
+     "每一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "舷窗边靠在对方肩上看海的近身位",
+    "dislikes": [
+     "被人当众起哄",
+     "趁人之危的手"
+    ],
+    "expression": "把舱门锁上，转过身来，难得没用审人的口气：这一趟还剩十天。……今晚，你别回机舱了，行吗？",
+    "likes": [
+     "被人用热毛巾擦干湿透的短发",
+     "在舷窗边被人从身后抱着看海",
+     "夜里被人握着手听发动机的声音"
+    ],
+    "preconditions": [
+     "滑回缉私艇、两人都脱险之后",
+     "两人都清醒，心意出于自己，不是悬空时的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "海关缉私船王牌女警官",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_cutter_aft_deck",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_officer_cabin",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "破窗齿可能崩掉，手腕会被震伤",
+      "option": "用手电顶退卡舌，和工程师合力推出挂环"
+     },
+     {
+      "cost": "三十米下是风暴里的黑浪",
+      "option": "割断防坠绳直接往下跳"
+     }
+    ],
+    "pressure": "残存的钢缆随时会断，必须在箱子坠海之前顶退卡舌、换挂缓降绳。",
+    "trigger": "钢缆崩断时，女警官正趴在集装箱顶上找吊钩的放缆销，箱子猛地一歪，防坠绳就卡死了。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "风大得睁不开眼……背后这个人倒是稳。在海上追了六年船，原来把命交给一个人，是这种感觉。",
+    "surface": "趴低，勾住波纹筋！手电顶进去——你抱紧我的腰，压着我的手，我数到三。"
+   }
+  },
+  {
+   "adult_context": "五十五岁，开了三十年缉私船，这条船上每一颗螺丝都认得。",
+   "age_range": [
+    50,
+    62
+   ],
+   "appearance_options": [
+    "一身褪色的深蓝制服，花白的平头，脸被海风吹得黝黑，手里总握着一只搪瓷杯。",
+    "站在驾驶台的窗前，盯着雷达屏上那个光点。"
+   ],
+   "decision": {
+    "avoids": [
+     "缉私船的船长最烦临阵推诿"
+    ],
+    "contrast": "在副局长面前说话不卑不亢，在船员面前却像个唠叨的老父亲。",
+    "core_value": "船上的人，一个都不能少。",
+    "goal_options": [
+     "先把人救出来",
+     "缉私船的船长再追究是谁的错"
+    ],
+    "never": [
+     "缉私船的船长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "缉私船的船长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "缉私船的船长嗓子喊哑了也不肯走",
+     "high": "缉私船的船长顶着危险往里递东西",
+     "low": "缉私船的船长先稳住身边的人",
+     "mid": "缉私船的船长四处找能用的工具"
+    },
+    "relationship_stance": "看着女警官从新警员一路成了王牌，嘴上叫女警官愣头青，私下逢人就夸。",
+    "withdrawal": "事情过去后，缉私船的船长一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是开了三十年船的老船长。",
+   "id": "cutter_captain",
+   "identity": {
+    "authority": "缉私船往哪开、开多快，船长说了算。",
+    "exposure": "缉私船的船长忙起来顾不上衣着体面",
+    "hidden": "做缉私船的船长这些年，有件事没对旁人说过",
+    "limits": [
+     "缉私船的船长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住缉私船的船长手上的那一摊事"
+    ],
+    "resources": [
+     "一条开了三十年的缉私船",
+     "缉私船的船长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "缉私船的船长欣赏做事干脆利落的人",
+     "缉私船的船长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，缉私船的船长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和缉私船的船长并肩站着",
+    "dislikes": [
+     "缉私船的船长讨厌轻浮的手"
+    ],
+    "expression": "缉私船的船长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "缉私船的船长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "缉私船的船长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "缉私船的船长",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_cutter_aft_deck",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "缉私船的船长未必赶得上",
+      "option": "缉私船的船长在外面调度接应"
+     },
+     {
+      "cost": "可能把缉私船的船长自己也搭进去",
+      "option": "缉私船的船长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，缉私船的船长进不去",
+    "trigger": "警报传到缉私船的船长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "开了三十年船……今晚要是让这孩子掉进海里，我没脸再站驾驶台。",
+    "surface": "我把船顶上去了！你们换好绳就滑，下面有人接！"
+   }
+  },
+  {
+   "adult_context": "四十岁，在缉私船上当了十年随船医生，晕船的、受伤的、熬夜熬病了的都归这里管。",
+   "age_range": [
+    36,
+    48
+   ],
+   "appearance_options": [
+    "一身白大褂套在救生衣外面，短发别在耳后，脖子上挂着听诊器。",
+    "坐在医务室门口的折叠凳上，一边整理药箱一边看海。"
+   ],
+   "decision": {
+    "avoids": [
+     "随船的女医生最烦临阵推诿"
+    ],
+    "contrast": "对不听话的病号凶得很，对晕船的新人却温柔得像哄孩子。",
+    "core_value": "活着回来，什么伤都能治。",
+    "goal_options": [
+     "先把人救出来",
+     "随船的女医生再追究是谁的错"
+    ],
+    "never": [
+     "随船的女医生不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "随船的女医生看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "随船的女医生嗓子喊哑了也不肯走",
+     "high": "随船的女医生顶着危险往里递东西",
+     "low": "随船的女医生先稳住身边的人",
+     "mid": "随船的女医生四处找能用的工具"
+    },
+    "relationship_stance": "跟女警官是多年的朋友，私下里总问那个工程师到底怎么样。",
+    "withdrawal": "事情过去后，随船的女医生一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是缉私船的随船女医生。",
+   "id": "ship_doctor",
+   "identity": {
+    "authority": "船上谁该休息、谁不能再上甲板，女医生说了算。",
+    "exposure": "随船的女医生忙起来顾不上衣着体面",
+    "hidden": "做随船的女医生这些年，有件事没对旁人说过",
+    "limits": [
+     "随船的女医生不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住随船的女医生手上的那一摊事"
+    ],
+    "resources": [
+     "一整箱药和急救器械",
+     "随船的女医生随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "随船的女医生欣赏做事干脆利落的人",
+     "随船的女医生记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，随船的女医生就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和随船的女医生并肩站着",
+    "dislikes": [
+     "随船的女医生讨厌轻浮的手"
+    ],
+    "expression": "随船的女医生话不多，递东西时指尖会多停一下",
+    "likes": [
+     "随船的女医生收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "随船的女医生要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "随船的女医生",
+   "schedule": [
+    {
+     "from": 420,
+     "location_id": "loc_cutter_aft_deck",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "随船的女医生未必赶得上",
+      "option": "随船的女医生在外面调度接应"
+     },
+     {
+      "cost": "可能把随船的女医生自己也搭进去",
+      "option": "随船的女医生硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，随船的女医生进不去",
+    "trigger": "警报传到随船的女医生那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "这丫头……嘴上说只是搭档，心里早就……今晚可千万要下来。",
+    "surface": "急救箱我备好了！你们滑下来就有人接，别怕！"
+   }
+  },
+  {
+   "adult_context": "三十岁，在船厂修了五年船，又在缉私船上管了三年机舱和吊装设备，去留进退由本人拿主意。",
+   "age_range": [
+    28,
+    34
+   ],
+   "appearance_options": [
+    "一身沾满油污的深蓝工装，袖口卷到手肘，腰上挂着一只装满扳手和钳子的工具包，脚上一双防滑钢头靴。",
+    "工装被浪打得湿透，一条胳膊死死抱着女警官的腰，靴尖勾着箱顶的柳钉。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿命开玩笑的人"
+    ],
+    "contrast": "在机舱里能把一台主机拆了再装上，被女警官看一眼，就忘了扳手放哪儿了。",
+    "core_value": "钢缆不会骗人，响几声，就还剩几股。",
+    "goal_options": [
+     "用靴尖勾住柳钉，给女警官当稳住身子的锚",
+     "把全身重量压在手电筒身上"
+    ],
+    "never": [
+     "让女警官一个人留在箱顶上"
+    ],
+    "prefers": [
+     "说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "被风刮得睁不开眼也不松，跟着女警官的数数顶到最后一下。",
+     "high": "胸口贴着女警官的后背，双手压在女警官的手上，和女警官一起顶。",
+     "low": "一把抱住女警官的腰，靴尖死死勾住箱顶的柳钉。",
+     "mid": "听着钢缆的响声，报出还剩几股。"
+    },
+    "relationship_stance": "每天在机舱里修发动机，修着修着，心思就不只在发动机上了。",
+    "withdrawal": "确认两人都滑回缉私艇、登临组的人都回来了，才靠在船舷上，大口大口地喘气。"
+   },
+   "gender": "male",
+   "gender_reason": "缉私船的随船机械工程师，按原稿写作男性。",
+   "id": "cutter_engineer",
+   "identity": {
+    "authority": "货轮的吊机怎么转、钢缆还能撑多久，工程师心里有数。",
+    "exposure": "湿透的工装贴着女警官的后背，两人在箱顶上贴得严丝合缝。",
+    "hidden": "机舱的工具柜里贴着一张便签，写着女警官爱喝的咖啡放几包糖，一直没撕下来。",
+    "limits": [
+     "风浪里站不稳",
+     "工具包在钢缆崩断时掉进了海里"
+    ],
+    "obligations": [
+     "把女警官的腰抱住，不让女警官滑下去",
+     "换挂缓降绳，两人一起滑回去"
+    ],
+    "resources": [
+     "一副登山安全背带",
+     "一卷备用芳纶缓降绳",
+     "一把多用钳"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女警官悬在半空还能数得那么稳的那份冷静",
+     "女警官喝到对的咖啡时嘴角那一下"
+    ],
+    "boundaries": [
+     "女警官没开口就不越一步",
+     "人前不让女警官难做"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "舷窗边让女警官靠着肩膀的近身位",
+    "dislikes": [
+     "当众起哄",
+     "背后嚼舌根"
+    ],
+    "expression": "被女警官留下时愣了很久，最后只说了一句：你的咖啡放两包糖，我记了三年。",
+    "likes": [
+     "女警官难得叫一次自己的名字",
+     "被女警官拉进舱室锁上门"
+    ],
+    "preconditions": [
+     "滑回缉私艇、两人都安全清醒之后",
+     "女警官点了头，出于本心"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "缉私船的随船机械工程师",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_cutter_aft_deck",
+     "to": 1020
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_container_roof_edge",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "胳膊会被拉伤，靴尖可能脱钩",
+      "option": "抱住女警官的腰，合力顶退卡舌"
+     },
+     {
+      "cost": "吊钩晃得厉害，一松手就掉下去",
+      "option": "爬到吊钩上去扳放缆销"
+     }
+    ],
+    "pressure": "钢缆越来越松，再不换挂缓降绳，两人都会跟着箱子坠海。",
+    "trigger": "钢缆崩断时，工程师正跟着女警官爬上箱顶找放缆销，箱子一歪，两人就一起被困在了上面。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "女警官整个人趴在我怀里，风大得喘不上气……别分神。修了这么多年吊机，今晚得听准这根缆。",
+    "surface": "我抱着你，别怕！手电顶进去，我压着你的手——你数，我跟。"
+   }
+  },
+  {
+   "adult_context": "三十八岁，带着登临组登过上百条走私船，每一次都是第一个跳上去的。",
+   "age_range": [
+    32,
+    45
+   ],
+   "appearance_options": [
+    "一身黑色的登临作战服，套着救生背心，寸头，下巴上一道疤。",
+    "站在缉私艇的艇首，手里攥着一根挂钩绳。"
+   ],
+   "decision": {
+    "avoids": [
+     "登临突击组的组长最烦临阵推诿"
+    ],
+    "contrast": "对走私船员下手狠得很，对船上的新人却总是多教几句。",
+    "core_value": "上去几个人，就要带回来几个人。",
+    "goal_options": [
+     "先把人救出来",
+     "登临突击组的组长再追究是谁的错"
+    ],
+    "never": [
+     "登临突击组的组长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "登临突击组的组长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "登临突击组的组长嗓子喊哑了也不肯走",
+     "high": "登临突击组的组长顶着危险往里递东西",
+     "low": "登临突击组的组长先稳住身边的人",
+     "mid": "登临突击组的组长四处找能用的工具"
+    },
+    "relationship_stance": "嘴上嫌工程师不是警察跟着瞎跑，可每回女警官登船，组长都盯着工程师别掉队。",
+    "withdrawal": "事情过去后，登临突击组的组长一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是登临突击组的组长。",
+   "id": "boarding_team_leader",
+   "identity": {
+    "authority": "登临组谁先上、谁守哪里，组长说了算。",
+    "exposure": "登临突击组的组长忙起来顾不上衣着体面",
+    "hidden": "做登临突击组的组长这些年，有件事没对旁人说过",
+    "limits": [
+     "登临突击组的组长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住登临突击组的组长手上的那一摊事"
+    ],
+    "resources": [
+     "一队登临组的警员",
+     "登临突击组的组长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "登临突击组的组长欣赏做事干脆利落的人",
+     "登临突击组的组长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，登临突击组的组长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和登临突击组的组长并肩站着",
+    "dislikes": [
+     "登临突击组的组长讨厌轻浮的手"
+    ],
+    "expression": "登临突击组的组长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "登临突击组的组长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "登临突击组的组长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "登临突击组的组长",
+   "schedule": [
+    {
+     "from": 1080,
+     "location_id": "loc_container_descent_rail",
+     "to": 1439
+    },
+    {
+     "from": 0,
+     "location_id": "loc_container_descent_rail",
+     "to": 420
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "登临突击组的组长未必赶得上",
+      "option": "登临突击组的组长在外面调度接应"
+     },
+     {
+      "cost": "可能把登临突击组的组长自己也搭进去",
+      "option": "登临突击组的组长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，登临突击组的组长进不去",
+    "trigger": "警报传到登临突击组的组长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "登了上百条船，从没见风浪这么大……那两个人要是掉下来，我这组长也别干了。",
+    "surface": "甲板上的人我们按住了！你们换好绳就滑，我在艇上接！"
+   }
+  },
+  {
+   "adult_context": "四十五岁，给缉私船做了十五年饭，四十天的伙食怎么排，全在这个脑子里。",
+   "age_range": [
+    38,
+    55
+   ],
+   "appearance_options": [
+    "一身白色的厨师服，系着一条油渍斑斑的围裙，头上包着一块花头巾。",
+    "站在船员餐厅的灶台前，一边炒菜一边听收音机。"
+   ],
+   "decision": {
+    "avoids": [
+     "船上的厨师长最烦临阵推诿"
+    ],
+    "contrast": "嘴上骂船员吃饭挑食，私下却照着每个人的口味多做一个菜。",
+    "core_value": "吃饱了，才有力气追船。",
+    "goal_options": [
+     "先把人救出来",
+     "船上的厨师长再追究是谁的错"
+    ],
+    "never": [
+     "船上的厨师长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "船上的厨师长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "船上的厨师长嗓子喊哑了也不肯走",
+     "high": "船上的厨师长顶着危险往里递东西",
+     "low": "船上的厨师长先稳住身边的人",
+     "mid": "船上的厨师长四处找能用的工具"
+    },
+    "relationship_stance": "每回给女警官的饭盒里多放一个鸡蛋，说这孩子太瘦了。",
+    "withdrawal": "事情过去后，船上的厨师长一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是缉私船的女厨师长。",
+   "id": "galley_chief",
+   "identity": {
+    "authority": "船上一日三餐吃什么、谁多一个鸡腿，厨师长说了算。",
+    "exposure": "船上的厨师长忙起来顾不上衣着体面",
+    "hidden": "做船上的厨师长这些年，有件事没对旁人说过",
+    "limits": [
+     "船上的厨师长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住船上的厨师长手上的那一摊事"
+    ],
+    "resources": [
+     "一个塞满补给的冷库",
+     "船上的厨师长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "船上的厨师长欣赏做事干脆利落的人",
+     "船上的厨师长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，船上的厨师长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和船上的厨师长并肩站着",
+    "dislikes": [
+     "船上的厨师长讨厌轻浮的手"
+    ],
+    "expression": "船上的厨师长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "船上的厨师长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "船上的厨师长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "船上的厨师长",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_cutter_aft_deck",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "船上的厨师长未必赶得上",
+      "option": "船上的厨师长在外面调度接应"
+     },
+     {
+      "cost": "可能把船上的厨师长自己也搭进去",
+      "option": "船上的厨师长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，船上的厨师长进不去",
+    "trigger": "警报传到船上的厨师长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "那孩子今早还在我这儿吃了两碗面……可千万得回来。",
+    "surface": "姜汤我煮着呢！你们回来了就有得喝！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "九月，台风季",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "workplace",
+  "disaster",
+  "crime",
+  "intimate"
+ ],
+ "custom": false,
+ "customs": [
+  "港口集装箱标准铸钢角件吊装孔带有内收八字锁紧斜坡，一旦侧倾受到极限单向挤压，合金挂环会形成深度自锁咬死。",
+  "缉私女警官配备的重型战术防卫强光手电，外壳采用特种航空铝硬质阳极氧化处理，灯头镶嵌超高硬度钨钢直角破窗攻击齿。",
+  "海面三十米高空阵风风力高达八级，倾斜四十五度的箱顶极其光滑，两人必须胸腹相贴利用防滑登山靴互锁稳住身姿。",
+  "集装箱外侧装有应急安全扶手滑轨，只要将互锁主绳从角件中解脱并换挂至滑轨缓降器，即可顺着安全绳索平稳滑降至巡逻艇。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "下午三点的船员餐厅，老咖啡机咕噜咕噜地响，女警官坐在靠窗的位置，面前一杯刚泡好的速溶咖啡。",
+    "女警官抿了一口，挑了挑眉：两包糖。……谁泡的？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_galley_coffee",
+   "location_ids": [
+    "loc_cutter_aft_deck"
+   ],
+   "start_minute": 900,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪女警官喝一杯速溶咖啡"
+  },
+  {
+   "beats": [
+    "傍晚的后甲板上，夕阳把整片海染成金红，女警官靠着栏杆，短发被海风吹乱。",
+    "女警官忽然开口：在海上六年，看了几百次日落。……今天这次，好像不太一样。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_aft_deck_sunset",
+   "location_ids": [
+    "loc_cutter_aft_deck"
+   ],
+   "start_minute": 1050,
+   "tags": [
+    "workplace"
+   ],
+   "title": "傍晚靠着栏杆陪女警官吹海风"
+  },
+  {
+   "beats": [
+    "深夜的驾驶台，只有雷达屏幽绿的光，女警官抱着手臂站在屏幕前，盯着那个一闪一闪的光点。",
+    "女警官头也不回：你也睡不着？……那陪我盯一会儿，看那条船往哪跑。"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "act_radar_watch",
+   "location_ids": [
+    "loc_cutter_aft_deck"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪女警官盯雷达屏"
+  },
+  {
+   "beats": [
+    "上午的机舱里热得像蒸笼，工程师满手油污地趴在主机边上，女警官端着一杯水站在舱口看着。",
+    "女警官把水递过去：喝口水。……这台主机，能撑到抓住那条船吗？"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_engine_room_visit",
+   "location_ids": [
+    "loc_cutter_aft_deck"
+   ],
+   "start_minute": 600,
+   "tags": [
+    "workplace"
+   ],
+   "title": "女警官来机舱看修发动机"
+  },
+  {
+   "beats": [
+    "清晨的甲板上，女警官带着登临组一遍遍练挂钩攀爬，动作干净利落，新警员们看得目瞪口呆。",
+    "女警官跳下栏杆，冲人扬了扬下巴：你也来试试？……放心，掉下去我捞你。"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "act_boarding_drill",
+   "location_ids": [
+    "loc_cutter_aft_deck"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "workplace"
+   ],
+   "title": "看女警官带登临演练"
+  },
+  {
+   "beats": [
+    "女警官的单人舱室里，折叠小桌上摊着执勤日志，女警官咬着笔帽，一行行写着今天的航迹。",
+    "女警官把日志推过来：帮我看看这一段。……你的字比我好看。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_porthole_chat",
+   "location_ids": [
+    "loc_officer_cabin"
+   ],
+   "start_minute": 1140,
+   "tags": [
+    "workplace"
+   ],
+   "title": "在舱室里陪女警官写执勤日志"
+  },
+  {
+   "beats": [
+    "滑回缉私艇、证据封存、登临组一个不少地回到船上之后，女警官回到舱室，战术背心上全是海水和油污，短发还在滴水。",
+    "舷窗边，女警官背过身，让人一个个解开战术背心的搭扣，再用热毛巾擦干冻僵的肩背，毛巾擦过后颈时，女警官轻轻吸了口气，往后靠了过来。",
+    "女警官转过身，难得没用审人的口气，声音很轻：今晚……我不想一个人听发动机响。你愿意留下吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_vest_unbuckled",
+   "location_ids": [
+    "loc_officer_cabin"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "舱室里替女警官解开战术背心"
+  },
+  {
+   "beats": [
+    "深夜的舱室里，女警官只穿着一件宽松的T恤，盘腿坐在单人铺上，捧着一碗泡面，舷窗外是满天星光。",
+    "女警官把泡面推过来一半：分你。……坐近点，铺就这么窄。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_instant_noodles",
+   "location_ids": [
+    "loc_officer_cabin"
+   ],
+   "start_minute": 1300,
+   "tags": [
+    "intimate"
+   ],
+   "title": "深夜在舱室里分一碗泡面"
+  },
+  {
+   "beats": [
+    "出海第四十天、明天就要回港的那一夜，女警官站在舷窗前，看着远处港口的灯塔一闪一闪，手里捏着那张圈了一个小圈的合影。",
+    "女警官没回头：明天靠岸，你就要回船厂了。……今晚你要是留下，下一趟出海我就点名要你。你说好，我才转身。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_last_night",
+   "location_ids": [
+    "loc_officer_cabin"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "回港前的最后一夜"
+  },
+  {
+   "beats": [
+    "天快亮的时候，舷窗外泛起一片鱼肚白，女警官在窄窄的单人铺上醒来，短发蹭着人的下巴，整个人缩在人怀里。",
+    "女警官把脸埋进人胸口，闷声说：早班……晚一刻再去。船长不会知道的。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_dawn_engine",
+   "location_ids": [
+    "loc_officer_cabin"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "发动机声里醒来"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "现代远海海关缉私与重型航运吊装时代",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_container_roof_edge"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{customs_officer_qinghan.name}特战制服被高空狂风吹得紧贴身躯，面庞泛着警醒红晕，冷静递出战术手电破窗攻击头。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_container_roof_edge"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{customs_officer_qinghan.name}伏在四十五度倾斜箱顶，短发飞扬，侧过身躯紧贴同伴，指向角件孔洞深处咬死的挂环舌片。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "slot": "cutter_engineer",
+   "text": "{cutter_engineer.name}用手臂紧紧环住女警官腰肢抵御高空风剪，用坚实体魄为女警官在倾斜表面筑起阻滑靠山。"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "slot": "cutter_engineer",
+   "text": "{cutter_engineer.name}握紧女警官略带凉意的手套，合力将钨钢破窗攻击头狠狠卡进角孔金属挂环缝隙最深处。"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{customs_officer_qinghan.name}带着柔和的轮廓的俏脸贴在同伴耳侧，温热呼吸拂过脖颈，沉着倒数钢缆承载受拉撕裂的极限时间。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{customs_officer_qinghan.name}修长双腿与同伴腿部在波纹钢板上死死绞扣互为依托，紧咬贝齿，将合抱施力重心牢牢稳固。"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{customs_officer_qinghan.name}展现出缉私王牌的过人胆略，借着集装箱在风中回荡的摆动节奏，清喝下达协同顿压号令。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "slot": "cutter_engineer",
+   "text": "{cutter_engineer.name}在钢缆再次发出断裂呻吟的刹那死死按住女警官肩头，两具年轻躯体在悬空绝壁间严密嵌合。"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{customs_officer_qinghan.name}将温软娇躯毫无保留倚向同伴，以同频心跳化作破障定力，将二人合力完全倾注于手电筒身。"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_container_roof_edge"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{customs_officer_qinghan.name}细辨角件内部自锁弹簧受压回退的微弱震颤，在舌片松脱的毫秒之间催促同伴拔出卡扣。"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "slot": "cutter_engineer",
+   "text": "{cutter_engineer.name}与女警官一同沉下身形暴发全力，借杠杆之力将咬死的变形卡舌一举顶退，主绳轰然松脱。"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{customs_officer_qinghan.name}在锁扣弹开的瞬间扑入同伴怀中，稳住向后倾倒的身躯，双臂紧紧搂住同伴后背。"
+  },
+  {
+   "id": "hook_qinghan_two_sugars",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cutter_aft_deck"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{npc.name}把一杯咖啡放在人手边，头也不抬：多泡了一杯。……两包糖，你应该也喝得惯。"
+  },
+  {
+   "id": "hook_qinghan_where_engineer",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cutter_aft_deck"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{npc.name}在餐厅门口张望了一圈，冷着脸问：工程师呢？……没什么，问问主机。"
+  },
+  {
+   "id": "hook_qinghan_drill_offer",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cutter_aft_deck",
+    "loc_officer_cabin"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{npc.name}把一副登临手套扔过来，挑眉：明天演练你也来。……我亲自教。"
+  },
+  {
+   "id": "hook_qinghan_cabin_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_officer_cabin"
+   ],
+   "slot": "customs_officer_qinghan",
+   "text": "{npc.name}倚在舱门边，短发还湿着：泡面泡好了。……进来，分你一半。"
+  },
+  {
+   "id": "hook_engineer_sugar_note",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cutter_aft_deck",
+    "loc_officer_cabin"
+   ],
+   "slot": "cutter_engineer",
+   "text": "{npc.name}把工具柜上的一张便签扯下来又贴回去：没写什么……是机器参数。"
+  },
+  {
+   "id": "hook_engineer_rail_note",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cutter_aft_deck",
+    "loc_container_roof_edge"
+   ],
+   "slot": "cutter_engineer",
+   "text": "{npc.name}在吊机图纸上画了一道线：集装箱侧面有缓降滑轨。……万一出事，你记住往这里挂。"
+  }
+ ],
+ "id": "cool_detective_shipping_container_rope",
+ "locations": [
+  {
+   "affordances": [
+    "死死抓紧箱顶加强波纹筋骨架抵抗高空狂风",
+    "双腿勾住倾斜箱面突起柳钉防止向下滑坠",
+    "侧身伏低迎着高空强风探摸咬死在角件孔洞内的锁环"
+   ],
+   "detail": "位于海面三十米高空的四十尺冷藏集装箱顶部，箱体呈四十五度严重侧倾，脚下是呼啸翻滚的黑色海浪，单侧残存的起重钢缆在狂风中发出令人牙酸的金属撕裂声。",
+   "exits": [
+    "loc_corner_casting_lock",
+    "loc_container_descent_rail"
+   ],
+   "id": "loc_container_roof_edge",
+   "name": "倾斜箱顶",
+   "pressure_modifiers": {
+    "p_gale_on_slope": "一阵狂风刮过来，靴底在湿滑的箱顶上往下滑了半尺。",
+    "p_last_cable_tearing": "又一股钢丝崩断，箱子猛地往下一沉。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "缉私船的探照灯一下下扫过箱顶，看得清对方被浪打湿的脸，看不清三十米下的黑浪。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "将战术手电坚硬钨钢攻击头直角齿深入挂环与角孔缝隙",
+    "两人合抱手电筒身作为杠杆向前全力推撬卡舌"
+   ],
+   "detail": "集装箱四角的高强度铸钢角件，两个重型双钩防坠锁扣在箱体侧倾自重挤压下严重扭曲互锁，防脱舌片死死咬死在孔口边缘。",
+   "exits": [
+    "loc_container_roof_edge"
+   ],
+   "id": "loc_corner_casting_lock",
+   "name": "角件锁扣",
+   "pressure_modifiers": {
+    "p_breaker_teeth_wear": "破窗齿的钨钢尖被卡舌磨平了一颗，再硬顶可能整个崩掉。",
+    "p_flashlight_chest_press": "女警官趴在工程师身前，后背贴着对方胸口，四只手叠在手电筒身上，湿透的战术背心贴着对方的工装。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "两个双钩防坠锁扣扭在角件孔里，手电破窗齿顶进去时迸出一串火星。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "在撬退自锁卡舌瞬间合力将互锁挂环彻底推出角孔",
+    "迅速将安全背带挂入缓降滑轨顺势滑降脱险"
+   ],
+   "detail": "集装箱外侧完好的固定安全导轨，承受着连接备用芳纶缓降绳索的关键逃生承载点。",
+   "exits": [
+    "loc_container_roof_edge",
+    "loc_cutter_aft_deck"
+   ],
+   "id": "loc_container_descent_rail",
+   "name": "缓降滑轨",
+   "pressure_modifiers": {
+    "p_smugglers_on_deck": "货轮甲板上的走私船员还在跟登临组扭打，有人想去扳吊机的放缆手柄。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "箱体侧面的缓降滑轨通向下面的缉私艇，汽笛声和对讲机里的呼叫从下面传上来，一阵比一阵急。",
+   "witnesses": [
+    "bg_boarding_officer",
+    "bg_radio_operator",
+    "bg_deputy_aide"
+   ]
+  },
+  {
+   "affordances": [
+    "陪女警官在餐厅喝一杯速溶咖啡",
+    "在后甲板看海上的日落",
+    "陪女警官看雷达屏上的光点"
+   ],
+   "detail": "海关缉私船的后甲板和紧挨着的船员餐厅，甲板上晒着一排救生衣，栏杆边放着几张塑料凳，餐厅里一台老咖啡机从早煮到晚，墙上贴着这一趟要追的船的照片。",
+   "exits": [
+    "loc_officer_cabin",
+    "loc_container_descent_rail"
+   ],
+   "id": "loc_cutter_aft_deck",
+   "name": "缉私船后甲板",
+   "pressure_modifiers": {},
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "四十个人挤在一条船上过四十天，女警官跟谁多坐一会儿，不到晚饭整条船都知道了。",
+   "witnesses": [
+    "bg_boarding_officer",
+    "bg_radio_operator",
+    "bg_galley_hand",
+    "bg_deputy_aide"
+   ]
+  },
+  {
+   "affordances": [
+    "坐在铺边陪女警官擦手电",
+    "替女警官解开战术背心的搭扣",
+    "把舱门锁上"
+   ],
+   "detail": "缉私船中层一间窄小的单人舱室，一张靠舷窗的单人铺、一张折叠小桌，墙上挂着战术背心和那支强光手电，舷窗外就是整片海。",
+   "exits": [
+    "loc_cutter_aft_deck"
+   ],
+   "id": "loc_officer_cabin",
+   "name": "女警官的单人舱室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "舱门一关，走廊里的脚步声就远了，只剩发动机低低的嗡鸣和海浪拍船壳的声音。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "陆",
+   "沈",
+   "顾",
+   "秦",
+   "许",
+   "韩",
+   "江",
+   "程",
+   "叶",
+   "唐",
+   "宋",
+   "周",
+   "林",
+   "邵"
+  ],
+  "given_female": [
+   "清寒",
+   "思远",
+   "若岚",
+   "晓舟",
+   "一帆",
+   "知夏",
+   "雨晴",
+   "海宁",
+   "晚星",
+   "听潮",
+   "念安",
+   "书瑶",
+   "子衿",
+   "望舒"
+  ],
+  "given_male": [
+   "振海",
+   "远航",
+   "立川",
+   "明澈",
+   "承舟",
+   "向东",
+   "启航",
+   "知行",
+   "浩然",
+   "云帆",
+   "建平",
+   "海川",
+   "志远",
+   "博文"
+  ],
+  "given_neutral": [
+   "舟",
+   "帆",
+   "潮",
+   "汐",
+   "澜",
+   "岸",
+   "锚",
+   "鸥",
+   "礁",
+   "湾",
+   "浪",
+   "航",
+   "洋",
+   "汀"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入。原稿除标题、简介、基调、女警官外貌、世界规则风俗、三处脱困地点与转折外，人物、压力、日常与钩子大多照抄了吸血鬼地宫那一篇，这里整篇重写，并按查重时的建议和港口冷链卧底女警那一篇拉开：场景从港口岸桥挪到远海，女警官是海关缉私船上的王牌缉私警官，搭档是缉私船的随船机械工程师，日常是在缉私船上出海巡逻的几十天，险境是登临一艘走私货轮时，货轮吊机正把可疑冷藏箱吊出舷外灭证，钢缆崩断，两人被困在悬在风浪上的倾斜箱顶。标题和地域随之改写。新增缉私船后甲板与女警官的单人舱室两处日常地点；年龄放宽；婴儿肥换成了其余外貌描写；亲密前提写明脱险之后、双方清醒自愿；新增舱室里的四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    26
+   ],
+   "baseline": "警校毕业刚分到缉私船，第一次出远海，第一次登临走私船，晕船晕得脸都是白的。",
+   "gender": "any",
+   "id": "pi_rookie_officer",
+   "reputation": "船上最年轻的警员。",
+   "resources": [
+    "一件救生衣",
+    "一副手铐",
+    "一本还没写几页的执勤日志"
+   ],
+   "risks": [
+    "第一趟出海出了岔子，就要被调回岸上坐办公室。"
+   ],
+   "role": "刚分来缉私船的新警员",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    40
+   ],
+   "baseline": "在缉私船上管了八年电台和雷达的报务员，海上每一个光点是谁、往哪走，都先过这双耳朵。",
+   "gender": "any",
+   "id": "pi_radio_officer",
+   "reputation": "船上消息最灵通的人。",
+   "resources": [
+    "一台老电台",
+    "一面雷达屏",
+    "一本记满呼号的本子"
+   ],
+   "risks": [
+    "电台断了，整条船就成了瞎子。"
+   ],
+   "role": "缉私船的报务员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    38
+   ],
+   "baseline": "跟着缉私船出海的海关查验员，抓到的每一箱货都要这双手开箱、登记、封存。",
+   "gender": "any",
+   "id": "pi_customs_inspector",
+   "reputation": "以眼尖出名的查验员。",
+   "resources": [
+    "一套开箱工具",
+    "一本查验登记簿",
+    "一卷海关封条"
+   ],
+   "risks": [
+    "查验出了错，走私的人就能在法庭上翻案。"
+   ],
+   "role": "随船的海关查验员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    38,
+    52
+   ],
+   "baseline": "缉私局的副局长，这一趟亲自跟船督办，抓不抓、怎么抓、回港后谁记功，最后都落在这一句话上。",
+   "gender": "any",
+   "id": "pi_deputy_director",
+   "reputation": "整条船都知道这位副局长的分量。",
+   "resources": [
+    "一部直通局里的卫星电话",
+    "这一趟行动的指挥权",
+    "随时能叫停登临的权限"
+   ],
+   "risks": [
+    "行动期间出了人命，副局长回去也难交代。"
+   ],
+   "role": "海关缉私局的副局长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "海关缉私船在远海追一艘走私货轮已经三天，王牌女警官和随船机械工程师轮流值夜，吃住都挤在狭窄的舱室里，白天盯雷达、查舱单，夜里在甲板上复盘。风暴季快到了，那艘货轮的甲板吊机据说动过手脚。",
+ "pressures": [
+  {
+   "choice": "是趁箱子稳住的间隙下手，还是先趴低等这一阵晃过去？",
+   "exits": [
+    {
+     "cost": "顶到一半箱子又晃，可能前功尽弃",
+     "option": "趁箱子稳住的间隙合力下手"
+    },
+    {
+     "cost": "钢缆只会越来越少",
+     "option": "趴低等这一阵晃过去"
+    }
+   ],
+   "far": {
+    "consequence": "集装箱连同两人一起坠进三十米下的黑浪。",
+    "due_days": 1,
+    "trigger": "钢缆断光"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_last_cable_tearing",
+   "immediate": {
+    "minutes": 2,
+    "text": "又一股钢丝崩断，箱子猛地一沉，女警官整个人撞进工程师怀里，手电差点脱手。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_container_roof_edge",
+    "loc_corner_casting_lock"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "钢缆只剩最后几股，每一声脆响都让人心里一紧。"
+   },
+   "objective": "在钢缆断光之前换挂缓降绳。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "残存钢缆一股股崩断",
+   "trigger": "吊机残存的单侧钢缆在风里一丝丝崩断，每断一股，箱子就猛地往下一沉。"
+  },
+  {
+   "choice": "是用手电破窗齿硬顶，还是先用多用钳把舌片撬松？",
+   "exits": [
+    {
+     "cost": "钳子太小，可能撬不动",
+     "option": "先用多用钳撬松舌片"
+    },
+    {
+     "cost": "破窗齿可能先崩掉",
+     "option": "直接用手电硬顶"
+    }
+   ],
+   "far": {
+    "consequence": "防坠绳再也解不下来，换挂缓降绳的路断了。",
+    "due_days": 1,
+    "trigger": "挂环挤死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hook_latch_jammed",
+   "immediate": {
+    "minutes": 2,
+    "text": "破窗齿顶进去，角件孔里迸出一串火星，卡舌只退了半分。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "箱子又歪了一点，挂环被挤得更死了。"
+   },
+   "objective": "在挂环彻底挤死之前把卡舌顶退。",
+   "source": "accident",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "防坠挂环挤死角件孔",
+   "trigger": "两个双钩防坠锁扣被箱体的自重挤得扭曲互锁，防脱舌片死死咬在角件孔口，挂环退不出来。"
+  },
+  {
+   "choice": "是用靴子互锁勾住柳钉，还是腾出一只手去抓波纹筋？",
+   "exits": [
+    {
+     "cost": "腾不出脚就没法换位置",
+     "option": "用靴子互锁勾住柳钉"
+    },
+    {
+     "cost": "少一只手，顶卡舌的力气就不够",
+     "option": "腾出一只手抓波纹筋"
+    }
+   ],
+   "far": {
+    "consequence": "两人从箱顶滑落，坠进风暴里的海。",
+    "due_days": 1,
+    "trigger": "被风刮下箱顶"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_gale_on_slope",
+   "immediate": {
+    "minutes": 2,
+    "text": "一阵狂风刮过来，两人一起往下滑了半尺，工程师的靴尖死死勾住了一颗柳钉。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "风越刮越猛，柳钉开始松动。"
+   },
+   "objective": "在被风刮下去之前稳住身子。",
+   "source": "person",
+   "start_minute": 10,
+   "tags": [
+    "workplace"
+   ],
+   "title": "八级阵风刮过斜箱顶",
+   "trigger": "八级阵风一阵阵刮过倾斜四十五度的箱顶，箱面又湿又滑，靴底一点点往下滑。"
+  },
+  {
+   "choice": "是为了面子拉开半寸距离，还是干脆贴紧了一起发力？",
+   "exits": [
+    {
+     "cost": "这一夜之后，女警官再也不是只坐在对面看着对方了",
+     "option": "放下面子贴紧对方，四只手一起压在手电上"
+    },
+    {
+     "cost": "力气使不到一处，顶不退卡舌",
+     "option": "各自侧身单手发力"
+    }
+   ],
+   "far": {
+    "consequence": "手电从角件孔里滑出去，错过最后的脱扣窗口。",
+    "due_days": 1,
+    "trigger": "分心导致手电滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_flashlight_chest_press",
+   "immediate": {
+    "minutes": 2,
+    "text": "女警官被风呛得娇喘吁吁，战术背心的搭扣被风扯开，湿透的制服衬衫敞开半边，酥胸半露着贴在对方手臂上，短发贴在两人之间。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_container_roof_edge",
+    "loc_corner_casting_lock"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "两人的心跳撞在一起，女警官的数数第一次乱了，谁都分不清是怕，还是别的什么。"
+   },
+   "objective": "贴得这么近的时候，还得把心思放在破窗齿的角度和钢缆的响声上。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "倾斜箱顶胸背相贴",
+   "trigger": "倾斜的箱顶窄得只能趴两个人，女警官只能后背贴在工程师胸前，四只手叠在手电筒身上一起往前顶。"
+  },
+  {
+   "choice": "是继续加力赌一把，还是退出来换个角度重新顶？",
+   "exits": [
+    {
+     "cost": "织带会被磨断",
+     "option": "用安全背带的织带缠住灯头再顶"
+    },
+    {
+     "cost": "换角度要重新找死角，钢缆可能等不及",
+     "option": "退出来换个角度"
+    }
+   ],
+   "far": {
+    "consequence": "手电再也顶不住卡舌，两人失去唯一的撬具。",
+    "due_days": 1,
+    "trigger": "破窗齿崩光"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_breaker_teeth_wear",
+   "immediate": {
+    "minutes": 2,
+    "text": "破窗齿发出一声刺耳的刮响，握手电的虎口被震得发麻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_corner_casting_lock"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "又一颗齿被磨平，手电的灯头也开始松动。"
+   },
+   "objective": "得在破窗齿崩掉之前找准最后一个受力点。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "手电破窗齿被磨平",
+   "trigger": "手电的钨钢破窗齿顶在卡舌死角里，已经被磨平了一颗，再硬顶可能整个崩掉。"
+  },
+  {
+   "choice": "是先换绳滑下去，还是先冲对讲机喊人去守控制台？",
+   "exits": [
+    {
+     "cost": "喊话更耗力气",
+     "option": "先冲对讲机喊人"
+    },
+    {
+     "cost": "证据可能保不住",
+     "option": "先换绳滑下去"
+    }
+   ],
+   "far": {
+    "consequence": "箱子被吊机直接放进海里，两人连同证据一起沉下去。",
+    "due_days": 1,
+    "trigger": "放缆手柄被扳下"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_smugglers_on_deck",
+   "immediate": {
+    "minutes": 2,
+    "text": "下面传来一声怒吼，对讲机里有人喊：控制台！有人上去了！"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_container_roof_edge",
+    "loc_corner_casting_lock"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "扭打越来越近控制台，吊机的手柄被人扳动了半格。"
+   },
+   "objective": "在有人扳下手柄之前换好绳，让下面的人知道上面的人还活着。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "走私船员扑向吊机",
+   "trigger": "货轮甲板上，走私船员还在跟登临组扭打，有人扑向吊机的控制台，想扳下放缆手柄把箱子连人一起扔进海里。"
+  },
+  {
+   "choice": "照实写是自己下令先救人，还是写成钢缆断得太快来不及",
+   "exits": [
+    {
+     "cost": "记录仪拍下了箱顶上两个人最后那十几分钟",
+     "option": "交出随身执法记录仪"
+    },
+    {
+     "cost": "老马得承认当时是自己没拦住登临组往箱顶爬",
+     "option": "请水手长老马作证"
+    }
+   ],
+   "far": {
+    "consequence": "这次远海追缉算失败，女警官的王牌名号和下个月的升职一起作废",
+    "due_days": 7,
+    "trigger": "督察组定性"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_qinghan_drill_offer",
+    "hook_qinghan_cabin_door",
+    "hook_engineer_sugar_note"
+   ],
+   "id": "p_inspection_team_cable",
+   "immediate": {
+    "minutes": 10,
+    "text": "报务员阿梅把电报送到舱门口，说督察组等着回电"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_officer_cabin"
+   ],
+   "near": {
+    "deadline_minutes": 240,
+    "text": "中午十二点，督察组的快艇靠舷"
+   },
+   "objective": "在督察组的快艇靠舷之前，把那一夜的登临记录补齐",
+   "source": "institution",
+   "start_minute": 480,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "督察组的电报",
+   "trigger": "风暴过去第二天，缉私局督察组的电报发到船上：那只冷藏箱最后掉进了海里，箱里的货算不算查获，要女警官当面说清楚"
+  }
+ ],
+ "region": "远海风暴中走私货轮吊机舷外悬空冷藏集装箱倾斜外壁与角件锁扣滑道",
+ "rules": [
+  {
+   "id": "r_cutter_rules",
+   "text": "缉私船的规矩：出海四十天，船上的事船长说了算，登临检查的事带队警官说了算。"
+  },
+  {
+   "id": "r_flashlight_latch_release",
+   "text": "高空防坠安全扣在集装箱角件孔洞内受数十吨剪切应力咬死，必须借实心航空铝战术手电破窗齿合力顶退锁舌自救。"
+  },
+  {
+   "id": "r_patrol_forty_days",
+   "text": "一次出海巡逻四十天，补给只够这么久，四十天里抓不到人就得空手回港。"
+  },
+  {
+   "id": "r_no_solo_boarding",
+   "text": "登临走私船必须两人一组，谁也不许单独行动。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "并肩登箱",
+  "committed": "换挂滑降",
+  "familiar": "悬空相依",
+  "flirting": "贴身抗风",
+  "intimate": "同命下撬",
+  "stranger": "警戒盘查",
+  "testing": "共持手电"
+ },
+ "status": "released",
+ "style_hint": "远海缉私船的冷硬笔法：白天写几十天海上巡逻的日常，甲板上晒着的救生衣、雷达屏上一个个光点；夜里写风暴里倾斜箱顶上的风、脚下翻滚的黑浪、钢缆一丝丝崩断的脆响。女警官冷静果决，张力藏在悬在半空时那一下把整个后背交出去的信任里。",
+ "tension_engines": [
+  {
+   "id": "te_last_cable_tearing",
+   "text": "残存的单侧钢缆在风里一丝丝崩断，每一阵风都让箱子晃一下。"
+  },
+  {
+   "id": "te_hook_latch_jammed",
+   "text": "防坠挂环被挤死在角件孔里，单人顶不退卡舌。"
+  },
+  {
+   "id": "te_flashlight_chest_press",
+   "text": "倾斜的箱顶窄得只能趴两个人，只能胸腹相贴用靴子互锁稳住。"
+  },
+  {
+   "id": "te_gale_on_slope",
+   "text": "八级阵风一阵阵刮过来，箱顶又湿又滑，随时可能滑下去。"
+  }
+ ],
+ "title": "王牌缉私女警官·风暴货轮舷外倾斜集装箱",
+ "tone": [
+  "三十米高空悬挂",
+  "箱体倾斜四十五度",
+  "钢缆撕裂脆响",
+  "手电攻击头撬锁"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_toolbag_lost_overboard",
+   "requires": [
+    "customs_officer_qinghan"
+   ],
+   "text": "高空狂风刮落了工程师携带的多功能螺丝刀，女警官随身佩戴的航空铝战术手电成为撬退互锁挂环的唯一硬质工具。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_boot_slips_slope",
+   "requires": [
+    "customs_officer_qinghan"
+   ],
+   "text": "箱体剧烈震颤导致女警官靴底打滑险些滑落箱沿，工程师迅速伸手拉住女警官揽入怀中，两人死死踩住波纹筋。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_spray_on_cheek",
+   "requires": [
+    "cutter_engineer"
+   ],
+   "text": "女警官额前飞扬的细软发丝掠过同伴脸颊，在三十米高空幽深海浪映照下，更显冷艳清丽与纯真动人的反差。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_bodies_on_flashlight",
+   "requires": [
+    "customs_officer_qinghan",
+    "cutter_engineer"
+   ],
+   "text": "数十吨自重挤压导致锁扣舌片咬合极紧，单人绝难撬动，女警官与工程师必须胸背紧贴呼吸同频融汇全身合力猛撬。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_cable_last_strand",
+   "requires": [
+    "customs_officer_qinghan"
+   ],
+   "text": "起重机残存钢缆已断裂过半，集装箱随时可能彻底脱钩坠海，生死一线逼迫两人将全部生机托付于最后一击。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_back_to_ridge",
+   "requires": [
+    "customs_officer_qinghan",
+    "cutter_engineer"
+   ],
+   "text": "工程师以后背顶住角件加强肋化作坚实支座，女警官双臂合抱顺势猛推，战术手电终于顶退死卡舌片撬脱主绳。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_latch_pops",
+   "requires": [
+    "customs_officer_qinghan"
+   ],
+   "text": "咬死挂环脱落，两人迅速换挂备用缓降绳索跃下箱顶，集装箱坠入深海的巨响中两人成功在巡逻艇上自救脱险。"
+  }
+ ]
+}

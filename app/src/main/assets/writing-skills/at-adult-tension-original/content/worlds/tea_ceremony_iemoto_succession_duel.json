@@ -1,0 +1,2042 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "宗门供职三十余年成年管事老仆，依法履行外席接待服务职责。",
+   "age_range": [
+    46,
+    50
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_tea_apprentice_sato",
+   "line": "宗老诸公雨具已全数收存妥当，请诸公按次序移步脱履步入主水榭。",
+   "location_ids": [
+    "loc_zen_garden_corridor",
+    "loc_veranda_sliding_track"
+   ],
+   "name": "佐藤执事",
+   "role": "茶席外廊执事老仆"
+  },
+  {
+   "adult_context": "年届二十三岁成年侍席侍女，恪守宗规礼数履行辅助勤务。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_serving_maiden_mori",
+   "line": "新泉煮沸之松风声起，备用点心匣已送抵前席案前候旨。",
+   "location_ids": [
+    "loc_mizuya_prep_pantry",
+    "loc_tea_pavilion_main_chamber"
+   ],
+   "name": "森姓女仆",
+   "role": "水屋奉茶执事女仆"
+  },
+  {
+   "adult_context": "分家当家的成年夫人，一心想让自家女儿继承家元",
+   "age_range": [
+    45,
+    55
+   ],
+   "function": "obstacle",
+   "gender": "female",
+   "id": "bg_branch_family_rival",
+   "line": "分家夫人跪坐在前廊的蒲团上，眼睛一直盯着紧闭的移门，嘴角带着一丝笑。",
+   "location_ids": [
+    "loc_zen_garden_corridor"
+   ],
+   "name": "雾岛分家夫人",
+   "role": "分家夫人"
+  },
+  {
+   "adult_context": "在名园侍弄庭院四十年的成年老园丁",
+   "age_range": [
+    60,
+    70
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_gardener_old",
+   "line": "源爷披着蓑衣在枯山水里扶正被风吹倒的竹篱，抬头看了一眼歪斜的水榭。",
+   "location_ids": [
+    "loc_zen_garden_corridor"
+   ],
+   "name": "源爷",
+   "role": "庭院老园丁"
+  },
+  {
+   "adult_context": "在分家做事的成年侍女",
+   "age_range": [
+    22,
+    28
+   ],
+   "function": "rumor_source",
+   "gender": "female",
+   "id": "bg_maid_whisper",
+   "line": "阿菊端着点心从水屋出来，凑到别的侍女耳边说了句什么，几个人一起掩嘴。",
+   "location_ids": [
+    "loc_mizuya_prep_pantry"
+   ],
+   "name": "阿菊",
+   "role": "分家侍女"
+  },
+  {
+   "adult_context": "宗家雇用、年满二十岁的成年跑腿",
+   "age_range": [
+    19,
+    22
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_runner_boy",
+   "line": "健太撑着伞在前廊和水屋之间来回跑，把长老们的话一句句传进去。",
+   "location_ids": [
+    "loc_zen_garden_corridor",
+    "loc_mizuya_prep_pantry"
+   ],
+   "name": "健太",
+   "role": "宗家跑腿"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "执掌评议会大权之宗老携严苛宗规步步威逼，而宗门指定承继女席之准家元于绝境中展现惊人定力与巧思，以礼法从容抗衡宿老之猜疑。",
+   "id": "combo_chizuru_and_munechika",
+   "identity_ids": [
+    "identity_iemoto_heiress"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_kirishima_chizuru",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "茶室之中共同守护宗门清白名誉之深切同盟伙伴",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_fujibayashi_munechika",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "宗门铁规面前相互审视对峙之严苛长者与继承人",
+     "stage": "testing"
+    },
+    {
+     "a": "char_kirishima_chizuru",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "char_fujibayashi_munechika",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "宗老审视之下晚辈准家元不卑不亢守礼以待之礼法博弈",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "char_kirishima_chizuru",
+    "char_fujibayashi_munechika"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在门扉启开刹那以完美仪态奉上头道浓茶完成正统继位。",
+    "limit_gap": "宗老受祖制名义约束需名正言顺，准家元则受限于不可在席前暴露衣冠不整走光之死线。",
+    "meeting_reason": "岚山正统家元传位大典浓茶礼法考核，宗老率众亲临查验。",
+    "resource_gap": "宗老手握宗族裁定传位大权与全族长老人脉，准家元仅凭孤身一人于水榭之中苦苦守护长房正统名位。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_council_footsteps_countdown",
+    "engine_screen_track_jam"
+   ]
+  },
+  {
+   "chemistry": "主祭女家元准家元沉着下令指引，女助侍席以加厚大氅与机警身法构筑绝对视觉盲区，主仆一心默契无间破除走光危局。",
+   "id": "combo_chizuru_and_mikoto",
+   "identity_ids": [
+    "identity_attendant_maiden"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_kirishima_chizuru",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "共历危难甘苦相依之最信任核心同盟",
+     "stage": "committed"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_kitajo_mikoto",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "彼此心照不宣配合默契之护卫臂膀",
+     "stage": "intimate"
+    },
+    {
+     "a": "char_kirishima_chizuru",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_kitajo_mikoto",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "多年相伴之深厚闺中主仆情谊与生死托付",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "char_kirishima_chizuru",
+    "char_kitajo_mikoto"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保准家元在无损形象之下从容解困并端庄迎客。",
+    "limit_gap": "准家元受制于脱困动作幅度受限，侍席则受限于不可擅自发声越俎代庖。",
+    "meeting_reason": "主水榭内席传位大典贴身奉茶与遮蔽护卫勤务。",
+    "resource_gap": "准家元执掌长房核心大权，侍席手握随身御用大氅与机变护卫身手，二者互为不可或缺之表里互补。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_screen_track_jam",
+    "engine_council_footsteps_countdown"
+   ]
+  },
+  {
+   "chemistry": "营造总工精熟木石应力之道，准家元妙悟刚体物理力矩，二人隔廊相照以无声暗语完成微观结构自救。",
+   "id": "combo_chizuru_and_yoshitaka",
+   "identity_ids": [
+    "identity_garden_architect"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_kirishima_chizuru",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "对女家元过人胆识与慧根深感折服之知音",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_asakura_yoshitaka",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "精诚合作抢险救古建之专业技术伙伴",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_kirishima_chizuru",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_asakura_yoshitaka",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "尊重工匠大巧之贵族千金与敬重名门主祭之名匠默契",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_kirishima_chizuru",
+    "char_asakura_yoshitaka"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在老桧木门框徹底压垮之前挑退自锁滑块解除卡滞。",
+    "limit_gap": "工匠不可擅闯内席核心席位，准家元不能离开受困之水榭滑轨地槽。",
+    "meeting_reason": "名园水榭防汛排险与大典建筑安全监测现场。",
+    "resource_gap": "工匠拥有全套图纸与结构受力眼界，女家元拥有实地操作之茶釜硬角与宗门尊贵地位。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_storm_flood_subsidence",
+    "engine_screen_track_jam"
+   ]
+  },
+  {
+   "chemistry": "金工名姝金工师深通老茶釜淬火硬棱之坚韧物性，准家元巧施妙手化法器为撬棒，青年一代才女携手同心打破陈腐枷锁。",
+   "id": "combo_chizuru_and_shion",
+   "identity_ids": [
+    "identity_iemoto_heiress"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_kirishima_chizuru",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "相知相惜之青年一代雅艺同盟挚友",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_kujo_shion",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "同气连枝才华横溢之金石知交",
+     "stage": "intimate"
+    },
+    {
+     "a": "char_kirishima_chizuru",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_kujo_shion",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "彼此笃定信任对方技艺与操守之同龄名媛金石之交",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "char_kirishima_chizuru",
+    "char_kujo_shion"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "完好无损运用茶釜硬角脱险并保持古铜老器包浆无损。",
+    "limit_gap": "金工师需顾忌客席规矩不可越位，准家元身在风暴中心需全神贯注掌控力矩平衡。",
+    "meeting_reason": "大典传世茶釜法器临场金石核验与备用调试。",
+    "resource_gap": "金工师身怀高超金工调试秘技，准家元具备掌门之绝顶风度与决断魄力。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_ceremonial_kettle_steam",
+    "engine_screen_track_jam"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "chan_whisper_screen",
+   "reach": "水榭障子移门内外一米之内",
+   "text": "障子门极薄楮皮纸在风雨摇曳中传递微弱呼吸与衣物摩擦细响，内席与外廊仅一纸之隔。"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "chan_kettle_steam_signal",
+   "reach": "整座宅邸，一盏茶的工夫就传遍，传到长老耳朵里已经添了好几层意思",
+   "text": "分家的女眷们在后廊里交换的眼色和耳语"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "京都传统文化艺术专修学院四年级在籍届满二十一周岁，依法享有完备独立民事权柄与宗门继承法权，纯情未婚。",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "高挑端庄之名门闺秀身段，白瓷玉肌小脸天然微带莹润的光泽与冷冽秋眸反差绝伦；墨黑长发挽成典雅高髻插纯银茶筅簪，身穿高定重磅纯丝本草染雪白茶服外披阔袖振袖，腰系织金博多带，内衬薄如蝉翼之素白贴身细绢襦袢，暗香浮动冰清玉洁。",
+    "素雪白生绢立领茶道开襟和服，两颊天然紧致泛着健康桃红，目光清冷凝定宛若霜雪神女，跪坐仪态宛如深谷幽兰般挺拔高贵。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱呼救惊动外院肃立之评议会宿老",
+     "蛮力拉扯导致珍贵手织真丝茶服彻底撕毁"
+    ],
+    "contrast": "外表看似柔弱纤细之纯情茶道闺秀，骨子里具备力拔千钧之果决硬核意志",
+    "core_value": "哪怕粉身碎骨亦不损茶道宗门百年之崇高清誉与高贵尊严",
+    "goal_options": [
+     "持拿铜茶具粗柄坚棱撬开缝隙解困迎客",
+     "在宿老拉开障子前拉平下摆恢复端庄跪坐礼姿"
+    ],
+    "never": [
+     "在夺权者面前露出畏缩胆怯之动摇神态",
+     "抛弃传世古铜老茶釜独自狼狈逃脱"
+    ],
+    "prefers": [
+     "以刚体物理力学杠杆原理实施微观精巧破拆",
+     "用宽幅厚实大氅化解视觉暴露危机"
+    ],
+    "pressure_responses": {
+     "breaking": "在卡舌崩退刹那轻盈收拢裙摆，以庄严大礼伏身迎接宗老登堂",
+     "high": "贝齿紧咬下唇强忍金属擦伤刺痛，手腕施展四点二牛顿偏转力道扳动杠杆",
+     "low": "端坐紫檀茶台双掌抚膝，双眸如古井秋水般微观注视地轨铁槽",
+     "mid": "左手借奉茶巾遮掩前襟紧绷，右手稳握重茶釜提梁硬棱微调角度"
+    },
+    "relationship_stance": "与忠诚女侍相濡以沫，对评议会宗老不卑不亢守礼抗衡",
+    "withdrawal": "在完成浓茶奉纳后自退入后廊水屋重整更衣"
+   },
+   "gender": "female",
+   "gender_reason": "古典茶道名门长房承袭顺位主祭女家元人设",
+   "id": "char_kirishima_chizuru",
+   "identity": {
+    "authority": "对大典点茶仪轨与传世茶具有绝对处置与点题裁决权",
+    "exposure": "若茶服下摆撕开走光将在数百位宿老与名流前威信扫地",
+    "hidden": "袖内暗藏早前钻研金石所配之高硬度冷锻合金刻刀",
+    "limits": [
+     "严禁在宗老面前失态啼哭或露出衣衫破损走光",
+     "大典时辰一到必须分秒不差启开门扉敬奉头道浓茶"
+    ],
+    "obligations": [
+     "以完美无瑕之仪态继承统领千家茶道宗门大业",
+     "维护家族名誉免遭分家叔伯与宿老借故发难夺权"
+    ],
+    "resources": [
+     "历代家元单传铸重十六斤古铜老茶釜带淬火硬棱提梁",
+     "京都宗门评议会御核正统继承人朱红印绶"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "泰山崩于前而色不变之沉稳大度",
+     "纯正古典名门风范之骨鲠风骨"
+    ],
+    "boundaries": [
+     "救险时的触碰只算救命，不算数",
+     "要等自己点头，系带才能解开"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "孤高典雅不可侵犯之茶道女家元宗师",
+    "dislikes": [
+     "轻薄喧哗之徒",
+     "借礼法行僭越之辈",
+     "湿浊肮脏之积水"
+    ],
+    "expression": "卸下振袖披着单衣跪坐在水屋，声音很轻：障子拉上吧……今日的茶，想再为你一人点一碗。",
+    "likes": [
+     "雪白整洁茶巾",
+     "大典散后有人陪着坐在水屋里，替自己把被地轨咬乱的襦袢系带一根根重新系好",
+     "冷锻铜铁之刚直质感"
+    ],
+    "preconditions": [
+     "眼前的危局已经过去，双方都清醒、安全",
+     "出于本人的心意，不夹带报恩、交换或旁人的催促"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "岚山千家准女家元首席主祭",
+   "schedule": [
+    {
+     "from": 1000,
+     "location_id": "loc_tea_pavilion_main_chamber",
+     "to": 1030
+    },
+    {
+     "from": 1031,
+     "location_id": "loc_veranda_sliding_track",
+     "to": 1060
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "白瓷手腕被滚烫铜耳与生铁轨槽刮擦红肿破皮",
+      "option": "反执纯铜老茶釜提梁硬角以四点二牛顿剪切力矩别退自锁簧舌"
+     },
+     {
+      "cost": "大典礼宾排布略显延宕招致挑剔宿老疑心质询",
+      "option": "示意女助侍席拉开厚呢大氅挡住移门外廊视线掩护借力"
+     }
+    ],
+    "pressure": "外廊宿老脱履脚步逼近仅余二十息，茶釜蒸汽灼背且稍动即撕破礼服走光",
+    "trigger": "移门滑槽受压深陷，白茶服振袖与襦袢抽绳被铁轨死扣在咬合死隙中"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "提梁硬角已卡准滑块咬舌，只需顺势偏转力矩三刻，系带即可完整滑脱。",
+    "surface": "外廊风雨虽盛，松风之沸声已候，宗老诸公且按序脱履入席。"
+   }
+  },
+  {
+   "adult_context": "宗门元老评议会首席执事，年届五十八岁依法行使宗规审查法权。",
+   "age_range": [
+    55,
+    58
+   ],
+   "appearance_options": [
+    "身着墨黑羽织袴名贵礼服，面容清瘦双目如鹰隼般锐利，花白胡须修剪齐整，手持黑漆折扇威压沉厚。",
+    "手持紫檀九骨折扇，素黑真丝大礼羽织外罩深灰暗花棉袍，银须微颤双目如冰锋般冷峻审度。"
+   ],
+   "decision": {
+    "avoids": [
+     "轻狂浮躁之举",
+     "失魂落魄之丑态"
+    ],
+    "contrast": "面孔严苛似铁石心肠，实则深谋远虑一心维系宗门延续",
+    "core_value": "唯有心如磐石且仪礼万全之人方配统领千家宗门",
+    "goal_options": [
+     "按时辰推门而入查验主茶室是否一切安好",
+     "静候内席奉茶以评断准女家元之定力气魄"
+    ],
+    "never": [
+     "徇私偏袒无能之辈",
+     "违逆列祖列宗之铁律"
+    ],
+    "prefers": [
+     "守礼遵纪之人",
+     "气度沉雄临危不惊之作派"
+    ],
+    "pressure_responses": {
+     "breaking": "在门扉启开刹那凝神审视准家元面容神韵与席间气度",
+     "high": "抬手示意身后随行宿老暂缓推门免惊扰席间点茶玄机",
+     "low": "手按折扇沿步道缓步前行，目光审视风雨中之水榭回廊",
+     "mid": "驻足脱履阶前倾听障子门内风声水响是否杂乱无序"
+    },
+    "relationship_stance": "严厉审查中蕴含深沉期待之宗门领路长辈",
+    "withdrawal": "落座客席正位静候敬茶礼成"
+   },
+   "gender": "male",
+   "gender_reason": "执掌评议会审查大权之元老宿老男性身份",
+   "id": "char_fujibayashi_munechika",
+   "identity": {
+    "authority": "掌管宗门家元册封大典之一票裁定与礼仪纠察权",
+    "exposure": "宗门分裂失序将令全族百年基业毁于内耗",
+    "hidden": "暗中考察准家元是否具备临危不乱之铁腕统治力",
+    "limits": [
+     "受宗规祖训约束不得在无实据下随意阻断正统大典"
+    ],
+    "obligations": [
+     "确保新家元具备统领全宗之器量与无可挑剔之仪轨"
+    ],
+    "resources": [
+     "宗老联署批文印匣",
+     "宗族护卫随从调遣权柄"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "端庄威严之宗门风骨",
+     "无可挑剔之传统技艺"
+    ],
+    "boundaries": [
+     "严守宗门长老对晚辈准家元之礼法规矩界限"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "宗规铁律之公正仲裁者与见证尊长",
+    "dislikes": [
+     "轻浮媚态",
+     "投机取巧",
+     "软弱怯懦"
+    ],
+    "expression": "收束折扇肃容端坐以深沉目光给予认可",
+    "likes": [
+     "纯正古法点茶",
+     "沉稳果敢之年轻英才"
+    ],
+    "preconditions": [
+     "宗规大义面前人人恪守尊卑礼数"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "茶道评议会首席宗老",
+   "schedule": [
+    {
+     "from": 1010,
+     "location_id": "loc_zen_garden_corridor",
+     "to": 1040
+    },
+    {
+     "from": 1041,
+     "location_id": "loc_tea_pavilion_main_chamber",
+     "to": 1070
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "引得外院旁系长老暗中窃窃私语生疑",
+      "option": "依礼法在门前朗声吟诵开席祖训予以十息缓冲"
+     },
+     {
+      "cost": "彻底斩断准家元自行化解危机之回旋余地",
+      "option": "直接示意执事伸手拉门查验内席虚实"
+     }
+    ],
+    "pressure": "若移门卡死不能启开将按宗规宣告大典顺延并启动罢黜动议",
+    "trigger": "率领评议会长老登临脱履石阶准备推门"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "老桧木受潮沉降之异响难逃老朽双耳，倒要看看这丫头如何挽狂澜于既倒。",
+    "surface": "时辰已至岚山雨烈，准家元主祭可曾将百年松风釜汤沸沸调顺？"
+   }
+  },
+  {
+   "adult_context": "茶道专修学业毕业届满二十二周岁成年名门女助，依法自立并专职侍奉准女家元。",
+   "age_range": [
+    22,
+    23
+   ],
+   "appearance_options": [
+    "娇俏干练之青绿真丝素面小袖配绀青行灯袴，腰系暗纹腰带，手脚利索神情忠谨敏锐。",
+    "翠绿素绉缎对襟和服配牙白绑带，青丝利落挽起成低髻，双眸晶莹剔透时刻警戒四方动静。"
+   ],
+   "decision": {
+    "avoids": [
+     "让长老目光触及准家元受制之处",
+     "发出惊惶之声惹起骚动"
+    ],
+    "contrast": "外表温顺柔和之随从女侍，暗中具备敏锐机变之护主手腕",
+    "core_value": "誓死成为准家元小姐最坚固之盾牌与左右手",
+    "goal_options": [
+     "张开宽幅大氅严密遮蔽准家元下半身受困死角",
+     "以奉茶器具为掩护递送硬铜撬具协助脱险"
+    ],
+    "never": [
+     "在威逼利诱下背叛长房女家元",
+     "抛下准家元独自抽身离去"
+    ],
+    "prefers": [
+     "防风大氅遮掩视线盲区",
+     "用茶道礼法暗号传递信息"
+    ],
+    "pressure_responses": {
+     "breaking": "在准家元脱钩刹那麻利收拢披肩将撕裂处遮蔽得天衣无缝",
+     "high": "单膝跪地借递上帛巾之机伸手暗中托扶受力移门框架",
+     "low": "低眉顺眼垂手侍立于障子门侧，耳听六路随时策应",
+     "mid": "机敏展开雪白大氅假作挡风整冠跨步遮挡长老视线"
+    },
+    "relationship_stance": "忠贞不渝情同姐妹之至交臂膀",
+    "withdrawal": "紧随准家元身后行礼退避至水屋换装"
+   },
+   "gender": "female",
+   "gender_reason": "同门师妹兼贴身侍女助手人设",
+   "id": "char_kitajo_mikoto",
+   "identity": {
+    "authority": "掌管茶室器具陈设调度与外廊遮蔽护卫之权",
+    "exposure": "掩护失职导致小姐受窘将被逐出宗门",
+    "hidden": "暗中掌握后山排水竹管通塞情况",
+    "limits": [
+     "主祭点茶未完之前不得擅自插话喧宾夺主"
+    ],
+    "obligations": [
+     "誓死保全准家元千金之体面形象免遭丝毫玷污"
+    ],
+    "resources": [
+     "加厚双层御用防风雪锦缎大氅",
+     "地泉铜扳手及备用巾帕"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "准家元小姐天生之高贵优雅",
+     "患难与共之深厚闺中友谊"
+    ],
+    "boundaries": [
+     "严守忠仆侍席之谨严分寸绝无逾矩"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "最信赖之贴身侍伴与死士护卫",
+    "dislikes": [
+     "宗老苛刻之刁难",
+     "风雨泥泞弄脏衣角"
+    ],
+    "expression": "以坚毅沉静之目光坚定护送小姐渡过重围",
+    "likes": [
+     "整洁利落之茶席",
+     "小姐嘉许之温婉目光"
+    ],
+    "preconditions": [
+     "建立在互托性命之深厚主仆闺蜜信任基石上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "主茶室侍席女助兼司仪",
+   "schedule": [
+    {
+     "from": 1005,
+     "location_id": "loc_tea_pavilion_main_chamber",
+     "to": 1035
+    },
+    {
+     "from": 1036,
+     "location_id": "loc_veranda_sliding_track",
+     "to": 1065
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "自己侧肩被横风暴雨猛烈打湿寒透肌骨",
+      "option": "跨前一步以身躯和雪白大氅筑成弧形视觉屏障阻隔外廊注视"
+     },
+     {
+      "cost": "事后恐被管事嬷嬷以失仪为由扣罚供奉",
+      "option": "假意失手碰落水勺引起外院执事微量分神赢得三息之机"
+     }
+    ],
+    "pressure": "必须在八步之内配合准家元完成撬锁并拉平大氅掩护",
+    "trigger": "准家元茶服下摆深卡滑轨，障子外人影晃动宗老即将推门"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "大氅已展成绝佳盲区，宗老步履还剩八步，准家元小姐务必一举挑开簧片！",
+    "surface": "准家元小姐，迎宾大氅已备妥，请小姐从容点炭开釜。"
+   }
+  },
+  {
+   "adult_context": "古建营造行业四十余岁成年总工匠，独立承担名胜修缮法律民事责任。",
+   "age_range": [
+    42,
+    45
+   ],
+   "appearance_options": [
+    "身穿耐磨藏青作务衣配深色分趾鞋，腰间挂着铜皮水准仪与黄铜墨斗，眉宇间沉淀着精工匠人的刚毅自持。",
+    "身着深灰防风厚布作务服，肩膀宽阔如岩石，两手满布老茧，腰间插着一柄青铜墨斗与折尺。"
+   ],
+   "decision": {
+    "avoids": [
+     "蛮横抡锤强砸破坏老桧木",
+     "外行盲目乱指挥"
+    ],
+    "contrast": "外表粗犷之营造汉子，心思缜密洞察微观榫卯分毫之差",
+    "core_value": "敬畏木石精工准则，不容百年古建毁于非命",
+    "goal_options": [
+     "在回廊外暗中示意移门滑块之正确杠杆受力角度",
+     "加固后廊柱基阻止地基发生第二轮滑移倾斜"
+    ],
+    "never": [
+     "对建筑安全隐患隐瞒不报",
+     "坐视贵宾在塌陷危险中罹难"
+    ],
+    "prefers": [
+     "科学杠杆受力巧劲",
+     "尊重建筑原真性之微观抢险"
+    ],
+    "pressure_responses": {
+     "breaking": "在滑块脱开刹那长舒一口气迅速撤回暗廊善后",
+     "high": "反手紧攥硬木长楔随时准备强插外廊受力立柱稳住门框",
+     "low": "手指抚摸立柱测算木材扭转纤维之细微震颤",
+     "mid": "隔着雨幕向准家元身侧女助暗打手势指示地轨止动销所在"
+    },
+    "relationship_stance": "佩服准家元深通匠器力学之巧思，暗中出手相助",
+    "withdrawal": "隐入后山水系巡查排水暗渠防汛"
+   },
+   "gender": "male",
+   "gender_reason": "名园水榭营造大工匠男性职能",
+   "id": "char_asakura_yoshitaka",
+   "identity": {
+    "authority": "对水榭木构排险与梁柱应力监测有绝对专业指挥权",
+    "exposure": "房屋倒塌致伤贵客将面临牢狱之灾与行业除名",
+    "hidden": "清楚知晓移门滑槽在受力偏心时之最佳卸力受力支点",
+    "limits": [
+     "大典进行期间严禁工匠擅闯主茶室贵宾席区"
+    ],
+    "obligations": [
+     "确保沉降水榭在暴风雨中维持整体结构稳固不倾"
+    ],
+    "resources": [
+     "水榭榫卯地轨剖面施工原本图纸",
+     "加硬杠杆撬铁与木楔工具包"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "主祭千金临危不乱且识得工巧之非凡慧根",
+     "面对山体暴崩仍能维持宗门风雅之端严气魄"
+    ],
+    "boundaries": [
+     "主家与匠人的分寸人前照旧",
+     "对方先开口，才往前一步"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "隐于幕后之名园古建定海神针",
+    "dislikes": [
+     "奢靡无知之浮浪之徒",
+     "粗暴破坏文物"
+    ],
+    "expression": "摘下沾泥的手套，隔着雨幕低声道：门槽修好了，往后小姐走这道廊，都不会再被咬住。",
+    "likes": [
+     "精妙榫卯构造",
+     "雨停后在外廊立柱下坐一会儿，听对方讲老桧木的年轮"
+    ],
+    "preconditions": [
+     "对方已经脱险、缓过神来",
+     "对方先开口，或清楚地回应了心意"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "名园水榭营造总工",
+   "schedule": [
+    {
+     "from": 1000,
+     "location_id": "loc_mizuya_prep_pantry",
+     "to": 1030
+    },
+    {
+     "from": 1031,
+     "location_id": "loc_zen_garden_corridor",
+     "to": 1060
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "动作过显可能招来外院评议会纠察使冷眼打量",
+      "option": "隔空比划三十度倾斜手语指点女家元插撬支点方位"
+     },
+     {
+      "cost": "需在倾盆暴雨泥泞中疾速作业耗尽体力",
+      "option": "在后廊暗中撬松副梁垫木分担正门横梁沉重垂直荷载"
+     }
+    ],
+    "pressure": "若不及时施加角向杠杆力矩顶开滑块，整扇门扉将被压死在轨槽内",
+    "trigger": "水榭山墙倾斜导致移门上方大梁横压木轨变形自锁"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "准家元小姐反持铜釜之角度极准，正好卡在滑块受力死穴之上，真乃神乎其技！",
+    "surface": "外廊东角立柱受力已稳，门楣横梁不再继续下沉，诸位大人大可宽心入席。"
+   }
+  },
+  {
+   "adult_context": "古美术鉴定权威五十八岁成年泰斗，享有宗门聘任客卿崇高荣誉地位。",
+   "age_range": [
+    57,
+    59
+   ],
+   "appearance_options": [
+    "身穿灰鼠色条纹名贵御召和服，戴金丝老花眼镜，双目精明透亮，手持沉香木念珠，气度从容淡泊。",
+    "身披玄色双绉长款和服大氅，颈间垂挂沉香木老念珠，眉宇间沉淀着鉴赏万千国宝之超然雅韵。"
+   ],
+   "decision": {
+    "avoids": [
+     "铜臭党争玷污茶道净土",
+     "粗暴毁损珍稀法器"
+    ],
+    "contrast": "看似清心寡欲之鉴古老宿，临场圆融机变兼具菩萨心肠",
+    "core_value": "物格清白鉴古知今，以法器神韵印证人之品格",
+    "goal_options": [
+     "入席后以鉴赏老茶釜包浆为由转移全场挑剔视线",
+     "在准家元完成点茶后给予顶级赞赏定鼎大局"
+    ],
+    "never": [
+     "指鹿为马颠倒黑白",
+     "屈从权势屈杀真正英才"
+    ],
+    "prefers": [
+     "名器与高士相得益彰",
+     "以雅韵化解杀机之从容"
+    ],
+    "pressure_responses": {
+     "breaking": "在门启刹那抚掌赞叹准家元端茶神韵暗合古谱化解干戈",
+     "high": "主动向身侧元老引经据典谈论釜鸣之妙以延展脱履迎候时间",
+     "low": "在庭廊轻捻沉香念珠，赞赏水榭外岚山松柏雨中风骨",
+     "mid": "察觉障子后动静有异却不动声色品评廊前雨滴落水之声"
+    },
+    "relationship_stance": "爱惜年轻才俊之雅量宗师，乐见名门得其所归",
+    "withdrawal": "端坐客席上座细细品尝头道浓茶甘冽"
+   },
+   "gender": "male",
+   "gender_reason": "古美术鉴赏大宗师男性身份",
+   "id": "char_shirakawa_taizo",
+   "identity": {
+    "authority": "对大典所用名器茶釜与古画之真伪优劣拥有最终权威品鉴权",
+    "exposure": "名器毁损未察将折损平生鉴定英名",
+    "hidden": "早先看出茶釜提梁暗藏历代工匠独门硬锁设计",
+    "limits": [
+     "客卿身份不得直接干预千家血缘继承之内争"
+    ],
+    "obligations": [
+     "公正品评茶席所陈法器是否合乎历代家元道统"
+    ],
+    "resources": [
+     "国家级古物鉴定证书印章",
+     "跨国名流收藏界庞大资源脉络"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "纯净超拔之艺术天赋",
+     "临渊履薄而不乱方寸之古典神韵"
+    ],
+    "boundaries": [
+     "严守清贵文士与主祭千金之高洁学术礼数"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "照拂良玉之文坛泰斗与名器鉴证师",
+    "dislikes": [
+     "附庸风雅之市侩",
+     "借物弄权之小人"
+    ],
+    "expression": "以赞赏有加之舒畅长笑宣示对家元艺境之折服",
+    "likes": [
+     "千年古铜器古雅包浆",
+     "心境澄明之真纯茶人"
+    ],
+    "preconditions": [
+     "以道契合之高山流水长者与晚辈投缘"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "评议会特邀古美术宗师",
+   "schedule": [
+    {
+     "from": 1010,
+     "location_id": "loc_zen_garden_corridor",
+     "to": 1040
+    },
+    {
+     "from": 1041,
+     "location_id": "loc_tea_pavilion_main_chamber",
+     "to": 1070
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "被急躁之激进元老在心中暗讥为迂腐文客",
+      "option": "拉住首席宗老畅谈前代家元手书墨迹真迹妙处"
+     },
+     {
+      "cost": "稍损泰斗平日大步流星之威仪",
+      "option": "举步稍退一步借整理和服系带阻滞身后长老前行步伐"
+     }
+    ],
+    "pressure": "外围激进宗老欲强行推门发难，需凭权威清望稳住场面",
+    "trigger": "察觉外廊氛围紧绷而内席障子略有沉滞未启"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "那尊纯铜老茶釜乃战国名工冷锻而成，准家元丫头若懂得顺其刚角借力，自能破局而出。",
+    "surface": "今日岚山暴雨正好印证古画中‘寒江听雨烹松风’之意境，诸位宗老何不静心一品？"
+   }
+  },
+  {
+   "adult_context": "传统金工錾刻修复行当大四毕业届满二十三岁成年名门才女，独立承揽贵器修造业务。",
+   "age_range": [
+    22,
+    23
+   ],
+   "appearance_options": [
+    "身穿利落灰粉色棉麻立领长衫配黑色铅笔直筒裤，袖口挽起露出白皙紧致之小臂，指尖带着常年抛光锻打之微茧，眉目清丽英姿飒爽。",
+    "内着灰粉色真丝小立领衫外罩纯黑短背心，两腕扣着牛皮护腕，双眸灵动如秋水寒星。"
+   ],
+   "decision": {
+    "avoids": [
+     "鲁莽蛮干损坏古器包浆",
+     "当众宣扬机关暗秘惹来祸端"
+    ],
+    "contrast": "外表文静内敛之手工艺名姝，动手破拆拆卸时动作凌厉干脆如电",
+    "core_value": "金属有骨器物有灵，用精湛金工化解一切机关险阻",
+    "goal_options": [
+     "在侧廊暗中递送纯钛微型调刀助准家元挑脱卡榫",
+     "在脱险后以清理茶台为名回收变形铁轨受损碎片"
+    ],
+    "never": [
+     "为私利在器物上暗做手脚",
+     "背弃对准家元之守护诺言"
+    ],
+    "prefers": [
+     "高强度合金精密微观杠杆",
+     "以巧破千斤之机械解构方案"
+    ],
+    "pressure_responses": {
+     "breaking": "在准家元成功脱扣后配合收回茶釜硬角不留丝毫痕迹",
+     "high": "将防滑细麻布迅速塞入滑块间隙防止二次回弹卡死",
+     "low": "手指摩挲随身錾刀刃口，静听移门滑轨金属咬合之微观异鸣",
+     "mid": "借修补外廊铜灯之机迅速移步至移门外侧卡槽死角探查"
+    },
+    "relationship_stance": "与准家元志趣相投互相赏识之青年一代匠艺知己",
+    "withdrawal": "退回后廊水屋整理金工工具包待命"
+   },
+   "gender": "female",
+   "gender_reason": "金工修复师同龄才女身份",
+   "id": "char_kujo_shion",
+   "identity": {
+    "authority": "对宗门传世金银铜器之机械结构与金属疲劳状态有专业发言权",
+    "exposure": "器具在大典折断将承担名誉与赔偿重责",
+    "hidden": "亲自参与过老茶釜提梁硬角卡销之加固暗改",
+    "limits": [
+     "非器具受损紧急征召不得步入主客大席核心席位"
+    ],
+    "obligations": [
+     "确保大典上全数金属釜勺锁具运转无虞不生钝卡"
+    ],
+    "resources": [
+     "特制硬质纯钛合金微型錾刀工具包",
+     "快干防锈冷淬调色固化剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "主祭千金对手工艺匠器之深切懂得与信任",
+     "骨子里同样不服输之坚毅英气"
+    ],
+    "boundaries": [
+     "不在对方惊魂未定时越界",
+     "金工房的门关上，外面的事就不带进来"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "心照不宣之幕后金工神助攻伴当",
+    "dislikes": [
+     "粗制滥造之器物",
+     "傲慢无礼之门第偏见"
+    ],
+    "expression": "放下锉刀，额头抵着对方肩头笑了一下：方才那一撬，手到现在还在抖……借你靠一会儿。",
+    "likes": [
+     "优质冷锻合金",
+     "大典后在金工房里并肩擦拭那把老茶釜，指尖碰到指尖也不躲",
+     "纯净专注之眼神"
+    ],
+    "preconditions": [
+     "大典已经平安过去，两人都缓过了神",
+     "彼此都明白说出口的是心里话，不是一时激动"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "茶道金工修复才女师匠",
+   "schedule": [
+    {
+     "from": 1000,
+     "location_id": "loc_mizuya_prep_pantry",
+     "to": 1030
+    },
+    {
+     "from": 1031,
+     "location_id": "loc_veranda_sliding_track",
+     "to": 1060
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "动作若被宿老随从瞧破恐被扣上暗藏机巧之嫌",
+      "option": "借递送水勺顺势将一柄纯钛平刃微调刀滑入准家元水袖暗兜备用"
+     },
+     {
+      "cost": "轻微敲击声需借助滚滚雷声掩护方不露马脚",
+      "option": "在廊下暗中敲击滑轨末端施加反向微观震动协助卸力"
+     }
+    ],
+    "pressure": "滑轨咬死力道正随暴雨山洪沉降剧增，若十息内挑不退将彻底压扁锁死",
+    "trigger": "移门滑块金属簧片逆向卡死在变形钢槽死角"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "那枚卡销乃我亲手淬火加硬，准家元只管发力斜挑，簧舌必定应声弹开！",
+    "surface": "水榭外廊之铜质灯架已校准水平，风雨不侵，请小姐安然入席。"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "十一月，红叶时节",
+  "minute": 1020
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "bodily_harm",
+  "disaster"
+ ],
+ "custom": true,
+ "customs": [
+  "茶席主祭在开釜点炭前需行三揖九叩重礼，以真丝帛巾拭净釜耳并静候沸水松风声鸣响。",
+  "茶会入席者无论尊卑皆由外廊侧门鱼贯步入，守候于障子门外听候内席铃磬启门传召。",
+  "女家元在迎宾点茶时刻须保持端坐直脊，即使地动山摇亦不得发出惊惶呼喊免失宗门风骨。",
+  "宗族侍女在外廊常备双层加厚纯白和光锦缎大氅，遇风雨变故即刻上前奉上遮蔽以全主祭尊崇。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "手持羽帚细致拂净紫檀茶台浮尘并检视地炉香炭灰位平整度",
+    "以丝帛双手轻按纯铜老茶釜提梁测试承重力矩并倾听松风暗鸣"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [],
+   "id": "act_morning_tea_brazier_prep",
+   "location_ids": [
+    "loc_tea_pavilion_main_chamber"
+   ],
+   "start_minute": 960,
+   "tags": [],
+   "title": "晨间水火点炭地炉整备仪轨"
+  },
+  {
+   "beats": [
+    "指尖滑过冷锻双凹槽钢轨边缘测探暴雨受潮滑度与自锁轮隙",
+    "以水平木尺复核门楣横梁与地槽缝隙之微米级垂直度"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_sliding_screen_track_patrol",
+   "location_ids": [
+    "loc_veranda_sliding_track"
+   ],
+   "start_minute": 980,
+   "tags": [],
+   "title": "水榭桧木外廊防风地轨巡查"
+  },
+  {
+   "beats": [
+    "侍从整理外廊迎客油布长棚并安排宿老雨具依序收纳",
+    "由管事执事按照宗规名册高声传唱各房长辈尊卑顺位进阶"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_zen_corridor_vip_greeting",
+   "location_ids": [
+    "loc_zen_garden_corridor"
+   ],
+   "start_minute": 1000,
+   "tags": [],
+   "title": "前院枯山水石阶迎宾整装肃仪"
+  },
+  {
+   "beats": [
+    "旋开青铜截止阀引导岚山活泉注入水缸并排空管道气泡",
+    "用纯棉白巾仔细擦拭备用和光锦缎大氅确保干燥无损"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_mizuya_spring_water_drawing",
+   "location_ids": [
+    "loc_mizuya_prep_pantry"
+   ],
+   "start_minute": 970,
+   "tags": [],
+   "title": "水屋名泉引流竹管检修通脉"
+  },
+  {
+   "beats": [
+    "由金工师以合金微卡尺细测提梁直角折边之淬火硬度指标",
+    "确认提梁硬角受压四点五牛顿下不发生塑性变形"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_bronze_kettle_lever_gauge",
+   "location_ids": [
+    "loc_tea_pavilion_main_chamber"
+   ],
+   "start_minute": 990,
+   "tags": [],
+   "title": "重茶釜淬火提梁弯角硬度校核"
+  },
+  {
+   "beats": [
+    "随侍女伴演练三秒内拉开双层锦缎大氅环绕准家元周身",
+    "模拟大风吹拂下以重石角坠固定大氅下摆免生飘移"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_cloak_curtain_shielding_drill",
+   "location_ids": [
+    "loc_veranda_sliding_track",
+    "loc_tea_pavilion_main_chamber"
+   ],
+   "start_minute": 1005,
+   "tags": [],
+   "title": "外廊障子紧急更衣遮蔽演练"
+  },
+  {
+   "beats": [
+    "大典散后的水屋只剩一盏纸灯，准家元披着单衣跪坐在竹席上，振袖搭在衣桁上，下摆还留着地轨咬出的折痕。",
+    "准家元背过身，请人替自己把襦袢的细系带重新系好，指尖每绕过一圈，肩头就轻轻一缩。",
+    "最后一个结打好时，准家元没有回头，只把纸灯的灯芯拨暗了一些。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_mizuya_after_ceremony_sash",
+   "location_ids": [
+    "loc_mizuya_prep_pantry"
+   ],
+   "start_minute": 1080,
+   "tags": [
+    "intimate"
+   ],
+   "title": "大典后水屋重系襦袢"
+  },
+  {
+   "beats": [
+    "水屋里，准家元跪坐在人身后，握着人的手执起茶筅，手腕带着手腕，一下一下把抹茶打出细沫。",
+    "准家元的呼吸落在人耳后：手腕要松……像这样。点完这一碗，你想要什么，我都先听你说。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_mizuya_whisk_lesson",
+   "location_ids": [
+    "loc_mizuya_prep_pantry"
+   ],
+   "start_minute": 1100,
+   "tags": [
+    "intimate"
+   ],
+   "title": "水屋里手把手点茶"
+  },
+  {
+   "beats": [
+    "水屋只点一盏纸灯，准家元解下振袖，只穿一层薄薄的白单衣跪坐在竹席上，领口松松地敞着。",
+    "准家元抬眼看人：家元的规矩里没有这一条。……可是你愿意的话，今晚不讲规矩。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_mizuya_single_robe",
+   "location_ids": [
+    "loc_mizuya_prep_pantry"
+   ],
+   "start_minute": 1360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "只穿一层单衣的夜"
+  },
+  {
+   "beats": [
+    "初霜的清晨，水屋的竹窗上结了一层白，准家元在薄被里醒来，把冰凉的脚贴在人的小腿上取暖。",
+    "准家元闭着眼笑：长老们七点来。……还有一个时辰，你别动，让我再暖一会儿。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_mizuya_first_frost",
+   "location_ids": [
+    "loc_mizuya_prep_pantry"
+   ],
+   "start_minute": 390,
+   "tags": [
+    "intimate"
+   ],
+   "title": "初霜的清晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "现代古典",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "少男",
+  "少女",
+  "男童",
+  "女童",
+  "儿童",
+  "学徒",
+  "徒弟",
+  "师徒",
+  "学生",
+  "学员",
+  "校园",
+  "师生"
+ ],
+ "hooks": [
+  {
+   "id": "hook_munechika_step_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_zen_garden_corridor",
+    "loc_veranda_sliding_track"
+   ],
+   "slot": "char_kirishima_chizuru",
+   "text": "{npc.name}踏响木屐迈上脱履台阶，沉重阴沉之目光越过障子细棂投来审视之意。"
+  },
+  {
+   "id": "hook_mikoto_cloak_spread",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tea_pavilion_main_chamber"
+   ],
+   "slot": "char_kitajo_mikoto",
+   "text": "{npc.name}双手舒展宽幅雪亮素绫厚披风，以典雅身姿斜倚门框筑成严密视线防护屏障。"
+  },
+  {
+   "id": "hook_yoshitaka_nod_signal",
+   "kind": "approach",
+   "location_ids": [
+    "loc_veranda_sliding_track"
+   ],
+   "slot": "char_asakura_yoshitaka",
+   "text": "{npc.name}隔着雨幕向内廊微微颔首，以食指作出三角斜向指点手势指向门槽滑块死穴。"
+  },
+  {
+   "id": "hook_shion_tea_kettle_glance",
+   "kind": "observe",
+   "location_ids": [
+    "loc_tea_pavilion_main_chamber"
+   ],
+   "slot": "char_kujo_shion",
+   "text": "{npc.name}注目紫檀茶台古铜烹茶釜把手直棱，以笃定眼神示意硬铜材质万无一失尽可发力。"
+  },
+  {
+   "id": "hook_chizuru_mizuya_bowl",
+   "kind": "approach",
+   "location_ids": [
+    "loc_mizuya_prep_pantry"
+   ],
+   "slot": "char_kirishima_chizuru",
+   "text": "{npc.name}拉开水屋的竹门，手里捧着一只茶碗：大典的茶太正式了。……进来，我点一碗只给你喝的。"
+  }
+ ],
+ "id": "tea_ceremony_iemoto_succession_duel",
+ "locations": [
+  {
+   "affordances": [
+    "端坐紫檀茶台前稳住身形并反手提握厚重铜茶釜",
+    "观察外廊纸窗上宗老脱履登台之长影逼近距离",
+    "顺势抚平前襟白茶服以古典礼仪遮掩内衬拉扯破损"
+   ],
+   "detail": "铺设八叠极品青蔺草席之开敞式水榭中心，正中设有下沉式铁地炉与紫檀点茶台，窗外岚山烟雨尽收眼底。",
+   "exits": [
+    "loc_veranda_sliding_track",
+    "loc_mizuya_prep_pantry"
+   ],
+   "id": "loc_tea_pavilion_main_chamber",
+   "name": "主茶室水榭内席",
+   "pressure_modifiers": {
+    "press_sliding_screen_lock": "地炉沸水蒸汽升腾加速衣料湿透紧绷形变"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "外廊灯影透过极薄障子纸隐约投射，茶釜滚水白汽缭绕间可辨女子端坐挺拔身姿。",
+   "witnesses": [
+    "bg_tea_apprentice_sato",
+    "bg_serving_maiden_mori"
+   ]
+  },
+  {
+   "affordances": [
+    "将纯铜茶釜提梁之淬火硬棱斜向三十度探入变形滑块咬合缝隙",
+    "借回廊青石栏杆为反作用力支撑点实施强力杠杆挑撬",
+    "示意随侍女伴张开宽幅锦缎大氅挡住湖面横风与回廊视线"
+   ],
+   "detail": "临湖挑空十二米之红桧木回廊走道，地面嵌入冷锻纯钢双凹槽滑轨，准家元茶服下摆此刻正被深卡其中。",
+   "exits": [
+    "loc_tea_pavilion_main_chamber",
+    "loc_zen_garden_corridor"
+   ],
+   "id": "loc_veranda_sliding_track",
+   "name": "水榭外廊移门地轨",
+   "pressure_modifiers": {
+    "press_sliding_screen_lock": "山墙倾斜挤压力道持续加码使滑轨咬合愈发深死"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "暴雨从屋檐泼洒如注，回廊防风挂灯照亮挤压变形之桧木门边与雪白真丝衣角。",
+   "witnesses": [
+    "bg_tea_apprentice_sato",
+    "bg_serving_maiden_mori"
+   ]
+  },
+  {
+   "affordances": [
+    "聆听宗老皮履踏响石阶之清脆倒计步频节拍",
+    "由营造师指点水榭立柱倾角变化以研判脱困时机",
+    "在廊柱拐角处暗中传递备用大氅与应急茶巾"
+   ],
+   "detail": "连接前院山门与水榭之石板回廊，白砂翠苔在暴雨冲刷下波光粼粼，数十位宗门长老正在此正冠整肃脱履。",
+   "exits": [
+    "loc_veranda_sliding_track",
+    "loc_mizuya_prep_pantry"
+   ],
+   "id": "loc_zen_garden_corridor",
+   "name": "枯山水庭院前廊步道",
+   "pressure_modifiers": {
+    "press_sliding_screen_lock": "宿老脚步声步步逼近构成排山倒海般礼法压迫"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "长柄青伞接连收拢，长老们肃穆威严之目光穿过雨幕径直锁向水榭正门障子。",
+   "witnesses": [
+    "bg_tea_apprentice_sato",
+    "bg_serving_maiden_mori"
+   ]
+  },
+  {
+   "affordances": [
+    "旋动备用水阀减缓茶室地炉引水管道之异常激振",
+    "取用加厚纯麻吸水棉巾备作脱险后之擦拭整装",
+    "通过暗门格栅向主茶室准家元比划手势通报外院动向"
+   ],
+   "detail": "水榭后方储放名贵茶具与清冽山泉之备餐暗间，青竹引水管道正因地基变位发出轻微震颤水击之声。",
+   "exits": [
+    "loc_tea_pavilion_main_chamber",
+    "loc_zen_garden_corridor"
+   ],
+   "id": "loc_mizuya_prep_pantry",
+   "name": "后廊点茶水屋备物间",
+   "pressure_modifiers": {
+    "press_sliding_screen_lock": "引水管震颤若爆裂将导致后方积水冲入外廊"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "室内仅点一盏菜油地灯，墙上悬挂各式备用茶帚与修整铜具，光线幽微隐秘。",
+   "witnesses": [
+    "bg_tea_apprentice_sato",
+    "bg_serving_maiden_mori"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "雾岛",
+   "藤林",
+   "北条",
+   "朝仓",
+   "白川",
+   "九条",
+   "松平",
+   "伊达",
+   "近卫",
+   "德大寺",
+   "西园寺",
+   "久我"
+  ],
+  "given_female": [
+   "千鹤",
+   "美琴",
+   "紫苑",
+   "雪乃",
+   "清香",
+   "玉藻",
+   "雅美",
+   "绫乃",
+   "小百合",
+   "椿",
+   "琴音",
+   "汐里"
+  ],
+  "given_male": [
+   "宗正",
+   "义明",
+   "泰三",
+   "谦吾",
+   "直树",
+   "守道",
+   "忠行",
+   "康成",
+   "宗介",
+   "清之",
+   "隆元",
+   "道明"
+  ],
+  "given_neutral": [
+   "泉",
+   "葵",
+   "枫",
+   "莲",
+   "环",
+   "涉",
+   "萤",
+   "司",
+   "澄",
+   "凛",
+   "岬",
+   "睦"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "老{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留现代京都岚山茶道名园的背景。改动：规则里重复的“传世”删去一个；四个玩家身份原本与人物模板是同一批人，改写为评议会请来的见证律师、茶会摄影师、水榭庭园的园丁、宗门分家的少主；准女家元、金工修复师与营造总工的倾向卡放宽到脱险后可心动，亲密前提写明危机解除、双方清醒自愿；新增一个大典后水屋更衣的亲密日常；写死的人名改为身份称呼或占位。",
+ "player_identities": [
+  {
+   "age_range": [
+    26,
+    38
+   ],
+   "baseline": "分家派来列席传位大典的少主，按家谱也有一份继任顺位，今日却是来看准家元如何过关。",
+   "gender": "any",
+   "id": "identity_iemoto_heiress",
+   "reputation": "行事圆融，宗老们都给几分面子。",
+   "resources": [
+    "分家的继任顺位与评议会一票",
+    "宗门总堂御赐纯金菊花纹章手印信物"
+   ],
+   "risks": [
+    "若被疑心趁乱夺位，分家要背上不义之名"
+   ],
+   "role": "宗门分家的成年少主",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}少主"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    45
+   ],
+   "baseline": "受评议会委托到场见证传位、核对文书的律师，一纸意见书能决定大典是否有效。",
+   "gender": "any",
+   "id": "identity_senior_tea_master",
+   "reputation": "冷静公允，京都几家老铺的继承案都经过这位之手。",
+   "resources": [
+    "传位文书与见证意见书",
+    "评议会特许出入内席的身份"
+   ],
+   "risks": [
+    "大典若当场作废，律师的见证也会被质疑"
+   ],
+   "role": "评议会请来的成年见证律师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}律师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "常年照管岚山名园草木与竹管的园丁，暴雨夜一直守在外廊排水。",
+   "gender": "any",
+   "id": "identity_attendant_maiden",
+   "reputation": "寡言肯干，主家上下都叫一声园丁师傅。",
+   "resources": [
+    "全园的工具房钥匙与竹管图",
+    "一把修枝锯和一卷麻绳"
+   ],
+   "risks": [
+    "外人擅入内席会被逐出名园"
+   ],
+   "role": "名园水榭的成年园丁",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "茶道杂志请来拍传位大典的摄影师，镜头离内席只隔一道障子。",
+   "gender": "any",
+   "id": "identity_garden_architect",
+   "reputation": "拍过许多老铺，向来懂得什么不该拍。",
+   "resources": [
+    "一台全画幅相机与长焦镜头",
+    "杂志社的独家拍摄许可"
+   ],
+   "risks": [
+    "若拍下准家元走光的照片，就会被整个宗门封杀"
+   ],
+   "role": "受邀拍摄茶会的成年摄影师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "京都岚山的名园水榭，茶道宗门的准女家元正在为继承仪式做准备，每天在开敞的主茶室里点茶、待客。分家的少主虎视眈眈，评议会请来的见证律师和名园的园丁每天都在外廊走动。秋雨下个不停，水榭的山墙有点沉降，那扇两吨重的木门拉起来越来越涩。",
+ "pressures": [
+  {
+   "choice": "是反执重茶釜提梁硬角冒险强行挑开铁簧，抑或呼唤外廊侍女强拉门框冒走光之险？",
+   "exits": [
+    {
+     "cost": "白嫩掌心与手腕内侧被滚烫铜耳及生铁毛刺刮擦出深红勒痕",
+     "option": "反握生铜老釜提柄硬角探入轨槽注入四点二牛顿扭转剪切刚力顶退自锁簧舌"
+    },
+    {
+     "cost": "大典开启略显滞涩招致疑心宿老言辞严厉盘查",
+     "option": "示意侍女侍席完全张开锦缎大氅遮蔽身姿并暗中发力帮扶门边"
+    }
+   ],
+   "far": {
+    "consequence": "长房家族百年名誉毁于一旦，宗门大权尽落分家虎狼之手",
+    "due_days": 1,
+    "trigger": "宿老拉开障子若目睹准家元受困撕衣丑态，将当场宣布正统继承大典流产并开除顺位资格"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_sliding_screen_lock",
+   "immediate": {
+    "minutes": 1,
+    "text": "门框自锁卡舌卡死系带，真丝茶服受拉剧烈变形勒紧香肩，外廊宿老靴声已达廊前阶下。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_tea_pavilion_main_chamber",
+    "loc_veranda_sliding_track"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "宗老肃穆脚步踏上最后三级脱履石阶，内席铁地炉铜釜内滚水松涛之音已然沸然至极。"
+   },
+   "objective": "在庭外长老脱履登堂推门前二十秒内以微观杠杆破拆解扣，抚平茶服恢复端庄跪坐",
+   "source": "nature",
+   "start_minute": 1015,
+   "tags": [
+    "disaster"
+   ],
+   "title": "移门抱死系带受缚危机",
+   "trigger": "山墙微量沉降压歪外廊门槽，白茶服长振袖与内衬襦袢细系带被两吨重木门自锁轮死死咬住"
+  },
+  {
+   "choice": "是由营造师手动开启暗渠泄水减压，还是冒水淹后廊危险强行封闭主水阀？",
+   "exits": [
+    {
+     "cost": "营造名匠通身浸透泥浆且手臂被山石擦伤",
+     "option": "古建匠首营造总工先生冒雨翻入后廊暗渠拉开紧急分流泄洪铁闸"
+    },
+    {
+     "cost": "后廊走道短时间淤积泥浆行走不便",
+     "option": "女仆森氏迅速用双层加厚麻包堆叠后门筑起防水屏障阻隔漫水"
+    }
+   ],
+   "far": {
+    "consequence": "大典中断且宗门名胜化为废墟，造成无法挽回之文化悲剧",
+    "due_days": 2,
+    "trigger": "水榭挑空桩柱若发生断裂，百年古典国宝建筑将整体滑入岚山深湖"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_spring_flood_subsidence",
+   "immediate": {
+    "minutes": 2,
+    "text": "备物间地泉竹管发出剧烈啸叫，回廊梁架发出令人心惊之轻微木构呻吟。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_mizuya_prep_pantry",
+    "loc_veranda_sliding_track"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "浊流一旦漫入主茶室，内室精编蒲草坐席受损将彻底败坏大典清圣雅境。"
+   },
+   "objective": "在排险同时保持茶室风雅安宁，不让泥水漫过水榭门槛毁坏金丝草席",
+   "source": "nature",
+   "start_minute": 1020,
+   "tags": [
+    "disaster"
+   ],
+   "title": "后山泥石涌动水榭倾斜威胁",
+   "trigger": "暴雨导致水屋后方地泉暗管水压暴涨并渗出浊浪，后山护坡面临二次滑移风险"
+  },
+  {
+   "choice": "是让侍席女助出去应对，还是请首席宗老出面压住？",
+   "exits": [
+    {
+     "cost": "女助一走，门口的披风就没人撑着",
+     "option": "让侍席女助出去说准家元正在净手焚香"
+    },
+    {
+     "cost": "宗老若偏袒得太明显，长老们会有闲话",
+     "option": "请首席宗老当众驳回分家夫人"
+    }
+   ],
+   "far": {
+    "consequence": "宗家传了十几代的家元之位，可能就此旁落。",
+    "due_days": 7,
+    "trigger": "若长老们点头，传位大典就会改成两家比试。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_branch_family_challenge",
+   "immediate": {
+    "minutes": 2,
+    "text": "几位长老交换了一下眼色，有人开始点头。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_zen_garden_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 10,
+    "text": "分家夫人已经让女儿换好了茶服在后廊候着。"
+   },
+   "objective": "在长老们动摇之前稳住局面，替准家元争取时间。",
+   "source": "person",
+   "start_minute": 1022,
+   "tags": [],
+   "title": "分家夫人当众发难",
+   "trigger": "分家夫人在前廊当众说：准家元迟迟不开门，莫非是心虚不敢点茶，不如让分家的女儿来。"
+  },
+  {
+   "choice": "是先顾炭火，还是先顾被咬住的系带？",
+   "exits": [
+    {
+     "cost": "身子一倾，系带又被移门扯紧一截",
+     "option": "伸手去够炭斗，用火箸添炭"
+    },
+    {
+     "cost": "移门开一道缝，外廊的长老就能看见里面",
+     "option": "让女助从水屋送一炉新炭进来"
+    }
+   ],
+   "far": {
+    "consequence": "传位大典要延期一年，分家趁机拉拢长老。",
+    "due_days": 3,
+    "trigger": "若点茶失败，长老们会说准家元连火候都守不住。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_charcoal_dying",
+   "immediate": {
+    "minutes": 2,
+    "text": "茶釜里的松风声越来越弱。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_tea_pavilion_main_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "水温一凉，点出来的茶就会泛涩。"
+   },
+   "objective": "在炭火熄灭之前添上新炭，保住点茶的水温。",
+   "source": "accident",
+   "start_minute": 1025,
+   "tags": [],
+   "title": "风炉炭火将熄",
+   "trigger": "移门卡死时撞翻了风炉的炭斗，炉里的炭火只剩几块暗红，再不添炭，茶釜的水就要凉了。"
+  },
+  {
+   "choice": "是让跑腿去前廊澄清，还是让侍席女助去水屋训斥侍女？",
+   "exits": [
+    {
+     "cost": "越解释，长老们越好奇",
+     "option": "让跑腿去前廊说是山墙沉降卡了门"
+    },
+    {
+     "cost": "分家夫人会借题发挥，说宗家仗势欺人",
+     "option": "让女助去水屋训斥分家侍女"
+    }
+   ],
+   "far": {
+    "consequence": "宗家的体面要扫地，以后在茶道界说话都没人听。",
+    "due_days": 4,
+    "trigger": "若长老们信了，准家元就算点茶成功也难服众。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_maid_whispers",
+   "immediate": {
+    "minutes": 2,
+    "text": "前廊的长老们开始交头接耳。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_mizuya_prep_pantry"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "首席宗老已经皱起了眉头。"
+   },
+   "objective": "在耳语传进长老们耳朵之前掐断话头。",
+   "source": "rumor",
+   "start_minute": 1028,
+   "tags": [],
+   "title": "侍女们的耳语",
+   "trigger": "分家的侍女在水屋里说准家元被移门夹住动弹不得，话传到前廊已经成了准家元衣衫不整躲着不敢见人。"
+  },
+  {
+   "choice": "是赶在顺序走完之前硬撬移门，还是请首席宗老放慢脱履的节奏？",
+   "exits": [
+    {
+     "cost": "提梁可能被撬弯，那是历代茶祖的信物",
+     "option": "赶在顺序走完之前用铜釜提梁撬开移门"
+    },
+    {
+     "cost": "宗老要在长老们面前担一个拖延的名声",
+     "option": "请首席宗老借整理衣冠放慢节奏"
+    }
+   ],
+   "far": {
+    "consequence": "失仪的准家元按家规要闭门思过一年，传位大典就此作罢。",
+    "due_days": 7,
+    "trigger": "若移门打开时准家元还没端坐，就算失仪。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_elders_shoes_off",
+   "immediate": {
+    "minutes": 2,
+    "text": "外廊传来一双双木屐落地的声音。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_veranda_sliding_track",
+    "loc_zen_garden_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "还剩三位长老，每脱一双就近一步。"
+   },
+   "objective": "在最后一位长老脱履之前脱身，端坐在茶席上。",
+   "source": "institution",
+   "start_minute": 1030,
+   "tags": [
+    "workplace"
+   ],
+   "title": "长老们脱履登堂",
+   "trigger": "按规矩，长老们依尊卑顺序在外廊脱履，最后一位脱完，移门必须打开迎客。"
+  }
+ ],
+ "region": "京都岚山名胜名园开敞式水榭主茶室外廊",
+ "rules": [
+  {
+   "id": "rule_iemoto_succession_protocol",
+   "text": "家元传位大典全程受庭院宗族长老屏息凝视，席间主客严禁失礼喧哗，衣冠有损者当场革除继任顺位资格。"
+  },
+  {
+   "id": "rule_tea_pavilion_sliding_screen",
+   "text": "水榭外廊移门采用重型整根百年桧木榫卯拼接，遇山体受压下沉变形将触发双向铁滑轮自锁抱合。"
+  },
+  {
+   "id": "rule_iron_kettle_heritage_handling",
+   "text": "传世数百年之实心铜茶釜乃历代茶祖信物，釜身提梁附带淬火纯铜直角卡销，非主祭女家元亲手严禁旁人触碰。"
+  },
+  {
+   "id": "rule_clan_council_witness_order",
+   "text": "评议会宗老登临前廊需按照尊卑顺位脱履进水榭，脚步声自前院枯山水回廊行至主门仅余二十息。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "会面",
+  "committed": "守正",
+  "familiar": "茶叙",
+  "flirting": "意会",
+  "intimate": "托付",
+  "stranger": "初见",
+  "testing": "相知"
+ },
+ "status": "released",
+ "style_hint": "京都传统千家茶道美学与木构物理杠杆微观脱困，零第三人称代词，全员成年法定合规",
+ "tension_engines": [
+  {
+   "id": "engine_screen_track_jam",
+   "text": "百年老桧木移门在地基倾斜挤压下发生角向形变，滑轮逆止爪死死咬合真丝茶服下摆且愈加收紧。"
+  },
+  {
+   "id": "engine_council_footsteps_countdown",
+   "text": "外廊枯山水石阶上宿老整齐划一之脱履脚步声步步紧逼，大典启门倒计时二十秒无情流逝。"
+  },
+  {
+   "id": "engine_storm_flood_subsidence",
+   "text": "岚山后山山洪泥石流持续冲刷外侧护坡，水榭挑空立柱轻微偏斜使移门咬合扭矩持续加重。"
+  },
+  {
+   "id": "engine_ceremonial_kettle_steam",
+   "text": "地炉传世纯铜老茶釜沸水松风声鸣响已至顶点，若延宕开盖沸汤外溢将彻底失仪废礼。"
+  }
+ ],
+ "title": "京都茶室·家元宗争·开敞式水榭回廊移门地轨变形抱死丝绸茶服襦袢系带",
+ "tone": [
+  "典雅",
+  "克制",
+  "紧迫",
+  "冷艳",
+  "硬核",
+  "体面"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "twist_info_screen_blueprint",
+   "requires": [
+    "char_asakura_yoshitaka"
+   ],
+   "text": "名园水榭外廊老桧木移门在地槽内暗设单向防震棘爪，只要从内侧以硬角挑动逆止簧片即可令滑块瞬间脱滑复位。"
+  },
+  {
+   "category": "人事",
+   "id": "twist_person_heiress_fortitude",
+   "requires": [
+    "char_kirishima_chizuru"
+   ],
+   "text": "千家掌门孤女准家元姑娘早前曾随老金工师苦修器物锻造，对手腕发力支点与微观杠杆力矩之妙深谙于心胜过常人。"
+  },
+  {
+   "category": "资源",
+   "id": "twist_resource_hard_copper_handle",
+   "requires": [
+    "char_kujo_shion"
+   ],
+   "text": "传世祖传重器生铜水釜提梁弯角采用罕见淬火特种硬铜冷锻精制，硬度直逼高碳合金钢且自带三毫米倒角硬棱。"
+  },
+  {
+   "category": "制度",
+   "id": "twist_institution_succession_protocol",
+   "requires": [
+    "char_fujibayashi_munechika"
+   ],
+   "text": "宗门祖规明文载明只要新家元准时开釜奉茶且衣冠端方，任何评议会宿老皆无权在事后借天灾险阻妄加废黜动议。"
+  },
+  {
+   "category": "时限",
+   "id": "twist_deadline_rain_slack",
+   "requires": [
+    "press_sliding_screen_lock"
+   ],
+   "text": "岚山骤降雷阵雨伴随一阵滚滚炸雷掩盖了茶室异响，为准家元利用釜鸣蒸汽掩护撬退滑块簧片赢得了关键十息生机。"
+  },
+  {
+   "category": "关系",
+   "id": "twist_relation_elder_pledge",
+   "requires": [
+    "char_shirakawa_taizo"
+   ],
+   "text": "古美术泰斗古美术宗师老宗师在内席门启刹那当众高声盛赞准家元奉茶之古圣气韵，令全场挑剔宿老集体肃然起敬叹服。"
+  }
+ ]
+}

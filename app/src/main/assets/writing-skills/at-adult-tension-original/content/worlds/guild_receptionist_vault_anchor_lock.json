@@ -1,0 +1,2246 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "公会里负责传声筒和船期播报的值班员，二十多岁。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_voice_tube_clerk",
+   "line": "总务长！机械师！外面的检修梯放不下去，你们只能先自己撬开棘爪！",
+   "location_ids": [
+    "loc_equalizer_wheel_niche",
+    "loc_guild_hall_counter"
+   ],
+   "name": "值班员诺拉",
+   "role": "公会传声筒值班员"
+  },
+  {
+   "adult_context": "在要塞码头干了二十年的工头。",
+   "age_range": [
+    40,
+    55
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_dock_foreman",
+   "line": "绞盘那头我们拿人顶着，钢缆再撑五分钟没问题，你们抓紧！",
+   "location_ids": [
+    "loc_equalizer_wheel_niche"
+   ],
+   "name": "码头工头布兰特",
+   "role": "要塞码头的工头"
+  },
+  {
+   "adult_context": "在公会混了十年的老冒险者，嘴碎，心不坏。",
+   "age_range": [
+    35,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_veteran_adventurer",
+   "line": "我早说这转台迟早要出事！今天的赏金还发不发了？",
+   "location_ids": [
+    "loc_guild_hall_counter",
+    "loc_equalizer_wheel_niche"
+   ],
+   "name": "老冒险者加文",
+   "role": "混了十年还是铜牌的冒险者"
+  },
+  {
+   "adult_context": "在公会酒馆端盘子的女招待，二十三岁，最爱打听八卦。",
+   "age_range": [
+    22,
+    28
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_tavern_waitress",
+   "line": "总务长今天又在柜台前跟那位多聊了两句，我可都看见了。",
+   "location_ids": [
+    "loc_guild_hall_counter"
+   ],
+   "name": "女招待莉娜",
+   "role": "公会酒馆的女招待"
+  },
+  {
+   "adult_context": "要塞守备队的队长，老兵出身。",
+   "age_range": [
+    38,
+    50
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_guard_captain",
+   "line": "守备队已经在转台外围拉了绳，里面的人别乱动，等信号！",
+   "location_ids": [
+    "loc_equalizer_wheel_niche"
+   ],
+   "name": "守备队长哈罗德",
+   "role": "要塞守备队长"
+  },
+  {
+   "adult_context": "退休后天天在公会酒馆喝酒的老机工。",
+   "age_range": [
+    60,
+    70
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_retired_engineer",
+   "line": "那台转台是我年轻时装的，偏心棘爪最怕反向倒扣，跟底下说一声！",
+   "location_ids": [
+    "loc_guild_hall_counter"
+   ],
+   "name": "老机工奥斯卡",
+   "role": "公会退休的老机工"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "边境公会的总务长与飞空艇机械师挤在棘爪箱旁、手叠着手，把合金硬笔卡进偏心卡爪，一齿一齿往回撬。",
+   "id": "cc_clerk_mechanic_switch",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "clerk_selphia",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一起被困在底舱，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "airship_mechanic",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "进港时常在柜台前碰面，知道对方的手艺靠得住。",
+     "stage": "familiar"
+    },
+    {
+     "a": "clerk_selphia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "airship_mechanic",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "柜台前那半拍慢下来的印章，两个人谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "clerk_selphia",
+    "airship_mechanic"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在钢缆被扯断之前撬开棘爪，保住整座要塞的锚定。",
+    "limit_gap": "总务长力气不够、制服裙碍事，机械师个子太高，在夹层里直不起腰。",
+    "meeting_reason": "要塞夜里起了大风，总务长拿着检修单下到底舱签字，机械师正跪在绞盘边拧螺栓。",
+    "resource_gap": "总务长有合金硬笔和画着管路的手记，机械师有一身力气和修过三回这台转台的手感。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_gale_cable_drag",
+    "te_crawlspace_body_heat"
+   ]
+  },
+  {
+   "chemistry": "总务长与机械师在平压手轮前胸背相贴，四只手叠在铁辐上，一圈一圈把憋死的油压转回去。",
+   "id": "cc_clerk_mechanic_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "clerk_selphia",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "对着账本和图纸吵了一晚，吵到最后谁都不肯先走。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "airship_mechanic",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "在码头上搭过几回手。",
+     "stage": "familiar"
+    },
+    {
+     "a": "clerk_selphia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "airship_mechanic",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个记账一个修船，三年里说过的话不到一页纸，却句句都记得。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "clerk_selphia",
+    "airship_mechanic"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "把平压手轮转回原位，让转台重新落进导轨。",
+    "limit_gap": "总务长不懂液压，机械师看不懂公会的账册。",
+    "meeting_reason": "打烊后总务长在酒馆角落对账，机械师端着两杯热麦酒过来，说转台的液压阀该换了。",
+    "resource_gap": "总务长记得每一次检修的日期，机械师认得每一颗螺栓的手感。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_pawl_deadlock",
+    "te_hold_air_running_out"
+   ]
+  },
+  {
+   "chemistry": "监察官的灯照着棘爪箱，总务长和机械师一个撬一个顶，谁也不肯在上头的人面前先喊累。",
+   "id": "cc_clerk_mechanic_inspector",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "clerk_selphia",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "头一回被上头的人盯着干活，也头一回在上头的人面前把命交出去。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "airship_mechanic",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "奉命陪同检查，对机械师的手艺早有耳闻。",
+     "stage": "familiar"
+    },
+    {
+     "a": "clerk_selphia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "airship_mechanic",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在上头的人面前不敢多看一眼，可每一句口令都只喊给一个人听。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "clerk_selphia",
+    "airship_mechanic"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让上头的人看清，这座公会是靠什么撑起来的。",
+    "limit_gap": "总务长不敢在上头的人面前出错，机械师不习惯被人盯着干活。",
+    "meeting_reason": "王都的监察官来查要塞的账，总务长捧着账册陪着下底舱看转台，机械师在前面打灯。",
+    "resource_gap": "总务长手里有三年的账和那支硬笔，机械师手里有扳手和整座转台的图纸。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_hold_air_running_out",
+    "te_pawl_deadlock"
+   ]
+  },
+  {
+   "chemistry": "总务长一边撬棘爪一边给新人发号施令，机械师顶着箱盖，把三个人的力气拧成一股。",
+   "id": "cc_clerk_mechanic_newcomer",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "clerk_selphia",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "总务长记得这张新面孔，今晚却要把命交到这双生手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "airship_mechanic",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "第一次见面就一起被困在底舱。",
+     "stage": "familiar"
+    },
+    {
+     "a": "clerk_selphia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "airship_mechanic",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "总务长和机械师默契得像练过一样，新人都看在眼里。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "clerk_selphia",
+    "airship_mechanic"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "带着新人一起活着出去，把今天这份委托的章盖上。",
+    "limit_gap": "新人什么都不懂，总务长得一边救人一边教。",
+    "meeting_reason": "新人冒险者交完第一份委托，总务长破例带着下底舱看转台，说要讲讲公会的规矩，机械师正在下面检修。",
+    "resource_gap": "总务长有硬笔、手记和公会的权限，机械师有力气和经验。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_gale_cable_drag",
+    "te_pawl_deadlock"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_crawlspace_whisper",
+   "reach": "all",
+   "text": "棘爪箱旁两人贴着耳朵的低语和呼吸"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_voice_tube_static",
+   "reach": "local",
+   "text": "传声筒里断断续续、夹着风声的喊话"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁起坐上总务长的位置，在公会柜台后做了三年，委托、赏金、船期都过这双手，去留进退由本人拿主意。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "身着利落修身的藏青色总务长立领制服与挺括短马甲，秀发用银簪利落挽起，两颊带着青年女性特有带着一点血色，眼神清亮明澈，在摇晃的应急灯光下泛着沉静专注的光泽。",
+    "制服衬衫被灼热汗水浸透并微微贴紧肌肤，饱满面颊泛着紧张发力后的红晕，紧咬红唇，双手紧握合金硬笔笔端，展现出柔美外表下令人心折的刚毅与担当。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿公会卡耍赖的老油条",
+     "在柜台前动手动脚的醉汉"
+    ],
+    "contrast": "柜台后面永远笑得温温柔柔，最难缠的冒险者都吵不过；转台卡死时，却是总务长第一个拔下发髻里的硬笔，钻进了满是热油的底舱。",
+    "core_value": "公会的信用比天大，答应过冒险者的事，哪怕转台塌了也要做到。",
+    "goal_options": [
+     "把合金硬笔卡进棘爪咬合缝，撬下防脱卡扣",
+     "和搭档一起转动平压手轮，让转台重新咬合"
+    ],
+    "never": [
+     "丢下没出来的人先走"
+    ],
+    "prefers": [
+     "守信用、按时交委托的人",
+     "不吹牛、手上有真本事的人"
+    ],
+    "pressure_responses": {
+     "breaking": "手指震得发麻也不松手，嗓子哑了还在数拍子。",
+     "high": "钻进棘爪箱旁的夹缝，整个人压在硬笔上往下撬。",
+     "low": "转台一晃就拍响警铃，先把底舱里的人点一遍名。",
+     "mid": "拔下发髻里的硬笔递出去，翻开手记找棘爪的位置。"
+    },
+    "relationship_stance": "飞空艇机械师每次进港都会在柜台前多站一会儿，总务长嘴上催着下一位，手里的章却总是盖得慢半拍。",
+    "withdrawal": "脱险后靠着舱壁滑坐下来，先把散了的头发重新挽好，才肯让人看见自己在发抖。"
+   },
+   "gender": "female",
+   "gender_reason": "边境公会的总务长兼看板娘，按原稿写作女性。",
+   "id": "clerk_selphia",
+   "identity": {
+    "authority": "委托能不能挂上委托板、赏金发不发、哪艘船先进港，柜台上那枚印章说了算。",
+    "exposure": "底舱的热气把制服衬衫浸得透湿，贴在背上，挤在棘爪箱旁时整个人都贴进了对方怀里。",
+    "hidden": "柜台抽屉最里面压着一封写好了、却一直没交出去的辞职信。",
+    "limits": [
+     "离了柜台就只是个力气不大的年轻人",
+     "制服裙在底舱里施展不开"
+    ],
+    "obligations": [
+     "守住公会的账和信誉",
+     "把困在底舱的人一个不少地带出去"
+    ],
+    "resources": [
+     "一支特种合金实心双头账务硬笔，笔身长约二十厘米，抗剪强度极高，必要时能当撬棒",
+     "一枚边沿带直角卡口的钢制总务长印规",
+     "一本记着底舱液压管路的维修手记"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "底舱里替自己挡住滚烫管线的那条胳膊",
+     "排了一下午的队、只为在柜台前说一句“我回来了”的人"
+    ],
+    "boundaries": [
+     "柜台前守着公会的体面，私下的心意只给认定的人",
+     "每一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "值班小屋里由人替自己解开制服马甲的近身位",
+    "dislikes": [
+     "当着大厅的人起哄",
+     "趁人之危的手"
+    ],
+    "expression": "嘴上还在说今天的账没对完，手却已经把值班小屋的门闩轻轻落下。",
+    "likes": [
+     "打烊后有人陪着把账对完",
+     "被人从身后环住、下巴搁在肩头的重量",
+     "制服马甲被一颗颗解开时屏住的那口气"
+    ],
+    "preconditions": [
+     "转台重新咬合、底舱的人全数脱险之后",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "边境公会的总务长",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_guild_hall_counter",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_clerk_quarters",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "硬笔可能崩断，手掌会被热油和铁屑划伤",
+      "option": "用合金硬笔卡进棘爪咬合缝，两人合力撬下防脱卡扣"
+     },
+     {
+      "cost": "转台随时可能被暴风扯脱，等不到救援",
+      "option": "缩在壁龛里等外面放检修梯"
+     }
+    ],
+    "pressure": "外层气阀闭死，钢缆被暴风越扯越紧，必须在空气耗尽前撬开棘爪。",
+    "trigger": "魔导气流冲击要塞，锚定转台脱轨卡死，总务长正在底舱核对液压阀的检修单。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "热油的味道、风声，还有贴在背上的心跳……平时在柜台前，从没离谁这么近过。",
+    "surface": "别慌，我的手记里画过这个棘爪。硬笔是实心合金的，比撬棍还硬——你扶住笔尾，我数到三。"
+   }
+  },
+  {
+   "adult_context": "三十出头，在公会一楼开了十年酒馆，冒险者的酒钱和秘密都记在同一本账上。",
+   "age_range": [
+    30,
+    40
+   ],
+   "appearance_options": [
+    "系着油渍斑斑的皮围裙，袖子卷得高高的，手里永远拿着一块擦杯布。",
+    "站在吧台后面一边擦杯子一边听人吹牛，什么都知道，什么都不说。"
+   ],
+   "decision": {
+    "avoids": [
+     "公会酒馆的老板最烦临阵推诿"
+    ],
+    "contrast": "嘴上骂骂咧咧赶醉汉，转身却把醉倒的新人冒险者拖进后屋，盖上一条毯子。",
+    "core_value": "冒险者喝醉了可以胡闹，但不能欠公会的信用。",
+    "goal_options": [
+     "先把人救出来",
+     "公会酒馆的老板再追究是谁的错"
+    ],
+    "never": [
+     "公会酒馆的老板不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "公会酒馆的老板看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "公会酒馆的老板嗓子喊哑了也不肯走",
+     "high": "公会酒馆的老板顶着危险往里递东西",
+     "low": "公会酒馆的老板先稳住身边的人",
+     "mid": "公会酒馆的老板四处找能用的工具"
+    },
+    "relationship_stance": "看着总务长从新手长成大厅里的定海神针，有心事时总会先端一杯热牛奶过去。",
+    "withdrawal": "事情过去后，公会酒馆的老板一个人躲开抽根烟"
+   },
+   "gender": "any",
+   "gender_reason": "公会酒馆的老板这个位置不限性别。",
+   "id": "guild_tavern_keeper",
+   "identity": {
+    "authority": "酒馆里谁能赊账、谁该被扔出去，老板说了算。",
+    "exposure": "公会酒馆的老板忙起来顾不上衣着体面",
+    "hidden": "做公会酒馆的老板这些年，有件事没对旁人说过",
+    "limits": [
+     "公会酒馆的老板不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住公会酒馆的老板手上的那一摊事"
+    ],
+    "resources": [
+     "一桶藏在吧台下的烈酒",
+     "公会酒馆的老板随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "公会酒馆的老板欣赏做事干脆利落的人",
+     "公会酒馆的老板记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，公会酒馆的老板就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和公会酒馆的老板并肩站着",
+    "dislikes": [
+     "公会酒馆的老板讨厌轻浮的手"
+    ],
+    "expression": "公会酒馆的老板话不多，递东西时指尖会多停一下",
+    "likes": [
+     "公会酒馆的老板收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "公会酒馆的老板要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "公会酒馆的老板",
+   "schedule": [
+    {
+     "from": 600,
+     "location_id": "loc_guild_hall_counter",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "公会酒馆的老板未必赶得上",
+      "option": "公会酒馆的老板在外面调度接应"
+     },
+     {
+      "cost": "可能把公会酒馆的老板自己也搭进去",
+      "option": "公会酒馆的老板硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，公会酒馆的老板进不去",
+    "trigger": "警报传到公会酒馆的老板那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "总务长可千万别出事，大厅里还排着一屋子人等着盖章呢。",
+    "surface": "传声筒都别挂！总务长，你手记上画着呢，往左数第三根管子！"
+   }
+  },
+  {
+   "adult_context": "四十岁上下，经手的魔导晶石能堆满一整间库房，眼光毒得出名。",
+   "age_range": [
+    38,
+    48
+   ],
+   "appearance_options": [
+    "戴着单片镜，指尖沾着晶石粉，长外套口袋里塞满了放大镜和小秤。",
+    "在灯下眯着眼看一块晶石，看完了才肯抬头理人。"
+   ],
+   "decision": {
+    "avoids": [
+     "公会的首席鉴定师最烦临阵推诿"
+    ],
+    "contrast": "对冒险者的战利品一分不让，对总务长写错的账目却每次都悄悄改好。",
+    "core_value": "东西的价钱要公道，人的价钱也是。",
+    "goal_options": [
+     "先把人救出来",
+     "公会的首席鉴定师再追究是谁的错"
+    ],
+    "never": [
+     "公会的首席鉴定师不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "公会的首席鉴定师看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "公会的首席鉴定师嗓子喊哑了也不肯走",
+     "high": "公会的首席鉴定师顶着危险往里递东西",
+     "low": "公会的首席鉴定师先稳住身边的人",
+     "mid": "公会的首席鉴定师四处找能用的工具"
+    },
+    "relationship_stance": "总务长是鉴定师一手带出来的，鉴定师嘴上严，账目却只信总务长一个人对。",
+    "withdrawal": "事情过去后，公会的首席鉴定师一个人躲开抽根烟"
+   },
+   "gender": "any",
+   "gender_reason": "公会的首席鉴定师这个位置不限性别。",
+   "id": "guild_chief_appraiser",
+   "identity": {
+    "authority": "冒险者带回来的东西值多少，鉴定师一句话定价。",
+    "exposure": "公会的首席鉴定师忙起来顾不上衣着体面",
+    "hidden": "做公会的首席鉴定师这些年，有件事没对旁人说过",
+    "limits": [
+     "公会的首席鉴定师不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住公会的首席鉴定师手上的那一摊事"
+    ],
+    "resources": [
+     "一把晶石鉴定用的小锤",
+     "公会的首席鉴定师随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "公会的首席鉴定师欣赏做事干脆利落的人",
+     "公会的首席鉴定师记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，公会的首席鉴定师就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和公会的首席鉴定师并肩站着",
+    "dislikes": [
+     "公会的首席鉴定师讨厌轻浮的手"
+    ],
+    "expression": "公会的首席鉴定师话不多，递东西时指尖会多停一下",
+    "likes": [
+     "公会的首席鉴定师收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "公会的首席鉴定师要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "公会的首席鉴定师",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_guild_hall_counter",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "公会的首席鉴定师未必赶得上",
+      "option": "公会的首席鉴定师在外面调度接应"
+     },
+     {
+      "cost": "可能把公会的首席鉴定师自己也搭进去",
+      "option": "公会的首席鉴定师硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，公会的首席鉴定师进不去",
+    "trigger": "警报传到公会的首席鉴定师那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "当年把总务长招进公会的是我，今晚可不能让这件事变成一辈子的后悔。",
+    "surface": "传声筒里听着！减速器的回程油压我记得，八格，别超过八格！"
+   }
+  },
+  {
+   "adult_context": "二十六岁，十六岁起跟船修引擎，持公会认证的机械师执照，去留进退由本人拿主意。",
+   "age_range": [
+    24,
+    30
+   ],
+   "appearance_options": [
+    "沾着机油的皮质工装背带裤，袖子挽到手肘，小臂上全是旧烫疤，护目镜推在额头上。",
+    "工装背心被汗湿透，肩背的肌肉绷得像钢缆，在狭窄的底舱里弓着身子，把人护在内侧。"
+   ],
+   "decision": {
+    "avoids": [
+     "瞎指挥的外行"
+    ],
+    "contrast": "在码头上闷声干活，一句多余的话也没有；可一站到总务长的柜台前，准备好的话就忘得一干二净。",
+    "core_value": "机器不会骗人，只要找对受力点，再死的锁也能撬开。",
+    "goal_options": [
+     "用肩膀顶住减速箱侧盖，给硬笔腾出角度",
+     "把全身重量压在杠杆外端"
+    ],
+    "never": [
+     "让总务长一个人留在底舱"
+    ],
+    "prefers": [
+     "说话算话的人"
+    ],
+    "pressure_responses": {
+     "breaking": "手臂青筋暴起，吼着数完最后一个三。",
+     "high": "双膝跪在格栅上，用肩膀顶住减速箱，和总务长一起压。",
+     "low": "一把将总务长拉到身后，先看清钢缆的摆幅。",
+     "mid": "扯下鹿皮手套缠在硬笔中段防滑。"
+    },
+    "relationship_stance": "每次进港都绕远路穿过公会大厅，就为了在总务长的柜台前排一次队。",
+    "withdrawal": "确认转台咬合后才瘫坐在舱壁边，摘下护目镜，长长吐出一口气。"
+   },
+   "gender": "male",
+   "gender_reason": "跑边境航线的飞空艇机械师，按原稿写作男性。",
+   "id": "airship_mechanic",
+   "identity": {
+    "authority": "底舱里哪根管子能碰、哪颗螺栓能拧，机械师说了算。",
+    "exposure": "工装背心被热汗浸透，跪在格栅上时，后背整片贴着总务长的胸口。",
+    "hidden": "工具箱底层藏着一枚自己打磨的黄铜戒指，一直没找到机会拿出来。",
+    "limits": [
+     "个子高，在一米四的夹层里直不起腰",
+     "手边没有趁手的撬棍"
+    ],
+    "obligations": [
+     "护住总务长不被热油烫伤",
+     "让转台重新咬合，保住整座要塞的锚定"
+    ],
+    "resources": [
+     "一副防滑的鞣制鹿皮工装手套",
+     "一把短柄扳手",
+     "一卷耐热麻布"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "总务长在热油和狂风里还记得给人报数的那份镇定",
+     "柜台后面那个只给自己慢半拍的印章"
+    ],
+    "boundaries": [
+     "总务长没开口就不越一步",
+     "人前不让总务长难做"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "圆窗边从身后环住总务长的近身位",
+    "dislikes": [
+     "拿身份压人",
+     "背后嚼舌根"
+    ],
+    "expression": "把那枚黄铜戒指在掌心攥了很久，最后只说了一句：下次进港，还排你的队。",
+    "likes": [
+     "收工后有人递来一杯热茶",
+     "被总务长用硬笔轻轻敲一下额头"
+    ],
+    "preconditions": [
+     "转台脱险、两人都安全清醒之后",
+     "总务长点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "常驻要塞的飞空艇机械师",
+   "schedule": [
+    {
+     "from": 600,
+     "location_id": "loc_turntable_crawlspace",
+     "to": 1020
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_guild_hall_counter",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "肩膀会被箱盖边缘割伤，手臂可能脱力",
+      "option": "用肩膀顶住减速箱侧盖，和总务长合力压下硬笔"
+     },
+     {
+      "cost": "来回至少十分钟，底舱里的空气撑不到那时候",
+      "option": "独自爬出去找撬棍"
+     }
+    ],
+    "pressure": "钢缆越扯越紧，棘爪越咬越深，必须赶在防脱销被咬断前撬开。",
+    "trigger": "转台脱轨时机械师正在底舱检修绞盘，被震得撞上了舱壁。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "总务长整个人都贴在我胸口……别分神。这台转台我修过三回，今晚绝不能让转台在总务长面前塌掉。",
+    "surface": "总务长往里靠，别碰左边那根管子！硬笔咬住卡爪的倒角，我顶住箱盖，你往下压。"
+   }
+  },
+  {
+   "adult_context": "二十八岁，有一艘自己的快船，和机械师抢了三年的货。",
+   "age_range": [
+    26,
+    32
+   ],
+   "appearance_options": [
+    "长风衣下摆被风吹得翻起，帽檐压得很低，腰上挂着一把老式手铳。",
+    "靠在码头栏杆上抽烟，冲公会大厅的方向吹了声口哨。"
+   ],
+   "decision": {
+    "avoids": [
+     "跑同一条航线的对手船长最烦临阵推诿"
+    ],
+    "contrast": "平时在柜台前跟总务长讨价还价寸步不让，真出了事，却把快船的锚链都拆下来递了过去。",
+    "core_value": "边境的天空谁快谁先吃饭，但不抢落难的人。",
+    "goal_options": [
+     "先把人救出来",
+     "跑同一条航线的对手船长再追究是谁的错"
+    ],
+    "never": [
+     "跑同一条航线的对手船长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "跑同一条航线的对手船长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "跑同一条航线的对手船长嗓子喊哑了也不肯走",
+     "high": "跑同一条航线的对手船长顶着危险往里递东西",
+     "low": "跑同一条航线的对手船长先稳住身边的人",
+     "mid": "跑同一条航线的对手船长四处找能用的工具"
+    },
+    "relationship_stance": "嘴上跟机械师针锋相对，暴风一来，却第一个把快船开到转台边上放缆绳。",
+    "withdrawal": "事情过去后，跑同一条航线的对手船长一个人躲开抽根烟"
+   },
+   "gender": "any",
+   "gender_reason": "跑同一条航线的对手船长这个位置不限性别。",
+   "id": "rival_airship_captain",
+   "identity": {
+    "authority": "快船上的事，船长一个人拍板。",
+    "exposure": "跑同一条航线的对手船长忙起来顾不上衣着体面",
+    "hidden": "做跑同一条航线的对手船长这些年，有件事没对旁人说过",
+    "limits": [
+     "跑同一条航线的对手船长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住跑同一条航线的对手船长手上的那一摊事"
+    ],
+    "resources": [
+     "一艘停在三号码头的快船",
+     "跑同一条航线的对手船长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "跑同一条航线的对手船长欣赏做事干脆利落的人",
+     "跑同一条航线的对手船长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，跑同一条航线的对手船长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和跑同一条航线的对手船长并肩站着",
+    "dislikes": [
+     "跑同一条航线的对手船长讨厌轻浮的手"
+    ],
+    "expression": "跑同一条航线的对手船长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "跑同一条航线的对手船长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "跑同一条航线的对手船长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "跑同一条航线的对手船长",
+   "schedule": [
+    {
+     "from": 720,
+     "location_id": "loc_guild_hall_counter",
+     "to": 1200
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "跑同一条航线的对手船长未必赶得上",
+      "option": "跑同一条航线的对手船长在外面调度接应"
+     },
+     {
+      "cost": "可能把跑同一条航线的对手船长自己也搭进去",
+      "option": "跑同一条航线的对手船长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，跑同一条航线的对手船长进不去",
+    "trigger": "警报传到跑同一条航线的对手船长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "这两个要是出不来，以后这条航线上就没人跟我抢货了……那多没意思。",
+    "surface": "底下的听着！快船已经靠上去了，锚链给你们放下来，抓得住就抓！"
+   }
+  },
+  {
+   "adult_context": "五十多岁，年轻时是赫赫有名的冒险者，退下来后撑起了这座要塞公会。",
+   "age_range": [
+    50,
+    60
+   ],
+   "appearance_options": [
+    "一条腿是魔导义肢，走路时咔嗒作响，披着一件旧得发白的冒险者斗篷。",
+    "坐在大厅二楼的栏杆边，一眼就能看清整个大厅。"
+   ],
+   "decision": {
+    "avoids": [
+     "边境公会的会长最烦临阵推诿"
+    ],
+    "contrast": "在冒险者面前威严得说一不二，独自一人时却会拄着义肢在码头上站一夜，等晚归的船。",
+    "core_value": "公会就是一个家，家里的人一个都不能少。",
+    "goal_options": [
+     "先把人救出来",
+     "边境公会的会长再追究是谁的错"
+    ],
+    "never": [
+     "边境公会的会长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "边境公会的会长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "边境公会的会长嗓子喊哑了也不肯走",
+     "high": "边境公会的会长顶着危险往里递东西",
+     "low": "边境公会的会长先稳住身边的人",
+     "mid": "边境公会的会长四处找能用的工具"
+    },
+    "relationship_stance": "把总务长当成公会的接班人看，嘴上从不夸，船期表上却总把最好的位置留给总务长挑。",
+    "withdrawal": "事情过去后，边境公会的会长一个人躲开抽根烟"
+   },
+   "gender": "any",
+   "gender_reason": "边境公会的会长这个位置不限性别。",
+   "id": "guild_master",
+   "identity": {
+    "authority": "公会的规矩、要塞的锚定、谁去谁留，最后都由会长拍板。",
+    "exposure": "边境公会的会长忙起来顾不上衣着体面",
+    "hidden": "做边境公会的会长这些年，有件事没对旁人说过",
+    "limits": [
+     "边境公会的会长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住边境公会的会长手上的那一摊事"
+    ],
+    "resources": [
+     "一枚能调动要塞守备队的会长令牌",
+     "边境公会的会长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "边境公会的会长欣赏做事干脆利落的人",
+     "边境公会的会长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，边境公会的会长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和边境公会的会长并肩站着",
+    "dislikes": [
+     "边境公会的会长讨厌轻浮的手"
+    ],
+    "expression": "边境公会的会长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "边境公会的会长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "边境公会的会长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "边境公会的会长",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_guild_hall_counter",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "边境公会的会长未必赶得上",
+      "option": "边境公会的会长在外面调度接应"
+     },
+     {
+      "cost": "可能把边境公会的会长自己也搭进去",
+      "option": "边境公会的会长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，边境公会的会长进不去",
+    "trigger": "警报传到边境公会的会长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "这条腿就是丢在这座要塞上的，今晚可不能再丢一个人。",
+    "surface": "守备队听令，转台下面的检修梯给我放下去！放不下去就拿人去扛！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "公会的年度结算月",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "substance",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "公会总务长随身携带重型高硬度合金账务硬笔，用于签署公文与校验机械量表。",
+  "飞空艇锚定转台装有重型机械自锁防脱棘爪，遇外部剧烈颠簸会自动死锁轨道。",
+  "转台液压管路在高压冲击下会发生热胀冷缩与偏心卡死，需要手动旋转平压手轮。",
+  "机械底舱在应急锁死状态下会自动切断外层气阀，仅保留限时内循环残存空气。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "总务长把一张磨得起毛的公会卡翻过来，蘸了印泥，印章悬在半空停了一停。",
+    "排在后面的冒险者起哄说总务长偏心，总务长头也不抬：嫌慢就去别家公会。"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "act_counter_stamp",
+   "location_ids": [
+    "loc_guild_hall_counter"
+   ],
+   "start_minute": 540,
+   "tags": [
+    "workplace"
+   ],
+   "title": "柜台前给冒险者的公会卡盖章"
+  },
+  {
+   "beats": [
+    "委托板最上面一排是红色的高额悬赏，总务长踮着脚往上钉，够不着时回头找人帮忙。",
+    "钉完了，总务长指着其中一张小声说：这单别接，委托人我信不过。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bounty_board",
+   "location_ids": [
+    "loc_guild_hall_counter"
+   ],
+   "start_minute": 600,
+   "tags": [
+    "workplace"
+   ],
+   "title": "替委托板换上新的悬赏单"
+  },
+  {
+   "beats": [
+    "汽笛一声接一声，总务长抱着船期表跑到码头栏杆边，一艘一艘对着船号打勾。",
+    "机械师从船舷上跳下来，满手机油，冲柜台的方向挥了挥扳手。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_docking_whistle",
+   "location_ids": [
+    "loc_guild_hall_counter"
+   ],
+   "start_minute": 1050,
+   "tags": [
+    "workplace"
+   ],
+   "title": "傍晚进港的汽笛声里核对船期"
+  },
+  {
+   "beats": [
+    "酒馆老板把一杯热牛奶推到总务长面前，说是老规矩，今天辛苦了。",
+    "总务长捧着杯子暖手，往旁边挪了挪，给人让出半张长凳。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tavern_hot_milk",
+   "location_ids": [
+    "loc_guild_hall_counter"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "workplace"
+   ],
+   "title": "酒馆角落里的一杯热牛奶"
+  },
+  {
+   "beats": [
+    "大厅的灯一盏盏熄了，总务长把账册摊在值班小屋的书桌上，一笔一笔对今天的赏金。",
+    "算到一半，总务长揉着眼睛把笔递过来：你念，我记，两个人快一点。"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "act_closing_ledger",
+   "location_ids": [
+    "loc_clerk_quarters"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "workplace"
+   ],
+   "title": "打烊后在油灯下对账"
+  },
+  {
+   "beats": [
+    "圆窗外的云海被月光照得发白，远处有飞空艇的灯一闪一闪。",
+    "总务长抱着膝盖坐在窗台上，忽然说：在这里三年了，还没坐过一次飞空艇。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_round_window_clouds",
+   "location_ids": [
+    "loc_clerk_quarters"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "workplace"
+   ],
+   "title": "在值班小屋的圆窗边看云海"
+  },
+  {
+   "beats": [
+    "转台重新咬合、底舱的人都爬上来之后，总务长没有回大厅，径直回了三楼的值班小屋，制服衬衫被汗和机油浸得透湿，发髻早就散了。",
+    "油灯下，总务长背过身，让人一颗颗解开挺括的短马甲，剥下贴背的衬衫，拿热毛巾擦去肩胛的油污，毛巾滑到腰窝时，总务长吸了口气，往后靠了过来。",
+    "总务长转过身，指尖勾着对方的衣领，把人拉到窄床边：柜台前那半拍慢下来的印章，你早就看出来了吧……今晚，不用排队。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_uniform_vest",
+   "location_ids": [
+    "loc_clerk_quarters"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "值班小屋里替总务长解开制服马甲"
+  },
+  {
+   "beats": [
+    "值班小屋里，总务长解了发髻，只穿着衬衫坐在窄床上，拉过人的手，在手腕内侧盖了一枚公会印章。",
+    "总务长看着那枚红印笑：三年来给几千张公会卡盖过章。……盖在人身上，这是第一次，你也给我盖一个？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_stamp_on_wrist",
+   "location_ids": [
+    "loc_clerk_quarters"
+   ],
+   "start_minute": 1220,
+   "tags": [
+    "intimate"
+   ],
+   "title": "在手腕上盖一枚章"
+  },
+  {
+   "beats": [
+    "总务长烧了一大木盆热水，撒进冒险者送的安神药草，挽着衬衫袖子试水温，回头看人。",
+    "总务长说：木盆够两个人坐。……我先进去，你想进来，就敲一下盆沿，我说可以你再进。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_herb_bath",
+   "location_ids": [
+    "loc_clerk_quarters"
+   ],
+   "start_minute": 1360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "药草浴的木盆"
+  },
+  {
+   "beats": [
+    "清晨，第一艘飞空艇从要塞起航，汽笛声震得窗框嗡嗡响，总务长在窄床上醒来，往人怀里缩了缩。",
+    "总务长迷迷糊糊地说：大厅八点开门。……还早，再让我当一会儿不用上班的人。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_airship_dawn",
+   "location_ids": [
+    "loc_clerk_quarters"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "飞空艇起航的清晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "奇幻蒸汽魔导与飞空艇公会全盛时代",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_turntable_crawlspace"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{clerk_selphia.name}按住胸口喘息，面颊因底舱高温泛起红晕，迅速拔出发髻上的合金实心硬笔递向前方的机械师。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_turntable_crawlspace"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{clerk_selphia.name}伏在液压管路旁，借着微弱灯光摸索出卡死棘爪的偏心受力支点，低声发出协同发力指令。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "slot": "airship_mechanic",
+   "text": "{airship_mechanic.name}双膝跪地紧贴转台下壁板，以肩膀撑住摇摇欲坠的减速箱侧盖，为总务长腾出下插合金笔身的角度。"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "slot": "airship_mechanic",
+   "text": "{airship_mechanic.name}单手扯下防滑鹿皮手套包在合金硬笔中段，防止反冲剧震割破总务长紧握笔端的手指。"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{clerk_selphia.name}俯身为机械师擦去额前汗水，面容近在咫尺，眼神透着全心全意的信赖。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{clerk_selphia.name}制服后背被热汗与机油晕湿，在狭窄机械缝隙中挪动身躯，轻声提醒同伴注意管路残压。"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{clerk_selphia.name}以总务长的沉着果决判断咬死阀门受力极限，指示在外部狂风冲击波间隙同步施力。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "slot": "airship_mechanic",
+   "text": "{airship_mechanic.name}在千米高空云海灌入的狂风声中，将全身重量压在合金杠杆外端，与总务长心跳共振。"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{clerk_selphia.name}双手交叠紧握同伴臂弯，两副年轻身躯在不足三平米的底舱中毫无缝隙地顶死力臂。"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_turntable_crawlspace"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{clerk_selphia.name}辨听液压回油管路嘶鸣，精准预判棘爪锁舌松脱的弹跳瞬间，提醒同伴护住手腕。"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "slot": "airship_mechanic",
+   "text": "{airship_mechanic.name}与总务长在平压手轮前背贴着胸，在四辐铁轮死锁处同步发力转动第一道泄压回程。"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{clerk_selphia.name}在转台剧烈晃动中重心微倾，顺势靠入同伴怀中，反手紧握扳动插销完成最后半圈锁死。"
+  },
+  {
+   "id": "hook_selphia_slow_stamp",
+   "kind": "approach",
+   "location_ids": [
+    "loc_guild_hall_counter"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{npc.name}把印章悬在公会卡上方停了一停，抬眼看人：这一格盖下去，你就算在这座要塞落了脚。想好了吗？"
+  },
+  {
+   "id": "hook_selphia_hairpin_pen",
+   "kind": "approach",
+   "location_ids": [
+    "loc_guild_hall_counter",
+    "loc_clerk_quarters"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{npc.name}从发髻里抽出那支合金硬笔，长发一下散到肩上，把笔递过来：替我拿一下，我把头发重新挽好。别弄丢了，这支笔比我的命还金贵。"
+  },
+  {
+   "id": "hook_selphia_ledger_company",
+   "kind": "approach",
+   "location_ids": [
+    "loc_guild_hall_counter"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{npc.name}把账册往人面前推了推，声音压得很低：打烊后陪我对一下账？一个人对到半夜，眼睛都花了。"
+  },
+  {
+   "id": "hook_selphia_first_flight",
+   "kind": "approach",
+   "location_ids": [
+    "loc_clerk_quarters",
+    "loc_guild_hall_counter"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{npc.name}趴在圆窗边望着进港的飞空艇，忽然回头：在要塞三年，一次都没坐过。哪天你的船空着，带我上去兜一圈？"
+  },
+  {
+   "id": "hook_mechanic_queue",
+   "kind": "approach",
+   "location_ids": [
+    "loc_guild_hall_counter"
+   ],
+   "slot": "airship_mechanic",
+   "text": "{npc.name}在柜台前排完长长的队，把一张皱巴巴的检修单递过去，手在口袋里攥着什么，最后只说：……下次进港，还排你的队。"
+  },
+  {
+   "id": "hook_mechanic_goggles",
+   "kind": "approach",
+   "location_ids": [
+    "loc_guild_hall_counter",
+    "loc_equalizer_wheel_niche"
+   ],
+   "slot": "airship_mechanic",
+   "text": "{npc.name}把额头上的护目镜摘下来替人戴上：码头风大，云层里有冰碴。看那边——今晚第一艘进港的，是我的船。"
+  },
+  {
+   "id": "hook_selphia_quarters_lamp",
+   "kind": "approach",
+   "location_ids": [
+    "loc_clerk_quarters"
+   ],
+   "slot": "clerk_selphia",
+   "text": "{npc.name}在值班小屋门口点起油灯：今天的公会卡盖完了。……进来坐，我泡了茶。"
+  }
+ ],
+ "id": "guild_receptionist_vault_anchor_lock",
+ "locations": [
+  {
+   "affordances": [
+    "背部顶住耐压舱壁侧板作为杠杆发力支点",
+    "将合金硬笔实心笔身插入防坠棘爪咬合死角",
+    "观察格栅下方高空云海倒灌的风向与摆幅"
+   ],
+   "detail": "位于飞空艇锚定转台正下方的逼仄夹层，净高不足一米四，四周布满滚烫的黄铜液压管线与巨型伞齿轮箱，脚下是悬空千米高空的透光防护格栅。",
+   "exits": [
+    "loc_pawl_gearbox",
+    "loc_equalizer_wheel_niche"
+   ],
+   "id": "loc_turntable_crawlspace",
+   "name": "转台绞盘检修底舱狭槽",
+   "pressure_modifiers": {
+    "p_gale_cable_drag": "每一阵狂风扯动钢缆，整个底舱都跟着往一边猛甩，格栅下的云海翻得更急。",
+    "p_sealed_hold_air_low": "外层气阀已经闭死，夹层里越来越闷，喘气都带着机油的焦味。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "应急灯在黄铜管线上晃出昏黄的光，脚下格栅外是千米深的云海，能看清对方额角的汗和被风吹乱的头发。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "用手指摸清卡爪偏心倒角的卡死咬合面",
+    "借助两人体重合力下压合金撬杠解除防退销"
+   ],
+   "detail": "由特种铬钼合金铸造的减速机外壳，两只淬火重型卡爪深深嵌在齿槽之间，表面凝固着焦黑的二硫化钼润滑脂。",
+   "exits": [
+    "loc_turntable_crawlspace"
+   ],
+   "id": "loc_pawl_gearbox",
+   "name": "重型防坠偏心棘爪箱",
+   "pressure_modifiers": {
+    "p_crawlspace_body_heat": "箱体旁只容两个人侧身挤着，总务长的后背贴着对方的胸口，制服下的体温一阵阵透过来。",
+    "p_equalizer_valve_seize": "棘爪每咬深一齿，平压阀那边的油压就跟着憋高一分。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "手电的窄光打在两只淬火卡爪上，焦黑的润滑脂里能看见齿尖一点点咬深。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "双人胸背叠合握持手轮辐条全力旋转",
+    "听辨液压油回流腔平压泄荷的清脆鸣音"
+   ],
+   "detail": "底舱尽头仅容一人侧身钻入的凹槽，安装着四辐重型铸铁平压手轮，管壁不断发出水锤敲击般的嘶嘶异响。",
+   "exits": [
+    "loc_turntable_crawlspace",
+    "loc_guild_hall_counter"
+   ],
+   "id": "loc_equalizer_wheel_niche",
+   "name": "应急平压截止手轮壁龛",
+   "pressure_modifiers": {
+    "p_gale_cable_drag": "外面的人想放下检修梯，可转台一晃，梯子就够不着。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "壁龛口透进走廊的灯光，传声筒里不时传来公会大厅的喊话。",
+   "witnesses": [
+    "bg_voice_tube_clerk",
+    "bg_dock_foreman",
+    "bg_guard_captain"
+   ]
+  },
+  {
+   "affordances": [
+    "在柜台前排队等总务长盖章",
+    "站在委托板前挑悬赏单",
+    "在酒馆角落的长凳上挤着坐下"
+   ],
+   "detail": "边境要塞公会的一楼大厅，委托板上钉满悬赏单，长柜台后面是总务长的位置，墙上挂着飞空艇进港时刻表，角落的酒馆区从早到晚都有冒险者在吹牛。",
+   "exits": [
+    "loc_clerk_quarters",
+    "loc_equalizer_wheel_niche"
+   ],
+   "id": "loc_guild_hall_counter",
+   "name": "公会大厅的接待柜台",
+   "pressure_modifiers": {},
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "大厅里人来人往，柜台前排着长队，谁跟总务长多说了两句，半个大厅都看得见。",
+   "witnesses": [
+    "bg_voice_tube_clerk",
+    "bg_tavern_waitress",
+    "bg_veteran_adventurer",
+    "bg_retired_engineer"
+   ]
+  },
+  {
+   "affordances": [
+    "在油灯下一起对完今天的账",
+    "坐在圆窗边看飞空艇的灯一盏盏进港",
+    "替对方解开汗湿的制服马甲"
+   ],
+   "detail": "公会三楼尽头的值班小屋，一张窄床、一张堆满账册的书桌、一扇对着云海的圆窗，墙上挂着备用的制服。",
+   "exits": [
+    "loc_guild_hall_counter"
+   ],
+   "id": "loc_clerk_quarters",
+   "name": "总务长的值班小屋",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "只点一盏油灯，圆窗外是翻涌的云海，屋里的人能看清彼此的每一个表情。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "艾许",
+   "布莱恩",
+   "克劳福",
+   "德温特",
+   "埃弗里",
+   "弗罗斯特",
+   "格雷",
+   "霍克",
+   "艾弗森",
+   "科尔",
+   "洛克伍德",
+   "莫顿",
+   "诺斯",
+   "奥斯本"
+  ],
+  "given_female": [
+   "赛尔菲娅",
+   "琪拉",
+   "艾拉",
+   "米娅",
+   "艾薇",
+   "菲奥娜",
+   "罗莎",
+   "薇拉",
+   "艾米莉",
+   "克莱尔",
+   "奥莉薇",
+   "索菲",
+   "伊芙",
+   "露西"
+  ],
+  "given_male": [
+   "卡伦",
+   "德里克",
+   "埃利奥特",
+   "芬恩",
+   "罗南",
+   "威尔",
+   "伊万",
+   "杰克",
+   "凯尔",
+   "利亚姆",
+   "马修",
+   "奈杰尔",
+   "马尔科",
+   "斯坦"
+  ],
+  "given_neutral": [
+   "艾登",
+   "布雷",
+   "凯西",
+   "德文",
+   "伊登",
+   "弗兰",
+   "格伦",
+   "海登",
+   "杰西",
+   "凯",
+   "洛根",
+   "摩根",
+   "帕特",
+   "瑞恩"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "female",
+    "pattern": "{given}小姐"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入。原稿除标题、简介、基调、总务长外貌、世界规则与三处脱困地点外，人物、压力与钩子大多照抄了吸血鬼地宫那一篇，这里按公会与飞空艇的题材整篇重写：白天是挤满冒险者的公会大厅、慢半拍落下的印章、委托板上的红色悬赏、傍晚进港的汽笛、酒馆角落的热牛奶，夜里是悬空底舱的热油与狂风；搭档写成每次进港都来柜台前排队的飞空艇机械师，其余人物换成酒馆老板、首席鉴定师、对手船长和拄着义肢的会长。新增公会大厅柜台与总务长的值班小屋两处日常地点。原稿里“肢体接触只服务于发力、不得偏离自救”的规则改成了世界内的规则；婴儿肥换成了其余外貌描写；总务长亲密前提写明脱困之后、双方清醒自愿；新增一个值班小屋里替总务长解开制服马甲的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    26
+   ],
+   "baseline": "刚从南边的小镇来到边境，公会卡上只盖了一个章，接的委托还是替人找猫和送信。",
+   "gender": "any",
+   "id": "pi_new_adventurer",
+   "reputation": "总务长记得这张新面孔，大厅里旁人还叫不出名字。",
+   "resources": [
+    "一张只盖了一个章的公会卡",
+    "一把用旧了的短剑",
+    "一袋快见底的铜币"
+   ],
+   "risks": [
+    "公会卡再空三个月就要被除名。"
+   ],
+   "role": "刚登记的新人冒险者",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    34
+   ],
+   "baseline": "有一艘自己的中型货船，每个月在要塞进港四回，船期表上的名字总务长闭着眼都写得出。",
+   "gender": "any",
+   "id": "pi_airship_captain",
+   "reputation": "按时交货、从不赖账，是总务长最省心的那类船长。",
+   "resources": [
+    "一艘停在二号码头的货船",
+    "一张边境航线的通行证",
+    "一船等着交割的货"
+   ],
+   "risks": [
+    "这一趟的货要是误了期，船就得押给商会。"
+   ],
+   "role": "跑边境航线的飞空艇船长",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    32
+   ],
+   "baseline": "受公会之聘研究要塞的锚定转台与魔导绞盘，图纸比任何人都熟。",
+   "gender": "any",
+   "id": "pi_guild_scholar",
+   "reputation": "公会里公认的机械行家，修好过两回重载升降机。",
+   "resources": [
+    "一本锚定转台的装配图纸",
+    "一把黄铜游标尺",
+    "一副鹿皮手套"
+   ],
+   "risks": [
+    "图纸上标的极限一旦被突破，要担责的是自己。"
+   ],
+   "role": "公会特约的机械构造学者",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    40
+   ],
+   "baseline": "奉王都之命巡查边境各公会的账目与船期，一句话就能让一座公会换掉总务长。",
+   "gender": "any",
+   "id": "pi_crown_inspector",
+   "reputation": "边境的冒险者都怕监察官，生怕被翻出旧账。",
+   "resources": [
+    "一枚王都监察的银印",
+    "一份边境公会的考评册",
+    "调阅任何账册的权限"
+   ],
+   "risks": [
+    "查得太狠会得罪整个要塞，查得太松回王都没法交差。"
+   ],
+   "role": "王都派来的公会监察官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "边境的飞空要塞里，公会大厅从早到晚挤满冒险者，柜台后那位温婉的总务长，三年来给每一张公会卡盖过章，下班后还要去底舱机房核对锚定转台的检修账目。这一季高空魔导气流特别乱，锚定转台的主导轨震松过一次，飞空艇机械师说防坠棘爪该换了。",
+ "pressures": [
+  {
+   "choice": "是趁两阵狂风的间隙冒险下撬，还是等风小一点再动手？",
+   "exits": [
+    {
+     "cost": "硬笔受力过猛可能崩断，手掌会被震裂",
+     "option": "趁狂风间隙两人合力下压硬笔撬开棘爪"
+    },
+    {
+     "cost": "风不会停，钢缆撑不到天亮",
+     "option": "缩进壁龛等风停"
+    }
+   ],
+   "far": {
+    "consequence": "转台脱离要塞，连同底舱一起坠进千米深的云海。",
+    "due_days": 1,
+    "trigger": "钢缆被暴风扯断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_gale_cable_drag",
+   "immediate": {
+    "minutes": 2,
+    "text": "底舱猛地往一边甩，两人撞在一起，格栅下的云海翻涌着往上灌风。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_turntable_crawlspace",
+    "loc_pawl_gearbox"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "钢缆又被扯出半寸，棘爪咬进下一齿，减速箱的侧盖开始松动。"
+   },
+   "objective": "在钢缆扯断转台之前，用合金硬笔撬开偏心棘爪，让转台回到导轨。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "暴风狂暴拉扯万钧锚定钢缆",
+   "trigger": "魔导气流一阵接一阵撞上要塞，三万磅的锚定钢缆被扯得笔直，棘爪咬着导轨发出刺耳的尖叫。"
+  },
+  {
+   "choice": "是先泄压再撬棘爪，还是先撬棘爪再赌一把手轮？",
+   "exits": [
+    {
+     "cost": "掌心会被烫出水泡",
+     "option": "两人胸背相贴握住手轮辐条一起转"
+    },
+    {
+     "cost": "可能把阀杆砸断，再也转不回来",
+     "option": "用扳手硬砸阀杆"
+    }
+   ],
+   "far": {
+    "consequence": "滚烫的液压油喷满底舱，转台彻底失去阻尼。",
+    "due_days": 1,
+    "trigger": "液压管路爆裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_equalizer_valve_seize",
+   "immediate": {
+    "minutes": 2,
+    "text": "手轮烫得握不住，管壁里传出一下一下水锤似的闷响。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "油压表的指针爬进红区，接头开始往外渗滚烫的油珠。"
+   },
+   "objective": "撬开棘爪之后，还得把平压手轮转回去，泄掉憋死的油压。",
+   "source": "accident",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "高温热胀致使应急平压阀死锁",
+   "trigger": "液压管路被憋得滚烫，平压截止手轮因为热胀死死卡在阀体里。"
+  },
+  {
+   "choice": "是为了体面拉开半寸距离，还是干脆贴紧了一起发力？",
+   "exits": [
+    {
+     "cost": "这一夜之后，柜台前那半拍慢下来的印章再也藏不住了",
+     "option": "放下顾虑贴紧对方，四只手一起压在硬笔上"
+    },
+    {
+     "cost": "力气使不到一处，撬不动卡爪",
+     "option": "各自侧身单手发力"
+    }
+   ],
+   "far": {
+    "consequence": "硬笔从卡爪缝里滑出去，错过最后的脱扣窗口。",
+    "due_days": 1,
+    "trigger": "分心导致硬笔滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_crawlspace_body_heat",
+   "immediate": {
+    "minutes": 2,
+    "text": "总务长急促的呼吸拂在耳边，湿透的衬衫隔着一层布料传来体温。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "两人的心跳撞在一起，谁都分不清是热的，还是别的什么。"
+   },
+   "objective": "贴得这么近的时候，还得把心思放在硬笔的角度和数拍子上。",
+   "source": "person",
+   "start_minute": 10,
+   "tags": [
+    "workplace"
+   ],
+   "title": "狭窄底舱身躯紧贴体温升腾",
+   "trigger": "棘爪箱旁只容两个人侧身挤着，总务长的后背贴着对方的胸口，制服被汗浸得透湿。"
+  },
+  {
+   "choice": "是放慢动作省着喘气，还是一鼓作气拼到底？",
+   "exits": [
+    {
+     "cost": "可能在最后一下之前就眼前发黑",
+     "option": "压低呼吸，把力气全留给最后一下"
+    },
+    {
+     "cost": "高空的冷风灌进来，人会冻得握不住硬笔",
+     "option": "砸开格栅放外面的冷风进来"
+    }
+   ],
+   "far": {
+    "consequence": "两人在底舱里失去意识，等不到外面的人撬开舱门。",
+    "due_days": 1,
+    "trigger": "底舱空气耗尽"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_sealed_hold_air_low",
+   "immediate": {
+    "minutes": 2,
+    "text": "空气越来越闷，每喘一口都带着机油的焦味。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_turntable_crawlspace",
+    "loc_pawl_gearbox"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "眼前开始发黑，手指发麻，数拍子的声音越来越轻。"
+   },
+   "objective": "在空气耗尽、两人晕过去之前完成脱扣。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "底舱应急闭锁残存氧气告急",
+   "trigger": "底舱进入应急闭锁，外层气阀自动切断，只剩一点内循环的空气。"
+  },
+  {
+   "choice": "是继续加力赌一把，还是退出来换个角度重新卡？",
+   "exits": [
+    {
+     "cost": "手套会被卡爪绞烂",
+     "option": "用鹿皮手套缠住笔身再压"
+    },
+    {
+     "cost": "印规太短，力臂不够",
+     "option": "退出来改用印规的直角卡口"
+    }
+   ],
+   "far": {
+    "consequence": "断掉的笔尖弹飞，两人失去唯一的撬具。",
+    "due_days": 1,
+    "trigger": "硬笔崩断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_pen_shear_snap",
+   "immediate": {
+    "minutes": 2,
+    "text": "笔身发出细微的金属呻吟，握笔的指节被震得发白。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_pawl_gearbox"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "硬笔弯出一道肉眼可见的弧，再压一下可能就会崩。"
+   },
+   "objective": "得在硬笔崩断之前找准最后一个受力点。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "合金硬笔高剪切力崩脱风险",
+   "trigger": "合金硬笔卡在棘爪缝里承受着巨大的剪切力，笔身开始轻微弯曲。"
+  },
+  {
+   "choice": "是把外衣让给对方，还是挤在一起取暖？",
+   "exits": [
+    {
+     "cost": "离得太近，心思会乱",
+     "option": "挤在一起，用彼此的体温撑住"
+    },
+    {
+     "cost": "外衣没了，人更冷",
+     "option": "脱下外衣塞住格栅缝"
+    }
+   ],
+   "far": {
+    "consequence": "冻僵的手再也握不住硬笔，只能干等外面的救援。",
+    "due_days": 1,
+    "trigger": "两人失温脱力"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_high_altitude_chill",
+   "immediate": {
+    "minutes": 2,
+    "text": "汗湿的制服一被风吹透，冷得人直打哆嗦。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_turntable_crawlspace",
+    "loc_pawl_gearbox"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "手指冻得发僵，牙关开始打战。"
+   },
+   "objective": "在冻得握不住硬笔之前完成脱扣。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "千米高空冰冷强风灌入失温",
+   "trigger": "格栅下的云海被暴风搅动，千米高空的冷风从缝隙里一阵阵灌进底舱。"
+  },
+  {
+   "choice": "从公会的储备金里先垫，还是查明转台是谁没按期保养",
+   "exits": [
+    {
+     "cost": "储备金账上的签名是总务长自己的",
+     "option": "动用储备金垫付"
+    },
+    {
+     "cost": "记录会显示机械师上个月为了赶工跳过一次检修",
+     "option": "请老机工奥斯卡查保养记录"
+    }
+   ],
+   "far": {
+    "consequence": "储备金的窟窿要总务长担着，可能被调去偏远的分会",
+    "due_days": 5,
+    "trigger": "会长回来清算"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_selphia_hairpin_pen",
+    "hook_selphia_first_flight",
+    "hook_selphia_quarters_lamp"
+   ],
+   "id": "p_shipowners_bill",
+   "immediate": {
+    "minutes": 5,
+    "text": "值班员诺拉敲门，说柜台前已经排了二十几个船主"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_clerk_quarters"
+   ],
+   "near": {
+    "deadline_minutes": 600,
+    "text": "傍晚，会长的飞空艇回港"
+   },
+   "objective": "在会长回来之前，把船主们的赔偿摊清楚",
+   "source": "money",
+   "start_minute": 480,
+   "tags": [],
+   "title": "船主们的账单",
+   "trigger": "风暴过去第二天，飞空艇船主们拿着账单涌进公会：锚定转台停用的三天里，所有货船困在要塞，误了货期的损失要公会赔"
+  }
+ ],
+ "region": "边境公会悬空锚定转台与重型魔导绞盘底舱机房",
+ "rules": [
+  {
+   "id": "r_guild_charter",
+   "text": "公会章程：委托一经挂上委托板，公会就要对接单冒险者的命负责，转台塌了也一样。"
+  },
+  {
+   "id": "r_pawl_release_by_pen",
+   "text": "防坠棘爪受狂暴气流拉扯死锁，只可通过高强硬质合金账笔卡入偏心棘爪缝隙合力下压撬脱。"
+  },
+  {
+   "id": "r_aether_gale_season",
+   "text": "每年秋天是魔导气流季，飞空艇进港前要先放下锚定钢缆，转台是整座要塞的命门。"
+  },
+  {
+   "id": "r_counter_seal",
+   "text": "总务长的印章盖下去才算数，柜台前没有人能插队，飞空艇船长也不行。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "合力勘察",
+  "committed": "生死共渡",
+  "familiar": "并肩排险",
+  "flirting": "呼吸相闻",
+  "intimate": "默契破障",
+  "stranger": "初见拘谨",
+  "testing": "同心借力"
+ },
+ "status": "released",
+ "style_hint": "蒸汽魔导奇幻的工笔：白天写公会大厅的热闹、柜台前的人情、飞空艇进港的汽笛；夜里写悬空底舱的热油、狂风与贴身发力。人物语言克制，张力藏在动作和慢半拍的盖章里。",
+ "tension_engines": [
+  {
+   "id": "te_gale_cable_drag",
+   "text": "暴风一阵阵扯动万钧钢缆，转台随时可能被扯离要塞。"
+  },
+  {
+   "id": "te_pawl_deadlock",
+   "text": "偏心棘爪越咬越深，防脱销逼近被咬断的极限。"
+  },
+  {
+   "id": "te_crawlspace_body_heat",
+   "text": "一米四高的夹层里两人贴伏在一起，汗湿的制服与工装背心之间只隔着一层布。"
+  },
+  {
+   "id": "te_hold_air_running_out",
+   "text": "外层气阀闭死，底舱里的空气一分一秒地变少。"
+  }
+ ],
+ "title": "公会看板娘·飞空艇锚定悬空转台卡死",
+ "tone": [
+  "暴风魔导震颤",
+  "转台偏心咬死",
+  "齿轮机油焦香",
+  "硬笔撬槽紧绷"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_pawl_backbite",
+   "requires": [
+    "clerk_selphia"
+   ],
+   "text": "暴风突然猛拽外部钢缆，棘轮逆向倒扣半齿，将插入槽内的合金硬笔死死咬合，必须依靠两人体重反向猛压方能脱扣。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_tie_caught_flange",
+   "requires": [
+    "clerk_selphia"
+   ],
+   "text": "总务长制服领带在挪动中挂住传动轴法兰，总务长果断单手扯脱丝带固定夹，丝毫不顾及衣领微乱，全身心投入力矩支点。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_sweat_on_knuckles",
+   "requires": [
+    "airship_mechanic"
+   ],
+   "text": "总务长额角热汗沿着饱满圆润的面颊滑落，滴在紧握硬笔的同伴指背上，在近在咫尺的呼吸交织中激起极限专注的心跳。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_wheel_seized_embrace",
+   "requires": [
+    "clerk_selphia",
+    "airship_mechanic"
+   ],
+   "text": "平压截止手轮因高温膨胀完全卡死，总务长自后方合身贴上，双臂环抱交叠在手轮外缘，以两人体重合力施压。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_exhaust_steam_burst",
+   "requires": [
+    "clerk_selphia"
+   ],
+   "text": "转台辅助排气阀喷出滚烫白雾，逼仄舱内两人不得不进一步紧密贴合，用脊背为彼此挡住飞溅的冷凝水滴。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_count_to_three",
+   "requires": [
+    "clerk_selphia",
+    "airship_mechanic"
+   ],
+   "text": "在狂暴气流撼动底舱的刹那，机械师抵住总务长肩头借力，两人同频数到三全力下压硬笔，清脆的金属脱扣声骤然响起。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_pawl_springs_free",
+   "requires": [
+    "clerk_selphia"
+   ],
+   "text": "偏心棘爪彻底弹开，平压手轮顺畅转完最后两圈，转台液压阻尼器重新平稳咬合，三万磅重载脱险，两人成功脱困自救。"
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+许可证来源说明（口袋酒馆整理，非上游文件）
+
+上游仓库：https://github.com/jwynia/agent-skills
+固定提交：e02ec7e226a6e4f8419fd3b88a1d8e472d421b32
+文件：skills/creative/fiction/application/game-facilitator/SKILL.md
+
+该提交没有仓库级 LICENSE 文件。上述 SKILL.md 的 frontmatter 声明 "license: MIT"，
+作者字段为 "metadata.author: jwynia"。以下为 MIT License 标准文本。
+
+MIT License
+
+Copyright (c) jwynia
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

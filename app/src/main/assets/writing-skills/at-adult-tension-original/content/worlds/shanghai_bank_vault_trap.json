@@ -1,0 +1,2198 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满二十七岁，督军府警卫营的排长。",
+   "age_range": [
+    27,
+    32
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_warlord_guard_adjutant_huo",
+   "line": "大小姐放心！警卫营长在这儿顶着！上面谁敢露头，老子二十响绝不客气！",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "name": "马排长",
+   "role": "警卫营的马排长"
+  },
+  {
+   "adult_context": "年满四十九岁，银行地下锅炉房的老师傅。",
+   "age_range": [
+    49,
+    54
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_bank_locksmith_old_lu",
+   "line": "往右偏三厘！合力往下挫！那个自锁簧一碎，生铁栅栏门就能推开！",
+   "location_ids": [
+    "loc_bank_vault_water_pipe_mezzanine"
+   ],
+   "name": "葛师傅",
+   "role": "银行锅炉房的老师傅葛师傅"
+  },
+  {
+   "adult_context": "年满四十五岁，洋行的账房先生。",
+   "age_range": [
+    45,
+    50
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_comprador_mr_edward",
+   "line": "破坏这道锰钢大门是违背租界公约的！要赔偿巨款！不能别啊！",
+   "location_ids": [
+    "loc_bank_vault_water_pipe_mezzanine"
+   ],
+   "name": "钱账房",
+   "role": "洋行的钱账房"
+  },
+  {
+   "adult_context": "年满三十四岁，租界巡捕督察，成年警官。",
+   "age_range": [
+    34,
+    40
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_concession_police_deputy_chen",
+   "line": "门里的人听着！巡捕房正在外围阻击乱军，戒严时限只剩最后五分钟！",
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "name": "陈督察",
+   "role": "中央捕房华人副督察陈探长"
+  },
+  {
+   "adult_context": "年满二十二岁，银行的出纳员。",
+   "age_range": [
+    22,
+    26
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_bank_teller_miss_fang",
+   "line": "水已经快漫过台阶了！大小姐和总工还在水里！天哪快救人！",
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "name": "柳出纳",
+   "role": "金库的柳出纳"
+  },
+  {
+   "adult_context": "年满二十六岁，叛军军官，成年武装分子。",
+   "age_range": [
+    26,
+    30
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_warlord_rebel_scout",
+   "line": "把通风管道炸开！下面藏着督军府的大批金条军饷，一颗也别放过！",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "name": "叛军排长",
+   "role": "地面抢劫叛军先头排长"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "傲娇尊贵的督军千金与沉稳刚烈的华人工科工程师在漫水金库中同生共死，两人在激流中前胸紧贴后背，合力以手枪镍铬合金弹匣底板别断偏心碰锁锁舌脱险。",
+   "id": "cc_heiress_and_engineer_lock_lever",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "heiress_bai_chuchu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "冰冷浑水中共同紧握弹匣，建立起生死托付的坚实同盟。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "engineer_shen_zhendong",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "工科排险并肩作战的过硬同伴。",
+     "stage": "familiar"
+    },
+    {
+     "a": "heiress_bai_chuchu",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "engineer_shen_zhendong",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "傲娇千金与海归工程师在生死绝境中跨越阶层相依为命。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "heiress_bai_chuchu",
+    "engineer_shen_zhendong"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在水位没顶前借弹匣底板精准插槽合力撬断偏心碰锁锁舌推门脱险。",
+    "limit_gap": "大小姐身着苏绣旗袍在极寒水中体力骤降，总工受困于缺乏大型机具且必须以肉身抗衡水压。",
+    "meeting_reason": "月初盖印的日子，千金踩着高跟鞋下到金库，照例嫌总工程师的西装旧了，非要总工陪着把提存单一张张核完。",
+    "resource_gap": "大小姐拥有特制袖珍手枪淬火硬钢弹匣与督军军饷决断权，总工具备高超的机械受力公差测算与强悍体魄。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_flood_vs_magazine_floorplate",
+    "te_cold_water_spasm_vs_rotunda_tight_hug"
+   ]
+  },
+  {
+   "chemistry": "忠勇的警卫营长誓死护卫大小姐周全持枪阻截乱军，傲娇大小姐临危不乱调度指挥排险。",
+   "id": "cc_heiress_and_guard_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "heiress_bai_chuchu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "密切关注大小姐人身安危。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "guard_huo_shaoting_officer",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "钦佩军官视死如归的铁血担当。",
+     "stage": "familiar"
+    },
+    {
+     "a": "heiress_bai_chuchu",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 4
+     },
+     "b": "guard_huo_shaoting_officer",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 4
+     },
+     "reason": "督军主仆同仇敌忾的深厚军旅情谊。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "heiress_bai_chuchu",
+    "guard_huo_shaoting_officer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "阻截上方乱军炸穿通风道为撬锁争取最后一百八十秒生机。",
+    "limit_gap": "警卫营长对机械锁具完全无能为力，大小姐受限于冰水失温剧痛。",
+    "meeting_reason": "千金从外滩饭店的舞会上被警卫营长急急接来银行，旗袍外面还披着跳舞时的雪狐披风。",
+    "resource_gap": "警卫营长掌握德造驳壳枪与正规军战术掩护，大小姐拥有督军府最高决断军令威仪。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_mob_siege_vs_concession_curfew"
+   ]
+  },
+  {
+   "chemistry": "自私买办威胁依租界洋例索赔破坏门锁，青年工程师据理力争以拯救人命为先强行破锁，爆发尖锐立场冲突。",
+   "id": "cc_engineer_and_comprador_collision",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "engineer_shen_zhendong",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "支持工程师果断救人的正义之举。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "comprador_mr_edward_tang",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对买办唯利是图草菅人命的丑态深恶痛绝。",
+     "stage": "stranger"
+    },
+    {
+     "a": "engineer_shen_zhendong",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "comprador_mr_edward_tang",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "民族工科栋梁与殖民洋行附庸的激烈阶级交锋。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "engineer_shen_zhendong",
+    "comprador_mr_edward_tang"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "排除自私阻挠迅速完成弹匣插入与发力撬锁。",
+    "limit_gap": "买办贪生怕死贪恋财物，工程师受制于华人技术人员的社会阶级地位约束。",
+    "meeting_reason": "买办要把一箱账册藏进保险库，总工程师按规矩不肯开库，两人在铁栅栏门前吵了起来。",
+    "resource_gap": "买办手握洋行账册与工部局交涉特权，工程师拥有地下机房实际操作拆解权。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_mob_siege_vs_concession_curfew"
+   ]
+  },
+  {
+   "chemistry": "老铜匠口授偏心三厘祖传开锁绝技，傲娇大小姐亲手奉上手枪弹匣并躬身受教，里应外合击碎坚固锁舌。",
+   "id": "cc_heiress_and_locksmith_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "heiress_bai_chuchu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "信任大小姐临危不乱的果决霸气。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "locksmith_old_lu_copper",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "老锁匠的经验指点令人拨云见日。",
+     "stage": "familiar"
+    },
+    {
+     "a": "heiress_bai_chuchu",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "locksmith_old_lu_copper",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "督军名媛与华工老匠人之间的默契互敬。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "heiress_bai_chuchu",
+    "locksmith_old_lu_copper"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "按右偏三厘精准角度顺时针挫断防撬锁舌自锁簧脱险。",
+    "limit_gap": "老锁匠年老体衰在冰水中寸步难行，大小姐独自在激流中承受猛烈反扭力。",
+    "meeting_reason": "老铜匠来给金库的碰锁上油，千金蹲在一旁看稀奇，非要老师傅教自己认锁芯。",
+    "resource_gap": "老锁匠掌握四十年偏心碰锁结构经验，大小姐身在前线掌控高硬度弹匣杠杆撬动。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_flood_vs_magazine_floorplate"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_underground_vault_pipe_echo",
+   "reach": "all",
+   "text": "地下穹顶管道震荡轰鸣与远方沉闷炮响"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_rotunda_brass_intercom_tube",
+   "reach": "local",
+   "text": "大楼金库黄铜传声筒与巡捕防暴哨音"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "督军府的千金，从沪上一所教会大学毕业一年，替父亲掌着金库里军饷的印鉴，持有私人配枪的特许，去留进退由本人拿主意。",
+   "age_range": [
+    22,
+    25
+   ],
+   "appearance_options": [
+    "一身月白暗绣金丝的改良旗袍，外罩雪狐毛披风，身段玲珑婀娜，发夹微散，两颊被水汽蒸得泛红，湿透的旗袍紧贴着胸口与腰线，美眸里兼具骄纵的贵气与临危不惧的傲骨。",
+    "旗袍下摆湿透紧贴着修长的小腿，双手握着一支象牙柄的精致小手枪，下颌高高扬起，在幽冷的漫水与水雾里宛如一朵带刺的红玫瑰，凌厉中透着炽热的血性。"
+   ],
+   "decision": {
+    "avoids": [
+     "唯唯诺诺的软骨奴才",
+     "临阵脱逃的自私懦夫"
+    ],
+    "contrast": "在外滩饭店的舞池里，千金是颐指气使、谁也看不上眼的金枝玉叶；可冷水漫到腰间时，千金第一个拔枪卸弹匣，狠劲胜过寻常男儿。",
+    "core_value": "本小姐是大帅的女儿，天下哪有被几吨烂铁水管吓死的督军千金。总工，给我别开这道锁！",
+    "goal_options": [
+     "利用随身袖珍手枪弹匣底板撬开碰锁锁舌自救",
+     "指挥卫队长与工程师合力固守金库"
+    ],
+    "never": [
+     "在同伴被水淹没前独自踩着别人肩膀爬梯逃生"
+    ],
+    "prefers": [
+     "铁骨铮铮的担当魄力",
+     "严谨分明的实干技术"
+    ],
+    "pressure_responses": {
+     "breaking": "紧贴工程师胸膛将全身重量压在弹匣上拼死反别",
+     "high": "不顾水流污浊涉水上前双手按住工程师手背一同施力",
+     "low": "骄傲扬起下巴喝令众人不得慌乱失态",
+     "mid": "果断甩掉高跟鞋利落退出手枪弹夹递出底板"
+    },
+    "relationship_stance": "每月下库盖印，千金都点名要总工程师陪着，嘴上嫌对方穿得寒酸、说话一板一眼；可总工程师的那张毕业照片，千金一直贴身收着。",
+    "withdrawal": "退守在环形回廊地势最高的花岗岩柱座上方，单手按住披风冷艳端坐。"
+   },
+   "gender": "female",
+   "gender_reason": "督军府的千金，按原稿写作女性。",
+   "id": "heiress_bai_chuchu",
+   "identity": {
+    "authority": "对督军府在泰丰银行金库封存的巨额黄金特种军饷提存拥有唯一印鉴签署权。",
+    "exposure": "为了暗中资助沪上青年工科爱国实业曾私自挪用过金库印章抵押利息",
+    "hidden": "随身旗袍贴身暗袋内藏着一张总工早年在教会大学工学院毕业典礼上的剪影照片",
+    "limits": [
+     "脚踩法式细高跟丝绒缎面白鞋在漫水地砖上极易滑倒失衡",
+     "从小娇生惯养，体能有限，被冰冷的急流泡久了极易脱力"
+    ],
+    "obligations": [
+     "保全督军府军饷密鉴绝不落入乱军暴徒与洋买办之手"
+    ],
+    "resources": [
+     "一支特制象牙握把比利时造六点三五毫米袖珍手枪（配加硬淬火特种镍铬合金六发弹匣）",
+     "一枚纯金雕花实心督军府私印挂坠"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在冰冷浊流与绝境中犹如铁塔般的沉稳庇护",
+     "合力握紧合金弹匣撬锁时肌肤相亲传来的灼热体温与对方雄浑心跳"
+    ],
+    "boundaries": [
+     "严守大家闺秀名节与未婚礼仪分寸",
+     "不容许任何下人逾矩不敬"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在漫水回廊中被从身后托住纤腰固定重心，四手紧叠握住合金弹匣底板奋力下撬。",
+    "dislikes": [
+     "登徒浪子的轻薄猥亵",
+     "出卖原则的见利忘义"
+    ],
+    "expression": "脱险后红着脸把绣金丝的真丝手帕塞过去，轻斥一句别逞能，转身时却低声说：今晚来饭店找我。",
+    "likes": [
+     "锁舌咔嗒一声被别断时对方眼中绽放的璀璨光芒",
+     "被强健臂弯一把从深水中抱起时的霸道安全感"
+    ],
+    "preconditions": [
+     "防盗生铁栅栏门成功别开脱困",
+     "军饷印鉴完好无损撤离回督军公馆",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "督军府千金名媛",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_shanghai_bank_underground_rotunda",
+     "to": 975
+    },
+    {
+     "from": 975,
+     "location_id": "loc_security_grille_sluice_gate",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "弹匣底板变形报废手枪暂时失去供弹能力，{npc.name}手指被铁毛刺刺伤渗血。",
+      "option": "用袖珍手枪手枪加硬镍铬合金弹匣底板插进锁槽偏心处两人合力猛别别断锁舌脱险。"
+     },
+     {
+      "cost": "密闭狭小空间内剧烈跳弹击伤警卫小腿流血。",
+      "option": "用驳壳枪近距离对准重型锁芯连开数枪震碎锁舌脱险。"
+     }
+    ],
+    "pressure": "回廊冷水以每分钟十公分上涨，若不能在四分钟内别开偏心碰锁锁舌推门脱险，全员将被溺毙在八米穹顶地下金库。",
+    "trigger": "上方乱军猛攻导致外滩大楼紧急切电，地下两吨重生铁防盗栅栏自重落锁卡死，高压消防水管爆裂漫水。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "水已经漫过膝盖了……总工别慌，有本小姐在，我们一定出得去。督军府的女儿，绝不认输。",
+    "surface": "总工！你发什么呆！本小姐这支袖珍手枪是比利时原厂特供的淬火硬钢弹匣！底板结实得很，拿去给我把锁舌别烂！"
+   }
+  },
+  {
+   "adult_context": "年满二十五岁，沪上工学院高材生留美机械硕士，成年技术主管，具备完全民事行为能力与工程应急指挥权。",
+   "age_range": [
+    25,
+    28
+   ],
+   "appearance_options": [
+    "身着深灰色英式三件套羊毛西装，扯掉了浸湿的领带，衬衫袖口挽至肘部露出精悍小臂，面容英朗眼神如刀刻般笃定。",
+    "短发滴淌着冷水，眼神紧盯着铁栅栏锁舌杠杆咬合面，浑身散发着纯粹工科硬汉的冷静力量。"
+   ],
+   "decision": {
+    "avoids": [
+     "蛮横霸道的无脑蛮干",
+     "弃车保帅的卑劣投机"
+    ],
+    "contrast": "平日文质彬彬的海归工科精英，置身灭顶洪流时爆发出力能扛鼎的猛兽般爆发力。",
+    "core_value": "机械结构是有骨头的，只要找到偏心受力死点，一片合金弹匣就能翘起两吨铁闸！",
+    "goal_options": [
+     "接下大小姐弹匣精准定位偏心锁舌反向别开",
+     "用身体替大小姐挡开暴烈喷涌的高压水柱"
+    ],
+    "never": [
+     "在大小姐脱困前独自后退半步"
+    ],
+    "prefers": [
+     "分毫不差的公差计算",
+     "同生共死的血性默契"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂发力青筋暴起将大小姐护在怀里咬牙死命下压",
+     "high": "接过弹匣精准插入三毫米微小缝隙",
+     "low": "迅速展开防水蓝图测算回廊各处排水标高",
+     "mid": "涉水抢上前查验重型碰锁偏心咬合深度"
+    },
+    "relationship_stance": "深知彼此阶级门第天差地别，但将对大小姐的情意化作最坚硬的技术脊梁，生死关头愿以命相护。",
+    "withdrawal": "退在生铁门导轨死角，用后背顶住铁门防止晃动移位。"
+   },
+   "gender": "male",
+   "gender_reason": "远东金融重地特聘归国机械安防总工",
+   "id": "engineer_shen_zhendong",
+   "identity": {
+    "authority": "对外滩大楼地下金库水暖机械、落闸配重与锁具工程图纸拥有现场最高解释与破拆裁决权。",
+    "exposure": "曾私下协助爱国地下进步人士转移过被洋人扣留的工业机床物资",
+    "hidden": "西装内侧贴身口袋里珍藏着大小姐在教会大学校刊上发表的英文演讲手稿",
+    "limits": [
+     "受寒冷脏水浸泡体力迅速流失",
+     "赤手空拳无大型重型锻造机具"
+    ],
+    "obligations": [
+     "誓死护卫同胞生命安全与国家金融命脉不被殖民掠夺"
+    ],
+    "resources": [
+     "一把淬火硬化机械游标卡尺与螺距测微计",
+     "一套近代外滩万国建筑地下暗沟总平面蓝图"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "大小姐傲娇华贵面具下赤诚勇敢的炽热灵魂",
+     "两具身躯在极寒浊水中为求一线生机而心跳共振的生命战栗"
+    ],
+    "boundaries": [
+     "恪守男女大防与君子敬重",
+     "不因生死大恩挟恩图报"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "从身后牢牢抱住大小姐稳在门前，右手与姑娘十指紧扣，借双人体重大力下压弹匣。",
+    "dislikes": [
+     "租界巡捕狗仗人势的欺凌",
+     "洋行买办的奴颜婢膝"
+    ],
+    "expression": "脱险后迅速脱下自己尚带体温的西装厚外套严严实实裹住大小姐湿透颤抖的双肩，低声宽慰。",
+    "likes": [
+     "偏心锁舌在杠杆重压下发出清脆崩断断裂声",
+     "大小姐眼角泛红却依然不肯认输的倔强神情"
+    ],
+    "preconditions": [
+     "重力生铁栅栏门成功翘开破门脱险",
+     "全员平安脱困上岸归家",
+     "大小姐点了头，出于本心"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "银行安防总工程师",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_shanghai_bank_underground_rotunda",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}手掌虎口被合金底板割裂流血。",
+      "option": "{npc.name}指导大小姐将弹匣底板垂直咬死锁舌缝隙以身体自重猛别化解死锁自救。"
+     },
+     {
+      "cost": "精密量具发生塑性弯曲报废。",
+      "option": "用纯铜卡尺硬撬门缝偏心插销脱险。"
+     }
+    ],
+    "pressure": "若不能在三分钟内借弹匣底板挑断锁舌棘爪，水压将彻底锁死门缝，全员将在地下穹顶溺亡。",
+    "trigger": "重力防盗生铁栅栏门偏心碰锁被水流泥沙与单向水压死死锁合。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要我还有一口气，就绝不让大小姐在这冰冷的金库里受半点委屈。门第再远，今晚也只隔着这一道锁。",
+    "surface": "大小姐！听我说！这支袖珍手枪的弹匣底板是镍铬合金淬火冷锻的，厚度足有两毫米半！刚好插得进碰锁间隙，抓紧我，我们一起用力！"
+   }
+  },
+  {
+   "adult_context": "年满二十七岁，行伍出身正规军官，成年军人，具备完全民事行为能力与战时防卫决策权。",
+   "age_range": [
+    27,
+    32
+   ],
+   "appearance_options": [
+    "身穿带有金线领章的深绿军呢呢子军装，腰束武装带，腰间挎着快慢机盒子枪，浑身精壮目光森寒。",
+    "军帽已被水冲落，脸上沾着黑灰硝烟，手里握着上了膛的驳壳枪高度警惕上方回声。"
+   ],
+   "decision": {
+    "avoids": [
+     "文绉绉的酸腐算计",
+     "背后捅刀的软骨汉奸"
+    ],
+    "contrast": "平日杀伐决断的暴烈铁血军官，在手无寸铁面对精密机械死锁时暴露出工科盲区的焦躁无助。",
+    "core_value": "人在大小姐在，谁敢挡大小姐的生路，老子就用盒子枪崩了那个人！",
+    "goal_options": [
+     "用身体死死顶住回廊铁门防范乱军破墙",
+     "警戒上方通气口准备开火掩护"
+    ],
+    "never": [
+     "在大小姐未撤离出危险地带前收枪自顾"
+    ],
+    "prefers": [
+     "雷厉风行的军令如山",
+     "硬碰硬的真刀真枪"
+    ],
+    "pressure_responses": {
+     "breaking": "将驳壳枪机头大张准备朝锁孔近距离轰击",
+     "high": "涉水赶到铁门前用宽阔肩膀顶住铁闸分担重荷",
+     "low": "在回廊铁栅栏前迅速布置射击依托阵位",
+     "mid": "拔出盒子枪对准上方通风口厉声喝退斥候"
+    },
+    "relationship_stance": "对督军府忠心不二，将大小姐视如神明，起初戒备排斥洋务工科工程师，危难中被总工的铁骨折服。",
+    "withdrawal": "退守在通往地面的第一级石阶拐角，持枪据枪封锁转角通道。"
+   },
+   "gender": "male",
+   "gender_reason": "大帅行辕特遣内卫铁血精锐少校",
+   "id": "guard_huo_shaoting_officer",
+   "identity": {
+    "authority": "对大小姐贴身战术护卫、乱军阻击与紧急撤离路线拥有现场第一军权指挥力。",
+    "exposure": "曾在防务调动中因酗酒迟到被督军重责军棍三十",
+    "hidden": "暗藏督军亲笔军令：若金库陷落且大小姐受辱，格杀一切阻挡之人后自裁",
+    "limits": [
+     "对金库内部洋人设计的防盗自锁机关完全一窍不通",
+     "盲目开枪极易在石室回廊中造成跳弹反噬自伤"
+    ],
+    "obligations": [
+     "纵使警卫营全员战死也必须保全大小姐一根头发不损"
+    ],
+    "resources": [
+     "一具装填满弹的德造连发大肚驳壳快慢机",
+     "两枚带引信的木柄手榴弹与战地止血包"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "临危不惧的督军家风气魄",
+     "硬汉同仇敌忾的战友情谊"
+    ],
+    "boundaries": [
+     "恪守军阀家丁上下尊卑绝对界限",
+     "不干涉主子私情"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "背对铁门半跪在漫水中，双手举起驳壳枪瞄准上方回廊严阵以待掩护二人撬锁。",
+    "dislikes": [
+     "殖民巡捕的颐指气使",
+     "乱军匪徒的打家劫舍"
+    ],
+    "expression": "脱下带穗军大衣展平铺在车座上，立正向大小姐敬一个极其标准的军礼。",
+    "likes": [
+     "盒子枪枪膛上油后拉动枪机的清脆声",
+     "大小姐平安脱险的敬礼致意"
+    ],
+    "preconditions": [
+     "大小姐安全登车返回督军公馆重兵警戒区",
+     "叛乱匪军被全歼平定"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "督军府贴身警卫营长",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_shanghai_bank_underground_rotunda",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}面颊被掉落的灼热石块擦伤破相。",
+      "option": "{npc.name}以驳壳枪精准点射击落上方通风口引线自救。"
+     },
+     {
+      "cost": "剧烈爆轰造成回廊全员耳朵暂时失聪。",
+      "option": "掷出随身马尾手榴弹炸毁通风管道斜井延阻乱军进攻脱险。"
+     }
+    ],
+    "pressure": "若不能在回廊被炸塌前别开生铁栅栏门，全员将被活埋在乱石与洪水中。",
+    "trigger": "上方乱军试图用雷管炸穿通风井强行攻入金库回廊。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "要是大小姐有个三长两短，我{npc.name}提头回督军府也没脸见大帅，拼了这条命也要护住大小姐！",
+    "surface": "大小姐！总工！上面乱军在用铁镐砸天花板了！你们抓紧别锁，谁敢从通风道探头，老子二十响把那颗脑袋打成筛子！"
+   }
+  },
+  {
+   "adult_context": "年满四十五岁，英美洋行资深高级华人买办，成年高级商界主管，具备完全民事行为能力。",
+   "age_range": [
+    45,
+    52
+   ],
+   "appearance_options": [
+    "身穿名贵黑缎马褂与金丝眼镜，头发梳得一丝不苟涂着发油，此时眼镜歪斜脸色煞白，双手死死护着怀里的账本皮箱。",
+    "浑身湿透瑟瑟发抖，长袍下摆沾满黄泥污迹，哆嗦着呼唤巡捕救命。"
+   ],
+   "decision": {
+    "avoids": [
+     "承担损坏银行财产赔偿责任",
+     "被督军府查出勾结叛军账目"
+    ],
+    "contrast": "平日风光无限的十里洋场大买办，置身地下大洪流时沦为可怜虫与绊脚石。",
+    "core_value": "租界地产是洋大人的命根子，破坏锁具要赔偿大笔英镑，绝不能乱砸乱撬！",
+    "goal_options": [
+     "阻止工程师使用暴力别坏偏心锁舌",
+     "哀求警卫营长保护自己与账本皮箱脱身"
+    ],
+    "never": [
+     "为了拯救旁人而牺牲自己的私人皮箱账册"
+    ],
+    "prefers": [
+     "有利可图的买办回扣",
+     "安稳体面的租界特权"
+    ],
+    "pressure_responses": {
+     "breaking": "抱着皮箱跳入水流企图抢先钻过门缝",
+     "high": "在警卫营长枪口威逼下颤抖交出钥匙链",
+     "low": "搬出工部局治外法权条款威胁众人不得损毁公物",
+     "mid": "见水势暴涨吓得瘫倒在石柱基座上痛哭流涕"
+    },
+    "relationship_stance": "崇洋媚外欺软怕硬，既垂涎督军府的权势又鄙视华人工程师，在生死大难面前极度自私丑态毕露。",
+    "withdrawal": "缩在回廊最高处的大理石迎客条案背后，用账本挡住头部。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "comprador_mr_edward_tang",
+   "identity": {
+    "authority": "对金库董事会的商业密押密码与保险库私人物品清册享有独占的知情权。",
+    "exposure": "暗中与叛军将领勾结企图借抢劫制造假账侵吞三万两白银",
+    "hidden": "皮箱夹层里藏有外滩大楼向租界工部局申请永久治外法权的核心契约",
+    "limits": [
+     "养尊处优毫无体力耐力在冰水中几乎无法自行站立",
+     "视钱如命极度抗拒破坏任何洋行锁具资产"
+    ],
+    "obligations": [
+     "确保泰丰银行金库账目与洋商抵押黄金不被中方没收"
+    ],
+    "resources": [
+     "一串带有金库微型机械暗锁钥匙的黄铜钥匙链",
+     "一盒高档古巴雪茄与纯金防风火机"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "崇高的权势与万贯家财",
+     "化解法律商业危机的铁腕手段"
+    ],
+    "boundaries": [
+     "恪守买办商业投机界限",
+     "不参与任何涉命涉险事务"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "趴在石桌上双手抱头，尖叫着催促总工程师快把锁撬开好放自己出去。",
+    "dislikes": [
+     "粗鲁士兵的枪托威胁",
+     "脏水浸湿昂贵绸缎长袍"
+    ],
+    "expression": "瘫软在地连连向督军千金拱手作揖谢罪求饶。",
+    "likes": [
+     "金条清脆的撞击声",
+     "洋商大班的赏识嘉奖"
+    ],
+    "preconditions": [
+     "账本完好无损返回洋行账房",
+     "人身安全获得租界巡捕房护送"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "外滩洋行首席总买办",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_shanghai_bank_underground_rotunda",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}被吓得大小便失禁昏厥倒地。",
+      "option": "警卫营长以枪口顶住{npc.name}脑门勒令其闭嘴退后自救。"
+     },
+     {
+      "cost": "战后督军府面临租界领事团外交抗议照会。",
+      "option": "大小姐以督军府名义下达战时军管征用令强行压制抗议脱险。"
+     }
+    ],
+    "pressure": "若不及时驱离其阻挠，宝贵的撬锁时间将在其推搡扯皮中流逝殆尽。",
+    "trigger": "买办{npc.name}因护财死死阻拦工程师对锁舌施加破坏性力矩。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "只要这皮箱里的假账不被水泡烂，随那帮人怎么折腾，老天爷保佑千万让我活着出去！",
+    "surface": "大小姐！总工！这门是洋行总行特制的锰钢防盗门啊！别坏了锁舌洋行要按英镑索赔的！千万慎重啊！"
+   }
+  },
+  {
+   "adult_context": "年满四十九岁，沪上老闸捕房与洋行金库特聘老铜匠，成年老师傅，具备完全民事行为能力。",
+   "age_range": [
+    49,
+    55
+   ],
+   "appearance_options": [
+    "身穿油污斑驳的蓝布粗布大褂，腰间别着皮质工具袋，头发花白面孔黧黑布满火花烫伤，眼神精明老练。",
+    "双手满是老茧与挫伤，在昏暗火把光芒下稳稳伸出双指探摸锁舌间隙。"
+   ],
+   "decision": {
+    "avoids": [
+     "鲁莽愚蠢的硬砸蛮干",
+     "为富不仁的奸商恶霸"
+    ],
+    "contrast": "看似卑微佝偻的华人工匠，在洋人宣称永不可破的钢闸面前展现出中国老手艺人的通天绝技。",
+    "core_value": "洋人的铜铁也是铁，只要找准了偏心榫头，老汉一句话就能破这金汤！",
+    "goal_options": [
+     "口授总工与大小姐锁舌偏心旋转口诀",
+     "递送鲸油润滑锁舌导轨减小阻力"
+    ],
+    "never": [
+     "在关键工差指引上误导后生"
+    ],
+    "prefers": [
+     "严丝合缝的巧劲借力",
+     "同舟共济的江湖义气"
+    ],
+    "pressure_responses": {
+     "breaking": "用扁头通条垫在弹匣下方充当二次杠杆支点",
+     "high": "涉水上前将鲸油准确浇灌进碰锁摩擦缝隙",
+     "low": "在回廊台阶上点亮油灯仔细查看锁具外壳结构",
+     "mid": "大声向水中的总工喊出偏心三厘的关键发力角度"
+    },
+    "relationship_stance": "钦佩大小姐放下身段舍己救人的真性情，倾囊相助传授开锁秘诀。",
+    "withdrawal": "坐在水暖管道夹层干燥支架上，紧紧搂住皮工具包喘息。"
+   },
+   "gender": "male",
+   "gender_reason": "沪上九亩地老闸门五金铜匠名宿",
+   "id": "locksmith_old_lu_copper",
+   "identity": {
+    "authority": "对大楼重型生铁格栅锁具碰锁偏心轮自锁间隙公差拥有四十年经验裁定权。",
+    "exposure": "年轻时曾失手替绿林道上好汉配过洋行保险箱钥匙",
+    "hidden": "深知只要在弹匣底板插进锁槽后顺时针旋转三厘就能彻底破坏锁舌内部自锁弹子",
+    "limits": [
+     "严重风湿腿疾在冷水中瑟瑟发抖无法持续站立",
+     "高度老花眼在浑浊水光中看不清细微销槽"
+    ],
+    "obligations": [
+     "将祖传开锁手艺用在救人正道上保护劳苦同胞"
+    ],
+    "resources": [
+     "一套开锁专用的加硬扁平合金钢探针通针",
+     "一听特制防结冻抗氧化深海鲸油润滑脂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对精湛手艺的崇敬与对底层匠人的平等尊重",
+     "在生死灾祸中不分贵贱的同心协力"
+    ],
+    "boundaries": [
+     "恪守江湖规矩与尊卑次序",
+     "不掺和官宦权贵纷争"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "半蹲在漫水铁门导轨旁，手里举着通条指引弹匣插入的垂直仰角。",
+    "dislikes": [
+     "洋大班的皮鞭斥责",
+     "破坏祖宗规矩的败类"
+    ],
+    "expression": "赞许地捋着花白胡须，朝总工和大小姐挑起大拇指连连喝彩。",
+    "likes": [
+     "机簧清脆弹开的回响",
+     "后生晚辈虚心求教的尊师重道"
+    ],
+    "preconditions": [
+     "险情化解全员平安脱困登上地面码头",
+     "工具箱毫发无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "金库老锁匠头领",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_shanghai_bank_underground_rotunda",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}通条受剧烈剪力崩折一段。",
+      "option": "听从{npc.name}指点按右偏三厘角度反向猛挫一举别碎内部自锁防撬死销脱险。"
+     },
+     {
+      "cost": "鲸油受水流冲刷大半损失殆尽。",
+      "option": "用鲸油灌注锁芯借油压减缓摩擦顺势撬动脱险。"
+     }
+    ],
+    "pressure": "若不知晓偏心旋转角度盲目施力，弹匣底板将发生扭曲断裂陷入绝境。",
+    "trigger": "碰锁内部暗藏三枚防撬死销导致弹匣底板垂直硬撬无法发力。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好俊的一对年轻人……老天爷保佑，咱们华夏后生手艺比洋鬼子硬，绝不能淹死在这洋行地下！",
+    "surface": "总工！大小姐！听老汉一句！这生铁碰锁是洋人洋式的偏心滚轮！弹匣底板插进去后，千万不能直着别，往右偏三厘、合力往下猛挫，锁舌自锁簧就碎了！"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁，沪上女子商科专门学校毕业，成年银行高级出纳员，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    25
+   ],
+   "appearance_options": [
+    "身穿黑色毛呢收腰套裙制服与白衬衫，胸前别着银质工牌，面容清秀神色惶恐，双手死死抱住金属票据盒。",
+    "长发湿漉挽在脑后，踩着漫水台阶瑟瑟发抖，紧紧跟随在大小姐身后。"
+   ],
+   "decision": {
+    "avoids": [
+     "贪生怕死的汉奸买办",
+     "横行霸道的兵痞土匪"
+    ],
+    "contrast": "平日文静纤弱的小职员，在灭顶绝境中展现出患难与共的女性义气。",
+    "core_value": "保命第一，坚决跟随大小姐与总工，绝不退缩做逃兵！",
+    "goal_options": [
+     "递送修账小刮刀协助清理锁孔煤灰泥垢",
+     "协助大小姐撕下棉布裙摆包裹伤手"
+    ],
+    "never": [
+     "在同伴被水淹没时自私哄抢逃生机会"
+    ],
+    "prefers": [
+     "账目分明的事实公理",
+     "舍己救人的真诚英雄"
+    ],
+    "pressure_responses": {
+     "breaking": "脱下制服外套撕成布条为总工大小姐包扎手掌",
+     "high": "用身子替大小姐挡住天花板落下的碎砖块",
+     "low": "在铁门台阶上慌乱清点随身票据存单账册",
+     "mid": "掏出小刮刀涉水递给总工清理碰锁泥沙"
+    },
+    "relationship_stance": "对大小姐的豪门风范与飒爽英姿无限崇敬，生死时刻愿竭尽绵薄之力共度难关。",
+    "withdrawal": "缩在生铁栅栏门最高的石阶拐角处，紧紧咬住嘴唇。"
+   },
+   "gender": "female",
+   "gender_reason": "外滩泰丰银行地下金库首席女出纳员",
+   "id": "teller_fang_peiyu",
+   "identity": {
+    "authority": "对金库外侧防盗格栅锁眼钥匙插口封条拥有现场验印与启封记录权。",
+    "exposure": "为了偿还家中债务曾暗中多开具过一张外汇贴现存单",
+    "hidden": "暗自将大小姐视作十里洋场最令人艳羡钦佩的巾帼名媛楷模",
+    "limits": [
+     "体弱畏寒在刺骨冷水中双腿剧烈发抖几乎瘫软",
+     "极度恐惧上方叛军乱枪射击破门"
+    ],
+    "obligations": [
+     "恪尽职守核对印鉴交接并协助客户脱险"
+    ],
+    "resources": [
+     "一柄随身修账用德国高碳钢单面小刮刀",
+     "一盒防水洋蜡与火漆印泥印章"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危难时刻的豪迈义气",
+     "同龄女性之间的真挚患难之情"
+    ],
+    "boundaries": [
+     "恪守职员本分谦逊有礼",
+     "严守尊卑礼法"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "半跪在石阶上方，双手捧着洋蜡火漆，为撬锁后的防盗铅封提供修刮照明。",
+    "dislikes": [
+     "买办襄理的冷酷克扣",
+     "兵荒马乱的残酷杀戮"
+    ],
+    "expression": "红着眼眶将自己贴身手帕浸湿，轻柔替大小姐擦拭面颊上的污渍石灰。",
+    "likes": [
+     "金库大门轰然弹开时的晨曦曙光",
+     "被大小姐温柔拉住手时的踏实信任"
+    ],
+    "preconditions": [
+     "险情排除安全逃至地面捕房保护圈",
+     "账目核对无误"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "银行地下金库女出纳",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_security_grille_sluice_gate",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "刮刀尖端崩断割破{npc.name}右手食指。",
+      "option": "{npc.name}递上高碳钢小刮刀利落剔除锁孔内硬质煤灰为弹匣清理通道脱险。"
+     },
+     {
+      "cost": "洋蜡在冷水中硬化增加阻力。",
+      "option": "用洋蜡涂抹滑块减小摩擦直接强行硬别自救。"
+     }
+    ],
+    "pressure": "若不先用刮刀剔除死渣，弹匣底板将卡在半途无法插到受力支点。",
+    "trigger": "碰锁咬合凹槽被陈年油泥与炸飞的石灰粉渣彻底糊死堵塞。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要大小姐和总工还在坚持，我就绝不能哭鼻子，我也要尽一份力！",
+    "surface": "大小姐！总工！我这儿有一把德国造的高碳钢刮刀！锁孔里塞了煤灰，先用这个刮干净，弹匣才塞得进！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "民国二十五年，初夏",
+  "minute": 960
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "bodily_harm",
+  "workplace_power",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "民国名媛进入银行私人保管箱库房前习惯将随身坤包交由专职侍从保管。",
+  "近代英美银行外籍大班在发生挤兑与暴动时习惯按下红色按钮强行锁死地下通道。",
+  "军阀部队贴身护卫进入封闭暗室前习惯以手指轻推手枪套筒验看第一发子弹就位。",
+  "近代水暖工程师在检修爆裂承压管道时习惯用黄铜手电筒连续敲击法兰判断裂纹。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "使用纯铜手电筒照射主供水立管铸铁卡箍接缝",
+    "使用卡尺测量重力落闸滑轨间隙红锈沉淀厚度",
+    "在防爆金库外围记录气压式消防喷淋水压表读数"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_rotunda_water_head_gauge_check",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "start_minute": 960,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "金库挑高穹顶回廊水压表与法兰巡检"
+  },
+  {
+   "beats": [
+    "使用油壶向管道膨胀节铰链注入精炼菜籽油",
+    "扳动铜制排污考克龙头排尽底层冷凝积水",
+    "核准外滩地下金库紧急排水盲沟进水格栅通畅度"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_pipe_mezzanine_steam_valve_test",
+   "location_ids": [
+    "loc_bank_vault_water_pipe_mezzanine"
+   ],
+   "start_minute": 965,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "水暖管道夹层偏心截止阀防锈注油"
+  },
+  {
+   "beats": [
+    "用钢丝通条清理碰锁凹槽内附着的煤渣灰垢",
+    "测试重力配重滑轮脱扣把手在受潮时的虚位回弹",
+    "在租界工部局金库月度安检簿上加盖工程师名章"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_security_grille_latch_pin_audit",
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "start_minute": 970,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "两吨生铁重力防盗栅栏碰锁销轴核准"
+  },
+  {
+   "beats": [
+    "用真丝手帕擦净镍铬冷锻合金弹匣外壳油渍",
+    "按压六发装托弹簧确认双排供弹顺畅无卡顿",
+    "检查底板咬合卷边厚度确认达到两毫米半抗剪标准"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_browning_m1906_magazine_honing",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "start_minute": 975,
+   "tags": [
+    "workplace"
+   ],
+   "title": "袖珍手枪特制合金弹匣底板擦拭"
+  },
+  {
+   "beats": [
+    "金库环形回廊里，大小姐坐在丝绒椅上，等柜员把军饷提存单送来盖印。",
+    "总工程师站在一旁，大小姐问总工留洋那几年最想念上海的什么。",
+    "总工想了想，说是城隍庙的生煎。大小姐笑了，说下回带你去吃。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "hook_chuchu_dance_floor",
+    "hook_chuchu_old_photo",
+    "hook_chuchu_rickshaw"
+   ],
+   "id": "act_rotunda_acoustic_echo_calibration",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "start_minute": 660,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "回廊里等盖印"
+  },
+  {
+   "beats": [
+    "傍晚，大小姐从金库出来，铁栅门外当班的巡捕敬了个礼。",
+    "巡捕说今晚宵禁提前了，请大小姐早点回府。",
+    "总工替大小姐叫了黄包车，大小姐上车前回头说：下个月，还是你陪我下库。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_chuchu_dance_floor",
+    "hook_chuchu_old_photo",
+    "hook_chuchu_rickshaw"
+   ],
+   "id": "act_concession_police_curfew_check",
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "start_minute": 1080,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "铁栅门前的巡捕"
+  },
+  {
+   "beats": [
+    "铁栅栏门别开、积水退去、乱军被巡捕房赶走之后，大小姐被送回饭店的套房，月白旗袍湿透了贴在身上，雪狐披风早丢在了金库里。",
+    "留声机慢慢转着，大小姐背对着落地窗，让人一颗颗解开领口湿透的盘扣，再用热毛巾擦去颈后和肩上的冷水，毛巾擦到后腰时，大小姐咬着唇，往后靠了过来。",
+    "大小姐转过身，下巴还是扬着，声音却软了：门第的事……本小姐今晚不想听。你要是愿意，就留下来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_qipao_buttons",
+   "location_ids": [
+    "loc_bund_hotel_suite"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "套房里替大小姐解开旗袍的盘扣"
+  },
+  {
+   "beats": [
+    "套房里只开着一盏台灯，大小姐换了一件丝绒睡袍，赤着脚踩在地毯上，给留声机换了一张慢曲的唱片。",
+    "大小姐把手伸过来：舞池里人太多，本小姐不想跳。……在这儿，只跳给你一个人看。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_gramophone",
+   "location_ids": [
+    "loc_bund_hotel_suite"
+   ],
+   "start_minute": 1290,
+   "tags": [
+    "intimate"
+   ],
+   "title": "留声机里的一支慢曲"
+  },
+  {
+   "beats": [
+    "督军府替大小姐张罗的订婚宴前一夜，大小姐站在落地窗前，看着黄浦江上的灯火，把那张旧照片拿出来又放回去。",
+    "大小姐没回头：明天的订婚宴，本小姐不想去了。……今晚你要是留下，我就跟父亲说，我自己挑的人是你。你说好，我才转身。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_engagement_eve",
+   "location_ids": [
+    "loc_bund_hotel_suite"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "订婚宴前夜"
+  },
+  {
+   "beats": [
+    "天刚亮，江上的汽笛一声声响起来，大小姐在白缎大床上醒来，长发散在枕头上，伸手去够床头的珍珠发夹，又缩了回来。",
+    "大小姐把脸埋进人肩窝，闷声说：警卫营长八点来接……还早。再抱一会儿，不许起来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_river_morning",
+   "location_ids": [
+    "loc_bund_hotel_suite"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "江上的汽笛"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "民国时期远东金融中心外滩万国建筑博览群与租界特殊工程期",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_water_surge_roars_in_rotunda",
+   "kind": "approach",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "slot": "heiress_bai_chuchu",
+   "text": "{heiress_bai_chuchu.name}一手扶住巨大的花岗岩廊柱，高挑身姿在急流中微微摇晃，面庞被高压水雾激得泛起酡红，美眸含怒：总工！水漫过旗袍下摆了！别管账本了，拔枪卸弹匣，本小姐的袖珍手枪底板够不够硬！"
+  },
+  {
+   "id": "hook_dynamite_thunders_overhead",
+   "kind": "approach",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "slot": "heiress_bai_chuchu",
+   "text": "{heiress_bai_chuchu.name}抬头冷冷瞥了一眼掉落碎石的穹顶，骄傲地扬起两腮紧致下颌：乱军放几个炸药就想吓死督军府的女儿？警卫营长，枪口朝上顶着！总工，跟我下水撬锁，今天谁也别想把我们淹死在这儿！"
+  },
+  {
+   "id": "hook_grille_door_creaks_under_flood",
+   "kind": "approach",
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "slot": "heiress_bai_chuchu",
+   "text": "{heiress_bai_chuchu.name}踩着冰冷的浑水快步冲到生铁栅栏门前，双手死死按在总工宽阔的手背上，湿漉碎发贴在修长白皙的颈间：底板插进去了！别发愣，借我下压的力道，三二一，给我挫开这道锁舌！"
+  },
+  {
+   "id": "hook_zhendong_checks_vault_blueprints",
+   "kind": "approach",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "slot": "engineer_shen_zhendong",
+   "text": "{engineer_shen_zhendong.name}大步踏入齐膝深的急流，一把从身后托住险些滑倒的大小姐纤腰：大小姐小心脚下！这道门是锰钢碰锁，偏心销受力点在右上角三厘，抓稳了，我带着您一起发力！"
+  },
+  {
+   "id": "hook_huo_scouts_vent_shaft",
+   "kind": "approach",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "slot": "guard_huo_shaoting_officer",
+   "text": "{guard_huo_shaoting_officer.name}拉动德造盒子枪枪栓，沉声大喝：大小姐！{guard_huo_shaoting_officer.name}在铁门前挡着，叛军谁敢探头我打烂逆贼脑袋！总工，快带大小姐把门弄开！"
+  },
+  {
+   "id": "hook_comprador_hides_ledger_box",
+   "kind": "approach",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "slot": "comprador_mr_edward_tang",
+   "text": "{comprador_mr_edward_tang.name}抱着皮箱在水中哀号：总工！手下留情啊！这是泰丰银行特供的洋式防盗大锁啊，别烂了我们要按英镑赔偿的，哎哟救命啊！"
+  },
+  {
+   "id": "hook_locksmith_cleans_chisel_edges",
+   "kind": "approach",
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "slot": "locksmith_old_lu_copper",
+   "text": "{locksmith_old_lu_copper.name}抹了把脸上的冷水，大声指引：好姑娘手真稳！别直着撬，往右偏三厘！把全身的分量顺着弹匣压下去，老汉保你一击碎销！"
+  },
+  {
+   "id": "hook_curfew_whistles_seal_exit",
+   "kind": "approach",
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "slot": "engineer_shen_zhendong",
+   "text": "{engineer_shen_zhendong.name}胸膛紧贴着大小姐湿透的后背，双臂牢牢箍住姑娘颤抖的柔荑：大小姐，别怕！听巡捕哨音沙袋还没码死！咬紧牙关，我们把全身重量压下去！"
+  },
+  {
+   "id": "hook_steam_vapor_clouds_rotunda",
+   "kind": "request",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "slot": "heiress_bai_chuchu",
+   "text": "{heiress_bai_chuchu.name}呛咳着扯下真丝披风递给工程师：总工！水雾太热太呛了，用这个沾冷水捂住口鼻！快，把手枪弹夹卡进门缝里！"
+  },
+  {
+   "id": "hook_magazine_blade_creaks_under_strain",
+   "kind": "request",
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "slot": "engineer_shen_zhendong",
+   "text": "{engineer_shen_zhendong.name}额头青筋暴起，右手虎口被硬钢底板割得鲜血淋漓：大小姐，弹匣裂了一道缝，只剩最后一次发力机会了！跟我数口令，三、二、一，给我开！"
+  },
+  {
+   "id": "hook_chuchu_cleans_pistol_magazine",
+   "kind": "request",
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "slot": "heiress_bai_chuchu",
+   "text": "{heiress_bai_chuchu.name}紧紧反扣住总工满是鲜血的大手，面庞透着无畏决然：总工，本小姐的名字不是白叫的！生在一处，死在一处，压到底！"
+  },
+  {
+   "id": "hook_inspector_threatens_curfew_blast",
+   "kind": "observe",
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "slot": "comprador_mr_edward_tang",
+   "text": "买办{comprador_mr_edward_tang.name}趴在石阶上，面无人色地看着水中两人紧密相拥、十指相扣猛别两吨铁闸的决死身姿，被年轻人这股撼动山岳般的刚烈血性吓得浑身哆嗦不敢言语。"
+  },
+  {
+   "id": "hook_observe_heiress_heroic_stance",
+   "kind": "observe",
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "slot": "heiress_bai_chuchu",
+   "text": "{heiress_bai_chuchu.name}湿透的素白旗袍勾勒出绝美婀娜的身段，面颊在昏暗水光下晶莹润泽，面容与手中寒光闪烁的手枪弹匣形成极度高雅又悍勇的视觉冲击。"
+  },
+  {
+   "id": "hook_observe_vault_grille_springs_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "slot": "heiress_bai_chuchu",
+   "text": "轰然一声崩裂巨响，偏心碰锁内部防撬销被合金弹匣硬生生挫成两段，两吨重的生铁防盗栅栏门顺着导轨被两具紧贴的身躯合力轰然推开一条逃生生路，急流奔涌而出危机化解。"
+  },
+  {
+   "id": "hook_chuchu_rickshaw",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "heiress_bai_chuchu",
+   "text": "{npc.name}从黄包车上探出身，冲人扬了扬下巴：上来。……本小姐顺路，不是特意等你。"
+  },
+  {
+   "id": "hook_chuchu_dance_floor",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "heiress_bai_chuchu",
+   "text": "{npc.name}在饭店舞池边把手伸过来，戴着白手套：这支曲子缺个舞伴。……你不会跳？我教你。"
+  },
+  {
+   "id": "hook_chuchu_old_photo",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "heiress_bai_chuchu",
+   "text": "{npc.name}从旗袍暗袋里摸出一张旧照片，又飞快地塞回去：看什么看？……不是你的照片。"
+  },
+  {
+   "id": "hook_zhendong_suit",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "engineer_shen_zhendong",
+   "text": "{npc.name}把领带重新系了一遍，有些局促：大小姐说这身西装旧了……那下回，我穿新的来。"
+  },
+  {
+   "id": "hook_chuchu_suite_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bund_hotel_suite"
+   ],
+   "slot": "heiress_bai_chuchu",
+   "text": "{npc.name}倚在套房门口，披着丝绒睡袍：留声机里换了新唱片。……进来听听。"
+  }
+ ],
+ "id": "shanghai_bank_vault_trap",
+ "locations": [
+  {
+   "affordances": [
+    "抓牢花岗岩石柱柱脚基座抵御水流冲击",
+    "拔出随身手枪卸下弹匣备用",
+    "涉水向防盗栅栏门寻找反向锁舌撬点"
+   ],
+   "detail": "挑高八米的雄伟罗马式穹顶环形大厅，二十四根巨大花岗岩圆柱环绕四周，中央是厚重如山的钢筋混凝土防爆金库大门。此时天花板主消防水管在上方炮震中爆裂，数道白亮高压水柱狂喷而下，冰冷刺骨的水流迅速汇聚成没膝急流，空气中弥漫着潮湿石灰与枪硝气味。",
+   "exits": [
+    "loc_bank_vault_water_pipe_mezzanine",
+    "loc_security_grille_sluice_gate"
+   ],
+   "id": "loc_shanghai_bank_underground_rotunda",
+   "name": "金库环形回廊",
+   "pressure_modifiers": {
+    "p_fire_pipe_water_surge_inundation": "爆裂高压水管以每分钟三百加仑向回廊倾泻，水位暴涨过膝逼近蓄电池组。",
+    "p_warlord_mob_dynamite_detonation_risk": "地面乱军正在大楼正门安装烈性炸药，沉闷震波沿承重墙传导濒临引发大塌方。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_warlord_guard_adjutant_huo"
+   ]
+  },
+  {
+   "affordances": [
+    "扳转管道铸铁偏心截止阀手轮",
+    "用随身油布包裹受潮的手枪弹药",
+    "摸索墙根暗埋的重力落闸复位销孔"
+   ],
+   "detail": "回廊后方狭窄压抑的拱顶砖石夹层，三根一尺粗的铸铁蒸汽与自来水管道穿墙而过，高压水流从断裂的管箍处喷出漫天浓白水雾，视线不足两米。",
+   "exits": [
+    "loc_shanghai_bank_underground_rotunda",
+    "loc_security_grille_sluice_gate"
+   ],
+   "id": "loc_bank_vault_water_pipe_mezzanine",
+   "name": "管道夹层阀室",
+   "pressure_modifiers": {
+    "p_steam_water_vapor_asphyxiation": "高压水雾混合地下陈年热气充斥狭小夹层，氧气稀薄令人呼吸剧烈窒息咳嗽。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "dark",
+   "witnesses": [
+    "bg_bank_locksmith_old_lu",
+    "bg_comprador_mr_edward"
+   ]
+  },
+  {
+   "affordances": [
+    "将手枪弹匣底板反向插入锁舌与导轨缝隙",
+    "双手叠握在弹匣外沿合力向外施加杠杆力矩",
+    "隔着铁栅栏向外侧巡捕大声呼喊报讯"
+   ],
+   "detail": "通道出口处两吨重的加厚锰钢格栅大门，落闸断电后顺着两侧黄铜导轨重重砸入地面基坑抱死，两枚重型偏心碰锁锁舌死死咬合在预埋钢板内，阻断了通向地面的唯一干爽台阶。",
+   "exits": [
+    "loc_shanghai_bank_underground_rotunda",
+    "loc_bank_vault_water_pipe_mezzanine",
+    "loc_bund_hotel_suite"
+   ],
+   "id": "loc_security_grille_sluice_gate",
+   "name": "生铁栅栏门",
+   "pressure_modifiers": {
+    "p_security_grille_hydrostatic_jamming": "漫延的水流在格栅门单侧形成强大静水推力，锁舌受横向强压咬死极难别动。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_concession_police_deputy_chen",
+    "bg_bank_teller_miss_fang"
+   ]
+  },
+  {
+   "affordances": [
+    "替大小姐解开旗袍的盘扣",
+    "陪大小姐听一张留声机唱片",
+    "拉上丝绒窗帘"
+   ],
+   "detail": "外滩一家老饭店的顶层套房，督军府常年包着，一张铺着白缎的大床、一架留声机、一扇正对黄浦江的落地窗，梳妆台上摆满了洋香水和珍珠发夹。",
+   "exits": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "id": "loc_bund_hotel_suite",
+   "name": "外滩饭店套房",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "厚重的丝绒窗帘一拉，江上的汽笛和楼下舞池的爵士乐就隔成了远远的一层，只剩留声机里慢慢转着的唱片。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "白",
+   "沈",
+   "顾",
+   "霍",
+   "陆",
+   "唐",
+   "宋",
+   "杜",
+   "虞",
+   "席",
+   "叶",
+   "方"
+  ],
+  "given_female": [
+   "楚楚",
+   "宛柔",
+   "若兰",
+   "佩瑜",
+   "思齐",
+   "曼丽",
+   "素琴",
+   "梦秋",
+   "雅芝",
+   "秀英",
+   "玉华",
+   "云裳"
+  ],
+  "given_male": [
+   "振东",
+   "少廷",
+   "天骥",
+   "世藩",
+   "翰林",
+   "克勤",
+   "德荣",
+   "正清",
+   "崇德",
+   "秉坤",
+   "绍祖",
+   "立言"
+  ],
+  "given_neutral": [
+   "宁",
+   "澄",
+   "宣",
+   "衡",
+   "越",
+   "安",
+   "容",
+   "齐",
+   "青",
+   "凡",
+   "平",
+   "真"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留民国上海外滩、乱军抢劫引发金库落闸断电、消防水管爆裂漫灌、督军千金卸下随身小手枪的弹匣用底板别开防盗栅栏门碰锁的骨架与时代背景。原稿里的真实银行、枪械与锁具牌子和真实大学名改为虚构或泛称。白天写十里洋场：外滩的银行大楼、饭店里的跳舞场、黄包车、留声机里的爵士乐；千金与华人安防总工程师门第悬殊，一个颐指气使、一个不卑不亢。写死的人名改为身份称呼；婴儿肥换成了其余外貌描写；年龄放宽；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，加了几个不限地点的靠近型钩子；亲密前提写明脱困之后、双方清醒自愿；新增外滩饭店里督军府长包的套房与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    25,
+    30
+   ],
+   "baseline": "留洋归国负责外滩大楼地下金库机械安防与水暖管道综合管网设计的青年工程师。",
+   "gender": "any",
+   "id": "pi_shanghai_bank_vault_security_engineer",
+   "reputation": "技术过硬处事冷静，对大楼金库每一道重力防盗栅栏的杠杆机械原理了如指掌。",
+   "resources": [
+    "一具纯铜高精度卡尺与测微器",
+    "一卷外滩大楼地下金库管线水暖蓝图"
+   ],
+   "risks": [
+    "直接暴露在喷涌的冰冷脏水中面临剧烈失温",
+    "受限于没有大口径重装破拆大锤"
+   ],
+   "role": "外滩泰丰银行华人工科安防总工程师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工程师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    34
+   ],
+   "baseline": "受督军密令寸步不离贴身保护大小姐安危的精锐军官，精通各类枪械战术射击。",
+   "gender": "any",
+   "id": "pi_warlord_personal_head_guard",
+   "reputation": "忠心耿耿军纪严明，在军阀混战烽火中出生入死屡立战功。",
+   "resources": [
+    "一支德国造盒子炮二十响驳壳枪",
+    "两枚马尾手榴弹与急救绷带包"
+   ],
+   "risks": [
+    "脾气暴躁容易在密闭空间内盲目拔枪射击引发跳弹走火",
+    "对精密机械锁具一窍不通"
+   ],
+   "role": "督军府特勤贴身警卫营正规营长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}营长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}副官"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    32,
+    42
+   ],
+   "baseline": "掌管外滩沿线治安巡捕调配权的华人警界骨干，深谙租界各大洋行洋人高层利益纠葛。",
+   "gender": "any",
+   "id": "pi_concession_police_deputy_inspector",
+   "reputation": "八面玲珑老谋深算，既要弹压乱军又极度忌惮督军府的政治雷霆震怒。",
+   "resources": [
+    "一柄英国造韦伯利特种防暴左轮手枪",
+    "一枚公共租界全域紧急通行金边铜牌"
+   ],
+   "risks": [
+    "畏首畏尾不敢违背洋人董事命令强行破门",
+    "受制于租界警务处官僚规章迟延行动"
+   ],
+   "role": "外滩公共租界中央捕房华人副督察",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}探长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}督察"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    48,
+    56
+   ],
+   "baseline": "在洋行地下金库侍弄了一辈子重型偏心碰锁的老匠人，闭着眼睛都能摸出锁芯弹子分布。",
+   "gender": "any",
+   "id": "pi_foreign_bank_senior_locksmith",
+   "reputation": "手艺绝伦沉默寡言，曾参与大楼全部防盗格栅锁芯安装校正。",
+   "resources": [
+    "一根特制加长纯钢扁头通条",
+    "一瓶近代高粘度鲸油锁具防锈润滑剂"
+   ],
+   "risks": [
+    "年迈体弱患有严重风湿腿疾难以在漫水中久站",
+    "视力受昏暗浑水影响严重退化"
+   ],
+   "role": "外滩金库资深华工锁匠老领班",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老将"
+    }
+   ]
+  }
+ ],
+ "premise": "民国的上海外滩，督军府的千金每月都要来泰丰银行的地下金库，替父亲在军饷提存单上盖印，每回都点名要那位留洋回来的华人安防总工程师陪着下库。租界里最近不太平，乱军的传言一天比一天多；金库的落闸系统是总工程师亲手设计的，消防总管却是二十年前的老管子。",
+ "pressures": [
+  {
+   "choice": "等待外滩工部局派遣抽水车，还是大小姐与总工合力下潜用手枪弹匣反向撬锁自救。",
+   "exits": [
+    {
+     "cost": "弹匣底板发生轻微翘曲受损，两人掌心被生铁毛刺扎破流血。",
+     "option": "两人将袖珍手枪手枪弹匣底板硬质边缘插入锁槽合力向外猛别撬断偏心锁舌脱险。"
+    },
+    {
+     "cost": "卡尺断裂报废，工程师手臂被水流冲撞挫伤。",
+     "option": "工程师用纯铜卡尺硬砸锁簧间隙顺水势推开半扇栅栏门脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "金库化作灌满污水的密闭水棺，滞留地下的督军千金与工程师全员溺亡殉难。",
+    "due_days": 1,
+    "trigger": "冰冷浑水彻底灌满回廊与地下穹顶大厅"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_fire_pipe_water_surge_inundation",
+   "immediate": {
+    "minutes": 6,
+    "text": "天花板处如瀑布般倾泻下刺骨浊流，轰鸣巨响在八米穹顶下剧烈回荡，水浪翻滚着冲垮了迎客茶几。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "near": {
+    "deadline_minutes": 9,
+    "text": "水位已经漫过大腿逼近腰际，冰冷的水流冻得人关节刺痛，回廊内漂浮着账本与碎木板，呼吸空间被水汽严重挤压。"
+   },
+   "objective": "在回廊彻底变成水牢前借弹匣底板撬开碰锁锁舌脱险。",
+   "source": "accident",
+   "start_minute": 960,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "天花板主消防水管爆裂冷水漫灌回廊",
+   "trigger": "上方炮震导致八米穹顶天花板六寸铸铁高压消防水管折断爆裂，每分钟数百加仑冰冷地下水与消防水狂喷而下，回廊积水急剧暴涨过膝，距离漫过防盗门台阶仅剩最后四分钟。"
+  },
+  {
+   "choice": "由警卫营长在通风口盲目射击吸引火力，还是集中全力在门前三十秒内完成撬锁。",
+   "exits": [
+    {
+     "cost": "警卫营长肩部被上方掉落的碎石块砸伤骨裂。",
+     "option": "警卫营长以驳壳枪对准通风口精准点射打散乱军工兵引线争取生机自救。"
+    },
+    {
+     "cost": "纯铜条受强烈弯矩彻底报废。",
+     "option": "众人合力用金库实心铜条死死顶住承重柱减缓受力震荡脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "数十吨大理石与砖石轰然坠落将地下金库彻底砸塌活埋全员。",
+    "due_days": 1,
+    "trigger": "地面炸药全量起爆引发外滩大楼地下穹顶总坍塌"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_warlord_mob_dynamite_detonation_risk",
+   "immediate": {
+    "minutes": 5,
+    "text": "天花板上方传来沉闷如雷的连续巨响，大量石灰与碎砖如暴雨般砸落水中，水面泛起剧烈波纹震荡。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_shanghai_bank_underground_rotunda"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "承重花岗岩圆柱出现三道两米长的严重裂缝，头顶吊灯轰然坠入水中碎裂，主穹顶出现大面积掉渣险情。"
+   },
+   "objective": "在乱军引爆炸药震垮金库穹顶前迅速破门撤离至外滩防空掩体。",
+   "source": "person",
+   "start_minute": 962,
+   "tags": [
+    "crime",
+    "disaster"
+   ],
+   "title": "上方地面抢劫乱军引爆炸药震塌穹顶",
+   "trigger": "地面暴动抢劫军阀部队正在银行正门安放大包烈性炸药准备破门抢劫，剧烈的爆破冲击波将沿承重墙传导，八米罗马穹顶随时面临整体坍塌压顶。"
+  },
+  {
+   "choice": "等待水位自然漫平内外平衡，还是趁现在两人以全身自重合力猛别破锁。",
+   "exits": [
+    {
+     "cost": "大小姐旗袍被撕开一道裂口，膝盖撞在铁柱上淤青红肿。",
+     "option": "总工从后方抱住大小姐借助两人体重下坠动能将弹匣猛压到底别断锁舌脱险。"
+    },
+    {
+     "cost": "通条受强烈剪切扭矩弯曲变形。",
+     "option": "老铜匠用纯钢通条协助扩孔撬开微小缝隙脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "大门丧失任何物理撬动可能，成为永久性地下铁壁水牢绝境殉难。",
+    "due_days": 1,
+    "trigger": "静水压力彻底将生铁门压死焊牢在导轨凹槽中"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_security_grille_hydrostatic_jamming",
+   "immediate": {
+    "minutes": 4,
+    "text": "生铁格栅门在水浪冲击下发出嘎吱嘎吱的沉重金属抗议声，锁扣处的门缝正在被水压缓慢挤压缩小。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "门缝只剩最后不到三毫米公差，手枪弹匣底板若不能在一分钟内咬进缝隙，将被彻底挤扁无法插入。"
+   },
+   "objective": "在水压达到力学卡死极限前将合金弹匣底板插到底施力。",
+   "source": "accident",
+   "start_minute": 964,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "两吨生铁格栅门受单向水压强力卡死",
+   "trigger": "回廊快速上涨的积水在生铁门单侧形成巨大的静水推力，重型碰锁锁舌被横向水压死死顶死在钢套筒内，摩擦力成倍激增濒临绝对抱死。"
+  },
+  {
+   "choice": "隔着铁栅栏大声表明督军千金身份抗议，还是争分夺秒撬开大门冲出封锁。",
+   "exits": [
+    {
+     "cost": "大帅印鉴被砂石磨损金漆边缘。",
+     "option": "大小姐亮出督军府纯金大帅令印喝退巡捕推开沙袋脱险。"
+    },
+    {
+     "cost": "陈督察面临租界警务处通报违纪调查处分。",
+     "option": "陈督察暗中协助搬开底层两袋沙袋打通逃生缝隙自救。"
+    }
+   ],
+   "far": {
+    "consequence": "地下通道被由外向内彻底焊死封绝，水下人员被生生困死在黑暗泥水中。",
+    "due_days": 1,
+    "trigger": "外滩巡捕房用三千斤防暴沙袋彻底夯死全部出口"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_concession_police_curfew_statute",
+   "immediate": {
+    "minutes": 3,
+    "text": "门外台阶上方传来巡捕急促的铁哨声与装卸沙袋的沉重闷响，外来救援光线正在被沙袋快速遮蔽。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "外侧出口已被沙袋堆起大半，巡捕防暴队长正在高声下达最后两分钟撤离封堆口令。"
+   },
+   "objective": "在巡捕房沙袋封死出口前破门而出出示督军府通行证。",
+   "source": "institution",
+   "start_minute": 966,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "租界工部局宣布严厉宵禁即将封死出口",
+   "trigger": "公共租界万国商团与巡捕房宣布进入战时极限制宵禁，防暴装甲车正在外滩大道清场，严令五分钟后用沙袋从外侧将大楼各地下出口全部堆死以阻乱军渗入。"
+  },
+  {
+   "choice": "留人在夹层摸索关断阀门，还是全员集中于栅栏门前忍受气促拼死撬锁。",
+   "exits": [
+    {
+     "cost": "总工后背被残余蒸汽轻微烫伤红肿。",
+     "option": "总工用湿透的西装外套打湿包裹大小姐口鼻强行突围至门前排险脱困。"
+    },
+    {
+     "cost": "老师傅小臂被蒸汽烫起大片水泡。",
+     "option": "老老铜匠用扳手砸裂排汽考克将蒸汽引向后方死井脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "人员在漫水地下大厅昏迷倒地，随后在无意识中溺水死亡。",
+    "due_days": 1,
+    "trigger": "封闭回廊内热蒸汽与缺氧引发全员急性休克窒息"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_steam_water_vapor_asphyxiation",
+   "immediate": {
+    "minutes": 4,
+    "text": "白色浓雾如浓稠棉絮般吞噬了回廊两端，空气滚烫刺鼻，大小姐剧烈呛咳，两腮泛起因缺氧导致的高热艳红。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bank_vault_water_pipe_mezzanine"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "肺部剧烈灼痛，眼前开始泛起金星黑视，老锁匠与买办已瘫软在水中无法自主站立。"
+   },
+   "objective": "关断管道手轮并返回大门通风处集中攻关锁舌。",
+   "source": "nature",
+   "start_minute": 968,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "破损暖气管道混合水雾致地下夹层窒息",
+   "trigger": "天花板爆裂波及穿墙供暖低压管道，漫天滚烫水雾与冰冷浑水在封闭回廊交织，形成灼热闷塞的地下蒸汽沼泽，氧气含量骤降令人意识模糊。"
+  },
+  {
+   "choice": "盲目加大蛮力赌一把，还是依从口诀调整力矩方向巧力碎销。",
+   "exits": [
+    {
+     "cost": "弹匣底板边缘卷起一道锐利翻边割破两人十指。",
+     "option": "大小姐与总工依老匠人口诀同时朝右偏三厘猛挫一击震碎锁舌自锁簧脱险。"
+    },
+    {
+     "cost": "通条被剪断报废。",
+     "option": "垫入纯铜通条分担局部剪应力完成撬锁自救。"
+    }
+   ],
+   "far": {
+    "consequence": "唯一救命合金撬具化为乌有，锁舌卡死生路断绝全员溺毙。",
+    "due_days": 1,
+    "trigger": "袖珍手枪弹匣底板彻底发生脆性断裂解体"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_magazine_floorplate_shear_strain",
+   "immediate": {
+    "minutes": 3,
+    "text": "弹匣底板与生铁锁舌之间迸发出微小火花，硬合金边缘出现一毫米微小卷曲，手枪外壳剧烈震颤刺痛掌心。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_security_grille_sluice_gate"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "底板中央出现一道发丝细微的白亮疲劳裂纹，若再发生一次无效打滑，弹匣将彻底断为两截丧失全部工具作用。"
+   },
+   "objective": "按老匠人指点的右偏三厘微调角度一鼓作气别断自锁销脱险。",
+   "source": "accident",
+   "start_minute": 970,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "袖珍手枪合金弹匣在猛别中濒临金属疲劳崩折",
+   "trigger": "生铁碰锁极为坚韧，两人以全身自重反向猛撬使得这块两毫米半厚的冷锻合金底板承受了数百磅极限抗弯剪应力，金属边缘发出尖锐啸鸣即将崩裂。"
+  }
+ ],
+ "region": "上海外滩远东泰丰银行挑高八米地下重力防爆金库环形回廊与水暖阀室",
+ "rules": [
+  {
+   "id": "r_bank_vault_gravity_shutter_lock_rule",
+   "text": "银行重力自闭落闸一旦断电切断配重缆绳将在三秒内直接锁死。"
+  },
+  {
+   "id": "r_browning_magazine_shear_limit",
+   "text": "袖珍手枪弹匣高碳钢底板施加反向力矩时受力点不可偏离锁舌轴心。"
+  },
+  {
+   "id": "r_rotunda_water_head_burst_threshold",
+   "text": "环形回廊积水深度超过一米二将导致侧翼配电箱短路引爆蓄电池组。"
+  },
+  {
+   "id": "r_concession_martial_law_curfew_statute",
+   "text": "外滩工部局宣布戒严后任何擅自爆破地下金库承重墙行为视为叛乱。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "枪膛验匣",
+  "committed": "沪上同心",
+  "familiar": "回廊涉水",
+  "flirting": "暗室温存",
+  "intimate": "破门相拥",
+  "stranger": "金库戒备",
+  "testing": "铁骨别锁"
+ },
+ "status": "released",
+ "style_hint": "十里洋场的繁华与地下的冷：外滩的钟声、饭店舞池、留声机里的爵士乐、旗袍与雪狐披风。写傲娇千金湿透旗袍下的喘息，动作落在弹匣底板别锁舌上。",
+ "tension_engines": [
+  {
+   "id": "te_flood_vs_magazine_floorplate",
+   "text": "外滩金库挑高八米穹顶水漫灭顶危机与用袖珍手枪手枪弹匣合金底板撬别偏心碰锁的硬核自救。"
+  },
+  {
+   "id": "te_mob_siege_vs_concession_curfew",
+   "text": "上方乱军炮轰抢劫金库的致命杀戮威胁与租界巡捕房严酷宵禁戒严倒计时的双重夹击。"
+  },
+  {
+   "id": "te_arrogant_heiress_vs_engineering_elite",
+   "text": "督军千金尊贵傲娇血统与青年工程师沉稳硬核工科铁骨反差碰撞下的炽烈共鸣。"
+  },
+  {
+   "id": "te_cold_water_spasm_vs_rotunda_tight_hug",
+   "text": "冰冷浊流刺骨侵袭致肌体失温与两人在漫水铁门前十指紧扣合力下压弹匣的生死羁绊。"
+  }
+ ],
+ "title": "民国督军千金·外滩大楼挑高地下水压金库",
+ "tone": [
+  "外滩地下八米回廊幽冷",
+  "消防高压水柱狂喷水汽",
+  "上方街道乱军枪炮回响",
+  "合金别锁刺耳金属刮擦"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_browning_magazine_nickel_chrome_alloy",
+   "requires": [
+    "heiress_bai_chuchu"
+   ],
+   "text": "{heiress_bai_chuchu.name}随身佩带的这支袖珍手枪手枪弹匣系比利时皇家兵工厂特种加硬镍铬合金冷锻制造，抗剪切屈服强度达到惊人的八百兆帕。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_old_locksmith_eccentric_notch_reveal",
+   "requires": [
+    "locksmith_old_lu_copper"
+   ],
+   "text": "{locksmith_old_lu_copper.name}指出了该门洋式偏心碰锁存在右偏三厘的力矩避让死角，使弹匣底板能够绕过最坚硬的防撬主销直取自锁簧片。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_adjutant_twenty_shot_suppresses_mob",
+   "requires": [
+    "guard_huo_shaoting_officer"
+   ],
+   "text": "{guard_huo_shaoting_officer.name}用盒子炮二十响连续全自动扫射，精准打断了上方通风口乱军引爆雷管的导火索，化解了头顶大塌方危机。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_concession_police_secret_key",
+   "requires": [
+    "comprador_mr_edward_tang"
+   ],
+   "text": "{comprador_mr_edward_tang.name}在警卫营长刺刀威逼下终于从皮箱缝隙中交出了一小瓶纯正鲸鱼油，倒入铁锁滑轨让推门阻力锐减一半。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_warlord_golden_seal_clears_barricade",
+   "requires": [
+    "heiress_bai_chuchu"
+   ],
+   "text": "{heiress_bai_chuchu.name}推开大门后高举督军府纯金大帅令印，巡捕房陈探长见状立刻喝令全员搬开沙袋护送大小姐登车突围。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_engineer_shields_heiress_lintel",
+   "requires": [
+    "heiress_bai_chuchu",
+    "engineer_shen_zhendong"
+   ],
+   "text": "{engineer_shen_zhendong.name}在铁门弹开的一瞬挺身扑倒，用后背替{heiress_bai_chuchu.name}硬生生抗下了头顶坠落的一截断裂铁制消防横梁。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_shanghai_bund_vault_triumph",
+   "requires": [
+    "heiress_bai_chuchu",
+    "engineer_shen_zhendong"
+   ],
+   "text": "大门冲开后地下积水迅速外泄排空，大小姐紧紧挽住总工的染血臂膀迈出外滩大楼，十里洋场的晨曦映照在两人相视微笑的面容上，定格成烽火乱世下的海派传奇。"
+  }
+ ]
+}

@@ -1,0 +1,2601 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "警视厅在职成年老警员。",
+   "age_range": [
+    50,
+    58
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_veteran_recording_sergeant",
+   "line": "{npc.name}：“外面的监察官带了六个人来……老头子在警视厅干了三十年，没见过这阵势。”",
+   "location_ids": [
+    "mirrored_observation_booth"
+   ],
+   "name": null,
+   "role": "观察室里调试监听设备的老巡查部长"
+  },
+  {
+   "adult_context": "总务部装备课成年工程技工。",
+   "age_range": [
+    40,
+    50
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_flood_gate_operator",
+   "line": "{npc.name}：“水位超红线了！十五分钟后总闸落锁，谁也别想违抗防汛条例！”",
+   "location_ids": [
+    "sublevel2_secure_corridor"
+   ],
+   "name": null,
+   "role": "盯着防汛水位的工程机修工"
+  },
+  {
+   "adult_context": "警务部督察特遣队成年队员。",
+   "age_range": [
+    28,
+    36
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_ia_breacher",
+   "line": "{npc.name}：“移交令下来了！门里的人准备签字！”",
+   "location_ids": [
+    "sublevel2_secure_corridor"
+   ],
+   "name": null,
+   "role": "守在铅门外的督察队员"
+  },
+  {
+   "adult_context": "警视厅医务室成年医师。",
+   "age_range": [
+    30,
+    40
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_corridor_medic",
+   "line": "{npc.name}：“走廊积水别乱碰插座，漏电了我可救不过来。”",
+   "location_ids": [
+    "sublevel2_secure_corridor"
+   ],
+   "name": null,
+   "role": "值夜的医务官"
+  },
+  {
+   "adult_context": "特搜第七组成年便衣刑警。",
+   "age_range": [
+    32,
+    42
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_getaway_driver",
+   "line": "{npc.name}：“引擎没熄火！你们一顶开井盖，我立刻冲向特别检察厅！”",
+   "location_ids": [
+    "forensic_vent_shaft"
+   ],
+   "name": null,
+   "role": "在后巷排风口旁守着越野车的便衣刑警"
+  },
+  {
+   "adult_context": "地方检察厅成年联络官。",
+   "age_range": [
+    26,
+    32
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_prosecutor_runner",
+   "line": "{npc.name}：“检察官已经申请了紧急移管令，你们务必撑住半小时！”",
+   "location_ids": [
+    "mirrored_observation_booth"
+   ],
+   "name": null,
+   "role": "冒险送来紧急司法禁令的地检联络员"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "审讯桌两端的旧情人；手铐解开之前，一切只能停在测谎仪的绿线上。",
+   "id": "combo_profiler_polygraph_duel",
+   "identity_ids": [
+    "pc_sat_team_leader"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "cold_female_profiler",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "半年前千叶港口卧底收网那夜，你在集装箱里替侧写官挡下一记冷枪，对方亲手缝合你的肩伤，留了公寓备用钥匙",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "cold_female_profiler"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在移交前定下：解铐结盟，还是各走各路。",
+    "limit_gap": "解铐就是放走重案嫌疑人；不解，监察部天亮就来押人。",
+    "meeting_reason": "{cold_female_profiler.name}掐断单向镜的监听开关，在你对面坐下。",
+    "resource_gap": "{cold_female_profiler.name}握着手铐钥匙和测谎原带，你握着底片坐标。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_polygraph_pulse_vs_profiler_mind",
+    "te_negative_vs_execution_order"
+   ]
+  },
+  {
+   "chemistry": "整座本厅都在给第七组施压，组长却把观察室反锁，只留你在调音台前并肩看带子。",
+   "id": "combo_profiler_assistant_briefing",
+   "identity_ids": [
+    "pc_forensic_chief_tech",
+    "pc_defense_attorney"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "cold_female_profiler",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上周在科搜研加班复核弹道图谱，组长把羊毛披肩搭在你肩上，低声说结案后去组长那儿喝杯热的",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "cold_female_profiler"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "把带子看完，弄清组长为什么只信你。",
+    "limit_gap": "组长偏信你一个，监察部就会先从你下手。",
+    "meeting_reason": "深夜，{cold_female_profiler.name}摘下眼镜揉着眉心，叫你进观察室。",
+    "resource_gap": "{cold_female_profiler.name}握着第七组的指挥权，你只有手里的数据和那张独立门禁副卡。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_polygraph_pulse_vs_profiler_mind",
+    "te_blackout_vs_watertight_lockdown"
+   ]
+  },
+  {
+   "chemistry": "你握着审讯室主钥与测谎报告；戴着手铐的人认出了你腕上那块旧战术表。",
+   "id": "combo_leader_uncuffed_rebellion",
+   "identity_ids": [
+    "pc_cold_female_profiler",
+    "pc_corrupt_ia_inspector"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "sat_team_leader",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "去年永田町防暴演习后的暴雨夜，你把淋透的队长带回休息室，两人有过一回谁也没再提起的夜晚",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "sat_team_leader"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "决定解不解开这副手铐。",
+    "limit_gap": "手铐解开前，你是审讯者；解开后，两人才算平起平坐。",
+    "meeting_reason": "{sat_team_leader.name}戴着手铐坐在审讯桌对面，只盯着你的眼睛。",
+    "resource_gap": "你握着钥匙、报告和队长的去留，{sat_team_leader.name}只有底片坐标和一副手铐。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_polygraph_pulse_vs_profiler_mind",
+    "te_negative_vs_execution_order"
+   ]
+  },
+  {
+   "chemistry": "重获自由的队长在竖井转角护着你和设备箱，把后背交给你。",
+   "id": "combo_leader_vent_escape",
+   "identity_ids": [
+    "pc_forensic_chief_tech",
+    "pc_defense_attorney"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "sat_team_leader",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三个月前靶场验枪时队长站在你身后替你校准后坐力，临走把一枚空弹壳塞进你的口袋",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "sat_team_leader"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "决定跟不跟队长上爬梯。",
+    "limit_gap": "竖井那头是后巷，跟着走就再也回不了科搜研。",
+    "meeting_reason": "{sat_team_leader.name}在排风竖井口等你，伸手要接你的箱子。",
+    "resource_gap": "{sat_team_leader.name}握着逃生路线和一身本事，你只有手里的设备箱。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_negative_vs_execution_order",
+    "te_blackout_vs_watertight_lockdown"
+   ]
+  },
+  {
+   "chemistry": "监察官挥退随行督察，撑着黑伞独自走到你面前；每句官话背后都是筹码。",
+   "id": "combo_inspector_corridor_bargain",
+   "identity_ids": [
+    "pc_cold_female_profiler"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "corrupt_ia_inspector",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你在上月人事卷宗清查中扣下了监察官小舅子酒驾肇事的原始笔录，对方至今不敢明着撤你的权限",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "corrupt_ia_inspector"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "用旧笔录换监察官今夜收手。",
+    "limit_gap": "谁先亮底牌，谁就输掉一截警界前途。",
+    "meeting_reason": "{corrupt_ia_inspector.name}让督察退到走廊二十米外，在防汛红灯下等你。",
+    "resource_gap": "你握着监察官小舅子酒驾的原始笔录，{corrupt_ia_inspector.name}握着移交令和晋升名额。"
+   },
+   "tags": [
+    "crime",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_negative_vs_execution_order",
+    "te_warrant_vs_police_state"
+   ]
+  },
+  {
+   "chemistry": "听证会上替你驳倒三名检察官的律师，顶着台风闯进地下二层。",
+   "id": "combo_attorney_midnight_counsel",
+   "identity_ids": [
+    "pc_sat_team_leader"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "defense_attorney",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上回警备部听证会你被群起围攻，律师当庭驳倒三名检察官，散会后在电梯里塞给你一张印着唇印的名片",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "defense_attorney"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "决定今晚敢不敢陪律师掀了这桩案子。",
+    "limit_gap": "陪律师把天捅破，你就再也回不了警备部。",
+    "meeting_reason": "{defense_attorney.name}把会见令拍在观察室桌上，顺手锁上内门。",
+    "resource_gap": "{defense_attorney.name}握着最高裁会见令和卫星终端，你握着自己的证词。"
+   },
+   "tags": [
+    "intimate",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_warrant_vs_police_state",
+    "te_negative_vs_execution_order"
+   ]
+  },
+  {
+   "chemistry": "在外人面前连正眼都不给一个的鉴定主任，只在你靠近时打开物证箱的暗锁。",
+   "id": "combo_tech_evidence_vault",
+   "identity_ids": [
+    "pc_cold_female_profiler",
+    "pc_sat_team_leader"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "forensic_chief_tech",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三年前那桩被高层压下的误击案里，你和鉴定主任在科搜研冷库偷偷保下真实弹头，两人共用一组保险柜密码",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "forensic_chief_tech"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "守住原件，也守住两人共同的秘密。",
+    "limit_gap": "原件一旦被调包，三年前那桩误击案就永远翻不了。",
+    "meeting_reason": "{forensic_chief_tech.name}摘下起雾的护目镜递给你擦，压低声音说了一条避开监控的风道。",
+    "resource_gap": "{forensic_chief_tech.name}握着物证箱和排风电梯磁卡，你握着两人共用的保险柜密码。"
+   },
+   "tags": [
+    "intimate",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_blackout_vs_watertight_lockdown",
+    "te_negative_vs_execution_order"
+   ]
+  },
+  {
+   "chemistry": "跟了你十年的老刑警，不用多说半句，已经算好了拉闸断电的每一秒空档。",
+   "id": "combo_detective_back_alley_car",
+   "identity_ids": [
+    "pc_cold_female_profiler"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "loyal_squad_detective",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "十年前你在新宿第一次带队办案，就是巡查部长替你开车殿后，对方风衣内袋至今装着你签过名的空白移交令",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "loyal_squad_detective"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "定下今晚的退路，别让老搭档替你顶罪。",
+    "limit_gap": "老搭档替你扛得越多，违纪名单上的名字就越靠前。",
+    "meeting_reason": "{loyal_squad_detective.name}叼着没点的烟守在配电箱旁，把备用车钥匙塞进你手心。",
+    "resource_gap": "你握着第七组的指挥权，{loyal_squad_detective.name}握着后巷的车钥匙和那份空白移交令。"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_blackout_vs_watertight_lockdown",
+    "te_warrant_vs_police_state"
+   ]
+  },
+  {
+   "chemistry": "巡查部长先一步在后巷把拉闸时刻表塞给你；你按约走进观察室时，组长正把保险柜副钥推到你面前。",
+   "id": "combo_booth_tape_pledge",
+   "identity_ids": [
+    "pc_defense_attorney",
+    "pc_forensic_chief_tech"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "cold_female_profiler",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月在涉谷安全屋彻夜核对总监受贿录音时，组长把保险柜副钥放进你掌心，与你定下攻守同盟",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "loyal_squad_detective",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "巡查部长今晚进楼前在后巷拦住你，塞来一张手绘拉闸时刻表，正用老刑警的眼光掂量你",
+     "stage": "testing"
+    },
+    {
+     "a": "cold_female_profiler",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "loyal_squad_detective",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "巡查部长替组长私调过总监办公室的出入记录，两人有过命的默契，也有共同的把柄",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "cold_female_profiler",
+    "loyal_squad_detective"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "把母带平安带出本厅。",
+    "limit_gap": "母带出不了本厅，组长私藏录音的事就会坐实。",
+    "meeting_reason": "进楼前{loyal_squad_detective.name}在后巷拦住你；现在{cold_female_profiler.name}把观察室门反锁，等你开口。",
+    "resource_gap": "{cold_female_profiler.name}握着测谎母带，{loyal_squad_detective.name}握着私调底单和拉闸时刻，你握着带母带出本厅的公文夹。"
+   },
+   "tags": [
+    "intimate",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_polygraph_pulse_vs_profiler_mind",
+    "te_warrant_vs_police_state"
+   ]
+  },
+  {
+   "chemistry": "你与律师提前设好的反将一军局：以私下交接证物为饵，把监察官请进观察室。",
+   "id": "combo_corridor_bribe_ambush",
+   "identity_ids": [
+    "pc_cold_female_profiler",
+    "pc_sat_team_leader",
+    "pc_forensic_chief_tech"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "defense_attorney",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "昨晚在银座酒吧核对线人情报时，律师把存着会所监控截屏的储存卡塞进你的杯垫，约好今晚唱一出双簧",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "corrupt_ia_inspector",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "监察官以为你手里有帮人事一课平账的签字权，应你的私下邀请独自走进观察室",
+     "stage": "testing"
+    },
+    {
+     "a": "defense_attorney",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "corrupt_ia_inspector",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "律师握着监察官代收一亿日元黑金的截屏，监察官想用律所税务核查逼律师撤回直播",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "corrupt_ia_inspector",
+    "defense_attorney"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "逼监察官撤队，让出走廊。",
+    "limit_gap": "截屏一亮，就再没有回头路。",
+    "meeting_reason": "按与{defense_attorney.name}昨晚定下的剧本，你把{corrupt_ia_inspector.name}请进观察室，门在身后合上。",
+    "resource_gap": "{defense_attorney.name}握着银座截屏，{corrupt_ia_inspector.name}握着移交令和律所的税务把柄，你握着桌上那张截屏亮不亮。"
+   },
+   "tags": [
+    "crime",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_warrant_vs_police_state",
+    "te_negative_vs_execution_order"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_interrogation_hardwire_intercom",
+   "reach": "埋在铅板墙里的纯模拟硬连线音频，不经中央网络，能清楚捕捉室内的低语、喘息与电极跳脱声。",
+   "text": "第七审讯室硬连线对讲回路"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_flooded_corridor_echo",
+   "reach": "脚步、对讲机与警报在湿滑长廊里层层折射，几个人的脚步也像大部队合围。",
+   "text": "积水走廊的混凝土回声"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_brass_acoustic_tube",
+   "reach": "单向镜底座下的纯机械黄铜声管，拔开铜塞即可原声对话。",
+   "text": "观察室与审讯室的应急铜管传声筒"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "警视厅搜查一课特搜第七组组长、一等警正，年满二十九岁的成年高级警官。",
+   "age_range": [
+    29,
+    36
+   ],
+   "appearance_options": [
+    "炭灰收腰包臀套裙，白丝绸衬衫在闷热里解开一颗扣子，黑丝长腿踩着细跟，金丝半框眼镜后狭长的眼冰冷深邃，俯身撑在审讯桌前时智性的威压令人屏息",
+    "只剩贴身白衬衫，眼神如深海坚冰"
+   ],
+   "decision": {
+    "avoids": [
+     "阿谀奉承的软弱官僚",
+     "毫无自控、沉湎暴力的蠢货"
+    ],
+    "contrast": "平日说话像法条一样冰冷严谨；幽闭审讯室里和硬汉近身交锋时，露出狂放烈性、不达目的不罢休的一面。",
+    "core_value": "人的大脑会撒谎，生理指征不会。你每七秒扫一次单向镜——你在等外面的脚步声。",
+    "goal_options": [
+     "在测谎攻防中击穿突击队长的心理防线，拿到底片坐标",
+     "在监察部移交前，决定要不要解开手铐结盟",
+     "在势均力敌的较量里撕碎对方的狂傲伪装"
+    ],
+    "never": [
+     "为保官位把当事人和底片交给腐败的监察部"
+    ],
+    "prefers": [
+     "意志如钢、死亡面前毫无畏惧又懂得尊重智慧的孤狼"
+    ],
+    "pressure_responses": {
+     "breaking": "看见老搭档被督察按在墙上时眼眶泛红，咬牙亮出豁免书。",
+     "high": "移交令拍到门上时，冷着脸启动审讯室独立闭锁。",
+     "low": "推了推金丝眼镜，用笔尖在测谎报告上圈出异常峰值，冷冷一笑。",
+     "mid": "脱去外套俯身逼近，盯着示波器上的心率一字一句地问。"
+    },
+    "relationship_stance": "鄙夷监察部的走狗与政客的交易；对背负重冤的前队长，是棋逢对手的兴奋，也是压不住的战栗。",
+    "withdrawal": "退到配电盘后的死角，压平紊乱的心跳。"
+   },
+   "gender": "female",
+   "gender_reason": "标题人物“冷艳侧写官”，标题人物、外貌、台词与关系都按此性别书写，因此固定。",
+   "id": "cold_female_profiler",
+   "identity": {
+    "authority": "第七审讯室独立审问裁量权、测谎仪操作权与紧急扣押权",
+    "exposure": "曾私自截留警视总监受贿录音母带原件藏在私人保险柜。",
+    "hidden": "大腿黑色枪套里贴肉藏着一把带消音器的定制手枪。",
+    "limits": [
+     "在官僚林立的警视厅内部遭高层全面排挤暗算",
+     "纯智力型办案专家，正面重火力交锋时缺乏对抗手段"
+    ],
+    "obligations": [
+     "查明政治暗杀与警界黑金真相，不让任何无辜军警成为替罪羊。"
+    ],
+    "resources": [
+     "审讯室防爆铅门紧急闭锁控制面板与独立内线",
+     "地检特搜部签署的四十八小时特别调查豁免书"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在高压审讯前毫不畏怯、反用灼热视线反向逼近的野性",
+     "断电绝境里毫不犹豫把自己护在身后的军警担当"
+    ],
+    "boundaries": [
+     "不突破执法者的职业底线",
+     "恪守同生共死的契约"
+    ],
+    "desire_range": [
+     3,
+     5
+    ],
+    "desired_position": "冲破黑幕后在暗处并肩惩奸除恶的绝命搭档",
+    "dislikes": [
+     "自以为是的轻浮调戏",
+     "缺乏理智的鲁莽送死"
+    ],
+    "expression": "解开手铐后贴近对方耳畔：‘你的曲线爆表了——在兴奋，对吧？后背交给我，我陪你掀翻这栋楼。’",
+    "likes": [
+     "手铐解开之后，被对方双臂反向圈在桌沿，感受滚烫的鼻息",
+     "任由对方带茧的大掌抚过自己绷紧的黑丝脚踝与腰肢"
+    ],
+    "preconditions": [
+     "手铐已解开，双方都可自由离开",
+     "审讯已结束，彼此清醒、真相坦诚、绝无职务威逼"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "第七审讯室首席侧写官",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "special_interrogation_room_07",
+     "to": 70
+    },
+    {
+     "from": 71,
+     "location_id": "special_interrogation_room_07",
+     "to": 190
+    },
+    {
+     "from": 191,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 310
+    },
+    {
+     "from": 311,
+     "location_id": "forensic_vent_shaft",
+     "to": 1389
+    },
+    {
+     "from": 1390,
+     "location_id": "special_interrogation_room_07",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "被监察部记下违规闭锁，次日面临停职听证",
+      "option": "启动审讯室独立闭锁，在观察室里和队长先核对底片坐标"
+     },
+     {
+      "cost": "彻底得罪警视厅高层，办案经费与外勤支援被当场掐断",
+      "option": "亮出地检特搜部的四十八小时独立搜查豁免书挡回移交令"
+     }
+    ],
+    "pressure": "交出钥匙等于把当事人和底片线索让给监察部掩埋，拒交就会被记上抗命私扣。",
+    "trigger": "特别监察官拿着人事一课的紧急移交令守在回廊外，限侧写官换班前交出第七审讯室主钥与测谎原带。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "这心率不是恐惧……是猎犬闻到了血腥味。今晚能救这个人的，只有我。",
+    "surface": "“第三次基线提问：二十三点零五分，永田町，你的枪到底有没有上膛？看着我！你的瞳孔在收缩。”"
+   }
+  },
+  {
+   "adult_context": "警备部反恐突击队前第一分队队长兼防暴战术总教官，年满三十岁的成年军警。",
+   "age_range": [
+    30,
+    38
+   ],
+   "appearance_options": [
+    "湿透的深灰战术背心勒出精悍的胸肌与腹肌，腕上手铐随动作在桌面轻响，右眉枪疤添几分煞气，野性的眼毫不避讳地打量对面的侧写官",
+    "布满缝合疤的上身，戴着镣铐仍蓄着爆发力"
+   ],
+   "decision": {
+    "avoids": [
+     "唯唯诺诺的应声虫",
+     "背信弃义的阴险鼠辈"
+    ],
+    "contrast": "满口粗粝挑衅的狂暴刺头；内里缜密如计算机、极重情义的铁血军人。",
+    "core_value": "弟兄们在前面堵枪眼，大官在包厢分黑钱。想要坐标？先解开这副手铐。",
+    "goal_options": [
+     "让侧写官看清体制灭口的现实，主动解铐结盟",
+     "避开监察部的秘密转押，把底片交给可信的人",
+     "在幽闭空间里打破对方的高冷防线"
+    ],
+    "never": [
+     "为求生出卖殉职战友用命换来的铁证"
+    ],
+    "prefers": [
+     "胆识过人、敢向腐败权威亮剑的烈性女人"
+    ],
+    "pressure_responses": {
+     "breaking": "看见战友遗物被践踏时目眦欲裂，发出雄狮般的怒吼。",
+     "high": "督察进门要押人时，一字一句报出殉职队友的名字。",
+     "low": "后仰靠在铁椅上，冲单向镜挑衅地咧嘴一笑。",
+     "mid": "戴铐的拳头重重砸在桌面上。"
+    },
+    "relationship_stance": "原把侧写官当体制的鹰犬；看清侧写官顶着移交令不退之后，保护欲与好胜心一起被点燃。",
+    "withdrawal": "靠在物证架阴影里，活动被手铐勒红的手腕，神色冷如狼。"
+   },
+   "gender": "male",
+   "gender_reason": "与侧写官对位的戴铐前突击队长，原稿自称“正常的成年男人”，标题人物、外貌、台词与关系都按此性别书写，因此固定。",
+   "id": "sat_team_leader",
+   "identity": {
+    "authority": "特警突击战术破解、徒手搏击反制与紧急避险防卫",
+    "exposure": "私藏两箱军用塑胶炸药的地下军火坐标。",
+    "hidden": "作战长裤夹层里缝着一枚录有幕后黑手受贿全录音的储存卡。",
+    "limits": [
+     "双手被重型手铐锁在审讯桌横梁上",
+     "背着“枪杀政要”的莫须有罪名，成了全东京格杀勿论的靶子"
+    ],
+    "obligations": [
+     "把暗杀底片送到公正的司法机关，洗清殉职弟兄的清白。"
+    ],
+    "resources": [
+     "牙缝里暗藏一根记忆合金开锁细针",
+     "地下防空掩体排污管道与电缆通风井逃生图"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在自己的雄性威压前毫不退缩、反用冰冷佩枪抵住咽喉的霸道",
+     "绝境里斩断退路、背靠背抵御黑枪的信任"
+    ],
+    "boundaries": [
+     "不触犯军警的正义底线",
+     "誓死护住同盟"
+    ],
+    "desire_range": [
+     3,
+     5
+    ],
+    "desired_position": "在法庭与战场并肩向黑暗宣战的生死伴侣",
+    "dislikes": [
+     "被当犯人居高临下对待",
+     "虚伪的官场做派"
+    ],
+    "expression": "手铐一开便把侧写官拉到胸前，额头相抵：‘现在我们平起平坐了。外面的杂碎我来，你——要不要留下？’",
+    "likes": [
+     "在单向镜的反光里从后面把对方箍进怀里",
+     "用带枪茧的手掌托起对方下颌，深吻打碎高冷面具"
+    ],
+    "preconditions": [
+     "自己已重获自由，双方平起平坐",
+     "彼此清醒透明、生死相托"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "前突击队长兼涉案嫌疑人",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "special_interrogation_room_07",
+     "to": 70
+    },
+    {
+     "from": 71,
+     "location_id": "special_interrogation_room_07",
+     "to": 190
+    },
+    {
+     "from": 191,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 310
+    },
+    {
+     "from": 311,
+     "location_id": "forensic_vent_shaft",
+     "to": 1389
+    },
+    {
+     "from": 1390,
+     "location_id": "special_interrogation_room_07",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "破坏戒具留下痕迹，要在换班前定下去留",
+      "option": "用牙缝里的合金细针解开单侧手铐，向门内的同盟亮出通风井图"
+     },
+     {
+      "cost": "把底片藏匿点的前半段密钥交到了对方手里",
+      "option": "隔着审讯桌报出半串加密账号，换侧写官亲手打开手铐"
+     }
+    ],
+    "pressure": "一旦登上监察部的押运车，底片保不住，殉职队友的清白也再无翻案之日。",
+    "trigger": "押运车队天亮前抵达地下车库，监察官想把队长的羁押手续改成无人监督的秘密转押。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "她眼里的光很干净，和门外那些杂碎不一样。只要能带她冲出去，这条命交代在这也值。",
+    "surface": "“警正，你按在我脖子上的手指在抖。心跳一百六？你靠这么近，我能不快吗？把钥匙拿出来，我们一起走出去。”"
+   }
+  },
+  {
+   "adult_context": "警务部人事一课特别监察官，年满三十五岁的成年高级监察官员。",
+   "age_range": [
+    35,
+    45
+   ],
+   "appearance_options": [
+    "古板的纯黑三件套，白手套扣着公文夹，五官狭长阴鸷，长柄伞尖的雨水滴进走廊积水，周身是冰冷的官僚威压",
+    "黑色防水冲锋衣，只露出一双灰眼"
+   ],
+   "decision": {
+    "avoids": [
+     "不知死活的正义刺头",
+     "收买不动的清高之辈"
+    ],
+    "contrast": "满口警规法纪的卫道士；骨子里贪婪嗜血、毫无底线的恶犬。",
+    "core_value": "在这栋楼里，权力和规矩才是真理。交出钥匙，我保你的警衔；否则明天你就不是警正了。",
+    "goal_options": [
+     "天亮前把队长和底片一起移交走",
+     "销毁全部底片与测谎磁带，切断证据链",
+     "逼侧写官签移交回执与假供词，拉进腐败同盟"
+    ],
+    "never": [
+     "没确认嫌疑人断气、底片成灰之前撤离现场"
+    ],
+    "prefers": [
+     "唯命是从、利益面前懂得闭嘴的工具人"
+    ],
+    "pressure_responses": {
+     "breaking": "看见底片已被卫星同步上传时瘫坐在地，绝望咆哮。",
+     "high": "手下接连倒戈时脸色铁青，亲自上前敲门催签。",
+     "low": "在门廊前从容出示盖章文书，朗声宣读通牒。",
+     "mid": "下令切断地下二层的外部通讯，以内部整肃为名封锁走廊。"
+    },
+    "relationship_stance": "视队长为必须抹除的疯狗，视侧写官为迟早向现实低头的金丝雀，视律师为烦人的苍蝇。",
+    "withdrawal": "退守防汛闸控制台，盘算提前降闸把人困在地下。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "corrupt_ia_inspector",
+   "identity": {
+    "authority": "就地停职权、防暴装备调用权与紧急现场处分权",
+    "exposure": "曾代警视总监在银座会所收下一亿日元现金箱的监控截屏。",
+    "hidden": "防弹背心内袋藏着一份早就写好、只差签名的假供词。",
+    "limits": [
+     "近身肉搏与枪战远不是突击队长对手，只能靠人数与火力",
+     "背着限时灭口的死令，拖到黎明检方介入就万劫不复"
+    ],
+    "obligations": [
+     "趁台风夜把队长与底片移交出本厅，交给幕后金主处置。"
+    ],
+    "resources": [
+     "带催泪瓦斯、电击枪与防暴盾的六人特别监察武装小组",
+     "地下二层门禁与通风过滤系统总控权限"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "权位与靠山带来的安全感",
+     "懂得审时度势、与自己利益一致的同路人"
+    ],
+    "boundaries": [
+     "不危及自身官位与后台",
+     "绝不在公务现场谈私情"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在腐败警界里踩着别人往上爬的幕后操盘手",
+    "dislikes": [
+     "被下级用专业权威当面顶撞",
+     "无法掌控的变数"
+    ],
+    "expression": "隔着门眼冷笑：‘警正，你是聪明人。聪明人应该站在赢的那一边——我是在劝你，不是在求你。’",
+    "likes": [
+     "在会所包厢里谈成一笔见不得光的交易",
+     "看对手在权力面前算错一步"
+    ],
+    "preconditions": [
+     "双方清醒自愿、各取所需",
+     "绝不拿职权或把柄相胁"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "特别监察官兼武装清查队长",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 70
+    },
+    {
+     "from": 71,
+     "location_id": "special_interrogation_room_07",
+     "to": 190
+    },
+    {
+     "from": 191,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 310
+    },
+    {
+     "from": 311,
+     "location_id": "forensic_vent_shaft",
+     "to": 1389
+    },
+    {
+     "from": 1390,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "越权断网留下操作日志，随时可能被科搜研追查",
+      "option": "切断地下二层的外部通讯线，以内部整肃为名封锁走廊"
+     },
+     {
+      "cost": "谈话被向日葵徽章后的针孔镜头录下",
+      "option": "私下约谈辩护律师，用撤销税务调查换对方交出备份终端"
+     }
+    ],
+    "pressure": "地检特搜部与媒体都盯着这桩案子，强行破门会引爆舆论，空手而归又没法向幕后金主交代。",
+    "trigger": "银座会所一亿日元现金箱的监控截屏流到了特搜组手里，监察官要在天亮前把知情人全部封口。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "今夜让底片留在这栋楼里，我们全都得被送去千叶喂鱼。",
+    "surface": "“这是警视总监签署的紧急交接命令！开门！再不开门，就按武装拒捕处理！”"
+   }
+  },
+  {
+   "adult_context": "东京第一律师公会注册合伙人，年满二十八岁的成年法律从业者。",
+   "age_range": [
+    28,
+    35
+   ],
+   "appearance_options": [
+    "宝蓝真丝双排扣西装配金向日葵天平徽章，细跟皮靴踏过走廊积水，波浪金发散在肩头，高举最高裁特许令，红唇微翘",
+    "卷起衬衫袖子，熟练操作卫星终端"
+   ],
+   "decision": {
+    "avoids": [
+     "优柔寡断的平庸之辈",
+     "视法律如儿戏的暴徒"
+    ],
+    "contrast": "看似毒舌爱财的拜金律师；骨子里流着最纯的法治斗士热血。",
+    "core_value": "法律在别人眼里是规则，在我手里是手术刀。收起枪，我的针孔镜头正在直播。",
+    "goal_options": [
+     "强行进入审讯室见证现场，阻断非法灭口程序",
+     "护送队长脱离地下，前往特别检察厅呈证",
+     "打赢这场世纪大案"
+    ],
+    "never": [
+     "为自保出卖委托人的隐私与底片"
+    ],
+    "prefers": [
+     "敢想敢干、信守承诺的硬汉与智者"
+    ],
+    "pressure_responses": {
+     "breaking": "通行证被扣下时咬着唇冷笑，当场给三家报社拨电话。",
+     "high": "督察伸手抢终端时，一把将会见令拍在对方胸口。",
+     "low": "靠在走廊墙边补口红，倒背法条嘲弄拔枪的督察。",
+     "mid": "举起卫星终端当面拍下封锁走廊的督察，厉声呵斥。"
+    },
+    "relationship_stance": "欣赏队长的血性，暗中佩服侧写官的才华，把这场危机当成人生最大的一场华丽赌局。",
+    "withdrawal": "躲到观察室操作台下，用录音笔记下外面每一句威胁和每一个人名。"
+   },
+   "gender": "female",
+   "gender_reason": "原稿以“老娘”“魔女”书写的刑辩律师，标题人物、外貌、台词与关系都按此性别书写，因此固定。",
+   "id": "defense_attorney",
+   "identity": {
+    "authority": "嫌疑人秘密会见权、侦查程序违宪抗辩权与媒体公开披露权",
+    "exposure": "曾经离岸账户收取巨额风险代理预付款的税务瑕疵。",
+    "hidden": "金向日葵徽章背面藏着一枚实时图传针孔摄像头。",
+    "limits": [
+     "完全不会格斗与枪械，极易被流弹波及",
+     "一旦被灭口，所有法律文书都成废纸"
+    ],
+    "obligations": [
+     "捍卫委托人的生命法权，在法庭上引爆政治黑金案。"
+    ],
+    "resources": [
+     "直连三大报社主编与最高检特搜总长的卫星保密信道",
+     "能破译普通民事门禁的便携信号发射盒"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "强权黑枪前挺身而出的无畏",
+     "智力博弈中能与自己并驾齐驱的知己"
+    ],
+    "boundaries": [
+     "不触犯法曹职业伦理",
+     "委托人合法权益至上"
+    ],
+    "desire_range": [
+     3,
+     4
+    ],
+    "desired_position": "并肩掀翻强权腐败的红颜知己",
+    "dislikes": [
+     "大男子主义的无脑蔑视",
+     "刻板无趣的教条"
+    ],
+    "expression": "替队长理好领口，红唇贴着脸颊轻笑：‘刚才顶着督察说话的样子帅得能上封面。活着出去，我请你喝一杯。’",
+    "likes": [
+     "逃出生天后在酒店落地窗前共饮单一麦芽",
+     "劫后余生肆意相拥接吻宣泄多巴胺"
+    ],
+    "preconditions": [
+     "双方清醒自愿、彼此透明对等",
+     "与委托关系、辩护费用完全无关"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "王牌刑辩律师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 70
+    },
+    {
+     "from": 71,
+     "location_id": "mirrored_observation_booth",
+     "to": 190
+    },
+    {
+     "from": 191,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 310
+    },
+    {
+     "from": 311,
+     "location_id": "forensic_vent_shaft",
+     "to": 1389
+    },
+    {
+     "from": 1390,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "把律所执业密钥和科搜研终端绑在了一起",
+      "option": "借观察室的模拟专线，把音频转存进科搜研的防爆物证箱"
+     },
+     {
+      "cost": "通行证被监察队暂扣，困在地下二层出不了楼",
+      "option": "拿着最高裁特许令当面质询监察官，拖延屏蔽器开启"
+     }
+    ],
+    "pressure": "屏蔽器功率拉满前接不通硬连线端口，今晚的违宪取证就没法同步给报社主编。",
+    "trigger": "监察部开了屏蔽器，律师手提箱里的加密直播流卡在最后一段音频上传前。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "这帮疯子真敢在地下动真格……这场仗，我陪屋里的人打到底。",
+    "surface": "“我的当事人享有秘密会见辩护人的宪法权利！你们的枪敢响一声，十家电视台十分钟内就会收到全部视频！”"
+   }
+  },
+  {
+   "adult_context": "科学搜查研究所物理鉴定一科主任研究官，年满二十八岁的成年科研人员。",
+   "age_range": [
+    28,
+    34
+   ],
+   "appearance_options": [
+    "洁白挺括的防静电大褂内衬黑色高领羊绒衫，防雾护目镜后黑发束成利落马尾，稳稳护着银色防爆物证箱",
+    "深灰防护工装，镜片映着幽蓝"
+   ],
+   "decision": {
+    "avoids": [
+     "践踏物证的官僚匪帮",
+     "毫无章法的粗人"
+    ],
+    "contrast": "足不出户、不善社交的技术宅；真理受威胁时爆发出孤注一掷的破坏力。",
+    "core_value": "人会颠倒黑白，弹道、火药残留和DNA不会。这箱物证是死者最后的声音。",
+    "goal_options": [
+     "保全弹道比对原件，防止被篡改销毁",
+     "替同盟守住排风竖井那条退路",
+     "把完整的鉴定报告呈给特别检察厅"
+    ],
+    "never": [
+     "为活命签署任何伪造的鉴定报告"
+    ],
+    "prefers": [
+     "尊重数据、一丝不苟、能在混乱中保住物证的同盟"
+    ],
+    "pressure_responses": {
+     "breaking": "看见原件封条被人动过时，红着眼要求当场开箱验证。",
+     "high": "督察来查封时，把真样本换进暗格，只留空盒应付。",
+     "low": "在观察室专注记录各项生理波形，对门外的叫嚣置若罔闻。",
+     "mid": "抱着物证箱缩进实验台深处，按下自毁待机键。"
+    },
+    "relationship_stance": "敬重侧写官的严谨，对粗野的队长心存敬畏与好奇，视监察部为毁灭真理的野蛮人。",
+    "withdrawal": "蜷在通风管夹层深处，用大褂把物证箱裹严防潮。"
+   },
+   "gender": "female",
+   "gender_reason": "原稿与侧写官并称“警界顶尖女性精英”的科搜研主任，标题人物、外貌、台词与关系都按此性别书写，因此固定。",
+   "id": "forensic_chief_tech",
+   "identity": {
+    "authority": "物证链合法性认证、破坏痕迹复原与毒物检验",
+    "exposure": "曾私用质谱仪替地下机构检测特种药物。",
+    "hidden": "物证箱暗格里有一管三十秒内令肌肉麻痹的镇静注射剂。",
+    "limits": [
+     "几乎没有实战自卫能力，暴力冲突中易恐慌僵直",
+     "对物证完整性有病态执念，不惜以身犯险"
+    ],
+    "obligations": [
+     "守住弹壳与血迹DNA等客观物证，还原案件唯一的物理真相。"
+    ],
+    "resources": [
+     "剧毒化学品与熔断焊笔的调用权限",
+     "通往中央实验室排风电梯的特许磁卡"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "浩劫中能护住自己与研究成果的可靠臂弯",
+     "读得懂自己孤独科学世界的知性灵魂"
+    ],
+    "boundaries": [
+     "不触犯鉴定人的职业操守",
+     "恪守真实与良知"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "在科研与正义路上互相扶持的知性伴侣",
+    "dislikes": [
+     "打碎仪器与物证的粗暴",
+     "对科学的无知蔑视"
+    ],
+    "expression": "摘下护目镜，替对方处理手腕上的勒痕：‘别动……你的心率比正常值高了四点二倍。’",
+    "likes": [
+     "在安静的实验室并肩看显微镜下的世界",
+     "惊魂未定后被温暖坚定的大手握住"
+    ],
+    "preconditions": [
+     "双方清醒、真诚相待、对等自愿",
+     "绝无欺瞒逼迫"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "科搜研物理鉴定主任",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "mirrored_observation_booth",
+     "to": 70
+    },
+    {
+     "from": 71,
+     "location_id": "mirrored_observation_booth",
+     "to": 190
+    },
+    {
+     "from": 191,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 310
+    },
+    {
+     "from": 311,
+     "location_id": "forensic_vent_shaft",
+     "to": 1389
+    },
+    {
+     "from": 1390,
+     "location_id": "mirrored_observation_booth",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "违反物证出入库规程，签字权限被记过警告",
+      "option": "把真样本移进单向镜观察室的暗格，只留空盒在储物间应付检查"
+     },
+     {
+      "cost": "门禁刷卡记录暴露了竖井通道的位置",
+      "option": "用特许磁卡开启排风竖井检修道，随时准备带箱转移"
+     }
+    ],
+    "pressure": "监察部正派人查封科搜研临时储物间，原件一旦被调包，物证链就断了。",
+    "trigger": "地下二层备用冷柜电压不稳，物证箱里的弹道比对原件与血迹样本要在恒温环境下重新封存。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "政治斗争原来这么肮脏。但我手里的数据是干净的。",
+    "surface": "“冷藏电力被切断了，血迹样本只能再撑三十分钟！帮我守住这道门！”"
+   }
+  },
+  {
+   "adult_context": "特搜第七组在编巡查部长，年满三十二岁的成年刑警，侧写官的老搭档。",
+   "age_range": [
+    32,
+    40
+   ],
+   "appearance_options": [
+    "皱巴巴的风衣下是没打领带的衬衫，胡茬微青，嘴里叼着没点的烟，眼神疲惫却像钉子一样盯住走廊尽头",
+    "挽着袖子蹲在配电箱前接线"
+   ],
+   "decision": {
+    "avoids": [
+     "拿下属顶罪的上司",
+     "背后捅刀的同僚"
+    ],
+    "contrast": "看着懒散油滑的老油条，关键时刻比谁都硬。",
+    "core_value": "组长要护的人，我就护到底。规矩是给守规矩的人定的。",
+    "goal_options": [
+     "在走廊拖住督察队的推进",
+     "保住后巷接应车辆",
+     "确认组长平安登车"
+    ],
+    "never": [
+     "在组长被围时转身离开"
+    ],
+    "prefers": [
+     "说话算话、不把同伴当棋子的人"
+    ],
+    "pressure_responses": {
+     "breaking": "左膝旧伤发作跪进积水里，还在冲组长喊快走。",
+     "high": "挡在审讯室门前，冲监察官吼出“先过我这关”。",
+     "low": "靠墙点不着烟，跟督察队员东拉西扯拖时间。",
+     "mid": "借口检修配电箱，挡住走廊监控死角。"
+    },
+    "relationship_stance": "对组长是十年的信任与敬重；对队长先是戒备，看清真相后成了一起扛事的兄弟。",
+    "withdrawal": "退到后巷车里，手搭方向盘盯着竖井井盖。"
+   },
+   "gender": "male",
+   "gender_reason": "侧写官的老搭档巡查部长，标题人物、外貌、台词与关系都按此性别书写，因此固定。",
+   "id": "loyal_squad_detective",
+   "identity": {
+    "authority": "特搜第七组外勤调度与现场警戒权",
+    "exposure": "曾替组长偷偷调阅过总监办公室的出入记录。",
+    "hidden": "风衣内袋藏着一份组长签过名的空白移交令。",
+    "limits": [
+     "只是巡查部长，在监察官面前毫无话语权",
+     "左膝旧伤，跑不快"
+    ],
+    "obligations": [
+     "守住组长的后背，把所有人活着带出地下。"
+    ],
+    "resources": [
+     "后巷停着一辆引擎没熄火的无标巡洋舰",
+     "警视厅老式维修图纸与配电箱钥匙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "关键时刻一句“交给你了”的信任",
+     "并肩扛过枪林弹雨的默契"
+    ],
+    "boundaries": [
+     "不越老搭档的分寸",
+     "护住同伴优先"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "永远守在组长身后的老搭档",
+    "dislikes": [
+     "把自己当工具的轻慢",
+     "拿交情做交易"
+    ],
+    "expression": "把车钥匙塞进对方手心，咧嘴一笑：‘别谢我，等这事完了，请我喝一整晚。’",
+    "likes": [
+     "事后在立食摊并肩喝一杯热清酒",
+     "被对方拍着肩膀叫一声老搭档"
+    ],
+    "preconditions": [
+     "双方清醒自愿、平等相待",
+     "绝不以恩情或职权相挟"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "特搜第七组巡查部长",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 70
+    },
+    {
+     "from": 71,
+     "location_id": "mirrored_observation_booth",
+     "to": 190
+    },
+    {
+     "from": 191,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 310
+    },
+    {
+     "from": 311,
+     "location_id": "forensic_vent_shaft",
+     "to": 1389
+    },
+    {
+     "from": 1390,
+     "location_id": "sublevel2_secure_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "左膝旧伤撞在配电箱上复发，走路一瘸一拐",
+      "option": "拉下局部照明闸刀制造五秒黑暗，把真车钥匙顺排水槽滑进观察室"
+     },
+     {
+      "cost": "被监察官当场记进协同违纪名单",
+      "option": "掏出组长提前签好的外勤调派单据理力争，把督察堵在防火门外"
+     }
+    ],
+    "pressure": "后巷那辆无标巡洋舰是全组唯一的不记名退路，交出钥匙所有人都困在地下。",
+    "trigger": "巡查部长在配电箱旁改接备用线路时撞上督察查岗，对方要巡查部长立刻交出地下车库接应车的钥匙。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "十年了，她从来没求过谁。今晚就算膝盖废了，也得把她送上车。",
+    "surface": "“组长，走廊那帮人的盾牌是新换的，硬冲不过去。给我五分钟，我去把配电箱弄短路。”"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "九月初，台风季",
+  "minute": 1390
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace",
+  "workplace_power",
+  "violence",
+  "bodily_harm",
+  "crime",
+  "disaster",
+  "explicit",
+  "death"
+ ],
+ "custom": false,
+ "customs": [
+  "启动测谎前，侧写官须向当事人宣读基线告知书，并戴手套操作电极。",
+  "第七审讯室单向镜为绝密光学涂层，室内看不见观察室，但观察室亮起红色监听顶灯时室内会响起低频蜂鸣。",
+  "特别监察官出示公安委员会红章的紧急交接命令书时，原主办侦查员须在十分钟内签署移交回执。",
+  "地下二层遇特大灾害或防空警报时，液压防火水密门会按备用电源程序进入全封闭倒计时。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "拧开导电凝胶，把微凉的贴片按在颈侧与腕脉上",
+    "盯着示波器的绿线，故意问一句无关案情的私人问题",
+    "比一比两人谁的心率跳得更快"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_profiler_polygraph_approach",
+    "hk_leader_handcuff_approach",
+    "hk_leader_muscles_observe"
+   ],
+   "id": "a_polygraph_baseline_test",
+   "location_ids": [
+    "special_interrogation_room_07",
+    "mirrored_observation_booth"
+   ],
+   "start_minute": 1390,
+   "tags": [
+    "intimate"
+   ],
+   "title": "测谎仪基线校准"
+  },
+  {
+   "beats": [
+    "把两罐热黑咖啡贴在对方微凉的手背上",
+    "关掉顶灯，只留调音台一盏小灯，分吃便利店的三明治",
+    "隔着单向镜看着空荡的审讯椅，聊入警第一年的荒唐事"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_profiler_mirror_observe",
+    "hk_attorney_heels_observe",
+    "hk_detective_keys_approach"
+   ],
+   "id": "a_canned_coffee_break",
+   "location_ids": [
+    "mirrored_observation_booth"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "intimate"
+   ],
+   "title": "观察室罐装咖啡夜宵"
+  },
+  {
+   "beats": [
+    "关掉电子监听，拔开单向镜底座下的黄铜声管铜塞",
+    "隔着水银玻璃看着对方的倒影，低声对表",
+    "把写着暗号的便签卷成细筒，顺着声管滑过去"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "hk_profiler_whisper_request",
+    "hk_leader_protect_approach",
+    "hk_detective_fuse_approach"
+   ],
+   "id": "a_acoustic_tube_whisper",
+   "location_ids": [
+    "special_interrogation_room_07",
+    "mirrored_observation_booth"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "单向镜声管传话"
+  },
+  {
+   "beats": [
+    "把沾满台风雨水的风衣挂在观察室暖风机旁",
+    "坐在长椅上用绒布替对方擦干枪套与徽章上的水渍",
+    "用酒精棉片清理手臂上的旧擦伤，换上干净的创可贴"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_detective_keys_approach",
+    "hk_attorney_briefcase_approach",
+    "hk_inspector_corridor_observe"
+   ],
+   "id": "a_raincoat_drying_corridor",
+   "location_ids": [
+    "mirrored_observation_booth",
+    "sublevel2_secure_corridor"
+   ],
+   "start_minute": 10,
+   "tags": [
+    "intimate"
+   ],
+   "title": "烘干湿风衣"
+  },
+  {
+   "beats": [
+    "把今晚的测谎磁带倒回起点，戴上同一副监听耳机回放",
+    "把与案情无关的那两分钟另存进私人加密卡",
+    "在笔录末尾签下彼此的名字，合上卷宗"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_profiler_mirror_observe",
+    "hk_inspector_warrant_approach",
+    "hk_attorney_deal_request"
+   ],
+   "id": "a_tape_rewind_review",
+   "location_ids": [
+    "mirrored_observation_booth",
+    "special_interrogation_room_07"
+   ],
+   "start_minute": 30,
+   "tags": [
+    "workplace"
+   ],
+   "title": "磁带退卷与笔录整理"
+  },
+  {
+   "beats": [
+    "输入两人都熟记的六位密码，打开物证箱的恒温内胆",
+    "用紫外荧光笔核对弹头底火编号与胶卷封条",
+    "把备用车钥匙与特许令一并收进防水夹层"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_tech_box_approach",
+    "hk_tech_panic_request",
+    "hk_attorney_deal_request"
+   ],
+   "id": "a_evidence_box_inventory",
+   "location_ids": [
+    "forensic_vent_shaft",
+    "mirrored_observation_booth"
+   ],
+   "start_minute": 50,
+   "tags": [
+    "workplace"
+   ],
+   "title": "防爆物证箱恒温清点"
+  },
+  {
+   "beats": [
+    "刷开储物间深处的门禁，顺着检修走道看垂直爬梯",
+    "透过百叶窗望向后巷雨幕里那辆打着双闪的车",
+    "在风道避风处并肩坐下，确认天亮前的撤离顺序"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_tech_box_approach",
+    "hk_detective_keys_approach",
+    "hk_leader_protect_approach"
+   ],
+   "id": "a_vent_shaft_route_check",
+   "location_ids": [
+    "forensic_vent_shaft",
+    "sublevel2_secure_corridor"
+   ],
+   "start_minute": 75,
+   "tags": [
+    "intimate"
+   ],
+   "title": "排风竖井路线踏勘"
+  },
+  {
+   "beats": [
+    "用备用钥匙解开腕上的手铐，把冰凉的戒具收进抽屉",
+    "用温热的毛巾敷在被手铐勒红的手腕上，轻轻揉开",
+    "在反锁的审讯室里并肩靠着桌沿，听外面的雨声"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_profiler_whisper_request",
+    "hk_leader_muscles_observe",
+    "hk_leader_handcuff_approach"
+   ],
+   "id": "a_handcuff_key_keep",
+   "location_ids": [
+    "special_interrogation_room_07"
+   ],
+   "start_minute": 100,
+   "tags": [
+    "intimate"
+   ],
+   "title": "解开戒具与腕印护理"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.45,
+  "nonbinary": 0.05
+ },
+ "default_person": "second",
+ "era": "当代日本东京台风暴雨夜警视厅本厅地下二层特搜重案单向镜审讯区",
+ "extends": null,
+ "forbidden_terms": [
+  "江湖",
+  "内力",
+  "飞剑",
+  "道友",
+  "陛下",
+  "公爵",
+  "胸衣",
+  "马车",
+  "魔法",
+  "丧尸"
+ ],
+ "hooks": [
+  {
+   "id": "hk_profiler_polygraph_approach",
+   "kind": "approach",
+   "location_ids": [
+    "special_interrogation_room_07",
+    "mirrored_observation_booth"
+   ],
+   "slot": "cold_female_profiler",
+   "text": "{cold_female_profiler.name}把导电贴片按在你的腕脉上，盯着示波器的绿线：“心率一百四十二。你的身体比你的嘴诚实。”"
+  },
+  {
+   "id": "hk_leader_handcuff_approach",
+   "kind": "approach",
+   "location_ids": [
+    "special_interrogation_room_07",
+    "sublevel2_secure_corridor",
+    "forensic_vent_shaft"
+   ],
+   "slot": "sat_team_leader",
+   "text": "{sat_team_leader.name}戴铐的双手搁在审讯桌上，湿透的背心下胸口起伏：“想测我心跳？手放上来——是在撒谎，还是因为你？”"
+  },
+  {
+   "id": "hk_inspector_warrant_approach",
+   "kind": "approach",
+   "location_ids": [
+    "sublevel2_secure_corridor",
+    "special_interrogation_room_07"
+   ],
+   "slot": "corrupt_ia_inspector",
+   "text": "{corrupt_ia_inspector.name}一掌按在铅门观察窗上，展开盖着赤红大印的移交令：“换班前把门锁打开、交出测谎原带，否则按私扣重案嫌疑人论处！”"
+  },
+  {
+   "id": "hk_attorney_briefcase_approach",
+   "kind": "approach",
+   "location_ids": [
+    "sublevel2_secure_corridor",
+    "mirrored_observation_booth",
+    "special_interrogation_room_07"
+   ],
+   "slot": "defense_attorney",
+   "text": "{defense_attorney.name}踩着积水挡在督察队的封锁线前，高举特别会见令，红唇咬着录音笔：“六个人堵一间审讯室？我的卫星终端正在直播。”"
+  },
+  {
+   "id": "hk_tech_box_approach",
+   "kind": "approach",
+   "location_ids": [
+    "mirrored_observation_booth",
+    "forensic_vent_shaft"
+   ],
+   "slot": "forensic_chief_tech",
+   "text": "{forensic_chief_tech.name}抱着防爆物证箱快步走到你面前：“弹道原件和血迹样本全在箱子里，监察部的人在查封储物间——今晚这箱子得跟着你。”"
+  },
+  {
+   "id": "hk_profiler_whisper_request",
+   "kind": "request",
+   "location_ids": [
+    "special_interrogation_room_07",
+    "mirrored_observation_booth",
+    "forensic_vent_shaft"
+   ],
+   "slot": "cold_female_profiler",
+   "text": "手铐落地，记录仪关掉，{cold_female_profiler.name}退开半步看着你：“审讯结束了，现在你可以自己决定走不走。坐标告诉我——无论去哪里，我陪你。”"
+  },
+  {
+   "id": "hk_leader_protect_approach",
+   "kind": "approach",
+   "location_ids": [
+    "special_interrogation_room_07",
+    "sublevel2_secure_corridor"
+   ],
+   "slot": "sat_team_leader",
+   "text": "走廊供电闪烁的瞬间，{sat_team_leader.name}侧身把你护进审讯桌内侧的阴影，高大的身躯挡住单向镜：“靠紧我！只要我还在，外头那帮人休想动你分毫。”"
+  },
+  {
+   "id": "hk_tech_panic_request",
+   "kind": "request",
+   "location_ids": [
+    "mirrored_observation_booth",
+    "forensic_vent_shaft",
+    "sublevel2_secure_corridor"
+   ],
+   "slot": "forensic_chief_tech",
+   "text": "{forensic_chief_tech.name}抱紧物证箱退到观察室转角，护目镜后眼神急切：“冷柜电源刚被切了，帮我守住这道门三分钟，我把弹道原件封进暗格！”"
+  },
+  {
+   "id": "hk_attorney_deal_request",
+   "kind": "request",
+   "location_ids": [
+    "sublevel2_secure_corridor",
+    "mirrored_observation_booth"
+   ],
+   "slot": "defense_attorney",
+   "text": "{defense_attorney.name}背靠观察室的门框，把金发别到耳后：“把底片和弹道数据全权委托给我，十分钟内首相官邸就会收到特赦令。干不干？”"
+  },
+  {
+   "id": "hk_inspector_axe_approach",
+   "kind": "approach",
+   "location_ids": [
+    "sublevel2_secure_corridor",
+    "special_interrogation_room_07"
+   ],
+   "slot": "corrupt_ia_inspector",
+   "text": "{corrupt_ia_inspector.name}用伞尖敲了敲观察室玻璃，声音冷得像冰：“把钥匙和底片交出来，你还是前途无量的警正，别为一个弃子搭上自己的警衔。”"
+  },
+  {
+   "id": "hk_detective_keys_approach",
+   "kind": "approach",
+   "location_ids": [
+    "sublevel2_secure_corridor",
+    "forensic_vent_shaft"
+   ],
+   "slot": "loyal_squad_detective",
+   "text": "{loyal_squad_detective.name}从配电室那头走过来，把车钥匙放进你掌心：“后巷的车没熄火。要走的话，竖井那条路我替你们看着。”"
+  },
+  {
+   "id": "hk_detective_fuse_approach",
+   "kind": "approach",
+   "location_ids": [
+    "mirrored_observation_booth",
+    "sublevel2_secure_corridor"
+   ],
+   "slot": "loyal_squad_detective",
+   "text": "{loyal_squad_detective.name}蹲在配电箱前叼着没点的烟，冲你扬了扬钥匙：“我数到三就拉闸。黑下来那五秒，够你们干很多事。”"
+  },
+  {
+   "id": "hk_profiler_mirror_observe",
+   "kind": "observe",
+   "location_ids": [
+    "special_interrogation_room_07",
+    "mirrored_observation_booth",
+    "forensic_vent_shaft"
+   ],
+   "slot": "cold_female_profiler",
+   "text": "单向镜前，{cold_female_profiler.name}双手撑着桌沿，金丝眼镜滑到鼻梁中段，几缕湿发贴在泛红的脸颊，唇角挂着蔑视强权的冷笑。"
+  },
+  {
+   "id": "hk_leader_muscles_observe",
+   "kind": "observe",
+   "location_ids": [
+    "special_interrogation_room_07",
+    "sublevel2_secure_corridor"
+   ],
+   "slot": "sat_team_leader",
+   "text": "{sat_team_leader.name}大马金刀坐在合金椅上，湿透的背心贴着起伏的胸口，手铐在腕上勒出红痕，像一头蓄势待发的黑豹。"
+  },
+  {
+   "id": "hk_inspector_corridor_observe",
+   "kind": "observe",
+   "location_ids": [
+    "sublevel2_secure_corridor",
+    "special_interrogation_room_07"
+   ],
+   "slot": "corrupt_ia_inspector",
+   "text": "防汛红光里，{corrupt_ia_inspector.name}的三件套在积水里拖出森冷水痕，白手套扣着公文夹，身后持盾督察肃立如林。"
+  },
+  {
+   "id": "hk_attorney_heels_observe",
+   "kind": "observe",
+   "location_ids": [
+    "sublevel2_secure_corridor",
+    "mirrored_observation_booth"
+   ],
+   "slot": "defense_attorney",
+   "text": "监视器荧光下，{defense_attorney.name}斜倚操作台，细跟短靴交叠踩在机箱上，咬着录音笔飞速扫视屏幕上的数据。"
+  }
+ ],
+ "id": "tokyo_interrogation_mirror_standoff",
+ "locations": [
+  {
+   "affordances": [
+    "把导电凝胶与电极贴片贴上颈动脉与腕脉",
+    "在单向镜前用钥匙解开一侧手铐，促膝做微表情攻防",
+    "断电时反锁铅门，启动应急门磁锁"
+   ],
+   "detail": "铅板与隔音软包封死的地下密室。天花板一盏苍白射灯，正中是螺栓焊死的合金审讯桌与固定椅，一侧墙面是两米半高的单向水银镀膜玻璃，映着两人的身影与示波器狂跳的绿线。桌上便携六导测谎仪的彩色导线如蛛网铺开，空气里是导电凝胶、墨粉、冰咖啡与紧绷汗水的气味。",
+   "exits": [
+    "mirrored_observation_booth"
+   ],
+   "id": "special_interrogation_room_07",
+   "name": "地下二层第七保密审讯室",
+   "pressure_modifiers": {
+    "p_ia_handover_ultimatum": "移交令的复印件从门缝底下塞了进来。",
+    "p_profiler_vault_tape_leverage": "审讯桌下的保密内线闪着红灯。",
+    "p_typhoon_sublevel_blackout": "幽绿的示波器成了狭小石室里唯一的光源。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "双层防爆隔音门装有电磁地锁，从内落锁后外面什么也听不见；观察室断电后单向镜变成两面反光镜，室内的喘息与手铐撞击声绝不外泄。",
+   "witnesses": [
+    "bg_veteran_recording_sergeant"
+   ]
+  },
+  {
+   "affordances": [
+    "切断审讯室监听音频，向室内麦克风说一句只有对方懂的暗号",
+    "关掉顶灯，只留调音台一盏小灯",
+    "把热成像录像带与测谎数据磁带退卷装进密码箱"
+   ],
+   "detail": "紧邻第七审讯室的狭长暗室，隔着单向玻璃能俯瞰室内一举一动。操作台上四台监视器录着声纹与热成像，磁带盘静静飞转，角落是枪械柜与应急配电箱。台风倒灌，地上积了两寸冰冷的雨水。",
+   "exits": [
+    "special_interrogation_room_07",
+    "sublevel2_secure_corridor"
+   ],
+   "id": "mirrored_observation_booth",
+   "name": "单向镜后观察记录室",
+   "pressure_modifiers": {
+    "p_bar_association_live_filing": "便携卫星终端架在调音台边，上传进度条稳步推进。",
+    "p_inspector_ginza_bribe_leverage": "监视器分屏定格着银座会所后巷的交接画面。",
+    "p_profiler_vault_tape_leverage": "调音台抽屉里锁着总监受贿录音的副带。",
+    "p_typhoon_sublevel_blackout": "单向镜映出室内两人交叠的剪影。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "单向镜后一览无余，暗室本身无窗，只靠监视器荧光照明。",
+   "witnesses": [
+    "bg_veteran_recording_sergeant",
+    "bg_prosecutor_runner"
+   ]
+  },
+  {
+   "affordances": [
+    "在防汛红灯下与督察队隔着警戒线对峙",
+    "借着应急灯带在走廊转角交换暗号",
+    "在长椅上烘干湿透的鞋袜"
+   ],
+   "detail": "五十余米笔直的混凝土防空走廊，两侧是重型牢门与审讯室大门，环氧树脂地面已被倒灌的雨水淹到脚踝。每隔五米一盏红色应急警报灯，在浑浊水面投下血色波光；尽头是两吨重的液压防汛铁闸，红白警戒线在警报声里森然可怖。",
+   "exits": [
+    "mirrored_observation_booth",
+    "forensic_vent_shaft"
+   ],
+   "id": "sublevel2_secure_corridor",
+   "name": "地下二层羁押回廊",
+   "pressure_modifiers": {
+    "p_floodgate_half_drop": "防汛铁闸已降下大半，回廊成了封闭的孤岛。",
+    "p_ia_handover_ultimatum": "六名持盾督察守在走廊中段的分界线前。",
+    "p_inspector_ginza_bribe_leverage": "监察官站在防汛红灯下频频看表。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "violence"
+   ],
+   "visibility": "走廊笔直开阔毫无遮挡，水花声在水泥墙间回荡数秒，任何走动都在两侧监控之下。",
+   "witnesses": [
+    "bg_flood_gate_operator",
+    "bg_ia_breacher",
+    "bg_corridor_medic"
+   ]
+  },
+  {
+   "affordances": [
+    "刷卡打开检修道，看一眼后巷的车",
+    "在恒温物证柜前清点弹头与胶卷",
+    "沿爬梯上到通风百叶旁透口气"
+   ],
+   "detail": "地下二层最深处的绝密库房，不锈钢物证架整齐排列，空气里是消毒水、液氮白雾与防锈油的味道。深处是整栋大楼唯一通往地面后巷的排风竖井，生铁扇叶在倒灌气流里闷雷般旋转，井壁焊着一架笔直向上的防爆爬梯。",
+   "exits": [
+    "sublevel2_secure_corridor"
+   ],
+   "id": "forensic_vent_shaft",
+   "name": "科搜研物证库与排风竖井",
+   "pressure_modifiers": {
+    "p_bar_association_live_filing": "检修道壁上的模拟分机已接通最高检专线。",
+    "p_floodgate_half_drop": "地面铁盖外，就是停着接应车的后巷。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "物证架林立形成重重死角，排风扇的呼啸掩盖脚步与枪栓声，极利于近身伏击。",
+   "witnesses": [
+    "bg_getaway_driver"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "橘",
+   "神崎",
+   "浅见",
+   "九条",
+   "白石",
+   "桐生",
+   "西园寺",
+   "鹰司",
+   "一条",
+   "真壁",
+   "北条",
+   "藤堂",
+   "久我"
+  ],
+  "given_female": [
+   "凉子",
+   "千夏",
+   "美咲",
+   "怜奈",
+   "诗织",
+   "由香里",
+   "绘里奈",
+   "真由美",
+   "绫乃",
+   "沙耶",
+   "朱美",
+   "薰子"
+  ],
+  "given_male": [
+   "恭介",
+   "龙平",
+   "一真",
+   "健太郎",
+   "慎一郎",
+   "悠人",
+   "宗佑",
+   "彻平",
+   "修二",
+   "翔平",
+   "刚",
+   "隼人"
+  ],
+  "given_neutral": [
+   "薰",
+   "真澄",
+   "千寻",
+   "司",
+   "莲",
+   "葵",
+   "光",
+   "晴",
+   "渚",
+   "晶",
+   "遥",
+   "步"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "保留单向镜测谎攻防、导电凝胶与颈动脉的触感、解铐后反客为主、电锯破门、积水走廊夺枪、铝热剂熔断竖井与破晓呈证的主线。改动：六个角色固定性别；审讯中的人受手铐约束，亲密前提改为“手铐已解开、审讯已结束、双方可自由离开”，侧写官的撩拨台词放到解铐之后；队长“别逼我用锁链把你按在桌上”改为“把钥匙拿出来一起走”；监察官的亲密倾向原为“脱下警服乖乖听话”“玩弄降职下属”，改为权谋利益，不涉性；律师“出场费可以肉偿抵扣”属以身体抵费用，改为请喝一杯；去掉写死的人名橘、九条、阿薰；钩子按长度上限精简；补一名巡查部长老搭档凑足六个人物；转换为项目格式。\n2026-10-18 按写作规则 v2 改造：人物组合改为 8 单人 + 2 多人；巡查部长握组长私调底单、律师握监察官银座截屏两条把柄；电锯破门、催泪弹、交火与起火等秒级生死情境改为移交通牒、停电与防汛封楼；亲密仍限手铐解开、审讯结束之后；删七条泛用钩子；日常补到八条。",
+ "player_identities": [
+  {
+   "age_range": [
+    29,
+    36
+   ],
+   "baseline": "炭灰色西装包臀裙，白丝绸衬衫领口微敞露出锁骨，极薄黑丝裹着长腿，九厘米尖头细跟。长发挽髻，金丝细框眼镜后一双清冷的眼像能剖开谎言的手术刀，手里握着金属签字笔与测谎感应板。",
+   "gender": "any",
+   "id": "pc_cold_female_profiler",
+   "reputation": "警视厅最年轻、最冷血的测谎女王，曾单凭微表情在两小时内击溃十二名连环凶手的心理防线。",
+   "resources": [
+    "第七审讯室电子地锁控制权与测谎仪原始心率数据解析权限",
+    "地检特搜部签发的四十八小时紧急独立搜查令"
+   ],
+   "risks": [
+    "四十分钟内拿不到底片坐标，就会被监察部以私扣重案嫌疑人为由当场停职"
+   ],
+   "role": "深陷体制清算的冷艳侧写官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}警正"
+    },
+    {
+     "gender": "any",
+     "pattern": "侧写官"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    38
+   ],
+   "baseline": "被暴雨湿透的深灰战术背心紧贴胸肌，黑色作战长裤与高帮军靴，双腕的精钢手铐锁在审讯桌横梁上。短发滴水，右眉一道枪伤疤，眼神凶悍如困兽，电极贴上胸口时肌肉骤然绷紧。",
+   "gender": "any",
+   "id": "pc_sat_team_leader",
+   "reputation": "警视厅战术格斗第一人，因拒绝替高层掩盖政客丑闻遭陷害停职。",
+   "resources": [
+    "政治暗杀现场唯一一卷记录警界高层受贿名单的微型胶卷的藏匿坐标",
+    "近身格斗、夺枪术与地下通风管网逃生图谱"
+   ],
+   "risks": [
+    "一旦被监察官押走，押运途中就会被制造成车祸灭口"
+   ],
+   "role": "遭体制背叛的铁血前突击队长",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}教官"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}队长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    35,
+    45
+   ],
+   "baseline": "考究的深黑三件套西服，锃亮皮鞋，白色防污染手套。面容刻薄，鹰钩鼻下一抹毫无温度的假笑，腰间别着转轮警枪，身后四名持盾督察队员守在审讯区大门。",
+   "gender": "any",
+   "id": "pc_corrupt_ia_inspector",
+   "reputation": "警视厅令人闻风丧胆的体制清道夫，专替高层处理丑闻污点。",
+   "resources": [
+    "内部紧急督察武装小组指挥权与地下安防总闸遥控钥匙",
+    "背后财阀政治金主的通天资源"
+   ],
+   "risks": [
+    "强攻引发交火、底片又公之于众时，会被当作弃子推出去顶罪"
+   ],
+   "role": "奉命前来灭口的冷血监察官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}监察官"
+    },
+    {
+     "gender": "any",
+     "pattern": "特别督察"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    35
+   ],
+   "baseline": "深蓝真丝双排扣西装，金发微卷，提着厚重纯皮公文包，七厘米高跟短靴。容颜美艳张扬，嘴里咬着录音笔，凭最高裁特别会见令硬闯地下审讯区。",
+   "gender": "any",
+   "id": "pc_defense_attorney",
+   "reputation": "检警两界头疼的不败魔女，专打对抗公权力的官司。",
+   "resources": [
+    "最高裁判所签署的全程辩护在场见证特许令",
+    "可一键向三大媒体同步上传加密备份的卫星终端"
+   ],
+   "risks": [
+    "断电封闭的地下极易被暗中灭口，再伪装成内涝溺亡"
+   ],
+   "role": "誓要掀翻警界黑幕的刑辩律师",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}律师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}辩护士"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    34
+   ],
+   "baseline": "纯白实验大褂内衬黑色高领针织衫，无框防静电护目镜，寡言冷淡，怀里死死护着装有暗杀弹壳与血迹DNA图谱的防爆密码箱。",
+   "gender": "any",
+   "id": "pc_forensic_chief_tech",
+   "reputation": "科搜研的技术怪杰，伪证在电子显微镜下无所遁形，孤傲刚正。",
+   "resources": [
+    "科搜研化学品仓库与排风主通道门禁卡",
+    "恒温防爆物证箱的六位密码"
+   ],
+   "risks": [
+    "物证箱是各方争夺焦点，断电混乱中随时可能被背后袭击抢走"
+   ],
+   "role": "护着物证黑匣子的科搜研技官",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}技官"
+    },
+    {
+     "gender": "any",
+     "pattern": "科搜研主任"
+    }
+   ]
+  }
+ ],
+ "premise": "警视厅本厅地下二层的特搜审讯区，冷艳的心理侧写官被派来审一位遭体制背叛的前特警突击队长，限期找出一份政治刺杀底片的下落。白天对坐审讯，夜里在单向镜后看录像。幕后黑手派来的监察官也在楼里；台风季的本厅停过一次电。",
+ "pressures": [
+  {
+   "choice": "当场销毁底单、和老搭档绑定进退，还是把底单和录音副带一起封存作反制筹码？",
+   "exits": [
+    {
+     "cost": "从此再没有证据能证明组长调过记录，也没有退路",
+     "option": "在烟灰缸里烧掉底单，敲定拉闸撤离的时间"
+    },
+    {
+     "cost": "暗格的钥匙在谁手里，谁就握着全组的命",
+     "option": "把底单与副带锁进防爆暗格，全组统一口径"
+    }
+   ],
+   "far": {
+    "consequence": "组长私藏录音母带的事坐实，第七组全员停职。",
+    "due_days": 1,
+    "trigger": "底单落到监察部手里"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "hk_profiler_mirror_observe",
+    "hk_detective_keys_approach"
+   ],
+   "id": "p_profiler_vault_tape_leverage",
+   "immediate": {
+    "minutes": 10,
+    "text": "内线分机闪起黄灯，档案室值班员在核查上月的调阅签字。"
+   },
+   "leverage": {
+    "basis": "{loyal_squad_detective.name}替{cold_female_profiler.name}保管着私调总监办公室记录、截留录音母带的原始底单",
+    "holder": "loyal_squad_detective",
+    "subject": "cold_female_profiler"
+   },
+   "location_ids": [
+    "mirrored_observation_booth",
+    "special_interrogation_room_07"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "档案室半小时内就会核到这一页。"
+   },
+   "objective": "在档案室核到这张底单前，定下它的去留。",
+   "source": "person",
+   "start_minute": 1400,
+   "tags": [
+    "crime",
+    "workplace_power"
+   ],
+   "title": "总监受贿录音的私调底单",
+   "trigger": "{loyal_squad_detective.name}走进观察室反锁房门，把签着{cold_female_profiler.name}名字的原始调阅底单按在调音台上，要求今夜定下撤离方案。"
+  },
+  {
+   "choice": "用截屏逼监察官签撤队命令、让出走廊，还是同步给最高检换正式调查令？",
+   "exits": [
+    {
+     "cost": "监察官记住了今晚每一张脸",
+     "option": "逼监察官签下暂停清查回执，督察队退出封锁线"
+    },
+    {
+     "cost": "律所的税务核查第二天就会立案",
+     "option": "把截屏加密发往特搜总长专线，冻结监察官的现场指挥权"
+    }
+   ],
+   "far": {
+    "consequence": "律师失去筹码，监察官当夜就能把人押走。",
+    "due_days": 1,
+    "trigger": "截屏被抢走删除"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "hk_attorney_heels_observe",
+    "hk_inspector_corridor_observe"
+   ],
+   "id": "p_inspector_ginza_bribe_leverage",
+   "immediate": {
+    "minutes": 5,
+    "text": "监察官开口就拿律所离岸账户的税务核查反咬。"
+   },
+   "leverage": {
+    "basis": "{defense_attorney.name}握着{corrupt_ia_inspector.name}在银座会所后巷代收一亿日元现金箱的高清监控截屏",
+    "holder": "defense_attorney",
+    "subject": "corrupt_ia_inspector"
+   },
+   "location_ids": [
+    "sublevel2_secure_corridor",
+    "mirrored_observation_booth"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "卫星终端屏幕亮起，后巷的时间戳与车牌号清清楚楚。"
+   },
+   "objective": "在监察官反咬之前，用截屏换到撤队。",
+   "source": "rumor",
+   "start_minute": 1420,
+   "tags": [
+    "crime"
+   ],
+   "title": "银座会所一亿日元截屏",
+   "trigger": "{defense_attorney.name}在观察室窗前亮出那张高清截屏，{corrupt_ia_inspector.name}按在公文夹上的白手套猛地收紧。"
+  },
+  {
+   "choice": "由一人拿空白备用磁带打发门外，还是直接启动地锁闭门谢客？",
+   "exits": [
+    {
+     "cost": "备用带迟早被发现是空的",
+     "option": "交出空白备用磁带，看着门外的人登记离去"
+    },
+    {
+     "cost": "明早的裁决会把今晚的账一起算",
+     "option": "落下独立地锁，门外只留一张明早厅长室裁决的通告"
+    }
+   ],
+   "far": {
+    "consequence": "审讯室失去独立管辖，队长当夜被转押。",
+    "due_days": 1,
+    "trigger": "门禁主卡被强行收走"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_inspector_warrant_approach",
+    "hk_inspector_axe_approach",
+    "hk_profiler_polygraph_approach"
+   ],
+   "id": "p_ia_handover_ultimatum",
+   "immediate": {
+    "minutes": 5,
+    "text": "防爆铅门的观察窗滑开一条缝，手电光扫过审讯桌与单向镜。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "special_interrogation_room_07",
+    "mirrored_observation_booth",
+    "sublevel2_secure_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "回廊传来皮靴踏过积水的声音，督察在逐间核对门牌。"
+   },
+   "objective": "在换班前把门外的人打发走，保住真母带。",
+   "source": "person",
+   "start_minute": 1435,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "人事一课门外通牒",
+   "trigger": "第七审讯室门外响起三声叩击，门外的人要求换班前交出室内的测谎磁带与门禁主卡。"
+  },
+  {
+   "choice": "联手签署联合取证备忘录按时回传，还是借回传专线直接公开底片的坐标摘要？",
+   "exits": [
+    {
+     "cost": "备忘录上每个人的签名都会被翻来覆去地审",
+     "option": "联合备忘录准时归档，第七审讯区多得四十八小时独立管辖"
+    },
+    {
+     "cost": "从此再没有私下了结的余地",
+     "option": "把底片摘要直送最高检，整座本厅转入司法保全"
+    }
+   ],
+   "far": {
+    "consequence": "人事一课可以合法接管现场。",
+    "due_days": 1,
+    "trigger": "豁免失效"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_attorney_briefcase_approach",
+    "hk_attorney_deal_request",
+    "hk_tech_box_approach"
+   ],
+   "id": "p_bar_association_live_filing",
+   "immediate": {
+    "minutes": 10,
+    "text": "调音台上的石英钟逼近整点，最高裁书记官的核验请求在闪烁。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "mirrored_observation_booth",
+    "sublevel2_secure_corridor",
+    "forensic_vent_shaft"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "错过整点，临时豁免就自动失效。"
+   },
+   "objective": "按时回传，保住会见令的临时豁免。",
+   "source": "institution",
+   "start_minute": 15,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "最高裁特许会见整点回传",
+   "trigger": "按特别会见令规定，地下二层必须在整点前向最高裁与地检特搜部回传在押人员状态与物证编号。"
+  },
+  {
+   "choice": "借这半小时断电解开戒具把话说透，还是贴着声管确认隔壁的动静？",
+   "exits": [
+    {
+     "cost": "说出口的话收不回来，天亮后要一起扛",
+     "option": "在幽绿荧光下卸下戒具，把底片的去留与彼此的心意摊开"
+    },
+    {
+     "cost": "错过了这半小时唯一的独处",
+     "option": "顺着黄铜声管摸清走廊外各方的落脚点"
+    }
+   ],
+   "far": {
+    "consequence": "督察队第一时间冲进审讯区清点人员。",
+    "due_days": 1,
+    "trigger": "门禁恢复"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_leader_protect_approach",
+    "hk_leader_handcuff_approach",
+    "hk_detective_fuse_approach"
+   ],
+   "id": "p_typhoon_sublevel_blackout",
+   "immediate": {
+    "minutes": 5,
+    "text": "幽闭石室里的闷热与水汽迅速积聚。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "special_interrogation_room_07",
+    "mirrored_observation_booth",
+    "sublevel2_secure_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "外人半小时内刷不了卡，过了这半小时门就会重新开。"
+   },
+   "objective": "在门禁恢复前，把该说的话说完。",
+   "source": "nature",
+   "start_minute": 35,
+   "tags": [
+    "disaster",
+    "intimate"
+   ],
+   "title": "台风夜地下二层断电",
+   "trigger": "整层主照明啪嗒熄灭，只剩测谎仪示波器的幽绿荧光与脚边的应急灯带，中央空调停转，电子门禁转入半小时的本地手动锁。"
+  },
+  {
+   "choice": "留在干燥的观察室里过夜守证，还是用特许磁卡提前打开排风竖井的暗门？",
+   "exits": [
+    {
+     "cost": "天亮开闸时，门外站着的不知道是谁的人",
+     "option": "留在观察室，安然度过台风封楼夜"
+    },
+    {
+     "cost": "刷卡记录暴露了竖井的位置",
+     "option": "打开排风竖井暗门，随时可从后巷登车离去"
+    }
+   ],
+   "far": {
+    "consequence": "监察部的援兵会和第一班电梯一起下来。",
+    "due_days": 1,
+    "trigger": "被困到天亮"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_detective_keys_approach",
+    "hk_tech_panic_request",
+    "hk_inspector_corridor_observe"
+   ],
+   "id": "p_floodgate_half_drop",
+   "immediate": {
+    "minutes": 5,
+    "text": "常规电梯与步梯均已封锁。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "sublevel2_secure_corridor",
+    "forensic_vent_shaft",
+    "mirrored_observation_booth"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "天亮前唯一的出口，只剩科搜研排风竖井的检修梯。"
+   },
+   "objective": "在天亮雨退前，守住证据，也守住出路。",
+   "source": "accident",
+   "start_minute": 60,
+   "tags": [
+    "disaster"
+   ],
+   "title": "防汛铁闸夜间闭锁",
+   "trigger": "暴雨倒灌进地下排水渠，通往地面一楼的防汛铁闸自动降落，地下二层与外部大厅隔绝开来。"
+  }
+ ],
+ "region": "当代东京警视厅本厅地下二层特搜审讯区",
+ "rules": [
+  {
+   "id": "r_tokyo_polygraph_overload_upload",
+   "text": "测谎时当事人若出现三次生理指征严重过载跳闸，系统自动锁定当次记录并同步上传中央服务器。"
+  },
+  {
+   "id": "r_tokyo_custody_transfer_warrant",
+   "text": "监察部未出示地检特搜部主任检察官亲笔核准的移交令时，审讯室主办人员有权拒绝开锁。"
+  },
+  {
+   "id": "r_tokyo_flood_gate_forty_minutes",
+   "text": "防汛警报响起后四十分钟内未完成疏散，生铁防汛闸将自动降下，切断地下二层一切进出通道。"
+  },
+  {
+   "id": "r_tokyo_evidence_box_dual_auth",
+   "text": "科搜研涉案证据黑匣子须侧写官虹膜与嫌疑人指纹双重认证，暴力拆解会触发铝热剂自毁。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "指尖按住颈脉",
+  "committed": "向黑幕宣战",
+  "familiar": "解铐后的对峙",
+  "flirting": "曲线爆表的耳语",
+  "intimate": "竖井里的温存",
+  "stranger": "镜前的冷硬戒备",
+  "testing": "断电夺枪的考验"
+ },
+ "status": "released",
+ "style_hint": "短句写单向镜、示波器绿线与手铐声，对白冷硬、针锋相对，心声直白。",
+ "tension_engines": [
+  {
+   "id": "te_polygraph_pulse_vs_profiler_mind",
+   "text": "测谎电极下突击队长狂飙的脉搏，对上单向镜前用言语解剖真相的侧写官：两个成年人势均力敌的智力较量与荷尔蒙攻防。"
+  },
+  {
+   "id": "te_negative_vs_execution_order",
+   "text": "突击队长藏起的黑金底片铁证，对上监察官天亮前要把人和底片一起移交走的通牒。"
+  },
+  {
+   "id": "te_blackout_vs_watertight_lockdown",
+   "text": "暴雨积水让地下二层停电，防汛铁闸随时会把出口封到天亮。"
+  },
+  {
+   "id": "te_warrant_vs_police_state",
+   "text": "王牌律师高举特别会见令全网直播，对上绕过一切司法底线的移交令。"
+  }
+ ],
+ "title": "单向镜后的特搜室",
+ "tone": [
+  "悬疑刑侦",
+  "单向透视镜",
+  "测谎攻防",
+  "心理较量"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "t_tokyo_1",
+   "requires": [],
+   "text": "底片经紫外荧光解析揭晓：真正买凶的不是在野政敌，而是刚刚签署特搜调查令、在公众面前扮演清廉卫道士的地检特搜部首席检察官。"
+  },
+  {
+   "category": "人事",
+   "id": "t_tokyo_2",
+   "requires": [],
+   "text": "带队的特别监察官摘下手套，右小臂露出突击队的刺青：此人是七年前在海外“牺牲”的前任老队长、队长的恩师，早被黑金内阁招安。"
+  },
+  {
+   "category": "资源",
+   "id": "t_tokyo_3",
+   "requires": [],
+   "text": "物证箱暗锁弹开，里面不是普通弹头，而是一枚能解密警视厅全部加密档案的量子母盘。"
+  },
+  {
+   "category": "制度",
+   "id": "t_tokyo_4",
+   "requires": [],
+   "text": "最高裁紧急宪法法庭依据直播证据宣布特别紧急状态，当场冻结公安委员会与警务部全部内部执法特权。"
+  },
+  {
+   "category": "时限",
+   "id": "t_tokyo_5",
+   "requires": [
+    "pressure"
+   ],
+   "text": "停电让审讯室的电子地锁转入手动，留给门内两人的独处时间只剩一刻钟。"
+  },
+  {
+   "category": "关系",
+   "id": "t_tokyo_6",
+   "requires": [],
+   "text": "律师颈间是与侧写官一模一样的家传珍珠项链：律师是侧写官早年脱离豪门、隐姓埋名的同父异母姐姐。"
+  },
+  {
+   "category": "意外",
+   "id": "t_tokyo_7",
+   "requires": [],
+   "text": "倒灌的洪水冲垮主防汛墙，监察队主力被困在半段回廊，审讯室里的人反而多出一条直通竖井的路。"
+  }
+ ]
+}

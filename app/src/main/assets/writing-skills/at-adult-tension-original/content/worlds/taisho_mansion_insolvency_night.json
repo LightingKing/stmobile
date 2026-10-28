@@ -1,0 +1,2047 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满四十八周岁精通和洋木作营造之资深成熟工匠，依法承担修缮工程安全施工法定职责。",
+   "age_range": [
+    48,
+    48
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_carpenter_sakamoto",
+   "line": "老樟木书架合页是老汉亲手装上去的，转轴留了半毫米公差，拿硬刃探进去一挑就开！",
+   "location_ids": [
+    "loc_atrium_library_gallery"
+   ],
+   "name": "坂本工长",
+   "role": "府邸大正洋馆修缮老木匠工长工匠"
+  },
+  {
+   "adult_context": "年满二十五周岁依法开业行医之女医师，恪守神圣大夫誓约与病患隐私守则。",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_doctor_sasaki",
+   "line": "沙龙壁炉已燃旺，加温白布屏风与紫草消炎膏已备齐，女仆快护送小姐来此避难！",
+   "location_ids": [
+    "loc_tea_reception_salon"
+   ],
+   "name": "佐佐木女医",
+   "role": "帝都女子医专随行专聘女医师女医"
+  },
+  {
+   "adult_context": "年届三十四周岁严格执行破产债权民事诉讼之成年银行清算代表。",
+   "age_range": [
+    34,
+    34
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_appraiser_shirasu",
+   "line": "九条小姐！今夜若交不出府邸抵押地契本金，法警立刻就要查封整座洋馆了，请即刻交出钥匙！",
+   "location_ids": [
+    "loc_atrium_library_gallery"
+   ],
+   "name": "白洲债权代理",
+   "role": "帝都兴产银行债务清算高级代表白洲清彦"
+  },
+  {
+   "adult_context": "年满三十六周岁依法执行治安警戒公职之成年警务人员，恪守职责。",
+   "age_range": [
+    36,
+    36
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_policeman_ogata",
+   "line": "洋馆后门已派两名巡警警戒，暴雨逃生马车已就位，请九条千金从速撤出险地！",
+   "location_ids": [
+    "loc_garden_stone_porch"
+   ],
+   "name": "绪方警部补",
+   "role": "帝都警视厅警逻挂值勤巡查警部补绪方昭夫"
+  },
+  {
+   "adult_context": "年届三十二周岁经验丰富之公职救火队长，自负消防抢险法定指挥职责。",
+   "age_range": [
+    32,
+    32
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_fireman_morita",
+   "line": "回廊电线短路火警已被控制在一角，三分钟内高压手摇水龙头即可完成灭火扑救！",
+   "location_ids": [
+    "loc_tea_reception_salon"
+   ],
+   "name": "森田消防组头",
+   "role": "帝都本所消防组头森田泰三"
+  },
+  {
+   "adult_context": "年届二十九岁熟悉帝都街巷交通之成年驭手，恪尽职守。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_coachman_ichiro",
+   "line": "两匹良驹已套好防滑胶掌，车厢燃着暖炉，小姐一登车一郎立刻策马启程！",
+   "location_ids": [
+    "loc_garden_stone_porch"
+   ],
+   "name": "一郎车夫",
+   "role": "九条伯爵府避难双套防风马车御者宗一郎"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "名门千金与三代忠仆家老在火海倾覆绝境中的生死相托，藤原豁出老迈身躯以肩膀硬抗倾斜重木，千金以冷艳傲娇口吻顶住施压展现惊人自救力矩，老少两代人以名节誓死守望家名尊严。",
+   "id": "combo_shizuka_and_fujiwara",
+   "identity_ids": [
+    "pi_noble_lady_kujo_shizuka",
+    "pi_seneschal_fujiwara_tadashi"
+   ],
+   "player_positions": [
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "char_lady_kujo_shizuka",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "风雨孤馆回廊同生共死之至高世家信义纽带",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_seneschal_fujiwara",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "世家主仆礼法遵从与抢险现场协同",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_lady_kujo_shizuka",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_seneschal_fujiwara",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "如父如叔之至亲忠诚家老与唯一掌上明珠",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_lady_kujo_shizuka",
+    "char_seneschal_fujiwara"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保千金小姐毫发无损脱困并保全九条家族清誉",
+    "limit_gap": "老家老受体魄所限无法单人抗起书架，千金面临捍卫名门清白与脱离火海双重红线",
+    "meeting_reason": "台风暴雨夜伯爵府倾覆资产紧急撤离前书阁地契抢收",
+    "resource_gap": "老家老掌控洋馆管事全权与备用钥匙，千金仅有一柄纯银家印手柄面对数百公斤实木咬死"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_bookcase_hinge_kimono_jam"
+   ]
+  },
+  {
+   "chemistry": "青年建筑巡官以严谨力学知识测断合页销钉微观受力矢量，隔空通过手电强光与口诀指引脱扣角度，千金以绝对腕力敏捷执行切入挑动，大正知识女性与青年技术精英在此刻达成灵魂共鸣。",
+   "id": "combo_shizuka_and_kudo",
+   "identity_ids": [
+    "pi_noble_lady_kujo_shizuka",
+    "pi_inspector_kudo_yoshiaki"
+   ],
+   "player_positions": [
+    "equal",
+    "high"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "char_lady_kujo_shizuka",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "死线力矩相托之名媛与青年精英默契",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_inspector_kudo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "技术测算与现场营救路径核定",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_lady_kujo_shizuka",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_inspector_kudo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "知己般默契配合之智勇双全大正青年",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_lady_kujo_shizuka",
+    "char_inspector_kudo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在火舌燎到振袖前分毫不差挑退销钉释放和服",
+    "limit_gap": "工官碍于男女大防无法近身触碰闺秀和服，千金处于视线盲区急需外在坐标指引",
+    "meeting_reason": "洋馆暴雨火警突发险情下机械合页微观破拆紧急联动",
+    "resource_gap": "工官掌握建筑应力测定与现场指挥技术，千金小姐手握纯银八角印柄与果断执行力"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_silver_seal_precision_lever"
+   ]
+  },
+  {
+   "chemistry": "名门千金在书阁死线孤傲施展银印破拆，近身女仆在回廊尽头舍命拉紧深红斗篷筑起遮羞铁幕，二人眼神交汇处尽是誓死不负的姐妹主仆深情，瞬间筑成抵御任何窥探的名节金盾。",
+   "id": "combo_shizuka_and_chiyo",
+   "identity_ids": [
+    "pi_noble_lady_kujo_shizuka"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_lady_kujo_shizuka",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "如影随形誓死相护之至纯主仆深情",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_maid_matsushita_chiyo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "后勤防护与斗篷屏障联动作业",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_lady_kujo_shizuka",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "char_maid_matsushita_chiyo",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "朝夕相伴宛若同胞姐妹之至纯闺秀情义",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_lady_kujo_shizuka",
+    "char_maid_matsushita_chiyo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在脱扣瞬间百分之百完成身形遮蔽与安全回收",
+    "limit_gap": "千金面临和服崩解长襦袢露体危机，女仆面临浓烟侵袭无法完全遮蔽之考验",
+    "meeting_reason": "名门闺秀与随身女仆六载相随之后背相托",
+    "resource_gap": "千金以尊贵小姐威严主持大局，女仆唯命是从手持加厚斗篷守卫闺秀清誉底线"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_aristocratic_modesty_defense"
+   ]
+  },
+  {
+   "chemistry": "年轻女仆长以单薄身躯含泪恳求老家老暂缓封锁回廊防火门，藤原老管家以府邸全员安危苦苦权衡，两代家臣在火海死线前达成以老管家亲身抵门争取最后十五秒之悲壮誓约。",
+   "id": "combo_chiyo_and_fujiwara",
+   "identity_ids": [
+    "pi_headmaid_matsushita_chiyo"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_seneschal_fujiwara",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "老总管纪律遵从与求生请命",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_maid_matsushita_chiyo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "同生共死忠仆同盟",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_maid_matsushita_chiyo",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_seneschal_fujiwara",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "晚辈女仆对德高望重管家长辈之泣血苦谏",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_maid_matsushita_chiyo",
+    "char_seneschal_fujiwara"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在铁门自锁彻底合拢前为千金小姐夺取唯一通道",
+    "limit_gap": "老管家肩负府邸数十仆从生死不可违背防火铁律，女仆愿以自身性命乞求暂缓十秒关门",
+    "meeting_reason": "洋馆大火封闭回廊防火门倒计时前最后生还门洞之紧急请命",
+    "resource_gap": "藤原管家掌控洋馆各处防火铁门闭锁阀门，年轻女仆手持防风斗篷坚守小姐脱险防线"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_electrical_arc_fire_deadline"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_mansion_brass_speaking_tube",
+   "reach": "藤原管家与书阁千金小姐及一层沙龙女仆",
+   "text": "洋馆各楼层黄铜传话声管信道"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_thunderstorm_electrical_alarm",
+   "reach": "洋馆全体抢险人员与后院待命车夫警员",
+   "text": "暴风雨夜洋馆手摇火警电铃声道"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "年满二十一周岁华族名门闺秀，依法自负独立法律责任，处女之身，白瓷面庞天然带有柔和的轮廓与孤傲清冷绝美反差，心智极度坚韧沉稳",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "一米六五端庄纤细的名门闺秀身段，天鹅颈项优美雪白，锁骨如雕，白瓷小脸天然带有淡淡的红晕，凤眸清冷孤傲朱唇紧抿仪态万千",
+    "墨黑长发梳成精致大正束发结配纯银樱花雕纹发栉，雪肤在风雨寒意中透出冷艳微红，通体散发着常年熏香熏染出的名门处子幽香",
+    "身着造价不菲之高定墨蓝暗纹大岛绸振袖和服，内衬雪白纯丝羽二重长襦袢，腰间紧系加厚西阵织金线丸带配纯银带留"
+   ],
+   "decision": {
+    "avoids": [
+     "哭叫哀求",
+     "衣衫不整受人怜悯",
+     "展现出一丝一毫软弱慌张"
+    ],
+    "contrast": "看似娇生惯养、弱不禁风的豪门千金，身陷火海与沉重书柜咬合绝境时爆发出惊骇全场的微观物理机械自救胆魄",
+    "core_value": "华族名节与祖传家名高于生命，绝不向任何灾难与债务逼迫低头折节",
+    "goal_options": [
+     "维持孤傲冷艳神情借屈膝压低重心顺应导轨卸去撕扯张力",
+     "持拿实心银柄以硬棱插进铜轴挑开锁扣",
+     "呼叫前庭法警冒险强行撞击三百公斤樟木书架"
+    ],
+    "never": [
+     "绝不在任何人面前展现失态丑相",
+     "绝不放弃重振九条家族的钢铁意志"
+    ],
+    "prefers": [
+     "纯银硬棱刚体杠杆自救",
+     "毫无狼狈之态的端庄脱困",
+     "零走光绝对自律"
+    ],
+    "pressure_responses": {
+     "breaking": "柔荑玉掌爆发千钧力矩顺势向上借力撬动销钉弹跳脱钩",
+     "high": "反握纯银印柄将三毫米直角八角硬棱准确探入黄铜合页转轴死隙",
+     "low": "朱唇微抿深吸一口风雨湿冷凉气，清冷双眸如寒星锁准合页轴心微米级受力槽",
+     "mid": "冷眸扫视蔓延火舌，全身核心腰肢紧绷卸去外倾压差保持站姿不乱"
+    },
+    "relationship_stance": "对藤原老管家敬若长辈，对巡查员巡官抱以智略互敬，对女仆寄予托付生死的同袍深情",
+    "withdrawal": "成功脱扣后就地后翻滚借女仆展开的加厚斗篷严密遮身从容撤向后廊逃生车厢"
+   },
+   "gender": "female",
+   "gender_reason": "九条伯爵家族独生女千金年届桃李二十一周岁名媛贵女，依法享有完全自主法定民事与财产决断权柄之成年女子",
+   "id": "char_lady_kujo_shizuka",
+   "identity": {
+    "authority": "掌控家族地契与伯爵府最后遗产密室处置决断全权",
+    "exposure": "一旦名贵和服振袖被撕烂导致贴身羽二重长襦袢破碎露体，将在破产清算法警与报界镜头前沦为名门奇耻大辱",
+    "hidden": "外表孤傲冷艳、不可一世的华族千金，内心极度坚毅要强、宁愿粉身碎骨也誓死捍卫家名尊严的傲娇名媛",
+    "limits": [
+     "严禁在倾覆危机中放弃祖传地契独自脱逃",
+     "绝不容许在破产逆境与众目睽睽之下产生走光丑态玷污华族名誉"
+    ],
+    "obligations": [
+     "保全九条伯爵家数百年清白声誉与忠心仆从前程生计"
+    ],
+    "resources": [
+     "配三毫米淬火直角硬棱凸缘之长十公分纯银八角印柄",
+     "帝都高等师范学校顶尖物理力学素养",
+     "家族传承银怀表"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危难关头恪守分寸之沉稳风度",
+     "言出必行、舍身护卫名门的赤诚担当"
+    ],
+    "boundaries": [
+     "人前守住体面，私下的心事只对认定的人说",
+     "任何一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "家族命运与自我清誉的绝对最高主宰者",
+    "dislikes": [
+     "轻浮市侩的讨债嘴脸",
+     "带着非分之想的窥探目光"
+    ],
+    "expression": "披着斗篷坐在壁炉前，盯着火说：今夜的事不许写进任何人的日记……你，留下来陪{npc.name}喝完这壶茶。",
+    "likes": [
+     "打理得纤尘不染的正绢羽织",
+     "茶凉之后还有人陪着坐在沙龙里，替自己把散乱的发簪一支支拔下"
+    ],
+    "preconditions": [
+     "眼前的危局已经过去，双方都清醒、安全",
+     "出于本人的心意，不夹带报恩、交换或旁人的催促"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "九条伯爵家族末代掌上明珠千金小姐",
+   "schedule": [
+    {
+     "from": 1310,
+     "location_id": "loc_atrium_library_gallery",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "右手手心受纯银印章反震勒出微量红痕且指节因用力泛白",
+      "option": "反手握持银印以八角硬棱别退合页转轴脱险"
+     },
+     {
+      "cost": "华族千金当场走光受辱名誉彻底崩塌并受浓烟重创",
+      "option": "硬拉振袖导致和服长襦袢大面积撕脱破损露体且肩关节扭伤"
+     }
+    ],
+    "pressure": "电线短路引燃古籍火势三十秒内封死逃生门，书柜重压产生数百牛顿撕扯力即将扯碎和服内衬致大面积走光受辱",
+    "trigger": "百年实心老书柜底部受雨水浸润猛然歪斜压死通道且合页咬住振袖"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "黄铜合页咬死振袖右摆了……短路电弧引燃古旧书卷，三十秒后火势就会封死回廊！不能硬扯，正绢撕裂就会暴露贴身长襦袢与雪白香肩……用纯银印章手柄当撬棍，借地坪滑轨做支点，三点八牛顿力矩足够挑退销轴！",
+    "surface": "藤原休要慌张！女仆退后！{npc.name}自己的衣袖{npc.name}自己能解开，区区一具樟木柜子还压不倒九条家的女儿！"
+   }
+  },
+  {
+   "adult_context": "掌管九条家族庶务逾四十春秋年届五十八岁老管事，全权自负府邸管理民事责任",
+   "age_range": [
+    58,
+    58
+   ],
+   "appearance_options": [
+    "两鬓微白梳理得一丝不苟，身着深黑大正礼服配暗纹马褂，面容威严慈祥兼备",
+    "手持铜制手电筒与应急纯铜手摇警铃，言谈举止恪守老派公卿世家之古风大节"
+   ],
+   "decision": {
+    "avoids": [
+     "慌张混乱",
+     "让外人看到小姐半分狼狈失态之容"
+    ],
+    "contrast": "平日里谨小慎微、仪态庄重的老管家，在火海绝境中爆发出甚至敢用血肉之躯硬扛倒塌重柜的护主豪情",
+    "core_value": "小姐的安危与名节重于一切凡俗利益",
+    "goal_options": [
+     "严令女仆守在回廊死角拉开斗篷阻挡外界视线",
+     "指导千金利用纯银印章手柄撬动合页的黄金力矩点",
+     "切断上层配电闸门阻断电弧二次爆燃"
+    ],
+    "never": [
+     "绝不在小姐脱险前离开书阁半步"
+    ],
+    "prefers": [
+     "稳妥精密的机械撬拆",
+     "严密的遮蔽防窥防线",
+     "老练沉稳"
+    ],
+    "pressure_responses": {
+     "breaking": "在脱扣刹那一把拉开逃生回廊防护门接应小姐",
+     "high": "单膝跪地以肩膀死死顶住倾斜书柜侧柱分散倾倒荷载",
+     "low": "声调沉稳喝止仆役慌乱有序分派提水抢险",
+     "mid": "快步扑至回廊拐角手持纯铜提灯为小姐照亮合页销钉死穴"
+    },
+    "relationship_stance": "对千金怀有崇高敬爱与视若骨肉之深情，对巡官巡查秉公执法予以配合",
+    "withdrawal": "确认小姐安全登车后独自坐镇沙龙与清算方周旋善后"
+   },
+   "gender": "male",
+   "gender_reason": "伯爵府首席执事家老年满五十八岁成年男长辈",
+   "id": "char_seneschal_fujiwara",
+   "identity": {
+    "authority": "掌控府邸仆从调配、地牢出入口与对外资产交割谈判全权",
+    "exposure": "若千金小姐在书阁出事将引咎自责以死向老伯爵谢罪",
+    "hidden": "将千金视如己出、愿用苍老背脊为小姐遮挡一切风雨的老父亲式忠仆",
+    "limits": [
+     "年迈腰腿有疾无法徒手抬举三百公斤巨型樟木柜",
+     "严禁丢弃小姐独逃"
+    ],
+    "obligations": [
+     "哪怕豁出老命也要确保千金小姐毫发无损脱险并保全家名"
+    ],
+    "resources": [
+     "洋馆备用总电闸钥匙串与消防沙桶储备库",
+     "在帝都商界的崇高德望信誉"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "如山岳般不可动摇的长辈忠诚担当",
+     "恪守世家主从尊严的慈爱守护"
+    ],
+    "boundaries": [
+     "严守家老总管对华族千金小姐的庄重礼数界线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "风雨飘摇中九条家族最后的忠义砥柱",
+    "dislikes": [
+     "登门逼债之市侩喧闹",
+     "轻慢名门的无礼狂徒"
+    ],
+    "expression": "以深沉坚定的眼神与果决无私的行动传达守护之力",
+    "likes": [
+     "伯爵府邸井井有条之典雅陈设",
+     "千金小姐温婉从容主持红茶沙龙之端庄风姿"
+    ],
+    "preconditions": [
+     "建立在四十载与九条家族生死与共之崇高忠义契约之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "九条伯爵府总管家老",
+   "schedule": [
+    {
+     "from": 1310,
+     "location_id": "loc_atrium_library_gallery",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "右肩挫伤且老绸缎礼服沾满烟灰碳渍",
+      "option": "用肩膀与实木立柱合力顶死柜脚赢得珍贵撬动窗口"
+     },
+     {
+      "cost": "彻底封死退路并将千金小姐推入火海绝境",
+      "option": "擅离岗位导致书柜失控翻滚砸向逃生楼梯"
+     }
+    ],
+    "pressure": "必须在浓烟彻底遮蔽视线前为千金稳住书柜最后五公分受力间隙",
+    "trigger": "书柜倾斜重心剧烈位移压垮回廊护栏产生二次坍塌危局"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "百年樟木沉重如铁，电火花就要烧过来了……千金小姐要是受了半点伤损玷污，老仆纵死九泉之下也无颜面对老伯爵！老仆这把老骨头就算拼散了架，也定要保小姐清白周全！",
+    "surface": "千金小姐切莫心急！女仆掌好斗篷！老仆在此撑住书柜下沿，照巡官技师说的角度，用银印挑脱销钉！"
+   }
+  },
+  {
+   "adult_context": "执掌帝都特种建筑安全核验之二十七岁成熟成年工程师，享有完全独立司法自决权能",
+   "age_range": [
+    27,
+    27
+   ],
+   "appearance_options": [
+    "身穿大正立领制服外罩深灰风雨衣，头戴宽檐制服帽，鼻梁挺直目光敏锐清澈",
+    "随身携带精密金属标尺与游标卡尺，举止干练沉稳散发着工科精英严谨气度"
+   ],
+   "decision": {
+    "avoids": [
+     "鲁莽蛮干撞击",
+     "因慌乱导致布料纤维被锯齿咬断"
+    ],
+    "contrast": "看似墨守成规的技术官僚，在千钧一发之际展现出令人惊艳的力学直觉与担当魄力",
+    "core_value": "物理规律与精确力矩能够解构一切机械死结",
+    "goal_options": [
+     "通过强光手电光斑精准锁定黄铜合页销轴微观卡簧方位",
+     "大声指导千金利用银印八角硬棱施加力矩的精准矢量",
+     "在楼梯口组织安全引导通道"
+    ],
+    "never": [
+     "绝不给出未经受力验证的错误破拆指令"
+    ],
+    "prefers": [
+     "精准毫米级力学指导",
+     "依靠结构自救",
+     "冷静理性"
+    ],
+    "pressure_responses": {
+     "breaking": "在销钉弹开脱扣瞬间指引后翻滚安全撤离动线",
+     "high": "单臂探出以撬棒卡死地坪导轨外沿分担局部剪切荷载",
+     "low": "迅速调试手电聚光筒照亮转轴两毫米缝隙槽位",
+     "mid": "伏于回廊外缘迎着烟雾大声通报合页逆止垫圈位置"
+    },
+    "relationship_stance": "敬重藤原管家的忠义担当，对千金的坚毅气度深怀敬佩",
+    "withdrawal": "完成现场受灾技术勘测报告并协助管家封锁危房通道"
+   },
+   "gender": "male",
+   "gender_reason": "内务省建筑安全技术巡官年满二十七岁成年青年",
+   "id": "char_inspector_kudo",
+   "identity": {
+    "authority": "掌控火警现场建筑受力评估与结构安全紧急避险指挥权",
+    "exposure": "若计算偏差导致书柜倒翻伤人将承担重大事故责任",
+    "hidden": "内心对千金临危不乱之孤傲傲骨极度赞赏折服、矢志助其从容自救的正直青年",
+    "limits": [
+     "受官厅身份约束不得私自接触华族私密财务地契",
+     "严禁违规操作"
+    ],
+    "obligations": [
+     "在洋馆回廊彻底坍塌前提供百分之百可靠的力学解构方案助名媛脱困"
+    ],
+    "resources": [
+     "专业淬火平头撬棒配高亮度战术检查电筒",
+     "建筑力学断裂应力测算专长"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "华族名媛身上凛然不屈的高贵灵魂",
+     "科学技术与名门傲骨在死线关头的无声默契"
+    ],
+    "boundaries": [
+     "不在对方惊魂未定时越界",
+     "人前照旧以官员之礼相待"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "风暴火海中千金小姐最冷静可靠的理性后盾",
+    "dislikes": [
+     "落井下石的市侩算计",
+     "毫无根据的慌乱盲动"
+    ],
+    "expression": "替千金捡起掉落的家印，掌心相触时低声道：小姐的手在抖，再坐一会儿吧。",
+    "likes": [
+     "结构严丝合缝的古典欧式木工卯榫",
+     "雨停后在门廊下并肩站一会儿，听对方讲帝都新盖的楼"
+    ],
+    "preconditions": [
+     "对方已经脱险、缓过神来",
+     "对方先开口，或清楚地回应了心意"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "帝都建筑技术巡查高级巡官",
+   "schedule": [
+    {
+     "from": 1310,
+     "location_id": "loc_atrium_library_gallery",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "双眼受浓烟熏烤刺痛流泪仍死死盯准光轴",
+      "option": "以手电强光柱稳稳打出光斑坐标指引银印精准入槽"
+     },
+     {
+      "cost": "彻底葬送微观撬动黄金窗口引发悲剧",
+      "option": "慌乱晃动光源导致小姐判断失误折损印纽"
+     }
+    ],
+    "pressure": "若千金下插角度偏差超过两度将导致印章卡死丧失唯一自救工具",
+    "trigger": "浓烟弥漫视线受阻导致合页细微插销方位难以肉眼辨识"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "合页因冷凝受潮发生微观卡滞，但销钉是上向脱出的！千金小姐手中的纯银印章硬度完全足够充当微型撬杆！只要力矩矢量正确，半秒之内即可彻底脱开！",
+    "surface": "九条小姐请保持镇定！不要下压和服！将印章硬棱倒转顺应合页槽口向上挑动，轴心受力点就在右侧三毫米！"
+   }
+  },
+  {
+   "adult_context": "服侍千金小姐六年之二十二岁成熟成年家生女仆，处女之身，享有完全独立民事决断权柄",
+   "age_range": [
+    22,
+    22
+   ],
+   "appearance_options": [
+    "齐耳短发乌黑利落，圆圆杏眼透出灵动坚毅，面颊带有淡淡的红晕与干练英气",
+    "身着大正和洋结合之长袖和服配纯白荷叶边围裙，腰系结实束带，随身携带防寒斗篷"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱迟疑",
+     "让任何外人目光窥探到小姐半寸雪肤"
+    ],
+    "contrast": "平日里低眉顺眼、柔声细语的娇俏女仆，在小姐名誉受威胁时展现出宛如母豹护崽般寸步不让之刚勇",
+    "core_value": "小姐的绝对名誉与尊严高于自身性命",
+    "goal_options": [
+     "双脚死蹬柚木地板合抱斗篷在小姐身侧筑起密不透风之红色屏风",
+     "在千金脱扣翻滚瞬间飞扑上前完美包裹小姐娇躯",
+     "迅速整理小姐和服内衬暗扣护送登车"
+    ],
+    "never": [
+     "绝不在小姐脱离险境前退后半步"
+    ],
+    "prefers": [
+     "毫无破绽之斗篷包裹遮挡",
+     "毫厘不差的默契接应",
+     "绝对赤诚"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂紧紧合抱脱扣倒出之小姐并以斗篷完全掩覆",
+     "high": "在合页崩开清脆响声传出一瞬毫不犹豫飞身上前扑护",
+     "low": "圆圆杏眼紧紧盯准小姐振袖受卡部位细微动静",
+     "mid": "顶着回廊热浪烈风奋力将斗篷两角拉伸绷直封死一切视线"
+    },
+    "relationship_stance": "对千金忠心赤诚相濡以沫，对藤原家老尊敬听从",
+    "withdrawal": "护送千金至一层沙龙壁炉旁细致涂抹香脂并端奉红茶"
+   },
+   "gender": "female",
+   "gender_reason": "伯爵府近侍女仆长女仆姑娘年满二十二岁成年女子",
+   "id": "char_maid_matsushita_chiyo",
+   "identity": {
+    "authority": "掌控小姐贴身衣物打理、后勤防护与仪态隐私护卫权",
+    "exposure": "若斗篷展开迟滞导致小姐受损长襦袢曝光人前将万死难辞其咎",
+    "hidden": "将千金视作人世间最圣洁神明般崇敬、愿舍命为主分忧的忠心女仆",
+    "limits": [
+     "体魄单薄无法撼动沉重樟木书柜",
+     "严禁擅离小姐身侧"
+    ],
+    "obligations": [
+     "在千金小姐脱扣瞬间以斗篷严密遮掩周身捍卫名门千金清白名誉"
+    ],
+    "resources": [
+     "宽幅加厚苏格兰深红防风大披风",
+     "和服应急快拆骨针与药油"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "千金小姐清冷高贵背影散发的崇高人格吸引",
+     "朝夕相处中休戚与共的深沉主仆袍泽之情"
+    ],
+    "boundaries": [
+     "严守女仆对小姐之崇敬尊卑分寸"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "千金小姐最坚实信赖的尊严肉盾与贴心臂弯",
+    "dislikes": [
+     "在外喧哗无礼之恶徒",
+     "风雨烟尘污损小姐雪白面庞"
+    ],
+    "expression": "以泛红眼眸中饱含的关切热泪与温暖坚实之拥抱裹护传达真情",
+    "likes": [
+     "为小姐熏香熨烫平整之正绢振袖",
+     "风波过去后小姐眼底掠过的一抹温暖微笑"
+    ],
+    "preconditions": [
+     "建立在六载相伴深厚默契与赤胆忠心之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "专属贴身大丫鬟女仆姑娘",
+   "schedule": [
+    {
+     "from": 1310,
+     "location_id": "loc_atrium_library_gallery",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "白围裙被碎玻璃划破渗出微量擦伤血迹",
+      "option": "飞身展动加厚斗篷准确截获倒下的小姐并就地裹入怀中"
+     },
+     {
+      "cost": "小姐名节受损且受外伤让{npc.name}抱憾终生",
+      "option": "动作迟疑导致小姐摔倒在回廊露出破损内衬"
+     }
+    ],
+    "pressure": "若接应稍微慢了半秒将导致小姐娇躯摔伤且真丝内衬破绽受风雨吹散走光",
+    "trigger": "脱扣瞬间反冲力拉扯和服衣襟且千金极易失衡跌倒在碎琉璃上"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "樟木柜子把小姐的振袖咬住了……{npc.name}绝不能让火烧到小姐，斗篷已经拉得严严实实了！只要小姐脱开，{npc.name}立刻扑上去把小姐护得密不透风，谁也休想看小姐一眼！",
+    "surface": "小姐！{npc.name}就在回廊这头守着！您只管放手挑开柜子，后面的风雨有{npc.name}的斗篷替您挡着！"
+   }
+  },
+  {
+   "adult_context": "从事传统和洋木工建筑修造三十载之四十八岁老木匠，自负法定安全施工民事责任",
+   "age_range": [
+    48,
+    48
+   ],
+   "appearance_options": [
+    "身材矮壮结实皮肤黝黑，双手长满老茧，身穿工装深蓝作务衣，腰别木工墨斗与手斧",
+    "面容刚毅粗粝，浑身散发着刨花木屑与松节油混合之质朴沉稳气息"
+   ],
+   "decision": {
+    "avoids": [
+     "鲁莽蛮砍破坏结构",
+     "因畏惧火势弃人于不顾"
+    ],
+    "contrast": "平凡质朴的底层老木匠，在危难关头展现出甚至敢拿肉身挡住数百斤重木的憨厚忠勇",
+    "core_value": "木头有灵，顺其卯榫纹理方能解脱死力",
+    "goal_options": [
+     "高声通报老樟木书柜黄铜合页转轴之倒角防脱弹簧舌方位",
+     "用手斧木柄撑住滑轨边缘防止二次夹紧",
+     "协助管家铺设逃生木板跨越琉璃残渣"
+    ],
+    "never": [
+     "绝不让亲手安装的合页成为害人性命的陷阱"
+    ],
+    "prefers": [
+     "依照木作卯榫原理巧妙破拆",
+     "顺应力道脱钩",
+     "果敢硬朗"
+    ],
+    "pressure_responses": {
+     "breaking": "在脱扣刹那猛拉导轨卡扣解除夹紧张力",
+     "high": "反手将平口凿插入地坪死角卡住滑动轴套",
+     "low": "大嗓门穿透雷雨高声指导合页间隙撬拔点",
+     "mid": "合身冲至书架旁以结实肩膀抗住倾斜侧板"
+    },
+    "relationship_stance": "敬重九条家公卿仁厚门风，赞叹千金小姐之从容胆识",
+    "withdrawal": "确认人员撤离后切断回廊连木结构阻止火势横向蔓延"
+   },
+   "gender": "male",
+   "gender_reason": "洋馆专属修缮木工师傅工匠年满四十八岁成年男工匠",
+   "id": "char_carpenter_sakamoto",
+   "identity": {
+    "authority": "掌控洋馆木作家具卯榫构造与滑轨铰链应急拆卸裁决权",
+    "exposure": "若家具倾倒造成人员伤亡将承担工艺装配连带过失责任",
+    "hidden": "对百年樟木大柜卯榫机理了如指掌、暗暗佩服小姐果敢力矩自救的老工匠",
+    "limits": [
+     "不能盲目动用大锯破坏整体承重梁",
+     "严禁延误火情处置"
+    ],
+    "obligations": [
+     "提供樟木书柜铜转轴防脱销钉之机械公差解脱诀窍"
+    ],
+    "resources": [
+     "重型木工拔钉铁钳配冷轧平口凿",
+     "大正合页专用润滑茶籽油壶"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "豪门名媛对底层劳作工匠的仁慈尊重",
+     "生死关头对技艺知识的全然托付"
+    ],
+    "boundaries": [
+     "严守工匠与华族贵胄之本分界线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "洋馆风雨飘摇时最厚重质朴的木构后盾",
+    "dislikes": [
+     "偷工减料的豆腐渣工程",
+     "目空一切的傲慢权贵"
+    ],
+    "expression": "以粗厚大手重重捶打胸膛与爽朗号子传达信赖",
+    "likes": [
+     "木纹致密的高级老榉木料",
+     "墨斗弹出的笔直墨线"
+    ],
+    "preconditions": [
+     "建立在三十载真材实料木工信誉之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "九条府邸专属营缮营造工长工匠师傅",
+   "schedule": [
+    {
+     "from": 1310,
+     "location_id": "loc_atrium_library_gallery",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "虎口被木刺扎伤渗血且雨水打湿面庞",
+      "option": "用手斧柄猛力别住导轨倒勾分担咬紧压力"
+     },
+     {
+      "cost": "书架卡死再无法撬动造成全员陷于绝境",
+      "option": "犹豫不前导致导轨彻底焊死"
+     }
+    ],
+    "pressure": "若不及时松脱导轨夹板将导致书柜整体扣死无法借外力移动",
+    "trigger": "书柜地坪滑轨受压变形产生类似齿条卡死之刚性自锁"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "那是老伯爵当年特意定做的老樟木大书架，老{npc.name}绝不能让这架子把千金小姐害在里头！顶住了，给老汉脱开！",
+    "surface": "小姐莫慌！老樟木柜子的铜合页是老{npc.name}装上去的，转轴上面留了半毫米倒角，拿银印八角硬棱照着槽口往上一挑就脱！"
+   }
+  },
+  {
+   "adult_context": "取得正式医师免许开业三载之二十五岁成熟成年女医官，处女，自负法定独立诊疗责任",
+   "age_range": [
+    25,
+    25
+   ],
+   "appearance_options": [
+    "长发挽成典雅发髻戴金丝眼镜，身穿纯白医生立领大褂配及踝深黑长裙，气质温润秀雅端方",
+    "随身携带英制真皮急救医药箱与听诊器，周身带有淡淡薄荷与樟脑清润药香"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱粗暴拉扯受损衣物",
+     "外人恶意窥探患者伤情"
+    ],
+    "contrast": "平日里文静温和的知性女医，在守护患者隐私权时展现出寸土不让之凛冽气场",
+    "core_value": "贵族千金的凤体无损与名节声誉必须得到至纯庇佑",
+    "goal_options": [
+     "在沙龙壁炉旁备齐加温干净软垫与消炎雪花膏",
+     "严禁外来债权男性随从靠近千金小姐体检遮蔽屏风",
+     "指导女仆以温热纯棉毛巾轻柔擦拭小姐面庞烟灰"
+    ],
+    "never": [
+     "绝不在未经严密遮掩防护下对小姐实施创伤处置"
+    ],
+    "prefers": [
+     "严谨专业的隐私遮蔽诊治",
+     "温和无痛的复原手法",
+     "知性从容"
+    ],
+    "pressure_responses": {
+     "breaking": "迅速展开医用洁净白布配合女仆形成绝对密闭隐私圈",
+     "high": "以医者威严厉声喝退企图围观窥探的市侩法警",
+     "low": "温和柔声安抚受惊仆从同时迅速准备外伤敷料",
+     "mid": "快步迎向回廊楼梯口指导担架以平稳姿态交接"
+    },
+    "relationship_stance": "将千金视作坚韧崇高的救治对象与闺中知己，与藤原老管家配合默契",
+    "withdrawal": "完成体检确认小姐仅有微量擦伤后开具健康证明登车护送"
+   },
+   "gender": "female",
+   "gender_reason": "帝都女子医学专门学校毕业随行女医师女医年满二十五岁成年女子",
+   "id": "char_doctor_sasaki",
+   "identity": {
+    "authority": "掌控府邸急救分类、创伤诊视与名媛身心健康庇护权",
+    "exposure": "若千金小姐受惊休克或产生疤痕伤残将承担诊疗过失责任",
+    "hidden": "对千金小姐面对破产灾难依然孤傲挺拔之气节深怀钦佩爱惜的仁心女医",
+    "limits": [
+     "不涉足非医疗暴力冲突",
+     "严禁泄露贵族患者私密病历隐私"
+    ],
+    "obligations": [
+     "在千金小姐脱险后第一时间核查骨关节韧带与软组织有无挫伤"
+    ],
+    "resources": [
+     "进口无菌纱布夹板与医用烫伤香膏",
+     "芳香氨酊解痉醒脑药剂瓶"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "华族名媛在绝境中展露出的高洁精神风骨",
+     "女性之间惺惺相惜之纯洁疗愈关怀"
+    ],
+    "boundaries": [
+     "严守随行女医师对闺秀小姐之职业医德边界"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "千金小姐浩劫生还后最宁静安详的医道港湾",
+    "dislikes": [
+     "蛮横粗俗之徒对女性弱势的欺压",
+     "对医疗卫生的无知轻慢"
+    ],
+    "expression": "以轻柔细致的搭脉问诊与关切眼神传递温暖",
+    "likes": [
+     "条理清晰的药理分析报告",
+     "患者恢复从容血色之安然睡颜"
+    ],
+    "preconditions": [
+     "建立在希波克拉底神圣医德与名媛互相敬重契约之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "帝都名门专属保健女医大夫",
+   "schedule": [
+    {
+     "from": 1310,
+     "location_id": "loc_tea_reception_salon",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗稀有进贡西洋人参提取精粹",
+      "option": "迅速递上温热参茶以薄荷药油轻揉太阳穴醒神"
+     },
+     {
+      "cost": "诱发严重风寒失温危及生命",
+      "option": "任由小姐在寒风中受冻耽误复温"
+     }
+    ],
+    "pressure": "若不及时服下温热安神汤剂并保暖复温将诱发急性呼吸道风热高烧",
+    "trigger": "千金脱扣后受回廊极度冷热温差侵袭产生短暂虚脱眩晕"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "合页咬力太大，千万不要拉伤肩腕筋膜！{npc.given}定会用最温和的药膏护住小姐娇嫩冰肌，绝不让九条小姐留下一丝疤痕！",
+    "surface": "千金小姐受苦了！{npc.given}已在壁炉旁备齐温水与紫草膏，女仆快随小姐过来，这里有{npc.given}守着，闲杂人等绝不敢造次！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "大正十四年，台风季",
+  "minute": 1320
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "bodily_harm",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "大正华族府邸在遭遇特大台风暴雨侵袭时须由管家在三十秒内关闭二层回廊防风铁叶窗阻绝雨水倒灌。",
+  "名门闺秀在府邸倾覆面临财产清算危急时刻保留随身家族印信，享有接管遗产密室自救之法定优先权。",
+  "洋馆挑空书阁樟木大书柜配备防震铜转轴销钉，在受倾斜重压卡死时须借刚性硬具逆向挑动轴套脱扣。",
+  "近身女仆长在千金小姐华服受夹脱扣瞬间有义务第一时间展开加厚毛呢斗篷严密遮挡身形以全名节尊严。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用软鹿皮细致擦拭银印凸缘三毫米平直刃口",
+    "核对保险柜黄铜小钥匙与黄金怀表发条走时精度",
+    "调谐大正进口朱砂印泥保持湿度均匀"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_heirloom_silver_seal_maintenance",
+   "location_ids": [
+    "loc_tea_reception_salon"
+   ],
+   "start_minute": 1260,
+   "tags": [],
+   "title": "纯银印章手柄八角硬棱除尘与墨盒调谐"
+  },
+  {
+   "beats": [
+    "工匠工长使用茶籽油壶润滑二层书架黄铜合页转轴",
+    "排查滑动书梯地坪黄铜导轨咬合齿表面碎屑杂物",
+    "测试彩色琉璃窗防风木闩扣紧灵敏度"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_bookcase_brass_hinge_lubrication",
+   "location_ids": [
+    "loc_atrium_library_gallery"
+   ],
+   "start_minute": 1200,
+   "tags": [],
+   "title": "实木书架黄铜转轴防潮润滑例行巡检"
+  },
+  {
+   "beats": [
+    "梅雨间隙的晴天，藤原管家带着仆从把回廊书阁里的旧书搬出来晒。",
+    "千金也来帮忙，翻到一本祖父的手札，坐在地上看得入了神。",
+    "管家没有催，只在千金身边放了一杯红茶。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hook_inspector_voice_through_storm",
+    "hook_glorious_roll_escape_nobility"
+   ],
+   "id": "act_typhoon_window_shutter_drill",
+   "location_ids": [
+    "loc_atrium_library_gallery"
+   ],
+   "start_minute": 600,
+   "tags": [],
+   "title": "回廊书阁里晒书"
+  },
+  {
+   "beats": [
+    "女医调配防感冒艾草薄荷熏香精油",
+    "女仆擦拭维多利亚式银茶壶并准备上等大吉岭红茶",
+    "铺设干燥苏格兰纯羊毛加厚保暖坐垫"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_tea_salon_fireplace_preparation",
+   "location_ids": [
+    "loc_tea_reception_salon"
+   ],
+   "start_minute": 1240,
+   "tags": [],
+   "title": "一层红茶沙龙壁炉添柴与药草香薰调配"
+  },
+  {
+   "beats": [
+    "工匠木匠巡视锅炉房青铜蒸汽阀门密封垫片老化程度",
+    "测试洋馆底层暗格金库铁门机械密码锁开合顺畅度",
+    "清理通风烟道灰分确保强降雨天气抽力平稳"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_basement_steam_boiler_check",
+   "location_ids": [
+    "loc_basement_steam_vault"
+   ],
+   "start_minute": 1180,
+   "tags": [],
+   "title": "底层机械地牢蒸汽管路减压阀工况巡查"
+  },
+  {
+   "beats": [
+    "女仆以深红加厚羊毛斗篷将千金周身严丝合缝包裹",
+    "女医为千金小姐手腕涂抹温润紫草药膏",
+    "藤原总管端上热气腾腾红茶护送小姐在壁炉前安坐"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_post_escape_wrap_and_tea_recovery",
+   "location_ids": [
+    "loc_tea_reception_salon"
+   ],
+   "start_minute": 1360,
+   "tags": [],
+   "title": "脱险后加厚斗篷严密裹身与壁炉热茶安抚"
+  },
+  {
+   "beats": [
+    "火熄雨停，红茶沙龙只剩壁炉的光，千金裹着斗篷坐着，振袖的裂口还没来得及换。",
+    "千金低声请人替自己拔下歪斜的发簪，一支支放进漆盒，长发散落在肩头。",
+    "最后一支拔下时千金没有回头，只说今夜的茶太苦，再陪着喝一杯。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_salon_fireside_hairpin",
+   "location_ids": [
+    "loc_tea_reception_salon"
+   ],
+   "start_minute": 1390,
+   "tags": [
+    "intimate"
+   ],
+   "title": "壁炉边拔下散乱发簪"
+  },
+  {
+   "beats": [
+    "寝室的煤气灯调得很暗，千金站在穿衣镜前，大岛绸和服的腰带在背后打着复杂的结，自己够不着。",
+    "千金从镜子里看着人，声音很轻：女仆也走了。……替我解开，好吗？你说好，我就不回头。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bedchamber_obi_untie",
+   "location_ids": [
+    "loc_kujo_bedchamber"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "寝室里替千金解开腰带"
+  },
+  {
+   "beats": [
+    "千金摇起留声机放了一张旧唱片，向人伸出手，和服的袖子垂下来，露出一截雪白的手腕。",
+    "跳到第二圈，千金把头靠在人肩上：从前的舞会上，我从没想靠在谁身上。……今晚可以吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bedchamber_gramophone_waltz",
+   "location_ids": [
+    "loc_kujo_bedchamber"
+   ],
+   "start_minute": 1240,
+   "tags": [
+    "intimate"
+   ],
+   "title": "留声机旁的华尔兹"
+  },
+  {
+   "beats": [
+    "台风过后的早晨，窗外一片狼藉，千金在铜床上醒来，长发铺了一枕，睡衣滑下一边肩头。",
+    "千金拉起被子遮住半张脸，小声说：洋馆明天就要交出去了。……所以今天，我只想待在这里。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bedchamber_after_typhoon",
+   "location_ids": [
+    "loc_kujo_bedchamber"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "台风过后的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "third",
+ "era": "大正末年台风暴雨侵袭华族洋馆突发火警之暗夜死线",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们",
+  "她们",
+  "他俩",
+  "她们俩",
+  "他的",
+  "她的",
+  "未成年",
+  "幼女",
+  "少女",
+  "幼态",
+  "幼女风",
+  "初中生",
+  "高中生",
+  "强暴",
+  "迷奸",
+  "轮奸",
+  "性虐",
+  "色情",
+  "下流",
+  "露阴",
+  "淫荡"
+ ],
+ "hooks": [
+  {
+   "id": "hook_bookcase_crush_kimono_jam_peril",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_lady_kujo_shizuka",
+   "text": "暴风雨夜洋馆穹顶玻璃粉碎，百年樟木大柜倾覆砸塌通道，名媛{char_lady_kujo_shizuka.name}身上墨蓝正绢和服已被铜转轴死死卡扣在地坪滑轨深处！"
+  },
+  {
+   "id": "hook_thirty_sec_electrical_fire_deadline",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_lady_kujo_shizuka",
+   "text": "短路电火花引燃羊皮古籍烈火逼近仅余最后三十秒，楼梯被封且退路断绝，蛮力硬扯只会撕碎长襦袢走光受辱，孤傲名门千金该如何在火海死线中破局自救？"
+  },
+  {
+   "id": "hook_cold_heiress_chubby_cheeks",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_lady_kujo_shizuka",
+   "text": "白瓷小脸微现莹润的光泽，与那双孤傲清冷的美眸形成绝美反差，面对重木锁袖与烈火逼近双重绝境，闺秀名媛的外表下蕴藏着怎样坚韧绝决的傲骨？"
+  },
+  {
+   "id": "hook_silver_seal_micro_lever_pop",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_lady_kujo_shizuka",
+   "text": "随身配带之实心纯银八角家印手柄，能否在风雨呼啸火光中化作毫米级力矩撬棍，以三毫米直角硬棱在两毫米咬合死隙内挑脱转轴销钉？"
+  },
+  {
+   "id": "hook_inspector_voice_through_storm",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_inspector_kudo",
+   "text": "青年工官{char_inspector_kudo.name}穿透雷雨风暴的强光与受力口诀指引，能否为盲操中的千金小姐送达向上挑动轴心的唯一正确生还参数？"
+  },
+  {
+   "id": "hook_maid_red_cloak_iron_curtain",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_maid_matsushita_chiyo",
+   "text": "忠诚女仆{char_maid_matsushita_chiyo.name}双臂展起深红羊毛加厚大氅筑成人肉屏风，能否赶在任何外人视线聚焦前为受困的小姐筑成坚不可摧的名节防线？"
+  },
+  {
+   "id": "hook_seneschal_shoulder_stand_shield",
+   "kind": "observe",
+   "location_ids": [],
+   "slot": "char_seneschal_fujiwara",
+   "text": "老家老{char_seneschal_fujiwara.name}合抱双臂以身躯奋力抵住倾倒巨架之决绝身影，正与书阁上千金小姐孤傲自救的身影展开着怎样的生死相托？"
+  },
+  {
+   "id": "hook_glorious_roll_escape_nobility",
+   "kind": "accident",
+   "location_ids": [],
+   "slot": "char_lady_kujo_shizuka",
+   "text": "当黄铜合页在力矩脆响中骤然解脱的一刹那，那抹自斗篷严密遮掩中顺势优雅侧滚翻跃出、傲骨凌霜的华族名媛身影，将怎样书写大正洋馆的绝境生还传奇？"
+  },
+  {
+   "id": "hook_kujo_bedchamber_lamp",
+   "kind": "approach",
+   "location_ids": [
+    "loc_kujo_bedchamber"
+   ],
+   "slot": "char_lady_kujo_shizuka",
+   "text": "{npc.name}站在寝室门口，手里拿着一盏煤气灯：走廊太黑了。……送我回房，进来坐一会儿也好。"
+  }
+ ],
+ "id": "taisho_mansion_insolvency_night",
+ "locations": [
+  {
+   "affordances": [
+    "反握纯银硬柄以直角边棱探入铜轴缝隙施加力矩撬动",
+    "借柚木地板凸起反作用力顺势后滚翻卸力跃出书架压迫范围"
+   ],
+   "detail": "挑高十米罗马式圆柱支撑起彩色玻璃穹顶，地面铺设拼花柚木地板与铜质滑动书梯轨道。此时彩色琉璃窗被暴风雨击碎狂风倒灌，重达三百公斤的百年实心老樟木大书柜倾斜倒塌，黄铜加厚合页死死咬扣地坪金属滑轨，形成坚不可摧的咬合夹角。",
+   "exits": [
+    "loc_tea_reception_salon",
+    "loc_basement_steam_vault",
+    "loc_garden_stone_porch",
+    "loc_kujo_bedchamber"
+   ],
+   "id": "loc_atrium_library_gallery",
+   "name": "二层回廊书阁",
+   "pressure_modifiers": {
+    "press_fire_electrical_arc_deadline": "古籍羊皮纸燃烧散发刺鼻焦糊浓烟提示半分钟内火势将吞没整个回廊",
+    "press_kimono_modesty_tear_risk": "三百公斤书柜重力拉扯和服右袖导致真丝长襦袢贴身接缝濒临撕脱崩解"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "暴雨电闪雷鸣照亮满地琉璃碎屑，短路火花沿书架噼啪作响，映照出墨蓝振袖与古铜合页死锁处触目惊心的张力撕扯。",
+   "witnesses": [
+    "bg_carpenter_sakamoto",
+    "bg_appraiser_shirasu"
+   ]
+  },
+  {
+   "affordances": [
+    "取用干燥纯棉软毯为脱险人员提供周密保暖包裹防护",
+    "冲泡浓热红茶补充体温与精神糖分"
+   ],
+   "detail": "洋馆一层主会客厅，摆放着大正时期英国进口维多利亚式胡桃木雕花沙发与法式大理石柴火壁炉。暴风雨夜壁炉燃烧着干燥松木，空气中混合着伯爵红茶与蜂蜡家具油的馥郁暖香，与楼上的火警危机形成极强反差。",
+   "exits": [
+    "loc_atrium_library_gallery",
+    "loc_basement_steam_vault",
+    "loc_garden_stone_porch"
+   ],
+   "id": "loc_tea_reception_salon",
+   "name": "红茶沙龙",
+   "pressure_modifiers": {
+    "press_creditor_bailiff_intrusive_gaze": "门外抵押清算债权代表正焦躁催促交割地契随时可能强行闯入"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "壁炉柔和橘红炭火投下宽慰安宁的光晕，照亮银制茶具托盘与避难备用绒毯。",
+   "witnesses": [
+    "bg_doctor_sasaki",
+    "bg_policeman_ogata"
+   ]
+  },
+  {
+   "affordances": [
+    "旋动锅炉主排水减压阀彻底切断上层水汽防止回火",
+    "开启暗格铁箱核验九条家族绝密金库底账"
+   ],
+   "detail": "由青铜蒸汽管道与重型铸铁热水锅炉构成之地下机械枢纽，低矮红砖穹顶散发着均匀地热温度，储存着全馆应急机械维修工具箱与铜管扳手。",
+   "exits": [
+    "loc_atrium_library_gallery",
+    "loc_tea_reception_salon",
+    "loc_garden_stone_porch"
+   ],
+   "id": "loc_basement_steam_vault",
+   "name": "地下锅炉房",
+   "pressure_modifiers": {
+    "press_fire_electrical_arc_deadline": "烟道通风负压剧增警示上层火情已蔓延至回廊夹层"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "蒸汽阀门微弱水汽与仪表盘铜反光交织，幽暗封闭适合隐藏重大机密资产。",
+   "witnesses": [
+    "bg_carpenter_sakamoto"
+   ]
+  },
+  {
+   "affordances": [
+    "登上避难防雨车厢迅速驶离灾难现场前往别邸",
+    "撑开黑胶防风大伞为脱出小姐筑起全遮挡雨障"
+   ],
+   "detail": "挑檐深达三米的花岗岩防雨回廊，连接洋馆后门与避雨车道，暴雨如注顺着铜排水管咆哮倾泻，黑漆防风马车已点亮风灯等候待命。",
+   "exits": [
+    "loc_atrium_library_gallery",
+    "loc_tea_reception_salon",
+    "loc_basement_steam_vault"
+   ],
+   "id": "loc_garden_stone_porch",
+   "name": "后庭廊下",
+   "pressure_modifiers": {
+    "press_creditor_bailiff_intrusive_gaze": "前门庭院嘈杂马蹄声表明清算法警已封锁正门通道"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "风灯微光穿透雨幕照亮青石板路面，车夫披着雨衣警戒守候。",
+   "witnesses": [
+    "bg_policeman_ogata"
+   ]
+  },
+  {
+   "affordances": [
+    "陪千金听一张旧唱片",
+    "替千金解开和服的腰带",
+    "拉上丝绒窗帘"
+   ],
+   "detail": "洋馆二层东翼的一间西式寝室，雕花铜床、一面穿衣镜、一台手摇留声机，窗外是被台风打乱的庭院。",
+   "exits": [
+    "loc_atrium_library_gallery"
+   ],
+   "id": "loc_kujo_bedchamber",
+   "name": "千金的西式寝室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "煤气灯调得很暗，厚丝绒窗帘一拉，外面的风雨和讨债人都隔在了门外。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "九条",
+   "藤原",
+   "工藤",
+   "松下",
+   "坂本",
+   "佐佐木",
+   "近卫",
+   "鹰司",
+   "一条",
+   "三条",
+   "西园寺",
+   "德川",
+   "白川",
+   "橘川",
+   "绫小路",
+   "花山院"
+  ],
+  "given_female": [
+   "静香",
+   "千代",
+   "雪乃",
+   "琴音",
+   "美织",
+   "枫华",
+   "玲奈",
+   "真由",
+   "纱织",
+   "雅美",
+   "诗织",
+   "理惠",
+   "奈绪",
+   "樱子",
+   "瞳美",
+   "华乃"
+  ],
+  "given_male": [
+   "正雄",
+   "义明",
+   "隆之",
+   "和彦",
+   "俊辅",
+   "恭一郎",
+   "健吾",
+   "英夫",
+   "博之",
+   "修平",
+   "达也",
+   "敬介",
+   "信二",
+   "佑介",
+   "哲也",
+   "慎一"
+  ],
+  "given_neutral": [
+   "青叶",
+   "明澈",
+   "秋水",
+   "风见",
+   "若木",
+   "浅葱",
+   "紫苑",
+   "天青",
+   "素问",
+   "长风",
+   "千岁",
+   "云雀",
+   "飞鸟",
+   "初霜",
+   "深雪",
+   "鸣弦"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "female",
+    "pattern": "{given}小姐"
+   },
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入。改动：规则里的写作说明换成世界内规则；四个玩家身份原本与人物模板是同一批人，改写为银行清算监理官、伯爵府钢琴教师、报社记者、洋馆司机；千金与建筑巡官的倾向卡放宽到脱险后可心动，亲密前提写明危机解除、双方清醒自愿；家老、女仆与千金的关系阶段从亲密改为熟识；新增一个脱险后红茶沙龙的亲密日常；写死的人名改为身份称呼或占位。",
+ "player_identities": [
+  {
+   "age_range": [
+    30,
+    40
+   ],
+   "baseline": "年过三十的银行监理官，手握伯爵府的查封清册，今夜本是来清点藏书与地契的。",
+   "gender": "any",
+   "id": "pi_noble_lady_kujo_shizuka",
+   "reputation": "冷面无情的催债人，可从不碰不在清册上的东西。",
+   "resources": [
+    "盖有银行印鉴的查封清册",
+    "一份可以延期执行的特许书"
+   ],
+   "risks": [
+    "查封清册上的地契若在火中焚毁，监理官要向银行交代"
+   ],
+   "role": "帝国银行派来的成年清算监理官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}监理"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "每周三晚来教千金弹肖邦的钢琴教师，台风封路，只得留宿洋馆。",
+   "gender": "any",
+   "id": "pi_seneschal_fujiwara_tadashi",
+   "reputation": "温和守礼，府里上下都说此人看人不带轻慢。",
+   "resources": [
+    "一架熟悉的贝森朵夫钢琴和琴凳下的工具匣",
+    "千金练琴时说过的许多心事"
+   ],
+   "risks": [
+    "留宿华族府邸的事若传出去，教职便保不住"
+   ],
+   "role": "伯爵府聘请的成年西洋钢琴教师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "male",
+     "pattern": "{family}先生"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "追查伯爵家破产内幕的记者，借避雨之名进了洋馆，口袋里揣着相机。",
+   "gender": "any",
+   "id": "pi_inspector_kudo_yoshiaki",
+   "reputation": "笔锋毒辣，可从不拍落难之人的狼狈。",
+   "resources": [
+    "一架折叠相机与半卷胶片",
+    "银行与债主往来的几份抄件"
+   ],
+   "risks": [
+    "被认出是记者会被家老赶出门去"
+   ],
+   "role": "帝都报社的成年社会版记者",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}记者"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "开伯爵府那辆旧福特的司机，顺带照管锅炉房与配电箱。",
+   "gender": "any",
+   "id": "pi_headmaid_matsushita_chiyo",
+   "reputation": "沉默寡言，下人里最肯干脏活的一个。",
+   "resources": [
+    "锅炉房与车库的钥匙",
+    "一把撬胎棍与一盏马灯"
+   ],
+   "risks": [
+    "主家破产，下个月的工钱已经没了着落"
+   ],
+   "role": "洋馆的成年司机兼杂役",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "大正末年，东京郊外的九条伯爵府邸，家道中落的伯爵千金守着这座欧风洋馆，帝国银行派来的清算监理官一周来三次清点家产。府里还请着一位西洋钢琴教师，报社的社会版记者也常来打听。台风季到了，洋馆二层回廊那排老樟木书架有点歪，地契就锁在里面。",
+ "pressures": [
+  {
+   "choice": "选择以纯银印柄八角硬棱微观挑脱销钉，或是蛮力撕扯导致和服破损",
+   "exits": [
+    {
+     "cost": "右手玉掌受反作用力擦出微量红痕且发丝沾染少许灰烬",
+     "option": "反握银印以倒棱上挑销轴脱扣自救"
+    },
+    {
+     "cost": "名门闺秀遭受重度烧伤且九条家族自此断绝",
+     "option": "错失撬动时机被烈火与滚落木料彻底困死在回廊死角"
+    }
+   ],
+   "far": {
+    "consequence": "千金随同百年洋馆一同葬身火海并造成不可挽回之绝顶悲剧。",
+    "due_days": 1,
+    "trigger": "大火彻底吞噬书阁连廊木质结构"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_fire_electrical_arc_deadline",
+   "immediate": {
+    "minutes": 1,
+    "text": "浓烟滚滚呛人鼻息，重达六百斤木架在重力下继续倾侧将和服振袖死死压在地板铁轨上。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_atrium_library_gallery"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "半分钟催命倒计时以毫秒级流逝，火舌已顺着丝绒窗帘爬上二层回廊木质吊顶。"
+   },
+   "objective": "在烈火彻底封锁楼梯连廊前挑退合页脱离书柜压制",
+   "source": "accident",
+   "start_minute": null,
+   "tags": [],
+   "title": "电弧引燃古籍半分钟火海封门危机",
+   "trigger": "挑空彩绘玻璃爆裂导致雨水短路电线引燃大批干燥羊皮书卷"
+  },
+  {
+   "choice": "选择冷静持握银印找准转轴间隙撬退，或是慌乱扯动撕裂和服",
+   "exits": [
+    {
+     "cost": "和服袖角出现微小纤维拉丝但整体完好无损",
+     "option": "纯银八角印柄探入轴套施加微观力矩弹开合页使振袖顺势滑出"
+    },
+    {
+     "cost": "名媛千金当场衣不蔽体尊严尽失遭受毁灭打击",
+     "option": "硬扯衣袖导致里层衬裙大面积脱落露体且右臂扭伤"
+    }
+   ],
+   "far": {
+    "consequence": "高贵名门闺秀在法警与仆从前衣衫褴褛名节尽毁沦为帝都笑柄。",
+    "due_days": 1,
+    "trigger": "和服振袖被连根扯断露出贴身内衬"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_kimono_modesty_tear_risk",
+   "immediate": {
+    "minutes": 1,
+    "text": "名贵墨蓝和服振袖被拉扯得笔直绷紧，贴身纯白羽二重襦袢领口受到向下拖曳。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_atrium_library_gallery"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "布料若再受拉半公分将彻底开缝，使华族小姐陷入大面积走光与肩腕脱臼窘境。"
+   },
+   "objective": "在正绢和服接缝崩断且雪白长襦袢露体前完成无损抽离",
+   "source": "person",
+   "start_minute": null,
+   "tags": [],
+   "title": "大岛绸振袖撕脱露体受辱危局",
+   "trigger": "倾斜书柜冷轧黄铜合页咬住振袖产生近千牛顿剪切拉力"
+  },
+  {
+   "choice": "选择让管家以身躯和家法严厉阻截，或是退让任由外男闯入",
+   "exits": [
+    {
+     "cost": "藤原老总管面容被门把反震轻微挫伤",
+     "option": "藤原家老严厉呵斥以伯爵府世家威严顶死大门争取换衣时限"
+    },
+    {
+     "cost": "名门名誉毁于一旦并被强行夺走地契绝密",
+     "option": "阻拦失败导致法警涌入目睹小姐受困身姿"
+    }
+   ],
+   "far": {
+    "consequence": "九条家族私密闺阁尊严被粗暴践踏并被登报恶意诽谤炒作。",
+    "due_days": 1,
+    "trigger": "外男强闯书阁目睹小姐衣衫受扯紧绷之态"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_creditor_bailiff_intrusive_gaze",
+   "immediate": {
+    "minutes": 1,
+    "text": "楼下传算法警急促皮靴踩踏声与高声喧哗，回廊防火门把手已被剧烈摇晃。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_tea_reception_salon"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若法警在小姐脱困整理好衣物前破门，将亲眼目睹名门闺秀受困之狼狈窘态。"
+   },
+   "objective": "以严密家老阻截与女仆斗篷完全封死视线捍卫小姐私密领地",
+   "source": "person",
+   "start_minute": null,
+   "tags": [],
+   "title": "清算法警闯入回廊窥探千金危局",
+   "trigger": "银行债务代理人白洲见楼上起火借救援之名企图强闯二层闺房搜刮地契"
+  },
+  {
+   "choice": "选择利用撬开合页一瞬的反作用力借势滚向外侧，或是停顿被压在柜底",
+   "exits": [
+    {
+     "cost": "膝头在柚木板上擦出微量青淤伤痕",
+     "option": "借脱扣一瞬的微弱间隙优雅侧滚翻入安全地板凹槽"
+    },
+    {
+     "cost": "下肢受严重重压伤残并被烈火包围",
+     "option": "动作稍慢被倾倒柜体压中裙摆无法动弹"
+    }
+   ],
+   "far": {
+    "consequence": "千金小姐遭受严重粉碎性骨折甚至被当场压毙。",
+    "due_days": 1,
+    "trigger": "书柜整体砸落压碎地面"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_heavy_bookcase_secondary_crush",
+   "immediate": {
+    "minutes": 1,
+    "text": "书架发出刺耳木料呻吟，上方残存的大批精装百科全书如飞石般散落砸下。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_atrium_library_gallery"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若无法在半秒内抽出肢体，倒塌的书柜将直接压断千金双腿与肋骨。"
+   },
+   "objective": "在三百公斤巨木彻底砸实地坪前完成侧滚脱身",
+   "source": "accident",
+   "start_minute": null,
+   "tags": [],
+   "title": "樟木大书柜二次倾覆滑压重伤危局",
+   "trigger": "柚木地板被暴雨淋湿极度湿滑导致倾斜书架支撑脚再次滑移三公分"
+  },
+  {
+   "choice": "选择以和服袖内备用香帕掩口鼻盲插销钉，或是慌乱呼喊吸入浓烟窒息",
+   "exits": [
+    {
+     "cost": "喉咙轻微干哑轻咳但神志始终保持清醒",
+     "option": "以香帕掩鼻闭合双目凭千百次摩挲印章手感盲插精准挑退卡舌"
+    },
+    {
+     "cost": "丧失自救神智随同倾覆宅邸化为焦炭",
+     "option": "因剧烈咳嗽吸入大量有毒烟气晕厥当场"
+    }
+   ],
+   "far": {
+    "consequence": "千金小姐陷入严重缺氧性昏迷乃至窒息身亡。",
+    "due_days": 1,
+    "trigger": "深度吸入性损伤导致呼吸骤停休克"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_smoke_inhalation_fainting_risk",
+   "immediate": {
+    "minutes": 1,
+    "text": "双眼被呛得无法睁开，喉咙受浓烟灼烧剧烈干咳，意识在缺氧边缘游离徘徊。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_atrium_library_gallery"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若在三十秒内未能脱身撤向通风处，将因一氧化碳中毒当场昏倒在火场中。"
+   },
+   "objective": "屏住呼吸保持意识清醒仅凭触觉与肌肉记忆完成盲操自救",
+   "source": "accident",
+   "start_minute": null,
+   "tags": [],
+   "title": "羊皮纸燃烧剧毒浓烟窒息昏厥危局",
+   "trigger": "中庭回廊挑空穹顶烟囱效应使有毒浓烟在一分钟内完全积聚在二层回廊"
+  },
+  {
+   "choice": "选择以左臂宽大振袖挡住面门单手盲操银印，或是顾此失彼导致面部受伤",
+   "exits": [
+    {
+     "cost": "左臂和服外袖被碎琉璃割裂数道细微口子但容颜毫发无损",
+     "option": "端庄伏身以左手长袖完全遮蔽容颜单手以巧劲顶开合页脱困"
+    },
+    {
+     "cost": "雪白凝脂面庞留下严重割伤永久破相毁容",
+     "option": "惊慌失措抬头导致面颊被尖锐玻璃碎片划破渗血"
+    }
+   ],
+   "far": {
+    "consequence": "名门第一绝色佳人遭受毁容眼伤终结一切社交光明前途。",
+    "due_days": 1,
+    "trigger": "碎屑严重划伤面容与眼眸"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_stained_glass_storm_cuts_risk",
+   "immediate": {
+    "minutes": 1,
+    "text": "暴雨冰凉刺骨夹杂锋利琉璃冰凌呼啸扑面，回廊气温骤降十余度冷热交加。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_atrium_library_gallery"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "碎玻璃若划破面庞，将在名媛如玉雪肤上留下无法磨灭之永久疤痕。"
+   },
+   "objective": "以衣袖和手部姿态严密护住白瓷凝脂小脸防止毁容",
+   "source": "nature",
+   "start_minute": null,
+   "tags": [],
+   "title": "狂风倒灌碎琉璃飞溅割裂面庞危局",
+   "trigger": "暴风雨台风阵风透过破碎穹顶卷起满地彩色琉璃锋锐碎屑如雨扫射"
+  }
+ ],
+ "region": "东京郊外九条伯爵府邸挑空十米欧风洋馆二层回廊书阁与红茶沙龙",
+ "rules": [
+  {
+   "id": "rule_silk_kimono_preservation_protocol",
+   "text": "价值千金之大正高定正绢本场大岛绸和服在受外力机械合页咬死时严禁野蛮撕扯，须使用硬质钝口工具撬动间隙释放布料张力以防损坏名门仪态。"
+  },
+  {
+   "id": "rule_pure_adult_aristocrat_code",
+   "text": "破产清算令生效后，府邸一草一木皆列入查封清册，唯有地契与家印须由家主本人当面交割。"
+  },
+  {
+   "id": "rule_zero_pronoun_linguistic_standard",
+   "text": "华族闺阁不许外男擅入，火警时须由家老或女仆引路，巡官持公文方可破门。"
+  },
+  {
+   "id": "rule_sentence_deduplication_mandate",
+   "text": "台风夜洋馆须落下全部防风百叶，挑空回廊只许点煤油壁灯，严禁明火靠近书阁。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "家名故交",
+  "committed": "金石盟约",
+  "familiar": "患难知己",
+  "flirting": "暗愫微澜",
+  "intimate": "托付身家",
+  "stranger": "洋馆初见",
+  "testing": "死线试探"
+ },
+ "status": "released",
+ "style_hint": "以大正和洋折衷建筑美学与暴雨孤馆压迫感烘托名门闺秀坚忍自尊，将贵重正绢和服机械受卡与纯银印纽微观杠杆破拆紧密结合。",
+ "tension_engines": [
+  {
+   "id": "te_bookcase_hinge_kimono_jam",
+   "text": "三百公斤百年实心樟木大书柜倾斜砸落，冷轧黄铜合页转轴以数十吨冲击力死死咬扣大岛绸振袖和服右侧下摆，稍有硬拉就会将高定正绢纤维撕裂走光破体。"
+  },
+  {
+   "id": "te_electrical_arc_fire_deadline",
+   "text": "洋馆彩绘穹顶电线短路迸射火星引燃干枯古籍，羊皮纸焦臭浓烟与熊熊烈火顺着窗帘迅速蔓延逼近，灭火与自救生死窗口仅余半分钟极限时限。"
+  },
+  {
+   "id": "te_silver_seal_precision_lever",
+   "text": "脱困工具仅有千金随身配带铸重达七两有余（三百五十克）之硬质纯银八角手柄，必须在火光浓烟中以精准三十度斜角切入两毫米合页死隙，施加三点八牛顿剪切力矩挑退转轴脱扣销钉。"
+  },
+  {
+   "id": "te_aristocratic_modesty_defense",
+   "text": "身为大正末期破产名门之后，千金对自身冰清玉洁名誉与将帅名门傲骨有着深入骨髓之极度恪守，振袖开裂露体受辱比直面烈火死神更令其难以忍受千百倍。"
+  }
+ ],
+ "title": "大正浪漫·破产华族千金·暴雨洋馆倾斜樟木书柜咬死和服振袖",
+ "tone": [
+  "大正浪漫",
+  "风雨洋馆",
+  "振袖咬合",
+  "孤傲名媛",
+  "硬核杠杆"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "twist_silver_seal_lever_pop_triumph",
+   "requires": [],
+   "text": "纯银八角印柄三毫米直角硬棱宛如微观撬杠，在三点八牛顿角向剪切力矩压迫下，黄铜合页转轴内部销钉被整体硬生生顶出三毫米，咬死之导轨死隙应声弹脱，墨蓝正绢右袖完好无损地顺势滑出解放，千金身形彻底从容脱险！"
+  },
+  {
+   "category": "信息",
+   "id": "twist_inspector_acoustic_leverage_cue",
+   "requires": [],
+   "text": "建筑巡官凭手电强光柱精准照射出合页销钉逆向受力点并大声报出向上挑动三毫米之力矩口诀，为盲操中的千金提供了分毫不差的生还坐标！"
+  },
+  {
+   "category": "人事",
+   "id": "twist_red_cloak_modesty_iron_curtain",
+   "requires": [],
+   "text": "近身女仆在回廊尽头舍身拉开加厚深红羊毛斗篷筑起密不透风之名节屏风，彻底封死了任何窥探视线，用赤诚袍泽忠义捍卫了名门千金小姐的绝对尊严！"
+  },
+  {
+   "category": "意外",
+   "id": "twist_rainstorm_douse_library_flames",
+   "requires": [],
+   "text": "咆哮倒灌的暴风雨透过破碎琉璃穹顶如倾盆巨浪浇灌在燃烧的古籍书架上，天然化作一场神级降水，在烈火蔓延至回廊夹层前硬生生将火势彻底扑灭熄灭！"
+  },
+  {
+   "category": "时限",
+   "id": "twist_seneschal_shoulder_block_time",
+   "requires": [],
+   "text": "老家老在倾斜书架下以血肉肩膀死死顶住支撑立柱，以一夫当关之钢铁忠勇硬生生为千金小姐自救争取到了至关重要的最后十五秒窗口！"
+  },
+  {
+   "category": "制度",
+   "id": "twist_heirloom_seal_hidden_vault_key",
+   "requires": [],
+   "text": "千金手中紧握的那枚纯银家印底面所刻之古篆家纹，竟然正是一层沙龙绝密暗格金库最高权限的自锁开启密钥，当场取出了足以全额清偿债务的祖传黄金国债凭证！"
+  }
+ ]
+}

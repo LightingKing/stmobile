@@ -1,0 +1,2263 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满五十岁，深水井控老骨干，成年公民。",
+   "age_range": [
+    50,
+    54
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_veteran_rigger_lao_qi",
+   "line": "气压飙到超标红线了！偏心槽往右侧偏了两度，硬转要滑扣啊！",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "name": "老蓝",
+   "role": "深水平台老铆工老蓝"
+  },
+  {
+   "adult_context": "年满二十八岁，海事监管随员，成年公职人员。",
+   "age_range": [
+    28,
+    31
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_safety_inspector_deputy_feng",
+   "line": "监察官有令！倒计时还剩三分钟，准备拉下炸缆闸刀炸断隔水管自保！",
+   "location_ids": [
+    "loc_drill_floor_moonpool_catwalk"
+   ],
+   "name": "封副官",
+   "role": "海事监督副官封副官"
+  },
+  {
+   "adult_context": "年满四十五岁，深水水下技术主管，成年老工程师。",
+   "age_range": [
+    45,
+    49
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_subsea_engineer_shang",
+   "line": "高压备用氮气已切入！女总监，用加力扳手别住偏心槽，垫上老装配工的石棉板！",
+   "location_ids": [
+    "loc_drill_floor_moonpool_catwalk"
+   ],
+   "name": "尚工程师",
+   "role": "深水水下工程大班尚工程师"
+  },
+  {
+   "adult_context": "年满二十二岁，钻井平台场地工，成年公民。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_cadet_petroleum_xiao_zong",
+   "line": "排气管线冲蚀厚度超限了！倒灌泥浆冲上来了，快把旁通阀转开啊！",
+   "location_ids": [
+    "loc_mud_diverter_overboard_gallery"
+   ],
+   "name": "小汤",
+   "role": "钻台场地工小汤"
+  },
+  {
+   "adult_context": "年满三十三岁，海洋消防指挥员，成年军官。",
+   "age_range": [
+    33,
+    37
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_offshore_fire_captain",
+   "line": "泡沫水幕系统已对准月池死角，女总监，务必把扳手压到底阻断刺漏！",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "name": "涂队长",
+   "role": "平台特勤消防中队长涂队长"
+  },
+  {
+   "adult_context": "年满二十六岁，持有海上急救执照的女医官，成年公民。",
+   "age_range": [
+    26,
+    28
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_offshore_medic_officer_ran",
+   "line": "高压降温解毒冰毯与纯氧吸入器已就位，分流器一泄压立刻拉人抢救！",
+   "location_ids": [
+    "loc_drill_floor_moonpool_catwalk"
+   ],
+   "name": "闵医生",
+   "role": "平台医务室医生闵医生"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "傲娇女总监与平台吊车司机长在月池刺骨恶浪里背靠背、手扣手，把加力扳手向死角猛压泄压平压。",
+   "id": "cc_director_and_mechanic_rush",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "director_gu_hailan",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "涌浪绝境中共同测算力矩与偏角，建立起生死托付的机械共鸣，在平台上过了不知多少个二十八天。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "mechanic_lei_changhai",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在深海火线摸爬滚打的生死战友，深知对方过硬的铁骨担当。",
+     "stage": "familiar"
+    },
+    {
+     "a": "director_gu_hailan",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "mechanic_lei_changhai",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "傲娇女总监与重装机修老兵在狂暴恶浪前结成生死同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "director_gu_hailan",
+    "mechanic_lei_changhai"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在气柱彻底冲毁月池前，合力用加力扳手将偏心旁通阀旋开三十圈释放液压实现分流消漏脱险。",
+    "limit_gap": "女总监体能在冰冷海水与缺氧下逼近昏厥休克临界，机修长受限于双手二度冻伤剧痛难忍。",
+    "meeting_reason": "倒班直升机刚走，台风预警升级，女总监拉上吊车司机长坐吊篮下月池查分流器。",
+    "resource_gap": "女总监精通浅层气水动力卸荷力矩死穴，机修长拥有惊人的下盘千斤坠肉身爆发力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_shallow_gas_vs_diverter_wrench",
+    "te_freezing_spray_soak_vs_tight_press"
+   ]
+  },
+  {
+   "chemistry": "传奇女总监的从容冷冽稳住吓瘫的新手助理，新手助理冒死送达加长合金空心套管与牵引带，师徒合力化解平台爆炸危机。",
+   "id": "cc_director_and_cadet_pipe_extension",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "director_gu_hailan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "紧盯女总监的每一个锁死手势。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "cadet_petroleum_xiao_zong",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "鼓励新手助理战胜深海恐惧。",
+     "stage": "familiar"
+    },
+    {
+     "a": "director_gu_hailan",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "cadet_petroleum_xiao_zong",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "师徒传承与工程庇护。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "director_gu_hailan",
+    "cadet_petroleum_xiao_zong"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "迅速接驳加长空心力臂协助加力扳手一举压死咬死阀芯。",
+    "limit_gap": "成年的青年助理面对月池刺骨恶浪颠簸心理防线脆弱，女总监在狂暴晃动中无法分身捡拾工具。",
+    "meeting_reason": "助理技术员第一次上平台，下了直升机还在晕，就被女总监直接带去钻台熟悉井控面板。",
+    "resource_gap": "女总监握有核心七十五公分加力扳手与绝对技术决断权，青年助理掌握加长特种合金空心管与应力手册。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_shallow_gas_vs_diverter_wrench"
+   ]
+  },
+  {
+   "chemistry": "特派海事监察官歇斯底里要求引爆炸断隔水管弃平台逃跑，机修工长怒拔大敲击梅花扳手横在其喉结据理力争寸步不让。",
+   "id": "cc_mechanic_and_inspector_clash",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "mechanic_lei_changhai",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "赞许工长抗命护持全机同袍的铁骨担当。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "inspector_feng_bo",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对视一线人命如草芥的自私官僚深恶痛绝。",
+     "stage": "stranger"
+    },
+    {
+     "a": "mechanic_lei_changhai",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "inspector_feng_bo",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "一线工长与上层逃命官员之间的生死对峙。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mechanic_lei_changhai",
+    "inspector_feng_bo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "压制官僚逃跑行径为月池死角内旁通阀旋开争取至关重要的三分钟时间。",
+    "limit_gap": "监察官极度恐惧万吨平台倾覆葬身海底，工长受限于公然违抗海事安全条例的严重威慑。",
+    "meeting_reason": "监察官跟着倒班直升机登上平台，脚还没站稳就要停钻撤人，被吊车司机长拦在停机坪边。",
+    "resource_gap": "监察官手握海事指挥部隔水管紧急爆破脱扣芯片，工长拥有全平台机修突击队的绝对现场支持。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_inspector_blowup_riser_vs_rescue"
+   ]
+  },
+  {
+   "chemistry": "深海老铆工隔着狂暴恶浪指点偏角递上石棉防滑垫片，与月池内死磕扳手的年轻女总监里应外合，协同化解深海灭顶死局。",
+   "id": "cc_director_and_master_qi_lever",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "director_gu_hailan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "深信女总监神级水下决断力。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "senior_diverter_system_rigger_qi",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "老铆工的经验指引令人心头大定。",
+     "stage": "familiar"
+    },
+    {
+     "a": "director_gu_hailan",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "senior_diverter_system_rigger_qi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "两代海洋石油人之间的默契互救。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "director_gu_hailan",
+    "senior_diverter_system_rigger_qi"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "精准将石棉垫片塞入右偏两度偏心卡槽撬平反扣脱险。",
+    "limit_gap": "老铆工年迈患有关节炎无法上前死拼下压，女总监在颠簸浪花中双眼难辨毫米级偏角。",
+    "meeting_reason": "老装配工这一轮本该下平台休假，台风一来，自己又把行李拎回了宿舍。",
+    "resource_gap": "老铆工握有旁通阀右偏两度偏心口诀与石棉垫片，女总监掌握核心加力扳手与绝对技术决断权。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_shallow_gas_vs_diverter_wrench",
+    "te_inspector_blowup_riser_vs_rescue"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_moonpool_acoustic_intercom",
+   "reach": "all",
+   "text": "月池死角内部高强度防爆骨传导有线通信网"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_shallow_gas_screams_deadlock",
+   "reach": "local",
+   "text": "高压浅层气极速刺漏尖锐啸叫与监察官惊恐呼叫"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已成年的超深水半潜式钻井平台特级防喷控制女总工程师，年满二十一岁，持有国家海洋深水突发大事故一级应急处置指挥资质，对井控系统享有完全决断处置权。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "褪去防风救生服后内着速干潜水背心，清冷绝美神情傲娇，两腮带着柔和的轮廓，在狂风暴雨与滚烫气浪颠簸的急促喘息中，白皙双颊被烘烤得泛起娇艳酡红，晶莹香汗顺着下颌滑入紧绷锁骨。",
+    "湿透的乌黑短发用防滑带利落束在脑后，纤细双臂紧扣长达七十五公分的大口径耐海水腐蚀双向手动棘轮应急放压加力扳手死死别入偏心槽，面颊在火红警报灯映照下泛出绝不屈服的傲娇坚毅，展现出统帅万吨钻井平台的绝对指挥威严。"
+   ],
+   "decision": {
+    "avoids": [
+     "优柔寡断的推脱软弱",
+     "打着保命旗号擅自炸断隔水管逃生的官僚"
+    ],
+    "contrast": "外表傲娇美艳，在平台上一待二十八天，打公用电话排队、食堂抢冰激凌一样不落，面对超深水平台失控时手劲与力学决断胜过粗壮钻工。",
+    "core_value": "深海气包再狂暴，也必须服从水动力流体力学公差，只要这柄加力扳手还在手里，本总监就能把这冲天的气柱死死按回海沟里。",
+    "goal_options": [
+     "利用加力扳手插入偏心槽手动卸压平压",
+     "在月池被气浪吞没前排除抱死复位分流器自救"
+    ],
+    "never": [
+     "在分流器彻底卸压复位消除险情前独自弃平台逃生"
+    ],
+    "prefers": [
+     "分秒不差的机械咬合配合",
+     "生死关头敢把后背交出来的铁血搭档"
+    ],
+    "pressure_responses": {
+     "breaking": "直升机两天之内都飞不来，用牙齿咬破清凉喷雾含服强行保持清醒继续双掌死扣扳手下转",
+     "high": "整个人扑在扳手柄端借全身自重与双臂爆发力合力顺时针死压到底",
+     "low": "在气浪初喷时冷静测算天然气溢出流量与胶芯液压阻力",
+     "mid": "果断抽出七十五公分加力扳手找准偏心槽切角"
+    },
+    "relationship_stance": "平日神情傲娇冷艳容不得半点违章违规，但面对深海生死绝境展现出同生共死的过人胆魄与统帅决断。",
+    "withdrawal": "退守至月池钢梁背风面防爆承重立柱内侧，单臂挽住安全扶手冷眼注视泥浆液位表读数。"
+   },
+   "gender": "female",
+   "gender_reason": "深海钻井防喷控制女总监",
+   "id": "director_gu_hailan",
+   "identity": {
+    "authority": "对深海分流器、环形防喷器组、紧急脱离释放程序及现场全部突击抢险人员享有最高战术决断权与工程否决权。",
+    "exposure": "为了赶进度曾顶着浅层地质微气侵隐患下达了快速穿透钻进指令",
+    "hidden": "工装背心贴胸口袋内装着一枚刻有南海万米深潜取样纪念经纬度的纯钛吊坠",
+    "limits": [
+     "在分流器彻底卸压复位前无法离开剧烈颠簸的月池悬空死角",
+     "长时间暴露在冰冷海水飞沫与高压天然气气浪中面临急性中毒与低体温症休克"
+    ],
+    "obligations": [
+     "确保分流器胶芯完全卸压排气通海力保价值数十亿深水平台与全员生命安全"
+    ],
+    "resources": [
+     "一柄大口径耐海水腐蚀双向手动棘轮应急放压加力扳手（长七十五公分，超硬度镍基特种合金锻造，耐海水盐雾腐蚀，端部带防滑双向棘爪定位卡块）",
+     "一盒高压深海便携式快速抗寒抗眩晕舒缓喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在狂风巨浪颠簸月池面前横刀立马的如山身躯",
+     "千钧一发之际毫不犹豫用滚烫胸膛为自己挡下高压气液射流的舍命相护"
+    ],
+    "boundaries": [
+     "严守总监指挥威严不容侵犯",
+     "不以救命功绩索取私人情感屈从"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被从身后紧抱稳住重心抗击涌浪冲击，双手叠合在加力扳手上一同向下猛力死转。",
+    "dislikes": [
+     "自私逃兵的卑劣行径",
+     "自恃官威的蛮横瞎指挥"
+    ],
+    "expression": "脱险进入安全区后，默默撕下自己最干爽的潜水背心棉布轻柔擦拭对方被高压泥浆灼红的双臂，眼神温柔而坚毅。",
+    "likes": [
+     "两人合力压死扳手时胸膛紧贴传来的粗重狂热心跳",
+     "险情排除后彼此抹去面颊盐水与热汗时的傲娇羞怯轻哼"
+    ],
+    "preconditions": [
+     "分流器完全卸压复位且气液泥浆完全平息受控",
+     "全员安全返回主甲板控制室完成更衣洗消",
+     "两人都清醒，心意出于自己，不是月池恶浪里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "深海钻井防喷控制总监",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_moonpool_diverter_manifold_nook",
+     "to": 1420
+    },
+    {
+     "from": 1420,
+     "location_id": "loc_moonpool_diverter_manifold_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "加力扳手手柄发生微小弯曲变形，操作人员双手被粗糙防滑纹磨出大面积血泡鲜血浸透潜水服。",
+      "option": "用大口径耐海水腐蚀双向手动棘轮应急放压加力扳手顺时针死死旋开三十圈卸压自救。"
+     },
+     {
+      "cost": "大扳手受强烈高压反冲脱手崩飞划破在场人员面颊与肩膀。",
+      "option": "用破拆大活动扳手反向敲击分流管线截止阀强行制造局部机械泄压脱险。"
+     }
+    ],
+    "pressure": "月池内天然气浓度飙升逼近爆炸极限，距全面爆燃冲毁平台仅剩四分钟逃生窗口。",
+    "trigger": "浅层高压气包刺漏，万吨分流器环形大胶芯在泥浆超压冲击下膨胀抱死。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "还有最后四分之一圈螺牙……只要扳手不崩脱，本姑娘绝不会让钻井平台化作火海，给我转到底！",
+    "surface": "别管那些冲在身上的刺骨海水！把这根七十五公分的加力扳手扣入偏心槽，跟我数三二一一起用力顺时针死转到底！"
+   }
+  },
+  {
+   "adult_context": "年满三十岁，海洋超深水钻井特级机修长，具备完全民事行为能力，十年深海火线摸爬滚打老将。",
+   "age_range": [
+    30,
+    36
+   ],
+   "appearance_options": [
+    "身材极其魁梧刚劲肩背宽厚如山，身着带有加厚凯夫拉内衬的防烫阻燃厚潜水服，手臂青筋暴起肌肉如坚硬生铁，面容粗犷目光冷峻。",
+    "短发被冰冷海水与滚烫汗珠浸透黏在额头，在月池悬空栈桥剧烈晃动中双脚如生根道钉稳稳踩在防滑钢格板上。"
+   ],
+   "decision": {
+    "avoids": [
+     "前怕狼后怕虎的逃兵",
+     "遇事推诿责任的空谈客"
+    ],
+    "contrast": "看似粗野鲁莽的深海汉子，在配合女总监下转扳手时的力矩与重心把控精妙绝伦分毫不差。",
+    "core_value": "月池就是阵地，只要女总监还在前头拼命，{npc.name}就算拼上这条命也得顶住万米深海怒涛。",
+    "goal_options": [
+     "协助女总监转动加力扳手释放液压油",
+     "用宽厚身躯挡住狂暴喷射的滚烫泥浆气浪"
+    ],
+    "never": [
+     "在总监还在恶浪中死拼时独自松开扳手逃跑"
+    ],
+    "prefers": [
+     "干净利落的军令作风",
+     "关键时刻豁出命硬碰硬的汉子"
+    ],
+    "pressure_responses": {
+     "breaking": "用宽厚脊背硬生生挡住上方管道爆开的高压泥浆为女总监撑起发力空间",
+     "high": "月池里的海水翻着白沫，双手死死包覆在女总监手背外侧倾注全身近两百斤自重协同压下扳手",
+     "low": "在气浪初现瞬间迅速甩出加厚耐磨绝热手套反向塞给女总监",
+     "mid": "用雄厚宽阔的胸膛一把捞住被涌浪颠簸冲倒的年轻助理"
+    },
+    "relationship_stance": "吊车驾驶室是全平台最高的地方，女总监每回坐吊篮下月池，都是吊车司机长在上头盯着，一盯就是好几年。",
+    "withdrawal": "退守至月池主承重工字钢角梁内侧，右手握紧大敲击扳手警惕任何螺栓应力飞崩。"
+   },
+   "gender": "male",
+   "gender_reason": "深水钻井平台特级机械检修老工长",
+   "id": "mechanic_lei_changhai",
+   "identity": {
+    "authority": "对月池悬空重型抢修工具调用、应急高压注水及防坠安全索拥有现场绝对处置权。",
+    "exposure": "为了抢时间曾违规在带压状态下微调过分流管线蝶阀行程",
+    "hidden": "机修背心贴身内袋里珍藏着女总监当年初登平台时亲手颁发的大国重器落成徽章",
+    "limits": [
+     "体能在抗衡刺骨海浪冲击与高压气浪反冲中逼近体力极限",
+     "不懂微观非定常气侵流体动力学偏微分积分方程"
+    ],
+    "obligations": [
+     "誓死协助总监女总监转动扳手释放液压油力保全员平安生还"
+    ],
+    "resources": [
+     "一柄大号高强度耐海水特种重型敲击梅花扳手",
+     "两卷带有耐油加厚橡胶涂层的高抗拉防滑包扎带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在千米深渊恶浪面前横刀立马的非凡霸气",
+     "两具滚烫身躯在失速震颤中紧密贴合的炽烈生命羁绊"
+    ],
+    "boundaries": [
+     "恪守深水机修职责从属规矩不越礼数",
+     "不以救命恩情索取私人情感回报"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在摇晃的月池死角内从后方抱紧女总监稳住重心，双手全力握紧扳手合力向下猛压到底。",
+    "dislikes": [
+     "临阵弃守的自私懦夫",
+     "背信弃义的下作小人"
+    ],
+    "expression": "撕下自己干燥的保暖内胆，轻柔却有力地裹在女总监被冰冷海水浸透的白皙香肩上。",
+    "likes": [
+     "战胜死神后痛快大喝冰镇热茶的畅快",
+     "泄压阀开启液压平复瞬间两人粗重滚烫的胸膛起伏与鼻息交融"
+    ],
+    "preconditions": [
+     "分流器胶芯完全卸压平复且现场温度受控下降",
+     "全员安全撤出月池返回地面控制室"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "平台吊车司机长",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_moonpool_diverter_manifold_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}右侧背阔肌严重拉伤撕裂，双手隔着手套被磨出大面积水泡破溃。",
+      "option": "{npc.name}将全身自重压在扳手末端借超长力矩强行带动抱死阀芯反转脱险。"
+     },
+     {
+      "cost": "大扳手受强烈高压反震脱手崩飞划破{npc.name}面颊与手腕。",
+      "option": "用防爆大扳手反向敲击偏心凸耳强行震松偏心咬死自救。"
+     }
+    ],
+    "pressure": "若不能在两分钟内合力转动扳手三十圈释放液压油，高压气柱将彻底冲毁分流器引发全平台大爆炸。",
+    "trigger": "气液泥浆压力突破报警上限，月池悬空栈桥晃动倾斜达十度，旁通阀承受强烈偏载。"
+   },
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "voices": {
+    "inner": "女总监是天生的帅才。只要我还有一口气在，这深海恶龙休想伤女总监半根毫毛。",
+    "surface": "女总监！吊篮我锁死了，上头有人盯着！扳手有{npc.name}托着，你喊顺逆，老子把这身骨头全压上去！"
+   }
+  },
+  {
+   "adult_context": "年满三十八岁，海事与能源安全监察官员，具备完全民事行为能力，掌控紧急解脱隔水管与全平台弃守自沉通报权。",
+   "age_range": [
+    38,
+    44
+   ],
+   "appearance_options": [
+    "身穿带有高反光条的高级防风呢绒海事监察风衣，面容白净戴着金丝防爆护目镜，此时被滚烫泥浆气浪熏得满脸油汗神色惨白。",
+    "双手死死抓着胸前的高空逃生速降吊带，眼神在保全自身性命与维持官方威严间剧烈战栗。"
+   ],
+   "decision": {
+    "avoids": [
+     "月池下方冰冷刺骨恶浪扑面的死角",
+     "与浑身泥浆机油的钻工同舟共济"
+    ],
+    "contrast": "平日在发布会上冠冕堂皇大谈海洋生态与安全，大难临头时比谁都贪生怕死、丑态百出。",
+    "core_value": "保全自身性命与监察官阶高于一切，底层机修工与水工不过是海事统计数字。",
+    "goal_options": [
+     "强行开启水下爆破钥匙引爆炸药切断隔水管逃生",
+     "勒令女总监立刻放弃抢修撤退至主甲板堡垒"
+    ],
+    "never": [
+     "为了挽救同行机修人员而延误自己登上救生艇的时间"
+    ],
+    "prefers": [
+     "绝对的官僚顺从",
+     "空调清凉的高级海事指挥所"
+    ],
+    "pressure_responses": {
+     "breaking": "瘫坐在地板上交出气动切断钥匙换取优先速降登艇权",
+     "high": "被吊车司机长夺下钥匙按在角钢上后吓得瘫倒在栏杆旁",
+     "low": "在主栈桥大声宣读海洋安全法条规章推卸责任",
+     "mid": "发现月池气压超标后歇斯底里试图暴力扳动爆破脱扣手柄"
+    },
+    "relationship_stance": "将女总监视为恃才傲物不服管束的技术刺头女总监，对其专业权威既敬畏又嫉恨。",
+    "withdrawal": "整座平台在风里微微发颤，退缩在防爆通廊后方密封防爆逃生救生室内，双手死死抱住公文包与自救呼吸器。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "inspector_feng_bo",
+   "identity": {
+    "authority": "代表海事监管部门行使重大险情全平台紧急解脱戒严权、下达炸断隔水管弃平台的最终签署权。",
+    "exposure": "为了赶进度曾对分流器高压液压控制管排微小渗漏缺陷单据违规签署放行",
+    "hidden": "暗中启动了呼叫海警高速巡逻艇前来平台接应的加密应急信标",
+    "limits": [
+     "完全不懂分流器大胶芯水动力自动弹性复位微观公差机理",
+     "极度恐慌爆炸企图强行启动水下火工切断炸毁隔水管单独逃生"
+    ],
+    "obligations": [
+     "保全公文包内超深水钻井平台特许勘探审查原始文件"
+    ],
+    "resources": [
+     "一台便携式多功能深海气体记录仪",
+     "一枚隔水管紧急水下爆破脱扣钥匙芯片"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "能保全自身性命与官位的高效铁腕庇护",
+     "迎合其官僚尊严的阿谀奉承"
+    ],
+    "boundaries": [
+     "严禁任何普通机修工触碰其高级监察制服",
+     "不承担任何同舟共济抢险义务"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在主栈桥外手握对讲机，命令水下机器人在倒计时归零时立刻引爆炸药切断隔水管。",
+    "dislikes": [
+     "粗暴的抗命顶撞",
+     "被冰冷扳手与铁拳指着鼻梁的屈辱恐慌"
+    ],
+    "expression": "战战兢兢地从口袋里摸出一盒昂贵的高效抗晕含片扔在地上换取机修工长拼命下扳制动，把公用电话的排队名额让给了对方。",
+    "likes": [
+     "被护卫在最安全的防爆监控室",
+     "特供的高级雪茄与热茶"
+    ],
+    "preconditions": [
+     "彻底脱离深海爆炸危险置身于海警救援船",
+     "保全既得海事总监官职衔"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "特派海事安全监督专员",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_drill_floor_moonpool_catwalk",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "涉嫌公然抗拒海事监察执法面临事后被停职审查。",
+      "option": "吊车司机长夺下监察官爆破钥匙并用高强绑带将其捆死在角钢立柱上自救。"
+     },
+     {
+      "cost": "近身对抗导致女总监右手腕被尖锐仪表外壳划伤渗血。",
+      "option": "女总监大声以现场技术总监身份喝退监察随员并亲手切断引爆继电器脱险。"
+     }
+    ],
+    "pressure": "若三分钟内不能转开旁通泄压阀，特派监察官手中的芯片将直接触发水下火工切断炸毁隔水管封闭生路。",
+    "trigger": "气压超标触发海事与能源安全指挥部紧急切缆自沉最高预警条例。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这群疯子……平台要是真炸了，谁都得沉海喂鱼，我必须自己活下去！快切断！",
+    "surface": "女总监！吊车司机长！月池气压已经超标了！立刻放弃手动旋平！本监察官命令你们立刻拉下拉闸脱离自保！"
+   }
+  },
+  {
+   "adult_context": "年满五十岁，深海钻井特级老装配工，成年工匠宗师，具备完全民事行为能力。",
+   "age_range": [
+    50,
+    54
+   ],
+   "appearance_options": [
+    "身穿带有高反光条的破旧加厚阻燃工程防寒棉背心，满脸被深海风暴与盐雾侵蚀的深刻皱纹，花白短发挂满海水飞沫与黑灰。",
+    "手里握着一把被摸得发亮的特种纯钢防偏敲击冲子，眼神在恶浪与火光中如海底暗礁般沉静坚毅。"
+   ],
+   "decision": {
+    "avoids": [
+     "不知变通的教条官僚",
+     "遇到大险就弃平台逃跑的软蛋"
+    ],
+    "contrast": "平日沉默寡言甚至被年轻工人视为顽固老汉的老铆工，在面对深海大喷发时指点沉着如定海神针。",
+    "core_value": "机械结构不骗人，只要给对力道没有摇不动的死泄压阀。",
+    "goal_options": [
+     "指点女总监找准右偏两度切入角插入扳手",
+     "垫入石棉垫片阻滞气浪对冲防滑"
+    ],
+    "never": [
+     "在机械受力关键时刻误报公差参数"
+    ],
+    "prefers": [
+     "严丝合缝的工匠本色",
+     "一诺千金的工程信义"
+    ],
+    "pressure_responses": {
+     "breaking": "用身躯抵住脱脱晃动的平衡支架为年轻人争取发力时间",
+     "high": "用沙哑嗓音高呼右侧偏两度顺力死转的最佳起步方位",
+     "low": "在月池角落用冲子敲击管壁凭回响辨识阀门卡阻游隙",
+     "mid": "冒着滚烫泥浆气浪递上石棉防滑垫片塞入咬合盲区"
+    },
+    "relationship_stance": "将女总监视为中国海洋石油界百年不遇的巾帼奇才，由衷赞佩年轻女总监的从容定力与过硬铁腕。",
+    "withdrawal": "躲在月池主梁背风凹槽内，用厚棉背心死死护住垫片与精密量具盒。"
+   },
+   "gender": "male",
+   "gender_reason": "深海平台防喷分流设备特级老铆焊工老装配工",
+   "id": "senior_diverter_system_rigger_qi",
+   "identity": {
+    "authority": "对大口径分流器双向棘轮卡齿微观形变公差、偏心锁紧槽受力咬合间隙拥有绝对听觉直觉。",
+    "exposure": "曾在检修中为了省事少拧过半圈副法兰防松副螺母",
+    "hidden": "深知这座分流器在受到浅层气高压冲击时偏心锁紧槽会向右侧偏斜两度的装配暗伤缺陷",
+    "limits": [
+     "年老体衰患有严重的慢性风湿关节炎无法承受剧烈奔跑",
+     "在极寒海浪中体液流失极快剧烈咳嗽喘息"
+    ],
+    "obligations": [
+     "将深海井控抢险绝活经验传承给年轻一代工程师"
+    ],
+    "resources": [
+     "两张耐高压特种合成石棉防滑绝热隔板",
+     "一把特制重型纯钢平头偏心防滑敲击冲子"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对深海宏伟油气工程的崇高敬畏与共鸣",
+     "在死亡深渊面前毫无娇气的果断坚毅"
+    ],
+    "boundaries": [
+     "恪守老长辈规矩不越礼数",
+     "不介入年轻后辈的私人感情波澜"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在主梁后敲击钢柱指点偏斜角度，将石棉垫片精准塞入女总监扳手受力死角下方。",
+    "dislikes": [
+     "轻视老工匠经验的傲慢做派",
+     "粗暴破坏昂贵重型水下构件的蛮干行径"
+    ],
+    "expression": "用布满老茧和盐渍的大手重重拍在女总监肩头，咧开嘴角露出释然欣慰的朴实笑容。",
+    "likes": [
+     "旁通阀严丝合缝转开卸压时的清脆合模轰鸣",
+     "抢修完成后在甲板痛饮一壶大红袍热茶的舒畅"
+    ],
+    "preconditions": [
+     "彻底排除浅层气井喷险情气压回归平衡",
+     "保全全部精密量具完整无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "深水井控设备特级老装配工长",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_moonpool_diverter_manifold_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "整座平台在风里微微发颤，消耗尽绝版深水耐高压密封耗材，老工长左手手掌被锋利金属毛刺划破渗血。",
+      "option": "用老铆工私藏的耐高压石棉防滑衬垫塞入缝隙协助扳手稳固深咬自救。"
+     },
+     {
+      "cost": "猛烈敲击造成铸钢外壳产生微小应力裂纹降低防爆耐压等级。",
+      "option": "指挥吊车司机长用大敲击扳手反向敲击偏心凸耳震松咬死轴套脱险。"
+     }
+    ],
+    "pressure": "若无防滑介质介入并纠正两度偏角，加力扳手将在万斤水压反冲下折裂彻底断送开启希望。",
+    "trigger": "旁通阀在剧烈泥浆水锤重压下偏心咬合极深，加力扳手面临卡死打滑。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好闺女，手上功夫够硬！这平台要是毁在老汉眼前，那才是丢尽了老海油人的脸！",
+    "surface": "女总监！听{npc.name}的！那个受损的偏心槽往右侧偏了两度！别死往前硬顶，往右偏两度顺着牙口咬进去再死压！"
+   }
+  },
+  {
+   "adult_context": "年满二十一岁，石油大学海洋工程学院应届毕业生，初级深海井控维护员，具备完全民事行为能力。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身材单薄，身着带有黄色反光条的浅灰阻燃工作服，面容清秀神情极度慌恐，防爆护目镜歪斜卡在脖子上，降噪耳罩挂在脖子上。",
+    "腰间工具袋胡乱塞着激光测距仪与备用小棘轮，双膝在狂风巨浪颠簸中剧烈颤抖、脸色惨白如纸。"
+   ],
+   "decision": {
+    "avoids": [
+     "凶神恶煞的监察官咆哮",
+     "千米深海冰冷刺骨恶浪"
+    ],
+    "contrast": "平日胆小怯弱常被老工人责备的年轻新手，在女总监生死存亡关头能爆发出一股冒死送达加长套管的血性胆魄。",
+    "core_value": "保命第一，崇拜并绝对服从女总监的每一道抢险指令。",
+    "goal_options": [
+     "协助女总监寻找加长套管延长扳手力臂",
+     "在月池管排稳固安全牵引带"
+    ],
+    "never": [
+     "背弃女总监独自放弃求生逃跑"
+    ],
+    "prefers": [
+     "清晰明确的指令指导",
+     "平稳温暖的陆上技术设计所"
+    ],
+    "pressure_responses": {
+     "breaking": "月池里的海水翻着白沫，跪倒在淹过腰部的激流中死死拉紧安全牵引带协助分担剧烈冲击",
+     "high": "鼓起勇气冒着灼热气浪爬过钢格板递送加长套管",
+     "low": "在工具箱内慌乱翻找可以套在扳手末端的加长特种合金套管",
+     "mid": "大声向月池内通报差压读数与分流器旋转圈数位移"
+    },
+    "relationship_stance": "将女总监视为唯一的救命稻草与崇高统帅，愿为协助脱险拼死效命，在平台上过了不知多少个二十八天。",
+    "withdrawal": "缩在月池承重角钢背风死角，紧紧抱住加长合金管浑身哆嗦。"
+   },
+   "gender": "male",
+   "gender_reason": "海洋石油工程青年助理技师",
+   "id": "cadet_petroleum_xiao_zong",
+   "identity": {
+    "authority": "月池应急微型防爆排风机与泥浆分流阀的手动闭合权。",
+    "exposure": "因操作生疏曾导致辅助冷水管路接头发生松脱渗漏",
+    "hidden": "暗自崇拜英姿飒爽的总监女总监将其视为海洋石油界最崇高的精神偶像",
+    "limits": [
+     "缺乏特大深海井喷大事故实战经验心理防线脆弱",
+     "体质单薄力气严重不足难以单独抗衡高压气浪反冲"
+    ],
+    "obligations": [
+     "按规程记录分流器各测点压力并向总监报告气体浓度读数"
+    ],
+    "resources": [
+     "一根厚壁加长高强度特种合金空心加力套管",
+     "一卷高抗拉耐高温金属芳纶加固高空安全牵引带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "泰山崩于前而色不变的卓越帅才魅力",
+     "在深渊面前给予同伴的强大安全感"
+    ],
+    "boundaries": [
+     "恪守助手本分不作非分奢望",
+     "严守下级礼节规矩"
+    ],
+    "desire_range": [
+     1,
+     1
+    ],
+    "desired_position": "在月池安全扶手上方死死拽紧牵引带，大声为女总监下压扳手报出三十圈倒计时读数。",
+    "dislikes": [
+     "残酷暴力的威逼践踏",
+     "被当作废物累赘抛弃"
+    ],
+    "expression": "双手发颤地将加长套管递过，结结巴巴连连向女总监敬礼并保证坚守岗位，事后在甲板上陪着吹了一夜的海风。",
+    "likes": [
+     "被肯定业务能力时的温和颔首",
+     "分到的一枚甘甜提神高能葡萄糖块"
+    ],
+    "preconditions": [
+     "彻底排除浅层气刺漏险情压力稳稳受控归零",
+     "确保自身生命安全得到保障"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "深海平台助理技术员",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_moonpool_diverter_manifold_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}手臂被飞溅电弧火花轻度烫伤起泡。",
+      "option": "整座平台在风里微微发颤，{npc.name}用加长合金管绝缘端砸碎防爆箱电门切断强电自救。"
+     },
+     {
+      "cost": "双手手掌被电弧轻度击伤脱皮。",
+      "option": "用防化外套浸透海水死死捂住短路电缆扑灭电火花脱险。"
+     }
+    ],
+    "pressure": "盐雾糊住了护目镜，若不及时手动切断主配电漏电断路器，飞溅电火花将在三秒内直接引爆高浓度天然气彻底毁灭平台。",
+    "trigger": "月池内部电缆受高压泥浆浸泡绝缘皮破损短路，迸发剧烈电火花。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要总监还在恶浪里拼命，我就不能当缩头乌龟，我必须帮着把这个杀人的分流器彻底压开！",
+    "surface": "女总监！加长套管找到了！这根合金管能套在加力扳手柄端再延展半米力臂！还有这卷防坠牵引带！"
+   }
+  },
+  {
+   "adult_context": "年满二十六岁，持有国家职业海洋创伤急救专科执业证书的成年女医官，具备完全民事行为能力，每次倒班都是最后一个下停机坪。",
+   "age_range": [
+    26,
+    28
+   ],
+   "appearance_options": [
+    "身穿带有红十字标识的白色加厚防化阻燃急救常服，面容清秀神情紧绷，戴着医用无菌防寒手套，双手握着便携式高压注氧仪，被海风吹得皮肤发红。",
+    "神情沉着专注，额前秀发利落束起，脖颈上挂着高敏数字心率血氧监测探头与防毒呼吸罩。"
+   ],
+   "decision": {
+    "avoids": [
+     "情绪失控的盲目挣扎",
+     "隐瞒伤情的蛮干硬撑"
+    ],
+    "contrast": "外表文静纤弱的书生女医官，在面对深海万吨平台大灾难急救时下针稳准狠辣如冰山判官。",
+    "core_value": "生命体征就是最高法典，绝不放弃任何一个尚有微弱脉搏的海洋石油同袍。",
+    "goal_options": [
+     "指导月池内二人通过深腹式呼吸节律对抗急性水寒失温休克",
+     "在落槽卸压瞬间实施重度冻伤复温抢救"
+    ],
+    "never": [
+     "在钻工尚有呼吸时签署放弃抢救书面证明"
+    ],
+    "prefers": [
+     "稳定规律的心率曲线",
+     "遵从医嘱的冷静配合"
+    ],
+    "pressure_responses": {
+     "breaking": "顶着被狂暴浪花喷溅的危险探头向门缝递送应急高压呼吸面罩",
+     "high": "将体温复苏水热毯推至观察门前准备承接重度失温伤员",
+     "low": "在通信频道内持续播报防失温抽搐口诀",
+     "mid": "隔窗指点吊车司机长如何按压穴位缓解女总监手臂肌肉痉挛"
+    },
+    "relationship_stance": "将女总监视为情同手足的亲密姐妹与崇敬的工程榜样，对突击队员安危极度牵挂。",
+    "withdrawal": "退守至复温治疗台前，迅速核对加压舱氧分压配比电磁阀。"
+   },
+   "gender": "female",
+   "gender_reason": "钻井平台特种海上创伤急救站女主治医官",
+   "id": "offshore_medic_officer_ran",
+   "identity": {
+    "authority": "对深海极寒失温休克急救方案、抗高压气浪水击震荡针剂及高压氧舱启闭享有最高医疗处置权。",
+    "exposure": "曾私自调用高压加压舱为患有重度减压病的老钻工实施超规保守治疗",
+    "hidden": "随身急救包内封存着自己亲手调配的高浓度外用神经解痉透皮喷剂",
+    "limits": [
+     "在月池狂暴风浪倒灌区无法实施复杂的静脉穿刺手术",
+     "体能单薄无法搬运数十公斤的重型紧固机械"
+    ],
+    "obligations": [
+     "保障全体井控突击队员零重伤残疾、零急性中毒窒息存活"
+    ],
+    "resources": [
+     "两支浓缩神经保护抗休克急救针剂",
+     "一台便携式微型经皮血氧红外连续监测仪"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在极端高压剧痛下依然保持的超人意志",
+     "生死关头舍命护持同伴的人性光芒"
+    ],
+    "boundaries": [
+     "严守医患职业伦理道德",
+     "不以医疗资源调配进行私利交换"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在月池栈桥上冲下方大喊，用手电一明一灭引导深呼吸。",
+    "dislikes": [
+     "漠视人命的官僚冷血",
+     "因恐惧造成的踩踏推诿"
+    ],
+    "expression": "用温热的手掌轻柔按揉对方冻僵发紫的眉心，柔声安抚其紧绷剧烈震颤的神经脉搏。",
+    "likes": [
+     "平稳有力的深水钻工窦性心律",
+     "脱险后第一口温热电解质葡萄糖水的吞咽声"
+    ],
+    "preconditions": [
+     "分流器完全卸压平复且伤员体温恢复正常",
+     "全员脱离急性气体中毒危险期"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "深水钻井随队主治女医官",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_drill_floor_moonpool_catwalk",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "分担部分抢险精力导致转动扳手节拍轻微延缓。",
+      "option": "通过对讲广播引导月池二人同频深呼吸并相互按压合谷穴解痉自救。"
+     },
+     {
+      "cost": "投料口微启导致少量冷凝水喷溅损坏医用监测仪外壳。",
+      "option": "从投料窗口塞入高效神经解痉含片协助其维持清醒意志脱险。"
+     }
+    ],
+    "pressure": "若不及时进行减压深呼引导，剧烈极寒失温将诱发不可逆心室纤颤骤停。",
+    "trigger": "月池内人员血氧饱和度跌破百分之七十五警戒红线。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要两人把分流器转开，哪怕全身冻僵了，我也一定把两人从阎王爷手里抢回来。",
+    "surface": "女总监！看着我的呼吸手势！深吸气、屏息三秒、慢呼气！千万不要剧烈咳嗽，压住喉咙盐雾刺痛！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "十月，钻井第六十天",
+  "minute": 1395
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "进入月池狭缝前习惯用安全帽重拍铜质防静电接地排三次确认静电彻底释放。",
+  "深海钻井平台机修工习惯在右臂潜水工装袖口缠绕三圈高强黄色耐油防滑胶带。",
+  "女总监习惯将精密红外激光气体测漏仪插在贴身抗震插袋随时测算浅层气溢出率。",
+  "在震耳欲聋的海浪轰鸣与泥浆咆哮中沟通习惯单手按住对方耳廓大声吼叫读数。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用精密标准内径千分尺测量分流器大胶芯自由开度",
+    "擦拭双色石英高温视镜表面积聚的重晶石油泥",
+    "轻扣副放空截止阀螺纹压盖螺栓确认无异常冷凝水"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_moonpool_diverter_seal_log",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "晨光未显月池分流器密封胶芯巡检"
+  },
+  {
+   "beats": [
+    "用铜刮刀清理旁通阀阀杆螺纹表面附着的海水盐粒",
+    "均匀涂抹耐海水冲刷特种合成聚四氟乙烯极压润滑脂",
+    "使用全钢棘轮扳手按对称法紧固六颗大号不锈钢螺栓"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_diverter_manifold_greasing",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "高压液压控制管排偏心锁紧槽硅脂保养"
+  },
+  {
+   "beats": [
+    "转动主气动防火水密门重锤锁紧机械棘爪确认自由行程",
+    "检查配重悬挂不锈钢钢丝绳端部马鞍卡扣夹紧力矩",
+    "在特大深水平台战备施工日志加盖当值监察官电子图章"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_catwalk_pneumatic_hatch_test",
+   "location_ids": [
+    "loc_drill_floor_moonpool_catwalk"
+   ],
+   "start_minute": 1398,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "钻台月池上方防爆通廊气动安全门测试"
+  },
+  {
+   "beats": [
+    "用防爆卡尺测量减震阻尼器弹簧自由行程与压缩量",
+    "清理滑轨锁死卡齿表面堆积的微细金属泥浆沉淀",
+    "在深海抢险战备行车日志加盖当值专员电子印章"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_mud_diverter_cooler_tally",
+   "location_ids": [
+    "loc_mud_diverter_overboard_gallery"
+   ],
+   "start_minute": 1405,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "舷外泥浆分流管线阻火器阻尼点验"
+  },
+  {
+   "beats": [
+    "测量高压氧气储罐汇流排输出减压阀动态风压",
+    "检查机库外露救生索端部钛合金自动锁扣夹紧力",
+    "交接挂在备品柜内的特种实心加长加力扳手"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_deep_gallery_oxygen_supply_tally",
+   "location_ids": [
+    "loc_mud_diverter_overboard_gallery"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "月池死角战备自救高压供氧点验"
+  },
+  {
+   "beats": [
+    "测量大胶芯左右两侧受压微米级微变形凹陷差",
+    "清理导向槽表面卡塞的细碎重晶石结垢硬块",
+    "紧固传感器安装支架四颗高强度防锈不锈钢螺栓"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_diverter_packing_laser_mapping",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "title": "分流器大胶芯环向膨胀应力激光测绘"
+  },
+  {
+   "beats": [
+    "分流器泄压复位、月池平息之后，女总监被吊篮拉回钻台，连体工装被海水和泥浆泡透，台风打得整座平台都在微微晃。",
+    "钻台值班间里，女总监背过身拉开工装拉链，让人拿淡水毛巾一点点擦去肩背上结成白霜一样的盐粒，擦到腰窝时，女总监扶着舱壁的手指收紧了一下。",
+    "女总监转过身，额头抵在对方胸口听着外头的风声：台风过境要一整夜，直升机两天之内都飞不来……这两天，你别回你的铺。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_drill_shack_salt_rinse",
+   "location_ids": [
+    "loc_drill_floor_duty_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "钻台值班间里替女总监擦去盐水"
+  },
+  {
+   "beats": [
+    "值班间里，女总监握着卫星电话，十分钟的通话额度只剩三分钟，抬头看了人一眼，把听筒递过来。",
+    "女总监说：剩下的给你，打给家里吧。……打完了，你欠我三分钟，今晚得还。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_duty_room_satphone_turn",
+   "location_ids": [
+    "loc_drill_floor_duty_room"
+   ],
+   "start_minute": 1230,
+   "tags": [
+    "intimate"
+   ],
+   "title": "让出卫星电话的时间"
+  },
+  {
+   "beats": [
+    "台风在外面咆哮，女总监穿着宽大的平台工T恤，拉开下铺的帘子，往里挪了挪，冷着脸拍了拍床垫。",
+    "女总监嘴硬：上铺晃得厉害，不是我想跟你挤。……不过既然挤了，你想做什么，可以问我。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_duty_room_typhoon_bunk",
+   "location_ids": [
+    "loc_drill_floor_duty_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "台风夜挤一张下铺"
+  },
+  {
+   "beats": [
+    "台风过境后的早晨，海面平得像镜子，女总监靠在舷窗边喝咖啡，远远听见直升机的旋翼声。",
+    "女总监放下杯子：倒班的直升机来了。……下一个二十八天，你还在不在这座平台上？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_duty_room_helicopter_wait",
+   "location_ids": [
+    "loc_drill_floor_duty_room"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "等直升机的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "超深水半潜式钻井平台深海油气勘探期",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_shallow_gas_roaring_screams",
+   "kind": "approach",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "director_gu_hailan",
+   "text": "{director_gu_hailan.name}单手按住剧烈颤动的防爆格板立柱，抹开额前海水：千米浅层气把大胶芯压胀死了！排气阀卡死了，把这根七十五公分的加力扳手插入偏心槽，跟我死转！"
+  },
+  {
+   "id": "hook_director_taps_diverter_gauge",
+   "kind": "approach",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "director_gu_hailan",
+   "text": "{director_gu_hailan.name}浸泡在翻滚着刺骨浪花的月池死角中，特种加力扳手咔哒一声咬死偏心槽口：看准右侧偏两度，顺着阀腔咬合线，听我口令一起往死里转！"
+  },
+  {
+   "id": "hook_cold_sea_chills_bones",
+   "kind": "approach",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "director_gu_hailan",
+   "text": "{director_gu_hailan.name}在冰冷刺骨的巨浪狂潮里咬紧银牙，面颊在火光映照下泛出娇艳酡红与晶莹海水：别怕冷！抓紧扳手手柄，把全身重量砸下来！"
+  },
+  {
+   "id": "hook_lever_groans_bending_limit",
+   "kind": "approach",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "director_gu_hailan",
+   "text": "{director_gu_hailan.name}整个人扑在加力扳手柄端，双手虎口鲜血淋漓：旁通泄压阀在进圈了！吊车司机长，把你那两百斤蛮力全压上来，顺时针转到底锁死！"
+  },
+  {
+   "id": "hook_mechanic_grips_lever_firmly",
+   "kind": "approach",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "mechanic_lei_changhai",
+   "text": "{mechanic_lei_changhai.name}跨步踏入巨浪正中，粗壮的大手一把覆在女总工手背外侧：女总监，稳住轴心！剩下的千斤下沉重量交给我，谁也别想松手！"
+  },
+  {
+   "id": "hook_packing_groans_shear",
+   "kind": "approach",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "director_gu_hailan",
+   "text": "{director_gu_hailan.name}猛然抬头凝视门外缓缓闪烁的红光，眼神傲娇冷冽如刀：监察官要炸断隔水管了！还有最后五圈，哪怕把手柄转断也得给我扳死！"
+  },
+  {
+   "id": "hook_riser_tension_groans_limit",
+   "kind": "approach",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "mechanic_lei_changhai",
+   "text": "{mechanic_lei_changhai.name}反手抽出大梅花敲击扳手别在立柱角钢之间，低沉怒吼：深海恶龙再狂暴又怎样！就靠这根加力大柄了，跟我一起下压，锁死这道分流阀！"
+  },
+  {
+   "id": "hook_inspector_threatens_explosive_riser",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drill_floor_moonpool_catwalk"
+   ],
+   "slot": "inspector_feng_bo",
+   "text": "{inspector_feng_bo.name}惨白着脸握紧炸断电掣芯片，尖叫连连：钻井平台要被掀翻了！卫队，立刻按下拉闸电掣炸断隔水管，绝不能让整座平台被撕裂！"
+  },
+  {
+   "id": "hook_qi_stuffs_asbestos_gasket",
+   "kind": "approach",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "senior_diverter_system_rigger_qi",
+   "text": "{senior_diverter_system_rigger_qi.name}将半块耐水石棉防滑垫片狠狠拍在槽口缝隙里：往槽里塞！右偏两度的死角找到了，垫上我的石棉垫，顺着力道转！"
+  },
+  {
+   "id": "hook_cadet_fetches_extension_pipe",
+   "kind": "request",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "director_gu_hailan",
+   "text": "{director_gu_hailan.name}抹去脸上的海水与冷汗，急促喘息着看向助理技术员：去工具箱把备用加长空心合金套管取来套上，我们需要更长的一米力臂！"
+  },
+  {
+   "id": "hook_zong_brings_alloy_pipe",
+   "kind": "request",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "cadet_petroleum_xiao_zong",
+   "text": "{cadet_petroleum_xiao_zong.name}双手抱着一根厚壁加长套管滚入月池死角，眼眶通红：女总监！合金管拿来了！还有一卷高抗拉安全牵引带！"
+  },
+  {
+   "id": "hook_lei_joins_pipe_extension",
+   "kind": "request",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "mechanic_lei_changhai",
+   "text": "{mechanic_lei_changhai.name}接过套管狠狠套在加力扳手柄端，按住女总监的玉手咆哮：套管接上了！力臂延长了！女总监，我们数三二一，一起把全身重量砸下去！"
+  },
+  {
+   "id": "hook_medic_guides_anti_cold_breathing",
+   "kind": "request",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "director_gu_hailan",
+   "text": "{director_gu_hailan.name}隔着观察窗向医官打出确认手势，口中含服清凉解痉药片：液压卸压在建立了，我们做最后一轮压死下转！"
+  },
+  {
+   "id": "hook_observe_moonpool_shallow_gas",
+   "kind": "observe",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "director_gu_hailan",
+   "text": "{director_gu_hailan.name}挺立在月池狂暴翻滚的刺骨海水与高压气浪中，潜水工装背心下面庞在防爆探照灯映照下傲娇决绝，眼神如出鞘冰刃般坚不可摧。"
+  },
+  {
+   "id": "hook_observe_lever_locks_diverter_valve",
+   "kind": "observe",
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "slot": "director_gu_hailan",
+   "text": "大口径耐海水腐蚀双向手动棘轮应急放压加力扳手深深咬死旁通泄压阀，伴随着一声洪钟般的重型分流系统自平压合模轰鸣，失控膨胀的分流器大胶芯轰然回座平压，高压浅层气彻底被导入舷外排气总管排入大海，全员安然脱险生还。"
+  },
+  {
+   "id": "hook_hailan_helideck_welcome",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "director_gu_hailan",
+   "text": "{npc.name}站在停机坪边，等旋翼的风停了才摘下降噪耳罩，冲刚下直升机的人伸出手：二十八天，欢迎上岛。先去报到，然后来钻台找我。"
+  },
+  {
+   "id": "hook_changhai_basket_hook",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "mechanic_lei_changhai",
+   "text": "{npc.name}从吊车驾驶室的梯子上滑下来，把吊篮的安全挂钩扣在人腰带上：头一回坐吊篮下月池？抓紧，别往下看，我在上头盯着。"
+  },
+  {
+   "id": "hook_qi_cancelled_leave",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "senior_diverter_system_rigger_qi",
+   "text": "{npc.name}把行李包又扔回宿舍床上，叹了口气：台风一来，休假泡汤。正好，来，教你怎么用手摇泵给分流器补压。"
+  },
+  {
+   "id": "hook_xiaozong_ice_cream",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cadet_petroleum_xiao_zong",
+   "text": "{npc.name}端着餐盘在食堂里四处找座，看见人眼睛一亮：这儿空着吗？今晚食堂有冰激凌，平台上一个月就这一回。"
+  },
+  {
+   "id": "hook_feng_roster_mismatch",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "inspector_feng_bo",
+   "text": "{npc.name}攥着倒班名单，在停机坪边上拦住人：名单上多了一个名字，少了一个人。你是替谁上的岛？"
+  },
+  {
+   "id": "hook_hailan_payphone_queue",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "director_gu_hailan",
+   "text": "{npc.name}在宿舍走廊的公用电话前排到了，却没拨号，把听筒挂回去，转头冲人笑笑：家里这个点该睡了。陪我去甲板上吹会儿风？"
+  },
+  {
+   "id": "hook_hailan_duty_room",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drill_floor_duty_room"
+   ],
+   "slot": "director_gu_hailan",
+   "text": "{npc.name}站在值班间门口，攥着卫星电话：还剩三分钟。……进来，分你一半。"
+  }
+ ],
+ "id": "offshore_oil_platform_diverter",
+ "locations": [
+  {
+   "affordances": [
+    "抓牢月池钢梁加厚不锈钢防坠安全扶手",
+    "将特种加力扳手套入旁通泄压阀偏心卡槽",
+    "查看控制箱红色超高压差压机械水银表读数"
+   ],
+   "detail": "高约两米、宽不足一点五米的狭窄悬空防爆格板死角，头顶是重达数十吨的万吨井口分流器环形防喷器，下方是翻滚着数百米深墨黑海水的月池深渊，数百公斤高压气液混合泥浆从破损法兰处如暴龙咆哮喷涌，冰冷刺骨的海水飞沫与滚烫气浪交织翻腾，四周高压钢管在剧烈水锤中疯狂震颤。",
+   "exits": [
+    "loc_drill_floor_moonpool_catwalk",
+    "loc_mud_diverter_overboard_gallery"
+   ],
+   "id": "loc_moonpool_diverter_manifold_nook",
+   "name": "月池分流器死角",
+   "pressure_modifiers": {
+    "p_diverter_packing_hydraulic_deadlock": "分流器环形胶芯在非对称高压泥浆挤压下拉伸抱死，必须依靠特种扳手合力顺时针猛转释放液压油自救。",
+    "p_shallow_gas_blowout_surge": "千米深海浅层高压气柱以每秒上百米极速冲关，狭小管排死角内气压飙升距全面井喷仅剩四分钟窗口。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_veteran_rigger_lao_qi"
+   ]
+  },
+  {
+   "affordances": [
+    "按下井口应急高压消防注水喷淋电掣",
+    "拉动备用柴油机排险放喷旁通阀",
+    "拿起挂在防爆柜内的备用正压呼吸器面罩"
+   ],
+   "detail": "位于万吨钻机转盘正下方的重型钢桁架检修栈桥，狂风呼啸暴雨倾盆，两台防爆消防高压水炮正在全负荷喷射除气水幕，红色戒严警报灯将四周映成血色。",
+   "exits": [
+    "loc_moonpool_diverter_manifold_nook",
+    "loc_mud_diverter_overboard_gallery",
+    "loc_drill_floor_duty_room"
+   ],
+   "id": "loc_drill_floor_moonpool_catwalk",
+   "name": "月池栈桥",
+   "pressure_modifiers": {
+    "p_derrick_riser_tension_snap_risk": "主隔水管顶部悬挂钢缆受到数十吨异常动载拉扯，张紧器缓冲缸液压油温飙升濒临崩绳。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_safety_inspector_deputy_feng",
+    "bg_subsea_engineer_shang"
+   ]
+  },
+  {
+   "affordances": [
+    "扳动舷外分流管线应急自流蝶阀",
+    "检查消火栓高压水炮摆角螺栓",
+    "扣紧混凝土防爆墙侧壁高强度防坠安全挂钩"
+   ],
+   "detail": "位于平台甲板底部的舷外排气通廊，粗大的十二寸排气管正向暴风雨中的海面猛烈喷射高压黑泥浆，四周空气中弥漫着浓烈的柴油基泥浆与重油焦糊气味。",
+   "exits": [
+    "loc_moonpool_diverter_manifold_nook",
+    "loc_drill_floor_moonpool_catwalk"
+   ],
+   "id": "loc_mud_diverter_overboard_gallery",
+   "name": "舷外排浆走廊",
+   "pressure_modifiers": {
+    "p_cold_hypothermia_moonpool_shock": "冰冷海浪飞沫剧烈喷溅加剧了通廊的严寒侵袭，体温过快流失增加了失温休克的危险。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_cadet_petroleum_xiao_zong"
+   ]
+  },
+  {
+   "affordances": [
+    "陪女总监听台风过境",
+    "替女总监擦去肩背的盐粒",
+    "锁上值班间的钢门"
+   ],
+   "detail": "钻台栈桥边的一间值班间，一张上下铺、一台卫星电话、一扇被盐雾糊住的舷窗，墙上贴着倒班直升机的时刻表。",
+   "exits": [
+    "loc_drill_floor_moonpool_catwalk"
+   ],
+   "id": "loc_drill_floor_duty_room",
+   "name": "钻台值班间",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "舷窗外是黑沉沉的海，台风打得整座平台微微晃，钢门一锁，钻机的轰鸣就闷成了一层很远的鼓点。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "顾",
+   "雷",
+   "戚",
+   "封",
+   "尚",
+   "解",
+   "宗",
+   "闵",
+   "涂",
+   "邬",
+   "勾",
+   "容"
+  ],
+  "given_female": [
+   "海岚",
+   "晴",
+   "澜",
+   "微",
+   "清",
+   "雁",
+   "莹",
+   "宛",
+   "素",
+   "羽",
+   "瑶",
+   "凝"
+  ],
+  "given_male": [
+   "长海",
+   "铁舟",
+   "远洋",
+   "山河",
+   "烈",
+   "峰",
+   "猛",
+   "岩",
+   "勇",
+   "雄",
+   "彪",
+   "天枢"
+  ],
+  "given_neutral": [
+   "风",
+   "云",
+   "石",
+   "川",
+   "舟",
+   "衡",
+   "野",
+   "朗",
+   "诚",
+   "坚",
+   "原",
+   "毅"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留南海超深水钻井平台浅层气刺漏、月池分流器胶芯抱死与女总监用加力扳手手动泄压的骨架。同一批里有十个同源的工业事故世界，这里把开局放到平台上二十八天一轮的倒班日：直升机刚在停机坪落下、换班的人拎着行李走下来、台风预警又升一级、食堂一个月才有一回冰激凌、宿舍走廊排队打公用电话；搭档写成平台吊车司机长，坐吊篮下月池全靠吊车司机长在上头盯着，开局钩子、相遇缘由和背景人物围着倒班生活重写。写死的人名改为身份称呼，背景人物里与模板重名的改名；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；女总监亲密前提写明分流器复位、双方清醒自愿；新增一个钻台值班间里替女总监擦去盐水的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    28,
+    42
+   ],
+   "baseline": "驻守深水钻井平台月池一线的特级机修老将，精通大口径分流器环形胶芯水力卸荷力学。",
+   "gender": "any",
+   "id": "pi_offshore_diverter_lead_fitter",
+   "reputation": "作风泼辣手艺过硬，能在月池汹涌恶浪颠簸中盲卡旁通阀偏心槽。",
+   "resources": [
+    "一柄重达十公斤的高强度特种双向敲击棘轮扳手",
+    "两副双层特制耐低温防油污氯丁橡胶防滑手套"
+   ],
+   "risks": [
+    "直接暴露在高压气液混合泥浆喷射死角易遭受严重挫伤",
+    "月池恶浪卷入深海溺亡"
+   ],
+   "role": "半潜式钻井平台井控机械检修副工长",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "检修长{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    34,
+    48
+   ],
+   "baseline": "代表海事监管部门进驻平台的官员，掌控紧急脱缆解脱与全平台弃守自沉通报权。",
+   "gender": "any",
+   "id": "pi_maritime_safety_superintendent",
+   "reputation": "高高在上讲究逃生规程，遭遇浅层气突涌极易恐慌做出炸断隔水管弃平台的自保决断。",
+   "resources": [
+    "一台便携式多组分深海有毒气体检测仪",
+    "一套全封闭式海上高空逃生速降救生吊带"
+   ],
+   "risks": [
+    "不懂分流器水力旁通自平压回座力学容易错判自救窗口",
+    "极度恐慌诱发换气过度眩晕"
+   ],
+   "role": "国家海事与能源安全指挥中心特派安全监察官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}监察专员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}总监"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "刚分配进超深水钻井平台的大学毕业生，精通气侵非定常流动动力学方程。",
+   "gender": "any",
+   "id": "pi_cadet_offshore_petroleum_engineer",
+   "reputation": "理论扎实但缺乏一线月池火海浪涌实操经验，面对剧烈颠簸吓得面无人色。",
+   "resources": [
+    "一盒特种耐高压快速固化耐海水环氧修补胶",
+    "一本深水钻井分流器应急工况操作手册"
+   ],
+   "risks": [
+    "被滚烫泥浆气浪冲倒跌落月池造成骨折",
+    "高压气体冲击导致鼓膜穿孔"
+   ],
+   "role": "海洋油气工程专业青年助理钻井技师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}助理"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    48,
+    54
+   ],
+   "baseline": "在南海深水油气火线拼搏三十年的老钳工，单凭震颤声就能测出分流器胶芯受压形变公差。",
+   "gender": "any",
+   "id": "pi_veteran_diverter_system_rigger",
+   "reputation": "沉默刚毅身经百战，视井口分流器为驯服万米深渊恶龙的人间闸门。",
+   "resources": [
+    "一把大号重型全钢防脱手动丝杠棘轮加力扳手",
+    "两块特制耐高压合成石棉隔热防滑垫片"
+   ],
+   "risks": [
+    "长期深海高湿环境患有关节炎耐寒能力较弱",
+    "在月池晃动中风湿发作四肢发僵"
+   ],
+   "role": "深海平台防喷分流设备特级老铆焊工",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老将"
+    }
+   ]
+  }
+ ],
+ "premise": "平台上的人二十八天一轮换，今天倒班直升机刚落，换班的人拎着行李走下停机坪。傲娇的女总监带着平台吊车司机长和监察官，白天盯钻进、开碰头会，夜里在生活楼里吃宵夜。这口井的地层报告说浅层可能有高压气包，台风预警又升了一级。",
+ "pressures": [
+  {
+   "choice": "等待上方启动火工炸断隔水管弃平台，还是由女总监带队在月池恶浪中暴力转动扳手脱险。",
+   "exits": [
+    {
+     "cost": "特种加力扳手手柄发生微小弯曲变形，操作人员双臂肌肉严重拉伤疼痛。",
+     "option": "月池里的海水翻着白沫，用大口径手动棘轮放压扳手顺时针死死旋开三十圈卸压脱险。"
+    },
+    {
+     "cost": "大扳手受强烈反冲脱手崩飞划破在场人员面颊与肩膀。",
+     "option": "用破拆大活动扳手反向砸碎主液压蓄能器排油阀强行制造局部机械泄压自救。"
+    }
+   ],
+   "far": {
+    "consequence": "万吨深水钻井平台在惊天巨爆中撕裂翻沉，月池突击全员葬身海底。",
+    "due_days": 1,
+    "trigger": "高压天然气冲破月池防爆水幕全面起火引爆"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_shallow_gas_blowout_surge",
+   "immediate": {
+    "minutes": 2,
+    "text": "震耳欲聋的高频气浪刺漏啸叫撕裂耳膜，滚烫灼人的泥浆与冰冷海水交织喷溅，气压读数不断恶化。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "月池内天然气浓度逼近百分之四点八，冰冷海水漫过格板，刺骨寒水与剧烈颠簸夺走人员全部体能。"
+   },
+   "objective": "在天然气浓度突破临界值前手动合力用加力扳手旋开旁通阀释放液压油自救。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "千米深海浅层高压气柱冲关逼近爆炸",
+   "trigger": "分流器大胶芯在超压泥浆冲击下膨胀抱死，排气旁通管路受阻，千米深海浅层高压气柱以每秒上百米极速冲关，月池内天然气浓度暴涨逼近爆炸下限，距全面井喷仅剩四分钟。"
+  },
+  {
+   "choice": "强行蛮力硬拧博取前三十度位移，还是等待老装配工头递上石棉防滑垫片稳步推进。",
+   "exits": [
+    {
+     "cost": "消耗尽绝版深水耐高压密封耗材，老工长左手手掌被锋利金属毛刺划伤渗血。",
+     "option": "老装配工头塞入高强度石棉防滑垫片纠正两度切角协助扳手深咬自救。"
+    },
+    {
+     "cost": "吊车司机长肩部软组织受剧烈反震严重挫伤渗血。",
+     "option": "吊车司机长用肩膀顶住加力扳手传动轴消除偏心扭矩为女总监争取旋转角度脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "崩断的合金阀杆如鱼雷穿透钢板，丧失唯一泄压手段导致分流器彻底爆裂化为火海。",
+    "due_days": 1,
+    "trigger": "特种高压合金阀杆在极度剪切偏载下扭断崩飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_diverter_packing_hydraulic_deadlock",
+   "immediate": {
+    "minutes": 3,
+    "text": "厚达六公分的旁通阀传动轴套传出一声让人牙酸的金属摩擦尖叫，表层防腐漆剥落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "阀体因受万斤水锤挤压产生微米级变形，扳手棘爪在槽口边缘发生剧烈打滑火花四溅。"
+   },
+   "objective": "找准旁通泄压阀偏心锁紧槽右偏两度死角并套上加长管合力顺时针猛转。",
+   "source": "accident",
+   "start_minute": 1398,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "大胶芯在非对称高压泥浆挤压下拉伸抱死",
+   "trigger": "断电电涌引发主液压管路阀门死锁，分流器橡胶密封体在两百公斤泥浆水锤重击中抱死卡阻，必须依靠手动开启旁通泄压阀引入泄放流道消除抱死自救。"
+  },
+  {
+   "choice": "退入上层干燥栈桥，还是咬牙憋住一口热气在冰浪中完成最后三十圈下旋。",
+   "exits": [
+    {
+     "cost": "衣衫被冰冷海水浸透黏在肌肤上，双臂遭受重度极寒浅表冻伤。",
+     "option": "两人紧密相贴借彼此肩膀支撑重心双手死扣扳手以自重猛压脱险。"
+    },
+    {
+     "cost": "手忙脚乱弄洒了小半瓶药水导致部分急救配额受损。",
+     "option": "整座平台在风里微微发颤，从药包取出高效神经解痉含片含服协助其维持清醒意志脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "人员在极寒中当场冻结休克沉入月池深渊，在大海难中不幸牺牲殉难。",
+    "due_days": 1,
+    "trigger": "核心体温跌破三十度导致心室纤颤骤停"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cold_hypothermia_moonpool_shock",
+   "immediate": {
+    "minutes": 2,
+    "text": "台风前的浪头一下下拍在桩腿上，女总监面颊被海水冻得通红泛紫，牙齿不受控制地剧烈上下打颤。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "肌肉出现严重失控性寒战与麻木抽搐，双手抓握力骤降一半以上，意识出现虚幻恍惚。"
+   },
+   "objective": "两人紧密贴合屈膝对抗极寒恶浪并含服高能葡萄糖维持神智与手劲。",
+   "source": "nature",
+   "start_minute": 1400,
+   "tags": [
+    "disaster"
+   ],
+   "title": "千米深海冰冷浪花飞沫诱发急性失温",
+   "trigger": "深海月池涌浪温度逼近冰点，浸泡在狂暴海水飞沫中的人员四肢体温急剧流失，手指迅速麻木僵硬，核心体温跌破三十五度临界线。"
+  },
+  {
+   "choice": "向调度室请求强行开启全场水下脱离，还是在下方机房内争分夺秒完成刚性锁卡。",
+   "exits": [
+    {
+     "cost": "台风前的浪头一下下拍在桩腿上，割枪反喷烧毁配电箱，尚工程师右手背被飞溅火花轻度烫伤。",
+     "option": "尚工程师在平台用气割枪快速切断悬空偏心牵引副索消除回弹自救。"
+    },
+    {
+     "cost": "女总监双手虎口被合金扳手粗糙手柄磨破鲜血淋漓。",
+     "option": "女总监爆发全力旋转扳手卸压使分流器切断隔水管动载脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "数十吨钢索如长鞭抽碎月池栈桥，钻台主控室全员殉难。",
+    "due_days": 1,
+    "trigger": "主张紧钢索彻底绷断抽击"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_derrick_riser_tension_snap_risk",
+   "immediate": {
+    "minutes": 3,
+    "text": "粗壮的钢丝绳在暴风雨中发出令人毛骨悚然的金属拉伸啸叫，张紧器滑轮螺栓断裂一颗。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_drill_floor_moonpool_catwalk"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "钻机井架钢桁架受力严重扭曲呻吟，主张紧钢丝绳毛刺根根竖立即将彻底崩裂。"
+   },
+   "objective": "在隔水管崩断前完成平压卸压脱开异常动载。",
+   "source": "accident",
+   "start_minute": 1402,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "隔水管顶部悬挂钢缆受到数十吨动载拉扯",
+   "trigger": "分流器卡死使千米水下隔水管受偏心载荷巨震，主张紧器钢丝绳在滑轮上发生跳槽乱绳，即将崩断抽击月池通廊。"
+  },
+  {
+   "choice": "整座平台在风里微微发颤，孤注一掷加大肉身压载强拧，还是稍微回退半寸套入助理技术员送来的加长钢管。",
+   "exits": [
+    {
+     "cost": "钢管在高压下咬死变形彻底无法从扳手柄端拔脱。",
+     "option": "整座平台在风里微微发颤，助理技术员送达加长特种钢管套在扳手末端分担应力合力下旋撬平自锁脱险。"
+    },
+    {
+     "cost": "两臂肘关节承受数十公斤极度反震导致软组织严重挫伤渗血。",
+     "option": "女总监与吊车司机长调整站位将发力点向扳手根部收缩以肉体爆发力强行压死轴齿自救。"
+    }
+   ],
+   "far": {
+    "consequence": "崩断的高速合金利刃击穿操作手胸膛，丧失唯一紧固机具彻底断绝生路。",
+    "due_days": 1,
+    "trigger": "合金扳手头部棘爪彻底粉碎崩飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_lever_alloy_ratchet_yield",
+   "immediate": {
+    "minutes": 2,
+    "text": "扳手头部传出一声让人心悸的合金棘爪咬死脆响，表层耐腐蚀镀层脱落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_moonpool_diverter_manifold_nook"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "加力扳手手柄发生超过十五度的明显塑性弯曲，棘爪末端即将崩脱滑出卡槽。"
+   },
+   "objective": "套上加长合金空心套管延长力臂并将发力点移至轴心消除冲击偏载。",
+   "source": "accident",
+   "start_minute": 1404,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "特种合金加力扳手棘爪承受极限扭矩濒断",
+   "trigger": "受损泄压阀偏心槽内部积聚的细碎贝壳与重晶石泥沙使咬合扭矩暴增数倍，七十五公分加力扳手头部棘爪承受了极限剪切，合金表面浮现微细疲劳晶斑发出尖锐金铁哀鸣。"
+  },
+  {
+   "choice": "由吊车司机长在门外用大活动扳手砸烂专员控制箱，还是在月池内抢先完成扳手下转平压化解危机。",
+   "exits": [
+    {
+     "cost": "吊车司机长面临违抗海事安全管理条例文书的军法重惩。",
+     "option": "吊车司机长夺下专员手电终端砸碎自毁继电器强行拔掉熔断保险丝争取生机。"
+    },
+    {
+     "cost": "近身对抗导致女总监右手臂被尖锐仪表外壳划伤渗血。",
+     "option": "女总监以总监身份喝退随身近卫并亲手扯断自毁继电器脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "千米隔水管在惊天巨爆中齐根切断沉入海沟，平台在失衡反冲中断裂翻沉，突击全员不幸牺牲殉难。",
+    "due_days": 1,
+    "trigger": "水下隔水管防爆雷管彻底引爆炸断管体"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "inspector_explosive_riser_countdown",
+   "immediate": {
+    "minutes": 2,
+    "text": "栈桥顶角响起尖叫的红色平台自毁炸断紧急警报，水下切断起爆继电器发出短促倒数蜂鸣。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_drill_floor_moonpool_catwalk"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "月池里的海水翻着白沫，炸断倒计时仅剩最后三十秒，井口火工引信开始哧哧燃烧冒出刺鼻白烟。"
+   },
+   "objective": "在炸药引爆前完成旁通阀卸压并勒令监察官停掣。",
+   "source": "institution",
+   "start_minute": 1406,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "海事安全监察官拉下隔水管火工炸断倒计时",
+   "trigger": "特派海事监察官认定井喷已经无法控制，在主栈桥按开隔水管水下炸断电掣，防爆雷管启动了三分钟彻底引爆炸药炸断千米隔水管弃平台的自毁倒计时。"
+  },
+  {
+   "choice": "按总部的期限复钻，还是坚持等新的胶芯运上平台",
+   "exits": [
+    {
+     "cost": "旧胶芯撑不撑得住没人敢说，只有司机长肯陪着守在月池边",
+     "option": "按期复钻"
+    },
+    {
+     "cost": "女总监的名字会第一个出现在总部的问责名单上",
+     "option": "坚持等新胶芯"
+    }
+   ],
+   "far": {
+    "consequence": "平台上一百多人的饭碗跟着走，下个月的倒班直升机只接人不送人",
+    "due_days": 7,
+    "trigger": "合同转给别家"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_hailan_helideck_welcome",
+    "hook_changhai_basket_hook",
+    "hook_qi_cancelled_leave",
+    "hook_xiaozong_ice_cream",
+    "hook_feng_roster_mismatch",
+    "hook_hailan_payphone_queue",
+    "hook_hailan_duty_room"
+   ],
+   "id": "p_operator_restart_deadline",
+   "immediate": {
+    "minutes": 5,
+    "text": "尚工程师把一张停钻损失表贴在值班间墙上"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_drill_floor_duty_room"
+   ],
+   "near": {
+    "deadline_minutes": 780,
+    "text": "晚上九点，和总部开电话会"
+   },
+   "objective": "在今晚的电话会之前，给总部一个复钻的日子",
+   "source": "money",
+   "start_minute": 480,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "复钻期限",
+   "trigger": "井涌压住后的第二天，油公司总部来了电话：这口井停钻一天就是两百万，限四十八小时复钻，否则平台的承包合同转给别家"
+  }
+ ],
+ "region": "月池下方分流器环形防喷器液压控制死角",
+ "rules": [
+  {
+   "id": "r_offshore_diverter_packing_limit",
+   "text": "分流器大胶芯在异常抱死时必须在四分钟内手动摇开泄压阀。"
+  },
+  {
+   "id": "r_shallow_gas_flashover_code",
+   "text": "月池空间天然气浓度超过百分之五时严禁使用电火工破拆工具。"
+  },
+  {
+   "id": "r_diverter_bypass_valve_code",
+   "text": "旋转应急放压加力扳手时必须确保双向棘爪完全咬入偏心锁紧槽。"
+  },
+  {
+   "id": "r_moonpool_safety_harness_rule",
+   "text": "在月池悬空管排作业时必须全程将双钩防坠器扣在主承重梁上。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "看表验气",
+  "committed": "安然踏海",
+  "familiar": "狂浪共攀",
+  "flirting": "盐汗近息",
+  "intimate": "月池卸压",
+  "stranger": "探池核压",
+  "testing": "同握大柄"
+ },
+ "status": "released",
+ "style_hint": "冷硬森严的深海钻井硬核工笔，刻画千米深渊月池下方逼仄管排受高压气柱撕扯的剧烈震颤、特种加力扳手在偏心槽内合力旋转的机械咬合、潜水背心下被海水与热汗浸透的起伏身躯，台词充斥着严苛的井控计算与决断。",
+ "tension_engines": [
+  {
+   "id": "te_shallow_gas_vs_diverter_wrench",
+   "text": "千米浅层气刺漏爆炸倒计时与利用加力扳手合力转开旁通泄压阀的机械自救。"
+  },
+  {
+   "id": "te_inspector_blowup_riser_vs_rescue",
+   "text": "特派海事监察官企图强行炸断隔水管弃守逃跑与一线突击队誓死保全全机生还的生死对决。"
+  },
+  {
+   "id": "te_tsundere_director_pride_vs_mechanic",
+   "text": "傲娇冷艳特级女总监的绝对井控威严与重装机修老工长托付性命的肉体爆发力反差共鸣。"
+  },
+  {
+   "id": "te_freezing_spray_soak_vs_tight_press",
+   "text": "月池刺骨海水恶浪淹溺窒息与两人在颠簸死角中紧贴发力合转加力扳手的炽烈生命羁绊。"
+  }
+ ],
+ "title": "海上油气平台·分流器密封胶芯胀死阻断",
+ "tone": [
+  "千米深海浅层气包高压咆哮",
+  "月池底部万钧泥浆剧烈喷涌",
+  "狂风暴雨深海盐雾冰冷刺骨",
+  "直升机旋翼渐远的轰鸣"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_valve_eccentric_groove_located",
+   "requires": [
+    "director_gu_hailan"
+   ],
+   "text": "{director_gu_hailan.name}在受损旁通阀侧壁摸出了当年设备制造厂预留的手动防扭矩反转卡止安全暗槽。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_mechanic_disarms_corrupt_inspector",
+   "requires": [
+    "mechanic_lei_changhai"
+   ],
+   "text": "{mechanic_lei_changhai.name}反手夺下特派海事监察官的爆破引信钥匙，全面接管深水钻井平台抢险最高战时处置权。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_anti_cold_spray_distributed",
+   "requires": [
+    "director_gu_hailan"
+   ],
+   "text": "{director_gu_hailan.name}掰开贴身药盒，将四支高效神经舒缓抗寒喷雾分发给现场力竭同伴对抗急性极寒失温抽搐。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_asbestos_gasket_stops_water_slip",
+   "requires": [
+    "senior_diverter_system_rigger_qi"
+   ],
+   "text": "{senior_diverter_system_rigger_qi.name}用冲子撬开备用自流平衡通气孔，依法平衡月池内外高压气浪应力化解了管阀单向极度受剪。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_emergency_bypass_drops_head_pressure",
+   "requires": [
+    "director_gu_hailan"
+   ],
+   "text": "{director_gu_hailan.name}利用扳手柄端挑开了备用排油通气管道，强行为受损泄压阀压制住最后三十秒超温抱死窗口。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_mechanic_shields_director_surge_shock",
+   "requires": [
+    "director_gu_hailan",
+    "mechanic_lei_changhai"
+   ],
+   "text": "{mechanic_lei_changhai.name}在冰冷激流大面积喷洒瞬间挺身扑在{director_gu_hailan.name}上方，用加厚潜水背心与宽阔背脊死死挡下高压射流。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_diverter_valve_locks_platform_saved",
+   "requires": [
+    "director_gu_hailan"
+   ],
+   "text": "顺时针死死旋开的旁通泄压阀在加力扳手与石棉衬垫的强力咬合下彻底释放液压油平压，膨胀抱死的大胶芯稳稳回座复位，万吨超深水钻井平台安然脱险平息生还。"
+  }
+ ]
+}

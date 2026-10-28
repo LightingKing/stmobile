@@ -1,0 +1,2391 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "执裁二十年的成年沙排副裁判。",
+   "age_range": [
+    54,
+    54
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_umpire_yan_song",
+   "line": "各方队员请立即就位，发球读秒时限不容任何无故拖延！",
+   "location_ids": [
+    "loc_beach_center_net_anchor"
+   ],
+   "name": "老符",
+   "role": "副裁判"
+  },
+  {
+   "adult_context": "国家沙排队的成年替补队员。",
+   "age_range": [
+    26,
+    26
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_partner_duan_ling_fei",
+   "line": "防守位已由我全权补齐，主攻稳住，赛点就在我们手中！",
+   "location_ids": [
+    "loc_beach_center_net_anchor"
+   ],
+   "name": "阿岚",
+   "role": "国家队替补队员"
+  },
+  {
+   "adult_context": "国家沙排队的成年助理教练。",
+   "age_range": [
+    38,
+    38
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_coach_lu_hai_cheng",
+   "line": "战术手势已经打出，看准切角果断发力，不要有任何犹疑！",
+   "location_ids": [
+    "loc_players_bench_shaded_canopy"
+   ],
+   "name": "老彭",
+   "role": "国家队助理教练"
+  },
+  {
+   "adult_context": "赛事场地的成年机电值班员。",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_engineer_fang_zhen_dong",
+   "line": "地锚控制箱压力阀已调至卸荷预备状态，随时配合场内指令。",
+   "location_ids": [
+    "loc_mep_sand_tension_control_hub"
+   ],
+   "name": "阿涛",
+   "role": "沙滩场地受力平衡技术主管张力工程师"
+  },
+  {
+   "adult_context": "转播车的成年副摄像师。",
+   "age_range": [
+    24,
+    24
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_cameraman_he_zi_lang",
+   "line": "主机位长焦光学虚化中心已锁定眼神，坚决守牢职业道德底线！",
+   "location_ids": [
+    "loc_beach_volleyball_grandstand"
+   ],
+   "name": "阿凯",
+   "role": "主看台高位四K主转播机位掌镜师摄像师"
+  },
+  {
+   "adult_context": "体育仲裁专业毕业年满二十八岁成年巡线员，持有国家一级排球裁判证书。",
+   "age_range": [
+    28,
+    28
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_referee_assistant_qiu",
+   "line": "底线界内界外标识清晰无误，请双方选手遵守击球发球规范。",
+   "location_ids": [
+    "loc_beach_center_net_anchor"
+   ],
+   "name": "司线员邱晓峰",
+   "role": "底线巡视成年司线员"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "女搭档以健美身躯筑起坚不可摧之人墙屏障遮断看台长焦视线，主攻在其身后盲操陶瓷平刃极速割绳，姐妹袍泽心有灵犀。",
+   "id": "combo_chu_and_ling",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "volleyball_star_jiang_chu_chu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "网前并肩作战共克绞绳危局并以绝对信任守望相助",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "partner_duan_ling_fei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "同为国家排球名将同袍搭档",
+     "stage": "familiar"
+    },
+    {
+     "a": "volleyball_star_jiang_chu_chu",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "partner_duan_ling_fei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "场上人墙掩护与绝杀扣球之无间配合",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "volleyball_star_jiang_chu_chu",
+    "partner_duan_ling_fei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在万名观众与裁判毫无察觉下割绳自救并合力夺取赛点金牌",
+    "limit_gap": "发球二十秒读秒死线与转播机位焦点捕捉的争分夺秒",
+    "meeting_reason": "赛点前，搭档在网前冲主攻比了个手势，意思是下一球交给你。",
+    "resource_gap": "网前掩护身位与沙底微观割绳操作之空间配合"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_anchor_vibe_snag_deadlock",
+    "engine_twenty_second_serve_countdown"
+   ]
+  },
+  {
+   "chemistry": "铁血主帅在边线以雷霆战术板暗号下达割绳决断，主攻在其战术指引下于毫秒之间完成微观破拆，将帅同心力挽狂澜。",
+   "id": "combo_chu_and_lu",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 4
+     },
+     "b": "volleyball_star_jiang_chu_chu",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 4
+     },
+     "reason": "严苛战术考量与王牌主力清白尊严护持之深沉托付",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "coach_lu_hai_cheng",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "教练席战术权威与场内指挥协调",
+     "stage": "acquainted"
+    },
+    {
+     "a": "volleyball_star_jiang_chu_chu",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "coach_lu_hai_cheng",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "战术暗号指引与精准割绳发力之高度默契",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "volleyball_star_jiang_chu_chu",
+    "coach_lu_hai_cheng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保主力王牌在保全清白尊严前提下稳夺世界冠军",
+    "limit_gap": "鹰眼挑战申请最后时限与割绳完成瞬间的极限赛跑",
+    "meeting_reason": "主教练在场边的战术板上画着线路，抬头看见主攻扑倒在地锚边。",
+    "resource_gap": "场外战术挑战权能与场内运动员单手盲操之联动"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_twenty_second_serve_countdown",
+    "engine_gold_medal_match_point_stake"
+   ]
+  },
+  {
+   "chemistry": "元气女健将与场地机电工程师在沙下地锚力学参数上的暗语共振，气动泄压为陶瓷平刀创造毫厘生机。",
+   "id": "combo_chu_and_fang",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "volleyball_star_jiang_chu_chu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "机电泄压暗中襄助为割绳创造绝处逢生之良机",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "engineer_fang_zhen_dong",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "场馆保障技术团队日常检修接触",
+     "stage": "acquainted"
+    },
+    {
+     "a": "volleyball_star_jiang_chu_chu",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "engineer_fang_zhen_dong",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "暗处手势信号与地锚泄压之专业支援",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "volleyball_star_jiang_chu_chu",
+    "engineer_fang_zhen_dong"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以两毫米陶瓷平刃微观平整切断绳套解除机械死锁",
+    "limit_gap": "地锚钢缆拉力上限与比基尼抽绳撕裂力矩的临界差",
+    "meeting_reason": "张力工程师在沙下控制箱前盯着读数，传感器突然报警。",
+    "resource_gap": "地下液压泄压参数与地面刀刃切入受力点之严丝合缝"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_anchor_vibe_snag_deadlock",
+    "engine_wrist_ceramic_blade_leverage"
+   ]
+  },
+  {
+   "chemistry": "国际金哨泰斗铁面无私之读秒鸣哨威压与王牌健将处变不惊的绝命自救，在竞技刚性规则边缘擦出震撼火花。",
+   "id": "combo_chu_and_yan",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 3
+     },
+     "b": "volleyball_star_jiang_chu_chu",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 3
+     },
+     "reason": "金牌裁判绝对规则威压与运动员抗压自救之剧烈博弈",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 3
+     },
+     "b": "umpire_yan_song",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 3
+     },
+     "reason": "赛场主裁与参赛选手之间的法定执法关系",
+     "stage": "acquainted"
+    },
+    {
+     "a": "volleyball_star_jiang_chu_chu",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 3
+     },
+     "b": "umpire_yan_song",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 3
+     },
+     "reason": "击掌催促哨音逼迫下的生死时速较量",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "volleyball_star_jiang_chu_chu",
+    "umpire_yan_song"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "赶在违例哨响前一秒以无可挑剔之完美扣杀令裁判判定得分",
+    "limit_gap": "主裁含哨吹响前的三秒倒数与主攻抚平泳裤起跳的瞬间差",
+    "meeting_reason": "主裁判坐在高椅上，看着发球钟跳进红区。",
+    "resource_gap": "最高规则裁决权柄与运动员职业声誉之正面激突"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_twenty_second_serve_countdown",
+    "engine_chaste_athlete_pride_crisis"
+   ]
+  },
+  {
+   "chemistry": "青年摄影师恪守新闻职业道德在长焦取景器中主动虚化网底，将长焦镜头光圈紧紧凝定在主攻决绝面庞，以克制守护女将尊严。",
+   "id": "combo_chu_and_he",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "volleyball_star_jiang_chu_chu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "转播镜头前非礼勿视之职业良知与无声尊严守护",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "cameraman_he_zi_lang",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "赛场转播技术人员与选手的镜头语言互动",
+     "stage": "acquainted"
+    },
+    {
+     "a": "volleyball_star_jiang_chu_chu",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "cameraman_he_zi_lang",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "眼神坚定对视与镜头焦点推拉的默契庇护",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "volleyball_star_jiang_chu_chu",
+    "cameraman_he_zi_lang"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "彻底切断转播信号对网底受困走光画面的任何捕捉可能",
+    "limit_gap": "总导播催促下切全身镜头与摄影师坚决锁定面部特写的博弈",
+    "meeting_reason": "转播摄像师的长焦锁在网前，取景器里看见主攻趴着起不来。",
+    "resource_gap": "全球千万直播镜头曝光风险与摄影师职业自律的对冲"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_ten_thousand_spectator_gaze",
+    "engine_chaste_athlete_pride_crisis"
+   ]
+  },
+  {
+   "chemistry": "女副攻与机电技师在线索眼神传递上的默契配合，文体工协同在球网两端构筑安全屏障。",
+   "id": "combo_duan_and_fang",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "partner_duan_ling_fei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "为了守护共同的赛场秩序与搭档安危迅速达成战术默契",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "engineer_fang_zhen_dong",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "设施保障与赛场执行紧密联动",
+     "stage": "acquainted"
+    },
+    {
+     "a": "partner_duan_ling_fei",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "engineer_fang_zhen_dong",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "人墙身位掩护与地锚张力释放之默契配合",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "partner_duan_ling_fei",
+    "engineer_fang_zhen_dong"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保球网在辅绳割断瞬间绝对不发生剧烈下坠或回弹晃荡",
+    "limit_gap": "裁判哨响逼近与遥控泄压反应时间的精确对齐",
+    "meeting_reason": "比赛结束后的傍晚，搭档和主攻并肩坐在空荡的看台上看日落。",
+    "resource_gap": "场内战术站位跑动与场外地锚张力遥控的无缝对接"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_anchor_vibe_snag_deadlock",
+    "engine_twenty_second_serve_countdown"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_intercom_kitchen_direct",
+   "reach": "大堂督导与后厨工程师及操作台主副厨监听终端",
+   "text": "星级餐厅后厨加密无线降噪耳麦对讲频道"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_cues_visual_island",
+   "reach": "主攻、搭档和场边教练之间的手势与眼神",
+   "text": "全景吧台托盘与隔热巾视觉暗号协同系统"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_broadcast_feed_monitor",
+   "reach": "主看台转播机位和导播车的监视屏",
+   "text": "国际美食年鉴实况微距转播超清监控链路"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "体育学院毕业，打了八年职业沙排，国家队的主攻手，穿什么、偷偷戴什么、跟谁亲近都由本人拿主意。",
+   "age_range": [
+    24,
+    27
+   ],
+   "appearance_options": [
+    "浅蜜色肌肤泛着细腻汗光，烈焰红白高叉竞技比基尼勾勒健美马甲线，双颊天然微带婴儿肥反差娇艳，高马尾甩动英姿飒爽。",
+    "身姿野性柔韧如猎豹，高叉泳装下修长美腿绷紧肌肉线条，眸光如烈火般灼亮炽热，散发着运动名媛之纯情体香与狂野魅力。"
+   ],
+   "decision": {
+    "avoids": [
+     "在万人面前尖叫",
+     "硬扯撕开泳裤",
+     "让主裁看出拖延"
+    ],
+    "contrast": "平时野得像海风，被逼到绝处时却冷静得吓人。",
+    "core_value": "赛点只有一个，体面也只有一个，两样都要拿下。",
+    "goal_options": [
+     "在发球钟归零前用护腕里的陶瓷刃割断地锚辅绳",
+     "一手把扯偏的泳裤压回去，一手撑地翻身站起来发球"
+    ],
+    "never": [
+     "在赛点上认输"
+    ],
+    "prefers": [
+     "一刀到位的狠劲",
+     "借搭档的身体挡镜头",
+     "不服输地站起来"
+    ],
+    "pressure_responses": {
+     "breaking": "绳子一断，翻身拍掉身上的沙，捡起球走向发球线",
+     "high": "发球钟进了红区，陶瓷刃已经抵住尼龙绳，一刀割下去",
+     "low": "趴在沙地上装作揉脚踝，喘着气不让人看出异样",
+     "mid": "咬牙用指尖摸到辅绳，冷汗顺着锁骨往下淌"
+    },
+    "relationship_stance": "场上谁都不服，偏偏最听搭档的话；搭档一句「稳住」，比全场的呐喊都管用。",
+    "withdrawal": "低头系紧侧腰的绳结，抬眼冲搭档咧嘴一笑"
+   },
+   "gender": "female",
+   "gender_reason": "国家沙排队的野性女主攻。",
+   "id": "volleyball_star_jiang_chu_chu",
+   "identity": {
+    "authority": "主攻手的进攻节奏与发球选择权",
+    "exposure": "若比基尼被扯开、里面的东西被转播镜头拍到，主攻会被禁赛，代言全部解约。",
+    "hidden": "侧腰系绳与偷偷戴着的防水跳蛋遭金属倒钩死死缠绞无法起立，高叉泳裤受拉偏移，于全场审视下坚守清白名节。",
+    "limits": [
+     "防风地锚倒钩受拉持续绞紧致使娇躯受困网底灼热沙面无法起身",
+     "万人看台俯瞰及高清转播镜头下严禁发生服饰脱钩走光失态"
+    ],
+    "obligations": [
+     "拿下决赛的赛点",
+     "在万人面前保住国家队的形象"
+    ],
+    "resources": [
+     "随身护腕内侧暗藏微型防滑陶瓷微雕推刀",
+     "对沙滩排球防风地锚张力受力角与尼龙安全辅绳编织纹路之透彻了解"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危急时一句话不说就挡在前面的人",
+     "搭档晒成蜜色的肩膀"
+    ],
+    "boundaries": [
+     "不在赛场上有任何逾矩"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "拿下奥运会的沙排金牌",
+    "dislikes": [
+     "偷拍的长焦",
+     "看不起女运动员的人"
+    ],
+    "expression": "脸上晒出的红晕又深了一层，嘴上嚷着「别闹」，却把人拉得更近。",
+    "likes": [
+     "赢球后在沙地上滚成一团",
+     "海边的夜风",
+     "被人从背后环住腰"
+    ],
+    "preconditions": [
+     "两人都清醒，出于本心",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "国家沙排队的女主攻",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_beach_center_net_anchor",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_players_bench_shaded_canopy",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_beach_center_net_anchor",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "极度考验沙粒干扰下单手盲切稳定性，稍有偏滑可能割破紧绷高弹泳裤布料",
+      "option": "反握护腕陶瓷薄片抵住地锚绞线节点施加平推动能割断辅助绑线"
+     },
+     {
+      "cost": "动作过大可能被主裁判判定为违规拖延发球并引发更严重走光",
+      "option": "单膝跪沙利用身体翻滚回旋惯性借沙丘斜角缓冲牵引力脱钩"
+     }
+    ],
+    "pressure": "哨声催促回荡看台唯余二十秒，高叉泳裤受外力强扯偏移，万人目光如炬紧盯网底",
+    "trigger": "飞扑救球倒地瞬间防风钢爪斜刺穿咬比基尼侧腰细带与防水遥控线头"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "地锚钢钩咬死比基尼抽绳了……发球时钟只剩最后二十秒，必须用护腕陶瓷刃割断辅绳！",
+    "surface": "{npc.name}防守站位完毕，请裁判员鸣哨发球，我们准备就绪！"
+   }
+  },
+  {
+   "adult_context": "运动康复专业毕业，国家沙排队的副攻，和主攻搭档了六年，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    29
+   ],
+   "appearance_options": [
+    "身着同款蓝白竞技比基尼，身材高挑挺拔，腹肌分明，神色沉稳端庄，目光坚定如冰。",
+    "头戴遮阳运动空顶帽，双手佩戴专业排球护指胶布，举手投足尽显老练沉稳之大将之风。"
+   ],
+   "decision": {
+    "avoids": [
+     "大呼小叫",
+     "让对手看出破绽",
+     "被判延误"
+    ],
+    "contrast": "平时话少得像块礁石，搭档有事时却比谁都快。",
+    "core_value": "搭档的事就是自己的事，先护人，再赢球。",
+    "goal_options": [
+     "站到网前用身体挡住主转播机位",
+     "借整理球网拖住主裁的视线几秒"
+    ],
+    "never": [
+     "丢下搭档自己走开",
+     "趁乱占搭档便宜"
+    ],
+    "prefers": [
+     "用身体挡",
+     "无声的默契",
+     "替搭档背锅"
+    ],
+    "pressure_responses": {
+     "breaking": "看见搭档站起来，拍了拍对方的屁股回到防守位",
+     "high": "主裁吹哨催促，抬手示意要调整球网高度，拖住几秒",
+     "low": "在网前跳了两下活动脚踝，正好挡住侧面的镜头",
+     "mid": "看见搭档侧腰的绳被勾住，往前跨一步贴近球网"
+    },
+    "relationship_stance": "和主攻搭档了六年，场上一个眼神就知道对方要往哪扑，场下却从没把那句话说出口。",
+    "withdrawal": "回到底线，冲看台挥手，把镜头全引到自己身上"
+   },
+   "gender": "female",
+   "gender_reason": "和主攻搭档六年的女副攻。",
+   "id": "partner_duan_ling_fei",
+   "identity": {
+    "authority": "副操作台出品节奏掌控权与摆盘工具调度支配权",
+    "exposure": "若因擅自挪动操作台用具导致出品事故将承担联带职业惩处",
+    "hidden": "于网前余光窥见主攻侧腰泳裤遭地锚死死绞住且前倾受制，即刻以健美躯体构筑坚固人墙阻绝侧向长焦镜头窥视。",
+    "limits": [
+     "严禁在无裁判许可下擅自跨越球网中线触碰对方场地或违规叫停",
+     "不可大声喧嚷惊扰全场万名观众导致突发骚乱"
+    ],
+    "obligations": [
+     "守住网前的防守",
+     "在搭档有事时第一个挡上去"
+    ],
+    "resources": [
+     "自身修长健美之副攻身躯可作为阻挡长焦机位之天然掩体",
+     "对搭档主攻割绳发力节奏与起跳步点之绝对默契"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "主攻野性的笑",
+     "扑救时不要命的样子"
+    ],
+    "boundaries": [
+     "比赛时只当搭档，下了场再说"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "和搭档一起站上奥运领奖台",
+    "dislikes": [
+     "对搭档指指点点的人",
+     "输了还嘴硬的自己"
+    ],
+    "expression": "替人抹防晒的手停在后腰上不敢动，耳朵红得比晒伤还厉害。",
+    "likes": [
+     "赛后一起泡在海里",
+     "替搭档抹防晒",
+     "夜里并肩躺在沙滩上数星星"
+    ],
+    "preconditions": [
+     "搭档亲口点头",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "国家沙排队的女副攻，主攻的搭档",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_beach_center_net_anchor",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_beach_center_net_anchor",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_beach_center_net_anchor",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "可能招致主裁判对网前非规范动作之口头警告",
+      "option": "跨前半步张开双臂假借整理网带之势挡住主转播机位所有低角度镜头"
+     },
+     {
+      "cost": "若裁判驳回申请将面临直接延误比赛判罚",
+      "option": "假装鞋带松脱举手申请向裁判长请求检查场地沙粒平整度"
+     }
+    ],
+    "pressure": "发球计时器跳变至十五秒，对方发球手已站定端线举球蓄力",
+    "trigger": "见闻网底金属卡扣发出紧绷微响且主攻低伏沙面姿态僵滞无法起身"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "主攻侧腰系绳被钢钩勾住了！我必须用身体死死挡住主转播镜头，快割断辅绳！",
+    "surface": "裁判长，请注意球网侧面海风气流突增，我们正在调整接发球站位！"
+   }
+  },
+  {
+   "adult_context": "前国家沙滩排球队核心主力退役年逾三十八岁功勋教练，持国际排联高级教练资质，全权执掌场边战术指挥权。",
+   "age_range": [
+    38,
+    38
+   ],
+   "appearance_options": [
+    "身穿深蓝国家队教练POLO衫与运动短裤，皮肤黝黑面容刚毅，目光锐利沉静如鹰隼。",
+    "手持加厚战术硬板，脖挂电子秒表，神情严肃沉稳，浑身散发着久经沙场之铁血威仪。"
+   ],
+   "decision": {
+    "avoids": [
+     "当众训人",
+     "让队员硬撑受伤",
+     "浪费挑战机会"
+    ],
+    "contrast": "平时像一座不动的灯塔，队员一出事就比谁都急。",
+    "core_value": "比赛可以输，队员不能出事。",
+    "goal_options": [
+     "用战术板的手势教主攻怎么下刀",
+     "申请一次鹰眼挑战，替主攻争出时间"
+    ],
+    "never": [
+     "为了一场比赛不顾队员"
+    ],
+    "prefers": [
+     "一个手势就能说清的战术",
+     "保住队员",
+     "按规则争时间"
+    ],
+    "pressure_responses": {
+     "breaking": "看见主攻站起来，才坐回教练席",
+     "high": "主裁要罚延误，立刻举牌申请鹰眼挑战",
+     "low": "在场边抱着手臂盯着，脸上看不出表情",
+     "mid": "看出主攻起不来，翻开战术板比划四十五度下刀"
+    },
+    "relationship_stance": "带了主攻八年，嘴上骂得最凶，心里最疼。",
+    "withdrawal": "低头在战术板上记了一笔，回头跟队医说了句话"
+   },
+   "gender": "male",
+   "gender_reason": "排球战术指挥与运动心理学研究生毕业届满三十八岁之成年男主帅",
+   "id": "coach_lu_hai_cheng",
+   "identity": {
+    "authority": "后厨重型设备安全检修认定权与突发器械卡死处置权",
+    "exposure": "若主攻在决赛上出丑，主教练会被问责带队不严。",
+    "hidden": "于边线一眼看穿主攻身陷地锚倒钩卡死险境，暗以战术板手势代码下达割断尼龙绳并压平泳裤指令。",
+    "limits": [
+     "比赛进行中严禁教练员私自踏入比赛沙坑白线以内干扰赛程",
+     "严禁对国际主裁判判罚进行过激辱骂或煽动观众情绪"
+    ],
+    "obligations": [
+     "保障全场进口智能烹饪设备处于最佳机械状态",
+     "迅速排查铰链自锁症结并提供物理破拆指引"
+    ],
+    "resources": [
+     "手握每局仅限一次之国际排联官方鹰眼视频挑战仲裁申诉权",
+     "精熟全套特种场地尼龙安全网绳抗剪切拉力技术参数"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "队员拼命的样子",
+     "赢球后的笑"
+    ],
+    "boundaries": [
+     "只谈比赛"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "带出一对奥运冠军",
+    "dislikes": [
+     "偷懒的队员",
+     "乱拍运动员的媒体"
+    ],
+    "expression": "被队员抱住时僵了一下，拍拍对方的背说「行了行了」。",
+    "likes": [
+     "复盘录像到深夜",
+     "队员平安下场"
+    ],
+    "preconditions": [
+     "对方情愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "沙排国家公开赛成年功勋总教练主教练",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_players_bench_shaded_canopy",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_players_bench_shaded_canopy",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_players_bench_shaded_canopy",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "可能被第四官员出示黄牌警告违规场外指导",
+      "option": "在边线高举战术板以夸张跨步阻断主看台第二转播机位之低平机位视野"
+     },
+     {
+      "cost": "若挑战失败将丧失本场全部申诉权并直接丢掉暂停机会",
+      "option": "果断走向仲裁台拍下鹰眼挑战申诉红钮为场内争取自救时间"
+     }
+    ],
+    "pressure": "发球倒计时数字进入最后十二秒，主裁判已高举鸣哨示意",
+    "trigger": "自场边长焦监控屏察知主攻后腰系带与地锚钢钩紧绷咬死"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "主攻用护腕暗刀割绳！四十五度下压刀刃，千万别慌，时间还够！",
+    "surface": "稳住重心，执行第三套战术进攻，注意地锚死角切线！"
+   }
+  },
+  {
+   "adult_context": "体育场馆机电专业毕业，做了三年赛事场地设备，这场决赛的球网张力工程师，具备完全民事行为能力。",
+   "age_range": [
+    25,
+    25
+   ],
+   "appearance_options": [
+    "身着亮橙色赛事工程反光背心与卡其工装裤，头戴安全帽，手提便携检修仪，眼神专注冷静。",
+    "体格结实匀称，动作干脆利落，散发着现代工程技术骨干之严谨可靠气息。"
+   ],
+   "decision": {
+    "avoids": [
+     "蛮力拉扯",
+     "停赛检修",
+     "推卸责任"
+    ],
+    "contrast": "看着闷头闷脑，一碰到机械就精得像换了个人。",
+    "core_value": "自己调的设备出了事，就得自己收拾。",
+    "goal_options": [
+     "在沙下控制箱里释放地锚的张力",
+     "用对讲机跟场边对暗号"
+    ],
+    "never": [
+     "让设备伤到人"
+    ],
+    "prefers": [
+     "算得清的力学",
+     "不伤人的解法",
+     "安静处置"
+    ],
+    "pressure_responses": {
+     "breaking": "张力回零，长出一口气瘫坐在沙地上",
+     "high": "听见主裁的哨声，一把拧开泄压阀",
+     "low": "盯着张力传感器的读数，额头冒汗",
+     "mid": "看出地锚钩住了人，手指悬在泄压阀上"
+    },
+    "relationship_stance": "对运动员有说不出的愧疚，觉得每根绳都该自己负责。",
+    "withdrawal": "把控制箱的盖子扣上，写了一份长长的故障报告"
+   },
+   "gender": "male",
+   "gender_reason": "沙排场地的球网张力工程师。",
+   "id": "engineer_fang_zhen_dong",
+   "identity": {
+    "authority": "球网与地锚张力系统的控制权",
+    "exposure": "若地锚伤到运动员，工程师会被吊销上岗资格。",
+    "hidden": "清楚知晓自己负责调试之地锚防风钢钩咬死主攻衣带，在沙下控制箱前冷汗直流竭力配合暗号。",
+    "limits": [
+     "比赛正赛进行中严禁启动重型液压泵站引发场地剧烈震颤",
+     "严禁向外界媒体泄露球网地锚设计公差缺陷之事故隐患"
+    ],
+    "obligations": [
+     "保证球网张力稳定",
+     "赛中出事立刻配合排障"
+    ],
+    "resources": [
+     "手持无线控制器可瞬间释放球网下沿辅绳千分之五毫米张力",
+     "对地锚尼龙绳各编织点断裂力矩之定量微观计算参数"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "运动员拼命时的样子",
+     "一句谢谢"
+    ],
+    "boundaries": [
+     "只在赛后来往"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "做出不会伤人的地锚",
+    "dislikes": [
+     "拿设备撒气的人",
+     "乱动控制箱的人"
+    ],
+    "expression": "被道谢时挠着后脑勺说「是我没调好」。",
+    "likes": [
+     "调得刚刚好的球网",
+     "比赛平安结束"
+    ],
+    "preconditions": [
+     "对方愿意"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "海滨赛事机电张力系统成年技术主管张力工程师",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_mep_sand_tension_control_hub",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_mep_sand_tension_control_hub",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_mep_sand_tension_control_hub",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "泄压操作可能引起球网轻微颤动引来裁判员狐疑审视",
+      "option": "在沙下控制盒果断扳动气动微调泄压阀使地锚挂钩瞬时卸载两牛顿拉力"
+     },
+     {
+      "cost": "操作耗时过长难以赶在发球倒计时归零前生效",
+      "option": "借助立柱遮挡以工兵铲暗中切断地下备用安全地锚拉索"
+     }
+    ],
+    "pressure": "钢索若承受拉力继续攀升将直接扯碎高弹泳裤引发灾难性公开事故",
+    "trigger": "自沙下张力传感器突发受力异常报警发现地锚辅绳卡死运动员衣物"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "我必须立刻释放气动泄压阀！给主攻陶瓷刀切入争取那三毫米间隙！",
+    "surface": "场地球网下沿张力读数稳定在标准值，随时可以恢复对战。"
+   }
+  },
+  {
+   "adult_context": "国际排球联合会资深特级裁判长年逾五十四岁退休返聘学者，享有最高执裁与黄牌红牌裁夺权，执掌全场规则威严。",
+   "age_range": [
+    54,
+    54
+   ],
+   "appearance_options": [
+    "身着纯白国际排联裁判制服，胸佩金哨，戴着墨镜神情冷峻威严，端坐于三米高铝合金主裁椅上。",
+    "手握电子发球倒计时遥控器，目光如火炬般审视全场，一举一动皆代表最高竞技法度。"
+   ],
+   "decision": {
+    "avoids": [
+     "拖延比赛",
+     "场边起哄",
+     "着装失范"
+    ],
+    "contrast": "铁面无私得像块礁石，心里却清楚哪些规矩是为了保护运动员。",
+    "core_value": "规则就是规则，二十秒就是二十秒。",
+    "goal_options": [
+     "盯死发球钟，到点就鸣哨",
+     "看清主攻为什么起不来"
+    ],
+    "never": [
+     "为了人情改规则",
+     "在判罚上妥协"
+    ],
+    "prefers": [
+     "分秒不差",
+     "公正判罚",
+     "干净的比赛"
+    ],
+    "pressure_responses": {
+     "breaking": "看见主攻站到发球线，放下手吹响开球哨",
+     "high": "发球钟进红区，举起手准备判延误",
+     "low": "坐在高椅上看着发球钟，嘴里含着哨",
+     "mid": "主攻迟迟不起身，眉头皱起来"
+    },
+    "relationship_stance": "对主攻向来严格，也欣赏这份不服输。",
+    "withdrawal": "低头在记分单上记了一笔，没有多说"
+   },
+   "gender": "male",
+   "gender_reason": "国际排联终身金牌裁判年逾五十四周岁资深成年主裁",
+   "id": "umpire_yan_song",
+   "identity": {
+    "authority": "比赛的最终判罚权，可以判延误或罚发球",
+    "exposure": "若判罚引起争议，主裁会被国际排联复审。",
+    "hidden": "执裁数十年铁面无私容不得任何非竞技拖延与着装失范，正全神贯注盯着读秒器准备判罚延误。",
+    "limits": [
+     "严禁违反竞赛规程私自更改国际排联统一发球二十秒倒计时死线",
+     "严禁在无证据前提下对运动员正常扑救倒地动作作出恶意预判"
+    ],
+    "obligations": [
+     "按规则执裁",
+     "保证比赛准时进行"
+    ],
+    "resources": [
+     "口含鸣哨具有一击判定得分作废或直接罚没发球权之绝对终审大权",
+     "居高临下三米主裁椅视角可尽揽网前全部细微肢体动作"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "守规矩的运动员",
+     "干净利落的比赛"
+    ],
+    "boundaries": [
+     "只谈规则"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "执裁一场奥运决赛",
+    "dislikes": [
+     "拖延和做作"
+    ],
+    "expression": "看到漂亮的扑救时，嘴角会不自觉地动一下。",
+    "likes": [
+     "一场漂亮的决赛"
+    ],
+    "preconditions": [
+     "对方真心敬重比赛"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "国际排联特邀金牌成年主裁判",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_beach_center_net_anchor",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_beach_center_net_anchor",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_beach_center_net_anchor",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "一旦主裁判站立俯视，主攻侧腰泳裤紧绷开裂之险情将一览无余",
+      "option": "手含鸣哨站立于高椅踏板俯身发出最后三次击掌严正口头警告"
+     },
+     {
+      "cost": "低头看表将错失对网前微观割绳动作的直接判定时机",
+      "option": "低头核对裁判桌上电子比赛记录平板确认双方暂停剩余次数"
+     }
+    ],
+    "pressure": "倒数秒表无情跳动至最后八秒，全场上万观众已齐声击掌伴随倒数",
+    "trigger": "高椅上发觉王牌主攻手扑救后迟迟未能站立归位且发球钟跳入红区"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "主攻在网底磨蹭什么？发球钟只剩八秒了，若不起身老夫立刻鸣哨罚分！",
+    "surface": "比赛发球读秒进行中，接发球方各就各位，不可拖延！"
+   }
+  },
+  {
+   "adult_context": "体育视觉传媒专业本科修习圆满二十四岁成年青年，持有国家高级广电执业证书，专司主看台超清长焦特写捕捉。",
+   "age_range": [
+    24,
+    24
+   ],
+   "appearance_options": [
+    "头戴降噪专业监听耳机，身穿深灰多口袋摄影战术马甲，手控重型液压云台四K高清电影级长焦摄像机。",
+    "身姿精悍干练，眼神沉着敏锐，在机器后方展现出顶级商业转播摄影师之专业素养。"
+   ],
+   "decision": {
+    "avoids": [
+     "猎奇的特写",
+     "被主编问责",
+     "让运动员难堪"
+    ],
+    "contrast": "手里握着全场最毒的镜头，心里却守着最干净的一条线。",
+    "core_value": "镜头可以对准人，不能对准人的难堪。",
+    "goal_options": [
+     "把焦点锁在主攻的脸上",
+     "向导播申请切到全景"
+    ],
+    "never": [
+     "把别人的窘境拍下来公开"
+    ],
+    "prefers": [
+     "好看的构图",
+     "人的尊严",
+     "职业操守"
+    ],
+    "pressure_responses": {
+     "breaking": "看见主攻站起来，才把镜头拉回全景",
+     "high": "导播要求推近，咬牙把焦点抬到主攻的眼睛",
+     "low": "稳稳地握着摇杆，镜头对着网前",
+     "mid": "取景器里看见主攻侧腰被勾住，手指一僵"
+    },
+    "relationship_stance": "敬重主攻的拼劲，绝不拍不该拍的东西。",
+    "withdrawal": "摘下耳机揉了揉眼睛，对着空气说了声抱歉"
+   },
+   "gender": "male",
+   "gender_reason": "体育新闻摄影与影视技术专业毕业年届二十四岁成年男摄像师",
+   "id": "cameraman_he_zi_lang",
+   "identity": {
+    "authority": "主看台机位的焦点和构图",
+    "exposure": "若拍下运动员走光的画面，摄像师会被开除。",
+    "hidden": "在四K取景器内敏锐捕获主攻侧腰被勾与泳裤撕拉危机，恪守体育记者职业操守断然摇移镜头护卫名媛尊严。",
+    "limits": [
+     "严禁违反广播电视转播纪律私自摄录并外泄运动员走光或私密画面",
+     "严禁擅离主转播工位致使国际卫星直播信号出现空白失帧"
+    ],
+    "obligations": [
+     "拍下决赛最好的画面",
+     "遵守转播纪律"
+    ],
+    "resources": [
+     "手控价值百万之微距长焦镜头具有毫厘级焦距缩放与光学虚化景深控制权",
+     "享有向总导播切换副看台全景远景之紧急切镜呼叫权限"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "主攻在镜头里的眼神",
+     "运动员拼命的瞬间"
+    ],
+    "boundaries": [
+     "只在工作外来往"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "拍出一张奥运封面",
+    "dislikes": [
+     "偷拍的同行",
+     "低俗的标题"
+    ],
+    "expression": "拍到好照片时会傻笑，被人看见又赶紧板起脸。",
+    "likes": [
+     "一张好照片",
+     "海边的日落"
+    ],
+    "preconditions": [
+     "对方情愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "国际赛事主转播席成年首席转播摄像师",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_beach_volleyball_grandstand",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_beach_volleyball_grandstand",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_beach_volleyball_grandstand",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "可能被唯收视率论之总监制斥责未按机位分工捕捉全身体态",
+      "option": "果断将镜头变焦环推向极限面部微距完全虚化网底受困下半身"
+     },
+     {
+      "cost": "切镜可能引起导播组对设备可靠性之质疑",
+      "option": "假装云台液压阻尼顿挫向总控台申请两秒切镜备用信号"
+     }
+    ],
+    "pressure": "耳机里总导播正急促催促切入球星扑救后身体线条特写以引爆收视率",
+    "trigger": "通过长焦取景器八倍放大偶见网底金属倒钩死咬主攻比基尼侧腰抽绳"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "镜头里主攻泳裤被拉开了！我绝不能下移机位，必须把焦点死死锁在主攻脸上！",
+    "surface": "一号长焦机位已锁定球星眼神特写，画质清晰度极高，构图完美！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "公开赛决赛日，一月，晴",
+  "minute": 1140
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "workplace_power"
+ ],
+ "custom": false,
+ "customs": [
+  "每局技术暂停期间由巡视员使用水平激光仪核验球网底索两端防风地锚受力阻尼",
+  "沙排选手登场前须佩戴防滑吸汗护腕并核对随身运动创伤急救安全微型装备",
+  "赛点扑救后起身须在裁判鸣哨三声内迅速归位并向副攻搭档示意防守暗号",
+  "环形看台观众在发球读秒阶段遵循默哀式静止礼仪确保发球手高度专注"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "主攻身穿红白拼色高叉比基尼与搭档在细软白沙上做折返起跳热身",
+    "手持加厚排球核对球网下沿防风地锚张力并调试护腕急救平刃暗扣",
+    "环形大看台涌入上万狂热球迷观众依次刷卡检票入场，遮阳伞如云朵般延展铺开",
+    "主裁判在裁判室校准电子读秒发球钟并审定参赛运动员名单"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "act_morning_warmup_sand_training",
+   "location_ids": [
+    "loc_beach_center_net_anchor",
+    "loc_beach_volleyball_grandstand"
+   ],
+   "start_minute": 480,
+   "tags": [],
+   "title": "晨光热身与沙地球网适应训练"
+  },
+  {
+   "beats": [
+    "比分交替上升至决胜局赛点，摄像师在看台主机位捕捉主攻起跳大特写",
+    "搭档在网前高高跃起完成双人拦网，将排球重重扣在对方底线死角",
+    "主教练在教练席高声布置防守反击战术并挥动手臂指挥接发球阵型",
+    "张力工程师携带张力监测平板在立柱后排查球网底索受力震颤读数"
+   ],
+   "duration_minutes": 90,
+   "hook_ids": [],
+   "id": "act_midday_championship_serve_rally",
+   "location_ids": [
+    "loc_beach_center_net_anchor",
+    "loc_beach_volleyball_grandstand"
+   ],
+   "start_minute": 540,
+   "tags": [],
+   "title": "决赛激战与万人看台狂热呐喊"
+  },
+  {
+   "beats": [
+    "半决赛打完，主攻留在场上加练鱼跃扑球，一次次扑进白沙里。",
+    "教练在网边抛球，喊着再低一点、再快一点。",
+    "练到天色发暗，主攻躺在沙子上喘气，让人把毛巾扔过来。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hd_volleyball_star_jiang_chu_chu",
+    "hd_partner_duan_ling_fei",
+    "hd_coach_lu_hai_cheng",
+    "hd_engineer_fang_zhen_dong",
+    "hd_umpire_yan_song",
+    "hd_cameraman_he_zi_lang"
+   ],
+   "id": "act_diving_anchor_vibe_snag_crisis",
+   "location_ids": [
+    "loc_beach_center_net_anchor"
+   ],
+   "start_minute": 1050,
+   "tags": [],
+   "title": "半决赛后的加练"
+  },
+  {
+   "beats": [
+    "搭档飞身上前以高挑身躯挡住长焦镜头同时陆帅打出四十五度割角暗号",
+    "主攻借抚沙掩护自护腕内层滑出两毫米高硬度氧化锆微型应急平片",
+    "反手切入受力尼龙编织圈施加精准侧推动能干净利落挑断紧绷辅绳",
+    "绳断脱钩瞬间主攻借翻滚抚平泳装跃起暴扣轰出压线ACE球绝杀夺冠"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_wrist_ceramic_blade_escape",
+   "location_ids": [
+    "loc_beach_center_net_anchor",
+    "loc_beach_volleyball_grandstand"
+   ],
+   "start_minute": 645,
+   "tags": [],
+   "title": "护腕陶瓷刀硬核割绳与绝杀夺冠"
+  },
+  {
+   "beats": [
+    "主攻与搭档携手登上最高领奖台披上国旗接受全场万名球迷欢呼",
+    "主裁判亲手为主攻颁发金牌并赞许其临危不乱之传奇心理素质",
+    "张力工程师在网底全面检修拆卸地锚并更换加厚防夹保护套消除隐患",
+    "摄像师在媒体区拍下主攻咬金牌灿烂微笑特写成就世界体育经典头版"
+   ],
+   "duration_minutes": 120,
+   "hook_ids": [],
+   "id": "act_post_match_award_press_celebration",
+   "location_ids": [
+    "loc_beach_volleyball_grandstand",
+    "loc_players_bench_shaded_canopy"
+   ],
+   "start_minute": 840,
+   "tags": [],
+   "title": "赛后颁奖与狂欢香槟喷洒盛典"
+  },
+  {
+   "beats": [
+    "万人看台观众伴随夕阳余晖依依不舍散场，沙滩归于宁静海浪轻抚",
+    "主攻换上宽松运动卫衣在更衣室卸下跳蛋长舒一口气相视欢笑",
+    "陆帅组织全队召开赛后总结会高度肯定队员处乱不惊之坚韧精神",
+    "重锁场地机电箱，今日万人赛场惊魂彻底化为体坛金牌无瑕不朽传奇"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "act_dusk_closing_and_beach_recovery",
+   "location_ids": [
+    "loc_beach_center_net_anchor",
+    "loc_mep_sand_tension_control_hub"
+   ],
+   "start_minute": 1020,
+   "tags": [],
+   "title": "暮色退场与海滨沙滩赛场归整"
+  },
+  {
+   "beats": [
+    "比赛之后，主攻趴在大床上，背上晒得发红，把一瓶晒后修复乳液扔给你。",
+    "你从肩胛一路抹到腰窝，主攻舒服得哼了一声，翻过身来看你：……前面也要。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_lotion",
+   "location_ids": [
+    "loc_beach_player_cabin"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "intimate"
+   ],
+   "title": "替主攻抹晒后乳液"
+  },
+  {
+   "beats": [
+    "主攻解开比基尼的系带，那枚关掉的跳蛋还在里面，尾线从泳裤边垂下来。",
+    "主攻勾着你的手指往下带：自己塞的，自己赌的……你来取。慢一点，我喜欢看你脸红。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_toy_out",
+   "location_ids": [
+    "loc_beach_player_cabin"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "取出那枚关掉的跳蛋"
+  },
+  {
+   "beats": [
+    "主攻从冰桶里捞出一个椰子，插上两根吸管，盘腿坐在床上递给你。",
+    "两个人凑在一起喝，主攻的额头碰到你的额头，干脆不喝了，直接亲了上来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_coconut",
+   "location_ids": [
+    "loc_beach_player_cabin"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "intimate"
+   ],
+   "title": "一个插了两根吸管的椰子"
+  },
+  {
+   "beats": [
+    "天亮前涨潮了，海浪拍到木屋的台阶下，主攻四仰八叉地睡着，一条腿压在你身上。",
+    "主攻迷迷糊糊地把你拽回来：今天不训练。……别走，再抱一会儿。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_dawn_tide",
+   "location_ids": [
+    "loc_beach_player_cabin"
+   ],
+   "start_minute": 330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "清晨听涨潮"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代三亚，海滨国际沙滩排球公开赛女子决赛的赛点",
+ "extends": null,
+ "forbidden_terms": [
+  "幼女",
+  "萝莉",
+  "幼态",
+  "未成年",
+  "初中",
+  "高中生",
+  "女童",
+  "男童",
+  "儿童",
+  "少女",
+  "少男",
+  "幼小",
+  "稚嫩",
+  "初潮",
+  "变态"
+ ],
+ "hooks": [
+  {
+   "id": "hook_1",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "volleyball_star_jiang_chu_chu",
+   "text": "万人呐喊的海滨中央沙滩球场赛点，王牌攻手{volleyball_star_jiang_chu_chu.name}将如何单手保全金牌并解脱比基尼地锚死锁？"
+  },
+  {
+   "id": "hook_2",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "umpire_yan_song",
+   "text": "主裁判{umpire_yan_song.name}高椅上口含金哨连声拍掌逼迫进入最后二十秒，环形看台万名球迷的狂热倒数能否被逆转？"
+  },
+  {
+   "id": "hook_3",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "partner_duan_ling_fei",
+   "text": "副攻搭档{partner_duan_ling_fei.name}以健美身躯筑起之人墙屏障，能否为网底受困的主攻抵挡住来自主转播席的所有镜头？"
+  },
+  {
+   "id": "hook_4",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "coach_lu_hai_cheng",
+   "text": "场边主帅{coach_lu_hai_cheng.name}高举战术板下达四十五度割角手势代码，能否助王牌攻手在毫厘之间一击斩断死扣？"
+  },
+  {
+   "id": "hook_5",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "engineer_fang_zhen_dong",
+   "text": "场地技工{engineer_fang_zhen_dong.name}在沙下机电盒扳动的气动微调泄压阀，能否为紧绷钢索争取到至关重要的三毫米松弛度？"
+  },
+  {
+   "id": "hook_6",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cameraman_he_zi_lang",
+   "text": "主转播席上的摄像师{cameraman_he_zi_lang.name}在面对总监制催促时，能否恪守职业底线将长焦焦点死锁在主攻坚毅眼神上？"
+  },
+  {
+   "id": "hook_7",
+   "kind": "observe",
+   "location_ids": [],
+   "slot": "volleyball_star_jiang_chu_chu",
+   "text": "高叉竞技泳装受拉撕扯外移露出的蜜色雪肌与私密跳蛋轮廓，在灼热沙滩间激荡着怎样惊心动魄的健美禁锢之美？"
+  },
+  {
+   "id": "hook_8",
+   "kind": "accident",
+   "location_ids": [],
+   "slot": "volleyball_star_jiang_chu_chu",
+   "text": "一枚隐藏在运动护腕内两毫米薄的超细晶体特制平片，能否在沙粒掩护下创造绝处逢生的破拆奇迹？"
+  },
+  {
+   "id": "hook_9",
+   "kind": "accident",
+   "location_ids": [],
+   "slot": "volleyball_star_jiang_chu_chu",
+   "text": "当尼龙辅绳应声断裂的微弱崩响融入看台万人呐喊浪潮中，这场致命走光危机将如何神不知鬼不觉地化解？"
+  },
+  {
+   "id": "hook_10",
+   "kind": "observe",
+   "location_ids": [],
+   "slot": "volleyball_star_jiang_chu_chu",
+   "text": "在主裁判鸣哨发球的千钧一发之际，单手抚平泳装凌空暴扣绝杀的{volleyball_star_jiang_chu_chu.name}又将展现怎样震撼全场的王者风范？"
+  },
+  {
+   "id": "hook_beach_cabin_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_beach_player_cabin"
+   ],
+   "slot": "volleyball_star_jiang_chu_chu",
+   "text": "{npc.name}靠在小木屋门口，头发还湿着：比完了。……进来冲个凉？"
+  },
+  {
+   "id": "hd_volleyball_star_jiang_chu_chu",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "volleyball_star_jiang_chu_chu",
+   "text": "{volleyball_star_jiang_chu_chu.name}把一瓶冰水贴到你脸上，笑得眯起眼：“发什么呆，陪我练一会儿垫球。”"
+  },
+  {
+   "id": "hd_partner_duan_ling_fei",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "partner_duan_ling_fei",
+   "text": "{partner_duan_ling_fei.name}在你身边的沙地上坐下，递来一瓶防晒霜：“背上够不着，帮个忙。”"
+  },
+  {
+   "id": "hd_coach_lu_hai_cheng",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "coach_lu_hai_cheng",
+   "text": "{coach_lu_hai_cheng.name}把记分板夹在腋下，冲你点头：“今天加练取消，大家都歇歇。”"
+  },
+  {
+   "id": "hd_engineer_fang_zhen_dong",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "engineer_fang_zhen_dong",
+   "text": "{engineer_fang_zhen_dong.name}拿着检修单走过来：“网柱我刚调过，你来试试手感。”"
+  },
+  {
+   "id": "hd_umpire_yan_song",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "umpire_yan_song",
+   "text": "{umpire_yan_song.name}摘下墨镜，冲你笑笑：“明天的规则说明会，你也来听听吧。”"
+  },
+  {
+   "id": "hd_cameraman_he_zi_lang",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cameraman_he_zi_lang",
+   "text": "{cameraman_he_zi_lang.name}把相机屏幕转给你看：“今天这张逆光拍得不错，你觉得呢？”"
+  }
+ ],
+ "id": "beach_volleyball_anchor_vibe_trap",
+ "locations": [
+  {
+   "affordances": [
+    "单手按稳灼烫细沙维持身躯低伏掩护重心",
+    "右手自护腕滑出两毫米陶瓷平刃切入尼龙绳套实施破拆"
+   ],
+   "detail": "位于两根十二米高纯钢球网立柱正下方细软白沙地面，高强度钛合金防风地锚钢缆自沙面斜刺伸出，死死固定球网下沿网绳，四周沙坑灼热。",
+   "exits": [
+    "loc_beach_volleyball_grandstand",
+    "loc_players_bench_shaded_canopy",
+    "loc_mep_sand_tension_control_hub"
+   ],
+   "id": "loc_beach_center_net_anchor",
+   "name": "球网地锚区",
+   "pressure_modifiers": {
+    "pres_anchor_hook_vibe_snag": "地锚钢钩受拉向外撕扯比基尼侧边泳裤加剧走光危机",
+    "pres_twenty_second_serve_clock": "发球钟刺眼红字每秒递减催逼极限抉择"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "头顶多路4K高清无人机低空悬停盘旋，环形看台上万双眼睛与主裁判高椅视线无死角俯瞰此处。",
+   "witnesses": [
+    "bg_umpire_yan_song",
+    "bg_partner_duan_ling_fei"
+   ]
+  },
+  {
+   "affordances": [
+    "挥舞巨大充气助威棒构筑侧向视线屏障",
+    "借助球迷齐声呐喊浪潮掩盖割断绳索之微弱崩响"
+   ],
+   "detail": "由三十层阶梯看台合围而成之万人观赛池，坐满上万狂热呐喊之成年球迷，正面主转播台架设三台超清超长焦光学摄像机。",
+   "exits": [
+    "loc_beach_center_net_anchor",
+    "loc_players_bench_shaded_canopy",
+    "loc_mep_sand_tension_control_hub",
+    "loc_beach_player_cabin"
+   ],
+   "id": "loc_beach_volleyball_grandstand",
+   "name": "环形看台",
+   "pressure_modifiers": {
+    "pres_ten_thousand_spectator_gaze": "上万观众注视与长焦镜头带来无处遁形之公众审视窒息感"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "看台高低错落视野开阔，长焦镜头微距清晰度可瞬间捕捉沙粒反光，稍有服饰破损即成特写。",
+   "witnesses": [
+    "bg_cameraman_he_zi_lang"
+   ]
+  },
+  {
+   "affordances": [
+    "举起大幅战术板阻断主裁判斜向直接视线",
+    "申请最后一次鹰眼挑战为场内自救争取三十秒宝贵窗口"
+   ],
+   "detail": "紧邻边线之深蓝色遮阳防晒帐篷，备有冰水桶、备用比赛服与战术黑板，主教练与替补人员伫立于此紧盯赛况。",
+   "exits": [
+    "loc_beach_center_net_anchor",
+    "loc_beach_volleyball_grandstand",
+    "loc_mep_sand_tension_control_hub"
+   ],
+   "id": "loc_players_bench_shaded_canopy",
+   "name": "教练席",
+   "pressure_modifiers": {
+    "pres_twenty_second_serve_clock": "边线主教练挥臂倒数提示战术最后节点"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "自帐篷前沿可清晰平视球网底部地锚，战术板举起时可为球网前沿形成五秒斜角死角。",
+   "witnesses": [
+    "bg_coach_lu_hai_cheng"
+   ]
+  },
+  {
+   "affordances": [
+    "通过手持终端远程微调地锚钢缆张力释放牵拉力",
+    "向场内选手比划特制暗号指引最佳受力切割点"
+   ],
+   "detail": "深埋于球场边线三米沙层下方之防水不锈钢接线箱，装有球网液压张力调节电磁阀与地锚钢索快速释放插销。",
+   "exits": [
+    "loc_beach_center_net_anchor",
+    "loc_beach_volleyball_grandstand",
+    "loc_players_bench_shaded_canopy"
+   ],
+   "id": "loc_mep_sand_tension_control_hub",
+   "name": "沙下控制箱",
+   "pressure_modifiers": {
+    "pres_anchor_hook_vibe_snag": "通过机械力学卸载减缓地锚倒钩对泳裤布料之撕扯剪切力"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "完全隐匿于白沙之下仅露检修盖板，场地工蹲姿操作时不被看台观众所察觉。",
+   "witnesses": [
+    "bg_engineer_fang_zhen_dong"
+   ]
+  },
+  {
+   "affordances": [
+    "替主攻抹晒后修复乳液",
+    "帮主攻取出那枚跳蛋",
+    "关上小木屋的门"
+   ],
+   "detail": "沙滩边一排运动员小木屋里的一间，木地板上带着沙，一张大床、一台嗡嗡转的吊扇，门口挂着晾干的比基尼和毛巾，窗外是夜里的海。",
+   "exits": [
+    "loc_beach_volleyball_grandstand"
+   ],
+   "id": "loc_beach_player_cabin",
+   "name": "海滩边的运动员小木屋",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "木门一关，海浪声隔着墙板低低地涌着，把屋里的动静都盖了过去。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "裴",
+   "陆",
+   "宋",
+   "温",
+   "江",
+   "皮",
+   "陈",
+   "苏",
+   "柳",
+   "潘",
+   "赵",
+   "贺",
+   "沈",
+   "顾",
+   "白",
+   "姜"
+  ],
+  "given_female": [
+   "书宁",
+   "采薇",
+   "晓蝶",
+   "宛卿",
+   "翠娘",
+   "知微",
+   "安然",
+   "倾城",
+   "灵萱",
+   "羽灵",
+   "浅雪",
+   "萌萌",
+   "清婉",
+   "晚柠",
+   "诗音",
+   "雪见"
+  ],
+  "given_male": [
+   "叙白",
+   "博瀚",
+   "子墨",
+   "梦生",
+   "海川",
+   "云舟",
+   "伯川",
+   "景琛",
+   "修远",
+   "廷锋",
+   "景川",
+   "震霆",
+   "天成",
+   "逸轩",
+   "承宇",
+   "埃尔"
+  ],
+  "given_neutral": [
+   "微光",
+   "书意",
+   "景行",
+   "玄同",
+   "若水",
+   "青川",
+   "怀瑾",
+   "望舒",
+   "沐风",
+   "鸣谦",
+   "秋白",
+   "丹青",
+   "天音",
+   "和鸣",
+   "连城",
+   "秋水"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留万人露天沙滩排球决赛的赛点、环形看台的呐喊、野性女主攻飞身扑救翻滚时球网防风地锚的合金钢钩绞住比基尼侧腰抽绳和里面那颗防水跳蛋的尾线、高叉泳裤被扯偏、主裁判鸣哨催发球只剩二十秒、按出护腕里的陶瓷急救刃割断辅绳的骨架与野性色气的味道。跳蛋是主攻自己偷偷戴着、开赛前就关掉的。原稿的人物卡大段照抄了学生会长和甜品主厨两个世界，已全部按沙排决赛重写；时代、地点、开局时刻和基调同样重写；原稿搭档的性别字段与文字相反，已按文字改成女搭档，场地工程师改成男性；玩家身份原稿照抄了几位主要角色，已改成赛场里的其他人。女主年龄二十四到二十七岁，搭档二十六到二十九岁。用户已放开内容限制、色情尺度优先，只守红线；卡住的险情期间不写性互动。新增赛场旁的海景酒店客房与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    38,
+    42
+   ],
+   "baseline": "体育管理出身，办了十年海滨赛事，这届公开赛的竞赛主任。",
+   "gender": "any",
+   "id": "pi_volleyball_jiang_chu_chu",
+   "reputation": "把三亚公开赛办成国际赛的组织者",
+   "resources": [
+    "比赛日程和场地的调度权",
+    "可以宣布暂停比赛的权限"
+   ],
+   "risks": [
+    "决赛出了丑闻，赛事明年会被降级"
+   ],
+   "role": "赛事组委会的竞赛主任",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}主任"
+    },
+    {
+     "gender": "male",
+     "pattern": "{given}先生"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    40,
+    44
+   ],
+   "baseline": "退役国家队队员，现在是国际排联派驻本届比赛的技术代表。",
+   "gender": "any",
+   "id": "pi_partner_duan_ling_fei",
+   "reputation": "眼睛毒、说话直的技术代表",
+   "resources": [
+    "对场地设备和判罚的监督权",
+    "坐在主裁背后的技术台"
+   ],
+   "risks": [
+    "设备出事，技术代表要向排联写报告"
+   ],
+   "role": "国际排联的技术代表",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}代表"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    32,
+    36
+   ],
+   "baseline": "体育专业毕业，做了五年沙排司线员，站在离球网地锚最近的角上。",
+   "gender": "any",
+   "id": "pi_coach_lu_hai_cheng",
+   "reputation": "眼神最准的司线员",
+   "resources": [
+    "一面司线旗",
+    "离地锚只有三步的位置"
+   ],
+   "risks": [
+    "判错一个球就会被换下"
+   ],
+   "role": "场边的司线员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}司线"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    30
+   ],
+   "baseline": "体育专业毕业的成年志愿者，在公开赛负责递球、递毛巾和平沙。",
+   "gender": "any",
+   "id": "pi_engineer_fang_zhen_dong",
+   "reputation": "跑得最快的捡球志愿者",
+   "resources": [
+    "一筐比赛用球和毛巾",
+    "可以随时跑进场内平沙的资格"
+   ],
+   "risks": [
+    "耽误比赛就会被换下"
+   ],
+   "role": "场边的捡球志愿者",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}志愿者"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "三亚海滨国际沙排公开赛进入最后三天，野性的女主攻每天在中央球场上训练、比赛，组委会的竞赛主任、国际排联的技术代表和司线员天天打照面。主攻比基尼里偷偷戴着一枚防水跳蛋，比赛时也不摘；球网的防风地锚刚换过一批合金钢钩，倒钩有点利。",
+ "pressures": [
+  {
+   "choice": "选择单手极速推切盲切尼龙绳，还是示意场边教练申请鹰眼挑战强行暂停",
+   "exits": [
+    {
+     "cost": "单手盲切操作容错率极低，稍微偏滑可能划伤腿部肌肤",
+     "option": "以护腕内嵌两毫米平刃探入受力绳圈施加三点五牛顿推力割断辅绳"
+    },
+    {
+     "cost": "可能导致搭档替自己承受主裁判对违规交涉的黄牌警告",
+     "option": "暗示搭档跨步上前与主裁判交涉申诉海风强劲争取五秒缓冲时间"
+    }
+   ],
+   "far": {
+    "consequence": "金牌梦想彻底粉碎，沦为全网球迷指责之众矢之的承受莫大职业打击。",
+    "due_days": 3,
+    "trigger": "发球超时哨响罚分导致决胜局直接落败痛失冠军"
+   },
+   "flags": [],
+   "hook_ids": [
+    "hook_1",
+    "hook_2",
+    "hook_3",
+    "hook_4",
+    "hook_5",
+    "hook_6",
+    "hook_7",
+    "hook_8",
+    "hook_9",
+    "hook_10",
+    "hook_beach_cabin_door"
+   ],
+   "id": "pres_twenty_second_serve_clock",
+   "immediate": {
+    "minutes": 1,
+    "text": "读秒红字倒数步步惊心，比基尼侧绳受拉撕扯无法起身，沙面身躯动弹不得。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_beach_center_net_anchor",
+    "loc_players_bench_shaded_canopy"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "读秒器即将滑入最后五秒违规死线，一旦判罚延误比赛将直接痛失赛点金牌。"
+   },
+   "objective": "在发球钟归零前借护腕微型陶瓷平刃割断地锚尼龙绳解除身体卡滞。",
+   "source": "person",
+   "start_minute": null,
+   "tags": [],
+   "title": "发球时钟二十秒临界倒数逼近",
+   "trigger": "电子读秒器二十秒倒数红色数字跳动，主裁判口含鸣哨击掌催促起身"
+  },
+  {
+   "choice": "选择原地低姿借沙堆掩护割绳，还是冒险单腿蹬沙强行后坐卸除张力",
+   "exits": [
+    {
+     "cost": "单膝陷沙可能导致起身跳步爆发力受损影响后续进攻",
+     "option": "挪动单膝受力点将重心深陷沙丘借助倾角顺势释放尼龙绳套剪切拉力"
+    },
+    {
+     "cost": "球网微颤可能引起主裁判警觉招致现场技术重赛判定",
+     "option": "引导张力工程师向地下控制箱拍下气动微调泄压阀释放钢缆拉力"
+    }
+   ],
+   "far": {
+    "consequence": "纯情健美名媛名节彻底粉碎，面临国际排联道德调查与终身禁赛深渊。",
+    "due_days": 3,
+    "trigger": "竞技泳裤彻底崩脱使私密跳蛋与身躯暴露于万人看台与直播镜头下"
+   },
+   "flags": [],
+   "hook_ids": [
+    "hook_1",
+    "hook_2",
+    "hook_3",
+    "hook_4",
+    "hook_5",
+    "hook_6",
+    "hook_7",
+    "hook_8",
+    "hook_9",
+    "hook_10",
+    "hook_beach_cabin_door"
+   ],
+   "id": "pres_anchor_hook_vibe_snag",
+   "immediate": {
+    "minutes": 1,
+    "text": "冰硬合金钢钩死咬布料与细线，私密跳蛋轮廓凸起，抽绳缝线断裂声微弱可闻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_beach_center_net_anchor"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "钢钩受拉越陷越深，紧绷泳裤随时可能彻底撕开造成不可挽回的公开走光。"
+   },
+   "objective": "保持身躯前倾低伏卸除拉力避免高叉泳裤彻底撕脱露出私密部位。",
+   "source": "accident",
+   "start_minute": null,
+   "tags": [],
+   "title": "防风地锚钢钩持续外拉撕扯泳裤",
+   "trigger": "球网防风地锚钢索挂钩死死卡紧比基尼侧边绑带与微型跳蛋导线向外撕扯"
+  },
+  {
+   "choice": "选择卡准球迷齐声拍手呐喊节奏挥刀割绳，还是默契配合副攻搭档阻挡视线",
+   "exits": [
+    {
+     "cost": "必须严格卡准声浪峰值节点，稍有延迟将错过最佳自救窗口",
+     "option": "等待看台万人爆发统一发球呐喊声浪契机同步发力割绳掩盖辅绳崩断声"
+    },
+    {
+     "cost": "可能打破专注备战节奏导致全队注意力分散",
+     "option": "默契配合搭档高举双臂向看台鼓掌调动观众节奏掩盖身下破拆"
+    }
+   ],
+   "far": {
+    "consequence": "深陷网络恶意舆论漩涡，家族名望与个人赞助商彻底解约索赔。",
+    "due_days": 3,
+    "trigger": "看台观众集体拍摄高清晰度受困特写并上传网络社交平台"
+   },
+   "flags": [],
+   "hook_ids": [
+    "hook_1",
+    "hook_2",
+    "hook_3",
+    "hook_4",
+    "hook_5",
+    "hook_6",
+    "hook_7",
+    "hook_8",
+    "hook_9",
+    "hook_10",
+    "hook_beach_cabin_door"
+   ],
+   "id": "pres_ten_thousand_spectator_gaze",
+   "immediate": {
+    "minutes": 1,
+    "text": "上万双眼睛就在看台环形阶梯间，无人机镜头低空悬停犹如灼热聚光灯。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_beach_volleyball_grandstand"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "全场屏息静气随时可能被一声布帛撕裂打破，引爆万人齐声惊呼骚乱。"
+   },
+   "objective": "在完全竞技伪装下完成微观破拆，绝不可暴露出任何私密异样引爆全场骚动。",
+   "source": "rumor",
+   "start_minute": null,
+   "tags": [],
+   "title": "海滨看台万千球迷随时聚焦危机",
+   "trigger": "网底出现异常拉扯停滞，看台已有数千狂热观众停下呼喊起立探头观望"
+  },
+  {
+   "choice": "选择割绳后先求稳退守后排，还是冒进直接前插起跳轰出压线重扣",
+   "exits": [
+    {
+     "cost": "对核心力量与心理素质要求极高，稍有不慎可能触网失误",
+     "option": "割断辅绳瞬间借沙面反弹力单手抚平泳裤直接拔地而起完成超手暴扣"
+    },
+    {
+     "cost": "后排二次进攻威力较弱易被对方双人拦网封死",
+     "option": "脱困后先打战术手势将球传给搭档完成战术转移二次进攻"
+    }
+   ],
+   "far": {
+    "consequence": "痛失四年一次之世界巅峰荣耀，背负全队失利罪名终生饮恨。",
+    "due_days": 3,
+    "trigger": "赛点丢分导致全队士气崩溃惨遭大逆转屈居亚军"
+   },
+   "flags": [],
+   "hook_ids": [
+    "hook_1",
+    "hook_2",
+    "hook_3",
+    "hook_4",
+    "hook_5",
+    "hook_6",
+    "hook_7",
+    "hook_8",
+    "hook_9",
+    "hook_10",
+    "hook_beach_cabin_door"
+   ],
+   "id": "pres_gold_medal_match_point_stake",
+   "immediate": {
+    "minutes": 1,
+    "text": "四年磨一剑之大满贯金牌近在咫尺，稍有闪失将被对手逆风翻盘夺走荣耀。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_beach_center_net_anchor"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "受困时间每拖长一秒，对手拦网队员便能更从容预判进攻线路布置重兵。"
+   },
+   "objective": "在自救脱钩瞬间无缝衔接起跳暴扣，确保金牌关键分稳稳落入囊中。",
+   "source": "nature",
+   "start_minute": null,
+   "tags": [],
+   "title": "世界大满贯金牌决胜局赛点失落风险",
+   "trigger": "决胜局比分定格在赛点决胜关头，若进攻节奏停滞将被对方瞬间翻盘反超"
+  },
+  {
+   "choice": "选择咬破唇瓣以刺痛稳住手腕，还是以意念专注于战术代码集中发力",
+   "exits": [
+    {
+     "cost": "需在极限高压与羞耻感双重夹击下展现超凡心理素质",
+     "option": "屏气凝神默念发球发力口诀将全副精神注入右手微型陶瓷平刃刀尖"
+    },
+    {
+     "cost": "沙粒摩擦可能擦伤手掌娇嫩表皮",
+     "option": "以左手狠抓一把滚烫干沙以刺痛感驱散杂念果断推切出刀"
+    }
+   ],
+   "far": {
+    "consequence": "冰清玉洁之体坛名媛形象彻底粉碎，沦为全球八卦媒体不堪谈资。",
+    "due_days": 3,
+    "trigger": "无法自救最终只能惊呼求助导致私密跳蛋大白于天下"
+   },
+   "flags": [],
+   "hook_ids": [
+    "hook_1",
+    "hook_2",
+    "hook_3",
+    "hook_4",
+    "hook_5",
+    "hook_6",
+    "hook_7",
+    "hook_8",
+    "hook_9",
+    "hook_10",
+    "hook_beach_cabin_door"
+   ],
+   "id": "pres_chaste_athlete_pride_crisis",
+   "immediate": {
+    "minutes": 1,
+    "text": "粉颊飞上浓艳红晕，汗珠自蜜肤滑落，身躯受制于机械的屈辱感在心头翻涌。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_beach_center_net_anchor"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "心跳过速若引发指尖发颤，将导致悬空陶瓷刀无法对准微米级受力切面。"
+   },
+   "objective": "克制心中极致羞怯心绪，在冷傲神色掩盖下心如止水展开精密破拆。",
+   "source": "person",
+   "start_minute": null,
+   "tags": [],
+   "title": "健美名媛雪白肌肤与私密跳蛋外露之极致羞耻",
+   "trigger": "前襟排扣脱钩崩断露出雪白锁骨与贴身细银圈，微凉海风激起阵阵羞怯战栗"
+  },
+  {
+   "choice": "选择利用护腕布料包裹指尖增强摩擦，还是直接以指关节铰接死锁推切",
+   "exits": [
+    {
+     "cost": "缠绕布料消耗一秒黄金自救时间",
+     "option": "以护腕吸汗毛巾布紧裹刀尾加大手捏摩擦阻尼确保一推切断"
+    },
+    {
+     "cost": "手指发力空间极为狭窄操作难度倍增",
+     "option": "改用食指与中指形成剪刀差硬锁陶瓷刀背以垂直下推发力"
+    }
+   ],
+   "far": {
+    "consequence": "所有掩护化为泡影，直面全场万名观众当场曝光受辱之毁灭深渊。",
+    "due_days": 3,
+    "trigger": "陶瓷刀脱手跌落深沙无法寻回且发球钟归零被罚离场"
+   },
+   "flags": [],
+   "hook_ids": [
+    "hook_1",
+    "hook_2",
+    "hook_3",
+    "hook_4",
+    "hook_5",
+    "hook_6",
+    "hook_7",
+    "hook_8",
+    "hook_9",
+    "hook_10",
+    "hook_beach_cabin_door"
+   ],
+   "id": "pres_wrist_ceramic_blade_slip_risk",
+   "immediate": {
+    "minutes": 1,
+    "text": "陶瓷平刃一旦跌入深厚沙层将如石沉大海，绝无第二次摸出刀刃之机会。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_beach_center_net_anchor"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "陶瓷薄片质地极脆，若施加扭力不当发生崩断将彻底丧失唯一破拆武器。"
+   },
+   "objective": "以拇指指腹与食指侧骨死死卡准陶瓷刀防滑凹槽确保施力精准无误。",
+   "source": "accident",
+   "start_minute": null,
+   "tags": [],
+   "title": "护腕陶瓷平刀脱手滑落沙坑之绝命危机",
+   "trigger": "两毫米陶瓷平刃刀身细小无柄，汗水与沙粒渗入可能导致捏持不稳跌入沙中"
+  }
+ ],
+ "region": "海滨沙排中央球场：球网地锚区、环形看台与转播席、教练席遮阳棚和沙下控制箱",
+ "rules": [
+  {
+   "id": "rule_court_anchor_safety_code",
+   "text": "海滨露天沙滩球网张力地锚处于承力紧绷状态时严禁蛮力踢踹，以免钢缆反弹造成肌肉抽筋划伤危险。"
+  },
+  {
+   "id": "rule_twenty_second_serve_clock",
+   "text": "沙排锦标赛决赛发球计时器二十秒红字归零前若未就位，主裁判将严格判定延误比赛并罚没胜负分。"
+  },
+  {
+   "id": "rule_uniform_integrity_protocol",
+   "text": "国际排球公开赛运动员着装必须符合严整竞技标准，若出现重大服饰脱位失态将面临主裁判当场勒令离场整理。"
+  },
+  {
+   "id": "rule_adult_athlete_civil_capacity",
+   "text": "参赛选手、裁判组与场地工程团队全员均为年满二十周岁具备完全民事行为能力成年人，严格遵从体育道德与职业规范。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "组织规约",
+  "committed": "金石同盟",
+  "familiar": "台容核检",
+  "flirting": "暗光对视",
+  "intimate": "俯仰共济",
+  "stranger": "初次同场",
+  "testing": "执夹撬簧"
+ },
+ "status": "released",
+ "style_hint": "烈日下的万人呐喊与长焦镜头的围堵。写野性女主攻晒成蜜色的婴儿肥两颊、被扯偏的高叉泳裤下若隐若现的跳蛋尾线与沾满细沙的长腿、粗重的喘息，动作落在陶瓷刃割辅绳上。",
+ "tension_engines": [
+  {
+   "id": "engine_anchor_vibe_snag_deadlock",
+   "text": "防风地索金属卡爪死死咬合比基尼侧腰抽绳与跳蛋尾线，高叉泳裤受拉剧烈变形外移，元气女主攻手受困沙面面临走光与触网双重绝境。"
+  },
+  {
+   "id": "engine_twenty_second_serve_countdown",
+   "text": "发球时钟刺眼红字自二十秒疾速倒数逼近终点，一旦归零未完成发球站位则主裁判金哨将直接判定延误比赛夺走赛点。"
+  },
+  {
+   "id": "engine_ten_thousand_spectator_gaze",
+   "text": "万人环形看台球迷狂热呼啸且多路超清无人机低空盘旋，网底哪怕发生一丝布料撕裂或异样走光都将在全网千万直播前瞬间曝光。"
+  },
+  {
+   "id": "engine_wrist_ceramic_blade_leverage",
+   "text": "主攻护腕内仅有一枚两毫米加厚氧化锆高硬度陶瓷平刃可用，极度细密尼龙编织绳套受拉紧绷，单手盲切稍有偏差将前功尽弃。"
+  },
+  {
+   "id": "engine_chaste_athlete_pride_crisis",
+   "text": "成年健美名媛纯情处女之高洁尊严与赛场傲骨在万人瞩目下经受极限考验，蜜肤汗珠与粉颊羞红交织出极致反差野性张力。"
+  },
+  {
+   "id": "engine_gold_medal_match_point_stake",
+   "text": "全场胜负系于此最后一记赛点重扣，主攻必须在割绳脱困之电光石火间完成抚平泳裤并起跳绝杀，失之毫厘即痛失大满贯金牌。"
+  }
+ ],
+ "title": "野性沙排女主攻·球网地锚钩死比基尼跳蛋尾线",
+ "tone": [
+  "泳裤被扯偏",
+  "跳蛋尾线被钩住",
+  "主裁鸣哨二十秒",
+  "陶瓷刃割辅绳"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "twist_ceramic_blade_shear_cut",
+   "requires": [],
+   "text": "两毫米氧化锆陶瓷平刃精准切入地锚尼龙绳套受力核心，三点五牛顿斜向推力下，紧绷编织绳应声干净断裂，比基尼抽绳瞬间脱钩解放！"
+  },
+  {
+   "category": "人事",
+   "id": "twist_partner_human_shield_block",
+   "requires": [],
+   "text": "搭档跨步横移球网中路以挺拔健美身躯与展开的双臂筑成视觉盲区，将主转播台长焦镜头的一切探究视线完全遮断！"
+  },
+  {
+   "category": "资源",
+   "id": "twist_coach_timeout_tactics_signal",
+   "requires": [],
+   "text": "主帅主教练在边线适时举起战术白板挡住巡线员侧方视线，并通过变幻手势代码精确指引主攻出刀切入角，同袍默契牢不可破！"
+  },
+  {
+   "category": "制度",
+   "id": "twist_instant_spike_landing_triumph",
+   "requires": [],
+   "text": "主攻借脱钩反冲力单手轻巧抚平竞技泳装，原地拔地而起轰出一记时速一百一十公里压线重扣，赶在发球违例哨响前一秒绝杀夺冠！"
+  },
+  {
+   "category": "时限",
+   "id": "twist_mep_pneumatic_slack_relief",
+   "requires": [],
+   "text": "张力工程师在沙下控制箱果断旋转泄压阀，令球网底索地锚受拉钢缆微退三毫米，为主攻陶瓷平刀刺入争取到宝贵的两秒松弛度！"
+  },
+  {
+   "category": "关系",
+   "id": "twist_cameraman_rack_focus_eyes",
+   "requires": [],
+   "text": "摄影师摄像师断然将光学焦距推进至极限面部微距，在四K超清转播画面中唯呈主攻傲雪般的决胜坚毅美眸，完美避开下身险境！"
+  },
+  {
+   "category": "意外",
+   "id": "twist_towel_wrap_modesty_triumph",
+   "requires": [],
+   "text": "主攻在落地欢呼刹那顺手接应搭档飞递而来之防晒加宽大毛巾裹住下身，在万名球迷涌入球场前彻底掩盖住比基尼抽绳断裂痕迹！"
+  }
+ ]
+}

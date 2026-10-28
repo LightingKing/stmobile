@@ -1,0 +1,2115 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "大木营造工龄三十年成年名匠，具备完全法定民事决策资格之工勤长",
+   "age_range": [
+    45,
+    58
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_carpenter_lu",
+   "line": "回禀顾特使，文渊阁底层书架区防潮气闸已完全闭锁，水工班正在强力排涝。",
+   "location_ids": [
+    "loc_archive_ground_gallery",
+    "loc_underground_drainage_culvert"
+   ],
+   "name": "严师傅",
+   "role": "藏书阁古建值守名匠"
+  },
+  {
+   "adult_context": "古籍文献专业大四毕业在籍成年女官，具备完全民事责任资格",
+   "age_range": [
+    22,
+    28
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_assistant_zhou",
+   "line": "宋掌卷请安心整肃，外廊特使仪仗正由沈老会长陪同步入穿堂品茗。",
+   "location_ids": [
+    "loc_scroll_mounting_studio",
+    "loc_archive_ground_gallery"
+   ],
+   "name": "乔素馨",
+   "role": "典籍修复随行女史"
+  },
+  {
+   "adult_context": "在老街开茶馆三十年的成年掌柜",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_teahouse_owner",
+   "line": "钱掌柜站在茶馆门口望着藏书楼的灯，跟喝茶的老街坊说楼里怕是出了事。",
+   "location_ids": [
+    "loc_vip_examination_hall"
+   ],
+   "name": "钱掌柜",
+   "role": "街口茶馆掌柜"
+  },
+  {
+   "adult_context": "本地晚报文化版的成年记者",
+   "age_range": [
+    28,
+    34
+   ],
+   "function": "obstacle",
+   "gender": "female",
+   "id": "bg_reporter_ye",
+   "line": "叶记者撑着伞堵在穿堂门口，举着相机想拍下特使登楼的那一刻。",
+   "location_ids": [
+    "loc_vip_examination_hall"
+   ],
+   "name": "叶记者",
+   "role": "晚报记者"
+  },
+  {
+   "adult_context": "跟着修复师学手艺、年满二十一岁的成年帮工",
+   "age_range": [
+    20,
+    23
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_apprentice_ma",
+   "line": "小马抱着一摞油布在工坊和架区之间来回跑，裤腿湿到了膝盖。",
+   "location_ids": [
+    "loc_scroll_mounting_studio",
+    "loc_archive_ground_gallery"
+   ],
+   "name": "小马",
+   "role": "修复工坊帮工"
+  },
+  {
+   "adult_context": "在藏书楼守夜二十年的成年老守夜人",
+   "age_range": [
+    60,
+    68
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_watchman_he",
+   "line": "何伯打着手电守在暗渠闸口，看着水位标尺一格一格往上涨。",
+   "location_ids": [
+    "loc_underground_drainage_culvert"
+   ],
+   "name": "何伯",
+   "role": "藏书楼守夜人"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "陆师傅凭借数十年大木作真功口授榫卯受力破绽，掌卷人以牛角扁起子精准斜挑自锁合叶，生死关头结成绝对互信。",
+   "id": "combo_mounter_and_carpenter",
+   "identity_ids": [
+    "identity_master_mounter",
+    "identity_ancient_carpenter",
+    "identity_junior_archivist",
+    "identity_heritage_curator"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_song_zhixia_archivist",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "幽暗积水底层通廊托付清名与典籍安危之患难同道",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_lu_huai_an_carpenter",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "古建筑排险中同经风浪之生死工友",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_song_zhixia_archivist",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "char_lu_huai_an_carpenter",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "架上经卷架下榫卯相互依存铸就之文武交融死生契阔",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_song_zhixia_archivist",
+    "char_lu_huai_an_carpenter"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "赶在江潮漫过书架前顺畅挑脱黄铜咬舌解救国宝册页并恢复自由之身。",
+    "limit_gap": "名匠受限于文物法规绝不可斧劈紫檀屏风免伤孤本，掌卷女官誓死保全宋版皇家善本片纸不损。",
+    "meeting_reason": "地下字画区突遇江流倒溢地基下沉，二人被困在同处倾覆屏风夹缝死角。",
+    "resource_gap": "大木作名匠空有一身巨力受制于屏风压死窄隙无法近身，女掌卷身披名贵罗裙贴紧铜角唯有亲执角刃自救。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_shear_imbalance",
+    "engine_iron_curtain_countdown"
+   ]
+  },
+  {
+   "chemistry": "特使在外堂以崇高巡阅威仪阻绝随行脚步，掌卷人在后阁以绝伦力学智慧巧解机关，官民同心护佑华夏典籍文明。",
+   "id": "combo_mounter_and_curator",
+   "identity_ids": [
+    "identity_heritage_curator"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_song_zhixia_archivist",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "台前堂后心照不宣之古典斯文同脉共鸣",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "char_gu_ting_han_curator",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "国家文物特急巡查规制下之合规协从纽带",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_song_zhixia_archivist",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "char_gu_ting_han_curator",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "以浩然道义为屏障跨越官民地位建立之崇高学术信赖",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "char_song_zhixia_archivist",
+    "char_gu_ting_han_curator"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在保全名门闺秀名节与无损国宝前提下确立彼此相敬如宾之深层守护盟约。",
+    "limit_gap": "特使必须维持朝廷法度与钦差大员庄肃规制，名角誓死不受任何轻浮施舍与挟制。",
+    "meeting_reason": "特使亲临江南文渊阁核验特藏善本，正逢底层突发地基下沉屏风卡死奇险。",
+    "resource_gap": "特使手握文物局千万专项扶持大权与巡查生杀符令，掌卷名姝唯凭一身博雅绝学与傲雪风骨立足。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_public_gaze_scrutiny"
+   ]
+  },
+  {
+   "chemistry": "会长在外廊运筹帷幄周旋长官，掌卷人在深阁临危自拔光耀门楣，长尊晚辈交相辉映成全宗族盛誉。",
+   "id": "combo_mounter_and_elder",
+   "identity_ids": [
+    "identity_master_mounter"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_song_zhixia_archivist",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "危局关头给予世家庇护与才德考察之深刻羁绊",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "char_shen_bo_yong_elder",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "宗族内部恪尽职守之敬奉与执勤礼节",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_song_zhixia_archivist",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "char_shen_bo_yong_elder",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "古板掌门长辈与清冷孤高才女在患难时刻之无声托付与博弈",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "char_song_zhixia_archivist",
+    "char_shen_bo_yong_elder"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在消弭突发事故同时赢得宗族全盘长老一致推戴成为世家唯一总掌门人。",
+    "limit_gap": "老宗长须兼顾宗族老派体面与礼教规训，名姝立誓破除陈规以硬核才智立世。",
+    "meeting_reason": "老会长亲率迎宾队伍恭候特使巡阅，意外撞破掌卷人受困底层水患风暴边缘。",
+    "resource_gap": "老族长执掌数百年藏书楼产权基业与巨额私家基金，青年女掌卷以通神手艺独当一面肩挑大梁。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_public_gaze_scrutiny"
+   ]
+  },
+  {
+   "chemistry": "副掌卷人在门外侧幕以宽幅油蜡大氅筑成人肉遮蔽暗墙，掌卷人在脱钩瞬间顺势借力闪入怀抱，同门姐妹同仇敌忾。",
+   "id": "combo_mounter_and_assistant",
+   "identity_ids": [
+    "identity_junior_archivist"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_song_zhixia_archivist",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "守护宋家闺秀完美仪容与贴身衣裙防线之至交",
+     "stage": "committed"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_zhou_wan_ning_assistant",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "暗处联手织就防走光人墙屏障之同门密友",
+     "stage": "intimate"
+    },
+    {
+     "a": "char_song_zhixia_archivist",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_zhou_wan_ning_assistant",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "工坊多年相濡以沫结下之金石莫逆姐妹真情与职业守护纽带",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "char_song_zhixia_archivist",
+    "char_zhou_wan_ning_assistant"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保马面裙即使抽绳断裂亦绝不在巡阅长官面前泄漏半分肌肤破绽。",
+    "limit_gap": "掌卷人名姝必须仪容完好如初登堂呈卷，师妹须在电光火石之间抚平一切衣裙褶痕。",
+    "meeting_reason": "世家相传之古籍揭裱古法世代相系，两人自年轻成年入职起即同舟共济亲密无间。",
+    "resource_gap": "首席掌卷人身处全场视线审视风口与水患正中，师妹深藏回廊暗影手持宽幅防潮大氅。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_iron_curtain_countdown"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "chan_whisper_box",
+   "reach": "架区至工坊梁木微振回路",
+   "text": "文渊阁底层楠木柱梁声学微振传音回路，通过梁柱共振传递低沉敲击暗号。"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "chan_backstage_gossip",
+   "reach": "整条老街，半天就传遍，传着传着就成了宋家的古书被偷了",
+   "text": "藏书楼外茶馆里老街坊们的议论"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "古典文献修复专业大四毕业年届桃李二十一周岁，依法享有完全独立自主民事签约与人身决定权",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "一米六八袅娜身段，白嫩容颜天然微带一点血色娇柔动人；墨黑秀发以沉香木簪低绾，身穿素雪白真丝立领短衫配天青折枝花暗纹马面裙，内衬真丝高开叉衬裙，散发墨香与世家幽香。",
+    "青丝如缎斜插白玉扁簪，雪白修颈线条柔美，清丽容颜带着烟雨江南之沉静秀气，双颊带着淡淡的红晕平添反差风致；身着月白双绉对襟罗衫系系带，素手托卷宛若古画中步出之仕女名姝。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱扯裙导致珍贵织物前襟撕裂大面积走光",
+     "惊呼求援引得外廊人员一拥而上踩踏损坏古卷"
+    ],
+    "contrast": "看似纤弱温婉之江南仕女，危难临头展现出分金断石般冷静果敢之物理破拆魄力",
+    "core_value": "凭傲雪凌霜之世家傲骨以力学自力脱困保全名节与古卷",
+    "goal_options": [
+     "反持牛角起子斜挑屏风黄铜合叶逆止卡舌实现完全自解",
+     "示意同门师妹展开宽幅油蜡斗篷遮挡通道视线构筑屏障"
+    ],
+    "never": [
+     "弃绝宋版古卷任其泡烂在浑水之中独求自身苟安",
+     "在长官公堂众目之下露出衣衫褴褛失格之丑态"
+    ],
+    "prefers": [
+     "借助随身牛角揭裱扁起子钝角硬刃巧解机关",
+     "由默契师妹展开双层避光油蜡大氅掩护身段"
+    ],
+    "pressure_responses": {
+     "breaking": "紧咬银牙强忍手腕生铁擦磨痛楚，以巧劲角向杠杆挑脱防退自锁簧片",
+     "high": "单膝屈地分散腰侧受拉重载，借行礼掩护将角起子插紧卡口咬舌",
+     "low": "凝眸沉思轻移莲步，目光精准审视屏风榫槽两毫米受力间隙",
+     "mid": "深吸一口气维持名门闺秀端雅静气，纤指稳稳探向袖内牛角扁刃"
+    },
+    "relationship_stance": "对寻常客套自持庄重，唯向敬重华夏古籍斯文与精工巧匠者展露真挚敬意",
+    "withdrawal": "敛衽退入屏风干燥后阁，持卷行纯正闺门万福大礼答谢长官"
+   },
+   "gender": "female",
+   "gender_reason": "江南世家古籍文献传世善本首席女掌卷人传统",
+   "id": "char_song_zhixia_archivist",
+   "identity": {
+    "authority": "文渊阁特藏宋代皇室孤本古卷唯一拆封鉴真核验裁量大权",
+    "exposure": "立领短衫腰间系带受屏风铜角拉扯崩开隐露内衬抹胸边缘之险",
+    "hidden": "精通水牛角双头扁起子直角钝刃利用微观榫卯力矩顶退防逆自锁机制",
+    "limits": [
+     "严禁在巡察队伍面前露出丝毫裙衫扯破失范之态辱没苏作门第",
+     "必须赶在涨水铜钟停歇前完成古卷转移脱险入阁"
+    ],
+    "obligations": [
+     "自始至终护持宋版孤本真迹片纸无缺毫无水渍损污",
+     "以端雅从容之万福长礼迎候巡查长官完成鉴定交接"
+    ],
+    "resources": [
+     "传世临安官刻孤本皇家善本及双头特质角起子",
+     "特藏善本库房特许掌卷牙牌印信",
+     "全国各大顶尖博物馆争相聘请之特级古纸修复宗师声望"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对中华古籍文献之深沉虔敬",
+     "临危舍身护持之古雅君子德操"
+    ],
+    "boundaries": [
+     "救险时的触碰只算救命，不算数",
+     "要等自己点头，衣带才能解开"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "同行相辅互相敬重之知己同盟",
+    "dislikes": [
+     "粗暴翻卷折页",
+     "官僚浮夸做派",
+     "轻佻冒犯之游手好闲言行"
+    ],
+    "expression": "解下湿透的立领短衫披上干净罩衣，坐在揭裱案边低声道：门帘放下吧……这一夜的事，只有你知道就好。",
+    "likes": [
+     "老松烟松香气息",
+     "雨停后有人陪着坐在揭裱工坊里，替自己把被铜槽咬乱的衣带一根根理顺",
+     "纯净无暇之澄心堂古纸"
+    ],
+    "preconditions": [
+     "眼前的危局已经过去，双方都清醒、安全",
+     "出于本人的心意，不夹带报恩、交换或旁人的催促"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "文渊藏书楼首席女掌卷人",
+   "schedule": [
+    {
+     "from": 900,
+     "location_id": "loc_scroll_mounting_studio",
+     "to": 970
+    },
+    {
+     "from": 971,
+     "location_id": "loc_archive_ground_gallery",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "右侧手掌嫩皮受粗糙生铁磨伤沁出点点血印",
+      "option": "探握角起子扁钝棱角插进阻尼榫槽以四牛顿剪切力扳动簧舌"
+     },
+     {
+      "cost": "师妹身躯将直接迎受廊外倒灌冰冷江风侵袭",
+      "option": "示意师妹抖落双重避光呢料大氅将{npc.name}全身严密遮挡"
+     }
+    ],
+    "pressure": "地面积水以寸级攀升逼近孤本善本，外廊巡阅油伞水靴声已临门前",
+    "trigger": "紫檀屏风重倾挤卡马面裙抽绳与抹胸搭扣陷入黄铜铜角夹槽"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "牛角扁起子直角钝棱已卡入合叶咬舌死隙，手腕三点八牛顿剪切力矩须准稳发力。",
+    "surface": "外廊雨声连绵，宋版秘本尚在金匮之内，未排干潮气前万不可盲动卷帙。"
+   }
+  },
+  {
+   "adult_context": "古建大木营造工龄二十八年资深掌尺师傅，完全民事责任能力人",
+   "age_range": [
+    42,
+    45
+   ],
+   "appearance_options": [
+    "青灰粗布短打便服配扎脚裤，腰束厚牛皮工具带，指掌宽大骨节凸起带有常年雕琢红木之黑褐色沉香印痕，目光如电精气内敛。",
+    "墨黑斜襟工匠褂子打底，神色沉稳宛若老松，随身佩戴加厚纯铜鲁班尺，举手投足带着大木作宗师渊渟岳峙之凝重气度。"
+   ],
+   "decision": {
+    "avoids": [
+     "采用暴力金属利刃伤及古建雕花",
+     "手脚忙乱引发重梁倾覆险局"
+    ],
+    "contrast": "面容黝黑不善辞令之老派手艺人，面对千钧重压展现出顶天立地之担当",
+    "core_value": "遵循天地物理榫卯天道，以最小力学创伤解困脱缚",
+    "goal_options": [
+     "手把手口授掌卷人利用起子硬刃斜撬咬舌角度口诀",
+     "以宽厚肩背死死顶住倾斜屏风中轴防止下沉加剧"
+    ],
+    "never": [
+     "做出任何有违男女大防失体之举动",
+     "推卸木构工程险情责任苟且保全"
+    ],
+    "prefers": [
+     "借牛角柔韧高硬特性挑脱自锁逆止片",
+     "纯手工物理力学卸载避免损伤古雅漆色"
+    ],
+    "pressure_responses": {
+     "breaking": "拼死抵住八百斤倾倒势头，为内部自解争取最后三秒时间",
+     "high": "单掌稳托铜包角防撞槽，协助受困女掌卷校准撬棒支点",
+     "low": "轻叩屏风实木边缘，听声辨识内部榫卯受力咬死虚实",
+     "mid": "沉声指点插撬角度，高大身躯弓步立稳化身人肉承重立柱"
+    },
+    "relationship_stance": "以护持文脉之耿耿忠心敬重掌卷人，严守尊卑主次之礼",
+    "withdrawal": "拾掇木作工具默然垂手退立阶前，拱手向掌卷名角致意"
+   },
+   "gender": "male",
+   "gender_reason": "传统古建筑大木作与紫檀硬木营造世家掌作师匠男性传统",
+   "id": "char_lu_huai_an_carpenter",
+   "identity": {
+    "authority": "藏书楼底层全部木构架及重型硬木屏风结构抢险处置权",
+    "exposure": "若判断失当导致屏风折裂砸毁国宝将承担古建法网严惩",
+    "hidden": "知晓合叶内部生铁逆止销钉只需承受斜向三十度推力即可解脱",
+    "limits": [
+     "绝不可盲动利斧大锯损坏名贵紫檀雕花与内藏古籍",
+     "在未获掌卷人指令前不得越位直接接触闺阁女官"
+    ],
+    "obligations": [
+     "确保倾倒八百斤屏风不再发生二次滑移压坏受困人员",
+     "以木作力学参数指引受阻名姝实施自解自救"
+    ],
+    "resources": [
+     "紫檀云龙屏风全部合叶预埋榫卯结构拓片",
+     "特制淬火纯铜撬角规板与微米测隙规"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对中华木作绝学之通达领悟",
+     "临危不乱舍身护卷之贞洁烈性"
+    ],
+    "boundaries": [
+     "严格维持师傅与女掌卷之间庄严肃穆之名分界线",
+     "排险全程目不斜视聚焦于机械铜合叶受力点"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "后台坚如磐石之营造守护者",
+    "dislikes": [
+     "蛮干瞎搞大木作构造",
+     "外行指手画脚乱指挥",
+     "轻浮糟践古木良材"
+    ],
+    "expression": "以低沉坚定之苏北方言短促下达发力指令",
+    "likes": [
+     "老楠木清芬",
+     "精准严密之阴阳榫配合",
+     "沉着自立之名门闺秀"
+    ],
+    "preconditions": [
+     "建立在共同抢修古典建筑榫卯安全职责之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "古建木作营造名匠",
+   "schedule": [
+    {
+     "from": 920,
+     "location_id": "loc_underground_drainage_culvert",
+     "to": 980
+    },
+    {
+     "from": 981,
+     "location_id": "loc_archive_ground_gallery",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "自身脊背肩胛将承受百斤重压淤青挫伤",
+      "option": "以肩头全力扛紧屏风第三折中柱延缓下倾沉降速度"
+     },
+     {
+      "cost": "师傅随身珍藏数十年祖传铜尺折弯受损",
+      "option": "从外侧硬木缝隙反插铜规板顶死受力合叶防止咬合加深"
+     }
+    ],
+    "pressure": "地基暗渠排涝不畅涌水上升，两分钟倒计时后屏风受浮力将二次倾倒",
+    "trigger": "屏风失衡砸死门框，铜合叶自锁咬死掌卷人衣裙抽绳"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "屏风铜角已沉下一分，女掌卷手劲须得一气呵成挑开卡舌。",
+    "surface": "地面积水已漫过鞋帮，角起子须朝乾位微偏三度顺势往里挑。"
+   }
+  },
+  {
+   "adult_context": "国家古籍保护中心常务理事年满三十八周岁，享有法定文物巡查独立裁量权",
+   "age_range": [
+    38,
+    42
+   ],
+   "appearance_options": [
+    "墨黑中式改良立领毛呢大氅配银丝边眼镜，神清气爽目光如电，谈吐间兼具学者渊博与钦差大员之沉稳威严。",
+    "深灰长袍外罩深蓝防雨斗篷，步伐稳健手按公文箧，举止端肃透出浩然正气。"
+   ],
+   "decision": {
+    "avoids": [
+     "死板卡扣规章导致意外演化为轰动丑闻",
+     "让宵小之辈借题发挥损害世家掌卷人名誉"
+    ],
+    "contrast": "不怒自威之巡阅大员，私下对古卷与护卷名姝怀有至深爱惜呵护",
+    "core_value": "以敬畏道统为先，以至诚公心成全舍生护卷之当世名姝",
+    "goal_options": [
+     "在回廊大理石前从容驻足细品总谱手稿为底层排险争取三十秒",
+     "下令巡查队伍暂行收伞于穿堂整束行装延缓推进动线"
+    ],
+    "never": [
+     "向外界妥协泄露文渊阁突发水患险情内幕",
+     "因官僚流程贻误黄金抢救时机致使古卷受损"
+    ],
+    "prefers": [
+     "以高超礼宾机变阻延仪仗为后阁赢得脱困间隙",
+     "在事故解除后以绝对权威平息任何流言非议"
+    ],
+    "pressure_responses": {
+     "breaking": "在屏风解困瞬间迈步入门，从容以大礼赞许女掌卷之惊世风骨",
+     "high": "反手按下公箧合页，以权威长官口吻转移现场视线聚焦",
+     "low": "整衣敛容驻足廊下，含笑询问随行属员地方水情文略",
+     "mid": "敏锐察觉下层气流异动，不动声色轻挥袍袖示意随扈止步"
+    },
+    "relationship_stance": "敬重掌卷人绝代才德与贞烈操守，引为忘年学术知己",
+    "withdrawal": "向藏书楼太师椅肃穆落座，提笔签署完美无瑕之特级保全文牒"
+   },
+   "gender": "male",
+   "gender_reason": "国家特派古籍保全监察巡阅司长官男性职衔",
+   "id": "char_gu_ting_han_curator",
+   "identity": {
+    "authority": "国家古籍抢救全区特急调度一票否决与鉴定终审权",
+    "exposure": "若巡阅期间发生国宝浸水大祸将承受难以弥补之政治声望重创",
+    "hidden": "早已备好专项嘉奖文书欲破格擢升掌卷人为国家级特聘宗师",
+    "limits": [
+     "必须在随行属员面前维持公允执法不偏不倚之钦差仪容",
+     "不能违背古籍鉴赏规程在水患未定时擅自开柜"
+    ],
+    "obligations": [
+     "查核宋代秘本皇家孤卷真迹保存状况并签署验收纪要",
+     "在危难时刻全力保障藏书世家文脉传承与名宿尊严"
+    ],
+    "resources": [
+     "文保专项扶持数千万元资助款直拨批复权",
+     "随行精锐内卫排险班次紧急调遣符令"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "清雅不拔之世家才德",
+     "从容临险之浩然风度"
+    ],
+    "boundaries": [
+     "公务与私情分开，绝不拿专款换亲近",
+     "人前照旧以官员之礼相待"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "德高望重之斯文庇护长尊",
+    "dislikes": [
+     "邀宠谄媚奉迎官场做派",
+     "弄虚作假损毁文献真迹",
+     "居功自傲怠忽公守职权"
+    ],
+    "expression": "收起验卷的白手套，声音放得很低：公事已毕，剩下这一盏茶，想以私人身份陪掌卷人喝完。",
+    "likes": [
+     "宋版古籍之墨气",
+     "验卷之后在穿堂石阶上并肩站一会儿，听雨从瓦当上落下来",
+     "端庄自持之君子交道"
+    ],
+    "preconditions": [
+     "对方已经脱险、缓过神来",
+     "对方先开口，或清楚地回应了心意"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "国家古籍特急抢救巡察专员",
+   "schedule": [
+    {
+     "from": 930,
+     "location_id": "loc_vip_examination_hall",
+     "to": 990
+    },
+    {
+     "from": 991,
+     "location_id": "loc_scroll_mounting_studio",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "长官个人行程将推迟延宕面临上峰考核质疑",
+      "option": "在穿堂驻足详加评点长案明版总谱以此扣留随行人员步伐"
+     },
+     {
+      "cost": "临时更易规制招致随行言官微词非议",
+      "option": "传令仪仗卫队暂退二门整饬雨具为工坊腾出清场间隙"
+     }
+    ],
+    "pressure": "角楼防汛铜钟连鸣，外事随扈已至门外仅余最后二十秒",
+    "trigger": "巡查队伍已抵外廊阶前，底层水患初露端倪随时可能曝光"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "掌卷人女史手持牛角细起子之定力，真乃巾帼不让须眉之大才大家。",
+    "surface": "诸位且慢步入中堂，且看此卷前廊砖雕题刻，笔意甚合临安之风。"
+   }
+  },
+  {
+   "adult_context": "江南文渊藏书世家宗族掌门人年满五十六周岁，享有家族藏书楼完全法人产权与处置权",
+   "age_range": [
+    56,
+    58
+   ],
+   "appearance_options": [
+    "鹤发童颜须髯修剪端正，身着墨青素面古香缎长衫，手握两枚老核桃，目光沉凝阅尽沧桑，自有一股江南世族之雍容典雅气象。",
+    "深灰提花绸袍配黑绒马褂，神情肃穆从容笃定，手中沉香木念珠轻轻捻动，威严深沉而不露圭角。"
+   ],
+   "decision": {
+    "avoids": [
+     "急躁失措自乱阵脚引来外界窥探笑柄",
+     "让官家势力插手宗族内部私密典籍传承"
+    ],
+    "contrast": "平时严苛不苟言笑之古板族长，在名媛遭险关头倾尽家私唯保其平安",
+    "core_value": "护佑家族文脉与血胤尊严，视掌卷人为宗族复兴之无上至宝",
+    "goal_options": [
+     "以品鉴私藏前明紫砂壶为名挽留特使品茗拖延十息时间",
+     "暗中指令家丁在下水沟渠紧急堆放防洪沙袋封堵倒灌"
+    ],
+    "never": [
+     "牺牲掌卷人个人名节清誉以苟安一时",
+     "在任何重压下放弃家族世代传承之古卷"
+    ],
+    "prefers": [
+     "运用世家深厚社交底蕴化解外堂危机",
+     "以从容家风成全后辈自强破险之荣耀"
+    ],
+    "pressure_responses": {
+     "breaking": "在古卷脱困瞬间含笑起迎，以世家掌门之尊向巡阅长官躬身致意",
+     "high": "反手推开门阁侧窗，以文雅古训大度稳住外堂全盘局势",
+     "low": "轻捻须髯和颜悦色，稳步引导来宾步入茶寮雅座",
+     "mid": "眉心微蹙目光深远，暗中以手势示意总管速去排涝救援"
+    },
+    "relationship_stance": "视掌卷人为最器重之年轻一辈掌卷栋梁，尽心全力予以宗族庇荫",
+    "withdrawal": "在太师椅上闭目沉吟，良久方长吁一口气欣慰颔首"
+   },
+   "gender": "male",
+   "gender_reason": "藏书楼世家理事会长尊掌门男性身份",
+   "id": "char_shen_bo_yong_elder",
+   "identity": {
+    "authority": "藏书阁世族传承数百年孤本册页宗族最终裁定权",
+    "exposure": "若底层进水失守古籍泡汤将构成宗族不孝之奇耻大辱",
+    "hidden": "早已暗中修书将掌卷人列为家族下一任唯一总掌卷继承人",
+    "limits": [
+     "绝不允许世家千年清誉在巡阅特使面前蒙上半分瑕疵污名",
+     "不得因慌乱擅自破坏底层明清祖传紫檀大屏风之本体完整"
+    ],
+    "obligations": [
+     "在外堂妥善周旋招待特使队伍确保掌卷人后阁脱险",
+     "在风波平息后全盘护持女掌卷人顺利继承家族衣钵"
+    ],
+    "resources": [
+     "文渊阁宗族数百万元应急修缮救灾私家基金库",
+     "遍及江南各大藏书楼之宗族世交守望相助人脉网络"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "笃守先贤家训之坚贞风骨",
+     "青出于蓝而胜于蓝之绝代才学"
+    ],
+    "boundaries": [
+     "严守族长威仪与闺门女官之间合礼合矩之分寸",
+     "绝不在公堂外戚面前谈及私房小节"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "德高望重之家族宗主",
+    "dislikes": [
+     "轻慢先祖规训祖训",
+     "浪荡败坏书香门第家风",
+     "吃里扒外背叛宗族利益"
+    ],
+    "expression": "以长辈深沉慈祥之目光颔首赞许，语气沉雄有力",
+    "likes": [
+     "古墨古砚之老气",
+     "闺秀庄重知礼之教养",
+     "宗族传承有序之昌隆"
+    ],
+    "preconditions": [
+     "严格依循成年族亲平等人格准则坦诚相待"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "藏书阁世家会长掌门",
+   "schedule": [
+    {
+     "from": 920,
+     "location_id": "loc_vip_examination_hall",
+     "to": 985
+    },
+    {
+     "from": 986,
+     "location_id": "loc_scroll_mounting_studio",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "老会长需透支个人名宿体面承担怠慢长官之微嫌",
+      "option": "亲奉宗族传家名茶引请特使品评以此延误其巡查动线"
+     },
+     {
+      "cost": "动作过大易招致地方属吏妄加揣测起疑",
+      "option": "下令封闭前院仪门以清理雨水为由阻隔随从入内"
+     }
+    ],
+    "pressure": "水位持续攀升直逼书架最底层，族中至宝随时面临灭顶之灾",
+    "trigger": "底楼积水警报传至外堂，特使车轿已至垂花门前"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "掌卷人聪慧果决必能化险为夷，我宋沈两家数百年书香断不会绝于此水。",
+    "surface": "特使大人远道而来，老朽特意备下谷雨前老茶，且请品尝一盏。"
+   }
+  },
+  {
+   "adult_context": "古籍版本学大四毕业年满二十二周岁，依法独立行使完全民事决断权利",
+   "age_range": [
+    22,
+    23
+   ],
+   "appearance_options": [
+    "身段苗条如弱柳扶风，双颊天然带有莹润的光泽甜美秀气，身穿墨黛双绉对襟半臂长裙，手挽加厚深青双层防雨防潮油蜡大氅，神色警醒步履灵巧。",
+    "天青色织暗花缎质短襦配素白挑线马面裙，乌黑发辫整齐垂肩，双手稳托备用楠木画匣，目光机警忠诚如影随形。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌张移动脚步引来外廊耳目注视",
+     "任由风雨水渍沾染师姐素雪衣裙"
+    ],
+    "contrast": "平日娇柔可人之小师妹，在大难临头时展现出滴水不漏之果敢护持",
+    "core_value": "誓死护卫掌卷人师姐清誉与传世古籍平安，无怨无悔",
+    "goal_options": [
+     "展开双层油蜡大氅构筑严密视觉屏障遮挡门廊视线",
+     "单手稳托楠木古籍匣为师姐提供安全受力托底"
+    ],
+    "never": [
+     "在任何强压之下退缩半步露出师姐衣衫破绽",
+     "违背世家行规私下泄露藏书楼排险秘密"
+    ],
+    "prefers": [
+     "以加厚纯黑油蜡大氅构筑绝对视觉死角",
+     "用熟宣绵纸轻柔吸尽古卷边缘微澜水迹"
+    ],
+    "pressure_responses": {
+     "breaking": "在师姐脱钩刹那飞身相拥，用加厚大氅将师姐完满笼罩在怀中",
+     "high": "反手拉紧油蜡斗篷防风系带，筑成密不透风之遮蔽软壁",
+     "low": "在门旁机警环视，双手悄然拉平防尘大氅折边四角",
+     "mid": "深吸一口气跨步上前，以自身娇小身躯严密挡住侧面灯光逆角"
+    },
+    "relationship_stance": "对掌卷人师姐怀抱无限崇敬与手足深情，甘为坚实后盾",
+    "withdrawal": "托匣侍立于师姐身后，敛衽低眉恭敬随同向长官行万福礼"
+   },
+   "gender": "female",
+   "gender_reason": "苏作揭裱名门随行助手及闺门典籍女校书女性传统",
+   "id": "char_zhou_wan_ning_assistant",
+   "identity": {
+    "authority": "古籍工坊巡防备料调度与掌卷师姐随行护卫第一职责权",
+    "exposure": "若遮蔽闪失致使师姐衣带凌乱暴露将同受宗门重罚",
+    "hidden": "随身大氅下摆暗藏吸水棉带可一瞬间吸干衣裙溅落雨渍",
+    "limits": [
+     "绝不容许外间登徒子在危急关头窥探掌卷人师姐半分受窘之态",
+     "在脱险交卷前不得离开字画架区外廊半步"
+    ],
+    "obligations": [
+     "在掌卷人解扣瞬间以大氅严密遮蔽长裙破绽无缝接应",
+     "协助师姐将解救之宋代孤本稳妥转运至工坊干燥大案"
+    ],
+    "resources": [
+     "加厚双层防潮纯棉油蜡宽幅避水大斗篷两件",
+     "特制天然防霉生宣防尘护套与特细马尾棕刷"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "同甘共苦之金石同门情义",
+     "互相托付之闺门默契"
+    ],
+    "boundaries": [
+     "坚决杜绝任何闲言杂语骚扰掌卷人清静修心",
+     "在更衣遮蔽界线之内严防死守不留死角"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "相依为命之同门知己姐妹",
+    "dislikes": [
+     "轻浮纨绔好事之徒",
+     "薄情寡义落井下石之辈",
+     "阴冷暴雨破坏文物"
+    ],
+    "expression": "以温柔坚定之身姿紧密相依，眼波流转满含关切信任",
+    "likes": [
+     "柔滑油蜡布料",
+     "严整工坊秩序",
+     "合手默契配合之揭裱流程"
+    ],
+    "preconditions": [
+     "相濡以沫多年建立之深厚成年闺蜜知己情谊"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "文渊藏书楼副掌卷师妹",
+   "schedule": [
+    {
+     "from": 910,
+     "location_id": "loc_scroll_mounting_studio",
+     "to": 975
+    },
+    {
+     "from": 976,
+     "location_id": "loc_archive_ground_gallery",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}自身脊背需直面过道倒灌阴冷风寒受冻",
+      "option": "快步抢前展开特制防潮黑油蜡宽幅斗篷将掌卷人师姐身段周密护住"
+     },
+     {
+      "cost": "遮盖面积有限稍有步态偏移便可能泄露雪白肌肤边缘",
+      "option": "双手托起加厚楠木大画匣遮掩师姐腰腹受损系带"
+     }
+    ],
+    "pressure": "外廊灯影闪烁，长官仪仗转过拐角唯余十五秒极速读秒",
+    "trigger": "特使水靴踏响石阶步步迫近，掌卷人师姐受困裙腰随时面临走光险局"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "特使水靴声已过回廊夹角，脱钩刹那我定当以斗篷将师姐轻柔紧紧护住。",
+    "surface": "师姐尽管安心挑解，大氅已全然平展，绝无半点眼光能越过我这道帘。"
+   }
+  },
+  {
+   "adult_context": "省文物局安全保卫监察处处长年满三十六周岁，享有国家防汛抢险特命处置权",
+   "age_range": [
+    36,
+    38
+   ],
+   "appearance_options": [
+    "一身深蓝防汛冲锋便服配高筒橡胶工巡靴，肩负对讲机手握强光手电，身躯强健神情坚毅，目光中透出久经风雨之果敢机敏。",
+    "深灰防水夹克配黑色作训裤，面容刚毅目光如炬，举止干练沉稳，时刻保持高度戒备临战状态。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲动水泵造成局部真空吸附屏风加剧卡阻",
+     "慌乱报险引发社会恐慌动荡"
+    ],
+    "contrast": "雷厉风行之现代工程监察长官，对古典文化古迹怀有赤诚博大之守护情怀",
+    "core_value": "遵从现代工程防汛科学逻辑，以精算排涝赋能古籍文物保全",
+    "goal_options": [
+     "亲至暗渠水闸扳动铸铁轮盘开启副孔分流泄水",
+     "精准向字画架区通报暗渠水位回落毫米数稳定军心"
+    ],
+    "never": [
+     "临阵退缩弃守文物安全底线",
+     "违背科学规程导致历史名楼毁于一旦"
+    ],
+    "prefers": [
+     "依照水工动力学规律平稳泄洪消减门缝压力",
+     "用精准数据为现场微观自救提供坚实支撑"
+    ],
+    "pressure_responses": {
+     "breaking": "全力推开副闸备用插板，怒涛轰然分流成功阻断水患蔓延",
+     "high": "亲自跳入半米深激流中，用钢钎撬开卡死闸门之杂物树根",
+     "low": "手指飞速滑动平板终端，紧密监测暗河管网流速流量",
+     "mid": "沉着按下对讲机按键，以清晰洪亮嗓音通报安全泄洪时限"
+    },
+    "relationship_stance": "敬佩掌卷人女掌卷在滔滔浊浪前坚守国宝之铁骨柔肠，全力驰援",
+    "withdrawal": "向工坊方向庄重敬礼，带领防汛队员奔赴下一个堤防险段"
+   },
+   "gender": "male",
+   "gender_reason": "国家文保应急抢险与水工防汛实职监察专员男性身份",
+   "id": "char_xu_ming_yuan_inspector",
+   "identity": {
+    "authority": "藏书阁全区地基防汛排涝与地质沉降应急处置最高指挥权",
+    "exposure": "若排涝失当造成地基失稳压垮整座藏书楼将受国法最严厉制裁",
+    "hidden": "早已预留副渠分流泄洪暗槽可在两分钟内将水位强降半尺",
+    "limits": [
+     "严禁在未排清险情前盲目下达强行封闸指令导致水压剧增",
+     "不能采取任何可能引发古建筑地基二次塌陷之粗暴排涝方案"
+    ],
+    "obligations": [
+     "迅速疏通地基暗渠排涝水闸降低地下回水压力",
+     "配合掌卷名姝在安全窗口期内完成特级善本撤离"
+    ],
+    "resources": [
+     "地下暗河水闸应急防洪排渍绞盘调控系统",
+     "与市水务局防汛抗旱指挥部直通卫星保密电台"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "临大难而不乱之浩然巾帼气度",
+     "精微自强之物理自救才智"
+    ],
+    "boundaries": [
+     "严守公务监察廉洁防线绝不收受任何私恩",
+     "与闺秀名角相处维持大方坦荡之同志战友间距"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "忠诚可托之国家工程防线卫士",
+    "dislikes": [
+     "擅离职守渎职违纪",
+     "谎报虚报水情险情",
+     "办事拖沓延误排涝战机"
+    ],
+    "expression": "以刚健沉稳之专业语调通过通讯回路给予最强有力信心",
+    "likes": [
+     "精准水文图表",
+     "严密排水工程设计",
+     "坚韧沉静之知性女性"
+    ],
+    "preconditions": [
+     "高层次跨领域工程协作与共同守护国宝理想"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "省文保防汛监察官",
+   "schedule": [
+    {
+     "from": 915,
+     "location_id": "loc_underground_drainage_culvert",
+     "to": 980
+    },
+    {
+     "from": 981,
+     "location_id": "loc_vip_examination_hall",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "监察官双臂被生铁绞盘回弹震荡扭伤",
+      "option": "手动摇动生铁绞盘强行开启水闸副渠泄流孔降低室内水压"
+     },
+     {
+      "cost": "大功率发电机高负荷运转有短路跳闸风险",
+      "option": "启动备用潜水泵将积水强行抽向庭院花圃"
+     }
+    ],
+    "pressure": "外墙下沉导致屏风自锁卡死，留给排涝泄压时间唯余百秒",
+    "trigger": "护城河江水倒灌暗渠，字画架区受水浸泡地基沉降倾斜十度"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "宋掌卷临危不乱舍身取义，不愧为名震江南之当代女宗师。",
+    "surface": "地下暗渠副闸已全面开启，底层水位已停止上涨，排气卡榫可从容挑离。"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "六月，梅雨季",
+  "minute": 980
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation"
+ ],
+ "custom": true,
+ "customs": [
+  "藏书楼掌卷人取阅宋代秘本古籍前，须独自在净手池以纯檀香胰子洁面濯手，佩戴双层真丝无痕手套方准揭开包首。",
+  "文渊阁梅雨防汛巡查规程严禁单人夜入底层架区，主修师与大木作工匠必须结伴巡廊并随身携带应急黄铜防爆风灯。",
+  "苏作揭裱名门传人谢幕与交卷礼仪规范严整，任何受损破损字画须平整陈放于楠木案头长躬答礼，绝不可仓促卷轴收纳。",
+  "世家古籍库房底层字画架区严禁携带任何生水生火入内，出入排气闸门均须按压纯铜防潮气阀门栓确保室内干爽。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "使用天然澄泥薄尺轻柔压平宋版竹纸脆化褶皱边角",
+    "以纯羊毫排笔均匀排刷自熬稀薄熟浆糊进行托芯加固"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [],
+   "id": "act_ancient_manuscript_mending",
+   "location_ids": [
+    "loc_scroll_mounting_studio"
+   ],
+   "start_minute": 900,
+   "tags": [],
+   "title": "宋版皇室古籍揭裱整肃规程"
+  },
+  {
+   "beats": [
+    "手持纯铜测隙规检验多宝阁楠木立柱地基沉降沉陷缝",
+    "用丝绢干布擦抹紫檀折页屏风黄铜包角凝结之梅雨水珠"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_archive_ground_drain_patrol",
+   "location_ids": [
+    "loc_archive_ground_gallery"
+   ],
+   "start_minute": 945,
+   "tags": [],
+   "title": "文渊阁底层书架防潮排涝巡查"
+  },
+  {
+   "beats": [
+    "向生铁传动齿轮轴承注入耐水菜籽润滑机油",
+    "试转双向泄洪插板确认单向逆止阀处于灵敏待命状态"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_watergate_sluice_check",
+   "location_ids": [
+    "loc_underground_drainage_culvert"
+   ],
+   "start_minute": 920,
+   "tags": [],
+   "title": "阁楼地下暗河泄洪闸槽启闭维保"
+  },
+  {
+   "beats": [
+    "于红木长案端正摆设前明雕版孤本总谱防尘红木匣",
+    "点燃宣德炉沉香盘香为外堂雅座除湿除闷清润空气"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vip_protocol_preparation",
+   "location_ids": [
+    "loc_vip_examination_hall"
+   ],
+   "start_minute": 930,
+   "tags": [],
+   "title": "穿堂首长巡查迎宾总谱陈设"
+  },
+  {
+   "beats": [
+    "在特细天然油石上推磨水牛角扁起子三毫米直角扁刃",
+    "用鹿皮抹拭起子角质表面确保光滑无毛刺免损宣纸"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_horn_tool_honing_drill",
+   "location_ids": [
+    "loc_scroll_mounting_studio"
+   ],
+   "start_minute": 880,
+   "tags": [],
+   "title": "水牛角双头揭裱工具精细研磨"
+  },
+  {
+   "beats": [
+    "练习手捧宋代古籍册页敛衽屈膝万福长礼之端肃仪态",
+    "由副掌卷人协同演练双手抖披深黛油蜡大氅瞬间防窥遮挡手法"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_curtain_call_drape_drill",
+   "location_ids": [
+    "loc_vip_examination_hall",
+    "loc_scroll_mounting_studio"
+   ],
+   "start_minute": 910,
+   "tags": [],
+   "title": "闺门长礼万福仪容遮尘合练"
+  },
+  {
+   "beats": [
+    "雨夜的阁楼只剩一盏台灯，掌卷人披着罩衣坐在案边，马面裙的抽绳还缠着铜槽咬出的毛边。",
+    "掌卷人背过身，请人替自己把短衫背后那几根系带重新理顺，指尖每碰一下，案上的排笔就轻轻一颤。",
+    "最后一根系带打好结时，掌卷人没有回头，只说雨还没停，今夜就别走了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_studio_rain_night_sash",
+   "location_ids": [
+    "loc_archivist_garret"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "雨夜工坊理顺衣带"
+  },
+  {
+   "beats": [
+    "阁楼的木窗外下着梅雨，掌卷人换了一件素白棉布睡裙，跪坐在矮几前煮一壶白茶，头发松松挽着。",
+    "掌卷人把茶盏推过来，轻声说：雨这么大，渡船早停了。……你要是不想走，就别走。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_garret_rain_tea",
+   "location_ids": [
+    "loc_archivist_garret"
+   ],
+   "start_minute": 1250,
+   "tags": [
+    "intimate"
+   ],
+   "title": "阁楼里听雨煮茶"
+  },
+  {
+   "beats": [
+    "掌卷人研好墨，拉过人的手腕，用小楷在内侧写了一行字，笔尖凉凉的，痒得人想缩手。",
+    "掌卷人搁下笔问：猜得出写的什么吗？猜不出，我就一个字一个字吻给你看……你说好，我才开始。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_garret_ink_on_wrist",
+   "location_ids": [
+    "loc_archivist_garret"
+   ],
+   "start_minute": 1340,
+   "tags": [
+    "intimate"
+   ],
+   "title": "在手腕内侧题一行小楷"
+  },
+  {
+   "beats": [
+    "清晨，阁楼的窗缝透进一点潮湿的光，掌卷人坐在床边，长发散了满背，手里攥着一支木簪。",
+    "掌卷人把木簪递过来：我自己挽不好。……你来，挽得丑了我也戴着。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_garret_morning_hairpin",
+   "location_ids": [
+    "loc_archivist_garret"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "清晨替掌卷人挽发"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "现代江南",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "少男",
+  "少女",
+  "少年",
+  "幼女",
+  "幼童",
+  "学徒",
+  "徒弟",
+  "门生",
+  "弟子",
+  "学生",
+  "校园",
+  "师生"
+ ],
+ "hooks": [
+  {
+   "id": "hook_mounter_gaze_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_archive_ground_gallery"
+   ],
+   "slot": "char_song_zhixia_archivist",
+   "text": "{npc.name}在紫檀重屏侧倾定格瞬间微沉下颌，透过木雕云龙间隙向地缝浊浪投去一泓清冷端肃之锐利眸光。"
+  },
+  {
+   "id": "hook_carpenter_signal_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_archive_ground_gallery"
+   ],
+   "slot": "char_lu_huai_an_carpenter",
+   "text": "{npc.name}自工具革囊悄然抽出淬火铜规板，顺着门框黄铜合叶边缘为内阁掌卷递去一道稳健力学支点口诀。"
+  },
+  {
+   "id": "hook_assistant_cloak_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_archive_ground_gallery",
+    "loc_scroll_mounting_studio"
+   ],
+   "slot": "char_zhou_wan_ning_assistant",
+   "text": "{npc.name}双手将两米四宽幅防雨油蜡大氅轻展拉平，侍立于工坊绢帘暗处，随时准备上前合围护卫。"
+  },
+  {
+   "id": "hook_curator_nod_observe",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vip_examination_hall"
+   ],
+   "slot": "char_gu_ting_han_curator",
+   "text": "{npc.name}于穿堂汉白玉石阶前驻足敛容，双目凝神细察底层水波回声，敏锐捕捉到后堂正历经惊心动魄之奇险。"
+  },
+  {
+   "id": "hook_luhuai_wood_shaving",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_lu_huai_an_carpenter",
+   "text": "{npc.name}拍掉袖子上的木屑走过来，从怀里摸出一块刨得光滑的小木牌递过来：送你，压书用。"
+  },
+  {
+   "id": "hook_guting_magnifier",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_gu_ting_han_curator",
+   "text": "{npc.name}拿着放大镜走近，把一页拓片摊在桌上，问能不能帮着辨认一个模糊的字。"
+  },
+  {
+   "id": "hook_shenbo_tea_invite",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_shen_bo_yong_elder",
+   "text": "{npc.name}在廊下摆好两只茶盏，抬手示意坐下：雨大，陪老人家喝一盏再走。"
+  },
+  {
+   "id": "hook_zhouwan_umbrella",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_zhou_wan_ning_assistant",
+   "text": "{npc.name}撑着一把油纸伞小跑过来，把伞往这边倾了倾，自己半边肩膀淋在雨里。"
+  },
+  {
+   "id": "hook_song_garret_stairs",
+   "kind": "approach",
+   "location_ids": [
+    "loc_archivist_garret"
+   ],
+   "slot": "char_song_zhixia_archivist",
+   "text": "{npc.name}站在通往阁楼的木梯口，手里提着一壶茶：楼上清净。……上来坐坐吗？"
+  }
+ ],
+ "id": "rainy_archive_manuscript_authentication",
+ "locations": [
+  {
+   "affordances": [
+    "探入水牛角揭裱扁起子巧施杠杆解脱铜槽咬合",
+    "观察地面浑浊潮水淹没楠木立柱标尺读数",
+    "探摸紫檀屏风铜包角自锁咬舌倒扣卡合微隙"
+   ],
+   "detail": "挑空四米之阴沉金丝楠木多宝阁大通堂，数十排重型红木透雕书架密布，整面重逾四百公斤十二折龙纹透雕实木插屏侧倾于地。",
+   "exits": [
+    "loc_scroll_mounting_studio",
+    "loc_vip_examination_hall",
+    "loc_underground_drainage_culvert"
+   ],
+   "id": "loc_archive_ground_gallery",
+   "name": "文渊阁底层多宝架通堂",
+   "pressure_modifiers": {
+    "press_shear_arm_collapse": "屏风重载侧压导致门框黄铜合叶弹簧处于极限抗拉张力"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "应急防爆马灯暗黄光晕照映水面波光，屏风咬合死角杂陈阴影深沉",
+   "witnesses": [
+    "bg_carpenter_lu",
+    "bg_assistant_zhou"
+   ]
+  },
+  {
+   "affordances": [
+    "展开防潮油蜡双层遮尘避水大氅构筑屏障",
+    "取用纯羊毛排笔与吸水棉布擦拭受潮卷面",
+    "安置解救出来之宋代孤本皇室册页于干燥红木案"
+   ],
+   "detail": "弥漫着陈年沉香与优质熟宣清芬之世家工艺精舍，置备六米纯杉木平整大画案、天然澄泥压尺与排笔晾架。",
+   "exits": [
+    "loc_archive_ground_gallery",
+    "loc_vip_examination_hall",
+    "loc_underground_drainage_culvert",
+    "loc_archivist_garret"
+   ],
+   "id": "loc_scroll_mounting_studio",
+   "name": "古籍揭裱天工斋工坊",
+   "pressure_modifiers": {
+    "press_iron_curtain_drop": "穿堂石阶传来长官整齐油伞雨靴行进脚步带来视线压迫"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "工坊悬挂加厚防尘绢帘，排风口通畅明亮避光通风兼顾",
+   "witnesses": [
+    "bg_carpenter_lu",
+    "bg_assistant_zhou"
+   ]
+  },
+  {
+   "affordances": [
+    "呈递仿宋雕版总谱善本供巡察队伍驻足品鉴",
+    "通过挂壁对讲铜铃向地下通报长官行进秒数",
+    "调度值守义工排布迎宾油纸伞阵延缓队列步伐"
+   ],
+   "detail": "铺设苏州青砖金砖地面之首长迎宾公廨大厅，粉墙黛瓦两侧陈列明清硬木太师椅，外连汉白玉雕石栏阶梯。",
+   "exits": [
+    "loc_archive_ground_gallery",
+    "loc_scroll_mounting_studio",
+    "loc_underground_drainage_culvert"
+   ],
+   "id": "loc_vip_examination_hall",
+   "name": "鉴古巡察首长穿堂回廊",
+   "pressure_modifiers": {
+    "press_iron_curtain_drop": "江潮涨水警示铜钟已在角楼上方三度鸣响"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "廊下红纱宫灯高悬光照明澈，阶前雨丝如织纤毫毕现",
+   "witnesses": [
+    "bg_carpenter_lu",
+    "bg_assistant_zhou"
+   ]
+  },
+  {
+   "affordances": [
+    "扳动铸铁绞盘手动释放排洪备用插板",
+    "疏通被浮萍断枝阻塞之粗滤格栅",
+    "观测地下暗河回水逆冲压力平衡管液位"
+   ],
+   "detail": "藏书楼花岗岩地基下层石质水渠枢纽，生铁绞盘连通重型铸铁防洪单向闸门，外接护城河泄洪管道。",
+   "exits": [
+    "loc_archive_ground_gallery",
+    "loc_scroll_mounting_studio",
+    "loc_vip_examination_hall"
+   ],
+   "id": "loc_underground_drainage_culvert",
+   "name": "暗渠水闸口",
+   "pressure_modifiers": {
+    "press_shear_arm_collapse": "管网逆流涌浪不断撞击石门发出沉闷轰鸣"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "手电冷光光斑在浑浊激流中晃荡扫掠，闸口漩涡轰鸣震耳欲聋",
+   "witnesses": [
+    "bg_carpenter_lu",
+    "bg_assistant_zhou"
+   ]
+  },
+  {
+   "affordances": [
+    "在矮几前陪掌卷人煮茶听雨",
+    "替掌卷人挽发",
+    "推开木窗看雨"
+   ],
+   "detail": "藏书楼最高一层的小阁楼，斜顶下一张木床、一张矮几、一只红泥小火炉，木窗推开就是江南的雨。",
+   "exits": [
+    "loc_scroll_mounting_studio"
+   ],
+   "id": "loc_archivist_garret",
+   "name": "藏书楼顶的掌卷人阁楼",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "只点一盏台灯，雨声把整座藏书楼都罩住了，阁楼里的人说话不必压低声音。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "宋",
+   "陆",
+   "顾",
+   "沈",
+   "周",
+   "徐",
+   "潘",
+   "叶",
+   "乔",
+   "严",
+   "吴",
+   "薛"
+  ],
+  "given_female": [
+   "知夏",
+   "婉凝",
+   "青菱",
+   "清漪",
+   "语琴",
+   "舒云",
+   "清芷",
+   "素琴",
+   "映雪",
+   "兰因",
+   "采薇",
+   "月华"
+  ],
+  "given_male": [
+   "怀安",
+   "廷翰",
+   "伯庸",
+   "明远",
+   "绍祖",
+   "建勋",
+   "守仁",
+   "文谦",
+   "鹤年",
+   "敬之",
+   "承业",
+   "彦卿"
+  ],
+  "given_neutral": [
+   "宁",
+   "竹",
+   "秋",
+   "涵",
+   "音",
+   "舟",
+   "墨",
+   "砚",
+   "白",
+   "岚",
+   "石",
+   "云"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "male",
+    "pattern": "{family}先生"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留现代江南藏书楼的背景。改动：四条规则与第二个压力的正文是歌剧院世界的残留，按原稿标题改写为藏书楼规矩与巡阅特使临门的时限；四个玩家身份原本与人物模板是同一批人，改写为古籍拍卖行鉴定师、外地来访的修复学徒、地方报社文化记者、藏书楼守夜人；女掌卷人与巡察专员的倾向卡放宽到脱险后可心动，亲密前提写明危机解除、双方清醒自愿；新增一个雨夜揭裱工坊的亲密日常；写死的人名改为身份称呼或占位。",
+ "player_identities": [
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "外地图书馆派来进修揭裱的修复师，借住在藏书楼后院，梅雨天被困在了楼里。",
+   "gender": "any",
+   "id": "identity_master_mounter",
+   "reputation": "勤快肯学，楼里上下都叫一声小老师。",
+   "resources": [
+    "一套自带的竹起子与排笔",
+    "掌卷人亲手批过的一份课业"
+   ],
+   "risks": [
+    "进修期间若碰坏了孤本，回原单位就交代不了"
+   ],
+   "role": "从外地来进修的成年古籍修复师",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "小{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "跟着特使车队来写验卷报道的记者，先一步进了楼避雨。",
+   "gender": "any",
+   "id": "identity_ancient_carpenter",
+   "reputation": "写过几篇替老手艺人说话的稿子，在文保圈里有些好名声。",
+   "resources": [
+    "相机与录音笔",
+    "特使行程的内部日程表"
+   ],
+   "risks": [
+    "拍下不该拍的画面，就会得罪整个世家"
+   ],
+   "role": "地方报社的成年文化记者",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}记者"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "管着楼里钥匙和抽水泵的守夜人，涨水那晚最早发现地基在渗水。",
+   "gender": "any",
+   "id": "identity_junior_archivist",
+   "reputation": "话少可靠，掌卷人信得过。",
+   "resources": [
+    "全楼门锁的钥匙串",
+    "一台汽油抽水泵和一盏应急灯"
+   ],
+   "risks": [
+    "孤本泡水，守夜人第一个被追责"
+   ],
+   "role": "藏书楼的成年守夜人",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "老{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    45
+   ],
+   "baseline": "受特使之邀来做第三方鉴定的拍卖行专家，一句话能定一部孤本的身价。",
+   "gender": "any",
+   "id": "identity_heritage_curator",
+   "reputation": "眼毒嘴严，行里都说经过这位手的东西没有赝品。",
+   "resources": [
+    "拍卖行的鉴定章与估价权",
+    "与特使私下相熟的交情"
+   ],
+   "risks": [
+    "鉴定若与特使意见相左，拍卖行要丢大客户"
+   ],
+   "role": "沪上古籍拍卖行的成年首席鉴定师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "male",
+     "pattern": "{family}先生"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "江南水乡的古典藏书楼，女掌卷人在底层通廊的字画架区守了五年，进修的古籍修复师、报社的文化记者和守夜人都是这里的常客。白天揭裱、编目，夜里点灯抄书。梅雨下个不停，江水年年漫到地基；那架八百斤的紫檀十二折屏风立得有点斜。",
+ "pressures": [
+  {
+   "choice": "借牛角扁起子硬刃别开合叶卡舌自救，还是在原地呼叫等待外力强撬但承受走光毁卷凶险？",
+   "exits": [
+    {
+     "cost": "白嫩玉手腕骨受力挤压磨出道道深红挫痕",
+     "option": "反手将牛角扁起子硬刃探入折页合叶咬舌施加角向剪切杠杆力矩"
+    },
+    {
+     "cost": "同伴将独身立于穿堂受冷风水气激体侵入",
+     "option": "挥臂招引外侧同门迅速掀开宽幅防潮黑缎斗篷遮蔽视线"
+    }
+   ],
+   "far": {
+    "consequence": "若未能在时限内排解险局，藏书楼数百年世家文脉传承将蒙受灭顶断绝奇耻大辱。",
+    "due_days": 1,
+    "trigger": "江水若淹没特藏多宝阁，宋版皇室孤本文献将遭受不可逆转之泥水浸泡溶解毁灭。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_shear_arm_collapse",
+   "immediate": {
+    "minutes": 1,
+    "text": "门缝黄铜铜角正以秒级速度收拢，短衫领口真丝细线因重压拉扯发出微弱崩断轻响。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_archive_ground_gallery",
+    "loc_underground_drainage_culvert"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "字画架区浊浪已漫过青砖脚踏三寸，两分钟红线倒数直逼宋代古册。"
+   },
+   "objective": "赶在地下暗渠积水漫过最底阁淹没宋代孤本前，巧用手头角质扁刃工具挑退榫舌机关脱身。",
+   "source": "accident",
+   "start_minute": 1205,
+   "tags": [
+    "disaster"
+   ],
+   "title": "紫檀屏风重倾合叶死锁绝局",
+   "trigger": "江水倒灌使地基倾斜，重型屏风倾倒死死咬扣掌卷人真丝短衫排扣与下裳马面裙带在门缝铜槽。"
+  },
+  {
+   "choice": "是请会长拖住特使在穿堂品茶，还是冒险当着众人的面先护卷后整衣？",
+   "exits": [
+    {
+     "cost": "会长要搭上老脸周旋，事后免不了一番盘问",
+     "option": "请会长把特使引去前廊看砖雕题刻，硬拖出一盏茶的工夫"
+    },
+    {
+     "cost": "掌卷人只能裹着大氅迎客，衣带松散的样子难免落进旁人眼里",
+     "option": "由副掌卷人展开油蜡大氅挡在门口，先把孤本抢上案头"
+    }
+   ],
+   "far": {
+    "consequence": "文渊阁的古籍保护专款落空，世家藏书楼明年就得交给文旅公司托管。",
+    "due_days": 3,
+    "trigger": "若特使撞见掌卷人衣衫不整、孤本泡水，验卷当场作废。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_iron_curtain_drop",
+   "immediate": {
+    "minutes": 2,
+    "text": "穿堂里传来特使与会长寒暄的声音，脚步声一步步近了。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_scroll_mounting_studio",
+    "loc_vip_examination_hall"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "随行记者已经举起相机，对着底层通堂紧闭的门试了试闪光灯。"
+   },
+   "objective": "在特使推门之前解开衣带脱身、理好衣裳，把受潮的孤本端端正正摆上楠木案头。",
+   "source": "institution",
+   "start_minute": 1210,
+   "tags": [
+    "workplace"
+   ],
+   "title": "巡阅特使步履临门视线死线",
+   "trigger": "巡阅特使的车队冒雨提前抵达，一行人已踏上穿堂石阶，再有几分钟便要推开底层通堂的门验看孤本。"
+  },
+  {
+   "choice": "是先救孤本，还是先从屏风里脱身？",
+   "exits": [
+    {
+     "cost": "身子一扭，被咬住的马面裙又撕开一截",
+     "option": "伸长手臂把书匣推上高一层的架子"
+    },
+    {
+     "cost": "副掌卷人一走，门口就没人挡视线",
+     "option": "让副掌卷人从门外递进吸水纸先垫住"
+    }
+   ],
+   "far": {
+    "consequence": "世家传了八百年的镇馆之宝毁在这一夜，掌卷人要背一辈子的骂名。",
+    "due_days": 3,
+    "trigger": "若孤本受潮，纸张会粘连发霉，再也揭不开。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_song_edition_soaking",
+   "immediate": {
+    "minutes": 2,
+    "text": "书匣的蓝布函套一点点洇成深色。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_archive_ground_gallery"
+   ],
+   "near": {
+    "deadline_minutes": 15,
+    "text": "再泡一刻钟，水就要渗进第一叶书页。"
+   },
+   "objective": "在水渗进书页之前把孤本移到高处，用吸水纸隔开。",
+   "source": "nature",
+   "start_minute": 1215,
+   "tags": [
+    "disaster"
+   ],
+   "title": "宋版孤本浸水",
+   "trigger": "浊水漫进多宝架最底层，一函宋版孤本的书匣底角已经泡在水里，函套开始吸水变色。"
+  },
+  {
+   "choice": "是请世家会长出面劝走记者，还是干脆把穿堂的门关上？",
+   "exits": [
+    {
+     "cost": "会长要把藏书楼的家底说给外人听",
+     "option": "请世家会长出面，许记者一个独家专访"
+    },
+    {
+     "cost": "记者会在报上写藏书楼闭门藏私",
+     "option": "关上穿堂的门，谁也不让进"
+    }
+   ],
+   "far": {
+    "consequence": "藏书楼的申遗评审会被叫停，几年的心血白费。",
+    "due_days": 5,
+    "trigger": "若底层的狼狈上了明天的晚报，世家的脸面就丢尽了。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_reporter_at_door",
+   "immediate": {
+    "minutes": 2,
+    "text": "闪光灯在雨夜里一亮一亮，照得穿堂雪白。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vip_examination_hall"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "特使的车已经停在巷口，几分钟后就到。"
+   },
+   "objective": "在特使进门之前把记者请走，或者至少别让镜头对准底层。",
+   "source": "person",
+   "start_minute": 1218,
+   "tags": [],
+   "title": "晚报记者堵门",
+   "trigger": "晚报记者听说特使今晚登楼验卷，撑着伞堵在穿堂门口，举着相机不肯走。"
+  },
+  {
+   "choice": "是按规矩等水位到线，还是请监察官破例？",
+   "exits": [
+    {
+     "cost": "监察官要担违规的责任",
+     "option": "请监察官破例提前开闸"
+    },
+    {
+     "cost": "多等一刻，底层就多泡一刻",
+     "option": "按规矩等水位到线再开"
+    }
+   ],
+   "far": {
+    "consequence": "下游的老街会跟着进水，街坊们要找上门来。",
+    "due_days": 3,
+    "trigger": "若监察官破例开闸，事后要向省里写说明。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_culvert_gate_key",
+   "immediate": {
+    "minutes": 2,
+    "text": "闸口的水打着旋往下灌，标尺离警戒线只差两指。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_underground_drainage_culvert"
+   ],
+   "near": {
+    "deadline_minutes": 12,
+    "text": "再等下去，底层的积水就要没过多宝架第二层。"
+   },
+   "objective": "说服监察官提前开闸泄水，给底层争取时间。",
+   "source": "institution",
+   "start_minute": 1222,
+   "tags": [
+    "workplace"
+   ],
+   "title": "闸口钥匙在监察官手里",
+   "trigger": "暗渠副闸的钥匙由文保监察官掌着，规定水位过警戒线才能开闸，可标尺离警戒线还差两指。"
+  },
+  {
+   "choice": "是让帮工去茶馆说明情况，还是由世家会长亲自去打招呼？",
+   "exits": [
+    {
+     "cost": "帮工嘴笨，越说越像在遮掩",
+     "option": "让帮工去茶馆说是在防汛抢修"
+    },
+    {
+     "cost": "会长离开穿堂，特使到了没人迎接",
+     "option": "请世家会长亲自去茶馆打招呼"
+    }
+   ],
+   "far": {
+    "consequence": "世家与官方合作的抢救项目可能就此搁置。",
+    "due_days": 4,
+    "trigger": "若特使听信了议论，验卷会改成清点，掌卷人要被暂停职务。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_teahouse_gossip",
+   "immediate": {
+    "minutes": 3,
+    "text": "茶馆里的议论声隔着雨幕都听得见。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vip_examination_hall"
+   ],
+   "near": {
+    "deadline_minutes": 10,
+    "text": "特使下车时要从茶馆门口走过。"
+   },
+   "objective": "在议论传进特使耳朵之前把风声压下去。",
+   "source": "rumor",
+   "start_minute": 1226,
+   "tags": [],
+   "title": "老街茶馆的议论",
+   "trigger": "街口茶馆里有人说宋家的古书被偷了，还有人说是掌卷人监守自盗，话越传越难听。"
+  }
+ ],
+ "region": "华东水乡古典藏书阁楼底层通廊字画架区",
+ "rules": [
+  {
+   "id": "rule_curtain_iron_drop",
+   "text": "文渊阁底层字画架区遇水患须先合上紫檀折屏护住多宝架，折屏一旦咬死门框，外人只能从暗渠闸口绕行。"
+  },
+  {
+   "id": "rule_orchestra_pit_hydraulic",
+   "text": "宋元孤本未经掌卷人亲手封匣，任何人不得搬动；湿手触卷者，世家规矩永不许再入阁。"
+  },
+  {
+   "id": "rule_gala_etiquette_protocol",
+   "text": "巡阅特使登楼验卷期间，底层通堂闲人回避，掌卷人须衣冠整肃、立于案前候问。"
+  },
+  {
+   "id": "rule_patron_access_authority",
+   "text": "暗渠水闸由文保监察官掌钥，涨水过警戒线方可开副闸泄洪，开闸须在册上签名担责。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "行礼",
+  "committed": "同盟",
+  "familiar": "融洽",
+  "flirting": "暗涌",
+  "intimate": "知心",
+  "stranger": "生客",
+  "testing": "试探"
+ },
+ "status": "released",
+ "style_hint": "强调传统苏作榫卯受力破拆物理机制与古典文献保护庄严感，全员成年恪守名家操守",
+ "tension_engines": [
+  {
+   "id": "engine_shear_imbalance",
+   "text": "八百斤老紫檀雕花大屏风受潮侧倾，每下沉一分门框黄铜合叶咬舌便向内收紧，真丝衣裙承受极限拉力。"
+  },
+  {
+   "id": "engine_iron_curtain_countdown",
+   "text": "护城河江潮倒灌地下暗河管网，浊水以寸级速度爬升，留给抢护宋代孤本善本之自救时间秒秒流逝。"
+  },
+  {
+   "id": "engine_public_gaze_scrutiny",
+   "text": "巡阅特使与名门长尊脚步靴声在回廊大理石地面回响，任何衣衫不整受辱走光均将招致灭顶社会非议。"
+  },
+  {
+   "id": "engine_steam_valve_threat",
+   "text": "地下基底水闸管道逆涌咆哮，若两分钟内未能排开合叶泄水，地基沉降将彻底挤碎底通堂承重梁柱。"
+  }
+ ],
+ "title": "古籍揭裱·世家密卷·文渊藏书楼底层字画架区重型紫檀雕花折页屏风倾倒卡死",
+ "tone": [
+  "华丽",
+  "机巧",
+  "紧绷",
+  "清冷",
+  "优雅",
+  "压迫"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "twist_info_hydraulic_blueprint",
+   "requires": [
+    "char_lu_huai_an_carpenter"
+   ],
+   "text": "底层字画架区落地门框系前明古法预埋自锁双向机关，原设计暗藏黄铜斜楔退舌槽口，只需以扁平硬物斜向三十度推压即可整体弹开脱扣。"
+  },
+  {
+   "category": "人事",
+   "id": "twist_person_substitute_courage",
+   "requires": [
+    "char_song_zhixia_archivist"
+   ],
+   "text": "看似娇弱温婉之苏作女掌卷人，少时即随祖父学得百般硬木微观雕刻技艺，手指劲道与力学认穴之准冠绝同侪。"
+  },
+  {
+   "category": "资源",
+   "id": "twist_resource_tuning_fork_steel",
+   "requires": [
+    "char_song_zhixia_archivist"
+   ],
+   "text": "掌卷人袖内随身角起子取自成年健壮水牛角尖冷锻打磨，质地硬如合金且韧而不折，恰是一柄天然顶级微观撬棒。"
+  },
+  {
+   "category": "制度",
+   "id": "twist_institution_curtain_rule",
+   "requires": [
+    "char_gu_ting_han_curator"
+   ],
+   "text": "国家文物局特级文献抢救规程明文授权，在不可抗力特大水患前，主事掌卷名家拥有现场破拆除险最高紧急避险权免受追责。"
+  },
+  {
+   "category": "时限",
+   "id": "twist_deadline_iron_slack",
+   "requires": [
+    "press_shear_arm_collapse"
+   ],
+   "text": "地下暗渠副闸在监察官强力摇动下开启泄洪，室内水位倒灌瞬间停顿二十秒，为掌卷人手腕发力自解赢得了黄金脱扣窗口期。"
+  },
+  {
+   "category": "关系",
+   "id": "twist_relation_patron_pledge",
+   "requires": [
+    "char_gu_ting_han_curator"
+   ],
+   "text": "巡阅特使实则深慕江南宋氏书香门第久矣，此番亲临早已备下千万级古籍保护专款，名姝惊世自救令特使深为折服当场签署定卷。"
+  }
+ ]
+}

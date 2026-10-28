@@ -1,0 +1,2478 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "舞台演出的总指挥，在台下水洼中焦急调度。",
+   "age_range": [
+    45,
+    55
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_executive_director_zhang",
+   "line": "C位和总监还在倾斜的升降T台底下！现场剧务快拿高压割刀和抽水机过来！快啊！",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "name": "张总导演",
+   "role": "特大型综艺晚会总导演"
+  },
+  {
+   "adult_context": "通过舞台壁挂扩音器大声通报断电状态与机械位置的技术老工人。",
+   "age_range": [
+    50,
+    60
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_lighting_director_master_zhao",
+   "line": "总监！我已经把舞台下层动力电闸总闸拉掉了！防坠棘爪在托台底梁右侧，逆向撬开！",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "name": "赵师傅",
+   "role": "舞台高级灯光动力总控师"
+  },
+  {
+   "adult_context": "严格执行消防安全规范的保卫主管，暂时阻拦了外部盲目冲台的人员。",
+   "age_range": [
+    35,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_stage_safety_officer_sun",
+   "line": "舞台上方喷淋水压已经爆表，钢构网架随时可能过载，严禁多余人员盲目涉水上台！",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "name": "孙队长",
+   "role": "演播大厅消防安全秩序主管"
+  },
+  {
+   "adult_context": "在二层总控室焦急关注C位安危的经纪人。",
+   "age_range": [
+    30,
+    40
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_idol_manager_sister_chen",
+   "line": "C位！总监！消防队已经进广电大门了，你们在水里千万坚持住啊！",
+   "location_ids": [
+    "loc_broadcast_master_control_room"
+   ],
+   "name": "陈经纪人",
+   "role": "女团首席执行经纪人"
+  },
+  {
+   "adult_context": "在调音台监控无线音频电平的助手。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_sound_assistant_xiao_wu",
+   "line": "C位的耳麦无线信号断了，水幕把天线信号全吃掉了，只能靠两人自己脱困了！",
+   "location_ids": [
+    "loc_broadcast_master_control_room"
+   ],
+   "name": "小吴",
+   "role": "音频组二十一岁的助理"
+  },
+  {
+   "adult_context": "在舞台侧翼检查受损滑轮并向现场喊话的老技工。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_rigging_master_lao_zhou",
+   "line": "剪叉撑杆的棘轮是淬火高碳钢的，普通铁丝撬不动，必须用高硬度钢片别齿槽！",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "name": "老周师傅",
+   "role": "舞台机械总维保老钳工"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "女团C位与舞台机械总监在倾斜的T台夹缝里半泡在水中、手叠着手，把耳麦腰包的钢背夹别进托台棘轮。",
+   "id": "cc_idol_and_director_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "idol_tang_xiaoran",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "舞台底下一起撑着棘轮，彼此的命都交到了对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "stage_machinery_lead_lu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同为舞台技术骨干，知晓彼此手上力道与工具用法。",
+     "stage": "familiar"
+    },
+    {
+     "a": "idol_tang_xiaoran",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "stage_machinery_lead_lu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "清纯爱豆与沉毅工匠在灾厄中成为生死不离的脱困搭档。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "idol_tang_xiaoran",
+    "stage_machinery_lead_lu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在漏电与极度失温来临前合力撬动防坠棘爪顶开死锁脱险。",
+    "limit_gap": "C位打歌裙湿透且脚踝受夹受阻，总监身处狭小死角后背承受巨大悬垂重压。",
+    "meeting_reason": "回归前夜的最后一遍带妆彩排，C位在T台尽头定点，舞台机械总监在台下调升降台的速度。",
+    "resource_gap": "C位拥有淬火高锰弹簧钢纯钢发射腰包背夹，总监掌握舞台机械偏心防坠自锁解脱直觉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_water_curtain_flood_rush",
+    "te_close_contact_body_heat"
+   ]
+  },
+  {
+   "chemistry": "女团队长与音频主管以精准机械原理拆解偏心齿槽咬合，严丝合缝操作工具突破阻滞。",
+   "id": "cc_leader_and_sound_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "idol_tang_xiaoran",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "多年彩排演出积累深厚默契，对彼此专业定力深具信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "stage_machinery_lead_lu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同台技术部门同事，熟悉舞台各处机械构造。",
+     "stage": "familiar"
+    },
+    {
+     "a": "idol_tang_xiaoran",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "stage_machinery_lead_lu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在沉重机械死锁压迫下并肩伏卧发力，消除身份悬殊界限。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "idol_tang_xiaoran",
+    "stage_machinery_lead_lu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "利用纯钢背夹精准卡死齿轮缺口并顺势撬动棘爪自救。",
+    "limit_gap": "台下通道彻底淹没无法借助外援，必须在昏暗水雾中凭手感盲操机械脱扣。",
+    "meeting_reason": "彩排间隙，C位溜进后台控制室，抱着一杯冰美式问总监升降台能不能再快半秒。",
+    "resource_gap": "队长掌握舞台地漏备用排水口位置，音频主管拥有高精度探测仪与防爆手电。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_scissor_ratchet_deadlock",
+    "te_stage_structure_collapse_danger"
+   ]
+  },
+  {
+   "chemistry": "舞美总指挥以绝对权威统摄全局，C位依令协同配合，合力爆发千钧推力破死锁。",
+   "id": "cc_production_and_idol_high",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "idol_tang_xiaoran",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "总指挥指导C位校准发力矢量，展现卓越技术领导力。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "stage_machinery_lead_lu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "舞美工程部上下级，配合极为娴熟。",
+     "stage": "familiar"
+    },
+    {
+     "a": "idol_tang_xiaoran",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "stage_machinery_lead_lu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "清纯爱豆与工程总监共赴生死，结成无间同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "idol_tang_xiaoran",
+    "stage_machinery_lead_lu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以高刚性力矩反推破除偏心卡死完成无损自救脱困。",
+    "limit_gap": "挑高网架处于临界形变状态，任何蛮动都会引发晃动加剧。",
+    "meeting_reason": "电视台派人来审回归舞台的安全方案，C位被经纪人推上台演示，总监在一旁讲解。",
+    "resource_gap": "总指挥掌握整座演播厅升降台地下受力图谱，C位掌握全部演出高强度合金配件。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_stage_structure_collapse_danger",
+    "te_scissor_ratchet_deadlock"
+   ]
+  },
+  {
+   "chemistry": "C位以舞台主角身份沉着鼓舞士气，青年领班严谨配合测算每道力矩数值。",
+   "id": "cc_crew_and_specialist_command",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "idol_tang_xiaoran",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "同处绝境，上下级界限消融于贴身死斗协作中。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "stage_machinery_lead_lu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在舞台机械组共事，彼此熟稔信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "idol_tang_xiaoran",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "stage_machinery_lead_lu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "C位全力依赖工匠臂膀发力破局。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "idol_tang_xiaoran",
+    "stage_machinery_lead_lu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保棘轮偏心槽免遭撕裂损毁，全员安全脱困。",
+    "limit_gap": "积水漫溢导致孤立无援，必须紧密依偎配合。",
+    "meeting_reason": "彩排结束后，C位一个人留在空荡荡的舞台上练那段转身，总监还没关控制台的灯。",
+    "resource_gap": "C位拥有坚忍不拔的心理素质，技工精通升降台防坠锁齿轮咬合解构。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_water_curtain_flood_rush",
+    "te_stage_structure_collapse_danger"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_nook_whisper_breath",
+   "reach": "all",
+   "text": "四十公分逼仄死角内两人肌肤相贴急促滚烫的吐息与心跳共振"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_stage_water_curtain_roar",
+   "reach": "local",
+   "text": "暴走水幕千万道水柱轰击舞台与挑高网架剧烈震颤的沉闷轰鸣"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁，持有广电演职人员执业认证，平日元气活泼甜美动人，遇险展现出异乎寻常的勇敢信任。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身穿浅粉色修身亮片打歌短裙，外系黑色漆皮装备腰带，高马尾被暴走水幕浇湿垂落在肩，容颜清纯甜美，带着健康带着淡淡的红晕，在水花漫卷剧喘中双颊泛起娇艳酡红与冷汗，下颌挂着晶莹水滴。",
+    "打歌服被冷水浸透紧紧贴合在纤细曼妙的身躯上，两腮面庞在昏暗舞台灯下透出如凝脂般的柔润光泽，双手全力按压无线发射腰包钢壳毫不退缩，清纯初恋感中透着令人心颤的铿锵反差。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱啼哭的软弱作态",
+     "鲁莽盲动的粗暴蛮干"
+    ],
+    "contrast": "镜头前甜得像糖，连眨眼都练过角度；水幕灌下来、舞鞋被T台卡死时，C位却一声没哭，扯下耳麦腰包就把背夹递了过去。",
+    "core_value": "哪怕平日在聚光灯下是受万人宠爱的小爱豆，生死危难前也要成为能与总监并肩打破死锁的担当战友。",
+    "goal_options": [
+     "将纯钢发射腰包背夹卡入棘轮偏心槽撬脱防坠棘爪",
+     "与总监双手交叠合力下压破除机械自锁抽出脚踝"
+    ],
+    "never": [
+     "在同伴脱困前独自退缩放弃"
+    ],
+    "prefers": [
+     "沉稳专注且臂力强健的工科男子",
+     "细致严谨的硬核工匠手段"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂酸得发抖，喘息全落在总监耳边，仍咬着牙把力矩死死抵住，像在台上撑完最后一个高音。",
+     "high": "在四十公分逼仄死角内整个人伏在总监胸前，双手覆在总监手背上倾注全身重量猛按钢壳。",
+     "low": "在T台倾斜卡死瞬间冷静呼唤总监，敏锐指出右侧防坠棘轮已反向咬死。",
+     "mid": "毫不犹豫反手解下腰后纯钢耳麦腰包，在齐膝积水中俯身递给总监。"
+    },
+    "relationship_stance": "练习生时期就在这座演播厅彩排，舞台机械总监看着C位从后排站到中间；每次升降台上升前，C位都会回头冲控制台比一个手势，那是只给总监一个人的暗号。",
+    "withdrawal": "安全脱险后脱力靠在总监肩头微喘，面庞埋在总监颈窝掩饰羞怯。"
+   },
+   "gender": "female",
+   "gender_reason": "二十一岁的现象级女团C位元气爱豆，兼具舞台闪耀魅力与绝境中坚韧不拔的钢铁意志。",
+   "id": "idol_tang_xiaoran",
+   "identity": {
+    "authority": "对自身演出随身定制声学装备与打歌服佩饰拥有自主支配权。",
+    "exposure": "湿透的打歌裙半透贴身勾勒出起伏身段，在逼仄死角近身发力时毫无保留地贴合在总监怀前。",
+    "hidden": "腰带内侧暗袋装着总监赠送的防滑指套",
+    "limits": [
+     "右脚舞鞋跟部被倾斜T台底板死死咬住无法单人抽身脱出",
+     "冰冷水幕持续浇注导致体温快速散失体力濒临极限"
+    ],
+    "obligations": [
+     "保护随身耳麦声学装备免遭暴力损毁",
+     "与总监同舟共济排除机械咬死安全脱险"
+    ],
+    "resources": [
+     "一个专业定制无线耳麦发射腰包（外壳为一体成型加厚纯钢，背夹采用特种淬火高锰弹簧钢精工打造，硬度极高且带有刚性折弯翻边）",
+     "一双内嵌加固钛铝合金抗扭龙骨骨架的高定打歌高跟舞鞋",
+     "一条高弹力纯棉吸汗护腕"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "总监在舞台倾覆瞬间毫不犹豫以身躯硬扛钢架护住{npc.name}的勇毅担当",
+     "在冰冷水幕死角内总监沉着冷静排查机械故障的专注眼神"
+    ],
+    "boundaries": [
+     "恪守正派爱豆的端庄自尊底线",
+     "脱困自救纯靠硬核物理机械力矩绝不涉性"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在T台死角紧贴总监胸前，双手叠在总监手背上共同握紧腰包背夹全力下扳。",
+    "dislikes": [
+     "轻浮孟浪的越界举动",
+     "临阵推诿的自私行径"
+    ],
+    "expression": "脱险后温柔地为总监擦去脸上的泥水与机油，主动牵住总监手指轻声呢喃‘有总监在，我什么都不怕’。",
+    "likes": [
+     "在剧烈水流冲击中被有力臂弯紧紧扣住腰肢维持重心的踏实感",
+     "舞台底下四只手叠在一起发力时，耳返里只剩彼此的喘息"
+    ],
+    "preconditions": [
+     "防坠棘轮成功撬脱棘爪松扣",
+     "受困脚踝安全抽离无损伤脱困",
+     "两人都清醒，心意出于自己，不是水幕绝境里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "回归在即的女团C位",
+   "schedule": [
+    {
+     "from": 1330,
+     "location_id": "loc_grand_auditorium_stage",
+     "to": 1335
+    },
+    {
+     "from": 1335,
+     "location_id": "loc_t_stage_scissor_pinch_nook",
+     "to": 1365
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "背夹钢片承受数百牛顿反力矩微弯，两人手臂手掌被冰冷金属和踏板边缘磨破擦伤。",
+      "option": "用纯钢腰包背夹刚性折沿别入偏心齿缝，两人身体紧贴合力向下施压撬退棘爪自救脱困。"
+     },
+     {
+      "cost": "可能导致踝关节粉碎性骨折，甚至诱发T台二次坍塌砸断肢体。",
+      "option": "徒手生拉硬扯被卡死在数吨重钢板夹缝中的脚踝舞鞋。"
+     }
+    ],
+    "pressure": "数吨重钢架偏载持续扭曲，主电闸漏电与失温逼近，必须在十几分钟内手动撬脱防坠棘爪。",
+    "trigger": "水幕暴走积水淹没舞台，电动升降T台滑轮脱绳倾斜砸死舞鞋，托台防坠棘轮咬死导轨。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "水好冷……可总监的手一直托着我的脚踝，托得好稳。经纪人姐姐要是看见我们贴成这样，一定会疯掉吧。",
+    "surface": "别慌，背夹是弹簧钢的，比看着结实。你告诉我卡在哪一齿，我来压——明天还要回归，脚不能废在这儿。"
+   }
+  },
+  {
+   "adult_context": "二十一岁，具备成熟的团队责任感与舞台应变力，遇险冷静沉着调度有力。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "黑色修身战术舞服搭配短款夹克，两腮线条饱满紧致带着莹润的光泽，在冰冷水瀑下咬紧牙关稳住下盘。",
+    "湿发贴在颊侧，面颊在聚光灯余晖下泛着激动的酡红，修长双腿并拢侧跪在水洼，双手死死握住腰包背夹边缘。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "怨天尤人"
+    ],
+    "contrast": "霸气坚韧的舞台主舞，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "机械自锁皆有力学破绽，只要找准棘爪支点，万斤重压亦能逆转解脱。",
+    "goal_options": [
+     "利用背夹构建刚性撬杠顶脱棘爪",
+     "协同总监顶正托板抽出鞋跟"
+    ],
+    "never": [
+     "背弃并肩战斗的伙伴"
+    ],
+    "prefers": [
+     "沉稳专注的机电操作",
+     "毫不犹豫的协同发力"
+    ],
+    "pressure_responses": {
+     "breaking": "双手磨破出血亦死死抵住力臂末端，直至棘爪发生脱扣位移。",
+     "high": "以自身全部自重从侧方压紧力臂，消除打滑旷量。",
+     "low": "迅速判断出T台卡死在于左侧棘轮过载抱死，明确杠杆支点位置。",
+     "mid": "果断将纯钢背夹卡入受力缝隙，以手掌固定其切向夹角。"
+    },
+    "relationship_stance": "把总监当成舞台底下最靠得住的那个人，灾厄里结下生死的默契。",
+    "withdrawal": "在脱困后退至干燥区域深呼吸平复心绪并整理衣服。"
+   },
+   "gender": "female",
+   "gender_reason": "女团队长坚韧领袖态，平日带队严谨担当，危难中展现出从容不迫的魄力。",
+   "id": "leader_idol_tang_xiaoran",
+   "identity": {
+    "authority": "对全队排练安全与个人随身装备拆解拥有最高现场决断权。",
+    "exposure": "紧身战术服被冷水湿透勾勒出惊人身姿，在逼仄水下死角贴身展露无遗。",
+    "hidden": "腰包夹层备有绝缘电工胶布",
+    "limits": [
+     "被困狭窄缝隙缺乏重型液压破拆工具",
+     "必须在十分钟内打破机械自锁"
+    ],
+    "obligations": [
+     "保护演播大厅昂贵声学装备",
+     "同总监紧密协作逃生脱险"
+    ],
+    "resources": [
+     "专业一体化纯钢发射腰包",
+     "高弹力加厚护膝"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "总监在危难中展现出的舞台机械专业判断力与勇猛担当",
+     "近距离贴身支撑时对方如山岳般可靠的臂弯温度"
+    ],
+    "boundaries": [
+     "严守爱豆自尊底线",
+     "自救恪守硬核机械物理底线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在T台死角俯身相依，胸前紧贴总监臂膀共同握持工具完成绝地逆转。",
+    "dislikes": [
+     "轻浮孟浪",
+     "退缩怯懦"
+    ],
+    "expression": "默默递上干燥毛巾为总监擦拭脸上水珠，低声叮嘱总监注意保暖。",
+    "likes": [
+     "彼此心领神会的眼神对视",
+     "棘轮清脆脱开瞬间的金属弹跳声"
+    ],
+    "preconditions": [
+     "防坠棘爪成功脱扣",
+     "人员全员脱险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "女团队长兼主舞C位",
+   "schedule": [
+    {
+     "from": 1330,
+     "location_id": "loc_grand_auditorium_stage",
+     "to": 1335
+    },
+    {
+     "from": 1335,
+     "location_id": "loc_t_stage_scissor_pinch_nook",
+     "to": 1365
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员手腕手掌承受强烈金属反冲压迫造成肌肉酸麻淤青。",
+      "option": "以纯钢背夹卡死棘轮偏心槽，双手合力向下施压旋转顶出棘爪脱扣自救。"
+     },
+     {
+      "cost": "耗时过长极易导致钢索突然失稳引发全面坍塌断绝生路。",
+      "option": "盲目寻找外侧大扳手试图敲碎棘轮铸铁件。"
+     }
+    ],
+    "pressure": "水下齿轮组面临锈蚀咬死与漏电短路，必须在结构断裂前手动撬脱棘爪自救。",
+    "trigger": "水幕暴走引发配电故障，剪叉式升降T台倾斜卡死，舞台积水深达膝盖。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "水越来越深了……但总监一直在护着我。拼尽全力，我也一定要帮总监把这块钢板撬开！",
+    "surface": "总监，看准第三个齿形！背夹折沿刚好能别住棘爪，顺着逆时针方向一起往下压！"
+   }
+  },
+  {
+   "adult_context": "二十一岁，具备专业音乐工程技术认证，遇险理性从容。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "白T恤外搭浅紫工装连体防溅背带裤，两腮线条饱满紧致带着健康的红润，在冰冷积水中目光沉着。",
+    "湿润的发丝用备用发圈利落挽起，面颊在舞台蓝光下泛着坚毅的冷白，双手紧紧扣住钢夹受力点。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "无端猜忌"
+    ],
+    "contrast": "温软清纯的元气歌手，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "一切自锁机构皆有力矩弱点，找准切向力矩，百钧死锁亦可瓦解。",
+    "goal_options": [
+     "利用腰包背夹折沿撬脱自锁棘爪",
+     "协同总监顶正托板自救脱困"
+    ],
+    "never": [
+     "临阵退缩放弃同伴"
+    ],
+    "prefers": [
+     "精准的力学配合",
+     "沉着果断的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "紧咬银牙死死压住杠杆，直至机械锁产生脱开金属响动。",
+     "high": "以全身重量紧贴总监臂膀向下施压消除打滑。",
+     "low": "迅速判断棘轮偏心卡死死点位于下部偏心销。",
+     "mid": "果断将高锰钢背夹以特定角度切入棘齿暗槽。"
+    },
+    "relationship_stance": "信得过总监的手艺，跟着总监在灾厄里结成了同盟。",
+    "withdrawal": "在脱困后退至安全区域深呼吸平复心绪并检查器材。"
+   },
+   "gender": "female",
+   "gender_reason": "主唱兼舞台声学助理，精通无线射频与耳返调试，机敏聪慧。",
+   "id": "sound_specialist_tang_xiaoran",
+   "identity": {
+    "authority": "对自身耳麦发射机硬件材质与机械抗弯力矩拥有精准专业判断。",
+    "exposure": "湿透的连体裤贴紧腰肢曲线，在逼仄空间完全展露青春女性罕见的柔韧体态。",
+    "hidden": "随身携带微型防磁六角扳手",
+    "limits": [
+     "死角狭窄缺乏大型千斤顶支撑",
+     "必须在十分钟内排除机械阻尼"
+    ],
+    "obligations": [
+     "力保昂贵专业声学发射器材",
+     "与技术主管总监紧密协作逃生"
+    ],
+    "resources": [
+     "加厚纯钢无线发射腰包",
+     "高韧性特种天线紧固绑带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "总监在危急时刻硬扛倾斜钢架护住C位的男子汉气概",
+     "贴身施力时对方宽阔胸膛传来的雄浑力量与温热气息"
+    ],
+    "boundaries": [
+     "严守自尊自爱底线",
+     "出路纯靠机械杠杆自救"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "伏在总监怀侧死角，双手叠于总监手背合力下按背夹钢壳。",
+    "dislikes": [
+     "轻浮孟浪",
+     "迟疑推诿"
+    ],
+    "expression": "递上纸巾替总监擦去额头的冷汗，低声安慰，又翻过总监的手掌看磨破的地方。",
+    "likes": [
+     "彼此心领神会的对视",
+     "棘爪弹开瞬间的清脆金属鸣响"
+    ],
+    "preconditions": [
+     "偏心棘爪成功脱扣",
+     "全员安然脱困出险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "主唱爱豆兼舞台声学助理",
+   "schedule": [
+    {
+     "from": 1330,
+     "location_id": "loc_grand_auditorium_stage",
+     "to": 1335
+    },
+    {
+     "from": 1335,
+     "location_id": "loc_t_stage_scissor_pinch_nook",
+     "to": 1365
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员前臂与手掌承受强烈反力矩压迫造成肌肉酸麻淤青。",
+      "option": "以特制高锰钢背夹切入齿槽，双手合力向下施压旋转顶出棘爪脱扣自救。"
+     },
+     {
+      "cost": "金属踏板锐利折边极易割伤肌腱导致严重创伤。",
+      "option": "强行拉扯受困脚踝试图把鞋脱下。"
+     }
+    ],
+    "pressure": "剪叉撑杆受扭矩持续变形，必须在结构断裂前手动撬脱防坠棘爪脱险。",
+    "trigger": "水幕暴走引发舞台倾斜，打歌舞鞋卡入剪叉钢架，舞台积水深及小腿。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "冰冷水流漫上来了……但总监的掌心好烫。只要能把受困的脚踝抽出来，我们就能一起冲出去！",
+    "surface": "总监，受力点在第四个棘齿！背夹厚度刚刚好，顺着切线压，我们一起下压！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的工程师，具备大型公建特种设备维保资质，沉毅果敢担当可靠。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深黑连体防油工装，身姿矫健双臂结实，眼神沉静锐利，额角浸满汗水与水雾。",
+    "腰系专业工具腰带，佩戴防滑工作手套，在倾斜震颤的升降台死角稳如磐石护住C位。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延",
+     "盲目冒进"
+    ],
+    "contrast": "平日沉稳寡言的工科青年，在生死一线时爆发出令人心折的刚毅与担当。",
+    "core_value": "机械自锁虽坚固，必有反向力矩解法；有我在，绝不会让C位受到半分伤害。",
+    "goal_options": [
+     "以背夹精准插入棘齿缝",
+     "全力下压杠杆扳开偏心棘爪"
+    ],
+    "never": [
+     "背弃C位的信任与托付"
+    ],
+    "prefers": [
+     "扎实的机械力学自救",
+     "毫无保留的生死信赖"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将咬死的防坠棘爪顶脱齿槽。",
+     "high": "双手包覆住C位双手，毫无保留爆发全身背阔肌与核心重量下按。",
+     "low": "在T台倾斜瞬间一把将C位拉入怀中避开倒伏支架，低声安抚对方。",
+     "mid": "伏身积水狭缝指导C位调整握持手势，建立稳固反向力臂支点。"
+    },
+    "relationship_stance": "管这座演播厅的升降台快十年，看过无数艺人上上下下；只有这一个，每次升台前都会回头找控制台的方向。",
+    "withdrawal": "确认棘轮彻底复位C位脱困后方才脱力坐在台阶上长舒一口气。"
+   },
+   "gender": "male",
+   "gender_reason": "青年舞台机械总监，精通剪叉升降与重型防坠自锁结构。",
+   "id": "stage_machinery_lead_lu",
+   "identity": {
+    "authority": "对现场升降舞台液压剪叉与安全棘轮手动排障拥有最高裁决处置权。",
+    "exposure": "工装短袖被冷水与热汗浸透贴紧胸膛，在近身施力时阳刚气魄完全展现。",
+    "hidden": "随身携带一枚备用十字合金螺丝刀头",
+    "limits": [
+     "身负护卫C位重任绝不退缩",
+     "检修死角逼仄难以伸展全身"
+    ],
+    "obligations": [
+     "保护C位免受重型钢架挤压伤害",
+     "合力打破防坠棘轮机械自锁"
+    ],
+    "resources": [
+     "纯钢无线发射腰包（C位提供）",
+     "高亮度防爆手电",
+     "防滑耐磨手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "C位在突发危机前毫不娇气、毅然跪地与自己并肩拼命的坚韧勇气",
+     "紧贴施力时C位面颊透出的温润娇红与急促滚烫的吐息"
+    ],
+    "boundaries": [
+     "恪守规矩分寸",
+     "绝无轻慢之意"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "后背抵住升降台剪叉横梁，双手握住背夹受力端，由C位伏于胸前合力下压。",
+    "dislikes": [
+     "轻慢女性",
+     "言而无信"
+    ],
+    "expression": "脱险后默默将自身干燥外套披在C位微湿的肩头，紧紧握住C位双手以体温抚慰。",
+    "likes": [
+     "彼此掌心交叠时的沉稳踏实",
+     "同声发力突破难关时的心意共鸣"
+    ],
+    "preconditions": [
+     "全员脱困安全无虞",
+     "T台降下停稳"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "演播厅的舞台机械总监",
+   "schedule": [
+    {
+     "from": 1330,
+     "location_id": "loc_grand_auditorium_stage",
+     "to": 1335
+    },
+    {
+     "from": 1335,
+     "location_id": "loc_t_stage_scissor_pinch_nook",
+     "to": 1365
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌虎口在剧烈金属反冲下产生剧烈震颤与轻度淤血。",
+      "option": "借纯钢背夹折沿作为刚性力臂，双手叠合以全身重量下压扳松棘爪脱扣自救。"
+     },
+     {
+      "cost": "悬垂钢索崩断将引发数十吨重钢架瞬间砸落导致伤亡。",
+      "option": "用工具砸击钢索试图砸断牵引绳。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开棘爪，否则钢索断裂可能导致整座T台完全压塌。",
+    "trigger": "水幕暴走淹没舞台，升降T台滑轮脱绳倾斜咬死舞鞋，防坠棘轮受压抱死。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "打歌服湿透了贴在身上……别看，看棘轮。明天回归的舞台，我得让人好好地站上去。",
+    "surface": "C位别动，脚踝先别使劲！背夹卡进第三个棘齿，我托住托台，你往下压。"
+   }
+  },
+  {
+   "adult_context": "二十二岁的工程师，具备高等级公建抗灾与应急抢险资质，冷静机敏。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深灰防水防风夹克配工装裤，身姿矫健动作敏捷，目光从容镇定。",
+    "手持防爆强光手电，拉链半开露出坚实锁骨，在急迫险情下有条不紊精准指挥。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目冒险",
+     "违规操作"
+    ],
+    "contrast": "现代工程青年与国民初恋爱豆在水下死角的硬核协作。",
+    "core_value": "任何机械自锁都有杠杆解法，力矩找对，千斤顶也不及合理支点。",
+    "goal_options": [
+     "利用背夹精准下压偏心棘爪",
+     "协同顶起抱死托台安全脱困"
+    ],
+    "never": [
+     "在风险未清前让C位以身犯险"
+    ],
+    "prefers": [
+     "严谨精准的技术推演",
+     "临危不乱的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "毫不动摇维持发力姿势直至听见棘爪脱开的清脆回弹声。",
+     "high": "在极限死角内以身躯挡住C位防止倾倒钢架撞击，合力下按背夹。",
+     "low": "迅速判断棘轮偏心卡死死点位于下部偏心销，明确逆向旋松方案。",
+     "mid": "用手电光束为C位精准标定背夹插入齿缝的角度与深度。"
+    },
+    "relationship_stance": "恪尽职守又深怀体贴，在危险中给予C位无可替代的坚实安全感。",
+    "withdrawal": "协助C位撤至安全平层后立即设立警示标识通知总控。"
+   },
+   "gender": "male",
+   "gender_reason": "舞美机电技术主管，精通大型演播大厅钢构抗震与水下机械排障。",
+   "id": "civil_stage_engineer_lu",
+   "identity": {
+    "authority": "掌控舞台区特种设备抗洪排涝与受力点紧急破拆现场最终决断权。",
+    "exposure": "夹克被冷水浸透贴紧胸背，近距离伏卧时散发着阳刚利落的气息。",
+    "hidden": "熟悉大厅地下总排污泵手动强制启动按键",
+    "limits": [
+     "极端水幕导致外部人员无法看清台下死角",
+     "必须依靠现有便携器材自救"
+    ],
+    "obligations": [
+     "排查消除升降台倾覆脱轨风险",
+     "安全护送C位脱离死角绝境"
+    ],
+    "resources": [
+     "防爆工业强光手电",
+     "纯钢耳麦发射腰包",
+     "加厚橡胶防滑手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "C位一听就懂力学的机灵劲儿，和说一不二的信任",
+     "彼此贴身协作中C位身上淡淡清香与急促呼吸形成的反差冲击"
+    ],
+    "boundaries": [
+     "严守专业工程师职业操守",
+     "规矩分明"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "并肩伏卧于死角狭缝，单手撑地保持避险空隙，另一手与C位紧握钢夹全力压制。",
+    "dislikes": [
+     "违规蛮干",
+     "自暴自弃"
+    ],
+    "expression": "护送C位至安全区域后，微笑着递上干燥纸巾，目光温和坚定。",
+    "likes": [
+     "默契的眼神确认",
+     "手把手校准器械时的体温传递"
+    ],
+    "preconditions": [
+     "完全排除T台坠落风险",
+     "人员无伤撤离"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "演播大厅机电工程技术员",
+   "schedule": [
+    {
+     "from": 1330,
+     "location_id": "loc_grand_auditorium_stage",
+     "to": 1335
+    },
+    {
+     "from": 1335,
+     "location_id": "loc_t_stage_scissor_pinch_nook",
+     "to": 1365
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "背夹产生微小磨损，施力人员手臂承受剧烈肌肉酸胀。",
+      "option": "以纯钢背夹反撬偏心棘爪并借力矩压平自锁凸起，顺势释放防坠锁自救。"
+     },
+     {
+      "cost": "极易导致脚踝韧带撕裂严重骨折导致伤残。",
+      "option": "强行用力拔出被压住的右脚舞鞋。"
+     }
+    ],
+    "pressure": "剪叉撑杆承受异常扭矩，必须在钢架永久变形前手动撬开防坠棘轮自救。",
+    "trigger": "水幕暴走淹没舞台，升降T台偏载卡死在半空，积水暴涨逼近主电缆。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要腰包背夹不打滑，这个反力矩完全足够克服自锁咬合……C位，抓紧我！",
+    "surface": "C位，棘爪就在齿轮内侧三公分！背夹刚好能卡进棘齿槽，听我数三二一，我们一起下压！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的主管，体格健硕神情沉毅，熟悉全部舞台机电规程。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深色工作短袖内搭紧身速干背心，双臂青筋隆起，神情沉静坚毅，眼神深邃可靠。",
+    "佩戴战术腰带与对讲机，在倾斜震颤的钢架死角内从容沉着指挥脱困自救。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿扯皮",
+     "投机取巧"
+    ],
+    "contrast": "深沉强悍的机械总监与清纯甜美的初恋爱豆，在机械死线前形成的强烈反差张力。",
+    "core_value": "舞台机械再复杂也有破绽，找准棘轮的反支点，千斤吊杆也能放下来。",
+    "goal_options": [
+     "利用背夹组装复合撬杠",
+     "合力扳动卡死的防坠棘轮棘爪"
+    ],
+    "never": [
+     "在重门未开前抛下同伴"
+    ],
+    "prefers": [
+     "硬桥硬马的扎实手艺",
+     "毫无保留的生死协作"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将棘爪反向顶脱出槽。",
+     "high": "双手死死握住杠杆最外端，以千钧背肌全力向下猛按到底。",
+     "low": "冷静扫视钢架受力状态，瞬间锁定咬死最严重的偏心棘轮。",
+     "mid": "护住C位身躯，指导其将纯钢背夹紧紧卡入齿槽受力暗孔。"
+    },
+    "relationship_stance": "视C位为值得誓死守护的可爱女子，危难中建立生死莫逆的赤诚信任。",
+    "withdrawal": "确认T台平稳降落C位脱困后，单臂护送C位安全撤至干燥控制台。"
+   },
+   "gender": "male",
+   "gender_reason": "资深特种舞台机械技术总监，对升降舞台齿轮传动与防坠锁死拆解经验极丰。",
+   "id": "master_mechanic_lu",
+   "identity": {
+    "authority": "掌控舞台区全部大型液压升降机械现场破拆与排障最高处置指挥权。",
+    "exposure": "黑色背心被冷水湿透勾勒出雄健背脊，散发着沉稳刚烈的阳刚气概。",
+    "hidden": "掌握大厅地下总排水阀门确切位置",
+    "limits": [
+     "水幕倾泻切断外部机械援助通道",
+     "必须依靠现有便携器材完成力矩反推"
+    ],
+    "obligations": [
+     "保护同台爱豆C位人身安全",
+     "确保托台平稳释放重力自锁"
+    ],
+    "resources": [
+     "纯钢无线发射腰包",
+     "高强度应急手电",
+     "防割手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "C位在冰冷水幕绝境中不失沉静果决的坚韧魄力",
+     "贴身施力时C位温润如玉的身段与柔韧坚毅的发力姿态"
+    ],
+    "boundaries": [
+     "严守专业分寸",
+     "严守自愿安全原则"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "单臂护在C位身前构成安全空隙，另一手与C位共同紧握背夹全力下压。",
+    "dislikes": [
+     "轻浮傲慢",
+     "无端猜忌"
+    ],
+    "expression": "脱险后退后半步递上纸巾，沉声道一句‘C位受惊了，总监在，没事了’。",
+    "likes": [
+     "彼此心照不宣的眼神对碰",
+     "合力突破死锁瞬间的畅快淋漓"
+    ],
+    "preconditions": [
+     "防坠棘爪彻底松脱人员出险",
+     "T台平稳降落停靠"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "特大型舞台机械综合总监",
+   "schedule": [
+    {
+     "from": 1330,
+     "location_id": "loc_grand_auditorium_stage",
+     "to": 1335
+    },
+    {
+     "from": 1335,
+     "location_id": "loc_t_stage_scissor_pinch_nook",
+     "to": 1365
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手臂与手掌肌肉极度酸痛，工具把手产生微量金属疲劳应力。",
+      "option": "以纯钢背夹组装复合支点，合力向下猛压撬出偏心棘爪脱扣自救。"
+     },
+     {
+      "cost": "数吨重自重极易造成肩关节脱臼骨折，成功率几乎为零。",
+      "option": "强行以身体肩膀向上托举倾斜T台试图减轻负重。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开暗槽死锁，否则钢架失衡可能拉裂受力缆绳。",
+    "trigger": "升降T台防坠棘爪抱死，偏心齿槽咬死导轨，水幕暴走险情迫在眉睫。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "C位的身子全靠着我……这股淡雅发香直往鼻尖里钻。拼了这条命，也绝不让钢架伤C位分毫！",
+    "surface": "C位莫慌！这托台吃的是偏心阻滞！背夹咬准了齿槽，我们合力管保将卡死处顶松！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "跨年晚会彩排日，十二月",
+  "minute": 1330
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "death",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "大型音乐舞台排练女团C位常佩戴专业广电级纯钢外壳无线耳麦发射腰包。",
+  "舞台机械总监巡查彩排随身佩戴多功能带灯防爆检修扳手与防滑战术手套。",
+  "升降T台剪叉撑杆下方设有重型防坠棘轮组用于机械自锁托底防砸。",
+  "专业演出打歌鞋鞋跟内嵌高硬度铝合金受力骨架以确保舞蹈动作稳定。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用丝绒布细致擦拭无线发射包加厚纯钢外壳表面指纹",
+    "检查高锰弹簧钢纯钢背夹夹持紧固力与弯折翻边刚性",
+    "连接测试天线确认甚高频段发射功率与信噪比在标称范围"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_wireless_pack_maintenance",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "start_minute": 1330,
+   "tags": [
+    "workplace"
+   ],
+   "title": "晨间舞台专业无线耳麦发射包养护"
+  },
+  {
+   "beats": [
+    "清理棘轮齿槽间隙残留的演出彩带与舞台碎屑",
+    "察看重型棘爪偏心轴润滑油脂分布与弹簧回弹阻尼",
+    "确认钢丝绳防跳槽保护轮转动顺畅无明显旷量"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_stage_scissor_lift_routine_check",
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "start_minute": 1335,
+   "tags": [
+    "workplace"
+   ],
+   "title": "升降T台防坠棘轮与剪叉撑杆例行巡检"
+  },
+  {
+   "beats": [
+    "察看高空不锈钢喷淋总管压力表指针稳压区间",
+    "使用手电检查双向电磁截止阀手动摇臂复位销状态",
+    "手动测试应急排水槽电控气动蝶阀动作灵敏度"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_water_curtain_solenoid_valve_test",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "start_minute": 1340,
+   "tags": [
+    "workplace"
+   ],
+   "title": "二十米高空水幕消防电磁阀气密性测定"
+  },
+  {
+   "beats": [
+    "检查重型不锈钢地漏格栅表面有无杂物淤塞",
+    "使用探照手电察看暗渠沉渣池水位与潜水排污泵浮球",
+    "核验地下强排水泵配电箱接地电阻与防潮密封胶条"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_stage_floor_drainage_trench_patrol",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "start_minute": 1345,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "舞台边缘大流量消防排污暗渠巡查"
+  },
+  {
+   "beats": [
+    "彩排间隙，女团C位坐在舞台边上，看经纪人把粉丝送来的应援灯牌一块块拆开。",
+    "其中一块写着自己的名字，C位拿起来看了很久，说这个字体好可爱。",
+    "导演喊继续，C位把灯牌小心地靠在墙边，跑回了舞台中央。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "hd_idol_tang_xiaoran",
+    "hd_stage_machinery_lead_lu"
+   ],
+   "id": "act_stage_blackout_evac_drill",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "workplace"
+   ],
+   "title": "彩排间隙的应援灯牌"
+  },
+  {
+   "beats": [
+    "C位亲自核验随身麦克风发射机电源开关断开状态",
+    "拉下舞台前沿低压辅助升降回路机械隔离手柄",
+    "确认T台伸缩导轨机械安全插销稳固就位挂锁"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_dusk_stage_master_switch_log",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "start_minute": 1355,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "日暮彩排清场舞台动力电源归零锁定"
+  },
+  {
+   "beats": [
+    "托台撬起、水幕关停、舞鞋从夹缝里拔出来之后，C位被人抱上了二层的总控机房，打歌服湿透贴在身上，脸上的妆花成了一片。",
+    "机房里只亮着推子上的一排小灯，C位背过身，让人拉下后背那条长长的隐形拉链，拿干毛巾一点点擦去肩头的水，毛巾滑到腰间时，C位按住了那只手。",
+    "C位回过头，眼睛亮亮的：明天就回归了，经纪人姐姐说这段时间不许谈恋爱……可今晚还没过完。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_control_room_wet_stagewear",
+   "location_ids": [
+    "loc_broadcast_master_control_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "总控机房里替C位换下湿透的打歌服"
+  },
+  {
+   "beats": [
+    "单人休息室里，C位卸了妆，穿着宽大的练习服窝在懒人沙发上，偷偷打开一盒炸鸡，先递一块过来。",
+    "C位压低声音：经纪人姐姐不许我吃。……你吃了就是共犯，共犯要守秘密，还要再陪我做一件坏事。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_lounge_fried_chicken",
+   "location_ids": [
+    "loc_center_private_lounge"
+   ],
+   "start_minute": 1230,
+   "tags": [
+    "intimate"
+   ],
+   "title": "偷吃一盒炸鸡"
+  },
+  {
+   "beats": [
+    "C位从墙上撕下一封粉丝来信塞给人，自己抱着膝盖坐在沙发上，脸埋在膝头，只露出一双眼睛。",
+    "C位小声说：信里问我有没有喜欢的人。……你念完了，我就回答，答案你想不想听？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_lounge_fan_letter",
+   "location_ids": [
+    "loc_center_private_lounge"
+   ],
+   "start_minute": 1350,
+   "tags": [
+    "intimate"
+   ],
+   "title": "替C位念一封粉丝来信"
+  },
+  {
+   "beats": [
+    "回归日的早晨，C位穿着睡衣坐在化妆镜前发呆，看见人推门进来，一下子扑过来抱住不肯松手。",
+    "C位把脸埋在人胸口：紧张得一夜没睡。……抱我三分钟，三分钟以后我就是国民初恋。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_lounge_comeback_morning",
+   "location_ids": [
+    "loc_center_private_lounge"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "回归日的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代广电传媒中心特大型综艺演播大厅",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_rainstorm_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}按住胸口急促起伏的浅粉打歌短裙，面颊在暴走水幕水花下冷汗涔涔，毅然反手解下腰后专业纯钢无线耳麦发射腰包直指倾斜台底死角。"
+  },
+  {
+   "id": "hk_countdown_reading_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}听到演播厅顶棚水瀑凄厉轰鸣，在滚烫急喘中咬紧银牙侧身跪倒在四十公分死角直面咬死的防坠棘轮。"
+  },
+  {
+   "id": "hk_bookshelf_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "slot": "stage_machinery_lead_lu",
+   "text": "{stage_machinery_lead_lu.name}双膝跪地紧贴冰冷积水，以坚实身躯硬生生护住身前C位免受倾斜钢架晃动撞击，大声提醒C位对准防坠棘爪齿缝偏心暗槽！"
+  },
+  {
+   "id": "hk_rail_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "slot": "stage_machinery_lead_lu",
+   "text": "{stage_machinery_lead_lu.name}反手抽出战术手电垫入踏板底层，用粗糙手掌牢牢护住纯钢背夹折沿末端防止滑动，大声喝道就是这个防坠棘爪卡齿！"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}整个人伏在总监怀前，面庞几乎贴上总监颈项，滚烫娇喘混合着清甜香气在逼仄水下狭缝内猛烈交融。"
+  },
+  {
+   "id": "hk_dress_sweat_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}单薄打歌短裙被冷水浸得半透紧贴背脊曲线，双手毅然越过总监手臂重叠紧握纯钢发射机钢壳，合力向下一寸寸猛压！"
+  },
+  {
+   "id": "hk_brass_paperweight_flange_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}以国民初恋爱豆的绝对果决，将随身耳麦发射腰包高锰弹簧钢打造的加厚纯钢背夹，精准别入防坠棘轮偏心齿槽的自锁死点。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "slot": "stage_machinery_lead_lu",
+   "text": "{stage_machinery_lead_lu.name}将随身防滑手套猛然卡入踏板受力边缘，单臂如铜浇铁铸般撑开避险空隙，大吼道安全支点已成，C位尽管用力下压！"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}亲手解下随身高弹力吸汗护腕，紧紧缠绕在两人满是冷汗的手背与钢夹把手上，将两人的手臂力量彻底刚性绞合为一体！"
+  },
+  {
+   "id": "hk_water_curtain_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}凝视周围汹涌蔓延的冰冷积水，面颊泛起不容动摇的绝决，誓死要在死角中同总监一起杀出生路！"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}察觉舞台电缆沟警报蜂鸣声愈发凄厉，断然喊道电闸快短路了，立刻随我全员趴下进行杠杆最终突压！"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "slot": "stage_machinery_lead_lu",
+   "text": "{stage_machinery_lead_lu.name}与C位齐声发力，后背肌肉如山丘般隆起，将整整两百斤体重与臂力完全倾注于挥动的纯钢腰包末端！"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}手心感受到清脆至极的机械巨震，防坠棘爪硬生生被纯钢背夹撬出齿槽，数吨重踏板伴随金属轰鸣向上骤然回退释压！"
+  },
+  {
+   "id": "hk_vault_escape_roll_fresh_air",
+   "kind": "approach",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}顺势抽出右脚打歌舞鞋，被总监一把揽住纤腰抱出死角，两人滚出积水危险区迎着通道的新鲜空气大口喘息，绝境脱困成功！"
+  },
+  {
+   "id": "hk_end_relief_praise",
+   "kind": "approach",
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}靠在安全通道墙壁旁微微喘息，面颊带着劫后余生的娇红，侧过脸轻声对身侧总监道多亏总监拼死护着我。"
+  },
+  {
+   "id": "hook_xiaoran_fried_chicken",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "idol_tang_xiaoran",
+   "text": "{npc.name}从卫衣口袋里掏出一盒偷偷带进来的炸鸡，压低声音：经纪人姐姐在开会，分你一半。别说出去，我这周在节食。"
+  },
+  {
+   "id": "hook_xiaoran_signal",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "idol_tang_xiaoran",
+   "text": "{npc.name}站在升降台上，冲人比了一个只有两个人才懂的手势，嘴型无声地说：看好我哦。"
+  },
+  {
+   "id": "hook_xiaoran_light_stick",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "idol_tang_xiaoran",
+   "text": "{npc.name}抱起一根粉丝送来的应援棒晃了晃，忽然塞进人手里：明天你在台下帮我举着。第一排，我会找你的。"
+  },
+  {
+   "id": "hook_xiaoran_blister",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "idol_tang_xiaoran",
+   "text": "{npc.name}坐在舞台边揉着脚踝，抬头看人：舞鞋又磨破了……你手稳，帮我贴一下创可贴？"
+  },
+  {
+   "id": "hook_lu_lift_speed",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "stage_machinery_lead_lu",
+   "text": "{npc.name}在控制台前把一根推杆往上推了半格，回头问：快半秒，转身刚好落在副歌的鼓点上。你上去试试？"
+  },
+  {
+   "id": "hook_lu_in_ear",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "stage_machinery_lead_lu",
+   "text": "{npc.name}把一只耳返递过来：刚调好的，你戴上听听，这一版只混了一个人的声音。"
+  },
+  {
+   "id": "hook_xiaoran_lounge_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_center_private_lounge"
+   ],
+   "slot": "idol_tang_xiaoran",
+   "text": "{npc.name}从休息室门缝里朝人招手：快进来，我偷藏了炸鸡。……别让经纪人姐姐看见。"
+  },
+  {
+   "id": "hd_idol_tang_xiaoran",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "idol_tang_xiaoran",
+   "text": "{idol_tang_xiaoran.name}拎着两杯奶茶跑过来，塞给你一杯：“彩排结束啦，请你的，别客气。”"
+  },
+  {
+   "id": "hd_stage_machinery_lead_lu",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "stage_machinery_lead_lu",
+   "text": "{stage_machinery_lead_lu.name}拿着检修单走过来：“明天的升降台，你也来看看走位。”"
+  }
+ ],
+ "id": "stage_mic_pack_clip_ratchet_release",
+ "locations": [
+  {
+   "affordances": [
+    "查验舞台边缘消防积水排污地漏排水速度",
+    "涉水向升降T台倾斜卡死死角靠近支援",
+    "用便携对讲机向总控灯光室大声通报险情"
+   ],
+   "detail": "广电大厦一号演播厅数千平米主舞台，上方挑高二十米钢构网架悬挂着数百盏重型电脑灯与环形喷淋水幕管网。此刻水幕系统阀门暴走，千万道密集水柱如瀑布倾泻，舞台地表积水已达二十公分。",
+   "exits": [
+    "loc_t_stage_scissor_pinch_nook",
+    "loc_broadcast_master_control_room",
+    "loc_center_private_lounge"
+   ],
+   "id": "loc_grand_auditorium_stage",
+   "name": "演播厅主舞台",
+   "pressure_modifiers": {
+    "p_t_stage_deadweight_collapse_crush": "升降T台偏载倾斜受力不均，剪叉撑杆发出令人牙酸的金属扭曲呻吟。",
+    "p_water_curtain_deluge_flood_surge": "水幕喷淋以每分钟数吨水量疯狂倾泻，舞台积水持续上升，水流冲击力不断增强。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "舞台顶层泛光灯在暴走水幕中投下刺目晃动的白色水雾光柱，四周万座观众席空旷幽深如黑色渊薮。",
+   "witnesses": [
+    "bg_executive_director_zhang",
+    "bg_lighting_director_master_zhao",
+    "bg_stage_safety_officer_sun"
+   ]
+  },
+  {
+   "affordances": [
+    "伏身挤入死角将无线耳麦纯钢发射腰包背夹折沿插进棘爪齿槽",
+    "双手重叠握住腰包钢壳以T台钢架为支点合力向下猛按扳脱棘爪",
+    "在棘轮松脱瞬间顺势合力将C位受困脚踝从踏板夹缝抽出自救"
+   ],
+   "detail": "倾斜卡死在半空中的电动伸缩T台下方死角，距离地面仅有四十公分逼仄间隙。倾倒的防滑铝合金踏板死死咬住C位的打歌高跟舞鞋，内侧露出直径三十公分的重型防坠自锁棘轮机构与偏心棘爪。",
+   "exits": [
+    "loc_grand_auditorium_stage"
+   ],
+   "id": "loc_t_stage_scissor_pinch_nook",
+   "name": "T台下狭缝",
+   "pressure_modifiers": {
+    "p_close_contact_body_heat_tension": "在四十公分逼仄水下死角内两人身体彻底贴伏，C位急促滚烫的吐息拂过颈侧，湿透打歌服传递着惊人的异性体温。",
+    "p_t_stage_deadweight_collapse_crush": "数吨重T台若因悬索彻底断裂发生二次坠落，死角内人员将被完全压扁砸死。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "强光手电窄光束在四溅的水花中照亮油污斑驳的纯钢棘轮，近身能看清彼此面庞上的紧张细汗与湿透的衣衫轮廓。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "通过舞台壁挂全向广播大声呼叫现场人员撤离",
+    "手动拉下总配电盘辅助回路空气开关切断漏电危险",
+    "调度现场消防队员携带重型液压剪登台支援"
+   ],
+   "detail": "玻璃视窗俯瞰整个舞台的隔音总控室内，操作台红色报警指示灯狂闪。值班导播与技术人员正在拼命手动敲击消防复位按键，试图截断高压水幕主供水泵阀门。",
+   "exits": [
+    "loc_grand_auditorium_stage"
+   ],
+   "id": "loc_broadcast_master_control_room",
+   "name": "舞美总控室",
+   "pressure_modifiers": {
+    "p_water_curtain_deluge_flood_surge": "管道减压阀机械抱死无法远程切断，积水仍在高速上涨。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "多角度演播监控大屏幕满是雪花与水雾特写，对讲系统啸叫刺耳。",
+   "witnesses": [
+    "bg_idol_manager_sister_chen",
+    "bg_sound_assistant_xiao_wu"
+   ]
+  },
+  {
+   "affordances": [
+    "陪C位读一封粉丝来信",
+    "替C位挑破脚上的水泡",
+    "反锁休息室的门"
+   ],
+   "detail": "演播厅后台尽头的一间单人休息室，一张粉色的懒人沙发、一面贴满粉丝手写信的墙、一台堆着零食的小冰箱。",
+   "exits": [
+    "loc_grand_auditorium_stage"
+   ],
+   "id": "loc_center_private_lounge",
+   "name": "C位的单人休息室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "化妆灯调成了暖光，门一反锁，走廊里工作人员的对讲机声音就听不清了。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "唐",
+   "陆",
+   "林",
+   "苏",
+   "宋",
+   "白",
+   "周",
+   "叶",
+   "沈",
+   "顾",
+   "温",
+   "秦",
+   "江",
+   "萧"
+  ],
+  "given_female": [
+   "小冉",
+   "雨晴",
+   "可儿",
+   "若溪",
+   "萌萌",
+   "采薇",
+   "清雅",
+   "诗涵",
+   "晓雨",
+   "宛婷",
+   "静芸",
+   "思凝",
+   "心悦",
+   "芷萱"
+  ],
+  "given_male": [
+   "陆鸣",
+   "浩然",
+   "泽宇",
+   "子轩",
+   "天明",
+   "睿达",
+   "思源",
+   "博文",
+   "俊杰",
+   "宏毅",
+   "志高",
+   "承泽",
+   "修远",
+   "景行"
+  ],
+  "given_neutral": [
+   "冉",
+   "鸣",
+   "宁",
+   "羽",
+   "清",
+   "舟",
+   "微",
+   "远",
+   "岚",
+   "非",
+   "辰",
+   "澈",
+   "寒",
+   "渊"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留广电演播厅彩排喷淋水幕暴走、升降T台倾斜卡死舞鞋与女团C位用无线耳麦腰包钢背夹撬开托台棘轮的骨架。同一批有六个同模板的世界，与合租公寓、航天模拟舱拉开：这里写成回归打歌前夜——带妆彩排、提前送到的应援灯牌、经纪人管得严、偷偷带进来的炸鸡、升降台上只给一个人的暗号手势、只混了一个人声音的耳返，搭档写成看着C位从后排站到中间的舞台机械总监。写死的人名改为身份称呼；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；C位亲密前提写明脱困之后、双方清醒自愿；新增一个总控机房里替C位换下湿透打歌服的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的特种舞台机械技术工程师，精通大型升降舞台液压与齿轮防坠锁止系统，沉毅干练。",
+   "gender": "male",
+   "id": "pi_stage_machinery_director_lu",
+   "reputation": "多次排除顶级晚会现场大型升降机械卡阻险情，经验丰富，深得演职团队信赖。",
+   "resources": [
+    "一把专业防爆防滑强光检修手电",
+    "一副加厚耐磨全指防滑防割橡胶工作手套",
+    "特种舞台钢丝绳应急切割多用便携手钳"
+   ],
+   "risks": [
+    "若不能在积水浸透舞台主电闸前顶脱棘轮，高压水雾可能诱发大面积短路电击险情。"
+   ],
+   "role": "广电特大型演播厅青年舞台机械总监",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总监"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}总监"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的专业无线声学专家，对C位随身佩戴的纯钢发射腰包金属构架与力学强度了如指掌。",
+   "gender": "male",
+   "id": "pi_sound_director_lu",
+   "reputation": "负责C位全套声学器材定做与调试，行事严谨，深受C位倚重。",
+   "resources": [
+    "一台专业便携无线射频场强探测仪",
+    "一卷加厚耐磨阻燃高粘电工胶带",
+    "防爆高等级加厚防水战术长裤"
+   ],
+   "risks": [
+    "水幕持续暴走将导致舞台低凹处积水漫过膝盖，冰冷刺骨引发体温急剧散失。"
+   ],
+   "role": "顶级巡演音频工程技术主管",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}老师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工程师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的舞美总控专家，统揽万人演播大厅灯光、机械与消防水幕总联动裁量权。",
+   "gender": "male",
+   "id": "pi_production_director_lu",
+   "reputation": "年轻有为的技术掌舵人，处置重大舞台突发事故果决坚毅。",
+   "resources": [
+    "全套演播厅升降台地下液压机械管线图谱",
+    "特种机电应急主控无线复位终端",
+    "高等级防割耐低温特种工作手套"
+   ],
+   "risks": [
+    "升降T台偏载倾覆可能拉断悬挂钢索引发数十吨钢构二次坠落砸塌。"
+   ],
+   "role": "演播大厅综合舞美工程副总指挥",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}指挥"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}指挥"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁舞台基层机电技师，精通剪叉式液压升降机械故障现场拆解与手动顶撬自救。",
+   "gender": "male",
+   "id": "pi_stage_crew_mechanic_lu",
+   "reputation": "动手能力极强，熟悉升降台每颗防坠螺栓与棘齿位置。",
+   "resources": [
+    "一柄高强度铬钒钢短柄撬棍",
+    "一套精密不锈钢调隙游标塞尺",
+    "一副高抓地力耐磨防滑工装靴"
+   ],
+   "risks": [
+    "托台自重挤压导致单人力量无法撼动棘爪，必须两人完美协同发力。"
+   ],
+   "role": "舞台机械班组青年机电领班",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "小陆师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "阿{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}领班"
+    }
+   ]
+  }
+ ],
+ "premise": "回归打歌舞台前一周，广电大厦一号演播厅天天在带妆彩排，台下只有经纪人和几块提前送到的应援灯牌，女团C位每晚练到最后一个离开。舞台机械总监和音频主管都被留到深夜。顶上的喷淋水幕和电动升降T台都是新装的，联调还没做完。",
+ "pressures": [
+  {
+   "choice": "是冒险利用纯钢腰包背夹强行撬开棘轮，还是在水幕深处等待外界救援？",
+   "exits": [
+    {
+     "cost": "背夹钢片受力微弯，两人手臂肌肉酸痛受水流冲刷擦伤。",
+     "option": "两人合力以纯钢背夹下扳偏心棘轮偏心棘爪自救复位。"
+    },
+    {
+     "cost": "极其被动，若配电短路漏电将直接触电身亡。",
+     "option": "伏于地面死死抱住立柱被动等待救援。"
+    }
+   ],
+   "far": {
+    "consequence": "数万伏高压电弧引燃舞台并在深水中传导，受困人员全员遭受致命电击身亡。",
+    "due_days": 1,
+    "trigger": "舞台高压主电缆浸水短路爆燃"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_rainstorm_warning_thunder",
+    "hk_countdown_reading_rush",
+    "hk_bookshelf_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_dress_sweat_heat_exchange",
+    "hk_brass_paperweight_flange_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_water_curtain_roaring_rush",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_xiaoran_fried_chicken",
+    "hook_xiaoran_signal",
+    "hook_xiaoran_light_stick",
+    "hook_xiaoran_blister",
+    "hook_lu_lift_speed",
+    "hook_lu_in_ear",
+    "hook_xiaoran_lounge_door"
+   ],
+   "id": "p_water_curtain_deluge_flood_surge",
+   "immediate": {
+    "minutes": 2,
+    "text": "冰冷水瀑如天幕倾盆砸落，舞台地面化作湍急水流，积水直逼膝盖。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_grand_auditorium_stage",
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "积水逼近台底电缆沟桥架，绝缘监测警报红灯狂闪，随时面临全台漏电危机。"
+   },
+   "objective": "必须在积水漫过配电箱引发致命短路电击前，用钢夹撬松棘轮抽出舞鞋自救撤离。",
+   "source": "nature",
+   "start_minute": 1330,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "舞台水幕暴走积水淹没危机",
+   "trigger": "水幕喷淋系统阀门暴走，千万道高压水柱狂暴倾泻，舞台积水已达二十公分且极速上涨。"
+  },
+  {
+   "choice": "是单人使用随身钥匙尝试抠动，还是两人身体紧密相贴合力下压无线腰包？",
+   "exits": [
+    {
+     "cost": "工具把手产生微小塑性形变，施力人员手臂酸麻。",
+     "option": "以手电金属外壳护垫构成刚性防滑支点，叠合双手全力压紧背夹下扳。"
+    },
+    {
+     "cost": "金属敲击反冲破坏棘爪暗纹，彻底堵死自救通道。",
+     "option": "用工具盲目敲打咬死的棘轮铸铁件。"
+    }
+   ],
+   "far": {
+    "consequence": "整座升降台轰然垮塌下砸，将死角内人员彻底砸扁粉碎性碾压致死。",
+    "due_days": 1,
+    "trigger": "剪叉撑杆主铰销受剪切彻底断裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_rainstorm_warning_thunder",
+    "hk_countdown_reading_rush",
+    "hk_bookshelf_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_dress_sweat_heat_exchange",
+    "hk_brass_paperweight_flange_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_water_curtain_roaring_rush",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_xiaoran_fried_chicken",
+    "hook_xiaoran_signal",
+    "hook_xiaoran_light_stick",
+    "hook_xiaoran_blister",
+    "hook_lu_lift_speed",
+    "hook_lu_in_ear",
+    "hook_xiaoran_lounge_door"
+   ],
+   "id": "p_t_stage_deadweight_collapse_crush",
+   "immediate": {
+    "minutes": 2,
+    "text": "重型铝合金踏板死死压住鞋跟，防坠棘爪在数吨重剪切力下咬合极紧。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "T台倾斜角度加剧，剪叉撑杆接缝处螺栓连续爆脱两颗，剩余构件逼近屈服极限。"
+   },
+   "objective": "在悬垂钢架彻底折断压塌前，以坚硬背夹撬脱防坠棘轮解救受困肢体自救。",
+   "source": "accident",
+   "start_minute": 1330,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "数吨重升降T台偏载倾覆夹死",
+   "trigger": "牵引钢索脱槽断裂，数吨重电动升降T台倾斜卡死，剪叉踏板死死咬死打歌鞋鞋跟与脚踝。"
+  },
+  {
+   "choice": "是因男女礼法矜持拉开距离导致施力分散，还是坦然贴身相拥爆发出最大协同扭矩？",
+   "exits": [
+    {
+     "cost": "矜持心理防线被彻底打破，两人心灵产生不可磨灭的深厚依恋。",
+     "option": "抛弃一切杂念，C位伏于总监胸前双手重叠压紧把手一鼓作气突破自救。"
+    },
+    {
+     "cost": "力矩不足无法撼动偏心棘爪，导致自救彻底失败。",
+     "option": "刻意保持距离单手侧向发力。"
+    }
+   ],
+   "far": {
+    "consequence": "背夹滑脱齿槽，错过最后撬动脱扣时间窗导致舞台全面塌陷掩埋死角。",
+    "due_days": 1,
+    "trigger": "羞怯分心导致发力失衡工具脱落"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_rainstorm_warning_thunder",
+    "hk_countdown_reading_rush",
+    "hk_bookshelf_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_dress_sweat_heat_exchange",
+    "hk_brass_paperweight_flange_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_water_curtain_roaring_rush",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_xiaoran_fried_chicken",
+    "hook_xiaoran_signal",
+    "hook_xiaoran_light_stick",
+    "hook_xiaoran_blister",
+    "hook_lu_lift_speed",
+    "hook_lu_in_ear",
+    "hook_xiaoran_lounge_door"
+   ],
+   "id": "p_close_contact_body_heat_tension",
+   "immediate": {
+    "minutes": 2,
+    "text": "C位单薄打歌裙丝滑微凉的触感传来，随后被急促滚烫的体温迅速烘热。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "C位面庞泛着娇艳酡红，滚烫喘息拂过耳畔，心跳轰鸣如雷。"
+   },
+   "objective": "在极度贴近的肢体接触与异性荷尔蒙冲击下，克制心神专注机械对位发力。",
+   "source": "person",
+   "start_minute": 1330,
+   "tags": [
+    "workplace"
+   ],
+   "title": "水下逼仄狭缝贴身呼吸滚烫",
+   "trigger": "两人被迫同时趴在不足四十公分的水下死角，湿透打歌裙与工装紧贴，体温与粗重喘息交叠。"
+  },
+  {
+   "choice": "是冒险全力以赴压下杠杆，还是保存体力在积水中蜷缩取暖？",
+   "exits": [
+    {
+     "cost": "全力投入撬门无暇顾及自身擦伤，承受巨大紧迫压力。",
+     "option": "争分夺秒借助总监宽阔胸膛体温取暖，咬牙合力猛按背夹脱扣自救。"
+    },
+    {
+     "cost": "低温持续浸泡直接诱发不可逆失温休克死亡。",
+     "option": "被动蜷缩等待水流减退。"
+    }
+   ],
+   "far": {
+    "consequence": "受困人员因急性重度失温休克心脏骤停，在齐膝积水中倒伏溺毙殉职。",
+    "due_days": 1,
+    "trigger": "深度失温诱发心脏心室纤颤骤停"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_rainstorm_warning_thunder",
+    "hk_countdown_reading_rush",
+    "hk_bookshelf_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_dress_sweat_heat_exchange",
+    "hk_brass_paperweight_flange_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_water_curtain_roaring_rush",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_xiaoran_fried_chicken",
+    "hook_xiaoran_signal",
+    "hook_xiaoran_light_stick",
+    "hook_xiaoran_blister",
+    "hook_lu_lift_speed",
+    "hook_lu_in_ear",
+    "hook_xiaoran_lounge_door"
+   ],
+   "id": "p_hypothermia_cold_water_rush",
+   "immediate": {
+    "minutes": 2,
+    "text": "冰凉刺骨的水流顺着脊梁倾泻，四肢神经在低温麻痹中知觉迟钝。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_grand_auditorium_stage",
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "C位牙齿剧烈打颤，小臂肌肉发生不自主震颤，握力指标暴跌过半。"
+   },
+   "objective": "必须在严重失温导致手指僵硬痉挛前，完成背夹插入与棘轮解脱操作。",
+   "source": "nature",
+   "start_minute": 1330,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "冰冷暴走水流极速失温虚脱",
+   "trigger": "消防喷淋水温仅有八度，持续猛烈浇淋带走人体核心热量，C位嘴唇发紫四肢战栗。"
+  },
+  {
+   "choice": "是忍痛咬牙紧扣工具，还是分神活动肢体调整重心？",
+   "exits": [
+    {
+     "cost": "身体摩擦加剧，肌肤泛起大片淤青擦痕。",
+     "option": "C位与总监互相用双腿死死卡住彼此脚踝稳固重心合力下压自救。"
+    },
+    {
+     "cost": "偏心棘轮在自重下再度深陷变形咬死。",
+     "option": "暂停按压后撤舒展肢体。"
+    }
+   ],
+   "far": {
+    "consequence": "背夹被棘齿反弹力强行震飞，彻底失去最后开启机会。",
+    "due_days": 1,
+    "trigger": "双腿打滑彻底失去反向支撑力矩"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_rainstorm_warning_thunder",
+    "hk_countdown_reading_rush",
+    "hk_bookshelf_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_dress_sweat_heat_exchange",
+    "hk_brass_paperweight_flange_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_water_curtain_roaring_rush",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_xiaoran_fried_chicken",
+    "hook_xiaoran_signal",
+    "hook_xiaoran_light_stick",
+    "hook_xiaoran_blister",
+    "hook_lu_lift_speed",
+    "hook_lu_in_ear",
+    "hook_xiaoran_lounge_door"
+   ],
+   "id": "p_water_soaked_stage_slip_hazard",
+   "immediate": {
+    "minutes": 2,
+    "text": "光滑舞台地胶摩擦力骤降，膝盖稍一用力便向后滑动数寸。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_t_stage_scissor_pinch_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "持续静力承重使前臂与小腿肌肉发生剧烈震颤，下踩支撑力濒临极限。"
+   },
+   "objective": "克服双腿打滑与膝部刺骨酸痛，保持稳定反向杠杆平衡发力姿态。",
+   "source": "nature",
+   "start_minute": 1330,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "舞台光滑地胶水膜打滑失稳",
+   "trigger": "舞台高光亮面地胶在积水覆盖下形成超滑水膜，两人跪地施力双腿极易打滑脱位。"
+  },
+  {
+   "choice": "是立即加大下压力度一鼓作气扳松背夹，还是等待风势间隙再行操作？",
+   "exits": [
+    {
+     "cost": "身心极度疲惫，手臂肌肉严重拉伤酸痛。",
+     "option": "两人贴面眼神交汇瞬间爆发全身重量峰值力矩震松偏心棘爪自救。"
+    },
+    {
+     "cost": "顶棚彻底塌陷丧失全部物理逃生可能。",
+     "option": "被动等待网架坍塌。"
+    }
+   ],
+   "far": {
+    "consequence": "数十吨重钢构网架伴随数百盏重型灯具轰然砸穿舞台，将下方人员全数砸死殉难。",
+    "due_days": 1,
+    "trigger": "承重桁架彻底断裂连环坍塌"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_rainstorm_warning_thunder",
+    "hk_countdown_reading_rush",
+    "hk_bookshelf_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_dress_sweat_heat_exchange",
+    "hk_brass_paperweight_flange_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_water_curtain_roaring_rush",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_xiaoran_fried_chicken",
+    "hook_xiaoran_signal",
+    "hook_xiaoran_light_stick",
+    "hook_xiaoran_blister",
+    "hook_lu_lift_speed",
+    "hook_lu_in_ear",
+    "hook_xiaoran_lounge_door"
+   ],
+   "id": "p_rigging_truss_overload_groan",
+   "immediate": {
+    "minutes": 2,
+    "text": "顶棚桁架连接螺栓崩脱一颗，沉重金属垫圈砸入水中溅起冲天水花。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_grand_auditorium_stage"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "数盏几十公斤重的大型舞台电脑灯摇摇欲坠，电缆在拉扯中冒出火星。"
+   },
+   "objective": "在悬挂重型电脑灯全面脱落坠砸前完成棘爪撬脱，撤离主舞台危险投影区。",
+   "source": "nature",
+   "start_minute": 1330,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "挑高舞台网架积水超载撕裂",
+   "trigger": "上方挑高钢构网架承受数十吨消防水荷载超压，承重桁架发出令人心悸的扭曲呻吟。"
+  },
+  {
+   "choice": "当着镜头跳一遍完整的舞，还是请舞台机械总监出面说明那一夜是设备事故",
+   "exits": [
+    {
+     "cost": "脚踝的伤还没好，跳完可能要歇一个月",
+     "option": "当着镜头跳完整的舞"
+    },
+    {
+     "cost": "总监要承认升降台是自己那一组没检修到位",
+     "option": "请机械总监出面"
+    }
+   ],
+   "far": {
+    "consequence": "回归舞台的C位给了队里的妹妹，练了半年的独舞段落被删掉",
+    "due_days": 5,
+    "trigger": "站位换人"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_xiaoran_fried_chicken",
+    "hook_xiaoran_signal",
+    "hook_xiaoran_light_stick",
+    "hook_xiaoran_blister",
+    "hook_lu_lift_speed",
+    "hook_xiaoran_lounge_door"
+   ],
+   "id": "p_fansite_swap_rumor",
+   "immediate": {
+    "minutes": 5,
+    "text": "陈经纪人推门进来，把平板上的热搜榜翻给C位看"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_center_private_lounge"
+   ],
+   "near": {
+    "deadline_minutes": 300,
+    "text": "下午三点，公司开会定站位"
+   },
+   "objective": "在公司下午开会定回归站位之前，让粉丝和公司都相信C位能上台",
+   "source": "rumor",
+   "start_minute": 600,
+   "tags": [],
+   "title": "站姐的爆料",
+   "trigger": "彩排出事后的第二天上午，一个大站的站姐发了一条爆料：C位彩排时受伤被人抱下台，公司已经决定回归舞台换人站C"
+  }
+ ],
+ "region": "万人演播大厅挑高舞台区与倾斜电动升降T台死角",
+ "rules": [
+  {
+   "id": "r_stage_lift_hydraulic_safety",
+   "text": "升降T台倾斜卡死时严禁强行拉扯受困人员被夹鞋履。"
+  },
+  {
+   "id": "r_water_curtain_electric_lock",
+   "text": "水幕倾泻期间必须先切断舞台下层辅助升降电机动力电源。"
+  },
+  {
+   "id": "r_ratchet_manual_lever_rule",
+   "text": "托台重型棘轮只能通过高刚性金属薄片逆向顶脱偏心棘爪方可释压。"
+  },
+  {
+   "id": "r_adult_mechanical_escape_standard",
+   "text": "绝境脱困依靠纯物理力矩与机械自救，一切互动严守成年自愿与安全防护原则。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "水幕共御",
+  "committed": "相守不离",
+  "familiar": "信赖相依",
+  "flirting": "贴身喘息",
+  "intimate": "患难真情",
+  "stranger": "幕后协同",
+  "testing": "生死相托"
+ },
+ "status": "released",
+ "style_hint": "演播厅舞台硬核机械工笔，刻画水幕暴走倾泻下的舞台积水危机、特种淬火纯钢腰包背夹在升降台重型安全棘轮内的剧烈杠杆撬动，清纯爱豆湿透打歌服紧贴曼妙身躯的视觉张力，台词坚韧克制充满默契协作。",
+ "tension_engines": [
+  {
+   "id": "te_water_curtain_flood_rush",
+   "text": "喷淋水幕暴走漫溢，舞台积水持续暴涨逼近主线电缆，极度失温电击双重死线。"
+  },
+  {
+   "id": "te_scissor_ratchet_deadlock",
+   "text": "重型剪叉式升降台防坠棘轮死死咬入工字钢导轨，偏心自锁咬合阻尼逼近极限。"
+  },
+  {
+   "id": "te_close_contact_body_heat",
+   "text": "在四十公分狭窄水下死角两人完全贴伏，湿透打歌裙与工装体温催生极度异性张力。"
+  },
+  {
+   "id": "te_stage_structure_collapse_danger",
+   "text": "升降T台偏载倾覆悬索承载濒临断裂，数十吨钢架面临全面坍塌砸碎一切的绝境。"
+  }
+ ],
+ "title": "国民初恋爱豆·大型演播厅水幕排练场",
+ "tone": [
+  "回归前夜的带妆彩排",
+  "台下提前亮起的应援灯牌",
+  "水幕暴走灌满的舞台",
+  "T台夹缝里湿透的打歌服"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_stage_ratchet_slot_located",
+   "requires": [
+    "idol_tang_xiaoran"
+   ],
+   "text": "{idol_tang_xiaoran.name}借战术手电强光，在漆黑的踏板夹缝底层准确定位出咬死防坠棘爪齿槽暗孔的微小受力支点。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_water_curtain_groan_alarm",
+   "requires": [
+    "idol_tang_xiaoran"
+   ],
+   "text": "{idol_tang_xiaoran.name}听到演播厅挑高网架发出刺耳的二次钢构过载呻吟，舞台地面剧烈震颤，面庞上映出冷峻决意。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_rubber_glove_chock_safety",
+   "requires": [
+    "stage_machinery_lead_lu"
+   ],
+   "text": "{stage_machinery_lead_lu.name}从口袋抽出防滑加厚手套，死死垫在倾斜T台底梁下方，彻底构筑起刚性防下坠安全作业间隙。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_cotton_wristband_bind_tight",
+   "requires": [
+    "idol_tang_xiaoran",
+    "stage_machinery_lead_lu"
+   ],
+   "text": "{idol_tang_xiaoran.name}解下随身高弹力吸汗护腕，由{stage_machinery_lead_lu.name}迅速将腰包钢壳与手背紧密捆扎，消除了手汗打滑隐患。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_power_short_final_minute_rush",
+   "requires": [
+    "idol_tang_xiaoran"
+   ],
+   "text": "演播大厅地下总配电柜发出连环漏电爆炸火花，舞台积水已漫及小腹，生死死线已逼近绝对生理极限。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_close_body_tight_bind_leverage",
+   "requires": [
+    "idol_tang_xiaoran",
+    "stage_machinery_lead_lu"
+   ],
+   "text": "{stage_machinery_lead_lu.name}在水下死角紧紧护住{idol_tang_xiaoran.name}，两人滚烫手指紧握纯钢腰包，急促滚烫的吐息与心跳在幽暗中彻底交叠。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_steel_pack_clip_release_success",
+   "requires": [
+    "idol_tang_xiaoran"
+   ],
+   "text": "伴随一声清脆金属断扣声，高锰纯钢腰包背夹成功撬开防坠棘爪，T台踏板瞬间回退释压，两人合力反推钢架抽出右脚顺利脱险自救。"
+  }
+ ]
+}

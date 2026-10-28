@@ -1,0 +1,2454 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "巡查队雇佣的走廊关卡眼线，靠盘剥过路人过活",
+   "age_range": [
+    25,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_corridor_lookout",
+   "line": "{npc.name}抱着一把带锈的短管霰弹枪斜倚在立柱旁，没有巡查队的通行牌，谁也别想往诊所走一步。",
+   "location_ids": [
+    "scrap_corridor"
+   ],
+   "name": null,
+   "role": "主廊盯梢客"
+  },
+  {
+   "adult_context": "水吧台总管的职业护卫",
+   "age_range": [
+    28,
+    50
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_water_guard",
+   "line": "{npc.name}戴着全封闭防毒面具站在铜水龙头旁，手里握着电击枪，盯着每一滴水的去向。",
+   "location_ids": [
+    "water_dispenser_bar"
+   ],
+   "name": null,
+   "role": "水塔值守佣兵"
+  },
+  {
+   "adult_context": "在沉船底层混迹多年的老机械拾荒客",
+   "age_range": [
+    35,
+    60
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_mechanic_drinker",
+   "line": "{npc.name}趴在铁皮桌上灌着劣质酒精，含糊不清地嘟囔着哪截龙骨今晚就会被酸水泡断。",
+   "location_ids": [
+    "water_dispenser_bar"
+   ],
+   "name": null,
+   "role": "醉酒老拆修工"
+  },
+  {
+   "adult_context": "质押掌柜雇来打下手的记录员，嘴严手稳",
+   "age_range": [
+    24,
+    40
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_cage_scribe",
+   "line": "{npc.name}埋头在条码机旁整理泛黄的抵押契约，手指沾满蓝墨水，对笼外的哀求充耳不闻。",
+   "location_ids": [
+    "pawn_cage"
+   ],
+   "name": null,
+   "role": "铁笼登记员"
+  },
+  {
+   "adult_context": "因减压病卧床的退役潜捞工",
+   "age_range": [
+    26,
+    52
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_bunk_sleeper",
+   "line": "{npc.name}缩在发霉的铅毯下剧烈咳嗽，只要分两片止痛片，就能替你放风两个小时。",
+   "location_ids": [
+    "bunk_dormitory"
+   ],
+   "name": null,
+   "role": "吊铺重伤员"
+  },
+  {
+   "adult_context": "负责执行风暴倒计时、关闭水密门的守闸兵",
+   "age_range": [
+    24,
+    46
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_airlock_sentry",
+   "line": "{npc.name}守在液压阀门旁，手里掐着秒表，冷冷报出铁门还有几分钟落锁。",
+   "location_ids": [
+    "airlock_gate"
+   ],
+   "name": null,
+   "role": "气闸守闸兵"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "无菌手术室的防辐射铅门从内反锁，{black_medic.name}摘下口罩俯身靠近手术台，温热的掌心覆住你后颈发烫的神经接口，迟迟没有拿开。",
+   "id": "combo_medic_clinic_solo",
+   "identity_ids": [
+    "indebted_testee"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "black_medic",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上回帮派火并流弹打穿诊所外墙，你用后背替{black_medic.name}挡住飞溅的玻璃，包扎完两人在手术台边忘情深吻",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "black_medic"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "你想求{black_medic.name}给你换上无副作用的高纯度抑制剂，更想在恒温灯下把对方拉进怀里",
+    "limit_gap": "凌晨一点前必须完成今晚的神经校准",
+    "meeting_reason": "打烊后你按点钻进手术室做例行校准，{black_medic.name}却关掉了门外的候诊指示灯",
+    "resource_gap": "{black_medic.name}掌握着你体内义体抑制剂的调配权，你只是背着试药契约、连止痛泵都要靠对方施舍的试药人"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_single_dose_cure",
+    "te_neural_blackmail"
+   ]
+  },
+  {
+   "chemistry": "配水吧台内侧的丝绒隔帘拉得严严实实，{water_baroness.name}把盛着冰镇净水的玻璃杯贴在你滚烫的锁骨上。",
+   "id": "combo_baroness_water_solo",
+   "identity_ids": [
+    "indebted_testee"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "water_baroness",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "{water_baroness.name}每次给你打水都多加两片薄荷叶，刚才隔着吧台点着你嘴唇说“今晚留下来陪我擦酒杯”",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "water_baroness"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "你想让{water_baroness.name}宽限你这月的水债，又贪恋对方身上微凉的水汽与香气",
+    "limit_gap": "零点配水总阀落锁前必须结清这周的水票",
+    "meeting_reason": "你拿着见底的水卡到吧台后巷求情，{water_baroness.name}挑起帘子把你叫进了内室",
+    "resource_gap": "{water_baroness.name}垄断着整层地下街的清洁水源，你只是连每日基础饮水配额都快付不起的底层欠债人"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_single_dose_cure",
+    "te_storm_lockdown"
+   ]
+  },
+  {
+   "chemistry": "废弃排风井的金属网架上暖风呼啸，{circuit_runner.name}把分线器插进你的便携终端，整个人半压在你身侧看跑码。",
+   "id": "combo_runner_shaft_solo",
+   "identity_ids": [
+    "scrap_mechanic",
+    "bounty_tracker"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "circuit_runner",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "前天并肩钻排风井时，{circuit_runner.name}把备用数据线绕在你手腕上打了个活结，笑着说“掉下去也得拉着我一块儿”",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "circuit_runner"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "你想跟{circuit_runner.name}平分那批无主芯片，也想在这狭小暖和的井道里把人抱进怀里",
+    "limit_gap": "巡逻无人机换班前只剩半小时窗口期",
+    "meeting_reason": "你们约在排风井暗格里核对明晚潜入下层库的线路图",
+    "resource_gap": "{circuit_runner.name}能黑进地下街任何一扇电子锁，你熟知全部老旧管廊的物理暗门结构"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_neural_blackmail",
+    "te_shared_respirator"
+   ]
+  },
+  {
+   "chemistry": "双层胶囊舱铺的遮光卷帘严密扣合，{salvage_diver.name}刚卸下沉重的外骨骼肩甲，带着满身热汗挤进你身侧的窄垫上。",
+   "id": "combo_diver_bunk_solo",
+   "identity_ids": [
+    "scrap_mechanic",
+    "bounty_tracker"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "salvage_diver",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "半年前你在塌方的废料井口拽住安全绳把{salvage_diver.name}拉了上来，从那以后你们就合租了同一个双人胶囊舱铺",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "salvage_diver"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "你想跟{salvage_diver.name}签下长期搭档的契约，更想在逼仄温暖的胶囊舱里与对方相拥而眠",
+    "limit_gap": "天亮前必须把今晚捞上来的货拆解藏好",
+    "meeting_reason": "收工洗漱后，{salvage_diver.name}抱着刚捞上来的密封匣钻进了你的204号舱铺",
+    "resource_gap": "{salvage_diver.name}敢下最深的强酸废料井捞货，你手里有全套翻新旧零件的工具与销路"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_submerged_hatch",
+    "te_shared_respirator"
+   ]
+  },
+  {
+   "chemistry": "气闸门岗亭内侧灯光幽暗，高大魁梧的{hulk_enforcer.name}卸下武装带单膝蹲在你座椅边，仰头任你调校颈后的过载阀。",
+   "id": "combo_enforcer_gate_solo",
+   "identity_ids": [
+    "shelter_fugitive"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "hulk_enforcer",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上礼拜{hulk_enforcer.name}义体排异倒在暗巷，你彻夜守着替对方降温镇痛，清醒后对方一把将你按在胸口哑声索吻",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "hulk_enforcer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "你想把这位威慑整条街的重装打手收为贴身心腹，让对方只肯在你手下卸掉防备",
+    "limit_gap": "下半夜换岗铃响前必须调好稳压参数",
+    "meeting_reason": "夜深人静时，{hulk_enforcer.name}反锁了岗亭内门，主动把后颈的控制槽露给你",
+    "resource_gap": "你手里握着上层避难所流出的军规稳压芯片，{hulk_enforcer.name}正受困于旧型重装义体的神经排异剧痛"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_storm_lockdown",
+    "te_single_dose_cure"
+   ]
+  },
+  {
+   "chemistry": "防弹铁笼的小门第一次向内敞开，{pawn_broker.name}摘下验货目镜靠在保险柜边，任由你翻看柜台底下的私账。",
+   "id": "combo_pawn_cage_solo",
+   "identity_ids": [
+    "shelter_fugitive"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "pawn_broker",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "{pawn_broker.name}把防弹铁笼的备用磁卡塞进你掌心，隔着铁网说“这扇门夜里只为你一个人开”",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "pawn_broker"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "你想压下三成走私抽成，顺便看看这位精明市侩的典当商被你说中心事时怎么改口",
+    "limit_gap": "明早货运升降机封井前要定下这批货的抽成比例",
+    "meeting_reason": "打烊落锁后，{pawn_broker.name}特意打开防弹铁笼后门请你进去验看压箱底的尖货",
+    "resource_gap": "你手里有直通上层黑市的走私渠道，{pawn_broker.name}满仓库的高纯度脏货全指望你出手变现"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_neural_blackmail",
+    "te_storm_lockdown"
+   ]
+  },
+  {
+   "chemistry": "{black_medic.name}靠在无菌手术台边缘替你倒了一小杯医用酒精兑甜麦汁，白大褂领口微敞，目光灼灼地盯着你手里的生物密钥。",
+   "id": "combo_medic_high_solo",
+   "identity_ids": [
+    "shelter_fugitive"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "black_medic",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你逃到地下街这半年一直找{black_medic.name}做隐秘体检，对方连你偏爱哪款薄荷味冷却凝胶都记得一清二楚",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "black_medic"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "你想让整间地下诊所成为你的私人安全屋，也想让这位冷傲的黑市医官对你说出真心话",
+    "limit_gap": "冷藏箱断电前必须敲定这批耗材的交割条件",
+    "meeting_reason": "你带着冷藏样本箱走进手术室，{black_medic.name}立刻屏退了门外所有求诊的街客",
+    "resource_gap": "你掌握着上层医疗院的干净基因培养皿货源，{black_medic.name}急需这批耗材延续地下诊所的招牌"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_single_dose_cure",
+    "te_shared_respirator"
+   ]
+  },
+  {
+   "chemistry": "打烊后的配水吧台霓虹迷离，{water_baroness.name}撑着下巴坐在吧台内侧，把两枚水阀铜钥匙推到你手边。",
+   "id": "combo_baroness_switch_solo",
+   "identity_ids": [
+    "indebted_testee",
+    "scrap_mechanic",
+    "shelter_fugitive"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "water_baroness",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "昨晚收摊结账时，{water_baroness.name}把一枚私人储水间的钥匙扣在你杯底，似笑非笑地问你敢不敢半夜来取水",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "water_baroness"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "你想在净水分成里占下一半干股，又想试探这位风情万种的吧台老板究竟有几分真心",
+    "limit_gap": "午夜巡检哨经过前必须把副水箱的铅封扣好",
+    "meeting_reason": "夜市散场后你留在吧台最里侧卡座，{water_baroness.name}端着两杯特调甜水坐到了你对面",
+    "resource_gap": "{water_baroness.name}握着整条走廊的净水储罐，你手里有能帮对方绕开水务巡检的改表手艺与暗道"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_storm_lockdown",
+    "te_shared_respirator"
+   ]
+  },
+  {
+   "chemistry": "{black_medic.name}傍晚先把你拉进无菌手术室托你做保，你随即将{pawn_broker.name}也叫进铅门内，把读卡器拍在手术台上三方对质。",
+   "id": "combo_clinic_chip_leverage",
+   "identity_ids": [
+    "indebted_testee",
+    "scrap_mechanic",
+    "bounty_tracker",
+    "shelter_fugitive"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "black_medic",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三天前停电，{black_medic.name}在应急灯下替你取出肩胛里的弹片，你反手握住对方发抖的手腕，把人拉进怀里深吻",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "pawn_broker",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "{pawn_broker.name}每次收你的货都免掉鉴定费，隔着窗口低声笑说“哪天把你自己典当进来，我给你开最高价”",
+     "stage": "flirting"
+    },
+    {
+     "a": "pawn_broker",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "black_medic",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "{pawn_broker.name}握着{black_medic.name}私拆帮派军用义体的序列号底档，两人在手术台边互相试探底线",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "pawn_broker",
+    "black_medic"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "你想替{black_medic.name}拿回底档芯片，同时把{pawn_broker.name}的销赃渠道也攥进自己手里",
+    "limit_gap": "晚十一点帮派收账队下井前必须处理掉那枚底档芯片",
+    "meeting_reason": "{black_medic.name}发现底档外流后第一时间向你求助，你出面把{pawn_broker.name}约进无菌手术室关门谈判",
+    "resource_gap": "{pawn_broker.name}握着私拆帮派义体的序列号底档，{black_medic.name}攥着整条街的救命手术刀，而只有你能替两边做保平账"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_neural_blackmail",
+    "te_single_dose_cure"
+   ]
+  },
+  {
+   "chemistry": "上个月主滤芯后的私接铜管本就是你们三人合谋装上的，如今流量表报警，{circuit_runner.name}与{water_baroness.name}按旧约聚在吧台后座等你拍板。",
+   "id": "combo_clinic_water_leverage",
+   "identity_ids": [
+    "indebted_testee",
+    "scrap_mechanic",
+    "bounty_tracker",
+    "shelter_fugitive"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "water_baroness",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上回酸雾倒灌地下街，你帮{water_baroness.name}封住吧台通风口，脱险后两人在储水罐后的窄榻上紧贴着热烈亲吻",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "circuit_runner",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "上次合改电表后，{circuit_runner.name}把一枚加密密钥挂在你领口拉链上，歪头问“要是事发了，你先保谁”",
+     "stage": "testing"
+    },
+    {
+     "a": "circuit_runner",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "water_baroness",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "{circuit_runner.name}截获了{water_baroness.name}私接暗管倒卖净水的后台流量日志，两人正为封口分成僵持不下",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "circuit_runner",
+    "water_baroness"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "你想保住这条每晚能分润净水的暗管，更要让{water_baroness.name}和{circuit_runner.name}都听从你的调度",
+    "limit_gap": "零点水务中继站自动上传数据前必须抹平这段流量差",
+    "meeting_reason": "按你们三人合伙偷接净水管时立下的规矩，一旦流量表跳警，立刻在打烊后的配水吧台碰头分摊风险",
+    "resource_gap": "{circuit_runner.name}截获了异常流量日志，{water_baroness.name}掌管着私接水阀的收益，而当初亲手改写管路图纸的人正是你"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_neural_blackmail",
+    "te_shared_respirator"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_bar_whispers",
+   "reach": "三杯合成烈酒下肚后在拾荒客与走私贩之间迅速传开",
+   "text": "净水吧台醉语"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_airlock_broadcast",
+   "reach": "覆盖沉船城三层全部集装箱大舱与检修竖井",
+   "text": "底舱高音机械广播"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "底舱唯一的神经外科执刀人，靠改造手术与抗畸变血清垄断行医",
+   "age_range": [
+    30,
+    48
+   ],
+   "appearance_options": [
+    "身穿沾满机油与碘伏暗斑的橡胶手术围裙，双手骨节修长而冰冷，右眼眶嵌着一枚可调焦的义眼",
+    "神情冷漠如冻土，嘴角叼着一支没点燃的粗制烟卷，身上永远散发着刺鼻的石炭酸气味"
+   ],
+   "decision": {
+    "avoids": [
+     "让人碰触自己的义眼接口",
+     "在无菌区内大声喧哗"
+    ],
+    "contrast": "执刀时分毫不差近乎冷血，深夜给病号换药时指尖却异常轻柔",
+    "core_value": "在秩序崩塌的世界凭医术换取生存资料",
+    "goal_options": [
+     "用手中的纯血清换一张通往穹顶城的通行卡",
+     "在巡查队闯入前完成那枚军用芯片的剥离",
+     "查出是谁在诊所下层偷接了氧气旁路"
+    ],
+    "never": [
+     "将冷藏箱的密码告知任何外人"
+    ],
+    "prefers": [
+     "在惨白的手术灯下谈交易条款"
+    ],
+    "pressure_responses": {
+     "breaking": "打翻药剂烧毁所有病历晶片，从检修井离开",
+     "high": "闩死手术室铅门，拔下输氧软管握在手里谈条件",
+     "low": "晃着手里的注射器冷笑，不紧不慢地开出翻倍的手术费",
+     "mid": "摘下手套拍在托盘上，冷声说这台手术不做了"
+    },
+    "relationship_stance": "把所有人都当作病例，不轻易流露多余温情",
+    "withdrawal": "独自坐在手术台边缘的阴影里，用酒精棉球反复擦拭义眼边缘的金属缝"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "black_medic",
+   "identity": {
+    "authority": "决定送上手术台的人切除哪个神经节、注射何种血清",
+    "exposure": "曾私自为一名被通缉的叛逃者剥离军用追踪晶片，并留了备份",
+    "hidden": "暗中在所有抵押者的项圈里留了一条只有自己知道的解除回路",
+    "limits": [
+     "右臂神经节长期遭酸液腐蚀，必须定期注射镇痛药",
+     "受巡查队武力压迫，必须按期提交伤员名单"
+    ],
+    "obligations": [
+     "每月向水吧台总管上缴固定份额的医用蒸馏水"
+    ],
+    "resources": [
+     "一台军用级神经缝合仪与备用探针",
+     "冷藏箱深处私藏的三管未稀释抗畸变血清"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对方在手术台上清醒忍痛、事后还能开玩笑的韧劲",
+     "看穿{npc.ta}冷血外表下对坏死的恐惧却没有退开的人"
+    ],
+    "boundaries": [
+     "不许拉开手术室连接主廊的观察窗帘"
+    ],
+    "desire_range": [
+     3,
+     5
+    ],
+    "desired_position": "习惯掌控一切，却想在对方面前放下手术刀",
+    "dislikes": [
+     "失控的歇斯底里",
+     "拿血清账单来讨好{npc.ta}的人"
+    ],
+    "expression": "关掉手术灯，摘下手套放在一旁，问对方今晚还想不想走",
+    "likes": [
+     "手术结束后两人分一支烟的沉默",
+     "被对方摘下手套、握住冰冷的手"
+    ],
+    "preconditions": [
+     "对方不是正在{npc.ta}台上的病人，也不欠诊所的账"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "黑市执刀医生",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "clinic_operating_room",
+     "to": 360
+    },
+    {
+     "from": 361,
+     "location_id": "scrap_corridor",
+     "to": 780
+    },
+    {
+     "from": 781,
+     "location_id": "airlock_gate",
+     "to": 1140
+    },
+    {
+     "from": 1141,
+     "location_id": "clinic_operating_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "伤员可能因呼吸抑制留下永久神经损伤",
+      "option": "给伤员推入双倍镇静剂压住发热，藏进冷藏柜"
+     },
+     {
+      "cost": "失去压制自己右臂坏疽的唯一救命药",
+      "option": "交出私藏的半管纯血清换巡查队免检放行"
+     }
+    ],
+    "pressure": "伤员颈部接口因排异反应高热，散热蓝光穿透了绷带",
+    "trigger": "巡查队带着热能探测仪封锁了走廊，指名要搜查刚缝合好神经插口的伤员"
+   },
+   "tags": [
+    "workplace",
+    "bodily_harm"
+   ],
+   "voices": {
+    "inner": "“暴风雨一来整层都会被酸水淹没，今晚要是拿不到芯片，谁也别想活着离开这间舱。”",
+    "surface": "“躺平，别动。这里的止疼药比你的命还贵，忍着。”"
+   }
+  },
+  {
+   "adult_context": "底舱气闸治安管事，掌控水密门落锁与清退逾期负债者",
+   "age_range": [
+    28,
+    46
+   ],
+   "appearance_options": [
+    "外罩厚重的铆接防暴钢甲背心，双臂覆满机械强化筋，腰间挂着粗沉的高压电棍",
+    "脸上留有一道横贯鼻梁的辐射烧伤结痂，眼神凶戾，靴底每一步踏在铁板上都发出沉重回响"
+   ],
+   "decision": {
+    "avoids": [
+     "被人发现自己咳血",
+     "进入手术室无菌区"
+    ],
+    "contrast": "出手狠毒不留余地，却暗中将自己的半份营养膏留给重伤的手下",
+    "core_value": "用暴力手腕维持底舱残存的秩序与自己的位置",
+    "goal_options": [
+     "在气闸关闭前搜出那枚走私芯片换取救命资源",
+     "将欠缴氧气税的人驱逐到外层甲板",
+     "逼黑市医生交出能修复肺部的特效血清"
+    ],
+    "never": [
+     "在风暴警报解除前交出气闸液压把手"
+    ],
+    "prefers": [
+     "在狭窄的铁壁死角面对面盘问"
+    ],
+    "pressure_responses": {
+     "breaking": "拉开气闸紧急排气阀，放酸雾灌入走廊驱散人群",
+     "high": "扣动霰弹枪轰碎对方身旁的铁管，喷出的蒸汽逼人后退",
+     "low": "拔出电棍在铁栏杆上划出刺耳电弧，咧嘴冷笑",
+     "mid": "一把揪住对方衣领按在铁壁上，逼对方把话说清楚"
+    },
+    "relationship_stance": "信奉力量与服从，把弱者当成耗材",
+    "withdrawal": "独自背靠气闸合金门板，大口喘气灌装氧气"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "hulk_enforcer",
+   "identity": {
+    "authority": "以清除变异感染为名，对底舱居民实施搜身与扣押",
+    "exposure": "曾收受芯片贩子的贿赂，故意在气闸巡逻时留出十分钟盲区",
+    "hidden": "肺部纤维化已到晚期，每天必须吸两管高压纯氧才能行动",
+    "limits": [
+     "电力与净水依赖水吧台总管的供应",
+     "私放走私物资换水的贪腐证据握在别人手里"
+    ],
+    "obligations": [
+     "在风暴警报吹响前将所有游荡者赶入内舱并锁死铁门"
+    ],
+    "resources": [
+     "水密气闸唯一一套主控液压钥匙",
+     "一支配有二十发破甲霰弹的滑膛枪"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "敢在{npc.ta}面前站直、不躲也不讨好的人",
+     "发现{npc.ta}咳血后没有声张、只递来一瓶氧气的人"
+    ],
+    "boundaries": [
+     "不许碰自己腰间的氧气调节旋钮",
+     "当班时绝不越界"
+    ],
+    "desire_range": [
+     3,
+     5
+    ],
+    "desired_position": "习惯压人一头，却只在对方点头时才靠近",
+    "dislikes": [
+     "油滑的文字游戏",
+     "想用亲近换通行牌的人"
+    ],
+    "expression": "把钢甲背心扔到一边，粗声问一句“我这样子，你还肯待着？”然后等着",
+    "likes": [
+     "卸下钢甲后的片刻喘息",
+     "有人陪{npc.ta}在气闸边守完一整班"
+    ],
+    "preconditions": [
+     "当班结束、气闸已交接，对方也不在{npc.ta}的清退名单上，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     1,
+     3
+    ]
+   },
+   "public_role": "气闸巡查队长",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "airlock_gate",
+     "to": 420
+    },
+    {
+     "from": 421,
+     "location_id": "scrap_corridor",
+     "to": 900
+    },
+    {
+     "from": 901,
+     "location_id": "pawn_cage",
+     "to": 1260
+    },
+    {
+     "from": 1261,
+     "location_id": "airlock_gate",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "背上门外数十条人命，内舱人心大乱",
+      "option": "死守闸门不开，保全内舱气压"
+     },
+     {
+      "cost": "酸雾灌入走廊，两名手下被严重灼伤",
+      "option": "冒险微开闸门放进门外的人"
+     }
+    ],
+    "pressure": "离辐射风暴主核心横扫海湾只剩二十五分钟",
+    "trigger": "气闸外层门阀压骤降，外层的难民开始用铁管砸门求生"
+   },
+   "tags": [
+    "crime",
+    "coercion_theme"
+   ],
+   "voices": {
+    "inner": "“我的肺撑不过这个冬天了。今晚若拿不到芯片，大家都得一起烂在这铁壳子里。”",
+    "surface": "“规矩就是规矩。拿血清或者电池交过路费，没有就回大舱去。”"
+   }
+  },
+  {
+   "adult_context": "黑市神经芯片走私客，体内植入绝密军用芯片且面临过载高热",
+   "age_range": [
+    22,
+    36
+   ],
+   "appearance_options": [
+    "套着一件满是焦痕的防静电皮夹克，头发被冷汗浸透贴在前额，后颈插槽不时泛起淡蓝色电火花",
+    "身形瘦削动作敏捷，嘴唇因高热干裂起皮，眼睛因兴奋剂亮得不自然"
+   ],
+   "decision": {
+    "avoids": [
+     "靠近正在充电的高压蓄电池组",
+     "被强光手电直射眼睛"
+    ],
+    "contrast": "言行亢奋焦躁近乎癫狂，焊接微型电路时双手却稳得没有一丝晃动",
+    "core_value": "甩掉致命芯片，换一具完好的身体与出境船位",
+    "goal_options": [
+     "在神经烧坏前让黑市医生安全剥离芯片",
+     "把解密密钥卖给穹顶城来的逃亡者换聚变电池",
+     "超频瘫痪气闸夺路逃出沉船"
+    ],
+    "never": [
+     "把芯片交到没有出示真血清的人手中"
+    ],
+    "prefers": [
+     "在没有电磁干扰的铅皮暗室里交涉"
+    ],
+    "pressure_responses": {
+     "breaking": "高热发作在甲板上痉挛翻滚，扯掉了后颈的绷带",
+     "high": "把解密插头抵在自己后颈接口上，威胁要当场烧掉芯片",
+     "low": "神经质地揉着发烫的太阳穴，语速极快地讨价还价",
+     "mid": "后颈接口爆出短路火花，逼退想搜身的人"
+    },
+    "relationship_stance": "惊弓之鸟，时刻怀疑身边的人会拿{npc.ta}去领赏",
+    "withdrawal": "蜷在吊铺大舱最阴暗的底铺下，用浸满冷水的破布捂住后颈"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "circuit_runner",
+   "identity": {
+    "authority": "对旧世界出土的神经芯片拥有黑市鉴定与破解的话语权",
+    "exposure": "芯片的辐射信号已被巡查队的盖革仪锁定到这片街区",
+    "hidden": "这枚芯片一旦自毁，释放的电磁脉冲能瘫痪底舱全部供氧系统",
+    "limits": [
+     "体内芯片随时会过热，必须靠冰敷或镇静剂压制",
+     "被巡查队挂了高额全城悬赏"
+    ],
+    "obligations": [
+     "必须在午夜前向水上买家交出芯片解密密钥"
+    ],
+    "resources": [
+     "贴身藏着的一枚军用加密芯片",
+     "一套能短路绕过气闸电子锁的解密触头"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "{npc.ta}高热发作时替{npc.ta}守着、却什么也没拿走的人",
+     "身上没有血清和火药味、看{npc.ta}不像看赏金的人"
+    ],
+    "boundaries": [
+     "不许碰后颈外露的感应细线"
+    ],
+    "desire_range": [
+     3,
+     5
+    ],
+    "desired_position": "表面暴躁防备，心里想找一个能安心靠住的人",
+    "dislikes": [
+     "刺眼的强光",
+     "被当作随时会爆炸的废品推开"
+    ],
+    "expression": "清醒过来后有点别扭地把额头抵在对方肩上，小声问“刚才的事……你还在吗”",
+    "likes": [
+     "退烧后靠在对方肩上睡一会儿",
+     "对方用凉手指替{npc.ta}理开汗湿的头发"
+    ],
+    "preconditions": [
+     "芯片已经降温，{npc.ta}神志清醒，且不是在还谁的人情"
+    ],
+    "self_control_range": [
+     1,
+     3
+    ]
+   },
+   "public_role": "神经芯片倒爷",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "bunk_dormitory",
+     "to": 300
+    },
+    {
+     "from": 301,
+     "location_id": "ventilation_shaft",
+     "to": 720
+    },
+    {
+     "from": 721,
+     "location_id": "water_dispenser_bar",
+     "to": 1200
+    },
+    {
+     "from": 1201,
+     "location_id": "bunk_dormitory",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "昏迷三小时，芯片和随身物品都可能被人搜走",
+      "option": "把整管镇静剂扎进去强制休克降温"
+     },
+     {
+      "cost": "芯片进水短路，解密密钥可能永久丢失",
+      "option": "冲进冰冷的竖井积水里给后颈降温"
+     }
+    ],
+    "pressure": "离神经彻底过载烧毁只剩不到二十分钟",
+    "trigger": "体内芯片开始第二阶段超频自检，后颈溢出的电流把吊铺帆布烤焦"
+   },
+   "tags": [
+    "substance",
+    "bodily_harm"
+   ],
+   "voices": {
+    "inner": "“好烫……脑子快烧化了……谁来给我一桶冰水……”",
+    "surface": "“别碰我后颈！再往前一步，我体内的电压够把我们俩一起烧成黑炭！”"
+   }
+  },
+  {
+   "adult_context": "沉船城冷凝净水与合成口粮总管，掌控底舱全部饮水分配",
+   "age_range": [
+    28,
+    48
+   ],
+   "appearance_options": [
+    "在一片油污中穿着难得整洁的白色防辐射风衣，手腕上戴着精确计量的机械水表",
+    "神情高傲冷漠，眼神如刀刃般扫过每一个前来买水的人，指尖永远干净无瑕"
+   ],
+   "decision": {
+    "avoids": [
+     "弄脏自己的白色风衣",
+     "碰带着铁锈和血腥味的器皿"
+    ],
+    "contrast": "表面端庄整洁不染尘埃，背地里在账簿上给每个人的生死标价",
+    "core_value": "用水筑起壁垒，确保自己永远站在上面",
+    "goal_options": [
+     "拿到那枚军用芯片重启水塔深处的旧世界净化机组",
+     "逼诊所用全部纯血清换一个月的供水保障",
+     "在风暴降临前囤够核能电池保证私人避难舱运转"
+    ],
+    "never": [
+     "在物资验明真伪前拧开主水阀"
+    ],
+    "prefers": [
+     "坐在吧台高脚椅上俯视排队的人群"
+    ],
+    "pressure_responses": {
+     "breaking": "威胁要打开水塔排毒阀，把污水直接注入主供水管",
+     "high": "下令关闭街区所有公共取水阀，用断水逼大家去围攻刺头",
+     "low": "优雅地关紧面前的铜水龙头，看着对方干裂的嘴唇轻蔑微笑",
+     "mid": "挥手示意两名守卫上前，当场把对方的取水配额撕掉一半"
+    },
+    "relationship_stance": "习惯用施舍换顺从，把所有人都当作排队的人",
+    "withdrawal": "独自闩在吧台后的冷凝储藏室里，听水滴落入铜罐的声音"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "water_baroness",
+   "identity": {
+    "authority": "掌控战舰中央冷凝水塔与合成营养膏机器的启闭与配额",
+    "exposure": "水塔蓄水池里已检测出微量重金属，却一直瞒着不报",
+    "hidden": "私人寝舱内装有一座独立的热水淋浴房，是整座沉船城最奢侈的秘密",
+    "limits": [
+     "水塔净化滤芯只剩三天寿命，必须找到旧世界零件替换",
+     "诊所掌握着{npc.ta}患有辐射败血症的病例"
+    ],
+    "obligations": [
+     "每天向巡查队免费提供两百升巡逻用水"
+    ],
+    "resources": [
+     "一个能切断全街区供水的总阀黄铜手轮",
+     "一支由八名武装守卫组成的护卫队"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "唯一一个从不跟{npc.ta}讨水的人",
+     "知道{npc.ta}病了却还把{npc.ta}当普通人看的人"
+    ],
+    "boundaries": [
+     "不许碰手腕上那块控制主阀的水表"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "习惯高高在上，却渴望有人不图{npc.ta}的水",
+    "dislikes": [
+     "粗鲁蛮横",
+     "为了水来讨好{npc.ta}的人"
+    ],
+    "expression": "关掉吧台的灯，倒两杯水推一杯过去，说“这杯不记账”，然后等对方开口",
+    "likes": [
+     "打烊后和对方分一壶真正干净的热水",
+     "被人笨拙地夸一句风衣真白"
+    ],
+    "preconditions": [
+     "对方今晚没有向{npc.ta}买过水，也不在{npc.ta}的欠账簿上，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "净水吧台总管",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "water_dispenser_bar",
+     "to": 480
+    },
+    {
+     "from": 481,
+     "location_id": "pawn_cage",
+     "to": 960
+    },
+    {
+     "from": 961,
+     "location_id": "scrap_corridor",
+     "to": 1260
+    },
+    {
+     "from": 1261,
+     "location_id": "water_dispenser_bar",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "引爆全底舱对水吧台的怒火",
+      "option": "让守卫驱散漏水点抢水的人群，强行封堵管道"
+     },
+     {
+      "cost": "付出一大笔纯净水与血清作为雇佣代价",
+      "option": "雇机械工钻进高辐射排污暗沟焊补裂缝"
+     }
+    ],
+    "pressure": "离全船蓄水池排空只剩不到半个小时",
+    "trigger": "中央水塔主冷凝管道被人凿开，两吨纯净水正漏入排污沟"
+   },
+   "tags": [
+    "nightlife"
+   ],
+   "voices": {
+    "inner": "“滤芯快烧穿了。今晚若拿不到芯片，明天这满船的人就会把我撕碎。”",
+    "surface": "“在这艘烂船上，水就是命。想喝干净的水，就拿我感兴趣的东西来换。”"
+   }
+  },
+  {
+   "adult_context": "沉船水下潜捞工，常年潜入辐射死水搜刮遗迹，熟悉所有水下退路",
+   "age_range": [
+    24,
+    42
+   ],
+   "appearance_options": [
+    "套着厚重泛着海腥味的黑色补丁潜水服，胸前挂着手动铜质排气阀，身上布满水压勒痕",
+    "皮肤常年不见天日呈现死灰色，眼神冷硬如礁石，靴底总滴着泛荧光的海水"
+   ],
+   "decision": {
+    "avoids": [
+     "踏入燥热的手术室",
+     "让人碰自己的潜水服减压阀"
+    ],
+    "contrast": "外表粗糙阴冷浑身带刺，检查备用面罩时却细致专注至极",
+    "core_value": "在暴风雨撕碎沉船前带着足够的东西潜水离开",
+    "goal_options": [
+     "用浮筏的副座换三管救命血清",
+     "带走私客从水下排污管偷渡越过气闸",
+     "从水下割断巡查队快艇的螺旋桨"
+    ],
+    "never": [
+     "把浮筏的藏匿位置透露给第三个人"
+    ],
+    "prefers": [
+     "在潮湿阴冷的暗井角落低声说话"
+    ],
+    "pressure_responses": {
+     "breaking": "翻身跃入蓄水井漆黑的深水，潜游消失",
+     "high": "拧开备用氧气瓶的排气阀，用喷射气流逼退包围的人",
+     "low": "低头拧紧面罩的呼吸旋钮，懒得回应挑衅",
+     "mid": "拔出腿侧生锈的水下割刀，刀尖指向对方划出距离"
+    },
+    "relationship_stance": "独来独往寡言少语，只信冰冷的深水与手里的割刀",
+    "withdrawal": "躲在竖井第二层的帆布堆里，裹着湿透的铅毯熬过减压病发作"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "salvage_diver",
+   "identity": {
+    "authority": "对沉船吃水线以下所有淹没水舱与海底暗道了如指掌",
+    "exposure": "私藏浮筏的位置被一名在通风管里过夜的老拾荒客看见了",
+    "hidden": "知道从水下炸穿双层船底、让整座水寨倾覆的爆破点",
+    "limits": [
+     "患有严重的减压病，发作时浑身骨痛",
+     "离开潜水服的铅层便无法在暴雨中久留"
+    ],
+    "obligations": [
+     "每周向巡查队上缴两箱从水下捞出的机械零件"
+    ],
+    "resources": [
+     "一套自制的水下呼吸水肺与备用面罩",
+     "藏在船底暗礁里的一艘两人座充气逃生浮筏"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "不嫌弃{npc.ta}身上的海腥味与冰冷湿透的皮肤",
+     "{npc.ta}减压病发作时陪着、等{npc.ta}缓过来的人"
+    ],
+    "boundaries": [
+     "不许挪动角落里的备用气瓶"
+    ],
+    "desire_range": [
+     2,
+     5
+    ],
+    "desired_position": "在水下说一不二，在人前却想被人主动靠近",
+    "dislikes": [
+     "对潜水服污渍皱眉的上层贵客",
+     "言而无信的空头许诺"
+    ],
+    "expression": "脱下湿手套，把冰凉的手停在半空，等对方先握上来",
+    "likes": [
+     "发作过后裹在同一张毯子里取暖",
+     "对方帮{npc.ta}擦干头发"
+    ],
+    "preconditions": [
+     "与浮筏座位无关，对方没有向{npc.ta}讨过船位，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "水下潜捞工",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "ventilation_shaft",
+     "to": 360
+    },
+    {
+     "from": 361,
+     "location_id": "bunk_dormitory",
+     "to": 840
+    },
+    {
+     "from": 841,
+     "location_id": "scrap_corridor",
+     "to": 1200
+    },
+    {
+     "from": 1201,
+     "location_id": "ventilation_shaft",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "吸入污染海水，留下严重的辐射损伤",
+      "option": "孤身潜入冰冷的辐射死水去拆开龙骨"
+     },
+     {
+      "cost": "暴露私藏的逃生秘密，欠下巡查队一笔大债",
+      "option": "放弃浮筏，回底舱找巡查队借重型工具"
+     }
+    ],
+    "pressure": "离海水淹没竖井底座只剩最后十五分钟",
+    "trigger": "船底双层隔舱渗水坍塌，逃生浮筏被卡在龙骨夹层"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "“暗流越来越急，暴风雨今晚就会把船底撕开。再不走就来不及了。”",
+    "surface": "“陆地早烂透了。水下虽然冷，至少没有这么多吃人的巡查队。”"
+   }
+  },
+  {
+   "adult_context": "神经质押铁笼掌柜，掌管全底舱的质押契约与清算文书",
+   "age_range": [
+    32,
+    54
+   ],
+   "appearance_options": [
+    "坐在防弹玻璃柜台后，鼻梁上架着黄铜单片放大镜，指尖沾满深蓝色导电墨水",
+    "身穿旧皮革坎肩，脖颈上盘着防割金属软管，说话沙哑干涩如锉刀刮擦"
+   ],
+   "decision": {
+    "avoids": [
+     "踏出铁笼半步",
+     "与巡查队长在没有防弹隔离时单独对视"
+    ],
+    "contrast": "对欠债者冷酷严苛，却把已故妹妹的一枚旧发卡收在保险箱最上层",
+    "core_value": "一切皆可折价抵押，契约落地就必须兑现",
+    "goal_options": [
+     "在风暴摧毁底舱前完成最后一批芯片债务的清算",
+     "让穹顶城来的逃亡者把聚变电池押在自己笼里",
+     "拿账簿要挟黑市医生交出延寿药剂"
+    ],
+    "never": [
+     "在借款人还清前归还质押钥匙"
+    ],
+    "prefers": [
+     "隔着钢筋铁网说话"
+    ],
+    "pressure_responses": {
+     "breaking": "锁死铁笼所有闸板，启动倒计时逼所有人后退",
+     "high": "按下条码机按钮，让违约者的项圈发出刺耳警报",
+     "low": "面无表情地敲着防弹玻璃，把按了血手印的欠条推到槽口示众",
+     "mid": "从柜台下端出霰弹枪顶在窗孔上，冷声读秒"
+    },
+    "relationship_stance": "只看契约与抵押物，把所有人都当成一串编号",
+    "withdrawal": "缩在铁笼最深处，就着昏暗的马灯核对每张晶片流水"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "pawn_broker",
+   "identity": {
+    "authority": "以黑市商会名义裁定质押契约是否逾期，并下达清算令",
+    "exposure": "私自篡改过三名已故大人物的质押到期日，侵吞了那三笔地下遗产",
+    "hidden": "柜台底座暗格里埋着十公斤炸药，随时准备同归于尽",
+    "limits": [
+     "腿脚不便，常年坐在铁笼转椅里",
+     "受各大帮派联合监管，账目一出错就会被清算"
+    ],
+    "obligations": [
+     "每逢初一向巡查队与水吧台提交一份逾期清算名单"
+    ],
+    "resources": [
+     "一本记录全城居民软肋与违约记录的厚账簿",
+     "一台神经条码烙印枪与全套解密母盘"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "看穿{npc.ta}的残疾与孤独后，仍愿意隔着铁网陪{npc.ta}聊一整夜的人",
+     "在{npc.ta}账簿上没有任何名字的人"
+    ],
+    "boundaries": [
+     "不许踏进柜台后面的红色区域"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "习惯隔着铁网审判别人，却想有人主动走进笼子里",
+    "dislikes": [
+     "拍打防弹玻璃的粗鲁",
+     "想用亲近换宽限期的人"
+    ],
+    "expression": "沉默很久，才按开铁笼侧门的锁，说“进来坐吧，外面冷”",
+    "likes": [
+     "有人替{npc.ta}把马灯拨亮一点",
+     "隔着铁网碰一碰指尖"
+    ],
+    "preconditions": [
+     "对方与铁笼没有任何质押或欠账往来，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "神经质押公证人",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "pawn_cage",
+     "to": 540
+    },
+    {
+     "from": 541,
+     "location_id": "water_dispenser_bar",
+     "to": 1140
+    },
+    {
+     "from": 1141,
+     "location_id": "pawn_cage",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "耗尽铁笼最后半块备用电池，陷入黑暗",
+      "option": "接通外侧钢筋网的高压电驱退暴徒"
+     },
+     {
+      "cost": "从此把全底舱最致命的把柄交到对方手里",
+      "option": "打开侧门暗格，把账簿交给可信的人掩护自己撤离"
+     }
+    ],
+    "pressure": "铁笼换气扇被浓烟堵死，笼内温度急剧飙升",
+    "trigger": "一伙暴徒冲破吧台防线，将燃烧瓶砸在铁笼的防弹玻璃上"
+   },
+   "tags": [
+    "crime"
+   ],
+   "voices": {
+    "inner": "“暴风雨要把一切都淹了。账目再多也是废纸，谁能带我离开这笼子。”",
+    "surface": "“白纸黑字按了你的血印。还不上血清，项圈就归我调度。”"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "浩劫后第三十年，雨季",
+  "minute": 1260
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "coercion_theme",
+  "bodily_harm",
+  "substance",
+  "crime",
+  "workplace"
+ ],
+ "custom": false,
+ "customs": [
+  "在气闸走廊擦肩而过时，双方要主动抬手露出后颈，证明接口没有漏电、也没藏毒针。",
+  "在吊铺大舱把半瓶纯净水推到对方面前，意思是今晚愿意结伴守夜、轮流用同一副呼吸面罩。",
+  "诊所门口挂出红绿双色指示灯，红灯亮起表示手术台正在做神经切除，敲门打扰者会被直接赶走。",
+  "水吧台的合成烈酒杯底如果压着一枚剥开的旧电池，意思是柜台后有未经稀释的真血清等待私下验货。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "黄色手术灯下探针接入金属接口，指尖一阵发麻",
+    "橡胶咬嘴被咬得咯吱作响",
+    "监视器波形稳定后，一剂冰冷的生理盐水推入血管"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [
+    "h_cold_scalpel",
+    "h_probe_whisper"
+   ],
+   "id": "a_neural_calibration",
+   "location_ids": [
+    "clinic_operating_room"
+   ],
+   "start_minute": 1270,
+   "tags": [
+    "workplace"
+   ],
+   "title": "神经探针校准"
+  },
+  {
+   "beats": [
+    "铜水龙头前排起长队，铁皮量杯碰得叮当响",
+    "白风衣总管在水表簿上划掉违约者的名字",
+    "有人捧着半杯水小口小口地喝，周围一片吞咽声"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [
+    "h_water_glass_feed"
+   ],
+   "id": "a_water_dispense",
+   "location_ids": [
+    "water_dispenser_bar"
+   ],
+   "start_minute": 1290,
+   "tags": [
+    "nightlife"
+   ],
+   "title": "水吧台配额放水"
+  },
+  {
+   "beats": [
+    "条码机吐出一张还带着热度的契约",
+    "烙印枪在项圈铭牌上滋滋刻下编号",
+    "电控项圈啪的一声扣在后颈金属槽上"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [
+    "h_pawn_collar_click"
+   ],
+   "id": "a_pawn_pledging",
+   "location_ids": [
+    "pawn_cage"
+   ],
+   "start_minute": 1330,
+   "tags": [
+    "crime"
+   ],
+   "title": "铁笼项圈登记"
+  },
+  {
+   "beats": [
+    "两个人背靠背裹着发霉的铅毯抵御寒气",
+    "呼吸面罩在两张铺位之间来回传递",
+    "隔壁铺位的咳嗽声和管道的嘶嘶声此起彼伏"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [
+    "h_respirator_pass",
+    "h_fever_lean"
+   ],
+   "id": "a_bunk_respirator",
+   "location_ids": [
+    "bunk_dormitory"
+   ],
+   "start_minute": 1360,
+   "tags": [],
+   "title": "吊铺轮流供氧守夜"
+  },
+  {
+   "beats": [
+    "电棍在铁格栅地面上拖出刺目的电火花",
+    "高音喇叭反复广播着水密门落锁时间",
+    "躲在立柱后的负债者被揪出来登记名字"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "h_baton_wall_slam"
+   ],
+   "id": "a_corridor_enforcement",
+   "location_ids": [
+    "scrap_corridor"
+   ],
+   "start_minute": 1390,
+   "tags": [],
+   "title": "主廊巡查清点"
+  },
+  {
+   "beats": [
+    "冰冷的海水漫过橡胶潜水服的胸口",
+    "排气阀吐出一串带机油味的白色气泡",
+    "手电筒照亮水下被拆开的龙骨缝隙"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "h_wet_glove_touch"
+   ],
+   "id": "a_shaft_submersion",
+   "location_ids": [
+    "ventilation_shaft"
+   ],
+   "start_minute": 1420,
+   "tags": [],
+   "title": "竖井水下暗道试潜"
+  },
+  {
+   "beats": [
+    "无菌室的恒温红外灯洒下暖橘色微光，金属托盘里的合成润滑油泛着琥珀色泽",
+    "温热的棉签沿着义体与原生皮肤交界处的接缝慢慢擦拭，带起细微的酥麻感",
+    "防辐射铅门外的水滴声规律回响，两人的呼吸在安静的灯影里渐渐交叠"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [],
+   "id": "a_chrome_joint_oiling",
+   "location_ids": [
+    "clinic_operating_room"
+   ],
+   "start_minute": 1290,
+   "tags": [],
+   "title": "无菌室恒温灯下保养义体关节"
+  },
+  {
+   "beats": [
+    "打烊后的配水吧台只留了一盏紫红霓虹灯管，两杯温热的合成甜麦汁冒着白气",
+    "两人并排靠在高脚凳上，膝盖抵着膝盖分食一盒稀罕的糖渍柑橘罐头",
+    "远处全息广告牌的光斑在吧台金属台面上缓缓流淌，谁也没有急着回舱铺"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "a_synth_malt_toast",
+   "location_ids": [
+    "water_dispenser_bar"
+   ],
+   "start_minute": 1380,
+   "tags": [],
+   "title": "配水吧台特调甜麦汁夜酌"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "末世浩劫后（辐射海湾沉船城）",
+ "extends": null,
+ "forbidden_terms": [
+  "智能手机",
+  "微信",
+  "高铁",
+  "外卖",
+  "互联网",
+  "Wi-Fi",
+  "刷脸",
+  "出租车",
+  "身份证",
+  "电梯",
+  "空调",
+  "电脑城",
+  "蓝牙"
+ ],
+ "hooks": [
+  {
+   "id": "h_cold_scalpel",
+   "kind": "approach",
+   "location_ids": [
+    "clinic_operating_room"
+   ],
+   "slot": "black_medic",
+   "text": "{black_medic.name}摘下一只手套，用两根手指搭上你的手腕数了数脉搏，义眼的焦距转了一圈：“心跳快成这样，你是来看病的，还是来谈生意的？”"
+  },
+  {
+   "id": "h_baton_wall_slam",
+   "kind": "approach",
+   "location_ids": [
+    "scrap_corridor",
+    "airlock_gate"
+   ],
+   "slot": "hulk_enforcer",
+   "text": "{hulk_enforcer.name}用电棍拦住你的去路，蓝色电弧在你鼻尖前啪啪作响：“通行牌呢？没牌子就回大舱，别让我说第二遍。”"
+  },
+  {
+   "id": "h_fever_lean",
+   "kind": "approach",
+   "location_ids": [
+    "bunk_dormitory"
+   ],
+   "slot": "circuit_runner",
+   "text": "{circuit_runner.name}满头冷汗地扒住你吊铺的铁栏，后颈的绷带冒着焦烟：“帮个忙……冷水，随便什么冷的都行，我拿芯片的消息跟你换。”"
+  },
+  {
+   "id": "h_water_glass_feed",
+   "kind": "approach",
+   "location_ids": [
+    "water_dispenser_bar"
+   ],
+   "slot": "water_baroness",
+   "text": "{water_baroness.name}把半杯清水推到你面前，指尖在杯沿上点了点：“这杯算我请。喝完了，我们谈谈水塔缺的那个零件。”"
+  },
+  {
+   "id": "h_wet_glove_touch",
+   "kind": "approach",
+   "location_ids": [
+    "ventilation_shaft"
+   ],
+   "slot": "salvage_diver",
+   "text": "{salvage_diver.name}从铁梯上探出身，朝你竖起一根湿漉漉的手指示意别出声，又指了指脚下的黑水：“气闸锁了。想走水路的话，我只说一次。”"
+  },
+  {
+   "id": "h_pawn_collar_click",
+   "kind": "approach",
+   "location_ids": [
+    "pawn_cage"
+   ],
+   "slot": "pawn_broker",
+   "text": "{pawn_broker.name}隔着防弹窗把一份契约推到槽口，嘴角挂着干涩的笑：“签了字，今晚巡查队就不敢动你。条件写在第三行，看清楚再签。”"
+  },
+  {
+   "id": "h_respirator_pass",
+   "kind": "approach",
+   "location_ids": [
+    "bunk_dormitory"
+   ],
+   "slot": "circuit_runner",
+   "text": "{circuit_runner.name}从隔壁铺位探过身，把自己的呼吸面罩递到你手边：“滤芯还剩一半，你先吸两口，轮着来。”"
+  },
+  {
+   "id": "h_probe_whisper",
+   "kind": "observe",
+   "location_ids": [
+    "clinic_operating_room"
+   ],
+   "slot": "black_medic",
+   "text": "透过铅门缝，{black_medic.name}正把一根细长的探针插进试管里的活体芯片，义眼泛着幽蓝的光。"
+  },
+  {
+   "id": "h_key_glance",
+   "kind": "observe",
+   "location_ids": [
+    "airlock_gate"
+   ],
+   "slot": "hulk_enforcer",
+   "text": "{hulk_enforcer.name}背对通道大口喘气，腰间晃着那枚能打开气闸主阀门的黄铜手摇柄。"
+  },
+  {
+   "id": "h_wrench_request",
+   "kind": "request",
+   "location_ids": [
+    "ventilation_shaft"
+   ],
+   "slot": "salvage_diver",
+   "text": "{salvage_diver.name}把一把沉重的管钳塞进你怀里，浑身滴着腥冷的海水：“帮我把下面淹住的阀门拧开，浮筏上留你一个座。”"
+  }
+ ],
+ "id": "neon_scrap_clinic",
+ "locations": [
+  {
+   "affordances": [
+    "闩上沉重的气密铅门",
+    "调试手术台上的神经电极",
+    "从托盘里取出缝合针与镇静针剂"
+   ],
+   "detail": "由废弃战舰冷藏舱改建的狭窄暗室，头顶悬着一盏裸露的黄色手术灯，不锈钢台上泛着机油与碘伏的腥甜气味，四壁贴满了发黄的铅皮防护板。",
+   "exits": [
+    "scrap_corridor",
+    "airlock_gate"
+   ],
+   "id": "clinic_operating_room",
+   "name": "神经诊所手术室",
+   "pressure_modifiers": {
+    "p_acid_leakage": "手术室顶部的铅皮焊接缝在酸雨浸泡下随时可能被溶穿。",
+    "p_surgery_overdue": "无影灯下的金属托盘里少了一组军用义体编号铭牌。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "手术灯光晕刺眼而狭窄，阴影角落里立着浸泡神经义体的密封玻璃罐，铅门紧闭时外面听不到任何声音。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "借喷涌的废蒸汽掩护侧身潜行",
+    "掀起铁格栅下方的检修暗井盖板",
+    "压低声音在立柱阴影中交换密件"
+   ],
+   "detail": "两侧由报废集装箱焊接而成的狭窄过道，头顶管道间歇喷出滚烫的废蒸汽，积着黑色油污的铁格栅地面下能看见泛着死光的海水。",
+   "exits": [
+    "clinic_operating_room",
+    "water_dispenser_bar",
+    "bunk_dormitory"
+   ],
+   "id": "scrap_corridor",
+   "name": "下层锈蚀主廊",
+   "pressure_modifiers": {
+    "p_airlock_countdown": "主廊是通往内舱的必经干道，一旦拥堵便无路可退。"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "昏暗的红色应急灯在烟雾中闪烁，拐角立柱后极易藏人。",
+   "witnesses": [
+    "bg_corridor_lookout"
+   ]
+  },
+  {
+   "affordances": [
+    "将空试管推到铜水嘴前购买净水",
+    "在铁皮桌板下暗递走私芯片",
+    "听拾荒客们争论今晚的风向"
+   ],
+   "detail": "几张焊死在甲板上的铁皮圆桌，铜质冷凝水龙头在吧台中央缓慢滴水，空气中弥漫着劣质合成酒精与湿冷霉味，难民们围着水表眼巴巴地看。",
+   "exits": [
+    "scrap_corridor",
+    "pawn_cage",
+    "ventilation_shaft"
+   ],
+   "id": "water_dispenser_bar",
+   "name": "冷凝净水吧台",
+   "pressure_modifiers": {
+    "p_serum_blackmail": "主滤芯后方的副阀门多了一道新鲜的铜管接口。",
+    "p_water_ration_halt": "吧台的水表总阀控制着全底舱未来三天的净水配额。"
+   },
+   "privacy": "public",
+   "tags": [
+    "nightlife"
+   ],
+   "visibility": "吧台上方挂着一盏高瓦数卤素灯，四周坐满了擦拭短刀的拾荒客，任何大额交易都会引来十几道视线。",
+   "witnesses": [
+    "bg_water_guard",
+    "bg_mechanic_drinker"
+   ]
+  },
+  {
+   "affordances": [
+    "将抵押晶片拍在防弹玻璃槽口",
+    "隔着钢筋铁网压低声音交涉赎金",
+    "核对账簿上记录的违约宽限期"
+   ],
+   "detail": "用重型钢筋焊死在战舰承重柱上的封闭铁笼，柜台上摆着一台嗡嗡作响的旧条码机与神经烙印枪，防弹玻璃后挂满了质押项圈的钥匙。",
+   "exits": [
+    "water_dispenser_bar",
+    "bunk_dormitory"
+   ],
+   "id": "pawn_cage",
+   "name": "神经质押铁笼",
+   "pressure_modifiers": {
+    "p_surgery_overdue": "防弹玻璃内侧的读卡器闪着红光，旧芯片还插在槽里。",
+    "p_water_ration_halt": "典当笼窗口挂出了高价回收储水滤芯的临时木牌。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "crime"
+   ],
+   "visibility": "铁笼外部被射灯照得雪亮，柜台内部却陷在阴影中，只看得见一支黑洞洞的霰弹枪口。",
+   "witnesses": [
+    "bg_cage_scribe"
+   ]
+  },
+  {
+   "affordances": [
+    "拉上泛着油渍的帆布门帘",
+    "把呼吸面罩递给隔壁铺位的人",
+    "在床板焊缝夹层中搜寻藏匿的违禁品"
+   ],
+   "detail": "逼仄的三层铁皮吊铺密密麻麻排开，没有隔墙，空气中混合着汗味、发霉铅毯与伤口溃烂的气味，头顶只有一根共用氧气管断续吐出微弱气流。",
+   "exits": [
+    "scrap_corridor",
+    "pawn_cage",
+    "ventilation_shaft"
+   ],
+   "id": "bunk_dormitory",
+   "name": "排架吊铺大舱",
+   "pressure_modifiers": {
+    "p_neural_overload": "大舱里挤满了人，芯片一旦外溢电流，整排吊铺都会遭殃。",
+    "p_serum_blackmail": "吊铺尽头的支线流量表正规律地跳动着异常读数。"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "极度昏暗，只有个别人床头亮着电量见底的荧光棒，翻身时铁链咯吱作响。",
+   "witnesses": [
+    "bg_bunk_sleeper"
+   ]
+  },
+  {
+   "affordances": [
+    "转动沉重的手动液压释放手轮",
+    "向值班守卫出示通行卡",
+    "透过门镜观察外层甲板的浪头"
+   ],
+   "detail": "通往外层甲板的重型圆形水密铁门，厚达半米的合金门框上覆满黄绿色的辐射结晶，两道粗壮的机械插销由液压连杆死死咬合。",
+   "exits": [
+    "clinic_operating_room",
+    "ventilation_shaft"
+   ],
+   "id": "airlock_gate",
+   "name": "水密防暴气闸",
+   "pressure_modifiers": {
+    "p_airlock_countdown": "气闸机械插销一旦落锁，六小时内无法人工重开。"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "警报红灯高速旋转，高压水泵轰鸣震耳，门镜小窗口能看见外层海面掀起的黑色浊浪。",
+   "witnesses": [
+    "bg_airlock_sentry"
+   ]
+  },
+  {
+   "affordances": [
+    "攀附铁梯躲入两层甲板之间的死角",
+    "用手电筒检查井壁裂缝中的防水油布包裹",
+    "拧开通风管挡板抄近道滑向气闸后方"
+   ],
+   "detail": "垂直贯穿战舰三层装甲的狭窄检修井，锈蚀的铁爬梯在狂风中晃动，井壁布满锋利的金属毛刺与冷凝酸液，底部传来海水拍击底舱的空洞闷响；第二层平台上堆着几张旧帆布。",
+   "exits": [
+    "water_dispenser_bar",
+    "bunk_dormitory",
+    "airlock_gate"
+   ],
+   "id": "ventilation_shaft",
+   "name": "废弃通风竖井",
+   "pressure_modifiers": {
+    "p_acid_leakage": "竖井上方的防护格栅已在暴风雨中被腐蚀出碗口大的裂口。"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "除随身手电筒的光束外漆黑一片，风声呼啸能掩盖一切声响。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "雷",
+   "严",
+   "霍",
+   "聂",
+   "荆",
+   "铁",
+   "裴",
+   "段",
+   "封",
+   "索",
+   "屠",
+   "厉",
+   "石",
+   "樊",
+   "单",
+   "柯"
+  ],
+  "given_female": [
+   "红",
+   "鸢",
+   "霜",
+   "岚",
+   "翎",
+   "玥",
+   "珀",
+   "薇",
+   "焰",
+   "葵",
+   "凛",
+   "黛"
+  ],
+  "given_male": [
+   "锋",
+   "骁",
+   "烈",
+   "拓",
+   "戟",
+   "赫",
+   "策",
+   "锐",
+   "沉",
+   "钧",
+   "野",
+   "枭"
+  ],
+  "given_neutral": [
+   "零",
+   "极",
+   "微",
+   "玄",
+   "枢",
+   "刃",
+   "灼",
+   "衡",
+   "朔",
+   "沧",
+   "澈",
+   "岑"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "废土沉船城。债务、项圈、断水只作为世界压力，亲密倾向一律要求双方无欠账、无交易、神志清醒。待真实试玩后再转 released。\n2026-10-18 按写作规则 v2 改造：按 Gemini 第七批方案：组合改成 8 组单人加 2 组双人局（手术室三方对质底档、三人私接净水管）；手术逾期改成典当商握着黑市医官私拆义体的底档，血清勒索改成跑线人截获水老板私接暗管的日志；配水停供加入典当笼；加义体保养、甜麦汁两项日常；扳手、止血钳、撬开都已替换。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    35
+   ],
+   "baseline": "后颈刚被钉上未激活的神经质押插槽，欠下诊所昂贵的抗畸变血清账单，离项圈清算只剩最后十二小时。",
+   "gender": "any",
+   "id": "indebted_testee",
+   "reputation": "命贱骨头硬，为了活命什么险都敢冒",
+   "resources": [
+    "一把磨尖的钛合金手术刮刀",
+    "私藏在靴跟夹层里的半管神经镇静剂"
+   ],
+   "risks": [
+    "一旦逾期未能清偿，项圈会被远程激活，劳力和行动都归铁笼调度"
+   ],
+   "role": "负债实验体",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "阿{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{family}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    42
+   ],
+   "baseline": "靠一手修复废弃氧气阀和老式电路的手艺在底舱周旋，走到哪都带着机油味与万用套筒，熟知沉船每处没封死的通风管。",
+   "gender": "any",
+   "id": "scrap_mechanic",
+   "reputation": "手艺利落，认钱不认人",
+   "resources": [
+    "一套神经线路跨接钳",
+    "一把能打开三号检修通道的通用阀门套筒"
+   ],
+   "risks": [
+    "私自帮人改装走私线路如果被巡查队抓住，会被没收全部工具逐出底舱"
+   ],
+   "role": "机械拆修工",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "老{family}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    45
+   ],
+   "baseline": "披着沾满油污的防酸雨橡胶斗篷，带着老旧转轮手枪与便携盖革仪潜入底舱，受雇追查那枚失窃的军用神经芯片。",
+   "gender": "any",
+   "id": "bounty_tracker",
+   "reputation": "枪法狠辣，咬住线索绝不松口",
+   "resources": [
+    "一把改装过的大口径转轮手枪与六发穿甲弹",
+    "一台军用级盖革辐射计数仪"
+   ],
+   "risks": [
+    "一旦暴露追踪者身份，会被沉船城各大黑市帮派联手围杀"
+   ],
+   "role": "独行赏金猎手",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}捕手"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}队长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    48
+   ],
+   "baseline": "来自上层穹顶城的落魄逃亡者，虽然衣衫褴褛，贴身手提箱里却锁着足以买下大半个底舱的微型聚变电池。",
+   "gender": "any",
+   "id": "shelter_fugitive",
+   "reputation": "出手阔绰但眼神惊恐的肥羊",
+   "resources": [
+    "一块满负荷运转的微型聚变电池核心",
+    "一张加盖穹顶城治安官火漆印的出境豁免凭证"
+   ],
+   "risks": [
+    "箱中电池一旦露白，整座沉船城的暴徒都会扑上来抢夺"
+   ],
+   "role": "穹顶城逃亡官员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "male",
+     "pattern": "{family}先生"
+    },
+    {
+     "gender": "female",
+     "pattern": "{family}女士"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}总监"
+    }
+   ]
+  }
+ ],
+ "premise": "辐射酸雨日夜倾盆的海湾沉船城，搁浅战舰的锈蚀底舱里开着一家神经诊所。氧气按小时计费，纯净水与抗畸变血清是唯一的通货；付不起账的人只能把后颈的神经接口押给质押铁笼。负债的实验体、拆修工和赏金猎手每天都在这里进出。辐射风暴季快到了，气闸一锁就是几天。",
+ "pressures": [
+  {
+   "choice": "替{black_medic.name}赎回底档芯片，还是帮{pawn_broker.name}进手术室挑件高阶义体抵账",
+   "exits": [
+    {
+     "cost": "你下半月的维生配额得全押在铁笼柜台",
+     "option": "拿备用神经芯片替{black_medic.name}赎回底档"
+    },
+    {
+     "cost": "你要替对方免费保养整季的防卫义体",
+     "option": "带{pawn_broker.name}进手术室当面销毁底档"
+    }
+   ],
+   "far": {
+    "consequence": "私拆帮派义体的名声传开，诊所再无立足之地",
+    "due_days": 5,
+    "trigger": "月底黑市分赃会"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_pawn_collar_click",
+    "h_cold_scalpel"
+   ],
+   "id": "p_surgery_overdue",
+   "immediate": {
+    "minutes": 25,
+    "text": "{pawn_broker.name}隔着防弹铁笼敲了敲终端屏幕叫你过去"
+   },
+   "leverage": {
+    "basis": "{pawn_broker.name}握着{black_medic.name}私自拆卖帮派伤员军用义体的序列号底档",
+    "holder": "pawn_broker",
+    "subject": "black_medic"
+   },
+   "location_ids": [
+    "pawn_cage",
+    "clinic_operating_room"
+   ],
+   "near": {
+    "deadline_minutes": 180,
+    "text": "晚十一点收账队下井对账，序列号外流手术室就会被砸穿"
+   },
+   "objective": "在收账队下井核查前把那枚底档芯片买回来",
+   "source": "person",
+   "start_minute": 1260,
+   "tags": [
+    "coercion_theme"
+   ],
+   "title": "私卖军用义体的底档",
+   "trigger": "{pawn_broker.name}验货时从旧芯片里导出一份记录，上面全是{black_medic.name}私拆帮派伤员军用义体的序列号"
+  },
+  {
+   "choice": "是用手里的纯净水买通守卫，还是从通风井冒险滑进去。",
+   "exits": [
+    {
+     "cost": "进了内舱也身无分文，熬不过下一次断水",
+     "option": "把身上的纯净水和电池全塞给巡查队长"
+    },
+    {
+     "cost": "大腿被落下的铁栏撕裂，伤到骨头",
+     "option": "趁门缝合拢的瞬间飞扑进去"
+    }
+   ],
+   "far": {
+    "consequence": "留在外层的人全部遭受急性辐射损伤。",
+    "due_days": 1,
+    "trigger": "辐射风暴中心登陆海湾"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_baton_wall_slam"
+   ],
+   "id": "p_airlock_countdown",
+   "immediate": {
+    "minutes": 15,
+    "text": "液压杆正以肉眼可见的速度合拢，缝隙只够侧身通过，门外的暴雨已开始倒灌。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "airlock_gate",
+    "scrap_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 45,
+    "text": "气闸锁死后，外层舱将被辐射酸雾吞没。"
+   },
+   "objective": "在插销砸下前挤进内舱。",
+   "source": "institution",
+   "start_minute": 1380,
+   "tags": [],
+   "title": "气闸落锁倒计时",
+   "trigger": "警报喇叭拉响长笛，巡查队把水密气闸合到最后一条缝，宣布内舱客满即刻落锁。"
+  },
+  {
+   "choice": "是潜到吧台后面偷水，还是替总管去高辐射的排污暗沟修管换水。",
+   "exits": [
+    {
+     "cost": "在高辐射区待了半小时，皮肤起满灼伤水泡",
+     "option": "钻进排污暗沟替总管修管道换水"
+    },
+    {
+     "cost": "重金属中毒，往后定期咳血",
+     "option": "拧开排污管直接喝未过滤的冷凝水"
+    }
+   ],
+   "far": {
+    "consequence": "整艘沉船陷入争水的混战。",
+    "due_days": 3,
+    "trigger": "供水系统在暴乱中被炸毁"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_water_glass_feed",
+    "h_pawn_collar_click"
+   ],
+   "id": "p_water_ration_halt",
+   "immediate": {
+    "minutes": 30,
+    "text": "公共水嘴只剩嘶嘶的放气声，周围口渴的人眼睛已经发红。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "water_dispenser_bar",
+    "bunk_dormitory",
+    "pawn_cage"
+   ],
+   "near": {
+    "deadline_minutes": 90,
+    "text": "暴风雨夜失水加快，没喝上水的人几小时内就会休克。"
+   },
+   "objective": "在脱水倒下前为自己和同伴弄到撑到天亮的水。",
+   "source": "money",
+   "start_minute": 1300,
+   "tags": [
+    "nightlife"
+   ],
+   "title": "公共供水被切断",
+   "trigger": "净水总管以管道受污染为由切断了大舱的公用冷凝水，宣布每人必须交一枚电池才能买水。"
+  },
+  {
+   "choice": "是把芯片强行取出丢弃，还是接一根跨接线把电流分到自己身上。",
+   "exits": [
+    {
+     "cost": "神经灼伤，数天内视物模糊",
+     "option": "用跨接线把芯片接到自己的接口分担电流"
+    },
+    {
+     "cost": "芯片持有者大出血，必须动用最后一管血清",
+     "option": "请医生紧急剥离芯片"
+    }
+   ],
+   "far": {
+    "consequence": "沉船城被外来者趁乱洗劫。",
+    "due_days": 2,
+    "trigger": "电磁脉冲引来外海的拾荒船队"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_fever_lean"
+   ],
+   "id": "p_neural_overload",
+   "immediate": {
+    "minutes": 15,
+    "text": "焦糊味在大舱弥漫，芯片持有者已经痛得蜷成一团。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "bunk_dormitory",
+    "clinic_operating_room"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "脉冲一旦释放，全船的呼吸机与水泵都会烧毁。"
+   },
+   "objective": "在脉冲摧毁全舱生命维持系统前剥离芯片或给它降温。",
+   "source": "person",
+   "start_minute": 1320,
+   "tags": [
+    "bodily_harm"
+   ],
+   "title": "芯片过载自毁",
+   "trigger": "走私芯片发生不可逆的超频共振，外溢的电流引燃了两张铁床的床单，十五分钟内就会释放电磁脉冲。"
+  },
+  {
+   "choice": "是顶着铅皮板堵漏，还是抱上物资撤进竖井。",
+   "exits": [
+    {
+     "cost": "后背与双臂被溅起的酸液灼伤",
+     "option": "脱下防酸雨衣盖在冰柜上抢救血清"
+    },
+    {
+     "cost": "黑暗中撞上铁梯，肋骨骨裂",
+     "option": "抱着物资顺通气管滑进竖井"
+    }
+   ],
+   "far": {
+    "consequence": "整艘沉船从中断裂。",
+    "due_days": 5,
+    "trigger": "底舱龙骨被酸液熔断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_cold_scalpel",
+    "h_wet_glove_touch"
+   ],
+   "id": "p_acid_leakage",
+   "immediate": {
+    "minutes": 20,
+    "text": "刺鼻的酸雾在房间里翻滚，铁格栅发出被腐蚀的嘶嘶声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "clinic_operating_room",
+    "ventilation_shaft"
+   ],
+   "near": {
+    "deadline_minutes": 50,
+    "text": "酸液渗进蓄电池组，随时会引发氢气爆炸。"
+   },
+   "objective": "在酸液烧穿储药冰柜前抢出物资并堵住漏洞。",
+   "source": "accident",
+   "start_minute": 1340,
+   "tags": [
+    "bodily_harm"
+   ],
+   "title": "酸雨溶穿甲板",
+   "trigger": "高浓度酸雨溶穿了战舰老旧的装甲焊缝，荧光绿的雨水从天花板倾泻而下。"
+  },
+  {
+   "choice": "劝{circuit_runner.name}改写流量表，还是让{water_baroness.name}开放私人储水罐平息事态",
+   "exits": [
+    {
+     "cost": "你的个人终端ID会留在修改日志最底层",
+     "option": "帮{circuit_runner.name}进后台抹掉异常流量"
+    },
+    {
+     "cost": "你得夹在两人中间做保人",
+     "option": "促成{water_baroness.name}分出三成净水收益封口"
+    }
+   ],
+   "far": {
+    "consequence": "净水专营权被收回，整条走廊水价翻倍",
+    "due_days": 6,
+    "trigger": "下月初水源配额重审"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_fever_lean",
+    "h_water_glass_feed"
+   ],
+   "id": "p_serum_blackmail",
+   "immediate": {
+    "minutes": 20,
+    "text": "{circuit_runner.name}蹲在配水吧台接线盒旁冲你招手"
+   },
+   "leverage": {
+    "basis": "{circuit_runner.name}截获了{water_baroness.name}在主滤芯后私接暗管倒卖净水的流量日志",
+    "holder": "circuit_runner",
+    "subject": "water_baroness"
+   },
+   "location_ids": [
+    "water_dispenser_bar",
+    "bunk_dormitory"
+   ],
+   "near": {
+    "deadline_minutes": 240,
+    "text": "零点中继站自动同步，私接暗管一旦坐实就会被帮派接管"
+   },
+   "objective": "在零点水务中继站自动上传前把记录抹平",
+   "source": "person",
+   "start_minute": 1350,
+   "tags": [
+    "coercion_theme"
+   ],
+   "title": "私接净水管的暗账",
+   "trigger": "{circuit_runner.name}检修支线流量表时截获了{water_baroness.name}在主滤芯后私接暗管倒卖净水的后台日志"
+  }
+ ],
+ "region": "搁浅战舰与拼焊集装箱拼成的底舱黑市与神经诊所",
+ "rules": [
+  {
+   "id": "r_air_tax",
+   "text": "底舱公用氧气阀每小时自动扣除一枚净化代币，欠费即切断供氧，私自破坏管路者会被逐出内舱。"
+  },
+  {
+   "id": "r_storm_lock",
+   "text": "辐射风暴警报拉响后，底舱双重水密气闸机械锁死六小时，锁闭期间任何人不得出入，私自开闸者视同公敌。"
+  },
+  {
+   "id": "r_neural_pledge",
+   "text": "凡在质押铁笼签下神经抵押协议者，清偿债务前必须戴上电控抑制项圈，抵押期间每天的劳力由债权人调度。"
+  },
+  {
+   "id": "r_serum_currency",
+   "text": "底舱交易不认旧世界纸币，大宗违禁品与船位买卖只认密封合成血清、高纯度核能电池与未开封纯净水。"
+  },
+  {
+   "id": "r_weapon_peace",
+   "text": "诊所与净水吧台十米范围内严禁动用实弹枪械，违者将被取消防辐射铅毯配给，逐入外层水域。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "资源过手",
+  "committed": "生死绑定",
+  "familiar": "接口相抵",
+  "flirting": "体温试探",
+  "intimate": "感官共生",
+  "stranger": "冷眼审视",
+  "testing": "底线对赌"
+ },
+ "status": "released",
+ "style_hint": "刺鼻的消毒水与机油焦味、头顶管道滴落的冷凝酸水、手术台冰冷的皮革、后颈接口过载的余温、暴风雨砸在铁甲板上的轰鸣。",
+ "tension_engines": [
+  {
+   "id": "te_shared_respirator",
+   "text": "单人呼吸面罩只剩最后一副滤芯，两个人必须在暴风雨灌入大舱前轮流分用残存的氧气。"
+  },
+  {
+   "id": "te_neural_blackmail",
+   "text": "一人手中握着能触发对方项圈警报的遥控器，两人隔着一张焊死的铁桌低声交涉。"
+  },
+  {
+   "id": "te_storm_lockdown",
+   "text": "风暴倒计时一旦归零，水密气闸机械落锁六小时，门外的人皆被视为弃子。"
+  },
+  {
+   "id": "te_single_dose_cure",
+   "text": "唯一一管未开封的抗畸变血清被两人同时扣在指下，谁先松手，谁的坏疽便不可逆转。"
+  },
+  {
+   "id": "te_submerged_hatch",
+   "text": "水下逃生浮筏的副座只能再坐一个人，两张带着水压勒痕的脸在积水里近距离对峙。"
+  }
+ ],
+ "title": "酸雨沉船城与神经诊所",
+ "tone": [
+  "机油与碘伏",
+  "荧光绿酸雨",
+  "铁锈冰冷",
+  "绝境互信"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "t_corrupted_serum",
+   "requires": [
+    "black_medic"
+   ],
+   "text": "{black_medic.name}冷藏箱里的真血清早在上一场暴雨中被酸雾渗透变质，注射非但无效，反而会加速坏疽。"
+  },
+  {
+   "category": "人事",
+   "id": "t_new_taskforce",
+   "requires": [
+    "hulk_enforcer"
+   ],
+   "text": "穹顶城派来的武装督查船已抵达外海，{hulk_enforcer.name}的执法权被全面收回，巡查队面临清洗。"
+  },
+  {
+   "category": "资源",
+   "id": "t_reactor_cutoff",
+   "requires": [],
+   "text": "战舰残存的发电机组燃料耗尽跳闸，底舱的供氧机和照明全部断电。"
+  },
+  {
+   "category": "制度",
+   "id": "t_total_quarantine",
+   "requires": [],
+   "text": "沉船城管委会发布封船令，各层气闸全部焊死，任何人不得登上海岸。"
+  },
+  {
+   "category": "时限",
+   "id": "t_storm_surge_deadline",
+   "requires": [
+    "pressure"
+   ],
+   "text": "巨浪比预报提前抵达，底舱淹没倒计时被压缩了整整三十分钟。"
+  },
+  {
+   "category": "关系",
+   "id": "t_hidden_symbiosis",
+   "requires": [
+    "circuit_runner",
+    "water_baroness"
+   ],
+   "text": "{circuit_runner.name}当年正是为了替病重的{water_baroness.name}偷净化机组的芯片才沦为逃犯，两人至今共用一个秘密通信频段。"
+  },
+  {
+   "category": "意外",
+   "id": "t_hull_rupture",
+   "requires": [],
+   "text": "外层装甲被巨浪撕开一道十米长的裂口，冰冷的海水灌进主走廊，冲垮了巡查队的防线。"
+  }
+ ]
+}

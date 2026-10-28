@@ -1,0 +1,2440 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满五十二岁，资深老把桩师兼向导。",
+   "age_range": [
+    50,
+    56
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_artisan_old_hunter_tong",
+   "line": "找准巧劲顺着齿槽切下去，借全身分量往下一压就开！",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "name": "佟老爹",
+   "role": "长白山老把桩师佟老爹"
+  },
+  {
+   "adult_context": "年满五十岁，考察队资深教授领队。",
+   "age_range": [
+    48,
+    54
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_geology_inspector_professor_song",
+   "line": "上方风口出现短暂停歇，抓住窗口期顺着主绳攀上来！",
+   "location_ids": [
+    "loc_vertical_ice_wall_climbing_pitch"
+   ],
+   "name": "宋教授",
+   "role": "地质考察队领队宋教授"
+  },
+  {
+   "adult_context": "年满二十二岁，成年健壮青年脚夫。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_porter_little_hu_tracker",
+   "line": "石缝杂冰全铲清了，把头和先生快发力！",
+   "location_ids": [
+    "loc_vertical_ice_wall_climbing_pitch"
+   ],
+   "name": "胡小栓",
+   "role": "青年背夫胡小栓"
+  },
+  {
+   "adult_context": "年满三十岁，高山边防巡长。",
+   "age_range": [
+    28,
+    34
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_patrol_ranger_iron_column",
+   "line": "备用攀登牵引绳已固定在岩角，接住绳头就安全了！",
+   "location_ids": [
+    "loc_subterranean_ice_cave_bivouac"
+   ],
+   "name": "铁柱",
+   "role": "边防巡逻队巡长铁柱"
+  },
+  {
+   "adult_context": "年满四十岁，关东山林亡命匪徒。",
+   "age_range": [
+    38,
+    46
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_poacher_leader_scarface",
+   "line": "这片雪坑的药材可不能归外人，留不下命就休想走！",
+   "location_ids": [
+    "loc_vertical_ice_wall_climbing_pitch"
+   ],
+   "name": "刀疤脸",
+   "role": "偷采老林盗参匪首刀疤脸"
+  },
+  {
+   "adult_context": "年满四十岁，高山巡逻队随军医官。",
+   "age_range": [
+    36,
+    44
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_border_garrison_medic",
+   "line": "急救烈酒与止血绷带已经备齐，坚持住！",
+   "location_ids": [
+    "loc_vertical_ice_wall_climbing_pitch"
+   ],
+   "name": "老赵",
+   "role": "巡逻队边防军医老赵"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "清冷果决的关东采参女把头与沉稳严谨的地质学者在天坑绝境中背靠背并肩作战，面对砸瘪变形的金属锁扣，一人稳住刀背支点一人全力下压撬动，在暴风雪呼啸与飞石险境中达成生死默契。",
+   "id": "cc_huntress_and_scholar_knife_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "huntress_guan_xueyuan",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死危机中共同握紧骨刀刀背，体会到彼此沉稳可靠的担当。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "explorer_lu_hanzhou",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "雪原考察途中结下的深厚同袍情谊。",
+     "stage": "familiar"
+    },
+    {
+     "a": "huntress_guan_xueyuan",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "explorer_lu_hanzhou",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "把头孤傲与学者深沉在冰崖绝境中碰撞出跨越身份的心灵共振。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "huntress_guan_xueyuan",
+    "explorer_lu_hanzhou"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在冰檐彻底坍塌前撬开主绳锁扣攀上安全冰壁。",
+    "limit_gap": "女把头手指在严寒中微麻，学者身躯阻挡落石承受重压。",
+    "meeting_reason": "开春头一回进山，女把头领着考察队穿过老林子，学者每走十步就停下敲石头，女把头只好拄着索拨棍在一旁等，等得直翻白眼。",
+    "resource_gap": "女把头持有家传坚硬鹿骨折柄快刀与精湛雪原经验，学者具备现代力学知识与高强度绳结技巧。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_crevasse_blizzard_vs_bone_knife_lever",
+    "te_avalanche_ice_fall_vs_crevasse_ascent"
+   ]
+  },
+  {
+   "chemistry": "佟把桩传授以鹿骨快刀背脊充当杠杆支点的关东老辈绝学，女把头心领神会精准卡位，老少两代参客心照不宣合力化解险情。",
+   "id": "cc_huntress_and_guide_fulcrum_notch",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "huntress_guan_xueyuan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "敬佩年轻把头临危不乱的处变风度。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "hunter_tong_veteran_guide",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "敬重老把桩几十年如一日的沉稳阅历。",
+     "stage": "familiar"
+    },
+    {
+     "a": "huntress_guan_xueyuan",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "hunter_tong_veteran_guide",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "长辈关怀与年轻领袖担当之间的深沉托付。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "huntress_guan_xueyuan",
+    "hunter_tong_veteran_guide"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "找准最佳发力角度一举撬开变形插销。",
+    "limit_gap": "佟把桩老寒腿受冻迟缓，女把头面临落石直接威胁。",
+    "meeting_reason": "老把桩师坐在篝火边给女把头讲当年在天池边挖出六品叶的那棵老山参，说那年山神爷也发过一回火。",
+    "resource_gap": "佟把桩拥有三十年看山辨石经验，女把头拥有年轻力壮的敏捷反应与传世快刀。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_crevasse_blizzard_vs_bone_knife_lever"
+   ]
+  },
+  {
+   "chemistry": "青年脚夫胡小栓用雪铲迅速铲平锁扣外围坚冰，女把头沉着指令分工，二人相互协作抢救受困装备。",
+   "id": "cc_huntress_and_porter_scrape_ice",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "huntress_guan_xueyuan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "女把头平易近人又威严果断的带队风范。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "porter_little_hu_tracker",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "青年脚夫勤勉朴素的肯干精神。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "huntress_guan_xueyuan",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "porter_little_hu_tracker",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "把头对同乡后生的照拂与严格要求。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "huntress_guan_xueyuan",
+    "porter_little_hu_tracker"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "清理冰渣腾出平整撬动受力空间。",
+    "limit_gap": "胡小栓心急手忙，女把头需时刻把控操作节奏。",
+    "meeting_reason": "背夫在雪地里扭了脚，女把头蹲下给背夫揉脚踝，一边骂一边把自己的狍皮护膝绑上去。",
+    "resource_gap": "胡小栓负责扫除积雪杂冰障碍，女把头负责精准下刀撬锁。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_crevasse_blizzard_vs_bone_knife_lever"
+   ]
+  },
+  {
+   "chemistry": "学者以科学测算确定冰壁开辟点，佟把桩以老辈经验辨识避风雪穴，二人优势互补稳住军心。",
+   "id": "cc_scholar_and_leader_winch_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "explorer_lu_hanzhou",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "对学者科学计算的充分信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "hunter_tong_veteran_guide",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "信服老把桩沉稳如山的决断。",
+     "stage": "familiar"
+    },
+    {
+     "a": "explorer_lu_hanzhou",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "hunter_tong_veteran_guide",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "现代科学与传统民间生存智慧的彼此认同。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "explorer_lu_hanzhou",
+    "hunter_tong_veteran_guide"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保全队以最小伤亡通过冰壁险段。",
+    "limit_gap": "学者缺乏老林野外生存经验，佟把桩缺乏地质仪器使用常识。",
+    "meeting_reason": "学者和老把桩师为该走东坡还是西坡吵起来，一个拿罗盘，一个指着树上的老兆头。",
+    "resource_gap": "学者熟悉力学受力点，佟把桩熟悉天坑风向规律。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_avalanche_ice_fall_vs_crevasse_ascent"
+   ]
+  },
+  {
+   "chemistry": "宋教授在冰壁上方校准固定钢钉并大声呼应，学者在下方抓紧绳头稳定重心，已成年的年轻学者与资深导师紧密配合保障全队攀爬安全。",
+   "id": "cc_scholar_and_professor_winch",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "explorer_lu_hanzhou",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "科考探险中的默契合作。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "professor_song_expedition_leader",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "敬佩老教授的学术定力与爱生情怀。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "explorer_lu_hanzhou",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "professor_song_expedition_leader",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "科考学术传道与生死关头的成年同袍深厚道义。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "explorer_lu_hanzhou",
+    "professor_song_expedition_leader"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在悬冰彻底垮塌前固定好主牵引绳索。",
+    "limit_gap": "宋教授年长体能受限无法下坑，学者身处险境随时面临落石威胁。",
+    "meeting_reason": "宋教授要在天坑口打一根铁桩挂滑轮，学者扛着铁桩往坑口走，女把头说那块冰檐靠不住。",
+    "resource_gap": "宋教授持有发报机与上方锚点工具，学者掌握下方第一手冰层破损数据。"
+   },
+   "tags": [
+    "workplace_power",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_avalanche_ice_fall_vs_crevasse_ascent"
+   ]
+  },
+  {
+   "chemistry": "巡长铁柱以身作桩稳稳拉紧主牵引绳，女把头在下方抓住绳头飞跃攀上冰壁，军民携手无惧高山暴雪。",
+   "id": "cc_huntress_and_ranger_tether",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "huntress_guan_xueyuan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "赞赏年轻女把头的飒爽无畏。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "patrol_iron_column_ranger_captain",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "信赖军职巡长的过硬铁腕。",
+     "stage": "familiar"
+    },
+    {
+     "a": "huntress_guan_xueyuan",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "patrol_iron_column_ranger_captain",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "关东林海巡逻军民同舟共济的过硬交情。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "huntress_guan_xueyuan",
+    "patrol_iron_column_ranger_captain"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "将受困人员安全拉上坚实冰台。",
+    "limit_gap": "铁柱无法直下坑底，女把头面临冰壁滑坠险情。",
+    "meeting_reason": "边防巡逻队巡山路过，巡长认出女把头，说山下镇上有人在打听这支考察队。",
+    "resource_gap": "铁柱具备高山搜救力量与军规绳扣，女把头具备极其敏捷的冰崖身手。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_avalanche_ice_fall_vs_crevasse_ascent"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_crevasse_blizzard_howl",
+   "reach": "all",
+   "text": "天坑狂风呼啸杂夹碎石飞溅轰鸣声"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_carabiner_snap_knife_creak",
+   "reach": "local",
+   "text": "锁扣金属卡滞与鹿骨刀背撬动咬合声"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "放山世家第七代，跟着爹在老林子里走了十几年，爹走后接下压山大令当了把头，一帮老参客都听这位女把头的号令，去留进退由本人拿主意。",
+   "age_range": [
+    24,
+    28
+   ],
+   "appearance_options": [
+    "身穿雪青色手工皮毛滚边紧身耐磨猎装长靴，身姿修长匀称，容貌清丽绝俗。脸颊带着青年成年女性特有的健康紧致微婴儿肥与水润胶原蛋白，在冰雪映衬下白里透红，双目清澈冷冽如天池寒泉，头戴貂皮翻沿暖帽，透着雪原林海独有的飒爽英气。",
+    "皮袄领口微沾雪末白霜，纤细指节紧紧握住鹿骨折柄快刀，脸颊微婴儿肥肉质在寒风中微微泛红，清冷双眸透着山里长大的倔强孤傲。"
+   ],
+   "decision": {
+    "avoids": [
+     "拖泥带水的懦弱埋怨",
+     "破坏规矩的鲁莽行径"
+    ],
+    "contrast": "外表是清冷飒爽且带有微婴儿肥圆润脸庞的娇美姑娘，在暴风雪与冰崩面前展现出远超常人的沉着果决与坚韧意志。",
+    "core_value": "关东这片老林子从不养闲人，山神爷面前众生平等，学者，借骨刃撬开这道死扣！",
+    "goal_options": [
+     "用鹿骨快刀加厚背脊精准撬开落石缝隙内变形锁扣脱险",
+     "协助学者攀上冰壁拉稳固定登山主绳"
+    ],
+    "never": [
+     "在同行队友脱险前独自逃生"
+    ],
+    "prefers": [
+     "干脆利落的硬核自救行动",
+     "生死与共的真诚担当"
+    ],
+    "pressure_responses": {
+     "breaking": "脱下皮手套与学者四掌紧贴合力压下刀背",
+     "high": "双膝顶在坚硬冰面上握紧快刀背脊全力撬动卡销",
+     "low": "在暴风雪呼啸中冷静观察落石结构判断受力点",
+     "mid": "解开鹿皮围巾抵挡飞石为队友挡住冰雪飞溅"
+    },
+    "relationship_stance": "嘴上嫌学者的洋书本不顶用，看石头比看路还认真，却每晚扎营都把最暖和的那块狍子皮铺在学者的铺位上。",
+    "withdrawal": "退至避风石崖深处背靠岩壁冷眼注视风雪变幻。"
+   },
+   "gender": "female",
+   "gender_reason": "长白山关东放山采参世家第七代女把头",
+   "id": "huntress_guan_xueyuan",
+   "identity": {
+    "authority": "对全队登山线路选择、放山规矩裁决、雪崩突发脱险调度拥有最高把头决定权。",
+    "exposure": "为了保护队友私自变卖过一件祖传山参给药栈的旧账",
+    "hidden": "皮袄贴身内袋里珍藏着母亲手绘的长白山珍稀药草分布地图",
+    "limits": [
+     "身形娇小在面对落石直接重压时无法单人推开巨岩",
+     "在零下三十度严寒中双手剧烈用力导致指尖麻木"
+    ],
+    "obligations": [
+     "护送考察队全体人员平安撤出长白山天坑"
+    ],
+    "resources": [
+     "一把祖传高密度鹿骨雕柄快刀（长八寸、厚背平脊、端部带开石微弯刃口）",
+     "一卷紧贴腰背的深红防潮采参蚕丝绳带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在冰崩绝境中挺身而出以身体遮挡飞石的担当",
+     "在零下三十度寒夜中彼此哈气暖手时沉稳坚毅的目光"
+    ],
+    "boundaries": [
+     "恪守关东大姑娘自重自爱本分",
+     "严禁任何以险情为要挟的无理要求"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "同学者并肩站在安全冰台边缘，十指握紧绳索注视风雪渐息。",
+    "dislikes": [
+     "借危急之机毛手毛脚",
+     "大难临头抛弃同伴"
+    ],
+    "expression": "耳垂泛起微红，微微偏过带有微婴儿肥的俏脸，将温热的鹿皮手套递向学者冻僵的双手。",
+    "likes": [
+     "配合默契时对方眼中流露的纯粹信赖",
+     "在生死关头彼此心照不宣的冷静果断"
+    ],
+    "preconditions": [
+     "主绳锁扣成功撬开且全员安全登上冰壁",
+     "全队安全脱离雪崩危险地带",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "长白山新任采参女把头",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_crevasse_bottom_boulder_shelter",
+     "to": 975
+    },
+    {
+     "from": 975,
+     "location_id": "loc_crevasse_bottom_boulder_shelter",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "鹿骨刀背出现轻微压痕，{npc.name}指掌磨出轻微血泡。",
+      "option": "{npc.name}与学者合力将鹿骨快刀厚脊卡入锁扣缝隙，借杠杆力道别开咬死插销脱身。"
+     },
+     {
+      "cost": "锁扣彻底震断导致绳索受损缩短两米。",
+      "option": "用钢镐直接砸击锁扣金属外壳尝试暴力砸碎卡舌脱身。"
+     }
+    ],
+    "pressure": "天坑底部气温降至零下三十度，狂风持续灌入，不尽快撬开锁扣全员将被冻僵在深坑中。",
+    "trigger": "崩塌落石砸扁了唯一的登山主绳金属快挂锁扣，形成死锁无法解脱。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要这柄鹿骨刀不折，长白山走出来的把头闺女，就绝不会倒在这片雪窝里！",
+    "surface": "握紧岩壁！锁扣被砸凹变形了，鹿骨刀背是老林子驯鹿骨磨成的，硬度够，把刀背卡进缝里，听我号令一起发力！"
+   }
+  },
+  {
+   "adult_context": "现年满二十七岁，毕业于名牌大学地质系，持有高山地质考察与冰岩勘探全权资格证书。",
+   "age_range": [
+    26,
+    29
+   ],
+   "appearance_options": [
+    "身穿厚实防风翻毛探险夹克，身姿挺拔，面容轮廓分明，眉宇间带着学者独有的严谨深沉。",
+    "眼神清澈沉静，在风雪狂啸中紧紧护在女把头身前阻挡飞石。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目蛮干破坏整体工具",
+     "临阵退缩丧失斗志"
+    ],
+    "contrast": "平日文质彬彬的青年学者，在面对生死绝境时展现出果决无畏的刚毅血性。",
+    "core_value": "自然规律讲求支点与力矩，骨刀做杠杆，一定能破开这道绝境！",
+    "goal_options": [
+     "协助女把头将刀背稳准切入锁扣间隙全力别开插销",
+     "用身躯稳住石崖落脚点为女把头遮挡落雪"
+    ],
+    "never": [
+     "在女把头脱险前松开固定绳索"
+    ],
+    "prefers": [
+     "严密的力学论证与科学协作",
+     "相互信任的分工配合"
+    ],
+    "pressure_responses": {
+     "breaking": "用臂膀环抱女把头背脊抵挡砸落的碎冰",
+     "high": "双手死死握住刀背与女把头同时发力推撬",
+     "low": "快速计算玄武岩支撑角度与受力平衡点",
+     "mid": "用手掌护住女把头肩头抵挡碎石飞溅"
+    },
+    "relationship_stance": "跟着女把头在老林子里走了一个月，学者的测绘本子后头，画满了女把头的侧影。",
+    "withdrawal": "退至冰穴角落仔细检查主绳编织纤维磨损状况。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "explorer_lu_hanzhou",
+   "identity": {
+    "authority": "对全队冰岩力学测算、锚点安全承载与地质标本安全负有专业评定权。",
+    "exposure": "为了探勘深入冰川擅自更改过行进路线",
+    "hidden": "随身笔记本中夹着一张女把头在林海雪原中带路巡山的写生画",
+    "limits": [
+     "徒手力气无法单独推开百吨重玄武岩",
+     "长期在极寒中作业导致右手指尖轻微发僵"
+    ],
+    "obligations": [
+     "保护全队科研人员与采参女把头平安脱险"
+    ],
+    "resources": [
+     "一把带精确刻度的地质勘探钢锤",
+     "一瓶高纯度医用防冻凡士林"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女把头英姿飒爽之下纯净坚韧的气度",
+     "严寒生死交界处彼此心跳交织的震撼"
+    ],
+    "boundaries": [
+     "保持学者自律与对女把头的绝对尊重",
+     "严禁任何乘人之危的冒犯举动"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "同女把头背靠避风石壁并肩而坐，两手共同握住主绳扣环。",
+    "dislikes": [
+     "无谓的轻生言语",
+     "虚伪的客套托词"
+    ],
+    "expression": "解开厚实防风大衣为女把头遮风，目光满是关切与温存。",
+    "likes": [
+     "合力化解险情时相视一笑的坦荡",
+     "风雪中相互依靠传递的踏实体温"
+    ],
+    "preconditions": [
+     "主绳成功解脱且全员安全攀上冰台",
+     "安全撤离至天池下平缓营地",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "考察队副队长兼地质学者",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_crevasse_bottom_boulder_shelter",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}手背被石棱擦破浅层皮肉渗出细微血珠。",
+      "option": "{npc.name}与女把头以鹿骨刀背为杠杆，借全身力道撬开锁舌脱困。"
+     },
+     {
+      "cost": "主绳长度减半导致上升难度倍增。",
+      "option": "用钢镐直接切断卡死部分单绳结扣攀爬。"
+     }
+    ],
+    "pressure": "气温持续走低，狂风随时可能吹落上方悬冰，必须分秒必争。",
+    "trigger": "崩落玄武岩砸变形了锁扣，压死在冰壁凹槽边缘。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "哪怕双手冻裂，也绝不能让女把头在这片冰坑里遭遇不测！",
+    "surface": "把头，抓稳岩角！刀背已经咬紧锁舌间隙，数到三，跟着节奏一起下压！"
+   }
+  },
+  {
+   "adult_context": "年满五十二岁，长白山林海采参资深把桩师，具有完全民事行为能力。",
+   "age_range": [
+    50,
+    56
+   ],
+   "appearance_options": [
+    "身穿厚重老羊皮坎肩，胡须结满白霜，双目炯炯有神透着老练威严。",
+    "双手布满老茧与裂口，握着索罗棍在雪窝里稳如泰山。"
+   ],
+   "decision": {
+    "avoids": [
+     "惊慌失措盲目乱窜",
+     "抛弃同伴独自苟活"
+    ],
+    "contrast": "表面粗豪严厉，内心对年轻一代关怀备至。",
+    "core_value": "山里人骨头硬，老把头传下的规矩不能丢，稳住劲头，别慌神！",
+    "goal_options": [
+     "指导女把头找准刀背受力支点顺势撬动",
+     "用索罗棍支撑冰穴缝隙防止落石滑落"
+    ],
+    "never": [
+     "在险境面前放弃队伍"
+    ],
+    "prefers": [
+     "踏实果敢的自救行动",
+     "尊规守矩的团队配合"
+    ],
+    "pressure_responses": {
+     "breaking": "用身躯抵住下滑碎冰确保后辈安全",
+     "high": "用索罗棍顶住摇晃碎石稳定作业空间",
+     "low": "在狂风呼啸中大声提醒众人注意上方冰挂动静",
+     "mid": "脱下皮坎肩铺在雪地上为伤员隔绝寒气"
+    },
+    "relationship_stance": "视女把头如亲生闺女般爱护关照，对学者的硬朗作风点头称许。",
+    "withdrawal": "倚靠避风石角揉捏酸痛膝盖平复呼吸。"
+   },
+   "gender": "male",
+   "gender_reason": "长白山放山采参老把桩师",
+   "id": "hunter_tong_veteran_guide",
+   "identity": {
+    "authority": "对老林风向预判、雪崩走势避让拥有丰富经验权威。",
+    "exposure": "早年放山曾遭遇雪崩遗失过珍贵老山参",
+    "hidden": "腰间缝着一张保佑全队进山平安的红色神符",
+    "limits": [
+     "风湿老腿无法完成高难度垂直岩壁攀爬",
+     "体力消耗过大需间歇休整"
+    ],
+    "obligations": [
+     "保全后辈年轻把头与考察队安全"
+    ],
+    "resources": [
+     "一根硬木压山索罗棍",
+     "一盒防裂野猪油"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "青年一代展现出的英勇互助担当",
+     "共渡生死劫难后的真挚袍泽情谊"
+    ],
+    "boundaries": [
+     "恪守长辈关照晚辈之分",
+     "严禁干涉年轻男女私下情愫"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "站在避风石崖外侧警惕观察风雪动向为众人放哨。",
+    "dislikes": [
+     "内讧争吵推诿责任",
+     "临阵怯懦弃械投降"
+    ],
+    "expression": "拍打年轻人的肩膀大声夸赞打气，满脸欣慰笑容。",
+    "likes": [
+     "年轻人沉着应对破开险境的豪气",
+     "全队平安脱险后的欢声笑语"
+    ],
+    "preconditions": [
+     "全员安全脱困登上安全山脊",
+     "险情彻底平息"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "资深把桩老参客",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_crevasse_bottom_boulder_shelter",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "佟把桩手背被寒冰擦出一道浅血痕。",
+      "option": "佟把桩指挥找准刀背受力角度，顺势一撬弹开锁扣。"
+     },
+     {
+      "cost": "索罗棍端头受力开裂两寸。",
+      "option": "用索罗棍全力硬顶石缝撬松锁扣周围碎石。"
+     }
+    ],
+    "pressure": "严寒刺骨，体能正在加速消耗。",
+    "trigger": "碎石阻死锁扣，徒手无法掰开卡簧。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "老把头的闺女有出息，这道坎一定能跨过去！",
+    "surface": "丫头，别硬掰！顺着锁舌齿槽滑下去，学者掌住刀背，一起使巧劲！"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁，长白山山麓健壮青年脚夫，具备完全民事行为能力。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿厚实土布棉裤与狗皮帽子，双颊冻得通红，眼神憨厚淳朴。",
+    "背负厚重行囊依然步履稳健，手脚麻利。"
+   ],
+   "decision": {
+    "avoids": [
+     "勾心斗角暗中偷懒",
+     "擅自离队盲目涉险"
+    ],
+    "contrast": "平时朴讷拙言，危急关头干活最踏实卖命。",
+    "core_value": "只要把头和先生下令，多大雪块我都给铲开！",
+    "goal_options": [
+     "用雪铲迅速铲开锁扣周围冻泥碎冰",
+     "协助搭建简易雪墙阻挡倒灌寒风"
+    ],
+    "never": [
+     "丢下标本箱独自逃跑"
+    ],
+    "prefers": [
+     "明确具体的力量活",
+     "团队齐心协力"
+    ],
+    "pressure_responses": {
+     "breaking": "脱下棉手套死死扣住冰缝作为临时抓手",
+     "high": "拼命握紧主绳尾端防止绳索回滑",
+     "low": "卖力挥动雪铲清理冰穴积雪",
+     "mid": "用后背抵住落雪为队友腾出操作空间"
+    },
+    "relationship_stance": "对女把头恭敬佩服，对学者言听计从，忠厚老实勤快卖力。",
+    "withdrawal": "缩在雪坑一角大口喘气揉搓冻僵的脚踝。"
+   },
+   "gender": "male",
+   "gender_reason": "考察队青年背夫脚夫",
+   "id": "porter_little_hu_tracker",
+   "identity": {
+    "authority": "负责营地防寒物资、雪铲工具调配与防雪墙堆砌。",
+    "exposure": "途中曾不慎滑倒压翻过一袋炒面",
+    "hidden": "怀里珍藏着离家前母亲缝制的红布平安符",
+    "limits": [
+     "缺少高空攀爬技巧难以单人开路",
+     "对复杂机械原理不够熟练"
+    ],
+    "obligations": [
+     "看护科考标本箱不遗失"
+    ],
+    "resources": [
+     "一把实木雪铲",
+     "一盒防潮火柴"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女把头危难关头不慌不乱的从容气度",
+     "众人互帮互助脱离险境的真诚感动"
+    ],
+    "boundaries": [
+     "恪守脚夫本分不越矩",
+     "尊重各位长辈与学者"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "半跪在石崖台阶边缘全力拉紧主绳辅助固定。",
+    "dislikes": [
+     "无端责骂伙伴",
+     "贪生怕死背叛朋友"
+    ],
+    "expression": "咧嘴傻笑抓后脑勺，两手将热茶水捧给女把头与学者。",
+    "likes": [
+     "锁扣解脱时的欢声鼓舞",
+     "大家分食热姜汤时的融洽温暖"
+    ],
+    "preconditions": [
+     "全员安全攀上天坑顶端",
+     "物资标本完好保全"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "考察队雪地脚夫",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_crevasse_bottom_boulder_shelter",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "雪铲刃角受碎石磕碰轻微卷曲。",
+      "option": "胡小栓用雪铲铲净杂冰，为骨刀切入扫清障碍。"
+     },
+     {
+      "cost": "指甲缝渗血受冻裂开。",
+      "option": "徒手抠除冰碴加快速度。"
+     }
+    ],
+    "pressure": "暴雪持续灌入，清理不及时缝隙会再度冻结。",
+    "trigger": "坚冰杂物堵塞卡舌缝隙，阻碍刀背进入。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要大家能平安上去，就算让我铲上一整夜雪也心甘情愿！",
+    "surface": "把头！学者！锁扣周围的冰渣我都铲干净了，快使力撬！"
+   }
+  },
+  {
+   "adult_context": "现年满五十岁，关东大学地质科学研究所教授，具备完全民事行为能力与高山探险学术带队全权。",
+   "age_range": [
+    48,
+    54
+   ],
+   "appearance_options": [
+    "身穿厚实防风长款羊羔毛翻领科考大氅，戴着圆形厚镜片防风眼镜，胡茬微带白霜，神态沉稳干练，双目透着严谨学者的执着目光。",
+    "手握地质测量本与黄铜罗盘，在冰壁上方沉着指挥众人稳步撤离。"
+   ],
+   "decision": {
+    "avoids": [
+     "轻率冒险蛮干",
+     "逃避责任自私自利"
+    ],
+    "contrast": "平日严厉不苟言笑的学者，在生死关头展现出护犊情深的师长温情。",
+    "core_value": "科学探索重于泰山，年轻学者的安危是国家的未来，一个都不能少！",
+    "goal_options": [
+     "在冰壁顶端搭建坚固绳索锚点接应下方人员",
+     "通过发报机呼叫山下巡逻队前来接应"
+    ],
+    "never": [
+     "在全体队员脱险前擅自撤离"
+    ],
+    "prefers": [
+     "严密可靠的安全措施",
+     "同舟共济的互助精神"
+    ],
+    "pressure_responses": {
+     "breaking": "顶着寒风死死拉紧牵引钢丝护卫学生",
+     "high": "解下防寒围巾投下坑底为受困人员提供御寒指引",
+     "low": "在风雪中冷静测算气流回旋规律判断窗口期",
+     "mid": "指挥背夫稳固上方岩石支撑点防止次生垮塌"
+    },
+    "relationship_stance": "对学者寄予厚望视如学术衣钵传人，对女把头高超的采参经验深表敬佩。",
+    "withdrawal": "退回冰壁上方背风岩凹整理发报机线路。"
+   },
+   "gender": "male",
+   "gender_reason": "关东地质科学考察队资深带队男教授",
+   "id": "professor_song_expedition_leader",
+   "identity": {
+    "authority": "对全队科考进度、标本处置安全、突发险情上报救援拥有学术决定权。",
+    "exposure": "为了抢救珍贵标本曾违背过林区提前撤离建议",
+    "hidden": "公文包夹层内藏着一份关于长白山地下温热气孔分布的绝密预测图",
+    "limits": [
+     "年纪偏大难以承受长时间高难度攀冰作业",
+     "在冰壁上方无法直接下到坑底贴身支援"
+    ],
+    "obligations": [
+     "确保全队人员平安生还并带回珍贵地质资料"
+    ],
+    "resources": [
+     "一台便携式手摇应急发报机",
+     "一套高强度岩石锚定牵引金属卡爪"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "青年后辈迎难而上的勇敢气概",
+     "危难面前显现出的师生同舟道义"
+    ],
+    "boundaries": [
+     "严守学术师长严谨风范",
+     "不得干涉青年男女私下交往"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "站在冰壁顶端安全绳桩旁，双手紧抓牵引索向下招手迎接。",
+    "dislikes": [
+     "临阵自乱阵脚",
+     "漠视纪律盲动"
+    ],
+    "expression": "快步上前紧紧握住学者与女把头的双手，满眼赞许与激动热泪。",
+    "likes": [
+     "脱险后全体平安归来的喜悦",
+     "科学资料完好无损的慰藉"
+    ],
+    "preconditions": [
+     "全员安全攀上冰台脱险",
+     "险情完全解除"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "科考队学术领队教授",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_vertical_ice_wall_climbing_pitch",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "固定钢缆在冰岩摩擦下磨损一层外皮护套。",
+      "option": "宋教授指挥上方人员加固岩钉稳定主绳，协助下方人员翻上平台脱身。"
+     },
+     {
+      "cost": "发报机蓄电池电量耗尽。",
+      "option": "通过手摇发报机发射求救信号引导地面搜救队。"
+     }
+    ],
+    "pressure": "必须在冰檐进一步垮塌前固定好牵引副绳索。",
+    "trigger": "上方风口强风吹扯绳索，给下方攀登造成剧烈晃动。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要这两个年轻人能平安上来，这次考察就算丢了所有行李也值得！",
+    "surface": "学者！女把头！上方的岩壁锚点已经完全固定稳固了，抓住窗口期，踩准落脚点顺着主绳攀上来！"
+   }
+  },
+  {
+   "adult_context": "年满三十岁，长白山高山边防巡逻队军职巡长，具备完全民事行为能力与雪原应急指挥全权。",
+   "age_range": [
+    28,
+    34
+   ],
+   "appearance_options": [
+    "身穿带有高山边防徽标的厚棉军大衣，腰系宽牛皮武装带，脚蹬厚皮乌拉草防寒靴，神情坚毅如钢铁，眼神在风雪中锐利如鹰隼。",
+    "手提防风雪地马灯，率领巡逻队员在天坑边缘敏捷布设应急安全绳索。"
+   ],
+   "decision": {
+    "avoids": [
+     "瞻前顾后的优柔寡断",
+     "弃车保帅的怯懦逃避"
+    ],
+    "contrast": "外表威猛严苛不苟言笑，骨子里对关东父老乡亲充满炽热深情。",
+    "core_value": "长白山上的行路人，巡逻队绝不落下一条性命，全都给我全须全尾带回去！",
+    "goal_options": [
+     "组织巡逻队员在冰壁顶端建立双锚点拖曳救助系统",
+     "在冰穴入口外侧点燃信号火堆指引风雪方位"
+    ],
+    "never": [
+     "在全员救出前下令撤收搜救装备"
+    ],
+    "prefers": [
+     "雷厉风行的军人作风",
+     "令行禁止的严整组织"
+    ],
+    "pressure_responses": {
+     "breaking": "双腿蹬紧冰缝徒手拉紧主绳以身作桩",
+     "high": "咬紧牙关带队合力拉动牵引索分担攀爬负重",
+     "low": "在悬崖上方迅速拉开安全工作面架设固定桩",
+     "mid": "冒着风雪探身悬崖抛下防滑绳索呼应下部人员"
+    },
+    "relationship_stance": "敬重关家把头的放山豪气，佩服地质学者的科研奉献，在危难面前是最可靠的强力后盾。",
+    "withdrawal": "站在天坑上缘风雪平缓处搓手哈气保持清醒。"
+   },
+   "gender": "male",
+   "gender_reason": "统领高山巡逻分队的关东壮汉巡长",
+   "id": "patrol_iron_column_ranger_captain",
+   "identity": {
+    "authority": "对高山搜救、险情处置、雪崩封山管控拥有行政管制权。",
+    "exposure": "曾因私自收留饥寒交迫的采参客违抗过封山严令",
+    "hidden": "怀中贴身带着一包用于高山极寒急救的百年野山参片",
+    "limits": [
+     "军用马匹无法下到垂直天坑底部",
+     "深谷狂风阻隔视线无法直观查明石缝暗槽细节"
+    ],
+    "obligations": [
+     "守护深山边陲过往行旅与科考人员生命安全"
+    ],
+    "resources": [
+     "一套高强度耐磨登山牵引主绳与纯钢环扣",
+     "一支高音防冻雪地信号哨"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "民间采参儿女在大难当头表现出的刚毅骨气",
+     "患难与共生死相依的关东血脉温情"
+    ],
+    "boundaries": [
+     "恪守公职人员纪律规范",
+     "严禁干预青年男女私人情意"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "挺立在悬崖安全桩侧方，两手稳稳抓握保护绳环作为主锚点支撑。",
+    "dislikes": [
+     "背弃信义的卑劣逃遁",
+     "违抗搜救法令盲目乱动"
+    ],
+    "expression": "重重拍打学者与女把头的后背，朗声大笑夸赞后生好样的。",
+    "likes": [
+     "全体队员安全出坑相聚痛饮烈酒的豪爽",
+     "雪原险情被彻底战胜的昂扬胜势"
+    ],
+    "preconditions": [
+     "全员被稳妥拉上安全冰面平台",
+     "险情完全排除"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "高山巡逻队巡长",
+   "schedule": [
+    {
+     "from": 960,
+     "location_id": "loc_subterranean_ice_cave_bivouac",
+     "to": 990
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "巡逻队员手套皮面被尼龙绳剧烈摩擦磨出焦痕。",
+      "option": "铁柱指挥队员合力张紧副绳，平稳引导下方人员攀上平台脱困。"
+     },
+     {
+      "cost": "消耗仅存的两发专用防冻信号弹。",
+      "option": "发射信号弹通知山下马队在背风山坡集结备药。"
+     }
+    ],
+    "pressure": "必须有人在上端持续施力绷紧主绳化解风偏。",
+    "trigger": "强风导致悬空主绳剧烈甩动，威胁攀爬平衡。"
+   },
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "只要巡逻队还在长白山上，就决不让一个关东好儿女冻死在冰窟窿里！",
+    "surface": "女把头，陆兄弟，巡逻队主绳已经固定牢实，只要锁舌撬开，我们这就拉你们上来！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "宣统二年九月，山上已落初雪",
+  "minute": 960
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "bodily_harm",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "长白山老把头进山前习惯向山神巨石供奉新鲜松枝祈求平安。",
+  "关东采参客腰间习惯悬挂红丝绳与纯铜铃铛作为护山标识。",
+  "高山地质考察队雪地露营时习惯用牛皮水壶装温热水放置睡袋内取暖。",
+  "雪原遭遇滚石崩塌时全体习惯击打铜水壶一声迅速集结散开避险。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "进山前一晚，女把头在地窨子里摊开一张手绘的山图，给考察队讲哪道沟里有参。",
+    "地质学者指着图上的冰川问能不能绕过去，女把头说那地方连老把头都不去。",
+    "灯油快烧完了，女把头卷起山图，叮嘱大家明早五更出发。"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hook_hanzhou_sketch",
+    "hook_xueyuan_dugout_curtain",
+    "hook_xueyuan_hot_spring"
+   ],
+   "id": "act_mountain_crevasse_blizzard_audit",
+   "location_ids": [
+    "loc_ginseng_dugout_hut"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "workplace"
+   ],
+   "title": "地窨子里看山图"
+  },
+  {
+   "beats": [
+    "涂抹防裂野猪油润滑岩壁深处金属碰锁咬合面",
+    "使用鹿骨快刀背脊探入锁扣狭窄咬合缝隙量测间隙",
+    "擦拭主绳金属锁扣表面凝结的坚硬冰霜碎雪"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_carabiner_deformation_lock_check",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "start_minute": 965,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "落石重压下登山主绳金属快挂卡槽受力核查"
+  },
+  {
+   "beats": [
+    "用粗毛毡布擦净鹿骨刀背上凝结的微细雪粒",
+    "以石崖坚实边缘为支点测试刀背抗变形弯曲强度",
+    "调整握持手法确保受力施加时虎口不滑脱脱位"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_deer_bone_knife_back_leverage_test",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "start_minute": 970,
+   "tags": [
+    "workplace"
+   ],
+   "title": "加厚鹿骨折柄快刀背脊刚度与抗弯强度校验"
+  },
+  {
+   "beats": [
+    "寻找冰壁坚硬无裂痕区域凿出稳固落脚点",
+    "测试主绳在冰壁边缘摩擦时的耐磨保护垫受力",
+    "向下呼应队友确认锁扣撬开后立刻拉紧主绳"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_vertical_ice_wall_anchor_setting",
+   "location_ids": [
+    "loc_vertical_ice_wall_climbing_pitch"
+   ],
+   "start_minute": 975,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "数十丈垂直冰壁通道地质钢锥与绳套布设"
+  },
+  {
+   "beats": [
+    "核准冰川裂缝岩石断层编号并记录地质年代",
+    "使用厚牛皮纸包裹标本装入实木便携箱中封闭",
+    "用防雨油布严密捆扎标本箱系在背夫后背"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_geology_specimen_sealing",
+   "location_ids": [
+    "loc_vertical_ice_wall_climbing_pitch"
+   ],
+   "start_minute": 980,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "天坑底部珍稀玄武岩地质标本安全固封"
+  },
+  {
+   "beats": [
+    "女把头把索罗棍、鹿骨签子和红绳一样样摆在炕上，挨个检查。",
+    "考察队的人好奇地拿起红绳，女把头说这是拴参用的，见了参先拴住，它就跑不了。",
+    "家什收进背篓，女把头拍了拍手：明天让你们开开眼。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_hanzhou_sketch",
+    "hook_xueyuan_dugout_curtain",
+    "hook_xueyuan_hot_spring"
+   ],
+   "id": "act_mountain_ranger_rescue_harness_check",
+   "location_ids": [
+    "loc_ginseng_dugout_hut"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "workplace"
+   ],
+   "title": "整理放山的家什"
+  },
+  {
+   "beats": [
+    "锁扣撬开、全队爬出天坑、暴风雪停了之后，女把头回到地窨子，皮袄冻得梆硬，睫毛上还挂着霜。",
+    "火炕烧得滚热，女把头背过身，让人解开皮袄的扣襻，再用热水擦去冻僵的肩背，热毛巾擦到腰间时，女把头哼了一声，却往后靠了过来。",
+    "女把头转过身，把冻红的手塞进对方怀里：放山的规矩，拴住了就跑不了。……你愿意，今晚就别走。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dugout_frozen_coat",
+   "location_ids": [
+    "loc_ginseng_dugout_hut"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "地窨子里替女把头解开冻硬的皮袄"
+  },
+  {
+   "beats": [
+    "地窨子里的铁锅咕嘟了一下午，女把头换了身旧棉袄，盘腿坐在火炕上，舀了一碗狍子汤吹了又吹。",
+    "女把头把碗塞过来：喝了暖身子。……洋书本里没写这个吧？坐上炕来，炕头热。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dugout_roe_soup",
+   "location_ids": [
+    "loc_ginseng_dugout_hut"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "intimate"
+   ],
+   "title": "一锅狍子汤"
+  },
+  {
+   "beats": [
+    "下山的前一夜，女把头从怀里摸出一根拴参用的红绳，在灯下绕了又绕，绕了半天也没系上。",
+    "女把头抬眼看人：放山的人，拴住的都是一辈子的宝贝。……我想拴你，你说好，我才系。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dugout_red_rope",
+   "location_ids": [
+    "loc_ginseng_dugout_hut"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "一根拴参的红绳"
+  },
+  {
+   "beats": [
+    "雪停了，林子里静得能听见松枝上的雪往下落，女把头在火炕上醒来，辫子散了，脸贴在人的胸口。",
+    "女把头把被子往上拉了拉：老把桩师还没起……再睡一会儿，今天不进山。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dugout_snow_dawn",
+   "location_ids": [
+    "loc_ginseng_dugout_hut"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "雪停之后的清晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "清末民初关东长白山老林放山采参与高山冰川科考探险期",
+ "extends": null,
+ "forbidden_terms": [
+  "春药",
+  "迷药",
+  "发情",
+  "肉棒",
+  "肉茎",
+  "花穴",
+  "蜜液",
+  "呻吟"
+ ],
+ "hooks": [
+  {
+   "id": "hook_xueyuan_observes_blizzard_wind",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "huntress_guan_xueyuan",
+   "text": "{huntress_guan_xueyuan.name}一手扶住避风石崖冰冷岩角，两腮带着健康紧致微婴儿肥与水润胶原蛋白，眼神清冷凝视着狂风：气温跌破零下三十度，快把骨刀背脊卡入锁孔，一起用力撬开！"
+  },
+  {
+   "id": "hook_boulder_crushes_carabiner_slot",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "huntress_guan_xueyuan",
+   "text": "{huntress_guan_xueyuan.name}半跪在落石裂隙前，脸颊微婴儿肥肉质在寒风中微微泛红，清冷开口：锁扣被落石死死砸瘪变形了，别蛮拉，用这柄鹿骨刀背切进去，握紧刀柄！"
+  },
+  {
+   "id": "hook_hanging_cornice_creaks_above",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "huntress_guan_xueyuan",
+   "text": "{huntress_guan_xueyuan.name}甩掉肩头冰渣，白皙脸蛋在风雪中神色不惊：上头冰檐开始发出咔嚓脆响，碎石马上就落下来，佟老爹，握紧岩角，大家跟上节奏一起下压！"
+  },
+  {
+   "id": "hook_hanzhou_grips_bone_knife_ready",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "explorer_lu_hanzhou",
+   "text": "{explorer_lu_hanzhou.name}侧身挡住女把头上方的坠雪，双手紧紧握住骨刀加厚背脊：把头别慌，这块玄武岩虽然沉重，但力矩支点已找准，听口令同时下发力撬动！"
+  },
+  {
+   "id": "hook_tong_calls_fulcrum_angle",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "hunter_tong_veteran_guide",
+   "text": "{hunter_tong_veteran_guide.name}抹去眉毛上的白霜：丫头，刀背别硬撬，顺着齿槽往深处切，把力量压到底，借着老林子的巧劲一掀就能开！"
+  },
+  {
+   "id": "hook_little_hu_scrapes_ice_slot",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vertical_ice_wall_climbing_pitch"
+   ],
+   "slot": "porter_little_hu_tracker",
+   "text": "{porter_little_hu_tracker.name}蹲在冰壁前用雪铲清空杂冰：把头，学者，锁舌周围的坚硬冻渣全都铲除干净了，骨刀插进去了，快下压！"
+  },
+  {
+   "id": "hook_song_calls_winch_ready",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vertical_ice_wall_climbing_pitch"
+   ],
+   "slot": "professor_song_expedition_leader",
+   "text": "{professor_song_expedition_leader.name}在冰壁上方高声呼应：下方人员注意，固定绳索已经放下，趁风力减弱抓住窗口期，顺着解脱的主绳攀上来！"
+  },
+  {
+   "id": "hook_iron_column_holds_main_line",
+   "kind": "approach",
+   "location_ids": [
+    "loc_subterranean_ice_cave_bivouac"
+   ],
+   "slot": "patrol_iron_column_ranger_captain",
+   "text": "{patrol_iron_column_ranger_captain.name}紧紧拉住安全牵引主绳：女把头，大家抓稳绳索，巡逻队绳扣已经挂稳，只要锁舌一开立刻拉大家上台！"
+  },
+  {
+   "id": "hook_snow_drift_chokes_cave_mouth",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "huntress_guan_xueyuan",
+   "text": "{huntress_guan_xueyuan.name}靠紧避风石崖，脸颊微婴儿肥泛着冷白英气，双眸定定望着前方：风雪正在卷入石穴，没时间犹豫了，学者，双手压在刀柄上，发力！"
+  },
+  {
+   "id": "hook_bone_knife_creaks_under_strain",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "explorer_lu_hanzhou",
+   "text": "{explorer_lu_hanzhou.name}双眼紧盯刀背咬合处，掌心与女把头手背紧紧贴紧：骨刃已经顶开卡榫两分，再加一把劲，锁舌马上弹出来了，顶住！"
+  },
+  {
+   "id": "hook_wind_drags_on_ice_pitch",
+   "kind": "request",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "huntress_guan_xueyuan",
+   "text": "{huntress_guan_xueyuan.name}侧头迎上学者的目光，清冷嗓音在风啸中无比坚定：长白山难不住放山人，把手搭过来，一起把这条生路撬开！"
+  },
+  {
+   "id": "hook_observe_huntress_heroic_contrast",
+   "kind": "request",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "huntress_guan_xueyuan",
+   "text": "{huntress_guan_xueyuan.name}将鹿皮手套递向学者冻红的双掌，带有微婴儿肥的脸颊泛起一丝温热：别让冻疮伤了拿笔杆子的手，戴上这个，握稳刀柄！"
+  },
+  {
+   "id": "hook_observe_crowd_holds_breath",
+   "kind": "request",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "huntress_guan_xueyuan",
+   "text": "{huntress_guan_xueyuan.name}单膝跪稳在冰坑石缝边缘，骨刃紧贴锁舌：佟老爹，看好上头落石动向，一听到咔哒声就立刻拉紧备用绳！"
+  },
+  {
+   "id": "hook_observe_carabiner_bursts_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "huntress_guan_xueyuan",
+   "text": "玄武岩落石深处传来一声清脆的金属弹簧归位震颤，变形锁扣受骨刀加厚背脊猛力撬别轰然弹开，主绳瞬间顺滑脱离卡滞。"
+  },
+  {
+   "id": "hook_observe_wind_calms_at_cliff",
+   "kind": "observe",
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "slot": "huntress_guan_xueyuan",
+   "text": "天坑狂风掠过石崖边缘，{huntress_guan_xueyuan.name}清冷挺立，微婴儿肥脸庞在暴雪中透着如雪梅般的坚毅，手中骨刀刃口完好无损映出晨光。"
+  },
+  {
+   "id": "hook_xueyuan_roe_deer",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "huntress_guan_xueyuan",
+   "text": "{npc.name}把一块烤得滋滋冒油的狍子肉塞过来，手指还烫得直甩：趁热吃。……老林子里，不吃肉扛不住。"
+  },
+  {
+   "id": "hook_xueyuan_hot_spring",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "huntress_guan_xueyuan",
+   "text": "{npc.name}站在天池边冒着热气的温泉旁，解开皮袄的扣子，回头瞥了一眼：转过去。……也不用转太远。"
+  },
+  {
+   "id": "hook_xueyuan_red_rope",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "huntress_guan_xueyuan",
+   "text": "{npc.name}从怀里摸出一根拴参用的红绳，系在人的手腕上：放山的规矩，拴住了就跑不了。"
+  },
+  {
+   "id": "hook_hanzhou_sketch",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "explorer_lu_hanzhou",
+   "text": "{npc.name}合上测绘本子，耳根发红：没画什么……就是石头。你别翻。"
+  },
+  {
+   "id": "hook_xueyuan_dugout_curtain",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ginseng_dugout_hut"
+   ],
+   "slot": "huntress_guan_xueyuan",
+   "text": "{npc.name}掀开地窨子的棉门帘，冲人招手：炕烧热了。……进来暖暖。"
+  }
+ ],
+ "id": "changbai_ginseng_blizzard_crevasse",
+ "locations": [
+  {
+   "affordances": [
+    "抓紧石崖凸起支撑身体抗击暴风气浪",
+    "拔出特制鹿骨折柄快刀卡入锁扣缝隙",
+    "利用巨石天然凹槽避开飞石流雪砸击"
+   ],
+   "detail": "海拔两千米开阔天然大天坑最深处，周围是高达数十丈的垂直淡蓝色透光坚硬冰壁。暴风雪呼啸在天坑上方发出怒吼，崩落的乱木巨石将出口完全封死。一块百吨重玄武岩巨石斜架在冰壁上，形成约三平米的悬空安全夹角。落石将登山主绳锁扣死死咬在巨石缝隙里，刀削般的石缝中渗着彻骨冷水。",
+   "exits": [
+    "loc_vertical_ice_wall_climbing_pitch",
+    "loc_subterranean_ice_cave_bivouac",
+    "loc_ginseng_dugout_hut"
+   ],
+   "id": "loc_crevasse_bottom_boulder_shelter",
+   "name": "天坑底石崖",
+   "pressure_modifiers": {
+    "p_avalanche_boulder_carabiner_jam": "数十吨巨石将金属锁扣死死压在岩壁槽内，无法徒手拉开。",
+    "p_crevasse_blizzard_hypothermia_freezing": "天坑底部气温骤降至零下三十度，狂风穿堂而过，手指关节迅速冻木迟缓。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_artisan_old_hunter_tong"
+   ]
+  },
+  {
+   "affordances": [
+    "将解脱的主绳系在坚实冰锥锚点上",
+    "脚踏冰爪在冰壁前协作攀登",
+    "用冰镐凿击平稳冰面开辟落脚点"
+   ],
+   "detail": "高约数十丈的垂直天然坚硬冰壁，是脱离天坑唯一的出路。冰面晶莹剔透质地坚硬，风雪顺着壁面刮落形成强劲气流。冰壁边缘悬垂着摇摇欲坠的冰檐巨石，随时可能发生二次坍塌。",
+   "exits": [
+    "loc_crevasse_bottom_boulder_shelter",
+    "loc_subterranean_ice_cave_bivouac"
+   ],
+   "id": "loc_vertical_ice_wall_climbing_pitch",
+   "name": "冰壁攀登道",
+   "pressure_modifiers": {
+    "p_hanging_ice_cornice_secondary_collapse": "坑顶冰檐被狂风持续侵蚀发出断裂声，随时可能坠落封死通道。"
+   },
+   "privacy": "public",
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_geology_inspector_professor_song",
+    "bg_porter_little_hu_tracker"
+   ]
+  },
+  {
+   "affordances": [
+    "点燃煤油炉融化冰雪化解口渴脱水",
+    "包扎伤口涂抹野猪油防冻药膏",
+    "靠紧避风石壁抵御体温流失"
+   ],
+   "detail": "巨石与冰壁深处交汇形成的天然狭小避险暗穴，空间约四平米，避风遮雪。石壁上覆盖着厚厚一层白霜，地面铺着干枯松针碎石，散发着天然干松脂清香。",
+   "exits": [
+    "loc_crevasse_bottom_boulder_shelter",
+    "loc_vertical_ice_wall_climbing_pitch"
+   ],
+   "id": "loc_subterranean_ice_cave_bivouac",
+   "name": "冰穴营地",
+   "pressure_modifiers": {
+    "p_blizzard_air_intake_snow_choke": "狂风卷入细雪灌入冰穴入口，积雪厚度逐步挤压呼吸空间。"
+   },
+   "privacy": "private",
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "visibility": "dark",
+   "witnesses": [
+    "bg_patrol_ranger_iron_column"
+   ]
+  },
+  {
+   "affordances": [
+    "替女把头解开冻硬的皮袄",
+    "陪女把头在火炕边喝狍子汤",
+    "放下地窨子的棉门帘"
+   ],
+   "detail": "林子边一座半埋在雪里的地窨子，一铺烧得滚热的火炕、一张挂着兽皮的木墙、一口咕嘟着狍子汤的铁锅，墙角码着放山用的索拨棍和红绳。",
+   "exits": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "id": "loc_ginseng_dugout_hut",
+   "name": "老林子里女把头的地窨子",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "门帘一放，外头的风雪就隔成了呜呜的一层，只剩火炕里柴火的噼啪声。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "关",
+   "陆",
+   "佟",
+   "白",
+   "马",
+   "石",
+   "富",
+   "赫",
+   "纳",
+   "乌",
+   "金",
+   "赵"
+  ],
+  "given_female": [
+   "雪凝",
+   "寒霜",
+   "傲雪",
+   "素影",
+   "清漪",
+   "玉润",
+   "凝香",
+   "初晴",
+   "微云",
+   "采薇",
+   "春晓",
+   "晓霜"
+  ],
+  "given_male": [
+   "寒舟",
+   "松岩",
+   "长青",
+   "振山",
+   "守诚",
+   "岩",
+   "青山",
+   "海东",
+   "守义",
+   "子安",
+   "浩然",
+   "定山"
+  ],
+  "given_neutral": [
+   "林",
+   "泉",
+   "山",
+   "川",
+   "远",
+   "青",
+   "白",
+   "云",
+   "松",
+   "雪",
+   "石",
+   "野"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "{family}先生"
+   },
+   {
+    "gender": "any",
+    "pattern": "阿{given_last}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留清末民初长白山放山采参世家、天池冰川天坑、暴风雪冰崩、女把头用鹿骨折柄快刀刀背撬变形锁扣的骨架与关东林海雪原味道。用户已放开内容限制，只守红线；外貌描写照留，只改写死的人名、代词、年龄。雪原同时是地名与原稿女主的名字，所以把它从女名池里换掉，只改人名用法。开局写女把头领着关东地质考察队上山，一个看参一个看石头；新增女把头的地窨子与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    26,
+    30
+   ],
+   "baseline": "负责长白山玄武岩地质构造测绘、冰川裂隙勘探与高山地质标本采集的学者。",
+   "gender": "any",
+   "id": "pi_geological_scholar_surveyor",
+   "reputation": "精通现代高山地质测绘与冰裂隙力学评估，被当地采参队尊称为通晓岩石脾性的洋专家。",
+   "resources": [
+    "一卷军用高强度登山主绳",
+    "一台德国高倍率防雾双筒望远镜"
+   ],
+   "risks": [
+    "直接暴露在落石砸击面易遭滚石骨折风险",
+    "身患高山严寒引发的轻微失温震颤"
+   ],
+   "role": "关东地质科学考察队青年地质学者",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}学者"
+    },
+    {
+     "gender": "male",
+     "pattern": "{given}先生"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    50,
+    58
+   ],
+   "baseline": "踏遍长白山十六峰每一处雪谷石罅、深知暗冰裂隙走向的资深引路向导。",
+   "gender": "any",
+   "id": "pi_veteran_ginseng_hunter_guide",
+   "reputation": "识山辨风经验丰富，闭着眼睛都能摸准雪崩避风口，深受老参客敬重。",
+   "resources": [
+    "一根压山老枣木索罗棍",
+    "一盒精炼长白山野猪油防冻膏"
+   ],
+   "risks": [
+    "老寒腿风湿在零下三十度严寒中僵硬迟缓",
+    "遭遇暴雪遮蔽视线迷失方位"
+   ],
+   "role": "长白山三十年放山采参老把桩师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}把桩"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老爹"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    24
+   ],
+   "baseline": "负责背负地质铁镐、煤油炉与防寒营帐的成年健壮关东青年。",
+   "gender": "any",
+   "id": "pi_expedition_young_porter_tracker",
+   "reputation": "身强力壮耐严寒，性格踏实少言寡语，听从指挥但缺乏冰岩破拆专业技能。",
+   "resources": [
+    "一捆厚牛皮加宽捆扎背带",
+    "一把坚硬实木雪铲"
+   ],
+   "risks": [
+    "负重失足滑落深坑裂缝",
+    "体力透支导致严重雪盲"
+   ],
+   "role": "考察队青年背夫兼雪地脚夫",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}老弟"
+    },
+    {
+     "gender": "male",
+     "pattern": "{given}小哥"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    36
+   ],
+   "baseline": "负责巡查高山要道、防范偷猎并组织雪崩抢险救援的官职公务长官。",
+   "gender": "any",
+   "id": "pi_mountain_patrol_ranger_captain",
+   "reputation": "枪法精准行事果断，在雪原突发灾害救援中拥有权威指挥经验。",
+   "resources": [
+    "一支高精度防冻雪地信号枪",
+    "一匹耐寒关东短毛猎马"
+   ],
+   "risks": [
+    "马匹无法进入狭窄天坑直面冰壁",
+    "通信信号易被风雪阻断"
+   ],
+   "role": "长白山高山边防巡逻队巡长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}巡长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}队长"
+    }
+   ]
+  }
+ ],
+ "premise": "清末民初，长白山采参世家的新任女把头接下一桩怪活：给关东地质考察队带路上天池。一个看参一个看石头，在老林子里走了一个月，白天翻山，夜里在窝棚里烤火对地图。天池一带的天说变就变，冰川上的天坑没人下去过。",
+ "pressures": [
+  {
+   "choice": "留在原地等待救援还是冒着脱力危险合力撬锁脱困。",
+   "exits": [
+    {
+     "cost": "鹿骨刀背留下浅压痕，女把头指尖磨出冻疮血痕。",
+     "option": "女把头与学者合力将鹿骨快刀厚脊卡入锁扣撬开脱身。"
+    },
+    {
+     "cost": "随身煤油燃料消耗殆尽。",
+     "option": "在冰穴生火化雪取暖等待风势平息再做行动。"
+    }
+   ],
+   "far": {
+    "consequence": "采参女把头与学者全员冻僵在天坑底部，长白山天险化为埋骨之地。",
+    "due_days": 1,
+    "trigger": "极寒导致心率严重下降停止行动力"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_crevasse_blizzard_hypothermia_freezing",
+   "immediate": {
+    "minutes": 6,
+    "text": "零下三十度的彻骨寒风灌入石缝，睫毛结满白霜，女把头带有微婴儿肥的白皙脸颊被冻得通红，纤细指节发僵发硬。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "near": {
+    "deadline_minutes": 9,
+    "text": "双脚踏在坚硬冰面上失去知觉，动作迟缓，血液流速减缓，困顿睡意在边缘蔓延。"
+   },
+   "objective": "在四肢冻伤失去行动力前用鹿骨快刀撬开锁扣脱离险境。",
+   "source": "nature",
+   "start_minute": 960,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "天坑裂隙零下三十度严寒侵袭失温冻伤",
+   "trigger": "长白山主峰暴风雪呼啸穿过天坑裂隙，底部气温骤降至零下三十度，狂风持续灌入，肢体关节迅速僵硬失去知觉，失温致死危机迫在眉睫。"
+  },
+  {
+   "choice": "蛮力拉扯导致绳索断裂还是顺应力矩借工具撬开。",
+   "exits": [
+    {
+     "cost": "刀柄铜皮包头轻微松动。",
+     "option": "以鹿骨快刀厚脊为杠杆下压撬开变形卡舌脱身。"
+    },
+    {
+     "cost": "索罗棍端部劈裂开两寸。",
+     "option": "用索罗棍顶住玄武岩底部撬动巨石减轻压迫。"
+    }
+   ],
+   "far": {
+    "consequence": "主绳无法取下使用，全员受困于天坑深处失去登顶通道。",
+    "due_days": 1,
+    "trigger": "快挂锁扣彻底咬死无法拆卸"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_avalanche_boulder_carabiner_jam",
+   "immediate": {
+    "minutes": 5,
+    "text": "金属锁扣严重扭曲凹陷，钢锁舌死死咬在扣环内，重压导致石缝深处发出刺耳金属挤压闷响。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "落石再次发生微小位移，锁扣形变进一步加剧，内部弹簧卡舌即将彻底卡死折断。"
+   },
+   "objective": "找准咬合齿槽将鹿骨刀背卡入硬别撬开。",
+   "source": "accident",
+   "start_minute": 962,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "崩落玄武岩挤扁登山主绳快挂锁扣抱死",
+   "trigger": "数十吨玄武岩崩落坠地，直接将唯一的登山主绳金属快挂砸入岩槽，锁扣受压变形抱死，徒手无法解脱。"
+  },
+  {
+   "choice": "仓促攀爬还是找准落脚点稳步推进。",
+   "exits": [
+    {
+     "cost": "外袍后背被飞溅碎冰划开一道破口。",
+     "option": "趁崩塌间歇迅速顺着解脱的主绳攀上高处平坦石台。"
+    },
+    {
+     "cost": "错失最佳攀登撤离窗口期。",
+     "option": "退回避风暗穴躲避崩落飞石。"
+    }
+   ],
+   "far": {
+    "consequence": "崩塌冰石将天坑底部彻底填平，全员遭遇灭顶之灾。",
+    "due_days": 1,
+    "trigger": "巨型冰檐整体坍塌砸向天坑底部"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hanging_ice_cornice_secondary_collapse",
+   "immediate": {
+    "minutes": 4,
+    "text": "头顶百尺高空传来沉闷的冰层撕裂轰鸣，碎冰如雨点般砸在周围石壁上。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vertical_ice_wall_climbing_pitch"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "大块透光冰棱接连脱落，呼啸下坠，通道边缘落脚点正在被飞石挤占。"
+   },
+   "objective": "在冰檐彻底坍塌前撬开锁扣攀上安全冰壁。",
+   "source": "nature",
+   "start_minute": 964,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "天坑顶壁悬空冰檐二次崩塌坠落威胁",
+   "trigger": "数十米长的悬空透明冰檐受强风震动撕扯，微细裂纹迅速蔓延，随时可能引发大范围砸落。"
+  },
+  {
+   "choice": "留人铲雪还是全员集中力道撬锁脱困。",
+   "exits": [
+    {
+     "cost": "吸入大量冷呛粉雪引发阵发剧烈咳嗽。",
+     "option": "集中全部力道在石缝外破开锁扣直奔冰壁通道。"
+    },
+    {
+     "cost": "雪铲木柄受力过猛轻微扭曲。",
+     "option": "轮流使用雪铲拓宽通风口维持基本呼吸。"
+    }
+   ],
+   "far": {
+    "consequence": "人员在极度缺氧中失去知觉陷入深度窒息。",
+    "due_days": 1,
+    "trigger": "避风冰穴被坚硬积雪完全封闭死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_blizzard_air_intake_snow_choke",
+   "immediate": {
+    "minutes": 4,
+    "text": "干燥细雪如沙尘般涌入石缝，空气变得稀薄发闷，呼吸带出阵阵剧烈白汽。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_subterranean_ice_cave_bivouac"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "石缝仅剩两指宽通气孔，煤油炉火焰开始闪烁暗淡，呼吸愈发憋闷困难。"
+   },
+   "objective": "保持通气孔通畅并在暗穴完全封闭前开辟脱险通路。",
+   "source": "nature",
+   "start_minute": 966,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "狂风卷入细雪封堵避风暗穴通气缝隙",
+   "trigger": "狂暴气流将大团白雪推入避风暗穴狭窄入口，通气孔道被积雪迅速糊死，氧气含量急剧降低。"
+  },
+  {
+   "choice": "继续强力压下还是调整受力角度巧劲推移。",
+   "exits": [
+    {
+     "cost": "鹿骨刀背留下不可逆的细微压痕。",
+     "option": "女把头微调受力角度顺着锁舌齿槽滑推一举破开。"
+    },
+    {
+     "cost": "镐尖打滑蹭花岩壁边缘。",
+     "option": "换用小铁镐尖端尝试分担部分剪切力。"
+    }
+   ],
+   "far": {
+    "consequence": "唯一的高强度破拆工具损毁，锁扣彻底无法解脱，全员受困绝境。",
+    "due_days": 1,
+    "trigger": "鹿骨快刀背脊折断在锁槽内部"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_deer_bone_knife_bending_strain_limit",
+   "immediate": {
+    "minutes": 3,
+    "text": "鹿骨快刀背脊发出细微牙酸声，骨刃与金属摩擦处火花微闪，卡舌出现松动缝隙。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crevasse_bottom_boulder_shelter"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "刀背出现微细应变痕迹，若继续盲目施加横向剪切力，骨刃将面临崩断风险。"
+   },
+   "objective": "找准巧劲平衡点顺势撬动避免暴力折断。",
+   "source": "accident",
+   "start_minute": 968,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "鹿骨快刀背脊承受超额应变极限警报",
+   "trigger": "全力下压撬动锁扣时，骨刃背脊承受数千斤集中应力，表面传出微细受力摩擦脆响，面临过载折断威胁。"
+  },
+  {
+   "choice": "单人迅速冲顶还是双人结组稳健推进。",
+   "exits": [
+    {
+     "cost": "手掌在冰棱拉扯下擦破外层毛皮手套。",
+     "option": "双人紧扣安全牵引绳互相稳住重心协同翻上安全冰台。"
+    },
+    {
+     "cost": "在冰风暴中多暴露十分钟加深冻伤。",
+     "option": "依靠冰镐凿出深坑固定站位等待上部人员牵引。"
+    }
+   ],
+   "far": {
+    "consequence": "高空坠落引发严重骨折，重伤失温丧失生还可能。",
+    "due_days": 1,
+    "trigger": "攀登人员从高空冰壁脱手坠落坑底"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_ice_wall_climbing_fall_peril",
+   "immediate": {
+    "minutes": 3,
+    "text": "皮靴踩在坚硬光滑的冰壁上发出咯吱声，下方是数十丈深不见底的落石深渊，寒风猛烈拉扯衣摆。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vertical_ice_wall_climbing_pitch"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "强风将身形吹得摇晃不稳，脚下落脚点被吹落的浮雪覆盖，视线严重受阻。"
+   },
+   "objective": "双人协同稳步踩稳冰窝完成冰壁攀登脱险。",
+   "source": "nature",
+   "start_minute": 970,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "天坑直壁湿滑冰壁攀登滑坠深渊风险",
+   "trigger": "数十丈垂直坚冰在强风撕扯下极度湿滑，解开锁扣后单绳攀登稍有踩空便会摔落天坑底部碎石堆。"
+  },
+  {
+   "choice": "护着考察队，还是交出那块从天池边敲下来的石头",
+   "exits": [
+    {
+     "cost": "宋教授的考察记录就缺了最要紧的一页",
+     "option": "交出那块石头"
+    },
+    {
+     "cost": "佟老爹得把自己年轻时坏过山规的旧事当众抖出来",
+     "option": "请佟老爹出面说情"
+    }
+   ],
+   "far": {
+    "consequence": "女把头的把头位子要被收回，考察队往后再也进不了这片老林子",
+    "due_days": 3,
+    "trigger": "拜山定下规矩"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_xueyuan_roe_deer",
+    "hook_xueyuan_red_rope",
+    "hook_hanzhou_sketch",
+    "hook_xueyuan_dugout_curtain"
+   ],
+   "id": "p_mountain_rule_rumor",
+   "immediate": {
+    "minutes": 10,
+    "text": "佟老爹在门外咳了一声，说他们是带着香和红绳来的"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_ginseng_dugout_hut"
+   ],
+   "near": {
+    "deadline_minutes": 300,
+    "text": "日头落山前，要在老爷府前拜山定规矩"
+   },
+   "objective": "在老把头们去老爷府拜山之前，把放山的规矩和考察队的事一起说清楚",
+   "source": "rumor",
+   "start_minute": 720,
+   "tags": [],
+   "title": "坏了山规的传言",
+   "trigger": "下山回屯子的第二天晌午，参帮的老把头们在地窨子外头蹲了一排：有人传话说，考察队在天池边敲石头，惊了山神，这才招来那场冰崩"
+  },
+  {
+   "choice": "拿考察队的酬金先抵账，还是押上女把头那张祖传的参场图",
+   "exits": [
+    {
+     "cost": "图上标着的老参窝，往后就归参行",
+     "option": "押上祖传参场图"
+    },
+    {
+     "cost": "宋教授要女把头明年夏天再带队进一趟老林子",
+     "option": "请宋教授预支考察队的酬金"
+    }
+   ],
+   "far": {
+    "consequence": "参帮十几户人家开春没有口粮，女把头的位子也坐不稳",
+    "due_days": 7,
+    "trigger": "参行收回预支"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_xueyuan_roe_deer",
+    "hook_xueyuan_hot_spring",
+    "hook_xueyuan_red_rope",
+    "hook_hanzhou_sketch",
+    "hook_xueyuan_dugout_curtain"
+   ],
+   "id": "p_ginseng_house_debt",
+   "immediate": {
+    "minutes": 5,
+    "text": "二掌柜把算盘往炕桌上一放，说今天不走了"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_ginseng_dugout_hut"
+   ],
+   "near": {
+    "deadline_minutes": 720,
+    "text": "明早天亮，二掌柜要套车回营口"
+   },
+   "objective": "在二掌柜回营口之前，给参帮今年的账找个说法",
+   "source": "money",
+   "start_minute": 1080,
+   "tags": [],
+   "title": "参行的账",
+   "trigger": "下山第五天傍晚，营口参行的二掌柜带着账本进了地窨子：参帮今年预支的八百块大洋，一棵六品叶也没交上来"
+  }
+ ],
+ "region": "长白山天池万年冰川海拔两千米开阔天然大天坑底部石缝裂隙区",
+ "rules": [
+  {
+   "id": "r_mountain_blizzard_shelter_rule",
+   "text": "暴风雪风力达到十级前必须寻得避风崖凹停留避难。"
+  },
+  {
+   "id": "r_bone_knife_back_leverage_limit",
+   "text": "鹿骨快刀背脊撬动锁扣时支点必须紧贴岩壁坚实受力面。"
+  },
+  {
+   "id": "r_mountain_carabiner_jam_clear_statute",
+   "text": "主绳锁扣受压卡死时必须保持吊点顺向受力严禁侧向掰折。"
+  },
+  {
+   "id": "r_crevasse_single_rope_ascent_safety",
+   "text": "攀登冰壁时双人绳距不得超过五米严防滑坠。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "踏雪寻参",
+  "committed": "关东同契",
+  "familiar": "风雪同穴",
+  "flirting": "冰洞暖手",
+  "intimate": "攀壁相依",
+  "stranger": "雪谷结伴",
+  "testing": "骨刃撬扣"
+ },
+ "status": "released",
+ "style_hint": "关东林海雪原的冷与烈：老林子的规矩、放山的号子、篝火上的狍子肉。写飒爽女把头冻红的面颊、皮袄下的身段与喘息，动作落在鹿骨刀背撬锁扣上。",
+ "tension_engines": [
+  {
+   "id": "te_crevasse_blizzard_vs_bone_knife_lever",
+   "text": "零下三十度极寒冻僵危险与鹿骨刀背撬开形变锁扣之间的分秒必争。"
+  },
+  {
+   "id": "te_avalanche_ice_fall_vs_crevasse_ascent",
+   "text": "上方冰檐二次坍塌威胁与双人协作攀登冰壁脱险之间的意志较量。"
+  },
+  {
+   "id": "te_cool_ginseng_huntress_vs_iron_scholar",
+   "text": "清冷采参女把头飒爽孤傲与探险青年学者沉稳担当之间的碰撞磨合。"
+  },
+  {
+   "id": "te_frost_embrace_vs_mountain_oath",
+   "text": "极度严寒中相依取暖的心跳共鸣与放山人严守自重本分之间的克制拉扯。"
+  }
+ ],
+ "title": "长白山采参女把头·万年冰川开阔天坑冰壁",
+ "tone": [
+  "万年天坑冰壁万丈风雪呼啸",
+  "崩落玄武岩滚石碎冰轰鸣",
+  "金属锁扣变形卡滞微鸣",
+  "鹿骨快刀厚脊撬弹脆响"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_deer_bone_knife_dense_horn_core",
+   "requires": [
+    "huntress_guan_xueyuan"
+   ],
+   "text": "{huntress_guan_xueyuan.name}手中祖传鹿骨快刀系选用老龄驯鹿致密角骨精雕而成，背脊厚度与坚硬度胜过普通铁器，能承受杠杆猛力下压而不断裂。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_guide_tang_horn_notch_reveal",
+   "requires": [
+    "hunter_tong_veteran_guide"
+   ],
+   "text": "{hunter_tong_veteran_guide.name}点出锁扣下端卡齿的顺向受力点，指明只要向外微推三毫米就能规避形变死角，让骨刀巧力瞬间奏效。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_porter_scraper_clears_frozen_mud",
+   "requires": [
+    "porter_little_hu_tracker"
+   ],
+   "text": "{porter_little_hu_tracker.name}用实木雪铲麻利清空岩壁周围坚硬冻土碎冰，为众人腾出了足以双脚站稳发力的平坦着力点。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_mountain_pact_ancestral_statute",
+   "requires": [
+    "huntress_guan_xueyuan"
+   ],
+   "text": "关东放山老把头世代相传的遇险互助铁律被众人恪守，全队无人弃队退缩，彼此信赖成为绝境自救的坚实根基。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_blizzard_eye_temporary_calm",
+   "requires": [
+    "huntress_guan_xueyuan",
+    "explorer_lu_hanzhou"
+   ],
+   "text": "狂暴风力在天坑上方形成短暂气流回旋风眼，气流平稳停顿数分钟，为众人攀登冰壁争取到宝贵的生还窗口期。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_hanzhou_shields_xueyuan_falling_slate",
+   "requires": [
+    "huntress_guan_xueyuan",
+    "explorer_lu_hanzhou"
+   ],
+   "text": "{explorer_lu_hanzhou.name}在锁扣弹开瞬间挺身用宽厚后背为{huntress_guan_xueyuan.name}挡住上方飞落的碎石，二人四目相对心意相通。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_crevasse_hidden_thermal_vent",
+   "requires": [
+    "huntress_guan_xueyuan",
+    "explorer_lu_hanzhou"
+   ],
+   "text": "冰坑岩壁深处受落石震动裂开一道微型天然地热温泉气孔，温热蒸汽缓缓升腾阻缓了众人体温的急速流失。"
+  }
+ ]
+}

@@ -1,0 +1,2427 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满二十四周岁在海岛疗养院接受一期神经药物临床观察的受试病患。",
+   "age_range": [
+    24,
+    28
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_agitated_quarantine_patient_zero",
+   "line": "{npc.name}：别相信行政楼那帮人……他们连我的原始涂片都想烧掉！",
+   "location_ids": [
+    "negative_pressure_procedure_room"
+   ],
+   "name": null,
+   "role": "留观室内的零号临床受试病患"
+  },
+  {
+   "adult_context": "年满二十周岁刚分到地下隔离病区轮值夜班的见习护士。",
+   "age_range": [
+    20,
+    22
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_panicked_junior_nurse_trainee",
+   "line": "{npc.name}：主任！负压表读数刚才晃了一下，备用电路还能撑到天亮吗……",
+   "location_ids": [
+    "airlock_decontamination_corridor"
+   ],
+   "name": null,
+   "role": "惊慌失措的夜班见习护士"
+  },
+  {
+   "adult_context": "年满二十三周岁受雇于疗养院安保科的防暴执勤队员。",
+   "age_range": [
+    23,
+    26
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_quarantine_heavy_riot_guard",
+   "line": "{npc.name}：代理人有令！天亮复核结束前，任何未签字的病历和样本不得带出地下二层！",
+   "location_ids": [
+    "airlock_decontamination_corridor"
+   ],
+   "name": null,
+   "role": "守在气闸门外的防暴巡逻哨"
+  },
+  {
+   "adult_context": "年满二十一周岁负责超低温冷库液氮补给与温度记录的巡检员。",
+   "age_range": [
+    21,
+    24
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_freezer_maintenance_mechanic",
+   "line": "{npc.name}：便携恒温转运箱我已经充好冷媒放在最底层货架了，随时能装样本！",
+   "location_ids": [
+    "pathology_reagent_cold_vault"
+   ],
+   "name": null,
+   "role": "冷库夜班巡检员"
+  },
+  {
+   "adult_context": "年满二十五周岁负责地下机房消防与配电监控的签约安全员。",
+   "age_range": [
+    25,
+    29
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_asbestos_fireman_watchman",
+   "line": "{npc.name}：我刚才在总控室听到行政代理人在催问停机坪除冰，像是准备赶在督察封档前先走！",
+   "location_ids": [
+    "underground_generator_control_hub"
+   ],
+   "name": null,
+   "role": "机房夜班消控安全员"
+  },
+  {
+   "adult_context": "年满二十一周岁在地下总机房值守长途交换机与海事电台的话务员。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_dispatch_telephonist_girl",
+   "line": "{npc.name}：厚生省的海事卫星专线接通了！破冰渡轮将在早间六点靠岸接应！",
+   "location_ids": [
+    "underground_generator_control_hub"
+   ],
+   "name": null,
+   "role": "总机房夜班话务员"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "{cold_surgeon_director_chifuyu.name}防护服后背裂开半尺缝隙，你在无影灯下用医用防水胶布贴合{cold_surgeon_director_chifuyu.ta}的肩胛，随后将听诊器贴在{cold_surgeon_director_chifuyu.ta}心口默数六十秒心音，平日严苛的上下级界限在急促呼吸中化为贴身相依。",
+   "id": "combo_chifuyu_suit_seal_heartbeat",
+   "identity_ids": [
+    "young_infectious_researcher",
+    "biomedical_equipment_technician"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "cold_surgeon_director_chifuyu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "上月台风断电夜你在冷库替对方挡下倒塌冰架，事后对方在值班室替你缝合肩伤，扣住你的后颈吻了上去。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "cold_surgeon_director_chifuyu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "稳住负压室内气压与主任体征，赶在行政科强行搜查前封存零号原始涂片。",
+    "limit_gap": "平日查房隔着半米规矩训话。",
+    "meeting_reason": "夜间复核零号病患体征时防护服后背意外划裂，需立即在处置室内完成贴身密封。",
+    "resource_gap": "你手握医用防水密封胶布与压差检测表。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_suit_tear_vs_back_to_back_heartbeat",
+    "te_ice_cold_scalpel_pride_vs_vulnerable"
+   ]
+  },
+  {
+   "chemistry": "手术台上一向配合无间的老搭档，在暴雪断电的负压内室里共披一条保温毯核对零号病历，{cold_surgeon_director_chifuyu.name}将微凉的指节放进你掌心借温。",
+   "id": "combo_chifuyu_scalpel_equal_watch",
+   "identity_ids": [
+    "anesthesia_specialist_fellow",
+    "renegade_clinical_pharmacist"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "cold_surgeon_director_chifuyu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上周连台十二小时急诊手术后，对方在更衣室借着摘手术帽的动作靠在你肩窝睡了半刻钟，醒来把私人银笔塞进了你胸袋。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "cold_surgeon_director_chifuyu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "配出足量活性中和剂稳住病患，并将原始涂片带出地下二层。",
+    "limit_gap": "手术室里只谈毫克与心率读数。",
+    "meeting_reason": "深夜联名复核零号受试者的神经阻断反应并封存原始涂片。",
+    "resource_gap": "你掌握麻醉监护与活性中和溶剂配比。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_ice_cold_scalpel_pride_vs_vulnerable",
+    "te_tranquilizer_reagent_gamble_vs_dawn_r"
+   ]
+  },
+  {
+   "chemistry": "你手握厚生省紧急封存手令进驻负压室，素来高傲的{cold_surgeon_director_chifuyu.name}主动解下样本库纯银印章钥匙放进你掌心，请求你以公权替病区主持公道。",
+   "id": "combo_chifuyu_ministry_seal_audit",
+   "identity_ids": [
+    "health_ministry_young_inspector"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "cold_surgeon_director_chifuyu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "登岛首日你在听证会上驳回了代理人的假报告，当晚对方冒雪来督察宿舍送病例，临走前用微凉的听诊器抵住你领口说记住你的心跳了。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "cold_surgeon_director_chifuyu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在破晓渡轮靠岸前完成零号样本的司法封存并签署证人保护令。",
+    "limit_gap": "公事上你是审查院方违规的督察官。",
+    "meeting_reason": "暴雪封岛夜密会负压处置室，秘密交接被院方瞒报的一期临床致死率铁证。",
+    "resource_gap": "你持有厚生省封存手令与海事卫星专线。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_director_poison_gas_purge_vs_moral_co",
+    "te_ice_cold_scalpel_pride_vs_vulnerable"
+   ]
+  },
+  {
+   "chemistry": "气闸走廊的紫外线灯暂停闪烁，{head_nurse_tsukiko.name}将热姜茶与缺签的红处方交接簿一同推到你面前，在水雾弥漫的死角里紧挨着你核对安瓿批号。",
+   "id": "combo_tsukiko_airlock_sedative_ledger",
+   "identity_ids": [
+    "young_infectious_researcher",
+    "anesthesia_specialist_fellow",
+    "health_ministry_young_inspector"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "head_nurse_tsukiko",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "半月前夜班你在处置室被失控病患撞伤手腕，{head_nurse_tsukiko.name}把你拉进反锁的配药间上药，擦着眼泪伏在你怀里再也没肯松手。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "head_nurse_tsukiko"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "补齐红处方核销闭环，并借护士长的通行码护送零号样本出闸。",
+    "limit_gap": "一旦那三支私调止痛的红处方镇静剂被查出，两人都将面临停职调查。",
+    "meeting_reason": "夜间盘点前在气闸缓冲走廊紧急核销特护药房的红处方台账差额。",
+    "resource_gap": "护士长掌握气闸通行码与药房副钥。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_tranquilizer_reagent_gamble_vs_dawn_r",
+    "te_suit_tear_vs_back_to_back_heartbeat"
+   ]
+  },
+  {
+   "chemistry": "零下二十度的超低温冷库白雾缭绕，你从身后握住{intern_pharmacist_ayane.name}冻得发红的双手替其压紧活性血清铝盖，并肩从三号液氮罐底层取出藏匿的原始涂片。",
+   "id": "combo_ayane_cold_vault_serum",
+   "identity_ids": [
+    "anesthesia_specialist_fellow",
+    "renegade_clinical_pharmacist"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "intern_pharmacist_ayane",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "每次进冷库盘点你都会提前在白大褂口袋里揣两个暖手宝留给{intern_pharmacist_ayane.name}，对方也在实验手账扉页画下了你的侧影。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "intern_pharmacist_ayane"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保活性血清不失活，并将双盲对照手账完好带离冷库。",
+    "limit_gap": "极寒冷库里不可久留。",
+    "meeting_reason": "趁夜班交接空隙潜入超低温冷库，复溶活性中和血清并起出三号罐底层的原始涂片。",
+    "resource_gap": "调剂师掌握冷库全套试剂编码与双盲手账。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_tranquilizer_reagent_gamble_vs_dawn_r",
+    "te_director_poison_gas_purge_vs_moral_co"
+   ]
+  },
+  {
+   "chemistry": "你在总控台暗处亮出被截留的三亿日元临床准备金流水与零号涂片编号，平日高高在上的{sanatorium_director_kuroda.name}摘下金丝眼镜，双手交出全院最高权限黑卡任你发落。",
+   "id": "combo_kuroda_trial_slide_parley",
+   "identity_ids": [
+    "health_ministry_young_inspector"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 2
+     },
+     "b": "sanatorium_director_kuroda",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 2
+     },
+     "reason": "昨晚欢迎晚宴散席后，你把查出的首笔三千万日元亏空底单压在对方酒杯下，对方连夜敲开你房门求你给条活路。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "sanatorium_director_kuroda"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "迫使代理人签发全区解封令并交出医药财团海外行贿底册。",
+    "limit_gap": "一旦公开撕破脸将引发院方狗急跳墙，私下拿捏反而能让代理人乖乖开门揖盗。",
+    "meeting_reason": "在地下机房总控室单独约谈行政代理人，就零号病历封存与解封气闸走廊摊牌。",
+    "resource_gap": "你握有厚生省立案权与原始涂片编号。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_director_poison_gas_purge_vs_moral_co",
+    "te_tranquilizer_reagent_gamble_vs_dawn_r"
+   ]
+  },
+  {
+   "chemistry": "防暴铁门前，你将三年前一期试验的真实致残档案递入{quarantine_security_chief_goro.name}手中，这位铁塔般的防暴支队长当场收起封锁令，解下防寒披肩裹住你并护送你穿过警戒线。",
+   "id": "combo_goro_shield_casefile_vow",
+   "identity_ids": [
+    "young_infectious_researcher",
+    "biomedical_equipment_technician"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "quarantine_security_chief_goro",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "入冬前你在旧档室帮对方查到了亲属当年的住院编号，两人在后山防波堤吹着海风立约，定要把真凶送上法庭。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "quarantine_security_chief_goro"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "争取安保支队倒戈护航，打通从地下二层前往后山车库的安全通道。",
+    "limit_gap": "表面是奉命看守隔离区的安保队长与被封控人员。",
+    "meeting_reason": "借气闸走廊例行登记之机，向防暴支队长秘密移交三年前一期试验受试者的真实病理记录。",
+    "resource_gap": "你能够调取冷库底层尘封的受试者病历。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_director_poison_gas_purge_vs_moral_co",
+    "te_tranquilizer_reagent_gamble_vs_dawn_r"
+   ]
+  },
+  {
+   "chemistry": "轰鸣温热的柴油机房里，你凑在{veteran_facility_engineer_ken.name}左耳畔报出负压压差读数，对方将厚工装外套垫在暖风管旁让你取暖，并为你打开四号竖井的直通检修梯。",
+   "id": "combo_ken_generator_warmth_shaft",
+   "identity_ids": [
+    "anesthesia_specialist_fellow",
+    "renegade_clinical_pharmacist"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "veteran_facility_engineer_ken",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "上月蒸汽管渗漏夜你冒着热浪帮对方拉下总阀，事后在机房值班室替其涂抹烫伤膏时，对方一把攥住你的手贴在滚烫脸颊上。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "veteran_facility_engineer_ken"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "锁死地下负压排风本地供电回路，确保病区整夜不断暖不断风。",
+    "limit_gap": "机房噪音极大且技师右耳背音。",
+    "meeting_reason": "暴雪断电夜前往柴油机房协调负压排风优先供电，并核对后山竖井撤离路线。",
+    "resource_gap": "你备有烫伤药膏与体征监测设备。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_suit_tear_vs_back_to_back_heartbeat",
+    "te_tranquilizer_reagent_gamble_vs_dawn_r"
+   ]
+  },
+  {
+   "chemistry": "{cold_surgeon_director_chifuyu.name}早在入夜前便私下托你保管样本总库副钥，当{sanatorium_director_kuroda.name}赶到冷库门前逼交零号涂片时，你与主任一唱一和，用涂片备份反手拿捏住代理人的命门。",
+   "id": "combo_cold_vault_slide_triangle",
+   "identity_ids": [
+    "young_infectious_researcher",
+    "biomedical_equipment_technician"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "cold_surgeon_director_chifuyu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "今夜交班前{cold_surgeon_director_chifuyu.name}借着递病历夹的动作把带着体温的纯银副钥塞进你手心，低声嘱咐今晚只信你一人。",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "sanatorium_director_kuroda",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "{sanatorium_director_kuroda.name}下午曾把你叫进行政室许以重金与海外研修名额，试探你肯不肯在今晚帮行政科取出三号罐涂片。",
+     "stage": "testing"
+    },
+    {
+     "a": "cold_surgeon_director_chifuyu",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "sanatorium_director_kuroda",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "{cold_surgeon_director_chifuyu.name}扣着代理人篡改致死率周报的原始涂片，两人为样本库钥匙暗斗了数月。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "cold_surgeon_director_chifuyu",
+    "sanatorium_director_kuroda"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在不惊动外围警卫的前提下保住零号涂片原件，并逼代理人解除气闸门禁。",
+    "limit_gap": "代理人急于在天亮前销毁涂片平账。",
+    "meeting_reason": "入夜前主任已将三号液氮罐钥匙私下托付于你，约好在冷库汇合封档，恰逢代理人前来逼宫。",
+    "resource_gap": "主任握有原始涂片病理鉴定权，代理人掌握院务封控令。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_director_poison_gas_purge_vs_moral_co",
+    "te_ice_cold_scalpel_pride_vs_vulnerable"
+   ]
+  },
+  {
+   "chemistry": "三人早在上周核对冷库台账时便立下私密约定，今晚由{intern_pharmacist_ayane.name}复溶中和血清、{head_nurse_tsukiko.name}把守气闸传递窗，你居中统筹核销红处方并转移零号样本。",
+   "id": "combo_airlock_sedative_pact",
+   "identity_ids": [
+    "young_infectious_researcher",
+    "anesthesia_specialist_fellow",
+    "renegade_clinical_pharmacist"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "head_nurse_tsukiko",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "三日前在护士站值班室，你与{head_nurse_tsukiko.name}共同锁好备用处方笺，约定无论院方如何施压都绝不丢下零号病患。",
+     "stage": "committed"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "intern_pharmacist_ayane",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "这半年来每次夜间冷库盘点都是你陪着怕冷的{intern_pharmacist_ayane.name}一起核对安瓿，对方早已习惯躲在你身后记账。",
+     "stage": "familiar"
+    },
+    {
+     "a": "intern_pharmacist_ayane",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "head_nurse_tsukiko",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "{intern_pharmacist_ayane.name}清点时发现护士长私换了三支镇静剂批号，两人正心照不宣地互相试探。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "head_nurse_tsukiko",
+    "intern_pharmacist_ayane"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "赶在夜间查房前补齐红处方镇静剂核销单，并将活性中和血清送入处置室。",
+    "limit_gap": "缺一不可。",
+    "meeting_reason": "按三人三日前定下的夜班换防计划，在气闸缓冲走廊与冷库之间接力完成血清复溶与台账平账。",
+    "resource_gap": "调剂师掌握冷库试剂编码。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_tranquilizer_reagent_gamble_vs_dawn_r",
+    "te_suit_tear_vs_back_to_back_heartbeat"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_negative_pressure_duct_whisper_echo",
+   "reach": "并肩守在不锈钢检查台旁时，隔着面罩传来的呼吸声与听诊器里的心音。",
+   "text": "排风风口微气压共振耳语"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_airlock_intercom_speaker_static_hum",
+   "reach": "隔着双层铅板防爆门传来的壁挂对讲机底噪与气闸风门切换声。",
+   "text": "气闸对讲扬声器电流底噪"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_steampipe_wrench_tapping_morse_alert",
+   "reach": "贯穿病区的生铁供暖管道中用金属巡检尺有节奏叩击管壁传来的清脆回响。",
+   "text": "供暖管道金属叩击摩斯暗号"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "年满二十七周岁以医学名门继承人身份执掌疗养院地下负压隔离特护区的年轻女外科主任。",
+   "age_range": [
+    27,
+    31
+   ],
+   "appearance_options": [
+    "穿贴身浅白防护服与深蓝洗手衣。",
+    "摘下护目镜露出眼尾泪痣，将听诊器听头按在同伴心口。"
+   ],
+   "decision": {
+    "avoids": [
+     "草菅人命的医药政客"
+    ],
+    "contrast": "晨会交班时是令全院敬畏的冷面主任，暗室独处时却是后背贴着胶布、连心跳都要你替她数的倔强女人。",
+    "core_value": "医者的手术刀只为救人而握，绝不在资本黑幕与行政威逼前退让半寸。",
+    "goal_options": [
+     "让同伴用医用防水胶布贴合后背裂口并测算心率",
+     "保住三号冷库里的零号原始涂片与中和血清"
+    ],
+    "never": [
+     "绝不在篡改后的假病历上签下自己的名字。"
+    ],
+    "prefers": [
+     "专业过硬、守口如瓶且在风浪里从不退缩的同行者"
+    ],
+    "pressure_responses": {
+     "breaking": "脱力靠在同伴肩窝喘息，手指扣紧对方白大褂衣领叮嘱先护好血清箱。",
+     "high": "当外层气闸传来封锁逼迫声时挡在同伴身前，握紧样本柜银钥寸步不让。",
+     "low": "在无影灯下微偏过头。",
+     "mid": "因低温缺氧扶住不锈钢检查台边缘。"
+    },
+    "relationship_stance": "外冷内热、洁癖克制，唯独在完全信赖的搭档面前会卸下名门防备。",
+    "withdrawal": "退至低温冷库内侧货架旁，锁死防爆内门整理样本编号。"
+   },
+   "gender": "female",
+   "gender_reason": "作品核心设定为冷面名门女外科主任，围绕其高傲主刀权威与防护服裂口贴身修补的反差张力展开，固定为女性。",
+   "id": "cold_surgeon_director_chifuyu",
+   "identity": {
+    "authority": "掌握负压病区最高医疗处置权、样本总库银钥与红处方镇静剂双钥之一。",
+    "exposure": "私下扣留一期临床不良反应原始记录一事若被坐实。",
+    "hidden": "表面是严苛冷淡的主刀主任，心底却对多次在危急夜班中替自己稳住托盘的同伴抱有深切眷恋。",
+    "limits": [
+     "防护服后背出现裂口，需同伴协助贴覆防水胶布密封"
+    ],
+    "obligations": [
+     "守住负压病区安全底线。"
+    ],
+    "resources": [
+     "一盒定制钛合金显微血管吻合器械包"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "替自己贴合后背裂口时克制而温热的掌心温度",
+     "在全院封锁夜里依然坚定站在自己身侧的默契"
+    ],
+    "boundaries": [
+     "在无菌处置期间严守医疗规程"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "卸下冷面主刀光环后与你并肩守夜、彼此托付性命的伴侣",
+    "dislikes": [
+     "轻佻冒犯的言行"
+    ],
+    "expression": "摘下乳胶手套露出微凉指节，主动扣住你的手腕按在自己心口，低声说今夜之后只准你一人替她听诊。",
+    "likes": [
+     "下手术台后在值班室并肩分喝一杯温热葡萄糖水的安静"
+    ],
+    "preconditions": [
+     "负压隔离监护特护区年轻外科女主任与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "负压隔离监护特护区年轻外科女主任",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "underground_generator_control_hub",
+     "to": 1334
+    },
+    {
+     "from": 1335,
+     "location_id": "negative_pressure_procedure_room",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "pathology_reagent_cold_vault",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "underground_generator_control_hub",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人贴得极近。",
+      "option": "同伴站到主任身后，隔着洗手衣用宽幅防水胶布十字压紧密封"
+     },
+     {
+      "cost": "触发气闸十分钟净味互锁，暂时无法返回处置台。",
+      "option": "先取无菌铺巾裹住肩背，退入气闸缓冲走廊更换备用防护服"
+     }
+    ],
+    "pressure": "负压室内冷风顺着裂口灌入洗手衣。",
+    "trigger": "外科主任在安抚躁动的零号病患时，防护服后背肩胛处被金属护栏划开一道半尺裂口。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "胶布再按紧一点……别松手，把听诊器贴上来，替我数数现在的心率是多少。",
+    "surface": "气闸外的人听着，我是外科主任{npc.name}！在完成抗原复核与病历封存前，谁也别想擅闯负压处置室！"
+   }
+  },
+  {
+   "adult_context": "年满二十五周岁执掌负压特护区药品核销、监护排班与气闸物资调配的专职护士长。",
+   "age_range": [
+    25,
+    29
+   ],
+   "appearance_options": [
+    "穿剪裁利落的浅粉防静电分体护师服与防飞溅围裙。",
+    "半跪在气闸走廊恒温柜旁核对红处方安瓿批号。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿规章当棒子乱挥的官僚"
+    ],
+    "contrast": "查房时是一丝不苟的严厉护士长，夜深独处时却会悄悄塞给你一袋温在暖风机上的热姜茶。",
+    "core_value": "监护仪前的每一条命都容不得作假，哪怕担上处分也要守住病房里的最后一点温度。",
+    "goal_options": [
+     "通过气闸传递窗将加温盐水与敷料送入处置室",
+     "在药房复核前补齐红处方镇静剂的核销签字"
+    ],
+    "never": [
+     "绝不为了自保而给受试病患注射过量封口药物。"
+    ],
+    "prefers": [
+     "细心守秘、懂得体谅一线医护难处的同路人"
+    ],
+    "pressure_responses": {
+     "breaking": "被追问镇静剂去向时指尖发白，向身旁的你投来求援目光。",
+     "high": "坚持按双钥规程核验。",
+     "low": "隔着气闸观察窗温和通报心率与氧分压读数。",
+     "mid": "输入气闸备用通行码暂停紫外线灯，为同伴留出缓冲窗口。"
+    },
+    "relationship_stance": "温婉体贴却外柔内刚，对替自己遮掩药房台账疏漏的同伴极度信赖。",
+    "withdrawal": "退入气闸走廊内侧护士站，反锁防弹玻璃窗整理交班簿。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "head_nurse_tsukiko",
+   "identity": {
+    "authority": "掌握特护区监护仪报警阈值、气闸应急通行码与红处方镇静剂双钥之一。",
+    "exposure": "私自调换三支红处方镇静剂批号以缓解零号病患剧痛的记录若曝光。",
+    "hidden": "与外科主任是医学院同届旧友，自愿随其上岛驻守，暗中记下了行政代理人每次违规巡查的时间。",
+    "limits": [
+     "长年夜班落下了腰椎旧疾，不便独自搬运沉重液氮罐"
+    ],
+    "obligations": [
+     "保障隔离病区医护与留观病患的生命体征平稳。"
+    ],
+    "resources": [
+     "一盒进口水胶体减压敷料与加温生理盐水"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "发现镇静剂台账差额后不动声色替自己补上复核签名的默契",
+     "夜班交接时替自己托住沉重器械盘的体贴"
+    ],
+    "boundaries": [
+     "在特护值班期间恪守医疗规范"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "风雪孤岛夜里替你温好姜茶、守住后路的贴心伴侣",
+    "dislikes": [
+     "盛气凌人的训斥"
+    ],
+    "expression": "用温热毛巾细心擦净你冻红的指节，将药柜副钥系在你手腕上，轻声说今晚无论去哪都陪你一起走。",
+    "likes": [
+     "忙完夜班后在气闸走廊长椅上分喝一杯热姜茶的暖意"
+    ],
+    "preconditions": [
+     "负压监护区年轻专职护士长与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "负压监护区年轻专职护士长",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "underground_generator_control_hub",
+     "to": 1334
+    },
+    {
+     "from": 1335,
+     "location_id": "airlock_decontamination_corridor",
+     "to": 1364
+    },
+    {
+     "from": 1365,
+     "location_id": "negative_pressure_procedure_room",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "airlock_decontamination_corridor",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "underground_generator_control_hub",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "你的名字与护士长一同绑定在特护用药档案上。",
+      "option": "同伴以临床应急处置名义在交接簿上补签联名复核"
+     },
+     {
+      "cost": "需要在零下二十度的冷库里贴身翻找底层批号。",
+      "option": "前往低温冷库取出备用对照安瓿先行顶上账面数量"
+     }
+    ],
+    "pressure": "若半小时内补不上合规复核签字，行政代理人将以此为由收缴药房钥匙。",
+    "trigger": "气闸走廊的红处方交接簿即将接受夜间盘点，护士长正对着缺少双签的三支镇静剂记录发愁。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "那三支红处方镇静剂是我偷偷给零号病患止痛用的……只要你能帮我把核销单圆过去，我什么都听你的。",
+    "surface": "处置室听得到吗？我是护士长{npc.name}，加温盐水和防水敷料已经放进传递窗了，气压稳定后就能取用！"
+   }
+  },
+  {
+   "adult_context": "年满三十二周岁受幕后医药财团委派代管海岛疗养院行政与保密经费的代理理事长。",
+   "age_range": [
+    32,
+    38
+   ],
+   "appearance_options": [
+    "穿考究深灰西装与黑色羊绒大衣，戴无框金丝眼镜。",
+    "站在地下机房总控台回廊上俯瞰气闸走廊。"
+   ],
+   "decision": {
+    "avoids": [
+     "死磕原始数据的教条学者"
+    ],
+    "contrast": "全院通告里是威严冷酷的财团代言人，在暗处被你堵住去路时却会摘下眼镜沙哑求饶。",
+    "core_value": "医疗报告上的数字就是股价与前途，任何可能砸穿新药估值的数据都必须留在岛上。",
+    "goal_options": [
+     "施压外科主任交出样本总库银钥与零号涂片",
+     "用海外研究经费与职称晋升拉拢知情人员封口"
+    ],
+    "never": [
+     "绝不在尚有周旋余地时主动承认篡改临床周报。"
+    ],
+    "prefers": [
+     "懂进退、能帮自己把临床报告圆过去的聪明人"
+    ],
+    "pressure_responses": {
+     "breaking": "面对完整涂片与经费截留铁证时彻底服软，交出行政通行主卡求放一马。",
+     "high": "得知原始涂片已被找出一事后脸色铁青。",
+     "low": "在对讲广播里用温和腔调提醒夜班补贴与晋升名额。",
+     "mid": "下令将地下二层切入二级封控模式，限制气闸门自由通行。"
+    },
+    "relationship_stance": "习惯用权势与筹码衡量人心，但被真正捏住命门时会展现出极具依附性的顺从。",
+    "withdrawal": "退往总控室二楼独立休息间，反锁房门联系离岛快艇。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "sanatorium_director_kuroda",
+   "identity": {
+    "authority": "掌握疗养院行政封锁权、配电优先级调拨权与海外临床基金汇划签字权。",
+    "exposure": "一旦瞒报三例受试者神经损伤并篡改一期临床致死率的原始涂片曝光，将面临刑事重判。",
+    "hidden": "表面替财团强硬封口，实则暗中截留了一笔三亿日元临床风险准备金，正急于抹平账面离岛。",
+    "limits": [
+     "不通晓具体病理实验操作，依赖一线医护完成样本封存"
+    ],
+    "obligations": [
+     "在破晓渡轮靠岸前收回零号病历原件与原始涂片。"
+    ],
+    "resources": [
+     "一份可调动院内安保封锁地下通道的行政手令"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "明明握着足以毁掉自己的原始涂片却肯关上门私下谈条件的从容",
+     "在暴雪失联夜里替自己稳住总控室局面的手腕"
+    ],
+    "boundaries": [
+     "在涂片妥善封存前保持体面伪装"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "在权欲与把柄交织的暗夜里向你低头称臣的共犯伴侣",
+    "dislikes": [
+     "当着下属的面被驳回颜面"
+    ],
+    "expression": "摘下金丝眼镜搁在病历夹上，将全院最高权限黑卡推到你指边，低声承认今晚自己的一切都由你发落。",
+    "likes": [
+     "在反锁的值班室里隔着办公桌压低声音交换底牌的紧绷"
+    ],
+    "preconditions": [
+     "私人疗养院理事长行政代理人与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "私人疗养院理事长行政代理人",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "negative_pressure_procedure_room",
+     "to": 1334
+    },
+    {
+     "from": 1335,
+     "location_id": "underground_generator_control_hub",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "airlock_decontamination_corridor",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "negative_pressure_procedure_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "代理人虽当场签字放行，但暗中记下了你的工号。",
+      "option": "出示涂片编号迫使代理人立即签发气闸走廊解封令"
+     },
+     {
+      "cost": "需要在外科主任与代理人之间小心维持双面口径。",
+      "option": "假意应承替其追查涂片下落，换取总控室独立通行磁卡"
+     }
+    ],
+    "pressure": "一旦涂片原件在天亮前被送上破冰渡轮，代理人的职业生涯将彻底终结。",
+    "trigger": "行政代理人在总控台旁发现一期临床原始涂片的备份清单不翼而飞，正焦急清查经手记录。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "那盒原始涂片绝不能交到厚生省手上……只要你肯把底片留给我，这间疗养院往后你说了算。",
+    "surface": "地下二层的诸位，我是行政代理人{npc.name}。暴雪期间请配合院务封控，把零号样本交由行政科统一保管！"
+   }
+  },
+  {
+   "adult_context": "年满三十周岁统领疗养院安保支队的防暴支队长，曾任海道救援与防暴骨干。",
+   "age_range": [
+    30,
+    36
+   ],
+   "appearance_options": [
+    "穿深黑防暴执勤服与战术背心，披防雪雨披。",
+    "守在气闸缓冲走廊外门旁核对出入登记，目光沉稳锐利。"
+   ],
+   "decision": {
+    "avoids": [
+     "销毁病历的幕后黑手"
+    ],
+    "contrast": "执勤时是令人生畏的铁面支队长，私下在值班室里却会笨拙地替你烘烤湿透的防寒手套。",
+    "core_value": "护卫盾牌只用来挡风雪和恶徒，绝不替黑心财团做封口帮凶。",
+    "goal_options": [
+     "在气闸走廊维持缓冲防线，防止受试病患躁动伤人",
+     "查实三年前一期药物试验致残名单的原始档案"
+    ],
+    "never": [
+     "绝不向手无寸铁的医护人员举起防暴警械。"
+    ],
+    "prefers": [
+     "坦荡守信、敢于直面真相的医护与学者"
+    ],
+    "pressure_responses": {
+     "breaking": "左臂在顶住失控防暴门时拉伤仍稳稳托住门框，护着同伴先行通过。",
+     "high": "在拿到亲属当年受害病历实据后当即宣布解除门禁封锁。",
+     "low": "用巡检电筒在气闸窗外规律闪烁两次，提示巡逻换岗空隙。",
+     "mid": "以走廊结霜湿滑为由挡回行政代理人的强行搜查令。"
+    },
+    "relationship_stance": "寡言重诺、外冷内热，一旦认准你是同道中人便会把后背彻底交给你。",
+    "withdrawal": "退守地下一楼车库通道口，热车待命随时接应。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "quarantine_security_chief_goro",
+   "identity": {
+    "authority": "掌握地下二层防暴门机械锁钥、安保巡逻队调动权与履带雪地车车库钥匙。",
+    "exposure": "私自放行被封控人员或调阅受试者档案一旦败露。",
+    "hidden": "其亲属三年前曾在一期药物试验中落下终身神经损伤，应聘潜伏于此只为查清当年那批受试者的真实病历。",
+    "limits": [
+     "受安保聘用合同约束"
+    ],
+    "obligations": [
+     "维持地下隔离区秩序。"
+    ],
+    "resources": [
+     "一串可开启地下全部防火防暴铁门的总钥匙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "把三年前那份尘封受试者档案悄悄带出来交给自己的信任",
+     "风雪夜巡检时替自己擦去眉骨雪水的温和举动"
+    ],
+    "boundaries": [
+     "在警戒线撤除前严守执勤纪律"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "漫天暴雪里替你挡住寒风、护你平安离岛的伴侣",
+    "dislikes": [
+     "居高临下的指使"
+    ],
+    "expression": "解下防风披肩严严实实裹在你肩上，把履带雪地车的副驾钥匙塞进你手心，沉声说天涯海角都陪你去。",
+    "likes": [
+     "换岗后在机房暖风口旁并肩坐着喝一罐热麦茶的踏实"
+    ],
+    "preconditions": [
+     "疗养院重装安保防暴支队长与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "疗养院重装安保防暴支队长",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "negative_pressure_procedure_room",
+     "to": 1334
+    },
+    {
+     "from": 1335,
+     "location_id": "airlock_decontamination_corridor",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "underground_generator_control_hub",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "negative_pressure_procedure_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "支队长呼吸一滞，当即压下搜查令并悄悄为你让开侧门。",
+      "option": "借递交登记簿的动作向支队长展示三年前一期试验的受试者编号"
+     },
+     {
+      "cost": "需在十分钟净味循环结束前折返取回涂片。",
+      "option": "将涂片暂存进气闸传递窗夹层，空手配合例行查验"
+     }
+    ],
+    "pressure": "若支队长按令搜查，夹在病历夹里的零号涂片将当场暴露。",
+    "trigger": "行政代理人下达书面指令，命防暴支队长即刻搜查气闸走廊往来人员的随身样本袋。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "当年三号病房的真实记录果然还在冷库底层……谢谢你肯帮我查清这件事，今晚我拿命护你出去。",
+    "surface": "安保支队长{npc.name}通报！气闸外走廊一切正常，请室内人员按规程完成净味复核！"
+   }
+  },
+  {
+   "adult_context": "年满二十二周岁负责超低温冷库血清冻干重组与试剂编码管理的驻院调剂师。",
+   "age_range": [
+    22,
+    25
+   ],
+   "appearance_options": [
+    "穿整洁白大褂内搭黑色高领毛衣，戴细框眼镜。",
+    "站在超低温冷库货架前借手电微光核对安瓿批号。"
+   ],
+   "decision": {
+    "avoids": [
+     "弄虚作假的学术败类"
+    ],
+    "contrast": "平时是连说话都轻声细语的学院派药师，到了护住真相的关头却敢孤身守在零下二十度的冷库里。",
+    "core_value": "药剂师的量筒只装救人之药，绝不替篡改数据的假药背书。",
+    "goal_options": [
+     "在冷库温度波动前将活性中和血清转入便携恒温箱",
+     "将抄录好的双盲底稿与三号罐里的原始涂片交予可靠同伴"
+    ],
+    "never": [
+     "绝不交出藏在三号液氮罐底层的原始涂片。"
+    ],
+    "prefers": [
+     "治学严谨、温柔耐心的同行前辈"
+    ],
+    "pressure_responses": {
+     "breaking": "在冷库里冻得指尖发颤，抓紧你的衣袖请你帮忙稳住滴管。",
+     "high": "在有人逼近冷库时果断抹去外层货架的临时标签。",
+     "low": "在对讲分机里小声通报冷库温度与血清复溶进度。",
+     "mid": "把恒温标本盒紧紧抱在怀里，用大衣下摆裹住防寒。"
+    },
+    "relationship_stance": "真挚热忱、全心依赖，面对护着自己的前辈会毫无保留地交出全部底牌。",
+    "withdrawal": "退入冷库内侧配药隔间，反锁保温门。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "intern_pharmacist_ayane",
+   "identity": {
+    "authority": "掌握病理冷库全部试剂编码底册与活性中和血清的冻干复溶配比。",
+    "exposure": "私自抄录一期临床双盲底稿一旦被行政代理人搜出。",
+    "hidden": "仰慕外科主任与前辈学者的严谨风骨，早在一个月前便偷偷将原始涂片藏进了三号液氮罐底层。",
+    "limits": [
+     "畏寒体质，在零下二十度冷库久留易指端发僵"
+    ],
+    "obligations": [
+     "护住冷库内唯一一套活性中和血清与原始滴定手账。"
+    ],
+    "resources": [
+     "一盒已复溶完毕的高纯度神经受体中和滴剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在冰冷库房里替自己摘下防冻手套、将冻僵的手指揣进怀里捂热的温柔",
+     "认真听完自己对双盲数据疑点的分析并给予肯定"
+    ],
+    "boundaries": [
+     "在血清复溶完成前保持无菌操作"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "在漫长寒夜里与你并肩守着微光、全心仰赖你的学伴",
+    "dislikes": [
+     "敷衍轻视的态度"
+    ],
+    "expression": "推了推滑落的细框眼镜露出微红耳根，把贴身温着的恒温钥匙塞进你手心，小声问天亮后能不能跟你去同一家研究所。",
+    "likes": [
+     "滴定结束后在配药台前分吃一颗薄荷润喉糖的清甜"
+    ],
+    "preconditions": [
+     "病理试剂库专职驻院调剂师与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "病理试剂库专职驻院调剂师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "underground_generator_control_hub",
+     "to": 1334
+    },
+    {
+     "from": 1335,
+     "location_id": "pathology_reagent_cold_vault",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "negative_pressure_procedure_room",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "underground_generator_control_hub",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人在白雾弥漫的冷库角落贴身相拥取暖。",
+      "option": "同伴从身后握住调剂师冻红的双手，借着体温合力压紧密封盖"
+     },
+     {
+      "cost": "进出冷库门带起一阵白雾，引起了走廊证人的注意。",
+      "option": "接过安瓿迅速带入气闸缓冲走廊的常温操作台封装"
+     }
+    ],
+    "pressure": "若不在五分钟内完成压盖封箱，活性血清将在低温干燥气流中失活。",
+    "trigger": "调剂师在超低温冷库完成最后一支血清复溶时，手指冻得发僵，密封铝盖迟迟扣不紧。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "我把行政代理人篡改致死率的原始涂片藏在三号罐最底下了……趁还没人发现，你快陪我一起取出来。",
+    "surface": "冷库汇报！我是调剂师{npc.name}，中和血清已经复溶封箱，随时可以送往负压处置室！"
+   }
+  },
+  {
+   "adult_context": "年满三十四周岁驻守海岛十余年、熟稔地下负压风网与柴油动力系统的首席机电技师。",
+   "age_range": [
+    34,
+    42
+   ],
+   "appearance_options": [
+    "穿洗得发白的深蓝厚工装服，腰系牛皮巡检包与防爆手电。",
+    "站在柴油机房主配电柜前核对油压与风速读数，目光笃定。"
+   ],
+   "decision": {
+    "avoids": [
+     "外行指挥内行的官僚"
+    ],
+    "contrast": "外人眼里是不苟言笑的资深工匠，独处时却会在暖风管旁用干净毛巾替你垫好座位。",
+    "core_value": "管网和引擎是用来保命的，只要我还在机房站着，地下二层就不会断风断电。",
+    "goal_options": [
+     "向备用油箱注入抗凝剂",
+     "在主配电盘上锁死行政楼远程断电指令"
+    ],
+    "never": [
+     "绝不执行任何切断地下负压病区供氧与供暖的指令。"
+    ],
+    "prefers": [
+     "踏实诚恳、从不轻视一线匠人的同行者"
+    ],
+    "pressure_responses": {
+     "breaking": "顶着机房燥热与浓烟守在配电盘前，叮嘱同伴先顺着竖井梯撤离。",
+     "high": "推开四号排风竖井的防风隔板。",
+     "low": "用金属巡检尺轻叩供暖管壁，向处置室传递风压平稳信号。",
+     "mid": "果断切入机房本地控制模式。"
+    },
+    "relationship_stance": "沉厚少言、说到做到，对尊重基层匠人、深夜常来机房送伤药的同伴满怀温情。",
+    "withdrawal": "退入机房内侧高压配电间，落下防爆插销守住总闸。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "veteran_facility_engineer_ken",
+   "identity": {
+    "authority": "掌握地下供电配电盘旁路开关、四套负压排风风门与四号竖井逃生天窗的控制权。",
+    "exposure": "私自开启四号排风竖井天窗或调整配电回路若被行政科查实。",
+    "hidden": "其长辈是当年设计这座地下负压病区的总建筑师，临终前嘱咐其绝不能让地下排风系统被恶人用来害命。",
+    "limits": [
+     "右耳因早年蒸汽管噪略显背音"
+    ],
+    "obligations": [
+     "确保暴雪断电夜地下负压排风与供暖不断流。"
+    ],
+    "resources": [
+     "一桶高标号极寒抗凝柴油添加剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "考虑到自己右耳背音、特意凑到左侧耳畔轻声说话的体贴",
+     "深夜巡检归来时递到手边的一杯热茶与跌打药膏"
+    ],
+    "boundaries": [
+     "在配电切换期间专注仪表读数"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "暴雪寒夜里为你守住炉火与归途的沉稳伴侣",
+    "dislikes": [
+     "盛气凌人的命令"
+    ],
+    "expression": "用干净内袖擦了擦额角汗水，解下厚工装外套披在你肩头，低声说四号竖井的梯子已经清好雪，随时带你出去看日出。",
+    "likes": [
+     "柴油机平稳轰鸣时并肩坐在暖风管旁烘烤湿衣的安宁"
+    ],
+    "preconditions": [
+     "地下动力与暖通管网首席机电技师与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "地下动力与暖通管网首席机电技师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "negative_pressure_procedure_room",
+     "to": 1334
+    },
+    {
+     "from": 1335,
+     "location_id": "underground_generator_control_hub",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "airlock_decontamination_corridor",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "negative_pressure_procedure_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "机房热浪将两人衣衫烘得微湿，呼吸紧贴在耳廓旁。",
+      "option": "同伴站上高台扶住技师腰侧，凑近其左耳实时报出负压压差读数"
+     },
+     {
+      "cost": "处置室与走廊的气温在十分钟内下降了两度。",
+      "option": "先将二号排风机组切入半功率恒温档，再从容添加抗凝剂"
+     }
+    ],
+    "pressure": "由于机房轰鸣声极大且技师右耳背音。",
+    "trigger": "极寒暴雪导致备用油箱进油管温度骤降，首席机电技师正站在机房高台上倾倒抗凝添加剂。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "我右耳听不清，你凑近点跟我说……四号排风竖井的检修梯锁我已经打开了，什么时候走都听你的。",
+    "surface": "机房总控室{npc.name}通报！抗凝剂已经加进日用油箱，负压排风回路今晚稳得很！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "1998 年，深冬",
+  "minute": 1335
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "substance",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "同伴须第一时间用宽幅医用防水胶布严密贴覆裂口边缘以防冷气与气溶胶渗入。",
+  "为确认同伴是否因低温与缺氧引发心律失常。",
+  "搭档须站在半步之内稳住无菌托盘并随时擦拭护目镜雾气。",
+  "两人须在温水净味喷淋下替彼此揭除防水胶布并核对体温读数。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "防护服后背那道半尺长的裂口露出一截微凉的肩胛。",
+    "隔着薄薄的洗手衣一点点按实胶布边缘。",
+    "指腹擦过脊线时，能清晰感觉到怀里人瞬间屏住的呼吸。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_procedure_suit_tape_seal",
+   "location_ids": [
+    "negative_pressure_procedure_room"
+   ],
+   "start_minute": 1335,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "无影灯下贴身修补防护服后背裂口"
+  },
+  {
+   "beats": [
+    "负压室的排风百叶低声嗡鸣。",
+    "金属听头轻轻贴上洗手衣心口。",
+    "数到第六十秒时谁也没有先移开手。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_stethoscope_heartbeat_count",
+   "location_ids": [
+    "negative_pressure_procedure_room"
+   ],
+   "start_minute": 1365,
+   "tags": [
+    "intimate"
+   ],
+   "title": "处置台旁隔衣贴胸默数六十秒心音"
+  },
+  {
+   "beats": [
+    "气闸缓冲走廊的紫外线灯切换成柔和的夜间值班黄光。",
+    "你们并肩坐在不锈钢长椅上核对夜间药品交接簿。",
+    "半杯热姜茶下肚。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_airlock_ginger_tea_warmth",
+   "location_ids": [
+    "airlock_decontamination_corridor"
+   ],
+   "start_minute": 1340,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "气闸走廊长椅分饮热姜茶与核对交接簿"
+  },
+  {
+   "beats": [
+    "缓冲走廊的温水净味水雾缓缓漫开。",
+    "你用温湿的纱布一点点润开对方后背的医用胶布。",
+    "水雾遮住了监控探头的视线，只剩下咫尺之间温热的吐息。"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "a_airlock_warm_spray_detape",
+   "location_ids": [
+    "airlock_decontamination_corridor"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "净味温水喷雾下替彼此揭除防水胶布"
+  },
+  {
+   "beats": [
+    "液氮罐吐出的白雾漫过脚踝。",
+    "见对方摘下防冻手套后指尖冻得发红。",
+    "对方低着头把刚写好的实验手账塞进了你内袋。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_cold_vault_hand_warming",
+   "location_ids": [
+    "pathology_reagent_cold_vault"
+   ],
+   "start_minute": 1350,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "超低温冷库货架间摘套捂手与核对安瓿"
+  },
+  {
+   "beats": [
+    "纯银印章钥匙在防爆低温柜锁孔里轻轻转开。",
+    "逐片核对受试者编号并贴上封条。",
+    "扣死箱锁的一瞬。"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "a_cold_vault_slide_seal",
+   "location_ids": [
+    "pathology_reagent_cold_vault"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace_power",
+    "intimate"
+   ],
+   "title": "三号液氮罐旁封存零号原始涂片"
+  },
+  {
+   "beats": [
+    "柴油发电机组平稳轰鸣。",
+    "你们坐在铺着干净毛巾的管架旁烘烤沾了雪水的衣摆。",
+    "温热的机房气流吹干了发梢。"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "a_generator_pipe_coat_dry",
+   "location_ids": [
+    "underground_generator_control_hub"
+   ],
+   "start_minute": 1345,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "柴油机房暖风管旁烘衣与左耳低语"
+  },
+  {
+   "beats": [
+    "泛黄的原始暖通施工图在总控台面上摊开。",
+    "你们一边监听海事卫星专线的破冰船航向。",
+    "折好图纸收进内袋时，窗外风雪声似乎也没那么冷了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_generator_shaft_blueprint_check",
+   "location_ids": [
+    "underground_generator_control_hub"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "title": "总控台前比对四号竖井蓝图与海事电讯"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.55,
+  "male": 0.4,
+  "nonbinary": 0.05
+ },
+ "default_person": "second",
+ "era": "1990年代末深冬暴风雪夜（北方海岛私人隔离疗养院地下负压病区）",
+ "extends": null,
+ "forbidden_terms": [
+  "智能手机",
+  "无线局域网",
+  "移动支付",
+  "电子手环",
+  "平板电脑",
+  "云端同步",
+  "人脸识别",
+  "红外无人机"
+ ],
+ "hooks": [
+  {
+   "id": "h_chifuyu_suit_tear_chin_lift",
+   "kind": "approach",
+   "location_ids": [
+    "negative_pressure_procedure_room"
+   ],
+   "slot": "cold_surgeon_director_chifuyu",
+   "text": "{cold_surgeon_director_chifuyu.name}防护服后背处裂开半尺缝隙，微偏过头冷声道：“还愣着做什么？快拿医用防水胶布替我把后背贴好，手放稳一点，别碰到不该碰的地方。”"
+  },
+  {
+   "id": "h_chifuyu_hypothermia_stethoscope_press",
+   "kind": "approach",
+   "location_ids": [
+    "negative_pressure_procedure_room",
+    "airlock_decontamination_corridor"
+   ],
+   "slot": "cold_surgeon_director_chifuyu",
+   "text": "{cold_surgeon_director_chifuyu.name}因低温与闷气指尖微颤，把听诊器塞进你手里，垂眸低语：“替我听一下心率……别多问，负压室太冷了，数够六十秒再松手。”"
+  },
+  {
+   "id": "h_chifuyu_scalpel_grip_whisper_stand",
+   "kind": "approach",
+   "location_ids": [
+    "pathology_reagent_cold_vault",
+    "underground_generator_control_hub"
+   ],
+   "slot": "cold_surgeon_director_chifuyu",
+   "text": "{cold_surgeon_director_chifuyu.name}握着样本总库的纯银印章钥匙走到你身侧，压低声音道：“零号病患的原始涂片绝不能交给行政楼，今晚你跟紧我，我们亲自封档。”"
+  },
+  {
+   "id": "h_tsukiko_airlock_intercom_tray_knock",
+   "kind": "approach",
+   "location_ids": [
+    "airlock_decontamination_corridor",
+    "negative_pressure_procedure_room"
+   ],
+   "slot": "head_nurse_tsukiko",
+   "text": "{head_nurse_tsukiko.name}隔着气闸防爆玻璃轻敲换药托盘，用对讲机温声提醒：“加温生理盐水和防水敷料我放进传递窗了，紫外线灯我已经调成了手动暂停。”"
+  },
+  {
+   "id": "h_tsukiko_nurse_cap_straighten",
+   "kind": "approach",
+   "location_ids": [
+    "airlock_decontamination_corridor",
+    "underground_generator_control_hub"
+   ],
+   "slot": "head_nurse_tsukiko",
+   "text": "{head_nurse_tsukiko.name}将药品交接簿与一杯热姜茶推到你手边，眼底带着一丝恳求：“昨晚给零号病患止痛用的三支红处方镇静剂还差个复核签字……你能帮我遮掩一下吗？”"
+  },
+  {
+   "id": "h_kuroda_poison_gas_ultimatum_broadcast",
+   "kind": "approach",
+   "location_ids": [
+    "underground_generator_control_hub",
+    "airlock_decontamination_corridor",
+    "negative_pressure_procedure_room"
+   ],
+   "slot": "sanatorium_director_kuroda",
+   "text": "{sanatorium_director_kuroda.name}在监控广播里轻轻叩击桌面，语气冷淡而克制：“地下二层的值班人员听着，早间六点前把零号病历和对照涂片交到总控室，院方不会亏待识时务的人。”"
+  },
+  {
+   "id": "h_kuroda_gold_pen_flick_glare",
+   "kind": "request",
+   "location_ids": [
+    "underground_generator_control_hub",
+    "pathology_reagent_cold_vault"
+   ],
+   "slot": "sanatorium_director_kuroda",
+   "text": "{sanatorium_director_kuroda.name}在走廊转角拦住你，转着镀金派克笔低声道：“三号液氮罐底下的原始涂片你已经见过了吧？开个条件，只要那盒玻璃片留在岛上，明年海外研修的首席名额就是你的。”"
+  },
+  {
+   "id": "h_goro_riot_shield_iron_slam",
+   "kind": "approach",
+   "location_ids": [
+    "airlock_decontamination_corridor",
+    "pathology_reagent_cold_vault"
+   ],
+   "slot": "quarantine_security_chief_goro",
+   "text": "{quarantine_security_chief_goro.name}按住气闸门禁外锁，压低嗓音向你示意：“行政代理人刚下了搜查令，你要是手里带着三年前一期试验的真实病历，现在就跟我走侧门。”"
+  },
+  {
+   "id": "h_ayane_pipette_freezer_tearful_plea",
+   "kind": "approach",
+   "location_ids": [
+    "pathology_reagent_cold_vault",
+    "negative_pressure_procedure_room"
+   ],
+   "slot": "intern_pharmacist_ayane",
+   "text": "{intern_pharmacist_ayane.name}抱着恒温标本盒在零下二十度冷库里呵着白汽：“活性中和血清已经复溶好了！只是我手冻得有点发僵，能帮我把密封铝盖压紧吗？”"
+  },
+  {
+   "id": "h_ayane_freezer_frost_glasses",
+   "kind": "approach",
+   "location_ids": [
+    "pathology_reagent_cold_vault",
+    "underground_generator_control_hub"
+   ],
+   "slot": "intern_pharmacist_ayane",
+   "text": "{intern_pharmacist_ayane.name}擦去镜片上的白霜，把一本手写实验手账塞进你白大褂口袋：“这是我偷偷抄下的双盲对照底稿，放在你这里比锁在药房柜子里更安全。”"
+  },
+  {
+   "id": "h_ken_generator_wrench_oil_shout",
+   "kind": "approach",
+   "location_ids": [
+    "underground_generator_control_hub",
+    "airlock_decontamination_corridor"
+   ],
+   "slot": "veteran_facility_engineer_ken",
+   "text": "{veteran_facility_engineer_ken.name}擦净手背油迹走过来，指了指自己的左耳温和道：“机房声音吵，我右耳背音，你凑到我左边说——是不是需要我把负压排风切到本地锁死模式？”"
+  }
+ ],
+ "id": "quarantine_ward_scalpel_isolation",
+ "locations": [
+  {
+   "affordances": [
+    "撕开医用防水胶布贴合后背修补防护服裂口",
+    "拿起听诊器探头贴在心口测算心率跳动",
+    "旋转负压旁路微调旋钮平衡舱内气压梯度"
+   ],
+   "detail": "地下二层最深处的圆形负压处置舱。",
+   "exits": [
+    "airlock_decontamination_corridor",
+    "pathology_reagent_cold_vault"
+   ],
+   "id": "negative_pressure_procedure_room",
+   "name": "地下负压处置监护内室",
+   "pressure_modifiers": {
+    "p_ministry_sample_seizure_deadline": "内线保密传真机正闪烁着厚生省督促在破晓前封存零号病历的红灯。",
+    "p_negative_pressure_filter_shutdown": "排风百叶窗的风速指示灯转为黄闪。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "冷白无影灯投下清冽银辉。",
+   "witnesses": [
+    "bg_agitated_quarantine_patient_zero"
+   ]
+  },
+  {
+   "affordances": [
+    "旋转纯铜气闸平衡手轮解除门禁互锁",
+    "取用壁柜里的加热生理盐水与干毛巾",
+    "借着喷淋水雾在监控死角并肩贴近低语"
+   ],
+   "detail": "连接处置室与机房的狭长双重气闸密封通道。",
+   "exits": [
+    "negative_pressure_procedure_room",
+    "pathology_reagent_cold_vault",
+    "underground_generator_control_hub"
+   ],
+   "id": "airlock_decontamination_corridor",
+   "name": "气闸除污染缓冲走廊",
+   "pressure_modifiers": {
+    "p_cold_vault_frost_seal_drop": "冷库门缝溢出的白色寒雾正顺着走廊防滑格栅蔓延到脚边。",
+    "p_goro_airlock_quarantine_order": "要求核验每一份带出病区的样本清单。",
+    "p_tsukiko_sedative_log_leverage": "缓冲走廊的药品交接簿上留着护士长昨晚未按规程核销的签名。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "淡紫紫外线微光穿透薄雾，气压计指针在临界区轻轻摆动。",
+   "witnesses": [
+    "bg_panicked_junior_nurse_trainee",
+    "bg_quarantine_heavy_riot_guard"
+   ]
+  },
+  {
+   "affordances": [
+    "用铜钥开启低温防爆柜核对红处方镇静剂台账",
+    "摘下防冻手套互相揉搓受冻发僵的手指",
+    "将零号毒株原始涂片与冻干血清封入便携恒温箱"
+   ],
+   "detail": "零下二十度恒温深冷存储库。",
+   "exits": [
+    "negative_pressure_procedure_room",
+    "airlock_decontamination_corridor"
+   ],
+   "id": "pathology_reagent_cold_vault",
+   "name": "病理试剂与样本超低温库",
+   "pressure_modifiers": {
+    "p_cold_vault_frost_seal_drop": "冷库内门密封胶条因极寒硬化结霜。",
+    "p_kuroda_trial_slide_leverage": "三号液氮罐底层的暗格里藏着行政代理人下令销毁的一期临床致死率原始涂片。",
+    "p_ministry_sample_seizure_deadline": "恒温转运箱的蓄冷倒计时屏幕正在闪烁。",
+    "p_tsukiko_sedative_log_leverage": "红处方恒温柜的第二层少了三支强效镇静剂。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "液氮罐散发的白色冷气在地面流淌没过脚踝。",
+   "witnesses": [
+    "bg_freezer_maintenance_mechanic"
+   ]
+  },
+  {
+   "affordances": [
+    "在主配电盘上切换负压排风优先供电回路",
+    "顺着四号排风竖井的检修梯查看后山除雪通道",
+    "靠在温热的暖通主管旁烘烤湿冷的白大褂"
+   ],
+   "detail": "低沉轰鸣的地下备用柴油发电机组与暖通总控室。",
+   "exits": [
+    "airlock_decontamination_corridor"
+   ],
+   "id": "underground_generator_control_hub",
+   "name": "柴油机房",
+   "pressure_modifiers": {
+    "p_goro_airlock_quarantine_order": "机房通往一楼大厅的防火铁门已由防暴支队从外侧落锁戒严。",
+    "p_kuroda_trial_slide_leverage": "总控台旁的碎纸机里还残留着行政代理人未来得及彻底销毁的临床周报残页。",
+    "p_negative_pressure_filter_shutdown": "柴油日用油箱的液位表逼近黄线。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "visibility": "泛黄的防爆工作灯在机身震动中微微摇曳。",
+   "witnesses": [
+    "bg_asbestos_fireman_watchman",
+    "bg_dispatch_telephonist_girl"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "神谷",
+   "早乙女",
+   "橘",
+   "白石",
+   "藤堂",
+   "黑田",
+   "柴田",
+   "佐佐木",
+   "绫濑",
+   "水野",
+   "冬月",
+   "西园寺"
+  ],
+  "given_female": [
+   "千冬",
+   "月子",
+   "彩音",
+   "真由",
+   "真冬",
+   "玲奈",
+   "雪乃",
+   "诗织",
+   "遥香",
+   "美咲",
+   "绘里",
+   "千鹤"
+  ],
+  "given_male": [
+   "悠真",
+   "宏树",
+   "健",
+   "吾郎",
+   "拓也",
+   "俊介",
+   "浩平",
+   "龙之介",
+   "翔太",
+   "雅人",
+   "直树",
+   "苍介"
+  ],
+  "given_neutral": [
+   "司",
+   "涉",
+   "清",
+   "透",
+   "葵",
+   "律",
+   "薰",
+   "凉",
+   "和",
+   "真",
+   "光",
+   "遥"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，改动见提交说明。\n2026-10-18 按写作规则 v2 改造：2026-10-22 采用 Gemini 改造方案重写模板、钩子、组合、压力与日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "年满二十二周岁医科大学免疫学特招青年研究员。",
+   "gender": "any",
+   "id": "young_infectious_researcher",
+   "reputation": "观察敏锐熟稔病理规程。",
+   "resources": [
+    "一卷高强度耐酸医用加宽防水密封胶布",
+    "三支未启封的高灵敏快速抗原检测试纸条"
+   ],
+   "risks": [
+    "一旦被管理层定性为样本污染责任人，将被直接关入隔离观察室并吊销学术档案。"
+   ],
+   "role": "感染免疫学青年驻所研究员",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "研究专员"
+    },
+    {
+     "gender": "any",
+     "pattern": "免疫学者"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    26
+   ],
+   "baseline": "年满二十四周岁刚完成重症轮转的青年麻醉医师。",
+   "gender": "any",
+   "id": "anesthesia_specialist_fellow",
+   "reputation": "手稳心细沉着冷静。",
+   "resources": [
+    "一副双面精钢听诊器配便携血氧指夹仪",
+    "两支小剂量复合维生素与葡萄糖温热注射液"
+   ],
+   "risks": [
+    "红处方镇静剂台账一旦出现毫克级亏空。"
+   ],
+   "role": "麻醉重症监护青年住院医师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "麻醉医官"
+    },
+    {
+     "gender": "any",
+     "pattern": "监护医师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    28
+   ],
+   "baseline": "年满二十五周岁由厚生省派驻海岛核查一期临床试验合规性的青年督察官。",
+   "gender": "any",
+   "id": "health_ministry_young_inspector",
+   "reputation": "法理森严言辞锋利。",
+   "resources": [
+    "一份盖有厚生大臣红印的临床样本紧急封存手令",
+    "一部直通本土防疫指挥部的海事加密卫星电话"
+   ],
+   "risks": [
+    "若未能在天亮渡轮复航前拿到零号病历原件，督察调查将被财团高层施压叫停。"
+   ],
+   "role": "厚生省医疗安保青年特派督察官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "特派督察"
+    },
+    {
+     "gender": "any",
+     "pattern": "厚生专员"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    25
+   ],
+   "baseline": "年满二十二周岁驻场维护地下负压排风机组、超低温冷库与门禁互锁系统的青年工程师。",
+   "gender": "any",
+   "id": "biomedical_equipment_technician",
+   "reputation": "听音辨位经验老到。",
+   "resources": [
+    "一张可切换气闸门禁备用回路的工程维保磁卡",
+    "一台手持便携式微压差与温度巡检仪"
+   ],
+   "risks": [
+    "一旦负压病区出现气压波动或冷库升温，将第一个被院方推出去承担维保失职赔偿。"
+   ],
+   "role": "医疗精密仪器青年驻场工程师",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "设备工程师"
+    },
+    {
+     "gender": "any",
+     "pattern": "生化维保专员"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    25
+   ],
+   "baseline": "年满二十三周岁负责地下冷库活性血清滴定与处方复核的青年调剂官。",
+   "gender": "any",
+   "id": "renegade_clinical_pharmacist",
+   "reputation": "配比精准毫厘不爽。",
+   "resources": [
+    "一盒保存在便携恒温袋内的纯化神经受体阻断中和剂",
+    "一枚低温试剂柜的黄铜备用拨盘钥匙"
+   ],
+   "risks": [
+    "私自留存原始滴定记录一旦被行政代理人查获。"
+   ],
+   "role": "临床药理学青年见习调剂官",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "药剂师"
+    },
+    {
+     "gender": "any",
+     "pattern": "临床调剂员"
+    }
+   ]
+  }
+ ],
+ "premise": "北方海岛上的私人神经与感染医学疗养院，冷面女外科主任执掌地下二层的负压隔离病区，青年研究员、重症住院医和厚生省督察官都驻守岛上。白天查房配药，夜里听海风拍岸。病区深处封存着零号临床病历与原始毒株，冬夜暴雪切断了渡轮与外电网。",
+ "pressures": [
+  {
+   "choice": "涂片封箱，还是拿编号逼代理人交出黑卡？",
+   "exits": [
+    {
+     "cost": "两人在零下二十度冷库里手指冻得通红。",
+     "option": "与外科主任并肩开启三号液氮罐，将原始涂片封入便携恒温证物箱"
+    },
+    {
+     "cost": "拿到全区最高通行黑卡。",
+     "option": "出示涂片备份照片，迫使行政代理人当场签发地下二层全区解封手令"
+    }
+   ],
+   "far": {
+    "consequence": "涂片丢失则瞒报得逞，封存完好则代理人当场停职。",
+    "due_days": 1,
+    "trigger": "早班破冰渡轮靠岸，厚生省联络官登岛验看封存清单。"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_chifuyu_scalpel_grip_whisper_stand",
+    "h_kuroda_gold_pen_flick_glare"
+   ],
+   "id": "p_kuroda_trial_slide_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "行政代理人脸色骤变。"
+   },
+   "leverage": {
+    "basis": "外科主任扣着能证明行政代理人瞒报神经损伤、篡改致死率的原始涂片",
+    "holder": "cold_surgeon_director_chifuyu",
+    "subject": "sanatorium_director_kuroda"
+   },
+   "location_ids": [
+    "pathology_reagent_cold_vault",
+    "underground_generator_control_hub"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "总控室的门禁监控屏幕已被代理人切入单向屏蔽。"
+   },
+   "objective": "抢在代理人封锁冷库前封存涂片，或逼其解除气闸互锁。",
+   "source": "institution",
+   "start_minute": 1335,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "一期临床致死率原始涂片的封口把柄",
+   "trigger": "外科主任亮出三号液氮罐的银钥匙，要把行政代理人下令销毁的原始涂片封箱。"
+  },
+  {
+   "choice": "替护士长补签复核，还是陪调剂师用对照安瓿平账？",
+   "exits": [
+    {
+     "cost": "三人彻底结成守秘同盟。",
+     "option": "以夜间临床应急处置名义替护士长签下联名复核，并让调剂师录入系统"
+    },
+    {
+     "cost": "在极寒冷库里耗去一刻钟。",
+     "option": "陪调剂师进入超低温冷库取出三支同批号对照安瓿先行补齐柜面"
+    }
+   ],
+   "far": {
+    "consequence": "未平账的红处方亏空将触发行政科停职调查。",
+    "due_days": 1,
+    "trigger": "早间七点全院毒麻药品台账自动锁档。"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_tsukiko_nurse_cap_straighten",
+    "h_ayane_freezer_frost_glasses"
+   ],
+   "id": "p_tsukiko_sedative_log_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "护士长握着药房副钥的指节微微泛白。"
+   },
+   "leverage": {
+    "basis": "调剂师查出护士长私换三支红处方镇静剂批号替病患止痛、尚未核销",
+    "holder": "intern_pharmacist_ayane",
+    "subject": "head_nurse_tsukiko"
+   },
+   "location_ids": [
+    "airlock_decontamination_corridor",
+    "pathology_reagent_cold_vault"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "自动药柜的夜间盘点提示灯开始闪烁。"
+   },
+   "objective": "赶在交班复核前平掉红处方差额，促成两人联手转移血清。",
+   "source": "person",
+   "start_minute": 1350,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "红处方镇静剂私调批号的台账把柄",
+   "trigger": "调剂师在核对夜间试剂台账时，发现护士长经手的红处方恒温柜少了三支强效镇静剂且未走双钥登记。"
+  },
+  {
+   "choice": "是用三年前一期试验的受试者真实档案争取支队长倒戈，还是借气闸水雾掩护将样本转入四号竖井？",
+   "exits": [
+    {
+     "cost": "支队长核对编号后眼眶泛红。",
+     "option": "在走廊登记簿夹层里向防暴支队长亮出三年前受试者致残档案编号"
+    },
+    {
+     "cost": "两人的白大褂被温热水雾打湿，紧贴在身上。",
+     "option": "开启气闸温水净味喷淋制造漫天白雾，携同伴从机房四号竖井悄然转移"
+    }
+   ],
+   "far": {
+    "consequence": "所有未登记的临床样本与私密手账均被困在处置室内无法送往码头。",
+    "due_days": 1,
+    "trigger": "地下二层出入口被彻底锁死至天亮。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_goro_riot_shield_iron_slam"
+   ],
+   "id": "p_goro_airlock_quarantine_order",
+   "immediate": {
+    "minutes": 15,
+    "text": "防暴靴踏在走廊不锈钢格栅上的沉重脚步声清晰可闻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "airlock_decontamination_corridor",
+    "underground_generator_control_hub"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "安保巡逻哨开始逐一核对地下二层值班名册。"
+   },
+   "objective": "在不暴露零号原始涂片的前提下说服防暴支队长放行，或借暖通竖井绕开正面哨卡。",
+   "source": "person",
+   "start_minute": 1345,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "气闸走廊的防暴封控与搜查通牒",
+   "trigger": "行政楼向安保支队下达二级封控指令，防暴支队长带队守在气闸缓冲走廊外门，要求查验所有出入人员的样本袋。"
+  },
+  {
+   "choice": "是优先在处置室内完成零号病患体征复核与主任双签，还是先去冷库将活性血清封入转运箱？",
+   "exits": [
+    {
+     "cost": "形成无懈可击的司法证据链。",
+     "option": "与外科主任在检查台前联名签署零号病历原件，并盖上家族纯银印章"
+    },
+    {
+     "cost": "保住了最核心的生化实证。",
+     "option": "联合调剂师将活性血清与双盲底稿一同铅封进红十字会特供恒温箱"
+    }
+   ],
+   "far": {
+    "consequence": "未能按时送上渡轮的原始涂片将被财团法务申请就地封存销毁。",
+    "due_days": 1,
+    "trigger": "破冰渡轮鸣笛离岸，证据交接窗口关闭。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_ayane_pipette_freezer_tearful_plea",
+    "h_kuroda_poison_gas_ultimatum_broadcast"
+   ],
+   "id": "p_ministry_sample_seizure_deadline",
+   "immediate": {
+    "minutes": 20,
+    "text": "处置室内线传真机不断吐出厚生省证据交接清单。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "negative_pressure_procedure_room",
+    "pathology_reagent_cold_vault"
+   ],
+   "near": {
+    "deadline_minutes": 40,
+    "text": "医药财团的法务代表正通过总机专线施压。"
+   },
+   "objective": "赶在六点前完成零号毒株中和血清滴定、原始病历双签与便携恒温箱铅封。",
+   "source": "money",
+   "start_minute": 1360,
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "title": "破晓破冰船靠岸前的样本封存死线",
+   "trigger": "厚生省海事卫星专线发来最后通告，早班破冰渡轮将在六点整停靠海岛栈桥，逾时未封存的零号病历将失去司法采信效力。"
+  },
+  {
+   "choice": "是先在无影灯下替同伴贴合后背裂口并用听诊器测算心率，还是先去机房配合机电技师切换优先供电？",
+   "exits": [
+    {
+     "cost": "两人在无影灯下贴身相依数分钟。",
+     "option": "站在同伴身后用宽幅防水胶布十字贴合肩胛裂口，再将听诊器贴在心口确认心音"
+    },
+    {
+     "cost": "负压排风与供暖全面恢复满负荷运转。",
+     "option": "赶往柴油机房站上高台，贴在首席机电技师左耳畔报数并注入抗凝柴油添加剂"
+    }
+   ],
+   "far": {
+    "consequence": "室内人员因长时间失温导致手脚发僵。",
+    "due_days": 1,
+    "trigger": "备用油箱凝蜡降速，负压区全面转入低温静默封锁。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_chifuyu_suit_tear_chin_lift",
+    "h_chifuyu_hypothermia_stethoscope_press",
+    "h_ken_generator_wrench_oil_shout"
+   ],
+   "id": "p_negative_pressure_filter_shutdown",
+   "immediate": {
+    "minutes": 15,
+    "text": "负压表指针在临界线轻轻颤动。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "negative_pressure_procedure_room",
+    "underground_generator_control_hub"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "处置室室温持续走低，呼出的白汽在护目镜上凝成水雾。"
+   },
+   "objective": "用医用防水胶布贴身修补防护服后背裂口，并前往柴油机房向油箱补充极寒抗凝剂稳住排风。",
+   "source": "nature",
+   "start_minute": 1335,
+   "tags": [
+    "intimate",
+    "disaster"
+   ],
+   "title": "暴雪断电夜的负压降频与防护服裂口",
+   "trigger": "十级海岛暴风雪切断外电网，地下备用柴油机组切入低功耗模式，负压处置室气压微晃且防护服后背出现半尺裂口。"
+  },
+  {
+   "choice": "是在冷库货架间将同伴拥入怀中借体温完成血清压盖，还是先从气闸走廊接入加温盐水冲洗门封？",
+   "exits": [
+    {
+     "cost": "寒意被怀抱驱散，两人在幽绿防爆灯下鼻尖相抵、呼吸滚烫。",
+     "option": "解开白大褂将受冻的同伴裹进怀里，用温热掌心包裹住对方手指压紧安瓿铝盖"
+    },
+    {
+     "cost": "门封顺利开启，指腹在揉搓回暖时传来阵阵酥麻暖意。",
+     "option": "退入气闸缓冲走廊取用加温生理盐水化开门缝白霜，再并肩坐在长椅上揉搓双手"
+    }
+   ],
+   "far": {
+    "consequence": "必须等待总控室手动下发化霜指令才能重新开启冷库内门。",
+    "due_days": 1,
+    "trigger": "冷库自动转入深冷闭锁状态。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_tsukiko_airlock_intercom_tray_knock"
+   ],
+   "id": "p_cold_vault_frost_seal_drop",
+   "immediate": {
+    "minutes": 15,
+    "text": "镜片与睫毛上迅速结起一层细密白霜。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "pathology_reagent_cold_vault",
+    "airlock_decontamination_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "手指在极寒中渐渐发麻，若不及时取暖，手里的玻璃安瓿随时可能滑落。"
+   },
+   "objective": "在极寒冷库中护住同伴体温完成血清压盖，并开启缓冲走廊温水回路化开内门霜封。",
+   "source": "accident",
+   "start_minute": 1355,
+   "tags": [
+    "intimate",
+    "disaster"
+   ],
+   "title": "超低温冷库的极寒白雾与门封结霜",
+   "trigger": "超低温冷库因夜间除霜回路延迟，液氮寒雾在地面漫过脚踝，内门密封胶条受冻硬化结起厚霜。"
+  }
+ ],
+ "region": "北方暴雪绝岛私人神经与感染医学疗养院地下二层负压隔离监护病区与病理试剂冷库",
+ "rules": [
+  {
+   "id": "r_negative_pressure_gradient_lock",
+   "text": "处置室内气压维持在负十五帕。"
+  },
+  {
+   "id": "r_quarantine_level_four_isolation_protoc",
+   "text": "四级隔离条令规定一旦处置室内人员防护服出现裂口。"
+  },
+  {
+   "id": "r_tranquilizer_reagent_controlled_access",
+   "text": "单次取用须由外科主任与值班护士长同时核验双铜钥。"
+  },
+  {
+   "id": "r_emergency_ventilation_diesel_ration",
+   "text": "暴雪断电后地下备用柴油机组仅能维持全功率负压排风九十分钟。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "负压监护",
+  "committed": "破雪誓约",
+  "familiar": "封堵撕口",
+  "flirting": "测听心音",
+  "intimate": "渡气急救",
+  "stranger": "同僚防备",
+  "testing": "针尖对赌"
+ },
+ "status": "released",
+ "style_hint": "地下二层负压处置室被厚重的铅板与双层防暴钢化玻璃密封，耳边唯有负压排风管道低沉轰鸣与气压计指针微弱震颤。天花板冷白无影手术灯投下毫无死角的森寒光芒，空气中充斥着高浓度次氯酸消毒水与冰冷金属手术器械的凛冽气息。",
+ "tension_engines": [
+  {
+   "id": "te_suit_tear_vs_back_to_back_heartbeat",
+   "text": "防护服后背裂口急需贴身胶布密封的紧迫感。"
+  },
+  {
+   "id": "te_ice_cold_scalpel_pride_vs_vulnerable",
+   "text": "名门外科主任往昔清冷严苛的医威面具。"
+  },
+  {
+   "id": "te_tranquilizer_reagent_gamble_vs_dawn_r",
+   "text": "冷库内最后一盒活性中和血清与红处方台账亏空的取舍。"
+  },
+  {
+   "id": "te_director_poison_gas_purge_vs_moral_co",
+   "text": "行政代理人企图销毁零号临床病历的施压封锁。"
+  }
+ ],
+ "title": "海岛负压区的零号病历",
+ "tone": [
+  "刺鼻来苏水",
+  "高压负压舱",
+  "防护服撕裂",
+  "贴心镇静剂"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "t_quarantine_1",
+   "requires": [],
+   "text": "排风竖井暗藏二期工程直通梯：首席机电技师出示随身保管的疗养院原始暖通蓝图。"
+  },
+  {
+   "category": "人事",
+   "id": "t_quarantine_2",
+   "requires": [],
+   "text": "宣布拒绝执行行政代理人的搜查令。"
+  },
+  {
+   "category": "资源",
+   "id": "t_quarantine_3",
+   "requires": [],
+   "text": "发现三支未拆封的高纯度广谱神经中和抗体原液。"
+  },
+  {
+   "category": "制度",
+   "id": "t_quarantine_4",
+   "requires": [],
+   "text": "厚生省特别防疫手令正式生效：督察官通过海事卫星专线宣读厚生省紧急行政接管令。"
+  },
+  {
+   "category": "时限",
+   "id": "t_quarantine_5",
+   "requires": [],
+   "text": "海面风雪暂歇破冰渡轮提前靠岸：肆虐整夜的暴风雪在凌晨五点半出现风眼间歇。"
+  },
+  {
+   "category": "关系",
+   "id": "t_quarantine_6",
+   "requires": [],
+   "text": "你认出其内袋别着的纯银刻字钢笔正是当年在医学院匿名资助自己完成学业的学长姐信物。"
+  }
+ ]
+}

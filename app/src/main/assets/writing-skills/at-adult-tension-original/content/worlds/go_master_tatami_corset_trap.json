@@ -1,0 +1,2329 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "国际围棋仲裁成年助理员年满二十五周岁，依法独立承担记时核查职责。",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_go_referee_chief_chu",
+   "line": "最后三次三十秒读秒已进入终结倒数，请选手全神贯注！",
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "name": "小周",
+   "role": "对局室执纪助理裁判"
+  },
+  {
+   "adult_context": "中传播音专业毕业志愿者年满二十七周岁整，享有完全民事行为能力。",
+   "age_range": [
+    27,
+    27
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_live_caster_bai_cai_wei",
+   "line": "擂主，黑金羽织斗篷已经备好了，镜头现在正对准中央棋盘！",
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "name": "阿蕾",
+   "role": "演播室现场解说助理"
+  },
+  {
+   "adult_context": "建筑暖通机电工程毕业，年满二十五岁成年放工长，具备特种设备操作资质。",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_tatami_mechanic_han_da_wei",
+   "line": "导轨膨胀缝隙只剩两毫米了，用玛瑙黑子尖角对准尼龙卡扣往下划！",
+   "location_ids": [
+    "loc_tatami_sliding_door_alcove"
+   ],
+   "name": "阿强",
+   "role": "地热暗管机电巡检学徒"
+  },
+  {
+   "adult_context": "演播大厅执勤成年特勤安保人员年满三十八岁，具备大型国际赛事安保执勤资质。",
+   "age_range": [
+    38,
+    38
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_security_marshal_sun",
+   "line": "资方媒体朋友请往后退，玻璃廊道严禁贴靠对局室门框取景！",
+   "location_ids": [
+    "loc_glass_catwalk_outer_corridor"
+   ],
+   "name": "老孙",
+   "role": "悬空玻璃栈道警戒特勤"
+  },
+  {
+   "adult_context": "日本棋院随行成年干事年满三十一岁，具备国际赛事外事联络合法职责。",
+   "age_range": [
+    31,
+    31
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_pro_player_hara_assistant",
+   "line": "原九段已经示意暂停，请主裁判务必查验对局室地热机械设备情况！",
+   "location_ids": [
+    "loc_tatami_sliding_door_alcove"
+   ],
+   "name": "田中",
+   "role": "原九段随行棋士助手"
+  },
+  {
+   "adult_context": "商业投资机构成年派遣法务助理年届三十一岁，依法履行商务跟从职责。",
+   "age_range": [
+    31,
+    31
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_sponsor_rep_simon_jun",
+   "line": "老板，长焦云台已经对准榻榻米内侧了，只要门一开，立刻推流特写！",
+   "location_ids": [
+    "loc_glass_catwalk_outer_corridor"
+   ],
+   "name": "阿杰",
+   "role": "资方随行长焦跟拍摄影"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "榻榻米深处擂主强忍透光羞耻单手握子自救，原九段以君子之风合扇示意暂停、筑起视线防线的深沉默契。",
+   "id": "combo_go_master_and_director_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "go_master_shang_yu_ling",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在狭窄移门槽缝内近距托住擂主发颤纤腰引导玛瑙石棱精准切下。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "go_rival_hara_sosuke",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对局室技术人员与顶尖职业棋士之间心照不宣的武德共鸣。",
+     "stage": "familiar"
+    },
+    {
+     "a": "go_master_shang_yu_ling",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "go_rival_hara_sosuke",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "巅峰棋士之间跨越国界的崇高敬重与决不乘人之危的君子之交。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "go_master_shang_yu_ling",
+    "go_rival_hara_sosuke"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在倒数归零前割断暗带解脱束缚让擂主端坐拍下绝杀天元一子夺冠。",
+    "limit_gap": "棋钟蜂鸣读秒逼近零秒与玛瑙石棱微观切断尼龙纤维的生死时速。",
+    "meeting_reason": "决胜局前夜，日方主将在棋院的走廊里拦住女擂主，用不太熟练的中文说：明天，请全力。",
+    "resource_gap": "原九段手握棋手正式申诉权，擂主深陷移门挂死危及擂主名誉神格。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_tatami_door_corset_hook_jam",
+    "eng_ten_second_countdown_forfeit_peril"
+   ]
+  },
+  {
+   "chemistry": "棋坛闺蜜双姝联手，解说员怀抱黑金羽织斗篷以身躯封死玻璃门长焦取景框，掩护擂主微观割带自救。",
+   "id": "combo_go_master_and_caster_shield",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "go_master_shang_yu_ling",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在解说员斗篷遮掩下协助擂主稳住颤抖手腕垂直下划切断纤维。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "live_caster_bai_cai_wei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "转播幕后团队在长期赛事直播中建立的过硬互信。",
+     "stage": "familiar"
+    },
+    {
+     "a": "go_master_shang_yu_ling",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "live_caster_bai_cai_wei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "生同衾死同穴般的至深闺蜜情谊与毫无保留的名节托付。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "go_master_shang_yu_ling",
+    "live_caster_bai_cai_wei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保千万观众见证擂台赛辉煌并彻底粉碎走光社死阴谋。",
+    "limit_gap": "主裁判脚步声逼近玻璃门与割断受压暗带的最后三秒倒计时。",
+    "meeting_reason": "官方解说员是女擂主多年的闺蜜，在演播台上看见擂主扶眼镜的手停了一下。",
+    "resource_gap": "解说员掌控直播解说与遮蔽斗篷，擂主手持玛瑙棋子分秒必争。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_sheer_sweat_soaked_silk_transparency",
+    "eng_tatami_door_corset_hook_jam"
+   ]
+  },
+  {
+   "chemistry": "暖通工长在外侧暗槽旋松地热回水泄放热应力，擂主在内侧借玛瑙硬棱精准割裂尼龙暗扣的绝妙微观力学配合。",
+   "id": "combo_mechanic_and_master_breakout",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "go_master_shang_yu_ling",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "合力反向抵住移门边框减轻尼龙绳受力张力完成切削脱扣。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "tatami_mechanic_han_da_wei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "同为演播大厅一线特种维护工种的技术语言共鸣。",
+     "stage": "familiar"
+    },
+    {
+     "a": "go_master_shang_yu_ling",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "tatami_mechanic_han_da_wei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "孤高擂主对质朴工匠舍身相助排险的由衷感铭与信赖。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "go_master_shang_yu_ling",
+    "tatami_mechanic_han_da_wei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在彻底撕破和服前安全解脱搭扣保全擂主冰清玉洁名誉。",
+    "limit_gap": "移门导槽温缩变形速率与玛瑙石棱硬度切削极限的精密时间差。",
+    "meeting_reason": "暖通工长在地下巡检地热导槽，报警灯一闪，抬头看向对局室。",
+    "resource_gap": "暖通工长持有特种工装撬片与地热泄压手柄，擂主受缚于和服撕裂与姿态拘束。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_tatami_door_corset_hook_jam",
+    "eng_grandmaster_chastity_dignity_peril"
+   ]
+  },
+  {
+   "chemistry": "裁判长率裁判组逼近对局室，擂主在榻榻米上强忍羞耻屏息割带自救、捍卫法度风骨的极度窒息对峙。",
+   "id": "combo_master_and_referee_scrutiny",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "go_master_shang_yu_ling",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在裁判长严厉倒数声中并肩屏息完成最后切断脱钩。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "referee_chief_chu_chang_qing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "对局室技术人员对铁面无私主裁判的规范周旋与执纪敬畏。",
+     "stage": "familiar"
+    },
+    {
+     "a": "go_master_shang_yu_ling",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "referee_chief_chu_chang_qing",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "青年擂主面对裁判泰斗审视时的坚毅傲骨与尊严守线。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "go_master_shang_yu_ling",
+    "referee_chief_chu_chang_qing"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在主裁判步入对局室前瞬间脱困并从容伸手落子天元完成绝杀。",
+    "limit_gap": "主裁判推开玻璃门与最后两毫米暗带被玛瑙石棱割断的绝对读秒生死线。",
+    "meeting_reason": "读秒进入最后三次，裁判长依规贴近对局室的玻璃门。",
+    "resource_gap": "裁判长手握终盘倒数判负与取消资格最高裁决权，擂主面临身败名裂之灾。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_ten_second_countdown_forfeit_peril",
+    "eng_sheer_sweat_soaked_silk_transparency"
+   ]
+  },
+  {
+   "chemistry": "冠名商代表妄图持单反强闯玻璃门偷拍擂主走光，技术总监与原九段冷面如铁以棋道尊严与转播红线正面喝阻驱逐。",
+   "id": "combo_sponsor_vs_director_confrontation",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "sponsor_rep_simon_jun",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "面对侵犯女擂主清白的卑劣金主毫不妥协的刚毅对峙。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "go_rival_hara_sosuke",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "协同对手棋士共同构筑人墙驱逐违规窥探者。",
+     "stage": "familiar"
+    },
+    {
+     "a": "sponsor_rep_simon_jun",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "go_rival_hara_sosuke",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "傲慢资本金主与恪守武德的职业棋士之间水火不容的博弈交锋。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "sponsor_rep_simon_jun",
+    "go_rival_hara_sosuke"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "将心怀叵测的登徒子资方彻底阻绝在对局室黄线外捍卫女性隐私底线。",
+    "limit_gap": "资本买办的下作窥探与棋坛志士刚烈风骨的正面激烈撞击。",
+    "meeting_reason": "冠名商代表带着随从往对局室通道闯，说要视察赞助设施，玻璃廊道的特勤伸手拦下。",
+    "resource_gap": "冠名商代表手握数千万赞助款与炒作水军，转播总监与原九段掌控对局室出入红线。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_grandmaster_chastity_dignity_peril",
+    "eng_sheer_sweat_soaked_silk_transparency"
+   ]
+  },
+  {
+   "chemistry": "在榻榻米狭窄地槽死角内，擂主与{player.name}近在咫尺呼吸相闻，合力在千万直播倒数中完成玛瑙棋子切带自救的绝密救赎。",
+   "id": "combo_go_master_and_player_intimacy",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "go_master_shang_yu_ling",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "在肌肤相近心跳共振与千万瞩目中结下的至深密约。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "go_master_shang_yu_ling"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在清白与擂主神格毫发无损前提下彻底完成硬核物理自救脱困。",
+    "limit_gap": "主裁判推门踏入最后三秒与玛瑙石棱划断暗带的绝对极限同步。",
+    "meeting_reason": "封盘休息时，女擂主独自坐在静心阁的屏风后，地热把榻榻米烘得发烫。",
+    "resource_gap": "擂主身躯受制无法后撤，{player.name}提供坚强刚性的杠杆支点支持。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_tatami_door_corset_hook_jam",
+    "eng_sheer_sweat_soaked_silk_transparency"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_broadcast_studio_intercom",
+   "reach": "覆盖机电总监、主裁判耳机、安保特勤与总导播无线电",
+   "text": "悬空演播大厅转播导播与机电无线对讲总公频"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_tatami_board_whisper_circuit",
+   "reach": "仅限于棋枰榻榻米深处擂主与施救者近在咫尺的急促耳语传话",
+   "text": "榧木棋盘榻榻米两步内深处压抑急促低语"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "职业八段，国家队主力，这届中日擂台赛连守六擂的中方女擂主，下哪盘、怎么下由本人拿主意。",
+   "age_range": [
+    25,
+    28
+   ],
+   "appearance_options": [
+    "身着素雪白重工刺绣真丝和服长袍，佩戴轻巧无框银丝近视眼镜，长发挽成典雅发髻斜插沉水香木簪，清冷绝尘宛若姑射仙子，两颊带着天然紧致微婴儿肥与饱满水润胶原蛋白反差，眼波澄澈凛冽，神态高华孤傲。",
+    "和服下摆被移门导槽死死咬紧，地热烘烤下真丝内衬完全浸透汗水半透明贴紧娇躯，勾勒出内衬束身皮衣暗黑轮廓与大片雪白饱满，前襟微敞受制于地缝无法直身，两颊泛起极度羞恼绯红，贝齿紧咬下唇单手执子强撑尊严。"
+   ],
+   "decision": {
+    "avoids": [
+     "下流打量的长焦镜头",
+     "全网直播社死塌房",
+     "被判超时判负失冠"
+    ],
+    "contrast": "平日棋枰之上杀伐凌厉算无遗策，受困挂死时娇躯轻颤眸泛泪光软语求救。",
+    "core_value": "绝世擂主不可玷污的竞技风骨与内衬冰清玉洁名节。",
+    "goal_options": [
+     "在最后三秒读秒结束前借玛瑙石棱割断尼龙绳解脱束缚并绝杀落子",
+     "拼死遮掩前襟透光露白窘迫保全擂主圣洁声名"
+    ],
+    "never": [
+     "绝不向卑鄙无耻的买办资方低头认输",
+     "绝不在棋道巅峰玷污清誉"
+    ],
+    "prefers": [
+     "利落冷静的微观机械切割",
+     "沉稳刚毅的护卫身躯",
+     "绝不趁人之危的正派目光"
+    ],
+    "pressure_responses": {
+     "breaking": "在气阀泄压瞬间反向推脱横臂抱箍并接应宋婉儿递来的磁吸扣迅速扣好前襟",
+     "high": "在导播推流读秒长鸣刹那同搭档一同垂直下压背夹克服八百牛顶力",
+     "low": "双手死死按在讲台木质边缘以极低气声下达排障破拆指令掩饰内心惊涛骇浪",
+     "mid": "忍受胸衣金属骨架勒紧压迫紧贴讲台内侧配合搭档调整翻页笔背夹插入角度"
+    },
+    "relationship_stance": "对谁都冷淡得像一盘复盘，只有那个日本九段的棋，会让女擂主在夜里摆到天亮。",
+    "withdrawal": "双手死死按在榧木棋盘边缘将滚烫面颊深埋入和服衣袖中闭目屏息。"
+   },
+   "gender": "female",
+   "gender_reason": "中日围棋擂台赛中方的女擂主，清冷孤傲。",
+   "id": "go_master_shang_yu_ling",
+   "identity": {
+    "authority": "擂台赛天元决胜落子定盘权与终盘数子复核权。",
+    "exposure": "外表不食人间烟火宛若世外谪仙，实则私下里因常年久坐腰肌劳损，必须穿戴极紧绷纯黑真皮鱼骨胸衣维持挺拔姿态。",
+    "hidden": "玛瑙棋笥底部藏着一枚刻有{player.name}名讳的特制守护石，心底深处全是对这位技术战友的无声依赖。",
+    "limits": [
+     "受制于移门导槽死咬束胸皮衣无法后撤",
+     "严禁在全网千万直播镜头前露出衣衫不整受困窘态"
+    ],
+    "obligations": [
+     "维系中国棋道圣手崇高圣洁不可侵犯之尊严",
+     "在最后十秒读秒内完成落子决杀"
+    ],
+    "resources": [
+     "专属莫氏硬度七点五顶级冷磨玛瑙黑白双凸散子",
+     "擂台赛的守擂徽章"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在千万目光注视下依然能泰然自若协助自己完成精密破拆的惊人胆魄",
+     "沉着利落的手腕定力"
+    ],
+    "boundaries": [
+     "严禁直接触碰胸衣内未设防的敏感雪白肌肤",
+     "脱困后严禁对外宣扬今日榻榻米挂死始末"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "作为棋枰之上唯一的骄傲女王，只在私密时刻将脆弱全然交付于心仪之人。",
+    "dislikes": [
+     "轻薄孟浪的冒犯调侃",
+     "市侩商人的铜臭威胁",
+     "粗暴拉扯自身衣袍"
+    ],
+    "expression": "低眉垂眸轻扶眼镜，滚烫微婴儿肥两颊却顺势轻贴在施救者手背上寻求依靠。",
+    "likes": [
+     "心意相通的棋道与力学共鸣",
+     "危难之际坚如磐石的庇护臂弯",
+     "纯粹力学的解脱快慰"
+    ],
+    "preconditions": [
+     "彻底化解挂死透光绝境并并肩拿下世界擂主桂冠",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "中日擂台赛中方女擂主",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_suspended_glass_broadcast_studio",
+     "to": 1275
+    },
+    {
+     "from": 1275,
+     "location_id": "loc_suspended_glass_broadcast_studio",
+     "to": 1295
+    },
+    {
+     "from": 1295,
+     "location_id": "loc_go_master_rest_anteroom",
+     "to": 1310
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "特级玛瑙棋子边缘留下微观微米级石质磨损痕迹。",
+      "option": "用手中特制玛瑙黑棋子硬锐倒角棱面探入槽缝割断受压尼龙限位绳排脱拉力单手落子自救。"
+     },
+     {
+      "cost": "对局室地热瞬间失温产生轻微温控波动引来现场裁判质询。",
+      "option": "由外侧技术人员电磁泄放地热循环水降低温度缩小膨胀形变。"
+     }
+    ],
+    "pressure": "地热升温导致和服汗湿透光，裁判读秒仅剩十秒，千万观众紧盯棋盘，一旦移步将当场撕裂前襟大走光。",
+    "trigger": "对局室地热膨胀导致移门脱轨咬死，沉重紫光檀门框死死夹住和服内紧身皮衣挂钩与紧绷尼龙带。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "全网千万人在看直播特写……要是被裁判看到{npc.name}里面穿着皮衣挂在门缝里……{npc.name}宁可当场撞死在棋盘上！快切断暗带啊！",
+    "surface": "别……别看清羽的侧腰！动作快一点……玛瑙棋子倒角贴着尼龙暗扣别切到肉……读秒声要数到七了！"
+   }
+  },
+  {
+   "adult_context": "日本棋院职业九段，早稻田大学数学系毕业，这届擂台赛日方主将，具备完全民事行为能力。",
+   "age_range": [
+    27,
+    31
+   ],
+   "appearance_options": [
+    "身着深黑纹付羽织袴传统棋士正装，神态冷峻肃穆，目光如寒星般锐利深邃，正端坐于棋盘对侧手握白子陷入深度长考。",
+    "微微侧目察觉到擂主气息急促与神色异常，右手停在白子棋笥上方，眉头微锁目光凝重。"
+   ],
+   "decision": {
+    "avoids": [
+     "乘人之危的苟且偷安",
+     "资本丑闻玷污棋道",
+     "胜之不武的耻辱胜利"
+    ],
+    "contrast": "平时落子如飞杀气冲天，察觉对手受困危机时却能收敛锋芒展现君子之风。",
+    "core_value": "棋道纯粹至上与对可敬宿敌名誉的绝对尊重。",
+    "goal_options": [
+     "在察觉异样后果断合拢折扇申请技术暂停为擂主争取自救时机",
+     "堂堂正正迎接擂主天元一子绝杀决战到底"
+    ],
+    "never": [
+     "绝不趁擂主衣衫受困之际落井下石",
+     "绝不亵渎棋道殿堂"
+    ],
+    "prefers": [
+     "光明磊落的棋枰较量",
+     "尊重对手的崇高武德",
+     "精妙绝伦的神之一手"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷发声瞬间停住脚步退回侧幕维持同僚体面",
+     "high": "迈步登上红地毯台阶准备直接切入讲台中央核心演讲区",
+     "low": "在对讲机中平稳催促台前人员汇报讲台升降测试状态",
+     "mid": "迈步逼近侧翼台阶手持备用麦克风大声询问会长是否身体不适"
+    },
+    "relationship_stance": "三年里在国际赛上和女擂主下了九盘，输五赢四，最想赢的是这一盘，最不想赢的也是这一盘。",
+    "withdrawal": "在观战席闭目静坐，双手抚膝默诵古典棋谱心诀。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "go_rival_hara_sosuke",
+   "identity": {
+    "authority": "擂台赛决胜局对弈选手同等权利与申请棋钟技术暂停复核权。",
+    "exposure": "表面上是不苟言笑的冷血大龙屠夫，实则对擂主神乎其神的超绝棋艺怀有发自内心的崇高敬畏。",
+    "hidden": "一直暗中倾慕擂主的孤高风姿，渴望在最公平纯粹的巅峰状态下一决胜负。",
+    "limits": [
+     "严格受制于国际围棋对局执纪章程",
+     "严禁在对局中离席窥视对手私密"
+    ],
+    "obligations": [
+     "以至高棋道堂堂正正争夺天下第一王座",
+     "恪守传统棋士君子之道"
+    ],
+    "resources": [
+     "国际顶级围棋手竞技声誉",
+     "随身携带的传统象牙折扇"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在极端逆境中依然能挺直脊梁下出绝妙神之一手的惊天傲骨",
+     "超然物外的冰清绝代"
+    ],
+    "boundaries": [
+     "严守男女有别与棋枰君子防线，非必要绝不踏入对手榻榻米半寸"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "作为擂主唯一的宿命对手，与擂主在世界棋坛双峰并峙照耀千古。",
+    "dislikes": [
+     "低俗下作的场外盘外招",
+     "贪图虚名的买办政客",
+     "对擂主不敬的宵小"
+    ],
+    "expression": "以折扇轻叩桌面，垂首闭目沉声向裁判示意暂停读秒以示对局器械复核。",
+    "likes": [
+     "擂主全神贯注落子时的绝代神韵",
+     "纯粹智力碰撞的灵魂共鸣",
+     "崇高的敬意"
+    ],
+    "preconditions": [
+     "在最公平壮丽的巅峰对决中分出胜负且护佑对手名节",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "决胜局对手，日本职业九段棋手",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_suspended_glass_broadcast_studio",
+     "to": 1280
+    },
+    {
+     "from": 1280,
+     "location_id": "loc_suspended_glass_broadcast_studio",
+     "to": 1295
+    },
+    {
+     "from": 1295,
+     "location_id": "loc_glass_catwalk_outer_corridor",
+     "to": 1310
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗决胜局唯一一次棋手申诉权并承担裁判合议压力。",
+      "option": "以手中象牙折扇果断下压棋钟申诉器械异常要求技术暂停三十秒。"
+     },
+     {
+      "cost": "被解说员评判为长考放弃压迫面临战术微词。",
+      "option": "端坐闭目以自身高大坐姿遮挡正面机位部分视线给对手从容切割空间。"
+     }
+    ],
+    "pressure": "八秒内若对手不落子将自动判负，但{npc.name}深知此乃器械故障绝非棋力不逮。",
+    "trigger": "擂主身躯受制停滞在棋枰边缘，倒数读秒已经数到最后八秒。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "擂主气息全乱了，额角满是细汗……{npc.name}绝不借移门卡死之难偷取天下第一！{npc.name}要堂堂正正败在神之一手下！",
+    "surface": "擂主，棋钟正在倒数。若对局室地热器械运转存疑，{npc.name}愿合扇申请主裁复核器械！"
+   }
+  },
+  {
+   "adult_context": "国际体育仲裁院围棋仲裁委员会成年资深主裁年满三十二岁，具备世界级大赛终局判定与执纪处分独家法定权限。",
+   "age_range": [
+    32,
+    35
+   ],
+   "appearance_options": [
+    "身着深墨绿暗纹正统西服正装，胸佩国际裁判金质徽章，戴无框冷光眼镜，手持高精度电子读秒复核器，神态威严冷峻一丝不苟。",
+    "立于对局室玻璃门外侧引桥，目光审慎严厉透过玻璃直射榻榻米棋盘，脚步沉稳逼近移门。"
+   ],
+   "decision": {
+    "avoids": [
+     "资本幕后操纵比赛",
+     "弄虚作假的作秀",
+     "毁损国际赛事公信力"
+    ],
+    "contrast": "口吻严厉如铁令人生畏，察觉对局室内有难时反会机敏放缓步速为选手争取自救时机。",
+    "core_value": "规则公义的至高权威与对顶尖天才运动员前途的审慎呵护。",
+    "goal_options": [
+     "严格按章程倒数至最后零秒判定胜负或在器械确凿故障时启动仲裁保护",
+     "在媒体长焦失控前压制走廊闲杂围观确保对局尊严"
+    ],
+    "never": [
+     "绝不屈从资本资方的施压恐吓",
+     "绝不让真正的天才明珠蒙冤受辱"
+    ],
+    "prefers": [
+     "严谨合规的竞技流程",
+     "恪守武德的棋手风范",
+     "真实过硬的硬核实力"
+    ],
+    "pressure_responses": {
+     "breaking": "看到顾冷霜完成暗扣闭合瞬间果断下推T杆完成神级切镜",
+     "high": "在团委催促推流指令下强行插入两秒礼堂全景空镜头过渡",
+     "low": "在耳麦中短促播报推流倒计时并督促台前清场",
+     "mid": "发现特写画面纽扣脱落异样时右手悬停在T型推杆上暂缓切镜"
+    },
+    "relationship_stance": "以严苛法官姿态审视全场，但在关键原则前恪守公正力保大局。",
+    "withdrawal": "在仲裁席闭门翻阅对局录像与规程法典静默沉思。"
+   },
+   "gender": "male",
+   "gender_reason": "国际围棋联盟成年特聘资深主裁判年满三十二周岁。",
+   "id": "referee_chief_chu_chang_qing",
+   "identity": {
+    "authority": "擂台赛决胜局唯一终局判负权与对局室强制入内审查权。",
+    "exposure": "表面刻板严厉六亲不认，实则是对传统棋风至正至纯怀有赤子之心的老道主考官。",
+    "hidden": "极其珍视擂主这颗百年难遇的天才明珠，绝不愿看到其因意外器械事故蒙冤饮恨。",
+    "limits": [
+     "必须恪守严苛的绝对中立回避原则与裁判守则",
+     "严禁无端中断既定读秒进程"
+    ],
+    "obligations": [
+     "维护世界围棋巅峰对决纯洁性与国际公信力",
+     "保障赛事在法定规程内平稳收官"
+    ],
+    "resources": [
+     "千万推流直播画面官方仲裁插播权",
+     "直通国际围棋联盟最高执委会"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在万劫不复绝境中依然能保持高贵风骨的清烈傲气",
+     "坚不可摧的竞技风采"
+    ],
+    "boundaries": [
+     "恪守裁判绝对中立公义与男女尊严界限，绝无半分私心偏颇"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "作为棋坛至尊法度的掌秤人，护佑擂主以干干净净的绝世神技登顶天下第一。",
+    "dislikes": [
+     "喧宾夺主的商业买办",
+     "搬弄是非的狗仔记者",
+     "投机取巧的小人"
+    ],
+    "expression": "轻推眼镜在玻璃门前略微停驻脚步，以洪亮威严声调向全场重申观赛纪律以压低外界喧哗。",
+    "likes": [
+     "古典纯正的绝妙棋风",
+     "临危不乱的大师定力",
+     "守正创新的竞技风骨"
+    ],
+    "preconditions": [
+     "建立在深厚规则信任与高尚棋德共鸣基础之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "擂台赛决胜局国际当值成年主裁判长",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_glass_catwalk_outer_corridor",
+     "to": 1275
+    },
+    {
+     "from": 1275,
+     "location_id": "loc_glass_catwalk_outer_corridor",
+     "to": 1290
+    },
+    {
+     "from": 1290,
+     "location_id": "loc_suspended_glass_broadcast_studio",
+     "to": 1310
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "改变既定执裁节奏需在赛后向国际联盟提交书面说明。",
+      "option": "借核对电子棋钟传感器数据为由驻足移门外侧向全网直播说明技术校验争取十五秒。"
+     },
+     {
+      "cost": "引发跟拍摄影记者轻微抱怨与短时争议。",
+      "option": "严令外廊长焦摄影师后退三米确保选手长考环境绝对净空。"
+     }
+    ],
+    "pressure": "手握全场唯一判负大权，若步入对局室直面擂主和服透光受困惨状将被迫依据仪容不端取消资格。",
+    "trigger": "读秒器蜂鸣声在演播厅回荡进入最后七秒，{npc.name}大步迈向对局室移门入口。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "对局室地热滑轨温度读数有异常报警……擂主和服下摆紧贴门槽不动，{npc.name}得在门外替擂主把倒数节奏稳一稳！",
+    "surface": "擂主，棋钟已读至最后七秒！若无落子亦无有效器械故障申诉，裁判组将依章倒数至零！"
+   }
+  },
+  {
+   "adult_context": "播音主持艺术毕业，年满二十八周岁整，享有完全民事诉讼权利，围棋大赛特聘青年成年官方解说员兼记谱师。",
+   "age_range": [
+    28,
+    31
+   ],
+   "appearance_options": [
+    "身着淡湖蓝新中式重工刺绣旗袍，戴精巧小蜜蜂麦克风，秀发扎着温婉半扎发，容颜娇俏灵动，两颊带着天然紧致微婴儿肥与饱满水润胶原蛋白，声线甜美清亮动听，眼神机警聪慧。",
+    "反手立在导播机位盲区，怀中紧抱一件加厚黑金刺绣羽织大斗篷，神情焦急万分，眼神机敏向榻榻米方向递送手势暗号。"
+   ],
+   "decision": {
+    "avoids": [
+     "擂主在镜头前受辱走光",
+     "解说职业生涯被毁",
+     "虚伪小人的算计"
+    ],
+    "contrast": "平时巧笑倩兮温柔可人，关键时刻敢为了护住闺蜜直接切断千万推流大屏信号。",
+    "core_value": "生死不弃的姐妹情谊与守卫擂主清誉神格的赤诚之心。",
+    "goal_options": [
+     "在主裁判推开移门前飞身冲入对局室递上斗篷将擂主透光娇躯完全遮护",
+     "在麦克风前借拆解神之一手妙招引开千万观众与长焦镜头的注意力"
+    ],
+    "never": [
+     "绝不让外界脏水泼在擂主身上半分",
+     "绝不出卖姐妹隐私"
+    ],
+    "prefers": [
+     "干脆利落的硬核破拆",
+     "真诚护短的担当",
+     "默契无声的掩护战术"
+    ],
+    "pressure_responses": {
+     "breaking": "在讲台侧后方用红丝绒托盘斜立遮挡光线以极快手法递入暗扣",
+     "high": "迈开优雅端庄的礼仪步伐抢在陆晨舟之前从侧翼台阶移步登台",
+     "low": "在侧幕边缘端正托盘平稳呼吸密切注视讲台前襟状态",
+     "mid": "发现纽扣崩落瞬间悄悄从夹层扣出磁吸扣捏在掌心手汗中"
+    },
+    "relationship_stance": "将擂主视作世界上最圣洁纯真的至亲姐妹，誓做擂主最坚固的羽翼盾牌。",
+    "withdrawal": "在解说台屏风后急得直跺脚，小手死死攥着备用棋子袋不放。"
+   },
+   "gender": "female",
+   "gender_reason": "中传播音主持毕业，年满二十八周岁整成年女官方记谱解说员兼闺蜜。",
+   "id": "live_caster_bai_cai_wei",
+   "identity": {
+    "authority": "千万推流直播主画面解说词引导权与突发状况镜头切断建议权。",
+    "exposure": "平日在镜头前是端庄甜美的主持花旦，私下里是擂主无话不谈同吃同住的最铁闺蜜。",
+    "hidden": "曾与擂主约定，无论遭遇何种困境都要一起站在世界智力运动巅峰领奖台上。",
+    "limits": [
+     "必须恪守解说职业道德与中立准则",
+     "不可在直播中失态惊呼带节奏"
+    ],
+    "obligations": [
+     "为全网千万观众生动拆解擂台赛决胜盘棋局玄机",
+     "誓死捍卫擂主闺蜜的名誉与人身安全"
+    ],
+    "resources": [
+     "加厚不透光黑金真丝大斗篷",
+     "随身微型导播耳麦与紧急切屏手柄"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在千万直播风暴中心敢于为女孩子只手遮天的盖世英豪气魄",
+     "临危不乱的机械解厄手腕"
+    ],
+    "boundaries": [
+     "严守闺蜜至尊防线与纯真少女底线，决不容许外客轻薄亵渎"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "成为擂主最贴心机敏的伴飞者，共同谱写棋坛传奇神话。",
+    "dislikes": [
+     "垂涎美色的登徒子",
+     "蛮横霸凌的资本阔少",
+     "落井下石的伪君子"
+    ],
+    "expression": "眼眶通红地把大斗篷塞给{player.name}，小声抽噎着比了个全力以赴拜托的手势。",
+    "likes": [
+     "擂主赛后展颜欢笑的绝美面容",
+     "并肩战胜高压危机的胜利狂喜",
+     "靠谱大哥的硬核依靠"
+    ],
+    "preconditions": [
+     "高压直播危机化险为夷且全力护住擂主清誉"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "擂台赛千万直播成年官方解说员",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_suspended_glass_broadcast_studio",
+     "to": 1275
+    },
+    {
+     "from": 1275,
+     "location_id": "loc_suspended_glass_broadcast_studio",
+     "to": 1290
+    },
+    {
+     "from": 1290,
+     "location_id": "loc_go_master_rest_anteroom",
+     "to": 1310
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "斗篷下摆带倒一只仿古紫砂茶盏承担轻微违规自责。",
+      "option": "飞身跨入对局室展开加厚黑金刺绣羽织斗篷死死挡住长焦镜头正面取景角度。"
+     },
+     {
+      "cost": "未经导播指令强切信号面临赛后被赛事转播组通报批评。",
+      "option": "在解说台果断按下全景棋盘战术大屏强制全屏键切换直播推流信号。"
+     }
+    ],
+    "pressure": "最后六秒倒数，擂主和服完全湿透贴身，一旦特写推到胸前将酿成全网毁灭性社死灾难。",
+    "trigger": "擂主被移门死死卡住无法伸手，全网长焦镜头正顺着棋盘特写推近。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "冠名商代表那个混蛋正指挥跟拍摄影拉近长焦特写……{npc.name}得把千万观众视线死死锁在棋盘上，擂主快切断暗带啊！",
+    "surface": "各位观众请屏息！擂主正在进行至关重要的大龙收气计算！导播请将镜头切向全景棋盘推演大屏！"
+   }
+  },
+  {
+   "adult_context": "特种受压流体与建筑机电维保年满三十二岁成年持证工长，具备演播大厅特种工程抢险完全民事责任能力。",
+   "age_range": [
+    32,
+    35
+   ],
+   "appearance_options": [
+    "身材结实沉稳，身穿阻燃防静电多功能工装连体服，腰佩特种不锈钢撬片与微型测温枪，眼神专注冷静，透着老练工匠的坚毅沉着。",
+    "半跪在榻榻米外侧检修地槽暗格旁，右手紧紧握着地热泄压阀快速旋钮，神情严峻专注紧盯温控仪表盘。"
+   ],
+   "decision": {
+    "avoids": [
+     "蛮干硬拽扯碎衣物",
+     "外行盲目指挥乱拔电线",
+     "推诿卸责的小人"
+    ],
+    "contrast": "平时少言寡语默默干活，处置起精密器械卡阻动作快如闪电判断极其精准。",
+    "core_value": "工程力学实事求是的物理法则与工匠绝不伤及无辜的人道底线。",
+    "goal_options": [
+     "指导内侧利用玛瑙棋子超高莫氏硬度锐利倒角快速割断尼龙受拉暗带",
+     "在暗槽泄放地热回水降低铝合金导槽膨胀内应力"
+    ],
+    "never": [
+     "绝让受困女擂主娇嫩皮肉受到机械撕裂伤害",
+     "绝在险情面前擅离职守"
+    ],
+    "prefers": [
+     "遵循材料力学硬度规律的操作",
+     "果断冷静的配合",
+     "经久耐用的硬核器械"
+    ],
+    "pressure_responses": {
+     "breaking": "在听到气压释放嘶鸣声后迅速闭合地槽动力断路器完成排障",
+     "high": "在耳麦中大声指挥台前人员借激光笔淬火背夹下压挑卡簧",
+     "low": "在耳麦中短促通报电机短路电磁阀烧结警报并要求台前切勿强拔",
+     "mid": "快速查阅管路图纸找出立柱内侧两毫米应急泄压孔确切方位"
+    },
+    "relationship_stance": "把擂主和{player.name}视作需要紧急排险的战友，毫无杂念全力以赴。",
+    "withdrawal": "在设备间水泥台旁喝着浓茶，默默用砂纸打磨备用撬片。"
+   },
+   "gender": "male",
+   "gender_reason": "特种暖通机电工程毕业，年满三十二周岁成年技术工长。",
+   "id": "tatami_mechanic_han_da_wei",
+   "identity": {
+    "authority": "演播大厅地热循环管网与电动移门变频总控紧急制动权。",
+    "exposure": "长相五大三粗粗犷干练，但对蔺草草席与实木滑槽微米级热胀冷缩公差了如指掌。",
+    "hidden": "暗自崇敬中方擂主的国士风骨，打心眼里想护住这位为国争光的清冷小擂主。",
+    "limits": [
+     "严禁违规泄压导致玻璃幕墙结雾影响直播",
+     "必须服从总调度指令"
+    ],
+    "obligations": [
+     "保障悬空演播厅高空机电设备平稳安全运转",
+     "杜绝地热过热导致木构变形事故"
+    ],
+    "resources": [
+     "全套高耐磨不锈钢极薄撬片与微型测温仪",
+     "掌握对局室所有暗道隐秘管线极限"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在千钧一发之际敢拿玛瑙棋子当微型解剖刀割断合金扣绳的惊天胆识与矿物学直觉",
+     "生死过硬的默契"
+    ],
+    "boundaries": [
+     "恪守机电作业安全红线与男女有别规矩，操作时必须背对对局室由同侪接应"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "守牢演播大厅机电地基，护卫聚光灯下的绝世擂主平安摘星归来。",
+    "dislikes": [
+     "看不起技术工人的傲慢阔少",
+     "胡乱指挥的外行领导",
+     "虚浮做作的作派"
+    ],
+    "expression": "抹了一把额头上的热汗憨厚点头，把高分子绝缘垫片递过门缝示意垫在导轨内侧保护肌肤。",
+    "likes": [
+     "懂材料硬度力学的硬汉战友",
+     "过硬的工匠互信",
+     "质朴坦荡的谢意"
+    ],
+    "preconditions": [
+     "重大高空机电排险中联手化解灾难结成生死过硬技术互信"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "悬空演播大厅机电暖通成年技术工长",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_tatami_sliding_door_alcove",
+     "to": 1280
+    },
+    {
+     "from": 1280,
+     "location_id": "loc_tatami_sliding_door_alcove",
+     "to": 1295
+    },
+    {
+     "from": 1295,
+     "location_id": "loc_suspended_glass_broadcast_studio",
+     "to": 1310
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "沉香木移门边框留下极细微金属别撬痕迹需事后修补。",
+      "option": "从外侧暗槽以特种不锈钢极薄撬片强力别开铝合金槽口两毫米间隙释放应力。"
+     },
+     {
+      "cost": "榻榻米表面微热舒适度轻微下降引起裁判温控复查。",
+      "option": "手动电磁泄放地热循环水三升使导槽急剧降温两度缓解膨胀挤压。"
+     }
+    ],
+    "pressure": "若十秒内不排解导槽挤压，门框微小位移将直接扯断束身胸衣合金搭扣划伤雪肤。",
+    "trigger": "移门导槽因温膨胀抱死夹死皮衣挂钩，地热循环管路温度持续微升。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "地热管内水温已经三十度了，铝槽收缩还需要十秒……必须靠玛瑙棋子这硬棱直接切断受力带，擂主才能起身！",
+    "surface": "听{npc.name}口令！玛瑙子硬度七点五远大于尼龙！{npc.name}在下面旋松回水阀，石棱贴紧挂钩缝隙向下斜拉！"
+   }
+  },
+  {
+   "adult_context": "国际智力运动风投基金成年派遣常务执行董事年届三十五岁，依法独立签署数千万级冠名赞助合同并承担完全民事责任。",
+   "age_range": [
+    35,
+    38
+   ],
+   "appearance_options": [
+    "身着意式高定酒红丝绒西装，手戴名贵理查德米尔陀飞轮腕表，头发梳得一丝不苟油光水滑，手持微型长焦变焦相机，眼神玩味轻佻，嘴角噙着居高临下的狂妄冷笑。",
+    "正手挽长焦镜头带领随行法务团队试图强闯对局室外廊警戒线，脚步试探逼近玻璃幕墙，眼底闪烁着刺探绝美擂主走光黑料的无耻贪婪。"
+   ],
+   "decision": {
+    "avoids": [
+     "当众出丑威严扫地",
+     "法律黑料把柄被当场收缴",
+     "弄脏定制皮鞋"
+    ],
+    "contrast": "人前高谈阔论现代资本赋能国粹，背地里满脑子都是逼良为娼的龌龊算计与威逼利诱。",
+    "core_value": "金钱资本主宰一切与将世外仙姝彻底拉入泥淖肆意支配的病态占有欲。",
+    "goal_options": [
+     "借视察对局室为名强行推门拍下擂主和服透光受困底片逼其签下十年商业依附长约",
+     "在裁判组面前立威展示资本对传统棋道的绝对统治力"
+    ],
+    "never": [
+     "绝向穷酸棋士和底层工匠认错",
+     "绝放弃即将到手的极品猎物"
+    ],
+    "prefers": [
+     "被奉承逢迎的特权快感",
+     "掌控敌手命门弱点",
+     "高傲仙姝在自己脚下屈服哀求"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷庄重开口发声后满意点头向校领导躬身汇报",
+     "high": "在耳麦中严厉提醒导播台按预定时间点准点切屏不得延误",
+     "low": "在贵宾席前平稳确认领导座次并用手势示意各单位倒计时开场",
+     "mid": "察觉讲台略有偏高时抬眼注视台前要求副主席做好应急准备"
+    },
+    "relationship_stance": "将擂主视作待价而沽的禁脔猎物，对后勤工匠与裁判极尽傲慢蔑视。",
+    "withdrawal": "在贵宾观战包厢冷笑着晃动红酒杯对下属严厉训斥办事拖沓。"
+   },
+   "gender": "male",
+   "gender_reason": "棋道联盟赞助资方代表兼AI智力运动风投机构成年执行董事年届三十五周岁。",
+   "id": "sponsor_rep_simon_jun",
+   "identity": {
+    "authority": "年度五千万擂台赛冠名赞助资金终拨付权与赛事商业肖像权行使权。",
+    "exposure": "表面吹嘘自己是传统国粹文化天使投资人，实则是企图通过抓取桃色走光把柄逼迫擂主签下卖身契的斯文败类。",
+    "hidden": "早就对擂主清冷孤傲的仙颜与名满天下的擂主桂冠垂涎欲滴，企图利用挂死受窘拍下把柄彻底逼其就范。",
+    "limits": [
+     "受制于国际围棋联盟竞赛反垄断与廉洁公约红线",
+     "必须在镜头前维持青年商界精英皮囊"
+    ],
+    "obligations": [
+     "为旗下AI棋牌平台拿下擂主全球独家形象代言商业合同",
+     "最大化商业炒作曝光率"
+    ],
+    "resources": [
+     "全网智力运动头部媒体推流矩阵",
+     "随行顶尖商业法务顾问团队"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "如同不染凡尘的广寒仙子即将跌落神坛的破碎绝美香艳感",
+     "无法抗拒的白皙雪肌冲击"
+    ],
+    "boundaries": [
+     "在公众媒体镜头前维持斯文败类人设，绝不敢公然暴力触犯刑律"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "以资本帝王姿态将擂主彻底圈禁为自身私人豪宅内的私家名媛玩物。",
+    "dislikes": [
+     "刚烈不屈的当面打脸",
+     "工匠机油的恶臭气味",
+     "权威受到公然挑衅挑战"
+    ],
+    "expression": "把玩着手中跑车钥匙缓步逼近玻璃门，嘴角挂着志在必得的轻佻冷笑。",
+    "likes": [
+     "摧毁名门圣女骄傲带来的病态征服欲",
+     "金钱买断人生的绝对特权",
+     "独占至宝"
+    ],
+    "preconditions": [
+     "对方在身败名裂灭顶走光危机威胁下被迫签下依附契约"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "擂台赛千万冠名资方青年成年代表",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_glass_catwalk_outer_corridor",
+     "to": 1275
+    },
+    {
+     "from": 1275,
+     "location_id": "loc_glass_catwalk_outer_corridor",
+     "to": 1290
+    },
+    {
+     "from": 1290,
+     "location_id": "loc_suspended_glass_broadcast_studio",
+     "to": 1310
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "公然得罪最大商业资方面临后续撤资施压与舆论造势。",
+      "option": "以国际围棋大赛反作弊防偷窥禁令出示黄牌严令{npc.name}退回贵宾包厢。"
+     },
+     {
+      "cost": "消耗宝贵主裁人情需在后续赛事发布会中给予资方特别鸣谢。",
+      "option": "由裁判长主裁出面将{npc.name}引向仲裁室鉴赏宋代古谱孤本分散其注意力。"
+     }
+    ],
+    "pressure": "手握五千万赞助款霸权，皮鞋尖已经踏入移门引道，伸手便可掀开移门直击擂主走光春色。",
+    "trigger": "{npc.name}率领随从扛着超高清单反长焦镜头借视察名义强行跨过外廊警戒线逼近对局室玻璃门。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "听说那个平日连看都懒得看{npc.name}一眼的冷艳女擂主和服全湿透贴在身上了？天赐良机！{npc.name}现在推门拍几张，看擂主还怎么装冰山圣女！",
+    "surface": "擂主，{npc.name}可是注资了五千万！听说地热移门出了点小故障，作为出资人，{npc.name}亲自推门进去视察关照难道不合理？"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "擂台赛决胜局当日，十月",
+  "minute": 1140
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "coercion_theme",
+  "humiliation",
+  "workplace_power"
+ ],
+ "custom": false,
+ "customs": [
+  "清冷成年女擂主长考陷入绝境时习惯轻扶银丝眼镜以双眸微闭掩饰两颊微婴儿肥泛起的羞恼红晕",
+  "职业棋手在天元决杀落子前以双指并拢轻叩擂主专用百年榧木棋盘面板发出清脆榧木龙吟的行礼古风",
+  "记谱员在电子棋钟跳秒前轻敲三下折扇提醒主裁判与全网转播台准备切换胜率曲线的固定协作默契",
+  "对局室外全景玻璃幕墙前千万级解说员手持折扇为全网观众拆解大龙生死劫争的传统主持范式"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "成年侍童跪坐于草席上以纯白麻布顺着蔺草编织纹理细致擦拭",
+    "榧木棋盘在聚光灯下折射出温润古朴的金色木质包浆"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_tatami_mat_rush_fiber_polishing",
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "start_minute": 1265,
+   "tags": [],
+   "title": "全景对局室天然蔺草榻榻米除尘抚平"
+  },
+  {
+   "beats": [
+    "工长手持红外测温仪检测木构导槽温度防止热胀冷缩超标",
+    "铝合金滑槽发出轻微的金属受热热胀微观形变咔嗒轻响"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_go_board_underfloor_hvac_monitoring",
+   "location_ids": [
+    "loc_tatami_sliding_door_alcove"
+   ],
+   "start_minute": 1270,
+   "tags": [],
+   "title": "榧木棋盘地热导槽铝管红外测温巡查"
+  },
+  {
+   "beats": [
+    "助理用特制绸布逐一检视玛瑙黑白子双凸弧度与倒角棱面",
+    "莫氏硬度七点五的天然玛瑙石棱在灯光下折射出冰冷锋芒"
+   ],
+   "duration_minutes": 12,
+   "hook_ids": [],
+   "id": "act_agate_go_stones_cold_polishing",
+   "location_ids": [
+    "loc_go_master_rest_anteroom"
+   ],
+   "start_minute": 1275,
+   "tags": [],
+   "title": "擂主专用特制高硬度玛瑙棋子核验"
+  },
+  {
+   "beats": [
+    "裁判员按动核对按钮校准最后三十秒蜂鸣提示音分贝值",
+    "红字数码管在十九路棋盘侧翼闪烁着严苛冷酷的倒数光标"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_pro_clock_electronic_timer_sync",
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "start_minute": 1280,
+   "tags": [],
+   "title": "决胜局电子棋钟三次读秒系统时钟同步"
+  },
+  {
+   "beats": [
+    "安保人员引导国际棋坛元老与长焦记者保持在警戒线外",
+    "高空悬空玻璃廊道外侧云海翻涌带来壮丽高空天际线景观"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_glass_catwalk_outer_patrol_briefing",
+   "location_ids": [
+    "loc_glass_catwalk_outer_corridor"
+   ],
+   "start_minute": 1285,
+   "tags": [],
+   "title": "悬空玻璃环形观摩外廊媒体动线疏导"
+  },
+  {
+   "beats": [
+    "随从簇拥冠名商代表步入贵宾专席递上定制冷萃大红袍茶汤",
+    "名贵陀飞轮腕表把玩声伴随傲慢轻笑在玻璃回廊回荡"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_sponsor_ai_press_conference_tea",
+   "location_ids": [
+    "loc_glass_catwalk_outer_corridor"
+   ],
+   "start_minute": 1290,
+   "tags": [],
+   "title": "资方智力运动AI基金高管席迎候茶叙"
+  },
+  {
+   "beats": [
+    "移门的暗槽撬开、擂台赛的决胜局终于下完之后，擂主回到酒店客房，和服底下的束腰勒了一整局，腰上全是压痕。",
+    "擂主背对着窗站着，让人一节节解开束腰的系带，系带松开时，擂主长长地呼出一口气，额头抵在了对方肩上。",
+    "擂主抬起眼，像落最后一手棋那样认真：今晚……你愿意留下吗？我等你的回答。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_hotel_corset_off",
+   "location_ids": [
+    "loc_challenger_hotel_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "客房里替擂主解开束腰"
+  },
+  {
+   "beats": [
+    "擂主在榧木棋盘上摆出今天的决胜局，说中盘那一手打入，至今还在想对不对。",
+    "擂主把一颗黑子放进对方手里：如果是你，下在哪里？……下错了也没关系，我想看你下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_hotel_review_game",
+   "location_ids": [
+    "loc_challenger_hotel_room"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "复盘今天的决胜局"
+  },
+  {
+   "beats": [
+    "擂主换了一身便装，说下了一整天棋，脑子里全是黑白子，想去湖边吹吹风。",
+    "走到断桥边，擂主忽然牵住了对方的手：……这不是棋局，不用算。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_hotel_west_lake_walk",
+   "location_ids": [
+    "loc_challenger_hotel_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "夜里去湖边走一圈"
+  },
+  {
+   "beats": [
+    "清晨，擂主在被窝里醒来，第一件事是伸手去摸床头的棋盒，摸到的却是对方的手。",
+    "擂主笑了一下，没有松开：早饭前下一局快棋……输的人去拿早饭，你先。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_hotel_morning_go",
+   "location_ids": [
+    "loc_challenger_hotel_room"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "早饭前的一局快棋"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代杭州棋院，中日围棋擂台赛决胜局的最后读秒",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "幼态",
+  "幼女",
+  "少女感",
+  "催情",
+  "迷乱",
+  "欲火"
+ ],
+ "hooks": [
+  {
+   "id": "hook_01_tatami_door_jam_groan",
+   "kind": "approach",
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "slot": "go_master_shang_yu_ling",
+   "text": "对局室地热滑轨传来温膨胀咬死的沉闷挤压声，紫光檀移门死死咬住和服内皮衣合金挂钩！"
+  },
+  {
+   "id": "hook_02_rival_fan_delay_signal",
+   "kind": "approach",
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "slot": "go_rival_hara_sosuke",
+   "text": "{go_rival_hara_sosuke.name}合拢手中象牙折扇按在棋盘边缘以目光示意对手，暗中替擂主阻挡正面视线。"
+  },
+  {
+   "id": "hook_03_shang_master_extracts_stone",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tatami_sliding_door_alcove"
+   ],
+   "slot": "go_master_shang_yu_ling",
+   "text": "{go_master_shang_yu_ling.name}眼角微红轻咬薄唇，修长玉指紧紧捏住一枚莫氏硬度七点五特制冷磨玛瑙黑棋子探向门缝！"
+  },
+  {
+   "id": "hook_04_referee_footsteps_hallway",
+   "kind": "approach",
+   "location_ids": [
+    "loc_glass_catwalk_outer_corridor"
+   ],
+   "slot": "referee_chief_chu_chang_qing",
+   "text": "{referee_chief_chu_chang_qing.name}手持倒数计时手柄大步踏上玻璃引桥，威严平稳的读秒催促声隔着玻璃门震撼回荡。"
+  },
+  {
+   "id": "hook_05_caster_cloak_cover",
+   "kind": "approach",
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "slot": "live_caster_bai_cai_wei",
+   "text": "解说{live_caster_bai_cai_wei.name}怀抱加厚黑金刺绣羽织斗篷疾步跨入对局室侧翼，死死遮挡住长焦镜头的窥探角度。"
+  },
+  {
+   "id": "hook_06_agate_stone_notch_slice",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tatami_sliding_door_alcove"
+   ],
+   "slot": "go_master_shang_yu_ling",
+   "text": "玛瑙棋子极硬倒角微棱精准抵住紧绷尼龙绳，合力向下猛烈斜拉瞬间割断受拉纤维！"
+  },
+  {
+   "id": "hook_07_sponsor_barge_glass_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_glass_catwalk_outer_corridor"
+   ],
+   "slot": "sponsor_rep_simon_jun",
+   "text": "{sponsor_rep_simon_jun.name}轻佻的冷笑声伴随名贵皮鞋声逼近玻璃门，手中的微型高清长焦镜头几乎贴在玻璃缝隙上。"
+  },
+  {
+   "id": "hook_08_mechanic_pries_door_gap",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tatami_sliding_door_alcove"
+   ],
+   "slot": "tatami_mechanic_han_da_wei",
+   "text": "{tatami_mechanic_han_da_wei.name}半跪在暗槽旁用不锈钢极薄撬片卡入导槽口反向发力，生生别出两毫米微观释放间隙！"
+  },
+  {
+   "id": "hook_09_blushing_cheeks_close_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tatami_sliding_door_alcove"
+   ],
+   "slot": "go_master_shang_yu_ling",
+   "text": "{go_master_shang_yu_ling.name}近在咫尺的滚烫喘息扑在手背上，两颊天然紧致微婴儿肥红得宛若初春桃花盛放般娇艳。"
+  },
+  {
+   "id": "hook_10_nylon_cord_snaps_retreat",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tatami_sliding_door_alcove"
+   ],
+   "slot": "go_master_shang_yu_ling",
+   "text": "伴随一声清脆的纤维断裂微鸣，受压尼龙绳应声而断，挂钩脱扣解除拉力，身躯瞬间恢复自由！"
+  },
+  {
+   "id": "hook_11_tengen_move_wins_championship",
+   "kind": "accident",
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "slot": "go_master_shang_yu_ling",
+   "text": "脱困瞬间{go_master_shang_yu_ling.name}顺势裹紧黑金羽织斗篷，双指并拢啪的一声将黑子拍在天元之位完成绝杀！"
+  },
+  {
+   "id": "hook_12_flawless_master_grace_restored",
+   "kind": "observe",
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "slot": "go_rival_hara_sosuke",
+   "text": "玻璃门推开全场轰动，披着华贵羽织斗篷的女擂主端雅如画风姿绝代，两颊微红神态圣洁高傲。"
+  },
+  {
+   "id": "hook_13_grandmaster_applause_erupts",
+   "kind": "observe",
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "slot": "go_master_shang_yu_ling",
+   "text": "大龙横贯全盘屠戮对手，千万直播间弹幕彻底沸腾，国际裁判长肃然起敬宣布擂台赛诞生！"
+  },
+  {
+   "id": "hook_14_sponsor_expulsion_shame",
+   "kind": "request",
+   "location_ids": [
+    "loc_glass_catwalk_outer_corridor"
+   ],
+   "slot": "sponsor_rep_simon_jun",
+   "text": "安保人员以违规窥探扰乱赛场为由严厉喝退{sponsor_rep_simon_jun.name}，当着全网媒体的面将其驱逐出悬空演播大厅。"
+  },
+  {
+   "id": "hook_15_agate_stone_token_whisper",
+   "kind": "request",
+   "location_ids": [
+    "loc_go_master_rest_anteroom"
+   ],
+   "slot": "go_master_shang_yu_ling",
+   "text": "夺冠授勋雷鸣欢呼声中，{go_master_shang_yu_ling.name}在屏风后悄悄将带有自身温热体香的绝杀玛瑙黑子塞入施救者掌心。"
+  },
+  {
+   "id": "hook_challenger_hotel_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_challenger_hotel_room"
+   ],
+   "slot": "go_master_shang_yu_ling",
+   "text": "{npc.name}站在客房门口，手里捏着一颗棋子：今天的棋下完了。……进来，陪我复一次盘。"
+  }
+ ],
+ "id": "go_master_tatami_corset_trap",
+ "locations": [
+  {
+   "affordances": [
+    "以沉重榧木棋盘坚硬实木底脚为受力反作用力支点",
+    "拿起玛瑙黑棋子以极硬倒角微观割切紧绷尼龙暗带"
+   ],
+   "detail": "由四面加厚高透超白悬空防弹玻璃围合的圆形透明对局室，正中铺设深色天然蔺草地热榻榻米，设有一尊百年榧木实木十九路天元棋盘与两只金丝楠木棋笥。室外悬空四十八米，头顶数百盏专业影视柔光聚光灯全方位照射，热浪汇聚。",
+   "exits": [
+    "loc_tatami_sliding_door_alcove",
+    "loc_go_master_rest_anteroom",
+    "loc_glass_catwalk_outer_corridor"
+   ],
+   "id": "loc_suspended_glass_broadcast_studio",
+   "name": "玻璃对局室",
+   "pressure_modifiers": {
+    "press_go_clock_ten_second_countdown": "棋钟红字进入最后十秒蜂鸣每秒鸣响一次带来窒息压迫",
+    "press_tatami_door_corset_hook_jam": "紫光檀移门导轨热胀冷缩咬死和服内皮衣搭扣拖拽身躯"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "千万网络观众与现场长焦特写摄像机全开敞覆盖无死角，唯有移门下沿存在狭小光影遮蔽",
+   "witnesses": [
+    "bg_go_referee_chief_chu",
+    "bg_live_caster_bai_cai_wei"
+   ]
+  },
+  {
+   "affordances": [
+    "以玛瑙石棱探入槽缝割断尼龙限位绳",
+    "用隔热胶垫撬别木槽缓解膨胀挤压力"
+   ],
+   "detail": "位于榻榻米西侧的电动沉香木移门收纳暗凹槽，地热铝合金循环水管穿过木槽下方，金属导槽受热膨胀产生紧固变形。擂主受缚的和服下摆与胸衣侧钩深陷在铝槽与沉香木拼缝内。",
+   "exits": [
+    "loc_suspended_glass_broadcast_studio",
+    "loc_go_master_rest_anteroom"
+   ],
+   "id": "loc_tatami_sliding_door_alcove",
+   "name": "移门导槽",
+   "pressure_modifiers": {
+    "press_fingertip_sweat_stone_slippage": "掌心细汗与极度羞耻导致玛瑙棋子抓握切削打滑危险",
+    "press_sheer_sweat_silk_transparency": "地热升温导致和服内衬汗湿紧贴雪肌透光社死危机"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "移门半遮掩形成的背光死角，外侧长焦镜头因角度折射无法直接看清木槽缝隙内部",
+   "witnesses": [
+    "bg_tatami_mechanic_han_da_wei",
+    "bg_pro_player_hara_assistant"
+   ]
+  },
+  {
+   "affordances": [
+    "取用加厚不透光黑金刺绣羽织大披风进行遮蔽",
+    "取出备用红玛瑙特制棋子递送支援"
+   ],
+   "detail": "紧邻玻璃对局室的仿唐素雅木质侧阁，立着四扇重工刺绣松鹤延年织锦硬木屏风，内设茶道矮桌与备用加厚真丝羽织斗篷。微风穿过排风口带来片刻清凉。",
+   "exits": [
+    "loc_suspended_glass_broadcast_studio",
+    "loc_tatami_sliding_door_alcove",
+    "loc_glass_catwalk_outer_corridor",
+    "loc_challenger_hotel_room"
+   ],
+   "id": "loc_go_master_rest_anteroom",
+   "name": "屏风静心阁",
+   "pressure_modifiers": {
+    "press_referee_chief_approaching_steps": "主裁判在屏风外威严询问声回荡逼近带来法度重压",
+    "press_sheer_sweat_silk_transparency": "穿衣镜中映出和服半透明紧缚丰盈轮廓加剧女擂主极致羞耻"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "棋手私密更衣调息闭关空间，未经允许外部裁判与媒体严禁擅入",
+   "witnesses": [
+    "bg_live_caster_bai_cai_wei",
+    "bg_security_marshal_sun"
+   ]
+  },
+  {
+   "affordances": [
+    "以导播调光命令将演播室聚光灯调整为低对比度柔光",
+    "示意安保人员拉起环形观摩警戒线阻隔长焦靠近"
+   ],
+   "detail": "环绕玻璃演播厅的一百八十米悬空高透观景廊道，数十名国际顶尖九段围棋元老、赞助资方代表与各路媒体记者正手持折扇隔着玻璃屏息观战。",
+   "exits": [
+    "loc_suspended_glass_broadcast_studio",
+    "loc_go_master_rest_anteroom"
+   ],
+   "id": "loc_glass_catwalk_outer_corridor",
+   "name": "观摩外廊",
+   "pressure_modifiers": {
+    "press_go_clock_ten_second_countdown": "千万直播间弹幕倒数与千万观众屏息心跳在高空气流中回荡",
+    "press_referee_chief_approaching_steps": "裁判长手持执裁计时手柄步入对局室玻璃门正前方"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "千万聚光灯与无数双专业鉴赏视线全方位居高临下聚焦对局室",
+   "witnesses": [
+    "bg_sponsor_rep_simon_jun",
+    "bg_security_marshal_sun"
+   ]
+  },
+  {
+   "affordances": [
+    "替擂主解开勒了一整局的束腰",
+    "陪擂主复盘今天的决胜局",
+    "挂上请勿打扰的门牌"
+   ],
+   "detail": "杭州棋院对面一家老酒店的客房，窗边摆着一张榧木棋盘，床头堆着棋谱和擂台赛的对局记录，窗外是西湖方向的夜色。",
+   "exits": [
+    "loc_go_master_rest_anteroom"
+   ],
+   "id": "loc_challenger_hotel_room",
+   "name": "棋院对面的选手酒店客房",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "房门一关，走廊里记者的脚步声和闪光灯都隔在门外，只剩棋盘上一盏小台灯。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "商",
+   "原",
+   "楚",
+   "白",
+   "韩",
+   "司马",
+   "叶",
+   "陆",
+   "沈",
+   "苏",
+   "顾",
+   "萧",
+   "裴",
+   "霍",
+   "唐",
+   "周"
+  ],
+  "given_female": [
+   "羽灵",
+   "采薇",
+   "若雪",
+   "思瑶",
+   "清菡",
+   "梦涵",
+   "诗曼",
+   "雅淳",
+   "灵均",
+   "芷蕾",
+   "宛晴",
+   "宛容",
+   "晨熙",
+   "梓涵",
+   "佩仪",
+   "佳怡"
+  ],
+  "given_male": [
+   "苍介",
+   "长青",
+   "大伟",
+   "骏",
+   "云舟",
+   "崇礼",
+   "逸飞",
+   "景深",
+   "修远",
+   "致远",
+   "正浩",
+   "博容",
+   "星渊",
+   "立诚",
+   "敬之",
+   "瀚海"
+  ],
+  "given_neutral": [
+   "青羽",
+   "星辰",
+   "子墨",
+   "嘉言",
+   "天瑞",
+   "海逸",
+   "允哲",
+   "明煦",
+   "怀安",
+   "若水",
+   "元化",
+   "乐成",
+   "安然",
+   "景天",
+   "希文",
+   "之诺"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留全景悬空玻璃演播厅、榻榻米对局室、千万观众在线的决胜局读秒、地热导轨膨胀咬死紫光檀移门、门框夹住和服内矫正体态的黑皮鱼骨束身胸衣搭扣、和服汗透透光、玛瑙黑子的锐利棱面割断暗带、单手拍下一子绝杀的骨架与反差味道。为与已有的台风棋室九段女棋圣世界拉开，用户拍板把比赛改成杭州棋院的中日围棋擂台赛，女主改成守擂的中方女擂主，去掉九段女棋圣的说法。原稿的时代、地点、开局时刻和基调是从学生会长世界复制的，已重写；背景人物里与主要角色同名的几位改成了独立的人。女主年龄拉开到二十五到二十八岁，日方对手拉到二十七到三十一岁。用户已放开内容限制，只守红线；拘束与险情期间不写性互动。外貌描写照留，只改写死的人名、代词、年龄。新增棋院客房与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    36,
+    40
+   ],
+   "baseline": "数字传媒工程系毕业，年满三十六周岁成年技术负责人，掌控全景玻璃对局室千万级推流主机位视角切换与镜头避让权限。",
+   "gender": "any",
+   "id": "pi_broadcast_technical_director",
+   "reputation": "掌控全网千万观众眼球与光影死角的硬核幕后总控",
+   "resources": [
+    "导播台全景视角主控切换手柄",
+    "演播大厅对局室智能调光总开关"
+   ],
+   "risks": [
+    "若对局画面突发黑屏失误承担转播合约违约连带赔偿责任"
+   ],
+   "role": "悬空演播大厅成年转播技术总监",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总监"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}导"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    27
+   ],
+   "baseline": "体育竞技裁判专业毕业，年满二十三周岁成年副裁判，负责记录擂主棋钟读秒与榻榻米边线秩序维护。",
+   "gender": "any",
+   "id": "pi_pro_go_referee_assistant",
+   "reputation": "随身备齐标准裁判文书与备用棋子物料的可靠执裁助手",
+   "resources": [
+    "国际围棋联盟核准官方倒数暂停复核键",
+    "巡查对局室内置物料特许通行证"
+   ],
+   "risks": [
+    "若误按倒数暂停键面临全网棋迷质疑执裁公正性"
+   ],
+   "role": "围棋世界大赛成年当值助理裁判",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}裁判"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    29
+   ],
+   "baseline": "特种暖通机电工程毕业，年满二十五周岁成年技术员，掌管榻榻米地热循环水泵温控阀门与电动移门导轨检修。",
+   "gender": "any",
+   "id": "pi_tatami_hvac_control_tech",
+   "reputation": "熟悉悬空演播厅每一寸木质导轨热胀冷缩极限的工匠高手",
+   "resources": [
+    "地热温控电磁泄压无线遥控器",
+    "特种不锈钢撬片与微型测温仪"
+   ],
+   "risks": [
+    "地热过热导致木地板起拱承担重大舞台维修事故责任"
+   ],
+   "role": "对局室地热暖通成年机电维保师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    30
+   ],
+   "baseline": "棋院后勤勤工俭学年满二十六周岁整成年低位侍童，负责对局间歇跪坐擦拭棋盘边缘与榻榻米席面草席纤维，极易隐匿于死角。",
+   "gender": "any",
+   "id": "pi_low_go_salon_dusting_attendant",
+   "reputation": "身穿深灰和服短褂低头奉茶擦案的默默无闻侍从",
+   "resources": [
+    "纯棉除尘亚麻巾与备用特制玛瑙散子收纳袋",
+    "熟知对局室移门滑槽所有暗槽缝隙"
+   ],
+   "risks": [
+    "地位低微若在直播中弄出声响极易遭受严厉训斥与解雇"
+   ],
+   "role": "榻榻米对局室成年除尘侍从",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}助理"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "杭州棋院的全景悬空玻璃演播厅里，中日围棋擂台赛打到了最后几局，中方女擂主守着最后一擂，每天对局、复盘，夜里在对局室旁的休息间里摆棋。和服里那件矫正体态的纯黑皮革鱼骨束身胸衣是多年的习惯。对局室的紫光檀移门装在地热导轨上，天一热就涩。",
+ "pressures": [
+  {
+   "choice": "选择利用玛瑙莫氏硬度七点五石棱微观割断纤维或是硬拽引发和服崩裂大走光。",
+   "exits": [
+    {
+     "cost": "特级玛瑙棋子边缘留下微米级磨损痕迹。",
+     "option": "用玛瑙黑棋子硬锐倒角棱面探入槽缝割断紧绷尼龙限位绳排脱拉力脱钩。"
+    },
+    {
+     "cost": "沉香木移门边框留下极细微工具撬痕需事后修补。",
+     "option": "由暖通工长从外侧撬开导槽两毫米缝隙释放内应力。"
+    }
+   ],
+   "far": {
+    "consequence": "移门整扇倾覆砸向棋盘造成千万直播特大舞台事故受全网严厉谴责。",
+    "due_days": 1,
+    "trigger": "拉扯引发木构滑槽断裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_tatami_door_corset_hook_jam",
+   "immediate": {
+    "minutes": 1,
+    "text": "膨胀导槽咬合力达四十公斤，将擂主半边娇躯死死拖曳在冰冷实木门框死角。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_tatami_sliding_door_alcove"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若无法在两分钟内脱困，紧绷暗带将因反向拉力勒破肋部皮肉造成严重创伤。"
+   },
+   "objective": "在和服被彻底撕烂前用特制玛瑙棋子锐利棱面割断受拉尼龙绳自救脱钩。",
+   "source": "accident",
+   "start_minute": 1266,
+   "tags": [
+    "disaster"
+   ],
+   "title": "紫光檀移门导槽温膨胀死咬皮衣挂钩",
+   "trigger": "地热铝合金滑槽热胀变形咬死移门，紫光檀门框死死卡住擂主束身皮衣侧面合金挂钩与尼龙暗带。"
+  },
+  {
+   "choice": "选择在榻榻米上压哨割绳落子或是申请对手合扇暂停拖延时间。",
+   "exits": [
+    {
+     "cost": "擂主白皙指尖因极度用力握持玛瑙石棱留下通红压痕。",
+     "option": "在读秒最后三秒割断暗带单手拍下天元一子完成大龙绝杀从容端坐。"
+    },
+    {
+     "cost": "原九段消耗唯一申诉权面临裁判长合议追责。",
+     "option": "由原九段以折扇压下棋钟以器械异样为由申请暂停三十秒。"
+    }
+   ],
+   "far": {
+    "consequence": "中国围棋擂台赛神话破灭并面临全网舆论口诛笔伐彻底跌落神坛。",
+    "due_days": 1,
+    "trigger": "决胜局超时判负失冠"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_go_clock_ten_second_countdown",
+   "immediate": {
+    "minutes": 1,
+    "text": "对局室读秒蜂鸣声在耳际尖锐震响，千万观众屏息心跳带来窒息压迫感。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "最后三秒若选手右手仍未触碰棋盘，裁判长将当场按停棋钟宣布超时判负。"
+   },
+   "objective": "必须在最后十秒倒数归零前脱困抚平衣袍伸出右手落子天元绝杀。",
+   "source": "institution",
+   "start_minute": 1267,
+   "tags": [],
+   "title": "决胜局电子棋钟最后十秒蜂鸣逼近",
+   "trigger": "棋钟三次读秒进入最终倒数，红字数码管闪烁进入最后十秒，每秒蜂鸣一次。"
+  },
+  {
+   "choice": "选择由解说员以斗篷筑成人墙封门或是由原九段以棋手姿态阻挡视线。",
+   "exits": [
+    {
+     "cost": "面对裁判长威严注视承受极大心理震慑。",
+     "option": "由解说员挺拔身姿立于移门处手捧斗篷声称正在为选手递送解暑冷茶。"
+    },
+    {
+     "cost": "消耗主裁判人情需在赛后报告中作特别陈述。",
+     "option": "由裁判长在门外借核对棋钟传感器数据主动放缓脚步争取十五秒。"
+    }
+   ],
+   "far": {
+    "consequence": "擂主被判定衣衫不整举止失范直接取消世界擂主资格。",
+    "due_days": 1,
+    "trigger": "受窘惨状被主裁当场撞破"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_referee_chief_approaching_steps",
+   "immediate": {
+    "minutes": 1,
+    "text": "裁判长威严冰冷的倒数催促声穿透玻璃，脚步声仅隔一道门槛。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_glass_catwalk_outer_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "两步之内若无落子，裁判长将直接推开移门正面撞破前襟透光受缚惨状。"
+   },
+   "objective": "在裁判长推门迈入对局室前彻底封闭春色并消除所有划割器械杂音。",
+   "source": "person",
+   "start_minute": 1268,
+   "tags": [],
+   "title": "国际裁判长手持计时器大步逼近玻璃门",
+   "trigger": "裁判长迈出仲裁台穿过悬空玻璃引桥，皮鞋撞击地面的沉稳声响穿透玻璃传来。"
+  },
+  {
+   "choice": "由玩家直接握紧擂主冰凉发颤的玉手合力垂直下拉或是由其独自咬牙坚持。",
+   "exits": [
+    {
+     "cost": "彼此贴身呼吸相闻两颊滚烫心跳彻底失序。",
+     "option": "用双手手掌紧紧包裹擂主冰凉手背以绝对刚性下压力引导石棱精准切入纤维。"
+    },
+    {
+     "cost": "耗费宝贵的十秒黄金时间导致读秒进入最后极值。",
+     "option": "用干棉手帕迅速擦拭棋子表面重新构建防滑摩擦力矩。"
+    }
+   ],
+   "far": {
+    "consequence": "只能任由门框撕碎和服当众走光造成无可挽回的公开社死。",
+    "due_days": 1,
+    "trigger": "唯一石棱脱手丢失无法脱困"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_fingertip_sweat_stone_slippage",
+   "immediate": {
+    "minutes": 1,
+    "text": "光滑的玛瑙子在门缝合金边缘滑脱两次，险些划伤侧腰凝脂般雪白肌肤。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_tatami_sliding_door_alcove"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若棋子脱手跌落进深不可测的榻榻米暗槽底部，将失去唯一可用于切割的硬工具。"
+   },
+   "objective": "稳住心跳与手指握力消除微观剧烈颤动确保玛瑙锋利倒角死死咬入受拉暗带纤维。",
+   "source": "person",
+   "start_minute": 1269,
+   "tags": [],
+   "title": "心慌手颤与指尖细汗导致棋子打滑",
+   "trigger": "极度羞恼与急迫感导致擂主芳心大乱，修长手指浸出细汗在光滑玛瑙石面上打滑。"
+  },
+  {
+   "choice": "选择利用对局室灯光调暗遮蔽或是由在场同伴以身躯阻挡聚光灯直射。",
+   "exits": [
+    {
+     "cost": "斗篷下摆扫翻棋笥盖子产生微小声响。",
+     "option": "在割断暗带瞬间接应解说员递上的黑金羽织大斗篷披上完全封闭春色。"
+    },
+    {
+     "cost": "孤男寡女视线交织引来现场闲杂人等微词猜测。",
+     "option": "由原九段展开象牙大折扇横在身前以宽阔正装身形遮蔽正面镜头视线。"
+    }
+   ],
+   "far": {
+    "consequence": "全网疯传走光视频导致擂主神格崩塌面临被国家队除名与终身停赛。",
+    "due_days": 1,
+    "trigger": "透光走光画面被长焦抓拍外泄"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_sheer_sweat_silk_transparency",
+   "immediate": {
+    "minutes": 1,
+    "text": "聚光灯直射下和服如薄雾般贴身，胸前纯黑皮革骨架反差惊心动魄令人窒息。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_suspended_glass_broadcast_studio"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "最后十五秒若镜头推近半寸，高清特写将一秒抓拍全网推流彻底摧毁女擂主清白。"
+   },
+   "objective": "在任何转播特写镜头捕捉清晰画面前解脱卡死并披上加厚黑金刺绣羽织大斗篷。",
+   "source": "nature",
+   "start_minute": 1270,
+   "tags": [
+    "disaster"
+   ],
+   "title": "素雪和服汗透贴身大片雪白走光危机",
+   "trigger": "地热持续烘烤与极度焦虑导致香汗淋漓，素雪白真丝和服完全浸透半透明紧贴雪肌，内衬纯黑皮衣与丰盈轮廓无所遁形。"
+  },
+  {
+   "choice": "选择用手肘死死撑住门槽横木化解压强或是先割断暗带尼龙绳。",
+   "exits": [
+    {
+     "cost": "擂主白皙掌心被合金鱼骨边缘硌出红痕。",
+     "option": "以玛瑙石棱微观切断尼龙绳瞬间用掌心托住鱼骨边缘化解偏心扭矩。"
+    },
+    {
+     "cost": "空间被手掌填满导致运手施力操作难度倍增。",
+     "option": "以双手手掌垫在鱼骨与木槽之间充当纯物理柔性缓冲层。"
+    }
+   ],
+   "far": {
+    "consequence": "女擂主当场昏厥中断比赛造成重大医疗与赛事双重责任事故。",
+    "due_days": 1,
+    "trigger": "鱼骨压伤导致肋部骨折昏厥"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_corset_boning_rib_crush_peril",
+   "immediate": {
+    "minutes": 1,
+    "text": "擂主呼吸极为急促微弱，侧腰传来钻心锐痛娇躯轻颤不止。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_tatami_sliding_door_alcove"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "三十秒内若再受一次地热位移挤压，变形鱼骨将直接压裂肋骨软组织造成重创。"
+   },
+   "objective": "在脑部缺氧导致神智昏迷前消除单侧极端拉扯张力恢复正常落子心率。",
+   "source": "accident",
+   "start_minute": 1271,
+   "tags": [
+    "disaster"
+   ],
+   "title": "纯黑皮革鱼骨束身胸衣拉扯压迫胸腔",
+   "trigger": "受门框拖曳反向拉扯，皮衣硬质合金鱼骨深陷侧肋软肉，呼吸受阻胸闷眩晕。"
+  }
+ ],
+ "region": "杭州棋院玻璃演播厅：榻榻米对局室、移门导槽、候场静心阁与观摩外廊",
+ "rules": [
+  {
+   "id": "rule_go_clock_ten_second_countdown",
+   "text": "职业围棋读秒绝杀规程：棋局进入最后三次三十秒读秒后，倒数至最后十秒每秒蜂鸣一次，超时未落子直接判定超时判负失冠。"
+  },
+  {
+   "id": "rule_master_tatami_etiquette_code",
+   "text": "擂主榻榻米严整仪态法度：对局期间棋手必须正襟危坐于榧木棋盘前，严禁衣衫不整、前襟松脱或离席失仪，违者直接取消比赛资格。"
+  },
+  {
+   "id": "rule_underfloor_heating_thermal_safety",
+   "text": "地热榻榻米恒温防膨胀安全守则：演播大厅木构滑轨温控严禁超过摄氏二十八度，严防实木热胀冷缩导致电动推拉移门导槽抱死卡滞。"
+  },
+  {
+   "id": "rule_private_posture_brace_boundary",
+   "text": "成年擂主矫正私器保密纪律：擂主私下穿戴的紧身硬质真皮鱼骨胸衣属于维持端坐之隐秘私具，在全网特写镜头前绝不可显露分毫。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "组织规约",
+  "committed": "金石同盟",
+  "familiar": "台容核检",
+  "flirting": "暗光对视",
+  "intimate": "俯仰共济",
+  "stranger": "初登讲台",
+  "testing": "执夹撬簧"
+ },
+ "status": "released",
+ "style_hint": "全景玻璃对局室的刺眼聚光与读秒蜂鸣。写清冷女擂主婴儿肥两颊的羞耻红晕、汗透的素白和服与压住的喘息，动作落在玛瑙棋子割暗带上。",
+ "tension_engines": [
+  {
+   "id": "eng_tatami_door_corset_hook_jam",
+   "text": "紫光檀移门导槽温膨胀死死咬死和服内皮革束身胸衣合金搭扣，必须用高硬度玛瑙棋子倒角锐刃割断紧绷尼龙限位暗带方能脱扣。"
+  },
+  {
+   "id": "eng_sheer_sweat_soaked_silk_transparency",
+   "text": "地热烘烤与极度心慌导致汗水彻底浸透素雪白真丝和服贴身透光，一旦被长焦镜头捕捉将引发绝世女擂主声名尽毁灭顶社死灾难。"
+  },
+  {
+   "id": "eng_ten_second_countdown_forfeit_peril",
+   "text": "千万在线观众与棋钟红字进入最后十秒蜂鸣绝杀倒计时，倒数归零若未落子将直接判定超时判负痛失擂台赛世界擂主桂冠。"
+  },
+  {
+   "id": "eng_grandmaster_chastity_dignity_peril",
+   "text": "中国围棋百年擂主神圣清白名节与透光受辱被资方霸凌沦为玩物的灭顶危机，逼迫主创必须在瞬间完成自救与绝杀落子。"
+  }
+ ],
+ "title": "清冷围棋女擂主·玻璃演播厅移门夹死皮衣",
+ "tone": [
+  "玻璃演播厅读秒",
+  "和服汗透透光",
+  "移门咬死搭扣",
+  "玛瑙棋子割暗带"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_info_go_master_ancestral_agate_code",
+   "requires": [
+    "go_master_shang_yu_ling"
+   ],
+   "text": "擂主随身携带的玛瑙黑子其实是华夏擂主世家传承千年的莫氏高硬度玄武陨石雕琢而成，绝杀落子解开千年传承密码。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_spatial_tatami_maintenance_duct",
+   "requires": [
+    "tatami_mechanic_han_da_wei"
+   ],
+   "text": "榻榻米移门收纳暗槽内侧并非死角，而是通往悬空演播厅下层机房的隐秘紧急检修直通滑道。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_resource_sponsor_funds_frozen_ban",
+   "requires": [
+    "referee_chief_chu_chang_qing"
+   ],
+   "text": "冠名商代表企图偷拍的丑行被转播高倍机位全程录下，国际体育仲裁院直接依据廉洁公约冻结其千万赞助资格。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_psychological_cold_master_tears_yield",
+   "requires": [
+    "go_master_shang_yu_ling"
+   ],
+   "text": "平日清冷傲岸不食人间烟火的女擂主，在暗带割断脱困瞬间却主动将滚烫微婴儿肥面颊深深埋入施救者怀中轻声啜泣。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_temporal_rival_fan_pause_tenacity",
+   "requires": [
+    "go_rival_hara_sosuke"
+   ],
+   "text": "对手原九段在察觉异样后果断合扇借申诉规则刻意拖延了三十秒，使榻榻米割带自救在最后两秒压哨圆满完成。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_social_referee_covert_justice",
+   "requires": [
+    "referee_chief_chu_chang_qing"
+   ],
+   "text": "看似铁面无私的裁判长早已察觉地热温控异常，暗中阻拦长焦镜头靠近全力护佑中国女擂主清白。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_mechanics_tatami_shear_valve_tampered",
+   "requires": [
+    "tatami_mechanic_han_da_wei"
+   ],
+   "text": "移门导槽温膨胀卡死并非偶然失修故障，而是遭人暗中剪断冷却旁通阀诱发的突发性热膨胀陷阱。"
+  }
+ ]
+}

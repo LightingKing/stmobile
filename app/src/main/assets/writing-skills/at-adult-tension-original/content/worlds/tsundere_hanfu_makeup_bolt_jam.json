@@ -1,0 +1,2377 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "现年满二十八岁，国家一级影视烟火特效高级工程师，具备完全民事行为能力。",
+   "age_range": [
+    28,
+    28
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_pyro_supervisor_laosun",
+   "line": "点火程序已成功推迟八分钟，火把油料已就位，大家听口令合力把门推开！",
+   "location_ids": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "name": "老孙",
+   "role": "夜戏烟火特效主管"
+  },
+  {
+   "adult_context": "现年满二十六岁，一线影视摄影指导兼斯坦尼康摄影师，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    26
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_camera_operator_ah_hao",
+   "line": "导演催着第一镜开拍，无论如何必须在火把引燃前脱身赶去金銮殿机位！",
+   "location_ids": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "name": "阿豪",
+   "role": "主机位特约摄影师"
+  },
+  {
+   "adult_context": "现年满二十九岁，影视城古建筑营造队高级机电工长，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_carpenter_master_lu",
+   "line": "工棚立式千斤顶已推到廊下，外侧地戗木随时可以顶起，里面快发力！",
+   "location_ids": [
+    "loc_studio_backstage_equipment_courtyard"
+   ],
+   "name": "鲁师傅",
+   "role": "古建工棚值班工长"
+  },
+  {
+   "adult_context": "现年满二十六岁，戏曲学院舞台美术毕业道具助理，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    26
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_prop_hand_xiaolin",
+   "line": "梳头师稳住，非遗点翠发冠我都用丝绸软布护好了，咱们一起发力推门！",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "name": "小林",
+   "role": "特邀妆造随行助理"
+  },
+  {
+   "adult_context": "现年满二十五岁，古装剧组高定服装专属熨烫造型师，具备完全民事行为能力。",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_costume_dresser_ah_zhen",
+   "line": "宋锦华服没有任何勾丝弄脏，大家心往一处使，一定能在点火前顺顺当当出去！",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "name": "阿珍",
+   "role": "古装高定服装师"
+  },
+  {
+   "adult_context": "现年满二十九岁，影视集团特邀常务执行制片人，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_production_manager_mrs_han",
+   "line": "医护车和剧组保姆车已经在后殿廊道待命，门一开全员立即走无雨连廊撤离！",
+   "location_ids": [
+    "loc_studio_backstage_equipment_courtyard"
+   ],
+   "name": "韩制片",
+   "role": "剧组现场执行制片"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "傲娇梳头师与执行美术总监的隔门默契合璧，美术总监在回廊申请点火延时并卸荷木戗，梳头师在厢房合抱拔销钳下压撬退铜套暗销，前后呼应在夜戏清场火把逼近前撬开生门。",
+   "id": "combo_chu_and_art_director_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "tsundere_dresser_chu_ning_shuang",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在极度逼仄大门咬死绝境中同握扳钳硬柄下压撬栓的生死托付。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "art_director_xiao_tian_yi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "大型影视古装剧组实景美术搭设中的长期默契配合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tsundere_dresser_chu_ning_shuang",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "art_director_xiao_tian_yi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对美术总监临危不乱精准争取时间窗口的由衷钦佩。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "tsundere_dresser_chu_ning_shuang",
+    "art_director_xiao_tian_yi"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保二人技术协同在火把引燃封门前撬开门栓安全出舱。",
+    "limit_gap": "外围火把点火倒计时分秒流逝，隔着八十毫米沉重樟木大门无法直接物理接触生铁插栓。",
+    "meeting_reason": "女一号刚顶着一头点翠出门，美术总监进暖阁来道谢，被梳头师一句「头面歪了一分你也看不出来」顶了回去。",
+    "resource_gap": "美术总监掌控全剧组对讲调度与外侧木戗拆改权限，梳头师手握特种拔销斜嘴钳内部破销关键支点。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_cast_iron_door_bolt_eccentric_jam",
+    "eng_dual_sided_synchronized_thrust_pulse"
+   ]
+  },
+  {
+   "chemistry": "傲娇梳头师与大木作营造师的技艺合璧，营造师以榫卯微调撬刀测定下沉五毫米并指引暗销卡位，梳头师沉着执拔销钳以三十度斜角刺入抱肚下压，严谨运用杠杆力学攻克生铁死咬。",
+   "id": "combo_chu_and_joiner_master_team",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "tsundere_dresser_chu_ning_shuang",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死危机面前并肩践行传统营造与机械常识的真挚信赖。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "joiner_master_lu_chen_yi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "影视城古建筑大殿维护中的长期默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tsundere_dresser_chu_ning_shuang",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "joiner_master_lu_chen_yi",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "在匠艺传承与生命救援中铸就的心灵相通知己深情。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "tsundere_dresser_chu_ning_shuang",
+    "joiner_master_lu_chen_yi"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保全流程无损撬退偏心暗销并安全推开大殿重门脱险。",
+    "limit_gap": "厢房内烛火微弱空气闷热，拔销钳稍有偏载即有划损黄花梨踏板风险。",
+    "meeting_reason": "营造师来暖阁修门轴，梳头师嫌敲打声吵，扔过去一把发簪让人别出声。",
+    "resource_gap": "营造师精通古建门栓结构图纸并执掌榫卯撬刀，梳头师具备过硬动手定力与特种冷锻斜嘴拔销钳。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_hairpin_prying_plier_torque_limit"
+   ]
+  },
+  {
+   "chemistry": "傲娇女梳头师与消防特勤队员的生命接力，巡查员在外侧以战术防暴撬杠强力托举门扇下沿并以铿锵口令读秒，梳头师在内侧同步下压扳钳撬退暗销，前后合力彻底征服沉重死锁迎候清凉脱困。",
+   "id": "combo_chu_and_fire_officer_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "tsundere_dresser_chu_ning_shuang",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死危机面前毫不慌乱通力自救的真挚敬意。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "fire_patrol_officer_shen_hao_ran",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "对消防巡查特勤临危不乱恪守职责的崇高信赖。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tsundere_dresser_chu_ning_shuang",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "fire_patrol_officer_shen_hao_ran",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "那一夜在殿外扛起门扇的是巡查员，梳头师嘴上不说，第二天却给对方捎了一碗片场的红豆汤。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "tsundere_dresser_chu_ning_shuang",
+    "fire_patrol_officer_shen_hao_ran"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以内外精确协同节奏推开沉重门扇避免损坏古建樟木大门。",
+    "limit_gap": "隔着厚重雕花樟木大门无法直接目视交流，口令全凭对讲与门缝微孔毫秒级联动。",
+    "meeting_reason": "美术总监和巡查员在回廊核对火把戏的清场时间，梳头师隔着门喊：外头的，把伞拿进来。",
+    "resource_gap": "巡查员掌控战术防暴撬杠向上托力与外围通行权，梳头师掌控内侧抱肚偏心暗销解退关键机关。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_dual_sided_synchronized_thrust_pulse"
+   ]
+  },
+  {
+   "chemistry": "傲娇梳头师师姐与贴心学妹的真挚相守，妆造助手跪地死死护住黄花梨踏板基座并递送湿巾与润滑剂，梳头师护佑学妹在前从容执钳撬栓，展现大姐姐般外冷内热的冷静担当气魄。",
+   "id": "combo_chu_and_apprentice_support",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "tsundere_dresser_chu_ning_shuang",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "妆造工坊日常造型指导与伴随服务中的深厚感情。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_dresser_xue_wan_wei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "对学妹勤快懂事后勤补位的由衷喜爱。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tsundere_dresser_chu_ning_shuang",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "apprentice_dresser_xue_wan_wei",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "在生死危机面前彼此相护超越普通同袍的真挚姐妹深情。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "tsundere_dresser_chu_ning_shuang",
+    "apprentice_dresser_xue_wan_wei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保受困全员毫发无损安全脱出重门牢笼。",
+    "limit_gap": "学妹体质纤弱对闷热较为敏感，厢房内烛火消耗氧气空气逐渐稀薄。",
+    "meeting_reason": "妆造助手捧着头面匣子跑进暖阁，说女二号的凤钗断了一根，梳头师抬眼看向门口的人。",
+    "resource_gap": "梳头师具备镇定决策权威与特制冷锻拔销斜嘴钳，妆造助手手握防锈润滑剂与医用降温湿巾物资。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_intangible_cultural_costume_bond"
+   ]
+  },
+  {
+   "chemistry": "傲娇梳头师与道具机械工程师的硬核力学联动，道具师加装发冠加长套管组装二级增力杠杆，梳头师合抱下压，二人合力在微米级精度下挑退偏心铜套暗销化解生铁咬死。",
+   "id": "combo_chu_and_prop_engineer_fulcrum",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "tsundere_dresser_chu_ning_shuang",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "于千钧一发之际合抱二级杠杆撬开生路之交。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "prop_mechanic_bai_ze_yu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "影视道具机构研发与古装发冠暗扣制作中的长期默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tsundere_dresser_chu_ning_shuang",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "prop_mechanic_bai_ze_yu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对道具工程师冷静组装二级杠杆搭建力学支点的由衷敬佩。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "tsundere_dresser_chu_ning_shuang",
+    "prop_mechanic_bai_ze_yu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "精确构筑二级增力杠杆撬退暗销确保全员生还。",
+    "limit_gap": "杠杆一旦受偏载脱扣将导致拔销钳反弹崩断，厢房内清场时间分秒流失。",
+    "meeting_reason": "美术总监在暖阁里翻定妆照，梳头师一张张抽走：这张不行，这张也不行，你眼光真差。",
+    "resource_gap": "道具师精通精密机构空间力矩与二级杠杆套接，梳头师手握高硬度冷锻拔销钳核心刃口。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_hairpin_prying_plier_torque_limit"
+   ]
+  },
+  {
+   "chemistry": "美术总监与特勤巡查员的外侧铁血协作，一人用对讲精准调度点火组延时读秒，一人紧握战术防暴撬杠向上施加两百公斤托力，专业协同为内侧人员自救赢得了最关键的生机。",
+   "id": "combo_director_and_fire_officer_team",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "art_director_xiao_tian_yi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "影视基地实景安全保障一线的长期搭档。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "fire_patrol_officer_shen_hao_ran",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "安保特勤一线的过硬技术信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "art_director_xiao_tian_yi",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "fire_patrol_officer_shen_hao_ran",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "多次在大型实景突发险情中结成的钢铁战友盟约。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "art_director_xiao_tian_yi",
+    "fire_patrol_officer_shen_hao_ran"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保外侧减重托举与内侧均力达到最佳时序窗口协助脱困。",
+    "limit_gap": "外围火把点火倒计时逼近，外侧抢险作业必须争分夺秒抢救人员。",
+    "meeting_reason": "暴雨前一刻，巡查员来暖阁通知清场，说今晚风大，大殿的门要关紧。",
+    "resource_gap": "美术总监掌控全剧组艺术调度对讲与清场权限，巡查员掌控外侧重型战术防暴撬杠与安全通道。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_cast_iron_door_bolt_eccentric_jam",
+    "eng_dual_sided_synchronized_thrust_pulse"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_studio_hall_intercom_system",
+   "reach": "贯通东暖阁厢房、前厅回廊与后院大木作工棚全员调度频段",
+   "text": "影视大殿对讲调度广播网络"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_ancient_door_crevice_voice_link",
+   "reach": "穿透厚重樟木门缝微孔实现内外人员对准生铁抱肚暗销与撬杠毫秒级口令联动",
+   "text": "大殿樟木雕花门缝声波微孔呼应"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "苏州梳头世家出身，跟着师父学了十年发髻与点翠头面，自立门户后专接古装大戏，接哪部戏、给谁梳头由本人拿主意。",
+   "age_range": [
+    25,
+    28
+   ],
+   "appearance_options": [
+    "身穿改良宋制豆青色暗纹对襟长衫搭配珍珠排扣，青丝挽起斜插一支仿古錾银发簪，面容娇俏明艳出尘，眼眸清丽如秋水凤眼微挑，两靥带着天然娇润微婴儿肥与饱满水润胶原蛋白反差，气质矜贵清傲，神情透着不服输的傲娇倔强。",
+    "面对生铁重栓咬死与门外火把逼近险情，额间沁出细密剔透汗珠，微扬雪白下颌轻哼，没有丝毫惊慌退缩，双手紧握特制不锈钢拔销斜嘴钳展现超群动手定力。"
+   ],
+   "decision": {
+    "avoids": [
+     "惊慌失措大喊大叫破坏梳头师优雅从容仪态",
+     "盲目使用大斧乱劈破坏文物级大殿雕花樟木门"
+    ],
+    "contrast": "外表是娇贵明艳且两颊微带娇润微婴儿肥的高定妆造女神，直面粗犷沉重生铁机械死锁却展现出分毫不退的工科级硬核动手魄力。",
+    "core_value": "傲娇不是任性，在镜头前我的妆造冠绝群芳，在这被铁栓咬死的大殿里我也绝不会服输，这柄拔销钳就是撬开死锁的神兵！",
+    "goal_options": [
+     "用斜嘴钳淬火刃口探入铁抱肚偏心凹槽下压撬退咬死铜套",
+     "协同搭档以黄花梨踏板为杠杆支点借体重静载撬起沉重门栓"
+    ],
+    "never": [
+     "在危机平息前丢下同伴或违背自身承诺独自逃离"
+    ],
+    "prefers": [
+     "严格符合杠杆力学与榫卯解构规律的科学解困方案",
+     "沉稳严谨无声默契的精准配合"
+    ],
+    "pressure_responses": {
+     "breaking": "在门栓脱扣推门瞬间傲娇微扬下颌拂平发鬓从容迈出大门",
+     "high": "双手合抱扳钳硬柄借踏板横梁同搭档一同向下施加全部体重杠杆力",
+     "low": "双手整理青衫袖口微挑凤眼提醒身旁同伴切勿慌乱拉扯门环",
+     "mid": "反手迅速拔出化妆箱底层特制斜嘴拔销钳稳稳卡入生铁卡槽受力点"
+    },
+    "relationship_stance": "嘴上嫌美术总监不懂头面，改一次图就骂一次，可每场夜戏收工，都把总监那件落在暖阁的外套叠好放在妆箱上。",
+    "withdrawal": "立于回廊清风中抚平衣角轻揉发酸手腕故作漫不经心展颜浅笑。"
+   },
+   "gender": "female",
+   "gender_reason": "古装大戏特邀的梳头师，专做发髻与点翠头面。",
+   "id": "tsundere_dresser_chu_ning_shuang",
+   "identity": {
+    "authority": "对大殿妆造工坊人员调配、高定发冠五金组件拆装及应急机械避险享有最高现场决策权。",
+    "exposure": "为了极致还原宋代后妃发髻层次曾连续三天通宵查阅古籍绘卷手工打磨上百枚铜簪",
+    "hidden": "梳妆箱锦缎暗层珍藏着初学化妆时祖父亲手相赠的一枚雕花白玉梳",
+    "limits": [
+     "体格纤柔娇贵，无法单凭个人臂力抬升三十公斤卡死的沉重生铁门栓",
+     "必须护卫价值数十万元的非遗点翠发冠与绝版宋锦华服不被刮破弄脏"
+    ],
+    "obligations": [
+     "在夜戏火把点火清场前撬退偏心暗销推开大殿重门脱险"
+    ],
+    "resources": [
+     "一柄长十八厘米由特种加厚冷锻不锈钢精锻制成的发冠调校拔销斜嘴钳（尾端带高硬度淬火平头刃口）",
+     "一瓶随身携带的纯天然高纯度冷压山茶花减摩发油"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在逼仄昏暗厢房中毫无畏色同自己并肩下压扳钳撬栓的沉稳英挺侧颜",
+     "两人双手在冰冷金属钳身上紧扣发力时掌心传来的滚烫坚定力量"
+    ],
+    "boundaries": [
+     "严守傲娇闺秀的自尊操守与清白名节底线",
+     "绝不允许借搭救之名产生任何逾矩非分之行"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "同对方并肩立于影视城巍峨飞檐下静看破晓晨曦享受安宁。",
+    "dislikes": [
+     "推脱责任只知怨天尤人的软弱之辈",
+     "借机轻浮油滑言语无状的轻狂看客"
+    ],
+    "expression": "耳尖悄然泛起一层诱人微红，微微仰起带有微婴儿肥的尖翘下颌轻哼一声，主动将温热茶盏递向对方手心。",
+    "likes": [
+     "精通古建力学常识且尊重专注才女的沉静温厚目光",
+     "在险情平息后彼此心领神会的会心一笑"
+    ],
+    "preconditions": [
+     "大殿生铁门栓成功撬退且大门完全打开全员脱困",
+     "高定点翠发冠与宋锦古装毫发无损安全归箱加封",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "古装巨制特邀梳头师",
+   "schedule": [
+    {
+     "from": 1290,
+     "location_id": "loc_ancient_hall_makeup_booth",
+     "to": 1310
+    },
+    {
+     "from": 1311,
+     "location_id": "loc_ancient_hall_makeup_booth",
+     "to": 1330
+    },
+    {
+     "from": 1331,
+     "location_id": "loc_ancient_hall_corridor_antechamber",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "黄花梨踏板横梁表面产生微小金属挤压压痕，{npc.name}手腕因对抗反震受力隐隐酸软。",
+      "option": "{npc.name}使用特制斜嘴拔销钳配合山茶花发油深入抱肚撬退铜套暗销，两人借踏板横梁下压抬起门栓推门脱险。"
+     },
+     {
+      "cost": "大殿明代风格纯手工透雕楠木窗棂整体破损报废需赔偿剧组高额修缮金。",
+      "option": "由外侧特勤使用合金重型破拆撬杠强行砸断大殿仿古木格栅观察小窗换取通道。"
+     }
+    ],
+    "pressure": "距剧组夜戏火把点火清场仅剩十五分钟，厢房密闭断电闷热，若不能及时撬开门栓推门而出，人员将被困在火把封锁区面临火险与严重违约风险。",
+    "trigger": "突发暴雨大风导致大殿双扇重樟木门剧烈甩合，三十公斤实心生铁雕花门栓因门轴沉降受偏心扭矩死死咬在铁抱肚内，淬火铜套暗销卡死。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要这枚偏心铜销被挑退，三十公斤生铁门栓就能抬起来，我{npc.name}绝不会被困在这间屋子里误了夜戏！",
+    "surface": "谁准你们瞎晃门环的！这是三十公斤仿古生铁雕花大门栓，狂风一震加上门轴沉降，铜套暗销被偏心力矩死死咬在抱肚里了！拿我箱子里这柄加厚冷锻拔销钳来，听我指挥，借黄花梨踏板往下压！"
+   }
+  },
+  {
+   "adult_context": "电影美术设计专业毕业，跟了十年古装大戏，这部戏的执行美术总监，具备完全民事行为能力。",
+   "age_range": [
+    30,
+    34
+   ],
+   "appearance_options": [
+    "身穿深灰色多口袋战术工装夹克，佩戴导演对讲耳机与激光测距仪，身材颀长俊朗目光沉着机敏。",
+    "面容清俊线条分明，双手戴着黑色耐磨操作手套，散发着古装美术指导特有的古典严谨与现场调度魄力。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目暴躁撞门引发门框榫卯错位整体坍塌",
+     "临阵慌乱导致对讲信息失真延误战机"
+    ],
+    "contrast": "平日文雅沉稳甚至略带儒气，直面突发险情却雷厉风行处置迅疾如电。",
+    "core_value": "布景藏风骨营造有规矩，在我的大殿里，决不允许任何演职人员受困于意外机械死锁！",
+    "goal_options": [
+     "以手台向点火组申请十分钟安全延时为内侧争取黄金时间",
+     "在外侧用加长六角扳手拆除外侧防风木戗辅助卡扣分担门轴压力"
+    ],
+    "never": [
+     "在妆造团队安全脱离前擅自离开救援指挥一线"
+    ],
+    "prefers": [
+     "分秒不差的精准对讲内外力学协同方案",
+     "保全文物建筑与高定妆造双无损的科学解救流程"
+    ],
+    "pressure_responses": {
+     "breaking": "在门栓抬起瞬间号召外侧全员同向发力推门大开生路",
+     "high": "单臂撑住门框通过门缝声波微孔清晰指引内侧杠杆法向受力角",
+     "low": "手持手台沉着向厢房内通报当前距离火把点火还剩十二分钟充足窗口",
+     "mid": "双手紧握扳手迅速卡入木戗底托偏心螺栓下压化解外部顶力"
+    },
+    "relationship_stance": "三顾苏州才把这位梳头师请进组，挨骂挨得心甘情愿，暖阁的灯不灭，总监就不走。",
+    "withdrawal": "靠在回廊朱红立柱旁摘下对讲耳机长舒一口气欣慰展颜微笑。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "art_director_xiao_tian_yi",
+   "identity": {
+    "authority": "对明清大殿实景机关拆改、现场道具复原及外侧破拆力度把控享有全权交涉权。",
+    "exposure": "曾连续主持搭建三座大型实景古都城垣荣获电影金鸡奖最佳美术提名",
+    "hidden": "夹克内袋珍藏着大学手绘第一张明清大殿榫卯结构透视线稿",
+    "limits": [
+     "大殿实木门窗为国家重点保护仿古文物布景，严禁无火情下实施破坏性爆破",
+     "外侧生铁包头大木戗自重大无法徒手拔除"
+    ],
+    "obligations": [
+     "在夜戏火把引燃前指挥内外协同安全推开大殿重门"
+    ],
+    "resources": [
+     "一组德国进口高精度古建五金球头套筒调整扳手",
+     "一部直通总导演与点火组的强频对讲机"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在危急关头泰山崩于前而色不变的冷静调度风采",
+     "隔门呼应毫无保留的生死托付与默契共鸣"
+    ],
+    "boundaries": [
+     "恪守美术总监职业道德底线",
+     "绝不允许违背自愿原则的逾矩之举"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "伫立于大殿金銮宝座布景前见证华美影视传奇震撼开拍。",
+    "dislikes": [
+     "推脱责任的软弱之徒",
+     "粗暴野蛮损坏古建者"
+    ],
+    "expression": "露出俊朗舒心的释然微笑，向梳头师与同伴用力竖起大拇指致敬赞赏。",
+    "likes": [
+     "条理分明的专业对白",
+     "临危不乱彼此守望的过硬执行力"
+    ],
+    "preconditions": [
+     "生铁门栓成功撬退且大殿重门顺畅推开全员脱险",
+     "夜戏火把点火程序平稳推迟并在安全状态下开机",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "影视巨制执行美术总监",
+   "schedule": [
+    {
+     "from": 1290,
+     "location_id": "loc_ancient_hall_corridor_antechamber",
+     "to": 1310
+    },
+    {
+     "from": 1311,
+     "location_id": "loc_ancient_hall_corridor_antechamber",
+     "to": 1330
+    },
+    {
+     "from": 1331,
+     "location_id": "loc_ancient_hall_makeup_booth",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "六角扳手发黑防锈镀层被超限紧固力矩磨出两道亮银色受拉划痕。",
+      "option": "{npc.name}用冷锻加长六角扳手快速卸下外侧防风木戗底座两颗定位偏心螺栓松脱顶力。"
+     },
+     {
+      "cost": "消耗整整一罐便携式高压驱动气瓶全部备用气体储备。",
+      "option": "用手持便携气动千斤顶顶开大木戗上端受力抱箍使其脱落移位。"
+     }
+    ],
+    "pressure": "若不能在外侧卸掉木戗顶力，内侧单凭杠杆撬退门栓也无法克服外侧数千牛顿的锁死推力。",
+    "trigger": "大殿外侧两根防风加固生铁包头大木戗因狂风震动下挫，牢牢卡在门框外沿挡块槽内，产生反向顶死阻力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "这道重型雕花铁门栓承受着巨大侧向扭矩，必须抓住内侧杠杆下压那一瞬间里应外合把门彻底推开！",
+    "surface": "梳头师别急！我已经用手台把点火组的时间往后压了十分钟！外侧防风木戗的底座螺栓已被我卸荷，听我门外读秒口令，踩紧踏板横梁全力向下方施压，我们在外侧一起推！"
+   }
+  },
+  {
+   "adult_context": "现年满二十五岁，古建筑工程技术与土木工学学士毕业，非遗大木作榫卯技艺青年传人，具备完全民事行为能力。",
+   "age_range": [
+    25,
+    28
+   ],
+   "appearance_options": [
+    "身穿黑色中式立领工装盘扣衫，腰系皮质木作工具囊，面容清秀神采干练目光敏锐深邃。",
+    "双手修长指节粗大带有木作薄茧，面对咬死的生铁抱肚与木门下沉，行事沉稳有条不紊充满大匠风范。"
+   ],
+   "decision": {
+    "avoids": [
+     "估算失准凭直觉蛮干导致工具受剪崩断",
+     "大声叫嚷破坏操作者微米级手感稳定性"
+    ],
+    "contrast": "外表文静内敛充满古典匠人风范，面对生铁死锁却眼疾手快分毫不差精准制导。",
+    "core_value": "木有筋骨铁有榫卯，狂风虽沉重下挫，只要找准那方偏心暗销，微力亦可拨千斤！",
+    "goal_options": [
+     "指导梳头师以三十度角切入抱肚暗销受力盲区下压别退锁块",
+     "在踏板横梁下方垫入硬木垫块消除局部弯矩集中"
+    ],
+    "never": [
+     "在门栓完全解脱前离开排险第一战位"
+    ],
+    "prefers": [
+     "严格符合材料力学与榫卯受力规律的无损解救方案",
+     "保护古建筑文物构件完好率的科学施救手艺"
+    ],
+    "pressure_responses": {
+     "breaking": "在门栓弹起瞬间同梳头师一同合力向上托举生铁把手",
+     "high": "用身体护在梳头师身侧用手掌托住钳口防止受载滑脱",
+     "low": "在门缝处迅速用强光手电测出樟木门扇下沉沉降差为五毫米",
+     "mid": "双手紧握榫卯撬刀小心探入抱肚下沿剔除咬死锈屑氧化层"
+    },
+    "relationship_stance": "极度佩服梳头师临危不乱的机械悟性与傲娇动手力，视其为具备过硬工科灵性的艺术知己。",
+    "withdrawal": "收起撬刀坐在门槛旁擦去额角热汗捧起粗茶欣慰微笑。"
+   },
+   "gender": "male",
+   "gender_reason": "古建筑大木作榫卯营造二十五岁青年工匠土木工程学士毕业。",
+   "id": "joiner_master_lu_chen_yi",
+   "identity": {
+    "authority": "对樟木大门偏心下沉量、生铁抱肚咬合受力角及黄花梨踏板承重极限拥有最高发言权。",
+    "exposure": "曾连续主持修复三座国家级重点古戏台木作暗榫构件惊艳业内",
+    "hidden": "工具囊底层珍藏着祖师爷亲传的一方清代小叶紫檀角尺",
+    "limits": [
+     "体格清瘦无法单手扛动三十公斤生铁门栓",
+     "必须力保大殿明代风格樟木大门暗榫不被强行别裂"
+    ],
+    "obligations": [
+     "准确测算门栓偏心咬死间隙并指导扳钳以黄金支点发力"
+    ],
+    "resources": [
+     "一柄非遗大木作特制淬火实心扁平修榫刮铲",
+     "一罐高压渗透型微量机械轴承防锈润滑喷剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在昏暗烛光中以毫米级精度互相配合搭设力学支点的严谨默契",
+     "彼此眼神交汇时对科学物理常识坚信不疑的执着纯粹"
+    ],
+    "boundaries": [
+     "恪守青年工匠道德礼数与自律界限",
+     "坚决杜绝任何逾矩冒犯之行"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "伫立于大殿飞檐斗拱下静看古建营造之火生生不息。",
+    "dislikes": [
+     "鲁莽蛮干的破坏狂",
+     "遇难推脱责任的自私之辈"
+    ],
+    "expression": "温和展颜一笑理平衣领，向梳头师递上干净棉巾轻声致谢赞佩。",
+    "likes": [
+     "懂得尊重传统匠心工艺的知音",
+     "临危不乱处变不惊的实干伙伴"
+    ],
+    "preconditions": [
+     "生铁门栓铜套暗销成功撬退且大门顺畅打开全员脱困",
+     "大殿明代风格雕花樟木门与黄花梨梳妆台毫发无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "古建大木作青年营造师",
+   "schedule": [
+    {
+     "from": 1290,
+     "location_id": "loc_ancient_hall_makeup_booth",
+     "to": 1310
+    },
+    {
+     "from": 1311,
+     "location_id": "loc_ancient_hall_makeup_booth",
+     "to": 1330
+    },
+    {
+     "from": 1331,
+     "location_id": "loc_ancient_hall_corridor_antechamber",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "合金微调撬刀刃尖产生微小磨损钝化需重新手工研磨。",
+      "option": "{npc.name}用榫卯微调撬刀刮除氧化层并注入山茶花油促成微缝隙。"
+     },
+     {
+      "cost": "古董级仿古生铁抱肚表面手工錾刻花纹被局部轻微熏黑需去污抛光。",
+      "option": "用手持微型喷灯对准生铁抱肚外壳加热促使金属热膨胀脱扣。"
+     }
+    ],
+    "pressure": "若不及时注入山茶花发油润滑并以硬质工具剔开氧化层，强行施压将导致暗销彻底扭断在铁槽内。",
+    "trigger": "仿古生铁门栓抱肚内侧长期缺乏保养，铁锈氧化层在强风下与铜套咬合形成冷摩擦死结。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要这枚暗销退回铜套槽内，门栓失去偏心咬合力，整扇大门就能顺势推开！",
+    "surface": "梳头师看这里！门轴下沉了五毫米，偏心暗销受力点就在抱肚左下角！把拔销钳尖端探进去两公分，借黄花梨踏板当支点向下压，铜销退牙的瞬间我们一起向上托门栓！"
+   }
+  },
+  {
+   "adult_context": "现年满二十七岁，国家初级注册消防工程师，退役武警特勤士官，具备完全民事行为能力。",
+   "age_range": [
+    27,
+    30
+   ],
+   "appearance_options": [
+    "身穿黑色消防抢险作训服，头戴救援头盔，配备战术防爆手电与手台，身材伟岸雄健威严冷峻。",
+    "站立如松目光如电，双手沉稳把持折叠合金战术防暴撬杠，散发着训练有素的铁血护卫军人英气。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目使用大锤砸门引发门架整体坍塌伤人",
+     "临阵慌乱导致对讲联络信息失真延误战机"
+    ],
+    "contrast": "外表威严刚硬不苟言笑，内心对群众安危牵肠挂肚充满炽热的人民卫士担当。",
+    "core_value": "生命重于泰山安全纪律如铁，在我的防区内，绝不允许有任何剧组同胞在意外锁闭中受到伤害！",
+    "goal_options": [
+     "在外侧用防暴撬杠深入门底外槽向上预顶分担门扇沉降重量",
+     "在门开瞬间第一时间护送厢房人员通过火把警戒隔离区"
+    ],
+    "never": [
+     "在确认厢房最后一人安全撤离前离开排险第一战位"
+    ],
+    "prefers": [
+     "严守防灾救援倒计时步调的毫秒级战术联动",
+     "服从现场安全指挥的铁的纪律协同"
+    ],
+    "pressure_responses": {
+     "breaking": "在门缝洞开瞬间单手推门大开果断接应受困人员迅速撤出",
+     "high": "隔着门缝以军旅铿锵口令倒数读秒引导内侧合抱同步发力",
+     "low": "手握对讲手咪沉声通报外侧回廊火把封锁线已暂时拦停",
+     "mid": "把铁撬棍塞进大殿木门的门槛缝，弓着背往上扛，木门吱呀一声抬起半寸。"
+    },
+    "relationship_stance": "极度钦佩梳头师与同伴临危不乱的工科自救魄力，视其为具备极强心理素质的优秀公民。",
+    "withdrawal": "向协同破拆的团队敬礼致意后靠在受力石雕柱边摘盔擦汗。"
+   },
+   "gender": "male",
+   "gender_reason": "影视城夜戏特效消防巡查二十七岁退伍武警特战队员。",
+   "id": "fire_patrol_officer_shen_hao_ran",
+   "identity": {
+    "authority": "对夜戏火把点火区域警戒、火险隐患处置及应急破拆外力实施享有第一处置权。",
+    "exposure": "曾多次在一线特大古装影视拍摄基地突发火情排险中立功受奖",
+    "hidden": "随身的帆布包里一直放着当年武警队的一枚旧臂章，磨得看不清字了。",
+    "limits": [
+     "严禁在未确认内部人员安全距离时盲目击碎楠木雕花门窗",
+     "必须在火把组引燃全场前确保厢房人员全部撤离"
+    ],
+    "obligations": [
+     "在外侧用战术撬杠顶松防风木戗并在门开瞬间护送全员撤离"
+    ],
+    "resources": [
+     "一根特战加厚淬火合金双钩战术破拆撬棍",
+     "一部直通影视城消防安保最高指挥中心的大功率防爆手台"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危难关头毫不畏缩并肩救援的过硬默契与雷厉风行风采",
+     "彼此眼神交汇时流淌出的崇高敬意与人性纯粹担当"
+    ],
+    "boundaries": [
+     "严守特勤应急队员纪律操守红线",
+     "绝不允许违反现场安全管理条例的盲动"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "伫立于大殿门前守卫全员平安归途。",
+    "dislikes": [
+     "遇难退缩的懦夫",
+     "不服从指令擅自盲动者"
+    ],
+    "expression": "端正敬礼致意，随后伸出有力双手同大家紧紧相握以示赞佩与宽慰。",
+    "likes": [
+     "沉着果断的抢险协同者",
+     "严守纪律的专业人员"
+    ],
+    "preconditions": [
+     "大殿重门在外托协助下顺畅推开且全员毫发无损撤离",
+     "全员在火把引燃前安全抵达场外避雨登车点"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "影视城夜戏特勤巡查员",
+   "schedule": [
+    {
+     "from": 1290,
+     "location_id": "loc_ancient_hall_corridor_antechamber",
+     "to": 1310
+    },
+    {
+     "from": 1311,
+     "location_id": "loc_ancient_hall_corridor_antechamber",
+     "to": 1330
+    },
+    {
+     "from": 1331,
+     "location_id": "loc_ancient_hall_makeup_booth",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "合金撬杠受力端防滑烤漆出现两道深划痕，{npc.name}双臂肌肉微酸。",
+      "option": "{npc.name}把铁撬棍抵进门槛下的石槽，咬着牙往下一压，厚重的殿门被撬起一道缝。"
+     },
+     {
+      "cost": "消耗便携液压扩张机整套备用锂电池组全部动力配额。",
+      "option": "用手持便携式液压扩张器对准门缝受力点施加连续液压脉冲震退自锁导向块。"
+     }
+    ],
+    "pressure": "若不从外侧配合向上撬动托起门扇下沿，内侧单凭杠杆撬动门栓将承受过载反向咬合剪力。",
+    "trigger": "大殿门扇受狂风冲击与自重下沉，门底与青砖地面卡槽产生严重偏心干摩擦阻力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "火把组的松脂火油已经就位，必须抓住门栓挑开的半秒窗口把大门推开，绝不容许分秒失误！",
+    "surface": "厢房内部人员注意！外侧特勤已就位！门下沿已被我的战术撬杠托起微隙，内侧立刻下压挑起门栓，听我口令，三、二、一，推！"
+   }
+  },
+  {
+   "adult_context": "现年满二十六岁，戏剧影视服装与化妆设计毕业，电影剧组特邀化妆组签约成年助手，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    29
+   ],
+   "appearance_options": [
+    "身穿淡粉色汉元素交领襦裙搭配白色马面裙，扎着双螺髻，面容娇柔甜美，颊肉圆润饱满带着水润胶原蛋白与未褪的微婴儿肥，目光纯净明媚。",
+    "神情温婉细致，双手佩戴防尘丝质操作手套，虽然面对突发铁栓卡死与火把倒计心跳加速，但在梳头师镇定指令下迅速就位协助搬运踏板搭设支点。"
+   ],
+   "decision": {
+    "avoids": [
+     "只知慌张尖叫打转消耗宝贵体能",
+     "擅自乱动陌生配电设施引发次生险情"
+    ],
+    "contrast": "外表是娇柔甜美的学徒少女，面对狂暴门栓卡死危局却迅速收敛慌乱成长为不可或缺的后勤小助手。",
+    "core_value": "梳头师师姐是我的偶像，越是危急关头我越不能哭鼻子添乱，我也要成为可靠的后盾！",
+    "goal_options": [
+     "双手死死按住黄花梨踏板一端防止杠杆受力时实木底座发生翘动",
+     "向生铁抱肚咬死暗销处精准喷涂防锈润滑剂消除干摩擦阻力"
+    ],
+    "never": [
+     "在梳头师安全出舱前丢下工作岗位逃跑"
+    ],
+    "prefers": [
+     "细致周密绝不盲动的后勤辅助方案",
+     "大家齐心协力并肩克难的温暖互助氛围"
+    ],
+    "pressure_responses": {
+     "breaking": "殿门一开就头一个冲进去，把热毛巾和保温杯塞进师姐手里，自己先红了眼眶",
+     "high": "用双膝抵住黄花梨踏板边缘将全身重力压在下方构筑绝对刚性支点",
+     "low": "迅速拆开降温湿巾分发给梳头师与搭档并轻声安抚全员情绪",
+     "mid": "双手紧握润滑喷罐对准生铁抱肚暗销缝隙均匀喷注润滑剂"
+    },
+    "relationship_stance": "极度崇拜梳头师的高贵与傲娇担当，视其为完美导师，危急关头爆发出坚定的陪伴韧劲。",
+    "withdrawal": "坐在绣墩上长长吐出一口气擦去额头汗珠破涕为笑。"
+   },
+   "gender": "female",
+   "gender_reason": "妆造工坊梳妆机电二十六岁兼职女伴兼妆造学徒工服表后辈。",
+   "id": "apprentice_dresser_xue_wan_wei",
+   "identity": {
+    "authority": "对妆造室发饰分类清点、备用发油传递及梳妆台脚踏板移动享有优先协同权。",
+    "exposure": "曾连续一个月在剧组通宵协助梳理上百顶古装发冠零失误获得团队好评",
+    "hidden": "襦裙暗袋珍藏着梳头师亲手打磨赠送的一枚小巧木簪",
+    "limits": [
+     "初次遭遇大殿古建门锁严重机械卡死，缺乏重型排险经历",
+     "体格纤弱对封闭闷热环境较为敏感"
+    ],
+    "obligations": [
+     "全力协助稳固黄花梨踏板杠杆支座并传递工具配件"
+    ],
+    "resources": [
+     "一瓶影视妆造专用特种无味高渗透微量除锈润滑油",
+     "一包医用加厚高纯度降温保湿纯净水湿巾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在险境中像大姐姐一样临危不乱护佑身旁的伟岸担当风范",
+     "并肩克难脱险后获得温和鼓励时那一抹甜美安心感"
+    ],
+    "boundaries": [
+     "恪守青年学徒的纯真自尊与礼貌边界",
+     "坚决杜绝任何逾越身份的非分非礼行为"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "立于梳妆台前笑靥如花迎候每一位踏入大殿的主角。",
+    "dislikes": [
+     "大声斥责新人的暴躁之徒",
+     "冷血自私不顾同伴死活者"
+    ],
+    "expression": "两颊泛起微红，微微仰起带有微婴儿肥的俏脸甜甜一笑：楚师姐，还有大家，你们方才下压扳钳撬门栓的样子真的太英气了！",
+    "likes": [
+     "温和宽厚有责任心的同袍",
+     "遇事沉着指引方向的长辈伙伴"
+    ],
+    "preconditions": [
+     "大殿重门完全推开且全员安全撤离厢房脱险",
+     "高定发冠完好无损归箱且全员健康无虞"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "妆造工坊学徒工",
+   "schedule": [
+    {
+     "from": 1290,
+     "location_id": "loc_ancient_hall_makeup_booth",
+     "to": 1310
+    },
+    {
+     "from": 1311,
+     "location_id": "loc_ancient_hall_makeup_booth",
+     "to": 1330
+    },
+    {
+     "from": 1331,
+     "location_id": "loc_ancient_hall_corridor_antechamber",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "垫在门槛上的是两件明天要上镜的宋锦戏服，金线被石槽刮得起了毛。",
+      "option": "{npc.name}扯下几块化妆棉布把青砖上的水渍擦干，又铺上两张防滑的草编席。"
+     },
+     {
+      "cost": "用掉整整一卷高等级防静电特种绝缘胶带。",
+      "option": "用防静电绝缘胶带将倒伏水壶死死固定在桌腿旁防止水流进一步蔓延扩渗。"
+     }
+    ],
+    "pressure": "若不迅速擦干积水并垫入防滑棉毯，强载杠杆撬动时踏板滑脱将导致撬具崩出伤人。",
+    "trigger": "化妆台应急纯净水壶因震动滑落打湿地面，险些导致黄花梨踏板与青砖地面接触面打滑。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要我能把这个支点稳住，师姐手里的扳钳就能发挥最大力矩，大家就一定能把门栓撬开平安出去！",
+    "surface": "师姐别急！黄花梨踏板我用全身力气死死按住了，底座绝对翘不起来！润滑喷雾我已经喷进铁抱肚了，你们快踩稳杠杆用力压！"
+   }
+  },
+  {
+   "adult_context": "现年满三十岁，机械工程及自动化专业本科毕业，影视道具特种机械工程师，具备完全民事行为能力。",
+   "age_range": [
+    30,
+    33
+   ],
+   "appearance_options": [
+    "戴无框防护平光镜，身穿黑色战术工装衬衫与多功能马甲，腰挂高精度万用表与特种紧固工具组，面容清朗儒雅目光机警沉静。",
+    "双手修长指节分明擅长微观机构组装，面对咬死的生铁插栓，行事井井有条充满工程理性气魄。"
+   ],
+   "decision": {
+    "avoids": [
+     "估算模糊凭感觉蛮干导致工具受剪崩断",
+     "大喊大叫破坏团队情绪的毛躁举止"
+    ],
+    "contrast": "外表文质彬彬充满工科书卷气，面对重物搬运与杠杆破拆却爆发力惊人毫不退避。",
+    "core_value": "造型是神韵的体现，机构是力学的延伸，只要支点稳如磐石，三十公斤生铁死栓也能挑起！",
+    "goal_options": [
+     "将加长撬管套接在拔销钳柄身组装二级增力杠杆倍增力矩",
+     "全程严密监测黄花梨踏板承重挠度防止木质榫卯受剪开裂"
+    ],
+    "never": [
+     "在门栓完全平稳抬升前让身下支点滑移半毫米"
+    ],
+    "prefers": [
+     "计算精确分毫不爽的几何支点构筑方案",
+     "保护贵重实木大门与妆造构件的科学施救方案"
+    ],
+    "pressure_responses": {
+     "breaking": "在暗销弹退铜套瞬间同梳头师一同完成最后冲刺下压",
+     "high": "用宽阔肩膀顶住梳妆台桌角防止下压瞬间妆台整体位移",
+     "low": "迅速旋转螺丝刀卸下发冠加长撬管搬运至生铁门栓前",
+     "mid": "双手紧扣撬管尾端精准套在拔销钳柄身上构成二级增力臂"
+    },
+    "relationship_stance": "视梳头师为艺术与审美的领航灯塔，甘愿作为最坚实的机械基石为脱困铺平道路。",
+    "withdrawal": "坐在器材木箱上擦拭撬管汗迹欣慰向搭档微笑道谢。"
+   },
+   "gender": "male",
+   "gender_reason": "影视基地道具五金机构设计三十岁青年名匠机械制造工学学士。",
+   "id": "prop_mechanic_bai_ze_yu",
+   "identity": {
+    "authority": "对生铁门栓抗剪刚度、拔销钳硬柄抗弯极限及踏板二级杠杆力矩比配享有权威计算权。",
+    "exposure": "曾亲手为多部古装院线大片设计制造可伸缩仿古机关兵刃荣获行业设计奖",
+    "hidden": "工具包底层珍藏着亲手制作的第一枚微型合金机关锁扣",
+    "limits": [
+     "必须力保价值昂贵的手工生铁雕花插栓不发生不可逆扭曲断裂",
+     "体能有限需协同全员发力维持杠杆平稳施压"
+    ],
+    "obligations": [
+     "为梳头师搭建最稳固的下压杠杆支点并校准拔销钳受力法向角"
+    ],
+    "resources": [
+     "一根长二十厘米由实心冷锻合金钢打造的发冠悬臂加长调校撬管",
+     "一套专业光学工程高硬度内六角扳手组"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在昏暗烛影中以毫米级精度互相配合组装二级增力杠杆的严谨默契",
+     "彼此眼神交汇时对科学真理与生命尊严坚信不疑的执着纯粹"
+    ],
+    "boundaries": [
+     "恪守青年学者的严谨礼数与道德边界",
+     "坚决杜绝任何逾矩冒犯之举"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "伫立于道具工作台旁守护传统造物工匠之火重燃。",
+    "dislikes": [
+     "轻浮狂妄的破坏狂",
+     "轻视手工力学常识的狂妄者"
+    ],
+    "expression": "推了推护目镜腼腆一笑，温和向梳头师与同伴点头示意并肩胜利。",
+    "likes": [
+     "热爱精密工程与古典艺术的同道",
+     "遇事沉着刚毅的实干派伙伴"
+    ],
+    "preconditions": [
+     "二级杠杆成功撬退偏心暗销且大门完全打开全员脱困",
+     "受困全员安全撤离且古装大殿道具关键构件完好回收"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "影视道具机械工程师",
+   "schedule": [
+    {
+     "from": 1290,
+     "location_id": "loc_ancient_hall_makeup_booth",
+     "to": 1310
+    },
+    {
+     "from": 1311,
+     "location_id": "loc_ancient_hall_makeup_booth",
+     "to": 1330
+    },
+    {
+     "from": 1331,
+     "location_id": "loc_ancient_hall_corridor_antechamber",
+     "to": 1350
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "六角扳手发黑防锈镀层被超限紧固力矩磨出两道亮银色金属擦痕。",
+      "option": "{npc.name}迅速用高硬度六角扳手旋紧备用防滑止退螺母消除横梁偏摆。"
+     },
+     {
+      "cost": "{npc.name}右侧肩胛处软组织受金属双管压迫产生大片深色挤压淤痕。",
+      "option": "用后背死死顶住梳妆台立柱强行以肉身平衡横梁偏心旋转力矩。"
+     }
+    ],
+    "pressure": "若不迅速使用内六角扳手重新紧固螺栓，下压瞬间横梁将发生翻转导致整个杠杆系统崩溃脱落。",
+    "trigger": "黄花梨踏板横梁螺栓因受超载杠杆弯矩作用发生微量滑牙，横梁支撑角度偏离中心线八度。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要二级杠杆力矩咬死，这枚小小的偏心铜销就绝对逃不脱物理力学的规律，大家有救了！",
+    "surface": "梳头师，发冠加长套管我已经严密套在拔销钳柄上了！二级杠杆力矩放大了整整三倍，只要我们顺着法向垂直下压，暗销绝对会被别退！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "古装巨制拍摄第四十天，深秋",
+  "minute": 1290
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace_power",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "顶级傲娇梳头师挽发收尾时习惯微挑凤眼轻抚两靥微婴儿肥以维持骄傲气场",
+  "专业梳妆助理在插入点翠重步摇前必先用山茶花发油润滑暗销防止咬死发丝",
+  "名门梳头师直面机械突发危局习惯双手抱胸轻哼一声以严密技术逻辑下达指令",
+  "两人合力撬动沉重铸铁锁件时须按倒数口令同向施力以防工具侧向受剪脆断"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "夜戏开机前三个钟头，梳头师在东暖阁里给女一号梳发髻，一缕缕盘上去，插上点翠头面。",
+    "女一号坐得腰都酸了，梳头师嘴上嫌对方乱动，手下却一点没停。",
+    "发髻梳好，梳头师退后一步看了看，难得夸了一句：今晚的戏，你最好看。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_bai_calibrates_vertical_heave_line",
+    "hook_bai_couples_extension_tube",
+    "hook_chu_and_crew_thrust_downward_pulse"
+   ],
+   "id": "act_chu_ning_shuang_pries_iron_bolt",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "start_minute": 1080,
+   "tags": [
+    "workplace"
+   ],
+   "title": "暖阁里梳发髻"
+  },
+  {
+   "beats": [
+    "大殿前厅回廊里，总监拿着流程单跟各组对夜戏的时间。",
+    "梳头师从暖阁里探出头，问发髻还要不要再加一支簪子。",
+    "总监看了一眼监视器，说不用加，梳头师哼了一声，缩回去了。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_shen_pries_door_bottom_ready",
+    "hook_observe_xiao_and_patrol_haul_door"
+   ],
+   "id": "act_xiao_calls_pyro_and_unscrews_strut",
+   "location_ids": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "start_minute": 1140,
+   "tags": [
+    "workplace"
+   ],
+   "title": "回廊里对流程"
+  },
+  {
+   "beats": [
+    "大木作营造师手持榫卯微调撬刀精准剔除抱肚内侧咬死铁锈氧化层",
+    "将冷压高纯度山茶花减摩发油沿咬死缝隙徐徐注入化解生铁干摩擦",
+    "手持强光电筒精准照亮生铁抱肚左下角暗销受力卡位"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_lu_gauges_door_sag_and_lubricates",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "start_minute": 1291,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "生铁抱肚缝隙清锈与山茶花油渗透"
+  },
+  {
+   "beats": [
+    "妆造学妹双膝跪地死死压住黄花梨踏板构筑稳固刚性基座",
+    "手持防锈润滑喷罐对准生铁抱肚卡槽缝隙均匀喷注润滑剂",
+    "在门栓挑开瞬间第一个递上纯净水湿巾为师姐敷面降温"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_xue_anchors_pedal_and_sprays",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "start_minute": 1291,
+   "tags": [
+    "workplace"
+   ],
+   "title": "黄花梨踏板底座固定与后勤喷雾照料"
+  },
+  {
+   "beats": [
+    "机械工程师迅速拆下发冠加长套管牢牢套接在拔销钳柄身构成二级增力臂",
+    "用宽阔肩膀顶住梳妆台桌角消除横向剪力保持力矩法向垂直",
+    "配合梳头师按压加长端将三倍下压力矩精准传递至抱肚暗销"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_bai_assembles_extension_leverage",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "start_minute": 1293,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "厢房加装发冠加长套管组装二级增力臂"
+  },
+  {
+   "beats": [
+    "开机前的饭点，剧组的人在大殿前厅回廊下蹲着吃盒饭。",
+    "特勤队员端着饭盒凑过来，说今晚的风大，道具组得把门窗都固定好。",
+    "梳头师把自己盒饭里的鸡腿夹给了累了一天的小助理。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_shen_pries_door_bottom_ready",
+    "hook_observe_xiao_and_patrol_haul_door"
+   ],
+   "id": "act_shen_heaves_door_bottom_with_bar",
+   "location_ids": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "start_minute": 1110,
+   "tags": [
+    "workplace"
+   ],
+   "title": "回廊下的盒饭"
+  },
+  {
+   "beats": [
+    "大殿的门栓撬开、夜戏顺利收工之后，梳头师回到宿舍，替女主角盘了一天的头面，自己头上也插满了试戴的发簪。",
+    "梳头师背对着坐在妆台前，嘴上嫌对方手笨，却任由人一根根拔下发簪，长发落满肩背时，梳头师偷偷在镜子里看了一眼。",
+    "梳头师转过身，揪住对方的衣襟，耳朵通红：今晚……你要是愿意，就别走了。不愿意就当我没说！"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dorm_unpin_hair",
+   "location_ids": [
+    "loc_hairdresser_dorm_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "宿舍里替梳头师拆下满头发簪"
+  },
+  {
+   "beats": [
+    "梳头师坐在台灯下穿点翠珠串，说明天那场大婚戏的凤冠还差一串流苏。",
+    "梳头师把针线往人手里一塞：你来穿，手稳点。……穿歪了我也不拆，留着戴给你看。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dorm_bead_threading",
+   "location_ids": [
+    "loc_hairdresser_dorm_room"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "灯下穿一串点翠珠子"
+  },
+  {
+   "beats": [
+    "梳头师拿起一把黄杨木梳，硬拉人坐到妆台前，说给演员梳了几千次头，还没给自己想梳的人梳过。",
+    "木梳从发顶慢慢梳到发梢，梳头师低声说：别动。……再让我梳一会儿，就一会儿。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dorm_comb_your_hair",
+   "location_ids": [
+    "loc_hairdresser_dorm_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "替你梳一次头"
+  },
+  {
+   "beats": [
+    "清晨的通告还没开始，梳头师在被窝里醒来，额头抵着对方的肩，手指还缠着对方的衣角。",
+    "梳头师闭着眼睛嘟囔：还有一刻钟才上妆……谁准你先起来的，躺好。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dorm_morning_set_call",
+   "location_ids": [
+    "loc_hairdresser_dorm_room"
+   ],
+   "start_minute": 400,
+   "tags": [
+    "intimate"
+   ],
+   "title": "通告前的一刻钟"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代影视城深夜，古装巨制压轴夜戏开机前的清场",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "幼态",
+  "幼女",
+  "少女感",
+  "催情",
+  "迷乱",
+  "欲火"
+ ],
+ "hooks": [
+  {
+   "id": "hook_chu_takes_down_prying_pliers",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "slot": "tsundere_dresser_chu_ning_shuang",
+   "text": "{tsundere_dresser_chu_ning_shuang.name}微挑凤眼轻哼一声，傲娇神色透着从容不迫，稳稳从红木妆箱拔出加厚冷锻拔销斜嘴钳，将平头刃口深深卡入铁抱肚偏心凹槽锁定暗销受力点。"
+  },
+  {
+   "id": "hook_xiao_unscrews_strut_bolts_call",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "slot": "art_director_xiao_tian_yi",
+   "text": "{art_director_xiao_tian_yi.name}在回廊处用加长六角扳手快速卸下外侧防风木戗底座两颗定位偏心螺栓，手持对讲机向门内高声通报火把点火延时进度并指示推门的最佳时机。"
+  },
+  {
+   "id": "hook_lu_scrapes_rust_and_oils_bolt",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "slot": "joiner_master_lu_chen_yi",
+   "text": "{joiner_master_lu_chen_yi.name}半蹲在门栓旁，手持榫卯微调撬刀精准剔除抱肚内侧咬死铁锈氧化层，徐徐倾倒高纯度山茶花减摩发油，用明亮电筒光束死死锚定暗销退牙受力点。"
+  },
+  {
+   "id": "hook_xue_hands_wet_wipe_water",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "slot": "apprentice_dresser_xue_wan_wei",
+   "text": "{apprentice_dresser_xue_wan_wei.name}双膝跪地死死压住黄花梨踏板构筑稳固刚性基座，双手将浸润清凉纯净水的医用降温湿巾稳稳递到梳头师手心，柔声宽慰师姐稳住呼吸。"
+  },
+  {
+   "id": "hook_bai_couples_extension_tube",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "slot": "prop_mechanic_bai_ze_yu",
+   "text": "{prop_mechanic_bai_ze_yu.name}迅速将发冠加长套管套接在拔销钳柄身构成二级增力臂，用宽阔肩膀顶住梳妆台桌角消除横向剪力，为下压撬栓搭建好绝对受力支架。"
+  },
+  {
+   "id": "hook_shen_pries_door_bottom_ready",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "slot": "fire_patrol_officer_shen_hao_ran",
+   "text": "{fire_patrol_officer_shen_hao_ran.name}把撬棍别进殿门门槛下，朝对讲机吼着倒数，让殿里的人和自己一起往外推。"
+  },
+  {
+   "id": "hook_chu_exhorts_partner_to_hold_steady",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "slot": "tsundere_dresser_chu_ning_shuang",
+   "text": "{tsundere_dresser_chu_ning_shuang.name}侧过明艳娇俏的俏脸，两颊微鼓泛着水润微红，清冷凤眼凝视身旁搭档：“笨蛋别手抖！握紧加长套管柄身，听外侧倒数，数到一就立刻用尽全力往下压！”"
+  },
+  {
+   "id": "hook_xiao_shouts_counter_thrust_engaged",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "slot": "art_director_xiao_tian_yi",
+   "text": "{art_director_xiao_tian_yi.name}通过对讲系统传来洪亮高吼：“点火组火把已依法推迟十分钟！外侧防风大木戗顶力已彻底化解！暗销弹退的瞬间全员同向发力推门！”"
+  },
+  {
+   "id": "hook_xue_anchors_pedal_hardwood_base",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "slot": "apprentice_dresser_xue_wan_wei",
+   "text": "{apprentice_dresser_xue_wan_wei.name}双手牢牢抱紧黄花梨踏板横梁，用双膝抵紧地面防滑垫，防止超载下压瞬间实木基座发生丝毫滑移偏斜。"
+  },
+  {
+   "id": "hook_bai_calibrates_vertical_heave_line",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "slot": "prop_mechanic_bai_ze_yu",
+   "text": "{prop_mechanic_bai_ze_yu.name}单手按紧套管螺母，严密校准下压施力轴线与大殿门面的垂直法向角，确保千牛静载分毫不偏直抵生铁抱肚暗销芯部。"
+  },
+  {
+   "id": "hook_chu_and_crew_thrust_downward_pulse",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "slot": "tsundere_dresser_chu_ning_shuang",
+   "text": "“三、二、一，压！”{tsundere_dresser_chu_ning_shuang.name}同身侧搭档双手重叠合抱加长套管硬柄，全身重力化作澎湃力矩向下猛压，生铁暗销伴随一声清脆金属弹响应声脱扣！"
+  },
+  {
+   "id": "hook_observe_iron_bolt_snaps_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "slot": "tsundere_dresser_chu_ning_shuang",
+   "text": "三十公斤沉重生铁雕花门栓在暗销脱退瞬间被合抱向上猛然挑起，抱肚内的咬合摩擦力彻底瓦解，门栓顺着润滑滑轨顺畅滑开退位！"
+  },
+  {
+   "id": "hook_observe_xiao_and_patrol_haul_door",
+   "kind": "observe",
+   "location_ids": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "slot": "art_director_xiao_tian_yi",
+   "text": "外侧特勤与美术团队在门栓挑起瞬间合力按压雕花大门门扇同向外推，厚重如铁壁的樟木大门伴随着沉闷的门轴旋转声顺畅滑开一道宽阔生路线！"
+  },
+  {
+   "id": "hook_observe_shen_clears_fire_corridor",
+   "kind": "observe",
+   "location_ids": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "slot": "fire_patrol_officer_shen_hao_ran",
+   "text": "回廊清凉舒爽的冷风裹挟着雨后泥土芬芳如甘泉般席卷而入，外围火把警戒线被特勤人员平稳移开，全员顺畅穿过无雨连廊脱离险境。"
+  },
+  {
+   "id": "hook_observe_chu_embraces_triumph",
+   "kind": "observe",
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "slot": "tsundere_dresser_chu_ning_shuang",
+   "text": "{tsundere_dresser_chu_ning_shuang.name}脱力般倚靠在雕花门框边揉着酸软的手腕，清冷凤眼微挑微偏过脸，两颊紧致微婴儿肥泛着娇柔光泽浅浅一嗤：“哼……看什么看，不过是最基础的杠杆力学罢了！”"
+  },
+  {
+   "id": "hook_hairdresser_dorm_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hairdresser_dorm_room"
+   ],
+   "slot": "tsundere_dresser_chu_ning_shuang",
+   "text": "{npc.name}靠在宿舍门框上，手里转着一根发簪：片场收工了。……进来，我就随口一说，你别多想。"
+  }
+ ],
+ "id": "tsundere_hanfu_makeup_bolt_jam",
+ "locations": [
+  {
+   "affordances": [
+    "取出妆造箱内特种加厚冷锻不锈钢斜嘴拔销钳深入抱肚偏心缝隙",
+    "搬动黄花梨一体式梳妆台脚踏板横梁架设在门后构筑黄金受力支点",
+    "将冷压山茶花减摩发油沿铁抱肚咬死缝隙渗透注入化解生铁干摩擦"
+   ],
+   "detail": "三十平米仿古厢房，陈设描金博古架与楠木屏风。中央立着黄花梨梳妆台，台下置加厚榫卯实木脚踏。厚重樟木大门闭合，门后横贯三十公斤仿古生铁雕花大门栓。狂风骤雨致门扇沉降偏斜，铁门栓淬火铜套暗销被数吨偏心扭矩死死卡死在铁抱肚凹槽内，室内断电空气逐渐闷热，外侧回廊传来剧组夜戏火把调度的喧嚣声。",
+   "exits": [
+    "loc_ancient_hall_corridor_antechamber",
+    "loc_studio_backstage_equipment_courtyard"
+   ],
+   "id": "loc_ancient_hall_makeup_booth",
+   "name": "大殿东暖阁特邀妆造厢房",
+   "pressure_modifiers": {
+    "p_cast_iron_door_bolt_eccentric_jam": "三十公斤生铁门栓受偏心重载卡死，铜套暗销咬合抱肚纹丝不动。",
+    "p_night_scene_fire_curfew_countdown": "距外围火把引燃与夜戏开机仅剩十五分钟，厢房空气闷热气氛紧迫。"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_prop_hand_xiaolin",
+    "bg_costume_dresser_ah_zhen"
+   ]
+  },
+  {
+   "affordances": [
+    "双手拉住合金战术防暴撬杠在外侧门缝撬起地戗木分担门体受力",
+    "手持对讲机向厢房内清晰通报外侧火把清场与地戗木松动进度",
+    "合力挪开堆放在门前的仿古实木大行头箱扫清外向推门通道"
+   ],
+   "detail": "紧邻东暖阁厢房的开敞式仿古抄手游廊，朱红廊柱林立，地面铺设青砖。门外两侧斜撑着两根防风加固重型生铁包头大木戗，因强风剧烈震颤已深陷门缝外框卡扣。回廊尽头已堆满剧组夜戏实景火把与火油桶，特勤队员正手持强光电筒向厢房门缝焦急呼喊。",
+   "exits": [
+    "loc_ancient_hall_makeup_booth",
+    "loc_studio_backstage_equipment_courtyard",
+    "loc_hairdresser_dorm_room"
+   ],
+   "id": "loc_ancient_hall_corridor_antechamber",
+   "name": "大殿前厅回廊备场穿堂",
+   "pressure_modifiers": {
+    "p_outer_wind_strut_timber_deadlock": "外侧防风大木戗深陷门缝槽位，单凭内向推力完全无法晃动门轴。"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_pyro_supervisor_laosun",
+    "bg_camera_operator_ah_hao"
+   ]
+  },
+  {
+   "affordances": [
+    "启动便携应急发电机为大殿东暖阁强送十分钟微弱弱电照明",
+    "搬运重型液压立式千斤顶赶赴回廊协助顶升沉降樟木门框",
+    "在门开瞬间迅速引导受困全员进入后院避雨安全廊道"
+   ],
+   "detail": "位于大殿后侧的仿古建筑运维工棚，堆放着用于古建维修的备用生铁铸件、大木作刨具与液压绞盘。此时暴雨如注，工棚内的机电师傅正手持应急发电机与加长千斤顶准备赶赴前殿支援破拆。",
+   "exits": [
+    "loc_ancient_hall_makeup_booth",
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "id": "loc_studio_backstage_equipment_courtyard",
+   "name": "影视基地大木作工棚庭院",
+   "pressure_modifiers": {
+    "p_heavy_rain_wood_swelling_risk": "暴雨导致重型樟木吸湿微量膨胀，门缝配合间隙正以毫米级缩窄。"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_carpenter_master_lu",
+    "bg_production_manager_mrs_han"
+   ]
+  },
+  {
+   "affordances": [
+    "替梳头师拆下满头的发包",
+    "陪梳头师在灯下穿珠",
+    "插上宿舍门的插销"
+   ],
+   "detail": "影视城剧组宿舍楼的一间单人房，梳妆台上排满了点翠头面和发包，床头挂着一件改了一半的戏服，窗外就是大殿的飞檐和夜戏的探照灯。",
+   "exits": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "id": "loc_hairdresser_dorm_room",
+   "name": "影视城的梳头师宿舍",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "门一关，片场的对讲机声和鼓风机声都远了，只剩台灯下发簪的一点碎光。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "楚",
+   "萧",
+   "薛",
+   "沈",
+   "顾",
+   "白",
+   "陆",
+   "秦",
+   "莫",
+   "温",
+   "程",
+   "裴",
+   "谢",
+   "叶"
+  ],
+  "given_female": [
+   "凝霜",
+   "宛微",
+   "若彤",
+   "芷晴",
+   "梦瑶",
+   "素馨",
+   "曼凝",
+   "书瑶",
+   "语嫣",
+   "思涵",
+   "雪纯",
+   "诗云",
+   "采薇",
+   "映月"
+  ],
+  "given_male": [
+   "景和",
+   "天翊",
+   "修远",
+   "廷轩",
+   "辰逸",
+   "浩然",
+   "致远",
+   "瀚海",
+   "绍辉",
+   "明哲",
+   "子墨",
+   "星阑",
+   "楚航",
+   "柏舟"
+  ],
+  "given_neutral": [
+   "青川",
+   "怀瑾",
+   "嘉木",
+   "霁林",
+   "少煊",
+   "逸凡",
+   "望舒",
+   "景明",
+   "亦安",
+   "予怀",
+   "知衡",
+   "若谷",
+   "清源",
+   "凌霜"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留影视城明清大殿、暴雨狂风震闭樟木大门、三十公斤生铁雕花门栓偏心咬死铁抱肚、夜戏火把倒计时、妆箱冷锻钳借黄花梨踏板撬铜销的骨架。为与已有的汉服模特影视基地世界拉开，用户拍板把女主从汉服妆造师改成古装剧的梳头师：专做发髻与点翠头面，开局落在刚给女一号梳完三个钟头的头、把人送出门之后。女主年龄拉开到二十五到二十八岁，美术总监拉到三十到三十四岁。用户已放开内容限制，只守红线；外貌描写照留，只改写死的人名、代词、年龄。新增东暖阁后的头面库房与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    35,
+    39
+   ],
+   "baseline": "统筹明清大殿实景陈设与道具机关安全，随身配备剧组大调度手台与特种五金快拆便携工具组。",
+   "gender": "any",
+   "id": "pi_film_crew_executive_art_director",
+   "reputation": "熟谙影视城各大殿实木古建构造与门窗暗销，处置布景突发卡滞极其冷静敏锐。",
+   "resources": [
+    "一套精密古建五金冷锻加长六角扳手组",
+    "一具剧场级高流明防爆强光检查电筒"
+   ],
+   "risks": [
+    "若未能在火把戏点火前救出特邀梳头师将承担重大演出安全与违约责任",
+    "在门外盲操若发力不当可能导致古建筑雕花木门框拉裂受损"
+   ],
+   "role": "古装巨制剧组执行美术总监",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总监"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}美指"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    29,
+    33
+   ],
+   "baseline": "专业负责大殿重型樟木大门与铸铁插栓五金装配，精通生铁咬合摩擦力学与地戗木受力结构。",
+   "gender": "any",
+   "id": "pi_ancient_architecture_joiner_master",
+   "reputation": "大木作营造世家传人，多次排解影视基地大殿重型门栓咬死险情。",
+   "resources": [
+    "一瓶天然高纯度冷压山茶花减摩发油",
+    "一柄高碳合金实心扁平榫卯微调撬刀"
+   ],
+   "risks": [
+    "暴雨导致樟木吸水膨胀加剧了门轴沉降偏心咬死",
+    "时间紧迫需在昏暗烛火下完成毫米级锁销撬退微操"
+   ],
+   "role": "影视城古建筑大木作榫卯营造师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    32,
+    36
+   ],
+   "baseline": "负责明清大殿夜戏火把点火区域安全戒备，随身配备重型战术防暴撬杠与强力灭火喷剂。",
+   "gender": "any",
+   "id": "pi_studio_fire_pyro_patrol_officer",
+   "reputation": "身体矫健反应神速，对大殿外侧防风木戗机械结构了如指掌。",
+   "resources": [
+    "一柄折叠式高强度合金战术防暴撬杠",
+    "一部直通剧组点火总指挥部的应急对讲电台"
+   ],
+   "risks": [
+    "外侧强行破拆可能震裂大殿古董级镂空楠木花窗",
+    "必须在火把组引燃外围百支火把前确保厢房人员安全"
+   ],
+   "role": "影视城夜戏特效消防巡查特勤",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}特勤"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}巡官"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    27,
+    31
+   ],
+   "baseline": "现年满二十七岁具备完全民事行为能力，剧组妆造部正式学徒工，负责发簪配件整理与梳妆台维护，熟记黄花梨踏板承重受力点。",
+   "gender": "any",
+   "id": "pi_makeup_room_apprentice_dresser",
+   "reputation": "手脚勤快细致熟悉厢房内每一处五金暗扣，遇到突发门锁咬死易心慌。",
+   "resources": [
+    "一瓶特种微量快干型防锈松锈渗透润滑剂",
+    "一盒防滑耐磨加厚无尘操作手套"
+   ],
+   "risks": [
+    "身为底层运维人员面临贵重发饰损坏问责压力",
+    "操作撬具时需防范手指被生铁门栓沉降挤压擦伤"
+   ],
+   "role": "妆造工坊梳妆机电成年学徒工",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工友"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}小师傅"
+    }
+   ]
+  }
+ ],
+ "premise": "影视城里一部古装巨制拍到最后一周，剧组从苏州请来的梳头师每天在大殿东暖阁给女一号梳三个钟头的发髻、插满一头点翠头面，夜戏开机前才把人送出门。大殿的樟木大门年头久了，门轴有点沉降；秋天的风一大，门栓就会自己往下滑。",
+ "pressures": [
+  {
+   "choice": "选择利用拔销斜嘴钳借黄花梨踏板为杠杆撬退暗销，或等待次日剧组机械抢修。",
+   "exits": [
+    {
+     "cost": "黄花梨踏板表面产生细微金属挤压压痕，受困人员双臂因硬抗金属反冲力矩泛起酸麻。",
+     "option": "梳头师与搭档合抱加长拔销钳借助踏板横梁下压，成功挑退生铁抱肚暗销合力托起门栓推门脱险。"
+    },
+    {
+     "cost": "大殿明代风格纯手工透雕楠木窗棂整体破损报废需赔偿剧组数万元修缮款。",
+     "option": "由外侧特勤使用防暴重型撬杠强行砸断大殿仿古透雕楠木窗棂换取狭窄通风逃生口。"
+    }
+   ],
+   "far": {
+    "consequence": "厢房内全体人员陷入烟熏火燎与严重缺氧窒息危及生命安全并酿成重大商业停拍丑闻。",
+    "due_days": 1,
+    "trigger": "火把组依照预定时刻全面引燃外围火油并封锁大殿周边全部疏散通道"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cast_iron_door_bolt_eccentric_jam",
+   "immediate": {
+    "minutes": 3,
+    "text": "大门震颤后纹丝不动，像被生铁焊死，梳头师额角沁出细密汗珠，呼吸略显急促。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "距剧组夜戏火把点火仅剩十分钟，若未能撬退暗销，外围将引燃百支实景火把封锁退路导致严重火险围困。"
+   },
+   "objective": "在夜戏火把点火清场前撬退偏心暗销抬升生铁门栓推门脱险。",
+   "source": "institution",
+   "start_minute": 1290,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "三十公斤生铁雕花门栓偏心咬死抱肚绝境",
+   "trigger": "暴雨大风甩合樟木大门，三十公斤生铁门栓受门轴沉降的偏心扭矩死死咬在铁抱肚凹槽内，铜套暗销锁死。"
+  },
+  {
+   "choice": "选择合力下压扳钳撬退暗销，或在厢房内紧闭门窗等待火把戏拍摄结束。",
+   "exits": [
+    {
+     "cost": "剧组数百名演职人员在冷雨中推迟开机十分钟产生额外工时场租开销。",
+     "option": "美术总监用对讲强令点火组延迟十分钟，内外人员精准协同推开重门全员安全脱险。"
+    },
+    {
+     "cost": "消耗整整两具特种无痕干粉灭火器全部药剂配额。",
+     "option": "使用厢房内常备的二氧化碳灭火器在门缝处喷射构筑一道临时阻烟冷气隔离带。"
+    }
+   ],
+   "far": {
+    "consequence": "厢房人员彻底丧失自救撤离通道陷入高温烟气窒息死地。",
+    "due_days": 1,
+    "trigger": "大殿回廊火把矩阵全面点燃形成密闭实景火场"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_night_scene_fire_curfew_countdown",
+   "immediate": {
+    "minutes": 3,
+    "text": "门缝外隐约飘入松脂火油刺鼻气味，回廊人声嘈杂脚步纷乱，厢房内烛火受风忽明忽暗气氛凝固。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若五分钟内未能推开大门，火油点燃产生的浓烈烟雾将自门缝倒灌入厢房危及受困者呼吸与视线。"
+   },
+   "objective": "在实景火把点火前撬开门栓全员撤出大殿东暖阁。",
+   "source": "institution",
+   "start_minute": 1290,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "剧组夜戏火把点火清场倒计时紧迫感",
+   "trigger": "剧组大调度广播催促第一镜夜戏开机，回廊堆满松脂火把与火油桶，点火组已进入五分钟预备读秒阶段。"
+  },
+  {
+   "choice": "选择使用六角扳手拆除底座螺栓，或用防暴撬杠硬顶撬偏木戗。",
+   "exits": [
+    {
+     "cost": "特种合金六角扳手受力端产生两道微细塑性磨痕需重新校准丝口。",
+     "option": "美术总监与巡查员合力用长柄扳手卸除木戗底座两颗大螺栓彻底释放反向压制力。"
+    },
+    {
+     "cost": "两根昂贵的特制仿古生铁包头樟木防风立戗整体切断报废需重制。",
+     "option": "用手持电锯定点锯断大木戗中间受压腰梁解除顶死力矩。"
+    }
+   ],
+   "far": {
+    "consequence": "大门彻底沦为无法人工开启的牢笼丧失一切外部破拆微调可能性。",
+    "due_days": 1,
+    "trigger": "防风大木戗在强风剪切下发生纵向劈裂死死楔入门框与地砖缝隙中"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_outer_wind_strut_timber_deadlock",
+   "immediate": {
+    "minutes": 3,
+    "text": "门框承受数吨外向顶力发出令人牙酸的木材受压呻吟，单凭内向推力完全无法撼动门扇分毫。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若三分钟内未能松脱外侧木戗，持续的风载将导致大木戗暗销折裂卡死在门框内形成永久闭锁。"
+   },
+   "objective": "在外侧卸除木戗底座螺栓或撬起木戗上端解除大门外侧刚性压制。",
+   "source": "accident",
+   "start_minute": 1292,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "外侧防风大木戗深陷门缝槽位反向顶死阻力",
+   "trigger": "两根长三米、包铁防风大木戗因狂风下挫深陷门框外沿挡块槽内，产生高达三千牛顿的反向顶死刚性阻力。"
+  },
+  {
+   "choice": "选择利用踏板搭建精准杠杆基座，或加装发冠加长套管组成二级增力臂。",
+   "exits": [
+    {
+     "cost": "发冠套管连接丝口处产生微量拉伸磨痕需事后重新攻丝紧固。",
+     "option": "道具师加装发冠套管组装二级增力杠杆指引梳头师严格沿法向轴心垂直施力。"
+    },
+    {
+     "cost": "消耗整整两卷德国原装进口特种耐磨缓冲绝缘胶带。",
+     "option": "在拔销钳受力柄身缠绕三层加厚防滑阻燃聚酰亚胺绝缘胶带缓冲接触点应力。"
+    }
+   ],
+   "far": {
+    "consequence": "室内人员彻底丧失物理自救破锁手段沦为任由生铁死锁困闭的绝境受害者。",
+    "due_days": 1,
+    "trigger": "唯一的特种冷锻淬火拔销钳在超限剪切力矩下当场折断损坏"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hairpin_plier_bending_shear_risk",
+   "immediate": {
+    "minutes": 3,
+    "text": "钳口深入生铁抱肚承受巨大静载发出极清脆的金属抗阻微颤，稍有偏载便有永久弯曲甚至崩裂凶险。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_ancient_hall_makeup_booth"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "首次撬动若角度偏差超过五度，钳口刃尖将发生微观卷刃或滑牙脱扣，丧失唯一撬栓利器。"
+   },
+   "objective": "严格依托黄花梨踏板横梁黄金支点沿法向垂直施力确保拔销钳安全挑退暗销。",
+   "source": "accident",
+   "start_minute": 1290,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "拔销斜嘴钳硬柄承载过载抗剪极限风险",
+   "trigger": "特种冷锻淬火拔销钳虽硬度高，但钳口厚度仅五毫米，在深入抱肚承受数千牛顿偏心扭矩下压时逼近屈服极限。"
+  },
+  {
+   "choice": "选择严格遵循外侧特勤倒数口令慢推慢拉，或在门扇四周涂抹减摩山茶花油。",
+   "exits": [
+    {
+     "cost": "巡查员防护手套手心防滑皮层被外门把手剧烈摩擦拉扯开一道磨损细痕。",
+     "option": "巡查员在殿外拿着对讲机数拍子，数到一时，殿里殿外一起发力，两扇殿门轰地推开。"
+    },
+    {
+     "cost": "垫在门轴下的那块老榆木垫块被压得开裂，道具组心疼了好几天。",
+     "option": "在门框接触面垫入一块高强度耐磨实心尼龙隔板消除硬碰硬刚性挤压冲击。"
+    }
+   ],
+   "far": {
+    "consequence": "沉重的樟木大门彻底卡死在门框中丧失一切人工开启可能性。",
+    "due_days": 1,
+    "trigger": "三十公斤生铁雕花插栓轴销在反向扭力下发生永久性塑性弯曲扭绞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_door_cadence_mismatch_jam_hazard",
+   "immediate": {
+    "minutes": 3,
+    "text": "大殿樟木雕花大门发出令人牙酸的金属挤压沉闷声响，生铁门栓受偏心剪切锁死，稍有不慎将彻底卡死门轴。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_ancient_hall_corridor_antechamber"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若内外发力节拍相差半秒以上，反向剪切力将把门栓铜套暗销死死别在生铁倒槽内再也无法挑起。"
+   },
+   "objective": "内外人员依照对讲广播三秒倒数实现毫秒级同步启闭确保生铁重栓平顺脱槽滑开。",
+   "source": "accident",
+   "start_minute": 1294,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "推拉力矩节拍偏差导致门栓二次抱死危机",
+   "trigger": "若外侧特勤过早猛推门扇而内侧门栓暗销未完全退回铜套槽内，反向剪力将把门栓死死别在抱肚倒齿内。"
+  },
+  {
+   "choice": "选择抢在木材完全胀死前下压撬栓，或启动工棚千斤顶强力顶升门框。",
+   "exits": [
+    {
+     "cost": "立式千斤顶加厚不锈钢承重顶托表面产生轻微油漆剥落与受力压痕。",
+     "option": "鲁师傅手持立式千斤顶在回廊快速顶起大殿门楣上方主梁微隙释放膨胀预应力。"
+    },
+    {
+     "cost": "消耗整整三瓶影视城常备的高浓度工业级医用脱水纯酒精配额。",
+     "option": "向门缝两侧大量泼洒无水医用酒精加速木材表面水分脱水挥发延缓膨胀。"
+    }
+   ],
+   "far": {
+    "consequence": "即使破坏生铁门栓也必须使用重型电锯破拆方能推门脱险。",
+    "due_days": 1,
+    "trigger": "大殿实心樟木门扇吸湿膨胀彻底填满门框一切微隙形成绝对木质过盈抱死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_heavy_rain_wood_swelling_risk",
+   "immediate": {
+    "minutes": 3,
+    "text": "门缝渗出受挤压的水汽，木材纤维受湿膨胀发出极其轻微的咯吱闷响，门缝缝隙肉眼可见地变窄。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_studio_backstage_equipment_courtyard"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若短时间内未能合力将木门推开，吸水膨胀的樟木门扇将把整根生铁门栓紧紧包裹咬死在槽内。"
+   },
+   "objective": "在大门完全胀死前撬退门栓并引入干爽空气恢复大殿通风。",
+   "source": "accident",
+   "start_minute": 1291,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "暴雨导致大门樟木吸湿膨胀配合间隙缩窄",
+   "trigger": "冷雨持续浇淋导致大门外侧八十毫米厚实心樟木吸湿微量膨胀，门缝配合公差由五毫米急剧缩窄至一毫米。"
+  }
+ ],
+ "region": "影视城明清大殿实景妆造工坊独立厢房与回廊备场前厅",
+ "rules": [
+  {
+   "id": "rule_studio_ancient_door_bolt_code",
+   "text": "影视城仿古实木大殿门禁安全规约：大殿雕花木门配备三十公斤生铁插栓时，闭门前须严密校准门轴铅垂度，严禁在强风偏载下暴力甩合门扇。"
+  },
+  {
+   "id": "rule_hairpin_prying_plier_tool_code",
+   "text": "高定古装发簪五金调校工具规范：造型箱特种冷锻淬火斜嘴拔销钳仅限用于高密金属发冠暗扣微调，充当破拆撬具时须沿受力法向垂直施压。"
+  },
+  {
+   "id": "rule_pearwood_pedal_leverage_limit",
+   "text": "明式黄花梨梳妆台踏板承重戒律：实木榫卯一体化脚踏横梁在充当杠杆受力支点时，静载弯矩禁止超过两百公斤以防榫卯剪裂。"
+  },
+  {
+   "id": "rule_night_scene_pyrotechnics_curfew",
+   "text": "古装大殿夜戏火把特效安全清场条例：开机前十五分钟必须清空厢房所有滞留人员，点火组将对大殿周边实施封锁并引燃实景火把。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "挽发并肩",
+  "committed": "金石同盟",
+  "familiar": "对镜共处",
+  "flirting": "烛影凝视",
+  "intimate": "同舟共济",
+  "stranger": "初入妆房",
+  "testing": "扳钳撬栓"
+ },
+ "status": "released",
+ "style_hint": "明清实景大殿的昏暗烛影与暴雨：点翠头面的冷光、发油与樟木的气味。写傲娇梳头师水润的婴儿肥与沾了发油的指尖，动作落在冷锻钳撬铜销上。",
+ "tension_engines": [
+  {
+   "id": "eng_cast_iron_door_bolt_eccentric_jam",
+   "text": "三十公斤生铁雕花门栓受偏心扭矩咬死在抱肚内引发绝境封锁"
+  },
+  {
+   "id": "eng_hairpin_prying_plier_torque_limit",
+   "text": "特种加厚冷锻不锈钢拔销斜嘴钳深入抱肚撬退暗销之抗弯抗剪极限"
+  },
+  {
+   "id": "eng_intangible_cultural_costume_bond",
+   "text": "数十万元非遗点翠发冠与宋锦古装在硬核破拆中毫发未损保全责任"
+  },
+  {
+   "id": "eng_dual_sided_synchronized_thrust_pulse",
+   "text": "外侧防风木戗顶松与内侧杠杆撬栓毫秒级同步协同克服重力抱死"
+  }
+ ],
+ "title": "傲娇古装剧梳头师·大殿生铁门栓咬死",
+ "tone": [
+  "暴雨里的大殿",
+  "点翠头面冷光",
+  "生铁门栓咬死",
+  "火把戏倒计时"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_cold_forged_plier_hardness_limit",
+   "requires": [
+    "tsundere_dresser_chu_ning_shuang"
+   ],
+   "text": "{tsundere_dresser_chu_ning_shuang.name}手中这柄特种加厚冷锻拔销斜嘴钳由深冷淬火合金精工制成，扁平刃口硬度超群，在生铁抱肚内撬压数千牛顿力矩绝不发生弯曲折断。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_joiner_measures_door_sag_clearance",
+   "requires": [
+    "joiner_master_lu_chen_yi"
+   ],
+   "text": "{joiner_master_lu_chen_yi.name}凭借对大殿仿古门栓装配图纸的深刻记忆，准确测算出下沉五毫米引起的偏心咬合卡点，指导拔销钳以三十度斜角切入直抵核心卸载受力位。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_fire_officer_timber_strut_removal",
+   "requires": [
+    "fire_patrol_officer_shen_hao_ran",
+    "art_director_xiao_tian_yi"
+   ],
+   "text": "{fire_patrol_officer_shen_hao_ran.name}与{art_director_xiao_tian_yi.name}在外侧把控倒数发力节点并拆除防风木戗螺栓，为受困人员合抱下压拔销钳自救赢得了最关键的平稳施救空间。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_studio_fire_curfew_relief_protocol",
+   "requires": [
+    "art_director_xiao_tian_yi"
+   ],
+   "text": "影视城关于特邀主创遭遇实景道具机械断电阻闭特别应急规程被美术总监果断启动，总导演批准火把点火依法延时十分钟，彻底粉碎了火把封门的危局。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_ten_minutes_pyro_curfew_barrier",
+   "requires": [
+    "tsundere_dresser_chu_ning_shuang",
+    "prop_mechanic_bai_ze_yu"
+   ],
+   "text": "火把组外围引燃程序推迟仅能争取最后六百秒安全窗口，梳头师冷静把握时机在此黄金时间内合力下压套管杠杆，一举将偏心暗销平稳别脱。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_chu_ning_shuang_hand_overlap_heave",
+   "requires": [
+    "tsundere_dresser_chu_ning_shuang"
+   ],
+   "text": "在暗销弹脱的一瞬间，二人四手紧扣共同握住冰冷的套管柄身拼尽全力向下按压，{tsundere_dresser_chu_ning_shuang.name}娇躯借力微倾依偎在搭档身侧，微婴儿肥俏脸泛起动人水润红晕，急促心跳交织却满是化险为夷的深沉托付与信赖。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_ancient_door_bolt_triumph",
+   "requires": [
+    "tsundere_dresser_chu_ning_shuang",
+    "art_director_xiao_tian_yi"
+   ],
+   "text": "随着三十公斤生铁雕花门栓顺畅脱槽推开，回廊外雨过天晴月光穿透云层洒落，梳头师亲手定型的高定点翠发冠与宋锦古装流光溢彩毫发无损安全迎候开机。"
+  }
+ ]
+}

@@ -1,0 +1,2093 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "在音乐厅干了四十年的成年老场工",
+   "age_range": [
+    45,
+    60
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_stagehand_jean",
+   "line": "让诺提着马灯守在通往地下的楼梯口，嘴里念叨这场雷暴跟三十年前那场一模一样。",
+   "location_ids": [
+    "loc_stage_left_wings",
+    "loc_vip_corridor"
+   ],
+   "name": "让诺",
+   "role": "后台老场工"
+  },
+  {
+   "adult_context": "受雇看守冰窖琴库十年的成年看守",
+   "age_range": [
+    30,
+    50
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_boiler_tender_pierre",
+   "line": "皮埃尔扛着一袋沙子跑下楼梯，边跑边喊琴库里的水已经没过了门槛。",
+   "location_ids": [
+    "loc_climate_vault"
+   ],
+   "name": "皮埃",
+   "role": "琴库看守"
+  },
+  {
+   "adult_context": "为巴黎几家大报撰写乐评二十年的成年评论家",
+   "age_range": [
+    40,
+    58
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_critic_albert",
+   "line": "乐评人提着观剧镜对准空着的独奏席，在本子上写下一行字又划掉。",
+   "location_ids": [
+    "loc_stage_left_wings",
+    "loc_luthiers_workshop"
+   ],
+   "name": "夏尔",
+   "role": "音乐评论家"
+  },
+  {
+   "adult_context": "音乐厅正式雇用的成年侍者",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_usher_claire",
+   "line": "贵宾廊的侍者端着香槟在理事们之间穿梭，把副会长的耳语一字不落记在心里。",
+   "location_ids": [
+    "loc_luthiers_workshop",
+    "loc_vip_corridor"
+   ],
+   "name": "克莱",
+   "role": "贵宾廊侍者"
+  },
+  {
+   "adult_context": "巴黎警察厅消防署在编的成年辅员",
+   "age_range": [
+    24,
+    38
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_fire_marshal_luc",
+   "line": "消防辅员拖着水龙带守在配电房门口，一听见雷声就往门框后缩一下。",
+   "location_ids": [
+    "loc_climate_vault"
+   ],
+   "name": "吕克",
+   "role": "消防辅员"
+  },
+  {
+   "adult_context": "与乐团签约的成年大提琴独奏者，副会长的远亲",
+   "age_range": [
+    22,
+    28
+   ],
+   "function": "obstacle",
+   "gender": "female",
+   "id": "bg_corps_dancer_emma",
+   "line": "候补独奏者抱着琴坐在备用琴椅上慢慢调弦，眼睛却一直盯着通往地下的楼梯。",
+   "location_ids": [
+    "loc_stage_left_wings",
+    "loc_vip_corridor"
+   ],
+   "name": "卡蜜",
+   "role": "候补独奏者"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "一个在门里拧螺栓，一个在门外报旋向，隔着一扇铅门也配合得严丝合缝。",
+   "id": "combo_engineer_and_cellist",
+   "identity_ids": [
+    "identity_master_tuner",
+    "identity_associate_cellist"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_shen_weilan_cellist",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "录音师早就约好今晚要录首席的独奏",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_fu_chuan_tuner",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "录音师常借调律师的工具，两人在工坊里闲聊过许多回",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_shen_weilan_cellist",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "char_fu_chuan_tuner",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "调律师替首席的老琴调了多年音，彼此信得过",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_shen_weilan_cellist",
+    "char_fu_chuan_tuner"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在第三道钟声前让首席带着老琴走出琴库。",
+    "limit_gap": "调律师不能从外面硬撬，首席不能喊人来看自己的狼狈。",
+    "meeting_reason": "雷暴断电，琴库气密门把首席关在了里面。",
+    "resource_gap": "调律师有图纸和全套工具却进不去门，首席在门里只有一根尾针。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_shear_imbalance",
+    "engine_iron_curtain_countdown"
+   ]
+  },
+  {
+   "chemistry": "总监在台上用曲目和怀表拖时间，首席在地下跟螺栓较劲，谁也看不见谁，却都在等对方。",
+   "id": "combo_conductor_and_cellist",
+   "identity_ids": [
+    "identity_acoustic_director"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_shen_weilan_cellist",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "看守常替首席开库取琴，彼此点头之交",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "char_xie_jingheng_director",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "总监在排练时骂过首席无数回，也护过首席无数回",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_shen_weilan_cellist",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "char_xie_jingheng_director",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "隔着一层楼板，一个拖时间，一个抢时间",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "char_shen_weilan_cellist",
+    "char_xie_jingheng_director"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让首席赶在独奏开始前坐上独奏席。",
+    "limit_gap": "总监离不开指挥台，首席出不了琴库。",
+    "meeting_reason": "第二道钟声响了，独奏席还空着。",
+    "resource_gap": "总监握着开演的时刻，首席握着唯一能救自己的尾针。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_public_gaze_scrutiny"
+   ]
+  },
+  {
+   "chemistry": "会长在包厢里顶住换人的压力，首席在地下拼命脱身，一个护位子，一个护体面。",
+   "id": "combo_patron_and_cellist",
+   "identity_ids": [
+    "identity_chief_cellist"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_shen_weilan_cellist",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "使馆随员陪特使坐在会长的包厢里，看着会长一句话也不说",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "char_su_yuhua_chairwoman",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "会长要在使馆随员面前撑住音乐厅的面子",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_shen_weilan_cellist",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "char_su_yuhua_chairwoman",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "会长资助首席多年，首席却从不肯多拿一分",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "char_shen_weilan_cellist",
+    "char_su_yuhua_chairwoman"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "保住首席的独奏席，又不让首席欠下任何人情。",
+    "limit_gap": "会长不能当众失态，首席不肯欠资助人的人情。",
+    "meeting_reason": "副会长提议换候补上场，会长必须当场表态。",
+    "resource_gap": "会长有钱有权，首席只有一把借来的琴和一身骨气。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_public_gaze_scrutiny"
+   ]
+  },
+  {
+   "chemistry": "副首席守着门、攥着那个活结，首席在门里一听见脚步声就屏住呼吸。",
+   "id": "combo_costumer_and_cellist",
+   "identity_ids": [
+    "identity_associate_cellist"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_shen_weilan_cellist",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "第二大提琴手坐在首席身后多年，替首席调过无数次弦",
+     "stage": "committed"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_lin_yining_cellist",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "第二大提琴手与副首席共用一个谱架，私交很深",
+     "stage": "intimate"
+    },
+    {
+     "a": "char_shen_weilan_cellist",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_lin_yining_cellist",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "同窗多年，排练时共用一盒松香",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "char_shen_weilan_cellist",
+    "char_lin_yining_cellist"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "门开的那一刻，只有副首席一个人在场。",
+    "limit_gap": "副首席若被叫去领奏就守不住门，首席若被看见就保不住独奏席。",
+    "meeting_reason": "首席隔着门缝把副首席叫来守门。",
+    "resource_gap": "副首席有第二把钥匙和一件斗篷，首席有尾针和一身冰水。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_iron_curtain_countdown"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "chan_whisper_box",
+   "reach": "二层理事包厢，几分钟内人人都知道",
+   "text": "理事们在包厢之间递来递去的小纸条"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "chan_backstage_gossip",
+   "reach": "整个乐团，一首序曲的工夫就传遍，越传越走样",
+   "text": "乐手们在候场区的窃窃私语"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "巴黎音乐学院毕业十年、年满二十九岁的大提琴首席，七十周年庆典的独奏者",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "一米七二修长高挑骨架，白瓷凝脂般容颜微带淡淡的红晕反差动人；墨黑长发挽典雅发髻，身穿暗金暗纹抹胸真丝长礼服配纯黑真丝高开叉长衬裙，胸口佩纯银微型音梁吊坠，散发沉香幽香。",
+    "乌黑秀发以白金发簪斜挽，雪白香肩平滑如玉，冷艳五官带着清冷神韵，两颊天然紧实微带一点血色反差娇艳；高定纯白真丝开领长裙紧扣纤细后腰，持琴伫立宛如雪山绝顶一株傲立雪莲。"
+   ],
+   "decision": {
+    "avoids": [
+     "让融水碰到琴盒",
+     "硬扯裙摆，把礼服撕成两半"
+    ],
+    "contrast": "台上是冷得不近人情的首席，琴库里却是满手机油、骂着螺栓的修琴铺女儿",
+    "core_value": "琴比命金贵，体面比琴更金贵，两样都要自己守住",
+    "goal_options": [
+     "倒持钨金硬销反转减压螺丝谋求完全自解",
+     "示意助手展开宽幅防尘大氅筑起绝对视线防线"
+    ],
+    "never": [
+     "把独奏席拱手让给候补",
+     "为了脱身拿老琴去撬门"
+    ],
+    "prefers": [
+     "用大提琴自己的部件解决大提琴的麻烦",
+     "让副首席守住门口，别让任何人看见自己的狼狈"
+    ],
+    "pressure_responses": {
+     "breaking": "咬着嘴唇硬扭最后半圈，指节擦破了也不松手",
+     "high": "单膝抵住门框，把尾针的六角端头卡进螺栓，手腕一点点发力",
+     "low": "把松了的发簪重新别好，低头看清门缝咬住的是哪一层布",
+     "mid": "抽出尾针在手里掂了掂，嘴里低声数着头顶的钟声"
+    },
+    "relationship_stance": "对来帮忙的人只说要紧的话，心里记着谁在这一夜伸过手",
+    "withdrawal": "闭上眼靠着冰冷的铅门，等心跳慢下来再动"
+   },
+   "gender": "female",
+   "gender_reason": "管弦乐界大提琴独奏传统声部首席女演奏名家",
+   "id": "char_shen_weilan_cellist",
+   "identity": {
+    "authority": "七十周年庆典唯一的独奏席位，曲目与返场都由首席自己定",
+    "exposure": "那把老琴的借约快到期了，若今晚演砸，琴主人明天就会把琴收回去",
+    "hidden": "从小在父亲的修琴铺里长大，拆尾针、拧螺栓比许多琴工还熟",
+    "limits": [
+     "三道钟声响毕前必须坐上独奏席",
+     "不能当着理事和宾客的面喊人救命，否则独奏席当场易主"
+    ],
+    "obligations": [
+     "替乐团撑起七十周年的门面",
+     "护着那把借来的老琴，琴身不能沾一滴水"
+    ],
+    "resources": [
+     "价值连城之意式老琴配带高硬度特种尾针",
+     "储琴密室专用电子识别指纹卡",
+     "国内外顶级音乐节争相邀约之最高规格出场身价"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "懂琴、懂手艺，在黑暗里也能稳稳递来一件工具的人",
+     "看过自己最狼狈的样子却从不提起的人"
+    ],
+    "boundaries": [
+     "门缝里递工具、扶一把，只是救急",
+     "礼服的系带由自己说了才能解"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "散场后还肯留在工坊里，陪着把琴擦干净的那个人",
+    "dislikes": [
+     "把琴当摆设、把人当招牌的阔佬",
+     "不问一句就伸手扯人衣裳的莽撞"
+    ],
+    "expression": "抱着琴靠在工坊的红木案台边，松香味里声音很轻：门闩上吧……今晚的独奏，想只拉给你一个人听。",
+    "likes": [
+     "松香和老木头的气味",
+     "散场后有人陪着坐在修琴工坊里，替自己把卡坏的礼服系带一根根解开"
+    ],
+    "preconditions": [
+     "老琴平安回到琴盒，自己也从琴库里走了出来",
+     "心意是自己的，不是谢恩，也不是吓坏了以后的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "交响乐团首席大提琴独奏家",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_stage_left_wings",
+     "to": 1260
+    },
+    {
+     "from": 1261,
+     "location_id": "loc_vip_corridor",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "雪白纤手嫩皮必将受粗糙生铁磨伤沁出点点血印",
+      "option": "单手抓握尾针扁平端头斜插进泄压螺孔施加角向剪切巧劲"
+     },
+     {
+      "cost": "同伴将独自迎对过道阴冷通风气流侵扰",
+      "option": "示意副首席扬起深黑遮尘披风筑成人墙遮蔽盲区"
+     }
+    ],
+    "pressure": "融水漫过脚背，头顶第二道钟声已经响了，侧翼的候补正在调弦",
+    "trigger": "雷暴断电，琴库气密门的橡胶圈胀起来，咬住了长裙后摆与琴盒背带"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "父亲教过的，六角螺栓逆着拧半圈就松……手别抖，再一点点。",
+    "surface": "钟声还剩一道，别慌，先把琴盒抬到冰块上去。"
+   }
+  },
+  {
+   "adult_context": "在巴黎提琴行会登记执照十余年的调律匠人，年满三十四岁，兼管音乐厅的机械与琴库",
+   "age_range": [
+    34,
+    45
+   ],
+   "appearance_options": [
+    "深灰毛呢工装马甲配雪白挺括工勤衬衫，指节修长粗糙带有深色松香浸润痕迹，双目如炬目光沉静坚毅，举手投足尽显工匠大师严谨威仪。",
+    "纯黑防静电检修连体服外搭战术工具背心，下颌留有修剪整齐之灰白短茬胡须，神色沉稳宛如磐石不怒自威。"
+   ],
+   "decision": {
+    "avoids": [
+     "从外面硬撬，把门彻底弄死",
+     "跟理事会吵架浪费时间"
+    ],
+    "contrast": "看着粗手笨脚的匠人，调起琴来比谁都细，说起话来比谁都少",
+    "core_value": "琴和拉琴的人一样要紧，哪一个都不能坏在手艺人眼皮底下",
+    "goal_options": [
+     "隔着门缝告诉首席泄压螺栓的位置和旋向",
+     "绕到门框外侧找那个手动放气孔"
+    ],
+    "never": [
+     "丢下被困在琴库里的人去保全自己的饭碗",
+     "把橡胶圈的事推到首席头上"
+    ],
+    "prefers": [
+     "照图纸来，一步一步，不赌运气",
+     "把工具递到对方手里，让对方自己动手"
+    ],
+    "pressure_responses": {
+     "breaking": "用管钳硬撬放气孔的锈盖，虎口震裂了也不松",
+     "high": "趴在积水里伸手去够门框下的放气孔，一边喊旋向",
+     "low": "把耳朵贴在铅门上，听橡胶圈里的气声",
+     "mid": "摊开图纸，用铅笔圈出放气孔的位置"
+    },
+    "relationship_stance": "调过首席那把老琴十几年，琴有几道暗伤、人有几分倔，心里都有数，拼了命也要护住",
+    "withdrawal": "蹲在门边抽一口烟斗，眉头皱成一团，又把图纸看一遍"
+   },
+   "gender": "male",
+   "gender_reason": "十九世纪末巴黎的乐器行会只收男匠人登记执照",
+   "id": "char_fu_chuan_tuner",
+   "identity": {
+    "authority": "琴库的另一把钥匙，以及开演前叫停一切机械的权力",
+    "exposure": "半个月前就报过气密门的橡胶圈老化，理事会嫌贵没换",
+    "hidden": "门框外侧有一个只有图纸上才标着的手动放气孔",
+    "limits": [
+     "门从外面撬会把橡胶圈撕裂，整扇门就再也打不开",
+     "不能替首席上台，只能在门外递工具、报方向"
+    ],
+    "obligations": [
+     "保证每一把琴在开演前调好音、送上台",
+     "维持乐团主厅精密机电管网平稳运转"
+    ],
+    "resources": [
+     "一套从大到小的铜柄螺丝刀与管钳",
+     "琴库气密门的原厂图纸",
+     "一只能听出琴身暗伤的老音叉"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "手稳、心细，拧螺栓也像拉琴一样有分寸的人",
+     "不嫌匠人手脏的人"
+    ],
+    "boundaries": [
+     "救险时只管递工具，不多看一眼",
+     "心意说出口之前，照旧只谈琴"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "在工坊里守着首席那把琴、也守着首席的人",
+    "dislikes": [
+     "拿琴炫耀身价却从不擦琴的人",
+     "不懂装懂、指手画脚的理事"
+    ],
+    "expression": "把擦干的老琴放回琴盒，手在琴盒盖上停了一下，才低声说：今晚，辛苦了。",
+    "likes": [
+     "听一把好琴被调准的那一声",
+     "收工后有人陪着在工坊里喝一杯热红酒"
+    ],
+    "preconditions": [
+     "一起扛过一场险，彼此信得过对方的手",
+     "都是清醒自主的成年人，谁也不欠谁"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "大音乐厅首席调律兼机械总师",
+   "schedule": [
+    {
+     "from": 1100,
+     "location_id": "loc_climate_vault",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_stage_left_wings",
+     "to": 1400
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "半身泡在冰水里，手冻得握不住工具",
+      "option": "趴进积水里用管钳撬开放气孔的锈盖"
+     },
+     {
+      "cost": "雷暴还没停，合闸可能让整栋楼再断一次电",
+      "option": "跑去配电房重新合闸，赌电磁阀会松开"
+     }
+    ],
+    "pressure": "融水已经漫进门缝，放气孔的锈盖拧不开，第二道钟声响了",
+    "trigger": "配电房跳闸，气密门的电磁阀反锁，门外的手柄纹丝不动"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "早该换那圈橡胶的……要是今晚出了事，这辈子都别想再碰琴。",
+    "surface": "螺栓在门框左下角，逆时针，半圈就够，别用蛮力。"
+   }
+  },
+  {
+   "adult_context": "巴黎音乐学院作曲教授出身，年满三十八岁，执掌乐团十年的总监兼首席指挥",
+   "age_range": [
+    38,
+    52
+   ],
+   "appearance_options": [
+    "金丝无框眼镜配深黑笔挺工整高级西服，腕上机械表秒针无声滑移，目光如鹰隼般敏锐深邃，儒雅斯文中流露工科高知雷厉风行气魄。",
+    "深蓝定制羊毛开衫搭整洁白衬衫，神色从容步履沉稳，手持平板电脑实时监控全场数据指标。"
+   ],
+   "decision": {
+    "avoids": [
+     "让候补顶上去，把首席的独奏席白白让掉",
+     "当着宾客的面露出慌张"
+    ],
+    "contrast": "排练时把乐手骂哭是常事，真出了事，却是第一个替乐手扛下来的人",
+    "core_value": "音乐不等人，可好的独奏者值得乐团等一等",
+    "goal_options": [
+     "拖住开演，给首席争取时间",
+     "改动曲目顺序，先演序曲，把独奏挪到后面"
+    ],
+    "never": [
+     "为了准时开演牺牲一个乐手",
+     "在理事会面前说首席的一句坏话"
+    ],
+    "prefers": [
+     "用音乐本身解决麻烦，改曲目也不改水准",
+     "把压力揽到自己身上，不让乐手们乱"
+    ],
+    "pressure_responses": {
+     "breaking": "把指挥棒拍在谱架上：首席不到，今晚谁也别想开演",
+     "high": "当着理事会的面宣布先演序曲，把独奏挪到第二首",
+     "low": "看一眼怀表，又看一眼空着的独奏席，不动声色",
+     "mid": "朝乐团示意再调一次音，故意拖长半分钟"
+    },
+    "relationship_stance": "认定大提琴首席是这支乐团的魂，宁可让全团加奏，也要替那道琴声挡住杂音",
+    "withdrawal": "背对乐团站在指挥台上，手指在谱架边缘一下下敲拍子"
+   },
+   "gender": "male",
+   "gender_reason": "当时巴黎的职业乐团只聘男指挥",
+   "id": "char_xie_jingheng_director",
+   "identity": {
+    "authority": "开演时刻、曲目顺序与乐团每一个声部的进出",
+    "exposure": "私下答应过替大提琴首席牵线伦敦的独奏邀约，乐团理事会至今蒙在鼓里",
+    "hidden": "怀表比大厅的钟快了两分钟，必要时可以拿怀表拖延起拍",
+    "limits": [
+     "钟声响完必须起拍，迟一分钟都会被理事会记过",
+     "离不开指挥台，只能靠传声铜管与侧翼联络"
+    ],
+    "obligations": [
+     "让七十周年的首演一个音都不错",
+     "在首席缺席时决定要不要让候补上场"
+    ],
+    "resources": [
+     "一根乌木指挥棒",
+     "一块乐团代代相传、走快了两分钟的金怀表",
+     "七十周年委约新曲的亲笔总谱"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "拉琴时能跟自己的指挥棒同呼吸的人",
+     "敢在排练时顶嘴、又真有本事的人"
+    ],
+    "boundaries": [
+     "排练厅里只谈音乐",
+     "不拿独奏席当筹码"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "台上的严师，台下愿意等对方一首曲子的人",
+    "dislikes": [
+     "为了掌声乱改速度的炫技",
+     "迟到却找借口的乐手"
+    ],
+    "expression": "散场后摘下夹鼻眼镜，揉了揉眉心，难得地笑了一下：今晚的大提琴，是我听过最好的。",
+    "likes": [
+     "演出结束后那一刻完全的安静",
+     "散场后在空荡的排练厅里，听一个人随手拉一段巴赫"
+    ],
+    "preconditions": [
+     "演出平安落幕，彼此都卸下了台上的身份",
+     "心意出于本人，不夹带乐团里的上下级"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "大音乐厅乐团总监兼首席指挥",
+   "schedule": [
+    {
+     "from": 1160,
+     "location_id": "loc_stage_left_wings",
+     "to": 1270
+    },
+    {
+     "from": 1271,
+     "location_id": "loc_luthiers_workshop",
+     "to": 1390
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "打乱了委约新曲的首演安排，作曲家明天会来兴师问罪",
+      "option": "宣布先演序曲，把独奏挪到第二首"
+     },
+     {
+      "cost": "若被识破，十年的总监位子就保不住了",
+      "option": "拿快了两分钟的怀表当证据，坚持钟声还没响完"
+     }
+    ],
+    "pressure": "会长在包厢里盯着指挥台，候补独奏者已经坐上了备用琴椅",
+    "trigger": "第二道钟声响了，独奏席还空着，理事会派人来问要不要换候补"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "两分钟，怀表能骗过理事会两分钟……首席，快上来。",
+    "surface": "再调一次音，所有声部，慢一点。"
+   }
+  },
+  {
+   "adult_context": "巴黎银行公会理事、年满三十六岁的世袭男爵，现任音乐厅理事会会长",
+   "age_range": [
+    36,
+    48
+   ],
+   "appearance_options": [
+    "雍容盘发严谨庄重，身着墨黑高定双排扣立领羊绒套装佩戴无瑕天然珍珠项链，气场威严沉稳端庄，举手投足尽显大国文化外交官大度风骨。",
+    "宝蓝修身长款礼服大衣衬托高贵仪态，手挽米白真丝披巾，目光如电巡视全场，谈吐优雅且不怒自威。"
+   ],
+   "decision": {
+    "avoids": [
+     "让副会长借机把自己的人塞上台",
+     "拿资助去换首席的人情"
+    ],
+    "contrast": "人人都当这位是只认钱的银行家，可这位记得每一个乐手的名字",
+    "core_value": "钱可以买到音乐厅，买不到一把好琴背后的人",
+    "goal_options": [
+     "顶住理事们换人的压力，替首席多撑一会儿",
+     "亲自下到琴库去看个究竟"
+    ],
+    "never": [
+     "在宾客面前失了风度",
+     "看着首席的独奏席被人趁乱夺走"
+    ],
+    "prefers": [
+     "把麻烦压在包厢里，不让风声传到台下",
+     "用钱解决能用钱解决的事，剩下的亲自去"
+    ],
+    "pressure_responses": {
+     "breaking": "推开包厢小门，从后台楼梯一路下到琴库",
+     "high": "当众说一句：首席不上，今晚的独奏就空着",
+     "low": "转着观剧镜听理事们议论，一句话不说",
+     "mid": "示意侍者把副会长请到一边，压低声音谈话"
+    },
+    "relationship_stance": "敬重大提琴首席的琴声与骨气，从不把资助当作可以伸手要的东西",
+    "withdrawal": "靠回椅背，端起香槟抿一口，像什么都没发生"
+   },
+   "gender": "male",
+   "gender_reason": "第三共和国承袭下来的世袭男爵头衔，名册上只记男丁",
+   "id": "char_su_yuhua_chairwoman",
+   "identity": {
+    "authority": "开演前一刻更换独奏者的权力，以及乐团明年的全部经费",
+    "exposure": "为了让大提琴首席的名琴入藏金库，曾私下垫钱改装了那扇气密门",
+    "hidden": "候补独奏者是副会长的远亲，换人的提议从一开始就不怀好意",
+    "limits": [
+     "换不换候补，理事们都在看着，一句话说出口就收不回来",
+     "账目每年要向银行公会公开审计"
+    ],
+    "obligations": [
+     "让七十周年庆典体体面面办完",
+     "向赞助人们交代钱花在了哪里"
+    ],
+    "resources": [
+     "一本随时可以签出的银行支票簿",
+     "理事会的会长印章",
+     "通往后台那道小门的钥匙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "不卖资助人面子、只认音乐的骨气",
+     "满身冰水还肯整好衣裳上台的倔强"
+    ],
+    "boundaries": [
+     "资助归资助，心意归心意，绝不混在一起",
+     "人前照旧以会长之礼相待"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "首席身后那个不出声、却一直撑着的人",
+    "dislikes": [
+     "围着支票簿打转的谄媚",
+     "拿艺术当生意算计的那一类人"
+    ],
+    "expression": "在后门马车边替对方拉开车门，停了一停：今晚这把琴，值得巴黎记住。",
+    "likes": [
+     "坐在包厢最暗处听一首慢板",
+     "散场后陪着走过塞纳河边的煤气路灯，谁也不说话"
+    ],
+    "preconditions": [
+     "庆典已经落幕，首席不再欠理事会任何东西",
+     "首席先开口，或清楚地应了心意"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "大音乐厅理事会会长、世袭男爵",
+   "schedule": [
+    {
+     "from": 1180,
+     "location_id": "loc_luthiers_workshop",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_vip_corridor",
+     "to": 1420
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "若首席最终没能上台，会长要在理事会上引咎",
+      "option": "当众驳回换人的提议，把责任揽到自己身上"
+     },
+     {
+      "cost": "会长离席会让宾客们猜到出了大事",
+      "option": "从包厢小门下到后台，亲自去琴库"
+     }
+    ],
+    "pressure": "宾客们开始注意空着的独奏席，第三道钟声随时会响",
+    "trigger": "副会长在包厢里提议换候补上场，几位理事跟着点头"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "副会长那点心思……今晚谁敢动首席的位子，明年的经费就一分也别想要。",
+    "surface": "诸位稍安，独奏席空着，是本会长的意思。"
+   }
+  },
+  {
+   "adult_context": "巴黎音乐学院毕业、年满二十八岁的职业大提琴手，乐团正式签约的副首席",
+   "age_range": [
+    28,
+    36
+   ],
+   "appearance_options": [
+    "体态婀娜亭亭玉立，白皙凝脂玉面微带柔和的轮廓娇俏动人，身穿墨绿真丝鱼尾裙，手持宽幅加厚深黛双面羊绒防尘掩护大氅，目光敏锐戒备周全。",
+    "一袭深灰高定修身铅笔裙衬托苗条身段，墨黑长发整齐束成马尾，双手稳托琴套，举手投足带着室内乐名角特有的从容机敏。"
+   ],
+   "decision": {
+    "avoids": [
+     "让候补看见首席的狼狈",
+     "当着理事的面自己去领奏"
+    ],
+    "contrast": "看着温顺好说话，护起人来比谁都凶",
+    "core_value": "情分在前，位子在后",
+    "goal_options": [
+     "守住琴库门口，不让任何人看见首席的样子",
+     "把裁缝剪递进门缝，必要时剪掉裙摆"
+    ],
+    "never": [
+     "趁首席被困抢走独奏席",
+     "把今晚的事说给任何人听"
+    ],
+    "prefers": [
+     "先护体面，再护礼服",
+     "用那个活结，不用剪刀"
+    ],
+    "pressure_responses": {
+     "breaking": "门一开就扑上去，用斗篷把首席整个裹住",
+     "high": "跪在门缝边，把裁缝剪柄朝里递进去",
+     "low": "抱着琴盒站在琴库门口，假装在等调律师",
+     "mid": "把斗篷抖开搭在臂弯，随时准备迎上去"
+    },
+    "relationship_stance": "与大提琴首席同窗多年，排练时共用一盒松香，护着对方的体面像护着自己的",
+    "withdrawal": "退到楼梯拐角，低头假装整理琴弦"
+   },
+   "gender": "female",
+   "gender_reason": "巴黎音乐学院女子弦乐班出身的职业乐手",
+   "id": "char_lin_yining_cellist",
+   "identity": {
+    "authority": "首席缺席时，大提琴声部由副首席领奏",
+    "exposure": "候补独奏者私下许过副首席一个独奏的机会，副首席一直没答应也没拒绝",
+    "hidden": "礼服是副首席亲手改的，后腰那排系带留了一个一拉就松的活结",
+    "limits": [
+     "钥匙只能跟调律师的那把一起转，一个人开不了门",
+     "若首席不到，自己就得领奏，走不开"
+    ],
+    "obligations": [
+     "带好大提琴声部",
+     "替首席守住琴库门口"
+    ],
+    "resources": [
+     "琴库的第二把钥匙",
+     "一把裁缝剪和一卷备用丝线",
+     "一件够把人从头裹到脚的深红呢斗篷"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "嘴上不饶人、心里却记着每一个同伴的那份傲",
+     "一起熬过的每一场排练"
+    ],
+    "boundaries": [
+     "人前照旧是首席与副首席",
+     "不在对方惊魂未定时越界"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "首席身边那个永远不会走开的人",
+    "dislikes": [
+     "背后嚼舌根的同行",
+     "拿位子收买人心的手段"
+    ],
+    "expression": "抖开大氅从背后把大提琴首席整个裹住，下巴抵在对方肩头，半天才松开手",
+    "likes": [
+     "两把大提琴一起拉一段二重奏",
+     "散场后挤在一件斗篷里，等对方的手暖过来"
+    ],
+    "preconditions": [
+     "险情过去，两人都缓过了神",
+     "彼此都明白说出口的是心里话，不是一时激动"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "管弦乐团副首席琴师",
+   "schedule": [
+    {
+     "from": 1120,
+     "location_id": "loc_stage_left_wings",
+     "to": 1290
+    },
+    {
+     "from": 1291,
+     "location_id": "loc_vip_corridor",
+     "to": 1410
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "副首席脊背需直面过道倒灌阴冷风寒受冻",
+      "option": "迎步上前抖落双重避光呢料大氅将首席全身严密遮挡"
+     },
+     {
+      "cost": "门口没人守，谁都可能撞见",
+      "option": "把斗篷挂在门口挡住门缝，自己去叫调律师"
+     }
+    ],
+    "pressure": "候补独奏者抱着琴往楼梯这边走来，说要下来取松香",
+    "trigger": "琴库门缝里传来首席压低的声音，叫副首席去门口守着"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "特使的脚步已经到了走廊中段，扣子一松开，就用大氅把姐姐整个裹住。",
+    "surface": "姐姐只管发力旋拧，大氅已经完全展开，谁的视线也越不过我这道墙。"
+   }
+  },
+  {
+   "adult_context": "巴黎警察厅消防署的督察官，年满三十二岁，负责大音乐厅的防火与疏散",
+   "age_range": [
+    32,
+    42
+   ],
+   "appearance_options": [
+    "深蓝呢面消防制服扣到领口，铜盔夹在臂弯，下颌线条冷硬，指节上有旧烫疤。",
+    "胸前挂着一块校准到秒的银壳怀表，靴子沾着金库地面的冷凝水，站姿笔直。"
+   ],
+   "decision": {
+    "avoids": [
+     "贸然合闸烧掉整栋楼的线路",
+     "为了庆典的体面瞒下险情"
+    ],
+    "contrast": "人人都说这位是块木头，可雷暴夜最先想起地下还有人的就是这块木头",
+    "core_value": "人命第一，规矩第二，庆典排最后",
+    "goal_options": [
+     "判断要不要叫停庆典、疏散地下各层",
+     "下到琴库去确认有没有人被困"
+    ],
+    "never": [
+     "收理事会的钱压下险情",
+     "丢下地下的人先撤"
+    ],
+    "prefers": [
+     "先确认人在哪里，再决定要不要叫停",
+     "把命令说得又短又清楚"
+    ],
+    "pressure_responses": {
+     "breaking": "冲下琴库楼梯，用肩膀顶住快要塌下来的冰架",
+     "high": "拿着空白公文去包厢，准备当众叫停",
+     "low": "站在配电房门口看闸刀，手里攥着怀表",
+     "mid": "吹一声短哨，让看守把地下的通道都点上马灯"
+    },
+    "relationship_stance": "对首席敬重，可规矩就是规矩，只在规矩里能让的都让",
+    "withdrawal": "立正站在楼梯口，把铜哨塞回口袋，脸色一点没变"
+   },
+   "gender": "male",
+   "gender_reason": "当时巴黎警察厅消防署只招男警官",
+   "id": "char_lucas_inspector",
+   "identity": {
+    "authority": "以消防的名义叫停演出、封锁楼层",
+    "exposure": "去年替音乐厅压下过一次电线冒烟的事，至今心里不安",
+    "hidden": "知道配电房的闸刀还能再撑一次合闸，但第二次跳闸会烧掉整排保险丝",
+    "limits": [
+     "没有明火不能无故叫停庆典",
+     "叫停一次，下一季的许可证就要重审"
+    ],
+    "obligations": [
+     "雷暴夜守住音乐厅，不让旧日剧场大火的惨事重演",
+     "保证地下各层的通道畅通"
+    ],
+    "resources": [
+     "一枚消防署的铜哨",
+     "高音纯铜警笛",
+     "一份可以当场下令疏散的空白公文"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在冰水里还能把话说得清清楚楚的人",
+     "不靠哭求、靠自己一双手脱险的硬气"
+    ],
+    "boundaries": [
+     "执勤时只是督察官",
+     "不拿救命的事讨人情"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "雷暴夜里替首席守着楼梯口的人",
+    "dislikes": [
+     "拿人命开玩笑的阔气",
+     "出了事先找替罪羊的理事"
+    ],
+    "expression": "合上怀表抬手扶了扶铜盔，冲大提琴首席点了一下头，冷硬的嘴角难得松动",
+    "likes": [
+     "守时的人",
+     "雨停后在音乐厅后门抽一支烟，听里面散场的掌声"
+    ],
+    "preconditions": [
+     "险情已经排除，所有人都平安",
+     "对方先开口，自己才会回应"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "驻音乐厅的消防督察官",
+   "schedule": [
+    {
+     "from": 1150,
+     "location_id": "loc_stage_left_wings",
+     "to": 1275
+    },
+    {
+     "from": 1276,
+     "location_id": "loc_climate_vault",
+     "to": 1395
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "第二次跳闸会烧掉整排保险丝，庆典只能点蜡烛演完",
+      "option": "冒险再合一次闸，赌气密门的电磁阀会松开"
+     },
+     {
+      "cost": "督察官离开配电房，楼上若真起火就没人第一时间处置",
+      "option": "下到琴库，用肩膀顶住冰架，等调律师撬开放气孔"
+     }
+    ],
+    "pressure": "冰架在融水里一点点松动，理事会却催着赶快恢复供电开演",
+    "trigger": "配电房的闸刀跳开，地下各层一片漆黑，看守报说琴库门打不开"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "去年那次冒烟就该叫停的……今晚不能再赌了。",
+    "surface": "闸刀还能合一次，就一次，琴库里的人得在那之前出来。"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "1889 年，盛夏",
+  "minute": 1165
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "substance",
+  "workplace_power",
+  "disaster"
+ ],
+ "custom": true,
+ "customs": [
+  "大提琴首席独奏大师登台前需独自在调温密库默坐三分钟，以纯银校音叉测定琴马共鸣频率，由专职琴工陪同见证签收名琴。",
+  "交响乐团开场前三道预备钟声响毕，除随行副首席与主调律师外，任何人不得随意推开地下储琴密室之双重隔音防爆门。",
+  "剧院七十载建团庆典规程明确，独奏名角谢幕须施展纯正长躬大礼，任何衣冠不整或步履踉跄均被视为失仪。",
+  "古董乐器整备大厅终年保持二十摄氏度基准室温，任何人员进出均须穿戴防静电无屑纯棉鞋套并在气闸舱完成除尘。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "首席把老琴架上独奏席，拉一段空弦，听大厅的回声",
+    "调律师蹲在一旁拧紧尾针，一边听一边点头"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_stage_floor_inspection",
+   "location_ids": [
+    "loc_stage_left_wings"
+   ],
+   "start_minute": 1140,
+   "tags": [],
+   "title": "开演前独奏席试音"
+  },
+  {
+   "beats": [
+    "看守提着马灯把冰块的草帘一张张掀开查看",
+    "在记录簿上写下湿度表的读数，再把排水沟清一遍"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_steam_valve_blowoff",
+   "location_ids": [
+    "loc_climate_vault"
+   ],
+   "start_minute": 1110,
+   "tags": [],
+   "title": "琴库冰块与湿度巡查"
+  },
+  {
+   "beats": [
+    "副首席领着声部把新曲最难的一段反复拉了五遍",
+    "总监在一旁用指挥棒敲着谱架数拍子"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_orchestra_tuning_rehearsal",
+   "location_ids": [
+    "loc_stage_left_wings"
+   ],
+   "start_minute": 1150,
+   "tags": [],
+   "title": "大提琴声部分谱排练"
+  },
+  {
+   "beats": [
+    "副首席跪在地上替首席收紧礼服后腰的系带",
+    "首席抱着琴坐下试了试，嫌裙摆太长绊脚"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_costume_final_fitting",
+   "location_ids": [
+    "loc_vip_corridor"
+   ],
+   "start_minute": 1130,
+   "tags": [],
+   "title": "演出礼服试穿修改"
+  },
+  {
+   "beats": [
+    "会长向使馆随员介绍七十周年的曲目",
+    "副会长在一旁不住地提起候补独奏者"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [],
+   "id": "act_patron_salon_reception",
+   "location_ids": [
+    "loc_luthiers_workshop"
+   ],
+   "start_minute": 1170,
+   "tags": [],
+   "title": "理事会包厢茶叙"
+  },
+  {
+   "beats": [
+    "督察官看着怀表，让辅员试一次闸刀",
+    "检查每一根保险丝，把备用的码在手边"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_fire_curtain_drill",
+   "location_ids": [
+    "loc_stage_left_wings",
+    "loc_climate_vault"
+   ],
+   "start_minute": 1100,
+   "tags": [],
+   "title": "配电房雷暴前检查"
+  },
+  {
+   "beats": [
+    "散场后的琴房只剩一盏煤气灯，首席把琴放上案台，裙摆上还留着钢槽咬出的折痕。",
+    "首席背过身，请人替自己解开后腰那几根被扯乱的系带，指尖每碰一下，呼吸就停一拍。",
+    "最后一根系带松开时，首席没有回头，只伸手把琴房的门闩推了过来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_workshop_unlace_gown",
+   "location_ids": [
+    "loc_cellist_practice_room"
+   ],
+   "start_minute": 1290,
+   "tags": [
+    "intimate"
+   ],
+   "title": "修琴工坊解开礼服系带"
+  },
+  {
+   "beats": [
+    "琴房里，首席把大提琴靠在膝间，长裙的裙摆铺了一地，让人替自己给琴弓抹松香。",
+    "首席看着人的手：慢一点，要匀。……你给琴弓上松香的样子，跟碰我的时候一模一样。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_practice_room_rosin",
+   "location_ids": [
+    "loc_cellist_practice_room"
+   ],
+   "start_minute": 1150,
+   "tags": [
+    "intimate"
+   ],
+   "title": "琴房里的松香与琴弓"
+  },
+  {
+   "beats": [
+    "首席把人拉到琴凳前坐下，自己从背后环过来，握着人的手放上琴弦，胸口贴着人的后背。",
+    "首席贴着耳边问：拉完这一段，要不要换我来拉你？……你点头，我就把琴放下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_practice_room_cello_embrace",
+   "location_ids": [
+    "loc_cellist_practice_room"
+   ],
+   "start_minute": 1330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "从背后握着手拉琴"
+  },
+  {
+   "beats": [
+    "休演日的早晨，首席裹着人的衬衫坐在琴房窗台上，光着腿，抱着大提琴拉一支很慢的摇篮曲。",
+    "一曲拉完，首席把琴靠到墙边，朝人伸出手：今天不练琴了。……过来，陪我把早上浪费掉。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_practice_room_rest_day",
+   "location_ids": [
+    "loc_cellist_practice_room"
+   ],
+   "start_minute": 540,
+   "tags": [
+    "intimate"
+   ],
+   "title": "休演日的摇篮曲"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "十九世纪末巴黎，电灯刚装进音乐厅、雷暴还能让全城断电的年代",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "少男",
+  "少女",
+  "少年",
+  "幼女",
+  "幼童",
+  "学徒",
+  "徒弟",
+  "门生",
+  "弟子",
+  "学生",
+  "校园",
+  "师生"
+ ],
+ "hooks": [
+  {
+   "id": "hook_cellist_gaze_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_left_wings"
+   ],
+   "slot": "char_shen_weilan_cellist",
+   "text": "{npc.name}在琴库的黑暗里抬起头，隔着门缝低声叫住经过的人：别声张，过来帮个忙。"
+  },
+  {
+   "id": "hook_engineer_signal_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_left_wings",
+    "loc_climate_vault"
+   ],
+   "slot": "char_fu_chuan_tuner",
+   "text": "{npc.name}从金库门框的检修缝里伸进两根沾着松香的手指，把一枚磨尖的黄铜六角扳头悄悄塞到受困者手边。"
+  },
+  {
+   "id": "hook_costumer_cloak_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_left_wings"
+   ],
+   "slot": "char_lin_yining_cellist",
+   "text": "{npc.name}抱着深红斗篷守在琴库门口，看见有人走下楼梯，立刻挡上前一步。"
+  },
+  {
+   "id": "hook_patron_nod_observe",
+   "kind": "observe",
+   "location_ids": [
+    "loc_luthiers_workshop"
+   ],
+   "slot": "char_su_yuhua_chairwoman",
+   "text": "{npc.name}在包厢里放下观剧镜，把副会长递来的纸条揉成一团，起身朝后台的小门走去。"
+  },
+  {
+   "id": "hook_shen_practice_room_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cellist_practice_room"
+   ],
+   "slot": "char_shen_weilan_cellist",
+   "text": "{npc.name}抱着大提琴站在琴房门口：这把琴在这间屋里最好听。……进来，我拉给你一个人听。"
+  }
+ ],
+ "id": "symphony_hall_cello_repair_deadline",
+ "locations": [
+  {
+   "affordances": [
+    "拉拢红丝绒帘，在灯影里挡出一块暗角",
+    "借备用琴椅坐下调弦、稳住呼吸",
+    "听舞台监督数开演钟声"
+   ],
+   "detail": "离独奏席只隔一道红丝绒帘的候场角落，摆着两把备用琴椅和一盏遮了罩的煤气灯，地上铺着防滑的旧地毯。",
+   "exits": [
+    "loc_climate_vault",
+    "loc_vip_corridor",
+    "loc_luthiers_workshop",
+    "loc_cellist_practice_room"
+   ],
+   "id": "loc_stage_left_wings",
+   "name": "舞台左翼候场区",
+   "pressure_modifiers": {
+    "press_shear_arm_collapse": "候补独奏者就站在帘边，任何慌乱都瞒不过那双眼睛"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "帘子一掀，前三排和右侧包厢都看得见",
+   "witnesses": [
+    "bg_stagehand_jean",
+    "bg_critic_albert"
+   ]
+  },
+  {
+   "affordances": [
+    "用尾针端头去拧门框上的泄压螺栓",
+    "盯着湿度表，看融水涨到了哪一格",
+    "把琴盒垫高到冰块上，躲开地上的积水"
+   ],
+   "detail": "地下二十米的冰窖改成的琴库，四壁码着裹了草帘的冰块，一扇包铅的气密门嵌在铸铁门框里，门缝靠一圈充气橡胶圈封死。",
+   "exits": [
+    "loc_stage_left_wings",
+    "loc_luthiers_workshop",
+    "loc_vip_corridor"
+   ],
+   "id": "loc_climate_vault",
+   "name": "地下冰窖恒温琴库",
+   "pressure_modifiers": {
+    "press_shear_arm_collapse": "冰块在黑暗里一块块塌下来，冷水溅湿了裙摆"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "只有提马灯的看守和持钥匙的三个人见过里面",
+   "witnesses": [
+    "bg_boiler_tender_pierre",
+    "bg_fire_marshal_luc"
+   ]
+  },
+  {
+   "affordances": [
+    "拿出总谱手稿请贵宾观赏，拖住片刻",
+    "顺着传声铜管朝地下喊话",
+    "看理事们交头接耳，猜会长要做什么决定"
+   ],
+   "detail": "满屋松香与老木料味的工坊，墙上挂着几十把雕刻刀和铜卡尺，红木案台上摊着拆开的提琴面板。",
+   "exits": [
+    "loc_stage_left_wings",
+    "loc_climate_vault",
+    "loc_vip_corridor"
+   ],
+   "id": "loc_luthiers_workshop",
+   "name": "修琴工坊",
+   "pressure_modifiers": {
+    "press_shear_arm_collapse": "乐手们挤在工坊门口打听首席去了哪里"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "工坊门常开着，中场休息时乐手们进进出出",
+   "witnesses": [
+    "bg_usher_claire",
+    "bg_critic_albert"
+   ]
+  },
+  {
+   "affordances": [
+    "用细长的音柱钩探进琴身里校正音柱",
+    "在磨石上把工具的刃口磨出倒角",
+    "熬一锅鱼鳔胶，临时粘住开裂的面板"
+   ],
+   "detail": "大理石铺地、水晶吊灯高悬的二层回廊，理事们在这里接待贵宾，尽头一道小门通往后台。",
+   "exits": [
+    "loc_stage_left_wings",
+    "loc_climate_vault",
+    "loc_luthiers_workshop"
+   ],
+   "id": "loc_vip_corridor",
+   "name": "理事会贵宾回廊",
+   "pressure_modifiers": {
+    "press_shear_arm_collapse": "理事们开始低声议论，要不要换候补上场"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "理事、侍者与受邀宾客来来往往，谁在说话都有人留意",
+   "witnesses": [
+    "bg_usher_claire",
+    "bg_stagehand_jean"
+   ]
+  },
+  {
+   "affordances": [
+    "坐在琴凳上听首席拉一段",
+    "替首席给琴弓抹松香",
+    "关上琴房的隔音门"
+   ],
+   "detail": "音乐厅后楼的一间私人琴房，一把琴凳、一架谱台、墙上挂着几张老唱片的封套，窗台宽得能坐人。",
+   "exits": [
+    "loc_stage_left_wings"
+   ],
+   "id": "loc_cellist_practice_room",
+   "name": "首席的私人琴房",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "煤气灯调得很暗，厚厚的隔音门一关，屋里的琴声和别的声音都传不出去。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "沈",
+   "傅",
+   "林",
+   "谢",
+   "陈",
+   "苏",
+   "赵",
+   "韩",
+   "钱",
+   "周",
+   "孙",
+   "吴"
+  ],
+  "given_female": [
+   "微澜",
+   "以宁",
+   "玉华",
+   "冬梅",
+   "雪婷",
+   "雅珍",
+   "婉如",
+   "清秋",
+   "慕兰",
+   "素琴",
+   "月笙",
+   "晚枫"
+  ],
+  "given_male": [
+   "川",
+   "景恒",
+   "怀德",
+   "守义",
+   "大钧",
+   "长林",
+   "廷翰",
+   "振平",
+   "鸿声",
+   "以谦",
+   "承弦",
+   "知律"
+  ],
+  "given_neutral": [
+   "青",
+   "羽",
+   "若",
+   "真",
+   "安",
+   "言",
+   "致",
+   "远",
+   "弦",
+   "音",
+   "律",
+   "和"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留十九世纪末巴黎大音乐厅的背景。改动：地区从华东改回巴黎，与年代一致；与歌剧院世界几乎同形的规则、张力、压力、钩子、转折各改写一句；四个玩家身份原本与人物模板是同一批人，改写为外交特使随员、留声机录音师、乐团第二大提琴手、储琴库夜班看守；几位人物的公开身份与成年背景前后矛盾处按原稿主体统一；大提琴首席与理事会会长的倾向卡放宽到脱险后可心动，亲密前提写明危机解除、双方清醒自愿；新增一个散场后修琴工坊的亲密日常；写死的人名改为身份称呼或占位。另：原稿约七成文字照搬歌剧院世界，按用户决定整体重写，保留巴黎大音乐厅、地下冰窖琴库、气密门咬住礼服与琴盒、钨钢尾针自救这条主线；危机改为冰窖融水逼近名琴、开演钟声与候补独奏者顶替、雷暴二次断电；人物权责、性格、台词、地点、日常与转折全部重写。",
+ "player_identities": [
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "带着蜡筒录音机守在侧翼，今晚要把首席的独奏录下来卖给唱片行。",
+   "gender": "any",
+   "id": "identity_master_tuner",
+   "reputation": "手艺好，嘴也紧。",
+   "resources": [
+    "一台蜡筒录音机和一箱工具",
+    "调律室与侧翼之间的通行许可"
+   ],
+   "risks": [
+    "录音若录进事故的杂音，合同就作废"
+   ],
+   "role": "受雇来录首演的成年留声机录音师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    40
+   ],
+   "baseline": "陪同特使出席七十周年首演的使馆随员，被引到后台参观时撞上了停电。",
+   "gender": "any",
+   "id": "identity_chief_cellist",
+   "reputation": "在使馆里以周到稳妥著称。",
+   "resources": [
+    "特使的口信与一枚外交通行徽章",
+    "理事会会长必须给几分面子的身份"
+   ],
+   "risks": [
+    "特使若因事故受惊，随员要担外交上的干系"
+   ],
+   "role": "随外国特使出访巴黎的成年使馆随员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}随员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "管金库钥匙和湿度表的看守，每晚提着马灯巡三遍。",
+   "gender": "any",
+   "id": "identity_acoustic_director",
+   "reputation": "老实本分，名琴出了差错第一个被怀疑。",
+   "resources": [
+    "金库的备用钥匙与湿度记录簿",
+    "一盏马灯和一把管钳"
+   ],
+   "risks": [
+    "名琴受损，看守要赔上全部积蓄"
+   ],
+   "role": "储琴金库的成年夜班看守",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "坐在首席身后第三把椅子，排练时常替首席调弦。",
+   "gender": "any",
+   "id": "identity_associate_cellist",
+   "reputation": "琴技扎实，在乐团里人缘不错。",
+   "resources": [
+    "一把备用琴弓和一盒松香",
+    "首席信得过的同行情分"
+   ],
+   "risks": [
+    "首演出了事，后排乐手最先被问责"
+   ],
+   "role": "乐团的成年第二大提琴手",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "十九世纪末的巴黎，大音乐厅为建团七十周年准备一场交响盛典，大提琴独奏首席每天在侧翼练到熄灯，古董琴存放在地下二十米刚通了电的恒温储琴金库。录音师、使馆随员和金库看守是这阵子的常客。夏天的雷暴还能让全城断电，金库的气密门是电磁阀控制的。",
+ "pressures": [
+  {
+   "choice": "是倒握尾针自己拧螺栓，还是让副首席递剪刀剪掉裙摆？",
+   "exits": [
+    {
+     "cost": "掌心被螺栓磨破，上台时握弓要忍着疼",
+     "option": "倒握钨钢尾针卡进泄压螺栓，逆着拧开放气"
+    },
+    {
+     "cost": "礼服少了一截后摆，全场都看得出来",
+     "option": "让副首席从门缝递进裁缝剪，剪掉被咬住的裙摆"
+    }
+   ],
+   "far": {
+    "consequence": "老琴的借约到期不续，首席的独奏生涯从此断在今晚。",
+    "due_days": 1,
+    "trigger": "若首席错过第三道钟声，独奏席当场易主。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_shear_arm_collapse",
+   "immediate": {
+    "minutes": 1,
+    "text": "橡胶圈还在胀，裙摆的丝线一根根绷断。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_stage_left_wings",
+    "loc_climate_vault"
+   ],
+   "near": {
+    "deadline_minutes": 3,
+    "text": "头顶传来第二道钟声，候补已经坐上了备用琴椅。"
+   },
+   "objective": "在第三道钟声前拧开泄压螺栓脱身，带着老琴走出琴库。",
+   "source": "accident",
+   "start_minute": 1205,
+   "tags": [
+    "disaster"
+   ],
+   "title": "气密门咬住长裙与琴盒",
+   "trigger": "雷暴断电，琴库气密门的橡胶圈胀起来，把首席长裙后摆与老琴的琴盒背带一起咬进门缝。"
+  },
+  {
+   "choice": "是先救琴，还是先救被咬住的自己？",
+   "exits": [
+    {
+     "cost": "身子一扭，被咬住的裙摆又撕开一截",
+     "option": "伸长手臂把琴盒推到冰块上"
+    },
+    {
+     "cost": "看守一走，楼梯口就没人守着了",
+     "option": "叫看守从门外用沙袋堵住排水口"
+    }
+   ],
+   "far": {
+    "consequence": "一把传了两百年的琴毁在今夜，首席要背一辈子的债。",
+    "due_days": 3,
+    "trigger": "若老琴受潮开胶，琴主人会当场收回借约。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_steam_boiler_overpressure",
+   "immediate": {
+    "minutes": 2,
+    "text": "冰水已经漫过鞋面，琴盒底角浸湿了一圈。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_climate_vault"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "又一块冰从架子上滑下来，砸起的水花溅上了琴盒。"
+   },
+   "objective": "在水漫进琴盒之前把老琴垫高，再清开堵住的排水沟。",
+   "source": "nature",
+   "start_minute": 1210,
+   "tags": [
+    "disaster"
+   ],
+   "title": "冰窖融水逼近老琴",
+   "trigger": "断电后冰窖的冰块开始塌化，融水顺着排水沟倒灌，一寸寸漫向放在地上的老琴琴盒。"
+  },
+  {
+   "choice": "是请会长当众驳回，还是让总监改曲目拖延？",
+   "exits": [
+    {
+     "cost": "会长若押错了宝，要在理事会上引咎",
+     "option": "请会长当众驳回换人的提议"
+    },
+    {
+     "cost": "委约新曲的首演顺序被打乱，作曲家会大发雷霆",
+     "option": "请总监宣布先演序曲，把独奏往后挪"
+    }
+   ],
+   "far": {
+    "consequence": "首席失去独奏席，会长也失去对音乐厅的掌控。",
+    "due_days": 2,
+    "trigger": "若候补上了台，副会长一派就会借势夺下理事会。"
+   },
+   "flags": [
+    "leverage"
+   ],
+   "hook_ids": [],
+   "id": "press_critic_box_scrutiny",
+   "immediate": {
+    "minutes": 2,
+    "text": "理事们传着纸条，候补独奏者抱着琴走向侧翼。"
+   },
+   "leverage": {
+    "basis": "会长握着开演前更换独奏者的最终决定权",
+    "holder": "char_su_yuhua_chairwoman",
+    "subject": "char_shen_weilan_cellist"
+   },
+   "location_ids": [
+    "loc_vip_corridor",
+    "loc_stage_left_wings"
+   ],
+   "near": {
+    "deadline_minutes": 60,
+    "text": "第三道钟声一响，会长就得当场表态。"
+   },
+   "objective": "让会长顶住换人的提议，替首席保住独奏席。",
+   "source": "person",
+   "start_minute": 1215,
+   "tags": [],
+   "title": "副会长提议换候补",
+   "trigger": "副会长在包厢里当众提议：首席迟迟不到，不如让候补独奏者先上，几位理事纷纷点头。"
+  },
+  {
+   "choice": "是让总监停下重来，还是让副首席领着声部凭记忆拉下去？",
+   "exits": [
+    {
+     "cost": "副首席走不开，琴库门口就没人守",
+     "option": "副首席凭记忆领着声部硬拉下去"
+    },
+    {
+     "cost": "宾客们都看见了，乐评人明天会大书特书",
+     "option": "总监停下，从头再起一次拍"
+    }
+   ],
+   "far": {
+    "consequence": "乐团的名声受损，明年的巡演邀约少了一半。",
+    "due_days": 5,
+    "trigger": "七十周年庆典在宾客面前重来一次，会登上明天的报纸。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_orchestra_score_divergence",
+   "immediate": {
+    "minutes": 1,
+    "text": "大提琴声部空了两小节，前排宾客回头张望。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_stage_left_wings"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "再乱下去，总监就得当众停下重来。"
+   },
+   "objective": "在乐团乱了阵脚之前重新理好谱子，把序曲稳稳拉完。",
+   "source": "accident",
+   "start_minute": 1208,
+   "tags": [
+    "disaster"
+   ],
+   "title": "大提琴声部失了领奏",
+   "trigger": "金库停电震落了乐池里的谱架，大提琴声部的总谱散了一地，后排弦乐错过了序曲第三段的进入。"
+  },
+  {
+   "choice": "是用副首席留的活结重新系，还是裹着斗篷上台？",
+   "exits": [
+    {
+     "cost": "两人得在楼梯拐角躲一分钟，赶上第三道钟声更悬了",
+     "option": "让副首席用那个活结把系带重新拉紧"
+    },
+    {
+     "cost": "穿着斗篷独奏，乐评人一定会追问缘由",
+     "option": "裹着副首席的深红斗篷直接上台"
+    }
+   ],
+   "far": {
+    "consequence": "大提琴首席会成为巴黎沙龙里的笑谈，下一季的独奏合约多半告吹。",
+    "due_days": 4,
+    "trigger": "若有人看见首席背后敞着，候补一派会当场发难。"
+   },
+   "flags": [
+    "leverage"
+   ],
+   "hook_ids": [],
+   "id": "press_costume_seam_tear",
+   "immediate": {
+    "minutes": 1,
+    "text": "每走一步，后腰的缝就张开一点，冷风灌进去。"
+   },
+   "leverage": {
+    "basis": "礼服是副首席亲手改的，只有副首席知道那个活结在哪里",
+    "holder": "char_lin_yining_cellist",
+    "subject": "char_shen_weilan_cellist"
+   },
+   "location_ids": [
+    "loc_stage_left_wings",
+    "loc_luthiers_workshop"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "独奏席在聚光灯正中，坐下时背后对着整个乐团。"
+   },
+   "objective": "在走上独奏席之前把系带重新系好，不让任何人看出破绽。",
+   "source": "institution",
+   "start_minute": 1212,
+   "tags": [],
+   "title": "礼服后腰系带松脱",
+   "trigger": "气密圈的拉力扯断了礼服后腰两枚暗钉，背后的系带松开半截，真丝内衬从缝里露出一指宽。"
+  },
+  {
+   "choice": "是让督察官出面说明地下断电，还是让总监用一首序曲把人心稳住？",
+   "exits": [
+    {
+     "cost": "宾客们知道出了事故，庆典的喜气冲淡了大半",
+     "option": "督察官当众说明是雷暴断电，地下正在抢修"
+    },
+    {
+     "cost": "独奏只能往后挪，副会长又多了一条攻讦的理由",
+     "option": "总监起拍序曲，用音乐把场子稳住"
+    }
+   ],
+   "far": {
+    "consequence": "首席的名声一夜扫地，就算今晚演完也没人信了。",
+    "due_days": 7,
+    "trigger": "若流言见了报，琴主人会立刻派人来收琴。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_auditorium_panic_spark",
+   "immediate": {
+    "minutes": 3,
+    "text": "几位乐手放下琴站起来张望，宾客席里起了嗡嗡声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vip_corridor",
+    "loc_luthiers_workshop"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "乐评人已经在本子上记下了首席失踪四个字。"
+   },
+   "objective": "在流言传到乐评人耳朵里之前压下去。",
+   "source": "rumor",
+   "start_minute": 1218,
+   "tags": [],
+   "title": "首席失踪的流言",
+   "trigger": "候场区里有人说首席卷了老琴跑了，乐手们交头接耳，流言顺着楼梯传进了宾客席。"
+  }
+ ],
+ "region": "巴黎大音乐厅舞台侧翼与地下二十米恒温储琴金库",
+ "rules": [
+  {
+   "id": "rule_curtain_iron_drop",
+   "text": "开演三道钟声响毕，独奏者未在台口就位即视为弃演，由候补独奏者当场顶替。"
+  },
+  {
+   "id": "rule_orchestra_pit_hydraulic",
+   "text": "储琴金库气密门靠充气硅胶圈封死门缝，断电后电磁阀反向自锁，只能从门框泄压阀一点点放气。"
+  },
+  {
+   "id": "rule_gala_etiquette_protocol",
+   "text": "冰窖琴库只许首席、副首席与调律师三人进出，开库须两把钥匙同时转动。"
+  },
+  {
+   "id": "rule_patron_access_authority",
+   "text": "理事会会长有权在开演前一刻更换独奏者，此决定当场生效，事后无从申诉。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "行礼",
+  "committed": "同盟",
+  "familiar": "融洽",
+  "flirting": "暗涌",
+  "intimate": "知心",
+  "stranger": "生客",
+  "testing": "试探"
+ },
+ "status": "released",
+ "style_hint": "写琴弦、松香与冷库的寒气，写开演钟声一声声逼近；机巧要落在大提琴本身的部件上，人物都是成年人，体面与心事并重",
+ "tension_engines": [
+  {
+   "id": "engine_shear_imbalance",
+   "text": "气密圈每膨胀一分，钢槽便把长裙后摆与琴盒背带咬得更紧，真丝经纬已开始一根根绷断。"
+  },
+  {
+   "id": "engine_iron_curtain_countdown",
+   "text": "冰窖的融水顺着排水沟倒灌，水面一寸寸逼近平放在地上的老琴琴盒。"
+  },
+  {
+   "id": "engine_public_gaze_scrutiny",
+   "text": "头顶传来第一道、第二道开演钟声，候补独奏者已经抱着琴站到了侧翼。"
+  },
+  {
+   "id": "engine_steam_valve_threat",
+   "text": "雷暴一阵紧过一阵，配电房的闸刀随时会第二次跳开，把琴库彻底封死在黑暗里。"
+  }
+ ],
+ "title": "名琴调律·弦乐修罗·巴黎大音乐厅冰窖琴库气密门咬住首席长裙",
+ "tone": [
+  "华丽",
+  "机巧",
+  "紧绷",
+  "清冷",
+  "优雅",
+  "压迫"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "twist_info_hydraulic_blueprint",
+   "requires": [
+    "char_fu_chuan_tuner"
+   ],
+   "text": "调律师翻出的原厂图纸上标着一个手动放气孔，就藏在门框外侧那块铜铭牌后面。"
+  },
+  {
+   "category": "人事",
+   "id": "twist_person_substitute_courage",
+   "requires": [
+    "char_shen_weilan_cellist"
+   ],
+   "text": "候补独奏者走到琴库门口，看了一眼副首席的斗篷，转身上楼告诉副会长：首席马上就到。"
+  },
+  {
+   "category": "资源",
+   "id": "twist_resource_tuning_fork_steel",
+   "requires": [
+    "char_shen_weilan_cellist"
+   ],
+   "text": "大提琴那根实心钨钢加长尾针是名匠特制，末端的六角梅花螺栓正好吻合门框泄压阀的阀芯。"
+  },
+  {
+   "category": "制度",
+   "id": "twist_institution_curtain_rule",
+   "requires": [
+    "char_lucas_inspector"
+   ],
+   "text": "音乐厅章程里还有一条老规矩：雷暴断电期间钟声不算数，三道钟声要等来电后重新敲。"
+  },
+  {
+   "category": "时限",
+   "id": "twist_deadline_iron_slack",
+   "requires": [
+    "press_shear_arm_collapse"
+   ],
+   "text": "气密圈老化的那一侧比另一侧早漏气半分钟，门缝恰好松开一指宽，够大提琴首席把裙摆抽出半截。"
+  },
+  {
+   "category": "关系",
+   "id": "twist_relation_patron_pledge",
+   "requires": [
+    "char_su_yuhua_chairwoman"
+   ],
+   "text": "理事会会长当年是靠大提琴首席亡父的一封推荐信才进了音乐圈，今夜出手是还一份旧情，不图别的。"
+  }
+ ]
+}

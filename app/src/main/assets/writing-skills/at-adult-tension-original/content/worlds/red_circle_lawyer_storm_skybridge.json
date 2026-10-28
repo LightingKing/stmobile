@@ -1,0 +1,2468 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满四十二岁，持有高压进网作业特种操作证，具备完全民事行为能力。",
+   "age_range": [
+    40,
+    46
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_building_electrician_laoma",
+   "line": "配电箱三号副闸已经拉下，只要挑开门体行程开关回路，电磁锁立马释放！",
+   "location_ids": [
+    "loc_refuge_floor_electrical_control_room"
+   ],
+   "name": "强电班长马工",
+   "role": "避难层机电强电班长"
+  },
+  {
+   "adult_context": "年满三十八岁，超高层大厦保洁领班，具备完全民事行为能力。",
+   "age_range": [
+    36,
+    42
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_cleaning_supervisor_zhang",
+   "line": "台风把连廊地砖震翘了，女律师小心脚下别绊着，我拿防滑垫给你们垫着！",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "name": "高空保洁主管张姐",
+   "role": "天桥保洁领班张姐"
+  },
+  {
+   "adult_context": "年满二十二岁，知名大学法学院研一成年实习生，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_trainee_paralegal_zhou",
+   "line": "电梯厅备用干毛巾和温矿泉水准备好了，女律师脱困后马上就能用上！",
+   "location_ids": [
+    "loc_skybridge_high_elevator_lobby"
+   ],
+   "name": "成年实习助理小周",
+   "role": "律所兼职实习生小周"
+  },
+  {
+   "adult_context": "年满三十岁，市防汛指挥部驻点气象工程师，具备完全民事行为能力。",
+   "age_range": [
+    28,
+    34
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_meteo_officer_chen",
+   "line": "台风眼将在八分钟后擦过陆家嘴，之后会有短暂风速平息窗口，抓紧撤离！",
+   "location_ids": [
+    "loc_skybridge_high_elevator_lobby"
+   ],
+   "name": "气象联络员陈工",
+   "role": "防汛驻点气象工程师"
+  },
+  {
+   "adult_context": "年满二十四岁，大厦消控室值班员，具备完全民事行为能力。",
+   "age_range": [
+    24,
+    28
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_security_dispatcher_li",
+   "line": "六十二层天桥防火门监控画面正常，电磁释放指令已下发，请现场合力推门！",
+   "location_ids": [
+    "loc_refuge_floor_electrical_control_room"
+   ],
+   "name": "中控室安防员小李",
+   "role": "大厦中控室值班员"
+  },
+  {
+   "adult_context": "年满四十岁，超高层幕墙检修高级技师，具备完全民事行为能力。",
+   "age_range": [
+    38,
+    44
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_facade_engineer_wang",
+   "line": "幕墙夹胶层完好无裂纹，阻尼器虽然移位但主梁骨架稳固，不要恐慌！",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "name": "幕墙工程师老王",
+   "role": "高空幕墙巡检技师"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "高冷清艳的红圈所女合伙人与精深沉稳的建筑结构总工程师在狂风震荡的天桥绝境达成极致默契，一人拿出高硬度淬火名笔指导微动开关位置，一人利用力学支点合力下压破拆，于三百米云端之上化险为夷。",
+   "id": "cc_lawyer_and_architect_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "lawyer_shen_ruoxi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在云端生死交睫的破拆关头彼此双手相贴合力握紧笔身，体会到纯粹的担当与信赖。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "architect_lin_chengzhi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同舟共济战胜高空风暴建立起的过命技术交情。",
+     "stage": "familiar"
+    },
+    {
+     "a": "lawyer_shen_ruoxi",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "architect_lin_chengzhi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "傲娇女大状与青年总工程师在绝境中碰撞出跨界的心灵共振。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "lawyer_shen_ruoxi",
+    "architect_lin_chengzhi"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在天桥阻尼失衡前撬脱开关释放门锁并安全抽离裙摆撤入核心筒。",
+    "limit_gap": "女律师套裙被夹动弹不得，天桥阻尼超标留给二人的时间仅剩数分钟。",
+    "meeting_reason": "谈判第十九天，女合伙人在天桥里逐条过交割条款，结构总工推门进来查阻尼铰链，女律师头也不抬：十分钟，别出声。",
+    "resource_gap": "女律师掌有高硬度定制名牌签字笔与敏锐洞察，结构总工深谙门禁构造与力学杠杆原理。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_skybridge_damping_vs_steel_pen_clip",
+    "te_engineer_mechanics_vs_fire_door_jam"
+   ]
+  },
+  {
+   "chemistry": "红圈所女合伙人的凌厉傲骨与国际仲裁泰斗的如山定力在危机中交相辉映，一人坚守门锁自救，一人从容公证不可抗力存续，共同缔造商战传奇。",
+   "id": "cc_lawyer_and_arbitrator_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "lawyer_shen_ruoxi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在台风狂暴中并肩守护重大商业资产建立起的深厚情义。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "senior_arbitrator_he_baiming",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "法学同道之间的志同道合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "lawyer_shen_ruoxi",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "senior_arbitrator_he_baiming",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "法学院多年师徒知遇与法理风骨传承之恩。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "lawyer_shen_ruoxi",
+    "senior_arbitrator_he_baiming"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保百亿协议在台风灾变中合法有效交割。",
+    "limit_gap": "仲裁员腿脚不便，女律师受制于门缝夹困。",
+    "meeting_reason": "首席仲裁员约女合伙人在天桥东端喝咖啡，说卖方准备在最后一刻加一条对赌，问女律师接不接。",
+    "resource_gap": "女律师身处行动最前沿，仲裁员手握国际权威仲裁公证力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_lawyer_pride_vs_pinned_designer_suit",
+    "te_billion_contract_vs_typhoon_evac"
+   ]
+  },
+  {
+   "chemistry": "退役军人出身的安保总监与名校青年结构总工强强联手，一人严控楼层秩序与配电母线，一人专注天桥形变与破拆，构筑大厦最强守护屏障。",
+   "id": "cc_property_and_architect_stabilize",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "property_director_gu_zhenghao",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "大厦机电运维中的信赖伙伴。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "architect_lin_chengzhi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "技术过硬的工程师战友。",
+     "stage": "familiar"
+    },
+    {
+     "a": "property_director_gu_zhenghao",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 4
+     },
+     "b": "architect_lin_chengzhi",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 4
+     },
+     "reason": "超甲级地标运维中历经无数风雨建立的铁血信任。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "property_director_gu_zhenghao",
+    "architect_lin_chengzhi"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "安全疏散天桥滞留人员并复位防火重门。",
+    "limit_gap": "双子塔摆幅过大，配电柜断电操作需冒电弧打火危险。",
+    "meeting_reason": "台风预警升到红色，物业安全总监和结构总工在避难层争要不要提前封桥。",
+    "resource_gap": "物业总监统辖全楼安防与特权卡，结构总工精通天桥力学参数。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_skybridge_damping_vs_steel_pen_clip",
+    "te_engineer_mechanics_vs_fire_door_jam"
+   ]
+  },
+  {
+   "chemistry": "涉外顶级律政合伙人与百亿资方首席财务官两位职场天花板女性在灾变前展现出毫无保留的患难信赖，一人破门自救，一人死守离岸交割节点。",
+   "id": "cc_lawyer_and_cfo_sisterhood",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "lawyer_shen_ruoxi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "共同经历风暴生死交割结下的过命情义。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "client_tech_cfo_xue_ting",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "商战交锋中的坦率相待。",
+     "stage": "familiar"
+    },
+    {
+     "a": "lawyer_shen_ruoxi",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "client_tech_cfo_xue_ting",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "三年商海并肩征战、荣辱与共的挚友闺蜜深情。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "lawyer_shen_ruoxi",
+    "client_tech_cfo_xue_ting"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保百亿投资落地且双姝安然脱离险境。",
+    "limit_gap": "门缝挤压严重，离岸银行交割窗口分秒流逝。",
+    "meeting_reason": "女合伙人和卖方首席财务官在天桥两端隔着玻璃对峙了一整天，傍晚两人同时去倒咖啡，在茶水台前碰了个正着。",
+    "resource_gap": "女律师主导法律自救，薛婷手握百亿资金调度密钥。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_billion_contract_vs_typhoon_evac",
+    "te_lawyer_pride_vs_pinned_designer_suit"
+   ]
+  },
+  {
+   "chemistry": "一线电工技术与百亿傲娇大律师在危急关头的跨阶层真诚互助，电工指点回路断电诀窍，律师放下身段冷静配合，展现平等互信的人性闪光。",
+   "id": "cc_mechanic_and_lawyer_aid",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "lawyer_shen_ruoxi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死患难间打破身份隔阂的真挚相助。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "property_director_gu_zhenghao",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "恪尽职守的一线协作默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "lawyer_shen_ruoxi",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "property_director_gu_zhenghao",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对一线安防人员临危不乱恪尽职守的由衷敬佩。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "lawyer_shen_ruoxi",
+    "property_director_gu_zhenghao"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "合力阻断过载电路并推门脱困。",
+    "limit_gap": "电工地位微轻，律师受困门框。",
+    "meeting_reason": "物业安全总监来天桥通知今晚必须清场，女合伙人说签字仪式定在明早九点，谁也不能动这张桌子。",
+    "resource_gap": "电工精熟强弱电走线图，律师拥有定制高硬度器械与敏锐洞察。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_skybridge_damping_vs_steel_pen_clip",
+    "te_lawyer_pride_vs_pinned_designer_suit"
+   ]
+  },
+  {
+   "chemistry": "高级合伙人言传身教与初入职场新人的忠诚担当交织，师长临危处断庇佑后辈，新人舍身护卫案卷原件，演绎律界风骨传承。",
+   "id": "cc_lawyer_and_intern_guidance",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "lawyer_shen_ruoxi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在千钧一发之际助其推开重门的过命交情。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "intern_associate_su_xiaoyu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "患难救护中结下的深厚同袍情谊。",
+     "stage": "familiar"
+    },
+    {
+     "a": "lawyer_shen_ruoxi",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "intern_associate_su_xiaoyu",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "成年法学院毕业生入职红圈所后共同拼搏结下的深厚同门袍泽情谊。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "lawyer_shen_ruoxi",
+    "intern_associate_su_xiaoyu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保二人并肩脱困且百亿底稿毫发无损。",
+    "limit_gap": "天桥剧烈摇晃，年轻新人力量有限。",
+    "meeting_reason": "助理律师抱着第七版协议跑进天桥，说对方又改了三处，女合伙人让助理先坐下喝口水。",
+    "resource_gap": "女律师经验丰厚决断凌厉，助理律师贴身保全全套原件箱。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_billion_contract_vs_typhoon_evac",
+    "te_lawyer_pride_vs_pinned_designer_suit"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_skybridge_storm_howl_glass_creak",
+   "reach": "all",
+   "text": "三百米云端十六级飓风呼啸与玻璃幕墙受压呻吟声"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_steel_pen_clip_door_latch_click",
+   "reach": "local",
+   "text": "精钢笔夹精准拨动微动行程开关电磁断电清脆咔哒声"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "北大与哈佛法学双硕士，中国与纽约州执业律师，做了九年跨境并购，三十出头当上红圈所最年轻的出资合伙人，签不签、怎么签由本人拿主意。",
+   "age_range": [
+    29,
+    33
+   ],
+   "appearance_options": [
+    "身穿高定羊毛真丝混纺深灰双排扣套裙，内衬米白真丝衬衫，两靥泛着天然娇憨紧致的微婴儿肥与饱满水润胶原蛋白，丹凤眸清冷明澈，神采干练凌厉。",
+    "纤白手指紧握签字笔，发丝在天桥气流中微拂，玉容虽在巨震中微白，整个人却如出鞘冷剑般挺拔端庄，展现出毫无畏惧的律政女王仪态。"
+   ],
+   "decision": {
+    "avoids": [
+     "推卸责任的优柔寡断之辈",
+     "借危急之名行轻薄非分之事"
+    ],
+    "contrast": "外表清冷高傲且面颊带有水灵婴儿肥反差萌的女大状，面对生死危机却展现出远超常人的钢铁意志与硬核动手魄力。",
+    "core_value": "商战如战场，契约重泰山，在这三百米云端之上，没有任何风浪能逼我{npc.name}认输！",
+    "goal_options": [
+     "拔出签字笔精准撬开门框缝隙内微动限位行程开关切断强电脱身",
+     "在台风毁坏天桥前指挥团队将百亿主协议文本妥善转移至核心筒"
+    ],
+    "never": [
+     "弃下签约团队与客户独自逃生"
+    ],
+    "prefers": [
+     "严谨高效的专业主义行动",
+     "临危不乱的硬朗担当气概"
+    ],
+    "pressure_responses": {
+     "breaking": "在门锁咔哒断电弹开瞬间同协助者并肩借力推门而出",
+     "high": "咬紧银牙将签字笔笔夹以精密角度反向卡入行程开关卡扣",
+     "low": "镇定自若翻阅案卷向资方简明扼要汇报风险控制方案",
+     "mid": "双手护住签约公文包侧身阻挡倾斜门框二次压迫"
+    },
+    "relationship_stance": "平素言辞锋利，谈判桌上一个逗号都不让；谈了三周，女律师每晚加班到天桥熄灯，结构总工就每晚找个理由来查一遍铰链。",
+    "withdrawal": "退至核心筒干燥平地优雅理平微褶套裙清冷驻足。"
+   },
+   "gender": "female",
+   "gender_reason": "红圈所最年轻涉外非诉出资合伙人，执业精英女律师。",
+   "id": "lawyer_shen_ruoxi",
+   "identity": {
+    "authority": "对百亿跨国并购核心谈判条款裁决、法律意见书最终出具及团队应急处置拥有最高决定权。",
+    "exposure": "为了赢得合伙人信任曾连续四十八小时不眠不休审核底稿导致低血糖晕厥的隐秘过往",
+    "hidden": "西装内侧口袋暗藏着母亲生前赠予的微雕平安玉扣",
+    "limits": [
+     "高定套裙下摆与定制细腰链被变形防火门和地面限位销死死咬住无法脱身",
+     "身为首席合伙人需维系顶级律所体面与商业机密安全不可毁损裙摆失仪"
+    ],
+    "obligations": [
+     "誓死保全百亿跨境并购协议核心原件与全球交割安全"
+    ],
+    "resources": [
+     "一支随身携带的德国进口定制名牌签字笔（附带一点二毫米加厚淬火合金高强度精钢笔夹）",
+     "一部内置北斗双向卫星短报文功能的特种安全加密手机"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在六十二层悬空天桥震颤绝境中从容护在身前的沉稳男性肩膀",
+     "共同凝视门锁内部构造时彼此靠近传来的温热气息与专业自信"
+    ],
+    "boundaries": [
+     "严守涉外名门律师的自律矜持与职场高洁操守",
+     "绝不容许任何利用危难情境进行的无礼要求"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "同对方并肩站在观景大厅落地窗前俯瞰风暴渐散的天际线。",
+    "dislikes": [
+     "大难临头只顾自己逃窜的庸碌俗客",
+     "目光轻浮在职业裙摆处乱晃的市井之徒"
+    ],
+    "expression": "耳垂泛起一层不易察觉的微红，偏过带有微婴儿肥的俏脸轻挽耳边碎发，随即将调准角度的签字笔递向对方掌心。",
+    "likes": [
+     "合力化解险情时对方眼中坦荡而专注的敬重目光",
+     "默契配合推开重门瞬间十指相触的踏实触感"
+    ],
+    "preconditions": [
+     "精钢笔夹成功挑开限位开关且套裙安然从门缝抽离",
+     "全员安全撤离天桥并顺利完成百亿协议签署",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "红圈所最年轻的涉外并购出资合伙人",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_skybridge_glass_gallery_hall",
+     "to": 1035
+    },
+    {
+     "from": 1035,
+     "location_id": "loc_skybridge_glass_gallery_hall",
+     "to": 1050
+    },
+    {
+     "from": 1050,
+     "location_id": "loc_refuge_floor_electrical_control_room",
+     "to": 1065
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "名贵签字笔精钢笔夹出现轻微划痕磨损，{npc.name}指尖受力泛白微麻。",
+      "option": "{npc.name}递出进口名牌签字笔，由两人合力利用精钢笔夹深入缝隙别开微动行程开关常闭触点断电脱身。"
+     },
+     {
+      "cost": "价值十数万的高定定制职业套裙与限量名牌腰链彻底损坏毁弃。",
+      "option": "直接用美工刀暴力割断被夹住的高定羊毛套裙下摆与定制腰链抽身逃生。"
+     }
+    ],
+    "pressure": "天桥悬挑桁架应变指标逼近红色警戒线，伺服电机短路导致钢门持续自锁挤压，若四分钟内无法断电推门，整扇门锁将彻底焊死且连廊有坍塌奇险。",
+    "trigger": "超强台风导致六十二层天桥两端防风阻尼铰链剧烈位移，电动平开防火钢门扭曲挤死，将{npc.name}高定套裙下摆与腰链咬在门缝止退销内。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要这支签字笔的精钢笔夹不折，百亿交割和我自己，都不会折在这座天桥上。",
+    "surface": "都不要慌乱！这扇电动平开防火门是双回路微动开关控制，笔夹硬度达标正合缝隙尺寸，把住门把手，听我倒数三秒一同向外推门！"
+   }
+  },
+  {
+   "adult_context": "现年满二十六岁，国家一级注册结构工程师，持有超高层复杂钢结构与减震阻尼系统专项检测资质，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    26
+   ],
+   "appearance_options": [
+    "身穿深蓝工装夹克，内衬防刮工装衬衫，肩宽背挺，鼻梁上架着一副钛金半框眼镜，眼神睿智沉稳。",
+    "手握激光测距仪，工装衣袖高高卷起露出结实小臂，额前沾着几滴被暴风吹入的雨滴，英气逼人。"
+   ],
+   "decision": {
+    "avoids": [
+     "情绪化的盲目蛮干",
+     "不负责任的胡乱指挥"
+    ],
+    "contrast": "看似斯文内敛的年轻学者工程师，在千钧一发之际展现出雷霆万钧的行动力与血性担当。",
+    "core_value": "建筑结构是有生命的，这座天桥抗得住十六级风，我就抗得住！",
+    "goal_options": [
+     "利用女律师提供的精钢笔夹精准定位行程开关切断抱闸电机",
+     "在天桥应力过载前抢修阻尼器泄压阀降低连廊扭转角"
+    ],
+    "never": [
+     "在全体受困人员安全撤离前离开天桥"
+    ],
+    "prefers": [
+     "精准严密的逻辑分析",
+     "生死关头的果断协作"
+    ],
+    "pressure_responses": {
+     "breaking": "在门板弹开瞬间单臂护住女律师迅速撤退",
+     "high": "握紧工具精准插入开关卡口一发力别断自锁回路",
+     "low": "飞速计算门框扭转公差指导众人避开挤压死角",
+     "mid": "用坚实后背死死顶住门板外缘为内部操作撑开微小空隙"
+    },
+    "relationship_stance": "三周来天天上天桥查铰链，查到后来连保洁阿姨都知道，结构总工查的不全是铰链。",
+    "withdrawal": "立于核心筒防火门前最后一次核对结构传感器读数。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "architect_lin_chengzhi",
+   "identity": {
+    "authority": "对悬空天桥结构安全评估、紧急封桥指令下达及机电破拆方案拥有现场总指挥权。",
+    "exposure": "在天桥设计初期曾与境外建筑事务所就阻尼器冗余参数发生过激烈技术争执",
+    "hidden": "随身记事本里夹着一张亲自手绘的双子塔落日结构透视图",
+    "limits": [
+     "徒手力量无法强行推开数百公斤抱死的电动防火平开重门",
+     "需时刻监控整座天桥阻尼位移仪表分身乏术"
+    ],
+    "obligations": [
+     "保障六十二层连廊内滞留人员零伤亡撤入核心筒"
+    ],
+    "resources": [
+     "一套专业便携式结构变形激光测距仪",
+     "一把硬质合金电工重型螺丝刀"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "年轻女律师雷厉风行外表下蕴藏的超凡冷静与机敏智慧",
+     "风暴危局中彼此呼吸相闻并肩作战的强烈心跳共鸣"
+    ],
+    "boundaries": [
+     "恪守工程师职业自律与对女性的绝对尊重",
+     "严禁乘危越界之举"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "同女律师并肩靠在避难层安全窗台前共饮温水。",
+    "dislikes": [
+     "推诿扯皮的官僚作风",
+     "遇险尖叫放弃自救的软弱行为"
+    ],
+    "expression": "脱下干燥的防风工装外套披在女律师肩头，眼中满是真挚赞许与温存关切。",
+    "likes": [
+     "理智清晰的沟通配合",
+     "逆境中彼此眼底闪烁的坚定信念"
+    ],
+    "preconditions": [
+     "防火门锁成功解脱且女律师安全脱身",
+     "天桥阻尼系统复位且无玻璃爆裂坠落",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "天桥结构总工兼减震主管",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_skybridge_glass_gallery_hall",
+     "to": 1035
+    },
+    {
+     "from": 1035,
+     "location_id": "loc_skybridge_glass_gallery_hall",
+     "to": 1050
+    },
+    {
+     "from": 1050,
+     "location_id": "loc_refuge_floor_electrical_control_room",
+     "to": 1065
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌虎口受门缝反弹震荡产生轻微红肿。",
+      "option": "用精钢笔夹挑开微动行程开关常闭簧片实现断电卸压脱困。"
+     },
+     {
+      "cost": "破坏价值数十万元的高级别特种耐火防护门。",
+      "option": "利用气割设备强行切断防火门合页轴承。"
+     }
+    ],
+    "pressure": "连廊玻璃幕墙应力传感器闪烁红灯，若三分钟内不能断开防火门自锁，门体将永久扭曲无法开启。",
+    "trigger": "台风引起双子塔摆幅超八百毫米，天桥阻尼铰链受力形变导致防火门框对角挤压抱死。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要这支笔夹能切断电磁锁，我就是拼着肩膀脱臼也要把这扇门撞开！",
+    "surface": "看右侧铰链上方！笔夹插进那个凹槽刚好能顶开微动开关的常闭簧片，我来按住门把手，听我口令一起推！"
+   }
+  },
+  {
+   "adult_context": "现年满二十二岁，知名政法大学法学学士，已通过国家统一法律职业资格考试，具备完全民事行为能力与正式律师助理身份。",
+   "age_range": [
+    22,
+    22
+   ],
+   "appearance_options": [
+    "身穿黑色正统职业西服套装，戴着黑框防蓝光眼镜，面容清秀甜美，微带青涩但神情极为专注认真。",
+    "怀中死死抱紧装有全套审批原件的防水公文箱，雨水打湿刘海依然寸步不离女律师身后。"
+   ],
+   "decision": {
+    "avoids": [
+     "临阵脱逃的背叛行为",
+     "敷衍塞责的工作态度"
+    ],
+    "contrast": "外表文静柔弱如同初出茅庐的大学女生，在暴风骤雨关头却展现出惊人的职业忠诚与韧劲。",
+    "core_value": "女律师教过我，律师在任何绝境下都不能丢掉专业操守与客户委托，我绝不掉链子！",
+    "goal_options": [
+     "紧跟女律师并用身体护住全套合同法律文书原件",
+     "协助递送工具并大声呼应结构总工程师指导疏散"
+    ],
+    "never": [
+     "遗落或损坏当事人交付的一页原件"
+    ],
+    "prefers": [
+     "严丝合缝的工作标准",
+     "同舟共济的温暖归属"
+    ],
+    "pressure_responses": {
+     "breaking": "在脱险的一刻忍不住流出激动泪水但立即擦干整理西装",
+     "high": "鼓起全部勇气合力握住门把手与女律师一同向前发力",
+     "low": "双手微颤但依然飞速用手机记录各方风险确认时间戳",
+     "mid": "弯腰紧紧护住公文箱用自己背部阻挡倒伏绿植花盆"
+    },
+    "relationship_stance": "对女律师极度忠诚崇敬，视其为遮风挡雨的师长与引路人，愿为团队赴汤蹈火。",
+    "withdrawal": "紧紧跟随在女律师身侧端正站立清点文件箱锁扣。"
+   },
+   "gender": "female",
+   "gender_reason": "法学院应届毕业第一年入职红圈所的二十二岁成年授薪助理律师。",
+   "id": "intern_associate_su_xiaoyu",
+   "identity": {
+    "authority": "对全套并购底稿清点、盖章原件核验及现场会议纪要记录拥有执行权限。",
+    "exposure": "在撰写尽职调查报告时曾漏掉一条标的公司微小租赁瑕疵被女律师严肃训导",
+    "hidden": "视女律师为职业生涯唯一崇拜的楷模偶像并在日记本里暗下决心成为同样优秀的合伙人",
+    "limits": [
+     "经验尚浅在面对高空建筑剧烈摇晃时难免心跳加速恐惧",
+     "缺乏机械力学知识无法独立实施锁具破拆"
+    ],
+    "obligations": [
+     "确保女律师人身安全及客户百亿核心合同原件绝对完整"
+    ],
+    "resources": [
+     "一个专业级三防重型防水文件箱",
+     "随身备用的多功能无痕胶带与速干消毒喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女律师在万丈高空绝境中展现出的从容优雅与强大气场",
+     "危急时刻同行男士挺身而出扛起重担的非凡魅力"
+    ],
+    "boundaries": [
+     "恪守职场后辈本分与职业礼仪",
+     "绝不行轻浮越权之举"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "同女律师并肩坐在避难层沙发上认真复核合同条款。",
+    "dislikes": [
+     "自私自利的逃避嘴脸",
+     "毫无分寸的毛手毛脚之举"
+    ],
+    "expression": "双手紧紧抱住公文箱，眼中闪烁着敬佩与感激的光芒，轻声为施救众人加油鼓劲。",
+    "likes": [
+     "彼此给予的坚定鼓励目光",
+     "患难之中的真心关切护佑"
+    ],
+    "preconditions": [
+     "女律师安然脱险且协议文件完好无缺",
+     "全员安全撤离至一层接待大厅"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "红圈所并购组非诉助理律师",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_skybridge_glass_gallery_hall",
+     "to": 1035
+    },
+    {
+     "from": 1035,
+     "location_id": "loc_skybridge_glass_gallery_hall",
+     "to": 1050
+    },
+    {
+     "from": 1050,
+     "location_id": "loc_refuge_floor_electrical_control_room",
+     "to": 1065
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "西服肩膀擦破，手臂受钝挫伤泛起青紫。",
+      "option": "{npc.name}侧身扑倒以自己肩肘软组织硬抗掉落吸音板护住箱体。"
+     },
+     {
+      "cost": "箱体外壳擦出两道深色磨损划痕。",
+      "option": "将公文箱迅速滑入连廊固定不锈钢座椅下方凹槽固定。"
+     }
+    ],
+    "pressure": "若公文箱被砸落坠向玻璃地面，不仅百亿并购协议恐受损，重物砸击更可能击穿已受压的夹胶玻璃。",
+    "trigger": "强台风气浪震落了连廊上方的金属吸音板，正好砸向{npc.name}手中的三防公文箱。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "女律师就是我的榜样，今夜我{npc.name}一定要堂堂正正站在女律师身边！",
+    "surface": "女律师！合同原件全部在防水箱里安全锁好了！结构总工，需要我做什么尽管吩咐！"
+   }
+  },
+  {
+   "adult_context": "现年满三十五岁，持有高级物业管理师与注册安全工程师资格，系大厦物业安全最高常任指挥官，具备完全民事行为能力。",
+   "age_range": [
+    35,
+    35
+   ],
+   "appearance_options": [
+    "身穿黑色物业管理风衣，佩戴专业降噪对讲耳机与巡检对讲机，国字脸庞，面容刚毅神情严肃。",
+    "手持对讲机高声呼叫各班组，步伐沉稳有力，腰带上挂着全套大厦应急门禁通行总卡。"
+   ],
+   "decision": {
+    "avoids": [
+     "违反纪律的私自行动",
+     "制造恐慌的虚假噪音"
+    ],
+    "contrast": "外表威严刻板不苟言笑，在生死考验前却展现出恪尽职守以身作则的军旅风范。",
+    "core_value": "安全就是摩天大楼的底线，六十二层无论困着谁，我{npc.name}也必须平平安安带回地面！",
+    "goal_options": [
+     "疏通高空穿梭电梯厅拥堵人群引导其进入安全防烟楼梯间",
+     "协调机电班组强行断开六十二层天桥配电箱母线负载"
+    ],
+    "never": [
+     "在最后一批被困租户撤离前私自乘坐救援梯下楼"
+    ],
+    "prefers": [
+     "绝对服从的安全规章",
+     "临危不乱的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "在人员全数撤入避难层后重重关死防烟大门回身警戒",
+     "high": "抵住门扇用力挥手指挥现场人员同步推门脱困",
+     "low": "手持扩音喇叭在电梯厅严厉制止人群推搡踩踏",
+     "mid": "亲自带领工程电工奔赴控制室执行应急断电方案"
+    },
+    "relationship_stance": "赏识有魄力、懂大局的专业人士，对女律师从容果敢的自救处置深表敬重并全力策应。",
+    "withdrawal": "立于避难层通信控制台前持续向市防汛指挥部报告战果。"
+   },
+   "gender": "male",
+   "gender_reason": "管理多栋陆家嘴顶级超甲级地标的三十五岁资深物业工程总监。",
+   "id": "property_director_gu_zhenghao",
+   "identity": {
+    "authority": "对全楼防台风应急预案启动、垂直电梯群管制及避难层人员疏散拥有行政指挥权。",
+    "exposure": "曾因台风演练中个别租户不配合而向上级打过措辞严厉的问责报告",
+    "hidden": "年轻时曾是武警高空消防搜救特勤中队退役骨干",
+    "limits": [
+     "需兼顾全楼上百家租户安全无法长时间固定在天桥现场",
+     "在供电中继站切断后无法远程遥控防火门电动锁"
+    ],
+    "obligations": [
+     "确保双子塔在超强台风中实现零伤亡安全过渡"
+    ],
+    "resources": [
+     "一套大厦最高权限物理与电子双重应急特权卡",
+     "一部直连陆家嘴应急联动指挥中心的高功率防爆电台"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "面对绝境临危不乱的铁血指挥风度与如山安全感",
+     "危急时刻展现出的担当与守护弱者的崇高精神"
+    ],
+    "boundaries": [
+     "恪守安全指挥官法度本分",
+     "绝不作有违军旅严明纪律之举"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "立于指挥台前神色沉稳地向全楼通报险情解除。",
+    "dislikes": [
+     "大难临头制造踩踏的自私之流",
+     "不守规章胡乱指挥的蛮干分子"
+    ],
+    "expression": "用宽厚粗糙的大手敬了一个标准军礼，随即将矿泉水与毛巾递给脱困的女律师等人。",
+    "likes": [
+     "服从大局的冷静配合",
+     "共御天灾的过命交情"
+    ],
+    "preconditions": [
+     "天桥被困人员零伤亡撤入避难核心区",
+     "大厦主体结构经受住台风考验无次生灾害"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "超甲级大厦物业安全总监",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_skybridge_high_elevator_lobby",
+     "to": 1035
+    },
+    {
+     "from": 1035,
+     "location_id": "loc_refuge_floor_electrical_control_room",
+     "to": 1050
+    },
+    {
+     "from": 1050,
+     "location_id": "loc_skybridge_glass_gallery_hall",
+     "to": 1065
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗极大体能，嗓音极度嘶哑。",
+      "option": "{npc.name}亮出警备扩音器与防暴盾牌以雷霆声势强行弹压骚乱清空梯厅通道。"
+     },
+     {
+      "cost": "耗费多名安保人员近十分钟的安抚时间。",
+      "option": "由外籍安保主管以多语种通报实时安全数据引导众人分流静坐。"
+     }
+    ],
+    "pressure": "若盲目强行开启未检测电梯，一旦遇强台风断电将导致整轿厢人员坠落悬停在半空。",
+    "trigger": "滞留电梯厅的高管与外籍顾问因恐惧产生群体骚动，试图强行破坏门锁冲向未检测的备用梯。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "双子塔有我{npc.name}在，今夜绝不允许任何一人被困在风暴里！",
+    "surface": "天桥现场听我指挥！机房正在手动降载，结构总工女律师稳住门体，推开后立刻随巡检员进入避难层！"
+   }
+  },
+  {
+   "adult_context": "现年满四十五岁，法学博士，中国国际经济贸易仲裁委员会常任仲裁员兼资深商法教授，具备完全民事行为能力与权威仲裁权。",
+   "age_range": [
+    45,
+    45
+   ],
+   "appearance_options": [
+    "鬓角微霜，身穿深藏青色手工定制西服，气质儒雅深沉，眼眸中透着看透商海浮沉的睿智与淡定。",
+    "尽管狂风在窗外呼啸，依然单手负后稳稳立于连廊安全立柱旁，神情如静水深流波澜不惊。"
+   ],
+   "decision": {
+    "avoids": [
+     "投机取巧的背信弃义",
+     "患得患失的慌乱失态"
+    ],
+    "contrast": "看似文弱书生的资深法学泰斗，在直面三百米高空生死危机时却展现出泰山崩于前而色不变的圣哲定力。",
+    "core_value": "公义自见人心，法律止息干戈，风暴再大也吹不散一纸契约的庄严千钧！",
+    "goal_options": [
+     "现场签署不可抗力紧急交割仲裁公证确保证券市场有效认可",
+     "以法学长者威望安抚各方资方代表稳定军心"
+    ],
+    "never": [
+     "因险情威胁签署违背事实法律的虚假公证书"
+    ],
+    "prefers": [
+     "恪守诚信的契约精神",
+     "临大难而不乱的学者风骨"
+    ],
+    "pressure_responses": {
+     "breaking": "脱险后向女律师微微颌首投以极具分量的赞许目光",
+     "high": "在门锁即将断开之际取出印泥为补充协议加盖公证章",
+     "low": "静立一旁翻看协议备忘录神态悠然自若",
+     "mid": "温言宽慰惊恐的青年法务传授临危处断之道"
+    },
+    "relationship_stance": "对女律师才华风骨赞赏有加视作青年翘楚，对敢于挺身而出解危者报以长者深沉关怀。",
+    "withdrawal": "落座于避难层红木单人沙发沉稳端详窗外风暴。"
+   },
+   "gender": "male",
+   "gender_reason": "深耕国际经济贸易仲裁三十载的四十五岁德高望重资深仲裁员。",
+   "id": "senior_arbitrator_he_baiming",
+   "identity": {
+    "authority": "对跨境并购重大争议条款具备现场权威解释与不可撤销公断仲裁公信力。",
+    "exposure": "曾在一桩涉及跨国垄断巨头的仲裁案中顶住境外巨大政治压力依法做出公正裁决",
+    "hidden": "西装内袋一直珍藏着女律师当年法学院毕业论文的评阅导师亲笔批注",
+    "limits": [
+     "年过不惑体力不及青年骨干无法参与硬核暴力破拆",
+     "腿部曾受旧伤在剧烈震动中走动微显吃力"
+    ],
+    "obligations": [
+     "见证百亿并购交割程序在不可抗力天灾中合法有效成立"
+    ],
+    "resources": [
+     "一枚国际仲裁委员会专用公证钢印与特制红泥印泥",
+     "随身携带的高级降噪助听眼镜"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "长者如山岳般的深沉睿智定力与渊博学识",
+     "在风暴云巅坦然见证历史的崇高职业风采"
+    ],
+    "boundaries": [
+     "严守法学宗师尊严与君子之交淡如水之准则",
+     "绝不逾越长者风度"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "同女律师等人围坐于会客茶几前探讨跨国并购交割收尾细节。",
+    "dislikes": [
+     "轻浮浅薄的市侩做派",
+     "背弃诺言的无耻行径"
+    ],
+    "expression": "收起公证钢印，微笑着向女律师与结构总工程师点头致意，言辞平缓掷地有声。",
+    "likes": [
+     "坦荡真诚的心灵交流",
+     "尊重法治与真理的知音之谊"
+    ],
+    "preconditions": [
+     "不可抗力交割文书公证无误完成",
+     "现场全员平安脱离天桥危境"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "国际商事仲裁院资深首席仲裁员",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_skybridge_glass_gallery_hall",
+     "to": 1035
+    },
+    {
+     "from": 1035,
+     "location_id": "loc_skybridge_high_elevator_lobby",
+     "to": 1050
+    },
+    {
+     "from": 1050,
+     "location_id": "loc_refuge_floor_electrical_control_room",
+     "to": 1065
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗一份不可再生的加急仲裁特种防伪公证原纸。",
+      "option": "{npc.name}当场草拟并盖印《不可抗力程序中止与主约效力存续声明书》交由双方当场签署。"
+     },
+     {
+      "cost": "消耗大量加密卫星带宽并产生巨额紧急仲裁程序规费。",
+      "option": "通过卫星电话连线国际商会日内瓦总部开启紧急跨境听证会。"
+     }
+    ],
+    "pressure": "若十分钟内无人依据国际仲裁法出具不可抗力临时确认函，该项历时三年的重大国家级并购将彻底告吹。",
+    "trigger": "境外买方投资团队因天桥剧震和断电恐慌试图单方面毁约撤回百亿投资意向函。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "青出于蓝而胜于蓝，今夜有女律师这等巾帼俊杰，中国涉外法治未来可期！",
+    "surface": "女律师，莫慌！笔夹别锁巧劲正合《罗马法》物权自救之理，公证印信在我手中，契约绝不会废！"
+   }
+  },
+  {
+   "adult_context": "现年满二十八岁，注册会计师兼特许金融分析师，具有集团跨境资金划转全权签字权，具备完全民事行为能力。",
+   "age_range": [
+    28,
+    28
+   ],
+   "appearance_options": [
+    "身穿浅米色高定丝绒小西装，搭配黑色阔腿西裤，短发利落干练，神情冷静且透着金融资本操盘手的敏锐果断。",
+    "手提加密硬钱包终端，即便在高空狂风震颤中亦紧抿红唇，指尖飞快在平板电脑上复核汇率风险对冲参数。"
+   ],
+   "decision": {
+    "avoids": [
+     "乘人之危的背叛者",
+     "算计微末的庸碌算盘"
+    ],
+    "contrast": "看似精明算计的投行女强人，在生死关头却展现出毫无保留的患难信赖与豪迈江湖义气。",
+    "core_value": "资本永不眠，信念永不熄，只要女律师不放弃，我薛婷的百亿资金就绝不撤退！",
+    "goal_options": [
+     "紧随女律师并用加密终端完成最后的离岸交割账户锁定",
+     "协助结构总工程师照看备用强电箱以防控制回路起火"
+    ],
+    "never": [
+     "在法律意见书敲定前私自撤回并购资金造成合作崩盘"
+    ],
+    "prefers": [
+     "说到做到的商业信誉",
+     "患难与共的赤诚伙伴"
+    ],
+    "pressure_responses": {
+     "breaking": "在门开一刹那瘫软在地随即被众人拉入安全区域大口喘气",
+     "high": "在女律师撬门脱扣瞬间全力协同推住门扇防止回弹",
+     "low": "在晃动的连廊中紧抓扶手确认各家银行过桥贷款指令",
+     "mid": "毫不犹豫脱下高跟鞋赤足踩在防滑地毯上稳固身体重心"
+    },
+    "relationship_stance": "与女律师情同战友姐妹彼此高度信赖，视其为商界最坚不可摧的法律后盾。",
+    "withdrawal": "背靠避难层厚重墙体专注凝视平板电脑最终划款进度条。"
+   },
+   "gender": "female",
+   "gender_reason": "掌管百亿现金流与跨国资本运作的二十八岁高科技跨国集团首席财务官。",
+   "id": "client_tech_cfo_xue_ting",
+   "identity": {
+    "authority": "对百亿海外并购专项资金划付、对冲外汇衍生品头寸及关门资金交割拥有最终拍板权。",
+    "exposure": "为了抢夺并购窗口期曾背着集团董事会动用过备用信用证额度",
+    "hidden": "私下与女律师相约在并购落地后一同休假赴西藏自驾洗涤心灵",
+    "limits": [
+     "对建筑工程破拆毫无经验只能完全听从专业人员指挥",
+     "高度紧绷的精神压力下伴有阵发性心脏搏动过速"
+    ],
+    "obligations": [
+     "守卫百亿出资款安全并在约定窗口期内完成最终资金锁定"
+    ],
+    "resources": [
+     "一套特种量子加密银行离岸结算动态口令器",
+     "随身备用的速效救心丸与电解质水泡腾片"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在滔天风暴与高空倾覆中依然神色笃定的强大女性知己魅力",
+     "众人齐心协力打破死锁的纯粹团队协作震撼"
+    ],
+    "boundaries": [
+     "恪守商务大客户与法律顾问之正当边界",
+     "绝不逾越名媛自重闺训"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "同女律师并肩靠在贵宾室沙发上互相揉按酸痛肩膀。",
+    "dislikes": [
+     "贪生怕死的懦夫做派",
+     "背地里落井下石的卑劣算计"
+    ],
+    "expression": "握紧女律师冰凉的小手用力捏了捏，两人相视一笑，眼中满是劫后余生的快慰与惺惺相惜。",
+    "likes": [
+     "真诚相照的坦荡胸襟",
+     "生死相托的过命战友情"
+    ],
+    "preconditions": [
+     "防火门成功撬开且全员安全撤离天桥",
+     "百亿并购资金跨境划转无误确认"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "跨国高科技集团首席财务官",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_skybridge_glass_gallery_hall",
+     "to": 1035
+    },
+    {
+     "from": 1035,
+     "location_id": "loc_skybridge_glass_gallery_hall",
+     "to": 1050
+    },
+    {
+     "from": 1050,
+     "location_id": "loc_refuge_floor_electrical_control_room",
+     "to": 1065
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "高定西装被烟灰沾染污损。",
+      "option": "薛婷脱下真丝西装包裹住加密终端并迅速移至通风背风处防护。"
+     },
+     {
+      "cost": "消耗宝贵的单次卫星应急加密信道额度。",
+      "option": "迅速将数据镜像热迁移至女律师的北斗卫星特种手机备用节点。"
+     }
+    ],
+    "pressure": "若加密终端因高温或烟尘短路损坏，百亿资金池将自动冻结四十八小时，导致并购窗口彻底关闭。",
+    "trigger": "强风切变导致连廊一侧供电箱冒出火星，刺鼻浓烟正扑向薛婷携带的离岸加密终端。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "女律师，你我拼搏了整整三年，谁也别想在最后十米把我们的胜利夺走！",
+    "surface": "女律师！海外银行端已经进入最后倒计时，只要这扇门打开，我的离岸资金指令两秒钟就能生效！动手！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "九月，并购谈判周",
+  "minute": 1020
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace_power",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "红圈所涉外并购律师完成重大跨国交割签字前习惯随身佩戴定制高硬度淬火名笔",
+  "超高层写字楼机电工程人员每逢台风汛期必携带绝缘三件套逐层巡检限位开关",
+  "陆家嘴高端写字楼白领在玻璃天桥遭遇雷暴时保持低重心静步避免静电传导",
+  "涉外律政团队在紧急撤离时依国际仲裁惯例由出资合伙人殿后封存密级卷宗"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "谈判进行到第三周，女律师在玻璃天桥里站着喝咖啡，脚下是两百多米的高空。",
+    "结构总工路过，顺便检查了一下天桥的阻尼铰链，跟女律师点头打招呼。",
+    "女律师问总工这座桥能撑多大的风，总工笑着说：比你们的谈判结实。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_chengzhi_hinge_check",
+    "hook_lin_analyzes_microswitch_gap",
+    "hook_lin_braces_door_frame_strain"
+   ],
+   "id": "act_skybridge_deflection_audit",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "start_minute": 960,
+   "tags": [
+    "workplace"
+   ],
+   "title": "天桥里的谈判间隙"
+  },
+  {
+   "beats": [
+    "逐相测量天桥电动门伺服驱动器过载电流与温升参数",
+    "手动测试消防联动闭锁回路微动行程开关常闭触点",
+    "启动备用直流电池组为避难层提供应急持续照明"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_refuge_floor_circuit_breaker_test",
+   "location_ids": [
+    "loc_refuge_floor_electrical_control_room"
+   ],
+   "start_minute": 1025,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "62层避难层母线断路器与应急配电排查"
+  },
+  {
+   "beats": [
+    "下班高峰，穿梭电梯厅里挤满了西装革履的人。",
+    "女律师在等电梯时碰见对方的首席财务官，两人客气地聊了几句天气。",
+    "电梯来了，两人一前一后走进去，谁也没提谈判的事。"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hook_chengzhi_hinge_check",
+    "hook_gu_marshals_lobby_crowd",
+    "hook_ruoxi_bund_lights"
+   ],
+   "id": "act_elevator_lobby_evacuation_marshaling",
+   "location_ids": [
+    "loc_skybridge_high_elevator_lobby"
+   ],
+   "start_minute": 1110,
+   "tags": [
+    "workplace"
+   ],
+   "title": "电梯厅里的寒暄"
+  },
+  {
+   "beats": [
+    "逐页核对独占性跨境收购协议主文本各方法律签署栏",
+    "将离岸交割量子加密U盾放入三防保护盒实施多重密封",
+    "使用防静电绸布擦拭浸润冷雨水渍的公文箱高精密转锁"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_cross_border_ma_contract_safeguard",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "start_minute": 1035,
+   "tags": [
+    "workplace"
+   ],
+   "title": "百亿并购主协议防伪钢印核对与数字密钥备份"
+  },
+  {
+   "beats": [
+    "通过卫星气象终端接收台风中心最低气压最新雷达图",
+    "评估双子塔天桥玻璃幕墙承受风荷载极限安全裕度",
+    "敲击高音警报器向连廊抢修人员提示短暂停风时间窗口"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_typhoon_meteo_monitoring_briefing",
+   "location_ids": [
+    "loc_skybridge_high_elevator_lobby"
+   ],
+   "start_minute": 1040,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "台风眼过境气压骤变与风速窗口研判"
+  },
+  {
+   "beats": [
+    "避难层的值班室里，物业的老师傅在泡茶，墙上挂着一排对讲机。",
+    "女律师加班到深夜，下来找热水，老师傅给女律师倒了一杯普洱。",
+    "老师傅说这栋楼的灯每晚亮到最晚的，就是女律师那一层。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_chengzhi_hinge_check",
+    "hook_ruoxi_bund_lights",
+    "hook_ruoxi_heels_off"
+   ],
+   "id": "act_high_altitude_medical_first_aid_prep",
+   "location_ids": [
+    "loc_refuge_floor_electrical_control_room"
+   ],
+   "start_minute": 1350,
+   "tags": [
+    "workplace"
+   ],
+   "title": "避难层的值班室"
+  },
+  {
+   "beats": [
+    "闸门顶开、台风过境、协议原件一页没湿、签字仪式改到了后天之后，女律师回到套房，套裙下摆被门夹得皱成一团，丝袜也勾破了。",
+    "女律师背过身，让人拉开套裙后腰的拉链，再用热毛巾擦去颈后的冷汗，毛巾擦到腰际时，女律师轻轻吸了口气，往后靠了过来。",
+    "女律师转过身，攥住对方的领带：谈判桌上我一个逗号都不让。……今晚我想让一回，你愿意，就留下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_crushed_skirt",
+   "location_ids": [
+    "loc_tower_executive_suite"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "套房里替女律师解开被门夹皱的套裙"
+  },
+  {
+   "beats": [
+    "第二十天的谈判散了，女律师踢掉高跟鞋，光脚盘在套房的沙发上，面前摊着第七版协议，一页都没翻。",
+    "女律师把协议往旁边一推，拍了拍身边的位置：今晚不看条款了。……坐过来，陪我发会儿呆。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_heels_off",
+   "location_ids": [
+    "loc_tower_executive_suite"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "踢掉高跟鞋的深夜"
+  },
+  {
+   "beats": [
+    "签字仪式的前一夜，女律师站在落地窗前，看着天桥里那张谈判桌，手里转着那支救过命的签字笔。",
+    "女律师把笔塞进人手里：明天签完，这单就结了。……今晚的事，我想自己做主。你说好，我才转身。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_closing_eve",
+   "location_ids": [
+    "loc_tower_executive_suite"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "签字前夜"
+  },
+  {
+   "beats": [
+    "清晨的黄浦江上还飘着雾，女律师在大床上醒来，头发散在人的胸口，手机在床头柜上震个不停。",
+    "女律师把手机扣过去，把脸埋回人怀里：九点才开会……再给我十分钟，谁的电话都不接。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_suite_morning_brief",
+   "location_ids": [
+    "loc_tower_executive_suite"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "九点之前"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代陆家嘴金融中心超高层跨国并购谈判期",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "旁人",
+  "迷乱",
+  "催情",
+  "撕破衣物裸露"
+ ],
+ "hooks": [
+  {
+   "id": "hook_shen_inspects_steel_pen_clip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "lawyer_shen_ruoxi",
+   "text": "{lawyer_shen_ruoxi.name}单手按住变形的防火钢门，微润粉嫩的娇颜透着紧致微婴儿肥朝气，丹凤眸冷澈如电：慌什么，随身签字笔的精钢笔夹厚一点二毫米正是撬具，看准锁盒侧面行程限位卡槽插进去，听号令一同推门！"
+  },
+  {
+   "id": "hook_shen_holds_pen_proud_gaze",
+   "kind": "approach",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "lawyer_shen_ruoxi",
+   "text": "{lawyer_shen_ruoxi.name}将百亿并购保密协议紧紧护在西装胸口，婴儿肥两颊在应急灯照耀下透着健康紧致红润，秀眉微扬：红圈所合伙人的字典里没有放弃二字，先莫管裙摆微瑕，保全协议和团队生命才是首位！"
+  },
+  {
+   "id": "hook_shen_directs_prying_angle",
+   "kind": "approach",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "lawyer_shen_ruoxi",
+   "text": "{lawyer_shen_ruoxi.name}纤白指尖稳稳捏住签字笔柄端，美眸凝神指点：笔夹偏心凸起正对行程开关常闭动触点，用力向内压下两毫米切断自锁电磁回路，卡销一缩立即抽身！"
+  },
+  {
+   "id": "hook_lin_analyzes_microswitch_gap",
+   "kind": "approach",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "architect_lin_chengzhi",
+   "text": "{architect_lin_chengzhi.name}单膝点地跪在门缝凹角前，工装手臂肌肉紧绷指着锁体内部：女律师判断极准，此门正是双触点微动开关抱死，笔夹硬度足够，把住门把手，听号令一起发力！"
+  },
+  {
+   "id": "hook_lin_braces_door_frame_strain",
+   "kind": "approach",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "architect_lin_chengzhi",
+   "text": "{architect_lin_chengzhi.name}以厚实坚毅的宽阔后背死死顶住倾斜震动的钢门上缘横梁，咬牙闷吼：门框变形公差已达极限，两位速以笔夹挑开触点，后背这里交给我顶住！"
+  },
+  {
+   "id": "hook_su_protects_document_briefcase",
+   "kind": "approach",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "intern_associate_su_xiaoyu",
+   "text": "{intern_associate_su_xiaoyu.name}眼含热泪，双手死死抱紧三防文件箱：放心，全套不可抗力原件与交割印信都在，我绝不退缩！"
+  },
+  {
+   "id": "hook_gu_marshals_lobby_crowd",
+   "kind": "approach",
+   "location_ids": [
+    "loc_skybridge_high_elevator_lobby"
+   ],
+   "slot": "property_director_gu_zhenghao",
+   "text": "{property_director_gu_zhenghao.name}手持对讲机与高音扩音器如黑塔般肃立在防烟门前，威严暴喝：全员按顺序向避难层靠拢，谁敢在梯厅拥挤推搡立刻按危害公共安全拘留，给天桥抢修腾出通道！"
+  },
+  {
+   "id": "hook_he_validates_force_majeure_pact",
+   "kind": "approach",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "senior_arbitrator_he_baiming",
+   "text": "{senior_arbitrator_he_baiming.name}单手扶住避风立柱神态自若，将印泥稳妥置于随身皮夹：女律师处乱不惊深得法理精髓，公证钢印在此，只要人平安脱险，契约自当顺延生效！"
+  },
+  {
+   "id": "hook_xue_locks_offshore_fund_pool",
+   "kind": "approach",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "client_tech_cfo_xue_ting",
+   "text": "{client_tech_cfo_xue_ting.name}赤足踩在防滑地毯上双手飞快敲击平板，眼眸锐利而狂喜：离岸外汇锁定指令已完成预授权，女律师，门开一瞬咱们立刻通报全球交割成功！"
+  },
+  {
+   "id": "hook_observe_pen_clip_clicks_switch",
+   "kind": "observe",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "lawyer_shen_ruoxi",
+   "text": "加厚精钢笔夹在狭窄门缝间精准卡入微动开关铜片，伴随着一声极其细微清脆的机械断开咔哒声，自锁强电瞬间切断，门扇重压陡然一轻。"
+  },
+  {
+   "id": "hook_observe_door_swings_open_release",
+   "kind": "observe",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "lawyer_shen_ruoxi",
+   "text": "电磁抱闸释放的刹那，二人四手重叠奋力向外一推，重达半吨的平开钢门应声推开一道可容侧身的空隙，紧绷的真丝羊毛裙摆完整从限位销下顺利抽离。"
+  },
+  {
+   "id": "hook_observe_storm_clouds_part_skyline",
+   "kind": "observe",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "lawyer_shen_ruoxi",
+   "text": "三百米云端之外风暴中心短暂平息，透过全景幕墙望去，陆家嘴摩天林立的云海在雷光隐退中展露出万丈雄姿，云端天桥化险为夷。"
+  },
+  {
+   "id": "hook_cleaning_maid_brings_hot_water",
+   "kind": "observe",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "intern_associate_su_xiaoyu",
+   "text": "保洁主管张姐小跑着送来干毛巾与保温杯，女律师两颊泛起微红，接过温水轻抿一口，从容拂平套裙褶皱恢复了顶级律政大家的冷艳气派。"
+  },
+  {
+   "id": "hook_facade_tech_reports_glass_strain",
+   "kind": "observe",
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "slot": "architect_lin_chengzhi",
+   "text": "幕墙巡检仪表上的红色警报悄然转黄，天桥抗风阻尼系统在平息气流中开始自动回正复位，整座空中悬挑结构重新稳如磐石。"
+  },
+  {
+   "id": "hook_meteo_officer_reports_wind_eye",
+   "kind": "observe",
+   "location_ids": [
+    "loc_skybridge_high_elevator_lobby"
+   ],
+   "slot": "property_director_gu_zhenghao",
+   "text": "气象联络员高声通报台风眼正在移向外海，高空穿梭电梯完成自检程序即将恢复运行，避难层内顿时爆发出劫后余生的热烈掌声。"
+  },
+  {
+   "id": "hook_ruoxi_midnight_coffee",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "lawyer_shen_ruoxi",
+   "text": "{npc.name}把一杯咖啡推过来，眼睛还盯着屏幕：加了两份浓缩。……你也别想今晚睡觉。"
+  },
+  {
+   "id": "hook_ruoxi_heels_off",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "lawyer_shen_ruoxi",
+   "text": "{npc.name}在空无一人的天桥里踢掉高跟鞋，赤脚踩在玻璃地板上，低头看六十二层下的江：……陪我站一会儿。"
+  },
+  {
+   "id": "hook_ruoxi_bund_lights",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "lawyer_shen_ruoxi",
+   "text": "{npc.name}倚着落地玻璃，外滩的灯一盏盏熄了，回头一笑：签完这单，我请你。……地方我挑。"
+  },
+  {
+   "id": "hook_chengzhi_hinge_check",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "architect_lin_chengzhi",
+   "text": "{npc.name}拿着检测仪在天桥里转了一圈，最后停在人身边：铰链没事。……我就是来看看。"
+  },
+  {
+   "id": "hook_ruoxi_suite_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tower_executive_suite"
+   ],
+   "slot": "lawyer_shen_ruoxi",
+   "text": "{npc.name}倚在套房门口，手里拎着两罐啤酒：协议明天再看。……进来。"
+  }
+ ],
+ "id": "red_circle_lawyer_storm_skybridge",
+ "locations": [
+  {
+   "affordances": [
+    "将签字笔高强度精钢笔夹深入防火门微动开关缝隙挑开触点",
+    "利用连廊两侧高强度不锈钢安全扶手稳固身体抵抗狂暴晃动",
+    "透过全景落地玻璃观察双子塔阻尼器位移指示标尺评估形变"
+   ],
+   "detail": "悬挂在陆家嘴双子塔三百米高空的全景玻璃步行空中连廊，长约四十五米，宽六米。连廊三面均由三层超白夹胶钢化防爆玻璃组成，脚下即可俯瞰黄浦江两岸波涛汹涌的繁华夜景与台风暴雨。此时强台风引发大厦剧烈摇摆，悬挑结构连接端发出沉重的金属扭曲呻吟，连廊西端重达半吨的电动防火重型平开钢门因门框扭曲产生机械卡死，女律师高定套裙下摆正死死卡在门缝与地面防退插销之间。外侧狂风抽打玻璃幕墙，雨幕如瀑布般倾泻。",
+   "exits": [
+    "loc_refuge_floor_electrical_control_room",
+    "loc_skybridge_high_elevator_lobby"
+   ],
+   "id": "loc_skybridge_glass_gallery_hall",
+   "name": "玻璃空中连廊",
+   "pressure_modifiers": {
+    "p_heavy_fire_door_pinching_designer_suit": "门框受侧向挤压发生八毫米肉眼可见形变，伺服电机过载保护彻底抱死门锁。",
+    "p_skybridge_damping_excessive_twist": "双子塔摆幅持续扩大，连廊受剪切力矩拉扯导致玻璃幕墙嵌缝密封胶不断开裂。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_cleaning_supervisor_zhang",
+    "bg_facade_engineer_wang"
+   ]
+  },
+  {
+   "affordances": [
+    "拉下天桥电动防火门主供电回路空气断路器切断强电自锁",
+    "调节备用高压液压泵阀门阻尼减缓空中连廊剧烈扭转摇摆",
+    "取出设备柜常备的绝缘撬棍与应急手动复位螺丝刀组"
+   ],
+   "detail": "位于大厦六十二层厚重钢筋混凝土核心筒内的消防配电控制室。四周为两米厚的高强度防爆耐火墙，内部整齐排列着应急配电柜、通风加压风机控制箱以及连廊阻尼器液压监控仪表盘。昏黄的应急照明灯在电压不稳中微弱闪烁，空气中弥漫着高压电气绝缘油与轻微电路过载臭氧气味。监控大屏上多处管线标红报警，备用柴油发电机正发出沉闷的低频震动轰鸣。",
+   "exits": [
+    "loc_skybridge_glass_gallery_hall",
+    "loc_skybridge_high_elevator_lobby"
+   ],
+   "id": "loc_refuge_floor_electrical_control_room",
+   "name": "避难层控制室",
+   "pressure_modifiers": {
+    "p_electrical_overload_short_circuit_fire": "应急变压器负荷激增冒出丝丝白烟，若十分钟内不切断部分回路将引发母线自燃。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_building_electrician_laoma",
+    "bg_security_dispatcher_li"
+   ]
+  },
+  {
+   "affordances": [
+    "刷动特级管理权限磁卡开启消防梯应急运行准备模式",
+    "使用广播系统向连廊被困人员通报地面救援进度与气象情报",
+    "发放应急高空防风保暖毯与纯净饮用水安抚滞留人员"
+   ],
+   "detail": "连接六十二层悬空天桥与垂直核心筒的主换乘大厅。挑高七米的哑光拉丝香槟金不锈钢墙面上镶嵌着四部高速双层轿厢穿梭电梯门套。由于台风橙色预警触发建筑安全逻辑，全部客梯已自动降底锁止并打出停运标识，只留一部工程消防梯处于备用待命状态。大厅大理石地面倒映着应急指示绿光，数名等待撤离的投行顾问与企业法务人员正神情焦灼地拥聚在防烟楼梯间防火门前。",
+   "exits": [
+    "loc_skybridge_glass_gallery_hall",
+    "loc_refuge_floor_electrical_control_room",
+    "loc_tower_executive_suite"
+   ],
+   "id": "loc_skybridge_high_elevator_lobby",
+   "name": "穿梭电梯厅",
+   "pressure_modifiers": {
+    "p_high_rise_panicked_crowd_corridor_jam": "撤离人员拥挤在防烟楼梯间入口导致通道狭窄，踩踏风险随风雨轰鸣急剧攀升。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_trainee_paralegal_zhou",
+    "bg_meteo_officer_chen"
+   ]
+  },
+  {
+   "affordances": [
+    "替女律师解开被门夹皱的套裙",
+    "陪女律师在落地窗前看江",
+    "关上套房的门"
+   ],
+   "detail": "西塔六十三层的行政套房，一张铺着白色埃及棉的大床、一张堆满并购协议和咖啡杯的书桌、一扇落地窗，窗外就是那座玻璃天桥和黄浦江。",
+   "exits": [
+    "loc_skybridge_high_elevator_lobby"
+   ],
+   "id": "loc_tower_executive_suite",
+   "name": "塔楼里的行政套房",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "房门一关，楼道里的脚步声和电话铃声就没了，只剩空调的低鸣和窗外江面上的船灯。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "沈",
+   "林",
+   "苏",
+   "顾",
+   "何",
+   "薛",
+   "陆",
+   "程",
+   "周",
+   "宋",
+   "江",
+   "温",
+   "许",
+   "唐"
+  ],
+  "given_female": [
+   "若曦",
+   "晓雨",
+   "曼殊",
+   "子衿",
+   "语涵",
+   "静微",
+   "清越",
+   "若云",
+   "芷晴",
+   "佩珊",
+   "雨嘉",
+   "宛秋",
+   "舒宁",
+   "梦瑶"
+  ],
+  "given_male": [
+   "承志",
+   "正豪",
+   "柏明",
+   "立诚",
+   "泽宇",
+   "修远",
+   "景行",
+   "振锋",
+   "文轩",
+   "宇浩",
+   "敬尧",
+   "向阳",
+   "凯文",
+   "翰林"
+  ],
+  "given_neutral": [
+   "海川",
+   "微澜",
+   "知行",
+   "若愚",
+   "凌霄",
+   "亦舒",
+   "景天",
+   "千帆",
+   "行简",
+   "楚涵",
+   "致远",
+   "天音",
+   "云舒",
+   "秋白"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留陆家嘴双子塔、超强台风、全景玻璃悬空天桥阻尼铰链形变、电动防火钢闸门自锁夹住女律师套裙、精钢笔夹顶开微动开关的骨架与金融城味道。为与已有的超高层世界拉开，用户拍板把八十八层改到双子塔六十二层，重心放在天桥本身和一场拉锯了三周的跨境并购谈判上：女合伙人代表买方，谈判桌就摆在连接两座塔的玻璃天桥里。用户已放开内容限制，只守红线；外貌描写照留，只改写死的人名、代词、年龄（合伙人改到三十出头）。新增女律师在塔楼里的行政套房与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    26,
+    30
+   ],
+   "baseline": "负责陆家嘴超甲级双子塔天桥钢构与防风阻尼系统日常运行的高级工程专家。",
+   "gender": "any",
+   "id": "pi_facade_structural_engineer",
+   "reputation": "精通现代超高层力学与抗风减震构造，在大厦工程部拥有权威技术话语权。",
+   "resources": [
+    "一套精密便携式结构应力应变激光检测仪",
+    "一把高强度绝缘防滑重型钛合金多功能工装钳"
+   ],
+   "risks": [
+    "若误判天桥阻尼极限位移可能引发连廊断裂下坠致命灾难",
+    "在剧烈摇晃中探身抢修存在被崩裂玻璃划伤的高空风险"
+   ],
+   "role": "超高层建筑幕墙结构总工程师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工程师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    28
+   ],
+   "baseline": "陪同女律师参与百亿半导体跨境并购谈判现场签约的核心非诉业务骨干。",
+   "gender": "any",
+   "id": "pi_senior_corporate_paralegal",
+   "reputation": "条理清晰且精通多国涉外法律条约，深得红圈所执委会与跨国客户器重。",
+   "resources": [
+    "一部加密卫星通信终端机",
+    "一份加盖多国认证钢印的独占性跨境并购主协议文本"
+   ],
+   "risks": [
+    "重大协议若因疏失遗失或损毁将面临数亿元商业违约索赔",
+    "困于云端天桥面临断水断电失联与风暴围困危机"
+   ],
+   "role": "涉外跨国并购资深主办律师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}大律"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}律师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    26
+   ],
+   "baseline": "负责六十二层核心筒机房配电箱、消防电动门及备用电池检修的一线年轻技工。",
+   "gender": "any",
+   "id": "pi_refuge_floor_electrical_mechanic",
+   "reputation": "对整层强弱电管线排布与防火门电机线路位置了如指掌。",
+   "resources": [
+    "一把高硬度绝缘测电笔与电工胶布",
+    "一串机房设备检修双槽应急机械通开钥匙"
+   ],
+   "risks": [
+    "强电短路打火可能导致严重电击灼伤事故",
+    "发生火警锁死时身处设备间最易遭受浓烟窒息伤害"
+   ],
+   "role": "避难层强弱电维保机械电工",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}技师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}师傅"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    29
+   ],
+   "baseline": "百亿并购项目资方出资谈判代表，专程赴陆家嘴云端会所出席关门签字仪式。",
+   "gender": "any",
+   "id": "pi_tech_conglomerate_investment_vp",
+   "reputation": "资本运筹沉着老练，在国内外高科技投资界拥有广泛人脉资源。",
+   "resources": [
+    "一支授权调用跨境并购资金池的生物识别安全U盾",
+    "随身携带的高性能防风降噪对讲耳机"
+   ],
+   "risks": [
+    "签约推迟引发二级市场股价剧烈震荡与融券做空危机",
+    "高空险境中面临人身伤亡导致巨型商业航母群龙无首"
+   ],
+   "role": "跨国高科技集团投资副总裁",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}副总"
+    }
+   ]
+  }
+ ],
+ "premise": "陆家嘴双子塔六十二层的全景玻璃天桥连着东西两座塔。一场百亿跨境并购在天桥里谈了三周：红圈所的女合伙人代表买方，对面是卖方的首席财务官，天桥结构总工天天来查阻尼铰链。签字日就在这几天，台风季的天桥摆得厉害，电动防火钢闸门误报过一次。",
+ "pressures": [
+  {
+   "choice": "留守天桥全力撬开防火门解救女律师还是弃人先行撤入核心筒避险。",
+   "exits": [
+    {
+     "cost": "签字笔笔夹产生微小摩擦划痕，二人手心磨破渗汗。",
+     "option": "女律师递出名牌签字笔，二人合力以高强度精钢笔夹别开行程开关切断抱闸推门脱困。"
+    },
+    {
+     "cost": "砸门震动加剧天桥局部微裂纹扩散。",
+     "option": "工程人员使用重型大锤强行砸碎门框合页销轴脱困。"
+    }
+   ],
+   "far": {
+    "consequence": "六十二层空中连廊发生不可逆剪切坍塌，受困精英全员坠落云端。",
+    "due_days": 1,
+    "trigger": "阻尼器液压缸彻底爆裂天桥钢梁严重错位"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_skybridge_damping_excessive_twist",
+   "immediate": {
+    "minutes": 4,
+    "text": "连廊钢架伴着狂风发出尖锐刺耳的钢铁挤压悲鸣，玻璃幕墙胶条剥落，女律师咬紧牙关，微润带有微婴儿肥的俏脸煞白却目光坚定如铁。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "双子塔摆幅持续加大，天桥悬臂端部高强螺栓已崩断两根，若五分钟内不完成断电推门，整座防火门将被压成死铁。"
+   },
+   "objective": "在天桥阻尼器发生致命结构剪切撕裂前解脱受困人员撤回核心筒。",
+   "source": "nature",
+   "start_minute": 1020,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "天桥抗风阻尼铰链超极限位移形变大险",
+   "trigger": "十六级强台风阵风撕扯双子塔，天桥端部重型防风阻尼铰链位移突破八百毫米极限红线，连廊发生肉眼可见轴向扭曲，玻璃爆裂与断裂坠落大险迫在眉睫。"
+  },
+  {
+   "choice": "借精工淬火钢笔夹别脱限位开关还是利刃割袍断裙自保。",
+   "exits": [
+    {
+     "cost": "笔夹边缘留下轻微金属摩擦痕迹。",
+     "option": "以笔夹斜角精准探入门缝凹槽别开微动开关常闭簧片，电磁铁断电合力推门脱险。"
+    },
+    {
+     "cost": "价值高昂的名贵高定礼服彻底毁损。",
+     "option": "割断高定西装套裙下摆与定制腰链换取身体脱身。"
+    }
+   ],
+   "far": {
+    "consequence": "女律师遭受重度机械挤压骨折并面临坠落绝境。",
+    "due_days": 1,
+    "trigger": "门框严重错位将衣物与人体拖向断裂连廊边缘"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_heavy_fire_door_pinching_designer_suit",
+   "immediate": {
+    "minutes": 3,
+    "text": "防火钢门厚达八十毫米，自锁电磁铁吸力惊人，定制金属腰链绷紧勒住腰际，女律师秀眉微蹙，轻喝不可暴力撕拉。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "门框受大厦摆动二次挤压，缝隙正在以毫米级向内收窄，若两分钟内未能断开电磁触点，锁舌将永久咬死在钢槽内。"
+   },
+   "objective": "毫发无损地解脱被夹套裙，保全女律师身体不受机械割伤与职业体面尊严。",
+   "source": "accident",
+   "start_minute": 1020,
+   "tags": [
+    "workplace"
+   ],
+   "title": "防火重门受压抱死夹死高定套裙下摆死锁",
+   "trigger": "电动防火平开钢门受门框对角挤压，伺服电机过载保护自锁，止退销将女律师高定真丝羊毛套裙底边及定制细腰链死死咬在门轴夹缝凹槽中。"
+  },
+  {
+   "choice": "留在天桥强行完成交割核验还是全员撤离放弃三年心血成果。",
+   "exits": [
+    {
+     "cost": "消耗一次性特种公证防伪原纸与卫星高额流量费用。",
+     "option": "女律师脱困后在结构总工护送下火速进入避难层，由仲裁员当场出具不可抗力确认书并完成生物U盾资金锁定。"
+    },
+    {
+     "cost": "需支付高达数百万元的单日延期惩罚性滞纳违约金。",
+     "option": "单方面向境外买方申请延长两小时交割期。"
+    }
+   ],
+   "far": {
+    "consequence": "百亿跨境高科技并购案彻底崩盘，律所及出资集团蒙受毁灭性商誉巨创。",
+    "due_days": 1,
+    "trigger": "交割窗口超时关闭买卖双方正式违约"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cross_border_ma_closing_window_lapse",
+   "immediate": {
+    "minutes": 5,
+    "text": "加密终端屏幕上红色倒计时分秒流逝，各家离岸银行确认指令接连弹窗催促，薛婷心急如焚，女律师眼神坚定分秒必争。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "near": {
+    "deadline_minutes": 10,
+    "text": "最后十分钟大限逼近，若不在五分钟内脱困进入核心筒连通卫星备用专线，交易系统将自动执行保证金罚没程序。"
+   },
+   "objective": "在窗口关闭前护全协议文本与密钥并在避难层完成紧急盖章划款。",
+   "source": "nature",
+   "start_minute": 1022,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "百亿涉外并购交割倒计时窗口面临失效",
+   "trigger": "跨国收购协议约定的国际银行结算关门时间仅剩十五分钟，台风导致局部光纤中断，若不能在窗口期内完成最终公证与签字，百亿并购将宣告违约流标。"
+  },
+  {
+   "choice": "冒险进入浓烟机房手动拉闸还是等待自动气体灭火系统喷洒。",
+   "exits": [
+    {
+     "cost": "绝缘拉杆受电弧冲击出现轻微炭化斑点。",
+     "option": "工程人员佩戴防烟面罩合力使用绝缘拉杆精准拉下四号平开门控制支路断路器。"
+    },
+    {
+     "cost": "导致避难层所有照明与排烟系统瞬间熄灭陷入绝对黑暗。",
+     "option": "直接按下全层总配电紧急急停按钮切断全区电力。"
+    }
+   ],
+   "far": {
+    "consequence": "避难层陷入彻底黑暗浓烟，天桥电动门永久断电锁死在破坏状态。",
+    "due_days": 1,
+    "trigger": "高压母线起火导致核心筒配电系统全盘瘫痪"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_electrical_overload_short_circuit_fire",
+   "immediate": {
+    "minutes": 4,
+    "text": "浓郁的绝缘橡胶焦糊味扑鼻而来，配电柜下方火星迸溅，马工手持绝缘拉杆满头大汗正在排查跳闸回路。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_refuge_floor_electrical_control_room"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "机房温度急剧上升，气体灭火倒计时已进入三十秒预警，若不拉下总闸，全层灭火气体喷洒将导致人员无法出入。"
+   },
+   "objective": "在电弧引燃机房电缆沟前精准分闸切断天桥电动门短路支路。",
+   "source": "accident",
+   "start_minute": 1024,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "避难层配电母线过载绝缘短路火险",
+   "trigger": "强台风暴雨侵入高空管井导致多路电气进水，避难层消防配电箱过载冒烟，伴随阵阵电弧爆鸣，若引发母线火灾将切断全层备用电源与排烟风机。"
+  },
+  {
+   "choice": "铁腕封锁梯厅强制分批疏散还是放任人流蜂拥踩踏下行。",
+   "exits": [
+    {
+     "cost": "消耗安保队伍极大体能精力，多名队员被踩伤脚面。",
+     "option": "物业总监亮出特权防暴手牌带领安保队员组成人墙强行控制通道分批放行。"
+    },
+    {
+     "cost": "餐厅高档玻璃家具遭受一定程度挤压碰撞损耗。",
+     "option": "临时开启备用观景餐厅大厅作为二次滞留缓冲区安置平息人群。"
+    }
+   ],
+   "far": {
+    "consequence": "数十名租户伤亡，天桥逃生通道被堵死导致连廊被困人员无法转移。",
+    "due_days": 1,
+    "trigger": "楼梯间发生群体性恶性踩踏挤塞导致通道彻底断绝"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_high_rise_panicked_crowd_corridor_jam",
+   "immediate": {
+    "minutes": 5,
+    "text": "呼喊尖叫声混杂着窗外暴风怒吼，数名西装革履的商务人士跌倒在光滑大理石地面上，防烟门几乎被冲撞挤死。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_skybridge_high_elevator_lobby"
+   ],
+   "near": {
+    "deadline_minutes": 9,
+    "text": "楼梯间扶手在人群重压下发出变形开裂声，若不立即整肃秩序，楼梯通道将发生大面积人员压踏重伤大祸。"
+   },
+   "objective": "以权威军令声势平息骚乱，维持通道顺畅保障伤患与专业抢修人员通行。",
+   "source": "person",
+   "start_minute": 1026,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "高空穿梭电梯厅滞留人群恐慌推搡踩踏",
+   "trigger": "天桥剧烈摇晃引发电梯厅数十名企业高管、外籍投行顾问极度恐慌，众人争抢唯一的防烟楼梯间下行通道发生严重推挤拥塞与踩踏危机。"
+  },
+  {
+   "choice": "贴紧内侧承重结构快速抢修还是放弃设备全速撤退避险。",
+   "exits": [
+    {
+     "cost": "撤离速度稍有放缓，众人后背受冷雨飞沫浸湿。",
+     "option": "结构总工程师指挥众人拉起防风安全绳紧贴内侧混凝土钢构背风面稳步推进撤离。"
+    },
+    {
+     "cost": "价值昂贵的高科技金属展柜与展品彻底报废损毁。",
+     "option": "推倒连廊展示重型金属展柜顶住开裂玻璃凹陷处暂缓内爆时间。"
+    }
+   ],
+   "far": {
+    "consequence": "六十二层天桥被飓风彻底撕裂吹毁，滞留人员遭受毁灭性气浪撕扯坠落。",
+    "due_days": 1,
+    "trigger": "幕墙大面积内爆导致连廊形成失压风洞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_storm_facade_glass_shatter_implosion",
+   "immediate": {
+    "minutes": 3,
+    "text": "碎裂的玻璃碎片在风暴中发出密集的噼啪爆响，强风顺着细小缝隙呼啸灌入吹得衣衫猎猎作响，三百米高空深渊一览无余。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_skybridge_glass_gallery_hall"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "夹胶中间层受压鼓包达到极限，一旦整块玻璃内爆，狂暴气流将形成强负压将连廊内未固定的人员与物品卷吸下坠。"
+   },
+   "objective": "在玻璃彻底内爆瓦解造成强负压气浪吞噬前撤离天桥开阔区。",
+   "source": "nature",
+   "start_minute": 1025,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "十六级台风外侧中空幕墙玻璃内爆大险",
+   "trigger": "十六级台风夹带高空异物飞溅撞击，天桥中段一块四平米超白中空钢化玻璃外片粉碎性开裂，密密麻麻的蛛网状裂纹在狂暴风压下剧烈内凹起伏濒临穿透。"
+  },
+  {
+   "choice": "当众放弃那条压价条款，还是请天桥总工出一份事故报告",
+   "exits": [
+    {
+     "cost": "买方要多付八个亿，客户那边得女合伙人亲自去解释",
+     "option": "放弃压价条款"
+    },
+    {
+     "cost": "报告要写明那一夜两个人被困在天桥里的每一个钟点",
+     "option": "请总工出事故报告"
+    }
+   ],
+   "far": {
+    "consequence": "三周的谈判作废，女合伙人在所里的合伙人考核直接降档",
+    "due_days": 7,
+    "trigger": "卖方退出交易"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_ruoxi_midnight_coffee",
+    "hook_ruoxi_heels_off",
+    "hook_ruoxi_bund_lights",
+    "hook_chengzhi_hinge_check",
+    "hook_ruoxi_suite_door"
+   ],
+   "id": "p_seller_board_whispers",
+   "immediate": {
+    "minutes": 5,
+    "text": "助理小苏推门进来，说卖方首席财务官的电话已经打了三遍"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_tower_executive_suite"
+   ],
+   "near": {
+    "deadline_minutes": 360,
+    "text": "下午三点，卖方董事会表决"
+   },
+   "objective": "在卖方董事会下午三点表决之前，让对方相信这只是一场意外",
+   "source": "rumor",
+   "start_minute": 540,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "卖方董事会的猜疑",
+   "trigger": "台风过后第二天上午，卖方董事会里传开了：买方律师故意把签约拖到台风夜，好借天桥事故把价格压下来"
+  }
+ ],
+ "region": "陆家嘴双子塔超甲级写字楼62层悬空玻璃天桥与避难层连廊区",
+ "rules": [
+  {
+   "id": "rule_skybridge_typhoon_evac_code",
+   "text": "超高层防台避险规程：台风阵风超十四级时，连通双塔的六十二层悬空玻璃天桥须即刻关闭电动防风闸并启动清场。"
+  },
+  {
+   "id": "rule_cross_border_ma_secrecy_pact",
+   "text": "百亿涉外并购合规协议：非公开谈判文件与电子密钥须贴身保全，遇极端险情时首席签约代表有权启动备用签章程序。"
+  },
+  {
+   "id": "rule_refuge_floor_fire_door_interlock",
+   "text": "核心筒避难层安防连锁指令：发生强震或结构超限位移时，防火重门自动落锁切断强电，除工程钥匙外禁止强力破拆。"
+  },
+  {
+   "id": "rule_structural_damping_alarm_threshold",
+   "text": "风阻尼器位移预警红线：天桥端部重型阻尼器摆幅超过八百毫米即触发结构红灯警报，全员需立即沿内侧核心筒撤离。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "商务洽谈",
+  "committed": "云巅同盟",
+  "familiar": "连廊并肩",
+  "flirting": "试探锋芒",
+  "intimate": "风暴共渡",
+  "stranger": "云端初遇",
+  "testing": "笔夹破锁"
+ },
+ "status": "released",
+ "style_hint": "金融城的锋利与云端的晃：并购条款、签字笔、玻璃天桥外的黄浦江。写清冷女合伙人高定套裙下的身段与喘息，动作落在精钢笔夹顶开微动开关上。",
+ "tension_engines": [
+  {
+   "id": "te_skybridge_damping_vs_steel_pen_clip",
+   "text": "高空天桥阻尼位移形变与精钢笔夹分秒必争挑开行程开关断电之间的生死赛跑。"
+  },
+  {
+   "id": "te_lawyer_pride_vs_pinned_designer_suit",
+   "text": "傲娇名门女合伙人捍卫律政威仪与众目睽睽之下套裙咬死受困危机之间的尊严拉扯。"
+  },
+  {
+   "id": "te_billion_contract_vs_typhoon_evac",
+   "text": "百亿涉外并购主协议不可抗力交割窗口期与强台风肆虐避险撤离之间的双重绝地对决。"
+  },
+  {
+   "id": "te_engineer_mechanics_vs_fire_door_jam",
+   "text": "结构工程力学微动原理与受力变形重型钢制防火门严重抱死之间的硬核机械破拆对决。"
+  }
+ ],
+ "title": "红圈所女律师·62层全景玻璃空中连廊",
+ "tone": [
+  "台风狂啸云巅",
+  "悬空天桥震颤",
+  "精钢笔夹别销",
+  "云端玻璃悲鸣"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_german_made_pen_clip_quenched_steel",
+   "requires": [
+    "lawyer_shen_ruoxi"
+   ],
+   "text": "{lawyer_shen_ruoxi.name}随身携带这支定制签名笔系德国高精密军工级淬火弹簧钢一体冷锻加工，笔夹厚度达一点二毫米且韧性超绝，恰能承受上百公斤反向别撬力矩而不折损。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_architect_identifies_interlock_notch",
+   "requires": [
+    "architect_lin_chengzhi"
+   ],
+   "text": "{architect_lin_chengzhi.name}凭借对大厦消防图纸的深厚记忆，精准指出门框侧后方暗藏的手动断电解脱微孔，指导笔夹斜向切入直抵微动开关常闭簧片核心点。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_property_director_manual_power_cut",
+   "requires": [
+    "property_director_gu_zhenghao"
+   ],
+   "text": "{property_director_gu_zhenghao.name}带领机电班长顶着电弧火星在控制室果断拉下四号配电支路空气开关，为天桥现场实施微动开关挑离争取到了安全零电弧作业环境。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_ma_electronic_signing_code",
+   "requires": [
+    "senior_arbitrator_he_baiming"
+   ],
+   "text": "国际商会最新仲裁通则中关于不可抗力电子签章效力存续条款被各方严格恪守，现场签发盖印的公证备忘录被全球各大离岸结算银行全票无异议接纳。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_typhoon_eye_temporary_pressure_calm",
+   "requires": [
+    "lawyer_shen_ruoxi",
+    "architect_lin_chengzhi"
+   ],
+   "text": "超强台风台风眼恰在关键时刻擦过陆家嘴上空，三百米高空气压骤升并带来长达六分钟的气流绝对停顿期，为众人推开钢门并安全转移争取到决定性时间窗口。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_ruoxi_hand_overlap_joint_door_push",
+   "requires": [
+    "lawyer_shen_ruoxi",
+    "architect_lin_chengzhi"
+   ],
+   "text": "在微动触点弹开断电的一瞬，二人四手紧扣共同按住门把手拼尽全力向前推开，{lawyer_shen_ruoxi.name}重心不稳借力跌入坚实怀中，微婴儿肥面颊与温热颈窝相贴，彼此剧烈心跳交织相印却满是化险为夷的深沉信赖。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_closing_confirms_historic_ma_triumph",
+   "requires": [
+    "lawyer_shen_ruoxi",
+    "client_tech_cfo_xue_ting"
+   ],
+   "text": "随着门扇哐当一声被推入限位卡槽，套裙下摆完整无损抽离，众人顺利撤入核心筒，离岸资金秒级锁定成功，云巅破晓东方泛起万道朝霞，百亿涉外并购传奇在风暴过后震撼落槌达成。"
+  }
+ ]
+}

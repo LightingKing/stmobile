@@ -1,0 +1,2205 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满四十六岁，天轨穿梭系统正式在编乘务员，成年公民。",
+   "age_range": [
+    46,
+    50
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_transit_ticket_conductor_qiu",
+   "line": "速度表突破每小时一百二十公里了！底盘手动刹车闸拉不动啊！",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "name": "老邱",
+   "role": "车厢当值乘务员老邱"
+  },
+  {
+   "adult_context": "年满五十二岁，大灾变前老工人，成年公民。",
+   "age_range": [
+    52,
+    55
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_underchassis_greaser_lao_sun",
+   "line": "电控离合器全烧焦了！只有往棘轮里塞硬家伙才能纯机械卡死！",
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "name": "老邝",
+   "role": "底盘值守润滑工老邝"
+  },
+  {
+   "adult_context": "年满二十二岁，成年特种高空作业索道工，完全民事行为能力人。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_roof_antenna_rigger_xiao_wu",
+   "line": "前方五百米进入下层防空电磁网射程！还有最后九十秒！",
+   "location_ids": [
+    "loc_sky_cable_roof_inspection_hatch"
+   ],
+   "name": "小武",
+   "role": "车顶天线索道工小武"
+  },
+  {
+   "adult_context": "年满三十五岁，巨企私兵安保队长，成年人。",
+   "age_range": [
+    35,
+    39
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_megacorp_enforcer_zhao",
+   "line": "放下武器！督察总监拥有优先跳伞撤离权，任何阻拦者就地格杀！",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "name": "赵队长",
+   "role": "企业随车武装督查赵队长"
+  },
+  {
+   "adult_context": "年满五十八岁，下层贫民窟常住平民，成年公民。",
+   "age_range": [
+    58,
+    62
+   ],
+   "function": "rumor_source",
+   "gender": "female",
+   "id": "bg_slum_commuter_elder_liu",
+   "line": "听说巨企早就想炸毁这条天轨，把我们底层的贫民窟全部改造成高能垃圾填埋场！",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "name": "刘阿婆",
+   "role": "下层通勤流民刘阿婆"
+  },
+  {
+   "adult_context": "年满四十八岁，反抗军地下战区调度首席，成年高级指挥官。",
+   "age_range": [
+    48,
+    52
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_rebel_dispatch_dr_mo",
+   "line": "总监！地下避难所电磁减速带已预热完毕，只要把车速降到安全阈值就能接住你们！",
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "name": "莫博士",
+   "role": "反抗军地下调度总长莫博士"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "冷艳孤傲的年轻女黑客与沉稳凶悍的退役特战佣兵在千米高空失重坠落绝境中相依为命，两人背靠背、手扣手将铬钼合金扳手砸入棘轮死点刹停巨兽。",
+   "id": "cc_hacker_and_mercenary_lever_rush",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "rebel_tech_hacker_su_ye",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "千米高空失速深渊中共同核算力矩与齿槽，建立起将生死托付给对方的绝对信赖。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "veteran_mercenary_lei_jin",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同生共死的过命战友，深知对方过硬的战术身手。",
+     "stage": "familiar"
+    },
+    {
+     "a": "rebel_tech_hacker_su_ye",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "veteran_mercenary_lei_jin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "底层技术天才与街头硬汉在狂暴坠落中达成铁血契约。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "rebel_tech_hacker_su_ye",
+    "veteran_mercenary_lei_jin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在穿梭车撞击下层防空电磁网粉碎前，合力用硬核物理插销卡死棘轮制动齿止坠。",
+    "limit_gap": "女黑客体能在极度超重失速下逼近昏厥极限，雇佣兵受限于外骨骼伺服电机过载濒临烧毁。",
+    "meeting_reason": "护送任务刚登车即遭遇天轨主缆索突发热熔爆炸。",
+    "resource_gap": "女黑客精通轨道机械公差与电磁工具自锁原理，雇佣兵拥有外骨骼爆发力与地锚防坠战术支撑。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_freefall_nosedive_vs_manual_ratchet",
+    "te_high_altitude_wind_vs_body_warmth"
+   ]
+  },
+  {
+   "chemistry": "传奇女黑客的果断指令如定海神针般稳住吓破胆的青年见习工，已成年的正式青年学徒冒死送达加长套管与安全绳，两人合力完成两级杠杆刹车。",
+   "id": "cc_hacker_and_cadet_lever_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "rebel_tech_hacker_su_ye",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "紧盯女黑客的每一个破拆手势。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "skylink_cadet_mechanic_xiao_lin",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "鼓励已成年的正式青年见习助理克服恐高承担重任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "rebel_tech_hacker_su_ye",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "skylink_cadet_mechanic_xiao_lin",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "师徒般的技术指引与庇护。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "rebel_tech_hacker_su_ye",
+    "skylink_cadet_mechanic_xiao_lin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "迅速接驳加长力臂协助扳手一举插死超速旋转的棘轮止退槽。",
+    "limit_gap": "见习工面对失速狂风心理防线崩溃，女黑客分身乏术无法兼顾车厢秩序。",
+    "meeting_reason": "见习工日常巡检车厢遭遇反抗军交火滞留。",
+    "resource_gap": "女黑客拥有核心工具与决断力，见习工掌握标准轨道图纸与备用套管位置。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_freefall_nosedive_vs_manual_ratchet"
+   ]
+  },
+  {
+   "chemistry": "巨企督察尖叫要求扔下底层乘客独自跳伞逃生，佣兵怒拔战术短刃横在其咽喉逼其交出安全锁扣，强行控制车厢秩序。",
+   "id": "cc_mercenary_and_inspector_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "veteran_mercenary_lei_jin",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "赞许佣兵制止特权逃亡的雷霆手段。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "megacorp_inspector_araska_yan",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对视底层人命如草芥的企业官僚深恶痛绝。",
+     "stage": "stranger"
+    },
+    {
+     "a": "veteran_mercenary_lei_jin",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "megacorp_inspector_araska_yan",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "底层战士对企业特权阶层的枪口对峙。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "veteran_mercenary_lei_jin",
+    "megacorp_inspector_araska_yan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "压制巨企逃亡行径保全全车乘客安全绳与破拆时间。",
+    "limit_gap": "督察极端恐惧坠毁丧命，佣兵受限于战后被巨企全面通缉暗杀的严重后果。",
+    "meeting_reason": "在车厢上层豪华包厢门前爆发的求生权正面摊牌。",
+    "resource_gap": "督察掌握单人降落伞与巨企求救频段，佣兵拥有绝对压倒性的单兵格斗战力。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_megacorp_quarantine_vs_slum_rescue"
+   ]
+  },
+  {
+   "chemistry": "反抗军女突击手强降车顶用抓钩枪拉扯缆车，与底盘破拆的年轻女黑客里应外合，双姝联手在暴风火海中撕开生路。",
+   "id": "cc_hacker_and_vanguard_sisterhood",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "rebel_tech_hacker_su_ye",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "深信女黑客的神级机械破拆能力。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "rebel_vanguard_pilot_luo_ying",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "空中突击姐妹的热血援护令人精神振奋。",
+     "stage": "familiar"
+    },
+    {
+     "a": "rebel_tech_hacker_su_ye",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 4
+     },
+     "b": "rebel_vanguard_pilot_luo_ying",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 4
+     },
+     "reason": "患难与共、生死相托的反抗军姐妹同盟。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "rebel_tech_hacker_su_ye",
+    "rebel_vanguard_pilot_luo_ying"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在激光拦截防空网开火前共同将缆车锁死在减速导轨上。",
+    "limit_gap": "突击手暴露在车顶极易遭无人机激光击落，女黑客在底盘面临火花电弧灼伤。",
+    "meeting_reason": "反抗军空中支援特遣队对失控穿梭车的紧急拦截救援。",
+    "resource_gap": "突击手拥有空中机动抓钩与牵引力，女黑客掌握核心刹车卡死硬核技巧。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_freefall_nosedive_vs_manual_ratchet",
+    "te_high_altitude_wind_vs_body_warmth"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_sky_cable_intercom_wired_speaker",
+   "reach": "all",
+   "text": "高空悬挂穿梭缆车车厢有线防爆对讲广播广播网"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_undercarriage_vent_pipe_echoes",
+   "reach": "local",
+   "text": "底盘制动通风散热竖管金属摩擦空鸣回声"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已成年的赛博机械与重工自动化工程师，年满二十一岁，持有天轨系统特种重型轨道机械检修执照与高级黑客认证，完全具备民事与应急指挥能力。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身穿黑色修身机能风战术夹克，领口敞开，露出一张冷艳出尘的面容，两腮带着莹润的光泽，在千米高空失重强风中发丝飞扬，双颊因竭力下压扳手泛起剧烈潮红与晶莹热汗。",
+    "扎着微卷的短马尾，右眼眶旁嵌有微型纳米数据分析单片目镜，咬紧银色下唇双手扣死电磁扳手，下颌线条在暴风与火花中透出一股桀骜不屈的工程师杀气。"
+   ],
+   "decision": {
+    "avoids": [
+     "怨天尤人的软弱哭嚎",
+     "盲目遵从规章的教条草包"
+    ],
+    "contrast": "外表冷艳叛逆，面对千米高空失速下坠时手腕爆发力与技术决断霸道绝伦。",
+    "core_value": "物理力学从不撒谎，巨企的病毒锁得住代码，锁不住老娘的实心合金扳手。",
+    "goal_options": [
+     "爬入底盘用扳手卡死棘轮制动齿强行刹车",
+     "在激光拦截开火前完成迫降脱困"
+    ],
+    "never": [
+     "在最后一毫米棘轮卡死前松开握住生路的手"
+    ],
+    "prefers": [
+     "分秒不差的机械执行",
+     "敢在刀尖上跳舞的默契同伴"
+    ],
+    "pressure_responses": {
+     "breaking": "用牙齿咬开高空安全绳挂钩一把扣在身旁同伴胸甲上",
+     "high": "整个人扑在扳手柄上借身体重力与反力咬牙向下猛压",
+     "low": "在车厢前倾三十度时冷静测算滑坠加速度与棘轮冲击力矩",
+     "mid": "果断踹开底盘检修盖板甩出折叠扳手标定卡死齿位"
+    },
+    "relationship_stance": "平日冷漠孤傲对任何人保持戒备，但在万劫不复的深渊天际展现出舍命相托的决绝信任。",
+    "withdrawal": "退回主悬臂承重三角骨架内侧，单手扣紧立柱冷声指挥众人规避坠落碎片。"
+   },
+   "gender": "female",
+   "gender_reason": "反抗军首席冷艳女黑客技师",
+   "id": "rebel_tech_hacker_su_ye",
+   "identity": {
+    "authority": "对高空悬挂穿梭机全套物理构架、棘轮制动齿公差及破拆解耦享有现场绝对技术否决权。",
+    "exposure": "为了掩护底层反抗军撤离曾黑入天轨中央调度局窃取过核心机密图纸",
+    "hidden": "夹克贴身内衬中缝着童年时与父母在旧轨道检修厂唯一的纸质合影",
+    "limits": [
+     "在车厢完全制动前神经接口暴露于强电弧环境极易过载烧毁脑机芯片",
+     "体能受限于高空强失重抗性临界点"
+    ],
+    "obligations": [
+     "保全同车人员免遭千米高空粉碎性坠毁"
+    ],
+    "resources": [
+     "一把折叠式高强度电磁破拆超硬铬钼合金重型扳手（头部带可调自锁反向止退销）",
+     "一罐军用级瞬时神经镇痛微型雾化气雾剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在失重悬空万丈深渊前依然稳如磐石的托举臂膀",
+     "直面毁灭时毫无杂质的同生共死"
+    ],
+    "boundaries": [
+     "严禁在电路漏电致幻神经混乱时产生任何侵犯行为",
+     "不以救命恩情作人身依附交换"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "底盘内被对方从身后环抱稳住重心，双手叠合在扳手末端合力砸下死点。",
+    "dislikes": [
+     "贪生怕死的暗算背叛",
+     "以上层特权施舍凌驾尊严"
+    ],
+    "expression": "脱险后默默反手擦去唇角血迹，将自己身上带有体温的防风围巾扯下扔给对方。",
+    "likes": [
+     "两人发力压死扳手时胸膛紧贴传来的滚烫脉搏",
+     "刹停瞬间狂暴气流消散后深情相扣的手指"
+    ],
+    "preconditions": [
+     "缆车车速完全降至零且棘轮稳固锁死",
+     "脱离下层防空激光网锁定覆盖区",
+     "两人都清醒，心意出于自己，不是高空绝境里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "反抗军机械战术技术总监",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_sky_cable_passenger_cabin",
+     "to": 1410
+    },
+    {
+     "from": 1410,
+     "location_id": "loc_cable_chassis_undercarriage_bay",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "扳手合金销轴在高冲击下载荷过载轻度扭曲，双手虎口被剧烈震裂满手鲜血。",
+      "option": "用折叠电磁破拆扳手反向楔入底盘棘轮止退卡槽以物理插销强行逼停缆车。"
+     },
+     {
+      "cost": "暴露在千米狂暴风切变中面临被强风撕扯吹落万丈深渊的极高死亡风险。",
+      "option": "爬上车顶用战术高周波刃强行切割仅存的带电副缆制造紧急摩擦减速。"
+     }
+    ],
+    "pressure": "缆车正以每秒三十米的速度俯冲向千米深渊，底盘备用制动器遭遇恶意代码彻底锁死。",
+    "trigger": "穿梭缆车主牵引钢缆被高能热熔弹炸断，车厢在重力加速度下沿导轨狂暴滑坠。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "还有六百米坠地……只要扳手卡进去，棘轮就得给我乖乖刹死，我绝不会死在巨企的破铜烂铁里。",
+    "surface": "别管那些冒烟的电控阀！那是巨企留的死人陷阱！把这把铬钼扳手卡进第三个棘轮槽，跟我一起往下压！"
+   }
+  },
+  {
+   "adult_context": "年满二十八岁，成年职业安全特战专家，具备完全民事行为能力，曾服役于天轨重工特种护卫团。",
+   "age_range": [
+    28,
+    32
+   ],
+   "appearance_options": [
+    "身材高大伟岸肩背雄厚，身穿深黑色强化防弹胸甲，右臂装配着重型金属外骨骼动力臂，短发如针眼神刚毅如铁。",
+    "左脸颊留有一道浅淡的激光灼痕，双手布满老茧，在狂暴颠簸中双脚如生根般死死钉在倾斜甲板上。"
+   ],
+   "decision": {
+    "avoids": [
+     "临阵脱逃的懦夫背叛",
+     "废话连篇的无脑指挥"
+    ],
+    "contrast": "看似嗜血好杀的冷酷雇佣兵，在失速危亡前展现出惊人的战术纪律与细腻保护本能。",
+    "core_value": "契约重于生命，只要老子没死，谁也别想动我护送的人一根汗毛。",
+    "goal_options": [
+     "协助总监抵挡暴风并压死棘轮扳手",
+     "用身体堵住破损车门防止同伴滑落"
+    ],
+    "never": [
+     "在雇主生还前独自启动单人降落伞逃生"
+    ],
+    "prefers": [
+     "言出必行的真汉子",
+     "一击毙命的纯物理干脆解法"
+    ],
+    "pressure_responses": {
+     "breaking": "用合金胸甲硬生生撞碎卡壳的底盘安全护罩清空障碍",
+     "high": "双手覆在总监手背上方倾注全身外骨骼扭矩协同下压",
+     "low": "在车厢前倾瞬间利落甩出气动地锚稳固二人阵型",
+     "mid": "用外骨骼重臂一把拽住滑向断崖天窗的年轻乘客"
+    },
+    "relationship_stance": "对总监高超的技术手腕与硬骨头由衷激赏，愿在生死关头甘当其坚不可摧的人形盾牌。",
+    "withdrawal": "退守至底盘检修口阶梯下方，用高大身躯替总监挡住迎面扑来的碎玻璃狂风。"
+   },
+   "gender": "male",
+   "gender_reason": "退役重装军团特战佣兵",
+   "id": "veteran_mercenary_lei_jin",
+   "identity": {
+    "authority": "对高空失重人体动力平衡、单兵战术固定及重型工具爆发力下压拥有特级实战经验。",
+    "exposure": "曾是天轨巨企镇压暴动部队的前锋精锐后反出企业",
+    "hidden": "装甲内侧挂着一枚带有反抗军秘密暗号的纯银机械狗牌",
+    "limits": [
+     "外骨骼电池余量在失控电磁场中快速衰减",
+     "重型装甲自身重量在失重超载下成为巨大负累"
+    ],
+    "obligations": [
+     "誓死完成护送总监安全抵达下层中继站的生死契约"
+    ],
+    "resources": [
+     "一具大吸力工业气动固定地锚吸盘",
+     "两支军用高浓度体能兴奋凝胶"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在万丈深渊狂风面前毫无惧色的骄傲眼眸",
+     "彼此生死相依时外骨骼与肉身碰撞的极致张力"
+    ],
+    "boundaries": [
+     "恪守职业护卫契约分寸",
+     "绝不以武力强加私人意志"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "底盘倒吊悬空紧扣横梁，单臂将总监箍在胸前，另一手握紧扳手猛砸齿槽。",
+    "dislikes": [
+     "贪生怕死的推诿暗算",
+     "高高在上的贵族优越感"
+    ],
+    "expression": "解开胸甲外层厚重的防寒斗篷紧紧裹在总监肩头，有力的大手用力握了握总监冰凉的指尖。",
+    "likes": [
+     "战火与风暴中沉静坚毅的侧颜",
+     "刹停脱险后狂灌一口高浓度合成烈酒的痛快"
+    ],
+    "preconditions": [
+     "彻底化解千米坠毁粉碎危机",
+     "全员安全降落在下层安全屋掩体"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "下层街区职业保镖",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_sky_cable_passenger_cabin",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "外骨骼动力臂伺服电机瞬间烧毁报废，{npc.name}右肩关节脱臼韧带拉伤。",
+      "option": "启动外骨骼过载倍率强行协同总监将铬钼扳手砸入棘轮制动死点脱险。"
+     },
+     {
+      "cost": "高周波刃被瞬间震碎崩飞，碎片割破防弹裤脚造成浅表外伤。",
+      "option": "用战术短刃直接插入外挂备用机械阻尼钢管充当二级缓冲垫铁自救。"
+     }
+    ],
+    "pressure": "若十秒内无法止住下冲惯性，缆车将在前方弯道直接被离心力甩脱轨道凌空解体。",
+    "trigger": "底盘传动轴在疯狂自转中甩出烈焰，车厢倾角逼近四十五度失速极限。"
+   },
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这姑娘值得活着。只要老子这副机械骨头没散架，千米高空也摔不死这姑娘。",
+    "surface": "总监！别回头看高度计！地锚吸盘我钉死了，你抓稳扳手找准孔位，剩下的几百公斤下沉力道我给你顶上！"
+   }
+  },
+  {
+   "adult_context": "年满四十岁，穹顶集团轨道交通上层高级督察，具备完全民事行为能力，掌控天轨全线自毁与切除权限。",
+   "age_range": [
+    40,
+    44
+   ],
+   "appearance_options": [
+    "身穿剪裁考究的高定防水纤维西装，戴着金丝边增强现实全息目镜，神情高傲冷漠，手里死死攥着降落伞拉环。",
+    "面容苍白，领口被失速狂风吹得凌乱不堪，竭力维持着上层社会体面的同时眼神充满恐慌。"
+   ],
+   "decision": {
+    "avoids": [
+     "肮脏油腻的底盘机械舱",
+     "与底层流民肢体接触"
+    ],
+    "contrast": "平日在新闻发布会上趾高气扬宣扬安全神话，大难临头时比谁都丑态毕露、歇斯底里。",
+    "core_value": "企业资产与自身性命高于一切，底层平民命如草芥。",
+    "goal_options": [
+     "强行开启紧急天窗独自跳伞逃生",
+     "抢夺扳手阻挠黑客避免车辆数据泄露"
+    ],
+    "never": [
+     "为了挽救全车平民而交出自己的单人救生伞背包"
+    ],
+    "prefers": [
+     "绝对的阶级特权保障",
+     "一尘不染的上层浮空艇"
+    ],
+    "pressure_responses": {
+     "breaking": "瘫倒在倾斜地板上狂按求救信标呼喊企业救援队",
+     "high": "被佣兵拔刀指着脑门后吓得瑟缩在座位底角交出工具",
+     "low": "在车厢上层厉声命令乘务人员维持秩序禁止触碰设备",
+     "mid": "发现速度失控后歇斯底里试图暴力踢开跳伞安全门"
+    },
+    "relationship_stance": "将反抗军与街头佣兵视为恐怖分子与底层臭虫，对其抱有刻骨的优越感与恐惧。",
+    "withdrawal": "缩在车厢最上端豪华包厢防滚架内，双手死死抱住公文包与降落伞。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "megacorp_inspector_araska_yan",
+   "identity": {
+    "authority": "代表巨企董事会行使高空危急状态下载具自毁、弃车断缆与人员隔离特权。",
+    "exposure": "私自克扣下拨给车厢底盘日常大修的高品质耐磨刹车衬片中饱私囊",
+    "hidden": "暗中启动了呼叫企业武装浮空车前来单人接应撤离的私密紧急信标",
+    "limits": [
+     "完全不具备任何底层纯机械手工破拆能力",
+     "贪生怕死稍有风吹草动便企图独自弃车跳伞逃命"
+    ],
+    "obligations": [
+     "保全公文包内巨企年度轨道运营加密财务核心芯片"
+    ],
+    "resources": [
+     "一具单人军工级折叠高空降落伞",
+     "一枚天轨中央主机一级权限自毁脱扣密匙卡"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "能为其提供绝对安全庇护的压倒性武力",
+     "保全其巨额财富与阶级体面的逢迎"
+    ],
+    "boundaries": [
+     "严禁任何下等民触碰其身体与西装",
+     "不承担任何同舟共济义务"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在车厢上端死死抓住安全扶手，尖叫命令安保人员将黑客与佣兵推下底盘充当配重。",
+    "dislikes": [
+     "刺鼻的焦糊机油味",
+     "被枪口刀尖指着胸口的屈辱恐惧"
+    ],
+    "expression": "战战兢兢地从口袋里掏出一叠不记名高额信用芯片扔在地上换取保命位置。",
+    "likes": [
+     "被护卫在最安全的中心位置",
+     "昂贵的合成香槟与雪茄"
+    ],
+    "preconditions": [
+     "彻底脱离千米坠毁危险且置身于巨企安保警戒圈内",
+     "保全既得社会地位"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "巨企天轨安全监察总监",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_sky_cable_passenger_cabin",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "涉嫌公然袭击巨企高管战后将遭到企业暗杀赏金通缉。",
+      "option": "佣兵反手一记枪托将督察打晕夺下其降落伞安全绳捆死在防滚架上自救。"
+     },
+     {
+      "cost": "消耗尽随身黑客终端最后三分之一的高能电池储备。",
+      "option": "总监用电子破解枪烧毁督察的跳伞门开启电磁开关强行锁死舱门。"
+     }
+    ],
+    "pressure": "若任由其开启侧门，千米强气流将直接把底盘操作人员吹落万丈高空。",
+    "trigger": "车厢倾斜角突破三十五度，督察企图强开减压舱跳伞导致气流彻底掀开顶盖。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这帮下等人要是撬坏了刹车，整辆车就会变成一团火球，我的降落伞……我必须自己跳出去！",
+    "surface": "你们这帮疯子！竟敢暴力拆卸企业的底盘专利棘轮！立刻住手！我的浮空车马上就到了！"
+   }
+  },
+  {
+   "adult_context": "年满五十岁，大灾变前老轨道检修厂八级钳工，成年街头黑客修理商，具备完全民事行为能力。",
+   "age_range": [
+    50,
+    54
+   ],
+   "appearance_options": [
+    "身穿油渍斑斑的厚帆布机械工装，右眼装有一具粗糙的二手变焦电子义眼，满脸胡茬神情世故狡黠。",
+    "腰间沉甸甸挂满各型号废旧棘轮扳手与绝缘套筒，双手骨节粗大结实，在剧烈颠簸中动作异常利落。"
+   ],
+   "decision": {
+    "avoids": [
+     "不可预测的激光扫射",
+     "受潮变质的劣质电容"
+    ],
+    "contrast": "为一块合成肉饼与人争辩半天的市侩二道贩子，面对失速齿轮毫不犹豫扔出整罐私藏润滑剂。",
+    "core_value": "机械结构不骗人，只要别对齿位没有刹不住的滚轮。",
+    "goal_options": [
+     "指点总监找准四度偏心旷量卡准棘轮",
+     "保全私运的救命神经药剂箱"
+    ],
+    "never": [
+     "在生死关头用次品螺栓糊弄保命的刹车结构"
+    ],
+    "prefers": [
+     "严丝合缝的扎实手工活",
+     "讲道义守信用的街头汉子"
+    ],
+    "pressure_responses": {
+     "breaking": "用拐杖死死别住滑脱的传动链条为年轻人争取发力时间",
+     "high": "用沙哑嗓音高呼反向回转下压的最佳切入角度",
+     "low": "在底盘狭窄夹层里用电子义眼迅速测算齿槽磨损倾角",
+     "mid": "冒着飞溅火星递上二硫化钼干喷剂喷射齿面防滑脱"
+    },
+    "relationship_stance": "发自内心佩服敢打敢拼的年轻女技师总监，视其为底层街头少有的机械天才。",
+    "withdrawal": "躲在底盘坚固承重横梁下，用身体死死护住药剂箱。"
+   },
+   "gender": "male",
+   "gender_reason": "霓虹黑市重工老走私贩兼黑修工",
+   "id": "slum_smuggler_mechanic_lao_sun",
+   "identity": {
+    "authority": "对高空穿梭车老旧底盘机械结构、偏心磨损退让槽位置拥有数十年的丰富实拆经验。",
+    "exposure": "私自改装天轨轨道高压偷电装置被巨企全网通缉",
+    "hidden": "深知这座车厢底盘棘轮组当年因偷工减料存在向左倾斜四度的装配旷量",
+    "limits": [
+     "年事已高患有严重的尘肺义体排异反应",
+     "体能衰竭无法独自完成重载下压"
+    ],
+    "obligations": [
+     "将私运的一箱高端神经突触修复药剂送回贫民窟诊所救活孙女"
+    ],
+    "resources": [
+     "一罐工业级高粘度耐极压防咬死二硫化钼干喷剂",
+     "几根高强度弹簧淬火硬化卡销"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对硬核古典机械工艺的执着坚守",
+     "在崩塌世道依然未泯的工匠良知"
+    ],
+    "boundaries": [
+     "恪守老手艺人长辈本分不越规矩",
+     "不介入年轻人的私人情感波澜"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在底盘角落大声咳嗽着用电子义眼红光照射棘轮退让凹槽，将润滑剂精准抛向总监掌心。",
+    "dislikes": [
+     "粗制滥造的蛮力破坏",
+     "轻视老手艺的盲目傲慢"
+    ],
+    "expression": "用沾满机油开裂的大手重重拍了拍年轻人的肩头，咧开缺门牙的嘴咧嘴笑出声来。",
+    "likes": [
+     "重型合金零件严丝合缝咬死的清脆回响",
+     "干完重活后一口劣质卷烟的辛辣回甘"
+    ],
+    "preconditions": [
+     "彻底化解高空脱轨滑坠危机车辆稳稳刹停",
+     "私运救命药剂完好无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "底巢黑市五金行掌柜",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_cable_chassis_undercarriage_bay",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗尽私藏已久的绝版工业高档润滑材料，手掌被金属碎屑飞溅割破。",
+      "option": "用{npc.name}私藏的二硫化钼干喷剂喷入卡咬齿面协助扳手顺利深插止退。"
+     },
+     {
+      "cost": "猛烈敲击造成棘轮外壳产生微小裂纹降低整体使用寿命。",
+      "option": "指挥佣兵用合金短刃反向敲击偏心销钉震松卡滞点让扳手卡死自救。"
+     }
+    ],
+    "pressure": "若无高润滑介质强行介入并纠偏角度，铬钼合金扳手将在数十吨剪切扭矩下折断。",
+    "trigger": "底盘棘轮发出令人牙酸的干磨打滑声，咬合面在狂暴超速中濒临抹平滑丝。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好姑娘，手稳心黑！这手艺要是被巨企摔死在高空，那是老天爷瞎了眼！",
+    "surface": "总监！听{npc.name}的！这台破车底盘棘轮当年装配偏了四度！别直着往下夯，往左偏一点借齿槽反向倒齿别死！"
+   }
+  },
+  {
+   "adult_context": "年满二十一岁，天轨工科学校成年毕业生，初级轨道机械检修工，具备完全民事行为能力。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身材单薄，身穿崭新但布满灰尘的黄色天轨工装背心，面容清秀神色慌张，护目镜歪斜挂在脖颈上。",
+    "腰间工具包胡乱挂着绝缘测电笔与备用扳手，双手因剧烈恐惧与失重而剧烈颤抖。"
+   ],
+   "decision": {
+    "avoids": [
+     "凶神恶煞的武装打手",
+     "千米悬空失重深渊"
+    ],
+    "contrast": "胆小如鼠经常被巨企督察呵斥，但在生死关头能爆发出一股拼命护持偶像的勇气。",
+    "core_value": "保命第一，崇拜并绝对服从总监的每一项技术指令。",
+    "goal_options": [
+     "协助总监寻找备用加力延长套管",
+     "在底盘检修舱稳固后方安全绳"
+    ],
+    "never": [
+     "背叛总监私自逃跑"
+    ],
+    "prefers": [
+     "清晰明了的步骤指引",
+     "平稳安全的低空地面"
+    ],
+    "pressure_responses": {
+     "breaking": "跪倒在控制台前拼命扳动手动充液应急截断阀",
+     "high": "鼓起勇气冒着失重狂风爬向检修口递送安全锁扣",
+     "low": "在车厢角落慌乱翻找可以充当加力杠杆的厚壁钢管",
+     "mid": "大声向底盘通报车顶激光拦截塔的倒计时警报"
+    },
+    "relationship_stance": "将总监视为唯一的救命稻草与崇拜图腾，愿为协助脱困倾尽微薄之力。",
+    "withdrawal": "缩在车厢后排座椅下方，紧紧抱住安全绳卷轴瑟瑟发抖。"
+   },
+   "gender": "male",
+   "gender_reason": "天轨轨道交通青年见习维护工",
+   "id": "skylink_cadet_mechanic_xiao_lin",
+   "identity": {
+    "authority": "天轨车厢底层检修通道应急机械释放手柄与应急照明电路的开启权。",
+    "exposure": "因值班打瞌睡未能提前发现主缆索高能热熔炸弹附着",
+    "hidden": "暗恋才华横溢的女黑客总监将其视为反抗巨企的传奇偶像",
+    "limits": [
+     "缺乏一线大事故实战经验心理承受力脆弱",
+     "体魄单薄力气严重不足"
+    ],
+    "obligations": [
+     "按规程记录悬挂小车每日行车日志并上报安全数据"
+    ],
+    "resources": [
+     "一捆高强度轻量化芳纶纤维逃生安全绳",
+     "一套全套标准轨道制动器机械公差图纸"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "冷峻果敢的技术领袖魄力",
+     "在万劫不复深渊中给予的坚定眼神"
+    ],
+    "boundaries": [
+     "恪守自知之明不作非分之想",
+     "严守下属本分规矩"
+    ],
+    "desire_range": [
+     1,
+     1
+    ],
+    "desired_position": "在底盘检修口上方死死拉紧安全绳，大声哭喊着为总监下压扳手报出最后三十秒读数。",
+    "dislikes": [
+     "残酷暴力的威吓践踏",
+     "被当作累赘抛弃"
+    ],
+    "expression": "手忙脚乱地将加长套管双手递过，紧张得语无伦次连连向总监道歉。",
+    "likes": [
+     "被肯定业务能力时的温和点头",
+     "分到的一枚合成能量薄荷糖"
+    ],
+    "preconditions": [
+     "彻底排除缆车滑坠粉碎危险车辆平稳悬停",
+     "确保自身生命安全得到保障"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "天轨穿梭系统助理检修员",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_sky_cable_passenger_cabin",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "绳索在剧烈拉扯下磨损起毛，操作人员手掌被磨出大面积血泡。",
+      "option": "用芳纶安全绳套在扳手末端交由车厢众人合力拉拽下压自救。"
+     },
+     {
+      "cost": "被千米狂暴风切变吹伤面部留下轻度冻伤痕迹。",
+      "option": "{npc.name}冒死爬上车顶用干粉灭火器扑灭起火座椅阻断烟气蔓延。"
+     }
+    ],
+    "pressure": "若不及时手动开启车厢顶部强力排烟通风阀，全员将在两分钟内被浓烟呛晕。",
+    "trigger": "车顶电弧火花引燃座椅软包，车厢内浓烟弥漫阻碍视线。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要总监还在拼命，我就不能当缩头乌龟，我必须帮着把这道刹车扳下去！",
+    "surface": "总监！加长钢管我找到了！还有这捆芳纶安全绳，能套在扳手柄上当二级拉绳！"
+   }
+  },
+  {
+   "adult_context": "年满二十四岁，反抗军空降突击队成年女特战队员，完全民事行为能力人。",
+   "age_range": [
+    24,
+    26
+   ],
+   "appearance_options": [
+    "身穿带有高空磁力吸附靴的紧身战术皮衣，头戴全覆式单兵战术目镜，腰间挎着两柄轻型冲锋枪与气动缆绳发射枪。",
+    "身手敏捷矫健如雌豹，短发染成张扬的荧光深紫，眼神野性桀骜充满战斗热血。"
+   ],
+   "decision": {
+    "avoids": [
+     "瞻前顾后的软弱妥协",
+     "暗箭伤人的卑鄙背叛"
+    ],
+    "contrast": "平日行事张扬火爆爱说脏话的小太妹，在面临战友生死时展现出钢铁般的牺牲意志。",
+    "core_value": "姐妹同命生死与共，绝不让巨企的走狗伤到总监一根毫毛。",
+    "goal_options": [
+     "从浮空艇发射抓钩缆绳协助缆车减速",
+     "用电磁震撼弹瘫痪车顶激光雷达"
+    ],
+    "never": [
+     "为了自身撤离抛弃正在底盘拼命的总监"
+    ],
+    "prefers": [
+     "火力全开的正面对决",
+     "毫不犹豫的生死托付"
+    ],
+    "pressure_responses": {
+     "breaking": "用自己的磁力靴死死吸在底盘外壁充当外部稳定支点",
+     "high": "顶着暴风射穿前窗探身进入底盘协助下压杠杆",
+     "low": "在车外侧悬停浮空艇上用激光指示器向车内投射信号",
+     "mid": "强降到车顶平台用抓钩枪死死锚定副轨道横梁"
+    },
+    "relationship_stance": "将总监视为最珍视的智囊战友与生死姐妹，愿为其冲锋陷阵粉身碎骨。",
+    "withdrawal": "退回车顶安全锚点，手持冲锋枪警惕上方追击的企业巡逻艇。"
+   },
+   "gender": "female",
+   "gender_reason": "反抗军浮空艇接应女突击手",
+   "id": "rebel_vanguard_pilot_luo_ying",
+   "identity": {
+    "authority": "反抗军空中搜救浮空艇编队战术接应与高空绳索强降指挥权。",
+    "exposure": "为了突破企业封锁曾击落过两架天轨无人武装直升机",
+    "hidden": "暗中与总监有着生死同盟的底层街头姐妹誓约",
+    "limits": [
+     "浮空艇在巨企防空激光威胁下无法靠得太近",
+     "必须在三分钟内完成缆车悬挂减速"
+    ],
+    "obligations": [
+     "誓死确保总监携带的核心机密图纸平安突围"
+    ],
+    "resources": [
+     "一柄大威力高空碳纤维气动抓钩枪",
+     "两枚大容量强光电磁干扰震撼弹"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在崩塌天际中耀眼夺目的反抗光芒",
+     "毫无保留的生死担当"
+    ],
+    "boundaries": [
+     "严守反抗军战时纪律",
+     "不搞特权与小团体偏私"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在底盘外侧破损窗口探入半个身子，双臂紧扣住总监的后腰协助其稳住发力重心合力下压。",
+    "dislikes": [
+     "官僚作派与优柔寡断",
+     "践踏底层平民的伪善"
+    ],
+    "expression": "利落翻身跳入车厢内，一把按住总监的肩头狠狠撞了撞额头，咧嘴大笑露出尖锐小虎牙。",
+    "likes": [
+     "激战后紧紧相拥的滚烫喘息",
+     "打劫巨企运输艇后的畅快大笑"
+    ],
+    "preconditions": [
+     "彻底摧毁追击的巨企防空拦截网",
+     "两人均安全回归反抗军地下基地"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "反抗军特遣空中突击手",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_sky_cable_roof_inspection_hatch",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "抓钩枪高压气瓶过载爆裂，右手掌心遭受强烈冲击震伤。",
+      "option": "用抓钩枪反向射穿领头无人机旋翼拉拽其撞击轨道减速自救。"
+     },
+     {
+      "cost": "强电磁辐射瞬间干扰车厢内离线设备导致通讯短暂失灵。",
+      "option": "投掷强光电磁干扰震撼弹致盲追击机群雷达换取逃生窗口。"
+     }
+    ],
+    "pressure": "若不及时打掉追击无人机，集束导弹将在三分钟内彻底炸断副悬臂。",
+    "trigger": "巨企武装无人机群咬住缆车尾部疯狂扫射，车顶天线被打得火花四溅。"
+   },
+   "tags": [
+    "crime",
+    "violence"
+   ],
+   "voices": {
+    "inner": "总监要是摔碎在这里，反抗军就彻底瞎了眼睛，只要我还剩一口气，哪怕用肉身拉我也要把缆车拉住！",
+    "surface": "总监！抓钩打上了！老娘在外面替你们拉扯三成惯性，把那把烂扳手压死！刹不住车我们一起跳！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "新历七十年，酸雨季",
+  "minute": 1380
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "登上高空缆车前习惯将手指搭在颈侧神经接驳插孔边缘，确认电磁屏蔽胶塞紧密扣合。",
+  "反抗军街头黑客习惯在工具柄上缠绕一层绝缘黄色防滑胶带，防范高压漏电灼伤手掌。",
+  "佣兵交接时习惯用金属打火机重重磕碰防弹胸甲三下，发出清脆撞击声以示互不背刺。",
+  "在高空失速强对流风中喊话习惯低头顶住对方前额，借骨骼共振传递核心短句。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用高精度电子游标卡尺测量主棘轮齿根磨损倒角",
+    "校对电磁吸附离合器线圈常开间隙微米级读数",
+    "手动扳动棘爪复位弹簧测试自由行程回弹响应"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cable_ratchet_backlash_caliper",
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "凌晨四点底盘制动棘轮侧隙标定"
+  },
+  {
+   "beats": [
+    "用高压气动注脂枪向底盘滑动轴承加注耐磨润滑膏",
+    "清理碟刹盘散热通风槽表面积聚的碳化物粉末",
+    "紧固制动钳支架承重钛合金螺栓防松铁丝"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_chassis_molybdenum_greasing_service",
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "start_minute": 1390,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "制动卡钳导向销二硫化钼注脂"
+  },
+  {
+   "beats": [
+    "用摇表测量高空碳纤维滑板与车顶金属外壳耐压值",
+    "清理受电弓接触网导线表面电弧烧蚀形成的铜瘤",
+    "排查副拉索张紧液压阻尼器活塞杆微量渗油裂痕"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_roof_pantograph_insulation_check",
+   "location_ids": [
+    "loc_sky_cable_roof_inspection_hatch"
+   ],
+   "start_minute": 1385,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "车顶受电弓副悬臂绝缘阻抗测试"
+  },
+  {
+   "beats": [
+    "转动主逃生舱门红色手动保险锁紧手轮确认阻尼",
+    "测试车门边缘充气式防气蚀橡胶密封条密闭弹性",
+    "核对防风破拆重型工兵斧的固定卡扣释放弹力"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_cabin_emergency_hatch_drill",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "主车厢逃生天窗机械锁闭测试"
+  },
+  {
+   "beats": [
+    "将便携诊断手柄接入副驾驶台加固串行诊断接口",
+    "下载过去二十四小时缆索振动频谱与风切变载荷",
+    "在巨企运行安全日志加盖乘务长数字加密防伪印"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_skylink_transit_blackbox_audit",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "车厢离线黑匣子飞行参数抽检"
+  },
+  {
+   "beats": [
+    "用手持频谱侦测仪扫描下层防空拦截炮台雷达频段",
+    "校准车顶防空防误击应答机射频微波编码",
+    "紧固高空全向通信刀状天线底座四颗防松螺母"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_anti_air_laser_frequency_scanner",
+   "location_ids": [
+    "loc_sky_cable_roof_inspection_hatch"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "title": "下层防空激光网引导信标校对"
+  },
+  {
+   "beats": [
+    "缆车刹停、众人撤进下层安全屋后，女黑客坐在折叠床边，后颈的神经接口被电涌烧得发红，绷带渗着血丝。",
+    "女黑客把短马尾撩起来背过身，让人一圈圈拆下旧绷带、涂上冷凝胶，指尖碰到接口边缘时，肩膀轻轻一缩。",
+    "新绷带缠好，女黑客没有转身，只把终端屏幕调暗：今晚不连网了……你也别走。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_safehouse_port_bandage",
+   "location_ids": [
+    "loc_rebel_safehouse"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "安全屋里替女黑客换接口绷带"
+  },
+  {
+   "beats": [
+    "安全屋的百叶窗外闪着霓虹，女黑客盘腿坐在折叠床上，捧着一碗合成面，宽大的旧夹克下只穿一件背心。",
+    "女黑客把筷子递过来：最后一碗了，分你一半。……吃完别急着走，我的防火墙今晚想放个人进来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_safehouse_noodles",
+   "location_ids": [
+    "loc_rebel_safehouse"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "intimate"
+   ],
+   "title": "霓虹灯下分一碗合成面"
+  },
+  {
+   "beats": [
+    "女黑客拿出一根双头数据线，一头插进自己后颈的接口，另一头在指间晃：想不想看看我脑子里什么样？",
+    "女黑客说好了：你一说断开，我立刻拔线。等人点头，才把另一头接上，屏幕上的代码一下子乱成一片粉色。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_safehouse_neural_link",
+   "location_ids": [
+    "loc_rebel_safehouse"
+   ],
+   "start_minute": 1330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "神经接口并联"
+  },
+  {
+   "beats": [
+    "酸雨下了一夜，早上终于停了，女黑客在折叠床上醒来，整个人缩在人怀里，终端屏幕还亮着。",
+    "女黑客把终端合上，嘟囔着：今天巨企的巡逻队休整。……所以我也休整，你陪我。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_safehouse_acid_rain_stops",
+   "location_ids": [
+    "loc_rebel_safehouse"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "酸雨停了的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "近未来赛博朋克巨企垄断与霓虹反抗军纪元",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_cable_snaps_cabin_nosedives",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "slot": "rebel_tech_hacker_su_ye",
+   "text": "{rebel_tech_hacker_su_ye.name}一把抓住变形的金属立柱，甩开额前浸湿的短发：主缆断了！备用电控刹车全被蠕虫锁死了，跟我砸开底盘塞物理插销！"
+  },
+  {
+   "id": "hook_hacker_measures_ratchet_gap",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "slot": "rebel_tech_hacker_su_ye",
+   "text": "{rebel_tech_hacker_su_ye.name}单膝跪在狂暴震颤的底盘钢梁上，折叠扳手咔哒一声自锁展开：看好第三个棘轮止退槽，往左偏四度，听我口令一起往下砸！"
+  },
+  {
+   "id": "hook_wind_shear_shatters_front_glass",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "slot": "rebel_tech_hacker_su_ye",
+   "text": "{rebel_tech_hacker_su_ye.name}在千米零下二十度的暴风里咬紧牙关，面颊在电光冷照下泛出剧烈绯红与汗珠：别怕风！抓紧我的战术腰带，把力气全压在扳手柄上！"
+  },
+  {
+   "id": "hook_ratchet_teeth_groan_under_shear",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "slot": "rebel_tech_hacker_su_ye",
+   "text": "{rebel_tech_hacker_su_ye.name}整个人扑在铬钼合金扳手末端，双臂青筋暴起：扳手咬住齿槽了！别松手，佣兵，把你的外骨骼全压上来，把棘轮压死！"
+  },
+  {
+   "id": "hook_mercenary_grips_wrench_firmly",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "slot": "veteran_mercenary_lei_jin",
+   "text": "{veteran_mercenary_lei_jin.name}跨步上前，粗壮的外骨骼重臂一把覆在总监纤细手背外侧：苏工，你稳住卡角！剩下的几百公斤下沉重量交给我，谁也别想松手！"
+  },
+  {
+   "id": "hook_targeting_lasers_paint_cabin",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "slot": "rebel_tech_hacker_su_ye",
+   "text": "{rebel_tech_hacker_su_ye.name}猛然抬头凝视舷窗外疯狂闪烁的激光红斑，眼神冷冽如刀：巨企的防空激光锁定我们了！还有两分钟，哪怕把齿槽砸烂也得给我刹住！"
+  },
+  {
+   "id": "hook_worm_virus_deadlocks_brake_motor",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "slot": "veteran_mercenary_lei_jin",
+   "text": "{veteran_mercenary_lei_jin.name}反手抽出合金战术短刃重重砸碎冒烟的伺服电控箱，低沉咆哮：电控全废了！就靠这把实心扳手了，跟我一起使劲，压到底！"
+  },
+  {
+   "id": "hook_high_voltage_arc_ignites_roof",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "slot": "veteran_mercenary_lei_jin",
+   "text": "{veteran_mercenary_lei_jin.name}用宽阔的装甲后背死死顶在破损车门边，替身旁众人挡下飞溅火花：稳住！缆车还没解体，底盘那帮技术手正在拼命，谁敢乱动老子把闹事者扔出去！"
+  },
+  {
+   "id": "hook_inspector_audits_blackbox_logs",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "slot": "megacorp_inspector_araska_yan",
+   "text": "{megacorp_inspector_araska_yan.name}惨白着脸抱紧降落伞，尖声叫嚷：反抗军破坏了天轨！赵队长，开枪！把跳伞门炸开，我要先走！"
+  },
+  {
+   "id": "hook_lao_sun_greases_caliper_pins",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "slot": "veteran_mercenary_lei_jin",
+   "text": "{veteran_mercenary_lei_jin.name}接住老掌柜抛来的半罐润滑喷剂：往齿根喷！那个偏心轴被找到了，垫上淬火卡销撬！"
+  },
+  {
+   "id": "hook_cadet_tests_pantograph_insulation",
+   "kind": "request",
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "slot": "rebel_tech_hacker_su_ye",
+   "text": "{rebel_tech_hacker_su_ye.name}抹去脸上的冷汗与焦油，急促喘息着看向检修员：去车厢把备用加力钢管取来套上，我们需要更长的一米力臂！"
+  },
+  {
+   "id": "hook_mercenary_tests_escape_hatch",
+   "kind": "request",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "slot": "skylink_cadet_mechanic_xiao_lin",
+   "text": "{skylink_cadet_mechanic_xiao_lin.name}双手抱着一根厚壁加长钢管滚入底盘夹层，眼眶通红：总监！钢管拿来了！还有一捆芳纶安全绳！"
+  },
+  {
+   "id": "hook_luo_ying_scans_anti_air_frequencies",
+   "kind": "request",
+   "location_ids": [
+    "loc_sky_cable_roof_inspection_hatch"
+   ],
+   "slot": "rebel_vanguard_pilot_luo_ying",
+   "text": "{rebel_vanguard_pilot_luo_ying.name}在车顶将抓钩枪狠狠打在悬挂导轨工字钢上，按住送话器大吼：抓钩扣死了！我在上面给你们拽住三成冲力，总监，把棘轮压死！"
+  },
+  {
+   "id": "hook_observe_neon_cityscape_freefall",
+   "kind": "observe",
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "slot": "rebel_tech_hacker_su_ye",
+   "text": "{rebel_tech_hacker_su_ye.name}挺立在呼啸倒灌的千米暴风中，破损战术夹克下侧颜在旋转红蓝霓虹灯下明艳决绝，眼神如出鞘利刃般坚不可摧。"
+  },
+  {
+   "id": "hook_observe_wrench_bites_ratchet_teeth",
+   "kind": "observe",
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "slot": "rebel_tech_hacker_su_ye",
+   "text": "高强度铬钼合金扳手狠狠咬入高速倒转的棘轮齿根，伴随着震耳欲聋的金属哀鸣与漫天火雨，巨大的穿梭车剧烈震颤着在导轨上犁出数百米焦痕，稳稳刹停在深渊天际边缘。"
+  },
+  {
+   "id": "hook_suye_jack_plug",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "rebel_tech_hacker_su_ye",
+   "text": "{npc.name}从后颈拔下一根数据线，绕在指尖晃了晃，冲人挑眉：信号太烂，借你的终端蹭一下网，不偷你东西。"
+  },
+  {
+   "id": "hook_leijin_ration_toss",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "veteran_mercenary_lei_jin",
+   "text": "{npc.name}外骨骼咔哒一声在旁边坐下，丢过来一根合成能量棒：吃吧，上一顿是什么时候自己都忘了吧。"
+  },
+  {
+   "id": "hook_xiaolin_map_share",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "skylink_cadet_mechanic_xiao_lin",
+   "text": "{npc.name}抱着一卷皱巴巴的纸质线路图凑过来，摊在膝盖上：你看，这一段我值过夜班，哪里能躲风我都知道。"
+  },
+  {
+   "id": "hook_luoying_goggle_lift",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "rebel_vanguard_pilot_luo_ying",
+   "text": "{npc.name}把护目镜推到额头上，从车顶检修口探下半个身子，冲人吹了声口哨：喂，下面的，上来透口气？"
+  },
+  {
+   "id": "hook_yan_card_flash",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "megacorp_inspector_araska_yan",
+   "text": "{npc.name}整了整笔挺的制服领口走过来，指间夹着一张发光的企业通行卡：配合一下调查，对你没坏处。"
+  },
+  {
+   "id": "hook_suye_safehouse_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rebel_safehouse"
+   ],
+   "slot": "rebel_tech_hacker_su_ye",
+   "text": "{npc.name}靠在安全屋的铁门上，用指节敲了两下：这里不在任何地图上。……进来，我请你吃面。"
+  }
+ ],
+ "id": "cyberpunk_neon_elevator_cable_crisis",
+ "locations": [
+  {
+   "affordances": [
+    "抓握钛合金加固扶手抗阻过载",
+    "用重型扳手砸开底盘检修舱活动地板",
+    "调阅驾驶台残存离线黑匣子失速读数"
+   ],
+   "detail": "长十五米、通体由高强度碳纤维与防弹聚碳酸酯构筑的椭圆形双层悬挂车厢，前挡风玻璃已被狂风震裂数道大缝，狂暴冷风撕扯着残破的广告全息投影，车厢严重前倾三十度高速下坠。",
+   "exits": [
+    "loc_cable_chassis_undercarriage_bay",
+    "loc_sky_cable_roof_inspection_hatch",
+    "loc_rebel_safehouse"
+   ],
+   "id": "loc_sky_cable_passenger_cabin",
+   "name": "缆车车厢",
+   "pressure_modifiers": {
+    "p_cable_snap_nosedive_freefall": "车厢沿三十度倾斜导轨呈抛物线加速下冲，失重感如潮水般撕扯内脏器官。",
+    "p_high_altitude_wind_shear_freeze": "千米高空零下二十度强对流暴风狂涌而入，呼啸气流剥夺视线与肢体温度。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_transit_ticket_conductor_qiu"
+   ]
+  },
+  {
+   "affordances": [
+    "将电磁破拆扳手反向楔入棘轮止退槽",
+    "扳动手动充液应急液压截断阀",
+    "用安全吸盘固定身体防止滑落底盘天窗"
+   ],
+   "detail": "位于主车厢地板下方的逼仄夹层空间，高度不足一米二，中央横卧着巨大的抱轨棘轮箱与四联装高压刹车碟盘，高频摩擦爆出的炽烈蓝白火花在金属管道间乱窜，齿槽狂暴嘶鸣。",
+   "exits": [
+    "loc_sky_cable_passenger_cabin",
+    "loc_sky_cable_roof_inspection_hatch"
+   ],
+   "id": "loc_cable_chassis_undercarriage_bay",
+   "name": "缆车底盘轨道机械检修舱",
+   "pressure_modifiers": {
+    "p_brake_caliper_worm_virus_deadlock": "底盘制动电机线圈在恶意蠕虫病毒指令下持续反向供电死锁，高温电磁铁红热冒烟。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_underchassis_greaser_lao_sun"
+   ]
+  },
+  {
+   "affordances": [
+    "解开应急碳纤维备用拉锁扣环",
+    "挥动战术割刀切断缠绕电缆",
+    "观察前方轨道拦截激光塔预警红光"
+   ],
+   "detail": "暴风肆虐的车厢外顶金属平台，粗如立柱的双向主悬臂在风阻中剧烈扭曲，上方仅剩一根带电辅助钢缆在滑轮组上摩擦发出雷鸣般的巨响，千米下方是流光溢彩的深渊霓虹街景。",
+   "exits": [
+    "loc_sky_cable_passenger_cabin",
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "id": "loc_sky_cable_roof_inspection_hatch",
+   "name": "车顶天窗台",
+   "pressure_modifiers": {
+    "p_laser_interceptor_targeting_lock": "下层防空激光炮台的主动雷达照射红斑已锁定车顶，两分钟后将启动饱和集束齐射。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_roof_antenna_rigger_xiao_wu"
+   ]
+  },
+  {
+   "affordances": [
+    "和女黑客分一碗合成面",
+    "替女黑客换接口上的绷带",
+    "把安全屋的铁门锁死"
+   ],
+   "detail": "缆车站底下一间改装过的仓库，一张折叠床、三块拼起来的终端屏幕、墙角堆着合成面箱子，百叶窗外是霓虹。",
+   "exits": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "id": "loc_rebel_safehouse",
+   "name": "下层城区的反抗军安全屋",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "霓虹透过百叶窗在墙上划出一道道粉紫色的光，铁门一锁，巨企的无人机也扫不进来。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "苏",
+   "顾",
+   "洛",
+   "雷",
+   "楚",
+   "白",
+   "秦",
+   "莫",
+   "韩",
+   "邵",
+   "阎",
+   "方"
+  ],
+  "given_female": [
+   "夜",
+   "玥",
+   "瞳",
+   "羽",
+   "零",
+   "汐",
+   "岚",
+   "青",
+   "宛",
+   "曼",
+   "彤",
+   "影"
+  ],
+  "given_male": [
+   "烬",
+   "霆",
+   "拓",
+   "锋",
+   "赫",
+   "征",
+   "烈",
+   "渊",
+   "铠",
+   "骁",
+   "扬",
+   "策"
+  ],
+  "given_neutral": [
+   "极",
+   "幻",
+   "尘",
+   "刃",
+   "光",
+   "弦",
+   "舟",
+   "寻",
+   "简",
+   "寒",
+   "诺",
+   "凌"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留赛博霓虹都市、千米跨城悬挂缆车失速与反抗军女黑客卡死棘轮自救的骨架。改动：写死的人名改为身份称呼，背景人物里与掌柜重名的老孙改名；原稿借用的游戏公司名换成虚构的穹顶集团；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；女黑客亲密前提写明落地脱险、双方清醒自愿；新增一个安全屋里替女黑客拆义体接口绷带的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    25,
+    36
+   ],
+   "baseline": "受雇护送反抗军黑客横跨上层天轨的资深保镖，身着重型钛合金骨骼护甲。",
+   "gender": "any",
+   "id": "pi_cyber_street_mercenary_guard",
+   "reputation": "信誉极佳出手狠辣，只要佣金到账誓死完成护卫契约。",
+   "resources": [
+    "一柄高周波重型战术短刃",
+    "两枚军工级耐超高压气动吸盘固定带"
+   ],
+   "risks": [
+    "重装义体沉重在失速俯冲中极易受重力惯性脱手飞出",
+    "神经接口易遭企业电磁脉冲压制"
+   ],
+   "role": "下层街区退役重装佣兵",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "重装佣兵{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}保镖"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    48
+   ],
+   "baseline": "垄断巨企派驻天轨穿梭系统的执法督察，手持全线路应急迫降电子密钥卡。",
+   "gender": "any",
+   "id": "pi_megacorp_skylink_inspector",
+   "reputation": "傲慢冷酷将底层乘客视为损耗数据，奉行财产保全优于人命的铁律。",
+   "resources": [
+    "一套纳米级全密封降落逃生伞背包",
+    "一具巨企内网上层安全离线通讯器"
+   ],
+   "risks": [
+    "一旦黑客病毒彻底瘫痪系统其随身电子密匙将沦为废铁",
+    "在失速车厢内容易成为众矢之的"
+   ],
+   "role": "穹顶集团轨道运输安全巡查官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}巡视专员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}总监"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    40
+   ],
+   "baseline": "常年往返上下层偷运限制级义体元件的拾荒老手，熟悉缆车底盘各管路暗格。",
+   "gender": "any",
+   "id": "pi_neon_slum_tech_smuggler",
+   "reputation": "贼眉鼠眼唯利是图，但在破拆重型机械死锁方面有一手绝活。",
+   "resources": [
+    "一瓶特种冷喷式超导快干绝缘胶",
+    "一把大号多功能加长棘轮快拆套筒"
+   ],
+   "risks": [
+    "身上藏匿的违禁电容随时面临高空电弧引爆危险",
+    "体力孱弱抗过载能力差"
+   ],
+   "role": "霓虹底巢走私黑市机械师",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}黑工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}二道贩子"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    24
+   ],
+   "baseline": "刚被派上千米索道值班的年轻在编轨道维护工，熟悉悬挂小车纯机械刹车图纸。",
+   "gender": "any",
+   "id": "pi_sky_transit_maintenance_cadet",
+   "reputation": "本分老实胆小怯弱，但骨子里崇拜敢作敢当的技术大神。",
+   "resources": [
+    "一套耐磨牛皮防坠落全身安全绳",
+    "一本高空悬挂系统紧急排障实操手册"
+   ],
+   "risks": [
+    "高空失重状态下极易诱发急性恐高眩晕休克",
+    "面对暴动局势缺乏武力自保手段"
+   ],
+   "role": "天轨轨道交通青年见习工",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}技师"
+    }
+   ]
+  }
+ ],
+ "premise": "千米高空的跨城穿梭缆车是巨企穹顶集团的命脉。反抗军首席女黑客技师化名在缆车维修站上班，白天修车厢电路，夜里往集团系统里埋后门；退役佣兵、轨道巡查官和黑市机械师都是这条线上的熟面孔。主缆索的检修报告被集团压了半年。",
+ "pressures": [
+  {
+   "choice": "等待中控弱电重启制动，还是由总监带队砸开底盘塞入硬核物理插销。",
+   "exits": [
+    {
+     "cost": "扳手合金销轴在高冲击下严重形变，操作人员手掌被震裂满手鲜血。",
+     "option": "用折叠电磁破拆超硬铬钼合金扳手反向楔入底盘棘轮止退卡槽以物理插销刹停。"
+    },
+    {
+     "cost": "气罐爆破冲击波震伤在场操作人员耳膜并引发局部起火。",
+     "option": "用合金短刃撬动底盘紧急手动截断阀强行引爆储气罐实施摩擦抱死自救。"
+    }
+   ],
+   "far": {
+    "consequence": "车厢化为漫天金属碎片与火球凌空粉碎，全员粉身碎骨绝无幸免。",
+    "due_days": 1,
+    "trigger": "缆车以两百公里时速撞击下层轨道死挡铁"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cable_snap_nosedive_freefall",
+   "immediate": {
+    "minutes": 8,
+    "text": "车厢底盘传动轴在疯狂过载空转中喷出滚滚浓烟，离心重力压得众人胸骨剧痛几乎窒息。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "俯冲速度突破设计安全极限两倍，车厢剧烈摆动撞击导轨发出即将解体的凄厉呻吟。"
+   },
+   "objective": "在车厢被前方导轨弯道甩飞前强行利用破拆扳手卡死棘轮制动。",
+   "source": "accident",
+   "start_minute": 1380,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "主牵引缆索熔断穿梭车疯狂俯冲滑坠",
+   "trigger": "千米高空主承重牵引钢缆遭高能热熔炸药炸断，重达数吨的穿梭缆车以三十度下倾角切入失速俯冲，速度表突破每小时一百四十公里狂暴飙升。"
+  },
+  {
+   "choice": "留在上层车厢寻找防风掩体，还是冒着风暴直接跳入底盘夹层发力。",
+   "exits": [
+    {
+     "cost": "湿透的战术夹克下肌肉剧烈抽搐剧痛，耗尽随身防寒热量储备。",
+     "option": "两人紧密相贴借身体重量抵挡风阻同时将安全绳锁死在承重立柱上自救。"
+    },
+    {
+     "cost": "佣兵胸甲正面遭受碎玻璃密集划割出现大面积防弹涂层破损。",
+     "option": "佣兵用防弹胸甲死死顶住破损前窗为总监遮挡正面风切变冲击。"
+    }
+   ],
+   "far": {
+    "consequence": "从千米高空坠入霓虹深渊粉身碎骨化为虚无。",
+    "due_days": 1,
+    "trigger": "强风切变直接将人员掀翻吹出车厢外顶"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_high_altitude_wind_shear_freeze",
+   "immediate": {
+    "minutes": 10,
+    "text": "狂暴气流将座椅上的杂物与碎玻璃疯狂卷起砸向众人，呼出的热气瞬间冻结在睫毛上成霜。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sky_cable_passenger_cabin"
+   ],
+   "near": {
+    "deadline_minutes": 22,
+    "text": "肢体末梢在严寒狂风侵袭下彻底失去知觉，手指抓握力量出现断崖式衰减。"
+   },
+   "objective": "在极度失温与被狂风吹出车厢前稳住重心进入底盘检修舱。",
+   "source": "nature",
+   "start_minute": 1388,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "千米零下二十度强对流风切变暴涌",
+   "trigger": "前挡风玻璃在气压激变下轰然爆碎，千米高空零下二十度的强对流暴风呼啸灌入，冰冷刺骨的狂风剥夺体温与视线，极限制动动作举步维艰。"
+  },
+  {
+   "choice": "尝试编写黑客脚本逆向清除病毒，还是直接用重锤砸烂电路板一了百了。",
+   "exits": [
+    {
+     "cost": "高压电弧闪爆灼伤总监手背皮肤并烧损单片目镜。",
+     "option": "总监用电磁扳手直接砸烂驱动器主供电母线保险丝实施断电脱扣自救。"
+    },
+    {
+     "cost": "润滑喷罐在高温烘烤下面临微型爆炸飞溅风险。",
+     "option": "老掌柜喷射二硫化钼干喷剂配合扳手强行跨过电磁离合器卡死棘轮。"
+    }
+   ],
+   "far": {
+    "consequence": "车厢底盘骨架被彻底炸断凌空解体，全员葬身火海坠毁。",
+    "due_days": 1,
+    "trigger": "底盘液压油箱在高温下发生爆炸"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_brake_caliper_worm_virus_deadlock",
+   "immediate": {
+    "minutes": 6,
+    "text": "电控箱屏幕闪烁着巨企警告骷髅头红光，电机控制器线圈在反接制动中烧得通红冒烟。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "near": {
+    "deadline_minutes": 14,
+    "text": "高温电线引燃底盘液压油雾，火焰顺着电缆槽疯狂蔓延向后方乘客舱。"
+   },
+   "objective": "物理砸碎电控伺服驱动器切断病毒回路改用纯机械卡死。",
+   "source": "institution",
+   "start_minute": 1395,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "底盘制动电机遭企业恶意蠕虫病毒锁死",
+   "trigger": "巨企安保中枢注入恶意蠕虫病毒，底盘伺服电机强行执行断电反向开闸指令，高压液压油路被物理旁通，常规刹车踏板完全踏空失去阻尼。"
+  },
+  {
+   "choice": "由突击手在车顶投掷电磁干扰弹阻断雷达，还是在底盘加快下压争分夺秒。",
+   "exits": [
+    {
+     "cost": "突击手右臂作战服被电磁脉冲高温电弧轻度烧焦。",
+     "option": "突击手在车顶引爆大容量电磁干扰震撼弹致盲激光火控雷达争取三分钟时限。"
+    },
+    {
+     "cost": "急转弯产生的巨大横向过载撞碎车厢两侧全部舷窗玻璃。",
+     "option": "总监与佣兵在最后三十秒将扳手硬塞入棘轮强行拐入支线导轨规避直击。"
+    }
+   ],
+   "far": {
+    "consequence": "车厢瞬间被高温高能激光束切割气化为漫天熔融铁水，全员当场蒸发殉难。",
+    "due_days": 1,
+    "trigger": "饱和防空集束激光齐射命中车厢"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_laser_interceptor_targeting_lock",
+   "immediate": {
+    "minutes": 5,
+    "text": "两道刺目的红色激光瞄准准星在车窗前玻璃上疯狂交织闪烁，防空警报凄厉尖叫。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sky_cable_roof_inspection_hatch"
+   ],
+   "near": {
+    "deadline_minutes": 10,
+    "text": "激光炮台蓄能电容发出震耳欲聋的高频蜂鸣，车顶金属蒙皮在强光照射下开始焦糊冒烟。"
+   },
+   "objective": "在激光开火前将车速降至安全值切入下层避难支线脱离锁定。",
+   "source": "institution",
+   "start_minute": 1405,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "下层防空集束激光拦截塔锁定车体",
+   "trigger": "巨企下层防空激光炮台将失控缆车判定为反抗军俯冲撞击武器，火控雷达已在车头投射红斑，三分钟倒计时结束后将启动两百万焦耳饱和激光扫射。"
+  },
+  {
+   "choice": "孤注一掷靠全员体重死压，还是微调扳手角度换取更深咬合。",
+   "exits": [
+    {
+     "cost": "老掌柜双手在极高压挤压下被飞溅火星严重烫伤起泡。",
+     "option": "老掌柜将随身淬火硬化卡销迅速塞入齿根缝隙垫死退让旷量完成锁死脱险。"
+    },
+    {
+     "cost": "两人胸腹部肌肉承受超负荷反冲撞击出现剧烈内出血淤青。",
+     "option": "总监与佣兵调整站位将身体重心完全挂在扳手末端以极限自重咬死齿根。"
+    }
+   ],
+   "far": {
+    "consequence": "飞溅的断齿如子弹般击穿人员躯体，丧失唯一机械止退点彻底坠入深渊。",
+    "due_days": 1,
+    "trigger": "棘轮止退齿彻底崩碎折飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_ratchet_teeth_shear_stress_snap",
+   "immediate": {
+    "minutes": 4,
+    "text": "棘轮接触面迸射出长达数米的耀眼电弧火花，刺耳的金属挤压嘶鸣在底盘狭小空间疯狂共振。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cable_chassis_undercarriage_bay"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "棘轮第三个止退齿出现肉眼可见的裂纹，扳手手柄发生超过十度的弹性弯折。"
+   },
+   "objective": "垫入淬火卡销并加大下压力度将扳手推入齿根最深处死死锁死。",
+   "source": "accident",
+   "start_minute": 1398,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "棘轮止退齿在数十吨冲击下载荷超标濒断",
+   "trigger": "扳手刚插入齿槽，穿梭车的巨大冲坠惯性使得合金齿牙承受了超设计强度的剪切扭矩，金属内部发出令人心悸的晶格碎裂哀鸣，齿槽即将崩飞滑脱。"
+  },
+  {
+   "choice": "分兵一人爬上车顶切断电缆，还是在底盘强行制动带离短路带。",
+   "exits": [
+    {
+     "cost": "检修员右手绝缘手套被高压电弧击穿右手掌心遭受严重轻度电击灼伤。",
+     "option": "检修员在车顶检修口用绝缘高压钳冒死剪断副受电弓引线切断短路自救。"
+    },
+    {
+     "cost": "高周波短刃电容彻底过载烧融报废。",
+     "option": "佣兵甩出高周波短刃斩断起火车顶线束阻断电流向底盘蔓延。"
+    }
+   ],
+   "far": {
+    "consequence": "车厢化为巨型白热火球凌空殉爆，全员同归于尽化为焦炭灰烬。",
+    "due_days": 1,
+    "trigger": "高压电弧彻底引爆车厢主锂电池组"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_secondary_cable_arcing_explosion",
+   "immediate": {
+    "minutes": 5,
+    "text": "蓝白色高压电弧在车顶疯狂跳跃炸响，刺鼻的臭氧与绝缘塑料焦臭浓烟充斥车厢。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sky_cable_roof_inspection_hatch"
+   ],
+   "near": {
+    "deadline_minutes": 11,
+    "text": "车顶薄钢板被高压电弧熔穿数个大洞，滚烫的熔融铁水滴落在乘客座椅上引发起火。"
+   },
+   "objective": "在电弧击穿乘客舱顶盖前切断副受电弓或拉开高压断路器隔离开关。",
+   "source": "accident",
+   "start_minute": 1402,
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "title": "车顶副悬臂辅助高压带电索短路爆闪",
+   "trigger": "剧烈晃动导致仅存的车顶高压辅助电缆与悬臂钢架发生直接金属短路，万伏高压电弧如火龙般沿着滑轨疯狂回窜，即刻引发配电箱大爆炸。"
+  }
+ ],
+ "region": "千米高空跨城轨道重型悬挂穿梭缆车车厢",
+ "rules": [
+  {
+   "id": "r_high_altitude_cable_safety_code",
+   "text": "千米穿梭轨道遭遇主缆断裂时必须在三十秒内触发底盘多级机械死锁。"
+  },
+  {
+   "id": "r_megacorp_cyber_lockout_protocol",
+   "text": "巨企安保系统对叛乱代码入侵的载具执行远程切断所有伺服制动电力的熔断惩罚。"
+  },
+  {
+   "id": "r_ratchet_manual_override_instruction",
+   "text": "电磁抱闸完全断电后必须手动将实心硬质合金构件强行插入棘轮副止退槽卡死滑块。"
+  },
+  {
+   "id": "r_skyline_transit_quarantine_drop",
+   "text": "缆车坠入下层平民区防空电磁拦截网前三分钟防空激光塔将执行无差别击毁扫射。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "握紧扶手",
+  "committed": "天际誓约",
+  "familiar": "风中相拥",
+  "flirting": "短路温存",
+  "intimate": "坠落相贴",
+  "stranger": "拔枪对峙",
+  "testing": "棘轮同命"
+ },
+ "status": "released",
+ "style_hint": "冷硬暴烈的近未来赛博重工工笔，着重刻画千米高空失重坠落的狂暴风压、铬钼合金扳手与轨道超硬齿槽咬合时迸射的蓝白电弧、机能风战术夹克下急速升温的剧烈喘息，台词充满底层街头反抗者的狠厉与冷静。",
+ "tension_engines": [
+  {
+   "id": "te_freefall_nosedive_vs_manual_ratchet",
+   "text": "千米高空穿梭车狂暴失速下坠粉碎危机与利用实心电磁破拆扳手卡死棘轮止退槽的机械极限自救。"
+  },
+  {
+   "id": "te_megacorp_quarantine_vs_slum_rescue",
+   "text": "垄断巨企防空激光无差别击毁扫射与挽救全车底层贫民同胞之间的冷酷阶级生存死斗。"
+  },
+  {
+   "id": "te_mercenary_contract_vs_hacker_trust",
+   "text": "退役雇佣兵的金钱契约本能与对底层叛逆女黑客舍命相托技术奇迹之间的剧烈反差信任共鸣。"
+  },
+  {
+   "id": "te_high_altitude_wind_vs_body_warmth",
+   "text": "千米极寒强对流暴风撕扯失重与两人在底盘狭小空间紧贴合力下压扳手的滚烫战栗生命羁绊。"
+  }
+ ],
+ "title": "赛博霓虹·高空缆车悬挂绝境",
+ "tone": [
+  "失速狂风尖啸",
+  "霓虹全息广告冷光",
+  "高空电弧火花迸射",
+  "金属棘轮急刹震颤"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_sky_cable_manual_bypass_pawl_found",
+   "requires": [
+    "rebel_tech_hacker_su_ye"
+   ],
+   "text": "{rebel_tech_hacker_su_ye.name}在棘轮箱底座铭牌下摸出了当年旧时代工匠遗留的手动机械过载双向止退退让销孔。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_mercenary_disarms_corrupt_inspector",
+   "requires": [
+    "veteran_mercenary_lei_jin"
+   ],
+   "text": "{veteran_mercenary_lei_jin.name}反手夺下巨企督察的配枪与降落伞钥匙，全面接管车厢全部乘员防务指挥权。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_adrenalin_neural_patch_shared_all",
+   "requires": [
+    "rebel_tech_hacker_su_ye"
+   ],
+   "text": "{rebel_tech_hacker_su_ye.name}撕开随身战术夹克暗袋，将整整四片军工级高纯度神经镇痛兴奋透皮贴片分发给现场力竭同伴。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_anti_air_laser_aiming_radar_blinded",
+   "requires": [
+    "rebel_vanguard_pilot_luo_ying"
+   ],
+   "text": "{rebel_vanguard_pilot_luo_ying.name}在车顶引爆高空强电磁震撼弹，致盲了下层防空集束激光塔的主动引导雷达。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_emergency_branch_guide_rail_engaged",
+   "requires": [
+    "rebel_tech_hacker_su_ye"
+   ],
+   "text": "{rebel_tech_hacker_su_ye.name}利用扳手手柄强行挑开轨道紧急分流道岔拨叉，使缆车在最后十秒成功拐入下层货运减速支线。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_mercenary_shields_hacker_from_blast",
+   "requires": [
+    "rebel_tech_hacker_su_ye",
+    "veteran_mercenary_lei_jin"
+   ],
+   "text": "{veteran_mercenary_lei_jin.name}在电磁箱发生短路闪爆瞬间挺身扑在{rebel_tech_hacker_su_ye.name}身前，用合金防弹胸甲硬生生挡下全部飞溅电弧与金属弹片。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_ratchet_locks_true_sparks_freeze",
+   "requires": [
+    "rebel_tech_hacker_su_ye"
+   ],
+   "text": "超速滑坠的庞大穿梭车在实心合金扳手的死死卡塞下发出沉重巨响，棘轮彻底咬死，漫天飞溅的火雨骤然熄灭，车厢在深渊之上巍然定格脱险。"
+  }
+ ]
+}

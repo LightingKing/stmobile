@@ -1,0 +1,2322 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "大厦资深工程运营负责人，在总控室焦急调度。",
+   "age_range": [
+    45,
+    55
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_estate_control_director_zhao",
+   "line": "三十层外挂梯的小陈和苏姑娘还在上面！备用油机供电还没接通，抓紧用对讲机喊话指导！",
+   "location_ids": [
+    "loc_building_ground_control_center"
+   ],
+   "name": "赵主任",
+   "role": "物业工程运营总监"
+  },
+  {
+   "adult_context": "通过有线对讲机远程传授专业松闸技巧的老师傅。",
+   "age_range": [
+    50,
+    60
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_elevator_dispatch_master_wang",
+   "line": "小陈！安全钳是渐进式的偏心楔块，地板检修盖板底下有个螺栓孔，逆时针转动就能松开自锁！",
+   "location_ids": [
+    "loc_building_ground_control_center"
+   ],
+   "name": "王师傅",
+   "role": "电梯厂牌驻场特级维保技师"
+  },
+  {
+   "adult_context": "严格执行防风安全条例的安保主管，暂时限制了外部救援强行接近。",
+   "age_range": [
+    35,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_security_captain_liu",
+   "line": "室外台风阵风已经超过十四级，观光梯外侧完全无法登高，谁也不许盲目开顶层天台门！",
+   "location_ids": [
+    "loc_building_ground_control_center"
+   ],
+   "name": "刘队长",
+   "role": "大厦安保秩序主管"
+  },
+  {
+   "adult_context": "在楼下中控室焦急等待合租二人平安返回的邻居。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_female_neighbor_xiao_lin",
+   "line": "室友！维保师傅！物业说应急发电机组还在预热，你们在里面千万撑住啊！",
+   "location_ids": [
+    "loc_building_ground_control_center"
+   ],
+   "name": "邻居林小姐",
+   "role": "同层二十一岁的女邻居"
+  },
+  {
+   "adult_context": "在机房检查曳引机状态并向总控汇报的技术老工人。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_rooftop_watchman_lao_zhang",
+   "line": "天台主卷扬机刹车没有问题，完全是导轨侧风晃动引发安全钳误动作抱死了！",
+   "location_ids": [
+    "loc_building_ground_control_center"
+   ],
+   "name": "老张师傅",
+   "role": "天台机房值班老电工"
+  },
+  {
+   "adult_context": "在中控台负责监测电梯监控线路的助手。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_apprentice_electrician_xiao_liu",
+   "line": "电梯轿厢有线对讲信号断断续续的，狂风把井道通信线吹得直打晃！",
+   "location_ids": [
+    "loc_building_ground_control_center"
+   ],
+   "name": "小刘",
+   "role": "工程部二十一岁的电工助手"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "合租室友与电梯维保师傅在悬停的轿厢地板上跪成一圈、手叠着手，把实心钢伞尖插进检修孔，一圈一圈旋松松闸螺母。",
+   "id": "cc_roommate_and_tech_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "roommate_su_wanqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死悬空死线前紧密协作构建力矩杠杆，彼此产生绝对性命相托。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "maintenance_technician_chen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同为特种设备技术从业人员，深谙彼此手上力道与操作习惯。",
+     "stage": "familiar"
+    },
+    {
+     "a": "roommate_su_wanqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "maintenance_technician_chen",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "温柔姑娘与沉毅工匠在绝境中成为生死不离的脱困伴侣。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "roommate_su_wanqing",
+    "maintenance_technician_chen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在应急照明耗尽前合力旋松偏心松闸螺母恢复平层滑行。",
+    "limit_gap": "室友家居裙单薄且体能渐衰，维保师傅身处逼仄死角后背承受剧烈晃动冲击。",
+    "meeting_reason": "台风夜两人从楼下超市提着泡面和蜡烛回来，电梯里维保师傅正蹲在角落检查应急灯。",
+    "resource_gap": "室友拥有坚固双层航空铝骨架长柄伞，维保师傅掌握安全钳偏心自锁机械结构拆解直觉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_typhoon_storm_high_altitude_sway",
+    "te_close_contact_body_heat"
+   ]
+  },
+  {
+   "chemistry": "大姐姐与幕墙设计师以精准机械原理拆解偏心暗槽咬合，严丝合缝操作工具突破阻滞。",
+   "id": "cc_senior_and_inspector_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "roommate_su_wanqing",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "长期合租生活积累深厚信任，对彼此性格了如指掌。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "maintenance_technician_chen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "工程同仁，熟悉高层建筑结构细节。",
+     "stage": "familiar"
+    },
+    {
+     "a": "roommate_su_wanqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "maintenance_technician_chen",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在沉重机械死锁压迫下并肩趴卧发力，消除身份隔阂。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "roommate_su_wanqing",
+    "maintenance_technician_chen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "利用伞尖精准卡死偏心螺栓并顺势撬动连杆自救。",
+    "limit_gap": "台风狂风导致外界救援阻断，必须在昏暗摇晃中凭手感盲操机械脱扣。",
+    "meeting_reason": "停电前一小时，室友拉着人去天台收晾着的床单，回来时搭上了那部观光电梯。",
+    "resource_gap": "大姐姐掌握随身应急物资分布，技术员拥有高精度激光测距与强光手电。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_safety_wedge_deadlock_crush",
+    "te_power_loss_blackout_rush"
+   ]
+  },
+  {
+   "chemistry": "物业总工以绝对权威指挥现场排障，室友温婉顺从配合，合力爆发千钧推力破死锁。",
+   "id": "cc_chief_architect_and_roommate_high",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "roommate_su_wanqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "主管指挥室友校准发力矢量，展现卓越技术领导力。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "maintenance_technician_chen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同组工程维保人员，配合极为默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "roommate_su_wanqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "maintenance_technician_chen",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "温柔姑娘与工程骨干共赴生死，结成无间同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "roommate_su_wanqing",
+    "maintenance_technician_chen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以高刚性力矩反推破除偏心卡死完成无损自救脱困。",
+    "limit_gap": "高空玻璃幕墙处于临界变形，任何蛮动都会引发晃动加剧。",
+    "meeting_reason": "物业让人陪维保师傅检查台风前的电梯，室友下班回来，顺路挤了进来。",
+    "resource_gap": "主管掌握整栋大楼管线图谱，室友掌握全部随身应急耐磨织物。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_power_loss_blackout_rush",
+    "te_safety_wedge_deadlock_crush"
+   ]
+  },
+  {
+   "chemistry": "室友以生活主心骨身份沉着鼓励，工科青年严谨配合测算每道力矩数值。",
+   "id": "cc_designer_and_officer_command",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "roommate_su_wanqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "同处绝境，心意在贴身死斗协作中完全交融。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "maintenance_technician_chen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "工科同学，彼此熟稔信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "roommate_su_wanqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "maintenance_technician_chen",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "室友全力依赖青年臂膀发力破局。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "roommate_su_wanqing",
+    "maintenance_technician_chen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保安全钳楔块免遭永久咬死，全员安全脱困。",
+    "limit_gap": "高空断电导致孤立无援，必须紧密依偎配合。",
+    "meeting_reason": "室友抱着刚到的快递和一束花上楼，在电梯里撞见了人；花是给谁的，室友没说。",
+    "resource_gap": "室友拥有极佳心理韧性，青年精通摩擦自锁解脱原理。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_typhoon_storm_high_altitude_sway",
+    "te_power_loss_blackout_rush"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_car_whisper_breath",
+   "reach": "all",
+   "text": "悬空玻璃轿厢内两人肌肤相贴急促滚烫的吐息与心跳共振"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_elevator_intercom_static",
+   "reach": "local",
+   "text": "轿厢应急对讲机里断断续续的电流沙沙杂音与微弱人声"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁，刚步入职场的文创策划师，平日温婉体贴照顾生活，遇险展现出异乎寻常的勇敢信任。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身穿一袭米白色宽松针织无袖家居长裙，外搭淡粉色开衫毛衣，乌黑柔顺的长发微乱地挽在脑后，容颜清雅温婉楚楚动人，两腮带着健康的红润，在百米高空剧烈晃动中脸色微白却咬紧樱唇，面庞泛着紧张发热的嫣红，细汗微渗。",
+    "长裙被灌入的雨水打湿紧贴在玲珑有致的身躯上，两腮带着淡淡的红晕的秀丽面庞在应急冷光下透出如凝脂般的柔腻，双手死死握住长柄雨伞伞身合力下压，温婉眼神中满溢着对维保师傅的绝对信赖与坚定反差。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱啼哭的软弱作态",
+     "鲁莽盲动的粗暴蛮干"
+    ],
+    "contrast": "在家里说话轻声细语，连关门都怕吵醒隔壁；轿厢悬在三十层半空时，却是室友第一个把雨伞倒过来，把伞尖递了过去。",
+    "core_value": "哪怕平日再柔弱温顺，在生死危难前也要成为能够与维保师傅并肩抵挡风雨的坚实依靠。",
+    "goal_options": [
+     "将长柄雨伞坚固纯钢伞尖对准安全钳暗孔插入充当力臂",
+     "与维保师傅身体紧密相贴合力下压螺母打破自锁"
+    ],
+    "never": [
+     "在同伴脱困前独自退缩放弃"
+    ],
+    "prefers": [
+     "沉稳专注且臂力强健的担当男子",
+     "细致严谨的硬核工匠手段"
+    ],
+    "pressure_responses": {
+     "breaking": "哪怕双臂酸胀欲裂、急促滚烫的吐息交织在维保师傅耳侧，亦咬紧红唇拼死抵住力矩绝不松手。",
+     "high": "在百米悬空晃动中整个身子紧贴在维保师傅胸前，双手覆在维保师傅手背上倾注全身重量猛按伞柄。",
+     "low": "在轿厢骤停失重瞬间紧紧抓住扶手，轻声出言安慰维保师傅莫要焦急。",
+     "mid": "毫不犹豫脱下受阻的开衫毛衣，双膝跪地主动帮助维保师傅掀开检修盖板。"
+    },
+    "relationship_stance": "合租三年，室友记得对方不吃香菜、加班到几点、哪件衬衫该熨了；值日表上的名字总是挨着写，谁也没提过要搬走。",
+    "withdrawal": "安全脱险后脱力靠在维保师傅怀里微喘，面庞埋在维保师傅颈窝掩饰喜极而泣的羞涩。"
+   },
+   "gender": "female",
+   "gender_reason": "二十一岁的女室友，兼具知性温婉与危难中挺身而出的坚强韧性。",
+   "id": "roommate_su_wanqing",
+   "identity": {
+    "authority": "合租公寓家庭财务与生活主管，对两人随身生活物品拥有自主调度权。",
+    "exposure": "针织家居裙因雨水浸湿紧贴娇躯勾勒出起伏轮廓，在狭小轿厢内地板贴身发力时毫无保留地贴合在维保师傅身前。",
+    "hidden": "背包里随身装着给维保师傅买的润喉糖与胃药",
+    "limits": [
+     "高空眩晕与体力有限导致单人无法维持大扭矩杠杆施压",
+     "轿厢剧烈晃动使身体重心难以完全稳固"
+    ],
+    "obligations": [
+     "与维保师傅共同度过高空悬停台风危机",
+     "照应彼此安全直至成功平层脱险"
+    ],
+    "resources": [
+     "一把加厚双层防风长柄高尔夫雨伞（航空铝合金主骨架，伞尖采用实心淬火高碳钢精工打磨，长十公分硬度极大）",
+     "一包湿纸巾与一瓶未开封矿泉水",
+     "一只充满电的便携快充充电宝"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "维保师傅在电梯骤降抱死瞬间以宽厚臂膀将{npc.name}死死护入怀中的无畏与可靠",
+     "在昏暗摇晃的百米高空死角中维保师傅沉着冷静排查机械故障的专注眼神"
+    ],
+    "boundaries": [
+     "恪守正派自尊的底线",
+     "脱困自救纯靠硬核物理机械力矩绝不涉性"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在地板检修口旁紧贴维保师傅怀前，双手叠在维保师傅手背上共同握紧伞柄全力下扳。",
+    "dislikes": [
+     "轻浮孟浪的越界举动",
+     "危机时刻的推诿自私"
+    ],
+    "expression": "脱险后温柔地为维保师傅擦去额头的汗水与雨水，主动牵住维保师傅的手指低声呢喃‘有维保师傅在，我什么都不怕’。",
+    "likes": [
+     "在剧烈失重摇晃中被有力大手紧扣住腰肢稳定重心的安全感",
+     "轿厢里四只手叠在伞柄上，掌心的热和喘气声一起压下来"
+    ],
+    "preconditions": [
+     "安全钳成功旋松脱扣",
+     "电梯轿厢稳定滑降至平层地面",
+     "两人都清醒，心意出于自己，不是悬停轿厢里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "合租三年的室友",
+   "schedule": [
+    {
+     "from": 1280,
+     "location_id": "loc_sightseeing_glass_elevator_car",
+     "to": 1290
+    },
+    {
+     "from": 1290,
+     "location_id": "loc_car_floor_maintenance_hatch",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "伞骨承受数百牛顿反力矩微弯，两人手臂与手掌被冰冷金属和地板边缘磨破擦伤。",
+      "option": "用长柄雨伞坚固纯钢伞尖插入地板检修孔偏心螺栓，两人身体紧贴合力向下施压扳动松闸连杆自救。"
+     },
+     {
+      "cost": "百米高空强阵风具有致命吸扯力，极易坠落深井粉身碎骨。",
+      "option": "徒手尝试扒开三十层高空观光电梯双层玻璃外门。"
+     }
+    ],
+    "pressure": "十四级狂风剧烈晃动玻璃幕墙，高空失重与电量枯竭逼近，必须在十几分钟内手动复位安全钳。",
+    "trigger": "台风断电导致外挂全景玻璃电梯在三十层百米高空悬停，安全钳误动作抱死导轨轿厢倾斜。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "外面的风把玻璃吹得咯咯响……可是贴得这么近，我听见的全是自己的心跳。合租三年，从来没离得这样近过。",
+    "surface": "别怕，伞尖是实心钢的，我爸特意挑的。你告诉我往哪边拧，我把整个人都压上去。"
+   }
+  },
+  {
+   "adult_context": "二十一岁，具备独立成熟的人格与生活智慧，遇险冷静安抚同伴并全力配合。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "浅蓝修身针织衫搭配深灰及膝半身裙，两腮线条饱满紧致带着柔和的轮廓，在百米高空晃动中咬牙撑住地面。",
+    "秀发微湿散在肩头，面庞透着剧烈运动后的酡红，修长双腿并拢侧跪在地板，双手死死握住伞骨下沿。"
+   ],
+   "decision": {
+    "avoids": [
+     "怨天尤人",
+     "惊慌失措"
+    ],
+    "contrast": "温柔端庄的合租大姐姐，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "机械原理可以战胜恐惧，只要两人力往一处使，没有迈不过去的坎。",
+    "goal_options": [
+     "利用雨伞伞尖构筑应急杠杆撬动螺栓",
+     "协助维保师傅稳固安全钳松闸位"
+    ],
+    "never": [
+     "临阵抛下合租室友独自逃生"
+    ],
+    "prefers": [
+     "沉稳专注的机电操作",
+     "毫不犹豫的协同发力"
+    ],
+    "pressure_responses": {
+     "breaking": "双手磨得通红发麻亦死死扣住伞柄，直至听见棘爪弹开的金属脆响。",
+     "high": "以自身重力作为配重压向杠杆末端，与维保师傅紧密相依共同下扳。",
+     "low": "轻抚维保师傅背部帮助其平复急促呼吸，指明雨伞可作为刚性杠杆。",
+     "mid": "毫不犹豫跪倒在冰凉不锈钢地板上，合力掀开重型检修盖板。"
+    },
+    "relationship_stance": "视维保师傅为值得托付一生的坚实依靠，在危机中缔结生死不渝的情感默契。",
+    "withdrawal": "脱险后退至轿厢角落大口喘息，整理凌乱裙角掩饰羞怯。"
+   },
+   "gender": "female",
+   "gender_reason": "合租大姐姐态，平日操持两人温馨生活，危难中展现出沉稳理智的保护欲。",
+   "id": "senior_cohabitant_su_wanqing",
+   "identity": {
+    "authority": "合租日常事务的核心决策者，遇险临危不乱调度随身应急物品。",
+    "exposure": "单薄针织衫被汗水透出起伏身形，在逼仄地板死角近距离紧贴展现出成熟女子的柔润张力。",
+    "hidden": "随身包里备有维保师傅常备的消炎创口贴",
+    "limits": [
+     "受困于悬空轿厢缺乏专业液压扩张器",
+     "必须在十分钟内打破机械死锁"
+    ],
+    "obligations": [
+     "确保维保师傅与自己平平安安脱险",
+     "防止轿厢在侧风中发生二次倾覆"
+    ],
+    "resources": [
+     "特制实心高碳钢伞尖长柄防风伞",
+     "加厚纯棉随身手帕"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "维保师傅在晃动轿厢中展现出的专业果断与硬核机械技能",
+     "贴身压下杠杆时维保师傅沉雄有力的心跳与滚烫呼吸"
+    ],
+    "boundaries": [
+     "严守合租室友尊严与规矩",
+     "脱困纯靠硬核机械物理自救"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "伏在维保师傅怀侧死角，双手叠于维保师傅手背合力下按伞柄。",
+    "dislikes": [
+     "轻浮孟浪",
+     "退缩怯懦"
+    ],
+    "expression": "用干手帕轻轻擦拭维保师傅掌心的机油与汗水，温言软语抚慰对方情绪。",
+    "likes": [
+     "彼此眼神心领神会的默契",
+     "安全钳复位金属弹击声"
+    ],
+    "preconditions": [
+     "安全钳机械成功松开",
+     "轿厢安全平层出人"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "温柔体贴合租大姐姐",
+   "schedule": [
+    {
+     "from": 1280,
+     "location_id": "loc_sightseeing_glass_elevator_car",
+     "to": 1290
+    },
+    {
+     "from": 1290,
+     "location_id": "loc_car_floor_maintenance_hatch",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "伞身承受大扭矩略微弯折，两人手掌小臂产生剧烈肌肉酸胀与淤青。",
+      "option": "借合金伞尖作为杠杆插入偏心螺栓槽，两人双手交叠以体重猛按破解死锁自救。"
+     },
+     {
+      "cost": "室外台风达到十四级完全无法架设云梯，将导致长期受困于高空失温缺氧。",
+      "option": "被动等待地面消防队伍顶着十四级台风高空架梯营救。"
+     }
+    ],
+    "pressure": "高空风荷载导致电梯偏摆严重，必须在导轨产生不可逆弯曲前手动旋松安全钳。",
+    "trigger": "强台风过境电网瞬断，观光电梯悬停三十层高空，双向安全钳死死抱死导轨。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "风把玻璃吹得好响……轿厢在晃……但维保师傅一直用胳膊护着我。我绝不能退缩，一定要帮维保师傅扳过去！",
+    "surface": "维保师傅，看准那个偏心暗槽！雨伞伞尖是淬火纯钢的，吃得住力，听你口令我们一起压！"
+   }
+  },
+  {
+   "adult_context": "二十一岁，思维缜密且极具空间感知力，遇险沉着理智。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身穿浅米色修身高领打底衫配深蓝铅笔裤，两腮线条饱满紧致带着莹润的光泽，在百米高空晃动中神情坚毅。",
+    "长发用铅笔利落绾起，面颊在应急灯下泛着微红，修长双腿死死蹬住地板卡槽，双手握紧伞尖支点。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "无端猜忌"
+    ],
+    "contrast": "温雅知性的文艺设计师，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "结构平衡皆有杠杆破绽，找准力矩偏心角，百斤阻尼亦能瓦解。",
+    "goal_options": [
+     "利用伞尖精准刺入偏心槽构建省力杠杆",
+     "协同维保师傅一鼓作气压下连杆"
+    ],
+    "never": [
+     "临阵退缩放弃同伴"
+    ],
+    "prefers": [
+     "精准的力学配合",
+     "沉着果断的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "银牙咬碎双手青筋微显，死死抵住杠杆直至机械锁脱开。",
+     "high": "整个人扑在维保师傅肩背上，将两人合力矢量精准调整为垂直切向。",
+     "low": "迅速根据应急灯光阴影指出安全钳偏心螺栓处于逆时针自锁状态。",
+     "mid": "果断将雨伞伞尖呈四十五度倾角塞入底板狭缝。"
+    },
+    "relationship_stance": "视维保师傅为最可靠的工科后盾，在灾厄中缔结生死不渝的默契同盟。",
+    "withdrawal": "在脱困后退至轿厢角落整理散落发丝平复剧烈心跳。"
+   },
+   "gender": "female",
+   "gender_reason": "文创女设计师态，对机械结构与几何杠杆拥有极高领悟力，温雅坚定。",
+   "id": "gentle_designer_su_wanqing",
+   "identity": {
+    "authority": "对随身设计工具与杠杆受力角度拥有敏锐计算与优化建议权。",
+    "exposure": "贴身衣物被冷汗浸透勾勒出窈窕背线，在极限逼仄检修孔旁与维保师傅贴身协作展露无遗。",
+    "hidden": "背包中带有高透光工程绘图草图本",
+    "limits": [
+     "轿厢悬空导致无法借力于外界支撑物",
+     "必须在十分钟内排除机械阻尼"
+    ],
+    "obligations": [
+     "协助维保师傅校准松闸扳动最佳力矩角",
+     "同舟共济排除悬停坠落危险"
+    ],
+    "resources": [
+     "双层高强度高尔夫长柄雨伞",
+     "高韧性设计绘图卷尺"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "维保师傅在危急时刻硬扛轿厢震颤护住室友的男子汉气概",
+     "贴身施力时对方宽阔胸膛传来的雄浑力量与温热气息"
+    ],
+    "boundaries": [
+     "严守自尊自爱底线",
+     "出路纯靠机械杠杆自救"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "侧身紧依维保师傅宽阔肩颈，双手合抱伞骨中部顺势倾覆全身力矩协同扳压。",
+    "dislikes": [
+     "轻浮孟浪",
+     "迟疑推诿"
+    ],
+    "expression": "轻柔递上干纸巾为维保师傅擦去额头冷汗，温言抚慰并察看对方手掌磨痕。",
+    "likes": [
+     "彼此心领神会的对视",
+     "机关清脆回弹的金属鸣响"
+    ],
+    "preconditions": [
+     "偏心螺栓成功旋松",
+     "全员安然脱困出险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "温婉文创设计师兼合租室友",
+   "schedule": [
+    {
+     "from": 1280,
+     "location_id": "loc_sightseeing_glass_elevator_car",
+     "to": 1290
+    },
+    {
+     "from": 1290,
+     "location_id": "loc_car_floor_maintenance_hatch",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员小臂与指骨承受强烈金属反冲压迫造成肌肉酸麻淤青。",
+      "option": "以坚固纯钢伞尖为杠杆下压偏心螺栓，双人贴身下压顶脱安全钳楔块自救。"
+     },
+     {
+      "cost": "极易导致安全钳越咬越死甚至拉断钢丝绳引发坠毁。",
+      "option": "强行摇晃轿厢试图通过惯性震脱安全钳。"
+     }
+    ],
+    "pressure": "轿厢底梁在强风扭矩下持续受拉，必须在导轨永久变形前手动松开安全钳。",
+    "trigger": "台风侧风导致电梯倾斜断电，双向安全钳紧紧卡死三十层半空。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "高空风暴好可怕……但只要维保师傅在身边，我就觉得心里特别踏实，一定能扳开卡死处！",
+    "surface": "维保师傅，偏心孔受力点在左侧！顺着切线压，雨伞的航空铝骨架能吃住两百斤力，我们一起下压！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的工程师，具备高空作业与特种设备维保资质，沉着果敢担当可靠。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "身穿黑色工装夹克与耐磨牛仔长裤，身姿矫健双臂结实，眼神沉静锐利，额角浸满汗水。",
+    "腰系多功能装备腰带，佩戴防滑工作手套，在百米高空剧烈晃动的轿厢内稳如磐石护住室友。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延",
+     "盲目冒进"
+    ],
+    "contrast": "平日沉稳寡言的工科青年，在生死一线时爆发出令人心折的刚毅与担当。",
+    "core_value": "机械自锁虽坚固，必有反向力矩解法；有我在，绝不会让室友受到半分伤害。",
+    "goal_options": [
+     "以伞尖精准插入松闸孔",
+     "全力下压杠杆扳开安全钳楔块"
+    ],
+    "never": [
+     "背弃室友的信任与托付"
+    ],
+    "prefers": [
+     "扎实的机械力学自救",
+     "毫无保留的生死信赖"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将咬死的偏心螺母反向扳转到位。",
+     "high": "双手包覆住室友双手，毫无保留爆发全身背阔肌与核心重量下按。",
+     "low": "在轿厢悬停瞬间一把将室友拉入怀中避开金属立柱撞击，低声安抚对方。",
+     "mid": "伏身地板检修孔指导室友调整握持手势，建立稳固反向力臂支点。"
+    },
+    "relationship_stance": "在这栋楼修了五年电梯，认得每一层的住户；那对合租的室友每回见了都会递一瓶水，维保师傅一直记着。",
+    "withdrawal": "确认安全钳彻底复位轿厢稳定后方才脱力坐在地板上长舒一口气。"
+   },
+   "gender": "male",
+   "gender_reason": "青年机电维护技术员，精通垂直电梯传动与安全钳紧急解锁。",
+   "id": "maintenance_technician_chen",
+   "identity": {
+    "authority": "对轿厢底梁安全钳机械结构现场排障与手动松闸拥有专业处置裁定权。",
+    "exposure": "工装夹克被雨水与热汗浸透勾勒出结实胸膛，在近身施力时阳刚气魄完全展现。",
+    "hidden": "随身携带一枚备用十字合金螺丝刀头",
+    "limits": [
+     "身负护卫室友重任绝不退缩",
+     "检修死角逼仄难以伸展全身"
+    ],
+    "obligations": [
+     "保护室友免受高空摇晃撞击伤害",
+     "合力打破安全钳机械自锁抱死"
+    ],
+    "resources": [
+     "特种高碳钢实心伞尖防风长柄伞",
+     "高亮度防爆手电",
+     "防滑耐磨手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "室友在百米高空危机前毫不娇气、毅然跪地与自己并肩拼命的坚韧勇气",
+     "紧贴施力时室友面颊透出的温润娇红与急促滚烫的吐息"
+    ],
+    "boundaries": [
+     "恪守规矩分寸",
+     "绝无轻慢之意"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "后背抵住轿厢金属立柱，双手握住伞柄下部，由室友伏于胸前合力下压。",
+    "dislikes": [
+     "轻慢女性",
+     "言而无信"
+    ],
+    "expression": "脱险后默默将自身干燥外套披在室友微湿的肩头，紧紧握住室友双手以体温抚慰。",
+    "likes": [
+     "彼此掌心交叠时的沉稳踏实",
+     "同声发力突破难关时的心意共鸣"
+    ],
+    "preconditions": [
+     "全员脱困安全无虞",
+     "轿厢平层停稳"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "大楼的电梯维保师傅",
+   "schedule": [
+    {
+     "from": 1280,
+     "location_id": "loc_sightseeing_glass_elevator_car",
+     "to": 1290
+    },
+    {
+     "from": 1290,
+     "location_id": "loc_car_floor_maintenance_hatch",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌虎口在剧烈金属反冲下产生剧烈震颤与轻度淤血。",
+      "option": "借合金伞尖作为刚性力臂，双手叠合以全身重量下压扳松螺母脱扣自救。"
+     },
+     {
+      "cost": "高空风压极易将人卷入三十层悬空井道导致坠亡。",
+      "option": "用工具砸击钢化玻璃幕墙试图呼救。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩旋松偏心螺栓，否则轿厢失衡可能引发严重机械坠毁。",
+    "trigger": "台风电涌切断市电，双向安全钳抱死三十层高空导轨，强风持续摇晃轿厢。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "轿厢一晃，室友就往人怀里缩……别分神，这台梯是我保养的，今晚三个人都得平平安安下去。",
+    "surface": "都别慌，安全钳是偏心自锁！伞尖插进检修孔，对准松闸螺母，听我数三下一起拧。"
+   }
+  },
+  {
+   "adult_context": "二十二岁的工程师，具备大型公建抗风与应急抢险资质，冷静机敏。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深灰连帽运动防风衫配工装裤，身姿矫健动作敏捷，目光从容镇定。",
+    "手持防爆强光手电，拉链半开露出坚实锁骨，在急迫险情下有条不紊精准指挥。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目冒险",
+     "违规操作"
+    ],
+    "contrast": "现代工程青年与温柔合租室友在百米高空石破天惊的硬核协作。",
+    "core_value": "任何机械自锁都有杠杆解法，力矩找对，千斤顶也不及合理支点。",
+    "goal_options": [
+     "利用伞尖精准下压偏心松闸螺栓",
+     "协同顶起抱死连杆安全脱困"
+    ],
+    "never": [
+     "在风险未清前让室友以身犯险"
+    ],
+    "prefers": [
+     "严谨精准的技术推演",
+     "临危不乱的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "毫不动摇维持发力姿势直至听见棘爪脱开的清脆回弹声。",
+     "high": "在极限死角内以身躯挡住室友防止晃动撞击，合力下按伞柄。",
+     "low": "迅速根据晃动幅度判断安全钳受力集中在右侧导轨，明确逆向旋松方案。",
+     "mid": "用手电光束为室友精准标定伞尖插入孔洞的角度与深度。"
+    },
+    "relationship_stance": "恪尽职守又深怀体贴，在危险中给予室友无可替代的坚实安全感。",
+    "withdrawal": "协助室友撤至安全平层后立即设立警示标识通知中控。"
+   },
+   "gender": "male",
+   "gender_reason": "幕墙结构青年工程师，精通高层受风晃动与钢梁咬合力学。",
+   "id": "civil_engineer_chen",
+   "identity": {
+    "authority": "掌控高空悬停轿厢抗风偏摆与受力点排障现场最终决断权。",
+    "exposure": "运动衫被热汗浸透贴紧胸背，近距离伏卧时散发着阳刚利落的气息。",
+    "hidden": "熟悉大楼各层电梯外门应急机械钥匙孔分布",
+    "limits": [
+     "极端台风导致外部吊篮与云梯完全无法靠近",
+     "必须依靠车厢内地板检修孔自救"
+    ],
+    "obligations": [
+     "排查消除轿厢侧翻脱轨风险",
+     "安全护送室友脱离悬空绝境"
+    ],
+    "resources": [
+     "防爆工业强光手电",
+     "实心伞尖长柄防风伞",
+     "加厚橡胶防滑手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "室友在危机中对力学原理解释的敏锐领悟与毫无迟疑的信赖配合",
+     "彼此贴身协作中室友身上淡淡馨香与急促呼吸形成的反差冲击"
+    ],
+    "boundaries": [
+     "严守专业工程师职业操守",
+     "规矩分明"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "并肩伏卧于地板死角，单手撑地保持避险空隙，另一手与室友紧握伞柄全力压制。",
+    "dislikes": [
+     "违规蛮干",
+     "自暴自弃"
+    ],
+    "expression": "护送室友至安全区域后，微笑着递上干燥纸巾，目光温和坚定。",
+    "likes": [
+     "默契的眼神确认",
+     "手把手校准器械时的体温传递"
+    ],
+    "preconditions": [
+     "完全排除轿厢脱轨坠落风险",
+     "人员无伤撤离"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "建筑工程幕墙技术员",
+   "schedule": [
+    {
+     "from": 1280,
+     "location_id": "loc_sightseeing_glass_elevator_car",
+     "to": 1290
+    },
+    {
+     "from": 1290,
+     "location_id": "loc_car_floor_maintenance_hatch",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "伞尖产生微小磨损，施力人员手臂承受剧烈肌肉酸胀。",
+      "option": "以伞尖反撬偏心螺栓并借力矩压平自锁连杆，顺势松开安全钳自救。"
+     },
+     {
+      "cost": "三十层高空门缝空隙巨大，稍有不慎极易直接坠落深井身亡。",
+      "option": "强行扒开内轿门试图跳向临近楼层门厅。"
+     }
+    ],
+    "pressure": "风荷载持续逼近玻璃承受极限，必须在结构损伤前手动松闸滑行平层。",
+    "trigger": "强台风造成电梯悬停三十层高空，安全钳卡死无法电动滑行，暴雨倾盆。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要雨伞伞尖不打滑，这个反力矩完全足够克服弹簧阻尼……室友，抓紧我！",
+    "surface": "室友，螺栓就在检修孔内侧十公分！伞尖刚好能卡进棘爪槽，听我数三二一，我们一起下压！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的主管，体格健硕神情沉稳，熟悉全部特种设备应急规程。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深色工作制服内搭黑色纯棉T恤，双臂青筋隆起，神情沉静坚毅，眼神深邃可靠。",
+    "佩戴战术腰带与对讲机，在倾斜悬空的观光轿厢内从容沉着指挥脱困自救。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿扯皮",
+     "投机取巧"
+    ],
+    "contrast": "深沉强悍的机电主管与温柔贤惠的合租姑娘，在机械死线前形成的强烈反差张力。",
+    "core_value": "电梯再死也有机械破绽，找准制动器的反支点，卡死的轿厢也能放下来。",
+    "goal_options": [
+     "利用伞尖组装复合撬杠",
+     "合力扳动卡死的安全钳偏心螺栓"
+    ],
+    "never": [
+     "在重门未开前抛下同伴"
+    ],
+    "prefers": [
+     "硬桥硬马的扎实手艺",
+     "毫无保留的生死协作"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将自锁螺母反向顶脱位。",
+     "high": "双手死死握住杠杆最外端，以千钧背肌全力向下猛按到底。",
+     "low": "冷静扫视底梁结构，瞬间锁定受力最集中的偏心松闸孔。",
+     "mid": "护住室友身躯，指导其将伞尖紧紧卡入受力中心暗槽。"
+    },
+    "relationship_stance": "视室友为值得誓死守护的温婉女子，危难中建立生死莫逆的赤诚信任。",
+    "withdrawal": "确认轿厢平层停稳后，单臂护送室友安全撤至室内走廊。"
+   },
+   "gender": "male",
+   "gender_reason": "物业机电青年安全主管，对商住综合体客梯配电与机械构造了如指掌。",
+   "id": "estate_officer_chen",
+   "identity": {
+    "authority": "掌控高层建筑垂直客梯应急盘车与手动松闸最高处置指挥权。",
+    "exposure": "黑色T恤被汗水浸湿勾勒出雄健背脊，散发着沉稳刚烈的阳刚气概。",
+    "hidden": "掌握大厦各楼层消防应急通道准确密码",
+    "limits": [
+     "室外台风暴雨切断外部机械援助通道",
+     "必须依靠现有便携器材完成力矩反推"
+    ],
+    "obligations": [
+     "保护同车室友人身安全",
+     "确保轿厢平稳释放重力自锁"
+    ],
+    "resources": [
+     "双层高强度高尔夫长柄防风伞",
+     "高强度应急手电",
+     "防割手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "室友在百米高空剧烈晃动中不失沉静果决的坚韧魄力",
+     "贴身施力时室友温润如玉的身段与柔韧坚毅的发力姿态"
+    ],
+    "boundaries": [
+     "严守专业分寸",
+     "严守自愿安全原则"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "单臂护在室友身前构成安全空隙，另一手与室友共同紧握伞柄全力下压。",
+    "dislikes": [
+     "轻浮傲慢",
+     "无端猜忌"
+    ],
+    "expression": "脱险后退后半步递上纸巾，沉声道一句‘室友受惊了，维保师傅在，没事了’。",
+    "likes": [
+     "彼此心照不宣的眼神对碰",
+     "合力突破死锁瞬间的畅快淋漓"
+    ],
+    "preconditions": [
+     "安全钳彻底松脱人员出险",
+     "轿厢平稳停靠"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "物业综合工程应急主管",
+   "schedule": [
+    {
+     "from": 1280,
+     "location_id": "loc_sightseeing_glass_elevator_car",
+     "to": 1290
+    },
+    {
+     "from": 1290,
+     "location_id": "loc_car_floor_maintenance_hatch",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手臂与手掌肌肉极度酸痛，工具把手产生微量金属疲劳应力。",
+      "option": "以纯钢伞尖组装复合支点，合力向下猛压撬出偏心螺栓脱扣自救。"
+     },
+     {
+      "cost": "数吨重自重极易造成肩关节脱臼骨折，成功率几乎为零。",
+      "option": "强行以身体肩膀向上托举轿厢底梁试图减轻负重。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开暗槽死锁，否则轿厢失衡可能拉裂受力缆绳。",
+    "trigger": "电梯双向安全钳误抱死，偏心螺栓死死卡入工字钢槽，台风暴雨险情迫在眉睫。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "室友的身子全靠着我……这股淡雅发香直往鼻尖里钻。拼了这条命，也绝不让轿厢出意外！",
+    "surface": "室友莫慌！这底梁吃的是偏心阻滞！伞尖咬准了槽口，我们合力管保将卡死处顶松！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "九月，台风季",
+  "minute": 1280
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "合租公寓室友雨夜外出采购生活物资通常共撑一把加固长柄防风晴雨伞。",
+  "高层外挂玻璃电梯轿厢地板设有嵌入式防滑不锈钢检修翻盖用于排查安全钳底梁故障。",
+  "特制长柄高尔夫雨伞伞尖采用一体成型淬火高碳工具钢，伞骨采用双层航空硬铝具备优良抗扭抗弯强度。",
+  "机电技术员随身携带便携式数显测电笔与多功能五金工具钥匙扣。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用软布擦拭长柄雨伞航空铝合金伞骨表面水渍",
+    "检查伞尖淬火纯钢螺纹销紧固程度与抗扭状态",
+    "折叠收拢双层防风伞布并扣好高强度魔术贴锁带"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_umbrella_bone_inspection",
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "start_minute": 1280,
+   "tags": [
+    "workplace"
+   ],
+   "title": "雨夜长柄高尔夫雨伞骨架日常维护"
+  },
+  {
+   "beats": [
+    "清理地板不锈钢翻盖滑槽内的灰尘与微小杂物",
+    "察看安全钳偏心连杆应急标尺与黄油润滑厚度",
+    "确认检修暗孔防护胶塞密封严密无脱落旷量"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_elevator_safety_hatch_check",
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "start_minute": 1285,
+   "tags": [
+    "workplace"
+   ],
+   "title": "观光电梯底梁检修口翻盖例行查验"
+  },
+  {
+   "beats": [
+    "按下应急测试按钮核验高亮度LED灯组电池续航",
+    "检查对讲电话扬声器受话音量与底噪杂音指标",
+    "用清洁绒布擦拭轿厢内壁防滑不锈钢扶手表面"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_car_emergency_light_test",
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "start_minute": 1290,
+   "tags": [
+    "workplace"
+   ],
+   "title": "轿厢高空应急备用照明回路巡测"
+  },
+  {
+   "beats": [
+    "察看玻璃幕墙铝合金龙骨在侧风下的微小位移",
+    "使用手电检查导轨支架锚固螺栓弹簧垫圈平整度",
+    "手动核验防摇摆导向滚轮与钢梁侧向间隙数据"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_building_wind_pressure_monitor",
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "start_minute": 1295,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "高层商住楼外挂幕墙风压荷载巡检"
+  },
+  {
+   "beats": [
+    "下班回家，室友和你一起乘观光玻璃电梯上楼，城市的灯火在脚下一层层铺开。",
+    "室友贴着玻璃看，说住了三年，还是觉得这一段最好看。",
+    "电梯到了三十层，室友却按住开门键，说再看一会儿。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "hk_atrium_air_pressure_drop",
+    "hk_countdown_reading_rush",
+    "hk_end_relief_praise"
+   ],
+   "id": "act_typhoon_blackout_evac_drill",
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "workplace"
+   ],
+   "title": "观光电梯里看夜景"
+  },
+  {
+   "beats": [
+    "室友亲自按下对讲按键向一层中控台通报乘梯",
+    "确认井道低速运行状态下各层行程开关触发正常",
+    "记录当前井道外部风速仪与气压传感器读数示数"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_dusk_elevator_intercom_log",
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "start_minute": 1305,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "日暮轿厢有线通信对讲例行报到"
+  },
+  {
+   "beats": [
+    "松闸螺母旋开、轿厢一层层降回地面、楼里的备用电终于接上之后，两人爬回三十层，室友的米白针织衫被雨和汗浸得透湿，贴在身上。",
+    "停电的客厅里点着囤好的蜡烛，室友抬起手臂，让人替自己把湿透的针织衫从头上褪下来，再拿浴巾裹住冻得发抖的肩膀，浴巾下的手没有马上松开。",
+    "烛光晃了一下，室友轻声说：合租三年，我一直在等你先开口……今晚别回你那间了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_apartment_wet_sweater",
+   "location_ids": [
+    "loc_shared_apartment"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "回到公寓替室友脱下湿透的针织衫"
+  },
+  {
+   "beats": [
+    "合租公寓的小厨房里，室友系着围裙煮了两碗面，一碗加了香菜，一碗特意没放，端过来时还冒着热气。",
+    "室友把没放香菜的那碗推给人：三年了，你的口味我都记得。……那你记不记得我喜欢什么？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_apartment_cilantro_dinner",
+   "location_ids": [
+    "loc_shared_apartment"
+   ],
+   "start_minute": 1150,
+   "tags": [
+    "intimate"
+   ],
+   "title": "不放香菜的晚饭"
+  },
+  {
+   "beats": [
+    "停电的夜里，室友抱着笔记本电脑窝在沙发上，用剩下的电放一部电影，掀开毯子一角朝人示意。",
+    "看到一半，室友把头靠过来：合租守则第十条，不许对室友动心。……那一条，我们今晚撕掉好不好？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_apartment_one_blanket_movie",
+   "location_ids": [
+    "loc_shared_apartment"
+   ],
+   "start_minute": 1340,
+   "tags": [
+    "intimate"
+   ],
+   "title": "沙发上一条毯子"
+  },
+  {
+   "beats": [
+    "早上，室友站在冰箱前，拿马克笔把倒垃圾值日表上的两个名字圈在一起，画了一颗歪歪扭扭的心。",
+    "室友回头冲人笑：以后不轮流了，一起倒。……顺便一起做早饭，一起睡懒觉。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_apartment_duty_chart_morning",
+   "location_ids": [
+    "loc_shared_apartment"
+   ],
+   "start_minute": 480,
+   "tags": [
+    "intimate"
+   ],
+   "title": "值日表上的新名字"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代沿海特大城市高层商住综合体",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_rainstorm_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{roommate_su_wanqing.name}按住胸口急促起伏的米白针织长裙，面颊在电梯闪烁应急灯下冷汗涔涔，毅然递出随身长柄防风晴雨伞坚固纯钢伞尖直指地板检修口。"
+  },
+  {
+   "id": "hk_countdown_reading_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{roommate_su_wanqing.name}听到三十层百米高空外狂风凄厉呼啸，在滚烫急喘中咬紧银牙侧身跪倒在狭窄地板狭缝直面咬死的安全钳。"
+  },
+  {
+   "id": "hk_bookshelf_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "slot": "maintenance_technician_chen",
+   "text": "{maintenance_technician_chen.name}双膝跪地紧贴冰冷轿底，以坚实身躯硬生生护住身前室友免受剧烈摇晃撞击，大声提醒室友对准偏心松闸螺栓暗孔！"
+  },
+  {
+   "id": "hk_rail_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "slot": "maintenance_technician_chen",
+   "text": "{maintenance_technician_chen.name}反手抽出战术手电垫入槽口底层，用粗糙手掌牢牢护住纯钢伞尖末端防止滑动，大声喝道就是这个偏心自锁棘爪！"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{roommate_su_wanqing.name}整个人伏在维保师傅怀前，面庞几乎贴上维保师傅颈项，滚烫娇喘混合着淡雅馨香在狭小检修孔旁猛烈交融。"
+  },
+  {
+   "id": "hk_dress_sweat_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{roommate_su_wanqing.name}单薄长裙被灌入的雨水与热汗浸得半透紧贴背脊曲线，双手毅然越过维保师傅手臂重叠紧握航空铝伞柄把手，合力向下一寸寸猛压！"
+  },
+  {
+   "id": "hk_brass_paperweight_flange_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{roommate_su_wanqing.name}以异乎寻常的勇敢果决，将长柄雨伞淬火打造的实心纯钢伞尖，精准别入安全钳偏心螺栓外壁凹槽的自锁死点。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "slot": "maintenance_technician_chen",
+   "text": "{maintenance_technician_chen.name}将随身防滑手套猛然卡入底梁翻盖边缘，单臂如铜浇铁铸般撑开避险空隙，大吼道支点已成，室友尽管用力下压！"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{roommate_su_wanqing.name}亲手解下随身纯棉手帕，紧紧缠绕在两人满是冷汗的手背与伞柄上，将两人的手臂力量彻底刚性绞合为一体！"
+  },
+  {
+   "id": "hk_auditorium_rainstorm_roaring",
+   "kind": "approach",
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{roommate_su_wanqing.name}凝视百米高空外横飞的暴雨水幕，面颊泛起不容动摇的坚毅，誓死要在绝境中同维保师傅一起冲出重围！"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{roommate_su_wanqing.name}察觉电梯备用蓄电池蜂鸣声愈发尖锐，断然喊道电池要耗尽了，立刻随我全员趴下进行杠杆最终突压！"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "slot": "maintenance_technician_chen",
+   "text": "{maintenance_technician_chen.name}与室友齐声发力，后背肌肉如山丘般隆起，将整整两百斤体重与臂力完全倾注于挥动的长柄伞末端！"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{roommate_su_wanqing.name}手心感受到清脆至极的机械巨震，偏心螺母硬生生被纯钢伞尖扳转到位，重型安全钳楔块伴随金石之声向上骤然回退释压！"
+  },
+  {
+   "id": "hk_vault_escape_roll_fresh_air",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{roommate_su_wanqing.name}感到电梯平稳滑降至临近安全平层门厅，轿门缓缓开启，两人迎着走廊的干燥空气长舒一口气，绝境脱困成功！"
+  },
+  {
+   "id": "hk_end_relief_praise",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{roommate_su_wanqing.name}靠在走廊墙壁旁微微喘息，面颊带着劫后余生的嫣红，侧过脸轻声对身侧维保师傅道多亏维保师傅勇敢护着我。"
+  },
+  {
+   "id": "hook_wanqing_duty_chart",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "roommate_su_wanqing",
+   "text": "{npc.name}站在冰箱前，把值日表上自己的名字划掉一格，回头笑了笑：这周的垃圾我替你倒了。作为交换，今晚陪我看完那部电影。"
+  },
+  {
+   "id": "hook_wanqing_cilantro",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "roommate_su_wanqing",
+   "text": "{npc.name}端着两碗面从厨房出来，把没放香菜的那碗推过来：记得你不吃。三年了，你记得我不吃什么吗？"
+  },
+  {
+   "id": "hook_wanqing_water_heater",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "roommate_su_wanqing",
+   "text": "{npc.name}裹着浴巾从浴室探出头，脸被热气蒸得通红：热水器又不打火了……你会修吗？我先回房间换衣服。"
+  },
+  {
+   "id": "hook_wanqing_typhoon_candle",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "roommate_su_wanqing",
+   "text": "{npc.name}把囤好的蜡烛一根根摆上窗台，回头问：台风今晚登陆，要是停电了……你那间朝北，冷不冷？要不要过来挤一挤。"
+  },
+  {
+   "id": "hook_chen_water_bottle",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "maintenance_technician_chen",
+   "text": "{npc.name}在电梯口接过人递来的矿泉水，拧开喝了一大口：每次都是你们俩记得给我带水。台风天别乱跑，梯子我刚查过。"
+  },
+  {
+   "id": "hook_chen_umbrella",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "maintenance_technician_chen",
+   "text": "{npc.name}拿起那把长柄伞掂了掂，挑了挑眉：伞尖是实心钢的？这伞比我工具箱里一半的家伙都结实。"
+  },
+  {
+   "id": "hook_wanqing_apartment_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_shared_apartment"
+   ],
+   "slot": "roommate_su_wanqing",
+   "text": "{npc.name}从合租公寓的门里探出头：面煮好了，没放香菜。……快进来。"
+  }
+ ],
+ "id": "elevator_umbrella_tip_brake_release",
+ "locations": [
+  {
+   "affordances": [
+    "紧扶轿厢后侧承重金属立柱维持两人重心平衡",
+    "取下随身长柄防风雨伞卸除外层保护套露出纯钢伞尖",
+    "合力跪伏在地板上撬开不锈钢检修盖板搭扣"
+   ],
+   "detail": "悬在三十层高空的透明全景双层玻璃轿厢，三面为通透钢化夹胶玻璃幕墙，外侧狂风暴雨如瀑布横扫倾泻。市电断开后仅剩头顶昏暗惨白的应急LED照明，轿厢在十四级台风侧风中以两米幅度沉重摆动。",
+   "exits": [
+    "loc_car_floor_maintenance_hatch",
+    "loc_building_ground_control_center"
+   ],
+   "id": "loc_sightseeing_glass_elevator_car",
+   "name": "观光电梯轿厢",
+   "pressure_modifiers": {
+    "p_high_voltage_interlock_battery_drain": "轿厢应急照明与对讲电池仅能维持十几分钟电量，耗尽后将陷入绝对黑暗。",
+    "p_typhoon_storm_high_altitude_sway": "十四级台风带来剧烈高空风切变，玻璃轿厢左右摇摆倾斜达十五度，重力失衡引发极度眩晕。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "应急灯在狂风摇晃中投下急促晃动的阴影，暴雨击打玻璃发出雷鸣般巨响，近身能看清彼此面孔上的紧张细汗与起伏衣衫。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "将航空铝长柄伞纯钢实心伞尖对准偏心松闸螺栓六角暗孔插入",
+    "双手叠压握住伞骨把手以车厢底板为支点全力向下扳动",
+    "在安全钳弹簧崩开瞬间顺势合力提起松闸连杆自救"
+   ],
+   "detail": "掀开四十公分见方不锈钢盖板后露出的底梁凹槽，直面高空井道呼啸而过的冷风与暴雨水汽。两对重型合金安全钳机械楔块死死咬死在垂直工字钢导轨上，侧面露出一个带有偏心凹槽的手动松闸螺栓。",
+   "exits": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "id": "loc_car_floor_maintenance_hatch",
+   "name": "轿底检修口",
+   "pressure_modifiers": {
+    "p_close_quarters_flesh_contact_heat": "在不足半平米的地板检修口旁两人身体彻底交叠贴伏，室友温热急促的喘息拂过耳畔，湿透衣物传递着惊人的异性体温。",
+    "p_safety_wedge_deadlock_rail_crush": "轿厢晃动导致安全钳楔块越夹越死，偏心螺母咬合阻尼逼近金属屈服极限。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "强光手电窄光束直射在布满黄油与雨水的钢铁咬合面，闪烁着刺目的冷光。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "通过紧急轿厢有线对讲系统大声指导轿内人员排查故障",
+    "调度应急抢修小组携带机械手动盘车工具徒步爬楼梯支援",
+    "切入后备柴油发电机组强制低压供电回路"
+   ],
+   "detail": "灯火通明却气氛紧张的物业中控大厅，多块大屏幕正显示外挂观光梯故障警报与台风风速曲线图。值班工程师与主管正通过有线对讲机焦急呼叫三十层被困轿厢。",
+   "exits": [
+    "loc_sightseeing_glass_elevator_car",
+    "loc_shared_apartment"
+   ],
+   "id": "loc_building_ground_control_center",
+   "name": "一楼中控大厅",
+   "pressure_modifiers": {
+    "p_typhoon_storm_high_altitude_sway": "大风导致室外升降作业车完全无法起吊施救，外界物理救援途径彻底阻断。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "全景监控与台风气象雷达屏幕红光闪烁，中控室内电话铃声此起彼伏。",
+   "witnesses": [
+    "bg_estate_control_director_zhao",
+    "bg_elevator_dispatch_master_wang",
+    "bg_security_captain_liu"
+   ]
+  },
+  {
+   "affordances": [
+    "窝在沙发两头分一条毯子看电影",
+    "在狭小的厨房里错身做饭",
+    "停电时点起蜡烛挤在一个房间里"
+   ],
+   "detail": "两室一厅，冰箱上贴着轮流倒垃圾的值日表，阳台上晾着两个人的衣服，浴室的热水器时灵时不灵，窗台上摆着台风夜囤好的蜡烛。",
+   "exits": [
+    "loc_building_ground_control_center"
+   ],
+   "id": "loc_shared_apartment",
+   "name": "三十层的合租公寓",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "客厅只开着一盏落地灯，窗外的雨斜着打在玻璃上，看得清对方睡衣的褶子和杯子里的热气。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "苏",
+   "陈",
+   "林",
+   "周",
+   "叶",
+   "沈",
+   "顾",
+   "温",
+   "何",
+   "陆",
+   "秦",
+   "江",
+   "萧",
+   "方"
+  ],
+  "given_female": [
+   "晚晴",
+   "语柔",
+   "雅宁",
+   "诗涵",
+   "晓雨",
+   "宛婷",
+   "静芸",
+   "思凝",
+   "心悦",
+   "芷萱",
+   "若薇",
+   "文汐",
+   "佳颖",
+   "云梦"
+  ],
+  "given_male": [
+   "陈晨",
+   "浩宇",
+   "泽远",
+   "子轩",
+   "天明",
+   "睿达",
+   "思源",
+   "博文",
+   "俊杰",
+   "宏毅",
+   "志高",
+   "承泽",
+   "修远",
+   "景行"
+  ],
+  "given_neutral": [
+   "晨",
+   "雨",
+   "宁",
+   "羽",
+   "清",
+   "舟",
+   "微",
+   "远",
+   "岚",
+   "非",
+   "辰",
+   "澈",
+   "寒",
+   "渊"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "female",
+    "pattern": "{given}姐"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留台风夜外挂观光电梯三十层失电悬停、安全钳咬死导轨与合租女室友用长柄雨伞实心钢伞尖旋松松闸螺母的骨架。同一批有六个同模板的世界，与爱豆演播厅、航天模拟舱拉开：这里写成合租三年的日常——冰箱上的值日表、不放香菜的那碗面、热水器又不打火、台风夜囤好的泡面和蜡烛，玩家就是那位合租室友，搭档写成大楼的电梯维保师傅；新增合租公寓作为日常与亲密的地点。写死的人名改为身份称呼；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；室友亲密前提写明脱困之后、双方清醒自愿；新增一个回到公寓替室友脱下湿透针织衫的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的特种设备维保工程师，熟悉高层建筑客梯传动构架与安全钳机械动作逻辑，冷静果断。",
+   "gender": "male",
+   "id": "pi_elevator_maintenance_engineer_chen",
+   "reputation": "多次处置大型商业广场垂直电梯突发抱死故障，技术娴熟，深受合租室友信任。",
+   "resources": [
+    "一把航空级加厚双层防风长柄雨伞（伞尖为特种淬火纯钢螺纹插销，抗扭强度极高）",
+    "一柄高亮度防爆LED强光战术手电",
+    "一副加厚耐磨全指防滑防割橡胶工作手套"
+   ],
+   "risks": [
+    "若不能在台风狂风吹裂玻璃前复位安全钳，轿厢剧烈晃动可能导致钢丝绳跳槽坠落。"
+   ],
+   "role": "青年机电设备维护工程师兼合租室友",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "阿{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工程师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的建筑结构设计青年，对观光电梯受风荷载偏心晃动极限与轿梁锚固有深入了解。",
+   "gender": "male",
+   "id": "pi_civil_architect_chen",
+   "reputation": "擅长建筑结构力学分析与极端荷载受力判断，遇事沉稳，与室友相处融洽。",
+   "resources": [
+    "一把长柄加固高尔夫晴雨伞",
+    "一台三防数显激光测距测平仪",
+    "高强度耐撕裂户外应急风衣"
+   ],
+   "risks": [
+    "台风侧向强阵风达到十四级，玻璃幕墙支架剧烈形变挤压电梯导轨。"
+   ],
+   "role": "高层建筑幕墙结构设计师兼合租室友",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}设计师"
+    },
+    {
+     "gender": "any",
+     "pattern": "阿{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}老师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的物业工程综合运营主管，熟悉整栋高层商住楼配电柜分布与应急旁路控制。",
+   "gender": "male",
+   "id": "pi_estate_operations_supervisor_chen",
+   "reputation": "处置台风汛期突发事件经验丰富，决断有力，深得室友敬重与依赖。",
+   "resources": [
+    "一把加厚高碳钢伞尖双层防风长柄伞",
+    "一套特种机电应急检修多功能万用钥匙",
+    "高等级耐低温防滑战术救援腰带"
+   ],
+   "risks": [
+    "应急备用柴油发电机组若延误供电，电梯控制柜逻辑完全锁死无法接收指令。"
+   ],
+   "role": "物业工程运营青年主管兼合租室友",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}主管"
+    },
+    {
+     "gender": "any",
+     "pattern": "阿{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}主管"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁工科研究生，精通机械摩擦学与杠杆自锁解锁动力学，遇险思维敏捷动手能力强。",
+   "gender": "male",
+   "id": "pi_cohabitation_graduate_student_chen",
+   "reputation": "动手能力出众，性格温和沉稳，对日常家电与机械故障手到擒来。",
+   "resources": [
+    "一把航空级骨架加固实心伞尖防暴晴雨伞",
+    "一支精密不锈钢多功能笔型螺丝撬棒",
+    "一副高抓地力耐磨防滑运动手套"
+   ],
+   "risks": [
+    "轿厢偏载倾斜导致安全钳楔块越咬越深，单人力量无法撼动松闸手柄。"
+   ],
+   "role": "机械工程研读研究生兼合租室友",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "阿{given}学长"
+    },
+    {
+     "gender": "any",
+     "pattern": "阿{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}同学"
+    }
+   ]
+  }
+ ],
+ "premise": "沿海大城市的高层公寓里，两人合租了三年，冰箱上还贴着轮流倒垃圾的值日表，下班后一起去楼下超市、一起搭外挂观光电梯回家。台风季到了，电梯的维保师傅这个月已经来了三趟，物业贴出了停电预警。",
+ "pressures": [
+  {
+   "choice": "是冒险利用纯钢伞尖强行撬动松闸螺母，还是在剧烈晃动中等待外界微弱的救援希望？",
+   "exits": [
+    {
+     "cost": "伞骨承受大扭矩弯折，两人手臂手掌严重擦伤淤血。",
+     "option": "两人合力以伞尖下扳偏心螺栓旋转棘爪自救复位。"
+    },
+    {
+     "cost": "极其被动，若导轨锚栓震脱将直接随轿厢一同坠毁。",
+     "option": "伏于地面死死抓住金属扶手被动等待。"
+    }
+   ],
+   "far": {
+    "consequence": "观光轿厢彻底脱轨翻覆，从三十层百米高空坠毁坠地粉身碎骨。",
+    "due_days": 1,
+    "trigger": "台风侧风拉裂导轨固定锚栓"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_typhoon_storm_high_altitude_sway",
+   "immediate": {
+    "minutes": 2,
+    "text": "狂暴气流如巨锤般轰击双层玻璃幕墙，轿厢整体向外倾斜晃动发出刺耳尖啸。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car",
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "晃动幅度急剧增加，导轨滑块剧烈摩擦迸发出刺目火花，轿厢结构濒临疲劳极限。"
+   },
+   "objective": "必须在晃动撕裂导轨或震碎幕墙前，用伞尖撬松安全钳恢复平层平稳滑降。",
+   "source": "nature",
+   "start_minute": 1280,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "十四级台风高空侧风剧烈晃动",
+   "trigger": "超强台风十四级暴风横扫，三十层高空观光轿厢左右摆动达两米，金属框架持续巨震。"
+  },
+  {
+   "choice": "是单人使用随身钥匙尝试拨动，还是两人身体紧密相贴合力下压长柄雨伞？",
+   "exits": [
+    {
+     "cost": "工具把手产生微小塑性形变，施力人员手臂酸麻。",
+     "option": "以手电外壳护垫构成防滑支点，叠合双手全力压紧伞柄下扳。"
+    },
+    {
+     "cost": "敲击反冲破坏螺母暗纹，彻底堵死自救通道。",
+     "option": "用工具盲目敲打咬死的导轨钢梁。"
+    }
+   ],
+   "far": {
+    "consequence": "安全钳失去全部手动释放可能，轿厢成为永久吊死的高空铁笼。",
+    "due_days": 1,
+    "trigger": "偏心螺栓受重压彻底滑丝咬死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_safety_wedge_deadlock_rail_crush",
+   "immediate": {
+    "minutes": 2,
+    "text": "重型合金楔块死死咬入钢梁，螺母阻尼极其沉重无法单手转动分毫。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "轿厢晃动让楔块越陷越深，金属咬合力翻倍递增，手动解锁窗口极速关闭。"
+   },
+   "objective": "在楔块完全受压冷焊抱死前，以坚硬伞尖撬动偏心螺栓使楔块脱槽自救。",
+   "source": "accident",
+   "start_minute": 1280,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "双向安全钳机械楔块咬死导轨",
+   "trigger": "电涌断电导致双向机械安全钳误动作，偏心楔块紧紧卡死在工字钢垂直导轨上轿厢悬停。"
+  },
+  {
+   "choice": "是因男女礼法矜持拉开距离导致施力分散，还是坦然贴身相拥爆发出最大协同扭矩？",
+   "exits": [
+    {
+     "cost": "矜持心理防线被彻底打破，两人心灵产生不可磨灭的深厚依恋。",
+     "option": "抛弃一切杂念，室友伏于维保师傅胸前双手重叠压紧把手一鼓作气突破自救。"
+    },
+    {
+     "cost": "力矩不足无法撼动偏心螺栓，导致自救彻底失败。",
+     "option": "刻意保持距离单手侧向发力。"
+    }
+   ],
+   "far": {
+    "consequence": "伞尖滑出暗孔，错过最后松闸自救时间窗导致轿厢电量耗尽彻底锁死。",
+    "due_days": 1,
+    "trigger": "羞怯分心导致发力失衡工具脱落"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_close_quarters_flesh_contact_heat",
+   "immediate": {
+    "minutes": 2,
+    "text": "室友单薄衣衫温热柔润的触感传来，急促滚烫的吐息直接拂在耳侧颈项。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "室友脸上烧得通红，湿透的针织长裙裹着柔软的身子，娇喘和心跳混在一起，分不清是怕的，还是别的什么。"
+   },
+   "objective": "在极度贴近的肢体接触与异性荷尔蒙冲击下，克制心神专注机械对位发力。",
+   "source": "person",
+   "start_minute": 1280,
+   "tags": [
+    "workplace"
+   ],
+   "title": "检修死角贴身相拥滚烫喘息",
+   "trigger": "两人被迫同时趴在不足半平米的地板检修狭缝，湿透针织长裙与工装紧贴，体温与粗重喘息交叠。"
+  },
+  {
+   "choice": "是关掉应急灯节省微弱电量摸黑操作，还是抓紧最后光亮全力以赴一搏？",
+   "exits": [
+    {
+     "cost": "全力投入松闸无暇顾及自身擦伤，承受巨大紧迫压力。",
+     "option": "争分夺秒就着最后光线扳动伞柄旋松偏心螺栓推开安全钳自救。"
+    },
+    {
+     "cost": "摸黑盲操极易导致伞尖折断，彻底丧失逃生机会。",
+     "option": "被动等待电量耗尽在黑暗中摸索。"
+    }
+   ],
+   "far": {
+    "consequence": "轿厢完全陷入高空黑暗深渊，丧失目视对准能力无法继续机械自救。",
+    "due_days": 1,
+    "trigger": "蓄电池彻底耗尽断电陷入死黑"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_high_voltage_interlock_battery_drain",
+   "immediate": {
+    "minutes": 2,
+    "text": "头顶应急LED灯管剧烈闪烁，光晕逐渐黯淡发红。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car",
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "蓄电池低压警报蜂鸣声断续响起，微弱光线仅能照亮指尖毫厘。"
+   },
+   "objective": "必须在照明彻底熄灭前完成伞尖插入与螺栓旋松操作。",
+   "source": "nature",
+   "start_minute": 1280,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "应急照明电池续航极速耗尽",
+   "trigger": "轿厢备用蓄电池因电涌受损电量骤降，应急灯光频频闪烁，面临陷入绝对黑暗绝境。"
+  },
+  {
+   "choice": "是忍痛咬牙紧扣工具，还是分神活动肢体调整重心？",
+   "exits": [
+    {
+     "cost": "身体摩擦加剧，肌肤泛起大片淤青擦痕。",
+     "option": "室友与维保师傅互相用双腿死死卡住彼此脚踝稳固重心合力下压自救。"
+    },
+    {
+     "cost": "偏心螺栓在自重下再度深陷变形咬死。",
+     "option": "暂停按压后撤舒展肢体。"
+    }
+   ],
+   "far": {
+    "consequence": "雨伞被偏心反弹力强行震飞，彻底失去最后开启机会。",
+    "due_days": 1,
+    "trigger": "双腿打滑彻底失去反向支撑力矩"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_floor_water_puddle_slip_hazard",
+   "immediate": {
+    "minutes": 2,
+    "text": "冰凉雨水浸透裤管与膝盖，光滑不锈钢地面摩擦系数急剧下降。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_car_floor_maintenance_hatch"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "持续静力发力使前臂与腿部肌肉发生剧烈震颤，下踩支撑力濒临极限。"
+   },
+   "objective": "克服双腿打滑与膝部湿冷酸痛，保持稳定反向杠杆平衡发力姿态。",
+   "source": "nature",
+   "start_minute": 1280,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "轿内地面积水倒灌湿滑打滑",
+   "trigger": "台风暴雨从玻璃幕墙密封胶缝倒灌进入地板，轿厢地表积水导致两人跪地施力双腿极易打滑。"
+  },
+  {
+   "choice": "是立即加大下压力度一鼓作气扳松螺栓，还是等待风势间隙再行操作？",
+   "exits": [
+    {
+     "cost": "身心极度疲惫，手臂肌肉严重拉伤酸痛。",
+     "option": "两人贴面眼神交汇瞬间爆发全身重量峰值力矩震松偏心螺栓自救。"
+    },
+    {
+     "cost": "玻璃幕墙彻底碎裂丧失全部物理生存可能。",
+     "option": "被动等待风暴减弱。"
+    }
+   ],
+   "far": {
+    "consequence": "十四级高空强风直接将轿内人员卷出三十层高空坠亡殉难。",
+    "due_days": 1,
+    "trigger": "外层玻璃整体爆裂强风灌入"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_glass_curtain_wall_crack_strain",
+   "immediate": {
+    "minutes": 2,
+    "text": "外层钢化玻璃角落传来沉闷的崩裂脆响，细密纹路顺着边框蔓延。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sightseeing_glass_elevator_car"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "裂缝在狂风高频振动下不断扩张，夹胶层开始产生剥离位移。"
+   },
+   "objective": "在玻璃彻底碎裂灌入强风前完成安全钳松脱，平层撤离危险空域。",
+   "source": "nature",
+   "start_minute": 1280,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "观光幕墙钢化夹胶玻璃微裂",
+   "trigger": "高空飞石与极端风切变击打在轿厢外层钢化玻璃上，边缘出现蛛网状微小裂纹。"
+  },
+  {
+   "choice": "一起多付房租留下，还是趁这次各自搬走",
+   "exits": [
+    {
+     "cost": "两人的存款都得动，年底回家的机票就买不起了",
+     "option": "一起多付房租"
+    },
+    {
+     "cost": "赵主任要两人在业主大会上替物业说话",
+     "option": "请物业的赵主任拿电梯赔偿抵房租"
+    }
+   ],
+   "far": {
+    "consequence": "合租三年的屋子退掉，冰箱上那张值日表也得撕下来",
+    "due_days": 14,
+    "trigger": "到了月底"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_wanqing_duty_chart",
+    "hook_wanqing_cilantro",
+    "hook_chen_water_bottle",
+    "hook_chen_umbrella",
+    "hook_wanqing_apartment_door"
+   ],
+   "id": "p_landlord_raises_rent",
+   "immediate": {
+    "minutes": 5,
+    "text": "房东的语音一条接一条，冰箱上的值日表被门缝的风吹得哗哗响"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_shared_apartment"
+   ],
+   "near": {
+    "deadline_minutes": 360,
+    "text": "下午三点，房东带中介来看房"
+   },
+   "objective": "在房东下午带中介来看房之前，决定这间合租屋还住不住",
+   "source": "money",
+   "start_minute": 540,
+   "tags": [],
+   "title": "房东的电话",
+   "trigger": "台风过后第二天上午，房东在业主群里看到电梯困人的新闻，打来电话：这套房年底要卖，两人月底前搬走，除非每月多付两千"
+  }
+ ],
+ "region": "外挂全景双层观光玻璃电梯轿厢与百米高空井道",
+ "rules": [
+  {
+   "id": "r_high_altitude_elevator_safety",
+   "text": "观光电梯半空悬停时严禁盲目撬动外层玻璃幕墙与门扇锁钩。"
+  },
+  {
+   "id": "r_safety_gear_manual_release",
+   "text": "安全钳咬死导轨后只能通过底梁应急检修孔手动旋松偏心螺母方可复位。"
+  },
+  {
+   "id": "r_typhoon_sway_stability_rule",
+   "text": "台风侧风晃动期间两人必须压低重心紧贴轿厢后侧承重金属立柱。"
+  },
+  {
+   "id": "r_adult_mechanical_escape_standard",
+   "text": "绝境脱困依靠纯物理力矩与机械自救，一切互动严守成年自愿与安全防护原则。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "风雨同舟",
+  "committed": "相守不离",
+  "familiar": "信赖相依",
+  "flirting": "贴身喘息",
+  "intimate": "患难真情",
+  "stranger": "同室合租",
+  "testing": "生死相托"
+ },
+ "status": "released",
+ "style_hint": "高空悬停硬核机械工笔，刻画台风狂风晃动下百米悬空的窒息失重感、航空铝合金长柄伞尖在安全钳偏心螺母内的剧烈杠杆咬合力矩，温柔室友单薄家居裙被汗水浸透紧贴娇躯的视觉张力，台词温婉坚定充满默契信赖。",
+ "tension_engines": [
+  {
+   "id": "te_typhoon_storm_high_altitude_sway",
+   "text": "十四级台风暴雨狂暴拍击百米悬空玻璃轿厢，剧烈摇晃引发极限失重恐慌。"
+  },
+  {
+   "id": "te_safety_wedge_deadlock_crush",
+   "text": "渐进式机械安全钳楔块死死咬入工字钢导轨，偏心自锁螺母阻尼逼近极限。"
+  },
+  {
+   "id": "te_close_contact_body_heat",
+   "text": "在不足半平米的地板死角两人完全贴伏，湿透家居裙与工装体温催生极度异性张力。"
+  },
+  {
+   "id": "te_power_loss_blackout_rush",
+   "text": "轿厢应急照明电量持续衰减，面临陷入伸手不见五指绝对黑暗的高空死局。"
+  }
+ ],
+ "title": "温柔合租室友·观光玻璃电梯半空悬停",
+ "tone": [
+  "合租三年的值日表",
+  "台风夜囤好的泡面和蜡烛",
+  "三十层半空悬停的玻璃轿厢",
+  "应急灯下湿透的针织衫"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_elevator_screw_slot_located",
+   "requires": [
+    "roommate_su_wanqing"
+   ],
+   "text": "{roommate_su_wanqing.name}借战术手电强光，在漆黑的地板检修孔底层准确定位出咬死安全钳偏心螺栓暗孔的微小受力支点。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_typhoon_warning_groan",
+   "requires": [
+    "roommate_su_wanqing"
+   ],
+   "text": "{roommate_su_wanqing.name}听到三十层高空观光幕墙发出刺耳的金属扭曲呻吟，轿厢剧烈晃动，面庞上映出冷峻决意。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_rubber_glove_chock_safety",
+   "requires": [
+    "maintenance_technician_chen"
+   ],
+   "text": "{maintenance_technician_chen.name}从口袋抽出防滑加厚手套，死死垫在地板盖板边缘下方，彻底构筑起刚性防挤压安全作业间隙。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_cotton_handkerchief_bind_tight",
+   "requires": [
+    "roommate_su_wanqing",
+    "maintenance_technician_chen"
+   ],
+   "text": "{roommate_su_wanqing.name}解下随身纯棉手帕，由{maintenance_technician_chen.name}迅速将伞柄握把与手背紧密捆扎，消除了手汗打滑隐患。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_battery_alarm_final_minute_rush",
+   "requires": [
+    "roommate_su_wanqing"
+   ],
+   "text": "电梯应急备用蓄电池发出最后微弱的低电量长鸣，头顶灯光即将熄灭，生死死线已逼近绝对生理极限。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_close_body_tight_bind_leverage",
+   "requires": [
+    "roommate_su_wanqing",
+    "maintenance_technician_chen"
+   ],
+   "text": "{maintenance_technician_chen.name}在地板死角紧紧护住{roommate_su_wanqing.name}，两人滚烫手指紧握伞柄，急促滚烫的吐息与心跳在幽暗中彻底交叠。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_umbrella_tip_brake_release_success",
+   "requires": [
+    "roommate_su_wanqing"
+   ],
+   "text": "伴随一声清脆金属断扣声，坚固长柄雨伞纯钢伞尖成功扳转偏心松闸螺栓，安全钳楔块瞬间回退释压，电梯轿厢平稳恢复滑降顺利脱险自救。"
+  }
+ ]
+}

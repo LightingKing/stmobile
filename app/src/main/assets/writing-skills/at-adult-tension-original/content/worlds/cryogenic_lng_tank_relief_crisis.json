@@ -1,0 +1,2262 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满五十岁，远洋液货检修老骨干，成年公民。",
+   "age_range": [
+    50,
+    54
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_veteran_rigger_lao_han",
+   "line": "温度跌破零下一百六十度了！偏心顶杆往左偏了两度，硬砸要崩齿啊！",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "name": "老聂",
+   "role": "液货系统老机工老聂"
+  },
+  {
+   "adult_context": "年满二十八岁，海事监管随员，成年公职人员。",
+   "age_range": [
+    28,
+    31
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_fleet_inspector_deputy_ling",
+   "line": "监察官有令！倒计时还剩三分钟，准备拉下脱钩闸刀弃船逃生自保！",
+   "location_ids": [
+    "loc_cargo_compressor_room_catwalk"
+   ],
+   "name": "凌副官",
+   "role": "海事监督副官凌副官"
+  },
+  {
+   "adult_context": "年满四十五岁，液货技术专家，成年老工程师。",
+   "age_range": [
+    45,
+    49
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_cargo_engineer_wen",
+   "line": "超低温应急绝热氮气已切入！女轮机长，用耐脆断扳手别住偏心槽，垫上老技师的特氟龙板！",
+   "location_ids": [
+    "loc_cargo_compressor_room_catwalk"
+   ],
+   "name": "温工程师",
+   "role": "十万吨LNG船液货大班温工程师"
+  },
+  {
+   "adult_context": "年满二十二岁，远洋船甲板水手，成年公民。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_cadet_cryogenic_xiao_mo",
+   "line": "内胆压力突破最高安全标高了！桅杆晃动超限了，快把安全阀砸开啊！",
+   "location_ids": [
+    "loc_upper_deck_vent_mast_platform"
+   ],
+   "name": "小麦",
+   "role": "甲板水手小麦"
+  },
+  {
+   "adult_context": "年满三十三岁，特勤消防指挥员，成年军官。",
+   "age_range": [
+    33,
+    37
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_marine_fire_rescue_captain",
+   "line": "水幕喷淋系统已对准圆顶外围，女轮机长，务必把扳手砸到底消除冰堵！",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "name": "祁队长",
+   "role": "船舶特勤消防中队长祁队长"
+  },
+  {
+   "adult_context": "年满二十六岁，持有远洋急救执照的女医官，成年公民。",
+   "age_range": [
+    26,
+    28
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_marine_medic_officer_qi",
+   "line": "高压降温解毒冰毯与纯氧吸入器已就位，阀门一压下立刻拉人抢救！",
+   "location_ids": [
+    "loc_cargo_compressor_room_catwalk"
+   ],
+   "name": "贝医生",
+   "role": "随船医生贝医生"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "清冷女轮机长与水手长在三十度剧烈横摇的绝冷死角里背靠背、手扣手，把耐脆断扳手向死角猛砸破冰。",
+   "id": "cc_chief_and_engineer_rush",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "chief_engineer_ye_qingge",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "绝冷绝境中共同测算力矩与偏角，建立起生死托付的机械共鸣。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "engineer_shen_tiesheng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在远洋火线摸爬滚打的生死战友，深知对方过硬的铁骨担当。",
+     "stage": "familiar"
+    },
+    {
+     "a": "chief_engineer_ye_qingge",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "engineer_shen_tiesheng",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "清冷女轮机长与重装机修老兵在狂暴风浪前结成生死同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chief_engineer_ye_qingge",
+    "engineer_shen_tiesheng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在内胆彻底撕裂前，合力用特种扳手将偏心顶杆下砸破冰压下安全阀实现消漏脱险。",
+    "limit_gap": "女轮机长体能在极度深冷冻僵与缺氧下逼近昏厥休克临界，大管轮受限于双手二度冻伤血肉模糊剧痛难忍。",
+    "meeting_reason": "船过好望角遇上十级风，女轮机长要上甲板查放空桅，水手长扛着缆绳跟了上去。",
+    "resource_gap": "女轮机长精通超低温薄膜相变泄压弹性力矩死穴，大管轮拥有惊人的下盘千斤坠肉身爆发力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_lng_tank_overpressure_vs_hammer",
+    "te_freezing_frost_soak_vs_tight_press"
+   ]
+  },
+  {
+   "chemistry": "传奇女轮机长的从容冷冽稳住吓瘫的新手助理，新手助理冒死送达加长合金空心套管与牵引带，师徒合力化解巨轮爆炸危机。",
+   "id": "cc_chief_and_cadet_pipe_extension",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "chief_engineer_ye_qingge",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "紧盯女轮机长的每一个锁死手势。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "cadet_cryogenic_xiao_mo",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "鼓励新手助理战胜深海恐惧。",
+     "stage": "familiar"
+    },
+    {
+     "a": "chief_engineer_ye_qingge",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "cadet_cryogenic_xiao_mo",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "师徒传承与工艺庇护。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "chief_engineer_ye_qingge",
+    "cadet_cryogenic_xiao_mo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "迅速接驳加长空心力臂协助特种扳手一举压死咬死顶杆。",
+    "limit_gap": "成年的青年助理面对三十度横摇剧烈颠簸心理防线脆弱，女轮机长在狂暴晃动中无法分身捡拾工具。",
+    "meeting_reason": "助理技术员第一次跑远洋，晕船吐了三天，被女轮机长拎进液货控制室盯压力表。",
+    "resource_gap": "女轮机长握有核心八十公分特种扳手与绝对技术指挥权，青年助理掌握加长合金空心管与应力手册。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_lng_tank_overpressure_vs_hammer"
+   ]
+  },
+  {
+   "chemistry": "特派监察官歇斯底里要求引爆脱钩弃船逃生，机修大管轮怒拔大敲击梅花扳手横在其喉结据理力争寸步不让。",
+   "id": "cc_engineer_and_inspector_clash",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "engineer_shen_tiesheng",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "赞许大管轮抗命护持全船同袍的铁骨担当。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "inspector_ling_xiao",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对视一线人命如草芥的自私官僚深恶痛绝。",
+     "stage": "stranger"
+    },
+    {
+     "a": "engineer_shen_tiesheng",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "inspector_ling_xiao",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "一线工长与上层逃命官员之间的生死对峙。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "engineer_shen_tiesheng",
+    "inspector_ling_xiao"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "压制官僚逃跑行径为圆顶盲区内安全阀破冰压下争取至关重要的三分钟时间。",
+    "limit_gap": "监察官极度恐惧十万吨巨轮爆燃粉身碎骨，大管轮受限于公然违抗海事安全管理条例的严厉纪律问责。",
+    "meeting_reason": "监察官在开普敦登船随航抽检，一上船就和水手长为了甲板上能不能抽烟吵了一架。",
+    "resource_gap": "监察官手握船东集团救生艇紧急脱钩遥控钥匙芯片，大管轮拥有全船机修突击队的绝对现场支持。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_inspector_abandon_ship_vs_rescue"
+   ]
+  },
+  {
+   "chemistry": "远洋老机工隔着灼热气浪指点偏角递上特氟龙绝冷垫片，与圆顶内死磕扳手的年轻女轮机长里应外合，协同化解巨轮爆炸死局。",
+   "id": "cc_chief_and_master_han_lever",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "chief_engineer_ye_qingge",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "深信女轮机长神级低温相变决断力。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "senior_lng_cargo_rigger_han",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "老机工的经验指引令人心头大定。",
+     "stage": "familiar"
+    },
+    {
+     "a": "chief_engineer_ye_qingge",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "senior_lng_cargo_rigger_han",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "两代远洋海员之间的默契互救。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chief_engineer_ye_qingge",
+    "senior_lng_cargo_rigger_han"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "精准将特氟龙垫片塞入左偏两度受力死角对角锁死脱险。",
+    "limit_gap": "老机工年迈患有风湿关节炎无法上前死拼下砸，女轮机长在颠簸晃动中双眼难辨微米级偏角。",
+    "meeting_reason": "老技师这是退休前最后一个航次，女轮机长当年第一次上船，就是在老技师手底下擦的油污。",
+    "resource_gap": "老机工握有偏心顶杆左偏两度偏心口诀与特氟龙垫片，女轮机长掌握核心特种扳手与绝对技术指挥权。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_lng_tank_overpressure_vs_hammer",
+    "te_inspector_abandon_ship_vs_rescue"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_dome_acoustic_intercom",
+   "reach": "all",
+   "text": "液货舱圆顶内部高强度防爆骨传导有线通信网"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_cryogenic_gas_screams_deadlock",
+   "reach": "local",
+   "text": "超低温蒸发气高频刺漏尖锐啸叫与监察官惊恐呼叫"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已成年的十万吨级薄膜型超低温LNG船特级女轮机长，年满二十一岁，持有国家远洋特种气体运输突发事故一级应急处置执照，享有全船动力与液货系统最高技术指挥权。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "褪去防化保温服后内着阻燃工装背心，清冷绝美神情威严，两腮带着健康的红润，在狂暴巨浪颠簸与极度焦灼的剧烈喘息中，白皙双颊被冻得泛起娇艳酡红与晶莹热汗，细腻汗水顺着下颌滑入紧绷锁骨。",
+    "湿透的乌黑短发利落抿在耳后，纤细双臂紧扣长达八十公分的超低温特种耐脆断加长双向敲击卸载手动扳手死死别入偏心槽，面颊在火红警报灯映照下泛出绝不屈服的清冷坚毅，展现出统领十万吨巨轮的绝对工程威严。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延的懦夫",
+     "打着自保旗号擅自弃船逃跑的官僚"
+    ],
+    "contrast": "外表清冷出尘，周六晚上被船员起哄推上卡拉OK会红着脸唱跑调，面对十万吨巨轮生死危机时手劲与力学决断远超粗壮海员。",
+    "core_value": "深冷相变再暴烈，也逃不过低温力学公差，只要这柄耐脆断扳手还在手里，本轮机长就能把这狂暴的内胆压力按回常态。",
+    "goal_options": [
+     "利用耐脆断扳手插入偏心卡槽敲击破冰",
+     "在液货舱爆裂前排除冰堵压下阀杆自救"
+    ],
+    "never": [
+     "在安全阀彻底破冰泄压排除险情前独自弃船逃生"
+    ],
+    "prefers": [
+     "分秒不差的破冰敲击配合",
+     "生死关头敢把后背交出来的铁血搭档"
+    ],
+    "pressure_responses": {
+     "breaking": "用牙齿咬破清凉喷雾含服强行保持清醒继续双掌死扣扳手下旋",
+     "high": "整个人扑在扳手柄端借全身自重与双臂爆发力合力顺时针猛砸压死",
+     "low": "在气浪初升时冷静测算绝冷舱内蒸发气上升速率与薄膜临界剪应力",
+     "mid": "果断抽出八十公分特种扳手找准偏心槽破冰切角"
+    },
+    "relationship_stance": "平日神情清冷冷傲容不得任何人质疑技术规程，但在深海生死绝境中展现出同舟共济的过人胆魄与统帅担当。",
+    "withdrawal": "退守至圆顶钛合金承重角钢内侧，单臂扣紧安全扶手冷眼注视绝冷差压水银表。"
+   },
+   "gender": "female",
+   "gender_reason": "超大型低温液化气船女轮机长",
+   "id": "chief_engineer_ye_qingge",
+   "identity": {
+    "authority": "对液货舱超压放空、全船蒸发气平衡、安全阀应急破冰处置及现场全部轮机抢险突击人员享有绝对技术指挥权与否决权。",
+    "exposure": "为了抢船期曾在恶劣海况下顶着蒸发气微增超负荷开启再液化装置",
+    "hidden": "工装背心贴胸口袋内装着一枚刻有巨轮首航经纬度与母港经纬度的纯钛纪念标牌",
+    "limits": [
+     "在安全阀彻底破冰压下前无法离开剧烈倾斜的圆顶绝冷盲区",
+     "长时间暴露在零下深冷与刺鼻天然气蒸发气中面临急性肺水肿与虚脱"
+    ],
+    "obligations": [
+     "确保安全阀成功破冰泄压力保价值数十亿十万吨国宝级LNG船与全员生命安全"
+    ],
+    "resources": [
+     "一柄超低温特种耐脆断加长双向敲击卸载手动扳手（长八十公分，超硬度镍钼低温合金锻造，耐零下两百度深冷冲击，端部带防滑双向棘爪定位卡块）",
+     "一罐高压军用便携式快速抗极寒神经舒缓喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在三十度横摇狂风巨浪面前如定海神针般的巍峨身躯",
+     "千钧一发之际毫不犹豫用滚烫胸膛为自己挡下零下低温冰雾的舍命相护"
+    ],
+    "boundaries": [
+     "严守轮机长指挥威严不容侵犯",
+     "不以救命功绩索取私人情感屈从"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被从身后紧抱稳住重心抗击剧烈横摇，双手叠合在耐脆断扳手上一同向下猛力死砸。",
+    "dislikes": [
+     "自私逃兵的卑劣行径",
+     "自恃官威的蛮横瞎指挥"
+    ],
+    "expression": "脱险进入安全区后，默默撕下自己最干爽的阻燃内衣轻柔包扎对方被极寒金属冻裂的手掌，眼神温软而坚定。",
+    "likes": [
+     "两人合力砸下扳手时胸膛紧贴传来的粗重狂热心跳",
+     "险情排除后彼此抹去面颊冰霜与热汗时的清冷羞怯轻声叹息"
+    ],
+    "preconditions": [
+     "安全阀完全破冰泄压且舱内压力完全恢复平稳",
+     "全员安全返回驾驶台控制室完成更衣复温",
+     "两人都清醒，心意出于自己，不是狂浪横摇里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "十万吨LNG船女轮机长",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_cargo_tank_dome_cryogenic_nook",
+     "to": 1420
+    },
+    {
+     "from": 1420,
+     "location_id": "loc_cargo_tank_dome_cryogenic_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "特种合金扳手手柄发生微小弯曲变形，操作人员双手隔着手套被磨出大面积水泡破裂。",
+      "option": "用超低温特种耐脆断加长双向敲击卸载手动扳手顺时针死死压下破冰自救。"
+     },
+     {
+      "cost": "剧烈冲击造成弹簧护套产生微细冷脆裂纹，飞溅冰晶划破操作人员面颊与肩膀。",
+      "option": "用备用重型大铜锤直接猛烈敲击安全阀弹簧护套强行震碎冰壳脱险。"
+     }
+    ],
+    "pressure": "舱内绝冷气压飙升逼近薄膜内胆撕裂极限，距全船大爆炸仅剩四分钟逃生窗口。",
+    "trigger": "十级巨浪颠簸使超低温液货舱安全阀结霜冰堵抱死，蒸发气无法外泄。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "还有最后五毫米冰层……只要扳手不脆断，本小姐绝不会让巨轮在深海粉身碎骨，给我砸到底！",
+    "surface": "别管那些扑在脸上的刺骨冰晶！把这根八十公分的合金扳手卡入偏心槽，跟我数三二一一起用力顺时针死砸下去！"
+   }
+  },
+  {
+   "adult_context": "年满三十岁，远洋超大型气体船特级机修大管轮，具备完全民事行为能力，十年深海远洋拼搏老将。",
+   "age_range": [
+    30,
+    36
+   ],
+   "appearance_options": [
+    "身材极其魁梧刚劲肩背宽厚如山，身着带有加厚绝热隔冷内衬的防烫阻燃厚工装，手臂青筋暴起肌肉如坚硬生铁，面容粗犷目光冷峻。",
+    "短发被冰霜与滚烫汗珠浸透黏在额头，在三十度剧烈倾斜颠簸中双脚如生根道钉稳稳咬在防滑钢格板上。"
+   ],
+   "decision": {
+    "avoids": [
+     "前怕狼后怕虎的逃兵",
+     "遇事推卸责任的空谈客"
+    ],
+    "contrast": "看似粗野鲁莽的远洋老水手，在配合女轮机长砸下扳手时的重心与力道把控精妙绝伦分毫不差。",
+    "core_value": "机舱就是海员的阵地，只要女轮机长还在前头拼命，{npc.name}就算拼上这条命也得顶住万顷深渊。",
+    "goal_options": [
+     "协助女轮机长砸下扳手破冰压下阀杆",
+     "用宽厚身躯挡住狂暴喷射的零下低温冰雾"
+    ],
+    "never": [
+     "在轮机长还在绝冷中死拼时独自松开扳手逃命"
+    ],
+    "prefers": [
+     "干净利落的军令作风",
+     "关键时刻豁出命硬碰硬的狠劲"
+    ],
+    "pressure_responses": {
+     "breaking": "用宽厚脊背硬生生挡住上方管道爆开的超低温冷气为女轮机长撑起发力空间",
+     "high": "双手死死包覆在女轮机长手背外侧倾注全身近两百斤自重协同猛砸扳手",
+     "low": "在冰雾初现瞬间迅速甩出加厚耐深冷绝缘手套反向塞给女轮机长",
+     "mid": "用结实的臂膀一把捞住被剧烈横摇冲倒的年轻助理"
+    },
+    "relationship_stance": "跑了二十年船的水手长，甲板上每一根缆绳都归管；把女轮机长当成全船最不能出事的人，风浪里总站在上风那一侧。",
+    "withdrawal": "退守至圆顶主承重工字钢角梁内侧，右手握紧大敲击扳手警惕任何螺栓冷脆崩飞。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "engineer_shen_tiesheng",
+   "identity": {
+    "authority": "对圆顶检修工具调配、超低温氮气管阀及应急防坠安全索拥有现场绝对处置权。",
+    "exposure": "为了抢时间曾违规在带压状态下微调过再液化膨胀机出口螺栓",
+    "hidden": "机修背心贴身内袋里珍藏着女轮机长当年晋升轮机长时亲手颁发的大国工匠勋章",
+    "limits": [
+     "体能在抗衡零下深冷侵蚀与三十度剧烈倾覆摇摆中逼近生理极限",
+     "不懂微观非定常蒸发相变复杂张量计算"
+    ],
+    "obligations": [
+     "誓死协助轮机长女轮机长砸下扳手压下阀杆力保全员平安生还"
+    ],
+    "resources": [
+     "一柄大号高强度耐深冷特种重型梅花敲击扳手",
+     "两卷带有耐温加厚橡胶涂层的高抗拉防滑包扎带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在狂风巨浪火海面前横刀立马的非凡帅才气魄",
+     "两具滚烫躯体在极端极寒死角中紧密贴合的炽烈生命共鸣"
+    ],
+    "boundaries": [
+     "恪守远洋机修从属规矩不越礼数",
+     "不以救命之恩索取私人情感回报"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在剧烈晃动的圆顶内从后方抱紧女轮机长稳住重心，双手全力握紧扳手合力向下猛砸到底。",
+    "dislikes": [
+     "临阵弃船的自私懦夫",
+     "背信弃义的下作小人"
+    ],
+    "expression": "撕下自己干燥清凉的保暖内胆，轻柔却有力地裹在女轮机长被冰霜冻得发烫的后颈上。",
+    "likes": [
+     "战胜死神后痛快大喝烈性热茶的畅快",
+     "安全阀破冰复位瞬间两人粗重滚烫的胸膛起伏与鼻息交融"
+    ],
+    "preconditions": [
+     "液货舱安全阀完全破冰复位且全船压力受控归零",
+     "全员安全撤出绝冷盲区返回驾驶台"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "水手长",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_cargo_tank_dome_cryogenic_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}右侧肩袖肌腱严重拉伤撕裂，双手隔着手套被磨出大面积水泡破溃。",
+      "option": "{npc.name}将全身自重压在扳手末端借超长力矩强行砸断冰桥压下阀杆脱险。"
+     },
+     {
+      "cost": "大扳手受强烈高压反震脱手崩飞划破{npc.name}下巴与手腕。",
+      "option": "用防爆大扳手反向敲击阀体边缘强行震碎冰层自救。"
+     }
+    ],
+    "pressure": "若不能在两分钟内合力砸下扳手震碎冰桥压下阀杆，高压蒸发气将彻底撕裂薄膜内胆摧毁巨轮。",
+    "trigger": "蒸发气压力突破安全红线，船体横摇达二十五度，安全阀冰桥厚度达五公分。"
+   },
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "voices": {
+    "inner": "女轮机长是天生的帅才。只要我还有一口气在，这极寒恶魔休想伤女轮机长半根寒毛。",
+    "surface": "女轮机长！找准那个偏心死角！扳手有{npc.name}给你托着，你报顺逆，我就算把双臂骨头砸碎也给你砸到底！"
+   }
+  },
+  {
+   "adult_context": "年满三十八岁，海事船东集团安全监察官员，具备完全民事行为能力，掌控紧急弃船救生与全船火炬放空通报权。",
+   "age_range": [
+    38,
+    44
+   ],
+   "appearance_options": [
+    "身穿带有高反光条的高级防风呢绒海事监察风衣，面容白净戴着金丝防爆护目镜，此时被剧烈横摇颠簸得满脸惨白惊恐万状。",
+    "双手死死抓着胸前的救生缓降器背带，眼神在保全自身性命与维持官方威严间剧烈战栗。"
+   ],
+   "decision": {
+    "avoids": [
+     "零下深冷与狂暴巨浪扑面的圆顶盲区",
+     "与浑身机油冰霜的轮机员同舟共济"
+    ],
+    "contrast": "平日在发布会上冠冕堂皇大谈航行安全重于泰山，大难临头时比谁都贪生怕死、丑态百出。",
+    "core_value": "保全自身性命与监察官阶高于一切，底层轮机工与海员的生死不过是海事统计数字。",
+    "goal_options": [
+     "强行开启救生艇脱钩手柄单独登艇逃生",
+     "勒令女轮机长立刻放弃抢修撤退至救生甲板"
+    ],
+    "never": [
+     "为了挽救同行机修人员而延误自己登上救生艇的时间"
+    ],
+    "prefers": [
+     "绝对的官僚服从",
+     "空调清凉的高级海事VIP舱室"
+    ],
+    "pressure_responses": {
+     "breaking": "瘫坐在地板上交出气动切断钥匙换取优先登艇撤离权",
+     "high": "被水手长夺下钥匙按在角钢上后吓得瘫倒在栏杆旁",
+     "low": "在主通廊大声宣读国际海事安全规则推卸责任",
+     "mid": "发现内胆差压超标后歇斯底里试图暴力扳动弃船电掣"
+    },
+    "relationship_stance": "将女轮机长视为恃才傲物不服管束的技术刺头女轮机长，对其专业权威既敬畏又嫉恨。",
+    "withdrawal": "退缩在防爆通廊后方密封防爆逃生救生室门内，双手死死抱住公文包与自救呼吸器。"
+   },
+   "gender": "male",
+   "gender_reason": "远洋海运船东集团特派高级海事监察官",
+   "id": "inspector_ling_xiao",
+   "identity": {
+    "authority": "代表船东集团行使重大险情全船紧急弃守戒严权、下达强行登艇逃生指令的最终签署权。",
+    "exposure": "为了抢船期曾对安全阀伴热保温电缆微细短路隐患单据违规签署放行",
+    "hidden": "暗中启动了呼叫附近巡航护航舰艇前来单人接应的应急加密信标",
+    "limits": [
+     "完全不懂薄膜型LNG舱超低温冰桥受力脆断弹性模量公差机理",
+     "极度恐慌爆炸企图强行启动救生艇遥控脱钩单独逃生"
+    ],
+    "obligations": [
+     "保全公文包内十万吨级LNG运输船特种运输特许批文"
+    ],
+    "resources": [
+     "一台便携式高精度超低温气体分析仪",
+     "一枚全船应急弃船救生艇脱钩遥控钥匙芯片"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "能保全自身性命与官位的高效铁腕庇护",
+     "迎合其官僚尊严的阿谀奉承"
+    ],
+    "boundaries": [
+     "严禁任何普通机修工触碰其高级监察制服",
+     "不承担任何同舟共济抢险义务"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在主通廊外手握对讲机，命令船员在倒计时归零时立刻引燃放空桅彻底弃船逃生。",
+    "dislikes": [
+     "粗暴的抗命顶撞",
+     "被冰冷扳手与铁拳指着鼻梁的屈辱恐慌"
+    ],
+    "expression": "战战兢兢地从口袋里摸出一盒昂贵的高效抗寒高能含片扔在地上换取机修工长拼命下扳破冰。",
+    "likes": [
+     "被护卫在最安全的防爆监控室",
+     "特供的高级雪茄与热茶"
+    ],
+    "preconditions": [
+     "彻底脱离巨轮爆炸危险置身于军舰救生舱",
+     "保全既得海事总监官职衔"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "特派高级海事监督官",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_cargo_compressor_room_catwalk",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "涉嫌公然抗拒海事监察执法面临事后被停职审查。",
+      "option": "水手长夺下监察官脱钩遥控钥匙并用高强扎带将其捆在栏杆立柱上自救。"
+     },
+     {
+      "cost": "与监察随员爆发轻微肢体拉扯造成右手腕轻度挫伤。",
+      "option": "女轮机长大声以首席轮机长身份喝退监察随员并亲手切断脱钩电掣脱险。"
+     }
+    ],
+    "pressure": "若三分钟内不能破冰压下安全阀，特派监察官手中的芯片将直接触发全船脱钩弃机彻底断绝生路。",
+    "trigger": "内胆压力超标触发船东集团海难弃船撤离最高预警预案。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这群疯子……巨轮要是炸了，几万吨液化气能把海面掀翻，我必须自己活下去！快弃船！",
+    "surface": "女轮机长！水手长！内胆差压已经超标了！立刻放弃手动破冰！本监察官命令你们立刻拉下弃船电掣自保！"
+   }
+  },
+  {
+   "adult_context": "年满五十岁，远洋气体船特级老装配工，成年工匠宗师，具备完全民事行为能力。",
+   "age_range": [
+    50,
+    54
+   ],
+   "appearance_options": [
+    "身穿带有高反光条的洗得发白的阻燃厚帆布工装，满脸被深海风暴与超低温霜气侵蚀的深刻皱纹，花白胡须挂满冰渣与汗渍。",
+    "手里握着一把被摸得发亮的特种纯钢平头对角防偏敲击冲子，眼神在剧烈横摇与火光中如北极坚冰般镇定。"
+   ],
+   "decision": {
+    "avoids": [
+     "不知变通的教条官僚",
+     "遇到险情就丢盔弃甲的软蛋"
+    ],
+    "contrast": "平日沉默寡言甚至被年轻海员视为古板老头的老机工，面对深海大爆炸危机时指点沉着如定海神针。",
+    "core_value": "金属有脾气，只要找准了冰桥死穴，没有砸不开的死阀杆。",
+    "goal_options": [
+     "指点女轮机长找准左偏微倾角猛砸卡槽",
+     "垫入特氟龙垫片阻滞气浪对冲防滑"
+    ],
+    "never": [
+     "在超低温受力关键时刻误报力矩参数"
+    ],
+    "prefers": [
+     "严谨过硬的工匠手艺",
+     "一诺千金的工程信用"
+    ],
+    "pressure_responses": {
+     "breaking": "用身躯稳住超低温扳手后部支架为年轻人争取发力空间",
+     "high": "用沙哑嗓音高呼左偏两度顺力深砸的最佳起步角度",
+     "low": "在圆顶边缘用冲子轻敲阀体凭回响判定冰桥厚度与脆断点",
+     "mid": "冒着滚烫气浪递上特氟龙垫片塞入刺漏背角"
+    },
+    "relationship_stance": "将女轮机长视为中国远洋界难得一见的巾帼奇才，由衷钦佩年轻女轮机长沉着镇定的过人定力与铁腕作风。",
+    "withdrawal": "躲在圆顶承重牛腿背风凹槽内，用厚帆布背心死死护住特氟龙衬垫与精密量具盒。"
+   },
+   "gender": "male",
+   "gender_reason": "超低温液货系统特级老机工长老技师",
+   "id": "senior_lng_cargo_rigger_han",
+   "identity": {
+    "authority": "对超低温安全阀偏心受力槽微观卡齿变形、冰桥应力集中受力开裂点拥有敏锐听觉直觉。",
+    "exposure": "曾在检修中为了省事少拧过半圈副法兰防松副螺母",
+    "hidden": "深知这座安全阀在受深冷收缩时偏心顶杆会向左侧微偏两度的装配暗伤缺陷",
+    "limits": [
+     "年老体衰患有严重的慢性风湿关节炎无法承受剧烈奔跑",
+     "在深冷浓雾中体液流失极快剧烈咳嗽喘息"
+    ],
+    "obligations": [
+     "将超低温管阀破冰抢修绝活经验传承给年轻一代工程师"
+    ],
+    "resources": [
+     "两张耐零下两百度特种合成特氟龙防滑绝冷隔板",
+     "一把特制重型纯钢平头防偏敲击冲子"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对深海超低温远洋热力学的崇高敬畏与共鸣",
+     "在死亡深渊面前毫无娇气的果断坚毅"
+    ],
+    "boundaries": [
+     "恪守老长辈规矩不越礼数",
+     "不介入年轻后辈的私人感情波澜"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在牛腿后敲击钢柱指点偏斜角度，将特氟龙垫片精准塞入女轮机长扳手受力死角下方。",
+    "dislikes": [
+     "轻视老工匠经验的傲慢做派",
+     "粗暴破坏昂贵特种螺栓的蛮干盲动"
+    ],
+    "expression": "用布满厚茧和冻疮的大手重重拍在女轮机长肩头，咧开嘴角露出释然欣慰的朴实笑容。",
+    "likes": [
+     "安全阀弹簧受压复位消漏时的清脆沉闷合模轰鸣",
+     "抢修完成后在甲板迎风痛饮一壶滚烫姜茶的舒畅"
+    ],
+    "preconditions": [
+     "彻底排除安全阀冰堵险情全船气压平稳受控",
+     "保全全部精密量具完整无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "十万吨LNG船特级液货老技师",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_cargo_tank_dome_cryogenic_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗尽绝版特制低温绝冷耗材，老工长左手手掌被锋利金属毛刺划破渗血。",
+      "option": "用老机工私藏的耐零下两百度特氟龙衬板塞入缝隙协助扳手稳固深咬自救。"
+     },
+     {
+      "cost": "猛烈震击导致特种合金表面产生微小应力斑痕轻微受损。",
+      "option": "指挥水手长用重型敲击扳手反向震击阀体凸耳震碎偏心咬死脱险。"
+     }
+    ],
+    "pressure": "若无防滑衬垫介入并纠正两度偏角，特种扳手将在强烈反冲下崩断彻底断送破冰可能。",
+    "trigger": "偏心顶杆在超低温冰桥咬合死角极其顽固，特种扳手面临打滑滑牙。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好姑娘，手上功夫够硬！这十万吨大船要是毁在老汉眼前，那才是丢尽了老海员的脸！",
+    "surface": "女轮机长！听{npc.name}的！偏心顶杆受冷往左侧微偏了两度！别死往前硬砸，往左偏两度顺着冰缝咬进去再死砸！"
+   }
+  },
+  {
+   "adult_context": "年满二十一岁，海事大学低温工程学院应届毕业生，初级大型液化气船维护员，具备完全民事行为能力。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身材单薄，身着带有黄色反光条的浅灰阻燃工作服，面容清秀神情极度惊惶，防爆护目镜歪斜卡在脖子上。",
+    "腰间工具袋胡乱塞着红外测温枪与备用小棘轮，双膝在三十度剧烈横摇中剧烈颤抖、脸色惨白如纸。"
+   ],
+   "decision": {
+    "avoids": [
+     "凶神恶煞的监察官咆哮",
+     "三十度横摇剧烈颠簸的十万吨巨轮"
+    ],
+    "contrast": "平日胆小怯弱常被老机工责备的年轻助理，在女轮机长生死存亡关头能爆发出一股冒死送达加长套管的血性胆量。",
+    "core_value": "保命第一，崇拜并绝对服从女轮机长的每一道抢险指令。",
+    "goal_options": [
+     "协助女轮机长寻找加长套管延长扳手力臂",
+     "在圆顶扶手稳固安全牵引带"
+    ],
+    "never": [
+     "背弃女轮机长独自放弃求生逃跑"
+    ],
+    "prefers": [
+     "清晰明确的指令指导",
+     "平稳清凉的陆上中央控制室"
+    ],
+    "pressure_responses": {
+     "breaking": "跪倒在剧烈晃动的圆顶地板上死死拉紧安全牵引带协助分担气浪冲击",
+     "high": "鼓起勇气冒着灼热气浪爬过钢格板递送加长套管",
+     "low": "在备件箱内慌乱翻找可以套在扳手末端的加长特种合金套管",
+     "mid": "大声向圆顶内通报红外测温读数与蒸发气浓度百分比"
+    },
+    "relationship_stance": "将女轮机长视为唯一的救命稻草与崇高统帅，愿为协助脱险拼死效命。",
+    "withdrawal": "缩在圆顶承重钢柱背风死角，紧紧抱住加长合金管浑身哆嗦颤抖。"
+   },
+   "gender": "male",
+   "gender_reason": "船舶低温绝热工程助理技师",
+   "id": "cadet_cryogenic_xiao_mo",
+   "identity": {
+    "authority": "圆顶应急微型防爆排风机与绝冷氮气吹扫注入口的手动启闭权。",
+    "exposure": "因操作生疏曾导致辅助冷氮管路快速接头发生轻微松脱渗漏",
+    "hidden": "暗自崇拜英姿飒爽的首席女轮机长将其视为远洋船舶界最崇高的精神偶像",
+    "limits": [
+     "缺乏特大远洋爆炸海难实战经验心理防线脆弱",
+     "体质单薄力气严重不足难以单独抗衡狂暴巨浪颠簸"
+    ],
+    "obligations": [
+     "按规程记录液货舱各测点差压并向轮机长报告气体浓度读数"
+    ],
+    "resources": [
+     "一根厚壁加长高强度特种合金空心加力套管",
+     "一卷高抗拉耐低温金属芳纶加固安全牵引带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "泰山崩于前而色不变的卓越帅才魅力",
+     "在爆炸深渊面前给予同伴的强大安全感"
+    ],
+    "boundaries": [
+     "恪守助手本分不作非分奢望",
+     "严守下级礼节规矩"
+    ],
+    "desire_range": [
+     1,
+     1
+    ],
+    "desired_position": "在圆顶安全扶手上方死死拽紧牵引带，大声为女轮机长下砸扳手报出破冰锁死刻度读数。",
+    "dislikes": [
+     "残酷暴力的威逼践踏",
+     "被当作废物累赘抛弃"
+    ],
+    "expression": "双手发颤地将加长套管递过，结结巴巴连连向女轮机长敬礼并保证坚守岗位。",
+    "likes": [
+     "被肯定业务能力时的温和颔首",
+     "分到的一枚甘甜提神高能葡萄糖块"
+    ],
+    "preconditions": [
+     "彻底排除安全阀冰堵险情差压稳稳受控归零",
+     "确保自身生命安全得到保障"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "大型LNG船助理技术员",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_cargo_tank_dome_cryogenic_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}手臂被飞溅电弧火花轻度烫伤起泡。",
+      "option": "{npc.name}用加长合金管绝缘胶垫端砸碎防爆箱电门切断强电自救。"
+     },
+     {
+      "cost": "双手手掌被电弧灼伤脱皮。",
+      "option": "用阻燃防寒外套浸透冷凝水死死捂住短路电缆扑灭电火花脱险。"
+     }
+    ],
+    "pressure": "若不及时手动切断主配电漏电断路器，飞溅电火花将在三秒内直接引爆高浓度天然气彻底毁灭巨轮。",
+    "trigger": "圆顶内部电缆受巨浪颠簸绝缘破损短路，迸发剧烈电火花。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要轮机长还在火海里拼命，我就不能当缩头乌龟，我必须帮着把这个杀人的安全阀彻底砸开！",
+    "surface": "女轮机长！加长套管找到了！这根合金管能套在特种扳手柄端再延展半米力臂！还有这卷防坠牵引带！"
+   }
+  },
+  {
+   "adult_context": "年满二十六岁，持有国家职业远洋航运急救专科执业证书的成年女医官，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    28
+   ],
+   "appearance_options": [
+    "身穿带有红十字标识的白色加厚防寒阻燃急救常服，面容清秀神情紧绷，戴着医用无菌耐寒手套，双手握着便携式高压注氧仪。",
+    "神情沉着专注，额前秀发利落束起，脖颈上挂着高敏数字心率血氧监测探头与防毒呼吸罩。"
+   ],
+   "decision": {
+    "avoids": [
+     "情绪失控的盲目挣扎",
+     "隐瞒中毒伤情的蛮干硬撑"
+    ],
+    "contrast": "外表文静纤弱的女医官，在面对十万吨巨轮生死大灾难急救时下针稳准狠辣如冰山判官。",
+    "core_value": "生命体征就是最高法典，绝不放弃任何一个尚有微弱脉搏的远洋同袍。",
+    "goal_options": [
+     "指导圆顶内二人通过深腹式呼吸对抗急性超低温冻僵失温",
+     "在破冰泄压瞬间实施重度冻伤复温降温抢救"
+    ],
+    "never": [
+     "在海员尚有微弱心跳时签署放弃急救证明"
+    ],
+    "prefers": [
+     "规律平稳的心率波形",
+     "遵从医嘱的冷静配合"
+    ],
+    "pressure_responses": {
+     "breaking": "顶着被狂暴浪花喷溅的危险探头向门缝递送应急高压防毒面罩",
+     "high": "将体温快速复苏水热毯推至圆顶门前准备承接重度极寒伤员",
+     "low": "在防爆通信频道内持续播报防深冷冻僵换气口诀",
+     "mid": "隔着观察窗指点水手长如何按压穴位缓解女轮机长双手肌肉痉挛"
+    },
+    "relationship_stance": "将女轮机长视为情同手足的亲密知己与崇敬的工程榜样，对突击队员安危极度挂念。",
+    "withdrawal": "退守至复温急救治疗台前，迅速核对急救舱氧分压配比电磁阀。"
+   },
+   "gender": "female",
+   "gender_reason": "远洋运输船特种海难创伤急救站女主治医官",
+   "id": "marine_medic_officer_qi",
+   "identity": {
+    "authority": "对超低温极寒冻伤急救方案、急性天然气窒息神经保护针剂及船载高压氧舱启闭享有最高医疗处置权。",
+    "exposure": "曾私自调用高压氧舱为患有轻度低温气栓的老海员实施超规保守治疗",
+    "hidden": "随身急救包内封存着自己亲手调配的高浓度外用透皮抗冻伤神经舒缓喷剂",
+    "limits": [
+     "在剧烈颠簸倾斜圆顶盲区无法实施复杂的静脉穿刺手术",
+     "体能单薄无法搬运数十公斤的重型紧固机械"
+    ],
+    "obligations": [
+     "保障全体轮机抢险突击队员零重度冻伤截肢、零急性中毒脑损伤存活"
+    ],
+    "resources": [
+     "两支浓缩神经保护抗休克急救针剂",
+     "一台便携式微型经皮血氧心电监测仪"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在极端极寒狂浪下依然坚守的超人意志",
+     "生死关头舍命护持同伴的人性光辉"
+    ],
+    "boundaries": [
+     "严守医患职业伦理道德",
+     "不以医疗资源调配进行私利交换"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在观察窗前隔着玻璃双手按在女轮机长对应的掌印位置，大声引导其进行深腹式吸气屏息。",
+    "dislikes": [
+     "漠视人命的官僚冷血",
+     "因恐惧导致的踩踏推脱"
+    ],
+    "expression": "用温热的手掌轻柔按揉对方冻僵发紫的眉心，柔声安抚其紧绷剧烈震颤的神经脉搏。",
+    "likes": [
+     "平稳有力的远洋海员窦性心律",
+     "脱险后第一口温热电解质葡萄糖水的吞咽声"
+    ],
+    "preconditions": [
+     "安全阀完全破冰复位且伤员核心体温恢复正常",
+     "全员脱离急性天然气中毒危险期"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "远洋运输船随队主治医官",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_cargo_compressor_room_catwalk",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "分担部分抢险精力导致下砸扳手节拍轻微延缓。",
+      "option": "通过对讲广播引导圆顶内二人同频深呼吸并相互按压内关穴解痉自救。"
+     },
+     {
+      "cost": "投料口微启导致少量超低温冷气喷溅损坏医用监测仪外壳。",
+      "option": "从投料窗口塞入高效神经解痉含片协助其维持清醒意志脱险。"
+     }
+    ],
+    "pressure": "若不及时进行减压换气引导，极度低温冻僵将诱发不可逆心室纤颤骤停。",
+    "trigger": "圆顶内人员血氧饱和度跌破百分之七十五警戒红线。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要两人把安全阀砸开泄压，哪怕全身冻僵了，我也一定把两人从阎罗殿里拉回来。",
+    "surface": "女轮机长！看着我的手势！深吸一口气、屏息三秒、慢吐气！千万不要大口抽气，压住胸腔极寒冷痉挛！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "远洋航程第十二天，冬季",
+  "minute": 1395
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "进入绝冷检修盲区前习惯用手背重敲铜质导静电柱三次确认排尽人体静电。",
+  "远洋液化气船轮机员习惯在耐寒阻燃服右手腕扣紧三圈反光黄色绝缘带圈。",
+  "女轮机长习惯将高精度超低温红外热成像仪插在贴身抗震插袋随时测温。",
+  "在震耳欲聋的风暴狂啸与蒸发气尖鸣中沟通习惯单手按住对方耳廓大声呼叫。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用精密标准双波登管测量绝冷屏壁微米级差压",
+    "擦拭双色石英高温视镜表面积聚的冰晶白霜",
+    "轻扣副放空截止阀螺纹压盖螺栓确认无异常冷凝水"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tank_dome_pressure_log",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "晨光未显液货舱圆顶差压巡检"
+  },
+  {
+   "beats": [
+    "用铜刮刀清理顶杆槽口表面附着的致密坚硬冰渣",
+    "均匀涂抹耐深冷特种合成聚全氟乙丙烯极压润滑硅脂",
+    "使用全钢棘轮扳手按对称法紧固六颗大号不锈钢螺栓"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_relief_valve_greasing",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "安全阀顶杆偏心受力槽超低温特种硅脂保养"
+  },
+  {
+   "beats": [
+    "转动主气动防火水密门重锤锁紧机械棘爪确认自由行程",
+    "检查配重悬挂不锈钢钢丝绳端部马鞍卡扣夹紧力矩",
+    "在特大液化气船战备施工日志加盖当值监察官电子图章"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_compressor_catwalk_hatch_test",
+   "location_ids": [
+    "loc_cargo_compressor_room_catwalk"
+   ],
+   "start_minute": 1398,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "压缩机房通廊气动安全密闭门测试"
+  },
+  {
+   "beats": [
+    "用防爆卡尺测量减震阻尼器弹簧自由行程与压缩量",
+    "清理滑轨锁死卡齿表面堆积的微细金属冰晶霜花",
+    "在远洋抢险战备行车日志加盖当值专员电子印章"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_vent_mast_damper_tally",
+   "location_ids": [
+    "loc_upper_deck_vent_mast_platform"
+   ],
+   "start_minute": 1405,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "放空桅阻火器高压阻尼减震器点验"
+  },
+  {
+   "beats": [
+    "测量高压氮气瓶组汇流排输出减压阀动态风压",
+    "检查机库外露救生索端部钛合金自动锁扣夹紧力",
+    "交接挂在备品柜内的特种实心加长耐脆断扳手"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dome_nitrogen_supply_tally",
+   "location_ids": [
+    "loc_upper_deck_vent_mast_platform"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "圆顶死角战备自救高压供氧点验"
+  },
+  {
+   "beats": [
+    "测量主屏壁左右两侧殷瓦钢受压微米级凹陷差",
+    "清理导向槽表面卡塞的细碎重晶石结冰硬块",
+    "紧固传感器安装支架四颗高强度防锈不锈钢螺栓"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_tank_barrier_laser_mapping",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "title": "薄膜内胆受压膨胀应力激光测绘"
+  },
+  {
+   "beats": [
+    "安全阀破冰泄压、舱压回落之后，女轮机长被人扶回自己的舱室，防寒服外面冻了一层白霜，睫毛上挂着细小的冰晶，整条船还在随浪横摇。",
+    "女轮机长靠着控制台站稳，抬起胳膊让人一节节拉开冻硬的拉链，把防寒服剥下来，又把冻得发白的手指揣进对方怀里焐，焐到指尖有了知觉，女轮机长才把脸埋进对方肩窝。",
+    "船又一次横摇，两人一起撞在舱壁上，女轮机长没有松手，贴着耳边低声说：值班表上今晚是大副……舱室的门，从里面锁上。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cargo_control_suit_unzip",
+   "location_ids": [
+    "loc_chief_engineer_cabin"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "货控室里替女轮机长解开冻硬的防寒服"
+  },
+  {
+   "beats": [
+    "女轮机长穿着宽大的船员T恤盘腿坐在床上，拿红笔在床头那张世界地图上画这一趟的航线。",
+    "女轮机长把笔塞过来：你也画一条，画你想去的地方。……画好了，就当我们约好了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_map_pins",
+   "location_ids": [
+    "loc_chief_engineer_cabin"
+   ],
+   "start_minute": 1220,
+   "tags": [
+    "intimate"
+   ],
+   "title": "在地图上标航线"
+  },
+  {
+   "beats": [
+    "周六的卡拉OK散了场，女轮机长哼着刚才那首歌回到舱室，脸上带着一点啤酒的红，把人拉进门。",
+    "女轮机长背靠着门笑：刚才那首情歌，是唱给你的，全船都听出来了。……现在没人听了，你要不要回答我？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_saturday_karaoke",
+   "location_ids": [
+    "loc_chief_engineer_cabin"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "卡拉OK散场后"
+  },
+  {
+   "beats": [
+    "船过好望角，天边泛起金红色，女轮机长裹着被子跪在床上，把脸贴在小圆窗上看日出。",
+    "女轮机长回头伸出手：快来，过了这个角就是印度洋。……这种日出，我想每次都跟你看。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cabin_cape_sunrise",
+   "location_ids": [
+    "loc_chief_engineer_cabin"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "好望角的日出"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "十万吨级薄膜型超低温LNG船深远海远洋航行期",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_boil_off_gas_screams_roaring",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "{chief_engineer_ye_qingge.name}单手按住剧烈颤动的钛合金立柱，抹开额前冰晶：深冷蒸发气把安全阀冻死了！内胆要撕裂了，把这八十公分的耐脆断扳手扣入卡槽，跟我死砸！"
+  },
+  {
+   "id": "hook_chief_taps_differential_gauge",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "{chief_engineer_ye_qingge.name}置身于三十度横摇剧烈倾斜的狭缝中，耐脆断扳手卡槽咔哒一声咬死顶杆卡槽：看准左偏微倾角，顺着冰桥开裂线，听我口令一起往死里砸！"
+  },
+  {
+   "id": "hook_frost_chills_lungs",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "{chief_engineer_ye_qingge.name}在零下深冷与刺骨白霜里咬紧银牙，面颊在火光映照下泛出娇艳酡红与晶莹热汗：别怕冷！抓紧扳手手柄，把全身重量砸下来！"
+  },
+  {
+   "id": "hook_lever_groans_bending_limit",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "{chief_engineer_ye_qingge.name}整个人扑在特种扳手柄端，双手虎口鲜血淋漓：偏心顶杆在进槽了！水手长，把你那两百斤蛮力全压上来，顺时针压到底锁死！"
+  },
+  {
+   "id": "hook_engineer_grips_wrench_firmly",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "engineer_shen_tiesheng",
+   "text": "{engineer_shen_tiesheng.name}跨步踏入风暴正中，粗壮的大手一把覆在女轮机长手背外侧：女轮机长，稳住套筒！剩下的千斤下沉重量交给我，谁也别想松手！"
+  },
+  {
+   "id": "hook_valve_stem_groans_shear",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "{chief_engineer_ye_qingge.name}猛然抬头凝视门外缓缓闪烁的红光，眼神清冷如霜：监察官要弃船脱钩了！还有最后五毫米，哪怕把手柄砸断也得给我压死！"
+  },
+  {
+   "id": "hook_vent_pipe_groans_shaking",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "engineer_shen_tiesheng",
+   "text": "{engineer_shen_tiesheng.name}反手抽出大敲击梅花扳手别在立柱角钢之间，低沉怒吼：深海风暴再狂暴又怎样！就靠这一米长的合金大柄了，跟我一起下压，锁死这道安全阀！"
+  },
+  {
+   "id": "hook_inspector_threatens_abandon_ship",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_compressor_room_catwalk"
+   ],
+   "slot": "inspector_ling_xiao",
+   "text": "{inspector_ling_xiao.name}惨白着脸握紧脱钩电门芯片，尖叫连连：巨轮要炸了！卫队，立刻按下遥控电掣脱钩弃船，绝不能让整座船队陪葬！"
+  },
+  {
+   "id": "hook_han_stuffs_teflon_gasket",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "senior_lng_cargo_rigger_han",
+   "text": "{senior_lng_cargo_rigger_han.name}将特氟龙耐低温防滑衬垫狠狠拍入槽口缝隙：往槽里塞！左偏两度的死角找到了，垫上我的特氟龙板，顺着力道往下砸！"
+  },
+  {
+   "id": "hook_cadet_fetches_extension_pipe",
+   "kind": "request",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "{chief_engineer_ye_qingge.name}抹去脸上的热汗与冰霜，急促喘息着看向助理技术员：去备件箱把特种合金加长套管取来接上，我们需要更长的一米半力臂！"
+  },
+  {
+   "id": "hook_mo_brings_alloy_pipe",
+   "kind": "request",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "cadet_cryogenic_xiao_mo",
+   "text": "{cadet_cryogenic_xiao_mo.name}双手抱着一根厚壁加长套管滚入圆顶死角，眼眶通红：女轮机长！合金管拿来了！还有一卷耐低温牵引带！"
+  },
+  {
+   "id": "hook_shen_joins_pipe_extension",
+   "kind": "request",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "engineer_shen_tiesheng",
+   "text": "{engineer_shen_tiesheng.name}接过套管狠狠套在特种扳手柄端，按住女轮机长的玉手咆哮：套管接上了！力臂延长了！女轮机长，我们数三二一，一起把全身重量砸下去！"
+  },
+  {
+   "id": "hook_medic_guides_anti_cold_breathing",
+   "kind": "request",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "{chief_engineer_ye_qingge.name}隔着观察窗向医官打出确认手势，口中含服清凉解痉药片：破冰下压在建立了，我们做最后一轮压死下砸！"
+  },
+  {
+   "id": "hook_observe_dome_cryogenic_screams",
+   "kind": "observe",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "{chief_engineer_ye_qingge.name}挺立在三十度横摇狂风巨浪与绝冷冰雾中，工装背心下面庞在防爆探照灯映照下清冷坚毅，眼神如出鞘冰刃般坚不可摧。"
+  },
+  {
+   "id": "hook_observe_wrench_locks_relief_valve",
+   "kind": "observe",
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "超低温特种耐脆断加长双向敲击卸载手动扳手深深咬死安全阀偏心卡槽，伴随着一声沉闷坚实的金属合模与冰层碎裂轰鸣，抱死的安全阀轰然破冰压下复位，液货舱蒸发气瞬间导入放空管线平息归零，全员安然脱险生还。"
+  },
+  {
+   "id": "hook_qingge_satphone_minutes",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "{npc.name}把卫星电话的话筒递过来，屏幕上还剩七分钟：我打完了，剩下的给你。家里人……总得报个平安。"
+  },
+  {
+   "id": "hook_tiesheng_lifeline_knot",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "engineer_shen_tiesheng",
+   "text": "{npc.name}一手抓着扶手顶住横摇，一手把一根安全绳缠上人的手腕：船过好望角，风浪不讲理。上甲板之前，跟我把这个结学会。"
+  },
+  {
+   "id": "hook_han_last_voyage",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "senior_lng_cargo_rigger_han",
+   "text": "{npc.name}从工作服口袋里摸出一张发黄的照片，是一艘早就拆掉的老船：最后一个航次了。坐，陪老家伙喝口茶，讲讲这船的脾气。"
+  },
+  {
+   "id": "hook_xiaomo_seasick_day3",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cadet_cryogenic_xiao_mo",
+   "text": "{npc.name}抱着垃圾桶缩在走廊角落，脸色蜡黄，还硬挤出个笑：第三天了……听说晕到第七天就好了，是真的吗？"
+  },
+  {
+   "id": "hook_ling_pilot_ladder",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "inspector_ling_xiao",
+   "text": "{npc.name}拎着公文箱从引航梯上爬上来，脸色铁青，第一句话就是：甲板上谁在抽烟？我闻到了。"
+  },
+  {
+   "id": "hook_qingge_karaoke_mic",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "{npc.name}周六晚上被船员起哄推到卡拉OK的话筒前，唱了两句就红着脸把话筒塞过来：你来，你唱什么都比我强。"
+  },
+  {
+   "id": "hook_qingge_cabin_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_chief_engineer_cabin"
+   ],
+   "slot": "chief_engineer_ye_qingge",
+   "text": "{npc.name}靠在舱室门口，手里转着一支红笔：海图上还缺一条航线。……进来帮我画？"
+  }
+ ],
+ "id": "cryogenic_lng_tank_relief_crisis",
+ "locations": [
+  {
+   "affordances": [
+    "抓牢圆顶厚壁钛合金防坠安全扶手",
+    "将特种敲击扳手套入偏心顶杆卡槽",
+    "查看控制箱红色超低温差压机械水银表读数"
+   ],
+   "detail": "高约两米、宽不足一点五米的狭窄圆形绝冷空间，头顶是厚达半米的绝热圆顶密封罩，下方是翻滚着数万吨零下一百六十二度液化天然气的薄膜主屏壁，重达数百公斤的超压安全阀被厚达五公分的白霜冰壳死死抱死，尖锐高频的蒸发气刺漏声刺破耳膜，整座舱体随着十级风浪剧烈倾斜颠簸，温度低至零下数十度让人呼吸停滞。",
+   "exits": [
+    "loc_cargo_compressor_room_catwalk",
+    "loc_upper_deck_vent_mast_platform"
+   ],
+   "id": "loc_cargo_tank_dome_cryogenic_nook",
+   "name": "圆顶检修盲区",
+   "pressure_modifiers": {
+    "p_boil_off_gas_overpressure_surge": "超低温天然气蒸发气以每秒数十立方米极速膨胀，舱内压力逼近薄膜内胆破裂极限仅剩四分钟窗口。",
+    "p_relief_valve_cryogenic_ice_jam": "安全阀顶杆在深海盐雾凝华与超低温反向对冲下抱死，必须依靠特种扳手合力敲击破冰压下自救。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_veteran_rigger_lao_han"
+   ]
+  },
+  {
+   "affordances": [
+    "按下应急高压氮气置换电掣",
+    "拉动备用柴油机排险放空旁通阀",
+    "拿起挂在防爆柜内的备用正压呼吸器面罩"
+   ],
+   "detail": "位于主甲板下方的双层绝热防爆通廊，窗外巨浪拍打舷窗轰鸣震耳，两台大型低温压缩机正在满负荷运转，红色防爆戒严警报灯将四周映照成血色。",
+   "exits": [
+    "loc_cargo_tank_dome_cryogenic_nook",
+    "loc_upper_deck_vent_mast_platform",
+    "loc_chief_engineer_cabin"
+   ],
+   "id": "loc_cargo_compressor_room_catwalk",
+   "name": "压缩机房通廊",
+   "pressure_modifiers": {
+    "p_cold_hypothermia_dome_shock": "刺骨深冷伴随巨浪拍打加剧了通廊的冻僵风险，体温过快流失增加了失温休克的危险。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_fleet_inspector_deputy_ling",
+    "bg_cargo_engineer_wen"
+   ]
+  },
+  {
+   "affordances": [
+    "扳动放空桅底部应急自流凝析油排污阀",
+    "检查消火栓高压喷淋摆角螺栓",
+    "扣紧混凝土防爆墙侧壁高强度防坠安全挂钩"
+   ],
+   "detail": "位于上甲板前部的三十米高放空桅底座平台，狂风夹杂着冰冷雨雪呼啸吹拂，粗大的放空管道正发出沉闷的金属风鸣，脚下是剧烈倾斜达二十五度的湿滑甲板。",
+   "exits": [
+    "loc_cargo_tank_dome_cryogenic_nook",
+    "loc_cargo_compressor_room_catwalk"
+   ],
+   "id": "loc_upper_deck_vent_mast_platform",
+   "name": "放空桅平台",
+   "pressure_modifiers": {
+    "p_vent_mast_vibration_fatigue": "狂风与高压放空气流造成放空桅剧烈横向晃动，拉索张力逼近极限濒临失稳。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_cadet_cryogenic_xiao_mo"
+   ]
+  },
+  {
+   "affordances": [
+    "陪女轮机长在地图上标航线",
+    "替女轮机长焐热冻僵的手",
+    "把舱室的门从里面锁上"
+   ],
+   "detail": "生活区四层的一间船员舱室，一张固定在舱壁上的单人床、一只钉死的小书桌、一扇小圆窗，床头贴着一张世界地图。",
+   "exits": [
+    "loc_cargo_compressor_room_catwalk"
+   ],
+   "id": "loc_chief_engineer_cabin",
+   "name": "女轮机长的船员舱室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "舱里只开床头一盏阅读灯，船随浪横摇，桌上的水杯在固定圈里轻轻晃。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "叶",
+   "沈",
+   "韩",
+   "凌",
+   "顾",
+   "温",
+   "莫",
+   "祁",
+   "盛",
+   "纪",
+   "陶",
+   "景"
+  ],
+  "given_female": [
+   "清歌",
+   "寒",
+   "雪",
+   "澜",
+   "微",
+   "清",
+   "雁",
+   "莹",
+   "宛",
+   "素",
+   "羽",
+   "瑶"
+  ],
+  "given_male": [
+   "铁生",
+   "远航",
+   "大洋",
+   "海峰",
+   "烈",
+   "峰",
+   "猛",
+   "岩",
+   "勇",
+   "雄",
+   "彪",
+   "天枢"
+  ],
+  "given_neutral": [
+   "风",
+   "云",
+   "石",
+   "川",
+   "舟",
+   "衡",
+   "野",
+   "朗",
+   "诚",
+   "坚",
+   "原",
+   "毅"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留十万吨LNG船十级风浪中液货舱安全阀结霜冰堵与女轮机长用耐脆断扳手砸下阀杆破冰泄压的骨架。同一批里有十个同源的工业事故世界，这里把开局放到远洋航行第四十七天的船上生活：船过好望角、一周二十分钟卫星电话、周六晚上船员餐厅的卡拉OK、晕船吐到第三天的新人、老技师退休前最后一个航次，用海、风暴和想家的船员情绪与火箭世界的读秒和发射场拉开；搭档写成管甲板缆绳的水手长，开局钩子、相遇缘由和背景人物围着远洋船员生活重写。写死的人名改为身份称呼，背景人物里与模板重名的改名；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；女轮机长亲密前提写明舱压回落、双方清醒自愿；新增一个货控室里替女轮机长解开冻硬防寒服的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    28,
+    42
+   ],
+   "baseline": "驻守万吨远洋液化气船轮机一线的硬汉，精通超低温薄膜液货舱绝冷与管阀力学。",
+   "gender": "any",
+   "id": "pi_lng_carrier_second_engineer",
+   "reputation": "手艺过硬作风刚毅，能在三十度剧烈横摇中盲摸安全阀偏心受力槽。",
+   "resources": [
+    "一柄重达十公斤的高强度特种超低温敲击扳手",
+    "两副双层特制耐零下两百度防冻伤芳纶手套"
+   ],
+   "risks": [
+    "直接暴露在极低温气液喷射死角易遭受重度极寒冻伤",
+    "甲板恶浪倾覆卷入深海溺亡"
+   ],
+   "role": "十万吨级LNG运输船当值第二轮机长",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "大管轮{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}大管"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    34,
+    48
+   ],
+   "baseline": "代表船东集团进驻船舶的高级官员，掌控紧急弃船救生与全船火炬放空通报权。",
+   "gender": "any",
+   "id": "pi_maritime_fleet_superintendent",
+   "reputation": "高高在上讲究避险程序，遭遇液货舱超压极易恐慌做出弃船乘艇的自保决断。",
+   "resources": [
+    "一台便携式多组分超低温气体检测仪",
+    "一套耐寒全封闭式高空救生缓降防坠器"
+   ],
+   "risks": [
+    "不懂安全阀超低温冰桥受力脆断公差容易错判自救窗口",
+    "极度恐慌诱发心脏早搏眩晕"
+   ],
+   "role": "国际远洋海运船东集团特派高级海事监督官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}监督官"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}总监"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "刚分配进超大型LNG船的大学毕业生，精通低温蒸发相变与绝冷流体力学方程。",
+   "gender": "any",
+   "id": "pi_cadet_cryogenic_marine_engineer",
+   "reputation": "理论扎实但缺乏远洋十级风暴搏杀经验，面对剧烈颠簸吓得面无人色。",
+   "resources": [
+    "一盒特种耐超低温快速固化金属修补剂",
+    "一本薄膜型液货舱应急泄压操作图谱"
+   ],
+   "risks": [
+    "被滚烫蒸汽气浪冲倒跌落圆顶造成骨折",
+    "超低温气流冲击导致面部组织冻伤"
+   ],
+   "role": "船舶低温绝热工程专业青年助理轮机技师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}助理"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    48,
+    54
+   ],
+   "baseline": "在远洋特种化学品与气体船拼搏三十年的老机工，单凭敲击声就能测出阀座结冰厚度。",
+   "gender": "any",
+   "id": "pi_veteran_lng_cargo_system_rigger",
+   "reputation": "沉默刚毅身经百战，视超低温液货舱为驯服极寒冰霜巨龙的人间闸门。",
+   "resources": [
+    "一把大号重型全钢防脱手动丝杠棘轮加力扳手",
+    "两张耐零下两百度特制合成特氟龙绝冷垫片"
+   ],
+   "risks": [
+    "长期远洋阴冷环境患有关节炎耐寒能力较弱",
+    "在剧烈晃动中风湿发作四肢发僵"
+   ],
+   "role": "超低温液货系统特级老机工长",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老将"
+    }
+   ]
+  }
+ ],
+ "premise": "远洋航行第四十七天，船过好望角，船员一周只分得到二十分钟卫星电话，周六晚上餐厅的卡拉OK是唯一的消遣。清冷的女轮机长和水手长、船东的海事监督官三班倒，白天巡舱，夜里在集控室里下棋。前面就是西风带，液货舱的蒸发气安全阀在冷天结过霜。",
+ "pressures": [
+  {
+   "choice": "等待上方启动遥控脱钩全员弃船逃生，还是由女轮机长带队在圆顶狭缝中暴力下砸扳手脱险。",
+   "exits": [
+    {
+     "cost": "特种合金扳手手柄发生微小弯曲变形，操作人员双臂肌肉严重拉伤疼痛。",
+     "option": "用超低温特种耐脆断加长双向敲击卸载手动扳手顺时针死死砸下压平阀杆脱险。"
+    },
+    {
+     "cost": "大扳手受强烈反冲脱手崩飞划破在场人员面颊与肩膀。",
+     "option": "用破拆大活动扳手反向砸碎副放空截止阀强行制造局部机械泄压自救。"
+    }
+   ],
+   "far": {
+    "consequence": "数万吨超低温液体在惊天爆轰中瞬间气化，整艘十万吨级巨轮粉身碎骨葬身大海，突击全员牺牲殉难。",
+    "due_days": 1,
+    "trigger": "薄膜内胆在极限高压下拉伸撕裂爆开"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_boil_off_gas_overpressure_surge",
+   "immediate": {
+    "minutes": 2,
+    "text": "震耳欲聋的高频刺漏尖鸣撕裂耳膜，滚烫白霜与冰冷死寂交织喷溅，差压读数以秒为单位恶化。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "圆顶内蒸发气浓度飙升逼近爆炸下限，零下深冷与三十度剧烈倾覆夺走人员全部体能。"
+   },
+   "objective": "在蒸发气压力冲破安全屏障前手动合力用耐脆断扳手砸碎冰桥压下安全阀自救。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "超低温天然气极速膨胀逼近爆裂极限",
+   "trigger": "十级巨浪颠簸引发蒸发气剧烈暴涨，安全阀结霜冰堵抱死卡阻，舱内绝冷气压飙升逼近薄膜内胆撕裂极限，距全船大爆炸仅剩四分钟。"
+  },
+  {
+   "choice": "强行蛮力硬砸博取前三十度位移，还是等待老技师递上特氟龙绝冷垫片稳步推进。",
+   "exits": [
+    {
+     "cost": "消耗尽绝版特制深冷绝热耗材，老工长左手手掌被锋利金属毛刺划伤渗血。",
+     "option": "老技师塞入耐零下两百度特氟龙防滑垫片纠正两度切角协助扳手深咬自救。"
+    },
+    {
+     "cost": "水手长肩部软组织受剧烈反震严重挫伤渗血。",
+     "option": "水手长用肩膀顶住特种扳手传动轴消除偏心扭矩为女轮机长争取旋转角度脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "崩断的合金顶杆如重炮贯穿圆顶，彻底丧失紧固手段导致内胆大面积爆开化为火海。",
+    "due_days": 1,
+    "trigger": "特种高压合金顶杆在极度偏载下脆断崩飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_relief_valve_cryogenic_ice_jam",
+   "immediate": {
+    "minutes": 3,
+    "text": "厚达八公分的阀杆传出一声让人牙酸的金属微应力脆响，表层耐低温镀层剥落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "顶杆因受极寒收缩产生微米级变形，扳手棘爪在卡槽边缘发生剧烈打滑火花四溅。"
+   },
+   "objective": "找准偏心顶杆卡槽左偏两度死角并套上加长管合力顺时针猛砸到底。",
+   "source": "accident",
+   "start_minute": 1398,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "安全阀顶杆在深冷反向对冲下抱死",
+   "trigger": "伴热电缆断电导致阀杆周围凝结五公分致密冰桥，受力偏斜，必须依靠特种耐脆断加长扳手合力对角猛砸消除咬合冰卡阻。"
+  },
+  {
+   "choice": "退入上层干燥通廊，还是咬牙憋住一口热气在冰雾中完成最后三圈下砸。",
+   "exits": [
+    {
+     "cost": "衣衫被冰霜浸透黏在肌肤上，双臂遭受重度极寒浅表冻伤。",
+     "option": "两人紧密相贴借彼此肩膀支撑重心双手死扣特种扳手以自重猛砸脱险。"
+    },
+    {
+     "cost": "手忙脚乱弄洒了小半瓶药水导致部分急救配额受损。",
+     "option": "从药盒取出高效神经解痉含片含服协助其维持清醒意志脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "人员在极度深冷中当场冻结休克昏迷，在大海难中不幸牺牲殉难。",
+    "due_days": 1,
+    "trigger": "核心体温跌破三十度导致心室纤颤骤停"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cold_hypothermia_dome_shock",
+   "immediate": {
+    "minutes": 2,
+    "text": "女轮机长面颊被深冷冻得通红如霞，晶莹热汗瞬间凝成微细冰晶。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "肌肉出现严重极寒痉挛与麻木乏力，双手抓握力骤降一半以上，呼吸道剧烈刺痛。"
+   },
+   "objective": "两人紧密贴合屈膝对抗极寒冷气并含服高能清凉药片维持清醒与手劲。",
+   "source": "nature",
+   "start_minute": 1400,
+   "tags": [
+    "disaster"
+   ],
+   "title": "零下一百六十二度极寒白霜诱发急性冻僵",
+   "trigger": "圆顶绝冷盲区温度骤降逼近零下数十度，人员阻燃背心被冰霜彻底浸透，极度深冷导致四肢剧烈麻木抽搐，核心体温跌破三十五度临界线。"
+  },
+  {
+   "choice": "向调度室请求强行开启全船放空桅，还是在圆顶内争分夺秒完成刚性锁卡。",
+   "exits": [
+    {
+     "cost": "绞盘反冲拉伤温工程师手腕，飞溅金属碎屑轻微划伤脸部。",
+     "option": "温工程师在平台用防爆气动绞盘快速固定受损放空管托消除晃动自救。"
+    },
+    {
+     "cost": "女轮机长双手虎口被特种合金扳手粗糙手柄磨破鲜血淋漓。",
+     "option": "女轮机长爆发全力砸下扳手压下阀杆切断超压天然气动载脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "数十吨高压易燃天然气瞬间倾泻引发全船大火灾，隔离平台全员殉难。",
+    "due_days": 1,
+    "trigger": "主放空管道波纹补偿器彻底撕裂爆开"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_vent_mast_vibration_fatigue",
+   "immediate": {
+    "minutes": 3,
+    "text": "粗壮的钢管在管架上发出沉闷震颤巨响，固定支座螺栓被拉断一颗。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_upper_deck_vent_mast_platform"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "放空桅钢梁受力严重扭曲呻吟，主放空管道波纹补偿器拉伸极限即将彻底撕裂。"
+   },
+   "objective": "在放空管线崩裂前完成安全阀破冰下压切断超压源头。",
+   "source": "accident",
+   "start_minute": 1402,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "放空管线受到数十吨异常高频动载震颤",
+   "trigger": "蒸发气无法正常泄压使高压放空总管背压暴涨，粗大管线在管架上发生剧烈水击式横向晃动，即将撕裂膨胀节横扫平台。"
+  },
+  {
+   "choice": "孤注一掷加大肉身压载强拧，还是稍微回退半寸套入助理技术员送来的加长套管。",
+   "exits": [
+    {
+     "cost": "套管在低温下咬死变形彻底无法从扳手柄端拔脱。",
+     "option": "助理技术员送达加长合金套管套在扳手末端分担应力合力下砸破冰自救脱险。"
+    },
+    {
+     "cost": "两臂肘关节承受数十公斤剧烈反震导致软组织挫伤渗血。",
+     "option": "女轮机长与水手长调整站位将发力点向扳手根部收缩以肉体爆发力强行压死轴齿自救。"
+    }
+   ],
+   "far": {
+    "consequence": "崩裂的合金碎片如子弹穿透操作手胸膛，丧失唯一破冰机具彻底断绝生路。",
+    "due_days": 1,
+    "trigger": "特种扳手头部棘爪彻底粉碎崩飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_lever_alloy_stem_shear_yield",
+   "immediate": {
+    "minutes": 2,
+    "text": "扳手头部传出一声让人心悸的合金棘爪咬死脆响，表层耐磨镀层脱落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cargo_tank_dome_cryogenic_nook"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "特种扳手手柄发生超过十度的明显塑性微弯，棘爪末端即将崩脱滑出卡槽。"
+   },
+   "objective": "套上加长合金空心套管延长力臂并将发力点移至轴心消除冲击偏载。",
+   "source": "accident",
+   "start_minute": 1404,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "特种合金扳手棘爪承受极限扭矩濒断",
+   "trigger": "受损偏心顶杆内部积聚的金属毛刺与坚硬冰桥使紧固扭矩暴增数倍，八十公分特种扳手头部棘爪承受了超负荷剪切，合金表面浮现微细疲劳白斑发出尖锐哀鸣。"
+  },
+  {
+   "choice": "由水手长在门外用大敲击扳手砸烂监察官遥控器，还是在圆顶内抢先完成扳手下砸化解危机。",
+   "exits": [
+    {
+     "cost": "水手长面临违抗海事安全管理条例文书的军法重惩。",
+     "option": "水手长夺下监察官遥控器砸碎脱钩线路强行拔掉熔断保险丝争取生机。"
+    },
+    {
+     "cost": "近身对抗导致女轮机长右手腕被尖锐外壳划伤渗血。",
+     "option": "女轮机长以轮机长身份喝退随身监察随员并亲手扯断脱钩继电器脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "救生艇在十级狂风巨浪中颠覆砸碎，全船海员丧失逃生手段，巨轮在大爆炸中沉入深渊。",
+    "due_days": 1,
+    "trigger": "全船救生艇脱钩系统彻底启动强行脱钩"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "inspector_abandon_ship_countdown",
+   "immediate": {
+    "minutes": 2,
+    "text": "通廊顶角响起尖锐的红色弃船紧急声光警报，脱钩电磁阀发出短促倒数蜂鸣。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cargo_compressor_room_catwalk"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "弃船倒计时仅剩最后三十秒，救生艇释放挂钩水下火工切断电磁阀哧哧动作冒出白烟。"
+   },
+   "objective": "在倒计时归零前完成安全阀破冰压下并勒令监察官停掣。",
+   "source": "institution",
+   "start_minute": 1406,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "海事监察官按下弃船救生艇脱钩倒计时",
+   "trigger": "特派海事监察官认定液货舱已无法挽回，在通廊按开遥控脱钩电掣，启动了三分钟彻底引爆救生艇脱钩装置全员弃船的倒计时。"
+  },
+  {
+   "choice": "签下认错，还是把公司压掉的那一次换件申请拿出来",
+   "exits": [
+    {
+     "cost": "滞期费从轮机长和水手长两年的奖金里扣",
+     "option": "签字认错"
+    },
+    {
+     "cost": "公司以后不会再雇这条船上任何一个签过名的人",
+     "option": "拿出被压掉的换件申请"
+    }
+   ],
+   "far": {
+    "consequence": "女轮机长下船后不再续约，这是女轮机长第一次当上轮机长的船",
+    "due_days": 14,
+    "trigger": "船东定责"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_qingge_satphone_minutes",
+    "hook_tiesheng_lifeline_knot",
+    "hook_han_last_voyage",
+    "hook_xiaomo_seasick_day3",
+    "hook_qingge_karaoke_mic",
+    "hook_ling_pilot_ladder",
+    "hook_qingge_cabin_door"
+   ],
+   "id": "p_owner_demurrage",
+   "immediate": {
+    "minutes": 5,
+    "text": "船长的电话打进舱室，问字签了没有"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_chief_engineer_cabin"
+   ],
+   "near": {
+    "deadline_minutes": 240,
+    "text": "中午十二点，船长要回电"
+   },
+   "objective": "在船长回电给船东之前，决定这个字签不签",
+   "source": "money",
+   "start_minute": 480,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "滞期费",
+   "trigger": "冰堵过后第二天早上，船东发来卫星传真：这一趟晚到港三天要赔租家滞期费，公司要轮机长签字承认安全阀保养不到位"
+  }
+ ],
+ "region": "液货舱圆顶下方零下一百六十二度绝冷盲区",
+ "rules": [
+  {
+   "id": "r_lng_tank_relief_valve_limit",
+   "text": "液货舱安全阀在结霜冰堵时必须在四分钟内手动敲开泄压。"
+  },
+  {
+   "id": "r_boil_off_gas_explosion_code",
+   "text": "圆顶盲区天然气浓度超标时严禁使用未经防爆认证的工具。"
+  },
+  {
+   "id": "r_cryogenic_relief_stem_rule",
+   "text": "下压应急复位偏心顶杆时必须保证双向棘爪完全咬入受力槽。"
+  },
+  {
+   "id": "r_shipboard_safety_harness_rule",
+   "text": "在剧烈摇摆的圆顶通道作业时必须全程系挂双钩防坠器。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "看表测温",
+  "committed": "安然靠港",
+  "familiar": "狂浪共攀",
+  "flirting": "霜雪近息",
+  "intimate": "破冰泄压",
+  "stranger": "进舱核压",
+  "testing": "同握大柄"
+ },
+ "status": "released",
+ "style_hint": "冷硬森严的超低温远洋船舶硬核工笔，刻画液货舱圆顶盲区内绝冷氮气与刺骨白霜翻卷的绝望窒息、特种耐脆断扳手在偏心卡槽内破冰猛砸的沉重金属撞击、潜水服下被冰霜与热汗浸透的起伏躯体，台词充斥着严苛的热力学相变计算与生死决断。",
+ "tension_engines": [
+  {
+   "id": "te_lng_tank_overpressure_vs_hammer",
+   "text": "薄膜内胆撕裂大爆炸倒计时与利用耐脆断扳手合力敲击破冰压下安全阀的机械自救。"
+  },
+  {
+   "id": "te_inspector_abandon_ship_vs_rescue",
+   "text": "特派海事监察官企图强行弃船脱钩逃跑与一线轮机突击队誓死保全巨轮全员生还的生死对决。"
+  },
+  {
+   "id": "te_tsundere_director_pride_vs_mechanic",
+   "text": "清冷傲岸特级女轮机长的绝对动力威严与重装大管轮托付性命的肉体爆发力反差共鸣。"
+  },
+  {
+   "id": "te_freezing_frost_soak_vs_tight_press",
+   "text": "零下深冷白霜窒息虚脱与两人在颠簸狭缝中紧贴发力合砸特种扳手的炽烈生命羁绊。"
+  }
+ ],
+ "title": "大型LNG运输船·超低温液货舱安全阀冰堵",
+ "tone": [
+  "零下一百六十二度冰晶凝华",
+  "超压天然气高频狂暴尖啸",
+  "深海十级狂浪剧烈倾覆摇摆",
+  "铺位随横摇吱呀作响"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_valve_eccentric_groove_located",
+   "requires": [
+    "chief_engineer_ye_qingge"
+   ],
+   "text": "{chief_engineer_ye_qingge.name}在受损安全阀侧壁摸出了当年设备制造厂预留的手动防扭矩反向反力矩安全卡止暗槽。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_mechanic_disarms_corrupt_inspector",
+   "requires": [
+    "engineer_shen_tiesheng"
+   ],
+   "text": "{engineer_shen_tiesheng.name}反手夺下特派海事监察官的脱钩遥控钥匙，全面接管巨轮抢险最高战时处置权。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_anti_cold_spray_distributed",
+   "requires": [
+    "chief_engineer_ye_qingge"
+   ],
+   "text": "{chief_engineer_ye_qingge.name}掰开贴身药盒，将四支高效神经舒缓抗寒喷雾分发给现场力竭同伴对抗急性深冷虚脱抽搐。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_teflon_gasket_stops_gas_leak",
+   "requires": [
+    "senior_lng_cargo_rigger_han"
+   ],
+   "text": "{senior_lng_cargo_rigger_han.name}用冲子撬开备用自流平衡通气孔，依法平衡液货舱内外绝冷温差应力化解了阀杆单向极度受拉。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_emergency_bypass_drops_dome_pressure",
+   "requires": [
+    "chief_engineer_ye_qingge"
+   ],
+   "text": "{chief_engineer_ye_qingge.name}利用扳手柄端挑开了备用低温惰性排气管道，强行为受损密封面压制住最后三十秒超压破裂窗口。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_engineer_shields_chief_cold_blast",
+   "requires": [
+    "chief_engineer_ye_qingge",
+    "engineer_shen_tiesheng"
+   ],
+   "text": "{engineer_shen_tiesheng.name}在超低温冰雾大面积喷涌瞬间挺身扑在{chief_engineer_ye_qingge.name}上方，用加厚绝热工装与宽厚背脊死死挡下极寒冷风。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_relief_valve_locks_ship_saved",
+   "requires": [
+    "chief_engineer_ye_qingge"
+   ],
+   "text": "顺时针死死压平的安全阀在耐脆断扳手与特氟龙衬板的强力咬合下彻底震碎冰桥压下复位，超压天然气蒸发气完全平息排入通海管线，十万吨级薄膜型LNG船安然脱险平息生还。"
+  }
+ ]
+}

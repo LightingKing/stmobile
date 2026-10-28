@@ -1,0 +1,2328 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "神殿德高望重的老主教，在露天平台焦急组织护卫队开路。",
+   "age_range": [
+    65,
+    75
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_sanctuary_archbishop_albert",
+   "line": "圣女殿下还在倾倒的祭坛巨石后头！快拿加力撬棍上去救人！快啊！",
+   "location_ids": [
+    "loc_alpine_summit_open_platform"
+   ],
+   "name": "阿尔伯特老主教",
+   "role": "神殿七旬当值老主教"
+  },
+  {
+   "adult_context": "神殿值班青年侍从，在暴风雪中手足无措。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_altar_clerk_xiao_erik",
+   "line": "主教大人！南侧花岗岩主平衡石板整块砸塌了，下层通道全被封死了！",
+   "location_ids": [
+    "loc_alpine_summit_open_platform"
+   ],
+   "name": "祭坛侍从埃里克",
+   "role": "神殿二十一岁的侍从"
+  },
+  {
+   "adult_context": "教条执法的防灾搜救队长，暂时阻拦了外部人员强行冲台的行动。",
+   "age_range": [
+    40,
+    50
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_alpine_rescue_captain_kurt",
+   "line": "暴雪达十二级且冰川裂缝已产生位移，主石梁随时失稳，严禁盲目冲上祭坛！",
+   "location_ids": [
+    "loc_alpine_summit_open_platform"
+   ],
+   "name": "库尔特队长",
+   "role": "雪山专业高山抢险搜救队长"
+  },
+  {
+   "adult_context": "在安全出口处负责通报天气与雪崩险情的修女。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_troupe_junior_clerk_xiao_anna",
+   "line": "石匠向导！殿下！平台石柱又倒伏了一根，风雪快把暗格冻死了，抓紧时间脱困啊！",
+   "location_ids": [
+    "loc_circular_megalith_altar"
+   ],
+   "name": "修女安娜",
+   "role": "神殿二十一岁的修女"
+  },
+  {
+   "adult_context": "在祭坛外侧递送坚固动力绳与防滑木楔的热心后勤老员工。",
+   "age_range": [
+    50,
+    60
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_watchman_lao_hans",
+   "line": "小石匠！用你们修石头的加厚垫块把底沿别住！千万别让大石板砸到底！",
+   "location_ids": [
+    "loc_circular_megalith_altar"
+   ],
+   "name": "向导老汉斯",
+   "role": "圣山老守山人"
+  },
+  {
+   "adult_context": "检查地基石槽并向现场报告冻融断裂危险的老石工。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_stone_mason_master_otto",
+   "line": "暴雪把平衡青铜枢轴冻裂了，整座祭坛在轻微发晃，石板要滑丝了！",
+   "location_ids": [
+    "loc_alpine_summit_open_platform"
+   ],
+   "name": "石匠奥托师傅",
+   "role": "神殿石作修造老石匠"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "雪线神殿的圣女与上山修殿的石匠在祭坛死角里背靠石壁、手叠着手，把纯银短匕的十字护手一下下压进青铜滑槽。",
+   "id": "cc_saintess_and_mason_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "saintess_eleonora",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死死线前紧密协作构建力矩反支点，彼此产生绝对性命相托。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_mason_karl",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同为高山石构修缮骨干，知晓彼此手上力道与工具用法。",
+     "stage": "familiar"
+    },
+    {
+     "a": "saintess_eleonora",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_mason_karl",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "清冷圣女与厚重工匠在灾厄中成为生死不离的脱困搭档。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "saintess_eleonora",
+    "apprentice_mason_karl"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在冻死休克来临前合力撬动青铜平衡销回退顶开死锁脱险。",
+    "limit_gap": "圣女圣袍浸湿且体温燥热，工匠受困于死角狭缝后背承受巨大悬垂重压。",
+    "meeting_reason": "暴雪压山的前夜，圣女在祭坛前做晚祷，石匠爬上石台给平衡石板补最后一颗青铜销。",
+    "resource_gap": "圣女拥有高刚性淬火纯银仪式短匕十字护手，向导掌握重力天平偏心滑槽机械卡死直觉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_blizzard_hypothermia_rush",
+    "te_close_contact_body_heat"
+   ]
+  },
+  {
+   "chemistry": "大祭司领班与巡查技术员以精准机械原理拆解偏心滑槽咬合，严丝合缝操作工具突破阻滞。",
+   "id": "cc_priestess_and_inspector_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "saintess_eleonora",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "多年协作维护神殿遗迹，对彼此技术定力深具默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_mason_karl",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "文保工程部门同事，熟悉雪峰各处石梁结构。",
+     "stage": "familiar"
+    },
+    {
+     "a": "saintess_eleonora",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_mason_karl",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在沉重巨石压迫下并肩伏卧发力，消除身份悬殊界限。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "saintess_eleonora",
+    "apprentice_mason_karl"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "利用短匕十字护手精准卡死导槽缺口并顺势撬动平衡销自救。",
+    "limit_gap": "台前通道彻底砸死无法借助外援，必须在昏暗白盲中凭手感盲操机械脱扣。",
+    "meeting_reason": "朝圣的队伍被暴雪堵在半山，圣女带着石匠去祭坛点起引路的长明灯。",
+    "resource_gap": "大祭司掌握祭台下层暗格位置，技术员拥有高精度金属卡尺与强光探照手电。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_megalith_deadweight_pinch",
+    "te_ancient_altar_collapse_ruin"
+   ]
+  },
+  {
+   "chemistry": "巨石总营造专家以绝对力学权威统摄全局，圣女遵从力学指挥，合力爆发千钧推力破死锁。",
+   "id": "cc_chief_architect_and_saintess_high",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "saintess_eleonora",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "总营造师指挥圣女校准发力矢量，展现卓越技术领导力。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_mason_karl",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "营造作坊上下级师徒，配合极为娴熟。",
+     "stage": "familiar"
+    },
+    {
+     "a": "saintess_eleonora",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_mason_karl",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "清冷圣女与修造工匠共赴生死，结成无间同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "saintess_eleonora",
+    "apprentice_mason_karl"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以高刚性力矩反推破除偏心卡死完成无损自救脱困。",
+    "limit_gap": "露天平台石柱处于临界倾倒形变状态，任何蛮动都会引发全面塌陷。",
+    "meeting_reason": "山下派人上来验收神殿的修缮，圣女陪着上祭坛，石匠扛着工具跟在后头。",
+    "resource_gap": "总营造师掌握整座神殿石构受力图谱，圣女掌握全部神殿合金圣器构件。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_ancient_altar_collapse_ruin",
+    "te_megalith_deadweight_pinch"
+   ]
+  },
+  {
+   "chemistry": "圣女以神殿领袖身份发布决死抢救指令，安全协调员严谨配合测算每道力矩数值。",
+   "id": "cc_safety_chief_and_saintess_command",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "saintess_eleonora",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "同处绝境，上下级界限消融于贴身死斗协作中。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_mason_karl",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在山地工程组共事，彼此熟稔信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "saintess_eleonora",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_mason_karl",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "圣女放下神殿威仪全力依赖工匠臂膀发力破局。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "saintess_eleonora",
+    "apprentice_mason_karl"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保祭坛青铜导槽免遭撕裂损毁，全员安全破门撤离。",
+    "limit_gap": "台前通路彻底堵死导致外援断绝，必须完全服从圣女临危决断。",
+    "meeting_reason": "冬至夜的祈福要圣女独自守到天亮，老主教派石匠来照看祭坛的火盆。",
+    "resource_gap": "圣女拥有全殿最高宗教决断威信，协调员精通高山避难索道应急旁路位置。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_blizzard_hypothermia_rush",
+    "te_ancient_altar_collapse_ruin"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_nook_whisper_breath",
+   "reach": "all",
+   "text": "三十五公分祭坛死角狭缝两人肌肤紧贴急促滚烫的吐息与心跳共振"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_altar_blizzard_echo",
+   "reach": "local",
+   "text": "露天平台十二级极寒暴风雪呼啸与老主教隔空呼喊的沉闷回音"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁，持有神殿至高圣职认证，遇险展现出从容果决的清冷威严。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身着一袭素白真丝加厚重织锦高定圣袍，外披纯银丝线刺绣的连帽防风披肩，银白长发随风微扬，容颜清冷绝美出尘脱俗，两腮带着健康的红润，在极寒暴雪剧烈喘息中双颊泛起娇艳酡红与细腻冷汗，下颌挂着晶莹水滴。",
+    "圣袍被风雪融水与热汗打湿半贴在纤秀修长的娇躯上，面庞在昏暗电筒光下透出如玉凝脂的温润光泽，双手全力按压纯银仪式短匕十字护手毫不退缩，清冷端庄中透着令人心颤的铿锵反差。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱啼哭的软弱作态",
+     "鲁莽盲动的粗暴蛮干"
+    ],
+    "contrast": "在朝圣者面前清冷得像山顶的雪，连指尖都不许旁人碰一下；石板砸下来时，却是圣女第一个拔出短匕，把整个身子压上了石槽。",
+    "core_value": "信奉天地法则，更信同生共死的人力担当；在风雪死线前，世俗高洁拘束皆可退让，同心合力方见生机。",
+    "goal_options": [
+     "以纯银仪式短匕十字护手别入青铜滑槽撬脱配重死点",
+     "在石梁彻底崩裂前协同石匠顶开石板脱困自救"
+    ],
+    "never": [
+     "在同伴脱困前独自抽身离去"
+    ],
+    "prefers": [
+     "沉稳专注且臂力强健的担当男子",
+     "细致严谨的硬核工匠手段"
+    ],
+    "pressure_responses": {
+     "breaking": "哪怕双臂酸胀脱力、急促滚烫的吐息交织在石匠耳畔，亦咬紧贝齿全力抵住力矩绝不松懈分毫。",
+     "high": "在极限死角内整个人伏在石匠怀前，双手紧紧叠压在石匠手背上合力向下猛扳短匕护手。",
+     "low": "在狂啸风雪中冷静呼唤石匠，敏锐指出倾倒石板的平衡死点在左侧偏心导轨。",
+     "mid": "毫不犹豫解下防风披肩减小风阻阻力，贴身挤入三十五公分逼仄祭坛死角狭缝。"
+    },
+    "relationship_stance": "石匠上山修神殿的这一冬，圣女每天傍晚都会在回廊上站一会儿，看石匠收工；戒律不许碰触，圣女就把酥油茶放在石阶上，等人自己来取。",
+    "withdrawal": "身体虚脱靠在石匠肩头微喘平复剧烈心跳，面颊微侧避开石匠目光掩饰羞怯。"
+   },
+   "gender": "female",
+   "gender_reason": "雪山神殿二十一岁的原首席圣女，清冷圣洁兼具坚韧不屈钢铁意志的女主。",
+   "id": "saintess_eleonora",
+   "identity": {
+    "authority": "对神殿绝顶全部圣仪祭台机关与神殿珍宝拥有最高处置指挥权。",
+    "exposure": "平日高高在上不可触及的清冷圣女，因施力紧贴在石匠怀前，湿透薄衫贴身急促起伏的娇柔姿态被石匠尽收眼底。",
+    "hidden": "圣袍内袋贴身收藏着一张雪峰绝顶古代避风暗道机关分布拓片",
+    "limits": [
+     "在巨石板未被撬起脱销前圣袍与身躯受困无法抽离死角",
+     "露天零下三十度极寒使体能维持极限仅剩十几分钟"
+    ],
+    "obligations": [
+     "确保圣山神殿千年祭坛不致完全垮塌损毁",
+     "与技术员石匠同舟共济排除自重卡死安全脱险"
+    ],
+    "resources": [
+     "一枚随身佩戴的圣殿纯银仪式短匕（长二十二公分，高碳钢芯外包淬火硬化纯银，双向十字一体锻造硬质护手厚达五毫米，抗弯力矩极高）",
+     "一块擦拭仪式器皿专用的防刮真丝绒布"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "石匠在万钧巨石砸落瞬间毫不犹豫以身躯硬扛石角护住{npc.name}的勇毅担当",
+     "在逼仄死角内石匠稳如磐石的强健臂膀与专注沉着的眼神"
+    ],
+    "boundaries": [
+     "恪守正派女圣女的端庄自尊底线",
+     "脱困自救纯靠机械物理力矩绝不涉性"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在祭坛死角紧贴石匠胸前，双手叠在石匠手背上共同握紧短匕十字护手全力下扳。",
+    "dislikes": [
+     "轻浮不庄重的孟浪举止",
+     "临阵推诿的自私行径"
+    ],
+    "expression": "脱险后在避风岩壁下轻柔取出手帕替石匠擦拭额角冰霜与血痕，温声细语关切石匠伤势，眼波流转满含感激深情。",
+    "likes": [
+     "在剧烈机械摇晃中被有力臂弯紧紧扣住腰肢维持重心的安稳踏实感",
+     "突破木销咬死瞬间石匠贴在耳侧低沉温存的喘息安慰"
+    ],
+    "preconditions": [
+     "巨石板平衡死点成功撬脱滑松",
+     "两人安全撤离至坚固平整地面",
+     "两人都清醒，心意出于自己，不是暴雪绝境里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "雪线神殿的圣女",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_circular_megalith_altar",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_altar_crushed_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "短匕护手承受数百牛顿反力矩微弯，两人手臂与手掌被冰冷岩石与金属硬物磨破红肿。",
+      "option": "借纯银仪式短匕坚硬十字护手别入滑槽，两人身体紧贴合力向下施压撬动配重块脱扣自救。"
+     },
+     {
+      "cost": "石板自重远超人力极限，极易导致骨折挫伤甚至诱发石柱二次坍塌压覆。",
+      "option": "徒手尝试向前推举整面重达数吨的花岗岩石板。"
+     }
+    ],
+    "pressure": "石板重达数吨，偏心重力持续挤压底座青铜构件，必须在结冰咬死前撬脱平衡卡点脱困自救。",
+    "trigger": "高山风暴击碎大结界引起神殿巨石倾覆，花岗岩天平石板砸落死扣圣袍，堵截祭坛唯一逃生通道。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "戒律说圣女不受凡人触碰……可这死角里，石匠的胸膛就贴在我背上，烫得像炉火。先出去，出去了再向神明认罪。",
+    "surface": "别慌，石板是被积雪压偏了，卡在青铜滑槽里。短匕的护手够硬——你扶住刀柄，我来压。"
+   }
+  },
+  {
+   "adult_context": "二十一岁，全面统揽神殿防灾体系与遗迹修缮，遇险沉着理性调度有力。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "内穿修身玄白二色高领长袍，外罩刺绣秘银符文的窄袖祭司大衣，两腮线条饱满紧致带着健康的红润，在沉重巨石重压下咬紧红唇全力发力。",
+    "银发在风雪呼啸中微散垂落于颈侧，面庞泛着激动的酡红，修长双腿半跪于冰冷石台，双手青筋微显紧扣短匕护手柄端。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "怨天尤人"
+    ],
+    "contrast": "清冷威严的掌事大祭司，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "物理力矩胜于徒手盲动，只要对准青铜滑槽卡死死点，万钧巨石亦可撬动。",
+    "goal_options": [
+     "利用短匕护手构建杠杆撬脱平衡块",
+     "协同石匠顶起石板底梁脱困"
+    ],
+    "never": [
+     "背弃并肩战斗的伙伴"
+    ],
+    "prefers": [
+     "严谨沉稳的机械操作",
+     "毫无迟疑的协同执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "紧咬银牙将全身气力倾注于短匕护手，以极度坚韧的耐力死磕到底。",
+     "high": "俯身死角以自身重力协助石匠压紧力臂末端连续下扳。",
+     "low": "严令石匠保持呼吸平稳，仔细辨别滑槽内部机械咬合声音。",
+     "mid": "果断将短匕十字护手卡入滑槽外壁缺口建立坚固支点。"
+    },
+    "relationship_stance": "视石匠为最可靠的硬核后盾，在灾厄中缔结生死不渝的深厚默契。",
+    "withdrawal": "在脱困后退至避风岩窟深呼吸平复心绪。"
+   },
+   "gender": "female",
+   "gender_reason": "雪山神殿最高掌事大祭司态，通晓古神殿机关架构与星象引力天平的典雅女性。",
+   "id": "high_priestess_eleonora",
+   "identity": {
+    "authority": "对神殿全部机关暗格与平衡重锤拥有最高现场调度裁量权。",
+    "exposure": "清冷高贵的掌事大祭司被汗水与风雪融水湿透内衫，起伏的体态在逼仄空间完全展露。",
+    "hidden": "熟知祭坛下层备用气压阻尼室确切位置",
+    "limits": [
+     "受困于倾倒巨石下方狭缝缺乏大型撬棒",
+     "必须在十分钟内排除机械死锁"
+    ],
+    "obligations": [
+     "保护神殿千年巨石祭坛免遭崩坏",
+     "与修缮工石匠安全撤离险境"
+    ],
+    "resources": [
+     "一柄特制高强度纯银仪式短匕",
+     "特制防冻生蚕丝包扎带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "石匠在危难中展现出的山地工程专业判断力与勇猛担当",
+     "近距离贴身支撑时对方如山岳般可靠的臂弯温度"
+    ],
+    "boundaries": [
+     "严守祭司掌事端庄名誉",
+     "自救恪守硬核机械物理底线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在巨石死角俯身相依，胸前紧贴石匠臂膀共同握持工具完成绝地逆转。",
+    "dislikes": [
+     "犹豫退缩",
+     "轻浮孟浪"
+    ],
+    "expression": "默默递上干净干羊毛巾为石匠擦拭脸上冰霜，低声叮嘱石匠注意补充热量。",
+    "likes": [
+     "彼此心领神会的眼神对视",
+     "机关清脆弹开瞬间的机械复位声"
+    ],
+    "preconditions": [
+     "祭坛平衡销成功松动脱扣",
+     "人员全员脱险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "神殿大祭司掌事女领班",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_circular_megalith_altar",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_altar_crushed_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员小臂被粗糙石棱擦破皮肉，体力消耗达到临界生理极限。",
+      "option": "以纯银短匕十字护手卡死滑槽缺口，双手合力向下施压旋转顶出卡点自救。"
+     },
+     {
+      "cost": "耗时过长极易导致立柱突然失稳发生全面塌落。",
+      "option": "盲目寻找外侧冰镐砸断石梁。"
+     }
+    ],
+    "pressure": "平台石基在极寒冻融下急剧减弱承重，必须立即排解石板偏心咬合。",
+    "trigger": "雪崩震动撕裂神殿地基，环形祭坛失重砸落咬死台前立柱通道。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "风雪太猛烈了……但只要有石匠在身边，这沉重的巨石必能被我们攻克！",
+    "surface": "石板偏心吃紧在第三个导轨槽！石匠，按我说的角度，把短匕护手插进去，反向扳动卡死处！"
+   }
+  },
+  {
+   "adult_context": "二十一岁，具备古代大型工程测算认证，遇险理性从容。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "内穿浅银灰高领紧身羊毛衫，外系深黑耐磨防风皮质围裙，两腮线条饱满紧致带着柔和的轮廓，在沉重巨石重压下咬紧红唇全力施压。",
+    "银发用纯钢发钗利落固定，面颊在暴风雪闪电下泛着清冷坚毅的酡红，修长双腿半跪于石台，双手紧握短匕护手末端。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "怨天尤人"
+    ],
+    "contrast": "温雅沉静的学术学者，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "木石虽重皆有力学破绽，以精准力矩胜盲目蛮干。",
+    "goal_options": [
+     "利用短匕十字护手反向撬动滑槽卡槽脱扣",
+     "协同石匠顶正石板脱险自救"
+    ],
+    "never": [
+     "临阵弃械逃生"
+    ],
+    "prefers": [
+     "精准的受力点分析",
+     "果断默契的力矩配合"
+    ],
+    "pressure_responses": {
+     "breaking": "双手磨破出血亦死死抵住力臂末端，直至青铜销产生松动位移。",
+     "high": "以自身全部自重从侧方压紧力臂，消除杠杆滑脱位移。",
+     "low": "冷静扫视石板倾斜夹角，瞬间锁定偏心卡死点。",
+     "mid": "果断将短匕十字护手别入滑槽暗孔建立坚固支点。"
+    },
+    "relationship_stance": "把石匠当成灾厄里唯一靠得住的手艺人，生死与共。",
+    "withdrawal": "在脱困后退至安全区域深呼吸平复心绪并整理大衣。"
+   },
+   "gender": "female",
+   "gender_reason": "古代石刻与重力天平女学者态，精通天体引力祭坛机械传动的智慧女性。",
+   "id": "altar_scholar_eleonora",
+   "identity": {
+    "authority": "对神殿巨石祭坛重力平衡公式与青铜枢轴受力参数拥有最高专业鉴定权。",
+    "exposure": "工装皮裙被风雪融水湿透贴合曼妙腰身，在逼仄空间完全展露知性女子罕见的柔韧体态。",
+    "hidden": "熟知神殿地下防震加固暗梁确切坐标",
+    "limits": [
+     "受困于死角缺乏重型液压千斤顶",
+     "必须在十分钟内排除机械抱死"
+    ],
+    "obligations": [
+     "力保古神殿花岗岩铭文免遭破坏",
+     "与向导石匠紧密协作逃生"
+    ],
+    "resources": [
+     "一柄高韧性合金纯银仪式短匕",
+     "特制高强度防冻防滑皮手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "石匠在危急关头以肉身抗衡巨石的勇毅担当",
+     "狭小死角内对方宽阔臂弯传来的沉厚力量感"
+    ],
+    "boundaries": [
+     "严守学者自尊自爱底线",
+     "出路纯靠机械杠杆自救"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "伏在石匠臂侧死角，双手叠于石匠手背合力下按短匕十字护手。",
+    "dislikes": [
+     "犹豫退缩",
+     "轻浮孟浪"
+    ],
+    "expression": "轻柔为石匠擦去肩头雪屑与冰水，温言抚慰并检查对方手腕伤痕。",
+    "likes": [
+     "彼此眼神交汇瞬间的定力",
+     "工具严密咬死销孔瞬间的紧实阻尼感"
+    ],
+    "preconditions": [
+     "巨石平衡销成功松动脱扣",
+     "全员安然脱困出险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "古代石构工程青年研究员",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_circular_megalith_altar",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_altar_crushed_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员前臂与手掌承受强烈反力矩压迫造成肌肉酸麻淤青。",
+      "option": "以特制短匕护手别入销槽，双手合力向下施压旋转顶出平衡销脱扣自救。"
+     },
+     {
+      "cost": "震击破坏结构平衡极易诱发大面积塌落断送生路。",
+      "option": "强行寻找钢钎砸断受压支撑构件。"
+     }
+    ],
+    "pressure": "石台受冻融承重逼近极限，必须在支点折断前手动撬脱青铜销。",
+    "trigger": "雪线暴风雪撕扯受力横梁，数吨重平衡花岗岩失重倾倒砸死回廊立柱。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "风雪越发凶猛了……只要这柄短匕不崩断，我们一定能把石板顶脱卡槽！",
+    "surface": "石匠，看准青铜导轨咬合面！仪式短匕刚性极强，顺着逆时针方向一起往下压！"
+   }
+  },
+  {
+   "adult_context": "二十二岁，精通巨石吊装平衡与冰川地形力学，身体雄健勇毅果断。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿深灰纯棉工装短打与加厚防寒冲锋裤，双臂肌肉结实紧绷，眼神坚毅沉稳，额前浸满用力迸发的汗珠与冰渣。",
+    "腰系多功能皮质工具包，双手佩戴防滑耐寒手套，在倾覆巨石前宛若中流砥柱稳如磐石。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延",
+     "弃弱自保"
+    ],
+    "contrast": "平日沉稳寡言的厚重技术员，在生死一线时爆发出令人心折的刚毅与担当。",
+    "core_value": "木石虽重，其心有理；只要找准反力支点，万钧大石亦可动摇回退。",
+    "goal_options": [
+     "以冰镐护持短匕护手防止打滑",
+     "全力下压杠杆扳脱平衡销脱扣"
+    ],
+    "never": [
+     "背叛圣女的信任"
+    ],
+    "prefers": [
+     "稳扎稳打的物理自救",
+     "毫无保留的绝对信赖"
+    ],
+    "pressure_responses": {
+     "breaking": "以肩膀死死顶住倾斜石梁，哪怕骨骼剧痛也要为圣女顶出撤离生路。",
+     "high": "双手包覆住圣女双手，毫无保留爆发全身背肌与核心力量下按。",
+     "low": "迅速跪地稳固石板底边，为两人争取刚性防压逃生间隙。",
+     "mid": "伏身死角指引圣女调整握持角度，确保施力矢量切向垂直。"
+    },
+    "relationship_stance": "跟着老石匠上山修神殿，原以为只是一冬的活；圣女放在石阶上的那碗酥油茶，石匠一碗都没让茶凉过。",
+    "withdrawal": "确认圣女安然无恙后方才脱力坐在台基边喘息微笑。"
+   },
+   "gender": "male",
+   "gender_reason": "雪山神殿石作修造青年工匠，承担护卫圣山遗迹与受困人员之责。",
+   "id": "apprentice_mason_karl",
+   "identity": {
+    "authority": "对现场巨石构件受力安全与撬动反支点构筑拥有最高裁定权。",
+    "exposure": "工装短袖被风雪融水湿透贴紧胸膛，在近身施力时男子汉纯阳气魄完全展现。",
+    "hidden": "随身携带一枚高硬度淬火纯钢螺母销",
+    "limits": [
+     "身负护卫圣女重托绝不退后半分",
+     "死角逼仄难以施展全身力量"
+    ],
+    "obligations": [
+     "以身为盾护住圣女免受石板坠落碾压",
+     "合力破拆平衡销死锁"
+    ],
+    "resources": [
+     "纯钢平头挑凿冰镐",
+     "加厚橡胶防滑敲击锤",
+     "防滑加厚鹿皮手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "圣女在千钧一发之际毫无娇贵圣女架子、与自己并肩卧地拼命的坚韧气魄",
+     "紧贴近战时圣女面颊透出的温润娇红与急促滚烫的吐息"
+    ],
+    "boundaries": [
+     "恪守规矩分寸",
+     "绝无轻慢之意"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "后背抵住祭坛石柱，双手紧紧扣住短匕十字护手，由圣女伏于怀侧合力下压。",
+    "dislikes": [
+     "轻蔑工匠",
+     "言而无信"
+    ],
+    "expression": "脱险后默默将自身干燥外衣披在圣女微湿的圣袍肩头，退后半步恭敬守卫。",
+    "likes": [
+     "彼此掌心交叠时的沉稳踏实",
+     "同声发力突破难关时的心意共鸣"
+    ],
+    "preconditions": [
+     "全员脱困安全无虞",
+     "神殿圣物无损"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "上山修缮神殿的石匠",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_circular_megalith_altar",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_altar_crushed_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌虎口在剧烈金属反冲下产生剧烈震颤与轻度淤血。",
+      "option": "借纯银短匕护手与冰镐组成复合撬杠，以全身重量向下猛压扳脱平衡销自救。"
+     },
+     {
+      "cost": "可能导致青铜销崩断引发石板全面坍塌断绝全部生路。",
+      "option": "用工具强行砸击平衡销外沿试图砸断青铜件。"
+     }
+    ],
+    "pressure": "重型石板自重持续压迫台前立柱，必须在平衡销彻底咬死前施加百公斤反力矩破锁。",
+    "trigger": "巨石祭坛石板砸落卡死通道，三十五公分死角为唯一逃生通道，狂风暴雪加剧。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "圣女整个人都靠在我怀里，圣袍上的雪化成了水……手别抖。这祭坛是我一块一块垒的，今晚我得把人带出去。",
+    "surface": "圣女往后靠半分，我先把橡胶锤垫进去！短匕护手咬住滑槽，我数三下，一起压。"
+   }
+  },
+  {
+   "adult_context": "二十二岁的工程师，具备全套高级高山石构建筑与应急抢险资质，冷静机敏。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "一身沾着石粉的帆布工装，腰挂錾子和锤，肩背宽厚，眼神沉静。",
+    "手持防爆探照灯，工装拉链微开露出结实锁骨，在急迫险情下有条不紊精准指挥。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目冒险",
+     "违规操作"
+    ],
+    "contrast": "现代工程专家与清冷神殿圣女在逼仄石缝中的硬核化学反应。",
+    "core_value": "任何复杂的自重卡死，本质上都有力矩反支点可以攻克。",
+    "goal_options": [
+     "利用短匕十字护手反向撬动平衡销",
+     "协同顶起石板底梁安全出困"
+    ],
+    "never": [
+     "在风险未清前让圣女以身犯险"
+    ],
+    "prefers": [
+     "严谨精准的技术推演",
+     "临危不乱的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "毫不动摇保持发力姿势直至听见青铜销脱槽的清脆声响。",
+     "high": "在极限逼仄死角内以身体替圣女挡住上方滑脱的碎石，合力向下压杠杆。",
+     "low": "迅速判断出石板偏心卡死根源在于左端受冰霜冻结，指出平衡滑槽为唯一突破口。",
+     "mid": "用强光探照手电为圣女精准标定短匕护手嵌入的角度与受力点。"
+    },
+    "relationship_stance": "恪尽职守又深怀体贴，在危险中给予圣女无可替代的坚实安全感。",
+    "withdrawal": "协助圣女撤离至避风处后立即设置安全警戒带。"
+   },
+   "gender": "male",
+   "gender_reason": "文保建筑驻场工程师，精通雪山石构抗风雪载荷与重力自救。",
+   "id": "civil_inspector_karl",
+   "identity": {
+    "authority": "掌控雪峰神殿群抗风抗雪崩抢险现场最终处置指挥权。",
+    "exposure": "保暖工装被热汗蒸透，近距离伏卧时散发着阳刚利落的气息。",
+    "hidden": "知晓祭坛地下备用通风暗井确切坐标",
+    "limits": [
+     "极端暴雪封山切断外侧大型机械救援途径",
+     "必须依靠手工便携器具反向破死锁"
+    ],
+    "obligations": [
+     "排查消除神殿祭坛结构性坍塌隐患",
+     "安全引导圣女殿下脱离险境"
+    ],
+    "resources": [
+     "防爆工业强光探照手电",
+     "精密调缝防割卡尺",
+     "高抗拉登山动力绳"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "圣女在危机中对力学原理解释的敏锐领悟力与毫不犹豫的决断魄力",
+     "彼此贴身协作中圣女身上淡淡冷香与急促呼吸形成的反差冲击"
+    ],
+    "boundaries": [
+     "严守专业工程师职业操守",
+     "规矩分明"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "并肩伏卧于夹缝死角，单手撑地保持避险空隙，另一手与圣女紧握短匕护手全力压制。",
+    "dislikes": [
+     "违章蛮干",
+     "盲目自大"
+    ],
+    "expression": "护送圣女至安全区域后，微笑着递上干燥毛巾，目光温和坚定。",
+    "likes": [
+     "默契的眼神确认",
+     "手把手校准器械时的体温传递"
+    ],
+    "preconditions": [
+     "完全排除祭坛二次坍塌隐患",
+     "人员无伤撤离"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "文保石构驻场工程师",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_circular_megalith_altar",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_altar_crushed_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "工具把手产生微小弯曲变形，施力人员手臂承受剧烈肌肉酸胀。",
+      "option": "以短匕护手反撬平衡销并借力矩压平变形卡爪，顺势顶退石板底梁脱险。"
+     },
+     {
+      "cost": "外侧风力达十二级且下方为万丈深渊，极易坠崖粉身碎骨。",
+      "option": "强行拆卸外侧残存石柱试图从悬崖外沿翻越。"
+     }
+    ],
+    "pressure": "祭坛将在几分钟内达到受力屈服极限，必须在结构断裂前手动扳脱平衡销脱困。",
+    "trigger": "强风暴雪致使数吨重花岗岩石板砸落，台前通道彻底抱死，积雪逐渐封死气孔。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要护手咬住滑槽，这个力矩足够突破咬合阻力……圣女殿下，跟紧我的节奏，三二一压！",
+    "surface": "圣女殿下，青铜销卡在死点！短匕护手刚性完全足够，插进暗槽反向扳，就能顶动咬合！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的学者，体格魁梧神情沉毅，精通大跨度石梁支撑力学。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿黑色战术背心与耐磨工装长裤，双臂青筋虬结，神情沉静冷静，眼神深邃锐利。",
+    "腰系加厚多功能装备带，佩戴防割手套，在倾斜沉重的花岗岩大石前稳如磐石从容自若。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿扯皮",
+     "投机取巧"
+    ],
+    "contrast": "深沉强悍的营造专家与清冷端庄的圣女殿下，在机械死线前形成的强烈反差张力。",
+    "core_value": "石头再重也有纹理，顺着纹理下錾，千钧巨岩也能劈开。",
+    "goal_options": [
+     "利用短匕护手组装复合杠杆",
+     "合力扳动卡死的青铜导轨平衡销"
+    ],
+    "never": [
+     "在重门未开前抛下同伴"
+    ],
+    "prefers": [
+     "硬桥硬马的扎实手艺",
+     "毫无保留的生死协作"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将平衡销顶脱卡槽。",
+     "high": "双手死死握住杠杆最外端，以千钧背肌全力向下猛按到底。",
+     "low": "冷静扫视石板倾斜夹角，瞬间锁定受力最集中的导轨槽口。",
+     "mid": "护住圣女身躯，指导其将短匕十字护手卡入受力中心暗槽。"
+    },
+    "relationship_stance": "视圣女为值得誓死守护的圣洁女子，危难中建立生死莫逆的赤诚信任。",
+    "withdrawal": "确认大石完全回正稳固后，单臂护送圣女安全撤至避风所。"
+   },
+   "gender": "male",
+   "gender_reason": "高山古代石构营造大匠，对万钧巨石重力分配与偏心滑脱解构经验丰富。",
+   "id": "master_mason_karl",
+   "identity": {
+    "authority": "掌控神殿地基与立柱受力结构紧急破拆最终决断权。",
+    "exposure": "黑色背心被风雪融水湿透勾勒出雄健背脊，散发着沉稳刚烈的阳刚气概。",
+    "hidden": "掌握祭坛底座承重暗梁确切坐标",
+    "limits": [
+     "身处极狭死角缺乏外围重型牵引钢缆",
+     "必须依靠现有便携器材完成力矩反推"
+    ],
+    "obligations": [
+     "保护圣女人身安全",
+     "确保古代神殿核心石刻免遭全毁"
+    ],
+    "resources": [
+     "特种合金加力套杆",
+     "神殿石构三维受力图谱",
+     "高等级防割手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "圣女在狂风暴雪绝境中不失圣者大度的坚韧沉静",
+     "贴身施力时圣女温润如玉的身段与柔韧坚毅的发力姿态"
+    ],
+    "boundaries": [
+     "严守专业分寸",
+     "严守自愿安全原则"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "单臂护在圣女身前构成安全空隙，另一手与圣女共同紧握短匕护手全力下压。",
+    "dislikes": [
+     "轻浮傲慢",
+     "无端猜忌"
+    ],
+    "expression": "脱险后退后三步站定行礼，沉声道一句‘殿下受惊了，匠人幸不辱命’。",
+    "likes": [
+     "彼此心照不宣的眼神对碰",
+     "合力突破死锁瞬间的畅快淋漓"
+    ],
+    "preconditions": [
+     "石板完全顶脱人员脱险",
+     "神殿圣迹完好"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "圣山神殿总修造工程顾问",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_circular_megalith_altar",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_altar_crushed_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手臂与手掌肌肉极度酸痛，工具把手产生微量金属疲劳应力。",
+      "option": "以纯银短匕护手组装复合支点，合力向下猛压撬出平衡销脱扣自救。"
+     },
+     {
+      "cost": "数吨重自重极易造成肩关节脱臼骨折，成功率几乎为零。",
+      "option": "强行以身体肩膀向上托举整面倾斜巨石板。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开暗槽死锁，否则台基断裂全员将坠坑遇难。",
+    "trigger": "巨石板自重失控砸落，青铜销死死咬入地面石槽，暴风雪冻结险情迫在眉睫。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "殿下的身子全靠着我……这股清冷发香直往鼻尖里钻。拼了这条命，也绝不让巨石伤殿下分毫！",
+    "surface": "圣女殿下莫慌！这石构吃的是偏心阻滞！短匕护手咬准了槽口，我们合力管保将卡死处顶松！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "初冬，山上已经积雪",
+  "minute": 1395
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "death",
+  "crime",
+  "workplace",
+  "supernatural",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "雪山神殿祭祀前圣女需换穿素白重丝祭袍并佩戴纯银十字护手仪式短匕以示虔敬。",
+  "圣女平日在神殿清冷圣洁不苟言笑，唯有暴雪倾覆生死死线压制下方能放下隔阂贴身协作。",
+  "神殿随身短匕采用特种淬火纯银与高碳工具钢复合锻造，双向十字护手兼具仪轨与高强度撬杠功能。",
+  "山地修造工巡查雪峰神殿随身携带多功能防滑冰镐与重型撬杠，插挂于登山皮带。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "以丝绒锦布细致擦拭短匕纯银十字护手积存冰霜",
+    "使用高抗磨鹿皮油膏研磨刃口与护手衔接处微小咬口",
+    "在香炉中点燃一片安神松香并记录露天祭坛温湿度示数"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dagger_polishing_routine_check",
+   "location_ids": [
+    "loc_circular_megalith_altar"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "晨间纯银仪式短匕淬火锋刃养护"
+  },
+  {
+   "beats": [
+    "用软毛钢丝刷清理导轨滑槽内部碎石与冰渣",
+    "察看配重天平平衡滑块在冻土中的水平标尺读数",
+    "检查防风拉索花篮螺栓锁死张力处于标准刻度"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_megalith_bronze_fulcrum_log",
+   "location_ids": [
+    "loc_circular_megalith_altar"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace"
+   ],
+   "title": "祭坛平衡石板青铜枢轴校准检"
+  },
+  {
+   "beats": [
+    "使用平头冰镐清理残存柱头积雪并探查裂隙深度",
+    "垫入加厚耐低温石棉垫片消除柱脚微小旷量",
+    "微调水平仪角度核验平台地表沉降指标"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [],
+   "id": "act_stone_pillar_crack_stability",
+   "location_ids": [
+    "loc_alpine_summit_open_platform"
+   ],
+   "start_minute": 1405,
+   "tags": [
+    "workplace"
+   ],
+   "title": "露天多立克残柱抗雪载承重检"
+  },
+  {
+   "beats": [
+    "检查重型花岗岩挡雪石墙接缝风化程度",
+    "使用探照手电察看泄风凹槽有无厚重冰檐堆积阻塞",
+    "手动测试抗暴风紧急分流导风板气动执行机构"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_summit_avalanche_trench_patrol",
+   "location_ids": [
+    "loc_alpine_summit_open_platform"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "雪峰绝顶防雪崩防风导槽巡检"
+  },
+  {
+   "beats": [
+    "晴朗的清晨，圣女登上绝顶露天平台，等着太阳从雪峰后升起。",
+    "守殿的老僧在一旁煮着酥油茶，说今年的雪比往年来得晚。",
+    "太阳升起来，雪峰一下子亮成金色，圣女合掌低声念了一段晨祷。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_eleonora_butter_tea",
+    "hook_eleonora_dawn_bell",
+    "hook_eleonora_steady_hand"
+   ],
+   "id": "act_alpine_frostbite_evac_drill",
+   "location_ids": [
+    "loc_alpine_summit_open_platform"
+   ],
+   "start_minute": 390,
+   "tags": [
+    "workplace"
+   ],
+   "title": "绝顶平台上看日出"
+  },
+  {
+   "beats": [
+    "圣女亲自核验神殿圣柜铜锁印鉴铅封",
+    "关闭长廊全部辅助工作灯切入低功耗夜间安防巡查模式",
+    "确认祭坛下层双向防冻石移门插销正常就位"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_dusk_sanctuary_lockdown_seal",
+   "location_ids": [
+    "loc_circular_megalith_altar"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "日暮闭殿古老石刻铭文封缄"
+  },
+  {
+   "beats": [
+    "石板撬起、滑槽调平、祭坛重新稳住之后，圣女被人从死角里扶出来，素白的圣袍冻得发硬，银色的发带不知落在了哪里。",
+    "背风的石龛里生起了火，圣女背过身，让人一颗颗解开冻住的系扣，把冰冷的圣袍从肩头剥下，换上带着体温的斗篷，指尖碰到后颈时，圣女轻轻抖了一下，却没有躲。",
+    "火光映着圣女的侧脸，圣女转过来，握住对方的手按在自己心口：戒律不许凡人碰我……今晚，我想自己破一次戒。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_altar_frozen_robe",
+   "location_ids": [
+    "loc_leeward_stone_niche"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "背风石龛里替圣女解开冻硬的圣袍"
+  },
+  {
+   "beats": [
+    "石龛里，圣女换下圣袍，裹着一件厚厚的羊毛斗篷，跪坐在火盆边，双手捧着一碗酥油茶慢慢喝。",
+    "圣女抬眼看人：戒律说不受凡人触碰。……可是这碗茶，我想和你用一只碗喝，你愿意吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_niche_butter_tea",
+   "location_ids": [
+    "loc_leeward_stone_niche"
+   ],
+   "start_minute": 1220,
+   "tags": [
+    "intimate"
+   ],
+   "title": "火盆边的酥油茶"
+  },
+  {
+   "beats": [
+    "圣女在石榻上坐了很久，终于伸出手，指尖轻轻碰了碰人的手背，又像被烫到一样缩回去。",
+    "圣女垂着眼说：这条戒律，我想自己决定破不破。……你不愿意，就别动；你愿意，就握住我。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_niche_first_touch",
+   "location_ids": [
+    "loc_leeward_stone_niche"
+   ],
+   "start_minute": 1360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "第一次主动伸手"
+  },
+  {
+   "beats": [
+    "天边刚泛白，圣女在石榻上醒来，长发散在牦牛毛毯上，侧头看着睡在身边的人，没有起身去敲晨钟。",
+    "圣女轻声说：朝圣的人还没上山。……晨钟晚一刻钟敲，神明应该不会怪我。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_niche_dawn_bell",
+   "location_ids": [
+    "loc_leeward_stone_niche"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "晨钟敲响之前"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "极寒雪山绝顶古代石构神殿遗址",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_rainstorm_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_circular_megalith_altar"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{saintess_eleonora.name}按住胸口急促起伏的素白真丝圣袍，面颊在暴风雪闪电下冷汗淋漓，毅然拔出随身纯银仪式短匕坚硬十字护手直指祭坛死角。"
+  },
+  {
+   "id": "hk_countdown_reading_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_circular_megalith_altar"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{saintess_eleonora.name}听到露天平台极寒狂风凄厉啸叫，在滚烫急喘中咬紧银牙侧身挤入三十五公分通道直面死锁的滑槽。"
+  },
+  {
+   "id": "hk_bookshelf_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "slot": "apprentice_mason_karl",
+   "text": "{apprentice_mason_karl.name}双膝跪地紧贴冰冷石台，以坚实身躯硬生生扛住倾斜花岗岩石板晃动震颤，大声提醒身前殿下对准青铜导槽卡死暗孔！"
+  },
+  {
+   "id": "hk_rail_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "slot": "apprentice_mason_karl",
+   "text": "{apprentice_mason_karl.name}反手抽出挑凿冰镐垫入导槽底层，用粗糙手掌牢牢护住短匕护手末端防止滑动，大声喝道就是这个青铜卡爪！"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{saintess_eleonora.name}整个人伏在石匠怀前，面庞几乎贴上石匠颈项，滚烫娇喘混合着淡雅冷香在狭窄狭缝内猛烈交融。"
+  },
+  {
+   "id": "hk_dress_sweat_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{saintess_eleonora.name}素白圣袍被风雪融水与热汗浸得半透紧贴背脊曲线，双手毅然越过石匠手臂重叠紧握短匕十字护手把手，合力向下一寸寸猛压！"
+  },
+  {
+   "id": "hk_brass_paperweight_flange_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{saintess_eleonora.name}以神殿圣女的绝对果决，将仪式短匕淬火锻打的高强度纯银十字护手，精准别入青铜滑槽外壁凹槽的偏心咬合死点。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "slot": "apprentice_mason_karl",
+   "text": "{apprentice_mason_karl.name}将加厚橡胶锤头猛然卡入石板底梁与石基之间，单臂如铜浇铁铸般撑开避险空隙，大吼道安全支点已成，殿下尽管下压！"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{saintess_eleonora.name}亲手解下随身真丝手帕，紧紧缠绕在两人满是冷汗的手背与短匕手柄上，将两人的手臂力量彻底刚性绞合为一体！"
+  },
+  {
+   "id": "hk_auditorium_rainstorm_roaring",
+   "kind": "approach",
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{saintess_eleonora.name}凝视祭坛深处暗格内的千年古代铭刻，面颊泛起不容动摇的绝决，誓死要在死角中为神殿文脉杀出生路！"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_circular_megalith_altar"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{saintess_eleonora.name}察觉石基震颤发出沉闷破裂声，断然下令石梁承载极限已近，立刻随我全员趴下进行杠杆最终突压！"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "slot": "apprentice_mason_karl",
+   "text": "{apprentice_mason_karl.name}与殿下齐声发力，后背肌肉如山丘般隆起，将整整两百斤体重与臂力完全倾注于挥动的短匕护手末端！"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{saintess_eleonora.name}手心感受到清脆至极的机械巨震，偏心青铜销硬生生被短匕护手撬出滑槽，数吨重石板伴随轰鸣向上骤然回退释压！"
+  },
+  {
+   "id": "hk_vault_escape_roll_fresh_air",
+   "kind": "approach",
+   "location_ids": [
+    "loc_circular_megalith_altar"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{saintess_eleonora.name}被石匠单臂揽住纤腰顺势反推石板底梁滚出死角，两人迎着避风岩窟的新鲜空气大口喘息，绝境脱困成功！"
+  },
+  {
+   "id": "hk_end_relief_praise",
+   "kind": "approach",
+   "location_ids": [
+    "loc_circular_megalith_altar"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{saintess_eleonora.name}靠在岩壁背风处微微喘息，面颊带着劫后余生的绯红，侧过脸轻声对身侧石匠道多亏石匠勇敢。"
+  },
+  {
+   "id": "hook_eleonora_butter_tea",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "saintess_eleonora",
+   "text": "{npc.name}把一碗冒着热气的酥油茶放在石阶上，往后退了一步：戒律不许我递到你手里。自己拿，趁热。"
+  },
+  {
+   "id": "hook_eleonora_dawn_bell",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "saintess_eleonora",
+   "text": "{npc.name}裹着白斗篷站在钟楼下，回头问：天亮前要敲九下祈福钟，绳子冻住了，我一个人拉不动。你来吗？"
+  },
+  {
+   "id": "hook_eleonora_steady_hand",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "saintess_eleonora",
+   "text": "{npc.name}在结冰的石阶上停住，迟疑了一下，把手伸过来：戒律说不许被凡人碰……可这一段太滑了。扶我下去。"
+  },
+  {
+   "id": "hook_eleonora_silver_ribbon",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "saintess_eleonora",
+   "text": "{npc.name}坐在火盆边解开长发，把一条银色发带递过来：编发的修女下山了。你的手巧，帮我编一下？"
+  },
+  {
+   "id": "hook_karl_snow_hare",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_mason_karl",
+   "text": "{npc.name}把一块刚刻好的小石雕放在人手心，是只蜷着睡的雪兔：神殿檐角上缺一只，先给你看看。"
+  },
+  {
+   "id": "hook_karl_flask",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_mason_karl",
+   "text": "{npc.name}从怀里掏出一只扁酒壶，拧开递过来：山下的烈酒，神殿里不让喝。喝一口暖暖身子，我不说出去。"
+  },
+  {
+   "id": "hook_eleonora_niche_curtain",
+   "kind": "approach",
+   "location_ids": [
+    "loc_leeward_stone_niche"
+   ],
+   "slot": "saintess_eleonora",
+   "text": "{npc.name}撩起石龛的毛毡帘：外面风雪大。……进来，火盆生好了。"
+  }
+ ],
+ "id": "alpine_sanctuary_dagger_rescue",
+ "locations": [
+  {
+   "affordances": [
+    "查验平台边缘防雪崩挡雪石墙受力偏斜度",
+    "搬运备用加厚耐低温防风羊毛毡布",
+    "隔着风雪向环形祭坛死角大声呼叫确认生还"
+   ],
+   "detail": "雪峰绝顶数千平米平整花岗岩石构平台，四周环绕着数十根十米高残破多立克式石柱。此刻十二级极寒暴风雪呼啸横扫，冰风席卷碎雪如白刃狂舞，气温骤降至零下三十度。",
+   "exits": [
+    "loc_circular_megalith_altar"
+   ],
+   "id": "loc_alpine_summit_open_platform",
+   "name": "绝顶平台",
+   "pressure_modifiers": {
+    "p_hypothermia_blizzard_surge": "零下三十度极寒冻气以狂风速度灌入，人体核心体温在风寒效应下极速流失。",
+    "p_megalith_deadweight_collapse_pinch": "风雪重载压迫祭坛巨石基座，花岗岩梁架发出沉闷刺耳的应力摩擦碎响。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "露天平台一片昏暗狂暴的暴风雪白盲，神殿残柱在刺目雷光与雪雾中宛如沉默的黑色巨兽。",
+   "witnesses": [
+    "bg_sanctuary_archbishop_albert",
+    "bg_alpine_rescue_captain_kurt",
+    "bg_altar_clerk_xiao_erik"
+   ]
+  },
+  {
+   "affordances": [
+    "检查花岗岩巨石板偏心滑脱倾斜夹角",
+    "寻找可用于垫高的实心青铜支垫方砖",
+    "确认祭坛下层暗室避风通风检修孔坐标"
+   ],
+   "detail": "露天平台核心的重力天平式环形石台，由八块数吨重花岗岩平衡石板通过偏心青铜枢轴咬合构成。受暴雪偏载影响，南侧主石板失衡倾覆下滑，砸死祭台下方的圣袍下摆与逃生阶梯口。",
+   "exits": [
+    "loc_alpine_summit_open_platform",
+    "loc_altar_crushed_nook",
+    "loc_leeward_stone_niche"
+   ],
+   "id": "loc_circular_megalith_altar",
+   "name": "环形祭坛",
+   "pressure_modifiers": {
+    "p_hypothermia_blizzard_surge": "狂暴回旋风将积雪推入祭坛石缝，冰渣持续刮擦皮肤造成严重刺痛。",
+    "p_megalith_deadweight_collapse_pinch": "数吨重巨大石板偏心倾覆自重咬死地面平衡槽，普通人力完全无法推动分毫。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "祭坛周围避风背阴处积雪半米深，强光手电光束在翻卷的冰晶中投下锐利光柱。",
+   "witnesses": [
+    "bg_troupe_junior_clerk_xiao_anna",
+    "bg_watchman_lao_hans"
+   ]
+  },
+  {
+   "affordances": [
+    "近身挤入死角察看青铜滑槽调平死点锁舌",
+    "将纯银仪式短匕坚硬十字护手插入滑槽充当反向撬块",
+    "双手重叠合力向前向下猛扳突破咬合脱扣自救"
+   ],
+   "detail": "倾覆的花岗岩石板底沿与祭坛石基之间仅余不足三十五公分的极限逼仄死角，石板将圣袍下摆死死压在青铜滑槽内。两人被迫完全贴紧伏卧在此处，在体温与急促喘息交叠中对准调平滑槽孔洞。",
+   "exits": [
+    "loc_circular_megalith_altar"
+   ],
+   "id": "loc_altar_crushed_nook",
+   "name": "祭坛底缝",
+   "pressure_modifiers": {
+    "p_close_contact_body_heat_tension": "在三十五公分极限死角内圣女与石匠肌肤完全贴伏，薄汗与工装体温激烈对冲，滚烫急促的吐息拂过颈侧锁骨。",
+    "p_megalith_deadweight_collapse_pinch": "数吨重石板若因积雪增厚进一步下沉，脱困撬杠将彻底折断被压碎封死。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "仅靠强光探照笔窄光束照明，近距离能看清彼此面颊上滑落的细腻汗珠、素白祭袍起伏轮廓与纯银匕首护手。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "陪圣女在火盆边喝酥油茶",
+    "替圣女换下冻硬的圣袍",
+    "放下石龛的毛毡帘"
+   ],
+   "detail": "神殿背面一间凿进山岩的石龛，一张铺着牦牛毛毯的石榻、一只铜火盆、壁上供着一盏长明的酥油灯。",
+   "exits": [
+    "loc_circular_megalith_altar"
+   ],
+   "id": "loc_leeward_stone_niche",
+   "name": "背风的石龛",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "酥油灯的光晕暖暖的，石龛口挂着厚厚的毛毡帘，风雪在帘外呼啸，帘内只剩火盆噼啪的声音。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "艾尔",
+   "诺兰",
+   "海因",
+   "罗兰",
+   "维克",
+   "克莱",
+   "索恩",
+   "瓦尔",
+   "莫尔",
+   "雷恩",
+   "凯尔",
+   "西恩",
+   "奥恩",
+   "格林"
+  ],
+  "given_female": [
+   "伊兰诺拉",
+   "塞西尔",
+   "艾莲娜",
+   "克里斯汀",
+   "薇薇安",
+   "阿加莎",
+   "菲奥娜",
+   "卡米拉",
+   "海伦娜",
+   "莉莉安",
+   "奥利维亚",
+   "玛格丽特",
+   "索菲娅",
+   "戴安娜"
+  ],
+  "given_male": [
+   "卡尔",
+   "罗曼",
+   "亚瑟",
+   "加文",
+   "西蒙",
+   "卢卡斯",
+   "马库斯",
+   "维克多",
+   "托马斯",
+   "安德鲁",
+   "菲利普",
+   "丹尼尔",
+   "奥古斯特",
+   "艾伯特"
+  ],
+  "given_neutral": [
+   "澈",
+   "夜",
+   "寒",
+   "尘",
+   "非",
+   "微",
+   "遥",
+   "岚",
+   "清",
+   "羽",
+   "辰",
+   "渊",
+   "舟",
+   "灵"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留四千米雪线神殿世纪暴雪、环形巨石祭坛重力天平偏心倾覆与圣女用纯银仪式短匕十字护手撬脱调平滑槽的骨架。同一批有六个同模板的世界，这里拉开的方向是戒律与破戒：圣女不受凡人触碰、酥油茶只能放在石阶上、天亮前的九下祈福钟、银色发带，搭档写成上山修神殿的石匠。写死的人名改为身份称呼；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；圣女亲密前提写明脱困之后、双方清醒自愿；新增一个背风石龛里替圣女解开冻硬圣袍的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁的高山工程向导，负责圣山雪线神殿石构维护与石雕配重天平加固，体魄雄健沉着冷静。",
+   "gender": "male",
+   "id": "pi_alpine_guide_mechanic_karl",
+   "reputation": "精通古神殿花岗岩重力杠杆与冰川雪崩力学测算，多次化解雪峰坍塌险情。",
+   "resources": [
+    "一把特制高硬度锻打纯钢平头挑凿冰镐",
+    "一卷耐低温抗拉防撕裂加厚登山动力绳",
+    "高强度耐磨防滑加厚鹿皮保暖工装手套"
+   ],
+   "risks": [
+    "若无法在暴风雪彻底掩埋死角前撬出石板，极寒低温将在几十分钟内引发致命冻伤休克。"
+   ],
+   "role": "雪山神殿石构修造兼职青年向导技术员",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}工长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}向导"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁的文献考古青年学者，熟悉圣山古代祭坛全部机械平衡机关与地下暗室逃生通道走向。",
+   "gender": "male",
+   "id": "pi_sanctuary_relic_archivist_karl",
+   "reputation": "对巨石阵力学平衡古机关了如指掌，临危不惧，深得神殿长老与圣女信赖。",
+   "resources": [
+    "一柄防爆耐低温强光探照手电",
+    "一套精密不锈钢调缝防割游标卡尺",
+    "两只高抗冲防雾气密雪地护目镜"
+   ],
+   "risks": [
+    "暴风雪导致能见度降至两米，极易因迷失方向坠入绝顶万丈悬崖。"
+   ],
+   "role": "神殿圣物与石刻铭文青年调查员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}主管"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}学者"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁的山地安全工程师，全面负责高海拔露天工程防风防雪崩与应急自救指挥。",
+   "gender": "male",
+   "id": "pi_expedition_safety_chief_karl",
+   "reputation": "多次处置极端暴雪重压下石构移位危机，技术过硬，与圣女配合默契。",
+   "resources": [
+    "一台三防加固高山气象气压测定仪",
+    "一柄特种高碳钢折叠多用螺栓扳钳",
+    "防爆高等级加厚防寒防滑护膝"
+   ],
+   "risks": [
+    "巨石偏心咬合若因冻结完全冷焊抱死，将丧失全部手动撬起可能。"
+   ],
+   "role": "雪山科考探险队安全协调官",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}协调官"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}队长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁青年古建巨石力学学者，统揽雪峰神殿群修缮与最高防灾处置权。",
+   "gender": "male",
+   "id": "pi_chief_megalith_architect_karl",
+   "reputation": "行业年轻权威，对巨石祭坛偏心倾覆力矩与反向撬杠支点拥有绝对运算控制力。",
+   "resources": [
+    "一套特制加厚反向旋转力矩加力套杆",
+    "全套雪峰祭坛巨石力学受力三维蓝图",
+    "高等级防割耐低温特种战术手套"
+   ],
+   "risks": [
+    "若发生不可逆祭坛塌陷损毁古代石构圣迹，将承担重大历史资产损失责任。"
+   ],
+   "role": "古代巨石工程总修造营造师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}总工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}大师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}总营造"
+    }
+   ]
+  }
+ ],
+ "premise": "海拔四千米的雪线神殿，一年只在夏至前后开山，朝圣者踩着冰阶上来求一句祝福。神殿的圣女守着一条戒律：不受凡人触碰。山下来修神殿的石匠、调查铭文的学者和科考队的协调官今年都住在神殿边的石屋里。环形巨石祭坛的重力天平几百年没校过，山上的天气说变就变。",
+ "pressures": [
+  {
+   "choice": "是冒险利用纯银仪式短匕强行撬动平衡销，还是在死角内等待山下搜救队登顶？",
+   "exits": [
+    {
+     "cost": "短匕护手受力微弯，两人肌肉酸痛受冻伤擦伤。",
+     "option": "两人合力以短匕护手下扳偏心滑槽旋转平衡销脱扣自救。"
+    },
+    {
+     "cost": "极其被动，若环境温度持续下降将直接冻毙死亡。",
+     "option": "伏于地面用破损圣袍被动阻挡寒风等待救援。"
+    }
+   ],
+   "far": {
+    "consequence": "受困人员因急性重度失温休克心脏骤停，被严寒风雪彻底冻毙殉职。",
+    "due_days": 1,
+    "trigger": "极寒低温完全攻破衣物防线"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hypothermia_blizzard_surge",
+   "immediate": {
+    "minutes": 2,
+    "text": "露天神殿受损立柱间暴风雪疯狂呼啸，回旋气流将碎冰如弹片般甩打在石壁上。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_alpine_summit_open_platform",
+    "loc_circular_megalith_altar",
+    "loc_altar_crushed_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "严寒漫延至死角石面，手指关节开始发白麻木，逃生时间被急剧压缩。"
+   },
+   "objective": "必须在严重失温导致肌肉僵硬麻痹前，用短匕护手撬松平衡滑槽抽身撤离。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "高山暴雪极寒失温致命逼近",
+   "trigger": "特大暴风雪狂风呼啸，气温骤降至零下三十度，狂暴冷气团极速带走人体核心热量。"
+  },
+  {
+   "choice": "是单人使用工装工具试探拨动，还是两人身体紧密相贴合力下压短匕护手？",
+   "exits": [
+    {
+     "cost": "工具把手产生微小塑性形变，施力人员手臂酸麻。",
+     "option": "以冰镐头护垫构成刚性防滑支点，叠合双手全力压紧短匕护手下扳。"
+    },
+    {
+     "cost": "金属敲击极易打崩石梁诱发更大面积坍塌。",
+     "option": "用工具盲目砸击石板边缘试图砸碎石块。"
+    }
+   ],
+   "far": {
+    "consequence": "石板彻底失去机械解脱余地，通道变成永久封闭石墓。",
+    "due_days": 1,
+    "trigger": "青铜销受冻融变形冷焊卡死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_megalith_deadweight_collapse_pinch",
+   "immediate": {
+    "minutes": 2,
+    "text": "巨大石板偏心向滑槽侧倾斜，青铜轴销咬死在距离地面三十五公分处。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "冰雪重压导致滑槽缝隙收缩为零，摩擦咬合力倍增，撬动难度成倍上升。"
+   },
+   "objective": "在石板彻底受冻冷焊抱死之前，以坚硬短匕十字护手撬动平衡销脱槽自救。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "数吨重花岗岩石板偏心砸死",
+   "trigger": "数吨重古代祭坛花岗岩平衡石板受雪载偏心下砸，青铜导轨咬死青石台基凹槽。"
+  },
+  {
+   "choice": "是因礼法矜持保持距离导致施力分散，还是坦然贴身相拥爆发出最大协同扭矩？",
+   "exits": [
+    {
+     "cost": "矜持心理防线被彻底打破，两人心灵产生不可磨灭的依恋印记。",
+     "option": "抛弃一切世俗杂念，圣女伏于石匠胸前双手重叠压紧把手一鼓作气突破。"
+    },
+    {
+     "cost": "力矩不足无法撼动平衡销，导致自救彻底失败。",
+     "option": "刻意拉开距离单手侧向发力。"
+    }
+   ],
+   "far": {
+    "consequence": "短匕护手脱出销孔，错过最后撬动脱扣时间窗导致严寒风雪彻底掩埋死角。",
+    "due_days": 1,
+    "trigger": "羞怯分心导致发力失衡工具脱落"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_close_contact_body_heat_tension",
+   "immediate": {
+    "minutes": 2,
+    "text": "素白圣袍丝滑微凉的触感隔着单薄衣衫传来，随后被急促滚烫的体温迅速烘热。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "圣女压着声音喘气，汗湿的额发蹭过颈侧，连祷词都念乱了。"
+   },
+   "objective": "在极度贴近的肢体接触与异性荷尔蒙冲击下，克制心神专注机械对位发力。",
+   "source": "person",
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "死角极限狭缝贴身呼吸滚烫",
+   "trigger": "两人被迫同时挤在三十五公分祭坛死角狭缝，湿透圣袍与工装紧密相贴，体温与急促喘息交织。"
+  },
+  {
+   "choice": "是先冒落石风险抢救祭坛中央的圣典金盘，还是全力以赴先撬开通道逃生？",
+   "exits": [
+    {
+     "cost": "全力投入撬门无暇顾及自身擦伤，承受巨大心理压力。",
+     "option": "争分夺秒扳动短匕护手撬松平衡销推开通道完成人圣双全自救。"
+    },
+    {
+     "cost": "耗尽最后逃生时间，双双受困于垮塌巨石之下。",
+     "option": "折返深处用身体护住圣物。"
+    }
+   ],
+   "far": {
+    "consequence": "数吨巨石砸落将平台死角彻底填平，受困人员在万钧重压下全员遇难殉葬。",
+    "due_days": 1,
+    "trigger": "环形祭坛整体崩落掩埋深坑"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_ancient_altar_collapse_danger",
+   "immediate": {
+    "minutes": 2,
+    "text": "祭坛环形大梁发出沉重的撕裂闷响，碎石如雨点般砸落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_circular_megalith_altar",
+    "loc_altar_crushed_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "主支撑青铜立柱发生肉眼可见的偏斜，全台架随时可能连环崩溃。"
+   },
+   "objective": "必须在顶梁全面垮塌前撬开石板撤离至背风安全岩窟。",
+   "source": "accident",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "祭坛环形石构雪载超压崩塌",
+   "trigger": "环形祭坛上层石梁承受数十吨积雪超压，青铜拉杆接缝开裂，面临二次全坍塌绝境。"
+  },
+  {
+   "choice": "是忍痛咬牙紧扣工具，还是分神活动肢体调整重心？",
+   "exits": [
+    {
+     "cost": "身体摩擦加剧，肌肤泛起大片淤青擦痕。",
+     "option": "圣女与石匠互相用双腿死死卡住彼此脚踝稳固重心合力下压。"
+    },
+    {
+     "cost": "平衡销在自重下再度深陷变形咬死。",
+     "option": "暂停按压后撤舒展肢体。"
+    }
+   ],
+   "far": {
+    "consequence": "短匕护手被大石反弹力强行震飞，彻底失去最后开启机会。",
+    "due_days": 1,
+    "trigger": "双腿打滑彻底失去反向支撑力矩"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_frost_glazed_floor_slip_hazard",
+   "immediate": {
+    "minutes": 2,
+    "text": "极寒暗冰透过裤料侵袭膝盖手肘，刺骨酸麻侵蚀神经。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_altar_crushed_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "持续静力承重使前臂与小腿肌肉发生剧烈震颤，下踩支撑力濒临极限。"
+   },
+   "objective": "克服双腿打滑与膝部刺骨酸痛，保持稳定反向杠杆平衡发力姿态。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "花岗岩地表暗冰打滑失稳",
+   "trigger": "雪水倒灌在冰冷的花岗岩台面凝结为光滑镜面暗冰，两人半跪施力下肢支撑极易打滑脱位。"
+  },
+  {
+   "choice": "是立即加大下压力度一鼓作气扳松短匕，还是等待风势间隙再行操作？",
+   "exits": [
+    {
+     "cost": "身心极度疲惫，手臂肌肉严重拉伤酸痛。",
+     "option": "两人贴面眼神交汇瞬间爆发全身重量峰值力矩震松平衡销。"
+    },
+    {
+     "cost": "石柱彻底崩断丧失全部物理逃生可能。",
+     "option": "被动等待外力减退。"
+    }
+   ],
+   "far": {
+    "consequence": "数吨重石柱轰然砸穿祭坛顶梁，受困人员全数遇难殉职。",
+    "due_days": 1,
+    "trigger": "残存石柱彻底折断砸落平台"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_megalith_creaking_structural_groan",
+   "immediate": {
+    "minutes": 2,
+    "text": "石柱根部传来沉闷的岩石开裂破响，立柱向平台内侧倾斜了一度。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_alpine_summit_open_platform",
+    "loc_circular_megalith_altar"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "石柱断口石屑飞溅，裂纹顺着柱身节节向上蔓延。"
+   },
+   "objective": "在受力石柱彻底折断坍塌前完成平衡销脱扣，撤离危险投影区域。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "神殿立柱群受风雪切变断裂",
+   "trigger": "平台边缘多立克残柱承受侧向风切变超载，古老花岗岩柱身发出令人心悸的断裂脆响。"
+  },
+  {
+   "choice": "承认那一夜的触碰是为了活命，还是让圣女一个人去发誓什么都没发生",
+   "exits": [
+    {
+     "cost": "老汉斯得承认那一夜是自己没守住下山的冰阶",
+     "option": "请向导老汉斯作证"
+    },
+    {
+     "cost": "石匠在山下的名声和修殿的活计一起没了",
+     "option": "由石匠认下，说是硬把人拖出来的"
+    }
+   ],
+   "far": {
+    "consequence": "圣女要下山去修道院闭关三年，石匠再也不许踏上这座山",
+    "due_days": 3,
+    "trigger": "老主教在信众面前定论"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_eleonora_butter_tea",
+    "hook_eleonora_dawn_bell",
+    "hook_eleonora_steady_hand",
+    "hook_karl_snow_hare",
+    "hook_karl_flask"
+   ],
+   "id": "p_touched_saintess_rumor",
+   "immediate": {
+    "minutes": 10,
+    "text": "修女安娜跑上来，说朝圣者已经围住了祭坛"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_circular_megalith_altar"
+   ],
+   "near": {
+    "deadline_minutes": 90,
+    "text": "晨祷结束，阿尔伯特老主教要当众问话"
+   },
+   "objective": "在老主教晨祷结束、当众问话之前，想好怎么回答",
+   "source": "rumor",
+   "start_minute": 420,
+   "tags": [],
+   "title": "圣女被碰过",
+   "trigger": "暴雪停后的清晨，朝圣的人在冰阶上传开了：昨夜有人看见石匠抱着圣女从祭坛底缝里出来"
+  }
+ ],
+ "region": "雪山巅峰开阔露天平台与残破环形巨石祭坛死角",
+ "rules": [
+  {
+   "id": "r_alpine_sanctuary_frostbite_code",
+   "text": "高海拔雪线暴风雪期间严禁盲目脱卸防风防寒外层兜帽。"
+  },
+  {
+   "id": "r_megalith_altar_balance_rule",
+   "text": "环形巨石祭坛天平偏心倒伏后只能通过撬脱滑槽配重支点释放重力咬合。"
+  },
+  {
+   "id": "r_sacred_temple_structural_safety",
+   "text": "神殿露天立柱群受雪载加压期间严禁使用爆炸性震颤器具抢险。"
+  },
+  {
+   "id": "r_adult_mechanical_escape_standard",
+   "text": "绝境脱困依靠纯物理力矩与机械自救，一切互动严守成年自愿与安全防护原则。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "共御死线",
+  "committed": "死生相守",
+  "familiar": "身心交托",
+  "flirting": "贴身喘息",
+  "intimate": "患难同行",
+  "stranger": "初次协同",
+  "testing": "生死信赖"
+ },
+ "status": "released",
+ "style_hint": "极寒雪山神殿硬核工笔，刻画零下三十度暴雪扑面的致命失温危机、高刚性淬火短匕十字护手在石板支点凹槽中的剧烈杠杆咬合、素白织锦祭袍被风雪融水浸透贴合起伏身躯的视觉张力，台词沉稳克制充满重力平衡计算与生死信赖。",
+ "tension_engines": [
+  {
+   "id": "te_blizzard_hypothermia_rush",
+   "text": "零下三十度极寒冻气持续暴涨，人体核心体温在狂风下直逼失温休克死线。"
+  },
+  {
+   "id": "te_megalith_deadweight_pinch",
+   "text": "数吨重巨大花岗岩平衡石板持续倾滑咬死导轨，青铜导槽偏心受载不断形变。"
+  },
+  {
+   "id": "te_close_contact_body_heat",
+   "text": "在三十五公分狭窄死角内两人紧密相贴，湿透圣袍薄汗与青年向导工装体温催生极度异性张力。"
+  },
+  {
+   "id": "te_ancient_altar_collapse_ruin",
+   "text": "千年神殿圣迹与核心石刻面临暴雪倾覆全毁厄运，圣女背负信仰传承重大责任爆发惊人毅力。"
+  }
+ ],
+ "title": "圣山雪线圣女·绝顶露天残破神殿",
+ "tone": [
+  "雪线之上的祈福钟声",
+  "不受凡人触碰的戒律",
+  "暴雪里倾覆的巨石祭坛",
+  "祭坛死角里冻硬的圣袍"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_altar_bronze_slot_located",
+   "requires": [
+    "saintess_eleonora"
+   ],
+   "text": "{saintess_eleonora.name}借便携强光手电光束，在冰封的花岗岩台基底层准确定位出卡死青铜滑槽暗孔的微小受力支点。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_summit_blizzard_warning_groan",
+   "requires": [
+    "saintess_eleonora"
+   ],
+   "text": "{saintess_eleonora.name}听到平台石柱发出刺耳的二次裂石断裂声，地面剧烈晃动，面庞上映出冷峻决意。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_rubber_hammer_inserted_safety",
+   "requires": [
+    "apprentice_mason_karl"
+   ],
+   "text": "{apprentice_mason_karl.name}从工具袋抽出加厚橡胶锤头，死死垫在花岗岩石板底梁下方，彻底构筑起刚性防下坠安全作业间隙。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_satin_ribbon_bind_tight",
+   "requires": [
+    "saintess_eleonora",
+    "apprentice_mason_karl"
+   ],
+   "text": "{saintess_eleonora.name}解下手腕真丝手帕，由{apprentice_mason_karl.name}迅速将短匕护手与冰镐握柄紧密捆扎，消除了手汗打滑隐患。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_megalith_creak_final_minute_rush",
+   "requires": [
+    "saintess_eleonora"
+   ],
+   "text": "神殿残存石梁受压发出最后的连续撕裂声，地面青石台面开始龟裂，生死死线已逼近绝对生理极限。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_close_body_tight_bind_leverage",
+   "requires": [
+    "saintess_eleonora",
+    "apprentice_mason_karl"
+   ],
+   "text": "{apprentice_mason_karl.name}在狭窄死角紧紧护住{saintess_eleonora.name}，两人滚烫手指紧握短匕护手，急促滚烫的吐息与心跳在幽暗中彻底交叠。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_silver_dagger_release_success",
+   "requires": [
+    "saintess_eleonora"
+   ],
+   "text": "伴随一声清脆金属断扣声，纯银仪式短匕坚硬十字护手成功扳脱咬死青铜销，巨石受力瞬间回退释压，两人合力反推石梁顺利脱险自救。"
+  }
+ ]
+}

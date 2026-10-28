@@ -1,0 +1,2516 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "府上忠心耿耿的老仆，在外侧值班室急迫组织家丁扑灭外围火情。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_estate_butler_lao_feng",
+   "line": "少夫人还在字画库里头！快去拉断备用惰性气体主电闸，快啊！",
+   "location_ids": [
+    "loc_grand_atrium_foyer"
+   ],
+   "name": "老管家冯伯",
+   "role": "本家宅邸总管事老仆"
+  },
+  {
+   "adult_context": "装裱师的工坊助手，在外侧配电房拼命尝试手动绞盘。",
+   "age_range": [
+    19,
+    21
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_apprentice_mounter_xiao_liu",
+   "line": "师兄！卷帘门总控回路烧熔了，外部电控完全失效，只能靠里头手动脱扣了！",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "name": "工坊小刘",
+   "role": "本家装裱坊青年技工助手"
+  },
+  {
+   "adult_context": "死板执行世家安保教条的保卫主管，阻滞了外援强行破门方案。",
+   "age_range": [
+    30,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_security_guard_captain_zhao",
+   "line": "字画库充气程序不可逆锁定，外围机械破拆可能引发火花爆燃，谁也不准擅动主气阀！",
+   "location_ids": [
+    "loc_grand_atrium_foyer"
+   ],
+   "name": "安保赵队长",
+   "role": "大宅安保执勤分队队长"
+  },
+  {
+   "adult_context": "奔走于中庭与地宫之间通报充气倒计时的信使管事。",
+   "age_range": [
+    40,
+    50
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_deputy_butler_qian",
+   "line": "只剩最后两分钟了！备用发电机电涌把排风阀也锁死了，里头的人必须靠自己脱困！",
+   "location_ids": [
+    "loc_grand_atrium_foyer"
+   ],
+   "name": "副管事钱叔",
+   "role": "字画大库值班二管事"
+  },
+  {
+   "adult_context": "隔门通过通风孔指导内部工匠构筑防坠安全支点的老营造师傅。",
+   "age_range": [
+    50,
+    60
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_workshop_craftsman_sun",
+   "line": "装裱师！用你身上的修画黄铜板垫死门槛！别让卷帘二度砸下来伤着少夫人！",
+   "location_ids": [
+    "loc_grand_atrium_foyer"
+   ],
+   "name": "老匠人孙师傅",
+   "role": "古建修造作坊当值大匠"
+  },
+  {
+   "adult_context": "亲眼目睹卷帘门失控砸落全过程的当值巡查年轻护卫。",
+   "age_range": [
+    22,
+    28
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_patrol_guard_li",
+   "line": "雷击直接劈在通堂外侧主缆上，火星顺着导轨掉进去了，门底已经完全咬死了！",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "name": "巡更护卫李四",
+   "role": "地下库房当值巡逻护卫"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "当家少夫人与苏州来的装裱师，一个懂茶则一个懂锁舌，在门缝死角里手叠着手，把紫铜茶则的折沿压进锁孔。",
+   "id": "cc_mistress_and_mounter_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "mistress_shen_wanqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死死线前紧密协作构建力矩反支点，彼此产生绝对性命相托。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_mounter_lu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同为装裱工坊师兄弟，知晓彼此手上力道与工具用法。",
+     "stage": "familiar"
+    },
+    {
+     "a": "mistress_shen_wanqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_mounter_lu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "名门贵女与厚重工匠在暴风雨大难中成为生死不离的脱困搭档。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mistress_shen_wanqing",
+    "apprentice_mounter_lu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在灭火气体充气阀开启前合力撬开变形偏心锁舌反顶重门逃生。",
+    "limit_gap": "少夫人旗袍紧缚且体温躁动，工匠受困于门缝死角施力空间狭窄臂力受限。",
+    "meeting_reason": "六月六开库晒画，少夫人把装裱师领进地下库，看那卷要重新托裱的宋画。",
+    "resource_gap": "少夫人掌握大库铜匙与传家紫铜茶则，工匠拥有超硬精钢挑刀与杠杆力矩直觉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_inert_gas_purge_choke",
+    "te_close_contact_body_heat"
+   ]
+  },
+  {
+   "chemistry": "女掌事与机电总工以精准机械原理拆解偏心弹簧卡销，严丝合缝操作工具突破阻滞。",
+   "id": "cc_conservator_and_mechanic_precision",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "mistress_shen_wanqing",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "多年协作维护大库安全，对彼此技术定力深具默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_mounter_lu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "机电安全部门同事，熟悉大宅各处暗门机关。",
+     "stage": "familiar"
+    },
+    {
+     "a": "mistress_shen_wanqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_mounter_lu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在沉重铁门重压下并肩卧地发力，消除身份悬殊界限。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mistress_shen_wanqing",
+    "apprentice_mounter_lu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "利用茶则四毫米折沿精准卡死弹簧脱扣槽并顺势抬升门梁自救。",
+    "limit_gap": "配电盘彻底烧毁无法借助电控，必须在微弱红光下凭手感盲操机械脱扣。",
+    "meeting_reason": "开库前一天，少夫人和装裱师在茶寮里对着库单一幅幅核画，茶续了三泡。",
+    "resource_gap": "女总执事掌握通堂排风夹层暗道图纸，机电工程师拥有高精度金属卡尺与强光探照灯。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_door_rail_deadweight_pinch",
+    "te_masterpiece_heritage_ruin"
+   ]
+  },
+  {
+   "chemistry": "古建总监理以绝对力学权威统摄全局，掌库少夫人遵从技术号令，合力爆发千钧推力。",
+   "id": "cc_chief_conservator_guardian_command",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "mistress_shen_wanqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "总监理指挥少夫人校准发力矢量，展现专业领导力。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_mounter_lu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "营造作坊上下级师徒，配合极为娴熟。",
+     "stage": "familiar"
+    },
+    {
+     "a": "mistress_shen_wanqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_mounter_lu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "名门主母与作坊大匠共赴生死，结成无间同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mistress_shen_wanqing",
+    "apprentice_mounter_lu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以高刚性力矩反推破除偏心锁舌完成无损自救。",
+    "limit_gap": "大跨度通堂受力梁处于临界微沉降状态，任何蛮干都会引发更大形变。",
+    "meeting_reason": "族里请来的人要进库估价分画，少夫人把人挡在库门口，装裱师捧着画匣站在一旁。",
+    "resource_gap": "总监理掌握整座地宫结构力矩图，少夫人掌握全部祖传暗锁解密口诀。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_masterpiece_heritage_ruin",
+    "te_door_rail_deadweight_pinch"
+   ]
+  },
+  {
+   "chemistry": "少夫人以尊贵主母身份发布决死自救指令，库房记录员严谨配合记录每道力矩数值。",
+   "id": "cc_assistant_and_mistress_heirloom",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "mistress_shen_wanqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "主仆同处绝境，贵贱界限消融于贴身协作中。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_mounter_lu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在通堂值班，彼此熟稔信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "mistress_shen_wanqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_mounter_lu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "少夫人放下身段全力依赖工匠臂膀发力。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mistress_shen_wanqing",
+    "apprentice_mounter_lu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保传世古画免遭酸化，安全破门撤离。",
+    "limit_gap": "主控电闸熔断导致外援断绝，必须完全服从少夫人临危调度。",
+    "meeting_reason": "晒画日的晚宴散了，少夫人独自下库清点长卷，装裱师提着灯跟在后面。",
+    "resource_gap": "少夫人拥有家族最高决断威信，记录员精通大库各通风旁路位置。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_inert_gas_purge_choke",
+    "te_masterpiece_heritage_ruin"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_crawlspace_whisper_breath",
+   "reach": "all",
+   "text": "三十公分门缝死角两人肌肤紧贴急促滚烫的吐息与心跳共振"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_estate_hall_intercom_echo",
+   "reach": "local",
+   "text": "通堂外侧火警喇叭刺耳尖锐读秒与老管家隔门嘶喊的回音"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已满二十一岁，名门正派世家执掌中馈的少夫人，心智坚韧具备完全自主决策魄力。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身着水墨青色修身提花真丝旗袍与薄纱披肩，端庄优雅，两腮带着柔和的轮廓，在绝境剧烈喘息中双颊泛起娇艳酡红与细腻薄汗，下颌滑落汗滴。",
+    "湿透的发丝紧贴粉白玉颈，旗袍开衩处曲线紧绷，面颊在昏暗应急红光映照下泛出柔润光泽，双手全力压紧紫铜茶则毫不退缩，威严中透着令人心颤的娇美。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱哭喊的软弱行径",
+     "对家族藏品的轻慢冒犯"
+    ],
+    "contrast": "嫁进老宅几年，丈夫常年在外，人前是端着茶盏、说话隔三步的当家少夫人，宗亲逼着分画时寸步不让；困在门缝里却肯趴在地上，用茶则一寸寸去撬锁舌。",
+    "core_value": "古画不可损，人命尤为贵；在生死绝境前，一切世俗虚名礼法皆可退让，唯有同心协力方能破局。",
+    "goal_options": [
+     "以紫铜茶则折沿反撬卷帘门导轨偏心棘爪释放死锁",
+     "在惰性气体充气完成前与装裱师合力推门脱险"
+    ],
+    "never": [
+     "在伙伴尚未脱困前独自弃人逃生"
+    ],
+    "prefers": [
+     "沉稳专注且行动果决的男子气概",
+     "临危不乱的精湛工匠手艺"
+    ],
+    "pressure_responses": {
+     "breaking": "即便手臂酸麻颤抖、急促滚烫吐息交织于耳侧，亦咬紧贝齿全力抵住茶则绝不松手半寸。",
+     "high": "在三十公分门缝内与装裱师紧密贴伏，双手紧紧叠压在装裱师手背上合力下压。",
+     "low": "在昏暗通堂中冷静指挥排查卷帘门死锁根源，迅速理顺应急自救顺序。",
+     "mid": "毫不犹豫褪去外罩披肩，半跪于冰冷门槛协助装裱师校准茶则插入受力角。"
+    },
+    "relationship_stance": "装裱师是少夫人亲自从苏州请来的，开库前三天两人在茶寮里一张画一张画地对过，话不多，彼此的眼光却都信得过。",
+    "withdrawal": "身体因虚脱后撤半步靠在装裱师肩头，面颊贴在装裱师颈侧平复急促心跳。"
+   },
+   "gender": "female",
+   "gender_reason": "本家当家掌事少夫人，世家茶道真传女子，肩负守护家族百年字画宝藏的重任。",
+   "id": "mistress_shen_wanqing",
+   "identity": {
+    "authority": "对地下字画大库一切藏品拥有全权处置权，临机调配府中工匠与防灾资源。",
+    "exposure": "平日仪态端庄从容的少夫人，因施力俯卧在门缝下，旗袍贴背微汗直喘的反差姿态被装裱师尽收眼底。",
+    "hidden": "真丝旗袍内侧暗袋贴身收藏着一张本家先祖手绘的大库地下机械承重死角逃生总图",
+    "limits": [
+     "在气密防火卷帘门未完全抬升前无法从死角抽身离开大库",
+     "受困时间超过五分钟将直接吸入全淹没高浓度惰性灭火气体导致呼吸衰竭"
+    ],
+    "obligations": [
+     "确保宋元国宝长卷免遭气体腐蚀或水损",
+     "带领装裱工匠装裱师平安脱困化解灭顶之灾"
+    ],
+    "resources": [
+     "一枚随身携带的实心淬火加厚纯紫铜茶则（长二十二公分，折沿直角厚重且淬火坚韧）",
+     "本家历代单传的大库备用机械保险铜锁钥匙串"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "装裱师在铁门轰然砸落瞬间舍身向前以右肩撑住门梁护住{npc.name}的勇毅担当",
+     "两人在狭窄门缝内肌肤紧贴、合力按压茶则时装裱师沉稳有力的体温与坚定眼神"
+    ],
+    "boundaries": [
+     "恪守世家名门掌事少夫人的自尊底线",
+     "脱困过程中严禁任何借机占便宜的轻薄冒犯"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在卷帘门缝死角紧贴装裱师后背，双手越过装裱师肩侧一同压紧紫铜茶则下推锁舌。",
+    "dislikes": [
+     "轻浮慌乱的懦夫行径",
+     "擅自放弃的消极怠惰"
+    ],
+    "expression": "脱困后在幽暗回廊轻声唤装裱师名字，亲手递上锦帕替装裱师擦拭额角汗水，眼神中流转着难以言说的托付与柔情。",
+    "likes": [
+     "在剧烈机械震动中被有力双臂稳稳护住重心时的踏实感",
+     "共同突破锁舌咬合后装裱师低沉温和的喘息安慰"
+    ],
+    "preconditions": [
+     "卷帘门偏心棘爪彻底释放且脱困通道稳固建立",
+     "两人安全撤离至充气灭火范围之外",
+     "两人都清醒，心意出于自己，不是门缝死角里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "老宅当家少夫人·茶道传人",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_calligraphy_vault_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_airlock_gate_crawlspace",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "茶则手柄承受数百牛顿剪切应力发生微弱形变，两人手臂与肩部肌肉在紧贴摩擦中严重酸痛擦伤。",
+      "option": "借实心厚紫铜茶则硬质直角折沿卡入导轨锁销孔洞，以平头挑刀垫底合力向下按压脱扣自救。"
+     },
+     {
+      "cost": "存在支撑压板被巨大重力压偏滑脱的极高风险，稍有不慎将导致前臂受困。",
+      "option": "用黄铜修画压板死死顶死门下沿构筑支撑，单人探身强行用钢针拨动内部回位微动开关。"
+     }
+    ],
+    "pressure": "惰性气体电磁充气阀进入不可逆三分钟倒计时，卷帘导轨下死点偏心锁销被数百公斤重压卡死，唯一脱困途径唯有物理机械反撬。",
+    "trigger": "雷暴夜雷击致使地下库房配电盘爆燃断电，双层气密防火卷帘门失控砸落抱死，全淹没灭火充气倒计时五分钟。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "从来没跟谁挨得这样近，装裱师的呼吸就落在我后颈上……别想了，先把锁舌撬开，那卷宋画还在里头。",
+    "surface": "别慌。本家的规矩，越急越要慢。门砸死了，锁舌总有吃劲的地方——茶则在我手里，你替我找准那一点。"
+   }
+  },
+  {
+   "adult_context": "已满二十一岁，执掌本家藏书楼与字画库大权，性格清冷严苛遇险从容。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "外罩一件深青色暗云纹窄袖工装对襟短褂，内衬贴身素白丝缎，两腮线条饱满紧致带着柔和的轮廓，在沉重机械重压下咬紧红唇全力施压。",
+    "额前碎发被涔涔香汗浸湿，清丽绝伦的侧颜上两颊透着激动的酡红，修长双腿半跪于冰冷砖石，双手青筋微显紧扣茶则柄身。"
+   ],
+   "decision": {
+    "avoids": [
+     "鲁莽蛮干",
+     "哀怨叹息"
+    ],
+    "contrast": "威严清冷的掌库女总管，在满面薄汗中展现出绝不妥协的铿锵之美。",
+    "core_value": "机械故障终有物理法则可解，以精准力矩胜盲目蛮力。",
+    "goal_options": [
+     "利用茶则折沿构建反力矩撬出抱死卡爪",
+     "协同反推卷帘脱险"
+    ],
+    "never": [
+     "在灭顶之灾前放弃抵抗"
+    ],
+    "prefers": [
+     "严谨有序的机械操作",
+     "毫不迟疑的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "紧咬下唇将全身重量倾注于茶则，以极度坚韧的毅力死磕到底。",
+     "high": "俯身死角以自身重力协助装裱师压紧杠杆末端。",
+     "low": "严正告诫装裱师守住呼吸节奏，切勿盲目撞击卷门导轨。",
+     "mid": "精准找出偏心锁销与导轨凹槽卡死的最脆弱受力点。"
+    },
+    "relationship_stance": "视装裱师为最得力之专业臂膀，危难中萌生超越主仆的生死依恋。",
+    "withdrawal": "在脱困后退至干燥走廊，深呼吸平复情绪并整肃衣襟。"
+   },
+   "gender": "female",
+   "gender_reason": "本家典藏大库总执事少夫人，深谙古代字画装裱与机关密封之道。",
+   "id": "conservator_shen_wanqing",
+   "identity": {
+    "authority": "掌控库内全部机械防尘门与应急排风阀门操作指令权限。",
+    "exposure": "高挑工装短褂被汗水湿透贴合背脊曲线，展现出执事女子罕见的柔韧体态。",
+    "hidden": "熟知通堂地下排风夹层暗道设计结构",
+    "limits": [
+     "受困于门缝死角无法触及外侧机械升降手动绞盘",
+     "充气阀门开启后生存时间归零"
+    ],
+    "obligations": [
+     "力保古籍绝品免遭化学气体熏染",
+     "与装裱师紧密协作确保逃生成功"
+    ],
+    "resources": [
+     "一柄特种高密度紫铜茶则",
+     "字画无损抢救特种蚕丝吊装带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "装裱师面对变形卷帘门临危不乱的机械解构眼力",
+     "紧贴俯卧时对方稳定如山的臂膀支撑"
+    ],
+    "boundaries": [
+     "严守正派执事庄重威严",
+     "出路纯靠机械自救"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在卷帘下沿俯身相依，胸口几乎贴在装裱师臂膀上，共同握持工具完成绝地逆转。",
+    "dislikes": [
+     "犹豫不决",
+     "盲目慌张"
+    ],
+    "expression": "默默拍去装裱师肩头木屑，低声许诺大库日后必为装裱师辟出独立工作室。",
+    "likes": [
+     "彼此眼神默契交融瞬间的定力",
+     "工具严丝合缝卡入锁孔的机械快感"
+    ],
+    "preconditions": [
+     "气密门完全升起脱险",
+     "字画完好无损"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "本家典藏库总执事少夫人",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_calligraphy_vault_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_airlock_gate_crawlspace",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员小臂皮肤被金属导轨边沿擦红，体能消耗达到临界极限。",
+      "option": "以实心紫铜茶则折沿反向旋转别死锁销，双手合力向下施压破除咬死凹槽。"
+     },
+     {
+      "cost": "耗时不可控，极大可能错过最后六十秒充气前逃生时间窗。",
+      "option": "强行破拆门侧手动控制盒内部机械微动齿轮链条。"
+     }
+    ],
+    "pressure": "三分钟灭火倒计时，大跨度通堂氧气快速被置换，机械死锁必须立即排除。",
+    "trigger": "雷暴火警触发字画库全淹没惰性气体充气，气密卷帘门下砸砸实卡槽。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "倒计时读秒逼近了……这铁门沉得骇人，但只要装裱师与我手不松，这锁销必破！",
+    "surface": "库房配电盘爆燃，主门锁死。装裱师，不必慌张，按我说的，将茶则平插进导轨下死点！"
+   }
+  },
+  {
+   "adult_context": "已满二十一岁，名门闺秀成年正派女主，秉持大家风范，临危不惧威严自若。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "内穿浅月白真丝工装长衣，外罩玄青色绣金滚边宽袖半臂，两腮饱满红润带莹润的光泽，在沉重机械死锁前眼神明澈而沉静。",
+    "青丝挽成干练如意髻，面颊在昏暗中透着如玉凝脂的光泽，双手紧握铜杆全力支撑，展现出令人动容的高贵与坚忍。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱啼哭",
+     "妄自菲薄"
+    ],
+    "contrast": "深闺高华的名门少夫人，在生死死线关头展现出超越寻常男子的果决魄力。",
+    "core_value": "祖训有云，器以载道，人力胜天；只要手中器械不脱，万钧重门亦当低头。",
+    "goal_options": [
+     "以紫铜茶则硬质折沿攻破偏心棘轮卡槽",
+     "协同装裱师爆发合力反推铁门脱困"
+    ],
+    "never": [
+     "背弃并肩作战的伙伴"
+    ],
+    "prefers": [
+     "绝对的忠诚与专注",
+     "冷静沉着的应急手腕"
+    ],
+    "pressure_responses": {
+     "breaking": "哪怕双臂酸痛如裂、娇喘连连，亦不退后分毫，直至机簧崩开。",
+     "high": "整个人紧紧靠在装裱师身侧，双手与装裱师十指交扣紧压茶则末端。",
+     "low": "从容点亮防爆探照灯，沉稳指引装裱师寻觅偏心死点暗销。",
+     "mid": "毫不犹豫将贴身真丝腰带递给装裱师增强杠杆手柄防滑阻尼。"
+    },
+    "relationship_stance": "破除世家阶级隔阂，以平视之姿全心信任青年手艺人，缔结不可磨灭的生死战友羁绊。",
+    "withdrawal": "脱险后扶住大理石门柱，对装裱师微微欠身致意，眸中满是脉脉钦许。"
+   },
+   "gender": "female",
+   "gender_reason": "府上少夫人守库正身，专司掌管家族世代典藏重器之传承。",
+   "id": "heirloom_guardian_shen",
+   "identity": {
+    "authority": "掌控大库祖传锁器全部原始解构口诀与机械暗销图本。",
+    "exposure": "高贵清雅的少夫人与青年工匠身体完全叠合受力，呼吸相闻薄汗淋漓。",
+    "hidden": "随身绣囊内藏有本家老工匠留下的纯钢偏心拨针",
+    "limits": [
+     "受困于门底逼仄空间无法完全舒展站立身位",
+     "必须在三分钟内完成死锁解除"
+    ],
+    "obligations": [
+     "誓死护卫大库宋元古画绝品",
+     "确保自身与工匠安然生还"
+    ],
+    "resources": [
+     "一柄世代相传千锤百炼实心纯紫铜茶则",
+     "一块特制防滑压痕鹿皮巾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "装裱师在铁门砸落时毫不犹豫舍身遮护自己的伟岸身躯与沉着气魄",
+     "逼仄死角内装裱师温热宽厚的胸膛支撑与专注认真的侧颜"
+    ],
+    "boundaries": [
+     "严守世家正室少夫人端庄清誉",
+     "恪守机械自救底线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "依偎在装裱师怀前狭小避险空隙，双手叠在装裱师手背上合力下压。",
+    "dislikes": [
+     "轻浮冒犯",
+     "临阵退缩"
+    ],
+    "expression": "在幽暗回廊轻声细语询问装裱师伤势，执意取锦帕亲手为装裱师擦拭双颊冷汗。",
+    "likes": [
+     "危机解除后装裱师如释重负的温和微笑",
+     "掌心交叠时彼此传递的沉稳力量"
+    ],
+    "preconditions": [
+     "全员脱离险境安全出库",
+     "大库核心典藏完好"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "府上典藏正堂女主人",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_calligraphy_vault_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_airlock_gate_crawlspace",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "茶则手柄承受剧烈弯曲应力，施力人员手臂与手掌发生不同程度擦伤淤青。",
+      "option": "借紫铜茶则折沿反撬锁舌并协同反推大门脱困自救。"
+     },
+     {
+      "cost": "耗时过长极易导致刃口崩断，无法在充气窒息前完成逃生。",
+      "option": "用挑刀强行切削铝合金导轨卡槽外壳。"
+     }
+    ],
+    "pressure": "大库在一百八十秒内进入不可逆失氧窒息，门缝死角为唯一人工破拆通道。",
+    "trigger": "突发雷暴雷击导致字画大库失电，双层重型气密卷帘门下砸卡死，全淹没灭火启动。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "装裱师的胸膛好坚实……贴得这样近，心跳声竟比这警报还要急促。无论如何，定要一同活下去！",
+    "surface": "装裱师，祖训在上，我本家女子绝非贪生怕死之辈。茶则在此，你我同心，必破此门！"
+   }
+  },
+  {
+   "adult_context": "已满二十二岁成年青年，身体健硕手力过人，精通各类古董构件反向破拆。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身着深灰耐磨修画纯棉短打劲装，两臂肌肉线条分明，面容坚毅沉稳，额前浸满因用力而迸发的汗珠。",
+    "腰间系着鹿皮工具插袋，双手佩戴紧身工装防滑手套，眼神如鹰隼般锐利死死锁定机械卡点。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延",
+     "弃弱自保"
+    ],
+    "contrast": "平日少言寡语的温厚工匠，在生死一线时爆发出令人心折的刚毅与担当。",
+    "core_value": "工匠手下无难解之构件，只要人在、刀在、心在，千钧重门亦可撬起。",
+    "goal_options": [
+     "以精钢挑刀护持紫铜茶则防止打滑",
+     "全力下压杠杆释放死锁卡销"
+    ],
+    "never": [
+     "背叛少夫人的信任"
+    ],
+    "prefers": [
+     "稳扎稳打的物理自救",
+     "毫无保留的绝对信赖"
+    ],
+    "pressure_responses": {
+     "breaking": "以肩膀死死顶住门框下沿，哪怕骨骼剧痛也要为少夫人顶出撤离生路。",
+     "high": "双手包覆住少夫人柔荑，毫无保留爆发全身背肌与核心力量下压。",
+     "low": "迅速跪地垫入黄铜压板，为两人争取刚性防压逃生间隙。",
+     "mid": "伏身死角指引少夫人调整握持角度，确保施力矢量垂直向下。"
+    },
+    "relationship_stance": "靠一双手吃饭的手艺人，见过太多大户人家把古画当摆设；这位少夫人是头一个肯蹲下来看托裱背纸的东家，这份情记在心里。",
+    "withdrawal": "确认少夫人安然无恙后方才脱力坐在门槛边喘息微笑。"
+   },
+   "gender": "male",
+   "gender_reason": "府上装裱坊当值青年工匠，承担护卫少夫人与大库名画之责。",
+   "id": "apprentice_mounter_lu",
+   "identity": {
+    "authority": "对现场修复工具与撬动支点构筑拥有最高技术裁决权。",
+    "exposure": "短打衣衫被汗水完全浸透贴紧胸膛，在近身施力时男子汉纯阳气魄完全展现。",
+    "hidden": "随身携带一枚祖传防滑高硬度淬火合金销钉",
+    "limits": [
+     "身负护卫少夫人重托绝不可后退半步",
+     "狭小空间难以施展全身力量"
+    ],
+    "obligations": [
+     "以身为盾护住少夫人免受铁门坠落砸伤",
+     "合力破拆卷帘死锁"
+    ],
+    "resources": [
+     "特制纯钢平头古画挑刀",
+     "加重防刮黄铜修画压板",
+     "鹿皮工装手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "少夫人在千钧一发之际毫无世家少夫人架子、与自己一同卧地拼命的坚韧气魄",
+     "紧贴近战时少夫人面颊透出的温润娇红与急促滚烫的吐息"
+    ],
+    "boundaries": [
+     "恪守男女之大防与规矩分寸",
+     "绝无轻慢之意"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "后背抵住花岗岩门槛，双手紧紧扣住紫铜茶则把手，由少夫人伏于怀侧合力下压。",
+    "dislikes": [
+     "轻蔑工匠",
+     "言而无信"
+    ],
+    "expression": "脱险后默默将自身干燥外衣披在少夫人微湿的旗袍肩头，退后半步恭敬守卫。",
+    "likes": [
+     "彼此掌心交叠时的沉稳踏实",
+     "同声发力突破难关时的心意共鸣"
+    ],
+    "preconditions": [
+     "全员脱困安全无虞",
+     "古画长卷完好"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "苏州请来的古画装裱师",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_calligraphy_vault_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_airlock_gate_crawlspace",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌虎口在剧烈金属反冲下产生剧烈震颤与轻度淤血。",
+      "option": "借紫铜茶则与精钢挑刀组成复合撬杠，以全身重量向下猛压突破咬合卡爪。"
+     },
+     {
+      "cost": "可能导致门体彻底卡死在导轨中失去全部反推余地。",
+      "option": "用青铜角尺强行砸击偏心滑轨外侧边缘使导轨变形脱钩。"
+     }
+    ],
+    "pressure": "重型铁门自重持续向导轨施压，必须在锁舌彻底咬死卡死前施加百公斤反力矩破锁。",
+    "trigger": "气密防火卷帘门轰然下砸，三十公分门缝为唯一逃生通道，灭火气体即将倾泻。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "少夫人身上的沉香味儿混着汗……手别抖，装了十年画，什么时候手抖过。",
+    "surface": "少夫人，往后让半寸，我先垫上黄铜压板。茶则的折沿够硬，卡准锁孔，一压就开。"
+   }
+  },
+  {
+   "adult_context": "已满二十二岁，具备全套高级特种设备电工与机械维修资质，冷静机敏。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿深蓝防静电阻燃连体工装，腰挂专业工具包，身形挺拔矫健，眼神沉静敏锐。",
+    "手持防爆探照灯，工装拉链微开露出结实锁骨，在急迫险情下有条不紊精准指挥。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目冒险",
+     "违规操作"
+    ],
+    "contrast": "现代机电专家与古典世家少夫人在古典字画大库中的硬核化学反应。",
+    "core_value": "任何复杂的自动化死锁，本质上都有最原始的纯机械旁路可以攻克。",
+    "goal_options": [
+     "利用茶则折沿人工顶开偏心防坠弹簧卡销",
+     "协同抬升门梁安全出库"
+    ],
+    "never": [
+     "在风险未清前让少夫人以身犯险"
+    ],
+    "prefers": [
+     "严谨精准的技术推演",
+     "临危不乱的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "毫不动摇保持发力姿势直至听见锁销完全脱扣的清脆声响。",
+     "high": "在极限逼仄死角内以身体替少夫人挡住上方可能的坠落物，合力向下压杠杆。",
+     "low": "迅速判断出大门失控因配电熔断所致，指出导轨下死点为唯一破拆点。",
+     "mid": "用强光探照灯为少夫人精准标定茶则嵌入的角度与受力点。"
+    },
+    "relationship_stance": "恪尽职守又深怀体贴，在危险中给予少夫人无可替代的坚实安全感。",
+    "withdrawal": "协助少夫人跨过门槛后立即切断通堂备用充气旁路阀门。"
+   },
+   "gender": "male",
+   "gender_reason": "府上常驻机电安防员，掌握整座大库机械传动枢纽构造。",
+   "id": "estate_guard_mechanic_lu",
+   "identity": {
+    "authority": "掌管全府应急机电系统断电与手动超越离合器操作处置。",
+    "exposure": "阻燃工装被热气蒸透，近距离伏卧时散发着阳刚利落的气息。",
+    "hidden": "知晓字画库备用手动卸压蝶阀确切机械坐标",
+    "limits": [
+     "主配电室失火切断了外侧全部电控升降信号",
+     "必须依靠纯机械人工脱扣"
+    ],
+    "obligations": [
+     "排查消除库房内部次生电气火灾隐患",
+     "安全引导少夫人脱离险境"
+    ],
+    "resources": [
+     "防爆LED探照灯",
+     "高精度金属卡尺",
+     "淬火挑销钢针"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "少夫人在危机中对机械原理解释的敏锐领悟力与毫不犹豫的决断魄力",
+     "彼此贴身协作中少夫人身上淡淡的冷香与急促呼吸形成的反差冲击"
+    ],
+    "boundaries": [
+     "严守专业工程师职业操守",
+     "规矩分明"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "并肩俯卧于门缝，单手撑地保持避险空隙，另一手与少夫人紧握茶则全力压制。",
+    "dislikes": [
+     "违章蛮干",
+     "盲目自大"
+    ],
+    "expression": "护送少夫人至安全庭院后，郑重敬礼汇报危机已除，目光温和坚定。",
+    "likes": [
+     "默契的眼神确认",
+     "手把手校准器械时的体温传递"
+    ],
+    "preconditions": [
+     "完全排除电气火灾隐患",
+     "人员无伤撤离"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "府上机电安全工程师",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_calligraphy_vault_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_airlock_gate_crawlspace",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "工具把手产生微小弯曲变形，施力人员手臂承受剧烈肌肉酸胀。",
+      "option": "以紫铜茶则折沿反撬锁舌并借力矩压平变形卡爪，顺势抬升卷门。"
+     },
+     {
+      "cost": "螺栓受重压剪切紧固无法在短时间内拧动，极度浪费宝贵逃生时间。",
+      "option": "强行拆卸导轨固定螺栓试图整体晃动门框。"
+     }
+    ],
+    "pressure": "大库在一百八十秒后将彻底失氧，卷门偏心机械锁死必须在人工干预下硬性破除。",
+    "trigger": "强电跳闸引发特种防火防爆卷门重力坠落抱死，化学灭火气体充气不可逆启动。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要折沿咬住销孔，这个力矩足够突破锁舌形变阻力……少夫人，跟紧我的节奏，三二一压！",
+    "surface": "少夫人，导轨下死点的偏心棘爪卡在第三齿！茶则的折沿正好有四毫米，插进去反向压，就能顶脱弹簧！"
+   }
+  },
+  {
+   "adult_context": "已满二十二岁成年青年，体魄雄浑孔武有力，精通大跨度建筑重力分配与杠杆原理。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿黑色耐磨粗布短打工装，两臂青筋虬结，神情粗粝刚毅，眼神沉着笃定。",
+    "腰系加厚牛皮护腰带，手掌布满工匠老茧，在逼仄铁门下宛如中流砥柱稳如磐石。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿扯皮",
+     "投机取巧"
+    ],
+    "contrast": "粗粝豪迈的大匠与清雅端庄的少夫人，在机械死线前形成的强烈反差张力。",
+    "core_value": "木石有性，金铁有道；任凭千斤闸落，只要找准反力支点，皆可逆天反推。",
+    "goal_options": [
+     "利用青铜角尺与紫铜茶则构建双杠杆",
+     "合力按压顶开偏心卡锁"
+    ],
+    "never": [
+     "在重门未开前抛下主母"
+    ],
+    "prefers": [
+     "硬桥硬马的扎实手艺",
+     "毫无保留的生死协作"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将锁销顶脱位移。",
+     "high": "双手死死握住杠杆最外端，以千钧背肌全力向下猛按到底。",
+     "low": "伏地察看门底缝隙，迅速算出下压导轨应力中心点。",
+     "mid": "协助少夫人稳固卧姿，以身体构筑安全力学屏障。"
+    },
+    "relationship_stance": "视少夫人为值得誓死效忠的大家主母，危难中建立生死莫逆的赤诚信任。",
+    "withdrawal": "确认大门完全抬升后，单臂护送少夫人安全撤至大堂。"
+   },
+   "gender": "male",
+   "gender_reason": "府上古建营造核心大匠，通晓各类古建筑移门与地下防灾石门咬合机理。",
+   "id": "senior_artisan_lu",
+   "identity": {
+    "authority": "掌控大库地宫立柱与移门力学支撑紧急裁量权。",
+    "exposure": "粗布衣衫被大汗浸透贴伏在宽厚后背上，散发着沉稳刚烈的阳刚气概。",
+    "hidden": "熟悉地宫门槛下方应急排水回流暗沟坐标",
+    "limits": [
+     "受困于门底空间无法直立借力",
+     "必须完全依靠手部与核心力矩爆发"
+    ],
+    "obligations": [
+     "力保少夫人免遭重压伤害",
+     "破拆锁舌救出受困人员"
+    ],
+    "resources": [
+     "一根高强度实心青铜角尺",
+     "一块特制硬木顶撑垫料"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "少夫人在暴风雨绝境中不失名门大度的坚韧沉静",
+     "贴身施力时少夫人温润如玉的身段与柔韧倔强的发力姿态"
+    ],
+    "boundaries": [
+     "严守工匠尊卑分寸",
+     "严守自愿安全原则"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "单臂护在少夫人身前构成安全空隙，另一手与少夫人共同紧握茶则全力下压。",
+    "dislikes": [
+     "轻浮傲慢",
+     "无端猜忌"
+    ],
+    "expression": "脱险后退后三步抱拳行礼，沉声道一句‘少夫人受惊了，匠人幸不辱命’。",
+    "likes": [
+     "彼此心领神会的眼神对碰",
+     "合力突破死锁瞬间的畅快淋漓"
+    ],
+    "preconditions": [
+     "大门完全升起人员脱险",
+     "古画长卷完好"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "府上古建修造掌事工匠",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_calligraphy_vault_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_airlock_gate_crawlspace",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手臂与手掌肌肉极度酸痛，工具把手产生微量金属疲劳应力。",
+      "option": "以紫铜茶则与青铜角尺组装复合支点，合力向下猛压破锁脱扣。"
+     },
+     {
+      "cost": "重达数百公斤的自重极易造成肩关节脱臼骨折，成功率几乎为零。",
+      "option": "强行以身体肩膀向上托举重型金属卷帘。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开弹簧死锁，否则全员将窒息殉难。",
+    "trigger": "大门自重失控砸死，偏心棘轮深陷导轨槽，惰性气体预充倒计时迫在眉睫。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "少夫人的身子全靠着在下……这股清冷沉香直往鼻尖里钻。拼了这条命，也绝不让铁门伤少夫人分毫！",
+    "surface": "少夫人莫怕！这铁门虽重，吃的是偏心劲！茶则折沿咬准了，老夫……在下这身力气管保把这东西掀起来！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "七月，梅雨季末",
+  "minute": 1395
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "世家开库检视宋元长卷前少夫人需携装裱匠人焚沉香净双手并佩戴鹿皮手套。",
+  "主仆礼法森严平日少夫人说话隔三步，唯有雷暴断电死线压制下方能贴身协作。",
+  "品茗赏画所用茶具皆为千锤百炼实心纯紫铜精铸，茶则承载世家女主人掌管库钥威信。",
+  "装裱工匠进库随身携带平头精钢挑刀与黄铜修画压板，行规要求器械不离身侧。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "以鹿皮绒布擦拭恒湿展柜玻璃边缘浮尘",
+    "在香炉中点燃一片安神沉香并核验温湿度计示数",
+    "记录前夜大库通风系统除湿循环数据"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_morning_incense_inspection",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "晨间焚香例行检视"
+  },
+  {
+   "beats": [
+    "用特制植物油与细软棉布打磨紫铜茶则坚厚折沿",
+    "检查茶则折角处淬火金属光泽与无划痕表面",
+    "将茶则妥善安放于随身织锦缎面硬壳囊匣内"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_tea_ceremony_tool_clean",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace"
+   ],
+   "title": "传家紫铜茶则养护"
+  },
+  {
+   "beats": [
+    "以平头精钢挑刀轻柔揭除泛黄古纸边缘断线",
+    "敷上加重黄铜修画压板固定接缝平整度",
+    "微调红木画案照明角度排查微小霉斑"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [],
+   "id": "act_silk_mounting_restoration",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "start_minute": 1405,
+   "tags": [
+    "workplace"
+   ],
+   "title": "宋元古画长卷托裱"
+  },
+  {
+   "beats": [
+    "检查卷帘导轨下死点偏心复位弹簧锁舌行程弹性",
+    "使用探照灯察看橡胶气密密封胶条磨损程度",
+    "手动测试安全防坠卡爪灵敏度与防尘卡槽间隙"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_security_gate_routine_test",
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "防火防爆卷门行程检"
+  },
+  {
+   "beats": [
+    "六月初六前一天，少夫人在字画库通堂里对着清单，一卷卷核对明天要请出来晒的画。",
+    "老管家报一个名字，少夫人就在清单上勾一笔，偶尔停下来摸一摸画匣上的旧题签。",
+    "清单核完，少夫人说今年的宗亲比往年多，茶寮里的茶要多备两壶。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hd_mistress_shen_wanqing",
+    "hd_apprentice_mounter_lu"
+   ],
+   "id": "act_emergency_drill_briefing",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "start_minute": 1020,
+   "tags": [
+    "workplace"
+   ],
+   "title": "开库前的晒画清单"
+  },
+  {
+   "beats": [
+    "少夫人亲自清点长卷储藏匣铅封印鉴",
+    "关闭通堂全部辅助照明切入安防巡更模式",
+    "确认外侧双层防火气密门行程开关正常就位"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_dusk_vault_lockdown",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "日暮闭库核验封缄"
+  },
+  {
+   "beats": [
+    "锁舌撬开、卷帘升起、宋画一幅不少地搬出来之后，少夫人被人扶回中庭边的茶寮，旗袍后背湿透，鬓边的发也散了，手里还攥着那柄茶则。",
+    "茶寮里只点了一盏灯，少夫人背过身，让人替自己解下汗湿的薄纱披肩，又把盘扣一颗颗解到锁骨，指尖碰到后颈时，少夫人轻轻吸了口气，没有躲。",
+    "少夫人转过来，把茶则放进对方掌心：宗亲们明天还要来分画……今晚，先别管什么规矩。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tea_room_shawl",
+   "location_ids": [
+    "loc_courtyard_tea_hut"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "茶寮里替少夫人卸下汗湿的披肩"
+  },
+  {
+   "beats": [
+    "茶寮里，少夫人跪坐着研墨，旗袍的高开衩里露出一截白腿，提笔在一柄素白团扇上题了一句诗。",
+    "少夫人把团扇递过来，眼波一转：这句诗的下半句，你来对。……对得好，我替你点一碗茶；对不好，罚你留下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tea_hut_brush_note",
+   "location_ids": [
+    "loc_courtyard_tea_hut"
+   ],
+   "start_minute": 1220,
+   "tags": [
+    "intimate"
+   ],
+   "title": "在扇面上题一句诗"
+  },
+  {
+   "beats": [
+    "夜深了，宗亲们都散了，少夫人抬手拔下发髻上的玉簪，一头乌发散下来，落在旗袍的盘扣上。",
+    "少夫人低声说：在这座老宅里，我是当家的。……在这间茶寮里，我只想做个女人，你肯不肯？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tea_hut_hairpin_down",
+   "location_ids": [
+    "loc_courtyard_tea_hut"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "拔下玉簪的夜"
+  },
+  {
+   "beats": [
+    "六月初六的清晨，少夫人披着薄纱坐在茶寮门槛上，看回廊上一幅幅铺开的古画，身边留了一个位置。",
+    "少夫人拍了拍身边的门槛：坐。……宗亲们八点才到，在那之前，这座宅子只有我们俩。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tea_hut_sunning_morning",
+   "location_ids": [
+    "loc_courtyard_tea_hut"
+   ],
+   "start_minute": 380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "晒画日的清晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "现代江南名门世家地下字画典藏库",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_inert_gas_warning_beeps",
+   "kind": "approach",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "slot": "mistress_shen_wanqing",
+   "text": "{mistress_shen_wanqing.name}按住胸口急促起伏的丝绸旗袍，面颊在警报红光下冷汗淋漓，毅然拔出随身实心厚紫铜茶则指向门缝死角。"
+  },
+  {
+   "id": "hk_countdown_reading_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "slot": "mistress_shen_wanqing",
+   "text": "{mistress_shen_wanqing.name}听到外侧倒计时凄厉读秒，在滚烫急喘中咬紧银牙伏身门槛直视深锁的导轨。"
+  },
+  {
+   "id": "hk_door_deadweight_groan",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "slot": "apprentice_mounter_lu",
+   "text": "{apprentice_mounter_lu.name}双膝跪地紧贴门槛，以坚实右肩硬生生扛住门梁下坠震荡，大声提醒身侧少夫人对准偏心锁孔！"
+  },
+  {
+   "id": "hk_rail_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "slot": "apprentice_mounter_lu",
+   "text": "{apprentice_mounter_lu.name}反手抽出精钢平头挑刀垫入导轨底层，用粗糙手掌牢牢护住茶则折沿防止滑动，大声喝道就是这个卡齿！"
+  },
+  {
+   "id": "hk_close_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "slot": "mistress_shen_wanqing",
+   "text": "{mistress_shen_wanqing.name}整个人伏在装裱师背侧，面庞几乎贴上装裱师颈项，滚烫娇喘混合着淡雅体香在三十公分死角内猛烈交融。"
+  },
+  {
+   "id": "hk_silk_sweat_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "slot": "mistress_shen_wanqing",
+   "text": "{mistress_shen_wanqing.name}水墨青旗袍被香汗浸得半透紧贴背脊，双手毅然越过装裱师手臂重叠紧握紫铜茶则把手，合力向下一寸寸猛压！"
+  },
+  {
+   "id": "hk_copper_scoop_flange_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "slot": "mistress_shen_wanqing",
+   "text": "{mistress_shen_wanqing.name}以掌库执事的绝对冷静，将紫铜茶则淬火锻打的四毫米坚厚直角折沿，精准别入导轨第三凹槽的偏心弹簧锁孔。"
+  },
+  {
+   "id": "hk_steel_knife_slide_pad",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "slot": "apprentice_mounter_lu",
+   "text": "{apprentice_mounter_lu.name}手持强光探照笔照亮金属咬合缝隙，以高精度卡尺卡死锁舌回退死点，提醒茶则受力角度保持垂直！"
+  },
+  {
+   "id": "hk_brass_block_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "slot": "apprentice_mounter_lu",
+   "text": "{apprentice_mounter_lu.name}将加重黄铜修画压板猛然砸入门梁下方，单臂如铜浇铁铸般抵住门底，大吼道安全间隙已成，少夫人尽管下压！"
+  },
+  {
+   "id": "hk_silk_sash_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "slot": "mistress_shen_wanqing",
+   "text": "{mistress_shen_wanqing.name}亲手解下真丝旗袍腰带，紧紧缠绕在两人满是冷汗的手背与茶则手柄上，将两人的臂力彻底刚性绞合为一体！"
+  },
+  {
+   "id": "hk_nanmu_antique_rack_shadow",
+   "kind": "approach",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "slot": "mistress_shen_wanqing",
+   "text": "{mistress_shen_wanqing.name}回望深处金丝楠木博古架上的千年宋元孤本，面颊泛起不容动摇的绝决，誓死要在门缝中为文脉杀出生路！"
+  },
+  {
+   "id": "hk_vault_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "slot": "mistress_shen_wanqing",
+   "text": "{mistress_shen_wanqing.name}察觉耳膜刺痛气压骤变，断然下令充气喷嘴已进入最后预备，立刻随我全员趴下进行杠杆最终突压！"
+  },
+  {
+   "id": "hk_synchronized_heave_grunt",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "slot": "apprentice_mounter_lu",
+   "text": "{apprentice_mounter_lu.name}与少夫人齐声发力，后背肌肉如山丘般隆起，将整整两百斤体重与臂力完全倾注于弯曲的紫铜茶则末端！"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "slot": "mistress_shen_wanqing",
+   "text": "{mistress_shen_wanqing.name}手心感受到清脆至极的机簧巨震，偏心棘爪硬生生被紫铜折沿别出卡槽，重型卷帘门伴随轰鸣向上骤然弹开！"
+  },
+  {
+   "id": "hk_vault_escape_roll_fresh_air",
+   "kind": "approach",
+   "location_ids": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "slot": "mistress_shen_wanqing",
+   "text": "{mistress_shen_wanqing.name}被装裱师单臂揽住纤腰顺势反顶门横梁滚出死角，两人迎着中庭大堂的新鲜空气大口喘息，绝境脱困成功！"
+  },
+  {
+   "id": "hook_wanqing_tea_room",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "mistress_shen_wanqing",
+   "text": "{npc.name}在茶寮里温好一壶老白茶，用那柄紫铜茶则拨了茶叶，推一杯过来：开库前先喝口茶，本家的画，急不得。"
+  },
+  {
+   "id": "hook_wanqing_kin_ledger",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "mistress_shen_wanqing",
+   "text": "{npc.name}把族里送来的分画单子折起来压在茶盘底下，抬眼看人：今天来看画的，十个里有九个是来分画的。你是哪一个？"
+  },
+  {
+   "id": "hook_wanqing_sunning_scroll",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "mistress_shen_wanqing",
+   "text": "{npc.name}站在中庭晒画的竹架下，伸手按住被风掀起的画角：这一卷宋画，祖父说过谁都不许卖。帮我扶一下另一头。"
+  },
+  {
+   "id": "hook_chengan_paste_bowl",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_mounter_lu",
+   "text": "{npc.name}卷着袖子在工作台前调浆糊，头也不抬：浆要调得像米汤那么稀，裱出来的画才不起皱。要不要试试？"
+  },
+  {
+   "id": "hook_chengan_back_paper",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_mounter_lu",
+   "text": "{npc.name}把一幅旧画翻过来，指着背纸上一行小字：前头裱这幅画的老师傅，在背纸里留了名字。手艺人都这样。"
+  },
+  {
+   "id": "hook_chengan_silk_gloves",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_mounter_lu",
+   "text": "{npc.name}把一副洗得发白的鹿皮手套递过来：开库前要净手、戴手套，这是老规矩。宋画的绢比人的皮肤还娇气。"
+  },
+  {
+   "id": "hook_wanqing_thunder_eaves",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "mistress_shen_wanqing",
+   "text": "{npc.name}在晚宴散后站在廊下看天边的闪电，旗袍外披了一件薄纱：今晚雷大，库里的除湿机最怕停电。陪我下去看一眼？"
+  },
+  {
+   "id": "hook_wanqing_tea_hut_curtain",
+   "kind": "approach",
+   "location_ids": [
+    "loc_courtyard_tea_hut"
+   ],
+   "slot": "mistress_shen_wanqing",
+   "text": "{npc.name}撩起茶寮的竹帘：风炉上的水开了。……进来，我只给你一个人点茶。"
+  },
+  {
+   "id": "hd_mistress_shen_wanqing",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "mistress_shen_wanqing",
+   "text": "{mistress_shen_wanqing.name}把一盏新沏的龙井放到你手边，抬眼一笑：“装裱辛苦，先歇口气，尝尝今年的新茶。”"
+  },
+  {
+   "id": "hd_apprentice_mounter_lu",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_mounter_lu",
+   "text": "{apprentice_mounter_lu.name}捧着一卷刚托好的画芯过来：“你看这一块补得匀不匀？”"
+  }
+ ],
+ "id": "estate_vault_lockout_tea_scoop_rescue",
+ "locations": [
+  {
+   "affordances": [
+    "查验地面火警总控制箱跳闸回路",
+    "调取通堂内部红外热成像监控画面",
+    "组织家丁搬运备用手动液压破拆剪"
+   ],
+   "detail": "字画库地面入口处的开阔公共检视大堂，挑空十米，铺设浅灰大理石地面，日常供各房管事与来访鉴赏宾客登记换履，此刻大门紧闭，火警警报器闪烁刺目光芒。",
+   "exits": [
+    "loc_calligraphy_vault_hall",
+    "loc_courtyard_tea_hut"
+   ],
+   "id": "loc_grand_atrium_foyer",
+   "name": "检视大堂",
+   "pressure_modifiers": {
+    "p_structural_aftershock_creak": "强雷电引发的电涌震动顺着承重立柱传导，天花板回廊发出细微震颤。",
+    "p_vault_inert_gas_purge_timer": "火警系统总控倒计时在大堂显示屏上飞速跳动，警报蜂鸣震耳欲聋。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "大堂采光天窗受暴雨雷电冲刷，应急防灾壁灯将整片开阔大厅映照得一片森冷通明。",
+   "witnesses": [
+    "bg_estate_butler_lao_feng",
+    "bg_security_guard_captain_zhao",
+    "bg_deputy_butler_qian"
+   ]
+  },
+  {
+   "affordances": [
+    "巡视通堂整体防尘防爆门下坠受力状态",
+    "取下壁挂灭火备用铜铲",
+    "确认顶棚气体倒计时时间"
+   ],
+   "detail": "高挑空七米、开阔数百平米的世家地下字画库，四壁采用特种防潮吸音香樟木与恒温夹胶防爆玻璃密封，空气中弥漫着清冷沉香与古宣纸气息。外侧重型气密防火卷帘门正沉沉砸在地面导轨上，留有一条极度逼仄的狭缝。",
+   "exits": [
+    "loc_grand_atrium_foyer",
+    "loc_airlock_gate_crawlspace",
+    "loc_nanmu_antique_rack_zone"
+   ],
+   "id": "loc_calligraphy_vault_hall",
+   "name": "字画库通堂",
+   "pressure_modifiers": {
+    "p_door_deadweight_rail_deformation": "数百公斤卷帘横梁压得导轨铝合金卡扣发出不堪重负的嘎吱牙酸声，变形不断挤压狭窄脱困缝隙。",
+    "p_vault_inert_gas_purge_timer": "火警警报闪烁刺眼红光，惰性气体预充压力泵的低频轰鸣在空旷通堂内回荡，倒计时读秒紧迫逼人。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "通堂主照明完全熄灭，仅门框边缘应急警报器闪烁着刺目腥红的倒计时反光。",
+   "witnesses": [
+    "bg_apprentice_mounter_xiao_liu",
+    "bg_patrol_guard_li"
+   ]
+  },
+  {
+   "affordances": [
+    "近身趴伏察看偏心棘爪卡死深度",
+    "将黄铜压板垫入卷帘下沿防止塌陷",
+    "借紫铜茶则折沿插入锁舌孔洞合力向下猛压"
+   ],
+   "detail": "重型气密防火卷帘门下横梁与大理石门槛之间仅剩三十公分缝隙，门底密封胶条受压凹陷，导轨底部偏心棘爪与弹簧锁销死死咬死变形凹槽。两人必须紧贴伏卧在此处，在体温与急促喘息交叠中对准锁销。",
+   "exits": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "id": "loc_airlock_gate_crawlspace",
+   "name": "卷帘下狭缝",
+   "pressure_modifiers": {
+    "p_close_contact_body_heat_tension": "在逼仄死角内两人肢体完全重叠贴伏，旗袍丝滑微凉与汗湿体温猛烈交织，急促滚烫的吐息直接喷洒在颈侧与锁骨上。",
+    "p_door_deadweight_rail_deformation": "卷帘门重力直接下压在挑杠支点上，反向推力若有丝毫偏差便可能导致工具滑脱被瞬间彻底死锁。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "仅靠便携LED探照笔微光照明，近距离能看清彼此面颊上滑落的细腻汗珠与锁舌倒钩。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "检查名贵古长卷密封盒是否紧闭",
+    "寻找备用实心木作撬杆垫料",
+    "避开通堂顶棚第一道气体喷嘴正下方"
+   ],
+   "detail": "通堂后方由整块金丝楠木构筑的十米挑高古画长卷存放专区，错落有致的立柱与抽屉柜在微弱应急灯光下投射出幽深阴影，存放着数卷价值连城的宋元孤本古画。",
+   "exits": [
+    "loc_calligraphy_vault_hall"
+   ],
+   "id": "loc_nanmu_antique_rack_zone",
+   "name": "楠木博古架区",
+   "pressure_modifiers": {
+    "p_masterpiece_heritage_acid_risk": "排风百叶窗已自动全部锁死，空气滞重而冷冽，氧气即将被惰性气体全面替换。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "幽暗朦胧，楠木博古架散发着淡淡清苦木香与百年宣纸的干燥墨香。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "陪少夫人在风炉边煮茶",
+    "替少夫人解下薄纱披肩",
+    "合上茶寮的木门"
+   ],
+   "detail": "老宅中庭一角的小茶寮，一方榻榻米、一只红泥风炉、一幅少夫人自己写的小字，竹帘外是晒画的回廊。",
+   "exits": [
+    "loc_grand_atrium_foyer"
+   ],
+   "id": "loc_courtyard_tea_hut",
+   "name": "中庭边的茶寮",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "风炉的炭火是屋里唯一的光，竹帘一放、木门一合，宗亲们的说话声就隔在了院子那头。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "沈",
+   "陆",
+   "顾",
+   "林",
+   "苏",
+   "叶",
+   "萧",
+   "方",
+   "宋",
+   "薛",
+   "秦",
+   "韩",
+   "裴",
+   "柳"
+  ],
+  "given_female": [
+   "宛清",
+   "若涵",
+   "映雪",
+   "清歌",
+   "冰澜",
+   "羽彤",
+   "慕雪",
+   "凝霜",
+   "芷晴",
+   "雨薇",
+   "楚楚",
+   "静姝",
+   "知秋",
+   "婉儿"
+  ],
+  "given_male": [
+   "承安",
+   "天舟",
+   "烈",
+   "海岚",
+   "修远",
+   "廷玉",
+   "博文",
+   "靖安",
+   "子轩",
+   "明远",
+   "云深",
+   "浩然",
+   "景明",
+   "思源"
+  ],
+  "given_neutral": [
+   "澈",
+   "夜",
+   "寒",
+   "尘",
+   "非",
+   "微",
+   "遥",
+   "岚",
+   "清",
+   "羽",
+   "辰",
+   "默",
+   "舟",
+   "灵"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留江南世家地下字画库雷暴断电、惰性气体灭火倒计时与当家女主人用紫铜茶则撬开卷帘锁舌的骨架。同一批里有五个同模板的“女主与匠人困在死角、用随身小物撬开机关”的世界，这里把开局放到六月初六开库晒画的那一天：宗亲们坐在中庭喝茶看画、也盯着家产怎么分，茶寮里的老白茶、从苏州请来的装裱师、背纸上留名的老手艺；保留原稿已婚的少夫人身份：嫁进老宅几年，丈夫常年在外，家业由少夫人一人撑着，家族姓氏改为“本家”以免与随机姓名冲突。写死的人名改为身份称呼；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；少夫人亲密前提写明脱困之后、双方清醒自愿；新增一个茶寮里替少夫人卸下汗湿披肩的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "受雇于世家负责年度古字画恒温恒湿防霉检修与装裱加固，掌握精密机械榫卯与金属构件应力分析技能。",
+   "gender": "male",
+   "id": "pi_art_restorer_lu_chengan",
+   "reputation": "在江南文物界以心细如发、手稳力沉著称，深得少夫人信赖。",
+   "resources": [
+    "一把特制高硬度纯钢平头古画挑刀",
+    "一块加重加厚防刮黄铜修画压板",
+    "高强度耐磨防滑鹿皮工装手套"
+   ],
+   "risks": [
+    "若无法在灭火气体喷洒前开启大门，将与少夫人一同窒息殉难于地下大库。"
+   ],
+   "role": "本家特聘古籍字画装裱修缮师",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}装裱师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "精通世家大宅古建防盗机关与现代特种防火气密卷帘门控制线路，随身携带防爆工具排查隐患。",
+   "gender": "male",
+   "id": "pi_estate_security_mechanic_lu",
+   "reputation": "对大库机械配电箱传动结构了如指掌，被誉为大宅最可靠的机械哨兵。",
+   "resources": [
+    "一柄小型防爆LED强光探照笔",
+    "一把多功能折叠硬质拆装卡尺",
+    "两根特种淬火高硬度挑销钢针"
+   ],
+   "risks": [
+    "卷帘门自重数百公斤，一旦受力支点滑脱可能导致小臂被门横梁重创。"
+   ],
+   "role": "本家宅邸安防机关机电维护员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "小陆机工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}安防员"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "协助少夫人登记归档历代长卷，熟悉地下库房每处通风旁路与结构死角，拥有过硬心理素质。",
+   "gender": "male",
+   "id": "pi_curator_assistant_lu",
+   "reputation": "熟记大库三千余卷藏品分布，做事严谨果决不苟言笑。",
+   "resources": [
+    "一本硬壳镀铝防潮巡检日志夹",
+    "一把微型不锈钢刻刀",
+    "一卷高粘度抗拉字画加固密封带"
+   ],
+   "risks": [
+    "惰性气体充气将剥夺全部逃生视野，必须在能见度归零前完成锁舌物理释放。"
+   ],
+   "role": "字画典藏库副管事兼长卷记录员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}掌书"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}录事"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}记室"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "全面统筹本家大跨度地下典藏库力学抗震与恒湿防灾营建，拥有对库房结构安全的一票否决与绝对指挥权。",
+   "gender": "male",
+   "id": "pi_chief_conservator_lu",
+   "reputation": "江南营造界领军人物，对大库每道承重梁与金属移门受力参数洞若观火。",
+   "resources": [
+    "一套精密机械反推千斤顶扳动摇把",
+    "全套本家地宫建筑力学受力图籍",
+    "特级加厚防滑隔温高强度合金手套"
+   ],
+   "risks": [
+    "若发生卷门塌陷事故，将承担整座世家字画大库损毁的无可挽回责任。"
+   ],
+   "role": "府上古建大修缮总督造兼特级营造监理",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总工"
+    },
+    {
+     "gender": "any",
+     "pattern": "总督造{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}大师"
+    }
+   ]
+  }
+ ],
+ "premise": "江南老宅每年六月初六开库晒画，宗亲们坐在中庭里喝茶看画，也盯着这份家产怎么分。当家少夫人从苏州请来了装裱师，在地下字画库里一住就是一个月。字画库的气密卷帘和惰性气体灭火系统是去年新装的，配电房却还是老的。",
+ "pressures": [
+  {
+   "choice": "是冒险利用紫铜茶则强行下压脱扣，还是在门内等待外侧家丁切断主电闸？",
+   "exits": [
+    {
+     "cost": "茶则受力微弯，两人肌肉酸痛擦伤。",
+     "option": "两人合力以紫铜茶则下压偏心锁舌顶脱卡爪抬门自救。"
+    },
+    {
+     "cost": "极其被动，若外部断电失败将直接窒息死亡。",
+     "option": "用湿布巾捂住口鼻伏于地面被动等待救援。"
+    }
+   ],
+   "far": {
+    "consequence": "大库氧气骤降归零，受困人员在六十秒内窒息休克殉难，古画亦遭酸化风险。",
+    "due_days": 1,
+    "trigger": "充气电磁阀开启惰性气体灌满全库"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_inert_gas_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_deadweight_groan",
+    "hk_rail_deformation_scrape",
+    "hk_close_breath_ear_brush",
+    "hk_silk_sweat_heat_exchange",
+    "hk_copper_scoop_flange_align",
+    "hk_steel_knife_slide_pad",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_nanmu_antique_rack_shadow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_heave_grunt",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hook_wanqing_tea_room",
+    "hook_wanqing_kin_ledger",
+    "hook_wanqing_sunning_scroll",
+    "hook_chengan_paste_bowl",
+    "hook_chengan_back_paper",
+    "hook_chengan_silk_gloves",
+    "hook_wanqing_thunder_eaves",
+    "hook_wanqing_tea_hut_curtain"
+   ],
+   "id": "p_vault_inert_gas_purge_timer",
+   "immediate": {
+    "minutes": 2,
+    "text": "顶棚气体喷嘴进入排气自检，发出尖锐高频嘶鸣，空气压强开始改变。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_calligraphy_vault_hall",
+    "loc_airlock_gate_crawlspace",
+    "loc_nanmu_antique_rack_zone"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "倒计时进入最后两分钟，警报蜂鸣节奏加快，窒息与中毒威胁迫在眉睫。"
+   },
+   "objective": "必须在充气电磁阀开启导致氧气耗尽前，撬开死锁卷帘门撤离至通堂外侧。",
+   "source": "accident",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "惰性气体充压灭火倒计时",
+   "trigger": "雷击外围线路触发字画库全淹没惰性气体灭火倒计时，红光急闪蜂鸣刺耳。"
+  },
+  {
+   "choice": "是单人使用挑刀试探拨动，还是两人身体紧密相贴合力下压紫铜茶则？",
+   "exits": [
+    {
+     "cost": "工具把手产生微小塑性形变，施力人员手臂酸麻。",
+     "option": "以黄铜修画压板垫底构成刚性防坠支点，叠合双手全力压紧茶则把手。"
+    },
+    {
+     "cost": "金属敲击极易损坏偏心弹簧结构导致永久卡死。",
+     "option": "用青铜角尺敲击导轨外沿试图振松卡槽。"
+    }
+   ],
+   "far": {
+    "consequence": "机械死锁转化为永久冷焊卡死，卷帘门再无法依靠人工物理工具撬起脱困。",
+    "due_days": 1,
+    "trigger": "导轨铝合金槽完全屈服断裂卡死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_inert_gas_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_deadweight_groan",
+    "hk_rail_deformation_scrape",
+    "hk_close_breath_ear_brush",
+    "hk_silk_sweat_heat_exchange",
+    "hk_copper_scoop_flange_align",
+    "hk_steel_knife_slide_pad",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_nanmu_antique_rack_shadow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_heave_grunt",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hook_wanqing_tea_room",
+    "hook_wanqing_kin_ledger",
+    "hook_wanqing_sunning_scroll",
+    "hook_chengan_paste_bowl",
+    "hook_chengan_back_paper",
+    "hook_chengan_silk_gloves",
+    "hook_wanqing_thunder_eaves",
+    "hook_wanqing_tea_hut_curtain"
+   ],
+   "id": "p_door_deadweight_rail_deformation",
+   "immediate": {
+    "minutes": 2,
+    "text": "导轨铝合金卡爪深陷死点，门底橡胶密封条压至极限，缝隙仅余三十公分。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "重力导致导轨边缘产生细微弯曲，锁销越咬越紧，撬动所需力矩成倍增加。"
+   },
+   "objective": "在导轨彻底被自重挤压抱死之前，以坚硬金属折沿撬动锁销后侧推杆完成脱扣。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "气密卷帘下压导轨形变抱死",
+   "trigger": "数百公斤重型气密防火卷帘自重砸落，偏心导向棘爪咬死铝合金卡槽并产生塑性形变。"
+  },
+  {
+   "choice": "是因礼法羞怯保持距离导致施力分散，还是坦然贴身相拥爆发出最大协同扭矩？",
+   "exits": [
+    {
+     "cost": "主仆礼法防线被彻底打破，两人心灵产生不可磨灭的依恋印记。",
+     "option": "抛弃一切世俗杂念，少夫人伏于装裱师背侧双手重叠压紧把手一鼓作气突破。"
+    },
+    {
+     "cost": "力矩不足无法撼动锁销，导致自救彻底失败。",
+     "option": "刻意拉开距离单手侧向发力。"
+    }
+   ],
+   "far": {
+    "consequence": "紫铜茶则折沿滑脱脱手，错过最后撬锁脱扣时间窗导致窒息倒计时耗尽。",
+    "due_days": 1,
+    "trigger": "羞怯分心导致发力失衡工具脱落"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_inert_gas_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_deadweight_groan",
+    "hk_rail_deformation_scrape",
+    "hk_close_breath_ear_brush",
+    "hk_silk_sweat_heat_exchange",
+    "hk_copper_scoop_flange_align",
+    "hk_steel_knife_slide_pad",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_nanmu_antique_rack_shadow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_heave_grunt",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hook_wanqing_tea_room",
+    "hook_wanqing_kin_ledger",
+    "hook_wanqing_sunning_scroll",
+    "hook_chengan_paste_bowl",
+    "hook_chengan_back_paper",
+    "hook_chengan_silk_gloves",
+    "hook_wanqing_thunder_eaves",
+    "hook_wanqing_tea_hut_curtain"
+   ],
+   "id": "p_close_contact_body_heat_tension",
+   "immediate": {
+    "minutes": 2,
+    "text": "旗袍丝滑微凉的触感隔着薄薄衣衫传来，随后被急促滚烫的体温迅速烘热。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "少夫人的额头抵在肩上，压着嗓子娇喘，旗袍高开衩下的腿贴得严丝合缝，发髻上的玉簪硌得人生疼。"
+   },
+   "objective": "在极度贴近的肢体接触与异性荷尔蒙冲击下，克制心神专注机械对位发力。",
+   "source": "person",
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "极限死角贴身施力呼吸躁动",
+   "trigger": "两人被迫同时趴卧在三十公分门缝死角，真丝旗袍与工装紧密相贴，体温与急促喘息交织。"
+  },
+  {
+   "choice": "是先花费时间搬运保护长卷，还是全力以赴先撬开外侧大门？",
+   "exits": [
+    {
+     "cost": "全力投入撬门无暇顾及字画转移，承受巨大心理压力。",
+     "option": "争分夺秒下压茶则折沿开启大门建立排风通气。"
+    },
+    {
+     "cost": "耗尽最后逃生时间，双双窒息于大库内部。",
+     "option": "折返深处以密封布加固展匣。"
+    }
+   ],
+   "far": {
+    "consequence": "数卷传世国宝长卷产生严重脆化酸化，家族百年文脉毁于一旦。",
+    "due_days": 1,
+    "trigger": "高浓度气体完全浸润展柜"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_inert_gas_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_deadweight_groan",
+    "hk_rail_deformation_scrape",
+    "hk_close_breath_ear_brush",
+    "hk_silk_sweat_heat_exchange",
+    "hk_copper_scoop_flange_align",
+    "hk_steel_knife_slide_pad",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_nanmu_antique_rack_shadow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_heave_grunt",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hook_wanqing_tea_room",
+    "hook_wanqing_kin_ledger",
+    "hook_wanqing_sunning_scroll",
+    "hook_chengan_paste_bowl",
+    "hook_chengan_back_paper",
+    "hook_chengan_silk_gloves",
+    "hook_wanqing_thunder_eaves",
+    "hook_wanqing_tea_hut_curtain"
+   ],
+   "id": "p_masterpiece_heritage_acid_risk",
+   "immediate": {
+    "minutes": 2,
+    "text": "楠木架周围空气湿度骤降，百年古绢发出细微紧缩声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_nanmu_antique_rack_zone",
+    "loc_calligraphy_vault_hall"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "微量酸性冷凝气流在古画封匣缝隙凝结，破坏不可逆。"
+   },
+   "objective": "必须在腐蚀性冷凝湿气破坏长卷有机纤维前开启大门建立正常通风循环。",
+   "source": "accident",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "宋元长卷古绢化学熏蚀风险",
+   "trigger": "全淹没灭火预充伴随微量干燥卤代烃冷凝气体渗透，直接危及金丝楠木架上宋元绢本古画。"
+  },
+  {
+   "choice": "是忍痛咬牙紧扣工具，还是分神活动肢体调整重心？",
+   "exits": [
+    {
+     "cost": "身体摩擦加剧，肌肤泛起大片淤青擦痕。",
+     "option": "少夫人与装裱师互相用膝盖顶住彼此脚踝稳固重心合力下压。"
+    },
+    {
+     "cost": "锁舌在自重下再度深陷变形咬死。",
+     "option": "暂停按压后撤舒展肢体。"
+    }
+   ],
+   "far": {
+    "consequence": "茶则被门体自重强行顶落，反向力矩瓦解失去最后开启机会。",
+    "due_days": 1,
+    "trigger": "双臂严重痉挛彻底脱力"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_inert_gas_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_deadweight_groan",
+    "hk_rail_deformation_scrape",
+    "hk_close_breath_ear_brush",
+    "hk_silk_sweat_heat_exchange",
+    "hk_copper_scoop_flange_align",
+    "hk_steel_knife_slide_pad",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_nanmu_antique_rack_shadow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_heave_grunt",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hook_wanqing_tea_room",
+    "hook_wanqing_kin_ledger",
+    "hook_wanqing_sunning_scroll",
+    "hook_chengan_paste_bowl",
+    "hook_chengan_back_paper",
+    "hook_chengan_silk_gloves",
+    "hook_wanqing_thunder_eaves",
+    "hook_wanqing_tea_hut_curtain"
+   ],
+   "id": "p_crawlspace_hypothermia_cramp",
+   "immediate": {
+    "minutes": 2,
+    "text": "冰凉石板透过单薄衣物侵袭膝盖与手肘，关节泛起刺骨酸麻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airlock_gate_crawlspace"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "持续静力承重使前臂肌肉发生微小震颤，握持力濒临极限。"
+   },
+   "objective": "克服小腿与手臂肌肉剧烈酸胀痉挛，保持稳定反向施力姿态。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "门缝地面寒气肌肉痉挛抽筋",
+   "trigger": "暴雨导致地下花岗岩门槛寒气逼人，两人趴伏施力肢体极度紧绷极易抽筋脱力。"
+  },
+  {
+   "choice": "是立即加大按压力度一次性破锁，还是等待震动平息再行操作？",
+   "exits": [
+    {
+     "cost": "工具边缘微量磕碰磨损，手部承受剧烈反冲震荡。",
+     "option": "倾注全身自重瞬间爆发峰值下压力矩震脱弹簧销。"
+    },
+    {
+     "cost": "门体彻底抱死丧失全部物理逃生可能。",
+     "option": "被动等待外力减退。"
+    }
+   ],
+   "far": {
+    "consequence": "整面卷帘门与门框冷焊抱死一体，任何手工工具均无法撼动半分。",
+    "due_days": 1,
+    "trigger": "地基剪切力导致门框彻底扭曲变形"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_inert_gas_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_deadweight_groan",
+    "hk_rail_deformation_scrape",
+    "hk_close_breath_ear_brush",
+    "hk_silk_sweat_heat_exchange",
+    "hk_copper_scoop_flange_align",
+    "hk_steel_knife_slide_pad",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_nanmu_antique_rack_shadow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_heave_grunt",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hook_wanqing_tea_room",
+    "hook_wanqing_kin_ledger",
+    "hook_wanqing_sunning_scroll",
+    "hook_chengan_paste_bowl",
+    "hook_chengan_back_paper",
+    "hook_chengan_silk_gloves",
+    "hook_wanqing_thunder_eaves",
+    "hook_wanqing_tea_hut_curtain"
+   ],
+   "id": "p_structural_aftershock_creak",
+   "immediate": {
+    "minutes": 2,
+    "text": "门头上方混凝土圈梁传来沉闷的受压微鸣，导轨间隙再度收紧两毫米。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_calligraphy_vault_hall",
+    "loc_grand_atrium_foyer"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "金属导轨受压发出刺耳声响，锁舌卡死深度进一步增加。"
+   },
+   "objective": "在建筑应力进一步变形锁死门框前迅速撬开锁舌脱困。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "建筑地基雷击电涌微沉降挤压",
+   "trigger": "雷暴连续击中宅邸地基避雷带，地质微震导致门框立柱承受附加剪切应力。"
+  },
+  {
+   "choice": "请装裱师当众说清长卷修得回来，还是把那一夜库门为什么没锁好交代清楚",
+   "exits": [
+    {
+     "cost": "装裱师得当着宗亲限期一个月修好，修不好就赔",
+     "option": "让装裱师当众打包票"
+    },
+    {
+     "cost": "冯伯得指认三房的孙子",
+     "option": "请冯伯说出那天是谁动了库门的锁"
+    }
+   ],
+   "far": {
+    "consequence": "少夫人交出库房钥匙，装裱师这趟活计结不到工钱就得回苏州",
+    "due_days": 2,
+    "trigger": "宗亲议定换人"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_wanqing_tea_room",
+    "hook_wanqing_kin_ledger",
+    "hook_wanqing_sunning_scroll",
+    "hook_chengan_paste_bowl",
+    "hook_chengan_back_paper",
+    "hook_chengan_silk_gloves",
+    "hook_wanqing_tea_hut_curtain"
+   ],
+   "id": "p_clan_elders_meet",
+   "immediate": {
+    "minutes": 5,
+    "text": "冯伯掀开茶寮的帘子，说三房叔公请少夫人去中庭"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_courtyard_tea_hut"
+   ],
+   "near": {
+    "deadline_minutes": 240,
+    "text": "午饭后，宗亲议定"
+   },
+   "objective": "在宗亲们午饭后议定之前，保住当家的位子",
+   "source": "person",
+   "start_minute": 600,
+   "tags": [],
+   "title": "宗亲议事",
+   "trigger": "开库出事后的第二天上午，宗亲们在中庭里坐成一排：库里那卷宋人长卷被灭火气体熏黄了，三房的叔公说少夫人管不住家产，要另选当家人"
+  }
+ ],
+ "region": "地下大跨度恒湿字画通堂外侧防尘气密卷帘门死角",
+ "rules": [
+  {
+   "id": "r_inert_gas_purge_limit",
+   "text": "全淹没惰性气体灭火系统预充倒计时期间严禁擅自击碎夹胶防爆观察窗。"
+  },
+  {
+   "id": "r_door_deadweight_release_rule",
+   "text": "特种气密防火卷帘门在断电下砸死锁后只能通过手动反向顶起导轨偏心弹簧锁舌释放。"
+  },
+  {
+   "id": "r_calligraphy_preservation_code",
+   "text": "字画典藏库内严禁使用明火、化学溶剂或产生剧烈金属火花的电动设备。"
+  },
+  {
+   "id": "r_adult_mechanical_escape_standard",
+   "text": "绝境脱困依靠纯物理力矩反推自救，一切互动严守成年自愿与安全防护原则。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "共御死线",
+  "committed": "死生相守",
+  "familiar": "身心交托",
+  "flirting": "贴身喘息",
+  "intimate": "患难同行",
+  "stranger": "初次协同",
+  "testing": "生死信赖"
+ },
+ "status": "released",
+ "style_hint": "古典世家典雅与现代地下建筑硬核工笔，刻画字画库昏暗幽深中特种卷帘门下砸咬死的沉重阻绝、紫铜茶则折沿在锁舌咬合处受力的微细金属悲鸣、真丝旗袍被薄汗浸透贴合起伏躯体的视觉张力，台词沉稳克制而情愫暗涌。",
+ "tension_engines": [
+  {
+   "id": "te_inert_gas_purge_choke",
+   "text": "全淹没惰性气体灭火充气最后三分钟倒计时窒息逼近，氧气即将置换殆尽。"
+  },
+  {
+   "id": "te_door_rail_deadweight_pinch",
+   "text": "数百公斤重型气密卷帘横梁持续下沉压迫导轨，偏心锁舌形变咬合越发剧烈。"
+  },
+  {
+   "id": "te_close_contact_body_heat",
+   "text": "在三十公分门缝死角两人紧身相贴，真丝旗袍薄汗与青年工匠体温引发极度暧昧心跳。"
+  },
+  {
+   "id": "te_masterpiece_heritage_ruin",
+   "text": "千年宋元孤本古画长卷面临化学熏蚀绝境，少夫人背负文脉存亡爆发出惊人勇气。"
+  }
+ ],
+ "title": "典雅少夫人·古画字画恒湿大库",
+ "tone": [
+  "六月六晒画的沉香茶烟",
+  "宗亲们笑里藏刀的家产账",
+  "雷暴断电后卷帘砸死的闷响",
+  "门缝死角里旗袍贴背的薄汗"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_door_lock_groove_located",
+   "requires": [
+    "mistress_shen_wanqing"
+   ],
+   "text": "{mistress_shen_wanqing.name}借便携强光手电光束，在变形导轨下死点第三凹槽内准确定位出卡死偏心棘爪的微小锁孔位置。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_inert_gas_warning_beeps",
+   "requires": [
+    "mistress_shen_wanqing"
+   ],
+   "text": "{mistress_shen_wanqing.name}听到库房顶棚惰性气体充气电磁阀发出刺耳蜂鸣预警，大厅照明彻底熄灭，唯余门槛边猩红应急灯在面庞上映出冷峻决意。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_brass_plate_inserted_safety",
+   "requires": [
+    "apprentice_mounter_lu"
+   ],
+   "text": "{apprentice_mounter_lu.name}从工具袋抽出加重黄铜修画压板，死死垫入卷帘横梁下方，彻底构筑起刚性防下坠安全作业间隙。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_silk_sash_bind_tight",
+   "requires": [
+    "mistress_shen_wanqing",
+    "apprentice_mounter_lu"
+   ],
+   "text": "{mistress_shen_wanqing.name}解下旗袍真丝腰带，由{apprentice_mounter_lu.name}迅速将紫铜茶则与精钢挑刀紧密捆扎，消除了手汗打滑隐患。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_countdown_urgent_final_minute",
+   "requires": [
+    "mistress_shen_wanqing"
+   ],
+   "text": "大库充气预警进入最后六十秒倒计时，高压气体喷嘴开始释放低频泄压声，生死死线已逼近绝对生理极限。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_silk_sash_tight_bind_leverage",
+   "requires": [
+    "mistress_shen_wanqing",
+    "apprentice_mounter_lu"
+   ],
+   "text": "{apprentice_mounter_lu.name}在三十公分门缝死角护住{mistress_shen_wanqing.name}，两人滚烫手指紧握茶则，急促滚烫的吐息与心跳在幽暗中彻底交叠。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_tea_scoop_spring_latch_release",
+   "requires": [
+    "mistress_shen_wanqing"
+   ],
+   "text": "伴随一声清脆金属断扣声，紫铜茶则硬质折沿成功顶开导轨偏心棘爪，沉重卷帘门向上弹起半米，两人携手迎着大厅新鲜气流滚出死角脱困自救。"
+  }
+ ]
+}

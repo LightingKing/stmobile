@@ -1,0 +1,2241 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "跟着卫队长守了三年圣殿的卫兵。",
+   "age_range": [
+    21,
+    28
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_temple_guard",
+   "line": "队长！拉杆那头的石阶清出来了！里面的人一撬开就能上来！",
+   "location_ids": [
+    "loc_counterweight_release_pin",
+    "loc_truce_hall"
+   ],
+   "name": "卫兵汉斯",
+   "role": "圣殿的年轻卫兵"
+  },
+  {
+   "adult_context": "跟了女将军三年的魔族副官。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_demon_adjutant",
+   "line": "将军！我在上面！你说一声，我就带人冲下去！",
+   "location_ids": [
+    "loc_counterweight_release_pin",
+    "loc_truce_hall"
+   ],
+   "name": "副官莉拉",
+   "role": "女将军的魔族副官"
+  },
+  {
+   "adult_context": "在钟楼敲了三十年钟的老人。",
+   "age_range": [
+    50,
+    65
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_bell_ringer",
+   "line": "大主教有令，结界没解开之前，谁也不许下去！",
+   "location_ids": [
+    "loc_counterweight_release_pin"
+   ],
+   "name": "敲钟人老约翰",
+   "role": "圣殿钟楼的敲钟人"
+  },
+  {
+   "adult_context": "在集市上烤了十年面包的摊主。",
+   "age_range": [
+    30,
+    45
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_honey_baker",
+   "line": "那位魔族将军每天来买两块面包，一块自己吃，一块给那个学士。",
+   "location_ids": [
+    "loc_truce_hall"
+   ],
+   "name": "面包师玛莎",
+   "role": "集市上烤蜂蜜面包的"
+  },
+  {
+   "adult_context": "专门抄写谈判记录的书记员。",
+   "age_range": [
+    24,
+    35
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_scribe",
+   "line": "今天谈判的时候，将军瞪了学士七回，我都记下来了。",
+   "location_ids": [
+    "loc_truce_hall"
+   ],
+   "name": "书记官汤姆",
+   "role": "会馆的抄写员"
+  },
+  {
+   "adult_context": "在集市上捏了四十年陶偶的手艺人。",
+   "age_range": [
+    55,
+    70
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_clay_vendor",
+   "line": "将军上回让我照着那个学士捏了一个，还不许我说出去。",
+   "location_ids": [
+    "loc_truce_hall"
+   ],
+   "name": "陶偶匠老彼得",
+   "role": "集市上捏陶偶的"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "女将军与机关学者在阵眼里俯卧着胸背相贴，四只手叠在矛杆上，一个喊号子一个跟着往下压。",
+   "id": "cc_general_scholar_switch",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "general_camilla",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一起被压在阵眼里，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "rune_scholar",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "一个谈判一个作陪，吵了二十天的嘴。",
+     "stage": "familiar"
+    },
+    {
+     "a": "general_camilla",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "rune_scholar",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个嘴上嫌弃一天要问三回，一个低头记东西记的全是对方，谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "general_camilla",
+    "rune_scholar"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "撬断限位销，翻出祭坛，让停战谈下去。",
+    "limit_gap": "女将军在三倍重力下力气使不出，机关学者的工具包被压碎了。",
+    "meeting_reason": "结界误启前，机关学者领着女将军在圣殿中庭看那座古老的祭坛。",
+    "resource_gap": "女将军有那杆黑曜战矛和一身打仗练出来的狠劲，机关学者有那本机关图谱和对这座阵盘十年的研究。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_gravity_triples",
+    "te_spear_chest_press"
+   ]
+  },
+  {
+   "chemistry": "女将军与机关学者在防倒转拉杆前四只手叠在一起，一边争该先撬棘齿还是先扳拉杆，一边一下一下把限位销别开。",
+   "id": "cc_general_scholar_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "general_camilla",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "为一条条款争了一下午，争到最后谁都不肯先认输。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "rune_scholar",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "停战二十天，在集市上并肩吃过好多回面包。",
+     "stage": "familiar"
+    },
+    {
+     "a": "general_camilla",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "rune_scholar",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个火爆一个木讷，二十天里说过的话不多，句句都记得。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "general_camilla",
+    "rune_scholar"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "先撬开防倒转拉杆，让重力退下去。",
+    "limit_gap": "女将军不懂机关，机关学者不懂打仗的人怎么熬重伤。",
+    "meeting_reason": "两人为圣殿古机关该不该写进停战条款，在会馆里争了一下午，争到结界误启都没分出胜负。",
+    "resource_gap": "女将军知道人能在这种重压下撑多久，机关学者知道这座阵盘哪里能动。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_ratchet_locked",
+    "te_altar_floor_cracks"
+   ]
+  },
+  {
+   "chemistry": "全权代表在外面听着钟声，女将军和机关学者一个压矛一个顶壁，谁也不肯在谈判对手面前先喊疼。",
+   "id": "cc_general_scholar_envoy",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "general_camilla",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "头一回在谈判对手面前把命交出去。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "rune_scholar",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "奉命来谈停战，早听说这位女将军和那个机关学者。",
+     "stage": "familiar"
+    },
+    {
+     "a": "general_camilla",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "rune_scholar",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在全权代表面前不敢多看一眼，可每一声号子都只喊给一个人听。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "general_camilla",
+    "rune_scholar"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让对面的人亲眼看见，魔族的将军和圣殿的学者能一起把命捡回来。",
+    "limit_gap": "女将军不肯在敌方代表面前示弱，机关学者不习惯被大人物盯着干活。",
+    "meeting_reason": "全权代表要亲眼看看圣殿的结界，女将军陪着下到中庭，机关学者在旁边讲阵盘的构造。",
+    "resource_gap": "女将军手里有战矛和魔王的国书，机关学者手里有图谱和那件外袍。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_altar_floor_cracks",
+    "te_ratchet_locked"
+   ]
+  },
+  {
+   "chemistry": "女将军一边别矛一边冲新来的通译吼着号子，机关学者顶着坑壁，把三个人的力气拧成一股。",
+   "id": "cc_general_scholar_novice",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "general_camilla",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "女将军嫌新通译胆小，今晚却要把命交到这双手上。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "rune_scholar",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "第一次跟魔族将军出门就遇上了结界误启。",
+     "stage": "familiar"
+    },
+    {
+     "a": "general_camilla",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "rune_scholar",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "女将军和机关学者一个眼神就知道对方要干什么，新通译都看在眼里。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "general_camilla",
+    "rune_scholar"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "带着新通译一起平安出去，明天照常谈判。",
+    "limit_gap": "新通译什么都不懂，女将军得一边自救一边教。",
+    "meeting_reason": "新通译第一次跟着去看祭坛，机关学者正在讲阵盘的来历。",
+    "resource_gap": "女将军有战矛和打仗的经验，机关学者有图谱和那件外袍。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_gravity_triples",
+    "te_ratchet_locked"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_pit_whisper",
+   "reach": "all",
+   "text": "阵眼死角里贴着耳朵的喘息和低语"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_temple_bells",
+   "reach": "local",
+   "text": "圣殿钟楼的钟声，一阵急一阵缓地报着外面的消息"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁带着先锋军打了三年仗，这一回主动请缨来当停战使节，去留进退由本人拿主意。",
+   "age_range": [
+    21,
+    25
+   ],
+   "appearance_options": [
+    "身披暗黑玄铁轻型战甲，内衬暗红贴身魔蚕丝战袍，一头如烈火般耀眼的绯红长发微卷垂落，白皙英挺的面庞轮廓分明，金红眼眸中透着不驯与战意，骄傲美艳中尽显令人心折的王者风采。",
+    "胸甲在强重力碾压下紧贴胸廓，面颊因承受数倍重压而泛起艳丽红晕，银牙紧咬，双手紧握漆黑淬火战矛，傲娇中流露出将性命毫无保留相托的动人神采。"
+   ],
+   "decision": {
+    "avoids": [
+     "背地里使绊子的人",
+     "临阵脱逃的人"
+    ],
+    "contrast": "在谈判桌上寸步不让，骂起人来能把书记官骂哭；可困在阵眼里时，却是女将军第一个把战矛递过去，用打仗时的号子让对方稳住。",
+    "core_value": "打仗靠矛，停战靠嘴，两样都不能输。",
+    "goal_options": [
+     "把战矛枪镦倒钩别进阵盘棘齿，撬断自锁限位销",
+     "和机关学者一起翻出祭坛，把停战谈下去"
+    ],
+    "never": [
+     "丢下自己的人先走"
+    ],
+    "prefers": [
+     "敢跟自己顶嘴、说到做到的人",
+     "有真本事又不卖弄的人"
+    ],
+    "pressure_responses": {
+     "breaking": "压得骨头咯吱响也不松手，咬着牙喊着号子。",
+     "high": "割断被石缝咬住的披风，把全身重量压在矛杆上。",
+     "low": "先伏低身子贴住石砖，摸清哪块砖在往下陷。",
+     "mid": "把战矛横过来，指给对方看棘齿的死角。"
+    },
+    "relationship_stance": "机关学者每天陪着来谈判，坐在会馆最末一张椅子上记东西；女将军嘴上嫌对方碍事，可一天不见就要问一句人呢。",
+    "withdrawal": "脱险后头一件事是冲上去确认外面的随从和卫兵没打起来，骂完了自己的人，才肯靠着石柱坐下。"
+   },
+   "gender": "female",
+   "gender_reason": "魔军先锋女统帅，按原稿写作女性。",
+   "id": "general_camilla",
+   "identity": {
+    "authority": "魔军这一边肯让几座城、哪些条款寸步不让，女将军一句话就能定。",
+    "exposure": "重力压得喘不上气，战袍贴在身上，只能整个人伏进对方怀里使劲。",
+    "hidden": "客居窗台上那排小陶偶里，有一个是照着机关学者的样子捏的，女将军谁也没告诉。",
+    "limits": [
+     "三倍重力下力气使不出来",
+     "战袍的披风容易被石砖缝咬住"
+    ],
+    "obligations": [
+     "四十天里谈出一个两边都能活的停战",
+     "不在敌人面前低头"
+    ],
+    "resources": [
+     "一杆淬火黑曜合金双头战矛，矛杆实心，枪镦厚三公分带倒钩",
+     "一封魔王亲笔的停战国书",
+     "先锋军上下的信任"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "阵眼里一句废话都不说、只管把肩膀顶上去的那个人",
+     "每天在会馆最末一张椅子上低头记东西的那道影子"
+    ],
+    "boundaries": [
+     "人前守着先锋统帅的骄傲，私下的心意只给认定的人",
+     "每一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "客居大床边背靠着对方卸甲的近身位",
+    "dislikes": [
+     "被人当众起哄",
+     "趁人之危的手"
+    ],
+    "expression": "嘴上说着明天还要谈判，手却把客居的木门闩上了，回头别过脸说：站着干什么，过来替本将军卸甲。",
+    "likes": [
+     "被人握住握了一天矛的手腕轻轻揉",
+     "战甲的皮扣被人一颗颗解开时屏住的那口气",
+     "在客居的大床上被人从身后抱着听钟声"
+    ],
+    "preconditions": [
+     "圣门撬开、两人都脱险之后",
+     "两人都清醒，心意出于自己，不是阵眼里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "魔军先锋女统帅、停战使节",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_truce_hall",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_envoy_guest_quarters",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "枪镦可能崩口，手腕会被震伤",
+      "option": "用战矛枪镦别进棘齿死角，和机关学者合力撬断限位销"
+     },
+     {
+      "cost": "重力翻到五倍时谁都撑不住",
+      "option": "伏在石坑里等外面的人抬开圣门"
+     }
+    ],
+    "pressure": "圣门咬死，重力越来越重，必须在祭坛彻底塌空之前撬断限位销。",
+    "trigger": "结界误启时，女将军正跟着机关学者在圣殿中庭看那座古老的祭坛，脚下的石砖一下子塌了下去。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "重得骨头都要碎了……背后这个人的心跳倒还稳。打了三年仗，原来被一个敌人这样护着，是这种感觉。",
+    "surface": "别乱动，伏低！枪镦别进棘齿死角，你压着我的手——听我的号子，一、二、三，压！"
+   }
+  },
+  {
+   "adult_context": "六十岁，跟着三代魔王打过仗，这一回被派来盯着年轻的女将军别把谈判谈崩。",
+   "age_range": [
+    55,
+    70
+   ],
+   "appearance_options": [
+    "一身暗紫色的旧军袍，额角一对断了半截的弯角，手里总拄着一根黑木手杖。",
+    "坐在会馆窗边，一边抽烟斗一边看集市上的人。"
+   ],
+   "decision": {
+    "avoids": [
+     "魔军随行的老参谋最烦临阵推诿"
+    ],
+    "contrast": "在敌人面前一句软话不说，夜里却会一个人坐在会馆门口，替战死的人抽一锅烟。",
+    "core_value": "仗是打给活人看的，停战也是。",
+    "goal_options": [
+     "先把人救出来",
+     "魔军随行的老参谋再追究是谁的错"
+    ],
+    "never": [
+     "魔军随行的老参谋不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "魔军随行的老参谋看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "魔军随行的老参谋嗓子喊哑了也不肯走",
+     "high": "魔军随行的老参谋顶着危险往里递东西",
+     "low": "魔军随行的老参谋先稳住身边的人",
+     "mid": "魔军随行的老参谋四处找能用的工具"
+    },
+    "relationship_stance": "看着女将军从小兵打成先锋统帅，嘴上叫女将军火炭头，私下逢人就夸这孩子有出息。",
+    "withdrawal": "事情过去后，魔军随行的老参谋一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是跟随魔军多年的老参谋。",
+   "id": "old_strategist",
+   "identity": {
+    "authority": "魔军这边哪一条能让、哪一条不能让，老参谋心里有本账。",
+    "exposure": "魔军随行的老参谋忙起来顾不上衣着体面",
+    "hidden": "做魔军随行的老参谋这些年，有件事没对旁人说过",
+    "limits": [
+     "魔军随行的老参谋不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住魔军随行的老参谋手上的那一摊事"
+    ],
+    "resources": [
+     "一张标满城池的旧地图",
+     "魔军随行的老参谋随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "魔军随行的老参谋欣赏做事干脆利落的人",
+     "魔军随行的老参谋记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，魔军随行的老参谋就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和魔军随行的老参谋并肩站着",
+    "dislikes": [
+     "魔军随行的老参谋讨厌轻浮的手"
+    ],
+    "expression": "魔军随行的老参谋话不多，递东西时指尖会多停一下",
+    "likes": [
+     "魔军随行的老参谋收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "魔军随行的老参谋要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "魔军随行的老参谋",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_truce_hall",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "魔军随行的老参谋未必赶得上",
+      "option": "魔军随行的老参谋在外面调度接应"
+     },
+     {
+      "cost": "可能把魔军随行的老参谋自己也搭进去",
+      "option": "魔军随行的老参谋硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，魔军随行的老参谋进不去",
+    "trigger": "警报传到魔军随行的老参谋那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "打了一辈子仗……今晚要是在停战的时候折了这孩子，老头子没脸回去。",
+    "surface": "将军！外面的人吵起来了，我压着呢！你们先把那劳什子阵盘撬开！"
+   }
+  },
+  {
+   "adult_context": "四十岁，管着圣殿里所有的仪式和钟楼，诛魔结界的钥匙也在这双手里。",
+   "age_range": [
+    36,
+    48
+   ],
+   "appearance_options": [
+    "一身雪白的祭司长袍，胸前挂着一枚银制圣徽，头发一丝不乱地挽在头巾里。",
+    "站在钟楼底下，一边听钟声一边数着手里的念珠。"
+   ],
+   "decision": {
+    "avoids": [
+     "圣殿的女祭司长最烦临阵推诿"
+    ],
+    "contrast": "在大主教面前恭敬得像一尊像，私下却会给魔族的客人送一篮自己烤的面包。",
+    "core_value": "钟声是给活人敲的。",
+    "goal_options": [
+     "先把人救出来",
+     "圣殿的女祭司长再追究是谁的错"
+    ],
+    "never": [
+     "圣殿的女祭司长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "圣殿的女祭司长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "圣殿的女祭司长嗓子喊哑了也不肯走",
+     "high": "圣殿的女祭司长顶着危险往里递东西",
+     "low": "圣殿的女祭司长先稳住身边的人",
+     "mid": "圣殿的女祭司长四处找能用的工具"
+    },
+    "relationship_stance": "早看出女将军和机关学者之间有事，每次排谈判座次都故意把两人排在一条线上。",
+    "withdrawal": "事情过去后，圣殿的女祭司长一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是圣殿的女祭司长。",
+   "id": "high_priestess",
+   "identity": {
+    "authority": "圣殿里什么时候敲钟、哪道门开，女祭司长说了算。",
+    "exposure": "圣殿的女祭司长忙起来顾不上衣着体面",
+    "hidden": "做圣殿的女祭司长这些年，有件事没对旁人说过",
+    "limits": [
+     "圣殿的女祭司长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住圣殿的女祭司长手上的那一摊事"
+    ],
+    "resources": [
+     "一串圣殿各处的钥匙",
+     "圣殿的女祭司长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "圣殿的女祭司长欣赏做事干脆利落的人",
+     "圣殿的女祭司长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，圣殿的女祭司长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和圣殿的女祭司长并肩站着",
+    "dislikes": [
+     "圣殿的女祭司长讨厌轻浮的手"
+    ],
+    "expression": "圣殿的女祭司长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "圣殿的女祭司长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "圣殿的女祭司长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "圣殿的女祭司长",
+   "schedule": [
+    {
+     "from": 420,
+     "location_id": "loc_truce_hall",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "圣殿的女祭司长未必赶得上",
+      "option": "圣殿的女祭司长在外面调度接应"
+     },
+     {
+      "cost": "可能把圣殿的女祭司长自己也搭进去",
+      "option": "圣殿的女祭司长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，圣殿的女祭司长进不去",
+    "trigger": "警报传到圣殿的女祭司长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "停战是我求来的……今晚要是在圣殿里出了事，四十天就白费了。",
+    "surface": "学士！结界的钥匙我拿来了，可锁眼在阵眼里面，你们得自己撬！"
+   }
+  },
+  {
+   "adult_context": "二十七岁，在圣殿学院研究古代魔导机关十年，这一回被派来给魔族使节作陪，去留进退由本人拿主意。",
+   "age_range": [
+    25,
+    32
+   ],
+   "appearance_options": [
+    "一身洗得发白的学者长衫，袖口沾着墨，腰上挂着一只装满小工具的皮囊，鼻梁上一副圆眼镜。",
+    "长衫的外袍脱下来垫在女将军身下，汗湿的里衣贴着后背，肩膀抵着下陷的石坑壁。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿古物取乐的人"
+    ],
+    "contrast": "在学院里一句话能讲一个时辰，对着古机关能熬一整夜；可被女将军瞪一眼，就结巴得说不出话。",
+    "core_value": "古人造的机关都讲道理：哪里受力，就从哪里卸力。",
+    "goal_options": [
+     "用肩膀顶住石坑壁，给女将军腾出发力的地方",
+     "把全身重量压在矛杆上"
+    ],
+    "never": [
+     "让女将军一个人留在阵眼里"
+    ],
+    "prefers": [
+     "说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "压得满脸通红也不松，跟着女将军的号子压到最后一下。",
+     "high": "肩膀顶着坑壁，双手压在女将军的手上，和女将军一起压。",
+     "low": "一把将女将军护到石坑最稳的角落，先用外袍垫住碎砖。",
+     "mid": "摸出图谱指着阵盘的结构，报出棘齿的角度。"
+    },
+    "relationship_stance": "每天陪女将军去谈判，坐在会馆最末一张椅子上，记的却不只是谈判。",
+    "withdrawal": "确认圣门打开、外面的人没打起来，才靠在回廊的柱子上，大口大口地喘气。"
+   },
+   "gender": "male",
+   "gender_reason": "圣殿派来作陪的机关学者，按原稿写作男性。",
+   "id": "rune_scholar",
+   "identity": {
+    "authority": "圣殿里哪座古机关能碰、哪座不能碰，机关学者说了算。",
+    "exposure": "外袍垫在女将军身下，汗湿的里衣贴着女将军的后背，两人在阵眼里贴得严丝合缝。",
+    "hidden": "机关图谱的夹页里藏着一张速写，画的是女将军在集市上咬面包的样子。",
+    "limits": [
+     "三倍重力下站不起来",
+     "工具包被圣门压碎了"
+    ],
+    "obligations": [
+     "护住女将军不被石砖压着",
+     "撬断限位销，把两人带出阵眼"
+    ],
+    "resources": [
+     "一件厚实的外袍",
+     "一本古代机关图谱",
+     "一盏小小的矿石灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女将军在阵眼里还能把号子喊得那么稳的那份胆气",
+     "女将军斗嘴斗输了别过去的那张红脸"
+    ],
+    "boundaries": [
+     "女将军没开口就不越一步",
+     "人前不让女将军难做"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "客居大床边从身后抱着女将军的近身位",
+    "dislikes": [
+     "当众起哄",
+     "背后嚼舌根"
+    ],
+    "expression": "被女将军揪着领子拉进客居时一动不动，最后只说了一句：那张速写，我画了四十张。",
+    "likes": [
+     "女将军难得叫一次自己的名字",
+     "被女将军揪着领子拉到跟前瞪着看"
+    ],
+    "preconditions": [
+     "圣门撬开、两人都安全清醒之后",
+     "女将军点了头，出于本心"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "研究古代魔导机关的学者",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_truce_hall",
+     "to": 1020
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_gravity_altar_pit",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "肩膀会被坑壁磨伤，手臂可能脱力",
+      "option": "用肩膀顶住坑壁，和女将军合力压下矛杆"
+     },
+     {
+      "cost": "翻书的工夫重力又要翻一倍",
+      "option": "翻图谱找别的解法"
+     }
+    ],
+    "pressure": "重力越来越重，再不撬断限位销，两人都撑不到外面的人抬开圣门。",
+    "trigger": "结界误启时，机关学者正领着女将军看那座古老的祭坛，一起掉进了下陷的阵眼。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "女将军整个人伏在我怀里，压得直喘……别分神。这座阵我研究了十年，今晚得亲手撬开。",
+    "surface": "别动，伏在外袍上！枪镦别进去，我压着你的手——你喊号子，我跟。"
+   }
+  },
+  {
+   "adult_context": "三十五岁，在圣殿当了十年卫兵，打过魔军，也是第一个同意停战的卫兵。",
+   "age_range": [
+    30,
+    42
+   ],
+   "appearance_options": [
+    "一身银灰色的锁子甲，腰上挂着一柄长剑，脸上有一道魔军留下的旧疤。",
+    "站在会馆门口，手按着剑柄看来往的人。"
+   ],
+   "decision": {
+    "avoids": [
+     "圣殿卫队长最烦临阵推诿"
+    ],
+    "contrast": "对魔军敢拔剑，对着女将军那杆矛却恭恭敬敬地绕着走。",
+    "core_value": "停战期的卫兵，守的是两边的命。",
+    "goal_options": [
+     "先把人救出来",
+     "圣殿卫队长再追究是谁的错"
+    ],
+    "never": [
+     "圣殿卫队长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "圣殿卫队长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "圣殿卫队长嗓子喊哑了也不肯走",
+     "high": "圣殿卫队长顶着危险往里递东西",
+     "low": "圣殿卫队长先稳住身边的人",
+     "mid": "圣殿卫队长四处找能用的工具"
+    },
+    "relationship_stance": "嘴上说信不过魔族，私下却在女将军门口多加了一班岗，怕有人使坏。",
+    "withdrawal": "事情过去后，圣殿卫队长一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是守了十年圣殿的卫队长。",
+   "id": "temple_guard_captain",
+   "identity": {
+    "authority": "会馆的门谁能进、谁不能进，卫队长心里有本账。",
+    "exposure": "圣殿卫队长忙起来顾不上衣着体面",
+    "hidden": "做圣殿卫队长这些年，有件事没对旁人说过",
+    "limits": [
+     "圣殿卫队长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住圣殿卫队长手上的那一摊事"
+    ],
+    "resources": [
+     "一队圣殿卫兵",
+     "圣殿卫队长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "圣殿卫队长欣赏做事干脆利落的人",
+     "圣殿卫队长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，圣殿卫队长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和圣殿卫队长并肩站着",
+    "dislikes": [
+     "圣殿卫队长讨厌轻浮的手"
+    ],
+    "expression": "圣殿卫队长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "圣殿卫队长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "圣殿卫队长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "圣殿卫队长",
+   "schedule": [
+    {
+     "from": 1080,
+     "location_id": "loc_counterweight_release_pin",
+     "to": 1439
+    },
+    {
+     "from": 0,
+     "location_id": "loc_counterweight_release_pin",
+     "to": 420
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "圣殿卫队长未必赶得上",
+      "option": "圣殿卫队长在外面调度接应"
+     },
+     {
+      "cost": "可能把圣殿卫队长自己也搭进去",
+      "option": "圣殿卫队长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，圣殿卫队长进不去",
+    "trigger": "警报传到圣殿卫队长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "这十年我杀过魔族……可今晚要是这位将军出了事，停战就没了。",
+    "surface": "学士！外面的人我拦住了！你们撬开了就喊，我第一个下去拉人！"
+   }
+  },
+  {
+   "adult_context": "四十五岁，给会馆做了二十年饭，谈判桌上吵得多凶，到了饭点都得吃厨娘的炖菜。",
+   "age_range": [
+    38,
+    55
+   ],
+   "appearance_options": [
+    "一身沾着面粉的围裙，袖子挽到手肘，头上包着一块蓝头巾。",
+    "站在会馆后厨的灶台前，一边搅锅一边哼歌。"
+   ],
+   "decision": {
+    "avoids": [
+     "停战会馆的厨娘最烦临阵推诿"
+    ],
+    "contrast": "嘴上骂魔族吃饭没规矩，私下却会照着魔族的口味多放一把辣椒。",
+    "core_value": "吃饱了，人就不想打仗了。",
+    "goal_options": [
+     "先把人救出来",
+     "停战会馆的厨娘再追究是谁的错"
+    ],
+    "never": [
+     "停战会馆的厨娘不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "停战会馆的厨娘看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "停战会馆的厨娘嗓子喊哑了也不肯走",
+     "high": "停战会馆的厨娘顶着危险往里递东西",
+     "low": "停战会馆的厨娘先稳住身边的人",
+     "mid": "停战会馆的厨娘四处找能用的工具"
+    },
+    "relationship_stance": "每天给女将军的碗里多放一块肉，说魔族的客人太瘦了。",
+    "withdrawal": "事情过去后，停战会馆的厨娘一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是会馆的女厨娘。",
+   "id": "hall_cook",
+   "identity": {
+    "authority": "会馆里一日三餐吃什么、谁的碗里多一块肉，厨娘说了算。",
+    "exposure": "停战会馆的厨娘忙起来顾不上衣着体面",
+    "hidden": "做停战会馆的厨娘这些年，有件事没对旁人说过",
+    "limits": [
+     "停战会馆的厨娘不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住停战会馆的厨娘手上的那一摊事"
+    ],
+    "resources": [
+     "一口熬了二十年炖菜的大铁锅",
+     "停战会馆的厨娘随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "停战会馆的厨娘欣赏做事干脆利落的人",
+     "停战会馆的厨娘记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，停战会馆的厨娘就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和停战会馆的厨娘并肩站着",
+    "dislikes": [
+     "停战会馆的厨娘讨厌轻浮的手"
+    ],
+    "expression": "停战会馆的厨娘话不多，递东西时指尖会多停一下",
+    "likes": [
+     "停战会馆的厨娘收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "停战会馆的厨娘要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "停战会馆的厨娘",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_truce_hall",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "停战会馆的厨娘未必赶得上",
+      "option": "停战会馆的厨娘在外面调度接应"
+     },
+     {
+      "cost": "可能把停战会馆的厨娘自己也搭进去",
+      "option": "停战会馆的厨娘硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，停战会馆的厨娘进不去",
+    "trigger": "警报传到停战会馆的厨娘那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "做了二十年饭……那孩子今早还说想吃我的蜂蜜面包，你们可得出来。",
+    "surface": "将军！学士！炖菜我热着呢，你们出来了就有得吃！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "圣战第四年，夏至前后",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "crime",
+  "workplace",
+  "supernatural",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "魔族高级将领配备的淬火黑曜合金双头重型战矛，矛杆实心坚固，尾端平底枪镦厚达三公分带淬火倒钩，抗弯折能力极强。",
+  "圣殿重力祭坛由纯机械铸造的差速偏心齿轮盘联动，一旦失去平衡激活重力下压，需撬开防倒转棘爪才能停转。",
+  "三倍重力环境下人体直立极易导致脑贫血晕厥，两人必须互相搂抱俯卧降低受力受压截面。",
+  "阵盘底部装有纯机械液力阻尼旁通阀，击断限位插销可借配重块自重逆向弹起脱困。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "停战会馆的长桌两头，女将军和人类方的代表隔着一张地图寸步不让，书记官的笔尖沙沙地响。",
+    "谈到一半，女将军不耐烦地往椅背上一靠，扭头冲旁边的人低声说：这帮人说话真绕。你替我听着点。"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "act_truce_table",
+   "location_ids": [
+    "loc_truce_hall"
+   ],
+   "start_minute": 540,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪女将军坐一上午谈判"
+  },
+  {
+   "beats": [
+    "午间休会，女将军把战矛靠在会馆门口，跟着人走进集市，在烤蜂蜜面包的摊子前站住，眼睛都直了。",
+    "女将军咬了一大口，烫得直吸气，嘴硬说：一般。……再买两块，一块给那个学士。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_honey_bread",
+   "location_ids": [
+    "loc_truce_hall"
+   ],
+   "start_minute": 750,
+   "tags": [
+    "workplace"
+   ],
+   "title": "带女将军去集市买蜂蜜面包"
+  },
+  {
+   "beats": [
+    "傍晚的钟声响起来，女将军站在会馆的台阶上，抬头看圣殿的白色尖顶在夕阳里一点点变红。",
+    "女将军忽然开口：打了三年，我只在火光里见过这座塔。……原来没着火的时候，是这个样子。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bell_tower_view",
+   "location_ids": [
+    "loc_truce_hall"
+   ],
+   "start_minute": 1050,
+   "tags": [
+    "workplace"
+   ],
+   "title": "在钟声里看圣殿的尖顶"
+  },
+  {
+   "beats": [
+    "集市角落的陶偶摊前，女将军蹲着挑了很久，拿起一个又放下，最后指着一个戴眼镜的小人。",
+    "女将军把陶偶揣进怀里，凶巴巴地说：不许笑。……就是觉得这个长得傻。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_clay_figures",
+   "location_ids": [
+    "loc_truce_hall"
+   ],
+   "start_minute": 900,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪女将军挑一个陶偶"
+  },
+  {
+   "beats": [
+    "圣殿中庭，机关学者蹲在那座八角祭坛边，指着阵盘上的齿轮讲古人怎么造这座机关，讲得眉飞色舞。",
+    "女将军靠着石柱听着，忽然打断：你讲这个的时候，倒不结巴了。……继续，我听着呢。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_altar_lecture",
+   "location_ids": [
+    "loc_gravity_altar_pit"
+   ],
+   "start_minute": 960,
+   "tags": [
+    "workplace"
+   ],
+   "title": "听机关学者讲古祭坛"
+  },
+  {
+   "beats": [
+    "清晨的会馆后院，女将军赤着手臂舞那杆黑曜战矛，矛风呼呼地刮落一地树叶。",
+    "收矛时，女将军把矛尖停在人喉前一寸，挑眉笑：你连躲都不躲。……是信我，还是吓傻了？"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_spear_sparring",
+   "location_ids": [
+    "loc_truce_hall"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "workplace"
+   ],
+   "title": "会馆后院陪女将军练矛"
+  },
+  {
+   "beats": [
+    "圣门撬开、两边的人都没打起来、钟楼报了平安之后，女将军回到客居，玄铁轻甲上全是石粉，红发里夹着碎砖屑。",
+    "火盆边，女将军背过身，让人一颗颗解开战甲的皮扣，再解开汗湿的魔蚕丝战袍，温热的湿毛巾擦过后背时，女将军轻轻吸了口气，往后靠了过来。",
+    "女将军转过身，第一次没用命令的口气：今晚，本将军不想一个人睡。……你愿意吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_armor_buckles",
+   "location_ids": [
+    "loc_envoy_guest_quarters"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "客居里替女将军解开战甲的皮扣"
+  },
+  {
+   "beats": [
+    "客居的火盆噼啪作响，女将军盘腿坐在暗红帷帐的大床上，把战矛横在膝头，只穿着一件宽松的亚麻衬裙。",
+    "女将军把油布扔过来：擦矛杆，本将军擦矛头。……擦完了，我想听你说点别的，不许结巴。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_spear_polish",
+   "location_ids": [
+    "loc_envoy_guest_quarters"
+   ],
+   "start_minute": 1240,
+   "tags": [
+    "intimate"
+   ],
+   "title": "火盆边一起擦战矛"
+  },
+  {
+   "beats": [
+    "第四十天的前夜，女将军站在客居的窗前，看着集市的灯一盏盏灭掉，手里攥着那个戴眼镜的小陶偶。",
+    "女将军没回头：明天签了字，我就得回去了。……今晚你要是留下，我就当没听见钟声。你说好，我才转身。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_truce_eve",
+   "location_ids": [
+    "loc_envoy_guest_quarters"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "停战签字前夜"
+  },
+  {
+   "beats": [
+    "圣殿的晨钟一声声传进来，女将军在帷帐里醒来，红发铺了满枕，整个人缠在人身上，战矛还靠在床头。",
+    "女将军把脸埋进人颈窝，闷声说：钟敲完七下之前，谁也不许起来。……这是魔军的军令。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_morning_bells",
+   "location_ids": [
+    "loc_envoy_guest_quarters"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "晨钟里醒来"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "奇幻剑与魔法帝国圣战与古老魔导机关文明时代",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_altar_pit"
+   ],
+   "slot": "general_camilla",
+   "text": "{general_camilla.name}战甲在重压下咯吱作响，面庞因抗压泛着骄傲红晕，果断将重型战矛长杆交到同伴掌心。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_altar_pit"
+   ],
+   "slot": "general_camilla",
+   "text": "{general_camilla.name}半俯卧在开裂石砖上，侧身靠在同伴胸膛，借着阵盘微光摸出咬死的偏心自扣销。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "slot": "rune_scholar",
+   "text": "{rune_scholar.name}展开厚实硬牛皮工装紧紧护住女将军后背，用身躯为女将军筑起抵抗重力沉降的三角支撑架。"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "slot": "rune_scholar",
+   "text": "{rune_scholar.name}用防滑手套紧紧握住女将军被玄铁手套勒红的纤手，为女将军锁定战矛施力重心。"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "slot": "general_camilla",
+   "text": "{general_camilla.name}急促滚烫的吐息拂过同伴耳根，面容近在咫尺，金红双眸中满是破障执着。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "slot": "general_camilla",
+   "text": "{general_camilla.name}修长战靴紧紧扣在同伴腿弯，紧咬银牙，冷静报出魔导机关图谱上记载的反向偏心角度。"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "slot": "general_camilla",
+   "text": "{general_camilla.name}展现出魔族女帅的狂野骄傲，借着重力加剧的契机，果断娇呼立即顺水推舟发动双人体魄下压。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "slot": "rune_scholar",
+   "text": "{rune_scholar.name}在石坑再次下陷的瞬间，将女将军紧紧按在怀里，两副年轻躯体在逼仄凹坑内严丝合缝相护。"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "slot": "general_camilla",
+   "text": "{general_camilla.name}双手覆在同伴手背上，借着三倍重力的下坠巨力将两人体重压向矛杆，两颗心同频狂跳。"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_altar_pit"
+   ],
+   "slot": "general_camilla",
+   "text": "{general_camilla.name}细辨差速齿轮咬合松脱的金属裂鸣，在自扣销变形的瞬间果断发出最后下顿号令。"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "slot": "rune_scholar",
+   "text": "{rune_scholar.name}与女将军一同沉腰暴顿，借重力之势将全身力量轰入撬杠末端，死锁销轴轰然崩断。"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "slot": "general_camilla",
+   "text": "{general_camilla.name}在重力骤然解除的失重反弹中跌入同伴怀中，双臂紧紧环住同伴脖颈顺畅化解冲击。"
+  },
+  {
+   "id": "hook_camilla_extra_bread",
+   "kind": "approach",
+   "location_ids": [
+    "loc_truce_hall"
+   ],
+   "slot": "general_camilla",
+   "text": "{npc.name}把一块还热的蜂蜜面包塞过来，别过脸：买多了。……不吃就扔了。"
+  },
+  {
+   "id": "hook_camilla_where_scholar",
+   "kind": "approach",
+   "location_ids": [
+    "loc_truce_hall"
+   ],
+   "slot": "general_camilla",
+   "text": "{npc.name}在会馆门口张望了一圈，嘴硬地问：那个学士呢？……没什么，就是问问。"
+  },
+  {
+   "id": "hook_camilla_spear_tip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_truce_hall",
+    "loc_envoy_guest_quarters"
+   ],
+   "slot": "general_camilla",
+   "text": "{npc.name}把战矛往肩上一扛，挑眉看人：敢不敢跟本将军过两招？输了的人请吃面包。"
+  },
+  {
+   "id": "hook_camilla_quarters_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_envoy_guest_quarters"
+   ],
+   "slot": "general_camilla",
+   "text": "{npc.name}倚在客居门边，红发披着：火盆生好了。……进来，替本将军擦矛。"
+  },
+  {
+   "id": "hook_scholar_sketch",
+   "kind": "approach",
+   "location_ids": [
+    "loc_truce_hall",
+    "loc_envoy_guest_quarters"
+   ],
+   "slot": "rune_scholar",
+   "text": "{npc.name}从图谱里抽出一张速写，又慌忙塞回去：不是……没画什么。"
+  },
+  {
+   "id": "hook_scholar_altar_notes",
+   "kind": "approach",
+   "location_ids": [
+    "loc_truce_hall",
+    "loc_gravity_altar_pit"
+   ],
+   "slot": "rune_scholar",
+   "text": "{npc.name}把一页机关笔记摊开：这座阵的出口在拉杆后面。……万一出事，你记住往那里走。"
+  }
+ ],
+ "id": "demon_general_sanctuary_barrier_trap",
+ "locations": [
+  {
+   "affordances": [
+    "双手死死抓扣地面石砖裂隙抵抗强重力下压",
+    "探身将战矛合金枪镦倒钩深深别入阵盘中轴缝隙",
+    "仰望石坑边缘悬挂的巨型青铜配重砣发出吱呀重压哀鸣"
+   ],
+   "detail": "位于圣殿中庭中央向下凹陷一米半的八角形石坑，重力已升至三倍，四周坚硬的花岗岩石板在巨力碾压下蔓延出道道龟裂，万斤石闸已封死出口。",
+   "exits": [
+    "loc_gravity_ratchet_slot",
+    "loc_counterweight_release_pin"
+   ],
+   "id": "loc_gravity_altar_pit",
+   "name": "圣殿重力祭坛凹陷底坑",
+   "pressure_modifiers": {
+    "p_gravity_triples": "每过一阵，重力就再重一分，胸口像压着一块磨盘。",
+    "p_stone_gate_sink": "白曜石圣门又往下沉了一寸，门缝里的光越来越窄。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "阵盘的微光把下陷的石坑照成一片幽白，三倍重力压得空气嗡嗡响，看得清对方额头的汗，抬不起头看门。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "用手套摸准卡死在齿缝间的淬火锁舌死点",
+    "两人合抱战矛长柄将全身重压化为长力臂向前猛别"
+   ],
+   "detail": "祭坛中央不断旋转压紧的铸铜差速齿轮，因单向偏心棘爪咬死，将自锁限位销死死锁在死角凹槽内部无法回退。",
+   "exits": [
+    "loc_gravity_altar_pit"
+   ],
+   "id": "loc_gravity_ratchet_slot",
+   "name": "阵盘棘齿槽",
+   "pressure_modifiers": {
+    "p_spear_butt_bend": "枪镦的倒钩被棘齿压出了一道豁口，再硬别可能整片崩掉。",
+    "p_spear_chest_press": "女将军俯卧着后背紧贴在机关学者胸前，四只手叠在矛杆上，薄薄的战袍贴着对方的长衫。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "铸铜差速齿轮的棘爪死死咬着限位销，枪镦别进去时擦出一串火星。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "双脚踩踏战矛尾部配合手掌下按施加反向力矩",
+    "感受差速轮在自锁解除后逆向回转的震荡气流"
+   ],
+   "detail": "齿轮侧翼连接的铜质防倒转拉杆，承受着配重铅块的下坠拉力。",
+   "exits": [
+    "loc_gravity_altar_pit",
+    "loc_truce_hall"
+   ],
+   "id": "loc_counterweight_release_pin",
+   "name": "偏心配重轮逆向释放顶销",
+   "pressure_modifiers": {
+    "p_temple_guards_outside": "圣殿卫队和魔军随从在外面吵成一团，谁也不肯先让对方的人下来。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "防倒转拉杆后面就是通往回廊的石阶，钟楼的钟声一阵阵从上面传下来。",
+   "witnesses": [
+    "bg_temple_guard",
+    "bg_demon_adjutant",
+    "bg_bell_ringer"
+   ]
+  },
+  {
+   "affordances": [
+    "陪女将军在谈判桌边坐一上午",
+    "带女将军去集市尝一块蜂蜜面包",
+    "在钟声里陪女将军看圣殿的尖顶"
+   ],
+   "detail": "圣殿外城一座临时腾出来的旧会馆，长长的橡木谈判桌两头各插一面旗，窗外就是圣殿前的集市，烤蜂蜜面包的香气和讨价还价的声音一起飘进来。",
+   "exits": [
+    "loc_envoy_guest_quarters",
+    "loc_counterweight_release_pin"
+   ],
+   "id": "loc_truce_hall",
+   "name": "停战会馆",
+   "pressure_modifiers": {},
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "两边的书记官、卫兵、看热闹的市民挤在会馆内外，女将军多看谁一眼，第二天整座外城都会传开。",
+   "witnesses": [
+    "bg_demon_adjutant",
+    "bg_temple_guard",
+    "bg_honey_baker",
+    "bg_scribe"
+   ]
+  },
+  {
+   "affordances": [
+    "坐在火盆边陪女将军擦战矛",
+    "替女将军解开战甲的皮扣",
+    "把客居的木门闩上"
+   ],
+   "detail": "会馆后院一间给使节住的石砌客居，一张挂着暗红帷帐的大床、一只火盆、窗台上摆着女将军从集市上买回来的一排小陶偶，那杆黑曜战矛靠在床头。",
+   "exits": [
+    "loc_truce_hall"
+   ],
+   "id": "loc_envoy_guest_quarters",
+   "name": "魔族使节的客居",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "火盆的光把帷帐映成深红色，厚木门一闩，外面巡夜卫兵的脚步声就远了。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "阿什",
+   "瓦尔",
+   "莫格",
+   "伊格",
+   "卡尔",
+   "赛恩",
+   "洛斯",
+   "布兰",
+   "埃德",
+   "奥瑟",
+   "格林",
+   "希尔",
+   "诺德",
+   "维斯"
+  ],
+  "given_female": [
+   "卡蜜拉",
+   "莉莉丝",
+   "艾琳",
+   "芙蕾",
+   "赛拉",
+   "薇拉",
+   "露娜",
+   "伊芙",
+   "诺拉",
+   "凯西",
+   "黛拉",
+   "米拉",
+   "奥莉",
+   "琳"
+  ],
+  "given_male": [
+   "艾德里安",
+   "西奥",
+   "卢卡",
+   "马丁",
+   "奥斯卡",
+   "雷蒙",
+   "伊安",
+   "朱利安",
+   "本",
+   "克莱门",
+   "费恩",
+   "罗兰",
+   "托马",
+   "亚瑟"
+  ],
+  "given_neutral": [
+   "晨",
+   "灰",
+   "白石",
+   "钟",
+   "棘",
+   "霜",
+   "南",
+   "烬",
+   "岚",
+   "铃",
+   "渡",
+   "朔",
+   "苇",
+   "砂"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{given}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入。原稿除标题、简介、基调、女将军外貌、世界规则风俗、三处脱困地点与转折外，人物、压力、日常与钩子大多照抄了吸血鬼地宫那一篇，这里按圣战停战期的题材整篇重写：魔军先锋女统帅作为停战使节住进敌方圣殿，白天在停战会馆里谈判、逛圣殿集市、跟派来作陪的机关学者斗嘴，夜里是诛魔重力结界误启后的三倍重压与下陷祭坛。与败北魔王皇女那篇拉开：那篇是战败后的王座与契约，这篇是战事未定、两边都在试探的停战使节。新增停战会馆与使节客居两处日常地点；婴儿肥换成了其余外貌描写；女将军亲密前提写明脱困之后、双方清醒自愿；新增客居里的四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    24
+   ],
+   "baseline": "刚从圣殿学院毕业，懂一点魔族话，被派来给停战谈判做通译，第一次见到活生生的魔族，说话都在抖。",
+   "gender": "any",
+   "id": "pi_novice_interpreter",
+   "reputation": "圣殿里最年轻的通译，书记官们都叫这位新来的。",
+   "resources": [
+    "一本魔族语词典",
+    "一支羽毛笔",
+    "一叠谈判记录"
+   ],
+   "risks": [
+    "再译错一个词，就要被调回学院抄书。"
+   ],
+   "role": "圣殿派来的新任通译",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    40
+   ],
+   "baseline": "在圣殿集市上摆了十年香料摊的商人，停战以后第一次有魔族客人来买东西。",
+   "gender": "any",
+   "id": "pi_market_merchant",
+   "reputation": "集市上消息最灵通的人之一。",
+   "resources": [
+    "一摊香料",
+    "一杆秤",
+    "一本记着欠账的小册子"
+   ],
+   "risks": [
+    "战事重开，这一摊买卖就做不下去了。"
+   ],
+   "role": "集市上的香料商人",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    36
+   ],
+   "baseline": "替圣殿记录每一场谈判的书记官，四十天里每一句话都要落在纸上。",
+   "gender": "any",
+   "id": "pi_truce_scribe",
+   "reputation": "以笔快字稳出名的书记官。",
+   "resources": [
+    "一本谈判记录",
+    "一方书记官的印章",
+    "一张进出会馆的通行令"
+   ],
+   "risks": [
+    "记录出了错，停战条约就可能作废。"
+   ],
+   "role": "人类方的谈判书记官",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    32,
+    50
+   ],
+   "baseline": "圣殿大主教派来的停战全权代表，四十天后签不签字、条约怎么写，最后都要落在这个人的一句话上。",
+   "gender": "any",
+   "id": "pi_plenipotentiary",
+   "reputation": "两边都知道这位全权代表的分量。",
+   "resources": [
+    "一枚大主教的印戒",
+    "一份停战条约的底稿",
+    "随时能叫停谈判的权限"
+   ],
+   "risks": [
+    "谈判期间使节出了事，战事当天就会重开。"
+   ],
+   "role": "大主教派来的全权代表",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "圣战打了十年，魔军与圣殿第一次谈停战。魔军先锋女统帅作为停战使节，带着一杆黑曜战矛住进了敌方的圣殿；圣殿派来作陪的是一位研究古代魔导机关的学者，白天陪着谈判、逛集市，也盯着这位客人别乱跑。圣殿地下的诛魔重力结界还在，钥匙在哪一派手里没人说得清。",
+ "pressures": [
+  {
+   "choice": "是趁重力的间歇冒险下撬，还是先俯卧下来等这一阵过去？",
+   "exits": [
+    {
+     "cost": "撬到一半重力又压下来，可能前功尽弃",
+     "option": "趁重力的间歇合力下撬"
+    },
+    {
+     "cost": "重力只会一阵比一阵重",
+     "option": "俯卧下来等这一阵过去"
+    }
+   ],
+   "far": {
+    "consequence": "两人被压在祭坛里动弹不得，等不到外面的人。",
+    "due_days": 1,
+    "trigger": "重力翻到五倍"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_gravity_triples",
+   "immediate": {
+    "minutes": 2,
+    "text": "一阵重压落下，女将军整个人被压进机关学者怀里，战甲在石砖上刮出一道白痕。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_gravity_altar_pit",
+    "loc_gravity_ratchet_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "重力又翻了一档，两人连抬头都抬不起来，只能贴着石砖一点点挪。"
+   },
+   "objective": "在重力翻到五倍之前撬断限位销。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "诛魔结界重力翻倍",
+   "trigger": "诛魔重力结界越压越重，从两倍翻到三倍，骨头被压得咯吱作响，站着就眼前发黑。"
+  },
+  {
+   "choice": "是用战矛硬别，还是先拆下一块石砖垫在棘齿下面？",
+   "exits": [
+    {
+     "cost": "拆砖要耗掉宝贵的力气",
+     "option": "拆下石砖垫在棘齿下面"
+    },
+    {
+     "cost": "枪镦可能先崩口",
+     "option": "直接用战矛硬别"
+    }
+   ],
+   "far": {
+    "consequence": "阵盘再也停不下来，重力会一直压到天亮。",
+    "due_days": 1,
+    "trigger": "阵盘彻底锁死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_ratchet_locked",
+   "immediate": {
+    "minutes": 2,
+    "text": "枪镦别进去，棘齿发出一声刺耳的尖鸣，只退了半分。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "棘齿又往里咬进一分，限位销弯成了一道弧。"
+   },
+   "objective": "在阵盘彻底锁死之前别断限位销。",
+   "source": "accident",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "阵盘棘齿咬死限位销",
+   "trigger": "阵盘的偏心棘齿死死咬住限位销，铸铜齿轮转不动，也退不回。"
+  },
+  {
+   "choice": "是先用矛杆撑住塌陷的石砖，还是全力去撬棘齿？",
+   "exits": [
+    {
+     "cost": "矛杆撑在那里，就没法去撬棘齿",
+     "option": "用矛杆撑住塌陷的石砖"
+    },
+    {
+     "cost": "石砖塌了就什么都来不及",
+     "option": "全力去撬棘齿"
+    }
+   ],
+   "far": {
+    "consequence": "两人连同阵盘一起坠进圣殿底下的暗河。",
+    "due_days": 1,
+    "trigger": "祭坛塌空"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_stone_gate_sink",
+   "immediate": {
+    "minutes": 2,
+    "text": "圣门咔的一声又沉了一截，脚下的石砖裂开一道指宽的缝。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "裂缝越来越宽，再塌一块，两人就要掉进下面的暗河。"
+   },
+   "objective": "在圣门落死、祭坛塌空之前打开防倒转拉杆。",
+   "source": "person",
+   "start_minute": 10,
+   "tags": [
+    "workplace"
+   ],
+   "title": "白曜石圣门下沉祭坛龟裂",
+   "trigger": "万斤重的白曜石圣门咬在卡槽里，还在一点点往下沉，祭坛四周的石砖一块接一块地龟裂。"
+  },
+  {
+   "choice": "是为了骄傲拉开半寸距离，还是干脆贴紧了一起发力？",
+   "exits": [
+    {
+     "cost": "这一夜之后，女将军再也不是只瞪着对方看了",
+     "option": "放下骄傲贴紧对方，四只手一起压在矛杆上"
+    },
+    {
+     "cost": "力气使不到一处，别不断限位销",
+     "option": "各自侧身单手发力"
+    }
+   ],
+   "far": {
+    "consequence": "枪镦从棘齿死角里滑出去，错过最后的脱扣窗口。",
+    "due_days": 1,
+    "trigger": "分心导致枪镦滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_spear_chest_press",
+   "immediate": {
+    "minutes": 2,
+    "text": "女将军被压得娇喘吁吁，战甲的系带崩开两根，魔蚕丝战袍滑下半边肩头，酥胸半露着贴在对方手臂上，红发散了满背。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_gravity_altar_pit",
+    "loc_gravity_ratchet_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "两人的心跳撞在一起，女将军的号子第一次喊乱了，谁都分不清是重压，还是别的什么。"
+   },
+   "objective": "贴得这么近的时候，还得把心思放在枪镦的角度和号子上。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "阵眼死角胸背相贴",
+   "trigger": "阵眼死角窄得转不开身，女将军只能俯卧着后背贴在机关学者胸前，四只手叠在矛杆上一起往下压。"
+  },
+  {
+   "choice": "是继续加力赌一把，还是退出来换个角度重新别？",
+   "exits": [
+    {
+     "cost": "披风会被磨烂",
+     "option": "用披风缠住矛杆再压"
+    },
+    {
+     "cost": "换角度要重新找死角，重力可能撑不到",
+     "option": "退出来换个角度"
+    }
+   ],
+   "far": {
+    "consequence": "折断的矛头弹飞，两人失去唯一的撬具。",
+    "due_days": 1,
+    "trigger": "战矛折断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_spear_butt_bend",
+   "immediate": {
+    "minutes": 2,
+    "text": "倒钩发出一声刺耳的崩响，握矛的指节被震得发麻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_gravity_ratchet_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "豁口越来越深，矛杆也开始微微发弯。"
+   },
+   "objective": "得在倒钩崩掉之前找准最后一个受力点。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "黑曜战矛枪镦豁口",
+   "trigger": "战矛的枪镦倒钩别在棘齿死角里，已经被压出一道豁口，再硬别可能整片崩掉。"
+  },
+  {
+   "choice": "是先撬拉杆，还是先喊话让外面的人别打起来？",
+   "exits": [
+    {
+     "cost": "喊话更耗力气",
+     "option": "先喊话压住外面的人"
+    },
+    {
+     "cost": "外面的人可能先打起来",
+     "option": "先撬拉杆自救"
+    }
+   ],
+   "far": {
+    "consequence": "停战当场破裂，战事重开。",
+    "due_days": 1,
+    "trigger": "外面打起来了"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_temple_guards_outside",
+   "immediate": {
+    "minutes": 2,
+    "text": "外面传来刀剑出鞘的声音，钟楼的钟一下子敲急了。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_gravity_altar_pit",
+    "loc_gravity_ratchet_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "两边的人越吵越凶，有人已经拔了刀。"
+   },
+   "objective": "撬开拉杆，让两边的人都看见里面的人还活着。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "圣殿卫队与魔军对峙",
+   "trigger": "圣殿卫队和魔军随从在外面吵成一团，都说对方使坏，谁也不肯先让对方的人下去救人。"
+  },
+  {
+   "choice": "替圣殿作保，还是先查出是谁误启了结界",
+   "exits": [
+    {
+     "cost": "魔军里会传女将军被人类迷住了",
+     "option": "写信替圣殿作保"
+    },
+    {
+     "cost": "老约翰要女将军保下自己在魔军里当俘虏的儿子",
+     "option": "请敲钟人老约翰说出那一夜谁进过钟楼"
+    }
+   ],
+   "far": {
+    "consequence": "十年圣战重开，女将军回国要受叛逆之审",
+    "due_days": 3,
+    "trigger": "魔军开拔"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_camilla_spear_tip",
+    "hook_scholar_sketch"
+   ],
+   "id": "p_demon_king_letter",
+   "immediate": {
+    "minutes": 5,
+    "text": "莉拉单膝跪在客居门口，等将军的回信"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_envoy_guest_quarters"
+   ],
+   "near": {
+    "deadline_minutes": 300,
+    "text": "正午，信使要骑马出城"
+   },
+   "objective": "在信使回魔军大营之前，让停战还有得谈",
+   "source": "person",
+   "start_minute": 480,
+   "tags": [],
+   "title": "魔王的信",
+   "trigger": "结界误启后的第二天清晨，女将军的副官莉拉带来魔王的一封信：圣殿想在谈判桌上害死使节，魔军三日后开拔"
+  }
+ ],
+ "region": "远古圣殿中庭广场深处重力水晶祭坛凹陷底坑与自锁导轨",
+ "rules": [
+  {
+   "id": "r_truce_rules",
+   "text": "停战期的规矩：四十天里两边不许动刀兵，使节在圣殿里受客礼，也受圣殿的眼睛看着。"
+  },
+  {
+   "id": "r_spear_butt_release",
+   "text": "重力限位轮受偏心咬死死死压在基座上，只可通过实心黑曜合金战矛加厚枪镦倒钩别入棘齿缝隙合力下撬脱险。"
+  },
+  {
+   "id": "r_truce_forty_days",
+   "text": "停战谈判只有四十天，第四十天的日落之前谈不拢，战事就重开。"
+  },
+  {
+   "id": "r_no_steel_in_hall",
+   "text": "停战会馆里不许带刃器进门，女将军那杆战矛也只能靠在门边。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "并肩探阵",
+  "committed": "顶翻阵盘",
+  "familiar": "重压相护",
+  "flirting": "贴身卸荷",
+  "intimate": "同命借力",
+  "stranger": "敌对戒备",
+  "testing": "共持矛柄"
+ },
+ "status": "released",
+ "style_hint": "停战期圣殿的工笔：白天写谈判桌上互不相让的措辞、圣殿集市里飘着蜂蜜面包香的摊子、钟楼一天七次的钟声；夜里写三倍重力下骨头咯吱作响、石砖一块块龟裂下陷的沉重。女将军骄傲得像一团火，张力藏在每次斗嘴斗输了以后别过去的那张红脸上。",
+ "tension_engines": [
+  {
+   "id": "te_gravity_triples",
+   "text": "重力一阵比一阵重，骨头被压得咯吱作响，连抬一根手指都费劲。"
+  },
+  {
+   "id": "te_ratchet_locked",
+   "text": "阵盘的偏心棘齿死死咬住限位销，单人别不动分毫。"
+  },
+  {
+   "id": "te_spear_chest_press",
+   "text": "阵眼死角窄得转不开身，两人只能俯卧着胸背相贴，四只手叠在矛杆上一起压。"
+  },
+  {
+   "id": "te_altar_floor_cracks",
+   "text": "祭坛的石砖一块接一块地龟裂下陷，脚下随时可能塌空。"
+  }
+ ],
+ "title": "傲娇魔族女将军·圣殿结界闭锁重力祭坛",
+ "tone": [
+  "万斤石闸坠落",
+  "三倍重力碾压",
+  "黑曜枪镦撬锁",
+  "深陷祭坛凹坑"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_gate_crushes_toolbag",
+   "requires": [
+    "general_camilla"
+   ],
+   "text": "万斤石闸坠落砸碎了机关学者携带的破拆工具包，女将军战袍随身佩带的淬火黑曜战矛成为绝境唯一破障重器。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_cape_caught_crack",
+   "requires": [
+    "general_camilla"
+   ],
+   "text": "女将军战袍披风被下陷石砖缝隙咬死，同伴迅速拔出短刀割断系带，女将军借势翻身扎稳马步撑起两人发力点。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_sweat_on_forearm",
+   "requires": [
+    "rune_scholar"
+   ],
+   "text": "女将军额前汗水顺着饱满面颊滑落，滴在同伴手臂上，在强重力碾压中激荡起震撼灵魂的羁绊。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_bodies_on_spear",
+   "requires": [
+    "general_camilla",
+    "rune_scholar"
+   ],
+   "text": "重力阵盘因数吨偏心咬合发生严重自锁，单人绝难撼动，女将军与机关学者胸腹相贴顺应重力合力下压战矛。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_gravity_doubles",
+   "requires": [
+    "general_camilla"
+   ],
+   "text": "重力场即将翻倍至五倍临界压碎骨骼，内脏不堪重负，两人被迫紧贴石坑死角将身躯重量毫无保留砸向杠杆。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_back_to_pit_wall",
+   "requires": [
+    "general_camilla",
+    "rune_scholar"
+   ],
+   "text": "机关学者用后背顶紧深坑岩石化作坚固力臂支座，女将军借体重顺势下坠，两人合力终于将死锁自扣销生生撬断。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_ratchet_snaps",
+   "requires": [
+    "general_camilla"
+   ],
+   "text": "限位自扣销应声崩脱，差速阵盘逆向飞旋解除重力压迫，两人合力翻出祭坛深坑冲入安全走廊，成功脱困自救。"
+  }
+ ]
+}

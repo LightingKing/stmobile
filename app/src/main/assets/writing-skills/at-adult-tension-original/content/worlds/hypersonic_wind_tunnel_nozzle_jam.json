@@ -1,0 +1,2261 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满五十岁，风洞特种机修老骨干，成年公民。",
+   "age_range": [
+    50,
+    54
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_veteran_rigger_lao_cheng",
+   "line": "温度飙到七十度了！三号螺栓受热往右偏了半度，硬往下压要滑牙啊！",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "name": "老蹇",
+   "role": "风洞特级老装配工老蹇"
+  },
+  {
+   "adult_context": "年满二十八岁，国防安全监管随员，成年公职人员。",
+   "age_range": [
+    28,
+    31
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_safety_inspector_deputy_yue",
+   "line": "监察官有令！倒计时还剩三分钟，准备按下遥控拉闸引爆爆破片自保！",
+   "location_ids": [
+    "loc_arc_heater_control_bunker"
+   ],
+   "name": "岳副官",
+   "role": "国防监察副官岳副官"
+  },
+  {
+   "adult_context": "年满四十五岁，电弧加热专家，成年老工程师。",
+   "age_range": [
+    45,
+    49
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_arc_heating_engineer_chu",
+   "line": "应急高压液氮已切入！女总师，用八十公分钨钼扳手别住三号位，垫上老装配工的石墨板！",
+   "location_ids": [
+    "loc_arc_heater_control_bunker"
+   ],
+   "name": "楚工",
+   "role": "电弧加热段总工程师楚工"
+  },
+  {
+   "adult_context": "年满二十二岁，风洞基地巡检员，成年公民。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_cadet_aerodynamic_xiao_bai",
+   "line": "气压突破极限标高了！喷管振动超标了，快把三号螺栓压死啊！",
+   "location_ids": [
+    "loc_vacuum_sphere_gallery"
+   ],
+   "name": "小樊",
+   "role": "基地子弟巡检员小樊"
+  },
+  {
+   "adult_context": "年满三十三岁，特勤消防指挥员，成年军官。",
+   "age_range": [
+    33,
+    37
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_aerospace_fire_captain",
+   "line": "水幕喷淋系统已对准喷管段，女总师，务必把扳手压到底消除卡死！",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "name": "查队长",
+   "role": "风洞特勤消防中队长查队长"
+  },
+  {
+   "adult_context": "年满二十六岁，持有国防急救执照的女医官，成年公民。",
+   "age_range": [
+    26,
+    28
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_wind_tunnel_medic_officer_shao",
+   "line": "高压降温解毒冰毯与纯氧吸入器已就位，螺栓一压平立刻拉人抢救！",
+   "location_ids": [
+    "loc_arc_heater_control_bunker"
+   ],
+   "name": "阎医生",
+   "role": "基地卫生队医生阎医生"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "傲娇女总师与基地子弟出身的运行值班长在七十度滚烫死角里背靠背、手扣手，把钨钼合金扳手向死角猛压锁死微调螺栓。",
+   "id": "cc_chief_and_mechanic_wrench_rush",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "chief_scientist_su_ruoxi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "热浪绝境中共同测算力矩与偏角，建立起生死托付的力学共鸣。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "mechanic_cheng_changlong",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在风洞火线摸爬滚打的生死战友，深知对方过硬的铁骨担当。",
+     "stage": "familiar"
+    },
+    {
+     "a": "chief_scientist_su_ruoxi",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "mechanic_cheng_changlong",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "傲娇女总师与重装机修老兵在狂暴热浪前结成生死同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chief_scientist_su_ruoxi",
+    "mechanic_cheng_changlong"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在喷管舱爆裂前，合力用钨钼扳手将三号螺栓下压六十度完全消除膨胀卡阻实现消漏脱险。",
+    "limit_gap": "女总师体能在高温脱水与缺氧下逼近昏厥休克临界，工长受限于双手二度灼伤血肉模糊剧痛难忍。",
+    "meeting_reason": "后半夜用电低谷开车吹风，女总师守在喷管段，运行值班长被一个电话从家属院叫了回来。",
+    "resource_gap": "女总师精通十马赫高温流体力学非对称膨胀力矩死穴，工长拥有惊人的下盘千斤坠肉身爆发力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_hypersonic_overpressure_vs_wrench",
+    "te_roasting_chamber_soak_vs_tight_press"
+   ]
+  },
+  {
+   "chemistry": "传奇女总师的从容冷冽稳住吓瘫的新手助理，新手助理冒死送达加长合金空心套管与牵引带，师徒合力化解风洞大爆炸危机。",
+   "id": "cc_chief_and_cadet_pipe_extension",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "chief_scientist_su_ruoxi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "紧盯女总师的每一个锁死手势。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "cadet_aerodynamic_xiao_bai",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "鼓励新手助理战胜火海恐惧。",
+     "stage": "familiar"
+    },
+    {
+     "a": "chief_scientist_su_ruoxi",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "cadet_aerodynamic_xiao_bai",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "师徒传承与工艺庇护。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "chief_scientist_su_ruoxi",
+    "cadet_aerodynamic_xiao_bai"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "迅速接驳加长空心力臂协助钨钼扳手一举压死咬死螺栓。",
+    "limit_gap": "成年的青年助理面对七十度窒息灼浪心理防线脆弱，女总师在狂暴晃动中无法分身捡拾工具。",
+    "meeting_reason": "助理技术员刚从大学分配进山沟，第一个后半夜就被女总师带进了喷管调节腔。",
+    "resource_gap": "女总师握有核心八十公分钨钼扳手与绝对技术指挥权，青年助理掌握加长合金空心管与应力手册。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_hypersonic_overpressure_vs_wrench"
+   ]
+  },
+  {
+   "chemistry": "特派监察官歇斯底里要求引爆爆破片弃洞逃生，机修工长怒拔大敲击梅花扳手横在其喉结据理力争寸步不让。",
+   "id": "cc_mechanic_and_inspector_clash",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "mechanic_cheng_changlong",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "赞许工长抗命护持国家重器的铁骨担当。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "inspector_yue_zheng",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对视一线人命如草芥的自私官僚深恶痛绝。",
+     "stage": "stranger"
+    },
+    {
+     "a": "mechanic_cheng_changlong",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "inspector_yue_zheng",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "一线工长与上层逃命官员之间的生死对峙。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mechanic_cheng_changlong",
+    "inspector_yue_zheng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "压制官僚逃跑行径为狭窄死角内微调螺栓压平争取至关重要的三分钟时间。",
+    "limit_gap": "监察官极度恐惧风洞爆炸粉身碎骨，工长受限于公然违抗国防安全条例的严惩威慑。",
+    "meeting_reason": "监察官下基地督查试验进度，坐了一天绿皮车又颠了两小时山路，进门就要看吹风记录。",
+    "resource_gap": "监察官手握指挥部爆破自毁遥控钥匙芯片，工长拥有全风洞机修突击队的绝对现场支持。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_inspector_blowup_tunnel_vs_rescue"
+   ]
+  },
+  {
+   "chemistry": "风洞老钳工隔着滚烫气浪指点偏角递上石墨金属衬板，与狭缝内死磕扳手的年轻女总师里应外合，协同化解风洞大爆炸死局。",
+   "id": "cc_chief_and_master_cheng_lever",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "chief_scientist_su_ruoxi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "深信女总师神级热态流体决断力。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "senior_wind_tunnel_rigger_cheng",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "老钳工的经验指引令人心头大定。",
+     "stage": "familiar"
+    },
+    {
+     "a": "chief_scientist_su_ruoxi",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "senior_wind_tunnel_rigger_cheng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "两代空天军工人之间的默契互救。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chief_scientist_su_ruoxi",
+    "senior_wind_tunnel_rigger_cheng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "精准将石墨衬板塞入右偏半度受力死角对角锁死脱险。",
+    "limit_gap": "老钳工年迈患有肺气肿无法上前死拼下压，女总师在极热气浪中双眼难辨微米级偏角。",
+    "meeting_reason": "老装配工是基地第一代建设者，在山沟里住了四十年，这座风洞的每一节喷管都是看着装起来的。",
+    "resource_gap": "老钳工握有三号螺栓右偏半度偏心口诀与石墨衬板，女总师掌握核心钨钼扳手与绝对技术指挥权。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_hypersonic_overpressure_vs_wrench",
+    "te_inspector_blowup_tunnel_vs_rescue"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_chamber_acoustic_intercom",
+   "reach": "all",
+   "text": "喷管调节腔内部高强度防爆骨传导有线通信网"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_shockwave_screams_deadlock",
+   "reach": "local",
+   "text": "十马赫激波爆鸣尖锐啸叫与监察官惊恐呼叫"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已成年的国家超高声速风洞特级女总设计师，年满二十一岁，持有战略科技重大装置突发事故一级应急处置指挥资质，享有全系统最高技术指挥权与决断权。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "褪去避火罩袍后内着阻燃工装背心，容貌清冷绝美神情傲娇，两腮带着柔和的轮廓，在七十度滚烫热浪与急促喘息中，白皙双颊被烘烤得泛起娇艳酡红，晶莹香汗顺着下颌滑入紧绷锁骨。",
+    "湿透的乌黑长发用防滑扎带死死挽在脑后，纤细双臂紧扣长达八十公分的特制超硬钨钼合金防烧蚀加长手动偏心复位棘轮扳手死死别入微调螺栓，面颊在火红警报灯映照下泛出绝不屈服的傲娇坚毅，展现出掌控国家大重器的绝对总师威严。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延的懦夫",
+     "打着自保旗号擅自弃洞引爆的官僚"
+    ],
+    "contrast": "外表清冷美艳，从城里调进山沟三年，住单身宿舍、骑借来的自行车、在食堂跟基地子弟抢辣子，面对十马赫风洞失控时手劲与力学决断远超粗壮工长。",
+    "core_value": "十马赫激波再狂暴，也必须服从热障流体力学公差，只要这柄钨钼合金扳手还在手里，本总师就能把这卡死的喉道死死压回基准线。",
+    "goal_options": [
+     "利用加长钨钼扳手插入偏心螺栓下压复位",
+     "在喷管舱爆裂前排除卡死压正喉道自救"
+    ],
+    "never": [
+     "在喷管喉道彻底压平复位消除险情前独自弃洞逃生"
+    ],
+    "prefers": [
+     "分秒不差的微米级螺栓配合",
+     "生死关头敢把后背交出来的铁血搭档"
+    ],
+    "pressure_responses": {
+     "breaking": "用牙齿咬破清凉喷雾含服强行保持清醒继续双掌死扣扳手下旋",
+     "high": "整个人扑在扳手柄端借全身自重与双臂爆发力合力顺时针死死压平螺母",
+     "low": "在激波初升时冷静测算极热气流压力与喉道非对称热膨胀剪切应力",
+     "mid": "果断抽出八十公分钨钼扳手找准偏心螺栓微调切角"
+    },
+    "relationship_stance": "平日神情傲娇冷艳容不得任何人质疑技术规程，但在高空生死绝境中展现出同生共死的过人胆魄与统帅担当。",
+    "withdrawal": "退守至喷管段钛合金承重角钢内侧，单臂挽住安全扶手冷眼注视喉道位移红外读数。"
+   },
+   "gender": "female",
+   "gender_reason": "空气动力学超高声速女总师",
+   "id": "chief_scientist_su_ruoxi",
+   "identity": {
+    "authority": "对十马赫风洞喷管喉道控制、电弧加热段紧急熄弧放空、激波吹除及现场全部突击检修人员享有最高技术指挥权与工程否决权。",
+    "exposure": "为了抢重大工程节点曾在高温天气下顶着喉道微变形超负荷开启十马赫全压吹风",
+    "hidden": "工装背心贴胸口袋内装着一枚刻有国家重大空气动力学创新奖章经纬度的纯钛纪念挂坠",
+    "limits": [
+     "在喉道彻底复位消除卡死前无法离开被高温热浪封死的调节腔狭小死角",
+     "长时间暴露在七十度高温热浪与浓烈臭氧环境中面临重度脱水热射病休克"
+    ],
+    "obligations": [
+     "确保喷管喉道微米级间隙复位消除爆裂风险力保价值数亿元国家战略科研风洞安全"
+    ],
+    "resources": [
+     "一柄特制超硬钨钼合金防烧蚀加长手动偏心复位棘轮扳手（长八十公分，超硬度钨钼钒特种合金锻造，耐两千度超高温冲蚀，端部带防滑双向棘爪定位卡块）",
+     "一罐高压军用便携式快速抗高温热衰竭神经舒缓喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在七十度滚烫热浪与毁灭爆炸面前如山岳般的巍峨身躯",
+     "千钧一发之际毫不犹豫用滚烫胸膛为自己阻挡高温等离子气浪的舍命相护"
+    ],
+    "boundaries": [
+     "严守首席总师学术与指挥威严不容侵犯",
+     "不以救命功绩索取私人情感屈从"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被从身后紧抱稳住重心抗击震颤冲击，双手叠合在钨钼扳手上一同向下猛力死压。",
+    "dislikes": [
+     "自私逃兵的卑劣行径",
+     "自恃官威的蛮横瞎指挥"
+    ],
+    "expression": "脱险进入安全区后，默默撕下自己最干爽的阻燃内衣轻柔擦拭对方被高温气浪灼红的双肩，眼神温柔而坚定。",
+    "likes": [
+     "两人合力压死扳手时胸膛紧贴传来的粗重狂热心跳",
+     "险情排除后彼此抹去面颊热汗与黑灰时的傲娇羞怯轻笑"
+    ],
+    "preconditions": [
+     "喷管喉道完全复位消除卡阻且洞内气压完全平稳受控",
+     "全员安全撤出调节腔返回地面控制室完成更衣降温",
+     "两人都清醒，心意出于自己，不是热浪绝境里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "超高声速风洞首席女总师",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_nozzle_throat_adjustment_chamber",
+     "to": 1420
+    },
+    {
+     "from": 1420,
+     "location_id": "loc_nozzle_throat_adjustment_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "特种合金扳手手柄发生微小塑性微弯，操作人员双手被粗糙防滑纹磨出大面积血泡鲜血浸透阻燃服。",
+      "option": "用特制超硬钨钼合金防烧蚀加长手动偏心复位棘轮扳手顺时针死死压平微调螺栓自救。"
+     },
+     {
+      "cost": "猛烈敲击造成特种合金表面产生微细应力裂纹，飞溅金属火花轻度灼伤操作人员小臂。",
+      "option": "用备用重型大紫铜锤直接猛烈敲击喉道受损滑块凸耳强行震退咬死脱险。"
+     }
+    ],
+    "pressure": "电弧段气压狂飙逼近洞体爆裂极限，距全风洞毁灭大爆炸仅剩四分钟逃生窗口。",
+    "trigger": "十马赫激波烧蚀使喷管喉道滑动块受热极度膨胀卡死抱死，压力无法释放。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "还有最后四分之一圈螺牙……只要扳手不崩脱，本姑娘绝不会让十马赫风洞化作火海废铁，给我压到底！",
+    "surface": "别管那些喷在面罩上的灼人热浪！把这根八十公分的钨钼扳手扣入三号微调螺栓，跟我数三二一一起用力顺时针死压到底！"
+   }
+  },
+  {
+   "adult_context": "年满三十岁，国家级超声速风洞特种高压机械特级机修长，具备完全民事行为能力，十年风洞火线冲锋老将。",
+   "age_range": [
+    30,
+    36
+   ],
+   "appearance_options": [
+    "身材极其魁梧刚劲肩背宽厚如山，身着带有加厚绝热隔冷内衬的防烫阻燃厚工装，手臂青筋暴起肌肉如坚硬生铁，面容粗犷目光冷峻。",
+    "短发被滚烫热汗浸透黏在额头，在剧烈热浪震颤中双脚如生根道钉稳稳咬在防滑钢格板上。"
+   ],
+   "decision": {
+    "avoids": [
+     "前怕狼后怕虎的逃兵",
+     "遇事推卸责任的空谈客"
+    ],
+    "contrast": "看似粗野鲁莽的工长汉子，在配合女总师压下扳手时的重心与力道把控精妙绝伦分毫不差。",
+    "core_value": "战位就是阵地，只要女总师还在前头拼命，{npc.name}就算拼上这条命也得顶住两千度热浪。",
+    "goal_options": [
+     "协助女总师压下扳手压正微调螺栓",
+     "用宽厚身躯挡住狂暴喷射的滚烫热浪气流"
+    ],
+    "never": [
+     "在总师还在极热中死拼时独自松开扳手逃命"
+    ],
+    "prefers": [
+     "干净利落的军令作风",
+     "关键时刻豁出命硬碰硬的真汉子"
+    ],
+    "pressure_responses": {
+     "breaking": "用宽厚脊背硬生生挡住上方管道爆开的滚烫气体为女总师撑起发力空间",
+     "high": "双手死死包覆在女总师手背外侧倾注全身近两百斤自重协同压下扳手",
+     "low": "在气浪初现瞬间迅速甩出加厚耐高温绝热手套反向塞给女总师",
+     "mid": "用雄厚宽阔的胸膛一把捞住被热浪颠簸冲倒的年轻助理"
+    },
+    "relationship_stance": "在基地家属院长大的子弟，父辈就守着这座风洞；看着女总师从城里调来、一点点赢下全基地的人心，嘴上不说，后半夜吹风总把最危险的位置留给自己。",
+    "withdrawal": "退守至喷管段主承重工字钢角梁内侧，右手握紧大敲击扳手警惕任何螺栓应力飞崩。"
+   },
+   "gender": "male",
+   "gender_reason": "超高声速风洞特种机械特级总工长",
+   "id": "mechanic_cheng_changlong",
+   "identity": {
+    "authority": "对风洞喷管段特种机具调用、高压微调螺栓及应急防爆自锁索拥有现场绝对处置权。",
+    "exposure": "为了抢时间曾违规在带温状态下手动微调过喷管水冷夹套螺栓",
+    "hidden": "机修背心贴身内袋里珍藏着女总师当年初次指挥十马赫首吹成功时赠予的型号试验纪念章",
+    "limits": [
+     "体能在抗衡七十度极热窒息与剧烈热浪反冲中逼近生理极限",
+     "不懂微观非平衡化学反应气体流动动力学偏微分张量方程"
+    ],
+    "obligations": [
+     "誓死协助总师女总师压下扳手消除卡死力保全员平安生还"
+    ],
+    "resources": [
+     "一柄大号高强度耐高温特种重型梅花敲击扳手",
+     "两卷带有耐温加厚橡胶涂层的高抗拉防滑包扎带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在两千度毁灭热障面前横刀立马的非凡帅才魄力",
+     "两具滚烫躯体在狭窄死角中紧密贴合的炽烈生命共鸣"
+    ],
+    "boundaries": [
+     "恪守风洞机修从属规矩不越礼数",
+     "不以救命之恩索取私人情感回报"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在剧烈晃动的狭窄腔内从后方抱紧女总师稳住重心，双手全力握紧扳手合力向下猛压到底。",
+    "dislikes": [
+     "临阵弃守的自私懦夫",
+     "背信弃义的下作小人"
+    ],
+    "expression": "撕下自己干燥清凉的保暖内胆，轻柔却有力地裹在女总师被高温熏得发烫的后颈上。",
+    "likes": [
+     "战胜死神后痛快大喝冰镇盐汽水的畅快",
+     "喉道复位消阻瞬间两人粗重滚烫的胸膛起伏与鼻息交融"
+    ],
+    "preconditions": [
+     "喷管喉道完全复位消除卡阻且现场温度受控下降",
+     "全员安全撤出调节腔返回地面控制室"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "风洞运行值班长",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_nozzle_throat_adjustment_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}右侧背阔肌严重拉伤撕裂，双手隔着手套被磨出大面积水泡破溃。",
+      "option": "{npc.name}将全身自重压在扳手末端借超长力矩强行带动抱死螺栓下旋脱险。"
+     },
+     {
+      "cost": "大扳手受强烈高压反震脱手崩飞划破{npc.name}面颊与手腕。",
+      "option": "用防爆大扳手反向敲击螺栓边缘强行震平偏心咬死自救。"
+     }
+    ],
+    "pressure": "若不能在两分钟内合力压下扳手锁死微调螺栓，两千度极热激波将引爆整座风洞断绝生路。",
+    "trigger": "气压突破报警上限，风洞承压壁振动超标，三号微调螺栓受强烈高温剪切偏载。"
+   },
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "voices": {
+    "inner": "女总师是天生的帅才。只要我还有一口气在，这十马赫极热休想伤女总师半根寒毛。",
+    "surface": "女总师！找准三号对角位！扳手有{npc.name}给你托着，你报顺逆，老子就算把双臂骨头压断也给你压到底！"
+   }
+  },
+  {
+   "adult_context": "年满三十八岁，国防科研安全监察官员，具备完全民事行为能力，掌控紧急爆破卸压与全风洞弃守自毁通报权。",
+   "age_range": [
+    38,
+    44
+   ],
+   "appearance_options": [
+    "身穿带有高反光条的高级防风呢绒监察风衣，面容白净戴着金丝防爆护目镜，此时被滚烫热浪熏得满脸油汗神色惨白。",
+    "双手死死抓着胸前的多组分便携气体检测仪，眼神在维持官僚威严与抢先逃命间剧烈挣扎。"
+   ],
+   "decision": {
+    "avoids": [
+     "七十度滚烫热浪扑面的喷管调节腔",
+     "与浑身机油热汗的机修工同舟共济"
+    ],
+    "contrast": "平日在发布会上口若悬河大谈空天安全重于泰山，大难临头时比谁都贪生怕死、丑态百出。",
+    "core_value": "保全自身性命与监察乌纱帽高于一切，一线机修工与技师的生死不过是科研安全报表数字。",
+    "goal_options": [
+     "强行开启应急爆破自毁电门单独逃生",
+     "勒令女总师立刻放弃抢修撤退至地堡堡垒"
+    ],
+    "never": [
+     "为了挽救同行科研人员而延误自己登上救生车的时间"
+    ],
+    "prefers": [
+     "绝对的官僚服从",
+     "空调清凉的高级VIP指挥所"
+    ],
+    "pressure_responses": {
+     "breaking": "瘫坐在地板上交出气动切断钥匙换取优先登车撤离权",
+     "high": "被值班长夺下钥匙按在角钢上后吓得瘫倒在栏杆旁",
+     "low": "在地堡大声宣读国防科研安全条例推卸责任",
+     "mid": "发现洞内气压超标后歇斯底里试图暴力扳动爆破电掣"
+    },
+    "relationship_stance": "将女总师视为恃才傲物目无尊长的年轻刺头女科学家，对其专业权威既敬畏又嫉恨。",
+    "withdrawal": "退缩在防爆通廊后方密封防爆逃生救生室门内，双手死死抱住公文包与自救呼吸器。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "inspector_yue_zheng",
+   "identity": {
+    "authority": "代表指挥部行使重大险情全风洞紧急停机戒严权、下达引爆应急爆破片弃洞指令的最终签署权。",
+    "exposure": "为了赶进度曾对喷管水冷夹套微裂纹检修单据违规签署放行",
+    "hidden": "暗中启动了呼叫基地地面特勤指挥车前来单人接应的应急加密信标",
+    "limits": [
+     "完全不懂超高声速喷管喉道微米级热膨胀可逆自适应公差机理",
+     "极度恐慌爆炸企图强行启动应急爆破片遥控放空单独逃生"
+    ],
+    "obligations": [
+     "保全公文包内十马赫超高声速风洞特许国家重大科研任务批文"
+    ],
+    "resources": [
+     "一台便携式高精度超高温等离子体分析仪",
+     "一枚风洞应急爆破自毁切断遥控钥匙芯片"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "能保全自身性命与官位的高效铁腕庇护",
+     "迎合其官僚尊严的阿谀奉承"
+    ],
+    "boundaries": [
+     "严禁任何普通机修工触碰其高级监察制服",
+     "不承担任何同舟共济抢险义务"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在地堡外手握对讲机，命令消防队在倒计时归零时立刻引爆炸药引信彻底弃洞逃生。",
+    "dislikes": [
+     "粗暴的抗命顶撞",
+     "被冰冷扳手与铁拳指着鼻梁的屈辱恐慌"
+    ],
+    "expression": "战战兢兢地从口袋里摸出一盒昂贵的高效抗热含片扔在地上换取机修工长拼命下扳制动。",
+    "likes": [
+     "被护卫在最安全的防爆监控室",
+     "特供的高级雪茄与热茶"
+    ],
+    "preconditions": [
+     "彻底脱离风洞爆炸危险置身于安全防爆指挥所",
+     "保全既得安全总监官职衔"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "特派国防安全监督专员",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_arc_heater_control_bunker",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "涉嫌公然抗拒国防安全监察执法面临事后被停职审查。",
+      "option": "值班长夺下监察官遥控钥匙并用高强绑带将其捆在栏杆立柱上自救。"
+     },
+     {
+      "cost": "与监察随员爆发轻微肢体拉扯造成右手腕轻度挫伤。",
+      "option": "女总师大声以首席总师身份喝退监察随员并亲手切断爆破电掣脱险。"
+     }
+    ],
+    "pressure": "若三分钟内不能压平微调螺栓，特派监察官手中的芯片将直接引爆爆破片彻底炸毁喷管封闭生路。",
+    "trigger": "气压超标触发科研试验指挥部重大事故弃洞自毁最高预警条例。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这群疯子……风洞要是炸了，整座地下基地都得被抹平，我必须自己活下去！快放空！",
+    "surface": "女总师！值班长！电弧压力已经超标了！立刻放弃手动微调！本监察官命令你们立刻拉下放空电掣自保！"
+   }
+  },
+  {
+   "adult_context": "年满五十岁，风洞喷管段特级老装配工，成年工匠宗师，具备完全民事行为能力。",
+   "age_range": [
+    50,
+    54
+   ],
+   "appearance_options": [
+    "身穿带有高反光条的洗得发白的阻燃厚帆布工装，满脸被高温烘烤与岁月侵蚀的深刻皱纹，花白短发挂满热汗与灰尘。",
+    "手里握着一把被摸得发亮的特种纯钢平头防偏敲击冲子，眼神在刺目电弧光与滚烫气浪中如深井磐石般镇定。"
+   ],
+   "decision": {
+    "avoids": [
+     "不知变通的教条官僚",
+     "遇到险情就丢盔弃甲的软蛋"
+    ],
+    "contrast": "平日沉默寡言甚至被年轻工人视为顽固老汉的老钳工，面对爆炸绝境时指点沉着如定海神针。",
+    "core_value": "金属有脾气，只要给顺了劲，没有扳不动的死螺栓。",
+    "goal_options": [
+     "指点女总师找准右偏微倾角扣死扳手",
+     "垫入石墨金属衬板阻滞气浪对冲防滑"
+    ],
+    "never": [
+     "在高温受力关键时刻误报力矩参数"
+    ],
+    "prefers": [
+     "严谨过硬的工匠手艺",
+     "一诺千金的工程信用"
+    ],
+    "pressure_responses": {
+     "breaking": "用身躯稳住钨钼扳手后部支架为年轻人争取发力空间",
+     "high": "用沙哑嗓音高呼右偏微倾顺力深压的最佳起步角度",
+     "low": "在调节腔边缘用冲子轻敲管壁凭回响判定螺栓咬死程度",
+     "mid": "冒着滚烫气浪递上石墨金属衬板塞入卡死背角"
+    },
+    "relationship_stance": "将女总师视为中国空天界难得一见的巾帼奇才，由衷钦佩年轻女总师沉着镇定的过人定力与铁腕作风。",
+    "withdrawal": "躲在调节腔承重牛腿背风凹槽内，用厚帆布背心死死护住石墨衬垫与量具盒。"
+   },
+   "gender": "male",
+   "gender_reason": "风洞超高温喷管结构特级老装配工",
+   "id": "senior_wind_tunnel_rigger_cheng",
+   "identity": {
+    "authority": "对超高声速喷管滑动块微观热胀间隙、三号微调螺栓咬合牙口受力微米级形变拥有绝对听觉直觉。",
+    "exposure": "曾在检修中为了抢进度少拧过半圈副法兰防松副螺母",
+    "hidden": "深知这座喷管在受两千度极热膨胀时三号螺栓会有向右偏斜微小角度的装配暗伤缺陷",
+    "limits": [
+     "年老体衰患有轻度慢性肺气肿无法承受剧烈奔跑",
+     "在高温窒息狭缝内体液流失极快剧烈咳嗽喘息"
+    ],
+    "obligations": [
+     "将微米级喉道热态消除卡死绝活传承给年轻一代工程师"
+    ],
+    "resources": [
+     "两块耐千度超高温特种石墨防烫绝热隔板",
+     "一把特制重型纯钢平头防偏敲击冲子"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对国家航天尖端空气动力学的崇高敬畏与共鸣",
+     "在死亡深渊面前毫无娇气的果断坚毅"
+    ],
+    "boundaries": [
+     "恪守老长辈规矩不越礼数",
+     "不介入年轻后辈的私人感情波澜"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在牛腿后敲击钢柱指点偏斜角度，将石墨衬板精准塞入女总师扳手受力死角下方。",
+    "dislikes": [
+     "轻视老工匠经验的傲慢做派",
+     "粗暴破坏昂贵特种螺栓的蛮干盲动"
+    ],
+    "expression": "用布满厚茧的大手重重拍在女总师肩头，咧开嘴角露出释然欣慰的朴实笑容。",
+    "likes": [
+     "微调螺栓严丝合缝咬死消除卡阻时的清脆沉闷合模轰鸣",
+     "抢修完成后在平台痛饮一壶大红袍浓茶的舒畅"
+    ],
+    "preconditions": [
+     "彻底排除喉道卡死险情洞内温度平稳受控",
+     "保全全部精密量具完整无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "超高声速风洞特级老装配工长",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_nozzle_throat_adjustment_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗尽绝版特制高温密封耗材，老工长左手手掌被锋利金属毛刺划破渗血。",
+      "option": "用老钳工私藏的耐千度高温石墨金属衬板塞入缝隙协助扳手稳固深咬自救。"
+     },
+     {
+      "cost": "猛烈震击导致特种合金表面产生微小应力斑痕轻微受损。",
+      "option": "指挥值班长用重型敲击扳手反向震击法兰凸耳震松偏心咬死脱险。"
+     }
+    ],
+    "pressure": "若无防滑衬垫介入并纠正半度偏角，钨钼扳手将在强烈反冲下崩裂彻底断送锁紧可能。",
+    "trigger": "三号螺栓在超高温热胀冷缩下咬合死角极其顽固，钨钼扳手面临打滑滑牙。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好闺女，手上功夫够硬！这国之重器要是毁在老汉眼前，那才是丢尽了老军工人的脸！",
+    "surface": "女总师！听{npc.name}的！三号螺栓受热往右侧微偏了半度！别死往前硬顶，往右偏一点顺着牙口咬进去再死压！"
+   }
+  },
+  {
+   "adult_context": "年满二十一岁，航空航天大学气体动力学学院应届毕业生，初级大型风洞维护员，具备完全民事行为能力。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身材单薄，身着带有黄色反光条的浅灰阻燃工作服，面容清秀神情极度惊惶，防爆护目镜歪斜卡在脖子上。",
+    "腰间工具袋胡乱塞着红外测温枪与备用小棘轮，双膝在七十度窒息灼浪中剧烈颤抖、脸色惨白如纸。"
+   ],
+   "decision": {
+    "avoids": [
+     "凶神恶煞的监察官咆哮",
+     "七十度窒息灼人的喷管调节狭缝"
+    ],
+    "contrast": "平日胆小怯弱常被老工人责备的年轻助理，在女总师生死存亡关头能爆发出一股冒死送达加长套管的血性胆量。",
+    "core_value": "保命第一，崇拜并绝对服从女总师的每一道抢险指令。",
+    "goal_options": [
+     "协助女总师寻找加长套管延长扳手力臂",
+     "在调节腔立柱稳固安全牵引带"
+    ],
+    "never": [
+     "背弃女总师独自放弃求生逃跑"
+    ],
+    "prefers": [
+     "清晰明确的指令指导",
+     "平稳清凉的陆上中央控制室"
+    ],
+    "pressure_responses": {
+     "breaking": "跪倒在滚烫的地板上死死拉紧安全牵引带协助分担气浪冲击",
+     "high": "鼓起勇气冒着灼热气浪爬过钢格板递送加长套管",
+     "low": "在备件箱内慌乱翻找可以套在扳手末端的加长特种合金套管",
+     "mid": "大声向调节腔内通报红外测温读数与电弧气压百分比"
+    },
+    "relationship_stance": "将女总师视为唯一的救命稻草与崇高统帅，愿为协助脱险拼死效命，在山沟里的基地住了好些年。",
+    "withdrawal": "缩在调节腔承重钢柱背风死角，紧紧抱住加长合金管浑身哆嗦颤抖。"
+   },
+   "gender": "male",
+   "gender_reason": "空气动力学流体仿真青年助理技术员",
+   "id": "cadet_aerodynamic_xiao_bai",
+   "identity": {
+    "authority": "调节腔应急微型防爆排风机与绝热冷却水注入口的手动启闭权。",
+    "exposure": "因操作生疏曾导致辅助冷水管路快速接头发生轻微松动渗漏",
+    "hidden": "暗自崇拜英姿飒爽的首席总师女总师将其视为空气动力学界最崇高的精神偶像",
+    "limits": [
+     "缺乏特大国防大试验爆炸海难实战经验心理防线脆弱",
+     "体质单薄力气严重不足难以单独抗衡高温气浪反冲"
+    ],
+    "obligations": [
+     "按规程记录喷管各测点压力并向总师报告气体浓度读数"
+    ],
+    "resources": [
+     "一根厚壁加长高强度特种合金空心加力套管",
+     "一卷高抗拉耐高温金属芳纶加固安全牵引带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "泰山崩于前而色不变的卓越帅才魅力",
+     "在爆炸深渊面前给予同伴的强大安全感"
+    ],
+    "boundaries": [
+     "恪守助手本分不作非分奢望",
+     "严守下级礼节规矩"
+    ],
+    "desire_range": [
+     1,
+     1
+    ],
+    "desired_position": "在调节腔安全扶手上方死死拽紧牵引带，大声为女总师下压扳手报出消除卡阻刻度读数。",
+    "dislikes": [
+     "残酷暴力的威逼践踏",
+     "被当作废物累赘抛弃"
+    ],
+    "expression": "双手发颤地将加长套管递过，结结巴巴连连向女总师敬礼并保证坚守岗位，事后在地堡门口陪着看了很久的星星。",
+    "likes": [
+     "被肯定业务能力时的温和颔首",
+     "分到的一枚甘甜提神高能葡萄糖块"
+    ],
+    "preconditions": [
+     "彻底排除喉道卡死险情气压稳稳受控归零",
+     "确保自身生命安全得到保障"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "超高声速风洞助理技术员",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_nozzle_throat_adjustment_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}手臂被飞溅电弧火花轻度烫伤起泡。",
+      "option": "{npc.name}用加长合金管绝缘胶垫端砸碎防爆箱电门切断强电自救。"
+     },
+     {
+      "cost": "双手手掌被电弧灼伤脱皮。",
+      "option": "后半夜的山沟里只有吹风的爆鸣，用阻燃防化外套浸透冷凝水死死捂住短路电缆扑灭电火花脱险。"
+     }
+    ],
+    "pressure": "若不及时手动切断主配电漏电断路器，飞溅电火花将在三秒内直接引爆高浓度臭氧彻底毁灭风洞。",
+    "trigger": "调节腔内部照明电缆受高温灼烤绝缘皮熔化短路起火，迸发剧烈电火花。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要总师还在火海里拼命，我就不能当缩头乌龟，我必须帮着把这个杀人的喉道彻底压平！",
+    "surface": "女总师！加长套管找到了！这根合金管能套在钨钼扳手柄端再延展半米力臂！还有这卷防高温牵引带！"
+   }
+  },
+  {
+   "adult_context": "年满二十六岁，持有国家职业国防科研创伤急救专科执业证书的成年女医官，具备完全民事行为能力，听着后半夜的吹风声才睡得着。",
+   "age_range": [
+    26,
+    28
+   ],
+   "appearance_options": [
+    "身穿带有红十字标识的白色加厚防化阻燃急救常服，面容清秀神情紧绷，戴着医用无菌耐热手套，双手握着便携式高压注氧仪，裤腿上沾着山沟里的黄泥。",
+    "神情沉着专注，额前秀发利落束起，脖颈上挂着高敏数字心率血氧监测探头与防毒呼吸罩。"
+   ],
+   "decision": {
+    "avoids": [
+     "情绪失控的盲目挣扎",
+     "隐瞒中毒伤情的蛮干硬撑"
+    ],
+    "contrast": "外表文静纤弱的女医官，在面对国家重大风洞试验大灾难急救时下针稳准狠辣如冰山判官。",
+    "core_value": "生命体征就是最高法典，绝不放弃任何一个尚有微弱脉搏的空天同袍。",
+    "goal_options": [
+     "指导调节腔内二人通过深腹式呼吸对抗急性高温热衰竭",
+     "在喉道复位瞬间实施中暑复温降温抢救"
+    ],
+    "never": [
+     "在科研人员尚有微弱心跳时签署放弃急救证明"
+    ],
+    "prefers": [
+     "规律平稳的心率波形",
+     "遵从医嘱的冷静配合"
+    ],
+    "pressure_responses": {
+     "breaking": "顶着被高温热浪扫视的危险探头向门缝递送应急高压防毒面罩",
+     "high": "将体温快速冷敷降温毯推至调节腔门前准备承接重度热衰竭伤员",
+     "low": "在防爆通信频道内持续播报防高温热射病换气口诀",
+     "mid": "隔着观察窗指点值班长如何按压穴位缓解女总师双手肌肉痉挛"
+    },
+    "relationship_stance": "将女总师视为情同手足的亲密知己与崇敬的工程榜样，对突击队员安危极度挂念。",
+    "withdrawal": "退守至冷敷急救治疗台前，迅速核对急救舱氧分压配比电磁阀。"
+   },
+   "gender": "female",
+   "gender_reason": "风洞试验基地特种创伤急救站女主治医官",
+   "id": "wind_tunnel_medic_officer_shao",
+   "identity": {
+    "authority": "对热射病急救方案、急性臭氧中毒神经保护针剂及重症高压氧舱启闭享有最高医疗处置权。",
+    "exposure": "曾私自调用高压氧舱为患有轻度热障减压病的老试验员实施超规保守治疗",
+    "hidden": "随身急救包内封存着自己亲手调配的高浓度外用透皮抗热衰竭喷剂",
+    "limits": [
+     "在七十度高温灼热调节腔狭缝无法实施复杂的静脉穿刺手术",
+     "体能单薄无法搬运数十公斤的重型紧固机械"
+    ],
+    "obligations": [
+     "保障全体风洞抢险突击队员零重度热射病、零急性中毒脑损伤存活"
+    ],
+    "resources": [
+     "两支浓缩神经保护抗休克急救针剂",
+     "一台便携式微型经皮血氧心电监测仪"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在极端高温灼烤下依然坚守的超人意志",
+     "生死关头舍命护持同伴的人性光辉"
+    ],
+    "boundaries": [
+     "严守医患职业伦理道德",
+     "不以医疗资源调配进行私利交换"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "隔着地堡厚玻璃敲出节拍，引导深腹式吸气与屏息。",
+    "dislikes": [
+     "漠视人命的官僚冷血",
+     "因恐惧导致的踩踏推脱"
+    ],
+    "expression": "用冰凉柔软的掌心轻柔按揉对方滚烫泛红的太阳穴，柔声安抚其紧绷剧烈震颤的神经脉搏。",
+    "likes": [
+     "平稳有力的科研人员窦性心律",
+     "脱险后第一口冰镇电解质葡萄糖水的吞咽声"
+    ],
+    "preconditions": [
+     "喷管喉道完全复位消除卡阻且伤员核心体温恢复正常",
+     "全员脱离急性臭氧中毒危险期"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "风洞试验基地随队主治医官",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_arc_heater_control_bunker",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "分担部分抢险精力导致下压扳手节拍轻微延缓。",
+      "option": "通过对讲广播引导调节腔内二人同频深呼吸并相互按压内关穴解痉自救。"
+     },
+     {
+      "cost": "投料口微启导致少量高温蒸汽喷溅损坏医用监测仪外壳。",
+      "option": "从投料窗口塞入高效神经解痉含片协助其维持清醒意志脱险。"
+     }
+    ],
+    "pressure": "若不及时进行减压换气引导，极度高温脱水将诱发重度热射病与心力衰竭休克。",
+    "trigger": "调节腔内人员血氧饱和度跌破百分之七十五警戒红线。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要两人把螺栓压下去消除卡阻，哪怕浑身脱水热射病了，我也一定把两人从阎罗殿里拉回来。",
+    "surface": "女总师！看着我的手势！深吸一口气、屏息三秒、慢吐气！千万不要大口喘粗气，压住喉咙灼热痉挛！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "三月，风洞试验季",
+  "minute": 1395
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "进入喷管段调节腔前习惯用手背触碰铜质消静电接地环三次确认静电释放彻底。",
+  "航天风洞特种机械工习惯在阻燃工作服右手腕扣紧三圈高强黄色防烫胶带圈。",
+  "女总师习惯将便携式高精度超音速激波激光干涉测压仪插在贴身插袋随时测温。",
+  "在震耳欲聋的激流风暴与剧烈热浪啸叫中沟通习惯单手按住对方耳廓大声呼叫。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用精密标准光学激光塞尺测量喉道截面微米级对称度",
+    "擦拭双色石英高温视镜表面积聚的电弧钨粉",
+    "轻扣副放空截止阀螺纹压盖螺栓确认无异常冷凝水"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_nozzle_throat_gap_log",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "晨光未显喷管喉道微米级间隙巡检"
+  },
+  {
+   "beats": [
+    "用铜刮刀清理微调螺栓表面附着的高温氧化皮",
+    "均匀涂抹耐温特种合成超高温二硫化钨极压润滑硅脂",
+    "使用全钢棘轮扳手按对称法紧固六颗大号不锈钢螺栓"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_throat_screw_greasing",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "喉道调节偏心螺栓耐两千度高温二硫化钼保养"
+  },
+  {
+   "beats": [
+    "转动主气动防火水密门重锤锁紧机械棘爪确认自由行程",
+    "检查配重悬挂不锈钢钢丝绳端部马鞍卡扣夹紧力矩",
+    "在特大空天风洞战备施工日志加盖当值监察官电子图章"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_bunker_pneumatic_door_test",
+   "location_ids": [
+    "loc_arc_heater_control_bunker"
+   ],
+   "start_minute": 1398,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "中央控制地堡气动应急防爆门行程测试"
+  },
+  {
+   "beats": [
+    "用防爆卡尺测量减震阻尼器弹簧自由行程与压缩量",
+    "清理滑轨锁死卡齿表面堆积的微细金属冰晶霜花",
+    "在国防科研抢险战备行车日志加盖当值专员电子印章"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_vacuum_gallery_damper_tally",
+   "location_ids": [
+    "loc_vacuum_sphere_gallery"
+   ],
+   "start_minute": 1405,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "真空蝶阀阻火器高压阻尼减震器点验"
+  },
+  {
+   "beats": [
+    "测量高压氮气瓶组汇流排输出减压阀动态风压",
+    "检查机库外露救生索端部钛合金自动锁扣夹紧力",
+    "交接挂在备品柜内的特制超长加力钨钼扳手"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_chamber_nitrogen_supply_tally",
+   "location_ids": [
+    "loc_vacuum_sphere_gallery"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "喷管死角战备自救高压供氧点验"
+  },
+  {
+   "beats": [
+    "测量喷管外壁左右两侧钛合金受热微米级凹陷差",
+    "清理导向槽表面卡塞的细碎重晶石结焦硬块",
+    "紧固传感器安装支架四颗高强度防锈不锈钢螺栓"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_nozzle_shell_laser_mapping",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "title": "喷管外壁热应力非对称微变形激光测绘"
+  },
+  {
+   "beats": [
+    "喉道复位、洞体压力回落之后，女总师被人从调节腔里拉出来，阻燃服烫得发硬，后颈和肩头被热浪燎得一片通红。",
+    "地堡值班室里，女总师背对着人坐在折叠床边，把阻燃服褪到腰间，让人拿裹着冰的毛巾一点点敷上烫红的肩背，冰水顺着脊背往下淌，女总师咬着唇没出声。",
+    "天快亮了，山沟里的鸟开始叫，女总师回过头，声音哑哑的：下一次吹风排在明晚后半夜……这一个白天，你陪着我睡。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bunker_ice_compress",
+   "location_ids": [
+    "loc_bunker_duty_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "地堡值班室里替女总师冰敷烫红的肩背"
+  },
+  {
+   "beats": [
+    "值班室里，女总师抱着那只印着基地标志的搪瓷缸，茉莉花茶的热气扑上镜片，白大褂底下只穿一件吊带背心。",
+    "女总师把缸子推过来：只有一只缸子，你凑合用。……喝我喝过的地方，不许嫌弃。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bunker_enamel_mug_tea",
+   "location_ids": [
+    "loc_bunker_duty_room"
+   ],
+   "start_minute": 1220,
+   "tags": [
+    "intimate"
+   ],
+   "title": "搪瓷缸里的茉莉花茶"
+  },
+  {
+   "beats": [
+    "后半夜用电低谷，今晚没有排吹风，女总师摘了眼镜放在桌上，散开盘了一整天的头发。",
+    "女总师傲娇地别过脸：基地的电难得这么闲，我也难得这么闲。……你想要什么，先说出来，我说好才算。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bunker_off_peak_night",
+   "location_ids": [
+    "loc_bunker_duty_room"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "intimate"
+   ],
+   "title": "用电低谷的后半夜"
+  },
+  {
+   "beats": [
+    "天快亮，地堡外的山沟里鸟叫成一片，女总师在折叠床上醒来，枕着人的胳膊，盯着天花板发呆。",
+    "女总师小声说：小时候听着吹风的爆鸣睡觉，现在听着你的心跳。……还挺好睡的。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bunker_mountain_birds",
+   "location_ids": [
+    "loc_bunker_duty_room"
+   ],
+   "start_minute": 330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "山沟里的鸟叫"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "十马赫国家级超高声速空气动力学风洞运行期",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_shockwave_screams_roaring",
+   "kind": "approach",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "{chief_scientist_su_ruoxi.name}单手按住剧烈颤动的钛合金立柱，抹开额前热汗：十马赫激波把喉道烧蚀卡死了！洞体要爆裂了，把这八十公分的钨钼扳手扣入三号螺栓，跟我死压！"
+  },
+  {
+   "id": "hook_chief_taps_throat_gauge",
+   "kind": "approach",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "{chief_scientist_su_ruoxi.name}置身于七十度滚烫窒息的狭缝中，钨钼扳手卡槽咔哒一声咬死螺栓外六角：看准右偏微倾角，顺着对角微调线，听我口令一起往死里压！"
+  },
+  {
+   "id": "hook_heat_chills_lungs",
+   "kind": "approach",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "{chief_scientist_su_ruoxi.name}在高温灼热的气浪狂潮里咬紧银牙，面颊在火光映照下泛出娇艳酡红与晶莹香汗：别怕烫！抓紧扳手手柄，把全身重量砸下来！"
+  },
+  {
+   "id": "hook_lever_groans_bending_limit",
+   "kind": "approach",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "{chief_scientist_su_ruoxi.name}整个人扑在钨钼扳手柄端，双手虎口鲜血淋漓：三号螺栓在进牙了！值班长，把你那两百斤蛮力全压上来，顺时针压到底锁死！"
+  },
+  {
+   "id": "hook_mechanic_grips_wrench_firmly",
+   "kind": "approach",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "mechanic_cheng_changlong",
+   "text": "{mechanic_cheng_changlong.name}跨步踏入热浪正中，粗壮的大手一把覆在女总师手背外侧：女总师，稳住套筒！剩下的千斤下沉重量交给我，谁也别想松手！"
+  },
+  {
+   "id": "hook_screw_groans_shear",
+   "kind": "approach",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "{chief_scientist_su_ruoxi.name}猛然抬头凝视门外缓缓闪烁的红光，眼神傲娇冷冽如刃：监察官要弃洞爆破了！还有最后十五度，哪怕把扳手压断也得给我锁死！"
+  },
+  {
+   "id": "hook_vacuum_pipe_groans_shaking",
+   "kind": "approach",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "mechanic_cheng_changlong",
+   "text": "{mechanic_cheng_changlong.name}反手抽出大敲击梅花扳手别在立柱角钢之间，低沉怒吼：极热激波再暴虐又怎样！就靠这一米长的合金大柄了，跟我一起下压，锁死这颗螺栓！"
+  },
+  {
+   "id": "hook_inspector_threatens_blast_tunnel",
+   "kind": "approach",
+   "location_ids": [
+    "loc_arc_heater_control_bunker"
+   ],
+   "slot": "inspector_yue_zheng",
+   "text": "{inspector_yue_zheng.name}惨白着脸握紧爆破遥控器，尖叫连连：风洞要炸了！卫队，立刻按下遥控电掣引爆爆破片，绝不能让整座基地陪葬！"
+  },
+  {
+   "id": "hook_cheng_stuffs_graphite_gasket",
+   "kind": "approach",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "senior_wind_tunnel_rigger_cheng",
+   "text": "{senior_wind_tunnel_rigger_cheng.name}将耐高温石墨金属防冲衬板狠狠塞入槽口缝隙：往槽里塞！右偏半度的死角找到了，垫上我的石墨板，顺着力道往下压！"
+  },
+  {
+   "id": "hook_cadet_fetches_extension_pipe",
+   "kind": "request",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "{chief_scientist_su_ruoxi.name}抹去脸上的热汗与黑灰，急促喘息着看向助理技术员：去备件箱把特种合金加长套管取来接上，我们需要更长的一米半力臂！"
+  },
+  {
+   "id": "hook_bai_brings_alloy_pipe",
+   "kind": "request",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "cadet_aerodynamic_xiao_bai",
+   "text": "{cadet_aerodynamic_xiao_bai.name}双手抱着一根厚壁加长套管滚入死角，眼眶通红：女总师！合金管拿来了！还有一卷耐高温牵引带！"
+  },
+  {
+   "id": "hook_cheng_joins_pipe_extension",
+   "kind": "request",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "mechanic_cheng_changlong",
+   "text": "{mechanic_cheng_changlong.name}接过套管狠狠套在扳手柄端，按住女总师的玉手咆哮：套管接上了！力臂延长了！女总师，我们数三二一，一起把全身重量砸下去！"
+  },
+  {
+   "id": "hook_medic_guides_anti_heat_breathing",
+   "kind": "request",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "{chief_scientist_su_ruoxi.name}隔着观察窗向医官打出确认手势，口中含服清凉解痉药片：微调下压在建立了，我们做最后一轮压死下转！"
+  },
+  {
+   "id": "hook_observe_chamber_shockwave_screams",
+   "kind": "observe",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "{chief_scientist_su_ruoxi.name}挺立在七十度滚烫气浪与十马赫激波爆鸣中，阻燃工装背心下面庞在防爆探照灯映照下傲娇决绝，眼神如出鞘冰刃般坚不可摧。"
+  },
+  {
+   "id": "hook_observe_wrench_locks_throat_screw",
+   "kind": "observe",
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "特制超硬钨钼合金防烧蚀加长手动偏心复位棘轮扳手深深咬死微调螺栓，伴随着一声沉闷坚实的金属合模轰鸣，卡死的喷管喉道滑动块轰然复位压平，极热激波瞬间导入真空球罐平息归零，全员安然脱险生还。"
+  },
+  {
+   "id": "hook_ruoxi_enamel_mug",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "{npc.name}把一只搪瓷缸子推过来，里面的茶浓得发苦：后半夜两点开车，现在睡也睡不着。陪我把试验大纲再过一遍？"
+  },
+  {
+   "id": "hook_changkong_bicycle",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "mechanic_cheng_changlong",
+   "text": "{npc.name}骑着一辆老二八自行车从家属院冲下坡，一个急刹停在人面前：上来，我带你，从这儿到洞体走路要二十分钟。"
+  },
+  {
+   "id": "hook_cheng_faded_slogan",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "senior_wind_tunnel_rigger_cheng",
+   "text": "{npc.name}背着手站在基地礼堂前那块褪了色的标语牌下，冲人点点头：新来的吧？这块牌子，比你岁数大两倍。"
+  },
+  {
+   "id": "hook_xiaobai_no_signal",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cadet_aerodynamic_xiao_bai",
+   "text": "{npc.name}抱着铺盖卷站在单身宿舍楼下发愣，看见人像看见救星：手机一点信号都没有……这山沟里你们平时怎么打电话？"
+  },
+  {
+   "id": "hook_yue_mountain_road",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "inspector_yue_zheng",
+   "text": "{npc.name}拍着裤腿上的黄泥走进测控大厅，把公文包往桌上一放：两小时山路，颠得骨头都散了。吹风记录拿来，现在就看。"
+  },
+  {
+   "id": "hook_ruoxi_bunker_stars",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "{npc.name}在吹风间歇推开地堡的铁门，站在山沟的夜风里仰头看星星：城里看不到这么多。你说，十马赫……是不是比流星还快？"
+  },
+  {
+   "id": "hook_ruoxi_bunker_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bunker_duty_room"
+   ],
+   "slot": "chief_scientist_su_ruoxi",
+   "text": "{npc.name}从值班室探出头，晃了晃搪瓷缸：今晚不吹风。……进来喝茶，就一只缸子。"
+  }
+ ],
+ "id": "hypersonic_wind_tunnel_nozzle_jam",
+ "locations": [
+  {
+   "affordances": [
+    "抓牢喷管段加厚耐热钛合金防坠安全扶手",
+    "将特种钨钼扳手套入微调偏心螺栓",
+    "查看墙壁上红色超高压耐高温水银表读数"
+   ],
+   "detail": "高约两米、宽不足一点五米的狭窄密封调节腔死角，头顶是重达数十吨的超高声速风洞水冷喷管喉道外壳，两千摄氏度高压电弧加热气体在内部疯狂激荡，滑动调节块受热卡死在半途，滚烫气浪冲得四周镀金绝热层狂暴翻卷，空气温度高达七十度，四周钛合金筒体发出牙酸的膨胀呻吟，距彻底超压爆炸仅剩数分钟。",
+   "exits": [
+    "loc_arc_heater_control_bunker",
+    "loc_vacuum_sphere_gallery"
+   ],
+   "id": "loc_nozzle_throat_adjustment_chamber",
+   "name": "喉道调节腔",
+   "pressure_modifiers": {
+    "p_hypersonic_overpressure_burst_risk": "两千度极热激波气压以每秒数十兆帕极速狂飙，狭小调节腔内气压逼近喷管承压极限仅剩四分钟窗口。",
+    "p_throat_block_thermal_expansion_jam": "喷管喉道滑动块在非对称超高温热流下膨胀卡死，必须依靠特种扳手合力压下消除热卡阻自救。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_veteran_rigger_lao_cheng"
+   ]
+  },
+  {
+   "affordances": [
+    "按下应急高压液氮强制淬冷喷淋电掣",
+    "拉动备用柴油机排险放空旁通阀",
+    "拿起挂在防爆柜内的备用正压呼吸器面罩"
+   ],
+   "detail": "位于风洞地下二层的重型防爆加固地堡，厚达一米的防爆玻璃外电弧火光冲天，几十块多功能数字遥测仪表正在闪烁疯狂报警，红色防爆戒严警报灯将四周映照成血色。",
+   "exits": [
+    "loc_nozzle_throat_adjustment_chamber",
+    "loc_vacuum_sphere_gallery",
+    "loc_bunker_duty_room"
+   ],
+   "id": "loc_arc_heater_control_bunker",
+   "name": "电弧控制地堡",
+   "pressure_modifiers": {
+    "p_chamber_heat_stroke_shock": "喷管外壁两千度热辐射急剧加剧了地堡通道的灼热危机，空气温度飙升增加了热衰竭休克的危险。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_safety_inspector_deputy_yue",
+    "bg_arc_heating_engineer_chu"
+   ]
+  },
+  {
+   "affordances": [
+    "扳动真空总管应急破真空止回蝶阀",
+    "检查消火栓高压喷淋摆角螺栓",
+    "扣紧混凝土防爆墙侧壁高强度防坠安全挂钩"
+   ],
+   "detail": "位于风洞末端的重型地下管道通廊，巨大的三米直径主真空抽吸阀门正在疯狂震颤，四周空气中弥漫着浓烈的电弧臭氧与绝热云母粉尘气味。",
+   "exits": [
+    "loc_nozzle_throat_adjustment_chamber",
+    "loc_arc_heater_control_bunker"
+   ],
+   "id": "loc_vacuum_sphere_gallery",
+   "name": "真空球罐通廊",
+   "pressure_modifiers": {
+    "p_vacuum_butterfly_vibration_fatigue": "狂暴气流引发主真空蝶阀高频震颤，阀杆轴承承受超载剪切濒临崩断。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_cadet_aerodynamic_xiao_bai"
+   ]
+  },
+  {
+   "affordances": [
+    "陪女总师算一组激波数据",
+    "替女总师敷冰降温",
+    "关上值班室的铁门"
+   ],
+   "detail": "控制地堡尽头的一间值班室，一张折叠床、一只印着基地标志的搪瓷缸、一扇封死的观察窗，墙上钉着吹风排班表。",
+   "exits": [
+    "loc_arc_heater_control_bunker"
+   ],
+   "id": "loc_bunker_duty_room",
+   "name": "地堡值班室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "地堡深埋在山腹里，只开一盏绿罩台灯，铁门一关，山沟里的风声都透不进来。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "苏",
+   "程",
+   "岳",
+   "楚",
+   "白",
+   "邵",
+   "谈",
+   "宿",
+   "查",
+   "柏",
+   "冷",
+   "郁"
+  ],
+  "given_female": [
+   "若曦",
+   "晴",
+   "澜",
+   "微",
+   "清",
+   "雁",
+   "莹",
+   "宛",
+   "素",
+   "羽",
+   "瑶",
+   "凝"
+  ],
+  "given_male": [
+   "凌川",
+   "凌云",
+   "铁锋",
+   "山河",
+   "烈",
+   "峰",
+   "猛",
+   "岩",
+   "勇",
+   "雄",
+   "彪",
+   "天枢"
+  ],
+  "given_neutral": [
+   "风",
+   "云",
+   "石",
+   "川",
+   "舟",
+   "衡",
+   "野",
+   "朗",
+   "诚",
+   "坚",
+   "原",
+   "毅"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留十马赫热障吹风试验中喷管喉道烧蚀膨胀卡死与女总师用钨钼扳手压正微调螺栓的骨架。同一批里有十个同源的工业事故世界，这里把开局放到西南山沟里的三线老基地：一次吹风要吃掉半座城的电，试验只能排在后半夜用电低谷，基地子弟听着吹风的爆鸣长大，家属院、老二八自行车、礼堂前褪色的标语牌、手机没信号的单身宿舍，用山沟科研的清苦与炼化世界的检修季、火箭世界的发射场拉开；搭档写成基地子弟出身的风洞运行值班长，开局钩子、相遇缘由和背景人物围着山沟基地生活重写。写死的人名改为身份称呼，背景人物里与模板重名的改名；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；女总师亲密前提写明喉道复位、双方清醒自愿；新增一个地堡值班室里替女总师冰敷烫红肩背的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    28,
+    42
+   ],
+   "baseline": "驻守国家风洞核心喷管段的特级装配老将，精通微米级高温膨胀合金补偿力学。",
+   "gender": "any",
+   "id": "pi_wind_tunnel_lead_fitter",
+   "reputation": "手艺过硬作风沉稳，能在两千度热浪烘烤中盲摸微调螺栓六角头。",
+   "resources": [
+    "一柄重达十公斤的高强度特种超高温敲击梅花扳手",
+    "两副双层特制耐一千度高温防烫芳纶绝热手套"
+   ],
+   "risks": [
+    "直接暴露在超高温高压电弧气浪死角易遭受重度深度灼伤",
+    "洞体爆裂被超声速激波撕碎"
+   ],
+   "role": "国家空天超高声速风洞特种机械检修副工长",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "检修长{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    34,
+    48
+   ],
+   "baseline": "代表科研指挥部进驻风洞的高级官员，掌控紧急爆破卸压与全风洞弃守自毁通报权。",
+   "gender": "any",
+   "id": "pi_aerospace_safety_superintendent",
+   "reputation": "高高在上讲究条理规程，遭遇试验事故极易恐慌做出弃洞引爆卸压的自保决断。",
+   "resources": [
+    "一台便携式多组分超高温等离子体检测仪",
+    "一套全封闭式高压防爆自救呼吸器"
+   ],
+   "risks": [
+    "不懂微米级喉道热态自平压复位力学容易错判自救窗口",
+    "极度恐慌诱发换气过度晕厥"
+   ],
+   "role": "空天科研指挥中心特派安全监察官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}监察专员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}总监"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "刚分配进超高声速风洞国家重点实验室的大学毕业生，精通高温化学非平衡流动有限元计算。",
+   "gender": "any",
+   "id": "pi_cadet_aerodynamic_engineer",
+   "reputation": "理论扎实但缺乏一线生死热障排险实操经验，面对极热高温吓得面无人色。",
+   "resources": [
+    "一盒特种耐高温快速膨胀金属修补胶",
+    "一本超高声速喷管段应急热胀排险速查手册"
+   ],
+   "risks": [
+    "被滚烫蒸汽气浪冲倒跌落洞体造成骨折",
+    "高温热辐射导致面部皮肤灼伤"
+   ],
+   "role": "空气动力学流体仿真专业青年助理工程师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}助理"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    48,
+    54
+   ],
+   "baseline": "在国家超声速风洞火线摸爬滚打三十年的老钳工，单凭金属敲击声就能测算出微米级装配偏角隙差。",
+   "gender": "any",
+   "id": "pi_veteran_wind_tunnel_rigger",
+   "reputation": "沉默刚毅身经百战，视超高声速喷管喉道为捍卫国之重器命脉的人间要塞。",
+   "resources": [
+    "一把大号重型全锻钢高强度活动加力棘轮扳手",
+    "两张耐千度高温特制金属缠绕石墨防冲衬板"
+   ],
+   "risks": [
+    "长期吸入电弧金属蒸气患有轻度肺气肿耐氧能力较弱",
+    "在灼热狭缝内体力流失过快濒临虚脱"
+   ],
+   "role": "风洞超高温喷管结构特级老装配工长",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老将"
+    }
+   ]
+  }
+ ],
+ "premise": "西南山沟里的三线老基地，一次吹风要吃掉半座城的电，试验只能排在后半夜用电低谷，基地子弟是听着吹风的爆鸣长大的。傲娇女总师带着风洞运行值班长调一套新喷管，白天算数据，夜里守吹风。喷管可调喉道的水冷套是旧的，热障试验一次比一次接近极限。",
+ "pressures": [
+  {
+   "choice": "等待上方启动应急爆破自毁弃洞逃生，还是由女总师带队在灼浪中暴力压下扳手脱险。",
+   "exits": [
+    {
+     "cost": "特种合金扳手手柄发生微小弯曲变形，操作人员双臂肌肉严重拉伤疼痛。",
+     "option": "七十度的热浪一阵阵扑过来，用特制超硬钨钼合金防烧蚀加长手动偏心复位棘轮扳手顺时针死死压平微调螺栓脱险。"
+    },
+    {
+     "cost": "大扳手受强烈反冲脱手崩飞划破在场人员面颊与肩膀。",
+     "option": "用破拆大活动扳手反向砸碎主液压蓄能器排油阀强行制造局部机械泄压自救。"
+    }
+   ],
+   "far": {
+    "consequence": "数吨高压超高温气体在惊天爆轰中摧毁整个地下风洞基地，突击抢险全员不幸牺牲殉难。",
+    "due_days": 1,
+    "trigger": "喷管段高压气流彻底炸穿水冷夹套"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hypersonic_overpressure_burst_risk",
+   "immediate": {
+    "minutes": 2,
+    "text": "震耳欲聋的十马赫激波爆鸣尖叫刺破耳膜，滚烫灼人的热浪气浪如重锤冲击胸膛，气压读数不断恶化。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "调节腔内温度突破七十度，绝热层碎片剥落，剧烈热浪与窒息臭氧夺走人员全部体能。"
+   },
+   "objective": "在气压冲破防爆壳体前手动合力用钨钼扳手压平三号螺栓恢复喉道对称度自救。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "两千度极热激波气压狂飙逼近爆裂",
+   "trigger": "十马赫极限吹风中喉道膨胀卡死，两千摄氏度高压电弧气流无法排出，电弧室气压极速逼近洞体爆炸临界点，七十度窒息高温笼罩死角，距全面爆裂仅剩四分钟。"
+  },
+  {
+   "choice": "强行蛮力硬拧博取前三十度位移，还是等待老装配工递上石墨金属衬板稳步推进。",
+   "exits": [
+    {
+     "cost": "消耗尽绝版特制超高温密封耗材，老工长左手手掌被锋利金属毛刺划伤渗血。",
+     "option": "老装配工塞入耐高温石墨金属防冲衬板纠正半度切角协助扳手深咬自救。"
+    },
+    {
+     "cost": "值班长肩部软组织受剧烈反震严重挫伤渗血。",
+     "option": "值班长用肩膀顶住特种扳手传动轴消除偏心扭矩为女总师争取旋转角度脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "崩断的合金螺栓如重炮穿透绝热层，彻底丧失紧固手段导致喷管大面积爆开化为火海。",
+    "due_days": 1,
+    "trigger": "特种高压合金螺栓在极度偏载下脆断崩飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_throat_block_thermal_expansion_jam",
+   "immediate": {
+    "minutes": 3,
+    "text": "厚达八公分的微调螺栓传出一声让人牙酸的金属微应力脆响，表层耐磨镀层脱落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "滑块因受热膨胀产生微米级变形，扳手棘爪在螺栓边缘发生剧烈打滑火花四溅。"
+   },
+   "objective": "找准三号微调螺栓右偏半度死角并套上加长管合力顺时针死压到底。",
+   "source": "accident",
+   "start_minute": 1398,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "喷管喉道滑动块在高温下膨胀咬死",
+   "trigger": "两千度电弧热流使合金滑块受热急剧膨胀，受力偏斜卡阻在轨道中途，必须依靠超硬钨钼扳手合力对角猛压消除咬死状态。"
+  },
+  {
+   "choice": "退入上层干燥通廊，还是咬牙憋住一口热气在灼浪中完成最后三圈下压。",
+   "exits": [
+    {
+     "cost": "衣衫被汗水浸透黏在肌肤上，双臂遭受轻度高温气浪灼红脱皮。",
+     "option": "后半夜的山沟里只有吹风的爆鸣，两人紧密相贴借彼此肩膀支撑重心双手死扣特种扳手以自重猛压脱险。"
+    },
+    {
+     "cost": "手忙脚乱弄洒了小半瓶药水导致部分急救配额受损。",
+     "option": "从药盒取出高效神经解痉清凉贴贴在额头维持清醒意志脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "人员在极度高温中当场晕厥倒地窒息，在大爆炸中不幸牺牲殉难。",
+    "due_days": 1,
+    "trigger": "核心体温突破四十一度引发热射病昏迷休克"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_chamber_heat_stroke_shock",
+   "immediate": {
+    "minutes": 2,
+    "text": "女总师面颊被高温烘烤得通红如霞，晶莹香汗顺着下巴不断滴落蒸发。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "肌肉出现严重热衰竭抽搐与麻木乏力，双手抓握力骤降一半以上，呼吸道剧烈灼痛。"
+   },
+   "objective": "两人紧密贴合屈膝对抗灼热气流并含服清凉解痉药片维持清醒与手劲。",
+   "source": "nature",
+   "start_minute": 1400,
+   "tags": [
+    "disaster"
+   ],
+   "title": "两千度热障辐射七十度室温诱发热衰竭",
+   "trigger": "调节腔狭窄死角受两千度喷管强热辐射逼近七十度，人员阻燃背心被热汗彻底浸透，极度脱水导致四肢抽搐，核心体温突破三十九度。"
+  },
+  {
+   "choice": "向调度室请求强行开启全场事故破真空，还是在狭缝内争分夺秒完成刚性锁紧。",
+   "exits": [
+    {
+     "cost": "后半夜的山沟里只有吹风的爆鸣，绞盘反冲拉伤楚工程师手腕，飞溅金属碎屑轻微划伤脸部。",
+     "option": "七十度的热浪一阵阵扑过来，楚工程师在平台用防爆气动绞盘快速固定受损放空管托消除晃动自救。"
+    },
+    {
+     "cost": "女总师双手虎口被特种合金扳手粗糙手柄磨破鲜血淋漓。",
+     "option": "女总师爆发全力旋转扳手压平螺栓切断超压气体动载脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "数十吨高压等离子气体瞬间倾泻引发全地下基地大火灾，隔离通廊全员殉难。",
+    "due_days": 1,
+    "trigger": "主真空管道波纹补偿器彻底撕裂爆开"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_vacuum_butterfly_vibration_fatigue",
+   "immediate": {
+    "minutes": 3,
+    "text": "粗壮的钢管在管架上发出沉闷震颤巨响，滑动支座固定螺栓被拉断一颗。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vacuum_sphere_gallery"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "管廊钢梁受力严重扭曲呻吟，主真空管道波纹补偿器拉伸极限即将彻底撕裂。"
+   },
+   "objective": "在真空管线崩裂前完成喷管喉道压平复位切断超压源头。",
+   "source": "accident",
+   "start_minute": 1402,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "主抽吸真空阀管线受到数十吨高频震颤",
+   "trigger": "极热高压气流受阻无法吸入真空球罐，主真空管道在管架上发生剧烈水击式横向晃动，即将撕裂膨胀节横扫通廊。"
+  },
+  {
+   "choice": "孤注一掷加大肉身压载强拧，还是稍微回退半寸套入助理技术员送来的加长套管。",
+   "exits": [
+    {
+     "cost": "套管在高温下咬死变形彻底无法从扳手柄端拔脱。",
+     "option": "助理技术员送达加长合金套管套在扳手末端分担应力合力下压撬平自锁脱险。"
+    },
+    {
+     "cost": "两臂肘关节承受数十公斤剧烈反震导致软组织挫伤渗血。",
+     "option": "女总师与值班长调整站位将发力点向扳手根部收缩以肉体爆发力强行压死轴齿自救。"
+    }
+   ],
+   "far": {
+    "consequence": "崩裂的合金碎片如子弹穿透操作手胸膛，丧失唯一紧固机具彻底断绝生路。",
+    "due_days": 1,
+    "trigger": "特种扳手头部棘爪彻底粉碎崩飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_lever_alloy_ratchet_yield",
+   "immediate": {
+    "minutes": 2,
+    "text": "扳手头部传出一声让人心悸的合金棘爪咬死脆响，表层耐磨镀层脱落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_nozzle_throat_adjustment_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "特种扳手手柄发生超过十度的明显塑性微弯，棘爪末端即将崩脱滑出卡槽。"
+   },
+   "objective": "套上加长合金空心套管延长力臂并将发力点移至轴心消除冲击偏载。",
+   "source": "accident",
+   "start_minute": 1404,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "特种合金扳手棘爪承受极限扭矩濒断",
+   "trigger": "受损三号螺栓内部积聚的金属毛刺使紧固扭矩暴增数倍，八十公分钨钼扳手头部棘爪承受了超负荷剪切，合金表面浮现微细疲劳白斑发出尖锐哀鸣。"
+  },
+  {
+   "choice": "由值班长在门外用大敲击扳手砸烂监察官遥控器，还是在狭缝内抢先完成扳手下压化解危机。",
+   "exits": [
+    {
+     "cost": "值班长面临违抗国防科研安全监察条例的严重纪律问责。",
+     "option": "值班长夺下监察官遥控器砸碎引信线路强行拔掉熔断保险丝争取生机。"
+    },
+    {
+     "cost": "近身对抗导致女总师右手腕被尖锐外壳划伤渗血。",
+     "option": "女总师以总师身份喝退随身监察随员并亲手扯断放空继电器脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "爆破片引爆炸塌喷管段与支撑桁架，地下风洞化为废墟，在场突击人员当场殉难。",
+    "due_days": 1,
+    "trigger": "应急爆破片彻底引爆炸毁喷管段"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "inspector_blast_tunnel_countdown",
+   "immediate": {
+    "minutes": 2,
+    "text": "地堡顶角响起尖锐的红色弃洞自毁紧急声光警报，放空引信电磁阀发出短促倒数蜂鸣。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_arc_heater_control_bunker"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "爆破倒计时仅剩最后三十秒，火工引信电磁阀哧哧动作冒出白烟。"
+   },
+   "objective": "在倒计时归零前完成微调螺栓压平并勒令监察官停掣。",
+   "source": "institution",
+   "start_minute": 1406,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "国防安全监察官按下应急爆破卸压倒计时",
+   "trigger": "特派监察官认定风洞已无法挽回，在地堡按开遥控爆破电掣，启动了三分钟彻底引爆爆破片炸毁喷管弃洞的倒计时。"
+  },
+  {
+   "choice": "抢修三天就重吹，还是照实说喷管要换、至少等一个月",
+   "exits": [
+    {
+     "cost": "喷管带伤再吹一次，值班长得陪着守一整夜",
+     "option": "三天后重吹"
+    },
+    {
+     "cost": "楚工要女总师把下一个课题让给电弧加热段",
+     "option": "请楚工出面跟甲方解释"
+    }
+   ],
+   "far": {
+    "consequence": "基地今年的经费缺一大块，年轻人的补贴和老职工的取暖费都要砍",
+    "due_days": 7,
+    "trigger": "尾款作废"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_ruoxi_enamel_mug",
+    "hook_changkong_bicycle",
+    "hook_cheng_faded_slogan",
+    "hook_yue_mountain_road",
+    "hook_ruoxi_bunker_stars",
+    "hook_ruoxi_bunker_door"
+   ],
+   "id": "p_client_final_payment",
+   "immediate": {
+    "minutes": 5,
+    "text": "甲方经理把合同摊在值班室桌上，手指点着违约条款"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bunker_duty_room"
+   ],
+   "near": {
+    "deadline_minutes": 720,
+    "text": "晚上八点，甲方经理的车出山"
+   },
+   "objective": "在甲方经理今晚出山之前，定下重吹的日子",
+   "source": "money",
+   "start_minute": 480,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "三千万尾款",
+   "trigger": "喷管出事后第二天上午，甲方的项目经理坐着越野车进了山沟：十马赫那一车数据作废了，合同上写着，下周再交不出数据，三千万的尾款就不付"
+  }
+ ],
+ "region": "喷管喉道两千度极热微米级调节腔狭窄死角",
+ "rules": [
+  {
+   "id": "r_hypersonic_nozzle_throat_limit",
+   "text": "喷管喉道在极热卡死时必须在四分钟内手动摇正微调螺栓。"
+  },
+  {
+   "id": "r_arc_heater_overpressure_code",
+   "text": "电弧加热室气压超过爆破极限时严禁开启主观察孔石英闸板。"
+  },
+  {
+   "id": "r_tungsten_alloy_wrench_rule",
+   "text": "旋转钨钼加长棘轮扳手时必须确保双向卡槽完全咬死螺栓外六角。"
+  },
+  {
+   "id": "r_wind_tunnel_bunker_lock_rule",
+   "text": "在喉道调节腔狭窄死角作业时必须全程将防爆自锁扣锁在主立柱上。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "看表验温",
+  "committed": "安然出洞",
+  "familiar": "热浪共攀",
+  "flirting": "灼汗近息",
+  "intimate": "强压喉道",
+  "stranger": "进腔测压",
+  "testing": "同握大柄"
+ },
+ "status": "released",
+ "style_hint": "冷硬森严的尖端航天重工硬核工笔，刻画十马赫风洞喷管内两千度极热激波辐射的毁灭窒息、特种钨钼合金扳手在微调螺栓上合力下压的机械咬合、阻燃背心下被热浪与热汗浸透的起伏躯体，台词充斥着严苛的热障流体力学计算与生死决断。",
+ "tension_engines": [
+  {
+   "id": "te_hypersonic_overpressure_vs_wrench",
+   "text": "十马赫激波烧蚀爆裂倒计时与利用加长钨钼扳手合力压平微调螺栓消除卡阻的机械自救。"
+  },
+  {
+   "id": "te_inspector_blowup_tunnel_vs_rescue",
+   "text": "特派国防监察官企图强行引爆爆破片弃洞逃跑与一线科研突击队誓死保全大国重器的生死对决。"
+  },
+  {
+   "id": "te_tsundere_director_pride_vs_mechanic",
+   "text": "傲娇冰山特级女总师的绝对学术威严与重装总工长托付生死的肉体爆发力反差共鸣。"
+  },
+  {
+   "id": "te_roasting_chamber_soak_vs_tight_press",
+   "text": "七十度滚烫热浪窒息虚脱与两人在狭窄死角中紧贴发力合压钨钼扳手的炽烈生命羁绊。"
+  }
+ ],
+ "title": "超高声速风洞·喷管喉道调节偏心卡死",
+ "tone": [
+  "十马赫激波爆鸣尖锐震耳",
+  "两千度电弧灼热窒息热浪",
+  "钛合金喷管剧烈受热呻吟",
+  "后半夜山沟里的吹风爆鸣"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_screw_eccentric_groove_located",
+   "requires": [
+    "chief_scientist_su_ruoxi"
+   ],
+   "text": "{chief_scientist_su_ruoxi.name}在受损喷管侧壁摸出了当年设备制造厂预留的手动防扭矩反向反力矩安全卡止暗槽。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_mechanic_disarms_corrupt_inspector",
+   "requires": [
+    "mechanic_cheng_changlong"
+   ],
+   "text": "{mechanic_cheng_changlong.name}反手夺下特派安全监察官的爆破遥控钥匙，全面接管国家大风洞抢险最高战时处置权。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_anti_heat_spray_distributed",
+   "requires": [
+    "chief_scientist_su_ruoxi"
+   ],
+   "text": "{chief_scientist_su_ruoxi.name}掰开贴身药盒，将四支高效神经舒缓抗热衰喷剂分发给现场力竭同伴对抗急性高温虚脱抽搐。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_graphite_gasket_stops_gas_leak",
+   "requires": [
+    "senior_wind_tunnel_rigger_cheng"
+   ],
+   "text": "{senior_wind_tunnel_rigger_cheng.name}用冲子撬开备用自流平衡通气孔，依法平衡喷管内外热态膨胀应力化解了螺栓单向极度受拉。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_emergency_bypass_drops_chamber_temp",
+   "requires": [
+    "chief_scientist_su_ruoxi"
+   ],
+   "text": "{chief_scientist_su_ruoxi.name}利用扳手柄端挑开了备用低温惰性冷却管道，强行为受损密封面压制住最后三十秒超温破裂窗口。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_mechanic_shields_chief_heat_blast",
+   "requires": [
+    "chief_scientist_su_ruoxi",
+    "mechanic_cheng_changlong"
+   ],
+   "text": "{mechanic_cheng_changlong.name}在高温热浪大面积喷涌瞬间挺身扑在{chief_scientist_su_ruoxi.name}上方，用加厚阻燃工装与宽厚背脊死死挡下灼人热浪。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_throat_screw_locks_tunnel_saved",
+   "requires": [
+    "chief_scientist_su_ruoxi"
+   ],
+   "text": "顺时针死死压平的三号微调螺栓在钨钼合金扳手与石墨衬板的强力咬合下彻底锁死复位，高压等离子极热气流完全平息排入真空系统，国家十马赫超高声速风洞安然脱险平息生还。"
+  }
+ ]
+}

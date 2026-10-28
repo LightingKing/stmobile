@@ -1,0 +1,2253 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满四十六岁，摸金门资深成年探子，具备完全民事行为能力。",
+   "age_range": [
+    46,
+    50
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_mojin_scout_old_zhao",
+   "line": "翻板倾角过三十度了！下面的幽冥毒刺铁蒺藜全露出来了，稍一滑脚就是万刃穿心啊！",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "name": "老葛",
+   "role": "摸金门二道探子老葛"
+  },
+  {
+   "adult_context": "年满五十二岁，大清工部前朝修陵石匠后裔，成年老石匠。",
+   "age_range": [
+    52,
+    56
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_stone_mason_old_sun",
+   "line": "西北艮位偏了一分二厘！掌门，往艮位用纯金降魔杵别，垫上老汉的生牛皮！",
+   "location_ids": [
+    "loc_tomb_corridor_catacomb_gangway"
+   ],
+   "name": "鲁老汉",
+   "role": "老石工鲁老汉"
+  },
+  {
+   "adult_context": "年满二十一岁，发丘门成年学徒，具备完全民事行为能力。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_apprentice_artisan_xiao_wu",
+   "line": "掌门！厚壁熟铜套管取来了，随时能套在降魔杵后面加力！",
+   "location_ids": [
+    "loc_tomb_corridor_catacomb_gangway"
+   ],
+   "name": "小柱",
+   "role": "发丘门学徒小柱"
+  },
+  {
+   "adult_context": "年满二十八岁，军阀近卫副官，成年军人。",
+   "age_range": [
+    28,
+    32
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_warlord_deputy_guard_qian",
+   "line": "团长有令！再撬不开石门就点雷管炸塌穹顶，大家一起死在流沙里！",
+   "location_ids": [
+    "loc_crypt_mercury_channel_gate"
+   ],
+   "name": "钱副官",
+   "role": "军阀卫队副官钱副官"
+  },
+  {
+   "adult_context": "年满二十二岁，军阀工兵营成年爆破工，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_tomb_sapper_scout_xiao_liu",
+   "line": "报告团长！苦味酸炸药导火索受潮起火了，还有最后九十秒就要引爆了！",
+   "location_ids": [
+    "loc_tomb_corridor_catacomb_gangway"
+   ],
+   "name": "小刘",
+   "role": "工兵爆破手小刘"
+  },
+  {
+   "adult_context": "年满五十八岁，始皇陵地下守陵人族长，成年老宿长。",
+   "age_range": [
+    58,
+    62
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_elder_tomb_keeper_bai",
+   "line": "女掌门！翻板合平后生门自锁销会自动弹出，抓紧金杵千万别脱手！",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "name": "白长老",
+   "role": "地宫看陵遗族白长老"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "娇艳霸气的发丘女掌门与沉稳凶悍的先锋老校尉在万钧流沙翻覆绝境中相依为命，两人背靠背、手扣手将纯金重型降魔杵压向死角强撬平衡枢轴自救。",
+   "id": "cc_master_and_scout_scepter_rush",
+   "identity_ids": [],
+   "player_positions": [
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "grandmaster_yue_hongling",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "千尺流沙绝境中共同核算力矩与偏角，建立起生死相托的技术共鸣。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "master_scout_huo_changfeng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在古墓深渊中摸爬滚打的生死战友，深知对方过硬的担当。",
+     "stage": "familiar"
+    },
+    {
+     "a": "grandmaster_yue_hongling",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "master_scout_huo_changfeng",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "发丘霸道女当家与摸金硬汉在失衡古墓中达成生死同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "grandmaster_yue_hongling",
+    "master_scout_huo_changfeng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在翻板跌落深渊毒刺前，合力用纯金降魔杵将配重轴承顺力撬正三寸卡平脱险。",
+    "limit_gap": "女掌门体能在极度失衡与流沙冲刷下逼近虚脱极限，老校尉受限于双掌血肉模糊剧痛难忍。",
+    "meeting_reason": "军阀开炮轰炸皇陵引发地宫悬空玄武岩翻板大倾覆。",
+    "resource_gap": "女掌门深谙公输天平机关算法与纯金降魔杵卡位，老校尉拥有惊人的下沉蛮力与千斤坠平衡直觉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_sand_burial_vs_manual_scepter_prying",
+    "te_scalding_red_sand_vs_close_warmth"
+   ]
+  },
+  {
+   "chemistry": "霸气女掌门的果决指令稳住吓破胆的青年见习学徒，已成年的正式青年门徒冒死送达熟铜套管与滑石粉，师徒合力化解覆灭死局。",
+   "id": "cc_master_and_apprentice_pipe_rush",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "grandmaster_yue_hongling",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "紧盯女掌门的每一个破阵手势。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "apprentice_artisan_xiao_wu",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "鼓励已成年的正式青年学徒战胜恐惧承担重任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "grandmaster_yue_hongling",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "apprentice_artisan_xiao_wu",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "师徒传承与长辈庇护。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "grandmaster_yue_hongling",
+    "apprentice_artisan_xiao_wu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "迅速接驳加长熟铜力臂协助纯金降魔杵一举卡死抱死枢轴。",
+    "limit_gap": "成年的年轻门徒面对万钧流沙心理防线脆弱，女掌门在翻板滑落中无法脱身捡拾工具。",
+    "meeting_reason": "发丘门下探索始皇陵遭遇突发塌方灾难。",
+    "resource_gap": "女掌门拥有核心黄金信物与绝对威严，已成年的正式青年门徒掌握加长套管与防滑滑石粉包。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_sand_burial_vs_manual_scepter_prying"
+   ]
+  },
+  {
+   "chemistry": "军阀团长歇斯底里狂叫要求抢夺金杵炸塌大门，老校尉反手夺枪横刀抵在其咽喉据理力争寸步不让。",
+   "id": "cc_scout_and_colonel_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "master_scout_huo_changfeng",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "赞许校尉抗暴护持全门同胞的雷霆担当。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "warlord_colonel_qian_biao",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对视人命为草芥的贪婪军阀深恶痛绝。",
+     "stage": "stranger"
+    },
+    {
+     "a": "master_scout_huo_changfeng",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "warlord_colonel_qian_biao",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "江湖豪杰与军阀暴徒之间的枪口对峙。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "master_scout_huo_changfeng",
+    "warlord_colonel_qian_biao"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "压制暴徒引爆炸药行径为翻板中轴撬平争取宝贵的三分钟时限。",
+    "limit_gap": "军阀极端恐慌被流沙活埋，老校尉受限于军阀部队后续炮火封山的严重威胁。",
+    "meeting_reason": "在后殿石闸前爆发的逃生主导权生死较量。",
+    "resource_gap": "军阀掌握苦味酸炸药雷管与军队驳壳枪，老校尉拥有压倒性的单兵格斗杀伤力与同门拥戴。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_warlord_dynamite_vs_human_rescue"
+   ]
+  },
+  {
+   "chemistry": "前朝石工老石匠隔着沙流指点偏角递上牛皮垫块，与翻板上死磕金杵的年轻女掌门里应外合，协同逆转机关死局。",
+   "id": "cc_master_and_mason_lever_rush",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "grandmaster_yue_hongling",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "深信女掌门神级破机关硬手腕。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "senior_stonemason_sun_laohan",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "老石匠的经验指引令人精神大振。",
+     "stage": "familiar"
+    },
+    {
+     "a": "grandmaster_yue_hongling",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "senior_stonemason_sun_laohan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "两代古法机关工匠之间的默契互救。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "grandmaster_yue_hongling",
+    "senior_stonemason_sun_laohan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "精准将牛皮垫块塞入偏心一分二厘咬合缝撬平翻板脱险。",
+    "limit_gap": "老石匠身无武功无法亲自上翻板施力，女掌门在漫顶黄沙中双眼难辨微米级偏角。",
+    "meeting_reason": "古墓塌方生死关头手艺人与宗门掌门的联手求生。",
+    "resource_gap": "老石匠握有公输天平偏心死结口诀与高压牛皮垫块，女掌门掌握核心纯金降魔杵与力矩决断力。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_sand_burial_vs_manual_scepter_prying",
+    "te_warlord_dynamite_vs_human_rescue"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_crypt_speaking_copper_tube",
+   "reach": "all",
+   "text": "地宫穹顶八卦传音青铜暗管联络全殿回路"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_catacomb_sand_echoes_rumors",
+   "reach": "local",
+   "text": "墓道落石缝隙回风激荡轰鸣与军阀恐慌咒骂"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已成年的发丘天官门第七十三代当任嫡传女掌门，年满二十一岁，继承祖传发丘神印与天官金印，具备完全民事行事与生死自裁指挥权。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "褪下笨重的防沙厚呢斗篷后，仅着一身月白绣暗金螭纹紧身武旦短打劲装，容貌娇艳霸气英姿飒爽，两腮带着健康的红润，在漫顶流沙狂潮与极限下压金杵的剧烈喘息中，白皙双颊被滚烫沙浪熏得酡红如醉、汗珠滚落。",
+    "乌黑长发高束成干脆利落的龙尾短马尾，柳眉倒竖眼神凌厉如电，双手死扣纯金降魔杵狠狠别入暗孔，下颌线条在赤红流沙中透出一股江湖巨擘的霸道与狠绝。"
+   ],
+   "decision": {
+    "avoids": [
+     "优柔寡断的哭爹喊娘",
+     "背后算计的阴损小人"
+    ],
+    "contrast": "外表娇艳明媚，面对数十吨流沙翻板失衡覆灭时手劲与气魄压倒满堂须眉。",
+    "core_value": "公输天平只认斤两与力矩，神仙难救的死局，本掌门也能用老祖宗的黄金杵砸开一条生路。",
+    "goal_options": [
+     "利用降魔杵卡死配重枢轴合力撬平翻板",
+     "在军阀炸药引爆前破开后殿石闸脱险"
+    ],
+    "never": [
+     "在翻板水平锁死前丢下同门独自逃生"
+    ],
+    "prefers": [
+     "分毫不差的机关巧劲",
+     "从不掉链子的血性硬汉"
+    ],
+    "pressure_responses": {
+     "breaking": "用牙齿咬碎清灵散药丸狠狠咽下强忍剧烈胸闷继续合力下压",
+     "high": "整个人扑在降魔杵柄端借全身下沉力道咬牙向下死按",
+     "low": "在流沙漫过脚面时冷静测算翻板倾角与偏载石重差额",
+     "mid": "果断甩出纯金降魔杵在枢轴暗孔找准卡榫反力支点"
+    },
+    "relationship_stance": "平日泼辣霸道容不得半分委屈怯懦，但在生死绝命的深渊险境中展现出托付后背的豪情担当。",
+    "withdrawal": "退守至玄武岩翻板中央承重螭首铜环旁，单手扣紧铜环冷眼俯瞰下方万刃深渊。"
+   },
+   "gender": "female",
+   "gender_reason": "发丘摸金世家当任女掌门",
+   "id": "grandmaster_yue_hongling",
+   "identity": {
+    "authority": "对发丘门下所有摸金校尉调度、秘传十六字阴阳风水破机关秘术及纯金降魔杵调用享有绝对乾纲独断权。",
+    "exposure": "为了掩护年轻同门撤退曾在江湖比武中违抗祖训动用过绝命分筋断骨杀招",
+    "hidden": "月白短打贴胸内衬中暗缝着母亲临终前交托的一张前朝始皇陵天平机关生门图轴",
+    "limits": [
+     "在翻板完全撬回水平基准前无法脱身撤出悬空玄武岩死角",
+     "长时间吸入漫天铁砂粉尘极易诱发急性呼吸道剧烈水肿"
+    ],
+    "obligations": [
+     "护佑同门弟兄免葬身万刃铁坑保全发丘门正宗血脉香火"
+    ],
+    "resources": [
+     "一柄祖传发丘天官纯金重型降魔杵（重八斤四两，纯金高密实心锻造，端部带双向偏心梅花破锁卡棱）",
+     "一瓶军工级浓缩解毒避瘴九转清灵散"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在万顷流沙天崩地裂前依然稳如泰山的魁梧身躯",
+     "深渊万刃悬崖边毫不犹豫递过来的带血双手"
+    ],
+    "boundaries": [
+     "严禁在失重眩晕神智迷乱时做出轻薄逾矩举动",
+     "不以救命功绩作私情胁迫"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被从身后揽住纤腰稳住下盘重心，双手叠合在降魔杵上一同向死角猛压枢轴。",
+    "dislikes": [
+     "贪生怕死的鼠辈出卖",
+     "自恃武力的欺行霸市"
+    ],
+    "expression": "脱险后默默解下自己腕上的朱砂护身手串，强硬却温柔地直接套在对方手腕上。",
+    "likes": [
+     "两人发力压死金杵时胸膛紧密相贴传来的粗重狂乱心跳",
+     "翻板平稳脱险后抹去对方额头沙石时的豪迈一笑"
+    ],
+    "preconditions": [
+     "翻板两翼配重完全归平且自锁簧稳稳咬合",
+     "全员安然脱险撤出塌方地宫",
+     "两人都清醒，心意出于自己，不是生死关头的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "发丘天官门首席女掌门",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_crypt_balance_slab_grand_hall",
+     "to": 1410
+    },
+    {
+     "from": 1410,
+     "location_id": "loc_crypt_balance_slab_grand_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "纯金降魔杵受数吨剪力发生微弯塑性变形，操作人员双掌被摩擦震裂满手血痕。",
+      "option": "用发丘天官纯金降魔杵反向卡入枢轴配重暗孔合力撬正自锁卡榫自救。"
+     },
+     {
+      "cost": "金刚伞受极度重压伞骨严重弯折报废，操作者右肩关节遭受强烈撞击挫伤。",
+      "option": "用金刚伞撑在翻板与石壁缝隙之间强行充当硬支撑减缓倾覆脱险。"
+     }
+    ],
+    "pressure": "翻板距离四十五度自滑脱手临界点仅剩最后三寸，下方万刃淬毒铁坑泛出森然幽光。",
+    "trigger": "穹顶流沙石瓮炸裂，万顷赤红铁砂倒灌使得重力天平翻板偏载三十度急速倾覆。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "还有三寸就要滑向铁刺坑了……只要金杵不折断，本掌门绝不会让全门弟兄死在这前朝棺材里，给我平！",
+    "surface": "别管那些掉下去的沙子！把那根八斤四两的金杵给我插进去！对准死角槽，跟我数三二一一起往下压！"
+   }
+  },
+  {
+   "adult_context": "年满二十八岁，摸金门成年特级执事校尉，具备完全民事行为能力，十年探墓生涯破解重型机关无数。",
+   "age_range": [
+    28,
+    32
+   ],
+   "appearance_options": [
+    "身材魁梧虎背蜂腰，上身穿满是风沙磨痕的深黑紧身熟牛皮护甲，古铜色双臂筋肉如铁，神色冷峻目光如鹰隼。",
+    "右臂缠满防割天蚕丝护腕，双手布满老茧，在剧烈失衡倾斜的玄武岩石板上双脚如生根般稳固立定。"
+   ],
+   "decision": {
+    "avoids": [
+     "贪生怕死的背后捅刀",
+     "临阵脱逃的无耻懦夫"
+    ],
+    "contrast": "看似冷酷寡言不近人情的江湖刺客，在配合女掌门下压金杵时的力道控制细腻精准如外科大夫。",
+    "core_value": "掌门就是门派的主心骨，只要掌门还在前头，{npc.name}这条命就是垫脚的铁石。",
+    "goal_options": [
+     "协助女掌门下压降魔杵撬平翻板",
+     "用金刚伞挡开倾泻而下的石瓮碎石"
+    ],
+    "never": [
+     "在掌门还在拼命时松开手中金杵独自逃脱"
+    ],
+    "prefers": [
+     "干脆利落的生死默契",
+     "用真本领硬抗天堑的英雄豪气"
+    ],
+    "pressure_responses": {
+     "breaking": "用宽阔身躯死死挡住穹顶砸下的千斤断石为女掌门遮蔽危险",
+     "high": "双手覆在女掌门手背外侧倾注全身数百公斤蛮力协同下压",
+     "low": "在翻板倾斜瞬间利落甩出飞天抓索扣紧石殿铜环稳固阵脚",
+     "mid": "用结实臂膀一把拉住失足滑向深渊陷坑的年轻学徒"
+    },
+    "relationship_stance": "对女掌门超绝的机关天赋与绝不退缩的霸道英气由衷敬重钦佩，愿在生死关头为其甘当人形盾牌。",
+    "withdrawal": "退守至玄武岩翻板中轴枢纽石阶上，单手按住金刚伞柄戒备任何流沙暗坑塌陷。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "master_scout_huo_changfeng",
+   "identity": {
+    "authority": "对探路先锋班组调配、防倒斗机关暗道勘查及重型破障工具调用拥有绝对一线指挥权。",
+    "exposure": "为了掩护同门曾违背门规击杀过军阀两名前线探子",
+    "hidden": "皮甲贴身内袋里藏着当年女掌门接任掌门时亲手系在自己刀柄上的同心女掌门穗",
+    "limits": [
+     "体能在抗衡万钧流沙与巨石下沉中迅速逼近体力耗尽透支边缘",
+     "不懂皇陵天平图谱算法"
+    ],
+    "obligations": [
+     "誓死护卫掌门女掌门安危保全全门核心主力生还"
+    ],
+    "resources": [
+     "一柄重型二十四骨精钢折叠金刚伞",
+     "两根特制带五爪倒钩的精钢飞天抓索"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在千钧流沙与万刃深坑面前横刀立马的非凡绝艳霸气",
+     "两具滚烫身躯在失衡绝境中紧密相依的生命共鸣"
+    ],
+    "boundaries": [
+     "恪守护法从属规矩不越雷池",
+     "不以救命功劳作私情胁迫"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在翻板上双膝跪地从后方环抱女掌门的腰身，双手叠在降魔杵上合力向下猛压。",
+    "dislikes": [
+     "官阀强盗的跋扈践踏",
+     "背叛同门的下作行径"
+    ],
+    "expression": "默默撕下自己里衣最干净的棉布，细致而有力地为女掌门包扎被金杵磨破的白嫩玉手。",
+    "likes": [
+     "战胜死神后痛快大碗对饮烧刀子烈酒的畅快",
+     "金杵合模卡平瞬间两人粗重滚烫的鼻息交融"
+    ],
+    "preconditions": [
+     "翻板彻底恢复水平稳定且卡榫死锁到位",
+     "全员安然撤出地宫死地"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "摸金门前锋开道长",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_crypt_balance_slab_grand_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}左臂肌肉群重度撕裂，双掌被粗糙黄金防滑纹路磨得血肉模糊。",
+      "option": "{npc.name}将全身自重压在金杵柄端借杠杆力矩强行撬正青铜平衡卡榫脱险。"
+     },
+     {
+      "cost": "精钢金刚伞被数十吨重力绞压扭曲彻底损坏废弃。",
+      "option": "用金刚伞倒插在翻板轴承齿缝中强行卡死转轴争取十秒调整自救。"
+     }
+    ],
+    "pressure": "若不能在两分钟内合力撬动纯金降魔杵旋转轴承，整座翻板将彻底垂直失重坠落深坑。",
+    "trigger": "翻板倾角突破三十度临界滑坡角，脚下玄武岩石板防滑沙粒在狂风中被吹扫一空。"
+   },
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "voices": {
+    "inner": "女掌门是天生的掌门。只要我{npc.name}还有一口气在，万顷流沙休想伤到女掌门一根头发。",
+    "surface": "女掌门！找准那个偏心死角！金杵有我顶着，你只管报方位，{npc.name}就算把双臂骨头震裂也给你压下去！"
+   }
+  },
+  {
+   "adult_context": "年满三十八岁，北洋督军府特派工兵团长，具备完全民事行为能力，掌控盗墓火药工兵大权。",
+   "age_range": [
+    38,
+    42
+   ],
+   "appearance_options": [
+    "身穿带有金丝肩章的斜纹呢绒军官大氅，腰扎武装带悬挂毛瑟驳壳枪，满脸横肉此时被硝烟煤灰熏得一片狼藉。",
+    "左脸颊挂着一道碎石划伤的血痕，眼神在疯狂贪婪与极度恐慌之间剧烈抽搐狰狞。"
+   ],
+   "decision": {
+    "avoids": [
+     "暗不见天日的万丈深渊",
+     "被千万吨流沙活埋窒息"
+    ],
+    "contrast": "平日动辄拔枪杀人不可一世的骄横军阀，在直面被活埋深渊时比谁都丑态毕露、摇尾乞怜。",
+    "core_value": "有枪有宝就是草头王，谁敢挡老子的发财路就崩了谁。",
+    "goal_options": [
+     "用驳壳枪逼迫女掌门交出纯金降魔杵",
+     "引爆炸药炸开后殿石闸强行逃命"
+    ],
+    "never": [
+     "为了挽救部下性命而交出自己的逃生生路"
+    ],
+    "prefers": [
+     "绝对的武力屈从",
+     "沉甸甸的黄金白银珠宝"
+    ],
+    "pressure_responses": {
+     "breaking": "瘫坐在流沙堆中交出炸药引线祈求摸金门带其脱困",
+     "high": "被开道长夺下配枪反手拧断手腕后痛得跪地求饶",
+     "low": "在墓道碎石堆拔枪大声喝骂工兵继续开炮推进",
+     "mid": "发现流沙倾覆后歇斯底里用枪指着女掌门要挟生路"
+    },
+    "relationship_stance": "将摸金门人视为随时可以利用并卸磨杀驴的草芥耗材，对其神乎其技的秘术又恨又惧。",
+    "withdrawal": "退缩在甬道断墙凹坑深处，双手死死抱住装有金银珠宝的皮箱与雷管箱。"
+   },
+   "gender": "male",
+   "gender_reason": "北洋工兵盗宝混成旅特派团长",
+   "id": "warlord_colonel_qian_biao",
+   "identity": {
+    "authority": "代表督军府行使军律戒严、引爆炸药封堵墓道与就地枪决不服从者的生杀大权。",
+    "exposure": "为了掩盖盗墓罪证曾私下枪杀过整整两个连的知情工兵苦力",
+    "hidden": "大氅贴身暗袋内藏着盗挖出的一只嵌满极品猫眼石的皇陵金丝香囊",
+    "limits": [
+     "完全不懂皇陵天平重力力学结构盲目信奉炸药蛮干",
+     "面对流沙灭顶恐慌至极企图炸塌大殿"
+    ],
+    "obligations": [
+     "将始皇陵随葬金丝楠木椁内重宝运回督军府大营"
+    ],
+    "resources": [
+     "一整箱军工级苦味酸高能炸药包配电雷管",
+     "一把带木盒枪托的高射速大号驳壳枪"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "能让其死里逃生的绝对机关掌控力",
+     "保全其财富官职的依附"
+    ],
+    "boundaries": [
+     "严禁任何草民贱民触碰其军官制服",
+     "不承担任何同舟共济义务"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在石门裂缝前死死拽住安全绳索，尖叫咆哮命令工兵立刻点燃炸药雷管炸出通道。",
+    "dislikes": [
+     "蔑视官威的江湖豪客",
+     "被枪口反指脑门的屈辱恐惧"
+    ],
+    "expression": "战战兢兢地从箱子里抓出一大把纯金叶子扔在石板上换取摸金校尉搭救一命。",
+    "likes": [
+     "被吓破胆者的唯唯诺诺",
+     "劫掠而来的珍宝古董"
+    ],
+    "preconditions": [
+     "彻底脱离流沙陷坑危险置身于重兵护卫的地面军营",
+     "保全既得军权"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "军阀盗宝工兵团长",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_tomb_corridor_catacomb_gangway",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "开道长右腿被暴怒的军阀用刺刀擦破一道深长伤口。",
+      "option": "开道长飞身夺下驳壳枪与雷管线将其锁死在甬道重石柱旁自救。"
+     },
+     {
+      "cost": "降魔杵手绳被火星烧焦断裂失去防脱保护。",
+      "option": "女掌门用降魔杵手绳凌空抽落炸药导火索强行掐灭引线脱险。"
+     }
+    ],
+    "pressure": "若任由其引爆炸药，剧烈冲击波将直接震塌翻板穹顶将全员彻底活埋。",
+    "trigger": "流沙漫过石闸下缘，军阀团长企图在狭窄甬道引爆苦味酸炸药暴力破门。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这帮盗墓贼要是撬不开翻板，整座地宫都得被黄沙埋死，我的金子……必须逼这帮人破门！",
+    "surface": "女掌门！开道长！把那根金棒子借老子撑一下石门！老子给你们封官许愿！不然大家一起同归于尽！"
+   }
+  },
+  {
+   "adult_context": "年满五十二岁，大清工部前朝修陵石匠后裔，成年老石匠，具备完全民事行为能力。",
+   "age_range": [
+    52,
+    56
+   ],
+   "appearance_options": [
+    "身穿油污破损的旧麻布短衫，满脸刀刻般的风霜皱纹，须发苍白布满石粉，一双布满老茧的大手粗糙如砂纸。",
+    "腰间插着三把特制青铜短凿与一柄木把铜锤，眼神在流沙狂澜中透出老手艺人洞明一切的沉静。"
+   ],
+   "decision": {
+    "avoids": [
+     "鲁莽愚蠢的炸药乱炸",
+     "不懂装懂的指手画脚"
+    ],
+    "contrast": "平日唯唯诺诺任由军阀鞭打呵斥的懦弱老苦力，在面对古典机械绝命死局时展现出宗师般的从容淡定。",
+    "core_value": "石块也是有血脉筋骨的，找准石头的接榫骨眼，千钧大山也能转得动。",
+    "goal_options": [
+     "指点女掌门找准一分二厘偏角撬动金杵",
+     "垫入熟牛皮垫块阻卡翻板自滑"
+    ],
+    "never": [
+     "在机关受力关键时刻弄虚作假误导同门"
+    ],
+    "prefers": [
+     "严丝合缝的规矩榫卯",
+     "一诺千金的江湖信义"
+    ],
+    "pressure_responses": {
+     "breaking": "用身躯抵住脱脱滑动的配重石块为年轻人争取发力时间",
+     "high": "用沙哑嗓音高呼西北艮位偏角切入的最佳起步方位",
+     "low": "在石殿角落用铜锤敲击石壁凭回音辨识枢轴形变",
+     "mid": "冒着滚滚沙浪递上熟牛皮垫块垫入咬合盲区"
+    },
+    "relationship_stance": "敬佩女掌门身为女子却继承发丘大统的傲骨豪情，视其为少有的真正懂石构机关的奇才。",
+    "withdrawal": "躲在玄武岩巨殿背风立柱壁龛内，用破羊皮坎肩死死护住铜凿与图纸。"
+   },
+   "gender": "male",
+   "gender_reason": "前朝督造修陵石工世家老石匠",
+   "id": "senior_stonemason_sun_laohan",
+   "identity": {
+    "authority": "对皇陵天平翻板玄武岩石材抗剪强度、暗槽偏心偏角及自锁销弹簧退让间隙拥有绝对直觉。",
+    "exposure": "为了糊口曾私自替盗墓贼临摹过地宫外围神道方位草图",
+    "hidden": "深知天平翻板青铜枢轴在受到巨力冲击时会向西北艮位偏斜一分二厘的死结缺陷",
+    "limits": [
+     "年老多病患有严重的肺痨咳喘无法承受剧烈运动",
+     "完全缺乏武功身法在倾斜石板上易滑倒"
+    ],
+    "obligations": [
+     "将前朝工部绝版公输天平机关营造秘诀传承后世"
+    ],
+    "resources": [
+     "一袋特制耐高压弹性熟牛皮缓冲垫块",
+     "一把特制重型纯铜平头石工凿"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对古典鲁班公输神技的崇高敬畏与共鸣",
+     "在死亡深渊面前毫无贵族做派的泼辣果敢"
+    ],
+    "boundaries": [
+     "恪守老长辈规矩不越礼数",
+     "不介入年轻后辈的私人儿女情长"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在立柱后敲击石壁指点枢轴艮位暗槽，将牛皮垫块精准抛向女掌门掌心。",
+    "dislikes": [
+     "轻视老匠人的傲慢偏见",
+     "粗暴毁坏古代先贤心血的暴行"
+    ],
+    "expression": "用沾满石粉开裂的大手重重拍去女掌门肩头的沙粒，咧开豁牙的嘴角露出由衷的赞叹笑容。",
+    "likes": [
+     "榫卯机关严丝合缝合模时的清脆回音",
+     "干完大活后一口辣喉咙烧酒的踏实舒坦"
+    ],
+    "preconditions": [
+     "彻底排除翻板倾覆险情机关重归平衡水平",
+     "保全祖传石工量具与图谱完整"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "地宫营造古法石工宗师",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_crypt_balance_slab_grand_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "老石匠在剧烈颠簸中左腿膝盖被碎石砸伤留下严重青紫挫伤。",
+      "option": "用老石匠私藏的熟牛皮高压垫块塞入牙口纠偏协助降魔杵卡平翻板脱险。"
+     },
+     {
+      "cost": "猛烈敲击造成青铜轴承产生微小裂纹降低整体承重寿命。",
+      "option": "指挥开道长用铜锤反向敲击枢轴偏心凸耳震松咬死锁销自救。"
+     }
+    ],
+    "pressure": "若无耐磨弹性垫块介入并纠偏角度，降魔杵将在极度剪切扭矩下折弯脱手。",
+    "trigger": "翻板青铜枢轴在数十吨流沙剪力下发生严重干磨卡死，纯金降魔杵面临受力咬死。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好姑娘，手够硬！这套公输天平神技要是跟着老头子埋在这暗无天日的墓井里，老头子死不瞑目！",
+    "surface": "女掌门！听老石匠的！那个青铜枢轴受压往西北艮位偏了一分二厘！别蛮力直别，往左偏半寸垫上我的熟牛皮！"
+   }
+  },
+  {
+   "adult_context": "年满二十一岁，发丘门下成年见习门徒，具备完全民事行为能力，通晓古典重力天平图解。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身材单薄，身着耐磨的灰布短打长裤，面容清秀神情极度慌恐，头戴防沙遮耳黑头巾。",
+    "腰间工具袋胡乱插着鲁班尺与小铜刀，双手因失重倾斜与缺氧而剧烈颤抖、脸色惨白。"
+   ],
+   "decision": {
+    "avoids": [
+     "凶神恶煞的军阀枪炮",
+     "深达八丈布满铁刺的绝命深渊"
+    ],
+    "contrast": "平日胆小怯弱常被老校尉呵斥的年轻新手学徒，在女掌门生死关头能爆发出一股冒死递送工具的血性勇气。",
+    "core_value": "保命第一，崇拜并绝对服从女掌门的每一道机关指令。",
+    "goal_options": [
+     "协助女掌门寻找备用加长力臂熟铜套管",
+     "在翻板边缘铺撒防滑滑石粉"
+    ],
+    "never": [
+     "背叛女掌门擅自逃跑苟活"
+    ],
+    "prefers": [
+     "清晰明白的步骤指引",
+     "整洁安稳的绘图作坊"
+    ],
+    "pressure_responses": {
+     "breaking": "跪倒在翻板铜环旁死死拉紧防滑绳索协助分担下坠重力",
+     "high": "鼓起勇气冒着倾泻赤砂爬过石阶递送加长套管",
+     "low": "在碎石堆中慌乱翻找可以套在金杵柄端的熟铜套管",
+     "mid": "大声向石殿通报倾斜角度读数与流沙沉砂速度"
+    },
+    "relationship_stance": "将女掌门视为至高无上的精神支柱与庇护者，愿为协助脱险拼死相助。",
+    "withdrawal": "缩在翻板大殿承重石瓮残片阴影中，紧紧抱住图谱绢布瑟瑟发抖。"
+   },
+   "gender": "male",
+   "gender_reason": "发丘摸金门青年见习机关学徒",
+   "id": "apprentice_artisan_xiao_wu",
+   "identity": {
+    "authority": "对翻板两翼配重铅块平衡计算手抄本与金刚伞备用撑杆的保管权。",
+    "exposure": "因行步不慎曾踩翻过外围虚土翻板引发生死惊魂",
+    "hidden": "暗自倾慕霸道刚烈的女掌门将其视为心目中最神圣的传奇偶像",
+    "limits": [
+     "缺乏一线大机关生死历练心理防线脆弱",
+     "身材单薄力气严重不足难以单独对抗反弹力矩"
+    ],
+    "obligations": [
+     "按祖规手抄记录地宫机关图谱并向掌门汇报配重差额"
+    ],
+    "resources": [
+     "一根高强度实心熟铜加长套管撬杠",
+     "一袋特制耐重压防滑滑石粉包"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "豪情万丈的女掌门神威",
+     "在灭顶流沙前给予同门的极度安全感"
+    ],
+    "boundaries": [
+     "恪守门徒本分不作非分之想",
+     "严守尊卑规矩"
+    ],
+    "desire_range": [
+     1,
+     1
+    ],
+    "desired_position": "在中轴石阶上方拉紧安全绳索，大声为女掌门下压金杵报出三十秒读数。",
+    "dislikes": [
+     "残酷暴力的威吓践踏",
+     "被当作废物累赘抛弃"
+    ],
+    "expression": "手忙脚乱地将加长熟铜套管双手递过，紧张得语无伦次连连向女掌门躬身道歉。",
+    "likes": [
+     "被肯定机关图解计算时的赞许目光",
+     "分到的一枚薄荷清心解毒含片"
+    ],
+    "preconditions": [
+     "彻底排除翻板坠落深渊险情全员稳固立足",
+     "确保自身生命安全得到保障"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "发丘门助理机关术士",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_crypt_balance_slab_grand_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "高浓度石粉飞扬剧烈刺激眼睛导致{npc.name}双眼通红流泪不止。",
+      "option": "{npc.name}冒死将整袋防滑滑石粉全量倾倒在翻板中央为众人构筑站立支点自救。"
+     },
+     {
+      "cost": "撬杠被重重踩弯失去作为备用杠杆的功能。",
+      "option": "用熟铜撬杠卡在玄武岩石板防滑凿孔内充当脚蹬横木脱险。"
+     }
+    ],
+    "pressure": "若不及时在翻板表面倾倒防滑滑石粉增加摩擦力，全员将在数秒内滑入铁刺坑。",
+    "trigger": "翻板表面石蜡受体温融化滑腻无比，人员双脚几乎无法立足即将滑落深渊。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要掌门还在前头死磕，我就不能当软蛋草包，我必须帮着把这道千斤翻板压平！",
+    "surface": "掌门！加长熟铜套管我找到了！能套在纯金降魔杵柄端当加力杠杆！还有这包防滑滑石粉！"
+   }
+  },
+  {
+   "adult_context": "年满四十五岁，发丘门下资深成年执事校尉，具备完全民事行为能力。",
+   "age_range": [
+    45,
+    48
+   ],
+   "appearance_options": [
+    "身穿带有高韧性牛皮补丁的黑色练功服，腰间挂着大串各型号古代机关铜钥匙与青铜飞爪，眼神狠辣沉着。",
+    "双臂肌肉结实如铁，在剧烈失衡颠簸中稳稳抓紧石壁缝隙，脸上带着江湖老风尘的凛冽霸气。"
+   ],
+   "decision": {
+    "avoids": [
+     "优柔寡断的妇人之仁",
+     "出卖宗门的无耻叛徒"
+    ],
+    "contrast": "看似阴沉狠辣不苟言笑的刑堂教头，在掌门遇险关头敢于以骨肉之躯抵挡滚烫铁砂。",
+    "core_value": "后卫是掌门的最后一道防线，只要{npc.name}还在，没人能从背后动掌门分毫。",
+    "goal_options": [
+     "协助开道长将加长熟铜套管套上金杵",
+     "用连环手弩压制暴躁乱兵"
+    ],
+    "never": [
+     "在掌门还在死战时擅离防守位苟且偷生"
+    ],
+    "prefers": [
+     "严明肃杀的门规铁律",
+     "一招制敌的硬手腕"
+    ],
+    "pressure_responses": {
+     "breaking": "用铁爪死死扣住即将翻覆的玄武岩石边为众人换取平衡",
+     "high": "冲到翻板中央用双肩协助女掌门扛起下压杠杆",
+     "low": "在墓道口冷静通报流沙上涨速度与水银蒸气弥漫方位",
+     "mid": "果断抽出短刃挑开卡死在翻板缝隙中的碎骨乱石"
+    },
+    "relationship_stance": "将女掌门视为发丘天官门百年一遇的中兴雄主，愿以老迈残躯为其铺就通天生路。",
+    "withdrawal": "退守至八角巨殿侧面生门石柱旁，双手横弩戒备任何暗箭袭击。"
+   },
+   "gender": "male",
+   "gender_reason": "发丘摸金门老派断后校尉兼铁锁匠",
+   "id": "mojin_scout_officer_old_zhao",
+   "identity": {
+    "authority": "对摸金门后卫退路布防、断门机关炸毁及防追击陷阱布置拥有现场决断权。",
+    "exposure": "为了宗门曾私自暗杀过两名企图倒卖地宫文物的背叛门徒",
+    "hidden": "暗中掌握了通往后殿水银泄洪渠底部的一处狭窄枯水暗道",
+    "limits": [
+     "面对千万吨流沙覆顶完全缺乏大范围破拆神力",
+     "受限于从属执事职责"
+    ],
+    "obligations": [
+     "誓死守卫掌门侧翼不放任何溃散乱兵冲乱破阵阵脚"
+    ],
+    "resources": [
+     "一具大威力防身重型连环手弩",
+     "两枚特制古法强力水银封门塞膏"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在天倾绝境中决胜千里的绝代霸王气度",
+     "直面死神时毫无惧色的飒爽英姿"
+    ],
+    "boundaries": [
+     "严守门规尊卑条令",
+     "杜绝私相授受与包庇违纪"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在玄武岩石柱旁横弩立定，大声报出后殿水银渠枯水暗道开通的绝对读秒。",
+    "dislikes": [
+     "贪生怕死的擅离职守",
+     "出卖袍泽的下作行径"
+    ],
+    "expression": "干脆利落地收起手弩，默默将自己随身携带最干净的清水囊递到女掌门面前。",
+    "likes": [
+     "干净利落的机关破除声",
+     "脱离死地后大口吞下清灵散的痛快"
+    ],
+    "preconditions": [
+     "彻底排除翻板坠落深渊险情全员平安脱险",
+     "全员脱离水银蒸气中毒危险"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "摸金门后卫铁锁教头",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_crypt_balance_slab_grand_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "塞膏在高温高压下迅速融化烫伤{npc.name}右手大拇指与食指。",
+      "option": "{npc.name}将特制古法水银封门塞膏全量抹在石门裂缝暂时阻断毒烟蔓延自救。"
+     },
+     {
+      "cost": "手弩机簧过载弹簧崩断彻底失去远程防身能力。",
+      "option": "用连环手弩射断吊桥引绳强行阻断毒气对流争取破板时间脱险。"
+     }
+    ],
+    "pressure": "若不能在六十秒内完成翻板卡平自锁，全员即便不被摔死也将吸入剧毒水银蒸气毙命。",
+    "trigger": "后殿水银渠毒气开始顺着石门缝隙弥漫，两分钟内将蔓延至翻板正上方。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "只要女掌门还在掌中执杵，发丘门的大旗就倒不了，我们这一堂人必定能活着走出这始皇地宫！",
+    "surface": "掌门！加长熟铜套管咬死了！偏心死角在西北艮位，听您号令，{npc.name}跟开道长一起合力下压！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "民国十六年，深秋",
+  "minute": 1380
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "bodily_harm",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "下地宫墓室前习惯将发丘印印泥抹在掌心搓热，凭朱砂药气防范古墓尸气迷瘴。",
+  "摸金校尉行险前习惯用金刚伞伞尖在墓砖地面轻点三下，凭空响辨别地层虚实空洞。",
+  "女掌门出重任前习惯用金剪刀剪断自己半寸青丝系在降魔杵手绳，寓意断发免灾舍身求生。",
+  "在流沙轰鸣声中喊话习惯扯下蒙面黑纱贴住同伴耳门厉声喝出机关卦位方位。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用朱砂毛笔在石壁阴阳鱼纹称重刻度旁标出水平红线",
+    "轻叩青铜枢轴承重滑套确认无细沙渗入咬死死角",
+    "检查悬空翻板四角配重铅砣钢丝索悬挂夹紧力"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_crypt_scale_balance_chalk_tally",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "晨光未露玄武岩天平鱼纹刻度巡检"
+  },
+  {
+   "beats": [
+    "用纯鹿皮软布蘸取沉香木精油擦拭降魔杵梅花棱角",
+    "核对纯金杵身七星破锁暗槽表面微米级磨损量",
+    "紧固降魔杵手柄末端红木防脱圆环沉头铜螺丝"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_scepter_gold_polish_oil_service",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "start_minute": 1390,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "发丘纯金降魔杵鹿皮拭油点检"
+  },
+  {
+   "beats": [
+    "用长柄青铜凿锤敲击墓顶花岗岩拱券听沉闷回音判定空穴",
+    "清理导坑滑坡斜面堆积的细碎尖锐黑曜石碎渣",
+    "排查自毁铅水暗井导流槽铅皮封口的氧化斑痕"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_catacomb_stone_lintel_chisel_tap",
+   "location_ids": [
+    "loc_tomb_corridor_catacomb_gangway"
+   ],
+   "start_minute": 1385,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "前椁墓道悬石拱券检锤敲击听音"
+  },
+  {
+   "beats": [
+    "用特制纯玉石浮标测量水银渠液面距离闸门底槽间隙",
+    "排查青石闸板两侧导轨黄油润滑防沙封边密封性",
+    "在发丘门行规录加盖掌门纯金朱砂大印记"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_mercury_canal_float_gauge_inspection",
+   "location_ids": [
+    "loc_crypt_mercury_channel_gate"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "后殿水银渠浮标重力刻度校准"
+  },
+  {
+   "beats": [
+    "抛下系有铅坠的牛皮绳索探摸深坑毒刺尖端距翻板净距",
+    "用松香火把照亮坑底确认死陷机关是否发生偏位",
+    "交接挂在石柱铜环上的备用折叠百炼精钢金刚伞"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tomb_iron_caltrop_pit_depth_probe",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "翻板下方幽冥铁蒺藜深坑绳坠探深"
+  },
+  {
+   "beats": [
+    "用长柄铁铲清除泄砂石槽内部板结的赤红赤石粉",
+    "测试单向铜重力回跳翻板排沙阻火活门弹性",
+    "紧固泄砂石槽支架外侧两颗青铜防松销钉"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_sand_purge_drainage_chute_clearing",
+   "location_ids": [
+    "loc_crypt_mercury_channel_gate"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "title": "八角巨殿侧壁自流泄砂暗孔疏通"
+  },
+  {
+   "beats": [
+    "翻板撬正、众人退出地宫后，女掌门回到山脚的营帐，月白短打里灌满了赤红铁砂，一动就簌簌往下掉。",
+    "女掌门解了龙尾马尾背过身，让人用鬃刷顺着后背一点点把铁砂扫出来，刷到后腰时，攥着衣襟的手指紧了紧。",
+    "铁砂扫净，女掌门拢好衣襟回头，眼尾还带着汗：帐帘放下……今夜不守夜，换别人去。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_camp_tent_sand_brush",
+   "location_ids": [
+    "loc_foothill_camp_tent"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "营帐里替女掌门拍净铁砂"
+  },
+  {
+   "beats": [
+    "营帐里点着马灯，女掌门盘腿坐在毡毯上，月白短打敞着领口，拔开酒葫芦的塞子先灌了一口。",
+    "女掌门把葫芦扔过来：下墓前喝一口壮胆，上来了喝一口压惊。……喝完了留不留下，你自己说。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tent_wine_gourd",
+   "location_ids": [
+    "loc_foothill_camp_tent"
+   ],
+   "start_minute": 1250,
+   "tags": [
+    "intimate"
+   ],
+   "title": "营帐里分一葫芦烧酒"
+  },
+  {
+   "beats": [
+    "女掌门趴在毡毯上摊开一张旧墓图，手指沿着墓道往里划，小腿翘起来晃着，腰线绷成一道弧。",
+    "划到主墓室，女掌门忽然翻过身看人：这张图我看了十年。……今晚换我看你，行不行？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tent_tomb_map",
+   "location_ids": [
+    "loc_foothill_camp_tent"
+   ],
+   "start_minute": 1360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "灯下看墓图看到一半"
+  },
+  {
+   "beats": [
+    "天刚亮，山脚起了大雾，营帐湿漉漉的，女掌门在毡毯上醒来，枕着人的胳膊，头发里还有一点铁砂。",
+    "女掌门懒洋洋地说：雾不散，下不了墓。……那就再睡一会儿，你抱紧点。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tent_mountain_fog",
+   "location_ids": [
+    "loc_foothill_camp_tent"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "山雾里醒来"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "乱世军阀混战与前朝皇陵古墓机关探险期",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_sand_spill_roars_balance_tilts",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "grandmaster_yue_hongling",
+   "text": "{grandmaster_yue_hongling.name}单手死扣石板中央铜环，甩开额前浸湿的马尾青丝：石瓮崩了！翻板偏了三十度，把纯金降魔杵插进暗孔，跟我压死轴承！"
+  },
+  {
+   "id": "hook_master_chalks_scale_marks",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "grandmaster_yue_hongling",
+   "text": "{grandmaster_yue_hongling.name}单膝跪在滑腻倾斜的玄武岩石板上，纯金降魔杵咔哒一声咬死偏心槽：看准西北艮位，顺着偏一分二厘，听我口令一起往死里下压！"
+  },
+  {
+   "id": "hook_fulcrum_axle_screeches_sand_jam",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "grandmaster_yue_hongling",
+   "text": "{grandmaster_yue_hongling.name}在漫天狂泻的赤红铁砂里咬碎银牙，面颊在磷光映照下泛出剧烈酡红与香汗：别怕滑！抓紧金杵柄端，把全身骨肉重量压上来！"
+  },
+  {
+   "id": "hook_gold_scepter_groans_bending",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "grandmaster_yue_hongling",
+   "text": "{grandmaster_yue_hongling.name}整个人扑在纯金降魔杵末端，双手虎口渗血：枢轴在回转了！开道长，把你那身气力全给我压上来，顺艮位压到底！"
+  },
+  {
+   "id": "hook_scout_grips_scepter_firmly",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "master_scout_huo_changfeng",
+   "text": "{master_scout_huo_changfeng.name}大步跨上前，粗壮漆黑的大手一把覆在女掌门手背外侧：女掌门，稳住卡角！剩下的几百斤下沉力道交给我，谁也别想松手！"
+  },
+  {
+   "id": "hook_dynamite_fuse_hisses_smoke",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tomb_corridor_catacomb_gangway"
+   ],
+   "slot": "master_scout_huo_changfeng",
+   "text": "{master_scout_huo_changfeng.name}飞身扑倒军阀副官一脚踏灭嘶嘶作响的导火索，怒吼咆哮：点炸药全地宫都得被黄沙活埋！滚去旁边老实待着，这道石门摸金门来开！"
+  },
+  {
+   "id": "hook_mercury_fumes_choke_hall_throat",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "master_scout_huo_changfeng",
+   "text": "{master_scout_huo_changfeng.name}撑开重型金刚伞挡在女掌门身前遮蔽倒灌毒雾，沉声低喝：含服清灵散！毒烟呛不死人，翻板还没平，掌门还在死战，谁敢乱动我就把闹事者扔下深坑！"
+  },
+  {
+   "id": "hook_paraffin_melts_floor_slips_deadly",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "grandmaster_yue_hongling",
+   "text": "{grandmaster_yue_hongling.name}两脚在融化的石蜡石板上生生顿住桩步，眼神狠厉如刀：石蜡融了又如何！机关术士撒滑石粉，开道长插金刚伞，哪怕赤足淌沙也得给我把天平扳平！"
+  },
+  {
+   "id": "hook_colonel_audits_mercury_canal",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tomb_corridor_catacomb_gangway"
+   ],
+   "slot": "warlord_colonel_qian_biao",
+   "text": "{warlord_colonel_qian_biao.name}惨白着脸握紧驳壳枪，尖叫连连：要翻了！钱副官，开枪！立刻抢过金棒子撬开石门，后头有水银剧毒，老子要出去！"
+  },
+  {
+   "id": "hook_mason_taps_stone_lintel",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "senior_stonemason_sun_laohan",
+   "text": "{senior_stonemason_sun_laohan.name}将半块生牛皮垫块狠狠拍在翻板轴承缝隙里：往缝里垫！西北艮位的偏角找到了，垫上我的生牛皮，顺着力道转！"
+  },
+  {
+   "id": "hook_apprentice_probes_pit_depth",
+   "kind": "request",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "grandmaster_yue_hongling",
+   "text": "{grandmaster_yue_hongling.name}抹去脸上的热汗与红砂，急促喘息着看向机关术士：去碎石堆把备用熟铜加长套管取来套上，我们需要更长的一米力臂！"
+  },
+  {
+   "id": "hook_scout_polishes_gold_scepter",
+   "kind": "request",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "apprentice_artisan_xiao_wu",
+   "text": "{apprentice_artisan_xiao_wu.name}双手抱着一根厚壁熟铜套管滚入石板中央，眼眶通红：掌门！套管拿来了！还有一整袋防滑滑石粉！"
+  },
+  {
+   "id": "hook_old_zhao_clears_drainage_chute",
+   "kind": "request",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "master_scout_huo_changfeng",
+   "text": "{master_scout_huo_changfeng.name}接过套管狠狠套在降魔杵柄端，按住女掌门的玉手怒吼：套管接上了！力臂延长了！女掌门，我们数三二一，一起把全身重量砸下去！"
+  },
+  {
+   "id": "hook_observe_tomb_inferno_balance_slip",
+   "kind": "observe",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "grandmaster_yue_hongling",
+   "text": "{grandmaster_yue_hongling.name}挺立在万钧狂泻的赤红铁砂洪流正中，月白短打下侧颜在磷光映照下明艳决绝，眼神如出鞘宝剑般不可动摇。"
+  },
+  {
+   "id": "hook_observe_gold_scepter_locks_fulcrum",
+   "kind": "observe",
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "slot": "grandmaster_yue_hongling",
+   "text": "重型发丘纯金降魔杵深深卡入变形青铜配重暗孔，伴随着一声洪钟般的机关合模巨响，数十吨重的玄武岩天平翻板轰然归平自锁，喷涌的流沙狂潮骤然回流平息脱险。"
+  },
+  {
+   "id": "hook_hongling_wine_gourd",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "grandmaster_yue_hongling",
+   "text": "{npc.name}解下腰间的酒葫芦，仰头喝了一口，抬手抛过来：接着，地宫里阴气重，喝一口压压惊。"
+  },
+  {
+   "id": "hook_changfeng_rope_check",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "master_scout_huo_changfeng",
+   "text": "{npc.name}蹲下来，伸手扯了扯人腰间的绳扣，又重新系紧一道：这结打得松，下了斗是要命的。"
+  },
+  {
+   "id": "hook_xiaowu_map_unroll",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_artisan_xiao_wu",
+   "text": "{npc.name}抱着一卷发黄的机关图跑过来，在石阶上摊开，压低声音：师门的老图，我只给你一个人看。"
+  },
+  {
+   "id": "hook_sun_chisel_tap",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "senior_stonemason_sun_laohan",
+   "text": "{npc.name}拿凿子背在墙上敲了三下，侧耳听了听，回头招手：过来听听，这块石头里是空的。"
+  },
+  {
+   "id": "hook_qian_cigar_offer",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "warlord_colonel_qian_biao",
+   "text": "{npc.name}叼着雪茄踱过来，马靴在石板上踩得咯噔响，斜眼打量：你是哪路的？跟着本团长干，金子少不了你的。"
+  },
+  {
+   "id": "hook_hongling_tent_flap",
+   "kind": "approach",
+   "location_ids": [
+    "loc_foothill_camp_tent"
+   ],
+   "slot": "grandmaster_yue_hongling",
+   "text": "{npc.name}撩开营帐的门帘，晃了晃手里的酒葫芦：山里夜冷。……进来喝一口？"
+  }
+ ],
+ "id": "ancient_tomb_gravity_sand_spill",
+ "locations": [
+  {
+   "affordances": [
+    "抓住翻板中央铜环稳住倾斜身形",
+    "将纯金降魔杵插进枢轴配重暗孔",
+    "观察石壁上雕刻的阴阳称重鱼纹刻度"
+   ],
+   "detail": "挑高十丈、完全由整块巨型玄武岩承重雕凿而成的八角形悬空巨殿，正中横陈着两丈见方的失衡重力翻板，下方是深达八丈布满淬毒幽冥铁蒺藜的万刃死坑，穹顶石瓮被炸裂，万吨赤红赤砂如瀑布倾泻漫入。",
+   "exits": [
+    "loc_tomb_corridor_catacomb_gangway",
+    "loc_crypt_mercury_channel_gate"
+   ],
+   "id": "loc_crypt_balance_slab_grand_hall",
+   "name": "翻板大殿",
+   "pressure_modifiers": {
+    "p_fulcrum_axle_deadlock_sand_jam": "极细铁砂渗入青铜枢轴轴承导致转轴抱死，常规工具完全无法撼动分毫。",
+    "p_sand_spill_burial_weight_tilt": "万钧流沙从天花石缝疯狂下灌，翻板倾角直逼三十五度濒临自滑翻覆边缘。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_mojin_scout_old_zhao"
+   ]
+  },
+  {
+   "affordances": [
+    "用金刚伞撑开落石遮蔽流沙冲击",
+    "扳动甬道壁画后的备用泄砂石闸铜把手",
+    "捡起散落的毛瑟步枪刺刀当楔子防滑"
+   ],
+   "detail": "通往主殿的青砖墓道已被军阀大炮炸塌半壁，巨型花岗岩条石犬牙交错横亘在断壁残垣间，四周硝烟弥漫伴随刺鼻火药味，流沙正顺着甬道斜坡狂暴漫涌蔓延而来。",
+   "exits": [
+    "loc_crypt_balance_slab_grand_hall",
+    "loc_crypt_mercury_channel_gate",
+    "loc_foothill_camp_tent"
+   ],
+   "id": "loc_tomb_corridor_catacomb_gangway",
+   "name": "坍塌墓道",
+   "pressure_modifiers": {
+    "p_warlord_dynamite_retaliation_collapse": "军阀卫兵在墓道口点燃了整箱苦味酸炸药雷管，轰然巨响倒计时逼近引发主殿穹顶总塌方。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_stone_mason_old_sun",
+    "bg_apprentice_artisan_xiao_wu"
+   ]
+  },
+  {
+   "affordances": [
+    "用纯钢撬棍别住石闸底部防滑导轨",
+    "佩戴浸醋湿布防范水银蒸气中毒",
+    "查看石闸承重青铜滑轮钢缆拉力刻度"
+   ],
+   "detail": "位于翻板大殿后方的密封青石隔墙，下凿双联水银环形防护渠，重达万斤的雕花防沙石闸因配重偏载卡死在半落悬空位置，银亮刺目的水银蒸气在冷风中蒸腾泛起幽蓝死光。",
+   "exits": [
+    "loc_crypt_balance_slab_grand_hall",
+    "loc_tomb_corridor_catacomb_gangway"
+   ],
+   "id": "loc_crypt_mercury_channel_gate",
+   "name": "水银渠石闸",
+   "pressure_modifiers": {
+    "p_mercury_vapor_toxic_spill_fumes": "泄洪渠水银受高温气浪烘烤急速挥发，高浓度汞蒸气顺着闸门裂缝倒灌入殿内。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_warlord_deputy_guard_qian"
+   ]
+  },
+  {
+   "affordances": [
+    "在毡毯上陪女掌门喝一口烧酒",
+    "替女掌门拍净衣上的铁砂",
+    "放下营帐的门帘"
+   ],
+   "detail": "皇陵山脚营地里最大的一顶帆布营帐，毡毯、马灯、一口樟木箱，箱盖上摊着一张发黄的旧墓图。",
+   "exits": [
+    "loc_tomb_corridor_catacomb_gangway"
+   ],
+   "id": "loc_foothill_camp_tent",
+   "name": "山脚营地的掌门营帐",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "马灯挂在帐杆上晃，帐帘一放，外面守夜人的咳嗽声就远了。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "岳",
+   "霍",
+   "尹",
+   "封",
+   "齐",
+   "解",
+   "张",
+   "白",
+   "关",
+   "裴",
+   "陆",
+   "秦"
+  ],
+  "given_female": [
+   "红绫",
+   "青瑶",
+   "飞燕",
+   "素心",
+   "若兰",
+   "玉蝉",
+   "月影",
+   "雪雁",
+   "采薇",
+   "佩兰",
+   "锦瑟",
+   "碧落"
+  ],
+  "given_male": [
+   "长风",
+   "云深",
+   "天枢",
+   "惊雷",
+   "破浪",
+   "玄苍",
+   "承影",
+   "无忌",
+   "振衣",
+   "孤城",
+   "绝峰",
+   "裂石"
+  ],
+  "given_neutral": [
+   "平",
+   "凌",
+   "野",
+   "寒",
+   "越",
+   "安",
+   "青",
+   "遥",
+   "霄",
+   "绝",
+   "鸣",
+   "影"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留民国军阀盗陵、千尺皇陵流沙翻板机关与发丘女掌门撬正枢轴的骨架。改动：写死的人名改为身份称呼，背景人物里与模板重名的老赵、孙老汉、小武改名；婴儿肥大多换成了其余外貌描写，小学徒改称新手学徒；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；女掌门亲密前提写明出地宫、双方清醒自愿；新增一个营帐里替女掌门拍净铁砂、换下短打的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    26,
+    36
+   ],
+   "baseline": "精通分金定穴与千斤坠破卸机关的资深摸金高手，练就了一副力拔千钧的硬把式。",
+   "gender": "any",
+   "id": "pi_mojin_veteran_scout_officer",
+   "reputation": "沉稳冷厉行事极讲江湖规矩，在南北倒斗行当内拥有极高的威望。",
+   "resources": [
+    "一柄特制折叠重型百炼金刚伞",
+    "两根带倒刺的纯钢飞爪攀岩索绳"
+   ],
+   "risks": [
+    "直接站在翻板滑落悬崖面极易被滚滚流沙推入深渊陷坑",
+    "吸入飞扬石粉易诱发窒息"
+   ],
+   "role": "发丘摸金世家当值领队校尉",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "校尉{family}"
+    },
+    {
+     "gender": "male",
+     "pattern": "{family}二爷"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    48
+   ],
+   "baseline": "奉军阀密令开炮炸山挖掘皇陵地宫的武装军官，手握炸毁墓道与自沉坑道的生杀大权。",
+   "gender": "any",
+   "id": "pi_warlord_sapper_commander",
+   "reputation": "残暴贪婪视古墓文物如草芥，动辄开枪杀人灭口以图独吞随葬重宝。",
+   "resources": [
+    "一匣军用高爆苦味酸炸药雷管引线",
+    "一把配发随身德造二十响大肚匣子驳壳枪"
+   ],
+   "risks": [
+    "不懂古典重力天平机关逻辑容易乱踩翻板自取灭亡",
+    "极度恐慌流沙导致丧失理智"
+   ],
+   "role": "北洋督军府盗宝工兵团长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}团长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}司令"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "发丘门下年轻的成年机关学徒，通晓公输天平翻板力学配重图谱。",
+   "gender": "any",
+   "id": "pi_tomb_organ_apprentice_artisan",
+   "reputation": "悟性极高但身子单薄，面对灭顶流沙狂潮容易慌乱失据。",
+   "resources": [
+    "一盒特制防沙滑石强力防滑止滑粉",
+    "一本黄绢手抄的前朝皇陵地下机关工部图解秘籍"
+   ],
+   "risks": [
+    "剧烈震颤下跌入石缝容易被机关剪切夹伤断肢",
+    "体能单薄难以承受重载下压"
+   ],
+   "role": "古墓榫卯机关青年见习门徒",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "male",
+     "pattern": "{family}小哥"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}徒儿"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    48,
+    55
+   ],
+   "baseline": "祖上世代修建前朝地宫的深山老石工，摸过地宫每一块玄武岩的阴阳纹路。",
+   "gender": "any",
+   "id": "pi_ancient_tomb_stone_masons_descendant",
+   "reputation": "沉默古怪守口如瓶，深知天平翻板自锁销存在半寸偏心的致命暗门。",
+   "resources": [
+    "一把大号千斤重型淬火锻造石凿",
+    "一袋特制耐重压弹性天然生牛皮缓冲塞垫"
+   ],
+   "risks": [
+    "年事已高患有严重老寒腿在沙流中举步维艰",
+    "无武装防身能力易遭流弹误伤"
+   ],
+   "role": "前朝督造修陵石匠后裔老把式",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}石匠"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老爹"
+    }
+   ]
+  }
+ ],
+ "premise": "军阀混战的年头，发丘摸金世家的女掌门受雇带队探一座前朝皇陵，督军府派了工兵团跟着，名为护送，实为盯梢。白天测风水、画地宫图，夜里在墓道口扎营。地宫的天平翻板机关还没摸清，工兵团长总想用炸药开路。",
+ "pressures": [
+  {
+   "choice": "等待后方军阀炸开石门，还是由女掌门带队用纯金降魔杵暴力下压扳平翻板。",
+   "exits": [
+    {
+     "cost": "纯金降魔杵微弯变形，操作人员双掌隔着皮手套被粗暴防滑纹磨出大面积鲜血水泡。",
+     "option": "用发丘天官重型纯金降魔杵反向卡入配重暗孔合力向下猛压三寸撬平翻板自救。"
+    },
+    {
+     "cost": "金刚伞精钢伞骨严重扭曲折断，操作者右肩脱臼挫伤。",
+     "option": "用金刚伞撑在翻板与侧殿石壁凹槽之间硬扛下沉重载脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "翻板表面全员被数十吨流沙瞬间推落入深坑，万刃穿心毒发身亡尸骨无存。",
+    "due_days": 1,
+    "trigger": "翻板倾角突破四十五度发生彻底自滑垂直翻覆"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_sand_spill_burial_weight_tilt",
+   "immediate": {
+    "minutes": 8,
+    "text": "翻板玄武岩石板在流沙狂澜冲刷下发出令人牙酸的摩擦巨响，石面防滑沙被冲刷殆尽。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "near": {
+    "deadline_minutes": 18,
+    "text": "倾斜角度逼近三十八度，下方万刃幽冥铁蒺藜毒刺已近在咫尺，稍有失足即粉身碎骨。"
+   },
+   "objective": "在翻板突破四十五度自滑角前利用金杵卡死枢轴强行撬平自救。",
+   "source": "accident",
+   "start_minute": 1380,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "万钧流沙倒灌玄武岩翻板大倾覆濒翻",
+   "trigger": "军阀开炮震塌地宫承重天花，万顷赤红铁砂顺着石瓮裂口瀑布般倾泻下灌，重力翻板遭遇数吨失衡偏载冲击，倾角直逼三十五度滑覆极限。"
+  },
+  {
+   "choice": "用铜锤敲击震碎沙粒，还是直接借用高密纯金延展性暴力下压撬动。",
+   "exits": [
+    {
+     "cost": "两人胸腹部肌肉承受超负荷反冲撞击出现剧烈内出血淤青。",
+     "option": "女掌门与开道长将金杵顺艮位偏角卡入暗槽借全身自重猛压脱险。"
+    },
+    {
+     "cost": "牛皮垫块在巨压摩擦下焦糊冒烟灼伤操作者右手五指。",
+     "option": "老石匠递上特制熟牛皮垫块塞入咬合缝隙协助金杵顺利深插卡位自救。"
+    }
+   ],
+   "far": {
+    "consequence": "重力翻板丧失任何物理复位可能，全殿彻底失衡化为万劫不复死局。",
+    "due_days": 1,
+    "trigger": "青铜枢轴彻底冷焊咬死死锁"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_fulcrum_axle_deadlock_sand_jam",
+   "immediate": {
+    "minutes": 6,
+    "text": "枢轴青铜齿槽迸射出一道道刺目的炽热火花，刺耳的金属尖叫撕扯耳膜回音滚滚。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "near": {
+    "deadline_minutes": 14,
+    "text": "轴承齿槽在超负荷受力下出现细微塑性崩角，阻力达到物理极值无法撼动分毫。"
+   },
+   "objective": "将纯金降魔杵偏心梅花棱精准楔入咬合盲区并垫入牛皮垫块。",
+   "source": "accident",
+   "start_minute": 1385,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "青铜枢轴轴承渗入极细铁砂咬死卡死",
+   "trigger": "微细铁砂在巨大流沙冲压下钻入青铜回转枢轴轴承套，金属表面发生严重干磨咬合与分子级微熔，所需转动力矩飙升至平日二十倍以上。"
+  },
+  {
+   "choice": "由开道长飞身夺枪控制火线，还是在石殿内抢先撬平翻板躲入后殿生门。",
+   "exits": [
+    {
+     "cost": "开道长右手掌被火星灼伤焦黑，前臂被飞溅碎石割开大口。",
+     "option": "开道长飞身掐断导火索并用金刚伞护盾砸晕点火副官化解爆炸危机自救。"
+    },
+    {
+     "cost": "飞爪钢索承受超负荷过载绷断崩伤女掌门左腕。",
+     "option": "女掌门用飞爪索钩凌空夺下炸药箱甩入水银排污渠深处沉底灭火脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "引发主殿八角穹顶彻底粉碎性总塌方，千万吨山石将整座地宫压为平地无人生还。",
+    "due_days": 1,
+    "trigger": "整箱苦味酸炸药轰然爆炸"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_warlord_dynamite_retaliation_collapse",
+   "immediate": {
+    "minutes": 4,
+    "text": "墓道口青烟直冒，嘶嘶燃烧的硫磺导火索在碎石堆中飞速缩短，火药刺鼻焦臭弥漫全场。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_tomb_corridor_catacomb_gangway"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "导火索仅剩最后半尺，强烈的震波已从墓道地底隐隐传来，穹顶巨石碎屑如雨点般砸落。"
+   },
+   "objective": "在炸药引爆前夺下雷管导火索并压制暴徒武装反扑。",
+   "source": "person",
+   "start_minute": 1395,
+   "tags": [
+    "crime",
+    "workplace_power"
+   ],
+   "title": "军阀卫队在甬道口引爆整箱苦味酸炸药",
+   "trigger": "军阀团长在恐慌中丧失理智，下令副官在墓道口点燃整箱苦味酸高能炸药雷管，企图炸开逃生口，引发大殿穹顶主拱券濒临全面连环塌方。"
+  },
+  {
+   "choice": "退守翻板风口硬抗流沙，还是含药憋气冲到石闸前快速闭锁。",
+   "exits": [
+    {
+     "cost": "全员神经系统受轻度汞毒侵蚀喉咙剧痛长达数日声音沙哑。",
+     "option": "女掌门分发清灵散强忍剧烈胸闷反向合力压平翻板开启排气风口脱险。"
+    },
+    {
+     "cost": "铁锁教头双手掌心被冰冷水银重金属渗透灼伤溃烂。",
+     "option": "铁锁教头用古法水银封门塞膏死死封死石门缝隙阻绝毒雾蔓延自救。"
+    }
+   ],
+   "far": {
+    "consequence": "全员在剧烈抽搐吐血中昏厥倒伏，葬身在地宫深渊之中殉难。",
+    "due_days": 1,
+    "trigger": "吸入致死剂量汞蒸气引发急性神经中枢衰竭"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_mercury_vapor_toxic_spill_fumes",
+   "immediate": {
+    "minutes": 5,
+    "text": "银亮的水银蒸气在冷风中泛着诡异幽蓝磷光，人员口中泛起强烈的金属苦味胸口剧痛难忍。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crypt_mercury_channel_gate"
+   ],
+   "near": {
+    "deadline_minutes": 11,
+    "text": "视线因重度水银中毒开始出现重影震颤，手脚关节神经反射剧烈抽搐，步履踉跄随时摔倒。"
+   },
+   "objective": "佩戴浸醋蒙面巾并含服清灵散阻断剧毒蒸气侵入中枢神经。",
+   "source": "nature",
+   "start_minute": 1400,
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "title": "后殿水银泄洪渠极毒汞蒸气大面积倒灌",
+   "trigger": "炸药震波震碎后殿水银渠青石防爆挡板，数吨高纯度液态水银在高温气浪烘烤下蒸发化为浓烈无色汞蒸气，倒灌入巨殿内引发急性汞中毒呼吸痉挛。"
+  },
+  {
+   "choice": "孤注一掷加大肉身重量强压，还是稍微回退半寸套入机关术士的熟铜管。",
+   "exits": [
+    {
+     "cost": "熟铜套管在高压下咬死变形彻底无法从金杵上拔下。",
+     "option": "机关术士冒死送达加长熟铜套管套在金杵柄端分担应力合力下压撬平脱险。"
+    },
+    {
+     "cost": "两臂肘关节承受数十吨极度反震导致骨膜严重挫伤渗血。",
+     "option": "女掌门与开道长调整站位将发力点向金杵根部收缩十公分以肉体爆发力强行压死轴承。"
+    }
+   ],
+   "far": {
+    "consequence": "丧失唯一硬核机械撬杠，整座翻板瞬间垂直失重坠落万刃深渊灭门殉难。",
+    "due_days": 1,
+    "trigger": "纯金降魔杵彻底折断崩脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_gold_scepter_yield_shear_bending",
+   "immediate": {
+    "minutes": 4,
+    "text": "纯金降魔杵暗槽处传出一声沉闷的金属挤压呻吟，金黄表面爆出一道深长应力印痕。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "金杵弯曲超过十五度，手握处滑动受力点即将从暗孔滑脱陷入彻底死锁失衡。"
+   },
+   "objective": "调整发力支点套入熟铜套管分担剪力防止黄金器具折弯滑脱。",
+   "source": "accident",
+   "start_minute": 1402,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "纯金降魔杵承受数十吨重载剪力濒弯",
+   "trigger": "重力翻板失衡偏载过重，女掌门与开道长合力下压使得八斤重的纯金降魔杵承受了超越黄金屈服极限的剪切弯矩，实心金身出现肉眼可见的弯折塑性形变。"
+  },
+  {
+   "choice": "扑倒在石板上用身体摩擦阻滑，还是冒险站立倾倒滑石粉。",
+   "exits": [
+    {
+     "cost": "滑石粉飞扬刺伤操作者双眼造成短暂目眩失明。",
+     "option": "机关术士将整袋防滑滑石粉全量倾倒在石板中央女掌门借势站稳桩功压死金杵自救。"
+    },
+    {
+     "cost": "金刚伞尖端合金破甲锥磨平受损丧失破障锋芒。",
+     "option": "开道长用金刚伞尖端重重插碎翻板表层石蜡凿出凹槽供女掌门蹬足发力脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "齐齐跌入万刃深坑被数十根淬毒幽冥铁蒺藜洞穿躯体当场毙命。",
+    "due_days": 1,
+    "trigger": "全员从滑腻石板表面整体失控滑坠"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_crypt_floor_paraffin_melt_slip",
+   "immediate": {
+    "minutes": 4,
+    "text": "两名探子的皮靴在石板上哧溜滑出数尺，身子一歪险些直接滑出悬崖跌落铁刺坑。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crypt_balance_slab_grand_hall"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "融化的石蜡与细铁砂混合成极滑的流体层，人员站立重心彻底失衡下盘摇晃不稳。"
+   },
+   "objective": "向翻板石面大面积泼撒防滑滑石粉并用刺刀钉入石缝充当脚蹬支点。",
+   "source": "nature",
+   "start_minute": 1398,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "翻板表面自滑防攀石蜡高温融化滑落",
+   "trigger": "军阀炮火与赤砂狂潮带来的灼热气浪融化了翻板表面的隐蔽防攀自滑石蜡层，玄武岩石板变得如抹油般滑腻无比，人员双脚几乎无法借力立足。"
+  },
+  {
+   "choice": "护着自己门里的人，还是把那一夜在地宫里见到的事全说出来",
+   "exits": [
+    {
+     "cost": "帐里那只从地宫带出来的木匣也得打开",
+     "option": "让人进帐搜"
+    },
+    {
+     "cost": "鲁老汉得承认当年修陵的图纸是自己卖给军阀的",
+     "option": "请鲁老汉出面作证"
+    }
+   ],
+   "far": {
+    "consequence": "发丘门三代的名号成了盗陵贼，往后再没人请这一门看风水",
+    "due_days": 4,
+    "trigger": "县衙的告示贴出来"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_hongling_wine_gourd",
+    "hook_changfeng_rope_check",
+    "hook_xiaowu_map_unroll",
+    "hook_sun_chisel_tap",
+    "hook_qian_cigar_offer",
+    "hook_hongling_tent_flap"
+   ],
+   "id": "p_tomb_keeper_demands",
+   "immediate": {
+    "minutes": 5,
+    "text": "白长老把拐杖往营帐门口一戳，要进帐搜"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_foothill_camp_tent"
+   ],
+   "near": {
+    "deadline_minutes": 360,
+    "text": "午时，白长老的侄子骑马去县城"
+   },
+   "objective": "在白长老去县城报官之前，把金蟾的下落说清楚",
+   "source": "person",
+   "start_minute": 360,
+   "tags": [],
+   "title": "看陵人讨说法",
+   "trigger": "出了地宫的第二天清早，看陵的白长老带着十几个族人堵在营地外：地宫里少了一尊镇墓的金蟾，要发丘门交人"
+  }
+ ],
+ "region": "千尺地下皇陵地宫悬空玄武岩天平翻板大殿",
+ "rules": [
+  {
+   "id": "r_gravity_tomb_sand_threshold_code",
+   "text": "重力翻板大殿两侧沉砂温差超过百斤时必须在四分钟内调整配重卡榫平衡。"
+  },
+  {
+   "id": "r_warlord_tunnel_tnt_lockout_rule",
+   "text": "军阀炸开外椁墓道时主殿顶层自毁连环铅水暗井将在流沙灌满半丈后自动熔断。"
+  },
+  {
+   "id": "r_fatsun_tomb_scepter_protocol",
+   "text": "发丘天官纯金降魔杵乃历代解开天平配重核心锁簧之信物严禁轻易弃置陷坑。"
+  },
+  {
+   "id": "r_crypt_spike_abyss_death_line",
+   "text": "翻板倾角超过四十五度时表面自滑防攀石蜡自动融化将承重人员甩入深坑。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "看沙称重",
+  "committed": "地宫血誓",
+  "familiar": "沙浪相扶",
+  "flirting": "金粉汗香",
+  "intimate": "卸甲倚石",
+  "stranger": "金杵戒备",
+  "testing": "天平同命"
+ },
+ "status": "released",
+ "style_hint": "厚重凌厉的古典机关探险硬核工笔，着重刻画重达数十吨的悬空玄武岩翻板在流沙偏载冲击下的失衡颤动、实心纯金降魔杵与铸铁暗槽咬死时的剧烈金属摩擦声、月白紧身短打下急促起伏的娇躯与滚烫汗珠，台词充斥着摸金秘传口诀与江湖儿女的决绝血性。",
+ "tension_engines": [
+  {
+   "id": "te_sand_burial_vs_manual_scepter_prying",
+   "text": "万钧流沙覆顶倾覆翻板绝命倒计时与利用发丘天官纯金降魔杵撬正配重枢轴的机械自救。"
+  },
+  {
+   "id": "te_warlord_dynamite_vs_human_rescue",
+   "text": "军阀工兵丧心病狂引爆炸药同归于尽与发丘摸金门誓死保全全同门弟兄生还的人道死斗。"
+  },
+  {
+   "id": "te_female_master_pride_vs_scout_muscle",
+   "text": "泼辣刚烈绝代女掌门的霸道江湖傲骨与忠诚护法老校尉托付性命的肉体爆发力反差共鸣。"
+  },
+  {
+   "id": "te_scalding_red_sand_vs_close_warmth",
+   "text": "滚烫赤红铁砂漫顶灼伤与两人在剧烈失衡倾覆中紧贴发力合拧金杵的炽烈生命相依。"
+  }
+ ],
+ "title": "皇陵地宫·流沙翻板重力死局",
+ "tone": [
+  "万钧流沙倾泻如雷",
+  "玄武岩翻板机关咔咔悲鸣",
+  "毒刺深坑幽绿磷光",
+  "冷汗滴在滚烫金杵激起水汽"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_crypt_scale_balance_pin_found",
+   "requires": [
+    "grandmaster_yue_hongling"
+   ],
+   "text": "{grandmaster_yue_hongling.name}在枢轴石座铭牌下摸出了当年修陵先贤秘设的手动强制卡死重力自锁生门暗榫销孔。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_scout_disarms_warlord_colonel",
+   "requires": [
+    "master_scout_huo_changfeng"
+   ],
+   "text": "{master_scout_huo_changfeng.name}反手夺下军阀团长的驳壳枪与雷管引线，全面接管全殿防爆与逃生战时最高指挥权。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_nine_turn_antidote_powder_shared",
+   "requires": [
+    "grandmaster_yue_hongling"
+   ],
+   "text": "{grandmaster_yue_hongling.name}倒出随身香囊里的整整四颗九转清灵散药丸分发给现场力竭同伴对抗水银极毒蒸气。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_mercury_gate_bypassed_water_drains",
+   "requires": [
+    "senior_stonemason_sun_laohan"
+   ],
+   "text": "{senior_stonemason_sun_laohan.name}用铜凿撬开后殿自流泄砂暗孔，依法引走大殿内淤积的万吨细砂减轻翻板承重。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_emergency_copper_pipe_lever_locked",
+   "requires": [
+    "grandmaster_yue_hongling"
+   ],
+   "text": "{grandmaster_yue_hongling.name}利用熟铜套管柄部挑开了备用卡簧连杆，强行为翻板争取到宝贵的三十秒配重归零平衡窗口。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_scout_shields_master_falling_rock",
+   "requires": [
+    "grandmaster_yue_hongling",
+    "master_scout_huo_changfeng"
+   ],
+   "text": "{master_scout_huo_changfeng.name}在穹顶石瓮大面积崩塌瞬间挺身扑在{grandmaster_yue_hongling.name}上方，用精钢金刚伞与后背死死挡下千斤坠石。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_gravity_slab_locks_true_sand_stops",
+   "requires": [
+    "grandmaster_yue_hongling"
+   ],
+   "text": "撬正三寸的玄武岩天平翻板在纯金降魔杵与生牛皮垫块的强力合模下轰然复位水平，后殿防沙石闸随之大开，全员踏着平稳石板安然脱险生还。"
+  }
+ ]
+}

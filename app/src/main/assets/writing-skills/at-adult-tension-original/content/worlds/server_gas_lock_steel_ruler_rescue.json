@@ -1,0 +1,2479 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "公立大学尽职尽责的安保头目，在地面指挥室焦急组织人员排查供电线路。",
+   "age_range": [
+    40,
+    50
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_duty_security_captain_wu",
+   "line": "理事长还在地下机房里头！快拿应急破拆液压钳去撬防爆滑门！快啊！",
+   "location_ids": [
+    "loc_noc_monitoring_center"
+   ],
+   "name": "安保吴队长",
+   "role": "公立大学安保处当值夜班队长"
+  },
+  {
+   "adult_context": "夜班工程师的机房轮班成年青年技术助手，在门外拼命敲击控制面板。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_apprentice_technician_xiao_wang",
+   "line": "陈哥！冷通道的防爆滑门电磁锁彻底烧熔死锁了，外部电脑完全无法开门！",
+   "location_ids": [
+    "loc_main_server_hall"
+   ],
+   "name": "技术员小王",
+   "role": "机房运维值班青年技术员助手"
+  },
+  {
+   "adult_context": "教条死板的官僚副主任，阻碍了外侧强行拉闸切断火警的提议。",
+   "age_range": [
+    45,
+    55
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_it_center_director_tang",
+   "line": "气体灭火系统进入法定不可逆自锁阶段，擅自切断主供电会导致全校核心机房瘫痪！",
+   "location_ids": [
+    "loc_noc_monitoring_center"
+   ],
+   "name": "唐主任",
+   "role": "公立大学网络信息中心副主任"
+  },
+  {
+   "adult_context": "奔走于监控大厅与地下入口之间传递救援进展的成年干事。",
+   "age_range": [
+    21,
+    22
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_student_council_secretary_lin",
+   "line": "只剩最后六十秒了！理事长两人要是出不来，全校理事会绝不会善罢甘休的！",
+   "location_ids": [
+    "loc_noc_monitoring_center"
+   ],
+   "name": "秘书处林干事",
+   "role": "公立大学理事会秘书处青年干事"
+  },
+  {
+   "adult_context": "在防爆滑门外侧递送润滑喷雾与防滑垫料的热心后勤老员工。",
+   "age_range": [
+    50,
+    60
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_dorm_manager_sun",
+   "line": "小陈！用你们平时修机器的铁家伙把门缝别住！千万别让防爆门二度落锁！",
+   "location_ids": [
+    "loc_main_server_hall"
+   ],
+   "name": "主管孙大叔",
+   "role": "地下库区留守值班老员工"
+  },
+  {
+   "adult_context": "目睹变压器爆炸并第一时刻上报险情的年轻巡更保安。",
+   "age_range": [
+    22,
+    28
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_patrol_guard_li_er",
+   "line": "雷击直接引爆了地下一号变压器，防爆门的后备电源也被浪涌电流瞬间烧穿了！",
+   "location_ids": [
+    "loc_noc_monitoring_center"
+   ],
+   "name": "巡更保安小李",
+   "role": "公立大学安保处巡查队员"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "理事长与夜班工程师在八十公分的冷通道里背贴机柜、手叠着手，把裁纸尺塞进释放手柄的暗槽一点点往下压。",
+   "id": "cc_president_and_admin_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "president_xiao_ruoqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死死线前紧密协作构建力矩反支点，彼此产生绝对性命相托。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_admin_chen_mo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同为机房技术维护核心，知晓彼此手上力道与工具用法。",
+     "stage": "familiar"
+    },
+    {
+     "a": "president_xiao_ruoqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_admin_chen_mo",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "名门女理事长与青年技术员在机房死难中成为生死不离的脱困搭档。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "president_xiao_ruoqing",
+    "apprentice_admin_chen_mo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在七氟丙烷气体充气完成前合力撬开机械释放手柄推门逃生。",
+    "limit_gap": "理事长制服紧绷且体温燥动，技术员受困于机柜狭窄死角施力空间极其受限。",
+    "meeting_reason": "录取查询夜，理事长拎着一袋夜宵下到机房，夜班工程师正盯着并发曲线。",
+    "resource_gap": "理事长拥有最高通行卡与加厚纯钢裁纸尺，技术员掌握机械旁通阀力学卡死构造直觉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_fm200_purge_countdown_rush",
+    "te_cold_aisle_tight_body_heat"
+   ]
+  },
+  {
+   "chemistry": "常务副理事长与驻场工程师以精准机械原理拆解偏心弹簧卡销，严丝合缝操作工具突破阻滞。",
+   "id": "cc_president_and_engineer_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "president_xiao_ruoqing",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "多年协作维护机房安全，对彼此技术定力深具默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_admin_chen_mo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "机电安全部门同事，熟悉机房各处暗门机关。",
+     "stage": "familiar"
+    },
+    {
+     "a": "president_xiao_ruoqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_admin_chen_mo",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在沉重铁门重压下并肩卧地发力，消除身份悬殊界限。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "president_xiao_ruoqing",
+    "apprentice_admin_chen_mo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "利用钢尺两毫米厚度精准卡死弹簧脱扣槽并顺势推开滑门自救。",
+    "limit_gap": "配电盘彻底烧毁无法借助电控，必须在微弱指示灯光下凭手感盲操机械脱扣。",
+    "meeting_reason": "零点前一小时压力测试，理事长和夜班工程师挤在冷通道里核对每一台机柜的指示灯。",
+    "resource_gap": "理事长掌握全校安防紧急协调大权，工程师拥有高精度金属卡尺与强光探照笔。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_electric_door_rail_jam_pinch",
+    "te_server_data_loss_panic"
+   ]
+  },
+  {
+   "chemistry": "网络总架构师以绝对技术权威统摄全局，理事长遵从力学指挥，合力爆发千钧推力破门。",
+   "id": "cc_chief_architect_and_president_high",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "president_xiao_ruoqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "总架构师指挥理事长校准发力矢量，展现卓越技术领导力。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_admin_chen_mo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "网络架构组上下级师徒，配合极为娴熟。",
+     "stage": "familiar"
+    },
+    {
+     "a": "president_xiao_ruoqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_admin_chen_mo",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "大学理事长与机房工匠共赴生死，结成无间同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "president_xiao_ruoqing",
+    "apprentice_admin_chen_mo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以高刚性力矩反推破除偏心锁舌完成无损自救脱困。",
+    "limit_gap": "冷通道受力横梁处于临界过热微胀状态，任何盲动都会引发更大形变抱死。",
+    "meeting_reason": "主管部门派人来督导录取查询保障，理事长陪着进机房，夜班工程师在门口递鞋套。",
+    "resource_gap": "总架构师掌握整座超算中心管网蓝图，理事长掌握全部大学物理应急通行权限。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_server_data_loss_panic",
+    "te_electric_door_rail_jam_pinch"
+   ]
+  },
+  {
+   "chemistry": "理事长以公立大学最高威信发布决死自救指令，技术处长严谨配合测量每处力矩参数。",
+   "id": "cc_minister_and_president_command",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "president_xiao_ruoqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "同处绝境，上下级界限消融于贴身死斗协作中。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_admin_chen_mo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在技术部共事，彼此熟稔信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "president_xiao_ruoqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_admin_chen_mo",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "理事长放下傲娇架子全力依赖技术员臂膀发力破局。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "president_xiao_ruoqing",
+    "apprentice_admin_chen_mo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保科研超算免遭损毁，全员安全破门撤离。",
+    "limit_gap": "配电断路器熔断导致外援断绝，必须完全服从理事长临危决断。",
+    "meeting_reason": "理事长在监控大厅等零点，听说冷通道有台机柜报警，亲自下去看，夜班工程师跟了上去。",
+    "resource_gap": "理事长拥有全校最高决断威信，技术处长精通机房排风旁路物理位置。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_fm200_purge_countdown_rush",
+    "te_server_data_loss_panic"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_cold_aisle_whisper_breath",
+   "reach": "all",
+   "text": "八十公分冷通道死角两人肌肤紧贴急促滚烫的吐息与心跳共振"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_datacenter_intercom_echo",
+   "reach": "local",
+   "text": "机房广播中灭火充气急促倒计时读秒与外侧安保呼喊的刺耳回音"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已满二十一岁成年大学女青年，全权执掌大学理事会综合事务与突发危机处置自治权。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身着修身高腰藏青色公立大学制服套裙与白衬衫，系暗红缎面领结，端庄清冷气场高傲，两腮带着健康的红润，在灭火绝境剧烈喘息中双颊泛起娇艳酡红与细腻冷汗，下颌滑落汗滴。",
+    "乌黑长发在慌乱中微乱散落于颈项，衬衫纽扣因急促呼吸而紧绷起伏，面颊在幽蓝机房指示灯映照下透出如玉光泽，双手全力压紧不锈钢钢尺毫不退让，威严中透着令人心颤的娇憨反差。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱软弱的哭天抢地",
+     "毫无担当的推卸责任"
+    ],
+    "contrast": "开会时一句话能让满屋子处长噤声，录取夜却裹着借来的防静电大褂坐在机房地板上吃泡面；困在冷通道里，拿裁纸尺的手比谁都稳。",
+    "core_value": "作为公立大学理事长，绝不在危机面前退缩啼哭；即便依靠最原始的物理工具，也要与伙伴杀出生天。",
+    "goal_options": [
+     "以随身不锈钢裁纸钢尺插入常闭阀暗槽强行撬开机械释放手柄",
+     "在七氟丙烷喷射前合力释放高压气体并推开防爆滑门逃生"
+    ],
+    "never": [
+     "在伙伴尚未脱离危险前弃人独逃"
+    ],
+    "prefers": [
+     "专业扎实沉着稳健的果决男子",
+     "临危不乱的硬核技术手段"
+    ],
+    "pressure_responses": {
+     "breaking": "哪怕双臂酸麻颤抖、耳侧尽是两人粗重滚烫的吐息，亦咬紧贝齿拼死下压直至机簧弹开。",
+     "high": "在极限逼仄死角内整个人伏在夜班工程师怀前，双手紧紧叠压在夜班工程师手上合力下压钢尺。",
+     "low": "在昏暗机房中厉声喝止恐慌，迅速组织夜班工程师排查机械释放阀门位置。",
+     "mid": "毫不犹豫脱去外罩制服西装外套，侧身挤入八十公分逼仄冷通道通道死角。"
+    },
+    "relationship_stance": "录取季每年都来机房陪夜班，夜班工程师是唯一一个敢当面说理事长方案不行的人，理事长嘴上不饶人，心里记着这份直。",
+    "withdrawal": "身体虚脱靠在夜班工程师胸膛平复剧烈心跳，面颊微侧避开夜班工程师视线掩饰羞涩。"
+   },
+   "gender": "female",
+   "gender_reason": "顶尖公立大学成年女理事长，名门世家千金，性格高傲冷艳兼具决断担当的女主。",
+   "id": "president_xiao_ruoqing",
+   "identity": {
+    "authority": "掌控公立大学突发安全一票处置权，调遣全校理事会干事与信息化运维资源。",
+    "exposure": "平日高高在上不可冒犯的冰山女理事长，因施力紧贴在夜班工程师怀前，衬衫湿透娇喘连连的脆弱姿态被夜班工程师一览无余。",
+    "hidden": "制服内袋贴身携带一份公立大学地下暗道弱电维护走廊的绝密手绘图纸",
+    "limits": [
+     "在冷通道防爆移门未被物理撬开前无法撤离至开阔大厅",
+     "灭火气体浓度达到临界值时将直接引发急性呼吸衰竭休克"
+    ],
+    "obligations": [
+     "确保服务器大厅科研核心超算数据免遭水火损坏",
+     "与技术员夜班工程师同舟共济突破死锁安全脱困"
+    ],
+    "resources": [
+     "一枚随身携带的实心纯不锈钢特制加厚长条裁纸钢尺（长三十公分，厚两毫米，淬火硬度极高坚韧抗弯）",
+     "公立大学理事长专属全校安防主物理通行密钥卡"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "夜班工程师在防爆门轰然闭锁瞬间舍身将{npc.name}护在机柜死角的勇毅担当",
+     "在八十公分狭窄通道内夜班工程师沉稳如山的宽厚臂膀与专注坚定的眼神"
+    ],
+    "boundaries": [
+     "恪守名门女理事长的威严自尊底线",
+     "自救过程纯靠物理机械力矩决不涉性"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在冷通道死角贴着对方胸口，双手叠在对方手背上一起压裁纸尺。",
+    "dislikes": [
+     "轻浮占便宜的下作举止",
+     "临阵退缩的懦夫行径"
+    ],
+    "expression": "脱险后在走廊红着脸为夜班工程师包扎被金属擦红的手掌，别扭地轻声呢喃‘这次……算你立了大功’。",
+    "likes": [
+     "在剧烈机械震动中被有力双臂稳稳箍住腰肢维持重心的安全感",
+     "突破锁舌瞬间夜班工程师贴在耳畔沉厚低柔的安慰喘息"
+    ],
+    "preconditions": [
+     "七氟丙烷高压释放阀成功扳动排气",
+     "两人安全穿过滑门抵达外部安全走廊",
+     "两人都清醒，心意出于自己，不是倒计时绝境里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "大学理事会理事长",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_main_server_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_datacenter_cold_aisle",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "钢尺手柄产生微小弹性弯曲，两人手臂与手掌被金属毛刺擦红，体力消耗达到生理极限。",
+      "option": "借实心不锈钢裁纸钢尺插入释放手柄暗槽，双手合力向下猛压突破棘爪咬合自救。"
+     },
+     {
+      "cost": "防爆玻璃具备多层夹胶抗暴强度极高，徒劳耗尽氧气导致窒息昏迷。",
+      "option": "强行用灭火器罐体砸击防爆钢化夹胶玻璃门。"
+     }
+    ],
+    "pressure": "冷通道氧气即将在百秒内被窒息性灭火气体排空，唯一的换气与脱困出路只有通道顶部的机械常闭旁通释放阀。",
+    "trigger": "雷暴感应误报引发地下数据中心七氟丙烷灭火系统自启，防爆气密滑门断电锁死，充气倒计时九十秒。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "冷通道里明明只有十八度，怎么会这么热……夜班工程师的心跳隔着衬衫都听得见。专心，离零点还有九分钟。",
+    "surface": "不许慌。查询系统零点要开，人得先出去。裁纸尺给你——两毫米厚，插进释放手柄底下，听我数到三。"
+   }
+  },
+  {
+   "adult_context": "已满二十一岁成年大学女青年，主导大学应急预案编订，沉着理性气度从容。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "脱去西装外套仅着白衬衫与工装长裤，长发利落扎成单马尾，两腮透着青年女性特有的红润与决死指挥的英气。",
+    "衬衫被冷汗打湿半透明贴伏在起伏的锁骨与腰线上，面颊在警报红光下浮现坚毅之色，紧握钢尺的双手沉着有力。"
+   ],
+   "decision": {
+    "avoids": [
+     "优柔寡断",
+     "怨天尤人"
+    ],
+    "contrast": "干练果决的副理事长，在生死考验中绽放出夺目魅力。",
+    "core_value": "一切规章条例的核心是人命，在物理死锁面前唯有集中力量破拆枢纽。",
+    "goal_options": [
+     "利用钢尺杠杆撬开高压气体旁通手柄",
+     "合力反推防爆门脱险"
+    ],
+    "never": [
+     "背弃并肩作战的战友"
+    ],
+    "prefers": [
+     "精准高效的机械动作",
+     "临危不乱的男儿气魄"
+    ],
+    "pressure_responses": {
+     "breaking": "紧咬贝齿同声呐喊将两人全身力量压到底。",
+     "high": "伏身死角以自身重力协助夜班工程师压紧力臂末端。",
+     "low": "镇定命令夜班工程师测算高压管道受力平衡点。",
+     "mid": "果断将随身钢尺插入手柄限位孔构筑力臂。"
+    },
+    "relationship_stance": "视夜班工程师为最信赖的技术搭档，打破上下级隔阂结为莫逆之交。",
+    "withdrawal": "撤离至安全回廊后利落整理衣领恢复威严仪态。"
+   },
+   "gender": "female",
+   "gender_reason": "公立大学理事会常务副理事长态，通晓大学基建规章与安防条例的实干女性。",
+   "id": "vice_president_xiao_ruoqing",
+   "identity": {
+    "authority": "对全校地下设施消防联动拥有现场紧急中止裁量权。",
+    "exposure": "高冷英气的副理事长在狭窄死角与青年技术员紧密相依，滚烫喘息彼此相闻。",
+    "hidden": "通晓冷通道备用重力换气孔机械连杆坐标",
+    "limits": [
+     "外部电控总闸熔断无法进行远程复位",
+     "受困于密闭冷通道缺乏大型工具"
+    ],
+    "obligations": [
+     "保护现场全部科研人员生命安全",
+     "与技术员完成物理破拆自救"
+    ],
+    "resources": [
+     "一柄特种淬火不锈钢钢尺",
+     "防静电防割羊皮执勤手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "夜班工程师在复杂管网中一眼锁定核心机械释放阀的精湛专业度",
+     "狭窄死角内对方毫不迟疑的贴身护持与沉稳体温"
+    ],
+    "boundaries": [
+     "严守公立大学领导者端庄名誉",
+     "自救绝不涉性纯硬核物理"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在冷通道门侧并肩伏卧，双手叠在夜班工程师手背上合力猛压钢尺破锁。",
+    "dislikes": [
+     "推诿扯皮",
+     "惊慌失措"
+    ],
+    "expression": "脱险后主动为夜班工程师递上矿泉水，轻拍夜班工程师肩头低声道‘干得漂亮’。",
+    "likes": [
+     "彼此眼神心领神会的秒懂默契",
+     "工具突破卡死阻力瞬间的清脆金属咬合声"
+    ],
+    "preconditions": [
+     "全员安全脱困无伤",
+     "气体释放回路切断"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "公立大学应急安防委员会总协调人",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_main_server_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_datacenter_cold_aisle",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "钢尺边缘受力变形，施力人员手臂与虎口遭受强烈震荡挫伤。",
+      "option": "以不锈钢裁纸钢尺作为高刚性撬杠向下扳动释放手柄脱扣自救。"
+     },
+     {
+      "cost": "强电回路已烧死，浪费宝贵逃生时间导致全员窒息。",
+      "option": "盲目尝试寻找外部供电断路器手动闸刀。"
+     }
+    ],
+    "pressure": "七氟丙烷即将喷发，冷通道空间狭窄，必须依靠人工杠杆力矩强行开启排气阀。",
+    "trigger": "地下机房突发高压气体灭火自启，防爆气密门断电自锁，九十秒窒息死线降临。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "倒计时读秒逼近了……这手柄吃劲太大，只要我们双手合拢，一定能撬动这根手柄！",
+    "surface": "夜班工程师，找准暗槽了！钢尺厚度正好两毫米，插进去反向撬，听我口令三二一压！"
+   }
+  },
+  {
+   "adult_context": "已满二十一岁成年青年女性，公立大学数学与机械工程拔尖研究员，兼具理论深度与实践胆魄。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "金丝眼镜在混乱中滑落，露出清丽绝伦的绝美面庞，两腮饱满紧致带健康的红润，在绝境剧烈喘息中双眸如星子般明亮璀璨。",
+    "制服领口被香汗浸湿微微敞开，露出白皙紧绷的纤细锁骨，面颊泛着红晕，双手紧扣钢尺奋力下压，展现出惊人的执着美感。"
+   ],
+   "decision": {
+    "avoids": [
+     "愚蠢的鲁莽盲动",
+     "消极的坐以待毙"
+    ],
+    "contrast": "知性高雅的青年学者，在机械死线搏杀中流露出动人心弦的生命热力。",
+    "core_value": "物理力学规律永远不会骗人，只要力矩乘力臂大于咬合摩擦力，手柄必能打开。",
+    "goal_options": [
+     "利用钢尺最大力臂比扳动高压偏心手柄",
+     "协同夜班工程师突破防爆滑门脱险"
+    ],
+    "never": [
+     "违背科学理性原则"
+    ],
+    "prefers": [
+     "严谨的逻辑分析",
+     "毫无保留的绝对配合"
+    ],
+    "pressure_responses": {
+     "breaking": "咬破红唇爆发全部潜力下压直至锁销脱扣。",
+     "high": "整个人靠在夜班工程师身前，将体重完全叠加在施力点上。",
+     "low": "迅速计算出钢尺最佳插入深度与发力夹角为四十五度。",
+     "mid": "指引夜班工程师按压钢尺末端形成双倍力矩倍增系统。"
+    },
+    "relationship_stance": "从学术层面的冷漠孤傲，蜕变为对夜班工程师实践动手能力与责任担当的深深钦佩。",
+    "withdrawal": "脱险后扶住机柜大口喘息，对夜班工程师报以心照不宣的明媚微笑。"
+   },
+   "gender": "female",
+   "gender_reason": "公立大学工学双学位青年学者态，心思缜密逻辑严密的天才女性。",
+   "id": "honor_student_xiao_ruoqing",
+   "identity": {
+    "authority": "掌控全校超算中心核心算法模型与物理机柜受力结构知识产权。",
+    "exposure": "高傲的工学天才青年学者与网管在逼仄空间肢体交缠呼吸相触。",
+    "hidden": "随身掌上电脑记录着全机房气体管线力学抗剪切计算公式",
+    "limits": [
+     "受困于机柜狭缝无法直立施展全身力道",
+     "必须在六十秒内完成破拆"
+    ],
+    "obligations": [
+     "保护超算阵列核心数据资产",
+     "带领技术员平安逃生"
+    ],
+    "resources": [
+     "一柄特制不锈钢高韧性长条裁纸钢尺",
+     "高精度金属卡尺"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "夜班工程师面对绝境时毫不慌乱沉着执行力矩计算的从容魄力",
+     "紧贴施力时对方宽厚胸膛传来的沉稳心跳律动"
+    ],
+    "boundaries": [
+     "严守学者清誉",
+     "自救恪守硬核机械物理底线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "依偎在夜班工程师身前狭窄缝隙，双手覆在夜班工程师手背上合力下压钢尺。",
+    "dislikes": [
+     "轻浮冒失",
+     "自以为是"
+    ],
+    "expression": "脱险后取下随身名贵钢笔郑重赠予夜班工程师，轻声说‘夜班工程师，留个纪念吧’。",
+    "likes": [
+     "两人发力节奏完全合拍的共振瞬间",
+     "脱险后相视一笑的深沉释然"
+    ],
+    "preconditions": [
+     "计算参数准确验证",
+     "安全逃出毒气弥漫区"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "公立大学卓越青年学者",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_main_server_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_datacenter_cold_aisle",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "钢尺产生微小永久塑性形变，施力人员手臂肌肉剧烈酸胀挫伤。",
+      "option": "以不锈钢裁纸钢尺构成精确力矩撬动常闭阀手柄脱扣自救。"
+     },
+     {
+      "cost": "电磁锁自锁力达数百公斤，盲目摇晃极易引发机械抱死彻底断送生路。",
+      "option": "强行摇晃防爆门试图拉脱电磁锁舌。"
+     }
+    ],
+    "pressure": "氧气浓度剧降，冷通道内逃生通道锁死，唯有物理开启常闭旁通阀排气。",
+    "trigger": "气体灭火电磁阀误动作触发防爆门联锁断电，七氟丙烷充压进入最后读秒。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "夜班工程师的手臂好有力……贴得这么近，我的呼吸全乱了。集中精神，这组公式绝不会错！",
+    "surface": "夜班工程师，根据截面力矩计算，钢尺插入暗槽二十五公分处可以产生四百牛米力矩，对准角度，一起压！"
+   }
+  },
+  {
+   "adult_context": "已满二十一岁成年大学青年，熟悉机房强弱电布局与特种消防阀门物理机械原理。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿黑色纯棉防静电短袖工装与工装长裤，两臂肌肉结实紧绷，眼神坚毅沉稳，额前浸满因用力而迸发的汗珠。",
+    "腰挂多功能工具插袋，双手佩戴防静电专业工装手套，沉稳利落锁定机械死卡点。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延",
+     "弃弱自保"
+    ],
+    "contrast": "平日少言寡语的温厚理工男，在生死一线时爆发出令人心折的刚毅与担当。",
+    "core_value": "机房里没有解不开的机械死扣，只要工具对路、两人合心，千斤重门也能撬开。",
+    "goal_options": [
+     "以棘轮钳护持不锈钢钢尺防止滑动",
+     "全力下压杠杆释放常闭阀手柄"
+    ],
+    "never": [
+     "背叛理事长的信任"
+    ],
+    "prefers": [
+     "稳扎稳打的硬核物理自救",
+     "毫无保留的绝对信任"
+    ],
+    "pressure_responses": {
+     "breaking": "哪怕双臂剧痛欲裂、呼吸滚烫如火，亦以肩膀死死抵住门框顶出撤离通道。",
+     "high": "双手完全包覆住理事长柔荑，毫无保留爆发全身背肌与核心力量向下压。",
+     "low": "迅速判断出防爆门断电卡死症结所在，直奔冷通道顶部常闭手柄。",
+     "mid": "侧身挤入死角引导理事长调整钢尺插入角度，确保力臂对准销孔。"
+    },
+    "relationship_stance": "在机房值了五年夜班，见惯了领导来视察拍照就走；这位理事长却年年录取夜都来，陪着守到天亮，还记得每个夜班的名字。",
+    "withdrawal": "确认理事长安然脱困后方才脱力坐在走廊地板上喘息微笑。"
+   },
+   "gender": "male",
+   "gender_reason": "机房驻点当值成年青年技术员，肩负守护机房核心设备与受困人员之责。",
+   "id": "apprentice_admin_chen_mo",
+   "identity": {
+    "authority": "对现场服务器硬件应急断电与消防管路物理释放拥有最高处置建议权。",
+    "exposure": "工装短袖被汗水完全浸透贴紧胸膛，在近身施力时男子汉纯阳气魄完全展现。",
+    "hidden": "随身携带一枚高硬度淬火纯钢销钉",
+    "limits": [
+     "身负护卫理事长重托决不可后退半步",
+     "冷通道内部施力空间极其逼仄狭窄"
+    ],
+    "obligations": [
+     "以身为盾护住理事长免遭高压气体喷溅伤害",
+     "合力破拆防爆门死锁"
+    ],
+    "resources": [
+     "多功能网络棘轮压线钳",
+     "阻燃特氟龙绝缘胶带",
+     "防静电导电纤维手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "理事长在千钧一发之际毫无千金架子、与自己并肩卧地拼命的坚韧气魄",
+     "紧贴近战时理事长面颊透出的温润娇红与急促滚烫的吐息"
+    ],
+    "boundaries": [
+     "恪守规矩分寸",
+     "绝无轻慢之意"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "后背抵住机柜侧壁，双手紧紧扣住不锈钢钢尺，由理事长伏于怀侧合力下压。",
+    "dislikes": [
+     "轻蔑技术人员",
+     "言而无信"
+    ],
+    "expression": "脱险后默默将自身干燥外衣披在理事长微湿的衬衫肩头，退后半步恭敬守卫。",
+    "likes": [
+     "彼此掌心交叠时的沉稳踏实",
+     "同声发力突破难关时的心意共鸣"
+    ],
+    "preconditions": [
+     "全员脱困安全无虞",
+     "机房核心数据无损"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "数据中心夜班工程师",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_main_server_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_datacenter_cold_aisle",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌虎口在剧烈金属反冲下产生剧烈震颤与轻度淤血。",
+      "option": "借不锈钢裁纸钢尺组成复合撬杠，以全身重量向下猛压突破咬合卡爪自救。"
+     },
+     {
+      "cost": "可能导致门体彻底卡死在导轨中失去全部反推余地。",
+      "option": "用压线钳强行砸击偏心滑轨外侧边缘使导轨变形脱钩。"
+     }
+    ],
+    "pressure": "重型铁门自重持续向导轨施压，必须在锁舌彻底咬死卡死前施加百公斤反力矩破锁。",
+    "trigger": "防爆气密门断电锁死，三十公分冷通道为唯一逃生通道，灭火气体即将倾泻。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "理事长整个人贴在我怀里，头发上是洗发水的味道……手别抖，零点之前，一定把人带出去。",
+    "surface": "理事长，往里靠一点，别碰喷头！手柄吃的是偏心劲，尺子卡进暗槽，往下压就松。"
+   }
+  },
+  {
+   "adult_context": "已满二十二岁成年青年，具备全套高级特种设备操作资质，冷静机敏实战力极强。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿深蓝防静电阻燃连体工装，腰挂专业工具包，身形挺拔矫健，眼神沉静敏锐。",
+    "手持防爆探照灯，工装拉链微开露出结实锁骨，在急迫险情下有条不紊精准指挥。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目冒险",
+     "违规操作"
+    ],
+    "contrast": "现代机电专家与公立大学理事长在冷通道死角中的硬核化学反应。",
+    "core_value": "任何复杂的自动化死锁，本质上都有最原始的纯机械旁路可以攻克。",
+    "goal_options": [
+     "利用钢尺人工顶开偏心防坠弹簧卡销",
+     "协同抬升门梁安全出库"
+    ],
+    "never": [
+     "在风险未清前让理事长以身犯险"
+    ],
+    "prefers": [
+     "严谨精准的技术推演",
+     "临危不乱的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "毫不动摇保持发力姿势直至听见锁销完全脱扣的清脆声响。",
+     "high": "在极限逼仄死角内以身体替理事长挡住上方可能的坠落物，合力向下压杠杆。",
+     "low": "迅速判断出大门失控因配电熔断所致，指出导轨下死点为唯一破拆点。",
+     "mid": "用强光探照灯为理事长精准标定钢尺嵌入的角度与受力点。"
+    },
+    "relationship_stance": "恪尽职守又深怀体贴，在危险中给予理事长无可替代的坚实安全感。",
+    "withdrawal": "协助理事长跨过门槛后立即切断通堂备用充气旁路阀门。"
+   },
+   "gender": "male",
+   "gender_reason": "驻场硬件保障工程师，精通超算机柜冷却管网与高压气阀结构。",
+   "id": "hardware_engineer_chen_mo",
+   "identity": {
+    "authority": "掌控地下机房强弱电应急切断与高压旁通阀物理释放处置权。",
+    "exposure": "阻燃工装被热气蒸透，近距离伏卧时散发着阳刚利落的气息。",
+    "hidden": "知晓冷通道备用重力换气孔确切机械坐标",
+    "limits": [
+     "总控断电导致全部电磁远程控制指令失效",
+     "必须依靠纯机械人工脱扣"
+    ],
+    "obligations": [
+     "排查消除超算机房内部次生电气火灾隐患",
+     "安全引导理事长脱离险境"
+    ],
+    "resources": [
+     "防爆LED强光探照笔",
+     "精密不锈钢内六角扳手",
+     "硅胶密封护目镜"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "理事长在危机中对机械原理解释的敏锐领悟力与毫不犹豫的决断魄力",
+     "彼此贴身协作中理事长身上淡淡的冷香与急促呼吸形成的反差冲击"
+    ],
+    "boundaries": [
+     "严守专业工程师职业操守",
+     "规矩分明"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "并肩俯卧于门缝，单手撑地保持避险空隙，另一手与理事长紧握钢尺全力压制。",
+    "dislikes": [
+     "违章蛮干",
+     "盲目自大"
+    ],
+    "expression": "护送理事长至安全庭院后，郑重敬礼汇报危机已除，目光温和坚定。",
+    "likes": [
+     "默契的眼神确认",
+     "手把手校准器械时的体温传递"
+    ],
+    "preconditions": [
+     "完全排除电气火灾隐患",
+     "人员无伤撤离"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "驻场硬件保障工程师",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_main_server_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_datacenter_cold_aisle",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "工具把手产生微小弯曲变形，施力人员手臂承受剧烈肌肉酸胀。",
+      "option": "以不锈钢裁纸钢尺反撬锁舌并借力矩压平变形卡爪，顺势抬升卷门脱困。"
+     },
+     {
+      "cost": "螺栓受重压剪切紧固无法在短时间内拧动，极度浪费宝贵逃生时间。",
+      "option": "强行拆卸导轨固定螺栓试图整体晃动门框。"
+     }
+    ],
+    "pressure": "大库在一百八十秒后将彻底失氧，卷门偏心机械锁死必须在人工干预下硬性破除。",
+    "trigger": "强电跳闸引发特种防火防爆卷门重力坠落抱死，化学灭火气体充气不可逆启动。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要钢尺咬住销孔，这个力矩足够突破锁舌形变阻力……理事长，跟紧我的节奏，三二一压！",
+    "surface": "理事长，释放阀的偏心棘爪卡在第三齿！钢尺正好有两毫米厚，插进去反向压，就能顶脱弹簧！"
+   }
+  },
+  {
+   "adult_context": "已满二十二岁成年青年学者，孔武有力兼具顶级技术宏观视野，沉着果敢。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿黑色战术工装背心与战术长裤，双臂青筋分明，神情沉毅冷静，眼神锐利深邃。",
+    "腰系多功能应急装备带，佩戴防割战术手套，在冷通道机柜前稳如磐石从容自若。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿扯皮",
+     "投机取巧"
+    ],
+    "contrast": "深沉强悍的技术首席与傲娇端庄的名门理事长，在机械死线前形成的强烈反差张力。",
+    "core_value": "一切结构工程皆有其力学破绽，只要找准力矩反支点，千钧重门皆可破除。",
+    "goal_options": [
+     "利用钢尺与套管组装复合杠杆",
+     "合力扳动高压偏心旁通阀"
+    ],
+    "never": [
+     "在重门未开前抛下理事长"
+    ],
+    "prefers": [
+     "硬桥硬马的扎实手艺",
+     "毫无保留的生死协作"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将锁销顶脱位移。",
+     "high": "双手死死握住杠杆最外端，以千钧背肌全力向下猛按到底。",
+     "low": "冷静扫视机房结构，三秒内判定出偏心死点位置。",
+     "mid": "护住理事长身躯，指导其将钢尺卡入受力中心。"
+    },
+    "relationship_stance": "视理事长为值得誓死效忠的大学领袖，危难中建立生死莫逆的赤诚信任。",
+    "withdrawal": "确认大门完全抬升后，单臂护送理事长安全撤至大堂。"
+   },
+   "gender": "male",
+   "gender_reason": "网络架构首席专家，对数据中心物理结构与抗压指标洞若观火。",
+   "id": "senior_architect_chen_mo",
+   "identity": {
+    "authority": "掌控全校超算中心硬件级紧急物理隔离与破拆最终决定权。",
+    "exposure": "黑色工装被汗水浸湿勾勒出雄健背肌，在逼仄空间散发着极具压迫感的男性荷尔蒙。",
+    "hidden": "掌握地下数据中心隐秘物理泄压旁通阀机械坐标",
+    "limits": [
+     "受困于机房死角缺乏重型液压破拆机具",
+     "必须依靠现有便携器材完成力学反推"
+    ],
+    "obligations": [
+     "保护理事会理事长人身安全",
+     "确保超算核心资产免于全毁"
+    ],
+    "resources": [
+     "特种合金微调套管扳手",
+     "地下中心三维矢量蓝图",
+     "高等级防爆战术手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "理事长在暴风雨绝境中不失名门大度的坚韧沉静",
+     "贴身施力时理事长温润如玉的身段与柔韧倔强的发力姿态"
+    ],
+    "boundaries": [
+     "严守专业分寸",
+     "严守自愿安全原则"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "单臂护在理事长身前构成安全空隙，另一手与理事长共同紧握钢尺全力下压。",
+    "dislikes": [
+     "轻浮傲慢",
+     "无端猜忌"
+    ],
+    "expression": "脱险后退后三步站定敬礼，沉声道一句‘理事长受惊了，技术部门幸不辱命’。",
+    "likes": [
+     "彼此心领神会的眼神对碰",
+     "合力突破死锁瞬间的畅快淋漓"
+    ],
+    "preconditions": [
+     "大门完全升起人员脱险",
+     "核心数据阵列完好"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "公立大学智慧计算中心首席技术专家",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_main_server_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_datacenter_cold_aisle",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手臂与手掌肌肉极度酸痛，工具把手产生微量金属疲劳应力。",
+      "option": "以不锈钢钢尺组装复合支点，合力向下猛压破锁脱扣自救。"
+     },
+     {
+      "cost": "重达数百公斤的自重极易造成肩关节脱臼骨折，成功率几乎为零。",
+      "option": "强行以身体肩膀向上托举重型金属滑门。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开弹簧死锁，否则全员将窒息殉难。",
+    "trigger": "大门自重失控砸死，偏心棘轮深陷导轨槽，惰性气体预充倒计时迫在眉睫。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "理事长的身子全靠着我……这股清冷发香直往鼻尖里钻。拼了这条命，也绝不让铁门伤理事长分毫！",
+    "surface": "理事长莫慌！这滑门吃的是偏心阻滞！钢尺咬准了槽口，我们合力管保把这东西掀开！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "一月，期末考试周",
+  "minute": 1395
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "名门公立大学理事会例行巡查服务器机房前需换穿防静电白大褂与导电鞋套。",
+  "理事长平日在大学作风雷厉风行威严尊贵，唯有绝境死线压迫下方能放下傲娇架子贴身协作。",
+  "理事长批阅文书随身携带重型纯不锈钢长条加厚裁纸钢尺，兼具严谨度量与防身刚性威信。",
+  "机房值班驻场技术员随身佩戴多功能网络压线钳与防爆螺丝刀，器械按规程插挂于腰间工装袋。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "使用高精度激光点温枪测量高密服务器出风口温度",
+    "检查冷通道活动钢化移门橡胶气密条密封完整性",
+    "记录核心交换机风道动压风速计读数"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cold_aisle_routine_check",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "冷通道例行温湿度巡检"
+  },
+  {
+   "beats": [
+    "察看高压储气瓶组红铜压力表指针平衡位置",
+    "核验机械旁通释放手柄铅封防脱插销锁定状态",
+    "使用探照灯排查顶棚高压喷嘴有无冷凝结露"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_fire_extinguisher_piping_log",
+   "location_ids": [
+    "loc_main_server_hall"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "七氟丙烷管网气压核验"
+  },
+  {
+   "beats": [
+    "使用阻燃魔术贴整理机柜背板冗余高密光纤",
+    "利用棘轮压线钳现场制作屏蔽六类跳线接头",
+    "擦拭防静电接地铜排确保接地电阻小于一欧姆"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [],
+   "id": "act_server_cluster_cable_dress",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "start_minute": 1405,
+   "tags": [
+    "workplace"
+   ],
+   "title": "超算集群万兆光纤理线"
+  },
+  {
+   "beats": [
+    "手动测试双向防爆滑门断电重力滑降缓冲阻尼器",
+    "检查导轨底部偏心弹簧复位棘爪弹性活动行程",
+    "清洁不锈钢导轨卡槽表面碎屑防止卡涩"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_blast_sliding_door_trip_test",
+   "location_ids": [
+    "loc_main_server_hall"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "防爆气密滑门行程测试"
+  },
+  {
+   "beats": [
+    "录取查询前一周，工程师在主服务器大厅里跑压力测试，屏幕上的并发曲线一路往上爬。",
+    "理事长下来视察，站在工程师身后看了很久，问能不能扛住几十万人。",
+    "工程师说能，理事长没说话，只把手里的咖啡放在了工程师桌上。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hd_president_xiao_ruoqing",
+    "hd_apprentice_admin_chen_mo"
+   ],
+   "id": "act_emergency_drill_simulation",
+   "location_ids": [
+    "loc_main_server_hall"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "workplace"
+   ],
+   "title": "查询夜前的压力测试"
+  },
+  {
+   "beats": [
+    "理事长亲自刷卡核验机房门禁电子日志签名",
+    "关闭通廊全部工作射灯切入低功耗安防模式",
+    "确认备用发电机自启柜浮充电压处于标准区间"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_night_shift_lockdown_seal",
+   "location_ids": [
+    "loc_main_server_hall"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "夜班门禁封缄核验交接"
+  },
+  {
+   "beats": [
+    "滑门撬开、灭火系统复位，零点的查询照常开了闸，理事长被人从冷通道里扶上来，衬衫被冷汗湿透，手里还捏着那把弯了的裁纸尺。",
+    "监控大厅的人都去盯大屏了，角落里只剩两个人，理事长让对方解开自己湿透的领结，把干外套披上来，扣子扣到第二颗时，理事长按住了那只手。",
+    "大屏上的并发曲线稳稳地爬着，理事长靠过来，声音很轻：天亮之前我都不回去……你也别走。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_noc_dry_coat",
+   "location_ids": [
+    "loc_noc_monitoring_center"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "监控大厅里替理事长披上干外套"
+  },
+  {
+   "beats": [
+    "休息室里，理事长摘了眼镜，坐在沙发床边，一张张往录取通知书上盖钢印，衬衫袖子挽到手肘。",
+    "理事长把一张空白的通知书推过来：这张是多出来的。……写上你的名字，就当我录取你了，你愿意吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rest_room_offer_letters",
+   "location_ids": [
+    "loc_president_rest_room"
+   ],
+   "start_minute": 1240,
+   "tags": [
+    "intimate"
+   ],
+   "title": "亲手盖录取通知书"
+  },
+  {
+   "beats": [
+    "零点前，理事长解了西装外套，只穿着衬衫站在窗前，看着窗外老钟楼的指针一格一格走向十二点。",
+    "钟声响起来时，理事长回过头：几十万人此刻在查分数。……我只想知道一件事，你今晚留不留下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rest_room_bell_tower",
+   "location_ids": [
+    "loc_president_rest_room"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "intimate"
+   ],
+   "title": "钟楼敲十二下"
+  },
+  {
+   "beats": [
+    "清晨，理事长换了一身运动服，站在休息室门口扎头发，窗外林荫道上第一批晨跑的教职工刚刚出门。",
+    "理事长朝人伸手：陪我跑一圈，跑完了一起去食堂吃早饭。……让旁人猜去吧。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rest_room_campus_jog",
+   "location_ids": [
+    "loc_president_rest_room"
+   ],
+   "start_minute": 380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "清晨的林荫道"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "顶尖公立大学地下智慧数据中心",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_fm200_warning_beeps",
+   "kind": "approach",
+   "location_ids": [
+    "loc_main_server_hall"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}按住胸口急促起伏的制服衬衫，面颊在警报红光下冷汗淋漓，毅然拔出随身实心加厚不锈钢长条裁纸钢尺直指冷通道死角。"
+  },
+  {
+   "id": "hk_countdown_reading_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_main_server_hall"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}听到机房广播凄厉读秒，在滚烫急喘中咬紧银牙侧身挤入八十公分通道直面死锁的手柄。"
+  },
+  {
+   "id": "hk_door_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "slot": "apprentice_admin_chen_mo",
+   "text": "{apprentice_admin_chen_mo.name}双膝跪地紧贴机柜侧板，以坚实身躯硬生生扛住防爆滑门闭锁震颤，大声提醒身前理事长对准常闭手柄暗槽！"
+  },
+  {
+   "id": "hk_rail_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "slot": "apprentice_admin_chen_mo",
+   "text": "{apprentice_admin_chen_mo.name}反手抽出棘轮压线钳垫入导轨底层，用粗糙手掌牢牢护住不锈钢尺末端防止滑动，大声喝道就是这个卡齿！"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}整个人伏在夜班工程师怀前，面庞几乎贴上夜班工程师颈项，滚烫娇喘混合着淡雅体香在狭窄通道内猛烈交融。"
+  },
+  {
+   "id": "hk_shirt_sweat_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}白衬衫被香汗浸得半透紧贴背脊曲线，双手毅然越过夜班工程师手臂重叠紧握不锈钢尺把手，合力向下一寸寸猛压！"
+  },
+  {
+   "id": "hk_steel_ruler_slot_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}以公立大学理事长的绝对果决，将不锈钢尺淬火锻打的两毫米坚厚尺身，精准别入手柄偏心暗槽的自锁销孔。"
+  },
+  {
+   "id": "hk_brass_block_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "slot": "apprentice_admin_chen_mo",
+   "text": "{apprentice_admin_chen_mo.name}将多功能工具硬柄猛然卡入门框下方，单臂如铜浇铁铸般抵住门梁，大吼道安全支点已成，理事长尽管下压！"
+  },
+  {
+   "id": "hk_silk_sash_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}亲手解下领口暗红缎面领结带，紧紧缠绕在两人满是冷汗的手背与钢尺把手上，将两人的臂力彻底刚性绞合为一体！"
+  },
+  {
+   "id": "hk_cold_aisle_blue_glow",
+   "kind": "approach",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}凝视通道尽头幽蓝闪烁的高密超算指示灯，面颊泛起不容动摇的绝决，誓死要在门缝中为全校科研数据杀出生路！"
+  },
+  {
+   "id": "hk_vault_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_main_server_hall"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}察觉耳膜刺痛气压骤变，断然下令喷嘴即将释放高压气体，立刻随我全员趴下进行杠杆最终突压！"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "slot": "apprentice_admin_chen_mo",
+   "text": "{apprentice_admin_chen_mo.name}与理事长齐声发力，后背肌肉如山丘般隆起，将整整两百斤体重与臂力完全倾注于弯曲的不锈钢钢尺末端！"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}手心感受到清脆至极的机簧巨震，偏心手柄硬生生被钢尺撬出卡槽，高压排气阀伴随轰鸣向上骤然弹开释压！"
+  },
+  {
+   "id": "hk_vault_escape_roll_fresh_air",
+   "kind": "approach",
+   "location_ids": [
+    "loc_main_server_hall"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}被夜班工程师单臂揽住纤腰顺势反推防爆滑门滚出死角，两人迎着主大厅新鲜空气大口喘息，绝境脱困成功！"
+  },
+  {
+   "id": "hk_end_relief_praise",
+   "kind": "approach",
+   "location_ids": [
+    "loc_main_server_hall"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}靠在走廊墙壁上微微喘息，面颊带着劫后余生的绯红，侧过脸轻声对身侧夜班工程师道辛苦了。"
+  },
+  {
+   "id": "hook_ruoqing_instant_noodles",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "president_xiao_ruoqing",
+   "text": "{npc.name}裹着一件不合身的防静电大褂坐在机房门口的台阶上，捧着一碗泡面冲人招手：外卖进不来，只有这个。分你一半？"
+  },
+  {
+   "id": "hook_ruoqing_admission_curve",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "president_xiao_ruoqing",
+   "text": "{npc.name}盯着大屏上的并发曲线，头也不回地朝身后伸出手：零点一过，几十万人同时点进来。把压力测试报告给我。"
+  },
+  {
+   "id": "hook_chenmo_spare_coat",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_admin_chen_mo",
+   "text": "{npc.name}从机柜后头钻出来，把一件棉外套扔过来：冷通道十八度，穿短袖待不了十分钟。别逞强。"
+  },
+  {
+   "id": "hook_chenmo_cable_tag",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_admin_chen_mo",
+   "text": "{npc.name}蹲在地板下的走线槽边，一根根理着网线上的标签：每根线都写着去哪儿，跟寄信一样。帮我照一下手电？"
+  },
+  {
+   "id": "hook_ruoqing_offer_cards",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "president_xiao_ruoqing",
+   "text": "{npc.name}从包里拿出一沓录取贺卡，一张张亲手签名：今年还是想手写。你字好，帮我写信封？"
+  },
+  {
+   "id": "hook_ruoqing_rooftop_storm",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "president_xiao_ruoqing",
+   "text": "{npc.name}站在信息楼顶的门边看远处滚过来的雷暴云，攥紧手机：零点前要是停电……陪我下去再查一遍机房？"
+  },
+  {
+   "id": "hook_ruoqing_rest_room",
+   "kind": "approach",
+   "location_ids": [
+    "loc_president_rest_room"
+   ],
+   "slot": "president_xiao_ruoqing",
+   "text": "{npc.name}站在休息室门口，手里拿着一叠录取通知书：楼下太吵了。……进来，陪我盖完这一沓。"
+  },
+  {
+   "id": "hd_president_xiao_ruoqing",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "president_xiao_ruoqing",
+   "text": "{president_xiao_ruoqing.name}把一杯热咖啡放在你桌上，语气平淡：“值班辛苦。顺路带的，别多想。”"
+  },
+  {
+   "id": "hd_apprentice_admin_chen_mo",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_admin_chen_mo",
+   "text": "{apprentice_admin_chen_mo.name}把巡检表递过来：“机房今晚一切正常，你签个字吧。”"
+  }
+ ],
+ "id": "server_gas_lock_steel_ruler_rescue",
+ "locations": [
+  {
+   "affordances": [
+    "查验全大学消防联动灭火气体喷洒总进度",
+    "调取冷通道备用机械通风图纸",
+    "使用公立大学内部广播向机房内部喊话"
+   ],
+   "detail": "公立大学地下数据中心正上方的地面监控总指挥中心，配备百寸超高清拼接监控大屏与几十个运维工位，此刻火警警报大作，红光满屏急闪，值班安保与技术人员乱作一团。",
+   "exits": [
+    "loc_main_server_hall",
+    "loc_president_rest_room"
+   ],
+   "id": "loc_noc_monitoring_center",
+   "name": "监控大厅",
+   "pressure_modifiers": {
+    "p_fm200_discharge_countdown": "NOC主控屏上的灭火充气倒计时以每秒一次的尖锐滴答声催逼，剩余时间不断缩水。",
+    "p_server_rack_overheat_flashover": "超算集群因防爆门紧闭散热受阻，监控屏上机柜温度曲线急剧攀升泛出猩红警示。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "大厅白炽灯全部切入红色应急闪烁模式，监控墙上冷通道内部画面因断电出现大片雪花波纹。",
+   "witnesses": [
+    "bg_duty_security_captain_wu",
+    "bg_it_center_director_tang",
+    "bg_student_council_secretary_lin"
+   ]
+  },
+  {
+   "affordances": [
+    "巡视双向防爆气密电动滑门断电机械卡锁状态",
+    "检查墙壁壁挂式七氟丙烷机械紧急停止按钮",
+    "确认天花板主干排气管路手动蝶阀坐标"
+   ],
+   "detail": "地下三层开阔数百平米的核心服务器大厅，整齐排列着数十排黑曜石高密机架，空气中回荡着强劲抽风机的高频轰鸣与刺鼻绝缘漆味。通向外侧的安全滑门已被沉重的特种防爆锁死死咬死。",
+   "exits": [
+    "loc_noc_monitoring_center",
+    "loc_datacenter_cold_aisle"
+   ],
+   "id": "loc_main_server_hall",
+   "name": "主服务器大厅",
+   "pressure_modifiers": {
+    "p_door_electric_deadlock_jam": "数百公斤防爆重型金属滑门断电下压，双向导向棘轮与电磁常闭锁舌咬死导轨槽。",
+    "p_fm200_discharge_countdown": "顶棚气体灭火喷嘴发出高压微泄露嘶嘶风鸣，空气中氧气浓度伴随白雾扩散逐渐降低。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "机架顶棚应急照明呈现出幽蓝与猩红交错的冷色调，冷凝白雾在防静电地板表面如潮水般翻涌。",
+   "witnesses": [
+    "bg_apprentice_technician_xiao_wang",
+    "bg_dorm_manager_sun"
+   ]
+  },
+  {
+   "affordances": [
+    "近身挤入死角察看常闭机械释放手柄插销暗槽",
+    "将实心不锈钢裁纸钢尺插入阀门手柄偏心孔构筑撬杠",
+    "双手重叠合力下压突破锁止销阻力释放气体压力"
+   ],
+   "detail": "双排机柜之间仅容两人侧身穿行的封闭冷通道死角，高透钢化玻璃移门因机械自锁彻底闭合。空间仅有八十公分宽度，七氟丙烷常闭机械释放阀手柄高悬在通道尽头管道死角，两人必须在身体极度挤压中共同施力。",
+   "exits": [
+    "loc_main_server_hall"
+   ],
+   "id": "loc_datacenter_cold_aisle",
+   "name": "冷通道死角",
+   "pressure_modifiers": {
+    "p_cold_aisle_close_body_tension": "在八十公分逼仄死角内理事长与夜班工程师前胸后背紧贴，制服湿透体温猛烈对冲，急促滚烫的喘息交织在耳际。",
+    "p_door_electric_deadlock_jam": "机械释放阀受到内部高压气体压迫死死顶住棘爪，单人力量根本无法扳动分毫。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "仅靠机柜运行指示灯与手机探照灯幽光照明，近距离彼此温热薄汗、急促吐息与衬衫轮廓清晰可辨。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "陪理事长看一夜录取曲线",
+    "替理事长解开湿透的领结",
+    "锁上休息室的门"
+   ],
+   "detail": "监控大厅楼上理事长办公室里间的休息室，一张皮沙发床、一架摆满历年录取通知书样本的书柜、一扇看得见老钟楼的窗。",
+   "exits": [
+    "loc_noc_monitoring_center"
+   ],
+   "id": "loc_president_rest_room",
+   "name": "理事长办公室的休息室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "只开一盏落地灯，钟楼的灯光透进窗来，门一锁，楼下的大屏和电话铃就都隔在了外面。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "萧",
+   "陈",
+   "沈",
+   "陆",
+   "顾",
+   "林",
+   "苏",
+   "叶",
+   "宋",
+   "薛",
+   "秦",
+   "韩",
+   "裴",
+   "柳"
+  ],
+  "given_female": [
+   "若晴",
+   "宛清",
+   "千鹤",
+   "映雪",
+   "清歌",
+   "冰澜",
+   "羽彤",
+   "慕雪",
+   "凝霜",
+   "芷晴",
+   "雨薇",
+   "楚楚",
+   "静姝",
+   "知秋"
+  ],
+  "given_male": [
+   "默",
+   "承安",
+   "天舟",
+   "烈",
+   "海岚",
+   "修远",
+   "廷玉",
+   "博文",
+   "靖安",
+   "子轩",
+   "明远",
+   "云深",
+   "浩然",
+   "景明"
+  ],
+  "given_neutral": [
+   "澈",
+   "夜",
+   "寒",
+   "尘",
+   "非",
+   "微",
+   "遥",
+   "岚",
+   "清",
+   "羽",
+   "辰",
+   "渊",
+   "舟",
+   "灵"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留大学地下数据中心雷电误触发七氟丙烷灭火、防爆滑门断电锁死与理事长用不锈钢裁纸尺撬起机械释放手柄的骨架。同一批里有五个同模板的“女主与匠人困在死角、用随身小物撬开机关”的世界，这里把开局放到七月的录取查询夜：零点一到几十万考生和家长同时涌进查询系统，理事长裹着借来的防静电大褂守在机房，外卖进不来只能吃泡面，十八度的冷通道，手写的录取贺卡；搭档写成夜班工程师。写死的人名改为身份称呼；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；理事长亲密前提写明脱困之后、双方清醒自愿；新增一个监控大厅里替理事长披上干外套的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "公立大学计算机系二十一岁成年高年级兼职技术员，兼任地下数据中心夜间驻点工程师，熟悉全机房气体灭火管线与防爆门机械互锁构造。",
+   "gender": "male",
+   "id": "pi_server_admin_chen_mo",
+   "reputation": "技术扎实沉稳寡言，对全大学三千台服务器拓扑图与应急阀门坐标倒背如流。",
+   "resources": [
+    "一把多功能网络棘轮压线钳",
+    "一卷耐高压防撕裂阻燃特氟龙绝缘胶带",
+    "高强度防静电导电纤维工装手套"
+   ],
+   "risks": [
+    "若无法在九十秒内排气并撬开滑门，高浓度七氟丙烷将导致窒息休克。"
+   ],
+   "role": "公立大学数据中心成年兼职驻场技术员",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "夜班工程师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}机工"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "公立大学外聘驻场二十二岁成年青年工程师，全面负责超算集群供电、散热与消防应急联动物理切断。",
+   "gender": "male",
+   "id": "pi_datacenter_hardware_engineer_chen",
+   "reputation": "曾多次处置复杂电路短路与机柜过热告警，应急排障经验极为丰富。",
+   "resources": [
+    "一柄防爆高流明工业LED检测强光笔",
+    "一套精密不锈钢内六角调阀扳手",
+    "两只高抗冲耐寒硅胶密封护目镜"
+   ],
+   "risks": [
+    "防爆滑门重达数百公斤，一旦受力支点崩断钢尺可能导致双手肌腱重挫。"
+   ],
+   "role": "数据中心驻场硬件保障工程师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工程师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}总管"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "与理事长同级的二十一岁成年青年技术主管，常年与理事长共同制定大学信息化安防预算与突发预案。",
+   "gender": "male",
+   "id": "pi_student_council_tech_minister_chen",
+   "reputation": "理事会内部少有的敢于当面反驳理事长激进提议的技术骨干，深受理事长器重。",
+   "resources": [
+    "一台三防工业加固巡检平板电脑",
+    "一柄特种合金防割折叠多用工具钳",
+    "应急通讯骨传导防爆降噪耳机"
+   ],
+   "risks": [
+    "机房断电后应急系统自闭，一旦缺氧休克将失去全部自救可能。"
+   ],
+   "role": "公立大学理事会技术处成年处长",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}处长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工程师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}部长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "公立大学网络信息中心核心青年学者，掌管全校地下核心超算中枢设计与最高安防裁量权。",
+   "gender": "male",
+   "id": "pi_chief_network_architect_chen",
+   "reputation": "公立大学安全委员会特聘青年专家，对全校智慧基建拥有最终技术处置一票否决权。",
+   "resources": [
+    "一套机械旁通气阀应急微调高碳钢手摇套管",
+    "全套地下超算中心通风管网三维矢量蓝图",
+    "防爆高等级阻燃战术工装手套"
+   ],
+   "risks": [
+    "若发生不可逆气体喷射损毁超算芯片，将承担数千万元科研资产损失。"
+   ],
+   "role": "公立大学智慧计算中心首席网络架构专家",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总架构师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}顾问"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}首席"
+    }
+   ]
+  }
+ ],
+ "premise": "顶尖公立大学的地下数据中心，七月的录取查询季，几十万考生和家长会在同一时刻涌进查询系统。理事长这几天亲自坐镇，和夜班工程师、技术处处长一起压测、守机房。机房的七氟丙烷灭火系统是新装的，雷雨天误报过一次。",
+ "pressures": [
+  {
+   "choice": "是冒险利用不锈钢裁纸钢尺强行下压脱扣，还是在通道内等待地面安保破门？",
+   "exits": [
+    {
+     "cost": "钢尺受力微弯，两人肌肉酸痛擦伤。",
+     "option": "两人合力以不锈钢钢尺下压常闭阀手柄顶脱卡爪抬门自救。"
+    },
+    {
+     "cost": "极其被动，若外部断电失败将直接窒息死亡。",
+     "option": "用衣服捂住口鼻伏于地面被动等待救援。"
+    }
+   ],
+   "far": {
+    "consequence": "冷通道氧气骤降归零，受困人员在六十秒内窒息休克殉难，芯片亦遭急速低温冷凝损坏。",
+    "due_days": 1,
+    "trigger": "充气电磁阀开启高浓度灭火气体灌满机房"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_fm200_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_shirt_sweat_heat_exchange",
+    "hk_steel_ruler_slot_align",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_cold_aisle_blue_glow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_ruoqing_instant_noodles",
+    "hook_ruoqing_admission_curve",
+    "hook_chenmo_spare_coat",
+    "hook_chenmo_cable_tag",
+    "hook_ruoqing_offer_cards",
+    "hook_ruoqing_rooftop_storm",
+    "hook_ruoqing_rest_room"
+   ],
+   "id": "p_fm200_discharge_countdown",
+   "immediate": {
+    "minutes": 2,
+    "text": "顶棚气体喷嘴进入排气自检，发出尖锐高频嘶鸣，空气压强开始改变。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_main_server_hall",
+    "loc_datacenter_cold_aisle",
+    "loc_noc_monitoring_center"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "倒计时进入最后三十秒，警报蜂鸣节奏加快，窒息与中毒威胁迫在眉睫。"
+   },
+   "objective": "必须在灭火气体喷出造成急性窒息前，用钢尺撬开机械释放手柄并排气脱困。",
+   "source": "accident",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "七氟丙烷灭火充气倒计时",
+   "trigger": "雷暴感应误报触发七氟丙烷气体灭火系统，警报蜂鸣刺耳，充气倒计时进入九十秒。"
+  },
+  {
+   "choice": "是单人使用工装工具试探拨动，还是两人身体紧密相贴合力下压不锈钢尺？",
+   "exits": [
+    {
+     "cost": "工具把手产生微小塑性形变，施力人员手臂酸麻。",
+     "option": "以棘轮钳护垫构成刚性防脱支点，叠合双手全力压紧钢尺把手。"
+    },
+    {
+     "cost": "离零点开闸只剩几分钟，敲击极易损坏偏心弹簧结构导致永久卡死。",
+     "option": "用工具砸击导轨外沿试图振松卡槽。"
+    }
+   ],
+   "far": {
+    "consequence": "机械死锁转化为永久冷焊卡死，防爆滑门再无法依靠人工物理工具撬起脱困。",
+    "due_days": 1,
+    "trigger": "导轨不锈钢槽完全屈服断裂卡死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_fm200_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_shirt_sweat_heat_exchange",
+    "hk_steel_ruler_slot_align",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_cold_aisle_blue_glow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_ruoqing_instant_noodles",
+    "hook_ruoqing_admission_curve",
+    "hook_chenmo_spare_coat",
+    "hook_chenmo_cable_tag",
+    "hook_ruoqing_offer_cards",
+    "hook_ruoqing_rooftop_storm",
+    "hook_ruoqing_rest_room"
+   ],
+   "id": "p_door_electric_deadlock_jam",
+   "immediate": {
+    "minutes": 2,
+    "text": "导轨金属卡爪深陷死点，门底橡胶密封条压至极限，通道被完全封死。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "重力导致导轨边缘产生细微弯曲，锁销越咬越紧，撬动所需力矩成倍增加。"
+   },
+   "objective": "在导轨彻底被自重挤压抱死之前，以坚硬不锈钢裁纸钢尺撬动锁销后侧推杆完成脱扣。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "防爆滑门断电机械偏心抱死",
+   "trigger": "数百公斤重型气密防爆电动滑门断电砸落，偏心导向棘爪咬死不锈钢卡槽并产生塑性形变。"
+  },
+  {
+   "choice": "是因礼法羞怯保持距离导致施力分散，还是坦然贴身相拥爆发出最大协同扭矩？",
+   "exits": [
+    {
+     "cost": "离零点开闸只剩几分钟，傲娇心理防线被彻底打破，两人心灵产生不可磨灭的依恋印记。",
+     "option": "抛弃一切世俗杂念，理事长伏于夜班工程师怀前双手重叠压紧把手一鼓作气突破。"
+    },
+    {
+     "cost": "力矩不足无法撼动锁销，导致自救彻底失败。",
+     "option": "刻意拉开距离单手侧向发力。"
+    }
+   ],
+   "far": {
+    "consequence": "不锈钢钢尺折沿滑脱脱手，错过最后撬锁脱扣时间窗导致窒息倒计时耗尽。",
+    "due_days": 1,
+    "trigger": "羞怯分心导致发力失衡工具脱落"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_fm200_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_shirt_sweat_heat_exchange",
+    "hk_steel_ruler_slot_align",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_cold_aisle_blue_glow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_ruoqing_instant_noodles",
+    "hook_ruoqing_admission_curve",
+    "hook_chenmo_spare_coat",
+    "hook_chenmo_cable_tag",
+    "hook_ruoqing_offer_cards",
+    "hook_ruoqing_rooftop_storm",
+    "hook_ruoqing_rest_room"
+   ],
+   "id": "p_cold_aisle_close_body_tension",
+   "immediate": {
+    "minutes": 2,
+    "text": "衬衫丝滑微凉的触感隔着单薄衣衫传来，随后被急促滚烫的体温迅速烘热。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "理事长的脸贴得太近，眼镜片上全是雾，衬衫领口崩开一颗扣子，急促的娇喘压在机柜的嗡鸣底下。"
+   },
+   "objective": "在极度贴近的肢体接触与异性荷尔蒙冲击下，克制心神专注机械对位发力。",
+   "source": "person",
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "冷通道极限死角体温滚烫交织",
+   "trigger": "两人被迫同时挤在八十公分冷通道死角，理事长制服与工装紧密相贴，体温与急促喘息交织。"
+  },
+  {
+   "choice": "是先冒烟雾风险尝试关闭部分刀片服务器，还是全力以赴先撬开外侧滑门？",
+   "exits": [
+    {
+     "cost": "全力投入撬门无暇顾及服务器降温，承受巨大心理压力。",
+     "option": "争分夺秒下压钢尺开启旁通阀泄压推门自救。"
+    },
+    {
+     "cost": "高压漏电风险极大且浪费逃生时间，双双受困。",
+     "option": "盲目试图徒手拔掉服务器电源线。"
+    }
+   ],
+   "far": {
+    "consequence": "剧毒氰化物浓烟在密闭死角蔓延，受困人员在三十秒内吸入性中毒昏迷。",
+    "due_days": 1,
+    "trigger": "机柜内部电缆绝缘层起火阴燃"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_fm200_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_shirt_sweat_heat_exchange",
+    "hk_steel_ruler_slot_align",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_cold_aisle_blue_glow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_ruoqing_instant_noodles",
+    "hook_ruoqing_admission_curve",
+    "hook_chenmo_spare_coat",
+    "hook_chenmo_cable_tag",
+    "hook_ruoqing_offer_cards",
+    "hook_ruoqing_rooftop_storm",
+    "hook_ruoqing_rest_room"
+   ],
+   "id": "p_server_rack_overheat_flashover",
+   "immediate": {
+    "minutes": 2,
+    "text": "机柜内部散热风扇发出凄厉啸叫，通道内温度以每分钟五度急剧上升。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_main_server_hall",
+    "loc_datacenter_cold_aisle"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "刺鼻的高温塑料与绝缘漆焦糊味弥漫开来，能见度开始下降。"
+   },
+   "objective": "必须在过热导致电缆绝缘层融化产生剧毒浓烟前开启滑门恢复通风。",
+   "source": "accident",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "超算机柜断风过热积热阴燃",
+   "trigger": "气密滑门闭锁切断了冷通道风循环，千瓦级高密服务器瞬间积热，机柜背板温度直逼沸点。"
+  },
+  {
+   "choice": "是忍痛咬牙紧扣工具，还是分神活动肢体调整重心？",
+   "exits": [
+    {
+     "cost": "身体摩擦加剧，肌肤泛起大片淤青擦痕。",
+     "option": "理事长与夜班工程师互相用双膝卡住彼此腿侧稳固重心合力下压。"
+    },
+    {
+     "cost": "锁舌在自重下再度深陷变形咬死。",
+     "option": "暂停按压后撤舒展肢体。"
+    }
+   ],
+   "far": {
+    "consequence": "钢尺被手柄反弹力强行崩飞，反向力矩瓦解失去最后开启机会。",
+    "due_days": 1,
+    "trigger": "双臂严重痉挛彻底脱力"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_fm200_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_shirt_sweat_heat_exchange",
+    "hk_steel_ruler_slot_align",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_cold_aisle_blue_glow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_ruoqing_instant_noodles",
+    "hook_ruoqing_admission_curve",
+    "hook_chenmo_spare_coat",
+    "hook_chenmo_cable_tag",
+    "hook_ruoqing_offer_cards",
+    "hook_ruoqing_rooftop_storm",
+    "hook_ruoqing_rest_room"
+   ],
+   "id": "p_cramp_under_high_static_stress",
+   "immediate": {
+    "minutes": 2,
+    "text": "金属地板透过裤料侵袭膝盖，关节泛起刺骨酸麻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_datacenter_cold_aisle"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "持续静力承重使前臂肌肉发生微小震颤，握持力濒临极限。"
+   },
+   "objective": "克服小腿与手臂肌肉剧烈酸胀痉挛，保持稳定反向施力姿态。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "机房防静电地板死角肢体脱力",
+   "trigger": "两人在坚硬冰冷的防静电钢地板上长时间半跪施力，肌肉极度紧绷极易抽筋脱力。"
+  },
+  {
+   "choice": "是立即加大按压力度一次性破锁，还是等待广播间隙再行操作？",
+   "exits": [
+    {
+     "cost": "身心极度疲惫，耳膜产生轻微充血。",
+     "option": "两人贴面眼神交流以肢体触碰为发力信号瞬间爆发峰值力矩。"
+    },
+    {
+     "cost": "门体彻底抱死丧失全部物理逃生可能。",
+     "option": "被动捂耳等待外力减退。"
+    }
+   ],
+   "far": {
+    "consequence": "工具脱手崩落机柜缝隙无法取出，自救失败。",
+    "due_days": 1,
+    "trigger": "噪音引发心理崩溃导致操作变形"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_fm200_warning_beeps",
+    "hk_countdown_reading_rush",
+    "hk_door_groan_deadlock",
+    "hk_rail_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_shirt_sweat_heat_exchange",
+    "hk_steel_ruler_slot_align",
+    "hk_brass_block_chock_in",
+    "hk_silk_sash_bind_grip",
+    "hk_cold_aisle_blue_glow",
+    "hk_vault_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_ruoqing_instant_noodles",
+    "hook_ruoqing_admission_curve",
+    "hook_chenmo_spare_coat",
+    "hook_chenmo_cable_tag",
+    "hook_ruoqing_offer_cards",
+    "hook_ruoqing_rooftop_storm",
+    "hook_ruoqing_rest_room"
+   ],
+   "id": "p_intercom_screaming_static_rush",
+   "immediate": {
+    "minutes": 2,
+    "text": "天花板应急喇叭爆发出刺耳啸叫，耳鸣严重干扰语言沟通。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_main_server_hall",
+    "loc_noc_monitoring_center"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "警报声节奏加快为一秒两响，极度压缩心理安全冗余度。"
+   },
+   "objective": "在震耳欲聋的高频警报声中守住心神专注配合口令发力。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "消防广播倒计时警报高频轰鸣",
+   "trigger": "机房广播中高分贝警报声与急促读秒声反复回荡，耳膜剧痛造成极大心理恐慌。"
+  },
+  {
+   "choice": "公开数据中心那一夜的全部日志，还是请省考试院派人来核对",
+   "exits": [
+    {
+     "cost": "日志里也记着理事长和夜班工程师在冷通道里被困的那几个钟头",
+     "option": "公开全部日志"
+    },
+    {
+     "cost": "核对要三天，这三天里理事长不能对外说一个字",
+     "option": "请考试院核对"
+    }
+   ],
+   "far": {
+    "consequence": "省里派工作组进校，理事长停职接受调查",
+    "due_days": 7,
+    "trigger": "横幅上了新闻"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_ruoqing_instant_noodles",
+    "hook_ruoqing_admission_curve",
+    "hook_chenmo_spare_coat",
+    "hook_chenmo_cable_tag",
+    "hook_ruoqing_offer_cards",
+    "hook_ruoqing_rest_room"
+   ],
+   "id": "p_parents_group_rumor",
+   "immediate": {
+    "minutes": 5,
+    "text": "林干事把手机递给理事长，群里的截图已经转了上万次"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_president_rest_room"
+   ],
+   "near": {
+    "deadline_minutes": 240,
+    "text": "中午十二点，家长聚到校门口"
+   },
+   "objective": "在家长们中午聚到校门口之前，让大家相信录取名单没人动过",
+   "source": "rumor",
+   "start_minute": 480,
+   "tags": [],
+   "title": "家长群里的说法",
+   "trigger": "查询系统瘫了一夜，第二天早上家长群里传开了：学校故意关掉系统，趁夜里改了录取名单，有人已经约好中午到校门口拉横幅"
+  }
+ ],
+ "region": "地下高密服务器冷通道机房与防爆气密隔离滑门死角",
+ "rules": [
+  {
+   "id": "r_fm200_discharge_countdown_code",
+   "text": "七氟丙烷气体灭火系统预充倒计时期间严禁擅自破坏高压喷头避免管路爆裂。"
+  },
+  {
+   "id": "r_server_airlock_fail_secure_rule",
+   "text": "数据中心双向防爆气密电动滑门断电后自动落锁只能依靠纯物理撬杆解除机械互锁。"
+  },
+  {
+   "id": "r_static_electricity_safety_standard",
+   "text": "冷通道机房内严禁使用产生强静电火花的化纤织物与违规明火设备。"
+  },
+  {
+   "id": "r_adult_server_rescue_protocol",
+   "text": "绝境脱困依靠纯物理力矩反推自救，一切互动严守成年自愿与安全防护原则。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "共御死线",
+  "committed": "死生相守",
+  "familiar": "身心交托",
+  "flirting": "贴身喘息",
+  "intimate": "患难同行",
+  "stranger": "初次协同",
+  "testing": "生死信赖"
+ },
+ "status": "released",
+ "style_hint": "现代科技硬核工笔，刻画服务器冷通道狭窄死角内高压灭火气体弥漫的致命窒息、实心不锈钢裁纸尺在机械释放阀暗槽中的剧烈杠杆咬合、制服衬衫下被冷汗与体温浸透的起伏身躯，台词充满严苛的网络力学与机械死锁逻辑决断。",
+ "tension_engines": [
+  {
+   "id": "te_fm200_purge_countdown_rush",
+   "text": "七氟丙烷气体灭火充气最后九十秒倒计时窒息逼近，氧气即将排空殆尽。"
+  },
+  {
+   "id": "te_electric_door_rail_jam_pinch",
+   "text": "数百公斤重型防爆电动滑门断电咬死导轨，偏心弹簧卡爪深陷死点无法开启。"
+  },
+  {
+   "id": "te_cold_aisle_tight_body_heat",
+   "text": "在八十公分狭窄冷通道内两人紧身相贴，理事长衬衫薄汗与青年网管体温催生极度异性张力。"
+  },
+  {
+   "id": "te_server_data_loss_panic",
+   "text": "全校核心超算科研数据面临灭火气体与高温过热双重全毁风险，理事长背负重大责任爆发决断。"
+  }
+ ],
+ "title": "名门大学理事长·数据中心灭火绝境",
+ "tone": [
+  "零点开闸的录取查询夜",
+  "十八度冷通道里的蓝灯",
+  "灭火倒计时的尖锐蜂鸣",
+  "机柜夹缝里汗湿的衬衫"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_valve_eccentric_groove_located",
+   "requires": [
+    "president_xiao_ruoqing"
+   ],
+   "text": "{president_xiao_ruoqing.name}借手机强光手电光束，在狭窄冷通道顶棚管道暗处准确定位出常闭释放阀手柄暗槽的微小受力孔洞。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_fm200_warning_beeps",
+   "requires": [
+    "president_xiao_ruoqing"
+   ],
+   "text": "{president_xiao_ruoqing.name}听到机房顶棚气体灭火喷嘴发出刺耳高频泄压声，主控大厅大门彻底断电锁死，面庞上映出冷峻决意。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_wire_clamp_inserted_safety",
+   "requires": [
+    "apprentice_admin_chen_mo"
+   ],
+   "text": "{apprentice_admin_chen_mo.name}从工具袋抽出棘轮压线钳，死死垫在滑门受力导轨下方，彻底构筑起刚性防下坠安全作业间隙。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_satin_tie_bind_tight",
+   "requires": [
+    "president_xiao_ruoqing",
+    "apprentice_admin_chen_mo"
+   ],
+   "text": "{president_xiao_ruoqing.name}解下制服缎面领结带，由{apprentice_admin_chen_mo.name}迅速将钢尺与压线钳紧密捆扎，消除了手汗打滑隐患。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_countdown_urgent_final_thirty_sec",
+   "requires": [
+    "president_xiao_ruoqing"
+   ],
+   "text": "机房充气预警进入最后三十秒倒计时，高压喷嘴开始喷出冰凉白雾，生死死线已逼近绝对生理极限。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_close_body_tight_bind_leverage",
+   "requires": [
+    "president_xiao_ruoqing",
+    "apprentice_admin_chen_mo"
+   ],
+   "text": "{apprentice_admin_chen_mo.name}在狭窄死角紧紧护住{president_xiao_ruoqing.name}，两人滚烫手指紧握钢尺，急促滚烫的吐息与心跳在幽暗中彻底交叠。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_steel_ruler_release_valve_success",
+   "requires": [
+    "president_xiao_ruoqing"
+   ],
+   "text": "伴随一声清脆金属断扣声，实心不锈钢钢尺成功扳动机械释放手柄，气体管道高压瞬间旁通卸压，沉重滑门被两人合力推开顺利脱险自救。"
+  }
+ ]
+}

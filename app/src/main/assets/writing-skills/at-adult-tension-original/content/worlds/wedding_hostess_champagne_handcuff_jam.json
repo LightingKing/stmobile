@@ -1,0 +1,2336 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "酒店管理毕业，年满三十五周岁，依法担任宴会部保全主管。",
+   "age_range": [
+    35,
+    35
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_sommelier_chief_qian",
+   "line": "各位贵宾请注意，香槟塔正处于力学校验期，请勿擅自靠近碰撞！",
+   "location_ids": [
+    "loc_grand_hall_main_stage"
+   ],
+   "name": "阿荣",
+   "role": "香槟塔保全总巡查员"
+  },
+  {
+   "adult_context": "服装设计毕业，年满二十六周岁，具备完整民事过错责任承担能力。",
+   "age_range": [
+    26,
+    26
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_bridesmaid_jiang",
+   "line": "司仪，伴娘在花柱后面替司仪望风，司仪快点解开呀！",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "name": "小蕾",
+   "role": "伴娘团二号伴娘"
+  },
+  {
+   "adult_context": "录音工程专业毕业，年满二十八周岁，享有完整自立民事权利。",
+   "age_range": [
+    28,
+    28
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_sound_assistant_sun",
+   "line": "司仪放心，麦克风信号一切完美，音响师随时用加厚黑毛巾掩护司仪！",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "name": "阿芬",
+   "role": "舞台音响保障技术员"
+  },
+  {
+   "adult_context": "安保执勤现场队长年满四十周岁，依法执行宴会安防巡查。",
+   "age_range": [
+    40,
+    40
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_security_guard_lao_zhou",
+   "line": "请各位来宾回到座席，婚礼吉时已到，通道严禁滞留围观！",
+   "location_ids": [
+    "loc_banquet_vip_front_tables"
+   ],
+   "name": "老周",
+   "role": "宴会大厅内场保全队长"
+  },
+  {
+   "adult_context": "戏剧影视导演毕业，年满三十二周岁，享有独立法定执业代表资格。",
+   "age_range": [
+    32,
+    32
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_director_lu",
+   "line": "音响切分音拉长前奏，司仪准备起步，倒数十、九、八……",
+   "location_ids": [
+    "loc_grand_hall_main_stage"
+   ],
+   "name": "小陈",
+   "role": "总策划的现场助理"
+  },
+  {
+   "adult_context": "家族财团董事局合伙人年满二十九周岁，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_groomsman_zhao",
+   "line": "司仪怎么躲在侧幕后背紧绷绷的？该不会有什么见不得人的小惊喜吧？",
+   "location_ids": [
+    "loc_grand_ballroom_center_aisle"
+   ],
+   "name": "阿威",
+   "role": "伴郎团二号伴郎"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "冷峻总监在耳麦里的每一声沉稳读秒，皆化作司仪指尖破拆的定海神针；司仪后背紧绷的每一下起伏，皆牵动着总监心头最深处的守护悸动。",
+   "id": "combo_hostess_and_director_trust",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "hostess_su_qian_xue",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在侧幕狭窄幽暗处密切注视司仪指尖破拆进展并配合音响降噪。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "director_lu_yun_shen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "总控台核心骨干与执行导演之间的默契战术协同。",
+     "stage": "familiar"
+    },
+    {
+     "a": "hostess_su_qian_xue",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "director_lu_yun_shen",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "台前幕后生死相托的顶尖搭档，眼神呼应便知进退节奏。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "hostess_su_qian_xue",
+    "director_lu_yun_shen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保十二层水晶香槟塔安然无恙且司仪准时惊艳登台启幕。",
+    "limit_gap": "耳麦严苛倒数指令与后腰金属挂死剧痛的极限拉锯",
+    "meeting_reason": "开场前最后十秒，总监在耳麦里一边调追光一边倒数，司仪站在侧幕，深吸了一口气。",
+    "resource_gap": "舞台总控台声光电绝对操盘权与侧幕暗角两厘米微观物理自救空间的巨大反差"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_champagne_tower_collapse_panic",
+    "eng_headset_countdown_ten_seconds"
+   ]
+  },
+  {
+   "chemistry": "恶作剧闺蜜眼底无声的懊悔眼泪与司仪冷峻专注的自救侧颜交织，无声的空气中充斥着劫后余生的心理震撼。",
+   "id": "combo_hostess_and_bridesmaid_panic",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "hostess_su_qian_xue",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "协助掩护司仪自救并严密监控侧幕视线角度。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "bridesmaid_jiang_zhi_lin",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "制止闯祸伴娘哭喊喧哗并指导其在花柱后方协助警戒。",
+     "stage": "familiar"
+    },
+    {
+     "a": "hostess_su_qian_xue",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "bridesmaid_jiang_zhi_lin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "深厚闺蜜情谊在突发灾难考验下的信任重塑与包容。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "hostess_su_qian_xue",
+    "bridesmaid_jiang_zhi_lin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在不惊动全场名流长辈的前提下悄无声息消弭这场滔天大祸。",
+    "limit_gap": "闯祸闺蜜的无能狂怒恐惧与受困女主的超常冷静应变",
+    "meeting_reason": "伴娘捧着花束跑到侧幕，看见司仪背后那副手铐连在流苏上，脸一下白了。",
+    "resource_gap": "私密恶作剧道具的原装钥匙遗失与纯银发簪冷锻尖端的就地取材自救"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_backless_gown_rip_chastity_peril",
+    "eng_champagne_tower_collapse_panic"
+   ]
+  },
+  {
+   "chemistry": "钱主管手持银盘假装整理桌布借身躯死死挡住晃动支点，司仪指尖银簪精准微调，两人形成严丝合缝的力学平衡默契。",
+   "id": "combo_sommelier_and_hostess_protection",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "hostess_su_qian_xue",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在保全主管掩护下协同司仪完成微观力矩解脱。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "sommelier_chief_qian_wan_hao",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "同为保障典礼资产安全的技术伙伴保持高度专业互信。",
+     "stage": "familiar"
+    },
+    {
+     "a": "hostess_su_qian_xue",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "sommelier_chief_qian_wan_hao",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "对保全主管关键时刻的机警掩护心怀深深谢意。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "hostess_su_qian_xue",
+    "sommelier_chief_qian_wan_hao"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在香槟塔发生哪怕一枚水晶杯坠落前彻底切断链条束缚。",
+    "limit_gap": "底座零点五公斤受力红线与手铐锁舌弹簧弹力的精密抗衡",
+    "meeting_reason": "宴会部保全主管巡查香槟塔，发现底座的流苏被什么东西扯得紧绷。",
+    "resource_gap": "保全主管对两百公斤水晶塔重心的绝对把控与女司仪后腰卡死的微观盲拆"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_champagne_tower_collapse_panic",
+    "eng_backless_gown_rip_chastity_peril"
+   ]
+  },
+  {
+   "chemistry": "伴郎每迈近一步发出的皮鞋踏地声，都如同踩在司仪命悬一线的神经末梢上，逼迫司仪加快手中发簪盲探的频率与力矩。",
+   "id": "combo_hostess_and_groomsman_approach",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "hostess_su_qian_xue",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "严密警戒伴郎视线角度并用反光板实施侧向遮蔽。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "groomsman_zhao_tian_lin",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "依规劝阻伴郎止步防止贵宾违规闯入候场禁区。",
+     "stage": "familiar"
+    },
+    {
+     "a": "hostess_su_qian_xue",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "groomsman_zhao_tian_lin",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "高度戒备厌恶，誓死捍卫职业尊严与身体隐私不受冒犯。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "hostess_su_qian_xue",
+    "groomsman_zhao_tian_lin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在伴郎视线穿透侧幕阴影前彻底切断手铐与香槟塔的物理连接。",
+    "limit_gap": "敬酒调侃的步步紧逼与后腰裙摆濒临撕裂的极端社死风险",
+    "meeting_reason": "伴郎端着香槟离了席，往侧幕走，说要先敬司仪一杯。",
+    "resource_gap": "二世祖肆无忌惮的贵宾通行特权与名媛司仪动弹不得的被动拘束绝境"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_groomsman_prowling_exposure_dread",
+    "eng_backless_gown_rip_chastity_peril"
+   ]
+  },
+  {
+   "chemistry": "西装笔挺的总监与轻浮二世祖在狭窄通道侧面形成的如冰对峙，以职业专业威严硬生生截断了猎艳视线的窥视。",
+   "id": "combo_groomsman_vs_director_clash",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "groomsman_zhao_tian_lin",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "配合总监果断对擅闯者下达声光警示并呼叫安保支援。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "director_lu_yun_shen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "紧密执行总监防线指令构筑坚不可摧的团队屏障。",
+     "stage": "familiar"
+    },
+    {
+     "a": "groomsman_zhao_tian_lin",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "director_lu_yun_shen",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "骄横二世祖遭遇冷面专业铁腕后的羞怒与悻悻忌惮。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "groomsman_zhao_tian_lin",
+    "director_lu_yun_shen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "将伴郎死死钉在候场区外为司仪筑牢最后三米绝对隐私防线。",
+    "limit_gap": "维护典礼准点神圣流程与抵御无关人员违规侵扰的严正交锋",
+    "meeting_reason": "总监察觉侧幕不对，切了一束追光去照主花道，把宾客的目光都引开。",
+    "resource_gap": "现场总调度绝对安全执法权与豪门二世祖金钱特权的激烈正面碰撞"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_groomsman_prowling_exposure_dread",
+    "eng_headset_countdown_ten_seconds"
+   ]
+  },
+  {
+   "chemistry": "在幽暗侧幕两米见方的极限空间内，司仪与现场保障团队呼吸相闻，以超越常理的沉稳机智共同谱写绝处逢生的破拆传奇。",
+   "id": "combo_hostess_and_player_cooperation",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "hostess_su_qian_xue",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "在极度危机中以无声默契结下的患难真诚之约。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "hostess_su_qian_xue"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在追光灯亮起的刹那助司仪重获自由成就惊艳开场。",
+    "limit_gap": "万众瞩目下的绝对隐秘自救要求不得产生半丝突兀动静",
+    "meeting_reason": "彩排结束后，司仪和总监在空荡的宴会厅里对最后一遍串词，香槟塔的倒影落在两人脚边。",
+    "resource_gap": "司仪受制于物理挂死而现场团队拥有全套应急声光掩护资源"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_champagne_tower_collapse_panic",
+    "eng_backless_gown_rip_chastity_peril"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_banquet_hall_live_pa_broadcast",
+   "reach": "一千二百名名流宾客与台前幕后全域覆盖，高保真还原细微动静",
+   "text": "千人金色大厅全景声场扩音总控集群"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_wedding_director_private_headset",
+   "reach": "总监控台与女司仪耳麦毫秒级私密通信通道",
+   "text": "总导播与首席司仪加密骨传导无线监听专线"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "播音主持专业毕业，做了五年豪门婚礼的首席司仪，沪上名媛圈的常客，接哪场婚礼、怎么主持由本人拿主意。",
+   "age_range": [
+    25,
+    28
+   ],
+   "appearance_options": [
+    "身穿一袭量身定制的香槟金重工刺绣露背鱼尾长裙晚礼服，后背大片雪腻肌肤在侧幕暗光下泛着温润莹光，两颊带有天然紧致微婴儿肥与饱满水润胶原蛋白的反差娇美。",
+    "发髻高挽斜插一根冷锻纯银珍珠发簪，面容温婉灵秀宛若江南初雪，后腰处露背鱼尾长裙暗扣被纯银小手铐与香槟塔铜铸流苏死死咬合咬紧，眼眸含羞带怯却强撑端庄体态。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目生拉硬拽扯塌香槟塔",
+     "在二世祖面前惊慌失色求助",
+     "当众撕裂华丽礼服暴露"
+    ],
+    "contrast": "平时温婉柔弱细声细语，遭遇灭顶危机时指尖却展现出惊人的机械冷静与精准破拆力。",
+    "core_value": "誓死捍卫纯白名媛的清白声誉与千人婚礼现场的完美秩序。",
+    "goal_options": [
+     "在十秒倒计时结束前用发簪扁平锋刃挑开手铐锁舌从容登台主持",
+     "保持上身挺拔端庄绝不让千人长辈察觉后腰挂死的窘迫死锁"
+    ],
+    "never": [
+     "向轻薄无礼之徒屈膝求饶",
+     "因慌乱失态放弃职业操守"
+    ],
+    "prefers": [
+     "冷静严谨的物理力学自救",
+     "台前万众瞩目的完美盛典",
+     "绅士得体的克制守护"
+    ],
+    "pressure_responses": {
+     "breaking": "在气阀泄压瞬间反向推脱横臂抱箍并接应宋婉儿递来的磁吸扣迅速扣好前襟",
+     "high": "在导播推流读秒长鸣刹那同搭档一同垂直下压背夹克服八百牛顶力",
+     "low": "双手死死按在讲台木质边缘以极低气声下达排障破拆指令掩饰内心惊涛骇浪",
+     "mid": "忍受胸衣金属骨架勒紧压迫紧贴讲台内侧配合搭档调整翻页笔背夹插入角度"
+    },
+    "relationship_stance": "台上每句话都对着千人说，耳麦里却只听一个人的倒数；五年来每场婚礼的开场，都是那个声音数到一。",
+    "withdrawal": "左手按住前胸礼服衣领深深吸气，右手反扣后腰盲探锁孔全神贯注破拆。"
+   },
+   "gender": "female",
+   "gender_reason": "豪门婚礼的首席名媛司仪，温婉端庄。",
+   "id": "hostess_su_qian_xue",
+   "identity": {
+    "authority": "豪门世纪婚礼现场主持控场主导权与全场麦克风开声话语权。",
+    "exposure": "后腰隐秘扣着的情趣纯银手铐细链一旦暴露将彻底粉碎名媛清白与职业前程。",
+    "hidden": "发髻上的纯银发簪尾端特制有一毫米极薄扁平锋刃乃是闺密赠予的微观解密小物件。",
+    "limits": [
+     "后腰细链卡死重型流苏无法迈步",
+     "严禁在千人宾客前撕裂礼服或失态叫喊"
+    ],
+    "obligations": [
+     "维系顶尖名媛主持从容优雅风范",
+     "十秒内登台准点开启婚礼盛典"
+    ],
+    "resources": [
+     "发髻斜插的高硬度冷锻纯银珍珠发簪",
+     "首席女司仪专属加密骨传导耳麦"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在千钧一发之际甘冒风险以铁壁身形遮挡视线的英雄气概",
+     "临危不乱的低沉安抚话音"
+    ],
+    "boundaries": [
+     "严禁直接触碰露背礼服镂空雪肤边缘",
+     "绝不容许私密手铐丑闻公之于众"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "作为全场瞩目的完美女主角从容挽起裙摆迈入光芒正中心。",
+    "dislikes": [
+     "轻浮恶俗的婚闹恶作剧之徒",
+     "故意推搡占便宜的轻薄浪荡之辈",
+     "居高临下的傲慢审视目光"
+    ],
+    "expression": "偏过头去轻咬下唇两颊泛起微红，右手稳稳将发簪扁平尖端探入锁孔最深处。",
+    "likes": [
+     "沉稳专业的默契控场守护",
+     "波澜不惊的冷静临场应变",
+     "尊重女性尊严的克制绅士"
+    ],
+    "preconditions": [
+     "彻底化解香槟塔倾覆灾难并完成完美开场主持",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "豪门世纪婚礼首席名媛女司仪",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_stage_wing_control_corner",
+     "to": 1150
+    },
+    {
+     "from": 1150,
+     "location_id": "loc_stage_wing_control_corner",
+     "to": 1165
+    },
+    {
+     "from": 1165,
+     "location_id": "loc_grand_hall_main_stage",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "指腹被金属细链勒出浅淡红痕且发髻微散垂落数缕青丝。",
+      "option": "右手拔下发髻冷锻纯银珍珠发簪反手盲探锁孔两牛顿力矩挑平第二止动齿自救脱困。"
+     },
+     {
+      "cost": "调音助理动作可能引发侧幕异响导致追光灯提前扫视暗角。",
+      "option": "向侧台音响调音女助理音响师打手势示意用加厚大毛巾遮挡并用斜口钳微观剪断链条。"
+     }
+    ],
+    "pressure": "十二层一千零八十只水晶杯共振欲倾，导播耳麦十秒开场读秒进入倒计时，伴郎正端着酒杯步步逼近侧幕。",
+    "trigger": "起步候场时后腰情趣纯银手铐细链与香槟塔金丝绒桌布铜铸流苏倒钩死死绞合卡死在阻尼滑轮边缘。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "细链卡死在流苏倒钩里了，千万不能生拉硬拽，发簪尖端只要顶起棘爪就能弹开！",
+    "surface": "各位贵宾请入座，良辰吉时已至，婚礼盛典即将拉开唯美序幕。"
+   }
+  },
+  {
+   "adult_context": "戏剧影视导演专业毕业，做了九年豪门婚礼与盛典策划，这场世纪婚礼的总策划兼现场导播，具备完全民事行为能力。",
+   "age_range": [
+    30,
+    34
+   ],
+   "appearance_options": [
+    "身穿一袭笔挺修身的深黑暗纹定制西装，佩戴单边专业降噪监听耳麦，下颌线凌厉分明，神情冷静沉着。",
+    "手持无线总控平板与激光指挥笔，眉宇间流露出掌控全场的强悍威严，双眸深邃沉静宛若寒潭。"
+   ],
+   "decision": {
+    "avoids": [
+     "任何形式的空场走音事故",
+     "无关纨绔对主创团队的指手画脚",
+     "失控的慌乱喧哗"
+    ],
+    "contrast": "平日以严苛冷峻、六亲不认的铁血导演著称，对待司仪的危难却展现出极尽细致的周全护佑。",
+    "core_value": "以无可挑剔的专业控台造就绝美盛典，并全力护持心爱之人的安危清白。",
+    "goal_options": [
+     "巧妙拉长典礼前奏为司仪发簪破拆争取最后五秒自救生机",
+     "以高大挺拔身形硬生生阻截轻浮伴郎逼近侧幕窥探的脚步"
+    ],
+    "never": [
+     "将身处困境的搭档置于险境",
+     "向无理取闹的资方权贵低头妥协"
+    ],
+    "prefers": [
+     "精确到毫秒的控台执行力",
+     "临危不乱的机智应对",
+     "绝对受控的舞台环境"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷发声瞬间停住脚步退回侧幕维持同僚体面",
+     "high": "迈步登上红地毯台阶准备直接切入讲台中央核心演讲区",
+     "low": "在对讲机中平稳催促台前人员汇报讲台升降测试状态",
+     "mid": "迈步逼近侧翼台阶手持备用麦克风大声询问会长是否身体不适"
+    },
+    "relationship_stance": "替别人办了几百场婚礼，每场都把司仪的站位排在追光最好的地方，从没问过司仪自己想要什么样的婚礼。",
+    "withdrawal": "站在总控台话筒前微微压低嗓音，用沉稳有力的低音节奏掌控全场呼吸。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "director_lu_yun_shen",
+   "identity": {
+    "authority": "现场声光电总调度权与卫星转播镜头切换绝对指令权。",
+    "exposure": "若典礼出现重大空场或舞台事故将被投资方追究千万级违约赔偿责任。",
+    "hidden": "早已在侧台监控器中察觉司仪后腰异样反光并主动调整配乐前奏切分音节拍。",
+    "limits": [
+     "严禁在卫星直播开场时出现五秒以上空场",
+     "不可擅离指挥台破坏全场调度规程"
+    ],
+    "obligations": [
+     "护全整场跨国世纪婚礼流程毫秒不差",
+     "捍卫舞台专业团队绝对威严"
+    ],
+    "resources": [
+     "总控台多机位超清监视器矩阵",
+     "全频道加密无线对讲指挥网络"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "温婉名媛在绝境中展露出的惊人坚韧与智谋",
+     "彼此无需言语的眼神呼应"
+    ],
+    "boundaries": [
+     "严禁闲杂人员擅闯侧台候场隐私警戒线",
+     "恪守职业总监礼仪界限"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "隐于幕后掌控全局并为司仪遮风挡雨的可靠依托。",
+    "dislikes": [
+     "自以为是的豪门登徒浪子",
+     "扰乱演出秩序的轻浮恶作剧",
+     "缺乏职业素养的推诿抱怨"
+    ],
+    "expression": "单手按住单边监听耳麦，在话筒里放缓倒数节拍，同时迈步挡在侧幕入口中央。",
+    "likes": [
+     "司仪优雅从容的主持嗓音",
+     "困境中并肩作战的绝对默契",
+     "完美无瑕的舞台谢幕"
+    ],
+    "preconditions": [
+     "确保司仪在万众瞩目下毫发无伤地完成完美首秀",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "世纪婚礼总策划总监兼现场导播",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_stage_wing_control_corner",
+     "to": 1155
+    },
+    {
+     "from": 1155,
+     "location_id": "loc_stage_wing_control_corner",
+     "to": 1170
+    },
+    {
+     "from": 1170,
+     "location_id": "loc_grand_hall_main_stage",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "若最终仍未解脱将承担开场节奏微调的专业受责风险。",
+      "option": "通过耳麦下达音响切分音指令延长前奏五秒，并亲自挺身阻截伴郎脚步。"
+     },
+     {
+      "cost": "需要调光师具备极高默契配合且稍有不慎引发画面空白。",
+      "option": "命令追光灯推迟开启三秒转而先扫射主花道全息投影幕帘转移视线。"
+     }
+    ],
+    "pressure": "发光二极管倒数显示屏上的红字正一秒一秒向零迫近，伴郎正端着酒杯走向侧幕花廊。",
+    "trigger": "侧台监视器捕捉到司仪后腰礼服与香槟塔流苏死锁，开场倒计时仅剩十秒。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "司仪身后的香槟塔反光有些微倾颤，得用麦克风切分音把开场倒数稳稳压住！",
+    "surface": "全场灯光就位，音响前奏渐强，司仪准备起步，倒数十、九、八……"
+   }
+  },
+  {
+   "adult_context": "国际酒店款待服务专业毕业，年满三十二周岁，持有高级侍酒师与安全督导双重资质，全面掌管宴会部资产安全与香槟塔维稳权限。",
+   "age_range": [
+    32,
+    35
+   ],
+   "appearance_options": [
+    "身穿剪裁精良的深灰酒店管家燕尾制服，佩戴雪白无尘棉质手套，手持高精度重力倾角仪，神情严谨肃穆。",
+    "守候在香槟塔底座三米之外，双眼警惕地扫视底座重型金丝绒桌布与每一个水晶杯支点，眉宇紧锁一丝不苟。"
+   ],
+   "decision": {
+    "avoids": [
+     "粗暴喧哗的酒后闹事",
+     "任何触碰水晶塔的鲁莽行径",
+     "资产损坏事故"
+    ],
+    "contrast": "外表是不苟言笑的刻板高级管家，危急关头却能心领神会地用托盘反光替受困司仪遮蔽视线。",
+    "core_value": "恪守五星级酒店保全铁律，绝不容许任何安全事故危及宾客与团队声誉。",
+    "goal_options": [
+     "在香槟塔晃动达到零点三度临界值前暗中稳住底座配重滑轮",
+     "以检查杯塔角度为由封锁侧台右翼通道防止伴郎冲撞"
+    ],
+    "never": [
+     "允许任何安全隐患蒙混过关",
+     "坐视贵宾或工作人员遭受伤害"
+    ],
+    "prefers": [
+     "绝对精确的物理平衡",
+     "训练有素的现场礼仪",
+     "安静有序的高端宴会环境"
+    ],
+    "pressure_responses": {
+     "breaking": "看到顾冷霜完成暗扣闭合瞬间果断下推T杆完成神级切镜",
+     "high": "在团委催促推流指令下强行插入两秒礼堂全景空镜头过渡",
+     "low": "在耳麦中短促播报推流倒计时并督促台前清场",
+     "mid": "发现特写画面纽扣脱落异样时右手悬停在T型推杆上暂缓切镜"
+    },
+    "relationship_stance": "对司仪的专业修养深表敬重，对伴郎团肆意穿梭会场的轻佻举动极其反感。",
+    "withdrawal": "双手交叠置于腹前伫立于香槟塔底座斜角，目光敏锐巡视四周风吹草动。"
+   },
+   "gender": "male",
+   "gender_reason": "超五星级国际大酒店宴会部主管兼香槟塔保全总负责人由年满三十二周岁成年男性担任",
+   "id": "sommelier_chief_qian_wan_hao",
+   "identity": {
+    "authority": "香槟塔现场安全防撞处置权与突发紧急避险叫停权。",
+    "exposure": "若香槟塔在千人盛典中倾覆坍塌将面临行业终身除名与巨额追偿。",
+    "hidden": "早已察觉金丝绒垂幔铜铸流苏与司仪裙摆纠缠，正暗中借巡视之名用身体挡住香槟塔侧向晃动。",
+    "limits": [
+     "严禁任何外力碰撞价值连城的捷克水晶塔",
+     "不可在婚礼中途无故阻断贵宾视线"
+    ],
+    "obligations": [
+     "确保两百公斤十二层香槟塔绝对平稳",
+     "防范任何婚闹人员靠近危险资产"
+    ],
+    "resources": [
+     "底座液压阻尼自锁扳手",
+     "备用高铅水晶香槟杯备件库"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "面对两百公斤水晶塔倾覆危险仍能保持极致优雅从容的过人胆识",
+     "从容不迫的自救智慧"
+    ],
+    "boundaries": [
+     "严守酒店服务人员与尊贵宾客之间的职业安全防线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "默默守护两百公斤水晶塔稳如泰山的专业保全基石。",
+    "dislikes": [
+     "仗势欺人的纨绔行径",
+     "忽视安全警告的傲慢之徒",
+     "弄巧成拙的粗俗恶作剧"
+    ],
+    "expression": "微微躬身向侧幕递出一块雪白无尘口布，以极低的声音提示底座第三排流苏倒钩间隙。",
+    "likes": [
+     "专业稳健的工作态度",
+     "对安全规程的敬畏之心",
+     "高雅得体的名流举止"
+    ],
+    "preconditions": [
+     "香槟塔全盘安全警报彻底解除"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "超五星大酒店宴会部保全主管",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_grand_hall_main_stage",
+     "to": 1150
+    },
+    {
+     "from": 1150,
+     "location_id": "loc_grand_hall_main_stage",
+     "to": 1165
+    },
+    {
+     "from": 1165,
+     "location_id": "loc_grand_hall_main_stage",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "需要承担被二世祖呵斥挡路的社交压力。",
+      "option": "手持镀银托盘立于香槟塔右侧假装整理垂幔实则暗中顶住底座滑轮。"
+     },
+     {
+      "cost": "电磁踏板微弱电流音可能引起调音师注意。",
+      "option": "迅速按下底座隐藏式电磁阻尼踏板加固摩擦力防止杯塔滑移。"
+     }
+    ],
+    "pressure": "两百公斤高铅水晶塔一旦发生连锁坍塌将直接压垮前排贵宾席引发重大灾难事故。",
+    "trigger": "察觉十二层香槟塔底座金丝绒流苏受拉出现零点二度微倾异响。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "水晶塔第三层杯脚有轻微共振声，司仪的裙摆被流苏倒钩挂死了，{npc.name}得用托盘帮司仪把侧面视线挡住！",
+    "surface": "各位贵宾请注意脚下地毯，香槟塔底座正处于绝对平衡校验期，请勿靠近碰撞。"
+   }
+  },
+  {
+   "adult_context": "时尚设计专业毕业，年满三十八周岁整，具备完整法定民事侵权过错责任自负能力，豪门世纪婚礼新娘闺蜜团成年首席伴娘。",
+   "age_range": [
+    38,
+    41
+   ],
+   "appearance_options": [
+    "身穿一袭茱萸粉抹胸蕾丝伴娘蓬蓬裙，踩着十厘米细高跟，妆容精致娇俏，手腕挂着恶作剧手铐的备用小钥匙手链。",
+    "双手紧紧捂住嘴唇，花容失色双腿发软，缩在侧幕阴影花柱旁不敢出声，眼眶通红战战兢兢。"
+   ],
+   "decision": {
+    "avoids": [
+     "长辈的雷霆震怒与当场对质",
+     "名媛圈将恶作剧丑闻宣扬开来",
+     "法律赔偿纠纷"
+    ],
+    "contrast": "平日骄纵任性爱开各种无厘头玩笑，闯下滔天大祸后瞬间原形毕露吓得魂飞魄散。",
+    "core_value": "极度害怕家族长辈斥责与名媛圈社交放逐，祈祷司仪能神迹般自行脱险。",
+    "goal_options": [
+     "咬紧牙关寄希望于司仪的过人机智与发簪奇迹能够化险为夷",
+     "躲在花柱暗角替司仪望风阻挡伴郎的轻浮视线"
+    ],
+    "never": [
+     "公然出卖闺蜜将责任推诿给司仪",
+     "任由轻浮二世祖欺负自己姐妹"
+    ],
+    "prefers": [
+     "大事化小小事化了",
+     "司仪平安脱险登台",
+     "重归姐妹欢聚无虞"
+    ],
+    "pressure_responses": {
+     "breaking": "在讲台侧后方用红丝绒托盘斜立遮挡光线以极快手法递入暗扣",
+     "high": "迈开优雅端庄的礼仪步伐抢在陆晨舟之前从侧翼台阶移步登台",
+     "low": "在侧幕边缘端正托盘平稳呼吸密切注视讲台前襟状态",
+     "mid": "发现纽扣崩落瞬间悄悄从夹层扣出磁吸扣捏在掌心手汗中"
+    },
+    "relationship_stance": "对司仪充满无尽的内疚自责与佩服，对伴郎的胡乱起哄深感厌恶反胃。",
+    "withdrawal": "双手紧扣捧花缩在白玫瑰花柱阴影里瑟瑟发抖不敢抬头直视台前。"
+   },
+   "gender": "female",
+   "gender_reason": "豪门新娘首席闺蜜伴娘团领队由年满三十八周岁成年女名媛担任",
+   "id": "bridesmaid_jiang_zhi_lin",
+   "identity": {
+    "authority": "新娘闺蜜专属通行特权与伴娘团内场协调权。",
+    "exposure": "一旦香槟塔倒塌，自己恶作剧扣上手铐的责任将被两家法务彻底清算。",
+    "hidden": "正是自己在十分钟前嬉闹时把纯银小手铐扣在司仪后腰防走光暗扣上导致了死锁。",
+    "limits": [
+     "手铐钥匙卡在首饰盒难以迅速取出",
+     "自知惹下滔天大祸惶恐不安不敢声张"
+    ],
+    "obligations": [
+     "辅佐新娘顺利完成仪式",
+     "维护自身在名媛圈的体面形象"
+    ],
+    "resources": [
+     "备用捧花丝带小配饰",
+     "闺蜜团内部联络手机"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在生死关头独自挑起重担、神情波澜不惊的沉稳大姐姐气魄",
+     "从容冷静的风度"
+    ],
+    "boundaries": [
+     "绝对不可将恶作剧演变成摧毁闺蜜职业生涯的公开丑闻"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "躲在安全角落逃避责罚并在事后痛改前非的悔过受庇护者。",
+    "dislikes": [
+     "油腔滑调故意占便宜的纨绔二世祖",
+     "不可收拾的严重灾难后果",
+     "严肃压抑的公开斥责"
+    ],
+    "expression": "眼泪汪汪地合十双手在暗处朝司仪连连鞠躬作揖，眼神满含哀求与敬佩。",
+    "likes": [
+     "司仪的宽容与温柔体贴",
+     "刺激有趣的姐妹私密派对",
+     "被大家宠溺包容的感觉"
+    ],
+    "preconditions": [
+     "司仪顺利解脱且香槟塔安然无恙"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "豪门世纪婚礼新娘首席闺蜜伴娘",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_grand_ballroom_center_aisle",
+     "to": 1150
+    },
+    {
+     "from": 1150,
+     "location_id": "loc_stage_wing_control_corner",
+     "to": 1165
+    },
+    {
+     "from": 1165,
+     "location_id": "loc_grand_ballroom_center_aisle",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "可能遭受二世祖冷嘲热讽与推搡冒犯。",
+      "option": "咬紧嘴唇拼死挡在伴郎身前用假装整理花柱为由拖延对方前进步伐。"
+     },
+     {
+      "cost": "高跟鞋跑动声可能引来全场安保关注。",
+      "option": "飞奔回化妆间寻找备用小钥匙并用对讲机通报司仪进度。"
+     }
+    ],
+    "pressure": "倒数读秒声在耳畔轰鸣，一旦引发坍塌自己将成为两大家族世纪婚礼的千古罪人。",
+    "trigger": "在侧台惊骇目睹自己扣在司仪后腰的手铐死死挂入香槟塔加重合金流苏倒钩。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "天哪，刚才闹着玩扣上的银手铐怎么连着桌布流苏了？要是香槟塔倒了新娘非杀了我不可！",
+    "surface": "司仪，捧花已经准备好了，你怎么还不走到灯光下去呀？"
+   }
+  },
+  {
+   "adult_context": "录音工程专业毕业，年满二十六周岁整，享有完整民事责任行为能力，大运会与高端名流宴会官方成年调音助理。",
+   "age_range": [
+    26,
+    29
+   ],
+   "appearance_options": [
+    "身穿深黑专业工装马甲与速干工装裤，斜挎专业工具包，佩戴监听耳机，圆圆的脸蛋带着天然紧致微婴儿肥与饱满胶原蛋白。",
+    "半蹲在侧幕音响机柜后方，手中紧握高精度斜口钳与加厚吸音毛巾，眼神专注警惕地注视着侧台暗角。"
+   ],
+   "decision": {
+    "avoids": [
+     "麦克风啸叫走音",
+     "前台突发混乱事故",
+     "无端指责技术人员的傲慢外行"
+    ],
+    "contrast": "平时看似软萌害羞的小后辈，关键时刻摆弄重型音频线缆与锋利工具却干净利落毫不含糊。",
+    "core_value": "誓死捍卫司仪的清白与舞台音频的绝对纯净无瑕。",
+    "goal_options": [
+     "在总监指令下精准配合配乐淡入淡出掩盖金属微观破拆杂音",
+     "随时准备用加厚吸音大毛巾遮挡司仪后腰防止强光曝光"
+    ],
+    "never": [
+     "擅离职守遗弃音频调音岗位",
+     "将舞台幕后隐私泄露给媒体"
+    ],
+    "prefers": [
+     "干脆利落的机械操作",
+     "低调实干的技术保障",
+     "井井有条的幕后秩序"
+    ],
+    "pressure_responses": {
+     "breaking": "在听到气压释放嘶鸣声后迅速闭合地槽动力断路器完成排障",
+     "high": "在耳麦中大声指挥台前人员借激光笔淬火背夹下压挑卡簧",
+     "low": "在耳麦中短促通报电机短路电磁阀烧结警报并要求台前切勿强拔",
+     "mid": "快速查阅管路图纸找出立柱内侧两毫米应急泄压孔确切方位"
+    },
+    "relationship_stance": "将司仪视作崇拜爱戴的神仙学姐，对总监的指令绝对服从执行。",
+    "withdrawal": "紧贴着音响机柜蜷缩身形，双手敏捷地整理备用线缆随时待命。"
+   },
+   "gender": "female",
+   "gender_reason": "现场主控无线调音女助理需由年满二十六周岁录音工程专业女性担任",
+   "id": "sound_assistant_sun_xiao_meng",
+   "identity": {
+    "authority": "舞台侧翼有线与无线音频中继维护及紧急静音切断权。",
+    "exposure": "若现场出现麦克风杂音或漏音将被导演组严肃通报批评。",
+    "hidden": "早已准备好加厚黑毛巾与斜口钳，随时准备在千钧一发之际为司仪提供物理掩护与破拆备选。",
+    "limits": [
+     "未经总监指令不得擅自切断主舞台话筒通道",
+     "必须守在侧幕暗区不得擅闯主舞台"
+    ],
+    "obligations": [
+     "确保女司仪无线麦克风绝不发生啸叫与失真",
+     "协助保障侧台人员安全"
+    ],
+    "resources": [
+     "高碳钢精密绝缘斜口钳",
+     "加厚高密度吸音纯黑大浴巾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "司仪在危机面前临危不乱的绝美风姿",
+     "充满安全感的技术依靠"
+    ],
+    "boundaries": [
+     "严守幕后工程保障红线，非紧急指令绝不干涉前台"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "成为司仪最忠诚可靠的小帮手与幕后音响守护者。",
+    "dislikes": [
+     "喝醉酒胡乱闯入控台的登徒子",
+     "蛮横粗暴损坏设备的粗人",
+     "虚伪油腻的社交套话"
+    ],
+    "expression": "悄悄探出小脑袋比出胜利的加油手势，双眸水灵灵地透着热切关怀与期盼。",
+    "likes": [
+     "司仪温柔赞许的摸头鼓励",
+     "总监冷静果断的调度指令",
+     "默契顺畅的团队协作"
+    ],
+    "preconditions": [
+     "全场音频信号平稳且司仪脱困成功"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "主舞台音响保障女技术员",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_stage_wing_control_corner",
+     "to": 1155
+    },
+    {
+     "from": 1155,
+     "location_id": "loc_stage_wing_control_corner",
+     "to": 1170
+    },
+    {
+     "from": 1170,
+     "location_id": "loc_stage_wing_control_corner",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "需要极快的手速且可能略微削弱伴奏低音声部。",
+      "option": "迅速在调音台上推开低频降噪滤波器压低金属刮擦声。"
+     },
+     {
+      "cost": "可能被全场摄像机拍到侧幕人影引发舞美微瑕。",
+      "option": "备好吸音纯黑大毛巾随时准备在追光灯打过来前扑上侧台掩护。"
+     }
+    ],
+    "pressure": "十秒倒计时进入尾声，若司仪无法脱困将不得不面对当众社死的灭顶之灾。",
+    "trigger": "在耳机中听到司仪急促心跳声与金属流苏倒钩轻微刮擦异响。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "司仪千万别慌，斜口钳和{npc.name}手里的加厚黑毛巾都准备好了，只要司仪打暗号{npc.name}立刻冲过去！",
+    "surface": "司仪麦克风电量与频段一切正常，信号满格，随时可以开声！"
+   }
+  },
+  {
+   "adult_context": "家族财团董事局年轻合伙人年满三十七周岁整，享有完全民事诉讼权利，名流豪门新郎团成年首席伴郎。",
+   "age_range": [
+    37,
+    40
+   ],
+   "appearance_options": [
+    "身穿昂贵浅灰意式轻奢西装，领带松散，手中晃动着半杯干邑白兰地，嘴角噙着玩世不恭的戏谑笑意。",
+    "步伐轻浮地穿过镜面主花道，双眼紧盯着侧幕阴影里司仪曼妙紧绷的背影，眼神闪烁着探秘猎奇的微光。"
+   ],
+   "decision": {
+    "avoids": [
+     "当众被长辈掌掴斥责",
+     "陷入不可收拾的法律诉讼",
+     "在同辈面前颜面扫地"
+    ],
+    "contrast": "人前摆出风度翩翩的豪门贵公子派头，背地里却习惯以轻薄出格的恶趣味取乐。",
+    "core_value": "肆意追逐名媛美色与猎奇刺激，享受高高在上的虚荣快感。",
+    "goal_options": [
+     "借敬酒之名强行穿过侧幕花柱近距离打量司仪的窘迫姿态",
+     "在被总监严厉喝止后冷嘲热讽试探虚实以求找回场面"
+    ],
+    "never": [
+     "真正触犯家族生死存亡的红线",
+     "在众目睽睽下动手伤人"
+    ],
+    "prefers": [
+     "肆无忌惮的特权享受",
+     "捕捉端庄名媛的惊慌失态",
+     "毫无拘束的宴席派对"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷庄重开口发声后满意点头向校领导躬身汇报",
+     "high": "在耳麦中严厉提醒导播台按预定时间点准点切屏不得延误",
+     "low": "在贵宾席前平稳确认领导座次并用手势示意各单位倒计时开场",
+     "mid": "察觉讲台略有偏高时抬眼注视台前要求副主席做好应急准备"
+    },
+    "relationship_stance": "将司仪视作高不可攀却极具诱惑的猎艳目标，对舞台工作人员充满居高临下的蔑视。",
+    "withdrawal": "在长辈严厉目光扫过来时悻悻然收回脚步，晃着酒杯装作若无其事地退回席位。"
+   },
+   "gender": "male",
+   "gender_reason": "名流豪门新郎伴郎团首席代表由年满三十七周岁的青年二世祖担任",
+   "id": "groomsman_zhao_tian_lin",
+   "identity": {
+    "authority": "新郎家族核心亲友地位与豪门二世祖的会场自由通行特权。",
+    "exposure": "若在侧台做出猥亵或出格举动将被在场各界长辈严厉训斥并剥夺继承权份额。",
+    "hidden": "企图借敬酒名义探寻美女司仪为何迟迟不上台好在年轻纨绔圈子里作为谈资炫耀。",
+    "limits": [
+     "受制于双方长辈坐镇不敢公然造次",
+     "畏惧法律侵权诉讼证据留存"
+    ],
+    "obligations": [
+     "代表新郎家族在宴席间敬酒应酬",
+     "维系豪门子弟表面风度"
+    ],
+    "resources": [
+     "家族庞大资本背景支持",
+     "伴郎团内部呼朋引伴号召力"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "司仪江南初雪般清丽脱俗的倾城绝色",
+     "香槟金露背礼服勾勒出的曼妙身段"
+    ],
+    "boundaries": [
+     "不敢公然触犯豪门长辈定下的家族声誉红线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "自诩为全场焦点肆意品评受窘名媛的居高临下者。",
+    "dislikes": [
+     "被人当场严词斥责无视",
+     "刻板严肃的规矩教条",
+     "毫不买账的硬骨头"
+    ],
+    "expression": "晃动手中水晶高脚杯发出清脆冰块撞击声，嘴角扬起轻浮笑意步步逼近通道。",
+    "likes": [
+     "端庄名媛受窘时的无助慌乱",
+     "征服高岭之花的虚荣感",
+     "出格刺激的婚闹游戏"
+    ],
+    "preconditions": [
+     "自以为凭借金钱地位能够随意染指平民名媛"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "豪门新郎伴郎团首席青年代表",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_grand_ballroom_center_aisle",
+     "to": 1150
+    },
+    {
+     "from": 1150,
+     "location_id": "loc_stage_wing_control_corner",
+     "to": 1165
+    },
+    {
+     "from": 1165,
+     "location_id": "loc_banquet_vip_front_tables",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "被总监冷酷气场压制自讨没趣。",
+      "option": "借着向总监敬酒的由头假意停下脚步隔着花柱冷嘲热讽试探。"
+     },
+     {
+      "cost": "失去近距离窥视受窘名媛的唯一机会。",
+      "option": "在长辈目光注视下悻悻然转身返回首排席位等待开场。"
+     }
+    ],
+    "pressure": "总监冷峻挺拔的身形横在通道中央，前排家族长辈的目光正若有若无地扫视过来。",
+    "trigger": "手持干邑白兰地穿过镜面花柱逼近侧幕，企图近距离窥探迟迟未登台的女司仪。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "这温婉大美人站在香槟塔后面一动不动，背影曲线绷得那么紧，难不成有什么不能说的秘密？",
+    "surface": "司仪怎么还不过来候场？这杯祝贺开场的香槟可是专门端来敬司仪的。"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "世纪婚礼当天，五月",
+  "minute": 1140
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "substance",
+  "workplace_power",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "名流豪门婚礼开场前三十秒全场千人宾客集体肃静等待司仪登台启幕的既定礼仪惯例",
+  "新娘首席伴娘与名媛闺蜜私下佩戴恶作剧信物作为婚庆狂欢彩蛋的私密社交习俗",
+  "舞台总控导播在重要仪式节点通过加密降噪骨传导耳麦向首席司仪下达秒级倒数指令的标准流程",
+  "超五星酒店侍酒团队在十二层香槟塔底座加装双重重型金属防倾斜流苏垂幔的硬性安全守则"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "保全主管仔细核对香槟塔十二层杯盏排列中轴线",
+    "成年侍酒团队俯身调整底座重型金丝绒垂幔的铜铸流苏平整度"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_champagne_tower_counterweight_check",
+   "location_ids": [
+    "loc_grand_hall_main_stage"
+   ],
+   "start_minute": 1140,
+   "tags": [],
+   "title": "香槟塔配重底座与水晶平衡巡检"
+  },
+  {
+   "beats": [
+    "调音师在总控台调试降噪耳麦并向司仪下达主舞台第一音节声压指令",
+    "司仪轻声试麦吐字圆润清澈展现顶尖名媛主持人的专业风范"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_telecast_headset_frequency_tuning",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "start_minute": 1145,
+   "tags": [],
+   "title": "卫星转播耳麦频段与声学试音"
+  },
+  {
+   "beats": [
+    "总监在总控台精准校准全球卫星转播主时钟倒数频段",
+    "大屏幕实时显示典礼倒计时进入最后十秒紧张关口"
+   ],
+   "duration_minutes": 12,
+   "hook_ids": [],
+   "id": "act_wedding_countdown_clock_system_sync",
+   "location_ids": [
+    "loc_grand_hall_main_stage"
+   ],
+   "start_minute": 1150,
+   "tags": [],
+   "title": "大厅开场秒级倒计时系统同步校准"
+  },
+  {
+   "beats": [
+    "伴娘手持恶作剧纯银情趣小手铐作为玩笑挂在司仪后腰暗圈",
+    "司仪因急于核对台本温言劝阻并叮嘱伴娘切勿胡乱嬉闹"
+   ],
+   "duration_minutes": 8,
+   "hook_ids": [],
+   "id": "act_bridesmaid_gift_prank_attachment",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "start_minute": 1152,
+   "tags": [],
+   "title": "新娘闺蜜团私下嬉闹与手铐暗扣"
+  },
+  {
+   "beats": [
+    "婚礼前一天，首席司仪在侧幕里走位，对着空荡荡的宴会厅念开场白。",
+    "工作人员在主舞台上搭香槟塔，一只只水晶杯小心地摞上去。",
+    "司仪念完开场白，转身看着那座香槟塔，说明天它会是全场最亮的东西。"
+   ],
+   "duration_minutes": 5,
+   "hook_ids": [
+    "hook_02_silk_velvet_drape_entangle",
+    "hook_03_silver_hairpin_drawn",
+    "hook_04_director_protective_blockade"
+   ],
+   "id": "act_wing_shadow_drape_snag_incident",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "start_minute": 900,
+   "tags": [],
+   "title": "婚礼前的彩排"
+  },
+  {
+   "beats": [
+    "二世祖伴郎端着半杯干邑白兰地穿过镜面花柱逼近侧台候场区",
+    "总监高大挺拔身形骤然踏出冷厉阻断二世祖窥探脚步"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_groomsman_toast_corridor_intrusion",
+   "location_ids": [
+    "loc_grand_ballroom_center_aisle"
+   ],
+   "start_minute": 1157,
+   "tags": [],
+   "title": "伴郎手持酒杯擅闯侧幕通道搭讪"
+  },
+  {
+   "beats": [
+    "手铐打开、世纪婚礼平安走完之后，司仪回到楼上的化妆间，发髻盘了一整晚，头皮被发夹扯得发疼。",
+    "司仪坐在镜前，让人一根根拔下发夹，长发散下来时，司仪在镜子里看着对方，伸手按住了对方停在肩上的手。",
+    "司仪转过身，声音不像台上那样稳：主持了几百场婚礼……今晚，我想为自己留一个人。你愿意吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dressing_hair_down",
+   "location_ids": [
+    "loc_host_upstairs_dressing_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "化妆间里替司仪拆下发髻"
+  },
+  {
+   "beats": [
+    "司仪赤着脚站在窗边，手里端着一杯没动过的香槟，说每场婚礼都替别人说誓词。",
+    "司仪把香槟递过来：今晚的誓词……我一句都不想替别人说了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dressing_bund_view",
+   "location_ids": [
+    "loc_host_upstairs_dressing_room"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "窗边看一会儿外滩"
+  },
+  {
+   "beats": [
+    "司仪拿起话筒，关掉电源，说要排练一段从来没在台上说过的词。",
+    "司仪对着对方一字一句地念，念到一半停下来，脸红了：……后半段，等你想听的时候再说。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dressing_rehearse_vow",
+   "location_ids": [
+    "loc_host_upstairs_dressing_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "排练一段没人听的誓词"
+  },
+  {
+   "beats": [
+    "天亮了，外滩的江面泛着白光，司仪在丝绒长沙发上醒来，身上盖着对方的外套。",
+    "司仪把外套往上拉了拉，闭着眼说：今天没有婚礼……就让我睡到中午。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dressing_morning_after",
+   "location_ids": [
+    "loc_host_upstairs_dressing_room"
+   ],
+   "start_minute": 480,
+   "tags": [
+    "intimate"
+   ],
+   "title": "婚礼后的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代上海外滩的超五星酒店，豪门世纪婚礼开场前十秒",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "幼态",
+  "幼女",
+  "少女感",
+  "催情",
+  "迷乱",
+  "欲火"
+ ],
+ "hooks": [
+  {
+   "id": "hook_01_countdown_voice_startle",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "slot": "hostess_su_qian_xue",
+   "text": "耳麦里传来总监冷冽无波的倒计时读秒，{hostess_su_qian_xue.name}起步时后腰礼服却被一股沉重下坠巨力反拽，整座十二层旋转香槟塔水晶挂件随之颤动！"
+  },
+  {
+   "id": "hook_02_silk_velvet_drape_entangle",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "slot": "hostess_su_qian_xue",
+   "text": "{hostess_su_qian_xue.name}反手触碰后腰暗扣，纯银情趣手铐细链不知何时绞入了香槟塔底座金丝绒垂幔的铜铸加重流苏倒钩，两百公斤水晶塔正悬于一线！"
+  },
+  {
+   "id": "hook_03_silver_hairpin_drawn",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "slot": "hostess_su_qian_xue",
+   "text": "{hostess_su_qian_xue.name}左手扶稳礼服腰线维持身姿挺拔端庄，右手极其沉稳地拔下发髻纯银珍珠发簪，一毫米极薄扁平尖端在暗光中泛出冷厉锋芒！"
+  },
+  {
+   "id": "hook_04_director_protective_blockade",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "slot": "director_lu_yun_shen",
+   "text": "{director_lu_yun_shen.name}单手按住耳机高大身形一步跨出通道，如铁壁般横在入口冷声喝止端着酒杯的伴郎擅闯候场重地！"
+  },
+  {
+   "id": "hook_05_bridesmaid_panic_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "slot": "bridesmaid_jiang_zhi_lin",
+   "text": "{bridesmaid_jiang_zhi_lin.name}躲在侧幕花柱阴影里吓得花容失色双腿发软，双手紧紧捂住嘴唇战战兢兢目睹司仪反手拔簪自救！"
+  },
+  {
+   "id": "hook_06_hairpin_probe_tooth_engage",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "slot": "hostess_su_qian_xue",
+   "text": "纯银发簪扁平硬尖精准探入手铐锁芯齿槽最深处间隙，指尖清晰感知到双棘爪弹簧齿牙的微小阻尼弹力！"
+  },
+  {
+   "id": "hook_07_groomsman_footsteps_corridor",
+   "kind": "approach",
+   "location_ids": [
+    "loc_grand_ballroom_center_aisle"
+   ],
+   "slot": "groomsman_zhao_tian_lin",
+   "text": "{groomsman_zhao_tian_lin.name}晃动着半杯干邑白兰地轻浮逼近，皮鞋踏地声在木地板上回荡，距离受困侧幕仅剩最后三个身位！"
+  },
+  {
+   "id": "hook_08_sommelier_adjusts_tassel",
+   "kind": "approach",
+   "location_ids": [
+    "loc_grand_hall_main_stage"
+   ],
+   "slot": "sommelier_chief_qian_wan_hao",
+   "text": "保全主管手持镀银托盘快步上前假装巡查桌布垂幔，暗中借高大身躯替司仪遮挡住香槟塔侧向晃动反光！"
+  },
+  {
+   "id": "hook_09_blushing_cheeks_close_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "slot": "hostess_su_qian_xue",
+   "text": "{hostess_su_qian_xue.name}眼睫轻颤咬紧下唇两颊微红，反折右臂稳如磐石，将纯银发簪扁平尖端向左上方轻施两牛顿微观扭力！"
+  },
+  {
+   "id": "hook_10_ratchet_click_retreat",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "slot": "hostess_su_qian_xue",
+   "text": "一声极细微的金属脆响迸发，手铐锁舌顺畅脱扣，纯银细链瞬间从合金流苏倒钩间滑脱坠地解开死锁！"
+  },
+  {
+   "id": "hook_11_stage_entrance_cheers",
+   "kind": "accident",
+   "location_ids": [
+    "loc_grand_hall_main_stage"
+   ],
+   "slot": "hostess_su_qian_xue",
+   "text": "解脱瞬间{hostess_su_qian_xue.name}单手拂平后背鱼尾裙摆，迎着两万瓦骤然大亮的璀璨追光灯，从容从侧幕正步登台！"
+  },
+  {
+   "id": "hook_12_flawless_hostess_grace_restored",
+   "kind": "observe",
+   "location_ids": [
+    "loc_grand_hall_main_stage"
+   ],
+   "slot": "director_lu_yun_shen",
+   "text": "站在百米主舞台中央的司仪仪态万千宛若天仙降世，温婉天籁嗓音响彻全场引爆一千二百名贵宾雷鸣掌声！"
+  },
+  {
+   "id": "hook_13_grandmaster_applause_erupts",
+   "kind": "observe",
+   "location_ids": [
+    "loc_grand_hall_main_stage"
+   ],
+   "slot": "hostess_su_qian_xue",
+   "text": "首排两大家族掌舵长辈纷纷含笑鼓掌致意，跨国转播高清摇臂推进特写，完美呈现世纪盛典绝世风华！"
+  },
+  {
+   "id": "hook_14_groomsman_retreat_shame",
+   "kind": "request",
+   "location_ids": [
+    "loc_banquet_vip_front_tables"
+   ],
+   "slot": "groomsman_zhao_tian_lin",
+   "text": "被总监冷峻气场压制且被长辈威严目光扫视的{groomsman_zhao_tian_lin.name}只得悻悻收起酒杯，灰溜溜退回席位不敢造次！"
+  },
+  {
+   "id": "hook_15_silver_hairpin_token_whisper",
+   "kind": "request",
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "slot": "hostess_su_qian_xue",
+   "text": "退场暗影处{hostess_su_qian_xue.name}轻轻将纯银珍珠发簪重新插回发髻，隔着人群与总监相视一笑尽显默契守护温情！"
+  },
+  {
+   "id": "hook_host_dressing_room_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_host_upstairs_dressing_room"
+   ],
+   "slot": "hostess_su_qian_xue",
+   "text": "{npc.name}倚在化妆间门口，手里转着一只空香槟杯：楼下散场了。……上来坐一会儿吗？"
+  }
+ ],
+ "id": "wedding_hostess_champagne_handcuff_jam",
+ "locations": [
+  {
+   "affordances": [
+    "踏入两万瓦追光灯正中心主持开场",
+    "利用主舞台讲台音响遮挡后背曲线"
+   ],
+   "detail": "铺设无缝纯白真丝地毯的百米长主舞台，右侧边缘耸立着由一千零八十只捷克高铅水晶杯搭建的十二层旋转发光香槟塔，塔底铺设加重金丝绒垂幔并悬挂数公斤加厚黄铜流苏配重吊坠，稍遇外力牵拉便会产生共振倾斜。",
+   "exits": [
+    "loc_stage_wing_control_corner",
+    "loc_banquet_vip_front_tables",
+    "loc_grand_ballroom_center_aisle"
+   ],
+   "id": "loc_grand_hall_main_stage",
+   "name": "香槟塔边",
+   "pressure_modifiers": {
+    "press_champagne_tower_collapse_panic": "十二层水晶杯共振脆响加剧香槟塔坍塌恐慌负荷",
+    "press_wedding_guests_stare_dread": "千人名流宾客凝望视线加剧成年名媛极致社死心理重压"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "千人宾客视野全景焦点，六十台高清摄像机与大摇臂无死角覆盖，任何细微动作都在众目睽睽之下。",
+   "witnesses": [
+    "bg_sommelier_chief_qian",
+    "bg_director_lu"
+   ]
+  },
+  {
+   "affordances": [
+    "背对昏暗侧幕借阴影掩护反手摸索后腰锁孔",
+    "利用干冰机散发的低温浓雾遮蔽下身拘束动作"
+   ],
+   "detail": "堆叠着数十路粗壮光纤线缆与大型干冰造雾机的幽暗三角盲区，距离十二层香槟塔底座仅有半米间隙，也是女司仪登台前的唯一专用候场通道，光线昏暗但直通主控台视线。",
+   "exits": [
+    "loc_grand_hall_main_stage",
+    "loc_banquet_vip_front_tables",
+    "loc_grand_ballroom_center_aisle",
+    "loc_host_upstairs_dressing_room"
+   ],
+   "id": "loc_stage_wing_control_corner",
+   "name": "侧幕暗角",
+   "pressure_modifiers": {
+    "press_director_headset_countdown": "耳麦秒级倒数读秒催促加剧破拆时间枯竭绝境",
+    "press_fingertip_sweat_hairpin_slippage": "手心微汗导致发簪尖端在锁孔间隙滑动加剧脱扣失败风险"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "大厅主射灯照耀不到的深暗侧阴影，但伴郎自花道穿行而过时即可侧向窥探全貌。",
+   "witnesses": [
+    "bg_sound_assistant_sun",
+    "bg_groomsman_zhao"
+   ]
+  },
+  {
+   "affordances": [
+    "以眼神与点头礼向贵宾致意稳住阵脚",
+    "倾听主桌长辈对典礼吉时的催促交谈"
+   ],
+   "detail": "距离主舞台与香槟塔仅六米之遥的顶级贵宾圆桌区，铺设重工刺绣桌布并陈设高级骨瓷餐具，两家豪门长辈与政商名流正端坐凝望主舞台右侧入口。",
+   "exits": [
+    "loc_grand_hall_main_stage",
+    "loc_stage_wing_control_corner",
+    "loc_grand_ballroom_center_aisle"
+   ],
+   "id": "loc_banquet_vip_front_tables",
+   "name": "首排贵宾席",
+   "pressure_modifiers": {
+    "press_director_headset_countdown": "全场寂静无声衬托耳麦读秒声尤为刺耳惊心",
+    "press_wedding_guests_stare_dread": "财阀家族长辈审视目光加剧名媛职业前程覆灭危机"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "明亮晶莹的枝形水晶吊灯全域倾泻，宾客只需抬眸便可清晰审视侧幕走出来的任何身影。",
+   "witnesses": [
+    "bg_security_guard_lao_zhou",
+    "bg_bridesmaid_jiang"
+   ]
+  },
+  {
+   "affordances": [
+    "观察伴郎端着酒杯走来的移动步伐与间距",
+    "借花柱掩护避开全场目光侧向呼救通道"
+   ],
+   "detail": "贯穿千人宴会大厅长达八十米的镜面T台，两侧摆放九万朵新鲜白玫瑰与浅粉牡丹花柱，微风拂动花香四溢，伴郎与伴娘正自此通道往返穿梭。",
+   "exits": [
+    "loc_grand_hall_main_stage",
+    "loc_stage_wing_control_corner",
+    "loc_banquet_vip_front_tables"
+   ],
+   "id": "loc_grand_ballroom_center_aisle",
+   "name": "中轴花道",
+   "pressure_modifiers": {
+    "press_backless_gown_tear_panic": "紧绷鱼尾长裙限制快步行走加剧动作变形窘迫",
+    "press_groomsman_step_intrusion": "皮鞋踏地声逼近加剧侧幕隐私防线失守恐慌"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "镜面地板倒映着上空璀璨光束，通道任何人员走动皆引发全场目光追随。",
+   "witnesses": [
+    "bg_groomsman_zhao",
+    "bg_bridesmaid_jiang"
+   ]
+  },
+  {
+   "affordances": [
+    "替司仪拆下盘了一晚的发髻",
+    "陪司仪在窗边看外滩",
+    "锁上化妆间的门"
+   ],
+   "detail": "宴会厅楼上的一间司仪化妆间，三面镜子围着一张化妆台，衣架上挂着备用的鱼尾裙，角落里一张丝绒长沙发，窗外是外滩的夜景。",
+   "exits": [
+    "loc_stage_wing_control_corner"
+   ],
+   "id": "loc_host_upstairs_dressing_room",
+   "name": "宴会厅楼上的司仪化妆间",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "门一关，楼下婚宴的音乐和碰杯声都远了，只剩镜前一圈暖黄的灯泡。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "苏",
+   "陆",
+   "钱",
+   "姜",
+   "孙",
+   "赵",
+   "沈",
+   "顾",
+   "霍",
+   "裴",
+   "秦",
+   "叶",
+   "萧",
+   "林",
+   "宋",
+   "温"
+  ],
+  "given_female": [
+   "浅雪",
+   "芷琳",
+   "小萌",
+   "静姝",
+   "羽灵",
+   "诗音",
+   "清婉",
+   "晴岚",
+   "若溪",
+   "楚楚",
+   "映月",
+   "凝霜",
+   "语嫣",
+   "梦瑶",
+   "玉婷",
+   "素问"
+  ],
+  "given_male": [
+   "云深",
+   "天麟",
+   "万豪",
+   "长青",
+   "景深",
+   "博庸",
+   "承宇",
+   "逸轩",
+   "霆威",
+   "致远",
+   "瀚文",
+   "铭泽",
+   "峻熙",
+   "鸿渊",
+   "卓然",
+   "修远"
+  ],
+  "given_neutral": [
+   "亦舒",
+   "清和",
+   "子墨",
+   "一诺",
+   "星澜",
+   "沐川",
+   "凌霄",
+   "楚言",
+   "千寻",
+   "若水",
+   "元嘉",
+   "望舒",
+   "素风",
+   "青岚",
+   "希音",
+   "之诺"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "female",
+    "pattern": "{family}小姐"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留超五星酒店金色大厅的豪门世纪婚礼、一千二百位名流宾客、一千零八十只水晶杯的十二层香槟塔、伴娘恶作剧扣上的纯银情趣手铐细链挂死底座铜流苏倒钩、露背鱼尾长裙、耳麦里总监倒数十秒、伴郎端酒逼近、拔下冷锻纯银珍珠发簪反手挑锁舌的骨架与名媛味道。原稿的时代、地点、开局时刻和基调是从学生会长世界复制的，已按婚礼重写；背景人物里与主要角色同名的几位改成了独立的人。女主年龄拉开到二十五到二十八岁，总监拉到三十到三十四岁。用户已放开内容限制，只守红线；拘束与险情期间不写性互动。外貌描写照留，只改写死的人名、代词、年龄。新增宴会厅楼上的司仪化妆间与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    31,
+    35
+   ],
+   "baseline": "录音工程专业毕业，年满三十一周岁整，持有专业高级音响师执照，掌管主控台与司仪专属加密骨传导耳麦对讲权限。",
+   "gender": "any",
+   "id": "pi_wedding_sound_headset_operator",
+   "reputation": "对调音毫秒级声学延迟明察秋毫的沉稳技术骨干",
+   "resources": [
+    "主舞台独立频段无线耳麦监听器",
+    "备用超指向性降噪麦克风电池仓"
+   ],
+   "risks": [
+    "若麦克风漏音将承担全场演出重大责任追究"
+   ],
+   "role": "婚礼主控无线耳麦声学保障调音师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}调音"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    34
+   ],
+   "baseline": "酒店管理专业毕业，年满三十周岁整，负责千人宴会大厅十二层高铅水晶香槟塔物理平衡与底座巡查防撞规程。",
+   "gender": "any",
+   "id": "pi_crystal_tower_sommelier_captain",
+   "reputation": "守护两百公斤昂贵水晶塔分毫不差的苛刻保全专家",
+   "resources": [
+    "底座滑轮液压微调阻尼扳手",
+    "高灵敏度水平重力倾角测量仪"
+   ],
+   "risks": [
+    "杯塔一旦发生倾斜将面临巨额资产赔偿扣罚"
+   ],
+   "role": "十二层水晶香槟塔专属保全主管",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}主管"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}队"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    34
+   ],
+   "baseline": "舞台美术照明专业毕业，年满三十周岁整，操控两万瓦强光聚光灯对准主舞台司仪登台动线行进追踪。",
+   "gender": "any",
+   "id": "pi_lighting_spotlight_operator",
+   "reputation": "运镜精准分毫不差的光影雕刻操盘手",
+   "resources": [
+    "大功率电脑追光灯远程伺服操纵杆",
+    "瞬时色温遮光渐变调焦镜组"
+   ],
+   "risks": [
+    "聚光灯提前扫射侧幕将引发严重舞美曝光事故"
+   ],
+   "role": "主舞台悬臂电脑追光灯主控调光师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}灯控"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}技师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    34,
+    38
+   ],
+   "baseline": "公共关系专业毕业，年满三十四周岁整，具备完整民事自立能力，负责首排贵宾席与侧幕通道之间的动线警戒。",
+   "gender": "any",
+   "id": "pi_vip_banquet_floor_marshal",
+   "reputation": "周旋于各路名流之间应对从容的内场礼仪协调员",
+   "resources": [
+    "贵宾专属烫金流程座次表",
+    "宴会内场高保真对讲联络机"
+   ],
+   "risks": [
+    "未能拦阻失控宾客将面临降职扣薪处分"
+   ],
+   "role": "至尊贵宾席位成年现场礼仪督导",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}督导"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "外滩超五星酒店的金色大厅，一场豪门世纪婚礼下周举行，首席司仪这几天天天来彩排，调音师、香槟塔的保全主管和追光灯师都被叫来陪着走位。主舞台右侧要搭一座十二层的香槟塔，底座垂着加厚的铜质流苏。闺蜜伴娘总爱恶作剧，包里还藏着一副纯银情趣手铐。",
+ "pressures": [
+  {
+   "choice": "选择冒着指腹刮痛微观撬弹锁舌，抑或盲目硬拽导致千只水晶杯粉碎全场社死。",
+   "exits": [
+    {
+     "cost": "发簪金属传导震痛指尖且礼服暗扣留下轻微刮痕。",
+     "option": "用纯银发簪扁平锋刃找准两牛顿力矩精准顶开手铐棘爪锁舌解除挂死。"
+    },
+    {
+     "cost": "需要保全人员承担擅动安全装置的受罚违规风险。",
+     "option": "由保全主管暗中推平底座电磁阻尼踏板分担桌布拉力争取时间。"
+    }
+   ],
+   "far": {
+    "consequence": "造成灾难性安全事故与数千万元名誉损失，职业生涯彻底终结被除名。",
+    "due_days": 1,
+    "trigger": "香槟塔倾覆砸毁主舞台贵宾席"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_champagne_tower_collapse_panic",
+   "immediate": {
+    "minutes": 1,
+    "text": "顶层水晶杯清脆碰撞发出微响，保全主管警惕目光瞬间投向侧幕边缘。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_grand_hall_main_stage"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若无法在五秒内解除挂死，香槟塔底座配重滑轮将失衡引发链式倾覆坍塌。"
+   },
+   "objective": "在香槟塔承受侧向拉力超标坍塌前用发簪尖端挑开锁舌弹片脱扣自救。",
+   "source": "accident",
+   "start_minute": 1155,
+   "tags": [
+    "disaster"
+   ],
+   "title": "十二层香槟塔微倾坍塌恐慌",
+   "trigger": "后腰纯银手铐细链拉扯重型流苏导致香槟塔顶层水晶杯碰撞发出微鸣。"
+  },
+  {
+   "choice": "选择争分夺秒盲探锁孔自救，抑或在耳麦中示意空场求援引爆违约危机。",
+   "exits": [
+    {
+     "cost": "若最终仍未解脱将承担节奏编排失误的当场问责。",
+     "option": "总监临时下令音响总控延长前奏切分音争取最后五秒自救时间。"
+    },
+    {
+     "cost": "承受超负荷心理紧绷与指节轻微脱力。",
+     "option": "司仪咬紧牙关指尖爆发惊人稳定度在倒数第三秒挑落手铐锁舌从容登台。"
+    }
+   ],
+   "far": {
+    "consequence": "遭遇跨国转播平台天文数字违约索赔，舞台团队遭受行业封杀处罚。",
+    "due_days": 1,
+    "trigger": "全球卫星直播出现五秒重大空场"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_director_headset_countdown",
+   "immediate": {
+    "minutes": 1,
+    "text": "耳麦中十秒倒数读秒声清晰可闻，追光灯光束已平移至候场侧幕边缘。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "倒数归零若司仪未能就位，现场将陷入尴尬死寂并在卫星转播中沦为重大播出事故。"
+   },
+   "objective": "在倒计时归零前彻底脱钩并拂平裙摆正步踏入舞台中央开声主持。",
+   "source": "institution",
+   "start_minute": 1156,
+   "tags": [],
+   "title": "导播耳麦十秒开场读秒绝境",
+   "trigger": "总监在耳麦中开启卫星直播开场读秒，数字正一秒一秒向零递减逼近。"
+  },
+  {
+   "choice": "选择由总监挺身铁壁阻截，抑或任由二世祖闯入揭开私密手铐引发大乱。",
+   "exits": [
+    {
+     "cost": "可能当场与豪门二世祖爆发言语冲突引发小范围侧目。",
+     "option": "总监冷峻一步踏出横阻通道中央勒令无关人员立刻退回贵宾席。"
+    },
+    {
+     "cost": "伴娘需要忍受二世祖轻浮口头便宜与调侃。",
+     "option": "伴娘硬着头皮上前假装递酒挽住伴郎手臂将其强行引开通道。"
+    }
+   ],
+   "far": {
+    "consequence": "名媛纯洁名誉彻底毁灭沦为豪门圈子笑柄，名流家族声誉蒙羞。",
+    "due_days": 1,
+    "trigger": "私密手铐挂死画面被二世祖公然宣扬"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_groomsman_step_intrusion",
+   "immediate": {
+    "minutes": 1,
+    "text": "皮鞋踏地声清脆逼近，伴郎戏谑话音穿透花柱直逼受困侧幕。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "伴郎再向前迈出半步即可看清司仪后腰挂死的窘迫丑态并在大厅大声宣扬。"
+   },
+   "objective": "在伴郎目光穿透暗角窥探到后腰手铐前构筑防线或完成自救脱身。",
+   "source": "person",
+   "start_minute": 1157,
+   "tags": [],
+   "title": "轻浮伴郎端酒逼近侧幕危机",
+   "trigger": "伴郎端着干邑白兰地穿过花廊走向侧台，距离司仪仅剩最后三个身位。"
+  },
+  {
+   "choice": "选择调整呼吸沉稳运力挑舌，抑或因手抖掉落发簪彻底丧失唯一自救工具。",
+   "exits": [
+    {
+     "cost": "消耗最后宝贵的三秒钟并加大指尖刺痛。",
+     "option": "将手心汗水在礼服隐形内衬快速轻拭并用指尖死死扣紧簪尾雕花凹槽。"
+    },
+    {
+     "cost": "需要助理近身配合且动作必须极度轻缓。",
+     "option": "示意调音助理音响师递上防滑无水酒精棉球擦拭发簪增加摩擦力。"
+    }
+   ],
+   "far": {
+    "consequence": "只能任由追光灯照射暴露后背死锁或者强行撕裂礼服当众社死。",
+    "due_days": 1,
+    "trigger": "唯一自救工具丢失无法脱扣"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_fingertip_sweat_hairpin_slippage",
+   "immediate": {
+    "minutes": 1,
+    "text": "纯银发簪尖端在锁舌边缘发出极轻微打滑刮擦声，司仪心跳骤然失衡。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_stage_wing_control_corner"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若发簪脱手坠地掉入幽暗电缆槽，将彻底失去物理破拆自救工具陷入死局。"
+   },
+   "objective": "稳住指腹呼吸反手以指甲抵住簪身防止脱落精准撬动弹簧棘爪。",
+   "source": "person",
+   "start_minute": 1158,
+   "tags": [],
+   "title": "指尖微汗发簪盲探打滑风险",
+   "trigger": "后背冷汗与指尖微汗导致光滑的纯银发簪尖端在狭窄锁孔缝隙间产生微小滑动。"
+  },
+  {
+   "choice": "选择忍受后腰牵扯维持端庄站姿，抑或动作变形导致礼服撕裂彻底春光乍泄。",
+   "exits": [
+    {
+     "cost": "左手腕关节因反折角度产生剧烈酸痛。",
+     "option": "用左手背在身后悄然扶稳暗扣受力点为右手发簪破拆分担拉力拉扯。"
+    },
+    {
+     "cost": "毛巾遮挡动作难以掩饰舞台重大事故痕迹。",
+     "option": "调音助理备好加厚纯黑吸音大毛巾随时准备在发生撕裂瞬间冲出遮挡。"
+    }
+   ],
+   "far": {
+    "consequence": "千人盛典陷入极端骚乱，首席女司仪身败名裂面临全网严重封杀。",
+    "due_days": 1,
+    "trigger": "华丽礼服在众目睽睽下当场撕裂滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_backless_gown_tear_panic",
+   "immediate": {
+    "minutes": 1,
+    "text": "香槟金重工真丝后背边缘极度紧绷，雪白肌肤泛起勒痕，暗扣岌岌可危。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_grand_hall_main_stage"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "暗扣一旦崩脱整件鱼尾长裙将失去后背支撑直接滑落造成不可逆大面积曝光。"
+   },
+   "objective": "在礼服接缝彻底绷裂走光前完成脱扣并迅速拉合裙摆平稳体态。",
+   "source": "nature",
+   "start_minute": 1158,
+   "tags": [
+    "disaster"
+   ],
+   "title": "露背鱼尾长裙紧绷撕裂社死",
+   "trigger": "手铐链条下坠重力猛烈向后拉扯导致礼服后背镂空暗扣线头发出崩脱微响。"
+  },
+  {
+   "choice": "选择顶住千人目光压迫完成破拆逆袭，抑或被恐怖审视感击垮当场瘫软。",
+   "exits": [
+    {
+     "cost": "需要极强的心理素质瞬间切换神态展现名媛巅峰风采。",
+     "option": "发簪挑脱锁舌瞬间以无可挑剔的温婉微笑迎着万丈光芒从容迈步登台启幕。"
+    },
+    {
+     "cost": "微调灯光需要总监亲自批准并可能引起前排摄像师疑惑。",
+     "option": "由调光师微调两万瓦追光灯偏角先聚焦主花道新郎伴郎席位争取缓冲。"
+    }
+   ],
+   "far": {
+    "consequence": "两大家族世纪联姻蒙上不祥阴影，引发跨国商业财阀信誉崩盘地震。",
+    "due_days": 1,
+    "trigger": "名流盛典开场彻底演变为家族丑闻闹剧"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_wedding_guests_stare_dread",
+   "immediate": {
+    "minutes": 1,
+    "text": "首排贵宾席长辈已然端坐侧目，摄像摇臂的红点指示灯在暗处格外刺眼。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_banquet_vip_front_tables"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "追光灯若扫中僵硬受困的身影，千人宾客的惊诧目光将瞬间转化为毁灭性舆论风暴。"
+   },
+   "objective": "在全场视线焦点与两万瓦追光灯扫射前优雅转身正步迈入光芒之中主持。",
+   "source": "person",
+   "start_minute": 1159,
+   "tags": [],
+   "title": "千人名流长辈聚焦审视重压",
+   "trigger": "全场一千二百名名流宾客肃静仰望主舞台右侧入口，摄像摇臂镜头正徐徐摇向候场区。"
+  }
+ ],
+ "region": "酒店金色宴会厅：主舞台香槟塔、侧幕导播暗角、首排贵宾席与水晶主花道",
+ "rules": [
+  {
+   "id": "rule_champagne_tower_zero_impact",
+   "text": "十二层一千零八十只捷克高铅水晶香槟塔严禁承受任何超过零点五公斤的侧向拉力，否则整塔将瞬间发生多米诺连锁坍塌事故。"
+  },
+  {
+   "id": "rule_ceremony_telecast_countdown_strict",
+   "text": "名流世纪婚礼全球卫星转播吉时分秒不差，总导播倒计时归零时司仪必须立于舞台正中央开声主持，严禁任何空场延误失误。"
+  },
+  {
+   "id": "rule_hostess_backless_dress_etiquette",
+   "text": "香槟金露背鱼尾礼服要求背部曲线极致平整优雅，任何动作变形、衣服撕裂或隐私暴露都将导致职业生涯彻底毁灭。"
+  },
+  {
+   "id": "rule_adult_court_civil_conduct_code",
+   "text": "宴会大厅所有人员均为年满二十周岁完全民事行为能力人，突发丑闻将面临跨国法务团队天文数字违约索赔诉讼。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "组织规约",
+  "committed": "金石同盟",
+  "familiar": "台容核检",
+  "flirting": "暗光对视",
+  "intimate": "俯仰共济",
+  "stranger": "初登讲台",
+  "testing": "执夹撬簧"
+ },
+ "status": "released",
+ "style_hint": "水晶灯与香槟塔的金色反光，千人宴会厅的屏息。写名媛司仪婴儿肥两颊的羞耻红晕、绷紧的露背鱼尾裙与压住的喘息，动作落在珍珠发簪挑锁舌上。",
+ "tension_engines": [
+  {
+   "id": "eng_champagne_tower_collapse_panic",
+   "text": "后腰纯银手铐细链卡死十二层高铅水晶香槟塔重型流苏倒钩，稍有蛮力牵扯即引发两百公斤千杯巨塔链式坍塌灾难之恐怖威压。"
+  },
+  {
+   "id": "eng_headset_countdown_ten_seconds",
+   "text": "卫星全球直播吉时分秒不差，导播耳麦里十秒开场读秒无情流逝与微观发簪弹舌破拆自救形成的秒级生死时速对抗。"
+  },
+  {
+   "id": "eng_groomsman_prowling_exposure_dread",
+   "text": "轻浮伴郎端着酒杯步步逼近候场通道，与受困名媛后腰露背死锁隐私曝光濒临失守带来的极端社死心理拉锯。"
+  },
+  {
+   "id": "eng_backless_gown_rip_chastity_peril",
+   "text": "香槟金高定真丝露背鱼尾长裙受拉紧绷濒临撕裂，名媛司仪以非凡坚韧与智慧捍卫职业尊严与纯白清白之绝境自救。"
+  }
+ ],
+ "title": "名媛婚礼司仪·香槟塔流苏挂死银手铐",
+ "tone": [
+  "香槟塔下的十秒",
+  "银手铐挂流苏",
+  "伴郎端酒逼近",
+  "珍珠发簪挑锁舌"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_info_family_wedding_hairpin_code",
+   "requires": [
+    "hostess_su_qian_xue"
+   ],
+   "text": "司仪发髻上的纯银发簪实为家族冷锻非遗绝艺所制，尾端一毫米高刚度扁平探针专为应急解密设计成破拆利器。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_spatial_banquet_secret_cable_trench",
+   "requires": [
+    "sound_assistant_sun_xiao_meng"
+   ],
+   "text": "侧台暗角下方隐藏着直通总控台的应急弱电检修槽，为调音助理提供无声传递备用工具的隐蔽遮蔽通道。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_resource_groomsman_liquor_card_ban",
+   "requires": [
+    "sommelier_chief_qian_wan_hao"
+   ],
+   "text": "伴郎擅离席位的放肆举动被酒店巡查主管如实记录，家族长辈知悉后当场下令冻结其名下宴会签单特权。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_pure_hostess_tears_yield",
+   "requires": [
+    "hostess_su_qian_xue"
+   ],
+   "text": "看似温婉柔弱的江南名媛在千人审视绝境中迸发出惊人冷静意志，指尖稳如磐石展现出令人心折的极品坚韧。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_temporal_director_prolonged_beat",
+   "requires": [
+    "director_lu_yun_shen"
+   ],
+   "text": "总监在耳麦中巧妙下令音响总控将典礼开场前奏切分音延长整整五秒，为司仪发簪破拆自救抢下无价黄金窗口。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_sommelier_guardian_justice",
+   "requires": [
+    "sommelier_chief_qian_wan_hao"
+   ],
+   "text": "看似苛刻刻板的保全主管借检查香槟塔底座为由用身躯死死顶住重心偏角，以职业坚守默默构筑最稳固后盾。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_mechanics_tassel_burr_tampered",
+   "requires": [
+    "sound_assistant_sun_xiao_meng"
+   ],
+   "text": "香槟塔底座重型合金流苏倒钩原本设计用于锁固厚垂幔，卡死纯银手铐细链实为双重机械咬合导致的偶然绝境。"
+  }
+ ]
+}

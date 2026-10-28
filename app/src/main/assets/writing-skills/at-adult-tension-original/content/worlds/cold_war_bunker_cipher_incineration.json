@@ -1,0 +1,2125 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "在要塞机电班干了二十八年的成年老工勤",
+   "age_range": [
+    45,
+    58
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_operator_gao",
+   "line": "报告雷参谋长，通信大厅战备发报机房防爆气闸已完全闭锁，值班机电班正在全负荷排涝保电。",
+   "location_ids": [
+    "loc_cipher_telegraph_hall",
+    "loc_emergency_generator_room"
+   ],
+   "name": "高工长",
+   "role": "暗堡防爆机电值班工长"
+  },
+  {
+   "adult_context": "通信学院毕业后分到要塞的成年女兵",
+   "age_range": [
+    22,
+    28
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_assistant_chu",
+   "line": "叶机要员请安心整肃，外廊参谋长仪仗正由秦处长陪同步入穿廊核验战报。",
+   "location_ids": [
+    "loc_bunker_ventilation_shaft",
+    "loc_cipher_telegraph_hall"
+   ],
+   "name": "楚译电员",
+   "role": "通信副台监听译电员"
+  },
+  {
+   "adult_context": "入伍两年、年满二十岁的成年警卫战士",
+   "age_range": [
+    19,
+    22
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_guard_xiaoma",
+   "line": "小马端着枪守在铁梯口，谁要下机房都得先报口令，连老处长也不例外。",
+   "location_ids": [
+    "loc_staff_corridor_stairs"
+   ],
+   "name": "小马",
+   "role": "铁梯口哨兵"
+  },
+  {
+   "adult_context": "在要塞炊事班干了二十多年的成年老兵",
+   "age_range": [
+    45,
+    52
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_cook_laozhang",
+   "line": "老张推着送夜宵的餐车在穿廊里转悠，嘴里的消息比餐车上的馒头还多。",
+   "location_ids": [
+    "loc_staff_corridor_stairs"
+   ],
+   "name": "老张",
+   "role": "炊事班长"
+  },
+  {
+   "adult_context": "机要科在编、年满二十一岁的成年通信员",
+   "age_range": [
+    20,
+    24
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_runner_xiaozhou",
+   "line": "小周夹着文件夹一路小跑，在机房和参谋部之间来回送电报底稿。",
+   "location_ids": [
+    "loc_cipher_telegraph_hall",
+    "loc_staff_corridor_stairs"
+   ],
+   "name": "小周",
+   "role": "机要通信员"
+  },
+  {
+   "adult_context": "在要塞发电机房值班十几年的成年电工",
+   "age_range": [
+    38,
+    46
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_electrician_wu",
+   "line": "吴师傅盯着电压表一刻不敢眨眼，备用发电机一喘气就伸手去调油门。",
+   "location_ids": [
+    "loc_emergency_generator_room"
+   ],
+   "name": "吴师傅",
+   "role": "发电机房值班电工"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "高工长凭借数十年机电水工真功口授水力受力破绽，首席报务员以纯钢拆卸扳手精准反拧自锁针阀，生死关头结成绝对互信。",
+   "id": "combo_operator_and_engineer",
+   "identity_ids": [
+    "identity_cipher_operator",
+    "identity_bunker_engineer",
+    "identity_assistant_telegraphist",
+    "identity_defense_commandant"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_ye_chuwei_operator",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "幽暗积水通信大厅托付清白与战备安危之患难同志",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_gao_zhenbang_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "雨季每回排水抢修都一起下过竖井",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_ye_chuwei_operator",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "char_gao_zhenbang_engineer",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "机台电波与管网水压相互依存铸就之文武交融生死契阔",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_ye_chuwei_operator",
+    "char_gao_zhenbang_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "赶在地下积水浸坏电台总成前解脱束缚顺利通报",
+    "limit_gap": "工长受限于防爆条例绝不可动用明火切割免爆可燃气，机要女官誓死保全军用绝密电台片纸不损。",
+    "meeting_reason": "通信暗堡主机大厅突遇暗河倒灌渗水失衡，二人被困于同一装甲门闭合死角关头。",
+    "resource_gap": "机电名匠空有一身巨力受制于装甲门咬死窄隙无法近身，女机要员身披毛呢制服贴紧钢槽唯有亲执扳手自救。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_shear_imbalance",
+    "engine_iron_curtain_countdown"
+   ]
+  },
+  {
+   "chemistry": "参谋长在穿廊以崇高将官威仪阻滞随行脚步，首席报务员在机房以绝伦力学智慧巧解机关，官兵同心护佑要塞通信战备。",
+   "id": "combo_operator_and_commander",
+   "identity_ids": [
+    "identity_defense_commandant"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_ye_chuwei_operator",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "台前幕后心照不宣之革命军人同脉共鸣",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "char_lei_dingshan_commander",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "首长视察时按条令陪同在侧",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_ye_chuwei_operator",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "char_lei_dingshan_commander",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "以崇高使命为屏障跨越官阶地位建立之崇高战友信赖",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "char_ye_chuwei_operator",
+    "char_lei_dingshan_commander"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在保全女兵军纪尊严与无损电台前提下确立彼此相敬如宾之深层战友盟约。",
+    "limit_gap": "长官必须维持战备纪律与将帅威严规制，机要员立誓不受任何非议与同情挟制。",
+    "meeting_reason": "参谋长亲临地下暗堡核验战备通信电台，正逢机房突遇渗水屏风卡死奇险。",
+    "resource_gap": "参谋长手握要塞特级调动大权与巡查检阅符令，机要名姝唯凭一身过硬业务与坚贞风骨立足。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_public_gaze_scrutiny"
+   ]
+  },
+  {
+   "chemistry": "老处长处长在外廊运筹帷幄周旋长官，首席报务员在深舱临危自拔光耀机要处，长尊晚辈交相辉映成全要塞声誉。",
+   "id": "combo_operator_and_chief",
+   "identity_ids": [
+    "identity_cipher_operator",
+    "identity_bunker_engineer",
+    "identity_assistant_telegraphist",
+    "identity_defense_commandant"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_ye_chuwei_operator",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "危局关头给予革命护持与军纪考察之深刻羁绊",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "char_qin_weiguo_elder",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "老处长带出来的兵，见了老处长还是立正",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_ye_chuwei_operator",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "char_qin_weiguo_elder",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "老处长嘴上最严，签字时却总替首席报务员留一条后路",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "char_ye_chuwei_operator",
+    "char_qin_weiguo_elder"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在消弭突发事故同时赢得全处上下一致推戴成为机要处唯一总技术带头人。",
+    "limit_gap": "老领导须兼顾机要条线保密原则与严格军规，名姝立誓破除险阻以硬核才智自立。",
+    "meeting_reason": "老处长陪同参谋长恭候巡查电台，意外撞破首席报务员受困底层水患风暴边缘。",
+    "resource_gap": "老处长执掌数十年机要通信核心机密与处属应急资源，青年女兵以通神手艺独当一面肩挑大梁。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_public_gaze_scrutiny"
+   ]
+  },
+  {
+   "chemistry": "副台译电员在门外穿廊以宽幅军呢大衣筑成人墙遮蔽暗壁，首席报务员在脱钩瞬间顺势借力闪入怀抱，同组姐妹同生共死。",
+   "id": "combo_operator_and_assistant",
+   "identity_ids": [
+    "identity_assistant_telegraphist"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_ye_chuwei_operator",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "守护首席报务员军威仪容与贴身制服防线之至交",
+     "stage": "committed"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_chu_xuelan_assistant",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "新兵连同一个班出来的，夜班一起熬过三年",
+     "stage": "intimate"
+    },
+    {
+     "a": "char_ye_chuwei_operator",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_chu_xuelan_assistant",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "机房多年相濡以沫结下之生死相依姐妹真情与革命纽带",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "char_ye_chuwei_operator",
+    "char_chu_xuelan_assistant"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "首长推门进机房的那一刻，看见的只是一个军容整齐、正在发报的首席报务员。",
+    "limit_gap": "首席报务员不能离开发报台，副台监听员不能当着首长的面撒太大的谎。",
+    "meeting_reason": "通信学院毕业分配至同一战备台位，两人朝夕相处形同手足。",
+    "resource_gap": "首席报务员手里只有一把电子管扳手，副台监听员有雨衣、值班簿和一张会说话的嘴。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_iron_curtain_countdown"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "chan_whisper_box",
+   "reach": "机房至阀舱通风管道微振回路",
+   "text": "通信机房暗道通风管微振传音回路，通过钢管共振传递低沉敲击暗号。"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "chan_backstage_gossip",
+   "reach": "整个要塞，一顿饭的工夫传遍，传到哨位上已经面目全非",
+   "text": "炊事班和警卫连之间口口相传的消息"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "机要通信工程学院特优毕业年届桃李二十一周岁，依法享有完全独立自主民事决策与军事战备行动权",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "一米七零挺拔英气身段，白瓷凝脂般绝美容颜微带淡淡的红晕娇艳反差；长发挽成利落发髻以钢簪别紧，身穿暗灰纯毛呢修身立领套裙配雪白真丝衬衫与黑色高开叉贴身马裤，脚穿长筒马靴，散发着机油与松香清冽幽香。",
+    "青丝高挽神情冷肃坚毅，雪白修颈线条笔挺，英姿飒爽五官带着冰霜威仪，双颊带着一点血色平添反差魅力；毛呢收腰猎装制服勾勒出纤细蛮腰，手扶电台宛若悬崖上一株挺立寒松。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲动扯拉制服造成昂贵呢料撕裂大面积走光受辱",
+     "大声呼喊引得警戒卫兵蜂拥而入踩踏断开通信天线"
+    ],
+    "contrast": "冷艳绝美之年轻女机要员，危急关头展现出常人难及之硬核微观力学破险胆魄",
+    "core_value": "凭铁血坚毅之名姝操守以纯力学自力脱困护佑通信绝密",
+    "goal_options": [
+     "倒持纯钢扳手套角旋开泄压截止阀卸除装甲门水锁",
+     "指令副手抖开避水军呢雨氅建立全封闭视觉死角"
+    ],
+    "never": [
+     "弃绝绝密密码底册独求苟安辜负军人神圣誓言",
+     "在长官队伍面前展现出衣冠不整失范之狼狈之相"
+    ],
+    "prefers": [
+     "借助随身军工合金工具梅花端头自力化解机关",
+     "由默契战友展开双层避光军呢大风衣严密掩护身形"
+    ],
+    "pressure_responses": {
+     "breaking": "紧咬下唇强忍腕骨金属冷硬磨痛，以雷霆巧劲横向别松逆止卡舌",
+     "high": "单膝屈地吸震稳固重心，借敬礼掩护将扳手六角套准螺栓柱头",
+     "low": "身姿挺拔双眸如炬，目光精准测算门框钢槽咬合受力两毫米缝隙",
+     "mid": "深吸一口气维持冷艳沉静神色，右手沉稳探向胸前战术口袋扳手"
+    },
+    "relationship_stance": "对寻常客套自持冷峻，唯向精忠报国恪守科学严谨之同志展现战友深情",
+    "withdrawal": "敛身收回扳手立正于发报台前，以利落潇洒军礼迎向参谋长官"
+   },
+   "gender": "female",
+   "gender_reason": "国防机要通信工程核心战备特聘首席女报务员军中传统",
+   "id": "char_ye_chuwei_operator",
+   "identity": {
+    "authority": "地下暗堡绝密通信电台最高发报操作权与应急破拆自救裁量权",
+    "exposure": "立领毛呢套裙侧摆受装甲门死死绞死面临扯烂露肉之危机",
+    "hidden": "暗中精通军工纯钢拆卸扳手尾部梅花六角孔对泄压阀钢珠之角向力矩巧劲",
+    "limits": [
+     "严禁在参谋首长面前露出丝毫制服破裂失态之状玷污军人威仪",
+     "必须在雨水淹没机房前完成绝密电波通联"
+    ],
+    "obligations": [
+     "自始至终保全绝密密码底本字迹无损绝不落入水渍浸烂",
+     "以标准干练之军人立正敬礼迎接参谋长官检阅视察"
+    ],
+    "resources": [
+     "核心战备密码机要底册配十二公分纯钢小扳手",
+     "机要密室出入专属金属凭信",
+     "全军通信业务大比武一等功臣荣誉称号"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对要塞战备使命之赤诚笃定",
+     "从容临大难而不乱之刚健军人威仪"
+    ],
+    "boundaries": [
+     "值班表上的名字还在，机房里只谈电码",
+     "套裙的扣子由自己来解，谁也不许替"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "并肩作战誓死护卫通信生命线之同志同盟",
+    "dislikes": [
+     "拖泥带水之怯懦",
+     "轻佻冒犯言行",
+     "擅离职守之渎职做派"
+    ],
+    "expression": "摘下耳机靠在电台边，指尖还搭在电键上：门关上吧……今晚这一段电文，只发给你一个人。",
+    "likes": [
+     "干净机油芬芳",
+     "熄灯后有人陪着坐在发报大厅里，替自己把被钢槽扯开的套裙侧摆一针针缝好",
+     "清晰干脆之莫尔斯电码短音"
+    ],
+    "preconditions": [
+     "密码本保住了，水也退了，机房里只剩电台的嗡鸣",
+     "两人都卸了岗，不是长官与部下，只是两个清醒的成年人"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "国防暗堡首席机要报务员",
+   "schedule": [
+    {
+     "from": 1300,
+     "location_id": "loc_cipher_telegraph_hall",
+     "to": 1360
+    },
+    {
+     "from": 1361,
+     "location_id": "loc_staff_corridor_stairs",
+     "to": 1420
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "右腕雪白皮肉受金属硬角挤磨擦破渗出殷红血丝",
+      "option": "倒持冷锻钢扳手套准泄压阀螺母施加四点五牛顿剪切力矩"
+     },
+     {
+      "cost": "副手身躯将直接迎受暗井倒灌阴冷风寒侵袭",
+      "option": "示意副手抖开双重防潮军呢大氅将{npc.name}全身严密遮挡"
+     }
+    ],
+    "pressure": "管道渗水逼近高压电台唯余二十秒，铁梯外廊长官脚步声已然逼近",
+    "trigger": "水压装甲门反咬侧裙与密码带，机房地面积水持续上涨"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "纯钢扳手六角梅花槽已咬准阀芯，手腕四点五牛顿力矩必须一举旋退止回钢珠。",
+    "surface": "通廊警报尚未解除，战备电波正在接收，未校准频率前切勿触碰发报机。"
+   }
+  },
+  {
+   "adult_context": "暗堡机电工程维保工龄二十五年资深总工程师，完全民事责任能力人",
+   "age_range": [
+    42,
+    45
+   ],
+   "appearance_options": [
+    "军绿防爆工装连体服配厚底翻毛工巡靴，肩搭重型扳手套筒，双手布满老茧与防锈油脂痕迹，目光如电精悍沉稳。",
+    "深灰技工夹克配战术长裤，面容冷峻坚毅，举手投足带着大国工匠沉雄笃定之铁骨风范。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲动电焊切割工具产生火花引爆可燃气体",
+     "慌乱喧嚷惊扰参谋长官巡查步伐"
+    ],
+    "contrast": "平时不苟言笑之工装糙汉，在千钧一发时刻展现出微米级工程智慧",
+    "core_value": "尊崇严谨工程力学规律，以最小破坏保障人员安全与通信通畅",
+    "goal_options": [
+     "沉声口授首席报务员利用扳手六角端头逆向挑退止回钢珠要领",
+     "在门外以高强度铁撑杆顶紧受力支点防止气囊二次反咬"
+    ],
+    "never": [
+     "做出任何违反军容风纪接触女兵制服之越矩举动",
+     "推卸机电防险失误责任苟且自保"
+    ],
+    "prefers": [
+     "借冷锻扳手梅花六角高扭矩特性挑脱逆止弹片",
+     "遵照水流动力学规律平稳泄压避免管网巨震"
+    ],
+    "pressure_responses": {
+     "breaking": "果断扳动副渠分流手柄，分担正面水头确保卡舌彻底脱开",
+     "high": "单手撑住门框冷轧钢边缘，全力协助受困者校准撬动支点",
+     "low": "细听管道高压微震，指尖快速复核泄压阀受压磅数",
+     "mid": "沉声下达排气角度参数，高大身躯立于门侧阻挡飞溅水花"
+    },
+    "relationship_stance": "以护卫战备枢纽之热血忠诚敬重首席报务员，恪守长官下属尊卑之仪",
+    "withdrawal": "收拾五金器具立于机房阴影中，肃然向首席报务员敬礼"
+   },
+   "gender": "male",
+   "gender_reason": "要塞水工机电与防爆装甲门机械管网工程总负责人传统",
+   "id": "char_gao_zhenbang_engineer",
+   "identity": {
+    "authority": "暗堡通信大厅全部防爆门锁及水压管网应急排险调控权",
+    "exposure": "若断水处置失职导致机房被淹将承担战备安全重大过失军纪重处",
+    "hidden": "知晓泄压截止阀内生铁顶杆只需斜向旋退半圈即可释放高压水头",
+    "limits": [
+     "绝不可动用重锤钢钎强砸门框避免引燃发报机短路电弧",
+     "未获报务员指令前不得越位接触机要女兵"
+    ],
+    "obligations": [
+     "确保装甲门不再受水压挤迫产生二次形变压伤人员",
+     "以微观水动力学参数指引受困女兵实施精准自救"
+    ],
+    "resources": [
+     "水压防爆装甲门手动泄压孔内部钢珠自锁图纸",
+     "全套军工级微观测隙规与高压截止阀应急卡板"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对暗堡通信保密天职之无私坚守",
+     "手被钢槽夹出血也不肯松开密码本的那股狠劲"
+    ],
+    "boundaries": [
+     "严格维持工长与首席报务员之间严肃职业间距",
+     "排险全程目光锁定机械受力点绝不斜视丝毫私密之处"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "暗堡坚如磐石之机电守护者",
+    "dislikes": [
+     "违章盲目操作",
+     "图纸都没看过就拍板的参谋",
+     "粗暴糟蹋军用设备"
+    ],
+    "expression": "以短促有力之军用机械术语通报发力方向",
+    "likes": [
+     "平稳水压表读数",
+     "冷锻纯钢五金工具",
+     "严丝合缝之机械公差"
+    ],
+    "preconditions": [
+     "建立在共同抢修国防战备枢纽安全职责之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "暗堡水工机电名匠",
+   "schedule": [
+    {
+     "from": 1310,
+     "location_id": "loc_bunker_ventilation_shaft",
+     "to": 1370
+    },
+    {
+     "from": 1371,
+     "location_id": "loc_cipher_telegraph_hall",
+     "to": 1430
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "师傅掌心被粗糙生铁挤压破皮渗血",
+      "option": "以铁撑杆全力顶紧装甲门辅助阻尼臂分担正面水压负荷"
+     },
+     {
+      "cost": "跟了二十年的钢规板会被压弯，以后量管道再没那么准",
+      "option": "把钢规板从门外插进合页缝，顶住装甲门不让钢槽再收紧"
+     }
+    ],
+    "pressure": "通风管暗水倒灌急速攀升，两分钟内若不泄压高压管网将全面爆裂",
+    "trigger": "暗河涌浪冲入通信管沟，液压自锁装置突发机械偏位卡阻"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "泄压阀顶柱已受力微动，首席报务员机要员腕力精准必能一举顶退钢珠。",
+    "surface": "水压表指针正逼向红线，扳手套口须逆时针扳动四十五度。"
+   }
+  },
+  {
+   "adult_context": "大校军衔要塞副司令兼参谋长年满四十五周岁，享有战备最高战役指挥处置权",
+   "age_range": [
+    45,
+    48
+   ],
+   "appearance_options": [
+    "笔挺深灰防尘军用风衣配锃亮将官马靴，神情威严肃穆目光如鹰隼，步伐沉稳有力，谈吐间兼具将帅果决与师旅之威严风貌。",
+    "标准作训常服外罩风衣，肩章金色星徽闪耀，神色刚毅从容，手按指挥战术图囊，渊渟岳峙气魄慑人。"
+   ],
+   "decision": {
+    "avoids": [
+     "死板卡扣教条导致突发险情演化为军风丑闻",
+     "让捕风捉影之辈非议机要女兵之高洁荣誉"
+    ],
+    "contrast": "铁血冷峻之作战指挥长官，内心对坚守地下深渊之年轻报务员怀有如山爱护",
+    "core_value": "以国防大局胜败为先，以至公襟怀成全奋勇自救之机要英姝",
+    "goal_options": [
+     "在铁梯穿廊从容驻足询问值勤换班细节为底层排险争取三十秒",
+     "下令纠察排在梯口整齐持枪立正受阅延缓整列前进动线"
+    ],
+    "never": [
+     "向外界泄露防空暗堡遭受山洪倒灌侵袭内幕",
+     "因官僚审批程序耽搁战备抢险最佳时机"
+    ],
+    "prefers": [
+     "运用高超将帅机变拖延巡察步伐为后舱赢得脱困空间",
+     "事后亲自签一份事故报告，把所有疑问都压在自己名下"
+    ],
+    "pressure_responses": {
+     "breaking": "在机房脱险刹那迈步入门，严肃而充满温情向机要员致以崇高军礼",
+     "high": "反手扣合图囊卡锁，以雷霆军威声调转移全场焦点注意",
+     "low": "整装敛容驻足梯口，严肃垂询随行参谋暗堡防洪战备预案",
+     "mid": "敏锐察觉下层水汽啸叫，不动声色微抬戴白手套之右臂示意随行驻足"
+    },
+    "relationship_stance": "赞赏首席报务员绝世才智与钢铁意志，引为最信赖之通信战友",
+    "withdrawal": "在作战指挥椅沉静落座，提笔签署特级密电发毕通报"
+   },
+   "gender": "male",
+   "gender_reason": "要塞战备总值班参谋长官首脑男性职衔",
+   "id": "char_lei_dingshan_commander",
+   "identity": {
+    "authority": "要塞全区临战通信联络与紧急战备行动最高统帅权",
+    "exposure": "若通信中断延误战机将构成不可宽恕之战备渎职事故",
+    "hidden": "早已备好立功嘉奖令拟定报请为首席报务员记个人战备特等功",
+    "limits": [
+     "在随行参谋将士面前必须维持镇定自若从容不迫之统帅仪态",
+     "不得在情况未明前盲目下达全区撤退命令扰乱军心"
+    ],
+    "obligations": [
+     "督导机要通信大厅按时收发完毕最高战备密电",
+     "在危难时刻保全通信枢纽核心技术骨干生命安全与军威荣誉"
+    ],
+    "resources": [
+     "战备一级警备一票签发调遣权与指挥警卫营直属突击队",
+     "直通最高国防统帅部卫星加密保密专线"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "坚贞不屈之军人血性",
+     "从容临险之英拔风骨"
+    ],
+    "boundaries": [
+     "军衔是军衔，心意是心意，不拿立功嘉奖去换",
+     "白天在机房照旧敬礼、报告"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "德高望重之战备引路长官",
+    "dislikes": [
+     "诿过塞责",
+     "轻浮失序",
+     "畏葸不前"
+    ],
+    "expression": "摘下军帽放在电台上，声音压得很低：军衔先放一边，剩下这几分钟，想只做个陪你等雨停的人。",
+    "likes": [
+     "规整电报纸抄件",
+     "视察结束后在铁梯尽头并肩站一会儿，听洞外雨声渐渐停了",
+     "端庄自强之军中英才"
+    ],
+    "preconditions": [
+     "首长车队离开了要塞，警报解除",
+     "首席报务员先摘下耳机说出口"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "要塞驻军参谋长官",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_staff_corridor_stairs",
+     "to": 1375
+    },
+    {
+     "from": 1376,
+     "location_id": "loc_cipher_telegraph_hall",
+     "to": 1430
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "长官巡查日程推迟或受军区作战考核微嫌",
+      "option": "在梯台上驻足详细核对沿线防汛执勤名单以此羁留随行属员步态"
+     },
+     {
+      "cost": "临时整队变更指令引来副官疑惑猜测",
+      "option": "传令警卫分队原地肃立整理风雨斗篷为机房留出清场窗口"
+     }
+    ],
+    "pressure": "防汛警钟长鸣，纠察卫兵已下至梯台仅余二十秒倒数",
+    "trigger": "参谋长巡视队列已过梯口，地下机房水情险象随时面临暴露"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "首席报务员机要员手持扳手力挽狂澜，当真是我要塞最坚贞之钢铁栋梁。",
+    "surface": "诸位稍息止步，且看各层引水压力仪表，今夜暴雨水情非同寻常。"
+   }
+  },
+  {
+   "adult_context": "军级通信处长军旅生涯三十五年年满五十四周岁，享有要塞通信事务全权管理权",
+   "age_range": [
+    54,
+    56
+   ],
+   "appearance_options": [
+    "两鬓微霜身板笔直，身穿老式无兜毛料军官常服，目光慈和沉凝洞察秋毫，举止间散发着数十年机要战线沉潜之威严从容。",
+    "深灰呢料制服佩戴资历章，神情肃穆坚毅，双手反剪步履沉着，自有一股不动如山之资深首长气场。"
+   ],
+   "decision": {
+    "avoids": [
+     "急躁慌乱引得外人窥探机要失范笑柄",
+     "让别部人员介入机要通信内部保密业务"
+    ],
+    "contrast": "平时严苛挑剔之古板老处长，在青年女兵受险时竭尽全能倾力守护",
+    "core_value": "护佑战备通信命脉，视首席报务员为机要战线未来之无上瑰宝",
+    "goal_options": [
+     "以汇报最新监听密电概要为名截留长官步伐拖延十息时间",
+     "暗中指示通信班战士在下层地沟迅速构筑阻水沙包围堰"
+    ],
+    "never": [
+     "为了应付首长视察，让首席报务员在人前出丑",
+     "让密码本落到机房以外任何人的手里"
+    ],
+    "prefers": [
+     "运用军中深厚人脉底蕴化解通廊危机",
+     "让年轻人自己把门打开，老处长只在背后把着规矩"
+    ],
+    "pressure_responses": {
+     "breaking": "在电波发送完毕瞬间含笑敬礼，以机要处长之尊向参谋长官从容复命",
+     "high": "从容展开战备卷宗，以资深老兵大度气度镇住过道全盘局势",
+     "low": "轻揉眉心和颜悦色，沉稳引导首长在梯口阅看战报抄件",
+     "mid": "敏锐洞察门缝冷气异变，暗中以目色示意通信排速去排涝排险"
+    },
+    "relationship_stance": "视首席报务员为最器重之年轻一代机要骨干，护犊心切",
+    "withdrawal": "在机房值班桌前沉吟良久，终于长长舒出一口气欣慰点头"
+   },
+   "gender": "male",
+   "gender_reason": "军区机要通信保密处老资历元老男性职衔",
+   "id": "char_qin_weiguo_elder",
+   "identity": {
+    "authority": "机要处全部收发报文最终审核与密码本启用注销权",
+    "exposure": "若机房进水受淹毁坏核心发报设备将承担战备渎职重责",
+    "hidden": "早已暗中打报告推荐首席报务员为下一任机要通信处总技术主管",
+    "limits": [
+     "绝不允许机要女兵清白荣誉在巡查队伍面前受损蒙尘",
+     "不得因慌乱擅自破坏机房双向防爆装甲门之原有密封结构"
+    ],
+    "obligations": [
+     "在外廊沉着应对参谋长巡视确保首席报务员后舱从容脱险",
+     "在水患平息后全盘护持年轻报务骨干申报立功奖励"
+    ],
+    "resources": [
+     "通信处专属机动排险保障备用金库与特种备件箱",
+     "通达各大军区通信参谋总长之资深老战友网络"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "坚决果敢之军人品质",
+     "手速快过老处长当年的那份报务天分"
+    ],
+    "boundaries": [
+     "严守处长威严与年轻女兵之间严肃距离",
+     "绝不在外人面前谈及内勤小节私事"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "稳健可依之老一辈通信掌舵人",
+    "dislikes": [
+     "违章漏电",
+     "轻慢保密纪律",
+     "遇事慌乱推诿"
+    ],
+    "expression": "以长辈兼首长之信任目光赞许颔首，话音沉雄有力",
+    "likes": [
+     "无漏抄报手稿",
+     "严明干练之部队纪律",
+     "后继有人之兴旺气象"
+    ],
+    "preconditions": [
+     "严格依循革命军人战友平等尊严准则坦诚相待"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "机要通信处老处长",
+   "schedule": [
+    {
+     "from": 1315,
+     "location_id": "loc_staff_corridor_stairs",
+     "to": 1380
+    },
+    {
+     "from": 1381,
+     "location_id": "loc_cipher_telegraph_hall",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "老处长需承担擅自变更汇报流程之微嫌责任",
+      "option": "亲呈加急战备密件引请首长审阅以此滞缓巡查队列推进"
+     },
+     {
+      "cost": "动作略大易招致外侧作战参谋妄加揣测起疑",
+      "option": "下令机房关闭外侧铁锁以防汛检修为由阻绝闲杂随从"
+     }
+    ],
+    "pressure": "水位急剧上涨逼向发报机柜，战备核心密册面临淹没之险",
+    "trigger": "底楼积水警报传至通廊，参谋长已至穿廊门前"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "首席报务员沉稳聪颖定能化险为夷，机要处三十年招牌断不会折在今朝。",
+    "surface": "参谋长请止步，机要处刚截获加急战备情报，请首长先行过目。"
+   }
+  },
+  {
+   "adult_context": "军校机要通信专业毕业成年女兵，享有完全法定民事行动自由",
+   "age_range": [
+    22,
+    23
+   ],
+   "appearance_options": [
+    "身段修长英武，双颊天然带有柔和的轮廓清丽动人，身穿墨绿修身作训制服套裙配高筒皮靴，手挽加厚深青双层防雨防潮军呢大风衣，神色机警步履迅捷。",
+    "墨绿军装贴身平整，秀发整齐盘于军帽之内，双手稳托备用密本铝合金公文箱，目光机警忠诚毫无怯懦。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌张挪动脚步引来过道耳目注视",
+     "任由冷雨泥水沾染师姐整洁军服"
+    ],
+    "contrast": "平日甜美活泼之年轻译电员，在大险临头时展现出滴水不漏之果敢护持",
+    "core_value": "誓死护卫首席报务员师姐清誉与地下电波通联顺畅，百死不悔",
+    "goal_options": [
+     "站在穿廊铁梯口挡着，把首长一行引去先看配电间",
+     "接过密码本抱在怀里，让首席报务员腾出双手"
+    ],
+    "never": [
+     "趁首席报务员被困抢着去替班发报",
+     "把今晚机房里的事写进任何一份汇报"
+    ],
+    "prefers": [
+     "用值班簿和雨衣争取时间，不跟首长硬顶",
+     "用绝缘软布轻柔吸尽电台旋钮渗落水汽"
+    ],
+    "pressure_responses": {
+     "breaking": "钢槽一松就把军用雨衣往首席报务员肩上一披，扣子都来不及扣",
+     "high": "反手扣紧风衣防风扣，筑成密不透风之遮蔽软壁",
+     "low": "在门侧机警环视，双手悄然拉平防风大风衣折角四端",
+     "mid": "戴着半边耳机走到门口，假装在核对值班簿"
+    },
+    "relationship_stance": "从新兵连起就跟着首席报务员，嘴上叫师姐，心里早就不只当师姐",
+    "withdrawal": "托箱侍立于师姐身侧，挺胸敬礼从容随同接受首长检阅"
+   },
+   "gender": "female",
+   "gender_reason": "机要通信同组搭档随行女译电员女性传统",
+   "id": "char_chu_xuelan_assistant",
+   "identity": {
+    "authority": "机房应急备勤调度与首席报务员身侧警戒防护首要职责权",
+    "exposure": "若遮蔽闪失致使师姐衣裙受损走光将同受严重纪律处分",
+    "hidden": "随身大风衣下摆暗藏吸水棉垫可一秒吸尽制服溅落泥水",
+    "limits": [
+     "绝不容许通廊闲杂人员在紧急时刻窥见首席报务员师姐受困受窘之态",
+     "在发报未毕前不得离开通信主机大厅半步"
+    ],
+    "obligations": [
+     "在首席报务员脱扣瞬间以军呢大氅严密遮蔽制服破绽无缝接应",
+     "协助师姐将解救之绝密密码本迅速移至干燥发报台面"
+    ],
+    "resources": [
+     "一件挂在机房门后的军用雨衣，和一块备用的密码本油布套",
+     "绝缘防静电纯棉擦拭布与应急备用真空管套组"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "通宵守着一台电台、一起数过无数次天亮的交情",
+     "只听电键节奏就知道对方今天心情好不好"
+    ],
+    "boundaries": [
+     "坚决杜绝任何闲言碎语侵扰首席报务员静心发报",
+     "雨衣披上去就只是遮挡，等师姐自己开口再说别的"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "生死与共之机要知己战友",
+    "dislikes": [
+     "拿女兵的长相开玩笑的人",
+     "出了事就往下推的干部",
+     "山洪暴雨破坏设备"
+    ],
+    "expression": "以温柔坚定之身姿紧密相依，目光坚决饱含战友深情",
+    "likes": [
+     "厚实毛呢面料",
+     "严整战备秩序",
+     "合拍默契配合之收发报流程"
+    ],
+    "preconditions": [
+     "多年并肩值夜，彼此都清楚这份心意不是一时冲动"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "地下暗堡副台监听译电员",
+   "schedule": [
+    {
+     "from": 1305,
+     "location_id": "loc_bunker_ventilation_shaft",
+     "to": 1365
+    },
+    {
+     "from": 1366,
+     "location_id": "loc_cipher_telegraph_hall",
+     "to": 1425
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "谎报一旦被拆穿，副台监听员要背处分",
+      "option": "抢先迎上铁梯，大声报告机房一切正常，把首长引向配电间"
+     },
+     {
+      "cost": "雨衣挡得住门缝，挡不住首长若要亲自推门",
+      "option": "把军用雨衣搭在装甲门上，挡住钢槽里被夹住的裙摆"
+     }
+    ],
+    "pressure": "铁梯上传来皮靴声，参谋长的手电光已经照到穿廊尽头",
+    "trigger": "首长靴声踏响穿廊步步迫近，首席报务员师姐受困裙摆随时面临走光险局"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "参谋长马靴声已转过楼梯，脱钩刹那我定当以风衣将师姐周密护住。",
+    "surface": "姐，尽管安心挑卸，大风衣已完全展开，谁的眼光也越不过我这道墙。"
+   }
+  },
+  {
+   "adult_context": "纠察营长少校军衔年满三十六周岁，依法享有军事警戒与违纪执纪全权",
+   "age_range": [
+    36,
+    38
+   ],
+   "appearance_options": [
+    "一身深蓝防水野战突击服配黑色防暴头盔与反光背心，手持对讲机身挎警备带，身姿伟岸神情刚毅，目光如电透出铁面无私威仪。",
+    "黑色作训服配高筒军靴，腰扎武装带，举止干练沉稳，时刻保持高度戒备警戒临战姿态。"
+   ],
+   "decision": {
+    "avoids": [
+     "乱开抽水机，把装甲门吸得更死",
+     "在首长面前把险情说得太轻"
+    ],
+    "contrast": "雷厉风行之铁面纠察营长，对战备通信女兵怀有赤诚博大之守护情怀",
+    "core_value": "要塞的命脉在地下，水不退，什么命令都是空话",
+    "goal_options": [
+     "下到老竖井撬开废弃泄水道的铁栅",
+     "用野战电话每隔一分钟向机房报一次水位"
+    ],
+    "never": [
+     "首长来了就先顾着站队列，把竖井扔下不管",
+     "为了面子瞒报水情"
+    ],
+    "prefers": [
+     "依照水工防汛科学标准调控闸门消减正面冲力",
+     "把水位报准到厘米，让机房里的人自己掂量"
+    ],
+    "pressure_responses": {
+     "breaking": "肩膀顶开铁栅，暗河水哗地一声泄进老水道",
+     "high": "腰上拴着绳子下到竖井底，用撬棍去别铁栅的锈锁",
+     "low": "打着手电看竖井壁上的水位刻线，一言不发",
+     "mid": "摇响野战电话，嗓门压过雨声报出水位"
+    },
+    "relationship_stance": "敬佩首席报务员机要员在滔滔浊浪前坚守电台之铁骨柔肠，全力驰援",
+    "withdrawal": "浑身湿透爬出竖井，把撬棍往地上一插，点上一根烟"
+   },
+   "gender": "male",
+   "gender_reason": "要塞内卫纠察与防汛巡察长官男性身份",
+   "id": "char_huo_jianfeng_inspector",
+   "identity": {
+    "authority": "要塞全区地基防汛应急抢险与交通管制一票警戒权",
+    "exposure": "若排水失当造成发报机泡水短路将受军纪最严厉制裁",
+    "hidden": "老竖井底下有一条五十年代留下的废弃泄水道，只有纠察队长下去过",
+    "limits": [
+     "严禁在未排查清险情前盲动重机械导致管道水锤破坏",
+     "不得因粗暴戒严影响战备通信正常发报"
+    ],
+    "obligations": [
+     "雨季守住要塞的排水竖井，不让暗河水漫进机房",
+     "配合机要报务员在安全窗口期内完成特级密电发报"
+    ],
+    "resources": [
+     "暗堡地下排水总阀应急绞盘锁控钥匙",
+     "直通要塞防汛抢险总指挥部无线加急通讯电台"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "电话那头听着水位一厘米一厘米涨，声音还稳得住的人",
+     "不等别人来救、自己拧开阀门的那双手"
+    ],
+    "boundaries": [
+     "纠察的公事与私交分得一清二楚",
+     "对报务员们只守护、不越线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "守在竖井底下，替机房挡住暗河的那个人",
+    "dislikes": [
+     "下雨天还躲在办公室里写材料的人",
+     "把水位报虚了邀功的人",
+     "关键时候找不到人的值班员"
+    ],
+    "expression": "立正收起手电，隔着装甲门短促地说了一句：好样的，外面有我。",
+    "likes": [
+     "精准水文图表",
+     "雨停后坐在竖井口，听山里的水声一点点小下去",
+     "说话干脆、做事利落的同志"
+    ],
+    "preconditions": [
+     "在要塞的危局里亲眼见过对方的胆色与分寸",
+     "双方都是清醒自主的成年人"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "要塞内卫纠察队长",
+   "schedule": [
+    {
+     "from": 1315,
+     "location_id": "loc_emergency_generator_room",
+     "to": 1380
+    },
+    {
+     "from": 1381,
+     "location_id": "loc_staff_corridor_stairs",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "竖井底水流湍急，纠察队长可能被冲倒受伤",
+      "option": "下竖井撬开废弃泄水道的铁栅，把暗河水引走"
+     },
+     {
+      "cost": "消防车的动静会让首长一下子看出要塞出了事",
+      "option": "调来消防车从洞口往外抽水"
+     }
+    ],
+    "pressure": "装甲门被水压顶死，抽水机一开反而吸得更紧，首长车队已到洞口",
+    "trigger": "暗河水顺着老竖井倒灌，机房所在的那一层地面开始倾斜"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "首席报务员机要员临危不乱舍身取义，不愧为名震要塞之通信尖兵。",
+    "surface": "副闸扳开了，机房水位不涨了，钢槽那头可以慢慢挑。"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "1969 年，冬",
+  "minute": 1340
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "humiliation",
+  "workplace_power",
+  "workplace",
+  "disaster"
+ ],
+ "custom": true,
+ "customs": [
+  "地下暗堡报务员在发报前须独自闭目校准发报机音膜三分钟，手持纯钢拆卸扳手检核电子管座真空密封状态。",
+  "防空机房值班规程严禁单人夜值，主报务员与水电机电巡线员必须结伴佩戴防爆手电并在换岗日志联合签名。",
+  "要塞密码机要操守规定，发送绝密电文后须端坐于发报椅行标准军礼交接，绝不可步履踉跄衣衫不整离开机位。",
+  "防爆水压隔离装甲门外通廊终年保持微负压抽风，人员出入均须扳动黄铜气压平衡阀确保双向气闸平衡锁止。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "使用高压验电笔与微型扳手紧固电子管插座镀银簧片",
+    "以纯酒精软布轻柔擦拭发报电键纯金接点确保发报清晰"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [],
+   "id": "act_vacuum_tube_transmitter_check",
+   "location_ids": [
+    "loc_cipher_telegraph_hall"
+   ],
+   "start_minute": 1300,
+   "tags": [],
+   "title": "大功率真空管发报机整肃规程"
+  },
+  {
+   "beats": [
+    "手持微米测隙规检验双向装甲防爆门密封钢槽受压间隙",
+    "用丝绢干布擦抹手动泄压截止阀黄铜旋钮凝结之冷凝水珠"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_bunker_sluice_flood_patrol",
+   "location_ids": [
+    "loc_bunker_ventilation_shaft"
+   ],
+   "start_minute": 1320,
+   "tags": [],
+   "title": "地下暗井水压管路防渗巡查"
+  },
+  {
+   "beats": [
+    "向备用柴油发电机联轴节注入高粘度耐温润滑机油",
+    "试推双投隔离开关确认旁路备电处于秒级自动投切状态"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_generator_load_switch_check",
+   "location_ids": [
+    "loc_emergency_generator_room"
+   ],
+   "start_minute": 1310,
+   "tags": [],
+   "title": "暗堡配电发电机组切载启闭维保"
+  },
+  {
+   "beats": [
+    "于值班长案端正摆设加急战备密电防尘铝合金公文箱",
+    "测试挂壁防爆应急广播终端在突发断电时之自启通话质量"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_staff_ladder_vip_prep",
+   "location_ids": [
+    "loc_staff_corridor_stairs"
+   ],
+   "start_minute": 1330,
+   "tags": [],
+   "title": "参谋铁梯穿廊巡查迎宾密电陈设"
+  },
+  {
+   "beats": [
+    "在特细天然油石上修磨冷锻纯钢扳手平钝直角撬口刃角",
+    "用防锈油擦拭扳手尾部六角梅花槽确保卡合螺母零滑丝"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_wrench_tool_calibration_drill",
+   "location_ids": [
+    "loc_cipher_telegraph_hall"
+   ],
+   "start_minute": 1280,
+   "tags": [],
+   "title": "高硬度电子管拆卸工具刃口精磨"
+  },
+  {
+   "beats": [
+    "练习手捧绝密密码本立正敬礼迎候首长之端肃军姿",
+    "由副台译电员协同演练双手抖披深青防潮军呢大风衣瞬间防窥手法"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_drape_shielding_drill",
+   "location_ids": [
+    "loc_staff_corridor_stairs",
+    "loc_cipher_telegraph_hall"
+   ],
+   "start_minute": 1315,
+   "tags": [],
+   "title": "军呢风衣防窥遮挡操练演习"
+  },
+  {
+   "beats": [
+    "熄灯后的发报大厅只剩电台的绿色指示灯，首席报务员披着军呢大氅坐在机台前，套裙侧摆还留着钢槽撕开的口子。",
+    "首席报务员递过针线盒，请人替自己把侧摆的破口缝上，针尖每穿过一次，电键旁的手指就蜷一下。",
+    "最后一针打好结时，首席报务员没有起身，只把大氅往旁边让出半边。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_lights_out_mending_skirt",
+   "location_ids": [
+    "loc_cipher_telegraph_hall"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "熄灯后缝好套裙侧摆"
+  },
+  {
+   "beats": [
+    "下了夜班的报务员坐在铁架床边，脱了军呢外套，衬衫领口松着，两手捂着一只冒热气的搪瓷缸。",
+    "报务员把缸子递过来，等人喝了一口才低声问：今晚能不能别回你那边？你说不，我不怪你。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bunk_malted_milk",
+   "location_ids": [
+    "loc_operator_bunk_room"
+   ],
+   "start_minute": 1300,
+   "tags": [
+    "intimate"
+   ],
+   "title": "值班宿舍里冲一缸麦乳精"
+  },
+  {
+   "beats": [
+    "熄灯后，报务员拉过人的手摊开，用指尖在掌心一下一下地敲，长短交替，像在发一封只给一个人的电报。",
+    "报务员先问了一句“可以吗”，得到回答后才凑到耳边，把那串电码一个字一个字念出来，念完便吻了上来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bunk_morse_on_palm",
+   "location_ids": [
+    "loc_operator_bunk_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "在掌心敲一串电码"
+  },
+  {
+   "beats": [
+    "起床号还没吹，宿舍的小气窗透进一点灰白，报务员在窄窄的铁架床上醒来，枕着人的胳膊。",
+    "报务员把被子往上拉，盖住两个人的肩膀，小声说：值班表上我是六点。还有五分钟，谁也别动。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bunk_before_reveille",
+   "location_ids": [
+    "loc_operator_bunk_room"
+   ],
+   "start_minute": 330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "起床号前的五分钟"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "现代冷战",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "少男",
+  "少女",
+  "少年",
+  "幼女",
+  "幼童",
+  "学徒",
+  "徒弟",
+  "门生",
+  "弟子",
+  "学生",
+  "校园",
+  "师生"
+ ],
+ "hooks": [
+  {
+   "id": "hook_mounter_gaze_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cipher_telegraph_hall"
+   ],
+   "slot": "char_ye_chuwei_operator",
+   "text": "{npc.name}在装甲门倾倒定格瞬间微沉下颌，透过钢槽缝隙向地面渗水投去一泓清冷端肃之锐利眸光。"
+  },
+  {
+   "id": "hook_carpenter_signal_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cipher_telegraph_hall"
+   ],
+   "slot": "char_gao_zhenbang_engineer",
+   "text": "{npc.name}从工具包里抽出钢规板，蹲在装甲门边敲了敲门框：里面的，听我说，先找左下角的止回阀。"
+  },
+  {
+   "id": "hook_assistant_cloak_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cipher_telegraph_hall",
+    "loc_bunker_ventilation_shaft"
+   ],
+   "slot": "char_chu_xuelan_assistant",
+   "text": "{npc.name}把军用雨衣搭在臂弯里守在机房门口，铁梯上一有动静就站直了身子。"
+  },
+  {
+   "id": "hook_curator_nod_observe",
+   "kind": "approach",
+   "location_ids": [
+    "loc_staff_corridor_stairs"
+   ],
+   "slot": "char_lei_dingshan_commander",
+   "text": "{npc.name}在铁梯口停住脚，抬手示意身后的人别出声，侧耳听机房里异样的水声。"
+  },
+  {
+   "id": "hook_gao_thermos_offer",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_gao_zhenbang_engineer",
+   "text": "{npc.name}拎着军用水壶走过来，拧开盖子倒了一杯热水递过来：地底下潮，暖暖手。"
+  },
+  {
+   "id": "hook_lei_roster_check",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_lei_dingshan_commander",
+   "text": "{npc.name}夹着值班表走过来，停下脚步，像是随口问了一句今晚谁值后半夜。"
+  },
+  {
+   "id": "hook_qin_old_codebook",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_qin_weiguo_elder",
+   "text": "{npc.name}从抽屉里摸出一本泛黄的旧电码本，招手让人过去：看看，这是老处长年轻时候抄的。"
+  },
+  {
+   "id": "hook_chu_earphone_share",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_chu_xuelan_assistant",
+   "text": "{npc.name}摘下一边耳机递过来，压低声音说：你听，这个台的手法跟上个月不一样。"
+  },
+  {
+   "id": "hook_ye_bunk_bolt",
+   "kind": "approach",
+   "location_ids": [
+    "loc_operator_bunk_room"
+   ],
+   "slot": "char_ye_chuwei_operator",
+   "text": "{npc.name}靠在宿舍门边，把插销拨开又拨上，声音压得很低：今晚隔壁没人值班。要进来坐坐吗？"
+  }
+ ],
+ "id": "cold_war_bunker_cipher_incineration",
+ "locations": [
+  {
+   "affordances": [
+    "探入特种双头扳手六角套孔反扳排气逆止截止阀",
+    "观测管路水压表指针水银柱高压受冲攀升读数",
+    "贴紧装甲门钢槽探摸三元乙丙密封胶条咬合间隙"
+   ],
+   "detail": "深处花岗岩开凿之全封闭国防通信中枢，整排大功率发报机闪烁绿光，三吨重双向气动水压装甲门深嵌于防爆钢门槽内。",
+   "exits": [
+    "loc_bunker_ventilation_shaft",
+    "loc_staff_corridor_stairs",
+    "loc_emergency_generator_room"
+   ],
+   "id": "loc_cipher_telegraph_hall",
+   "name": "地下机要通信总主机大厅",
+   "pressure_modifiers": {
+    "press_shear_arm_collapse": "水压剧增导致装甲门锁舌承受上千牛顿持续锁紧剪应力"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "应急红色警示灯在金属机柜表面投下刺目反光，门缝死咬处高压水珠喷涌视线极其受限",
+   "witnesses": [
+    "bg_operator_gao",
+    "bg_assistant_chu"
+   ]
+  },
+  {
+   "affordances": [
+    "拉起双重深黑防潮纯呢大衣建立遮挡屏障",
+    "取用备用电子管减震胶垫与排气铜板支撑受力点",
+    "观测暗河回冲高压水头在泄洪槽内之回流液位"
+   ],
+   "detail": "紧邻发报机房之地下引水泄洪减压阀舱，密布铸铁旁通截止阀管道与生铁防爆单向止回阀组。",
+   "exits": [
+    "loc_cipher_telegraph_hall",
+    "loc_staff_corridor_stairs",
+    "loc_emergency_generator_room"
+   ],
+   "id": "loc_bunker_ventilation_shaft",
+   "name": "通风暗井水压阀舱",
+   "pressure_modifiers": {
+    "press_iron_curtain_drop": "穿廊铁梯传来长官皮靴行进脚步带来视线审视压迫"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "头顶防爆铁网马灯透出暗黄光晕，暗井管壁冷凝水汽如注倾泻而下",
+   "witnesses": [
+    "bg_operator_gao",
+    "bg_assistant_chu"
+   ]
+  },
+  {
+   "affordances": [
+    "呈递通信联络密电总簿引开巡查首长视线焦点",
+    "通过挂壁对讲铜管向机房通报长官下楼步态秒数",
+    "指令纠察卫兵在梯口立正敬礼阻延行进速度"
+   ],
+   "detail": "连接地面指挥所与地下掩体之螺旋纯钢悬臂铁梯回廊，四处安装防爆监听喇叭与战备警备信号灯。",
+   "exits": [
+    "loc_cipher_telegraph_hall",
+    "loc_bunker_ventilation_shaft",
+    "loc_emergency_generator_room",
+    "loc_operator_bunk_room"
+   ],
+   "id": "loc_staff_corridor_stairs",
+   "name": "要塞参谋铁梯穿廊",
+   "pressure_modifiers": {
+    "press_iron_curtain_drop": "要塞一级防汛警备警报已在角楼上方长鸣"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "廊下白色荧光灯照耀纤毫毕现，任何军容破绽均无所遁形隐藏",
+   "witnesses": [
+    "bg_operator_gao",
+    "bg_assistant_chu"
+   ]
+  },
+  {
+   "affordances": [
+    "扳动双投隔离开关切断故障短路回路电源",
+    "启动备用潜水强排泵降低通信机房地沟积水",
+    "核准发电机组高压电枢平衡输出稳定频率"
+   ],
+   "detail": "安置大型六缸柴油发电机组之独立配电舱，墙上整齐悬挂军用高压验电笔与备用旁路切换开关把手。",
+   "exits": [
+    "loc_cipher_telegraph_hall",
+    "loc_bunker_ventilation_shaft",
+    "loc_staff_corridor_stairs"
+   ],
+   "id": "loc_emergency_generator_room",
+   "name": "备用发电机机电控制室",
+   "pressure_modifiers": {
+    "press_shear_arm_collapse": "管网短路电弧过载噼啪作响充满迫近危机"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "仪表盘冷色荧光闪烁，高压变压器嗡鸣声在密闭石壁形成厚重共鸣",
+   "witnesses": [
+    "bg_operator_gao",
+    "bg_assistant_chu"
+   ]
+  },
+  {
+   "affordances": [
+    "坐在铁架床边分一缸麦乳精",
+    "替报务员把军呢外套挂好",
+    "把门背后的插销拨上"
+   ],
+   "detail": "暗堡上层的一间小宿舍，两张铁架床、一只搪瓷脸盆、墙上贴着值班表，门背后有一道插销。",
+   "exits": [
+    "loc_staff_corridor_stairs"
+   ],
+   "id": "loc_operator_bunk_room",
+   "name": "报务员值班宿舍",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "只开一盏绿罩台灯，隔壁电台的嘀嗒声隐约透过墙传过来，床上的人一抬眼就能看见对方。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "叶",
+   "高",
+   "雷",
+   "楚",
+   "秦",
+   "霍",
+   "岳",
+   "康",
+   "段",
+   "齐",
+   "贺",
+   "莫"
+  ],
+  "given_female": [
+   "楚微",
+   "雪岚",
+   "晓霜",
+   "文清",
+   "若琳",
+   "静姝",
+   "敏仪",
+   "丹青",
+   "红梅",
+   "秀英",
+   "晓燕",
+   "玉兰"
+  ],
+  "given_male": [
+   "振邦",
+   "定山",
+   "铁柱",
+   "卫国",
+   "建峰",
+   "明辉",
+   "毅平",
+   "浩然",
+   "长江",
+   "援朝",
+   "国庆",
+   "向东"
+  ],
+  "given_neutral": [
+   "波",
+   "凌",
+   "峰",
+   "云",
+   "舟",
+   "声",
+   "越",
+   "成",
+   "军",
+   "林",
+   "海",
+   "星"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "老{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留冷战年代华北要塞地下通信暗堡的背景。改动：四条规则与第二个压力是其他世界的残留，改写为暗堡条令与上级突击视察的时限；四个玩家身份原本与人物模板是同一批人，改写为总部派来的保密检查员、地质勘测技术员、炊事班长、外调的无线电教员；纠察队长的倾向卡与台词去掉了藏书楼世界的残留；首席报务员与参谋长的倾向卡放宽到脱险后可心动，亲密前提写明危机解除、双方清醒自愿；新增一个熄灯后发报大厅的亲密日常；写死的人名改为身份称呼或占位。",
+ "player_identities": [
+  {
+   "age_range": [
+    30,
+    45
+   ],
+   "baseline": "带着总部手令来抽查密码本保管的检查员，偏偏赶上暴雨封山。",
+   "gender": "any",
+   "id": "identity_cipher_operator",
+   "reputation": "铁面无私，各通信处都怕这一位来。",
+   "resources": [
+    "总部保密手令",
+    "调阅一切机要记录的权限"
+   ],
+   "risks": [
+    "检查期间若出泄密事故，检查员也脱不了干系"
+   ],
+   "role": "总部派来的成年保密检查员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}检查员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "来测暗河渗水的地质技术员，在暗堡里住了半个月。",
+   "gender": "any",
+   "id": "identity_bunker_engineer",
+   "reputation": "做事细致，跟机电组处得不错。",
+   "resources": [
+    "渗水测量图与水文仪器",
+    "一把地质锤和一卷钢尺"
+   ],
+   "risks": [
+    "外单位人员出入机要区，出了事先查到自己头上"
+   ],
+   "role": "地质队借调来的成年勘测技术员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}技术员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "管着全堡伙食的炊事班长，夜班时总给发报大厅送热汤。",
+   "gender": "any",
+   "id": "identity_assistant_telegraphist",
+   "reputation": "嘴碎心热，大家都叫一声老班长。",
+   "resources": [
+    "伙房钥匙与一锅热姜汤",
+    "全堡上下都愿意说两句的人缘"
+   ],
+   "risks": [
+    "非机要人员擅入发报大厅要挨处分"
+   ],
+   "role": "暗堡炊事班的成年班长",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}班长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "来给报务员们上新式收发报课的教员，暂住参谋铁梯旁的宿舍。",
+   "gender": "any",
+   "id": "identity_defense_commandant",
+   "reputation": "教学严格，报务员们私下都服气。",
+   "resources": [
+    "新式收发报机的教材与零件箱",
+    "参谋长亲批的临时通行证"
+   ],
+   "risks": [
+    "教员的通行证只到黄线为止"
+   ],
+   "role": "军区外调来的成年无线电教员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}教员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "冷战年代，华北要塞地下三十米的国防通信暗堡，首席女报务员在机要舱室里值了三年班；保密检查员、勘测技术员和炊事班长是这个月才调下来的。白天收发电报、焚毁废码，夜里在铁架床上听渗水声。雨季山里的暗河会涨，水压装甲门的自锁装置是老式的。",
+ "pressures": [
+  {
+   "choice": "借扳手梅花六角套拧开泄压螺母自救，还是在原地呼叫等待外力强撬但承受走光毁电台凶险？",
+   "exits": [
+    {
+     "cost": "手腕被钢槽边磨出一道血痕，发报时电键都按得发疼",
+     "option": "反手将纯钢拆卸扳手套入泄压阀螺母施加逆向角向剪切杠杆力矩"
+    },
+    {
+     "cost": "同伴后背需直面通风口倾泻冰冷雨水浇淋",
+     "option": "示意副台译电员迅速拉开宽幅防潮军用风衣遮蔽门缝死角"
+    }
+   ],
+   "far": {
+    "consequence": "若未能在时限内排解险局，战备一级电报将无法按时发出导致前线战机贻误。",
+    "due_days": 1,
+    "trigger": "山洪若浸泡高压发射机柜，千万伏强电将引发短路爆燃彻底摧毁地下通信枢纽。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_shear_arm_collapse",
+   "immediate": {
+    "minutes": 1,
+    "text": "门缝装甲钢槽正以秒级速度受水压锁死，呢裙领口纯棉缝线因重力拉扯发出微弱崩断轻响。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cipher_telegraph_hall",
+    "loc_bunker_ventilation_shaft"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "机房地面积水已漫过电线防爆桥架三寸，两分钟红线倒数直逼电子管底座。"
+   },
+   "objective": "赶在通风管道积水漫过机柜淹没高压电子管电台总成前，巧用纯钢扳手挑退泄压卡舌脱身。",
+   "source": "accident",
+   "start_minute": 1205,
+   "tags": [
+    "disaster"
+   ],
+   "title": "水压装甲门逆向咬死绝局",
+   "trigger": "山洪失衡使装甲门闭合，套裙呢料与密码本革带紧紧绞死在两毫米钢槽内部。"
+  },
+  {
+   "choice": "是请老处长在铁梯口截住首长汇报水情，还是顶着衣衫不整先守住密码本？",
+   "exits": [
+    {
+     "cost": "老处长要背上拖延首长的责任",
+     "option": "请老处长在铁梯口拦下首长，先汇报一段暗河水情"
+    },
+    {
+     "cost": "首席报务员只能裹着大氅起立报告，套裙侧摆的破口瞒不过近处的人",
+     "option": "由副台译电员展开军呢大氅挡在门口，先把密码本收进怀里"
+    }
+   ],
+   "far": {
+    "consequence": "首席报务员被撤下机要岗位，整个通信处年终考评降等。",
+    "due_days": 3,
+    "trigger": "若首长撞见值班报务员衣冠不整、密码本离身，当场以失职论处。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_iron_curtain_drop",
+   "immediate": {
+    "minutes": 2,
+    "text": "铁梯上传来皮靴踏步声，警卫员已经在喊立正。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_staff_corridor_stairs",
+    "loc_bunker_ventilation_shaft"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "参谋长的声音隔着装甲门传进来，正在介绍发报大厅的位置。"
+   },
+   "objective": "在首长踏进发报大厅前脱身整装，把密码本贴身收好，起立报告。",
+   "source": "institution",
+   "start_minute": 1210,
+   "tags": [
+    "workplace"
+   ],
+   "title": "上级突击视察临门",
+   "trigger": "军区首长冒雨突击视察，车队已经停在要塞洞口，参谋长正陪着沿铁梯一层层往下走。"
+  },
+  {
+   "choice": "是派人冒雨去库房扛油桶，还是先关掉机房一半的设备省电？",
+   "exits": [
+    {
+     "cost": "竖井那边就没人盯水位了",
+     "option": "让纠察队长冒雨带人去库房扛油桶"
+    },
+    {
+     "cost": "机房里又黑又闷，首席报务员要摸黑发报",
+     "option": "关掉机房的照明和通风，只留电台一路供电"
+    }
+   ],
+   "far": {
+    "consequence": "上级收到半份电报，会以为机房出了内鬼。",
+    "due_days": 2,
+    "trigger": "若电台断电，正在发的那份急电只发出去一半。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_generator_fuel_low",
+   "immediate": {
+    "minutes": 2,
+    "text": "发电机的声音开始发喘，机房的灯一明一暗。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_emergency_generator_room"
+   ],
+   "near": {
+    "deadline_minutes": 10,
+    "text": "再过十分钟，油箱就要见底。"
+   },
+   "objective": "在发电机熄火之前把油桶从库房搬下来续上，保住电台供电。",
+   "source": "accident",
+   "start_minute": 1215,
+   "tags": [
+    "disaster"
+   ],
+   "title": "备用发电机油料告急",
+   "trigger": "主电路被水泡断，机房全靠备用发电机撑着，油箱指针已经快到底了。"
+  },
+  {
+   "choice": "是按条令烧掉密码本，还是请老处长再宽限几分钟？",
+   "exits": [
+    {
+     "cost": "若出了差错，老处长要背处分",
+     "option": "请老处长以个人名义担保，宽限五分钟"
+    },
+    {
+     "cost": "剩下的一半若再出事，就真救不回来了",
+     "option": "把密码本拆成两半，先烧不要紧的那一半"
+    }
+   ],
+   "far": {
+    "consequence": "首席报务员多年攒下的报务记录也要跟着烧掉，前途蒙上阴影。",
+    "due_days": 3,
+    "trigger": "若密码本被烧，要塞与军区的联络要中断整整三天。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_codebook_burn_order",
+   "immediate": {
+    "minutes": 2,
+    "text": "焚毁炉的炉门已经打开，炉膛里的火苗舔着炉口。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cipher_telegraph_hall"
+   ],
+   "near": {
+    "deadline_minutes": 10,
+    "text": "十分钟一到，老处长就得亲手执行命令。"
+   },
+   "objective": "在焚毁时限到来之前让密码本和首席报务员一起脱身。",
+   "source": "institution",
+   "start_minute": 1220,
+   "tags": [
+    "workplace"
+   ],
+   "title": "老处长的焚毁命令",
+   "trigger": "老处长按条令下令：密码本若在十分钟内不能离开机房，就地投进焚毁炉。"
+  },
+  {
+   "choice": "是让副台监听员出去澄清，还是由参谋长下令封口？",
+   "exits": [
+    {
+     "cost": "副台监听员一走，门口就没人守",
+     "option": "让副台监听员出去说明只是渗水抢修"
+    },
+    {
+     "cost": "越是封口，越显得心里有鬼",
+     "option": "请参谋长当众下令谁也不许乱传"
+    }
+   ],
+   "far": {
+    "consequence": "机房上下都要写检查，流言会跟着首席报务员好几年。",
+    "due_days": 4,
+    "trigger": "若首长下令搜查机房，首席报务员的狼狈就藏不住了。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_canteen_rumor_spread",
+   "immediate": {
+    "minutes": 2,
+    "text": "警卫连的几个兵端着枪往铁梯这边张望。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_staff_corridor_stairs"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "首长若在穿廊里听见这话，视察就会改成搜查。"
+   },
+   "objective": "在流言传到首长耳朵里之前把风声压下去。",
+   "source": "rumor",
+   "start_minute": 1225,
+   "tags": [],
+   "title": "机房出事的流言",
+   "trigger": "炊事班有人说机房里的女报务员被装甲门夹伤了，话传到警卫连已经变成了机房进了特务。"
+  },
+  {
+   "choice": "是放下挡水板闷着机房，还是开着通风让泥水继续灌？",
+   "exits": [
+    {
+     "cost": "氧气瓶只够撑一个钟头",
+     "option": "放下挡水板，机房改用氧气瓶撑着"
+    },
+    {
+     "cost": "纠察队长要在泥水里泡上半个钟头",
+     "option": "让纠察队长下竖井清淤，开着通风"
+    }
+   ],
+   "far": {
+    "consequence": "雨季的抢修经费要追加，机电班要挨个挨批。",
+    "due_days": 2,
+    "trigger": "若电台泡水，要塞要靠人跑腿传话好几天。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_ventilation_shaft_flood",
+   "immediate": {
+    "minutes": 3,
+    "text": "通风口里传来哗哗的水声，带着泥腥味的风一阵阵灌下来。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bunker_ventilation_shaft"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "再灌二十分钟，机房的积水就要漫过电台底座。"
+   },
+   "objective": "在机房缺氧之前把竖井的挡水板放下来，同时保住通风。",
+   "source": "nature",
+   "start_minute": 1230,
+   "tags": [
+    "disaster"
+   ],
+   "title": "通风竖井倒灌",
+   "trigger": "山洪越涨越高，通风竖井里开始往下灌泥水，机房的空气越来越闷。"
+  }
+ ],
+ "region": "华北要塞花岗岩地下三十米国防通信暗堡",
+ "rules": [
+  {
+   "id": "rule_curtain_iron_drop",
+   "text": "暗堡水压装甲门遇渗水自动闭锁，闭锁后只能从门框泄压阀卸压，外侧绝无破门手段。"
+  },
+  {
+   "id": "rule_orchestra_pit_hydraulic",
+   "text": "绝密密码本不得离身，遇险无法转移时须当场投入焚毁炉，烧不尽者按泄密论处。"
+  },
+  {
+   "id": "rule_gala_etiquette_protocol",
+   "text": "战备值班期间发报大厅禁止喧哗，非机要人员一律不得跨过黄线。"
+  },
+  {
+   "id": "rule_patron_access_authority",
+   "text": "上级首长视察时，值班报务员须着装整齐、起立报告，衣冠不整者记过处分。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "行礼",
+  "committed": "同盟",
+  "familiar": "融洽",
+  "flirting": "暗涌",
+  "intimate": "知心",
+  "stranger": "生客",
+  "testing": "试探"
+ },
+ "status": "released",
+ "style_hint": "强调水下密闭水力学高压破拆刚体物理机制与机要军人从容自律风骨，全员成年法定合规",
+ "tension_engines": [
+  {
+   "id": "engine_shear_imbalance",
+   "text": "三吨重防爆装甲门受水压失衡侧倾卡死，每下沉一分门槽自锁咬舌便向内收紧，毛呢制服承受极限拉力。"
+  },
+  {
+   "id": "engine_iron_curtain_countdown",
+   "text": "山洪倒灌通风管网，冷水以寸级速度爬升，留给抢发战备绝密电波之自救时间秒秒流逝。"
+  },
+  {
+   "id": "engine_public_gaze_scrutiny",
+   "text": "驻军参谋长与内卫纠察队长脚步马靴声在铁梯回响，任何衣冠不整受辱走光均将招致灭顶军纪非议。"
+  },
+  {
+   "id": "engine_steam_valve_threat",
+   "text": "备用电机排风管路逆涌轰鸣，若两分钟内未能排空水压，高压变压器短路爆燃将彻底烧毁主机大厅。"
+  }
+ ],
+ "title": "冷战暗堡·电波监听·防空暗堡机要发报主机大厅防爆隔离水压门自锁",
+ "tone": [
+  "华丽",
+  "机巧",
+  "紧绷",
+  "清冷",
+  "优雅",
+  "压迫"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "twist_info_hydraulic_blueprint",
+   "requires": [
+    "char_gao_zhenbang_engineer"
+   ],
+   "text": "地下发报机房装甲门系采用双向气动与水压联动自锁，原设计暗藏泄压退榫孔，只需以六角扳手逆向旋转半圈即可卸压脱扣。"
+  },
+  {
+   "category": "人事",
+   "id": "twist_person_substitute_courage",
+   "requires": [
+    "char_ye_chuwei_operator"
+   ],
+   "text": "看似清冷文秀之报务骨干首席报务员，入伍前即在工业机修工坊磨砺过硬钳工本领，手劲指力与机械认位之准冠绝同袍。"
+  },
+  {
+   "category": "资源",
+   "id": "twist_resource_tuning_fork_steel",
+   "requires": [
+    "char_ye_chuwei_operator"
+   ],
+   "text": "首席报务员随身配发之电子管拆卸扳手选用高碳合金钢冷锻淬火，强度硬如特种撬棒且韧而不折，天然便是一柄微观力矩破拆神兵。"
+  },
+  {
+   "category": "制度",
+   "id": "twist_institution_curtain_rule",
+   "requires": [
+    "char_lei_dingshan_commander"
+   ],
+   "text": "战备通信条例特别规章明文授权，在不可抗力山洪险情前，战备值班机要骨干拥有现场紧急破拆自救最高处置权免受军纪追责。"
+  },
+  {
+   "category": "时限",
+   "id": "twist_deadline_iron_slack",
+   "requires": [
+    "press_shear_arm_collapse"
+   ],
+   "text": "纠察队长撬开了老竖井底下的废弃泄水道，机房的水压一下子松了，装甲门的钢槽退开了两指宽。"
+  },
+  {
+   "category": "关系",
+   "id": "twist_relation_patron_pledge",
+   "requires": [
+    "char_lei_dingshan_commander"
+   ],
+   "text": "参谋长实则深知首席报务员战备技术过硬久矣，此番亲临早已备好嘉奖文书，女机要员惊世自救令长官深为折服当场批准通报。"
+  }
+ ]
+}

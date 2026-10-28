@@ -1,0 +1,2236 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满四十八岁，工兵班的老兵。",
+   "age_range": [
+    48,
+    52
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_garrison_sergeant_otto",
+   "line": "滑块咬在导轨死角上了！神官长，用您的钨钛合金手杖脚钉别进去！",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "name": "哈根",
+   "role": "工兵班的老兵哈根"
+  },
+  {
+   "adult_context": "年满二十二岁，随军救护的修女。",
+   "age_range": [
+    22,
+    26
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_acolyte_sister_mia",
+   "line": "伤员已经固定在担架上了！大门一开立刻往外抬！",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "name": "莉莎",
+   "role": "随军修女莉莎"
+  },
+  {
+   "adult_context": "年满二十二岁，前线在编工兵，成年军人。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_engineer_private_franz",
+   "line": "排水闸板全部扳开了！圣泉水位下降了半米，不会倒灌进救护所了！",
+   "location_ids": [
+    "loc_sacred_spring_cistern_catacomb"
+   ],
+   "name": "弗朗茨",
+   "role": "前线工兵列兵弗朗茨"
+  },
+  {
+   "adult_context": "年满三十岁，水务管理女官，成年公民。",
+   "age_range": [
+    30,
+    35
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_water_keeper_hilda",
+   "line": "水渠石梁也出现裂纹了！救护所要是塌了，整座地下水脉全得堵死！",
+   "location_ids": [
+    "loc_sacred_spring_cistern_catacomb"
+   ],
+   "name": "希尔达",
+   "role": "圣泉管理员希尔达"
+  },
+  {
+   "adult_context": "年满二十六岁，近卫武官，成年军官。",
+   "age_range": [
+    26,
+    30
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_castellanus_deputy_guard_karl",
+   "line": "督军有令！导火索还剩最后两分钟，门要是打不开就立刻点火引爆封门！",
+   "location_ids": [
+    "loc_fortress_outer_counterscarp_tunnel"
+   ],
+   "name": "卡尔",
+   "role": "督军近卫副官卡尔"
+  },
+  {
+   "adult_context": "年满二十四岁，野战观察哨兵，成年军人。",
+   "age_range": [
+    24,
+    28
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_artillery_spotter_jonas",
+   "line": "地表炮火正在逼近！外围防线还能顶住五分钟，动作快！",
+   "location_ids": [
+    "loc_fortress_outer_counterscarp_tunnel"
+   ],
+   "name": "约纳斯",
+   "role": "坑道瞭望哨约纳斯"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "温柔圣洁的首席女牧师与沉稳刚烈的重装防卫骑士在崩塌废墟中相依为命，两人前胸贴后背紧扣钨钛合金十字手杖，在万钧重石倾轧中合力硬撬滑块推门脱困。",
+   "id": "cc_cleric_and_knight_crowbar_rush",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "cleric_elena_vanguard",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "废墟乱石中共同核算力矩与支点，建立起托付生死的战地默契。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "knight_ernst_ironwall",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "前线并肩作战的生死兄弟。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cleric_elena_vanguard",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "knight_ernst_ironwall",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "白衣神官长与铁甲骑士在崩塌绝境中达成生死同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "cleric_elena_vanguard",
+    "knight_ernst_ironwall"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在督军引爆坑道前，合力用手杖脚钉将咬死滑块硬撬复位推开防爆门。",
+    "limit_gap": "神官长受法阵反噬神术枯竭体能透支，骑士长身受重甲笨重且旧伤复发行动受制。",
+    "meeting_reason": "黄昏换药时，骑士长又带着新伤来救护所，女牧师一边缝一边数落，针还没收，结界就开始冒烟。",
+    "resource_gap": "神官长掌握高强度钨钛合金十字杖与滑槽破阻核心，骑士长具备开山裂石般的千斤坠重托神力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_granite_lintel_jam_vs_staff_crowbar",
+    "te_rune_arc_heat_roast_vs_tight_hug"
+   ]
+  },
+  {
+   "chemistry": "惊慌失措的营造师在乱石堆后搬运玄武岩垫块指点支点，女牧师长果决指挥调度化解卡死危机。",
+   "id": "cc_cleric_and_architect_fulcrum_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "cleric_elena_vanguard",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "密切关注神官长高空落石安危。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "architect_klaus_runecraft",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "催促营造师迅速测算最佳力学支点。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cleric_elena_vanguard",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "architect_klaus_runecraft",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "长官与工程军官之间的火线排故协作。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "cleric_elena_vanguard",
+    "architect_klaus_runecraft"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "垫准硬质玄武岩支点协助合金手杖瞬间爆发数倍力矩脱险。",
+    "limit_gap": "营造师极度恐慌落石浑身发抖，女牧师长独自直面巨石崩塌凶险。",
+    "meeting_reason": "营造官来加固救护所的拱顶，女牧师嫌敲打声吵着伤员，两人在烛光里为图纸争了半个钟头。",
+    "resource_gap": "营造师深谙救护所剖面应力图纸与玄武岩硬度垫块，女牧师长亲临前线掌控手杖下压发力点。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_granite_lintel_jam_vs_staff_crowbar"
+   ]
+  },
+  {
+   "chemistry": "督军拔剑威胁立刻点火封门断后，骑士长怒举战术破拆锤横在其头顶据理力争，展开针锋相对的意志较量。",
+   "id": "cc_knight_and_castellanus_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "knight_ernst_ironwall",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "支持骑士长抗命护送伤员的大义担当。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "castellanus_lord_valentin",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对视同袍人命如草芥的逃兵督军深恶痛绝。",
+     "stage": "stranger"
+    },
+    {
+     "a": "knight_ernst_ironwall",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "castellanus_lord_valentin",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "一线战士与后方腐败督军之间的生死拔剑对峙。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "knight_ernst_ironwall",
+    "castellanus_lord_valentin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "为前线手杖硬撬争取宝贵的三分钟黄金排阻窗口。",
+    "limit_gap": "督军恐慌法阵大殉爆丧命，骑士长受限于下克上公然抗命的军法株连威慑。",
+    "meeting_reason": "督军来前线视察，要把救护所的药品调去后方，骑士长挡在礼拜堂门口不肯放行。",
+    "resource_gap": "督军掌握统帅部最高封门爆破令符与炸药引信，骑士长拥有全前线守备近卫兵的军心拥护。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_castellanus_seal_abort_vs_cleric_duty"
+   ]
+  },
+  {
+   "chemistry": "随军修女在废墟边分发湿敷纱布稳住伤员，与乱石堆前咬牙撬门的白衣神官长心心相印。",
+   "id": "cc_cleric_and_acolyte_mercy_guard",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "cleric_elena_vanguard",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "钦佩神官长舍己救人的圣洁风骨。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "acolyte_sister_mia",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "赞许年轻修女坚守岗位照顾伤员。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cleric_elena_vanguard",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 4
+     },
+     "b": "acolyte_sister_mia",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 4
+     },
+     "reason": "姐妹般深厚的圣职信赖与患难相依。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "cleric_elena_vanguard",
+    "acolyte_sister_mia"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保门缝撬开瞬间伤员平稳有序撤出防止挤压踩踏。",
+    "limit_gap": "修女体弱无法攀爬重石，神官长在巨石倾轧下急需后方伤员安抚支撑。",
+    "meeting_reason": "夜里的晚祷刚念完，随军修女抱着洗好的绷带来找神官长，说有个伤员一直在喊家乡的名字。",
+    "resource_gap": "修女手握湿敷战伤纱布与提神圣水鼻吸剂，神官长掌控自身手杖前沿破障指令。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_rune_arc_heat_roast_vs_tight_hug"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_sanctuary_brass_speaking_tube",
+   "reach": "all",
+   "text": "救护所与防御坑道黄铜传声筒抗爆通讯管道网"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_catacomb_stone_tremor_echoes",
+   "reach": "local",
+   "text": "地下岩层崩塌闷响与督军狂怒斥责回声"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "在边境前线随军六年的首席神官长，礼拜堂塌了钟楼也不肯撤，带着修女们把地下墓室改成了救护所，去留进退由本人拿主意。",
+   "age_range": [
+    26,
+    30
+   ],
+   "appearance_options": [
+    "一身修身的素白战地神官袍，袖口挽到手肘，身姿柔韧曼妙，容貌清丽圣洁，在巨石倾轧与下压的喘息中双颊泛起酡红，额角细汗晶莹，白袍被汗水贴在胸前。",
+    "淡金色的长发扎成利落的发辫垂在肩侧，碎发沾满灰土与薄汗，双手死死握住十字手杖上沿，唇瓣咬得发白，眼神里既有守着伤员的温柔，又有直面崩塌的坚毅。"
+   ],
+   "decision": {
+    "avoids": [
+     "贪生怕死的弃友逃跑",
+     "盲目狂乱的蛮干硬闯"
+    ],
+    "contrast": "在伤员床边轻声细语，替每一个将死的人念完祷词；可门楣砸下来时，是女牧师第一个扑到导轨前，下压的手劲胜过军中老卒。",
+    "core_value": "圣光教导我们守护生命，哪怕法阵崩碎，只要手里的合金长杖还在，就能撬开通往生路的钢铁！",
+    "goal_options": [
+     "利用手杖坚固金属脚钉硬撬滑块排除卡阻",
+     "协助防卫骑士合力推开主防爆门脱险"
+    ],
+    "never": [
+     "在最后一名伤员撤离前丢下手杖独自钻入狭缝逃生"
+    ],
+    "prefers": [
+     "行动果决不畏艰险的钢铁战友",
+     "令行禁止的战地默契"
+    ],
+    "pressure_responses": {
+     "breaking": "用额头抵住骑士铠甲肩膀急促喘息并喊出口令协同推门",
+     "high": "双手叠握在杖柄上整个人悬空下压借体重猛撬",
+     "low": "在灰尘弥漫中冷静测算门楣下坠角度与导轨滑移卡点",
+     "mid": "毫不犹豫将心爱的合金圣杖尾端钉入导轨狭缝"
+    },
+    "relationship_stance": "骑士长的连队驻在礼拜堂外的这两个月，女牧师替骑士长缝过三回伤口，每回都嫌骑士长不知道爱惜自己，每回缝完都要多坐一会儿才走。",
+    "withdrawal": "背靠在玄武岩主承重门柱拐角处，单手扶杖警惕注视头顶滚石落势。"
+   },
+   "gender": "female",
+   "gender_reason": "前线救护所的首席女牧师，按原稿写作女性。",
+   "id": "cleric_elena_vanguard",
+   "identity": {
+    "authority": "对防御法阵闭气泄压、伤员优先撤离次序及圣殿重装法器应急处置拥有绝对裁判权。",
+    "exposure": "为了抢救重伤骑士曾在演习中违规超负荷抽取过神圣蓄能池",
+    "hidden": "内袍贴身衣兜内珍藏着一枚刻有家乡麦穗图案的纯黄铜祈福挂坠",
+    "limits": [
+     "法阵逆流反噬导致自身圣光神术暂时陷入枯竭状态",
+     "在狭窄乱石堆中施展撬杠力矩受到白袍下摆牵绊"
+    ],
+    "obligations": [
+     "确保救护所内全体伤员与留守守军安全撤出防御坑道"
+    ],
+    "resources": [
+     "一柄圣职合金十字长手杖（长一米二，高强度淬火钨钛合金铸造，尾端带十公分坚固实心三角锥金属脚钉）",
+     "一瓶高阶战地浓缩止血生肌喷剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在崩塌落石中宛如磐石般挺立护佑的宽阔胸膛",
+     "合力下压手杖时铠甲手甲下传来的灼热体温与生死寄托"
+    ],
+    "boundaries": [
+     "严守圣职神官圣洁操守与军队阶级礼节",
+     "不以救命功绩索取情感依附"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被从身后紧紧环抱稳住下盘重心，两人双手叠合在钨钛合金手杖柄上一同猛力下压。",
+    "dislikes": [
+     "轻佻亵渎的冒犯",
+     "怯懦残忍的背叛出卖"
+    ],
+    "expression": "脱险后用微凉的掌心抚过对方被头盔压红的额头，低声念完祝福，没有把手收回来。",
+    "likes": [
+     "门缝轰然推开脱困瞬间两人急促滚烫的相视喘息",
+     "撤出险境后为对方卸甲包扎时的默契静谧"
+    ],
+    "preconditions": [
+     "防爆门顺利推开人员全数撤入安全防护坑道",
+     "救护所险情彻底平息",
+     "两人都清醒，心意出于自己，不是废墟里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "前线野战救护所的首席白衣女牧师",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_sanctuary_rune_hall",
+     "to": 1035
+    },
+    {
+     "from": 1035,
+     "location_id": "loc_sanctuary_rune_hall",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手杖高强度金属脚钉发生微弯磨损，女牧师双手掌心被粗暴磨出鲜红血泡。",
+      "option": "用圣职合金十字手杖尾端金属脚钉插入导轨死角硬撬滑块挤出缝隙推门脱险。"
+     },
+     {
+      "cost": "铁锤受强烈反震崩飞铁屑划破操作人员面颊与肩膀。",
+      "option": "用破拆大铁锤猛砸花岗岩石角强行制造推门旷量自救。"
+     }
+    ],
+    "pressure": "逆流紫电逼近中央圣泉引发大爆炸，若不能在五分钟内撬正滑块推开大门，全员将被活埋殿内。",
+    "trigger": "圣光屏障崩碎，数吨重花岗岩门楣斜砸咬死主防爆门双滑块，通道仅余二十公分缝隙。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "督军要炸壕了……圣光在上，脚钉千万别断。骑士长的胸甲贴着我的后背，烫得像火，我得把大家都带出去。",
+    "surface": "别管那些电弧！那是法阵余波！看准导轨上滑块的死角，把脚钉插进缝隙里，听我数三二一，我们合力压到底！"
+   }
+  },
+  {
+   "adult_context": "年满二十八岁，前线防卫军资深一级战术骑士长，具备完全民事行为能力，十年边境硬仗血火淬炼老兵。",
+   "age_range": [
+    28,
+    33
+   ],
+   "appearance_options": [
+    "身披布满刀痕凹坑的厚重合金胸甲，身材魁梧雄壮肩背宽阔如巨熊，面容坚毅如刀削斧凿，眼神冷冽如钢铁。",
+    "短发硬如铁针沾满石灰碎屑，在烟尘与紫电轰鸣中脚步沉稳如钉死在地表上的生铁桩子。"
+   ],
+   "decision": {
+    "avoids": [
+     "耍弄心机的逃跑主义",
+     "在危急关头动摇军心的软骨头"
+    ],
+    "contrast": "看似冷酷沉默的铁血杀伐骑士，在配合神官长下压手杖时力道精妙绝伦，生怕粗暴力道震伤神官长的手腕。",
+    "core_value": "军人的胸膛就是前线最后的盾牌，只要神官长还在施救，我{npc.name}就绝不后退半步！",
+    "goal_options": [
+     "协助神官长下压合金手杖硬撬滑块",
+     "用肩膀抗住倾斜门楣阻滞落势"
+    ],
+    "never": [
+     "在神官长还在前沿施救时自行穿过门缝逃生"
+    ],
+    "prefers": [
+     "言出必行的硬派担当",
+     "敢于直面死亡的无畏勇气"
+    ],
+    "pressure_responses": {
+     "breaking": "用后背铁甲硬生生挡下头顶砸落的磨盘大乱石",
+     "high": "从神官长身后探出双臂倾注全身数千斤神力协同下压",
+     "low": "在门楣滑落瞬间迅速用破拆锤卡死第一道缝隙",
+     "mid": "卸下肩甲为神官长让出足够的杠杆发力空间"
+    },
+    "relationship_stance": "连队驻在礼拜堂外两个月，骑士长受了三回伤，三回都只肯让女牧师缝；嘴上说是顺路，其实每晚都绕到救护所门口站一会儿。",
+    "withdrawal": "退守至门楣断裂最凶险的落石正下方，单手横举重锤掩护身后撤退人群。"
+   },
+   "gender": "male",
+   "gender_reason": "前线重装先遣防卫战术骑士长",
+   "id": "knight_ernst_ironwall",
+   "identity": {
+    "authority": "对救护所前沿防卫队列、重型破障工装调动及战术断后执行享有现场最高战术指挥权。",
+    "exposure": "为了换取突击破障战机曾擅自违令拆毁过外墙备用观察堡垒",
+    "hidden": "重战术手套内侧贴身夹层里悄悄保存着神官长当年亲手缝制的一条祈福青麻发绳",
+    "limits": [
+     "板甲厚重导致在狭窄岩缝中俯身操作极为艰难",
+     "右膝曾在旧战中受过韧带撕裂伤不宜长期深蹲"
+    ],
+    "obligations": [
+     "誓死护卫神官长周全并保全前线守备主力军纪"
+    ],
+    "resources": [
+     "一把重型高碳钢双面破拆短柄战锤",
+     "一副带有粗麻加固防滑垫的战术皮质手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在崩塌绝境中毫无骄娇之气的神圣无畏",
+     "两具躯体在生死倒计时下紧贴发力时碰撞的滚烫生命力"
+    ],
+    "boundaries": [
+     "恪守军人荣誉与下级尊崇礼制",
+     "不以舍身相救为由挟恩求报"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "从身后将神官长整个人护在胸铠与护栏之间，大手重重覆在手杖柄端合力猛压。",
+    "dislikes": [
+     "官僚督军的无耻背叛",
+     "拿部下性命当垫脚石的卑劣行径"
+    ],
+    "expression": "撕下自己干燥的战甲羊毛内衬，小心翼翼地裹在神官长磨破渗血的双手手腕上。",
+    "likes": [
+     "两人合力推开千钧闸门后如释重负的粗重对喘",
+     "神官长轻柔手指拂过战甲伤痕时的静谧温存"
+    ],
+    "preconditions": [
+     "防爆门完全推开全员安全撤离至外围安全掩体",
+     "前线防御重回受控",
+     "神官长点了头，出于本心"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "驻守前线礼拜堂的重装骑士长",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_sanctuary_rune_hall",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}右臂二头肌剧烈拉伤撕裂，手套缝隙被高温金属烫起大泡。",
+      "option": "{npc.name}将全身自重与蛮力压在手杖上端借杠杆瞬间顶开咬死滑块自救。"
+     },
+     {
+      "cost": "猛烈震荡导致头顶震落碎石擦伤{npc.name}额头流血。",
+      "option": "用战术破拆锤反向猛敲滑块底座震松咬死锁销脱险。"
+     }
+    ],
+    "pressure": "若不能在两分钟内借脚钉力矩撬开五毫米旷量，门扇将在持续自重下彻底焊死在槽内。",
+    "trigger": "巨石重量集中压迫在单侧滑块上，滑轨边缘出现受力微弯咬死阻滞。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要我还有一口气，崩塌的门楣休想伤到神官长分毫。……给我开！",
+    "surface": "神官长，抓紧杖头！脚钉已经卡准滑块咬合齿了！有我{npc.name}这身力气托着，我们一起压断这块绊脚石！"
+   }
+  },
+  {
+   "adult_context": "年满三十岁，前线防御工程随军营造官，高级工程学者，具备完全民事行为能力。",
+   "age_range": [
+    30,
+    36
+   ],
+   "appearance_options": [
+    "身穿带有工兵军衔的粗呢加厚长袍，腰间挂满精密尺规与墨斗，鼻梁上架着防尘铜镜，面容清瘦神情焦灼。",
+    "双手沾满石膏粉与石灰泥浆，紧紧抱着一卷破损的救护所施工剖面图纸。"
+   ],
+   "decision": {
+    "avoids": [
+     "毫无章法的蛮干硬砸",
+     "视技术数据如废纸的盲目狂妄"
+    ],
+    "contrast": "平日文弱拘谨的学者，在面对力学坍塌计算时眼神亮得吓人分秒不差。",
+    "core_value": "物理力学不会欺骗任何人，只要选对支点，一根手杖足以挪开万斤巨石！",
+    "goal_options": [
+     "为神官长选定最佳杠杆撬动支点",
+     "填抹快凝石膏缓解碎石滚落"
+    ],
+    "never": [
+     "在测算支点安全载荷时提供虚假数据"
+    ],
+    "prefers": [
+     "尊重工程力学的严谨配合",
+     "讲求方法的精妙破拆"
+    ],
+    "pressure_responses": {
+     "breaking": "瘫坐在地大声为二人报出撬动角度读数",
+     "high": "冒着乱石砸落将一块实心玄武岩垫在杖身下方充当支点",
+     "low": "在烟尘中用测厚规飞速量测门楣与滑轨间隙",
+     "mid": "指着滑块左侧三公分处大喊最佳切入点"
+    },
+    "relationship_stance": "视神官长为前线中少有的知性与魄力并存的神明化身，愿拼尽全力用毕生所学协助其脱险。",
+    "withdrawal": "躲在救护所最内侧坚固的石龛阴影下，双手死死抱住头盔与图纸筒。"
+   },
+   "gender": "male",
+   "gender_reason": "边防工事结构与符文加固建造军官",
+   "id": "architect_klaus_runecraft",
+   "identity": {
+    "authority": "对地下掩体承重剪力墙极限载荷、防爆门导轨倾斜公差享有权威技术裁决权。",
+    "exposure": "在当年承建门楣横梁时曾同意降低了一级石料防震标号以赶工期",
+    "hidden": "随身笔记本中详细记录着大门两侧隐藏备用排沙减载孔洞的准确方位",
+    "limits": [
+     "体魄瘦弱缺乏重载器械撬动的爆发力",
+     "极度恐慌岩层大塌方造成的活埋窒息"
+    ],
+    "obligations": [
+     "为抢险人员提供精准的杠杆支点与岩石断裂纹理测算数据"
+    ],
+    "resources": [
+     "一把带有防尘保护壳的青铜缝隙测定卡规",
+     "一听快凝耐压石膏修补砂浆干粉"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在死亡废墟中绽放的从容指挥魄力",
+     "对工程学原理的敏锐领悟"
+    ],
+    "boundaries": [
+     "恪守技术官员守则",
+     "不介入军队内卫权力斗争"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "蹲在乱石堆后半米处，用图纸卷筒大声为前线撬动二人报出滑移毫米数。",
+    "dislikes": [
+     "粗暴毁坏精密构件的野蛮行为",
+     "草菅人命的官僚指令"
+    ],
+    "expression": "用干净的绘图羊皮纸擦去额头汗水，深深朝神官长鞠躬致敬。",
+    "likes": [
+     "门扇滑开时完美的力学曲线吻合",
+     "战后一杯驱寒的热麦酒"
+    ],
+    "preconditions": [
+     "险情彻底排除全员安全转移且关键工程图纸保全",
+     "重返地面勘测台"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "前线随军工程营造师",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_sanctuary_rune_hall",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}手指被锋利石角严重割伤渗血流淌。",
+      "option": "{npc.name}冒死搬来硬质玄武岩垫块垫入杖身下方形成阿基米德力矩自救。"
+     },
+     {
+      "cost": "高精度青铜测厚规在巨石重压下弯折报废。",
+      "option": "用测厚规硬撬缝隙测定卡阻点引导二人换向发力脱险。"
+     }
+    ],
+    "pressure": "若无硬质支点垫块介入，手杖脚钉将无法转化为有效推移力矩。",
+    "trigger": "手杖缺乏合适支撑点，直接撬动面临杖身在石缝中打滑脱扣。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要我的支点算得准，这根钨钛手杖就绝对能把卡死的门撬开，千万别塌啊！",
+    "surface": "神官长！看这里！滑块受力点在内倾十五度位置！用杖尖插进第二道卡齿，垫上这块玄武岩当支点，力矩能翻倍！"
+   }
+  },
+  {
+   "adult_context": "年满四十岁，边防前线军政戒严特派督军，高级武官，具备完全民事行为能力。",
+   "age_range": [
+    40,
+    46
+   ],
+   "appearance_options": [
+    "身穿带有深黑毛皮滚边的高级军官战袍，外罩精雕细镂的鎏金半身板甲，面容阴鸷眼神冰冷，手握出鞘精钢马刀。",
+    "此时在浓烟与落石中神情焦躁阴狠，死死盯着坑道口的起爆雷管与导火索。"
+   ],
+   "decision": {
+    "avoids": [
+     "地下坑道的滚石油烟地狱",
+     "与浑身血污的一线泥腿子同生共死"
+    ],
+    "contrast": "平日在阅兵台上不可一世的铁血权贵，直面崩塌地狱时比谁都丑态毕露、贪生怕死。",
+    "core_value": "保全绝密与自身性命高于一切，底层工兵与伤员不过是战术牺牲弃子！",
+    "goal_options": [
+     "立刻引爆炸药炸塌坑道封闭救护所独自逃生",
+     "勒令神官长停止救援即刻归队撤离"
+    ],
+    "never": [
+     "为了抢救底层伤员而延后一秒点燃爆破导火索"
+    ],
+    "prefers": [
+     "绝对的强权服从",
+     "安全奢华的后方官邸"
+    ],
+    "pressure_responses": {
+     "breaking": "瘫软在地交出防毒面具换取优先通行权",
+     "high": "被骑士长用重锤砸断配剑后吓得连连后退瑟缩在护墙后",
+     "low": "在坑道口大声宣读战时戒严法令催促封门",
+     "mid": "拔出配枪威胁近卫军官立刻点燃引信"
+    },
+    "relationship_stance": "将神官长视为不遵军令的麻烦异类，既垂涎其绝美容貌又畏惧其在军民中的崇高威望。",
+    "withdrawal": "退缩在防炮斜道最上层铁门后，双手死死按在起爆拉索手柄上方。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "castellanus_lord_valentin",
+   "identity": {
+    "authority": "代表统帅部掌握前线坑道紧急封死爆破裁决权、战时擅自脱离阵地立斩决断权。",
+    "exposure": "为了掩盖战备亏空曾违规下令将不合格受潮炸药存入救护所下层地窖",
+    "hidden": "怀中暗藏着一份仅允许其自身一人乘坐专用重装装甲升降机逃生的特权手令",
+    "limits": [
+     "完全不了解地下工程力学自救常识",
+     "极度恐惧法阵失控引发全坑道大殉爆"
+    ],
+    "obligations": [
+     "确保前线核心绝密战备物资档案不落入敌手"
+    ],
+    "resources": [
+     "一块镀金质地的前线战时戒严封锁铁牌",
+     "一具带有活性炭过滤罐的密闭防烟面具"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "能保全自身性命的绝对力量庇护",
+     "顺从其权势威严的讨好"
+    ],
+    "boundaries": [
+     "严禁贱民脏手触碰其华丽战袍",
+     "不承担任何同舟共济责任"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "站在安全坑道顶端，命令近卫士兵在倒计时结束时立刻拉下起爆拉索炸塌大门。",
+    "dislikes": [
+     "以下克上的武力胁迫",
+     "被冰冷枪口与铁锤指着鼻梁的屈辱恐惧"
+    ],
+    "expression": "战战兢兢地将一袋沉甸甸的军饷金币扔在地上，尖叫着要求立刻开门护送其离开。",
+    "likes": [
+     "被精锐卫队众星捧月般护在核心",
+     "甘冽清甜的特供香槟"
+    ],
+    "preconditions": [
+     "彻底离开危险地下深井置身于前线地面坚固城堡",
+     "保全军职权位"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "前线督军特派使",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_fortress_outer_counterscarp_tunnel",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "骑士长面临战后被送上军事法庭以抗命罪严厉审判。",
+      "option": "骑士长怒掷战术重锤砸断爆破导火索为救护所争取宝贵开门时间脱险。"
+     },
+     {
+      "cost": "神圣教团与前线军政指挥部爆发激烈法理冲突。",
+      "option": "神官长亮出神官长最高圣职赦免令符喝退近卫卫兵阻断爆破自救。"
+     }
+    ],
+    "pressure": "若不能在三分钟内完成滑块撬正推门，坑道将被巨石彻底炸断封死生还通路。",
+    "trigger": "督军认定救护所已不可救药，下令点燃坑道爆破封门引信。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这帮蠢货……要是通道被卡死，整座地窖都要殉爆，我必须先逃出去！谁敢拦我格杀勿论！",
+    "surface": "神官长！骑士长！救护所法阵马上要爆炸了！本督军命令你们立刻放弃伤员退回坑道！立刻封门！"
+   }
+  },
+  {
+   "adult_context": "年满二十三岁，随军救护的修女，跟着神官长在前线待了两年。",
+   "age_range": [
+    23,
+    27
+   ],
+   "appearance_options": [
+    "身穿带灰白围裙的简朴修女服，容貌清秀，双眼含泪神情慌乱，双手紧紧护着装满药剂的急救箱。",
+    "额头垂着散乱刘海，在呛人烟尘中不停咳嗽，却依然寸步不离守护在重伤员身边。"
+   ],
+   "decision": {
+    "avoids": [
+     "凶神恶煞的督军斥骂",
+     "同伴伤重不治的绝望"
+    ],
+    "contrast": "平日胆小爱哭的年轻修女，在面对塌方生死险境时能爆发出舍命护卫伤员的坚贞光芒。",
+    "core_value": "哪怕死在这里也要守在神官长身边，绝不抛弃任何一个伤员！",
+    "goal_options": [
+     "协助递送纱布与清凉水剂维持同伴神志",
+     "在门缝推开时组织伤员依次撤出"
+    ],
+    "never": [
+     "为了自己活命抛下重伤昏迷的战友独自逃跑"
+    ],
+    "prefers": [
+     "温柔坚定的领导",
+     "平安祥和的生活"
+    ],
+    "pressure_responses": {
+     "breaking": "哭喊着向神官长汇报伤员转移进度",
+     "high": "用纤细身躯替昏迷士兵挡下飞溅石灰烟尘",
+     "low": "在乱石后紧紧抱住受惊伤员轻声安慰祈祷",
+     "mid": "冒着滚落碎石为神官长递送擦汗棉巾与饮水"
+    },
+    "relationship_stance": "将神官长视为宛如亲姐姐与守护神般的存在，由衷崇敬其神圣大义与无畏勇气。",
+    "withdrawal": "缩在圣泉蓄水廊道最深处，双手死死护住急救药箱与伤员担架。"
+   },
+   "gender": "female",
+   "gender_reason": "战地救护所资深护理女助手",
+   "id": "acolyte_sister_mia",
+   "identity": {
+    "authority": "对救护所轻重伤员包扎固定、止血喷雾调配使用拥有现场看护权。",
+    "exposure": "在逃生时不慎打翻过一箱珍贵的骨折固定石膏夹板",
+    "hidden": "暗中将一枚亲手绣制的圣徽平安符缝在神官长修女袍的袖口内侧",
+    "limits": [
+     "体弱力薄无法参与重达百斤的器械撬动作业",
+     "面对巨石坍塌心理防线极度脆弱"
+    ],
+    "obligations": [
+     "听从神官长指令保护伤员安全转移"
+    ],
+    "resources": [
+     "一包经过高温消毒的止血亚麻纱布敷料",
+     "一瓶具有清凉提神作用的战地药用水剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "绝境中遮风挡雨的圣洁光芒",
+     "不离不弃的手足情深"
+    ],
+    "boundaries": [
+     "恪守随军修女的守则",
+     "严守圣洁闺誉"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "站在推开的门缝外侧，高高举起防风马灯为前线撤退伤员指引安全生路。",
+    "dislikes": [
+     "残忍无情的弃子指令",
+     "冷血暴力的威逼践踏"
+    ],
+    "expression": "用沾满灰尘的手掌紧紧抱住神官长的腰肢，泪流满面地将额头埋在神官长怀中。",
+    "likes": [
+     "全员平安脱险后的抱头痛哭",
+     "分到的一小块粗麦烤饼干"
+    ],
+    "preconditions": [
+     "大门安全推开全员伤员安全撤入外围防炮洞",
+     "确保自身生命安全"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "前线救护所的随军修女",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_sanctuary_rune_hall",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗尽全部珍贵的无菌战伤纱布储备。",
+      "option": "{npc.name}迅速用圣泉清泉浸湿全部纱布分发给现场人员捂住口鼻自救。"
+     },
+     {
+      "cost": "急救药剂彻底耗尽。",
+      "option": "用急救喷雾唤醒休克人员互相搀扶靠墙自保脱险。"
+     }
+    ],
+    "pressure": "若不及时提供湿敷纱布防烟，全员将在两分钟内吸入大量剧毒烟尘窒息倒地。",
+    "trigger": "救护所内浓烟滚滚伤员呼吸困难陷入昏迷。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要神官长还在前面拼命，我就不能倒下，我得帮神官长照看好每一个伤员。",
+    "surface": "神官长！伤员已经全部移到门前了！大家都在等门开，您千万别受伤啊！"
+   }
+  },
+  {
+   "adult_context": "年满四十五岁，前线工兵近卫老军士长，成年工兵宗师，具备完全民事行为能力。",
+   "age_range": [
+    45,
+    52
+   ],
+   "appearance_options": [
+    "身穿带有高反光条的破旧加厚工程防风棉袍，满脸刀刻般的冻疮与油污伤痕，胡须花白凝结着细小汗珠。",
+    "手里握着一把被盘得发亮的合金卡簧钳，眼神在崩塌烟尘中如深空巨岩般沉静冷峻。"
+   ],
+   "decision": {
+    "avoids": [
+     "不知变通的教条官僚",
+     "遇到危险就自毁逃命的懦夫"
+    ],
+    "contrast": "看似土气笨拙的老工兵，在面对机械大绝境时判断迅疾如猎豹出击。",
+    "core_value": "大门再沉也是人造的铁疙瘩，找准减压销敲下去，阎王爷也关不死咱们！",
+    "goal_options": [
+     "指点神官长敲击减压销释放应力",
+     "垫入石墨滑片协助门扇推开"
+    ],
+    "never": [
+     "在机械受力关键时刻误报公差参数"
+    ],
+    "prefers": [
+     "严丝合缝的工匠本色",
+     "一诺千金的军人信义"
+    ],
+    "pressure_responses": {
+     "breaking": "用肩膀死死抵住翻滚的小型碎石为年轻人争取时间",
+     "high": "用沙哑嗓音高呼右下角减压销的具体方位",
+     "low": "在乱石堆中用铜凿敲击钢轨凭声音辨析导轨形变",
+     "mid": "冒着落石递上固体石墨片垫入咬合盲区"
+    },
+    "relationship_stance": "将神官长视为救苦救难的活菩萨，由衷敬重年轻女牧师的傲岸风骨与担当。",
+    "withdrawal": "躲在大门内侧坚固的防撞墩后，用厚斗篷护住工具箱与敲击凿。"
+   },
+   "gender": "male",
+   "gender_reason": "前线近卫工兵重步兵老班长",
+   "id": "sergeant_otto_stonebreaker",
+   "identity": {
+    "authority": "对前线重型液压闸门铰链结构、地锚卡齿受力分布享有现场经验指挥权。",
+    "exposure": "为了给老工兵筹措伤残抚恤曾私下截留过废旧合金钢轨配件",
+    "hidden": "深知这座大门在导轨受卡时只要敲击右下角减压销即可释放两寸应力间隙",
+    "limits": [
+     "常年地下作业患有严重尘肺病在剧烈浓烟中喘息艰难",
+     "右腿受过重伤行动蹒跚"
+    ],
+    "obligations": [
+     "带领工兵班死保主闸门铰链不发生粉碎性扭曲断裂"
+    ],
+    "resources": [
+     "两匣特制深井超高温耐磨合成固体润滑石墨片",
+     "一把特制重型纯铜平头偏心防滑敲击凿"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对硬核重型机械力学的崇高敬畏与共鸣",
+     "在死亡深渊面前毫无贵族做派的坚毅果敢"
+    ],
+    "boundaries": [
+     "恪守老长辈规矩不越礼数",
+     "不介入年轻后辈的私人情感波澜"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "蹲在门框拐角处，用铜凿猛击减压销指点神官长顺势下压撬动。",
+    "dislikes": [
+     "轻视老工兵经验的傲慢偏见",
+     "粗暴炸毁昂贵前线的蛮干行径"
+    ],
+    "expression": "用沾满泥污开裂的大手重重抹去额头汗水，咧开嘴露出欣慰踏实的笑容。",
+    "likes": [
+     "重型滑门轰然推开时的金属滑行声",
+     "干完大活后一口滚烫烧酒的痛快"
+    ],
+    "preconditions": [
+     "彻底排除大门卡死险情全员撤至安全地带",
+     "保全工兵班关键工具"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "前线工兵近卫老班长",
+   "schedule": [
+    {
+     "from": 1020,
+     "location_id": "loc_sanctuary_rune_hall",
+     "to": 1050
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "老班长右臂被反震敲击震伤挫伤脱皮。",
+      "option": "用老班长的铜凿敲退右下角减压销释放两寸间隙协助手杖顺利下压脱险。"
+     },
+     {
+      "cost": "消耗尽随身防卡石墨储备。",
+      "option": "塞入石墨润滑片化解齿槽干磨咬死自救。"
+     }
+    ],
+    "pressure": "若无硬质减压销震退技术介入，手杖将在极限扭矩下发生剪切脱扣。",
+    "trigger": "导轨因挤压发生局部严密咬死把手打滑。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好姑娘，手够硬！这好人要是死在塌方里，天理难容！老汉拼了老命也得帮你们把门撬开！",
+    "surface": "神官长！听老班长的！门轴右下角藏着一颗减压销！用杖尖抵住往里怼，我一凿子敲开那颗销，门就松了！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "边境战争第三年，晚秋",
+  "minute": 1020
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "bodily_harm",
+  "death",
+  "workplace",
+  "supernatural",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "每次进入救护所前习惯用手背轻抚胸前纯银圣徽祈求防御结界安宁。",
+  "战地重装骑士发力撬动前习惯在掌心重重啐一口唾沫以增强皮手套防滑摩擦力。",
+  "白衣女牧师习惯将过长的修女发带挽在耳后并用合金别针固定以防遮挡排险视线。",
+  "高压闭锁通道前喊话习惯将面颊贴近对方护颈甲片大声吼出倒计时秒数。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "使用高压油枪向滑轨双侧滚轮注填耐高温重负荷黄油",
+    "清理导轨下槽积聚的石灰碎渣与干燥脱落的墙灰粉末",
+    "敲击滑门重锤复位棘爪确认四组防坠锁舌开闭自如"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_bunker_blast_door_track_lubrication",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "start_minute": 1020,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "救护所主防爆滑门重型双导轨巡检"
+  },
+  {
+   "beats": [
+    "用测灵金针测试救护所地砖符文水银刻槽电流密度",
+    "手动扳动过载旁通分流闸阀释放回路虚假高压",
+    "在前线地下神圣工事日志加盖神官长祈福印信"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_sanctuary_rune_flux_calibration",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "start_minute": 1025,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "中央防御圣阵能量回路分流阀巡视"
+  },
+  {
+   "beats": [
+    "转动铸铁手轮升降双层平板截止闸阀清除水草杂物",
+    "用测深木杆量测沉淀池底部堆积的粗石英砂层厚度",
+    "检查蓄水池溢流堰口重力自平衡翻板回弹平稳度"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_cistern_sluice_gate_clearance",
+   "location_ids": [
+    "loc_sacred_spring_cistern_catacomb"
+   ],
+   "start_minute": 1030,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "圣泉地下引水暗渠防淤排沙闸门测试"
+  },
+  {
+   "beats": [
+    "检查装药孔木质防水塞密封状态并测量导火索受潮度",
+    "用摇表检测电雷管引爆回路双绞线绝缘电阻值",
+    "核准坑道两翼加固掩体快开防爆钢板搭接咬合量"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_counterscarp_demolition_fuse_audit",
+   "location_ids": [
+    "loc_fortress_outer_counterscarp_tunnel"
+   ],
+   "start_minute": 1035,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "外围防炮坑道预埋定向爆破引信核验"
+  },
+  {
+   "beats": [
+    "使用纯铜内六角改锥紧固十字杖头四颗沉头锁销",
+    "打磨尾端三角锥金属脚钉刃口清除划痕毛刺",
+    "用吸油麂皮仔细擦拭手杖中央防滑滚花握裹套管"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_cleric_staff_fastener_torque_drill",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "start_minute": 1040,
+   "tags": [
+    "workplace"
+   ],
+   "title": "圣职合金十字长手杖结构螺栓紧固"
+  },
+  {
+   "beats": [
+    "清点无菌蚕丝敷料包数量并检查防水蜡封完整性",
+    "测试便携式止血喷雾罐充气压力与喷嘴通畅度",
+    "向随军修女示范前臂动脉大出血压迫止血标准手势"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_field_medic_dressing_tally",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "start_minute": 1045,
+   "tags": [
+    "workplace"
+   ],
+   "title": "野战急救箱战伤止血敷料战备清点"
+  },
+  {
+   "beats": [
+    "防爆门推开、伤员全数撤进交通壕、督军的引信被踩灭之后，神官长回到钟楼下的居室，白袍沾满灰泥和冰水，掌心磨出的血泡还没包。",
+    "炭盆的火光里，神官长背过身，让人一根根解开白袍背后的系带，再用温水替自己擦净肩背上的灰泥，湿布擦过腰际时，神官长轻轻吸了口气，没有躲开。",
+    "神官长转过身，把那只缠着绷带的手放进对方掌心：今晚……我不想替任何人祷告了。你愿意留下，就留下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cell_robe_ties",
+   "location_ids": [
+    "loc_chapel_bell_tower_cell"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "居室里替神官长解开白袍的系带"
+  },
+  {
+   "beats": [
+    "居室里只有炭盆的一点红光，神官长换下白袍，裹着一件粗毛毯坐在窄床上，把半块烤热的黑面包掰成两半。",
+    "神官长把大的那一半递过来：伤员们都睡了。……今晚你不用站岗，坐近一点，暖和。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cell_brazier_bread",
+   "location_ids": [
+    "loc_chapel_bell_tower_cell"
+   ],
+   "start_minute": 1290,
+   "tags": [
+    "intimate"
+   ],
+   "title": "炭盆边分一块黑面包"
+  },
+  {
+   "beats": [
+    "反攻的前一夜，神官长坐在窗洞边，望着前沿的炮火，手里攥着那枚旧圣徽，祷文念了一半就停住了。",
+    "神官长没回头：明天你要上前沿。……今晚我想抱着你，不是祝福，是我自己想。你说好，我才转身。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cell_before_offensive",
+   "location_ids": [
+    "loc_chapel_bell_tower_cell"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "反攻前夜"
+  },
+  {
+   "beats": [
+    "天刚蒙蒙亮，钟楼早就没了钟，神官长在窄木床上醒来，淡金色的长发散在人的胸口，指尖还勾着对方的手。",
+    "神官长把脸埋进人肩窝，声音很轻：换药的时辰还没到……再待一刻钟。修女们不会来敲门的。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cell_dawn_bell",
+   "location_ids": [
+    "loc_chapel_bell_tower_cell"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "没有钟声的清晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "边境战争与符文结界纪元",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_granite_lintel_groans_jammed",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "cleric_elena_vanguard",
+   "text": "{cleric_elena_vanguard.name}双手死死扶住倾斜的门楣，面颊在电光中满是薄汗与石灰：骑士长！门被咬死了！把手杖尾端的钨钛合金脚钉插进导轨缝隙，跟我一起往下压！"
+  },
+  {
+   "id": "hook_rune_arcs_crackle_blinding",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "cleric_elena_vanguard",
+   "text": "{cleric_elena_vanguard.name}被灼热的紫电烈焰逼得急促喘息，额前金色碎发沾满香汗，素白长袍被水汽浸透：别怕电弧！闭上眼睛看准滑块齿口，听我口令，把全身重量砸在杖柄上！"
+  },
+  {
+   "id": "hook_staff_shaft_groans_bending",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "cleric_elena_vanguard",
+   "text": "{cleric_elena_vanguard.name}整个人扑在手杖上端，双手掌心鲜血淋漓磨出大泡：滑块在退位了！骑士长，把你那身神力全压上来，顺着导轨方向，给我撬！"
+  },
+  {
+   "id": "hook_ernst_braces_armored_shoulders",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "knight_ernst_ironwall",
+   "text": "{knight_ernst_ironwall.name}跨步上前，宽阔的铁甲胸膛从身后一把箍住女牧师长纤细的肩背：神官长，稳住轴心！力矩全交给我，谁也别想松手！"
+  },
+  {
+   "id": "hook_otto_checks_blast_door_latches",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "knight_ernst_ironwall",
+   "text": "{knight_ernst_ironwall.name}双手握住手杖粗壮柄身咆哮：脚钉咬进去了！滑块动了半寸！大家跟上，三、二、一，一起把门推开！"
+  },
+  {
+   "id": "hook_castellanus_lights_fuse_screaming",
+   "kind": "approach",
+   "location_ids": [
+    "loc_fortress_outer_counterscarp_tunnel"
+   ],
+   "slot": "castellanus_lord_valentin",
+   "text": "{castellanus_lord_valentin.name}在坑道外握着火把尖声大叫：救护所要殉爆了！卫兵，立刻点燃引信炸塌坑道，绝不能让敌人从地下攻进来！"
+  },
+  {
+   "id": "hook_klaus_shouts_fulcrum_spot",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "architect_klaus_runecraft",
+   "text": "{architect_klaus_runecraft.name}搬着一块实心玄武岩滚入大厅乱石：往这里垫！滑块偏心在左侧十五度！把这块硬石头垫在手杖下方当支点，力道能翻三倍！"
+  },
+  {
+   "id": "hook_cistern_water_surges_cold",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "acolyte_sister_mia",
+   "text": "{acolyte_sister_mia.name}抱着湿敷纱布踩着没过脚踝的冰水跑上前，眼眶泛红：神官长！纱布拿来了！快捂住口鼻防烟，伤员已经在门缝前排好了！"
+  },
+  {
+   "id": "hook_elena_inspects_rune_flux_gauges",
+   "kind": "request",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "cleric_elena_vanguard",
+   "text": "{cleric_elena_vanguard.name}抹去脸颊上的灰泥与热汗，急促喘息着看向老班长：右下角那个减压销在什么位置？快用您的铜凿敲开那颗销！"
+  },
+  {
+   "id": "hook_hilda_clears_sluice_leaves",
+   "kind": "request",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "knight_ernst_ironwall",
+   "text": "{knight_ernst_ironwall.name}反手抽出破拆锤递向营造官：拿去砸稳支点石！神官长手里的手杖快支撑不住了，给我把石头楔死在槽口里！"
+  },
+  {
+   "id": "hook_elena_polishes_staff_spike",
+   "kind": "request",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "cleric_elena_vanguard",
+   "text": "{cleric_elena_vanguard.name}紧紧握住骑士长粗壮的手腕：骑士长，屏住呼吸三秒钟！我们要借这个阿基米德支点一举把门扇推开，绝不能留一个人在里面！"
+  },
+  {
+   "id": "hook_keystone_cracks_falling_warning",
+   "kind": "observe",
+   "location_ids": [
+    "loc_fortress_outer_counterscarp_tunnel"
+   ],
+   "slot": "castellanus_lord_valentin",
+   "text": "督军手指死死抠住起爆拉索，冷汗淋漓地盯着门缝内两人前胸贴后背硬撬大门的英姿，被前线战士誓死同舟的决死意志震慑得两腿发软。"
+  },
+  {
+   "id": "hook_observe_sanctuary_cleric_stance",
+   "kind": "observe",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "cleric_elena_vanguard",
+   "text": "{cleric_elena_vanguard.name}挺立在呼啸倒灌的落石水雾中，修女长袍下侧颜在电光映照下明艳圣洁，眼神兼具母性仁慈与摧山断铁的坚毅刚强。"
+  },
+  {
+   "id": "hook_observe_blast_door_slams_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "slot": "cleric_elena_vanguard",
+   "text": "伴随着一声震天动地的洪钟般金铁轰鸣，钨钛合金十字杖脚钉硬生生撬碎了卡阻滑块，重型合金防爆门在两人合力猛推下轰然洞开，生还通路大开全员脱困。"
+  },
+  {
+   "id": "hook_elena_stitches",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cleric_elena_vanguard",
+   "text": "{npc.name}拿着针线在烛光下等人，眉头皱着：又是你。……坐下，袖子挽起来，这回再不老实，我就缝得疼一点。"
+  },
+  {
+   "id": "hook_elena_vespers",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cleric_elena_vanguard",
+   "text": "{npc.name}念完晚祷，在塌了一半的钟楼下坐着看炮火的光：陪我坐一会儿吧。……前线的夜太长了。"
+  },
+  {
+   "id": "hook_elena_bread",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cleric_elena_vanguard",
+   "text": "{npc.name}把半块还热着的黑面包塞进人手里：伤员们吃剩的，我留了一块。……别告诉修女们。"
+  },
+  {
+   "id": "hook_ernst_door_watch",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "knight_ernst_ironwall",
+   "text": "{npc.name}靠在救护所门口的石柱上，见人出来才站直：顺路。……神官长今晚还没吃东西。"
+  },
+  {
+   "id": "hook_elena_cell_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_chapel_bell_tower_cell"
+   ],
+   "slot": "cleric_elena_vanguard",
+   "text": "{npc.name}站在钟楼下居室的门口，手里端着一盏油灯：炭盆烧好了。……进来烤烤火吧。"
+  }
+ ],
+ "id": "cleric_bunker_sanctuary_overload",
+ "locations": [
+  {
+   "affordances": [
+    "抓牢合金门柱防撞凸台稳固身形",
+    "将合金十字杖金属脚钉插入导轨斜缝",
+    "搬动滚落的小块碎石充当杠杆支点垫块"
+   ],
+   "detail": "礼拜堂地下墓室改成的野战救护所，拱顶上铭刻的圣光符文正冒着浓烟与蓝紫电弧，几十张担架挤在烛光里，崩塌的花岗岩门楣斜砸在防爆滑门的双导轨之间，把两米宽的合金门死死别在二十公分的开度上。",
+   "exits": [
+    "loc_sacred_spring_cistern_catacomb",
+    "loc_fortress_outer_counterscarp_tunnel"
+   ],
+   "id": "loc_sanctuary_rune_hall",
+   "name": "地下救护所的防爆滑门前",
+   "pressure_modifiers": {
+    "p_granite_lintel_jam_blast_door": "数吨重花岗岩门楣死死咬入防爆门滑块槽口，救护所后撤大门仅留有一道难以容身的狭缝。",
+    "p_rune_backlash_arc_flash_choke": "法阵过载逆流引发强电弧轰鸣与高热臭氧，空气灼热刺鼻人员喉部充血呼吸艰难。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_garrison_sergeant_otto",
+    "bg_acolyte_sister_mia"
+   ]
+  },
+  {
+   "affordances": [
+    "扳动应急水渠排污闸板泄水降温",
+    "用木桶舀起清泉泼洒在受热门轴上",
+    "系牢粗麻逃生导向安全绳在石柱上"
+   ],
+   "detail": "救护所后方的深邃石砌水渠通廊，清冽的圣泉水正因法阵震颤而掀起翻滚水浪，水雾弥漫间两壁石缝渗出泥水，头顶不断掉落指甲盖大小的碎石。",
+   "exits": [
+    "loc_sanctuary_rune_hall",
+    "loc_fortress_outer_counterscarp_tunnel"
+   ],
+   "id": "loc_sacred_spring_cistern_catacomb",
+   "name": "圣泉引水廊",
+   "pressure_modifiers": {
+    "p_water_surge_cistern_overflow_flood": "地下水脉受压倒灌漫过走道台阶，浑浊冰水即将没过人员膝盖导致失稳。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_engineer_private_franz",
+    "bg_water_keeper_hilda"
+   ]
+  },
+  {
+   "affordances": [
+    "推开备用防烟通风木制折叠百叶窗",
+    "敲击铸铁通讯铜钟发出排故进展信号",
+    "拉紧坑道两侧加固锚链固定防坍塌支柱"
+   ],
+   "detail": "从礼拜堂后门通往前沿阵地的交通壕，壕壁用松木和沙袋加固，督军正带着近卫在壕口架设爆破封门的药包。",
+   "exits": [
+    "loc_sanctuary_rune_hall",
+    "loc_sacred_spring_cistern_catacomb",
+    "loc_chapel_bell_tower_cell"
+   ],
+   "id": "loc_fortress_outer_counterscarp_tunnel",
+   "name": "礼拜堂外的交通壕",
+   "pressure_modifiers": {
+    "p_castellanus_demolition_fuse_timer": "督军点燃了坑道口的定向爆破延时导火索，三分钟后巨石将彻底炸塌封死斜道。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_castellanus_deputy_guard_karl",
+    "bg_artillery_spotter_jonas"
+   ]
+  },
+  {
+   "affordances": [
+    "替神官长解开白袍的系带",
+    "陪神官长在炭盆边烤火",
+    "闩上居室的木门"
+   ],
+   "detail": "礼拜堂塌了一半的钟楼底下，一间石砌的小居室，一张窄木床、一张堆着祷文和绷带的小桌、一只烧着炭的铁盆，墙上挂着一枚旧圣徽，窗洞外能望见前沿的炮火。",
+   "exits": [
+    "loc_fortress_outer_counterscarp_tunnel"
+   ],
+   "id": "loc_chapel_bell_tower_cell",
+   "name": "钟楼下的神官长居室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "木门一闩，交通壕里的脚步声和伤员的呻吟就远了，只剩炭盆的噼啪声和远处闷闷的炮响。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "艾",
+   "诺",
+   "雷",
+   "卡",
+   "索",
+   "温",
+   "莫",
+   "罗",
+   "希",
+   "贝",
+   "赫",
+   "法"
+  ],
+  "given_female": [
+   "莲娜",
+   "丽尔",
+   "薇拉",
+   "雅洁",
+   "菲儿",
+   "安娜",
+   "雪莱",
+   "静姝",
+   "依琳",
+   "蕾雅",
+   "塞西",
+   "奥莉"
+  ],
+  "given_male": [
+   "恩斯特",
+   "雷昂",
+   "克劳斯",
+   "维克托",
+   "鲍里斯",
+   "阿诺德",
+   "布鲁诺",
+   "加斯",
+   "戈登",
+   "达尔",
+   "罗兰",
+   "凯尔"
+  ],
+  "given_neutral": [
+   "风",
+   "岚",
+   "泽",
+   "林",
+   "光",
+   "羽",
+   "晨",
+   "霜",
+   "云",
+   "夜",
+   "星",
+   "岩"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{given}"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留符文结界超载、数吨花岗岩门楣卡死防爆滑门双导轨与女牧师用合金十字手杖脚钉撬滑块的骨架。同一批里已经有一座河港要塞，这里从要塞大殿挪到了前线：一座被炮火打塌了钟楼的村庄礼拜堂，地下墓室改成了野战救护所，白衣女牧师领着修女们守着几十张担架，重装骑士长的连队就驻在礼拜堂外的交通壕里。写死的人名改为身份称呼；见习修女改为随军修女；婴儿肥换成了其余外貌描写；年龄放宽；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，加了几个不限地点的靠近型钩子；亲密前提写明脱困之后、双方清醒自愿；新增钟楼下女牧师的居室与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    26,
+    36
+   ],
+   "baseline": "驻守救护所的重装防卫骑士，身穿厚重合金板甲，精通军用破障与重物撬动技巧。",
+   "gender": "any",
+   "id": "pi_bunker_defense_crusader",
+   "reputation": "勇猛沉稳力大如牛，在前线以能徒手托起塌方巨木而享有威名。",
+   "resources": [
+    "一柄特种高碳钢加厚双头战术破拆锤",
+    "两副掌心带有耐磨铜丝编织网的防滑重战术手套"
+   ],
+   "risks": [
+    "直接暴露在落石通道极易被崩碎的尖锐花岗岩砸伤肩颈",
+    "板甲笨重影响高敏避险"
+   ],
+   "role": "边境前线先遣重装防卫战术骑士",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}骑士"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}队长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    42
+   ],
+   "baseline": "主持前线救护所地下防御结构施工的学者型军官，深谙滑轨承重应力与岩石断裂纹路。",
+   "gender": "any",
+   "id": "pi_rune_matrix_field_architect",
+   "reputation": "学识渊博严谨求实，但临机避险魄力不足依赖规程指导。",
+   "resources": [
+    "一把高精度青铜刻度岩石裂隙测厚规",
+    "一袋特制快凝抗裂符文石膏填缝粉剂"
+   ],
+   "risks": [
+    "体质单薄在强烈震颤下跌倒容易骨折",
+    "面对落石恐惧难以发力"
+   ],
+   "role": "前线工程防御工事随军符文营造师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}营造官"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    35,
+    48
+   ],
+   "baseline": "代表边防统帅部行使阵地戒严权的军政长官，持有永久炸毁逃生通道单独封井的密匙。",
+   "gender": "any",
+   "id": "pi_fortress_garrison_castellanus",
+   "reputation": "冷酷决绝信奉断尾求生，对基层军民安危漠不关心。",
+   "resources": [
+    "一枚镶嵌红宝石的前线阵地战备封锁令符",
+    "一套便携式微型高纯度解毒过滤呼吸面罩"
+   ],
+   "risks": [
+    "激怒一线护卫人员遭到反抗夺权",
+    "盲目引爆炸药引发救护所整体大坍塌"
+   ],
+   "role": "前线军政指挥部特派督军监察使",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}督军"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}阁下"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "跟随神官长在战地救治伤员的年轻助手，熟悉各类外伤包扎与止血药剂调制。",
+   "gender": "any",
+   "id": "pi_field_hospital_junior_acolyte",
+   "reputation": "温柔善良勤奋乖巧，深得神官长的悉心庇护与教导。",
+   "resources": [
+    "一盒特制高浓度止血冰蚕丝脱脂纱布卷",
+    "一瓶具有镇痛提神功效的浓缩圣水鼻吸剂"
+   ],
+   "risks": [
+    "力气孱弱无法协助重物撬动",
+    "在漫天落石烟尘中极易迷失方向"
+   ],
+   "role": "前线野战救护所青年随军祈祷师",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "female",
+     "pattern": "{family}修女"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}助手"
+    }
+   ]
+  }
+ ],
+ "premise": "边境前线，一座钟楼被炮火打塌的村庄礼拜堂，地下墓室改成了野战救护所，白衣女牧师领着修女们守着几十张担架，重装骑士长带人守在地面。白天换药、祷告、写阵亡名册。护住救护所的圣光结界已经满负荷撑了一个月，防爆滑门的导轨也被震歪过一次。",
+ "pressures": [
+  {
+   "choice": "等待外围守军挖掘救援，还是由神官长带队用合金手杖暴力硬撬自救。",
+   "exits": [
+    {
+     "cost": "手杖受数吨剪力产生微弯，两人掌心被粗暴磨出大面积血痕水泡。",
+     "option": "两人将合金长手杖脚钉反向插入滑轨导槽协同下压一举撬开卡阻推门脱险。"
+    },
+    {
+     "cost": "飞溅碎石割裂操作手面颊与肩甲造成外伤。",
+     "option": "防卫骑士挥动破拆铁锤重击门楣边缘震裂岩角强行挪出缝隙自救。"
+    }
+   ],
+   "far": {
+    "consequence": "数千吨石方彻底砸平救护所，滞留殿内的全体伤员与救护人员被活埋殉难。",
+    "due_days": 1,
+    "trigger": "救护所穹顶发生大面积粉碎性整体坍塌"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_granite_lintel_jam_blast_door",
+   "immediate": {
+    "minutes": 6,
+    "text": "万斤巨石压在导轨上发出令人牙酸的重载形变呻吟，门扇剧烈震颤，神官长与骑士长被困在飞灰弥漫的狭小门前。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "near": {
+    "deadline_minutes": 9,
+    "text": "救护所穹顶再次发生次生坍塌，门楣下滑位移加大卡阻更深，后方圣泉水已倒灌漫至脚踝，撤退时间仅剩三分钟。"
+   },
+   "objective": "在法阵彻底殉爆前借合金十字杖金属脚钉硬撬滑块推门脱困。",
+   "source": "accident",
+   "start_minute": 1020,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "数吨花岗岩门楣斜卡主防爆门双滑块",
+   "trigger": "圣光屏障过载崩碎，崩塌的数吨重花岗岩雕花门楣斜砸滑落，死死咬死在救护所主合金防爆门双导轨滑块盲区，门扇开度仅余二十公分狭缝，救护所后退通路彻底受阻。"
+  },
+  {
+   "choice": "退入蓄水通廊避烟，还是顶着被电弧灼伤的危险合力硬撬门扇。",
+   "exits": [
+    {
+     "cost": "骑士长背铠被电弧烈焰熏黑灼伤，两人贴身汗水彻底浸透衣衫。",
+     "option": "两人紧密贴合借骑士长铁甲后背遮挡电弧火花神官长咬牙下压手杖自救。"
+    },
+    {
+     "cost": "冰水激湿全身导致伤员伤势轻微恶化。",
+     "option": "使用圣泉水浇湿修女袍前襟充当临时防烟面具强行对位脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "人员在毒烟中剧烈呛咳窒息休克，全员倒在门前丧失逃生能力。",
+    "due_days": 1,
+    "trigger": "高浓度臭氧与高热毒烟持续侵袭引发急性重度吸入性肺水肿"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_rune_backlash_arc_flash_choke",
+   "immediate": {
+    "minutes": 5,
+    "text": "蓝紫色电弧如火蛇般在玄武岩地砖裂缝间狂暴窜动，空气中弥漫着刺鼻的焦糊味，吸入肺部如同吞刀割喉。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "电弧引燃了散落的祭司布幔，浓烟弥漫视线不足半米，神官长额头大汗淋漓，修女白袍被汗水浸透紧贴娇躯。"
+   },
+   "objective": "克服强电弧眩光与灼热毒烟，看清滑块受阻点精准发力。",
+   "source": "nature",
+   "start_minute": 1022,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "防御法阵过载逆流引发强电弧与高热臭氧",
+   "trigger": "符文能量逆流导致救护所地面阵列冒出刺目蓝紫电弧与滚滚白烟，空气温度飙升至五十度以上，高浓度臭氧刺激呼吸道，人员血氧骤降喉咙剧痛难忍。"
+  },
+  {
+   "choice": "由骑士长拔锤出去制止督军，还是抢先在引信烧完前撬开门推人脱险。",
+   "exits": [
+    {
+     "cost": "违抗军令面临战后接受前线军纪委员会严肃问责惩处。",
+     "option": "防卫骑士掷出铁锤砸碎引信导火索熄灭火苗阻断爆炸争取时间脱险。"
+    },
+    {
+     "cost": "战地救护系统与后勤督查部门产生严重军务管辖冲突。",
+     "option": "女牧师高举教团赦免金牌迫使近卫士兵放下火把阻断爆破自救。"
+    }
+   ],
+   "far": {
+    "consequence": "外围逃生斜坡通廊化作万吨碎石绝壁，将救护所内人员生路彻底断绝永封地下。",
+    "due_days": 1,
+    "trigger": "坑道预埋重型炸药全面起爆崩塌"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_castellanus_demolition_fuse_timer",
+   "immediate": {
+    "minutes": 4,
+    "text": "通廊铁传声筒里传来督军尖厉的弃守撤退咆哮，导火索燃烧的嘶嘶白烟在门缝外若隐若现。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_fortress_outer_counterscarp_tunnel"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "导火索已烧过大半，距离起爆雷管仅剩最后三十公分，通廊岩壁剧烈晃动，末日死亡阴影笼罩全场。"
+   },
+   "objective": "在炸药起爆前完成推门自救并喝退督军卫队阻断引爆。",
+   "source": "institution",
+   "start_minute": 1024,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "督军点燃坑道爆破封门引信倒计时",
+   "trigger": "督军认定救护所已经不可逆毁灭，在通廊外下令点燃三分钟定时爆破导火索，准备炸塌外围坑道将救护所彻底物理封死弃守。"
+  },
+  {
+   "choice": "孤注一掷加大肉身重量强压，还是回退半寸垫上营造官的石块调整力臂。",
+   "exits": [
+    {
+     "cost": "营造师手掌被锋利岩石划破数道深口血流不止。",
+     "option": "营造师迅速将实心玄武岩石条塞入杖身下方构筑稳固杠杆支点撬门自救。"
+    },
+    {
+     "cost": "两人双臂手肘承受巨大反震导致骨膜严重挫伤渗血。",
+     "option": "神官长与骑士长调整站位将发力点向杖根收缩十公分以肉体爆发力强行撬平脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "失去唯一可用的大型高强度撬杠工具，大门彻底死锁绝境无法破解。",
+    "due_days": 1,
+    "trigger": "钨钛合金十字手杖彻底脆性折断崩飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cleric_staff_crowbar_shear_limit",
+   "immediate": {
+    "minutes": 3,
+    "text": "合金手杖发出令人毛骨悚然的金属微裂声，尾部坚固三角金属脚钉在滑槽内出现五度微弯扭曲。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "杖身弯曲幅度接近临界变形限度，一旦崩断断裂的合金尖端将化为致命弹片贯穿近处人体。"
+   },
+   "objective": "垫入玄武岩垫块改变受力受剪支点防止手杖崩裂折断。",
+   "source": "accident",
+   "start_minute": 1026,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "合金手杖承受数吨重剪应力濒临折断",
+   "trigger": "两人合力猛压使得长一米二的钨钛合金手杖承受了极限杠杆扭矩，杖身中段在岩角挤压下发出刺耳的金属鸣响，表面出现细微疲劳应力发白微痕。"
+  },
+  {
+   "choice": "分出一人去堵漏，还是两人把双脚卡进铁轨缝隙死死扎稳马步发力。",
+   "exits": [
+    {
+     "cost": "弗朗茨受寒水冲刷全身严重冻伤失温。",
+     "option": "弗朗茨在后方水渠砸碎备用排污木闸板引流排洪为救护所争取得力作业环境自救。"
+    },
+    {
+     "cost": "鞋底耐磨层被螺栓硬生生豁开一道大裂口。",
+     "option": "两人将战靴鞋底防滑齿死死卡入铁轨螺栓死角互为依托抗衡水流脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "救护所被冰冷地下水彻底吞没，伤员与操作人员被活活淹死殉难地下。",
+    "due_days": 1,
+    "trigger": "地下暗渠彻底溃坝倒灌淹满救护所掩体"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_water_surge_cistern_overflow_flood",
+   "immediate": {
+    "minutes": 4,
+    "text": "冰冷刺骨的水流疯狂拍击着双腿，刺鼻的石灰与泥沙在水中翻滚，脚下碎石不断随水流滑移。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sacred_spring_cistern_catacomb"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "水深接近五十公分，受水流浮力与冲刷影响，撬动作业人员下盘重心严重摇晃难以为继。"
+   },
+   "objective": "在水深没膝前站稳脚跟一举将门扇推开排水平险。",
+   "source": "nature",
+   "start_minute": 1025,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "圣泉地下水脉受压破裂冰水倒灌淹没救护所",
+   "trigger": "救护所地基下沉压裂了蓄水池承压管壁，刺骨的冰水如决堤狂涛般涌入救护所，水位已没过小腿，地面滑腻无比，下盘站立极易打滑失衡。"
+  },
+  {
+   "choice": "寻找立柱掩护，还是迎着掉落的碎石争分夺秒完成最后一次推门。",
+   "exits": [
+    {
+     "cost": "重盾被落石砸得严重内凹凹陷，骑士长右锁骨骨裂剧痛。",
+     "option": "骑士长用重型防盾硬顶上方落石掩护神官长拼死完成最后一步手杖下压自救。"
+    },
+    {
+     "cost": "神官长修女白袍后背被飞溅碎石割裂大面积擦伤。",
+     "option": "两人在石块下坠刹那借推开门缝就地翻滚跃入外围防炮洞险险避过砸击脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "将大门与施救人员齐齐砸成肉酱肉泥，救护所生路彻底被天花板巨石封死。",
+    "due_days": 1,
+    "trigger": "五吨重中央楔石全面砸毁大门区域"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hall_ceiling_keystone_collapse_threat",
+   "immediate": {
+    "minutes": 3,
+    "text": "头顶传来滚雷般的轰隆巨响，脸盆大小的灰岩碎块不断砸在身旁，激起呛鼻的尘柱。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sanctuary_rune_hall"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "主楔石下垂脱开超过十公分，下坠已进入最后五秒倒计时，下方空气被巨物压迫得发出刺耳呼啸。"
+   },
+   "objective": "在巨石彻底脱落砸顶前完成撬动将人员全数推进坑道。",
+   "source": "accident",
+   "start_minute": 1028,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "救护所穹顶中央承重拱顶核心闭门巨石将坠",
+   "trigger": "六米挑高穹顶中央重达五吨的拱顶主楔石出现放射状裂缝，碎石如暴雨般倾泻，数道两米长的裂缝迅速向四周扩散，即将泰山压顶般整块崩落。"
+  },
+  {
+   "choice": "承认救过敌方伤兵，还是把那个伤兵连夜送出去",
+   "exits": [
+    {
+     "cost": "伤口还没缝完，人能不能活过三天说不准",
+     "option": "连夜把那名敌方伤兵送出交通壕"
+    },
+    {
+     "cost": "哈根得承认那晚自己在岗上喝了酒",
+     "option": "请哈根作证结界是炮弹震爆的"
+    }
+   ],
+   "far": {
+    "consequence": "救护所换人接管，女牧师要押回后方的修院受审",
+    "due_days": 3,
+    "trigger": "军法官的报告送到后方"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_elena_stitches",
+    "hook_elena_bread"
+   ],
+   "id": "p_enemy_wounded_rumor",
+   "immediate": {
+    "minutes": 10,
+    "text": "修女莉莎跑进来，说有两个伤兵不肯再让牧师换药"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_chapel_bell_tower_cell"
+   ],
+   "near": {
+    "deadline_minutes": 240,
+    "text": "中午，军法官带着卫兵下到救护所"
+   },
+   "objective": "在军法官下来问话之前，让伤兵和修女们说出同一句真话",
+   "source": "rumor",
+   "start_minute": 480,
+   "tags": [],
+   "title": "给敌人换药的传言",
+   "trigger": "救护所撑过那一夜的第二天早上，前线传开一句话：结界是有人故意弄爆的，女牧师那晚在地下也给敌方伤兵换了药"
+  }
+ ],
+ "region": "前线村庄礼拜堂地下墓室改成的野战救护所与防爆滑门",
+ "rules": [
+  {
+   "id": "r_sanctuary_overload_energy_purge_code",
+   "text": "前线符文法阵逆流时必须在八分钟内完成机械物理泄压隔绝。"
+  },
+  {
+   "id": "r_cleric_staff_crowbar_usage_limit",
+   "text": "合金十字手杖充当撬杠时施加力矩必须顺着滑轨导向槽轴向切入。"
+  },
+  {
+   "id": "r_granite_lintel_fall_weight_rule",
+   "text": "花岗岩门楣受压位移达到临界值时救护所外侧阻尼液压缸将自动闭死。"
+  },
+  {
+   "id": "r_bunker_blast_door_wedge_clearance",
+   "text": "防爆门滑块双侧卡阻间隙大于五毫米方可强力推拉门扇滑移。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "杖尖探阻",
+  "committed": "前线圣约",
+  "familiar": "崩塌相依",
+  "flirting": "薄汗融融",
+  "intimate": "脱险相拥",
+  "stranger": "战地戒备",
+  "testing": "力矩同命"
+ },
+ "status": "released",
+ "style_hint": "前线礼拜堂的肃穆与炮火：烛光下的担架、修女们的低声祷告、交通壕里的泥泞。写女牧师温柔面容下的薄汗与喘息，动作落在杠杆撬动与物理排阻上。",
+ "tension_engines": [
+  {
+   "id": "te_granite_lintel_jam_vs_staff_crowbar",
+   "text": "数吨花岗岩巨石卡死滑轨的致命活埋倒计时与用合金十字杖金属脚钉硬撬滑块的硬核自救。"
+  },
+  {
+   "id": "te_castellanus_seal_abort_vs_cleric_duty",
+   "text": "督军妄图引爆炸药封门断后与女牧师长誓死护卫全员同胞撤离的人道抗争。"
+  },
+  {
+   "id": "te_gentle_cleric_vs_iron_crusader",
+   "text": "清丽温柔白衣女牧师的仁慈风骨与重甲防卫骑士铁血爆发力的反差共鸣。"
+  },
+  {
+   "id": "te_rune_arc_heat_roast_vs_tight_hug",
+   "text": "法阵过载紫电烈焰狂暴烘烤与两人在狭窄落石废墟中紧贴发力硬撬大门的炽烈生命羁绊。"
+  }
+ ],
+ "title": "白衣女牧师·前线战地礼拜堂地下救护所",
+ "tone": [
+  "礼拜堂地下的烛光与担架",
+  "符文逆流的电弧噼啪爆鸣",
+  "穹顶灰浆如瀑跌落",
+  "白袍下急促温热的喘息"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_cleric_staff_hidden_lever_spike",
+   "requires": [
+    "cleric_elena_vanguard"
+   ],
+   "text": "{cleric_elena_vanguard.name}拧动手杖纯银十字旋钮，将手杖内部实心钨钛金属脚钉再次伸出五公分，形成更长一寸的坚硬力臂。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_knight_smashes_fuse_saving_corridor",
+   "requires": [
+    "knight_ernst_ironwall"
+   ],
+   "text": "{knight_ernst_ironwall.name}怒掷战术破拆锤砸飞督军手中的火把并斩断爆破导火索，强行保全了全救护所伤员的唯一退路。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_architect_identifies_basalt_wedge",
+   "requires": [
+    "architect_klaus_runecraft"
+   ],
+   "text": "{architect_klaus_runecraft.name}在乱石中精准辨识出一块硬度极高的纯玄武岩垫块，将其塞入导轨支点化解了手杖打滑危机。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_acolyte_distributes_sacred_cloth",
+   "requires": [
+    "acolyte_sister_mia"
+   ],
+   "text": "{acolyte_sister_mia.name}将浸透清凉圣泉的脱脂敷料分发给前线撬门二人，有效压制住了吸入性臭氧窒息剧痛。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_otto_chisel_pops_pressure_pin",
+   "requires": [
+    "sergeant_otto_stonebreaker"
+   ],
+   "text": "{sergeant_otto_stonebreaker.name}用铜凿精准敲击门轴底座减压销，瞬间为大门释放出三公分关键滑移旷量争取宝贵时间。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_knight_shields_cleric_falling_rock",
+   "requires": [
+    "cleric_elena_vanguard",
+    "knight_ernst_ironwall"
+   ],
+   "text": "{knight_ernst_ironwall.name}在穹顶拱石崩塌刹那挺身覆在{cleric_elena_vanguard.name}上方，用重装战铠与血肉之躯死死挡下千斤坠石。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_blast_door_opens_clean_triumph",
+   "requires": [
+    "cleric_elena_vanguard",
+    "knight_ernst_ironwall"
+   ],
+   "text": "防爆大门轰然推开后神官长指挥全体伤员安全转移至防炮洞，救护所在身后大坍塌平息，绝境求生化作两人铭刻终生的圣约羁绊。"
+  }
+ ]
+}

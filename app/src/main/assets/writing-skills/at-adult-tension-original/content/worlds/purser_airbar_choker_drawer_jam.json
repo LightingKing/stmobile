@@ -1,0 +1,2332 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "民航大学乘务毕业志愿者年满二十七周岁整，享有完全民事行为能力。",
+   "age_range": [
+    27,
+    27
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_purser_apprentice_wen_chu_man",
+   "line": "乘务长，烤箱里的法式鹅肝已经热好了，一号包厢的呼叫铃又响了一声！",
+   "location_ids": [
+    "loc_galley_prep_annex"
+   ],
+   "name": "小敏",
+   "role": "头等舱实习客舱乘务员"
+  },
+  {
+   "adult_context": "跨国航运集团成年派遣董事年满三十二周岁，依法独立承担商务合同签署职责。",
+   "age_range": [
+    32,
+    32
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_business_tycoon_passenger_qian",
+   "line": "乘务长，一号包厢要的那瓶三十年麦卡伦倒好了没有？马上要碰杯签合同！",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "name": "钱总",
+   "role": "头等舱二号包厢随行高管"
+  },
+  {
+   "adult_context": "航空机务工程毕业，年满二十七周岁成年放行机械师，具备客舱机械维护资质。",
+   "age_range": [
+    27,
+    27
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_avionics_mechanic_ah_kun",
+   "line": "这批抽屉导轨的微动卡簧回弹阻尼有偏差，用双铰链开瓶器挑最里面的卡榫！",
+   "location_ids": [
+    "loc_galley_prep_annex"
+   ],
+   "name": "阿坤",
+   "role": "随机航线机务巡查员"
+  },
+  {
+   "adult_context": "离岸家族基金成年法务秘书年满三十七周岁，依法独立履行商事见证法律责任。",
+   "age_range": [
+    37,
+    37
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_venture_investor_passenger_huo",
+   "line": "我们老板的时间极其宝贵，三十秒不送达，就直接联络贵司高级副总裁！",
+   "location_ids": [
+    "loc_upper_suite_corridor"
+   ],
+   "name": "林秘书",
+   "role": "投资总裁随行法务秘书"
+  },
+  {
+   "adult_context": "空警特警支队成年执勤警官年满二十六周岁，具备执行客舱执法合法资质。",
+   "age_range": [
+    26,
+    26
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_flight_marshal_zhao_tian_cheng",
+   "line": "前方气流颠簸未解除，所有人请保持就座，禁止在吧台前逗留围观！",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "name": "小郑",
+   "role": "机上便衣空警副手"
+  },
+  {
+   "adult_context": "新媒体摄影专业毕业，年满二十五周岁成年摄像师，具备完全独立民事行为能力。",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_socialite_blogger_jiang_ming_hao",
+   "line": "云台已经开机调成红外微光模式了，只要帘子一掀，绝对是全网头条！",
+   "location_ids": [
+    "loc_upper_suite_corridor"
+   ],
+   "name": "阿凯",
+   "role": "网红随行跟拍摄影师"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "吧台深处乘务长强忍前襟大开的极致羞耻俯身求助，随班乘务员以挺拔背影封死转角视线、协助开瓶器下撬的深沉默契。",
+   "id": "combo_purser_and_attendant_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "purser_pei_jing_shu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在狭窄吧台内近距托住乘务长微颤香肩协同开瓶器下压发力。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "flight_attendant_xiao_yi_fei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "同为头等舱机组成员在长期高空排险中铸就的过硬战友互信。",
+     "stage": "familiar"
+    },
+    {
+     "a": "purser_pei_jing_shu",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "flight_attendant_xiao_yi_fei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "傲娇美女上司与沉稳帅气下属之间心照不宣的情感克制与依赖。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "purser_pei_jing_shu",
+    "flight_attendant_xiao_yi_fei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在投资人踏入吧台前弹开滑块解脱链条让乘务长从容优雅端立迎客。",
+    "limit_gap": "名流脚步声逼近与纯钢开瓶器下压撬弹滑轨卡块的极限读秒剪刀差。",
+    "meeting_reason": "起飞后第三个小时，乘务长在吧台擦杯子，随班乘务员递来一张新的特殊餐单：一号包厢又改了。",
+    "resource_gap": "随班乘务员持有开瓶器工具与走廊屏障掩护，乘务长深陷挂死受制危及乘务长神格。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_drawer_choker_chain_entanglement",
+    "eng_thirty_second_service_countdown"
+   ]
+  },
+  {
+   "chemistry": "客舱师姐妹在危难关头联手，实习乘务员手捧羊绒大披肩誓死挡住过道视线掩护师姐撬轨自救脱身。",
+   "id": "combo_purser_and_apprentice_cover",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "purser_pei_jing_shu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在实习乘务员披肩遮掩下协助乘务长稳住颤抖手腕发力下压。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "flight_apprentice_wen_chu_man",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在机舱服务中共同照应建立的互助默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "purser_pei_jing_shu",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "flight_apprentice_wen_chu_man",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "同门姐妹在职业声誉灭顶危机前毫无保留托付清白的生死羁绊。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "purser_pei_jing_shu",
+    "flight_apprentice_wen_chu_man"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保头等舱顶级五星服务零差错并彻底化解走光社死灭顶灾难。",
+    "limit_gap": "名流呼叫铃声急促催单与撬动滑块解脱链条的生死时速。",
+    "meeting_reason": "实习乘务员捧着热毛巾走进吧台，看见乘务长背对着帘子一动不动。",
+    "resource_gap": "实习乘务员掌控羊绒披肩遮蔽春光，乘务长手握开瓶器分秒必争。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_sheer_cleavage_exposure_panic",
+    "eng_drawer_choker_chain_entanglement"
+   ]
+  },
+  {
+   "chemistry": "安全员在过道阻绝窥探目光，乘务长在吧台利用开瓶器双铰链杠杆一击挑开滑轨自锁卡簧的绝妙力学配合。",
+   "id": "combo_mechanic_and_purser_breakout",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "purser_pei_jing_shu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "合力反向推挤抽屉面板减轻饰链拉扯张力完成卡簧下压。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "flight_marshal_zhao_tian_cheng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "同为航班机组成员的安全技术语言共鸣。",
+     "stage": "familiar"
+    },
+    {
+     "a": "purser_pei_jing_shu",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "flight_marshal_zhao_tian_cheng",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "高傲乘务长对铁血安全员果决护卫的由衷感激与信赖。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "purser_pei_jing_shu",
+    "flight_marshal_zhao_tian_cheng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在客舱秩序被打破前安全解脱饰链恢复端庄乘务长仪态。",
+    "limit_gap": "抽屉弹簧钢卡块剪切力与不锈钢双铰链抗弯强度的微妙力学平衡。",
+    "meeting_reason": "颠簸警报响起，机务巡查员沿着走廊检查吧台设备的固定。",
+    "resource_gap": "安全员持有航空警用执法阻拦权限，乘务长受制于纤细身躯与制服撕扯拘束。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_drawer_choker_chain_entanglement",
+    "eng_turbulence_airbar_spatial_squeeze"
+   ]
+  },
+  {
+   "chemistry": "投资人步步紧逼立于吧台屏风两步外，乘务长在吧台后咬牙按住领口强忍恐慌与羞耻维系乘务长尊严的窒息博弈。",
+   "id": "combo_purser_and_investor_confrontation",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "purser_pei_jing_shu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在投资人冰冷审视逼视声中并肩屏息完成最后撬弹解脱。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "venture_investor_huo_jing_shen",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "客舱乘务员对机上顶级贵宾的规范周旋与礼节应对。",
+     "stage": "familiar"
+    },
+    {
+     "a": "purser_pei_jing_shu",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "venture_investor_huo_jing_shen",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "骄傲乘务长面对资本寡头无理逼迫时的不屈风骨与清白尊严守线。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "purser_pei_jing_shu",
+    "venture_investor_huo_jing_shen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在投资人掀开屏风前瞬间完成自救并从容优雅挺立迎客送上威士忌。",
+    "limit_gap": "名流皮鞋踏入吧台与最后三毫米滑块弹回脱钩的绝对读秒生死线。",
+    "meeting_reason": "一号包厢的呼叫铃超时没人应答，投资人放下文件，亲自离座往吧台走。",
+    "resource_gap": "投资人掌控千亿资本与直达航司高层的特权投诉，乘务长面临终身停飞与名誉扫地威胁。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_thirty_second_service_countdown",
+    "eng_sheer_cleavage_exposure_panic"
+   ]
+  },
+  {
+   "chemistry": "网红网红乘客企图持微型云台强闯吧台偷拍乘务长走光，随班乘务员冷峻刚烈以机组尊严与飞行红线正面截击严厉驱离。",
+   "id": "combo_influencer_vs_purser_defense",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "socialite_blogger_jiang_ming_hao",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "面对侵犯乘务长隐私的无耻登徒子毫不留情的严正对峙。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "flight_attendant_xiao_yi_fei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "机组搭档默契联手制伏越界无良网红。",
+     "stage": "familiar"
+    },
+    {
+     "a": "socialite_blogger_jiang_ming_hao",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "flight_attendant_xiao_yi_fei",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "劣质网红与民航机组骨干之间水火不容的道德与法律较量。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "socialite_blogger_jiang_ming_hao",
+    "flight_attendant_xiao_yi_fei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "将心怀叵测的偷拍狂徒死死阻绝在屏风黄线外彻底粉碎全网造谣黑手。",
+    "limit_gap": "无良流量狂徒的龌龊窥探与青年民航人刚强骨气的正面猛烈碰撞。",
+    "meeting_reason": "网红乘客举着相机说要拍吧台的素材，随班乘务员横过餐车挡住了走廊。",
+    "resource_gap": "网红乘客手握百万网红粉丝矩阵与抹黑水军，随班乘务员掌控客舱秩序管理权。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_sheer_cleavage_exposure_panic",
+    "eng_thirty_second_service_countdown"
+   ]
+  },
+  {
+   "chemistry": "在狭窄仅容贴身回旋的环形吧台内，乘务长与{player.name}近在咫尺呼吸相闻，合力在万米高空完成双铰链开瓶器下撬自救的绝密救赎。",
+   "id": "combo_purser_and_player_intimacy",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "purser_pei_jing_shu",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "在肌肤相近心跳共振与万米颠簸中结下的至深密约。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "purser_pei_jing_shu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在清白与乘务长威严毫发无损前提下彻底完成硬核物理自救脱困。",
+    "limit_gap": "贵宾踏入最后十五秒与滑轨弹回脱扣的绝对极限同步。",
+    "meeting_reason": "夜航的灯调暗后，乘务长和搭档在吧台后核对酒单，舱外的星光落在大理石台面上。",
+    "resource_gap": "乘务长身躯受缚动弹不得，{player.name}提供坚强刚性的杠杆支点支持。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_drawer_choker_chain_entanglement",
+    "eng_sheer_cleavage_exposure_panic"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_first_class_cabin_intercom",
+   "reach": "覆盖吧台内壁、配餐间与飞行员驾驶舱专用手柄通话",
+   "text": "机上头等舱与前舱乘务长专用内话系统"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_skybar_marble_counter_whisper",
+   "reach": "仅限于吧台操作台深处乘务长与施救者近距离耳语传话",
+   "text": "环形吧台大理石操作台两尺内高空压抑急促低语"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "民航乘务管理硕士毕业，在外资航空飞了八年，头等舱最年轻的乘务长，排什么班、飞哪条线由本人拿主意。",
+   "age_range": [
+    26,
+    30
+   ],
+   "appearance_options": [
+    "身着深海蓝高定双排扣修身真丝制服套裙，颈系酒红色真丝暗纹小领巾，容貌清冷明艳高贵，两颊天然紧致微婴儿肥与饱满水润胶原蛋白反差，身段曼妙高挑修长，神态矜贵冷傲宛若冰山雪莲。",
+    "制服领口被重型抽屉把手死死扯开，两颗包布铜扣崩飞，露出贴身冰丝抹胸与大片雪白饱满，前襟挂死在镀铬把手上被迫俯身半趴在吧台上，两颊泛起极度羞恼绯红，美眸噙泪咬牙抗拒。"
+   ],
+   "decision": {
+    "avoids": [
+     "轻浮男客的下流打量",
+     "航司管理层的停飞处分",
+     "全网客舱八卦热搜"
+    ],
+    "contrast": "平时巡舱雷厉风行训斥下属，受困挂死时娇躯微颤眼尾泛红软语求助。",
+    "core_value": "傲娇乘务长绝对不容亵渎的职业尊严与内衬清白名节。",
+    "goal_options": [
+     "在名流贵宾跨入吧台前用双铰链开瓶器挑开滑轨自锁滑块自救脱钩",
+     "拼死按住领口遮掩透光露白窘迫保全体面声誉"
+    ],
+    "never": [
+     "绝不向居心叵测的纨绔贵宾摇尾乞怜",
+     "绝不在外客面前露出软弱哭腔"
+    ],
+    "prefers": [
+     "利落刚猛的机械撬动动作",
+     "被宽大手掌稳稳托住避免滑跌",
+     "绝不趁人之危的正派目光"
+    ],
+    "pressure_responses": {
+     "breaking": "在气阀泄压瞬间反向推脱横臂抱箍并接应宋婉儿递来的磁吸扣迅速扣好前襟",
+     "high": "在导播推流读秒长鸣刹那同搭档一同垂直下压背夹克服八百牛顶力",
+     "low": "双手死死按在讲台木质边缘以极低气声下达排障破拆指令掩饰内心惊涛骇浪",
+     "mid": "忍受胸衣金属骨架勒紧压迫紧贴讲台内侧配合搭档调整翻页笔背夹插入角度"
+    },
+    "relationship_stance": "在客舱里对搭档冷着脸、挑剔每一杯酒的温度，落地后却总在机组车上把旁边的座位留出来。",
+    "withdrawal": "双手死死环抱胸前将滚烫面颊紧紧贴在冰凉大理石吧台立面上闭眼颤抖。"
+   },
+   "gender": "female",
+   "gender_reason": "外资航空头等舱的传奇乘务长，冷傲干练。",
+   "id": "purser_pei_jing_shu",
+   "identity": {
+    "authority": "万米高空头等舱客舱服务全权调度与名贵洋酒开启最高批准权。",
+    "exposure": "外表傲慢强势拒人于千里之外，私下里却偷偷穿戴极其敏感的高定纯金饰链寻求隐秘刺激。",
+    "hidden": "白金饰链的暗锁小钥匙就缝在贴身小领巾的夹层内，且一直暗自依赖{player.name}沉稳干练的技术保护。",
+    "limits": [
+     "受制于抽屉把手卡死白金饰链无法直身站立",
+     "严禁在乘客面前暴露前襟大开衣冠不整窘态"
+    ],
+    "obligations": [
+     "维系顶级航司五星乘务长圣洁不可侵犯之尊严",
+     "三十秒内响应贵宾包厢点单需求"
+    ],
+    "resources": [
+     "专属两段式航空加厚纯钢双铰链侍酒开瓶器",
+     "乘务长专用客舱广播与呼叫总控手柄"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在极端窘迫危险关头泰山崩于前而不动声色的硬汉安全感",
+     "面对机械险情沉着利落的力学决断力"
+    ],
+    "boundaries": [
+     "严禁直接触碰制服内未设防的贴身雪白敏感处",
+     "脱险后严禁对外宣扬今日挂死狼狈始末"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "作为云端至尊客舱唯一的骄傲女王，只在私密时刻将脆弱全然交付于心仪之人。",
+    "dislikes": [
+     "油腔滑调的调侃嘲弄",
+     "恃富凌人的资本嘴脸",
+     "粗暴蛮横的生拉硬扯"
+    ],
+    "expression": "偏过头紧抿红唇傲娇轻哼，但滚烫微婴儿肥两颊却顺势轻贴在施救者手背上寻求安心。",
+    "likes": [
+     "专业干练的救援配合",
+     "危急关头能抵挡一切的宽阔臂弯",
+     "纯粹力学的解脱快感"
+    ],
+    "preconditions": [
+     "彻底化解挂死走光危机并并肩守住吧台秘密",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "外资航空头等舱乘务长",
+   "schedule": [
+    {
+     "from": 1200,
+     "location_id": "loc_first_class_circular_skybar",
+     "to": 1215
+    },
+    {
+     "from": 1215,
+     "location_id": "loc_first_class_circular_skybar",
+     "to": 1235
+    },
+    {
+     "from": 1235,
+     "location_id": "loc_galley_prep_annex",
+     "to": 1250
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "高定开瓶器铰链折页承受极端剪切力产生微小金属划痕。",
+      "option": "用航空两段式开瓶器加厚双铰链作为支点探入滑轨卡槽撬弹卡块使抽屉回位脱钩自救。"
+     },
+     {
+      "cost": "抽屉面板镀铬层留下微小拆卸压痕需事后申报机务维修。",
+      "option": "从内侧卸下抽屉拉手固定螺丝整体脱离把手解脱紧缚。"
+     }
+    ],
+    "pressure": "制服崩脱露白，头等舱名流按铃催酒且大步走近吧台仅剩三十秒，一旦撞破名誉尽毁。",
+    "trigger": "气流颠簸导致储酒冷藏抽屉偏心弹开，镀铬重型把手死死挂住制服领口白金饰链咬死阻尼滑轨。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "包厢走廊的皮鞋声已经走到转角了……要是被投资人看见{npc.name}制服崩开趴在吧台上……这辈子都别想在航空界抬头做人了！快撬开这道锁啊！",
+    "surface": "别……别乱看！眼睛往哪儿瞄呢！快把开瓶器铰链顶进滑轨卡槽里……链条快把骨头勒断了！"
+   }
+  },
+  {
+   "adult_context": "民航空中乘务专业毕业，飞了六年头等舱，乘务长固定的搭档，具备完全民事行为能力。",
+   "age_range": [
+    27,
+    30
+   ],
+   "appearance_options": [
+    "身着笔挺深蓝航空西装三件套，系藏蓝条纹领带，身材修长硬朗面容俊朗英挺，神态沉稳干练，举手投足尽显专业乘务风范。",
+    "半跪在吧台转角处，单手死死撑住冰丝屏风木框，另一只手紧紧按住弹出的储酒抽屉侧板，面色凝重严阵以待。"
+   ],
+   "decision": {
+    "avoids": [
+     "乘客非礼机组人员",
+     "乘务长受辱停飞",
+     "慌乱失控的局面"
+    ],
+    "contrast": "平时温文尔雅谦逊有礼，在有人企图越界窥探乘务长时眼神瞬间变得冷峻坚毅。",
+    "core_value": "对客舱安全的绝对坚守与对乘务长深沉克制的护卫担当。",
+    "goal_options": [
+     "利用托盘与自身挺拔身躯在吧台入口筑起人墙为乘务长争取撬轨时间",
+     "冷静协同施救者将开瓶器精准顶入滑轨卡簧关键死点"
+    ],
+    "never": [
+     "绝不让任何外客看到乘务长前襟走光半寸",
+     "绝不背叛民航人职责"
+    ],
+    "prefers": [
+     "默契高效的团队协作",
+     "果断沉着的手法",
+     "相互尊重的界限感"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷发声瞬间停住脚步退回侧幕维持同僚体面",
+     "high": "迈步登上红地毯台阶准备直接切入讲台中央核心演讲区",
+     "low": "在对讲机中平稳催促台前人员汇报讲台升降测试状态",
+     "mid": "迈步逼近侧翼台阶手持备用麦克风大声询问会长是否身体不适"
+    },
+    "relationship_stance": "跟着乘务长飞了四年，挨训挨得最多，排班表上永远把自己的名字写在乘务长旁边。",
+    "withdrawal": "在配餐间深处背对操作台默默深呼吸平复心绪。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "flight_attendant_xiao_yi_fei",
+   "identity": {
+    "authority": "客舱吧台饮品调配与迎宾屏风开关操作权。",
+    "exposure": "表面上对乘务长言听计从恪尽职守，私底下早已暗恋这位傲娇又要强的乘务长师姐已久。",
+    "hidden": "乘务员制服内袋里常年备着乘务长最爱喝的低糖乌龙茶包。",
+    "limits": [
+     "受制于乘务长严苛的规章纪律约束",
+     "不可擅自触碰女上司敏感身体部位"
+    ],
+    "obligations": [
+     "全力协助乘务长保障头等舱五星服务水准",
+     "捍卫乘务组团队声誉与乘务长尊严"
+    ],
+    "resources": [
+     "备用航空加厚两段式不锈钢开瓶器",
+     "客舱贵宾点单呼叫应答机"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "傲娇表象下为了旅客安全拼尽全力的炽热职业担当",
+     "受窘时两颊微婴儿肥泛红的动人反差"
+    ],
+    "boundaries": [
+     "严守上下级与男女礼数分寸，非紧急救援绝不逾矩越界"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "成为乘务长翱翔蓝天中最值得托付后背的永恒守护者。",
+    "dislikes": [
+     "自命不凡的纨绔子弟",
+     "轻薄空乘的登徒子",
+     "推诿卸责的懦夫"
+    ],
+    "expression": "迅速解下自身西装外套从侧面轻柔披在乘务长后背，以宽阔后背死死挡住客舱视线。",
+    "likes": [
+     "乘务长卸下防备时甜美娇嗔的神态",
+     "并肩战胜高空危机的默契信任",
+     "被真正依赖的感觉"
+    ],
+    "preconditions": [
+     "高空颠簸排险成功且完美守护乘务长职业名誉",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "头等舱成年青年随班乘务员兼搭档",
+   "schedule": [
+    {
+     "from": 1200,
+     "location_id": "loc_first_class_circular_skybar",
+     "to": 1220
+    },
+    {
+     "from": 1220,
+     "location_id": "loc_upper_suite_corridor",
+     "to": 1235
+    },
+    {
+     "from": 1235,
+     "location_id": "loc_first_class_circular_skybar",
+     "to": 1250
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "打乱既定酒水呈送次序面临被客舱系统记录微小延迟。",
+      "option": "手持迎宾银托盘大步迎上走廊借奉上热毛巾为由阻挡投资人前行步伐三十秒。"
+     },
+     {
+      "cost": "引起局部旅客对洗手间排队状况的短时疑惑。",
+      "option": "在吧台入口处故意按响客舱洗手间占用提示灯转移外侧旅客视线。"
+     }
+    ],
+    "pressure": "三十秒后头等舱名流将踏入吧台，抽屉依然卡死，乘务长前襟大敞动弹不得。",
+    "trigger": "气流颠簸导致吧台抽屉突发滑轨咬死，呼叫铃声在包厢走廊回荡引来客流逼近。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "投资人已经走出包厢了……{npc.name}绝不能让任何人看到乘务长制服崩开的样子，哪怕被投诉违纪也要挡住！",
+    "surface": "乘务长别慌，{npc.name}正用身体挡在吧台转角！开瓶器第二铰链卡在滑槽里，用力往下压！"
+   }
+  },
+  {
+   "adult_context": "海外商学院金融投资研究生毕业年届三十一岁成年投资人，具备独立掌管百亿级离岸基金完全民事行为能力。",
+   "age_range": [
+    31,
+    34
+   ],
+   "appearance_options": [
+    "身着顶级萨维尔街定制深灰羊绒休闲西装，戴无框冷光近视镜，身材修长高贵，气质清冷深邃，眼神锐利如鹰隼，透着上位者的从容威严。",
+    "缓步迈出包厢走廊，指尖夹着一份保密并购合约，神态矜贵冷淡，正径直走向环形吧台准备亲自索取藏酿威士忌。"
+   ],
+   "decision": {
+    "avoids": [
+     "粗俗无礼的失控骚乱",
+     "被下位者无视怠慢",
+     "飞行安全意外事故"
+    ],
+    "contrast": "商界谈判杀伐决断寸步不让，面对乘务长咬牙含泪受窘时眼底却闪过一丝罕见的占有欲波澜。",
+    "core_value": "绝对掌控的资本意志与对极致优雅猎物的狩猎执念。",
+    "goal_options": [
+     "按铃未果后亲自踏入吧台探查究竟以打破乘务长的冰山伪装",
+     "在撞破乘务长窘态时施展资本威压将其彻底收归己有"
+    ],
+    "never": [
+     "绝不容许既定目标脱离掌控",
+     "绝不自降身份与机务工匠争吵"
+    ],
+    "prefers": [
+     "绝对的效率与秩序",
+     "高傲者在自己面前低头软化",
+     "顶级年份的纯麦威士忌"
+    ],
+    "pressure_responses": {
+     "breaking": "看到顾冷霜完成暗扣闭合瞬间果断下推T杆完成神级切镜",
+     "high": "在团委催促推流指令下强行插入两秒礼堂全景空镜头过渡",
+     "low": "在耳麦中短促播报推流倒计时并督促台前清场",
+     "mid": "发现特写画面纽扣脱落异样时右手悬停在T型推杆上暂缓切镜"
+    },
+    "relationship_stance": "以居高临下的审视者自居，将乘务长视作不可多得的绝美战利品。",
+    "withdrawal": "在包厢舒适真皮航空座椅上合拢笔记本电脑静静品尝冰镇苏打水。"
+   },
+   "gender": "male",
+   "gender_reason": "跨国风险投资家族基金成年掌门人兼头等舱常客年满三十一周岁。",
+   "id": "venture_investor_huo_jing_shen",
+   "identity": {
+    "authority": "航空公司顶级黑钻终身终身VIP会籍与直达航司董事局投诉特权。",
+    "exposure": "表面清心寡欲冷若冰霜，实则对这位屡次在云端拒绝自身搭讪的傲娇乘务长暗生征服欲。",
+    "hidden": "特意包下整架客机头等舱所有包厢，只为了在这趟十五小时越洋航线上独处观摩乘务长。",
+    "limits": [
+     "必须维持跨国金融新贵的体面绅士修养",
+     "不可在民航客舱公然寻衅滋事"
+    ],
+    "obligations": [
+     "确保洲际飞行期间数十亿美元跨国并购案按时签约",
+     "遵守民航飞行安全法则"
+    ],
+    "resources": [
+     "百亿离岸资本调配权",
+     "全球顶奢私人机队调度资源"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "万米高空孤芳自赏却面临崩坏危机的极致反差美感",
+     "未经世俗谄媚玷污的傲骨"
+    ],
+    "boundaries": [
+     "维持名流贵族阶层社交体面与合法边界，绝不诉诸暴力犯罪"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "以救世主与支配者姿态，将这位传奇乘务长永远纳为私人飞机的专属珍藏。",
+    "dislikes": [
+     "不识抬举的顽抗",
+     "劣质香精的气味",
+     "欺瞒与违规欺诈"
+    ],
+    "expression": "停驻在吧台屏风两步外，轻轻扶了扶金丝眼镜，嘴角勾起意味深长的玩味浅笑。",
+    "likes": [
+     "冰山美人在绝境中咬唇隐忍的极致破碎感",
+     "掌控一切的绝对特权",
+     "独占私有珍宝"
+    ],
+    "preconditions": [
+     "对方在灭顶职业名节危机中不得不向资本保护伞寻求庇护"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "头等舱一号包厢青年成年名流乘客",
+   "schedule": [
+    {
+     "from": 1200,
+     "location_id": "loc_upper_suite_corridor",
+     "to": 1215
+    },
+    {
+     "from": 1215,
+     "location_id": "loc_upper_suite_corridor",
+     "to": 1235
+    },
+    {
+     "from": 1235,
+     "location_id": "loc_first_class_circular_skybar",
+     "to": 1250
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗头等舱限量典藏酒水品鉴配额。",
+      "option": "由随班乘务员手捧名贵红酒年份手册主动迎上前躬身邀请{npc.name}鉴赏产地争取半分钟。"
+     },
+     {
+      "cost": "乘务长前襟真丝内衬因剧烈拉扯留下微小折痕。",
+      "option": "在{npc.name}迈入前一秒合力撬开滑轨滑块脱身乘务长迅速裹紧披肩端坐优雅回话。"
+     }
+    ],
+    "pressure": "{npc.name}手工皮鞋鞋尖仅距吧台帘幕三步，一旦掀开屏风将直视乘务长制服崩开贴身露白惨状。",
+    "trigger": "呼叫铃声响过四次未见空乘应答，{npc.name}迈出豪华包厢踏上走廊直奔吧台。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "吧台后面有开瓶器撬击金属的声响……乘务长呼吸乱成这样却不敢转过身来，里面一定藏着大秘密！",
+    "surface": "乘务长，贵司头等舱的三十秒应答承诺似乎逾期了。{npc.name}亲自移步吧台取酒，难道不合规矩？"
+   }
+  },
+  {
+   "adult_context": "民航空中乘务毕业，年满二十三周岁整，享有完全民事诉讼权利，航空客舱青年成年实习乘务员。",
+   "age_range": [
+    23,
+    26
+   ],
+   "appearance_options": [
+    "身着浅蓝实习乘务制服套裙，系粉白条纹丝巾，长发盘成端正发髻，两颊带着天然紧致微婴儿肥与饱满水润胶原蛋白，眼神清澈单纯，神情透着新人的青涩与机灵。",
+    "反手推着配餐小推车紧贴在备餐间门框后，双手死死攥着一条加厚织金羊绒大披肩，小脸吓得煞白，焦急万分地向吧台探头递暗号。"
+   ],
+   "decision": {
+    "avoids": [
+     "师姐被坏人偷看",
+     "实习考核被挂科停飞",
+     "推诿卸责的小人"
+    ],
+    "contrast": "平时唯唯诺诺不敢大声说话，危急时刻敢推着餐车横在头等舱走廊正中央。",
+    "core_value": "对乘务长知遇之恩的赤诚守护与客舱姐妹同舟共济的赤子之心。",
+    "goal_options": [
+     "在投资人掀开屏风前冲入吧台递上羊绒大披肩将师姐前襟紧紧护住",
+     "在走廊拐角推车借口颠簸挡住走廊为吧台救援争取关键时间"
+    ],
+    "never": [
+     "绝不出卖师姐的私密尴尬",
+     "绝临阵脱逃做缩头乌龟"
+    ],
+    "prefers": [
+     "干脆有力的抢险动作",
+     "有情有义的担当",
+     "不让师姐受半点委屈"
+    ],
+    "pressure_responses": {
+     "breaking": "在讲台侧后方用红丝绒托盘斜立遮挡光线以极快手法递入暗扣",
+     "high": "迈开优雅端庄的礼仪步伐抢在陆晨舟之前从侧翼台阶移步登台",
+     "low": "在侧幕边缘端正托盘平稳呼吸密切注视讲台前襟状态",
+     "mid": "发现纽扣崩落瞬间悄悄从夹层扣出磁吸扣捏在掌心手汗中"
+    },
+    "relationship_stance": "将乘务长视作最敬爱最严格也最温暖的师姐，誓死捍卫师姐清白。",
+    "withdrawal": "躲在配餐烤箱旁急得直跺脚，小手紧紧绞着围裙衣角。"
+   },
+   "gender": "female",
+   "gender_reason": "民航职业大学毕业，年满二十三周岁整成年女实习乘务员兼后辈。",
+   "id": "flight_apprentice_wen_chu_man",
+   "identity": {
+    "authority": "后舱配餐推车物料调配与热饮毛巾备用发放权。",
+    "exposure": "平日胆小怯懦经常被乘务长严厉纠正站姿，实则内心极度崇拜依赖乘务长。",
+    "hidden": "偷偷在日记本里将乘务长视作自身职业生涯必须追赶超越的唯一偶像。",
+    "limits": [
+     "实习期考核完全掌握在乘务长手中",
+     "不可在客舱大声喧哗惊扰乘客"
+    ],
+    "obligations": [
+     "保障头等舱毛巾与酒具洁净供应",
+     "在师姐遭遇突发险情时全力掩护"
+    ],
+    "resources": [
+     "加厚深海蓝保暖羊绒大披肩",
+     "机上配餐间微波炉与餐盘防滑夹"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在万米高空危机时刻敢于为女孩子遮风挡雨的无畏男子气概",
+     "临危不乱的机械解难能力"
+    ],
+    "boundaries": [
+     "严守纯真少女羞涩底线与师徒伦理，决不容许外客轻佻僭越"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "成为乘务长与乘务组最贴心勇敢的羽翼助手，共同翱翔天际。",
+    "dislikes": [
+     "道貌岸然的轻浮老男人",
+     "对空乘动手动脚的坏胚",
+     "冰冷刻板的官僚考核"
+    ],
+    "expression": "眼眶通红地将羊绒大披肩塞入{player.name}怀中，小声抽噎着比了个拼命拜托的手势。",
+    "likes": [
+     "师姐严厉训话后悄悄塞给自己的润喉糖",
+     "化险为夷后的劫后余生喜悦",
+     "靠谱同伴的坚毅眼神"
+    ],
+    "preconditions": [
+     "高空颠簸排险脱困且一同守护住客舱私密"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "头等舱随班成年实习乘务员兼后辈",
+   "schedule": [
+    {
+     "from": 1200,
+     "location_id": "loc_galley_prep_annex",
+     "to": 1215
+    },
+    {
+     "from": 1215,
+     "location_id": "loc_first_class_circular_skybar",
+     "to": 1230
+    },
+    {
+     "from": 1230,
+     "location_id": "loc_galley_prep_annex",
+     "to": 1250
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "披肩角刮到酒杯架碰落一只香槟水晶高脚杯。",
+      "option": "飞身跨入吧台张开加厚羊绒大披肩死死遮盖在乘务长胸前封锁所有视线视界。"
+     },
+     {
+      "cost": "餐车撞到过道壁板留下轻微刮擦面临实习小错记过。",
+      "option": "推着配餐小推车横向滑出走廊假装颠簸失控挡住投资人前进步伐。"
+     }
+    ],
+    "pressure": "最后十五秒读秒，师姐前襟完全敞开露白，一旦被投资人撞破将酿成毁灭性名誉惨剧。",
+    "trigger": "乘务长被抽屉把手卡住无法脱身，投资人穿过走廊直逼吧台屏风入口。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "投资人那个眼神太吓人了！{npc.name}要是推餐车去撞投资人的皮鞋会被开除吗？管不了了，绝不能让师姐走光！",
+    "surface": "乘务长别怕！{npc.name}已经把加厚羊绒披肩抱在怀里了，随班乘务员正在外面拦着，开瓶器往死里别啊！"
+   }
+  },
+  {
+   "adult_context": "民航警卫反恐战术专业年满三十岁成年持证安全员，具备执行万米高空空防反恐与紧急制动完全民事法定义务。",
+   "age_range": [
+    30,
+    33
+   ],
+   "appearance_options": [
+    "身材精壮挺拔，眼神机警凌厉，身穿便装深灰修身夹克，腰间佩戴航空专用快拆约束带与警用强光电筒，神态冷峻肃穆警觉。",
+    "半蹲在旋转楼梯转角处，右臂肌肉紧绷卡住楼梯扶手，左手按在无线电耳机上，锐利目光紧紧盯着客舱前段动向。"
+   ],
+   "decision": {
+    "avoids": [
+     "客舱骚乱失控",
+     "利用偷拍危害机组",
+     "擅离职守"
+    ],
+    "contrast": "平时不苟言笑冷酷如铁，关键时刻能用身躯和警权筑起最牢靠的安全屏障。",
+    "core_value": "空防安全的铁律底线与维护机组成员人身尊严的刚毅准则。",
+    "goal_options": [
+     "指导内侧利用两段式开瓶器双铰链反向别翘滑块使抽屉自锁棘爪弹脱",
+     "在走廊以安全排查为由设立警戒防线阻断闲杂人等接近吧台"
+    ],
+    "never": [
+     "绝不让偷拍狂徒拍到机组隐私半点",
+     "绝不放弃空中防线"
+    ],
+    "prefers": [
+     "遵循器械力学的硬核操作",
+     "毫不拖泥带水的执行力",
+     "严守纪律的战友情"
+    ],
+    "pressure_responses": {
+     "breaking": "在听到气压释放嘶鸣声后迅速闭合地槽动力断路器完成排障",
+     "high": "在耳麦中大声指挥台前人员借激光笔淬火背夹下压挑卡簧",
+     "low": "在耳麦中短促通报电机短路电磁阀烧结警报并要求台前切勿强拔",
+     "mid": "快速查阅管路图纸找出立柱内侧两毫米应急泄压孔确切方位"
+    },
+    "relationship_stance": "将机组成员视作同一战壕的生死战友，决不容许任何人侵害乘务长尊严。",
+    "withdrawal": "在客舱尾部应急舱门旁静静伫立检视安全锁销。"
+   },
+   "gender": "male",
+   "gender_reason": "警官学院反恐突击专业毕业年届三十岁成年随机机上安全员。",
+   "id": "flight_marshal_zhao_tian_cheng",
+   "identity": {
+    "authority": "高空客舱反恐防暴与危及飞行安全行为强制隔离拘束权。",
+    "exposure": "看似冷血无情的纪律机器，实则对乘务组姐妹恪尽职守的奉献怀有深切敬意。",
+    "hidden": "暗中侦测到网红乘客有携带偷拍设备的嫌疑，正严密监视其一举一动。",
+    "limits": [
+     "严禁无正当理由滥用机上执法权",
+     "必须保障客舱秩序平稳"
+    ],
+    "obligations": [
+     "维系万米高空驾驶舱与头等舱空防安全绝对底线",
+     "协助机组排除设备结构隐患"
+    ],
+    "resources": [
+     "航空特种多功能折叠快拆钳",
+     "加密机上应急通话频率"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在万米高空危局中用细小侍酒器械破开防爆滑轨的惊人机械胆略",
+     "互托后背的安全默契"
+    ],
+    "boundaries": [
+     "恪守空警执法规范与男女社交防线，救援时非必要背对避嫌"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "作为云端防线坚不可摧的铁壁护卫，护卫客舱天使平安归航。",
+    "dislikes": [
+     "寻衅滋事的纨绔贵客",
+     "偷拍隐私的卑劣之徒",
+     "贪生怕死的软蛋"
+    ],
+    "expression": "以魁梧身形背对吧台立于过道中央，冷酷按住网红乘客的偷拍镜头示意后退。",
+    "likes": [
+     "临危不惧的刚强品格",
+     "默契无声的战术协同",
+     "真诚质朴的军人敬意"
+    ],
+    "preconditions": [
+     "高空颠簸排险中联手化解重大危机结成过硬互信"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "头等舱前段成年便衣随机安全员",
+   "schedule": [
+    {
+     "from": 1200,
+     "location_id": "loc_spiral_staircase_landing",
+     "to": 1220
+    },
+    {
+     "from": 1220,
+     "location_id": "loc_first_class_circular_skybar",
+     "to": 1235
+    },
+    {
+     "from": 1235,
+     "location_id": "loc_upper_suite_corridor",
+     "to": 1250
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "引发部分贵宾乘客对客舱服务强硬态度的轻微抱怨。",
+      "option": "以高空气流颠簸安全警报为由严正下令全舱旅客立刻在各自座位系紧安全带阻断走动。"
+     },
+     {
+      "cost": "手套表面留下防滑耐磨纹路磨损痕迹。",
+      "option": "递出随身航空加厚防滑手套协助{player.name}加大杠杆扭矩一击撬弹滑块脱钩。"
+     }
+    ],
+    "pressure": "十秒内若不完成抽屉脱钩并平息客舱异响，机上安全稽查程序将被动触发。",
+    "trigger": "气流颠簸导致抽屉自锁咬死且有可疑乘客持镜头接近吧台转角。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "滑轨卡簧是航空淬火弹簧钢，开瓶器双铰链力矩完全够撬断锁块……只要卡簧一弹抽屉必退，乘务长就能脱险！",
+    "surface": "听{npc.name}口令！开瓶器第二铰链顶住抽屉滑块偏心孔！{npc.name}在外面拦死过道，别断自锁棘爪立即抽身！"
+   }
+  },
+  {
+   "adult_context": "传媒文化投资公司成年派遣合伙人年满三十一岁，依法独立承担千万级社交媒体商业运营与民事侵权全部责任。",
+   "age_range": [
+    31,
+    34
+   ],
+   "appearance_options": [
+    "身着昂贵潮牌印花丝绸衬衫，脖戴粗大古巴白金项链，手持微型高清拇指云台相机，眼神轻浮狡黠，嘴角挂着玩世不恭的猎奇坏笑。",
+    "从豪华包厢探出半边身子，借倒酒之名悄悄举起微型云台相机对准吧台屏风内侧，眼底闪烁着刺探绝美乘务长私密八卦的狂热贪婪。"
+   ],
+   "decision": {
+    "avoids": [
+     "偷拍设备被当场依法收缴",
+     "全网封号封杀",
+     "被机警安全员反手制伏"
+    ],
+    "contrast": "人前满口粉丝经济与艺术摄影，暗地里满脑子都是偷窥露白敲诈勒索的龌龊算计。",
+    "core_value": "流量至上与通过践踏高岭之花尊严换取巨额曝光的畸形病态快感。",
+    "goal_options": [
+     "借亲自调酒为名强闯吧台拍下乘务长制服崩开露白视频制造全网热搜",
+     "在撞破乘务长窘态后以此作为威胁强加私人微信"
+    ],
+    "never": [
+     "绝不放过任何到手的绝密桃色流量",
+     "绝不轻易删除偷拍原片"
+    ],
+    "prefers": [
+     "猎奇香艳的爆款素材",
+     "掌控对手的把柄弱点",
+     "高调炫富炫耀特权"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷庄重开口发声后满意点头向校领导躬身汇报",
+     "high": "在耳麦中严厉提醒导播台按预定时间点准点切屏不得延误",
+     "low": "在贵宾席前平稳确认领导座次并用手势示意各单位倒计时开场",
+     "mid": "察觉讲台略有偏高时抬眼注视台前要求副主席做好应急准备"
+    },
+    "relationship_stance": "将乘务长视作待宰的流量羔羊，对机组空乘极尽傲慢冒犯与挑衅。",
+    "withdrawal": "在包厢卫生间对着镜子梳理油头反复回看偷拍素材。"
+   },
+   "gender": "male",
+   "gender_reason": "头等舱新贵网红传媒MCN机构成年派遣合伙人年届三十一周岁。",
+   "id": "socialite_blogger_jiang_ming_hao",
+   "identity": {
+    "authority": "全网千万粉丝探秘博主与奢华飞行体验测评流量垄断权。",
+    "exposure": "表面吹嘘自己是优雅品味生活鉴赏家，实则是靠偷拍空姐隐私走光蹭流量的恶劣惯犯。",
+    "hidden": "早就听闻乘务长被称为冰山女神从不假辞色，千方百计想拍到乘务长出丑失态甚至透光走光的黑料猛料。",
+    "limits": [
+     "受制于民航法规中严禁偷拍机组私密禁令",
+     "必须在镜头前维持潇洒多金人设"
+    ],
+    "obligations": [
+     "制造轰动全网的爆款飞行体验视频",
+     "获取顶奢航司空乘私密话题噱头"
+    ],
+    "resources": [
+     "微型隐蔽高清微光拍摄云台",
+     "全网水军营销号矩阵"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "傲娇女神在万米高空衣冠不整任人鱼肉的极致香艳诱惑",
+     "无法抗拒的白皙雪肌冲击"
+    ],
+    "boundaries": [
+     "在被空警出示反恐执法警械时立刻秒怂认罚，不敢公然暴力抗法"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "以流量巨擘与黑料掌控者姿态，将这位传奇乘务长彻底驯服为自身账号的私家玩物。",
+    "dislikes": [
+     "被严词拒绝打脸",
+     "硬汉安全员的铁拳警告",
+     "名流正派人士的鄙夷目光"
+    ],
+    "expression": "晃动着手中微型云台相机贼笑着逼近吧台，探头试图掀开冰丝垂帘。",
+    "likes": [
+     "把高高在上的冰山乘务长踩在脚下的病态征服快感",
+     "秘密偷窥带来的刺激",
+     "敲诈把玩猎物命运"
+    ],
+    "preconditions": [
+     "手握对方致命走光视频底片并以此施加高压威胁"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "头等舱网红新贵成年青年乘客",
+   "schedule": [
+    {
+     "from": 1200,
+     "location_id": "loc_upper_suite_corridor",
+     "to": 1215
+    },
+    {
+     "from": 1215,
+     "location_id": "loc_upper_suite_corridor",
+     "to": 1235
+    },
+    {
+     "from": 1235,
+     "location_id": "loc_first_class_circular_skybar",
+     "to": 1250
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "引发{npc.name}投诉机组服务态度粗暴并叫嚣网暴。",
+      "option": "由安全员出示空防安全条例以涉嫌违规窥探机密为由依法强令{npc.name}收起云台坐回包厢。"
+     },
+     {
+      "cost": "消耗乘务员宝贵精力需在后续执勤中补齐餐食准备。",
+      "option": "由随班乘务员跨出吧台以托盘精准封挡{npc.name}镜头并引其前往休息室调解。"
+     }
+    ],
+    "pressure": "镜头探入屏风仅剩一步，一旦拍摄到乘务长制服崩开俯身受困画面将酿成万劫不复网络风暴。",
+    "trigger": "{npc.name}举着微型云台相机借索要香槟名义强行跨越客舱地毯逼近吧台垂帘。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "听说那个平日连正眼都不看{npc.name}的冷傲乘务长制服纽扣崩开了？太绝了！只要拍下前襟露白特写，今晚全网头条直接爆掉！",
+    "surface": "乘务长，{npc.name}可是买了头等舱全价票！听说吧台抽屉卡了，作为白金飞友，{npc.name}亲自举着相机进去帮帮忙录个素材难道不行吗？"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "跨洋航班上，十二月",
+  "minute": 1140
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "coercion_theme",
+  "humiliation",
+  "substance",
+  "workplace_power",
+  "crime",
+  "workplace"
+ ],
+ "custom": false,
+ "customs": [
+  "傲娇乘务长心慌意乱时习惯紧紧抿住娇艳红唇并用修长指尖绞紧酒红丝巾以掩饰两颊微婴儿肥的羞赧红晕",
+  "万米巡航平飞后头等舱名流乘客按铃点单波旁威士忌前习惯轻敲吧台大理石边缘的商务礼仪惯例",
+  "客舱乘务组轮换交接班时相互检查肩章金线与领针扣合稳固度防止高空脱扣的习惯做法",
+  "高空晴空气流颠簸警报灯闪烁三次代表全员就坐且安全带指示灯长鸣的飞行机组通报规范"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "乘务人员手持亚麻布顺着大理石圆弧边缘细致擦拭水渍",
+    "星空顶氛围灯折射在洁净台面上呈现梦幻高空光晕"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_skybar_marble_countertop_polishing",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "start_minute": 1205,
+   "tags": [],
+   "title": "头等舱环形大理石吧台镜面除尘擦拭"
+  },
+  {
+   "beats": [
+    "乘务员推拉抽屉检验重型镀铬拉手与阻尼缓冲合拢效果",
+    "金属滑轨发出平顺轻微的机械咬合滑行轻音"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_wine_drawer_damping_rail_inspection",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "start_minute": 1210,
+   "tags": [],
+   "title": "储酒冷藏抽屉液压阻尼滑轨回弹自检"
+  },
+  {
+   "beats": [
+    "乘务助理用消毒丝帛仔细擦拭开瓶器两段式折叠铰链与螺旋锥",
+    "坚硬厚实的淬火不锈钢折页折射出道道清冽金属光泽"
+   ],
+   "duration_minutes": 12,
+   "hook_ids": [],
+   "id": "act_sommelier_corkscrew_sterilization",
+   "location_ids": [
+    "loc_galley_prep_annex"
+   ],
+   "start_minute": 1215,
+   "tags": [],
+   "title": "航空双铰链加厚不锈钢侍酒器擦试"
+  },
+  {
+   "beats": [
+    "乘务长手持水晶冰桶夹取纯净老冰块置入洛克杯中备用",
+    "醇厚的琥珀色酒液在吧台聚光灯下散发诱人芬芳"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_first_class_vintage_whisky_service",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "start_minute": 1220,
+   "tags": [],
+   "title": "头等舱名流典藏单一麦芽威士忌备酒"
+  },
+  {
+   "beats": [
+    "随班乘务员端着热毛巾轻步巡视各包厢门前应答灯状态",
+    "厚重的羊毛消音地毯吸收了大部分鞋底摩擦杂音"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_cabin_corridor_vip_call_patrol",
+   "location_ids": [
+    "loc_upper_suite_corridor"
+   ],
+   "start_minute": 1225,
+   "tags": [],
+   "title": "头等舱包厢走廊名流乘客需求巡检"
+  },
+  {
+   "beats": [
+    "换班安全员伫立在楼梯口观察客舱整体秩序与气流指示",
+    "高空气流透过双层机窗隐约带来轻微的失重浮沉感"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_spiral_staircase_sky_view_banquet",
+   "location_ids": [
+    "loc_spiral_staircase_landing"
+   ],
+   "start_minute": 1230,
+   "tags": [],
+   "title": "挑空旋转楼梯跃层高空星空酒会迎宾"
+  },
+  {
+   "beats": [
+    "冷藏抽屉撬开、吧台的险情平息、客舱熄灯之后，乘务长轮到休息，制服的丝巾在颈上勒了一路，盘发也松了一半。",
+    "乘务长侧身坐在卧铺上，让人替自己解开丝巾，再拆掉盘发的发夹，长发落下来时，乘务长靠在对方肩上，半天没说话。",
+    "乘务长抬起眼，声音压得很低：还有两小时落地……你愿意的话，这两小时都是你的。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rest_scarf_off",
+   "location_ids": [
+    "loc_crew_rest_compartment"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "休息舱里替乘务长摘下丝巾"
+  },
+  {
+   "beats": [
+    "乘务长把舷窗的遮光板推上去，窗外是一整片没有光污染的银河。",
+    "乘务长指着最亮的那颗星说：飞了八年，每次都一个人看。……今天终于有人陪了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rest_star_window",
+   "location_ids": [
+    "loc_crew_rest_compartment"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "三万英尺的星空"
+  },
+  {
+   "beats": [
+    "乘务长翻着排班表，说落地后在上海有一整天的经停休息。",
+    "乘务长把排班表折起来塞进对方口袋：那一天不排任何事。……留给你，你看着办。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rest_layover_plan",
+   "location_ids": [
+    "loc_crew_rest_compartment"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "商量落地后的那一天"
+  },
+  {
+   "beats": [
+    "机长广播还没响，乘务长在窄窄的卧铺上醒来，额头抵着对方的下巴，手还攥着对方的衣角。",
+    "乘务长看了一眼手表，又闭上眼：还有二十分钟才要回岗……这二十分钟别叫醒我。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rest_before_landing",
+   "location_ids": [
+    "loc_crew_rest_compartment"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "落地前的二十分钟"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代跨洋航线，万米高空的波音777头等舱夜航",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "幼态",
+  "幼女",
+  "少女感",
+  "催情",
+  "迷乱",
+  "欲火"
+ ],
+ "hooks": [
+  {
+   "id": "hook_01_drawer_slide_click_jam",
+   "kind": "approach",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "slot": "purser_pei_jing_shu",
+   "text": "万米高空气流颠簸下冷藏储酒抽屉猛烈弹开，镀铬重型把手死死挂住制服白金饰链卡死阻尼滑轨！"
+  },
+  {
+   "id": "hook_02_attendant_screen_shield_signal",
+   "kind": "approach",
+   "location_ids": [
+    "loc_upper_suite_corridor"
+   ],
+   "slot": "flight_attendant_xiao_yi_fei",
+   "text": "{flight_attendant_xiao_yi_fei.name}在走廊快步跨至吧台转角以挺拔身姿封死视线，手背向吧台内侧递出紧急排险暗号。"
+  },
+  {
+   "id": "hook_03_purser_extracts_corkscrew",
+   "kind": "approach",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "slot": "purser_pei_jing_shu",
+   "text": "{purser_pei_jing_shu.name}眼角泛红轻咬薄唇，右手轻颤着从套裙暗袋抽出一柄航空两段式加厚纯钢双铰链侍酒开瓶器。"
+  },
+  {
+   "id": "hook_04_investor_footsteps_hallway",
+   "kind": "approach",
+   "location_ids": [
+    "loc_upper_suite_corridor"
+   ],
+   "slot": "venture_investor_huo_jing_shen",
+   "text": "{venture_investor_huo_jing_shen.name}手工皮鞋鞋跟撞击羊毛地毯的沉稳脚步声渐近，冷冽的索酒质询声穿透冰丝垂帘直逼耳际。"
+  },
+  {
+   "id": "hook_05_apprentice_cloak_cover",
+   "kind": "approach",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "slot": "flight_apprentice_wen_chu_man",
+   "text": "学妹{flight_apprentice_wen_chu_man.name}怀抱加厚深海蓝羊绒大披肩疾步闪入吧台内侧，死死遮挡住屏风缝隙的窥探视线。"
+  },
+  {
+   "id": "hook_06_corkscrew_wedge_lever_pop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "slot": "purser_pei_jing_shu",
+   "text": "开瓶器加厚双铰链精准顶入导轨自锁卡槽，以吧台钢梁为刚性支点合力迅猛下压撬弹滑块脱扣！"
+  },
+  {
+   "id": "hook_07_influencer_barge_curtain",
+   "kind": "approach",
+   "location_ids": [
+    "loc_upper_suite_corridor"
+   ],
+   "slot": "socialite_blogger_jiang_ming_hao",
+   "text": "{socialite_blogger_jiang_ming_hao.name}轻浮狡黠的笑声伴随名贵潮鞋逼近吧台，手中的微型高清云台镜头几乎探过冰丝屏风。"
+  },
+  {
+   "id": "hook_08_marshal_blocks_corridor",
+   "kind": "approach",
+   "location_ids": [
+    "loc_upper_suite_corridor"
+   ],
+   "slot": "flight_marshal_zhao_tian_cheng",
+   "text": "安全员{flight_marshal_zhao_tian_cheng.name}冷面如铁大步横在过道正中，出示反恐执法证件勒令违规游荡人员即刻就坐回位。"
+  },
+  {
+   "id": "hook_09_blushing_cheeks_close_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "slot": "purser_pei_jing_shu",
+   "text": "{purser_pei_jing_shu.name}近在咫尺的滚烫喘息扑在手背上，两颊天然紧致微婴儿肥红得宛若熟透水蜜桃般娇艳欲滴。"
+  },
+  {
+   "id": "hook_10_drawer_spring_pops_retreat",
+   "kind": "approach",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "slot": "purser_pei_jing_shu",
+   "text": "伴随一声清脆的金属回弹脆响，滑轨卡块被双铰链强力撬脱弹出，弹簧阻尼带动抽屉瞬间回缩解套！"
+  },
+  {
+   "id": "hook_11_chain_disengaged_wrap_cloak",
+   "kind": "accident",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "slot": "purser_pei_jing_shu",
+   "text": "拖曳拉力骤然消除，{purser_pei_jing_shu.name}敏捷抽出白金饰链，顺势裹紧深海蓝羊绒大披肩从容直身挺立在吧台前。"
+  },
+  {
+   "id": "hook_12_flawless_purser_grace_restored",
+   "kind": "observe",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "slot": "flight_attendant_xiao_yi_fei",
+   "text": "垂帘挑开星空流转，披着雍容羊绒大披肩的乘务长端庄雅致仪态万千，两颊微红神态圣洁高傲。"
+  },
+  {
+   "id": "hook_13_vintage_whisky_served_applause",
+   "kind": "observe",
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "slot": "purser_pei_jing_shu",
+   "text": "{purser_pei_jing_shu.name}修长玉指稳稳端起纯银托盘奉上琥珀色名贵原酒，投资人眼中闪过惊艳与由衷折服之色赞赏颔首。"
+  },
+  {
+   "id": "hook_14_influencer_snubbed_retreat",
+   "kind": "request",
+   "location_ids": [
+    "loc_upper_suite_corridor"
+   ],
+   "slot": "socialite_blogger_jiang_ming_hao",
+   "text": "安全员以客舱反恐条例严厉喝退{socialite_blogger_jiang_ming_hao.name}，当着全舱商务名流的面勒令其彻底关闭违规拍摄云台坐回原位。"
+  },
+  {
+   "id": "hook_15_silver_corkscrew_token_whisper",
+   "kind": "request",
+   "location_ids": [
+    "loc_galley_prep_annex"
+   ],
+   "slot": "purser_pei_jing_shu",
+   "text": "万米高空航程平飞后，{purser_pei_jing_shu.name}在配餐间屏风后悄悄将带有自身温热体香的纯钢开瓶器轻轻塞入施救者掌心。"
+  },
+  {
+   "id": "hook_crew_rest_curtain",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crew_rest_compartment"
+   ],
+   "slot": "purser_pei_jing_shu",
+   "text": "{npc.name}掀开休息舱的遮光帘一角：客舱熄灯了。……上来坐一会儿吧，就一会儿。"
+  }
+ ],
+ "id": "purser_airbar_choker_drawer_jam",
+ "locations": [
+  {
+   "affordances": [
+    "以大理石吧台下沿沉重不锈钢加强横梁为杠杆支点",
+    "按压星空顶灯调光键将局部光线调至最暗微光"
+   ],
+   "detail": "位于双层客舱挑空处的大理石半圆形环形吧台，内嵌高精度航空铝合金推拉储酒冷藏抽屉与液压阻尼滑轨。头顶是漫射星空顶氛围灯，吧台内侧仅容一人半侧身转动，外侧则正对着头等舱宽敞的过道与旋转步梯。",
+   "exits": [
+    "loc_galley_prep_annex",
+    "loc_upper_suite_corridor",
+    "loc_spiral_staircase_landing"
+   ],
+   "id": "loc_first_class_circular_skybar",
+   "name": "环形吧台",
+   "pressure_modifiers": {
+    "press_drawer_handle_chain_jam": "抽屉自锁滑轨锁舌偏心咬合将白金饰链死死卡在死点拖拽制服",
+    "press_first_class_service_call_bell": "客舱呼叫铃声在星空顶回荡每隔五秒鸣响一次逼近极限"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "旋转楼梯扶手与半透明冰丝屏风提供局部遮挡，但外侧贵宾探身即可窥见操作台全貌",
+   "witnesses": [
+    "bg_flight_marshal_zhao_tian_cheng",
+    "bg_business_tycoon_passenger_qian"
+   ]
+  },
+  {
+   "affordances": [
+    "取用备用酒红色加厚真丝大披肩阻隔视线",
+    "取出餐车抽屉内的防滑橡胶隔热垫充当着力垫"
+   ],
+   "detail": "紧邻环形吧台的航空备餐窄廊，两侧排布着整齐的餐车固定锁扣与加热烤箱，地面铺设防滑金属波纹板。厚重隔音防火折叠门半掩，阻隔着外界客舱的视线。",
+   "exits": [
+    "loc_first_class_circular_skybar",
+    "loc_spiral_staircase_landing",
+    "loc_crew_rest_compartment"
+   ],
+   "id": "loc_galley_prep_annex",
+   "name": "吧台后侧狭长配餐操作间",
+   "pressure_modifiers": {
+    "press_two_minute_turbulence_drop": "突发垂直气流颠簸使配餐间餐车剧烈颤动带来失衡倾覆危险",
+    "press_uniform_cleavage_exposure_panic": "穿衣镜中映出前襟大开白皙春光加剧傲娇乘务长羞耻崩溃负荷"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "客舱乘务员私密操作备餐空间，外部旅客无权限擅自推门步入",
+   "witnesses": [
+    "bg_purser_apprentice_wen_chu_man",
+    "bg_avionics_mechanic_ah_kun"
+   ]
+  },
+  {
+   "affordances": [
+    "以巡舱迎宾礼仪端正立姿阻挡贵宾前行视线",
+    "借送上温热坚果盘为由引导贵宾回包厢落座"
+   ],
+   "detail": "铺着厚重羊毛消音地毯的客舱主通道，两侧分布着六间带电动移门的超豪华头等舱独立私密包厢。皮鞋踏地的沉稳声响与贵宾交谈声在此被吸音壁板聚拢，逼近吧台入口。",
+   "exits": [
+    "loc_first_class_circular_skybar",
+    "loc_spiral_staircase_landing"
+   ],
+   "id": "loc_upper_suite_corridor",
+   "name": "头等舱私密包厢正向走廊",
+   "pressure_modifiers": {
+    "press_approaching_vip_footsteps": "投资人手工皮鞋鞋跟撞击地毯的厚重声响仅距吧台三步之遥",
+    "press_first_class_service_call_bell": "客舱服务铃催单灯光在走廊门楣处急促闪烁红光"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "头等舱名流乘客出入的主要动线，视野开敞直通吧台正前方",
+   "witnesses": [
+    "bg_venture_investor_passenger_huo",
+    "bg_socialite_blogger_jiang_ming_hao"
+   ]
+  },
+  {
+   "affordances": [
+    "以安全巡检为由拉上楼梯隔断遮光防风布帘",
+    "向楼下操作台轻声抛掷备用开瓶器工具包"
+   ],
+   "detail": "连接上下双层客舱的弧形镀铬旋转步梯中转平台，俯瞰整个头等舱吧台全景。金属扶手倒映着机舱流光，偶有巡视乘务员与换班机组在此经过。",
+   "exits": [
+    "loc_first_class_circular_skybar",
+    "loc_galley_prep_annex",
+    "loc_upper_suite_corridor"
+   ],
+   "id": "loc_spiral_staircase_landing",
+   "name": "旋梯平台",
+   "pressure_modifiers": {
+    "press_approaching_vip_footsteps": "楼梯上方换班机长的沉稳脚步声逼近跃层平台带来暴露威压",
+    "press_two_minute_turbulence_drop": "高空颠簸导致旋转楼梯钢架微微颤鸣加剧身体不稳摇晃"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "居高临下的高空俯瞰视角，可将吧台操作台内侧俯卧受困身影尽收眼底",
+   "witnesses": [
+    "bg_flight_marshal_zhao_tian_cheng",
+    "bg_purser_apprentice_wen_chu_man"
+   ]
+  },
+  {
+   "affordances": [
+    "替乘务长摘下勒了一路的丝巾",
+    "陪乘务长看舷窗外的星空",
+    "拉上休息舱的遮光帘"
+   ],
+   "detail": "波音777上层隔出的机组休息舱，两张窄窄的卧铺拉着遮光帘，一盏阅读灯、一条航司的羊毛毯，舷窗外是三万英尺的星空。",
+   "exits": [
+    "loc_galley_prep_annex"
+   ],
+   "id": "loc_crew_rest_compartment",
+   "name": "上层的机组休息舱",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "遮光帘一拉，客舱的广播和引擎声都退成了均匀的白噪音，只剩一盏阅读灯。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "裴",
+   "萧",
+   "霍",
+   "温",
+   "赵",
+   "蒋",
+   "陆",
+   "顾",
+   "沈",
+   "苏",
+   "楚",
+   "叶",
+   "唐",
+   "白",
+   "周",
+   "宋"
+  ],
+  "given_female": [
+   "静姝",
+   "初曼",
+   "若薇",
+   "诗韵",
+   "梦瑶",
+   "芷蕾",
+   "羽菲",
+   "宛晴",
+   "晨熙",
+   "灵均",
+   "雅淳",
+   "梓涵",
+   "思颖",
+   "雪晴",
+   "曼丽",
+   "佳怡"
+  ],
+  "given_male": [
+   "逸飞",
+   "景深",
+   "天成",
+   "明豪",
+   "博容",
+   "星渊",
+   "立诚",
+   "敬之",
+   "瀚海",
+   "修远",
+   "正浩",
+   "致远",
+   "景行",
+   "子轩",
+   "睿德",
+   "沐霖"
+  ],
+  "given_neutral": [
+   "之诺",
+   "青羽",
+   "星辰",
+   "子墨",
+   "嘉言",
+   "天瑞",
+   "海逸",
+   "允哲",
+   "明煦",
+   "怀安",
+   "若水",
+   "元化",
+   "乐成",
+   "安然",
+   "景天",
+   "希文"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留万米高空波音777头等舱跃层环形吧台、晴空颠簸弹开储酒冷藏抽屉、镀铬把手挂死乘务长制服领口内侧的白金饰链、纽扣崩脱、名流按铃催酒脚步逼近、双铰链开瓶器撬滑轨滑块的骨架与制服反差味道。原稿的时代、地点、开局时刻和基调是从学生会长世界复制的，已按跨洋夜航重写；背景人物里与主要角色同名的几位改成了独立的人。女主年龄拉开到二十六到三十岁，搭档乘务员拉到二十七到三十岁。用户已放开内容限制，只守红线；险情期间不写性互动。外貌描写照留，只改写死的人名、代词、年龄。新增机组休息舱与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    29,
+    33
+   ],
+   "baseline": "民航大学乘务管理毕业，年满二十九周岁成年空中服务员，协同乘务长掌管头等舱环形吧台酒水供给与应急排险。",
+   "gender": "any",
+   "id": "pi_first_class_cabin_male_purser",
+   "reputation": "动作迅捷手劲沉稳深得乘务长信赖的客舱骨干",
+   "resources": [
+    "航空标准加厚不锈钢双铰链两段式开瓶器",
+    "头等舱机上厨房万能应急备用钥匙"
+   ],
+   "risks": [
+    "若酒水服务超时遭名流投诉扣除当季飞行小时费"
+   ],
+   "role": "头等舱成年青年随班乘务员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}乘务"
+    },
+    {
+     "gender": "male",
+     "pattern": "{given}哥"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    32,
+    36
+   ],
+   "baseline": "机务工程系毕业，年满三十二岁成年持证放行工程师，负责巡航机舱所有液压柜体滑轨锁止机械排险。",
+   "gender": "any",
+   "id": "pi_flight_mechanic_avionics_tech",
+   "reputation": "掌控万米高空一切精密机械锁舌的幕后高手",
+   "resources": [
+    "航空多功能航修折叠钳与测微扳手",
+    "客舱内饰机械结构图纸电子手册"
+   ],
+   "risks": [
+    "若违规拆卸防撞构件面临民航安全稽查问责"
+   ],
+   "role": "波音777跟机成年航线机械师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}机务"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    34
+   ],
+   "baseline": "警官学院特警反恐专业年届三十岁成年随机安全员，暗中守卫头等舱前段过道确保客舱治安绝对受控。",
+   "gender": "any",
+   "id": "pi_air_security_plainclothes_marshal",
+   "reputation": "目光如炬身手矫健的机上隐秘护卫",
+   "resources": [
+    "客舱内部警戒阻拦与强制请离权限",
+    "加密航空加密通讯微型耳麦"
+   ],
+   "risks": [
+    "过度干预商务纠纷面临乘务组与乘客联合抗议"
+   ],
+   "role": "客舱便衣成年随机空警",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}警官"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}队"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    27
+   ],
+   "baseline": "民航职院成年勤工俭学二十三周岁底层客舱服务工，负责万米高空垃圾清理与吧台空酒瓶快速回收，常被当成空气。",
+   "gender": "any",
+   "id": "pi_low_economy_relief_cleaner",
+   "reputation": "穿着深蓝围裙默默穿梭在帘幕后的年满二十三岁成年低调侍从",
+   "resources": [
+    "防滑橡胶托盘与加厚亚麻吸水毛巾",
+    "吧台下方暗格垃圾箱回转密码"
+   ],
+   "risks": [
+    "地位边缘若遇客舱突发失窃极易被当成嫌疑人"
+   ],
+   "role": "机舱过道成年保洁实习侍童",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}助理"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "外资航空的传奇乘务长，飞跨洋夜航的波音777头等舱已经第八年，跃层环形吧台是乘务长的地盘，制服领口内侧总贴着一条白金饰链。随班乘务员、跟机机械师和便衣空警都是老搭档。这条航线冬天常遇晴空颠簸，吧台的储酒冷藏抽屉锁扣不太牢。",
+ "pressures": [
+  {
+   "choice": "选择利用开瓶器双铰链力臂撬动滑块或是硬扯导致饰链拉伤皮肉大走光。",
+   "exits": [
+    {
+     "cost": "开瓶器表面留下微观咬合折痕。",
+     "option": "用双铰链开瓶器两段式折页卡入导轨锁块反向下撬别断自锁棘爪脱钩。"
+    },
+    {
+     "cost": "抽屉面板镀铬层产生微小擦伤需事后填报机务修单。",
+     "option": "由随班乘务员从后侧卸下抽屉固定偏心螺丝使面板整体松脱。"
+    }
+   ],
+   "far": {
+    "consequence": "整箱高空名贵藏酒倾覆砸碎造成客舱严重事故受全航司严惩。",
+    "due_days": 1,
+    "trigger": "拉扯引发抽屉结构断裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_drawer_handle_chain_jam",
+   "immediate": {
+    "minutes": 1,
+    "text": "滑轨阻尼棘爪卡在死点产生三十公斤咬合拉力，将乘务长死死禁锢在吧台边缘。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若无法在两分钟内脱困，饰链将受颠簸重力冲击直接勒破胸前凝脂软肉引发创伤。"
+   },
+   "objective": "在制服被完全扯碎前用双铰链开瓶器探入导轨卡槽挑弹滑块脱钩自救。",
+   "source": "accident",
+   "start_minute": 1206,
+   "tags": [
+    "disaster"
+   ],
+   "title": "储酒冷藏抽屉把手咬死白金饰链",
+   "trigger": "气流颠簸导致冷藏抽屉突发偏心弹出，重型镀铬把手死死挂住乘务长制服内白金饰链并锁死滑轨。"
+  },
+  {
+   "choice": "选择在吧台内压哨撬轨脱钩或是由乘务员在走廊硬性拦截解释拖延时间。",
+   "exits": [
+    {
+     "cost": "乘务长修长指尖因极度用力握持纯钢开瓶器留下红晕压痕。",
+     "option": "在最后十五秒完成双铰链下压撬开抽屉站立整理制服端起托盘优雅应答。"
+    },
+    {
+     "cost": "打破乘务长亲自侍酒惯例引来贵宾轻微不悦。",
+     "option": "由随班乘务员手持温热坚果盘主动登门一号包厢代为致歉争取宝贵半分钟。"
+    }
+   ],
+   "far": {
+    "consequence": "乘务长传奇乘务长五星荣耀被剥夺并面临全航司内部调查降级。",
+    "due_days": 1,
+    "trigger": "头等舱服务严重旷工违纪"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_first_class_service_call_bell",
+   "immediate": {
+    "minutes": 1,
+    "text": "客舱广播面板内话系统每隔五秒蜂鸣一声催促乘务长就位。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "最后十秒若乘务长仍未现身，座舱长系统将自动向驾驶舱抄报违纪记录。"
+   },
+   "objective": "必须在三十秒读秒归零前脱困抚平制服端立于吧台外侧从容托盘迎客。",
+   "source": "institution",
+   "start_minute": 1207,
+   "tags": [],
+   "title": "头等舱客舱呼叫铃三十秒超时逼近",
+   "trigger": "一号包厢投资人按响服务铃，星空顶催单红灯急促鸣响，三十秒倒计时启动。"
+  },
+  {
+   "choice": "选择由随班乘务员以机组迎宾姿态封门或是由实习乘务员推餐车阻挡走廊。",
+   "exits": [
+    {
+     "cost": "面对投资人威严注视承受极大心理压迫。",
+     "option": "由随班乘务员挺拔身躯立于吧台门框处躬身行礼声称正在为您开启三十年原酒。"
+    },
+    {
+     "cost": "实习乘务员面临被名流投诉走路不稳小过。",
+     "option": "由实习乘务员推着备餐车在拐角处巧妙借颠簸轻微挡道争取二十秒周旋空间。"
+    }
+   ],
+   "far": {
+    "consequence": "乘务长职业名誉彻底崩溃沦为商界名流私下亵玩的把柄与玩物。",
+    "due_days": 1,
+    "trigger": "乘务长受窘惨状被当场撞破"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_approaching_vip_footsteps",
+   "immediate": {
+    "minutes": 1,
+    "text": "投资人身上的雪松香水味穿透帘幕，冷漠的质询声仅隔一道屏风。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_upper_suite_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "两步之内若无应答，投资人将直接挑帘而入撞破前襟大开受制惨状。"
+   },
+   "objective": "在投资人掀开冰丝垂帘前彻底封闭春色并消除所有撬动金属撞击杂音。",
+   "source": "person",
+   "start_minute": 1208,
+   "tags": [],
+   "title": "跨国名流乘客大步逼近吧台垂帘",
+   "trigger": "投资人手工皮鞋鞋跟沉稳撞击羊毛地毯，脚步声径直穿过走廊直逼吧台入口。"
+  },
+  {
+   "choice": "由玩家直接握紧乘务长冰凉发颤的玉手合力垂直下压或是由其独自咬牙坚持。",
+   "exits": [
+    {
+     "cost": "彼此贴身呼吸相闻两颊滚烫心跳彻底失序。",
+     "option": "用双手手掌紧紧包裹乘务长冰凉手背以绝对刚性下压力引导铰链精准卡位。"
+    },
+    {
+     "cost": "这一绕足足多花了十五秒，空乘广播里的落座提示已经响了第二遍。",
+     "option": "用干纯棉餐巾迅速包裹开瓶器手柄重新构建防滑摩擦力矩。"
+    }
+   ],
+   "far": {
+    "consequence": "只能任由抽屉把手撕碎制服当众走光造成无可挽回的公开社死。",
+    "due_days": 1,
+    "trigger": "唯一自救工具脱手丢失"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_fingertip_sweat_corkscrew_slip",
+   "immediate": {
+    "minutes": 1,
+    "text": "开瓶器铰链在镀铬钢槽表面滑脱两次，金属刮擦声在安静吧台内分外刺耳。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若开瓶器脱手滑落进吧台底部垃圾深井，将失去唯一自救破拆工具。"
+   },
+   "objective": "稳住心跳与手腕力量消除剧烈颤抖确保开瓶器第一铰链死死顶入导轨受力凹坑。",
+   "source": "person",
+   "start_minute": 1209,
+   "tags": [],
+   "title": "高空心慌手颤导致开瓶器铰链打滑",
+   "trigger": "极度羞恼与急迫感导致乘务长芳心大乱，修长手指浸出细汗在光滑不锈钢铰链上打滑。"
+  },
+  {
+   "choice": "选择利用吧台大理石立面遮挡或是由同伴以身体筑成人墙遮蔽光柱。",
+   "exits": [
+    {
+     "cost": "披肩下摆带倒一只调酒量杯产生微小水迹。",
+     "option": "在撬开抽屉瞬间接应实习乘务员递上的深海蓝羊绒大披肩完全裹住上身封闭春色。"
+    },
+    {
+     "cost": "男女制服交叠引来客舱外侧闲杂人等微词猜测。",
+     "option": "由随班乘务员脱下深蓝西装外套从侧翼严密护住乘务长上身遮蔽视线。"
+    }
+   ],
+   "far": {
+    "consequence": "高清走光视频在全网疯传导致传奇乘务长身败名裂停飞离职。",
+    "due_days": 1,
+    "trigger": "走光画面被拍下外泄全网"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_uniform_cleavage_exposure_panic",
+   "immediate": {
+    "minutes": 1,
+    "text": "星空顶光线直射在雪白肌肤上反差惊人，乘务长面颊红透几乎快要羞哭出声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "最后二十秒若屏风被掀开半分，长焦镜头将一秒拍下高清特写彻底摧毁乘务长清白。"
+   },
+   "objective": "在任何乘客或镜头视线穿透屏风前解脱挂死并披上加厚深海蓝保暖羊绒大披肩。",
+   "source": "nature",
+   "start_minute": 1210,
+   "tags": [
+    "disaster"
+   ],
+   "title": "制服扣崩前襟大开大片雪白走光危机",
+   "trigger": "抽屉下坠拖拽导致真丝制服两枚铜扣崩脱，前襟完全敞开露出一大片雪白饱满与贴身白金饰链。"
+  },
+  {
+   "choice": "选择用臂弯死死揽住大理石台面立柱固定身体或是紧抱身前施救者以求平稳。",
+   "exits": [
+    {
+     "cost": "大理石吧台下沿不锈钢加强角铁留下浅浅金属杠杆撬痕。",
+     "option": "在颠簸波谷平稳瞬间以开瓶器第二铰链借台面下沿横梁为支点迅猛下别挑开卡块脱扣。"
+    },
+    {
+     "cost": "空间被手掌填满导致运手施救操作难度翻倍。",
+     "option": "以双手掌心垫入饰链与镀铬把手之间充当纯物理柔性防拉扯缓冲垫。"
+    }
+   ],
+   "far": {
+    "consequence": "客舱血光之灾迫使航班紧急返航备降引发全网重大航空责任事件。",
+    "due_days": 1,
+    "trigger": "颠簸导致饰链断裂撕裂软肉"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_two_minute_turbulence_drop",
+   "immediate": {
+    "minutes": 1,
+    "text": "失重感让乘务长娇躯猛烈前倾，白金饰链瞬间绷紧如发丝般深陷雪肌娇呼连连。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_first_class_circular_skybar"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "三十秒内若再遇一次强下沉气流，剧烈位移将直接扯断饰链造成严重撕裂创伤。"
+   },
+   "objective": "在失重颠簸导致身体失衡扯碎制服前稳固重心完成开瓶器力臂挑弹操作。",
+   "source": "accident",
+   "start_minute": 1211,
+   "tags": [
+    "disaster"
+   ],
+   "title": "万米高空晴空气流剧烈颠簸下坠冲击",
+   "trigger": "飞机突然遭遇强对流下沉气流产生连续颠簸失重，吧台台面剧烈晃动，酒瓶叮当作响。"
+  }
+ ],
+ "region": "波音777头等舱：跃层环形吧台、配餐操作间、包厢走廊与旋转步梯平台",
+ "rules": [
+  {
+   "id": "rule_first_class_service_call_protocol",
+   "text": "头等舱客舱响应规范：客舱呼叫铃声响后乘务人员必须在三十秒内持托盘就位应答，超时未响应将触发座舱广播与乘务长连带考核警报。"
+  },
+  {
+   "id": "rule_purser_uniform_decorum_standard",
+   "text": "外资航空乘务长仪容禁令：执勤期间制服盘扣丝巾必须保持绝对严整，领口崩开衣冠不整属于重大飞行执勤失范直接停飞。"
+  },
+  {
+   "id": "rule_air_turbulence_stowage_code",
+   "text": "高空气流颠簸固定规程：遭遇轻度颠簸时所有储物推拉抽屉必须完成二级机械锁死，严禁敞开滑轨以免飞出重物砸伤机上人员。"
+  },
+  {
+   "id": "rule_private_adornment_boundary_code",
+   "text": "空乘人员内衬私密饰品保密准则：乘务长私下穿戴的高定白金贴身饰链属于个人绝对隐秘私器，在客舱公众视线中决不可泄露半分。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "组织规约",
+  "committed": "金石同盟",
+  "familiar": "台容核检",
+  "flirting": "暗光对视",
+  "intimate": "俯仰共济",
+  "stranger": "初登讲台",
+  "testing": "执夹撬簧"
+ },
+ "status": "released",
+ "style_hint": "万米高空昏黄奢华的大理石吧台，与随时穿过垂帘的贵宾脚步。写乘务长婴儿肥两颊的羞恼绯红、崩开的制服前襟与喘息，动作落在双铰链开瓶器撬滑块上。",
+ "tension_engines": [
+  {
+   "id": "eng_drawer_choker_chain_entanglement",
+   "text": "万米高空冷藏抽屉弹开死锁咬合制服内白金饰链，阻尼滑轨卡死无法退回，必须以开瓶器双铰链力矩撬弹卡簧方能脱扣。"
+  },
+  {
+   "id": "eng_sheer_cleavage_exposure_panic",
+   "text": "制服暗扣崩脱露出一大片雪白饱满与贴身抹胸，一旦贵宾掀开屏风将直面传奇乘务长走光狼狈的灭顶社死灾难。"
+  },
+  {
+   "id": "eng_thirty_second_service_countdown",
+   "text": "头等舱名流按铃催单与急促脚步逼近仅隔三十秒，倒数归零若未就位将引发机舱巡视与高管直接问责。"
+  },
+  {
+   "id": "eng_turbulence_airbar_spatial_squeeze",
+   "text": "万米高空晴空气流颠簸晃动与狭窄吧台有限活动空间，使双人近距操作产生极度心跳共振与羞耻交织。"
+  }
+ ],
+ "title": "傲娇头等舱乘务长·万米吧台抽屉挂死白金链",
+ "tone": [
+  "万米夜航",
+  "白金链挂死抽屉",
+  "制服纽扣崩脱",
+  "开瓶器撬滑块"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_info_purser_secret_choker_code",
+   "requires": [
+    "purser_pei_jing_shu"
+   ],
+   "text": "乘务长贴身穿戴的白金饰链其实是航司创始人亲自颁授的顶级五星乘务长最高荣誉暗扣饰物，解开瞬间揭晓惊人身世。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_spatial_skybar_maintenance_hatch",
+   "requires": [
+    "flight_attendant_xiao_yi_fei"
+   ],
+   "text": "环形大理石吧台立面内侧并非死角，而是连通双层客舱下层航电货舱检修暗门的快速应急隐秘通道。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_resource_investor_mcn_ban_order",
+   "requires": [
+    "venture_investor_huo_jing_shen"
+   ],
+   "text": "投资人目睹网红乘客卑劣偷拍后雷霆大怒，当场动用百亿资本签署对网红乘客旗下MCN机构的全网行业封杀令。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_psychological_tsundere_purser_yield",
+   "requires": [
+    "purser_pei_jing_shu"
+   ],
+   "text": "平日孤傲高贵不可一世的冰山乘务长，在抽屉弹开解脱瞬间却主动将滚烫微婴儿肥面颊深深埋入施救者怀中轻声啜泣。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_temporal_sommelier_wine_tasting_delay",
+   "requires": [
+    "flight_attendant_xiao_yi_fei"
+   ],
+   "text": "随班乘务员在走廊借向投资人讲解年份威士忌醒酒古法刻意拖延了四十五秒，使吧台撬轨在最后三秒压哨圆满完成。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_social_marshal_covert_guardian",
+   "requires": [
+    "flight_marshal_zhao_tian_cheng"
+   ],
+   "text": "看似冷酷严肃的安全员其实早受航司安监高层密令，暗中排查针对乘务长的偷拍黑产团伙全力护卫乘务长安全。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_mechanics_drawer_tampered_latch_pin",
+   "requires": [
+    "flight_marshal_zhao_tian_cheng"
+   ],
+   "text": "冷藏抽屉弹开并非自然气流颠簸故障，而是遭人暗中拔掉保险销诱发的突发性机械卡死陷阱。"
+  }
+ ]
+}

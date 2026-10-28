@@ -1,0 +1,2260 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满五十岁，深坝机修老骨干，成年公民。",
+   "age_range": [
+    50,
+    54
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_dam_gate_fitter_old_ma",
+   "line": "水位漫过胸口了！旁通阀轴套往右偏了两度，硬转转不动啊！",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "name": "老侯",
+   "role": "大坝水下装配工老侯"
+  },
+  {
+   "adult_context": "年满二十八岁，防汛监管随员，成年公职人员。",
+   "age_range": [
+    28,
+    31
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_flood_inspector_deputy_wei",
+   "line": "监督官有令！倒计时还剩三分钟，准备拉下炸封闸刀炸平深孔自保！",
+   "location_ids": [
+    "loc_dam_crest_hoist_hall_corridor"
+   ],
+   "name": "卫少尉",
+   "role": "防汛监督副官卫少尉"
+  },
+  {
+   "adult_context": "年满四十五岁，大坝电气技术主管，成年老工人。",
+   "age_range": [
+    45,
+    49
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_electrical_engineer_qiu",
+   "line": "高压备用电源已切换！女总监，用加长合金摇把别住偏心槽，垫上老装配工的石棉垫！",
+   "location_ids": [
+    "loc_dam_crest_hoist_hall_corridor"
+   ],
+   "name": "邱工程师",
+   "role": "大坝电气大班邱工程师"
+  },
+  {
+   "adult_context": "年满二十二岁，排水泵站操作工，成年公民。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_sump_pump_cadet_xiao_ding",
+   "line": "集水井水位突破危险标高了！倒灌水流冲上来了，快把旁通阀转开啊！",
+   "location_ids": [
+    "loc_gallery_drainage_sump_catwalk"
+   ],
+   "name": "小丁",
+   "role": "排水泵站值班员助理技术员"
+  },
+  {
+   "adult_context": "年满四十九岁，大坝应急抢险高级指挥官，成年高级指挥员。",
+   "age_range": [
+    49,
+    53
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_dam_rescue_chief_commander",
+   "line": "女总监！坝体水压监控已锁定深孔，务必把旁通阀摇到底平压！",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "name": "雷副总",
+   "role": "大坝抢险现场总指挥雷副总"
+  },
+  {
+   "adult_context": "年满二十六岁，持有特种创伤急救执照的女医官，成年公民。",
+   "age_range": [
+    26,
+    28
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_dam_medic_officer_yan",
+   "line": "高压氧舱与神经复温水热毯已就位，闸门一落槽立刻开门拉人抢救！",
+   "location_ids": [
+    "loc_dam_crest_hoist_hall_corridor"
+   ],
+   "name": "甄医生",
+   "role": "坝区卫生所医生甄医生"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "傲娇女总监与闸门运行值班长在百米冰冷渗水倒灌中背靠背、手扣手，把加长合金摇把向死角猛转开启旁通阀平压。",
+   "id": "cc_director_and_mechanic_lever_rush",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "director_jiang_yingxue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "极寒倒灌绝境中共同测算力矩与偏角，建立起生死托付的技术共鸣。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "mechanic_luo_zhenchuan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在大坝深孔中摸爬滚打的生死战友，深知对方过硬的铁骨担当。",
+     "stage": "familiar"
+    },
+    {
+     "a": "director_jiang_yingxue",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "mechanic_luo_zhenchuan",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "傲娇女总工与重装水工老兵在狂暴洪峰前结成生死同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "director_jiang_yingxue",
+    "mechanic_luo_zhenchuan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在水锤彻底冲毁人孔盖前，合力用加长合金摇把将旁通平衡阀旋开三十圈完全平压实现闸门落槽脱险。",
+    "limit_gap": "女总监体能在冰冷刺骨漫胸激流与缺氧下逼近昏厥临界，机修长受限于双掌二度冻裂鲜血浸透衣衫剧痛难忍。",
+    "meeting_reason": "防汛一级响应第十九天，女总监带着闸门值班长下廊道查渗压计，两人已经三天没回过宿舍。",
+    "resource_gap": "女总监精通水锤非定常流卸荷力矩死穴，机修长拥有惊人的下盘千斤坠肉身爆发力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_dam_water_hammer_vs_lever_turn",
+    "te_freezing_cascade_soak_vs_tight_press"
+   ]
+  },
+  {
+   "chemistry": "传奇女总监的从容冷冽稳住吓瘫的新手助理，新手助理冒死送达加长空心钢管与安全绳，师徒合力化解大坝决口危机。",
+   "id": "cc_director_and_cadet_pipe_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "director_jiang_yingxue",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "紧盯女总工的每一个破拆手势。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "cadet_hydraulic_xiao_ding",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "鼓励新手助理战胜深渊恐惧。",
+     "stage": "familiar"
+    },
+    {
+     "a": "director_jiang_yingxue",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "cadet_hydraulic_xiao_ding",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "师徒传承与工程庇护。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "director_jiang_yingxue",
+    "cadet_hydraulic_xiao_ding"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "迅速接驳加长镀锌力臂协助合金摇把一举旋开卡死旁通阀。",
+    "limit_gap": "成年的青年助理面对百米冰冷倒灌激流心理防线脆弱，女总监在狂暴颠簸中无法分身捡拾工具。",
+    "meeting_reason": "助理技术员被抽调上坝防汛，第一个夜班就跟着女总监下了廊道。",
+    "resource_gap": "女总监握有核心加长合金摇把与绝对技术决断权，青年助理掌握加长镀锌空心管与压力钢管公差手册。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_dam_water_hammer_vs_lever_turn"
+   ]
+  },
+  {
+   "chemistry": "特派督察官歇斯底里要求拉下炸封闸刀引爆炸药封闭深孔逃生，机修工长怒拔大活动扳手横在其喉结据理力争寸步不让。",
+   "id": "cc_mechanic_and_inspector_blowout_clash",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "mechanic_luo_zhenchuan",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "赞许工长抗命护持全坝同胞的铁血担当。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "inspector_fang_chuan",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对视一线人命如草芥的自私官僚深恶痛绝。",
+     "stage": "stranger"
+    },
+    {
+     "a": "mechanic_luo_zhenchuan",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "inspector_fang_chuan",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "一线工长与上层逃生官员之间的生死对峙。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mechanic_luo_zhenchuan",
+    "inspector_fang_chuan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "压制官僚逃亡行径为水下廊道旁通阀下旋平压争取至关重要的三分钟时间。",
+    "limit_gap": "督察官极度恐惧大坝溃决粉身碎骨，工长受限于公然违抗防汛安全条例文书的军法重惩威慑。",
+    "meeting_reason": "监督官冒雨从防汛指挥部赶来督战，一进坝顶启闭机房就要值班长交出闸门操作票。",
+    "resource_gap": "督察官手握防汛指挥部最高应急炸封切断钥匙芯片，工长拥有全坝水工突击队的绝对现场支持。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_inspector_blowup_gate_vs_rescue"
+   ]
+  },
+  {
+   "chemistry": "大坝老钳工隔着狂暴激流指点偏角递上石棉防滑衬垫，与廊道内死磕摇把的年轻女总监里应外合，协同化解溃坝死局。",
+   "id": "cc_director_and_master_ma_lever",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "director_jiang_yingxue",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "深信女总工程师神级水下决断力。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "senior_dam_gate_fitter_ma",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "老钳工的经验指引令人心头大定。",
+     "stage": "familiar"
+    },
+    {
+     "a": "director_jiang_yingxue",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "senior_dam_gate_fitter_ma",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "两代大坝水利人之间的默契互救。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "director_jiang_yingxue",
+    "senior_dam_gate_fitter_ma"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "精准将石棉衬垫塞入右偏两度偏心阀腔撬平反扣脱险。",
+    "limit_gap": "老钳工年迈患有关节炎无法亲自上前死拼下旋，女总监在冰冷渗水中双眼难辨毫米级偏角。",
+    "meeting_reason": "老装配工当年亲手把这扇快速门吊进门槽，大坝蓄水那天在坝顶哭过一场，每逢汛期都要守在启闭机旁。",
+    "resource_gap": "老钳工握有旁通阀右偏两度偏心口诀与石棉防滑衬垫，女总监掌握核心合金加长摇把与绝对技术决断权。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_dam_water_hammer_vs_lever_turn",
+    "te_inspector_blowup_gate_vs_rescue"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_dam_gallery_acoustic_intercom",
+   "reach": "all",
+   "text": "大坝水下百米混凝土深孔防爆有线对讲通信网"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_water_hammer_echoes_deadlock",
+   "reach": "local",
+   "text": "百米大坝激流狂暴咆哮与防汛官惊恐呼叫"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已成年的大坝水工水力特级总监，年满二十一岁，持有超高水头大坝突发事故一级应急处置执照，对深孔闸门享有完全法权与处置权。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "褪去防寒罩袍后仅着深黑速干潜水背心，冷艳绝美神情傲娇，两腮带着健康的红润，在水下百米倒灌激流与极限制动摇把的剧烈喘息中，白皙双颊被冻得泛起娇艳酡红，晶莹水珠顺着下颌滑入锁骨。",
+    "湿漉漉的乌黑长发用防滑扎带死死挽在脑后，纤细双臂紧扣长达七十五公分的大口径耐高压加长合金反向旋转卸荷摇把死死别入偏心阀腔，面颊在猩红警报灯映照下泛出绝不服输的傲娇坚毅，展现出统帅大坝的绝对工程师威严。"
+   ],
+   "decision": {
+    "avoids": [
+     "优柔寡断的推脱软弱",
+     "打着自保旗号背弃同袍的官僚"
+    ],
+    "contrast": "外表清冷美艳，防汛十九天没回过宿舍，雨衣底下的工装从来没干过，面对百米大坝万顷怒涛时手劲与水力决断胜过粗壮水工。",
+    "core_value": "水头再大，也必须遵守水力学公差，只要卸荷摇把还在手里，本总工就能把这倒灌的大江重新关回笼子里。",
+    "goal_options": [
+     "利用加长合金摇把反向旋转旁通阀注水平压",
+     "在闸门被水锤彻底冲毁前排除卡阻自沉落槽自救"
+    ],
+    "never": [
+     "在闸门彻底落槽切断倒灌前独自弃廊逃生"
+    ],
+    "prefers": [
+     "分秒不差的水力计算配合",
+     "生死关头敢把后背交出来的铁血搭档"
+    ],
+    "pressure_responses": {
+     "breaking": "用冰冷牙齿咬开防寒喷雾含服强行保持清醒继续双掌死扣摇把下旋",
+     "high": "整个人扑在摇把末端借全身自重与双臂爆发力合力顺时针死转",
+     "low": "在激流初喷时冷静测算倒灌流量与闸门卡死倾角",
+     "mid": "果断抽出七十五公分加长摇把找准偏心阀腔切角"
+    },
+    "relationship_stance": "平日神情傲娇冷艳容不得旁人半点技术质疑，但面对深坝绝境展现出同生共死的过人胆魄与统帅担当。",
+    "withdrawal": "退守至廊道耐压角钢加强骨架内侧，单臂挽住安全扶手冷眼观察闸门下沉位移。"
+   },
+   "gender": "female",
+   "gender_reason": "特大型水利枢纽水工水力首席女总监",
+   "id": "director_jiang_yingxue",
+   "identity": {
+    "authority": "对水下百米大坝进水口快速启闭门、深孔泄洪闸、水力自平压旁通阀及现场全部突击人员调度享有最高战术决断权与工程否决权。",
+    "exposure": "为了抢发电进度曾在汛期初期顶着水锤微振超负荷开启导叶",
+    "hidden": "潜水背心贴胸口袋内装着一枚刻有三峡与大坝落成纪念经纬度的纯钛吊坠",
+    "limits": [
+     "在闸门彻底落槽闭锁前无法离开狂暴倒灌的廊道死角",
+     "长时间浸泡在零度深坝冷水中面临急性失温休克与四肢抽搐失能"
+    ],
+    "obligations": [
+     "确保快速启闭门平稳落槽切断倒灌力保百米大坝与下游千万生灵安全"
+    ],
+    "resources": [
+     "一把大口径耐高压加长合金反向旋转卸荷手动摇把（长七十五公分，超硬度铬钼钒特种合金整体锻造，端部带防脱偏心双向定位卡槽）",
+     "一罐高压军用便携式快速抗寒抗失温舒缓喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在狂暴冰冷水浪冲击中如深江砥柱般的巍峨躯体",
+     "千钧一发之际毫不犹豫用滚烫胸膛为自己阻挡万钧射流的舍命相护"
+    ],
+    "boundaries": [
+     "严守总工程师指挥权威不容侵犯",
+     "不以救命功绩索取私人情感屈从"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被从身后紧抱稳住重心抗击激流，双手叠合在合金摇把上一同向死角死转。",
+    "dislikes": [
+     "自私逃兵的卑劣出卖",
+     "自恃官威的蛮横乱命"
+    ],
+    "expression": "脱险进入安全区后，默默撕下自己里衣最干爽的棉布轻柔包扎对方被冰水冻裂渗血的双手虎口，眼神温柔而坚毅。",
+    "likes": [
+     "两人合力转死摇把时胸膛紧贴传来的粗重狂热心跳",
+     "闸门落槽脱险后彼此抹去面颊水珠时的傲娇羞怯轻哼"
+    ],
+    "preconditions": [
+     "快速启闭门完全落槽且廊道积水完全排除受控",
+     "全员安全返回地面主控室完成复温清洗",
+     "两人都清醒，心意出于自己，不是洪峰压顶时的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "大坝水工水力首席总监",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_intake_gate_gallery_deadlock",
+     "to": 1420
+    },
+    {
+     "from": 1420,
+     "location_id": "loc_intake_gate_gallery_deadlock",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "合金摇把手柄发生微小塑性扭转变形，操作人员双手被粗暴防滑纹磨出大面积血泡鲜血浸透冰水。",
+      "option": "用大口径耐高压加长合金反向旋转卸荷手动摇把顺时针死转三十圈开启旁通阀平压自救。"
+     },
+     {
+      "cost": "撬杠在数十吨高压剪切下折断崩飞划伤操作人员小臂与肩膀。",
+      "option": "用重型合金撬杠直接别在闸门主滚轮轴承槽口之间强行撬正水平偏角脱险。"
+     }
+    ],
+    "pressure": "百米高压射流冲垮人孔盖倒灌廊道，水位漫过胸口，距彻底淹没廊道仅剩四分钟。",
+    "trigger": "万吨巨木压塌拦污栅，快速启闭主闸门在水锤巨震中抱死卡在导轨半空。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "还有最后五圈丝扣……只要摇把不崩断，本小姐绝不会让大坝成为埋葬大家的石棺材，给我转到底！",
+    "surface": "别管那些冲在身上的刺骨冰水！把这根七十五公分的合金摇把插进偏心阀腔，跟我数三二一一起用力顺时针死转！"
+   }
+  },
+  {
+   "adult_context": "年满三十岁，大坝水工水力特级机修长，具备完全民事行为能力，十年深坝高压水下抢险摸爬滚打老将。",
+   "age_range": [
+    30,
+    36
+   ],
+   "appearance_options": [
+    "身材极其魁梧刚劲肩背宽厚如山，仅着带有防割凯夫拉内衬的加厚潜水服，手臂青筋暴起肌肉刚劲如钢铁，面容粗犷目光冷峻。",
+    "短发硬如铁丝挂满冰冷水珠，在剧烈颠簸的水浪冲击中双脚如生根生铁般稳稳踩在钢格栅底板上。"
+   ],
+   "decision": {
+    "avoids": [
+     "前怕狼后怕虎的逃兵",
+     "遇事推诿责任的空谈客"
+    ],
+    "contrast": "看似粗野鲁莽的北方水工汉子，在配合女总监转动摇把时的力道控制精妙绝伦分毫不差。",
+    "core_value": "战位就是水工的阵地，只要女总监还在前头拼命，{npc.name}就算拼上这条命也得顶住万顷汪洋。",
+    "goal_options": [
+     "协助女总监旋转加长摇把开启旁通阀",
+     "用宽厚身躯挡住狂暴喷射的刺骨高压射流"
+    ],
+    "never": [
+     "在总工程师还在激流中死拼时独自松开摇把逃跑"
+    ],
+    "prefers": [
+     "干净利落的军令作风",
+     "关键时刻豁出命硬碰硬的汉子"
+    ],
+    "pressure_responses": {
+     "breaking": "用宽厚脊背硬生生挡住上方管道爆飞的高压射流为女总监撑起发力屏障",
+     "high": "双手死死包覆在女总监手背外侧倾注全身数百斤蛮力协同转动摇把",
+     "low": "在激流破门瞬间沉着拉出加厚耐磨潜水手套反向塞给女总监",
+     "mid": "用雄厚宽阔的胸膛一把捞住被狂暴射流冲倒的年轻助理"
+    },
+    "relationship_stance": "跟女总监排在同一张防汛值班表上十九天，知道女总监一熬夜就咳、雨里站久了手指先发白，廊道里总走在靠水的那一侧。",
+    "withdrawal": "退守至廊道主承重工字钢角梁内侧，右手握紧大活动扳手警惕任何螺栓崩飞。"
+   },
+   "gender": "male",
+   "gender_reason": "特大重力坝水工水力首席检修老班长",
+   "id": "mechanic_luo_zhenchuan",
+   "identity": {
+    "authority": "对水下百米廊道内重型破拆工具调度、水下检修门起吊及应急高压水阀启闭拥有绝对现场指挥权。",
+    "exposure": "为了抢时间曾违规徒手拆卸过高压注水管道法兰螺栓",
+    "hidden": "机修背心贴身内袋里珍藏着女总监当年晋升总监时亲手赠予的大坝落成勋章",
+    "limits": [
+     "体能在抗衡水下百米刺骨冰水与狂暴水锤冲击中迅速逼近体力极限制点",
+     "不懂复杂的水工流体动力学有限元方程"
+    ],
+    "obligations": [
+     "誓死协助总监女总监转动摇把开启旁通阀力保大坝全员生还"
+    ],
+    "resources": [
+     "一柄大号高强度耐水下高压特种合金活动扳手",
+     "两卷带有加厚橡胶防滑涂层的超高抗拉耐磨包扎绑带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在水下百米深渊地狱面前横刀立马的非凡霸气",
+     "两具滚烫身躯在失速震颤中紧密贴合的炽烈生命羁绊"
+    ],
+    "boundaries": [
+     "恪守水工机修职责从属规矩不越礼数",
+     "不以救命恩情索取私人情感"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在廊道格栅上从后方抱紧女总监稳住重心，双手握紧摇把合力向下死转。",
+    "dislikes": [
+     "自私逃兵的卑劣行径",
+     "背信弃义的下作小人"
+    ],
+    "expression": "撕下自己干燥的保暖内胆，轻柔却有力地裹在女总监被冰水冻得发紫的娇弱双肩上。",
+    "likes": [
+     "战胜死神后痛快大喝烈酒的畅快",
+     "旁通阀开启水力自平瞬间两人粗重滚烫的胸膛起伏与鼻息共鸣"
+    ],
+    "preconditions": [
+     "大坝深孔旁通阀完全平压且主闸门切断倒灌",
+     "全员安全撤出廊道返回地面值班室"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "闸门运行值班长",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_intake_gate_gallery_deadlock",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}右侧二头肌纤维严重拉伤撕裂，双手隔着手套被磨出大面积水泡破溃。",
+      "option": "暴雨已经连下了十九天，{npc.name}将全身自重压在摇把末端借杠杆力矩强行带动抱死阀芯反转脱险。"
+     },
+     {
+      "cost": "大扳手受强烈高压反震脱手崩飞划破{npc.name}面颊。",
+      "option": "用破拆大扳手卡死连杆偏心转销强行制造机械死点阻止反冲自救。"
+     }
+    ],
+    "pressure": "若不能在两分钟内合力旋转摇把三十圈开启旁通阀，高压倒灌将彻底淹没整条廊道断绝全员生路。",
+    "trigger": "水位漫过胸口仅剩最后五十公分空气余量，旁通阀在水锤重压下发生严重抗扭偏斜。"
+   },
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "voices": {
+    "inner": "女总监是天生的帅才。只要我还有一口气在，这百米洪峰休想伤女总监半根毫毛。",
+    "surface": "女总监！别管头顶的渗水！摇把有{npc.name}托着，你只管报方向，这双胳膊今晚就交给这扇门了！"
+   }
+  },
+  {
+   "adult_context": "年满三十八岁，防汛指挥部特派防汛监察官员，具备完全民事行为能力，掌控大坝深孔紧急炸封自沉最高通报权。",
+   "age_range": [
+    38,
+    44
+   ],
+   "appearance_options": [
+    "身穿带有金线防汛臂章的高级防风呢绒外套，头戴白色安全帽，面容白净戴着金丝防尘眼镜，此时被冰冷大江渗水浇得浑身湿透瑟瑟发抖。",
+    "双手死死抓着胸前的水密记录仪终端背带，眼神在保全自身性命与维持官方威严间剧烈战栗，雨衣底下的工装从来没干过。"
+   ],
+   "decision": {
+    "avoids": [
+     "水下百米冰冷刺骨的灭顶汪洋",
+     "与浑身水锈机油的水工同舟共济"
+    ],
+    "contrast": "平日在发布会上冠冕堂皇大谈防汛责任重于泰山，大难临头时比谁都贪生怕死、丑态百出。",
+    "core_value": "保全自身性命与监察官阶高于一切，底层机修工与水工不过是防汛统计概率数字。",
+    "goal_options": [
+     "强行开启深孔炸封闸刀引爆炸药封闭深孔单独逃生",
+     "勒令女总监立刻放弃抢修撤回坝顶堡垒"
+    ],
+    "never": [
+     "为了挽救同行水工人员而延迟自己进入自救舱的时间"
+    ],
+    "prefers": [
+     "绝对的官僚顺从",
+     "温暖干爽的防汛指挥中心VIP包房"
+    ],
+    "pressure_responses": {
+     "breaking": "瘫坐在地板上交出气动切断钥匙换取优先登舟撤离权",
+     "high": "被值班长夺下钥匙按在角钢上后吓得瘫倒在观察窗后",
+     "low": "在坝顶通廊大声宣读防汛安全管理条例推卸责任",
+     "mid": "发现水位漫胸后歇斯底里试图暴力扳动炸封电掣"
+    },
+    "relationship_stance": "将女总监视为恃才傲物目无官威的技术刺头女工程师，对其专业权威既畏惧又嫉恨，防汛值班表上的名字十九天没断过。",
+    "withdrawal": "退缩在坝顶主控室后方密封防爆逃生救生舱内，双手死死抱住公文包与自救呼吸器。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "inspector_fang_chuan",
+   "identity": {
+    "authority": "代表防汛指挥部行使大坝突发事故最高戒严权、判定是否炸毁进水塔封闭深孔的最终签署权。",
+    "exposure": "为了抢发电指标曾对大坝进水口拦污栅微裂纹隐患单据违规签署放行",
+    "hidden": "暗中启动了呼叫防汛指挥部高速冲锋舟前来单人脱险接应的加密信标",
+    "limits": [
+     "完全不懂水下高水头水锤与偏心旁通阀水力学自平压公差机理",
+     "极度恐慌溃坝淹没企图强行启动深孔电火工炸封自毁"
+    ],
+    "obligations": [
+     "保全公文包内特大型水利枢纽防汛调度原始特许核准文件"
+    ],
+    "resources": [
+     "一台便携式多功能大坝差压记录仪",
+     "一枚防汛指挥部进水口紧急水力切割炸封钥匙芯片"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "能让其保全官位与性命的强力铁腕",
+     "迎合其官僚尊严的阿谀吹捧"
+    ],
+    "boundaries": [
+     "严禁任何普通水工触碰其高级监察制服",
+     "不承担任何同舟共济义务"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在启闭机房里攥着对讲机，催下游提前泄洪、放弃廊道里的人。",
+    "dislikes": [
+     "粗暴的抗命顶撞",
+     "被冰冷工具与铁拳指着喉咙的屈辱恐慌"
+    ],
+    "expression": "战战兢兢地从口袋里摸出一盒昂贵的高效抗寒高能含片扔在地上换取机修班长拼命下扳制动。",
+    "likes": [
+     "被护卫在最安全的防暴指挥中心",
+     "特供的高级雪茄与热茶"
+    ],
+    "preconditions": [
+     "彻底脱离大坝溃坝危险置身于重兵巡防的防汛总部",
+     "保全既得监察官职衔"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "特派高级防汛监督官",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_dam_crest_hoist_hall_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "涉嫌公然抗拒防汛监督执法面临事后被移送司法机关。",
+      "option": "值班长夺下专员应急切缆钥匙并用安全带将其捆死在角钢立柱上自救。"
+     },
+     {
+      "cost": "与专员随身近卫爆发激烈肢体冲突造成人员轻微挫伤。",
+      "option": "雨衣里外早就湿透，女总监大声以特级总工程师身份动员全班接管控制盒强行掐断引爆线脱险。"
+     }
+    ],
+    "pressure": "若三分钟内不能开启旁通阀平压落槽，特派专员手中的终端将直接触发深孔雷管彻底炸平进水塔封闭生路。",
+    "trigger": "水位漫胸触发防汛指挥部紧急自沉炸封最高预警条目。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这群疯子……大坝要是真冲垮了，谁都得完蛋，我必须自己活下去！快炸封！",
+    "surface": "女总监！值班长！水位已经超标了！立刻放弃手动旋平！本专员命令你们立刻拉下注水旁通自保！"
+   }
+  },
+  {
+   "adult_context": "年满五十岁，深坝高压闸门特级老装配工，成年工匠宗师，具备完全民事行为能力。",
+   "age_range": [
+    50,
+    54
+   ],
+   "appearance_options": [
+    "身穿带有高反光条的破旧加厚阻燃工程防寒棉背心，满脸被深江风浪与冰冷渗水侵蚀的刀刻皱纹与伤痕，花白胡须挂满水珠。",
+    "手里握着一把被摩挲得发亮的纯钢防脱手动丝杠棘轮加力扳手，眼神在激流中如深山岩石般沉静坚定。"
+   ],
+   "decision": {
+    "avoids": [
+     "不知变通的教条官僚",
+     "遇到大难就弃坝逃跑的软蛋"
+    ],
+    "contrast": "平日沉默寡言甚至被年轻工人视为木讷老头的老钳工，在面对深坝大决口时指点沉着如定海神针。",
+    "core_value": "机械结构不骗人，只要给对力道没有摇不动的死旁通阀。",
+    "goal_options": [
+     "指点女总监找准右偏两度切入角旋转摇把",
+     "垫入石棉衬垫阻滞阀口打滑脱轨"
+    ],
+    "never": [
+     "在机械受力关键时刻误报公差参数"
+    ],
+    "prefers": [
+     "严丝合缝的工匠本色",
+     "一诺千金的工程信义"
+    ],
+    "pressure_responses": {
+     "breaking": "用身躯抵住脱脱晃动的平衡支架为年轻人争取发力时间",
+     "high": "用沙哑嗓音高呼右侧偏两度顺力死转的最佳起步方位",
+     "low": "在廊道角落用冲子敲击护栏凭回音辨识闸门跑偏幅度",
+     "mid": "冒着狂暴激流递上石棉防滑衬垫塞入咬合盲区"
+    },
+    "relationship_stance": "将女总监视为大坝水利界百年不遇的巾帼奇才，由衷赞佩年轻女总工的从容定力与过硬铁腕。",
+    "withdrawal": "躲在廊道承重立柱背水凹槽内，用厚棉背心死死护住冲子与备件箱。"
+   },
+   "gender": "male",
+   "gender_reason": "大坝水下启闭机械在编特级老装配工",
+   "id": "senior_dam_gate_fitter_ma",
+   "identity": {
+    "authority": "对大坝快速启闭平板闸门微观形变公差、偏心旁通阀轴套受力咬合退让间隙拥有绝对听觉直觉。",
+    "exposure": "曾在检修中为了省事私下在闸门滑道不锈钢衬板螺栓上少拧过半圈防松螺母",
+    "hidden": "深知这座旁通阀在受到水锤冲击时阀腔会向右侧偏斜两度的装配暗伤缺陷",
+    "limits": [
+     "年老体衰患有严重的慢性风湿关节炎无法承受剧烈运动",
+     "在极寒冰水中体温流失极快剧烈咳嗽"
+    ],
+    "obligations": [
+     "将深坝重型启闭闸门抢修绝活经验传承给年轻一代工程师"
+    ],
+    "resources": [
+     "两块特制耐高压合成石棉高强度防漏水衬垫",
+     "一把特制重型纯钢平头偏心防滑敲击冲子"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对深江宏伟水利力学的崇高敬畏与共鸣",
+     "在死亡深渊面前毫无娇气的果断坚毅"
+    ],
+    "boundaries": [
+     "恪守老长辈规矩不越礼数",
+     "不介入年轻后辈的私人情感波澜"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在立柱后敲击钢管指点偏心角度，将石棉垫片精准塞入女总监握持的摇把下方。",
+    "dislikes": [
+     "轻视老水工经验的狂妄做派",
+     "粗暴破坏昂贵重型水下构件的蛮干行径"
+    ],
+    "expression": "用布满老茧和水锈的大手重重拍在女总监肩头，咧开嘴角露出释然踏实的欣慰笑容。",
+    "likes": [
+     "旁通阀严丝合缝开启水力平压时的清脆合模轰鸣",
+     "抢修完成后在坝顶抽上一口老旱烟的惬意从容"
+    ],
+    "preconditions": [
+     "彻底排除深孔倒灌险情水头回归平衡",
+     "保全全部精密量具完整无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "大坝水下机械首席老装配工长",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_intake_gate_gallery_deadlock",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "防汛警报在坝顶一声接一声，消耗尽绝版高耐压密封耗材，老工长左手手掌被锋利金属毛刺划破渗血。",
+      "option": "防汛警报在坝顶一声接一声，用老钳工私藏的耐高压石棉防滑衬垫塞入缝隙协助摇把稳固深咬自救。"
+     },
+     {
+      "cost": "猛烈敲击造成铸钢外壳产生微小应力裂纹降低防爆耐压等级。",
+      "option": "指挥值班长用大敲击扳手反向敲击偏心凸耳震松咬死轴套脱险。"
+     }
+    ],
+    "pressure": "若无防滑介质介入并纠正两度偏角，摇把将在万斤水压反冲下折裂彻底断送开启希望。",
+    "trigger": "旁通阀轴套在万吨水头下压紧咬死极深，摇把面临卡死打滑。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好闺女，手上功夫够硬！这大坝要是毁在老头子眼前，那才是天理难容！",
+    "surface": "女总监！听{npc.name}头的！那个受损的旁通阀往右侧偏了两度！别死往前硬怼，往右偏两度顺着牙口咬进去再死转！"
+   }
+  },
+  {
+   "adult_context": "年满二十一岁，水利电力大学水利工程学院应届毕业生，初级大坝水工维护员，具备完全民事行为能力。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身材单薄，身着带有黄色反光条的紧身防水轻型工作服，面容清秀神情极度慌恐，防尘潜水风镜歪斜挂在脖颈上。",
+    "腰间工具袋胡乱插着水下红外测距仪与备用小扳手，双膝在冰冷刺骨的倒灌洪流中剧烈颤抖、脸色惨白如纸。"
+   ],
+   "decision": {
+    "avoids": [
+     "凶神恶煞的督察官咆哮",
+     "百米大坝冰冷刺骨洪流"
+    ],
+    "contrast": "平日胆小怯弱常被老水工训斥的年轻新手，在女总监生死存亡关头能爆发出一股冒死送达加力套管的血性胆魄。",
+    "core_value": "保命第一，崇拜并绝对服从女总监的每一道抢险指令。",
+    "goal_options": [
+     "协助女总监寻找加长套管延长摇把力臂",
+     "在廊道角梁稳固安全牵引绳"
+    ],
+    "never": [
+     "背弃女总监独自放弃求生逃跑"
+    ],
+    "prefers": [
+     "清晰明确的指令指导",
+     "平稳温暖的陆上技术设计所"
+    ],
+    "pressure_responses": {
+     "breaking": "跪倒在淹过腰部的激流中死死拉紧安全牵引绳协助分担剧烈冲击",
+     "high": "鼓起勇气冒着漫天冰冷激流爬过格栅递送加长套管",
+     "low": "在工具箱内慌乱翻找可以套在摇把末端的加长镀锌空心套管",
+     "mid": "大声向廊道通报差压读数与旁通阀旋转圈数位移"
+    },
+    "relationship_stance": "将女总监视为唯一的救命稻草与崇高统帅，愿为协助脱险拼死效命，防汛值班表上的名字十九天没断过。",
+    "withdrawal": "缩在廊道承重角钢背风死角，紧紧抱住加长钢管浑身哆嗦。"
+   },
+   "gender": "male",
+   "gender_reason": "水利水电工程初级水工助理",
+   "id": "cadet_hydraulic_xiao_ding",
+   "identity": {
+    "authority": "廊道应急高压排水离心泵与微欧电阻测试仪的手动闭合权。",
+    "exposure": "因操作生疏曾导致辅助冷水注水管道接头发生松脱渗漏",
+    "hidden": "暗自崇拜英姿飒爽的总工程师女总监将其视为水利界最神圣的精神偶像",
+    "limits": [
+     "缺乏水下高压生死大事故实战经验心理防线脆弱",
+     "体质单薄力气严重不足难以单独抗衡狂暴激流"
+    ],
+    "obligations": [
+     "按规程记录旁通阀差压表读数并向总监报告闸门瞬时倾角"
+    ],
+    "resources": [
+     "一根厚壁加长特种高强度空心镀锌钢管加力力臂",
+     "一卷高抗拉耐温石棉加固水下安全牵引绳"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "泰山崩于前而色不变的卓越统帅魅力",
+     "在深渊面前给予同伴的强大安全感"
+    ],
+    "boundaries": [
+     "恪守助手本分不作非分奢望",
+     "严守下级礼节规矩"
+    ],
+    "desire_range": [
+     1,
+     1
+    ],
+    "desired_position": "在廊道安全扶手上方死死拽紧牵引绳，大声为女总监下转摇把报出三十圈倒计时读数。",
+    "dislikes": [
+     "残酷暴力的威逼践踏",
+     "被当作废物累赘抛弃"
+    ],
+    "expression": "双手发颤地将加长套管递过，结结巴巴连连向女总监敬礼并保证坚守岗位，事后在启闭机房里替对方焐了一夜的手。",
+    "likes": [
+     "被肯定业务能力时的温和颔首",
+     "分到的一枚甘甜提神高能葡萄糖块"
+    ],
+    "preconditions": [
+     "彻底排除深孔倒灌险情差压稳稳受控归零",
+     "确保自身生命安全得到保障"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "大坝水工初级技术员",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_intake_gate_gallery_deadlock",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "暴雨已经连下了十九天，{npc.name}手臂被飞溅电弧火花轻度灼伤起泡。",
+      "option": "{npc.name}用加长镀锌管绝缘端砸碎配电箱熔断器切断高压电自救。"
+     },
+     {
+      "cost": "双手手掌被电弧轻度击伤脱皮。",
+      "option": "暴雨已经连下了十九天，用防寒外套沾湿水流死死捂住着火电缆阻断短路火花蔓延脱险。"
+     }
+    ],
+    "pressure": "若不及时手动切断主配电漏电保护器，全员将在三十秒内被极寒水流中的高压电流击晕殉难。",
+    "trigger": "廊道内部电弧短路起火引发浓烟，冰冷积水浸湿配电箱迸发剧烈电火花。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要总工程师还在激流里拼命，我就不能当缩头乌龟，我必须帮着把这个吃人的旁通阀彻底转开！",
+    "surface": "女总监！套管找到了，从食堂后头的料堆里翻出来的！套在摇把柄上能多出一截力臂，还有一卷安全绳！"
+   }
+  },
+  {
+   "adult_context": "年满二十六岁，持有国家职业创伤急救专科执业证书的成年女医官，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    28
+   ],
+   "appearance_options": [
+    "身穿带有红十字标识的白色加温抗压医官保暖常服，面容清秀神情紧绷，戴着医用无菌防寒手套，双手握着便携式高压注氧仪，胶靴里灌满了廊道的渗水。",
+    "神情专注沉稳，额前碎发整齐束起，脖颈上挂着高敏数字心率血氧监测探头。"
+   ],
+   "decision": {
+    "avoids": [
+     "情绪失控的盲目挣扎",
+     "隐瞒伤情的蛮干硬撑"
+    ],
+    "contrast": "外表文静纤弱的书生女医官，在面对深坝大灾难急救时下针稳准狠辣如冰山判官，防汛值班表上的名字十九天没断过。",
+    "core_value": "生命体征就是最高法典，绝不放弃任何一个尚有微弱脉搏的大坝同袍。",
+    "goal_options": [
+     "指导廊道内二人通过深腹式呼吸节律对抗急性水寒失温休克",
+     "在落槽瞬间实施重度冻伤复温抢救"
+    ],
+    "never": [
+     "在水工尚有呼吸时签署放弃抢救书面证明"
+    ],
+    "prefers": [
+     "稳定规律的心率曲线",
+     "遵从医嘱的冷静配合"
+    ],
+    "pressure_responses": {
+     "breaking": "顶着被狂暴浪花喷溅的危险探头向门缝递送应急高压呼吸面罩",
+     "high": "将体温复苏水热毯推至观察门前准备承接重度失温伤员",
+     "low": "在通信频道内持续播报防失温抽搐口诀",
+     "mid": "隔窗指点值班长如何按压穴位缓解女总监手臂肌肉痉挛"
+    },
+    "relationship_stance": "将女总监视为情同手足的亲密姐妹与崇敬的工程楷模，对突击队员安危极度牵挂，汛期一到就吃住在坝上。",
+    "withdrawal": "退守至复温治疗台前，迅速核对加压舱氧分压配比电磁阀。"
+   },
+   "gender": "female",
+   "gender_reason": "大坝水利枢纽特种水工医务室主治女医官",
+   "id": "dam_medic_officer_yan",
+   "identity": {
+    "authority": "对水下百米极寒失温休克急救方案、抗水击心脑震荡针剂及高压氧舱启闭享有最高医疗处置权。",
+    "exposure": "曾私自调用高压加压舱为患有重度水锤震荡伤的老水工实施超规保守治疗",
+    "hidden": "随身急救包内封存着自己亲手调配的高浓度外用神经解痉透皮喷剂",
+    "limits": [
+     "在水下百米狂暴激流倒灌区无法实施侵入性外科手术",
+     "体能单薄无法搬运重型破拆工装"
+    ],
+    "obligations": [
+     "保障全体水工机修突击队员零瘫痪、零急性浸泡休克存活"
+    ],
+    "resources": [
+     "两支浓缩神经保护抗休克急救针剂",
+     "一台便携式微型经皮血氧红外连续监测仪"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在极端高压剧痛下依然保持的超人意志",
+     "生死关头舍命护持同伴的人性光芒"
+    ],
+    "boundaries": [
+     "严守医患职业伦理道德",
+     "不以医疗资源调配进行私利交换"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在观察窗前隔着玻璃双手按在女总监对应的掌印位置，大声引导其进行深腹式吸气屏息。",
+    "dislikes": [
+     "漠视人命的官僚冷血",
+     "因恐惧造成的踩踏推诿"
+    ],
+    "expression": "用温热的手掌轻柔按揉对方冻僵发紫的眉心，柔声安抚其紧绷剧烈震颤的神经脉搏。",
+    "likes": [
+     "平稳有力的大坝水工窦性心律",
+     "脱险后第一口温热电解质葡萄糖水的吞咽声"
+    ],
+    "preconditions": [
+     "快速启闭门完全落槽且伤员体温恢复至正常体温",
+     "全员脱离急性气栓危险期"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "大坝水工随队主治医官",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_dam_crest_hoist_hall_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "分担部分抢险精力导致转动摇把节拍轻微延缓。",
+      "option": "通过对讲广播引导廊道二人同频深呼吸并相互按压合谷穴解痉自救。"
+     },
+     {
+      "cost": "投料口微启导致少量冷凝水喷溅损坏医用监测仪外壳。",
+      "option": "从投料窗口塞入高效神经解痉含片协助其维持清醒意志脱险。"
+     }
+    ],
+    "pressure": "若不及时进行减压深呼引导，剧烈极寒失温将诱发不可逆心室纤颤骤停。",
+    "trigger": "廊道内人员血氧饱和度跌破百分之七十五警戒红线。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要两人把旁通阀转开，哪怕全身冻僵了，我也一定把两人从阎王爷手里抢回来。",
+    "surface": "女总监！看着我的呼吸手势！深吸气、屏息三秒、慢呼气！千万不要剧烈咳嗽，压住胸腔水锤冷痉挛！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "七月，主汛期",
+  "minute": 1395
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "coercion_theme",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "进入百米大坝深孔廊道前习惯用指甲重弹波登管高压差压表表盘三次，凭脆响应答确认水银浮子未卡死。",
+  "大坝水工检修工进场前习惯在右手腕死死缠绕三圈高强黄色耐压防水胶带以防在激流中滑脱工具。",
+  "女总监习惯将精密红外激光测距笔插在潜水背心贴身笔套，随时拔出测定闸门在滑道内的偏斜倾角。",
+  "在震耳欲聋的水锤轰鸣中沟通习惯单手按住对方锁骨骨节大声吼叫读数以骨传导听清字句。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用精密标准水银砝码校验大坝深孔高压波登管零位",
+    "擦拭双色石英水位玻璃视镜表面积聚的煤泥油垢",
+    "轻扣副隔水阀螺纹填料压盖螺栓确认无异常冷凝水"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dam_piezometer_tube_log",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "晨光未显大坝深孔扬压力测压管巡检"
+  },
+  {
+   "beats": [
+    "用铜刮刀清理旁通阀阀杆螺纹表面附着的水锈泥沙",
+    "均匀涂抹耐水流冲刷特种合成聚四氟乙烯密封硅脂",
+    "使用全钢棘轮扳手按对称法紧固六颗大号不锈钢螺栓"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_bypass_valve_graphite_greasing",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "大坝旁通平衡阀偏心阀腔硅脂保养"
+  },
+  {
+   "beats": [
+    "转动主气动防火水密门重锤锁紧机械棘爪确认自由行程",
+    "检查配重悬挂不锈钢钢丝绳端部马鞍卡扣夹紧力矩",
+    "在特大水利枢纽战备施工日志加盖当值监督官电子图章"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_hoist_hall_pneumatic_gate_test",
+   "location_ids": [
+    "loc_dam_crest_hoist_hall_corridor"
+   ],
+   "start_minute": 1398,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "坝顶启闭机房防爆主控通廊气动门测试"
+  },
+  {
+   "beats": [
+    "用防爆卡尺测量减震弹簧自由高度与预压压缩量",
+    "清理滑轨锁死卡齿表面堆积的微细金属冰晶霜花",
+    "在大坝抢险战备行车日志加盖当值专员电子印章"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_penstock_water_hammer_check",
+   "location_ids": [
+    "loc_gallery_drainage_sump_catwalk"
+   ],
+   "start_minute": 1405,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "压力钢管水锤消除器高压阻尼器点验"
+  },
+  {
+   "beats": [
+    "测量高压氧气储罐汇流排输出减压阀动态风压",
+    "检查机库外露救生索端部钛合金自动锁扣夹紧力",
+    "交接挂在备品柜内的特种实心加长合金卸荷摇把"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_deep_gallery_oxygen_supply_tally",
+   "location_ids": [
+    "loc_gallery_drainage_sump_catwalk"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "水下百米廊道战备自救高压供氧点验"
+  },
+  {
+   "beats": [
+    "测量闸门滑道左右两侧不锈钢衬板受压微米级凹陷差",
+    "清理导向槽表面卡塞的细碎重晶石泥浆残渣",
+    "紧固传感器安装支架四颗高强度防锈不锈钢螺栓"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_gate_track_wear_tally",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "title": "快速启闭门滑道不锈钢衬板磨损激光测绘"
+  },
+  {
+   "beats": [
+    "闸门落槽、廊道排空之后，女总监被人从廊道里架上坝顶，雨衣里外全湿，冻得嘴唇发紫，到了启闭机房的值班间才肯坐下。",
+    "女总监低着头，让人拿干毛巾一缕缕擦干湿透的长发，又把冻僵的双脚揣进对方怀里焐着，焐着焐着，额头就抵到了对方肩上。",
+    "窗外的雨还没停，女总监抬起眼：防汛还没解除……可今晚这四个钟头归我。值班间的门，你去锁上。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_hoist_hall_hair_drying",
+   "location_ids": [
+    "loc_hoist_hall_duty_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "启闭机房值班间里替女总监擦干湿发"
+  },
+  {
+   "beats": [
+    "防汛第十九天，女总监盘腿坐在折叠床上，泡了两碗方便面，往人那碗里多加了一个卤蛋。",
+    "女总监嘴硬：卤蛋是多出来的，不是特意给你的。……吃完了不许走，陪我盯水位。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_duty_room_instant_noodles",
+   "location_ids": [
+    "loc_hoist_hall_duty_room"
+   ],
+   "start_minute": 1210,
+   "tags": [
+    "intimate"
+   ],
+   "title": "防汛夜的泡面"
+  },
+  {
+   "beats": [
+    "女总监换下湿透的雨衣，只穿一件宽大的衬衫站在窗前，背对着人，看半山腰移民村的灯一盏盏灭掉。",
+    "女总监没回头：这十九天，我每天都在想一件事。……你过来抱我，我就告诉你是什么。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_duty_room_rain_confession",
+   "location_ids": [
+    "loc_hoist_hall_duty_room"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "雨夜里说出口的话"
+  },
+  {
+   "beats": [
+    "清晨，广播里传来解除防汛响应的通知，女总监在折叠床上醒来，裹着人的外套，头发乱成一团。",
+    "女总监把脸埋进外套里：终于能睡个整觉了。……你也别起来，今天坝上没我们的事。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_duty_room_flood_lifted",
+   "location_ids": [
+    "loc_hoist_hall_duty_room"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "解除防汛的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "特大型水利枢纽超高混凝土重力坝高水头运行期",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_water_hammer_bursts_roaring",
+   "kind": "approach",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "director_jiang_yingxue",
+   "text": "{director_jiang_yingxue.name}单手按住剧烈颤动的防浪角钢扶手，抹开额前冰冷江水：百米水锤把人孔盖撕碎了！快速门卡死了，把这根七十五公分的合金摇把插进偏心阀腔，跟我死转！"
+  },
+  {
+   "id": "hook_director_taps_differential_gauge",
+   "kind": "approach",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "director_jiang_yingxue",
+   "text": "{director_jiang_yingxue.name}浸泡在漫过胸口的刺骨激流中，合金摇把咔哒一声咬死偏心槽口：看准右侧偏两度，顺着阀腔咬合线，听我口令一起往死里转！"
+  },
+  {
+   "id": "hook_cold_water_chills_bones",
+   "kind": "approach",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "director_jiang_yingxue",
+   "text": "{director_jiang_yingxue.name}在冰冷刺骨的激流狂潮里咬紧银牙，面颊在火光映照下泛出娇艳酡红与晶莹水珠：别怕冷！抓紧摇把手柄，把全身重量砸下来！"
+  },
+  {
+   "id": "hook_lever_groans_bending_limit",
+   "kind": "approach",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "director_jiang_yingxue",
+   "text": "{director_jiang_yingxue.name}整个人扑在合金摇把柄端，双手虎口鲜血淋漓：旁通阀在进圈平压了！值班长，把你那身力气全压上来，顺时针转到底锁死！"
+  },
+  {
+   "id": "hook_mechanic_grips_lever_firmly",
+   "kind": "approach",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "mechanic_luo_zhenchuan",
+   "text": "{mechanic_luo_zhenchuan.name}跨步踏入激流正中，粗壮的大手一把覆在女总工手背外侧：女总监，稳住轴心！剩下的千斤下沉重量交给我，谁也别想松手！"
+  },
+  {
+   "id": "hook_bypass_valve_groans_shear",
+   "kind": "approach",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "director_jiang_yingxue",
+   "text": "{director_jiang_yingxue.name}猛然抬头凝视门外缓缓下落的水密门，眼神高傲冷冽如刀：专员要炸封了！还有最后五圈，哪怕把手柄转断也得给我扳死！"
+  },
+  {
+   "id": "hook_cable_groans_straining_limit",
+   "kind": "approach",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "mechanic_luo_zhenchuan",
+   "text": "{mechanic_luo_zhenchuan.name}反手抽出一柄大活动扳手死死别在角钢之间，低沉怒吼：大江再狂暴又怎样！就靠这根合金摇把了，跟我一起下压，锁死这道阀！"
+  },
+  {
+   "id": "hook_inspector_threatens_explosive_seal",
+   "kind": "approach",
+   "location_ids": [
+    "loc_dam_crest_hoist_hall_corridor"
+   ],
+   "slot": "inspector_fang_chuan",
+   "text": "{inspector_fang_chuan.name}惨白着脸握紧炸封电掣芯片，尖叫连连：大坝要被冲垮了！卫队，立刻按下拉闸电掣引爆炸封，绝不能让整座进水塔被撕裂！"
+  },
+  {
+   "id": "hook_ma_stuffs_asbestos_gasket",
+   "kind": "approach",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "senior_dam_gate_fitter_ma",
+   "text": "{senior_dam_gate_fitter_ma.name}将半块耐水石棉防滑衬垫狠狠拍在槽口缝隙里：往槽里塞！右偏两度的死角找到了，垫上我的石棉垫，顺着力道转！"
+  },
+  {
+   "id": "hook_cadet_fetches_extension_pipe",
+   "kind": "request",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "director_jiang_yingxue",
+   "text": "{director_jiang_yingxue.name}抹去脸上的冰水与冷汗，急促喘息着看向助理技术员：去工具箱把备用加长空心钢管取来套上，我们需要更长的一米力臂！"
+  },
+  {
+   "id": "hook_ding_brings_steel_pipe",
+   "kind": "request",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "cadet_hydraulic_xiao_ding",
+   "text": "{cadet_hydraulic_xiao_ding.name}双手抱着一根厚壁加长套管滚入廊道角落，眼眶通红：女总监！钢管拿来了！还有一卷高抗拉安全牵引绳！"
+  },
+  {
+   "id": "hook_luo_joins_pipe_extension",
+   "kind": "request",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "mechanic_luo_zhenchuan",
+   "text": "{mechanic_luo_zhenchuan.name}接过套管狠狠套在摇把手柄末端，按住女总监的玉手咆哮：套管接上了！力臂延长了！女总监，我们数三二一，一起把全身重量砸下去！"
+  },
+  {
+   "id": "hook_medic_guides_anti_cold_breathing",
+   "kind": "request",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "director_jiang_yingxue",
+   "text": "{director_jiang_yingxue.name}隔着观察窗向医官打出确认手势，口中咬破葡萄糖含片：水力平压在建立了，我们做最后一轮压死下旋！"
+  },
+  {
+   "id": "hook_observe_dam_gallery_water_hammer",
+   "kind": "observe",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "director_jiang_yingxue",
+   "text": "{director_jiang_yingxue.name}挺立在水下百米狂暴倒灌的冰冷大江激流中，工装背心下侧颜在冰冷探照灯映照下傲娇决绝，眼神如出鞘冰刃般坚不可摧。"
+  },
+  {
+   "id": "hook_observe_lever_locks_bypass_gate",
+   "kind": "observe",
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "slot": "director_jiang_yingxue",
+   "text": "特制大口径耐高压加长合金反向旋转卸荷手动摇把深深咬死旁通阀腔，伴随着一声洪钟般的重型闸门平压合模轰鸣，失控悬空的快速启闭平板闸门轰然自沉稳稳落槽，狂暴倒灌的大江之水彻底被截断平息，全员安然脱险生还。"
+  },
+  {
+   "id": "hook_yingxue_wet_logbook",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "director_jiang_yingxue",
+   "text": "{npc.name}披着湿透的雨衣从廊道口钻出来，把一摞被水洇开的渗压计记录拍在桌上：第十九天了……你值几点的班？给我倒杯热的。"
+  },
+  {
+   "id": "hook_zhenchuan_duty_roster",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "mechanic_luo_zhenchuan",
+   "text": "{npc.name}把防汛值班表摊开，用铅笔在人名字旁边画了个圈：今晚零点到四点，你跟我。廊道里冷，多穿一件。"
+  },
+  {
+   "id": "hook_ma_village_lights",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "senior_dam_gate_fitter_ma",
+   "text": "{npc.name}站在坝顶，雨水顺着帽檐往下淌，指着半山腰的移民村：看见那一片灯没有，都是当年为这座坝搬走的人家。这扇门，得守住。"
+  },
+  {
+   "id": "hook_xiaoding_instant_noodles",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cadet_hydraulic_xiao_ding",
+   "text": "{npc.name}端着两碗泡面从食堂跑回来，雨衣都没顾上穿：食堂只剩泡面了……你吃红烧还是酸菜？"
+  },
+  {
+   "id": "hook_fang_dispatch_order",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "inspector_fang_chuan",
+   "text": "{npc.name}抖着湿透的伞走进启闭机房，把一份防汛调度令拍在操作台上：从现在起，每一次开闸都要我签字。"
+  },
+  {
+   "id": "hook_yingxue_seepage_crack",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "director_jiang_yingxue",
+   "text": "{npc.name}在廊道里蹲下身，把手电光打在一道正往外渗水的缝上，回头招手：过来，听见水声没有？今晚就靠我们两个守着这道缝。"
+  },
+  {
+   "id": "hook_yingxue_duty_room",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hoist_hall_duty_room"
+   ],
+   "slot": "director_jiang_yingxue",
+   "text": "{npc.name}在值班间门口抖了抖雨衣：水位稳了。……进来，泡面多泡了一碗。"
+  }
+ ],
+ "id": "hydroelectric_penstock_intake_gate_stuck",
+ "locations": [
+  {
+   "affordances": [
+    "抓牢廊道混凝土墙壁加厚不锈钢安全扶手",
+    "将加长合金卸荷摇把插进旁通平衡阀偏心槽",
+    "查看闸门上方高压双针差压水银水柱计"
+   ],
+   "detail": "高约三米、宽约四米的深层大坝混凝土防渗廊道，头顶是重达数十吨的快速启闭平板钢闸门斜卡在滑道中途，狂暴的高压射流从缝隙中如暴龙咆哮喷涌，冰冷刺骨的大江渗水已漫过膝盖，四周高标号混凝土墙壁在万吨水压下发出沉闷呻吟。",
+   "exits": [
+    "loc_dam_crest_hoist_hall_corridor",
+    "loc_gallery_drainage_sump_catwalk"
+   ],
+   "id": "loc_intake_gate_gallery_deadlock",
+   "name": "进水口检修廊道",
+   "pressure_modifiers": {
+    "p_hydraulic_piston_deadlock_crush": "主提升液压缸在狂暴水锤重击中抱死卡阻，平板闸门必须依靠手动旋转旁通阀注水平压实现重力自沉。",
+    "p_water_hammer_burst_surge": "百米水头高压射流以每秒四十吨威力倒灌，逼仄廊道内水位急速漫过胸口仅剩四分钟逃生窗口。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_dam_gate_fitter_old_ma"
+   ]
+  },
+  {
+   "affordances": [
+    "按下井口应急高压消防注水喷淋电掣",
+    "拉动备用柴油机排险放喷旁通阀",
+    "拿起挂在防爆柜内的备用正压防毒面具"
+   ],
+   "detail": "位于百米重力坝顶部的巨型钢桁架启闭机大厅，窗外狂风骤雨电闪雷鸣，两台五百吨门式起重机在暴风中轻微晃动，红色防汛戒严警报灯将四周映照成血色。",
+   "exits": [
+    "loc_intake_gate_gallery_deadlock",
+    "loc_gallery_drainage_sump_catwalk",
+    "loc_hoist_hall_duty_room"
+   ],
+   "id": "loc_dam_crest_hoist_hall_corridor",
+   "name": "坝顶机房通廊",
+   "pressure_modifiers": {
+    "p_dam_crest_gate_cable_snap_risk": "门机主钢丝绳受到数十吨异常上拉动载拉扯，卷筒排绳器滑脱三道槽口濒临崩绳。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_flood_inspector_deputy_wei",
+    "bg_electrical_engineer_qiu"
+   ]
+  },
+  {
+   "affordances": [
+    "手动搬动泥浆加重离心机排险旁通阀",
+    "检查重晶石储料斗高压气动下料插板阀行程",
+    "扣紧水池侧壁应急疏散滑道自锁挂钩扣环"
+   ],
+   "detail": "位于大坝廊道最底层的深水积水坑栈桥，三台特大型深井离心泵正在全负荷轰鸣排水，四周空气中弥漫着浓烈的水雾与潮湿苔藓气味。",
+   "exits": [
+    "loc_intake_gate_gallery_deadlock",
+    "loc_dam_crest_hoist_hall_corridor"
+   ],
+   "id": "loc_gallery_drainage_sump_catwalk",
+   "name": "集水井栈桥",
+   "pressure_modifiers": {
+    "p_cold_hypothermia_paralysis_shock": "积水坑冰冷水雾弥漫加剧了低层栈桥的严寒侵袭，体温过快流失增加了失温休克的危险。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_sump_pump_cadet_xiao_ding"
+   ]
+  },
+  {
+   "affordances": [
+    "陪女总监看一夜水位曲线",
+    "替女总监擦干湿透的长发",
+    "锁上值班间的门"
+   ],
+   "detail": "坝顶启闭机房里隔出来的值班间，一张折叠床、一张贴满水位曲线的桌子、一只电热水壶，窗外是半山腰移民村的灯。",
+   "exits": [
+    "loc_dam_crest_hoist_hall_corridor"
+   ],
+   "id": "loc_hoist_hall_duty_room",
+   "name": "启闭机房值班间",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "屋里只开一盏台灯，雨打在窗上沙沙响，门一锁，机房里电机的低鸣就隔成了一层很远的声音。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "江",
+   "楚",
+   "凌",
+   "莫",
+   "韩",
+   "温",
+   "景",
+   "陶",
+   "祁",
+   "游",
+   "盛",
+   "纪"
+  ],
+  "given_female": [
+   "映雪",
+   "晴",
+   "澜",
+   "微",
+   "清",
+   "雁",
+   "莹",
+   "宛",
+   "素",
+   "羽",
+   "瑶",
+   "凝"
+  ],
+  "given_male": [
+   "长川",
+   "远舟",
+   "铁柱",
+   "万山",
+   "烈",
+   "峰",
+   "猛",
+   "岩",
+   "勇",
+   "雄",
+   "彪",
+   "天枢"
+  ],
+  "given_neutral": [
+   "风",
+   "云",
+   "石",
+   "川",
+   "舟",
+   "衡",
+   "野",
+   "朗",
+   "诚",
+   "坚",
+   "原",
+   "毅"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留特大汛期大坝深孔进水口快速门卡死、廊道倒灌与女总监用加长摇把转开旁通平衡阀平压落门的骨架。同一批里有十个同源的工业事故世界，这里把开局放到峡谷里连下十九天暴雨的防汛一级响应：所有人吃住在坝上、值班表排到下个月、廊道顶上滴水不停、半山腰是库区移民村的灯，用湿冷、疲惫和守土的情绪与高原地热世界的干燥缺氧拉开；搭档写成闸门运行值班长，开局钩子、相遇缘由和背景人物围着防汛值守重写。写死的人名改为身份称呼，背景人物里与模板重名的改名；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；女总监亲密前提写明闸门落槽、双方清醒自愿；新增一个启闭机房值班间里替女总监擦干湿发的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    28,
+    42
+   ],
+   "baseline": "驻守百米大坝深层廊道的机械检修老将，熟悉超重型平板闸门水力下压公差力学。",
+   "gender": "any",
+   "id": "pi_dam_penstock_lead_fitter",
+   "reputation": "作风泼辣手艺过硬，能在百米冰冷渗水中盲卡旁通阀传动套筒。",
+   "resources": [
+    "一柄重达八公斤的特种双向防爆敲击摇把",
+    "两副双层特制耐低温高密氯丁橡胶防滑手套"
+   ],
+   "risks": [
+    "直接暴露在狂暴高压水锤射流死角易遭受重度机械水击内脏震荡",
+    "极度低温下肌肉抽搐失能"
+   ],
+   "role": "特大重力坝水工水力启闭机当值检修副班长",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "检修长{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}班长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    32,
+    48
+   ],
+   "baseline": "代表防汛指挥部进驻大坝的官员，掌控大坝深孔炸封自沉保全大坝最高通报权。",
+   "gender": "any",
+   "id": "pi_flood_control_superintendent_officer",
+   "reputation": "高高在上讲究条理规程，遭遇溃坝大事故极易恐慌做出弃廊炸封的自保决断。",
+   "resources": [
+    "一台便携式多参数大坝水头差压数字记录仪",
+    "一套全密封个人耐压正压自救逃生呼吸器"
+   ],
+   "risks": [
+    "不懂快速启闭门水力自平压机构力学特性容易错判自救窗口",
+    "极度恐慌诱发过度换气窒息"
+   ],
+   "role": "防汛抗旱指挥部大坝特派高级防汛督察专员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}督察专员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}专员"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "刚分配进大型水利枢纽的大学毕业生，熟悉非定常流水锤计算与空化流动力学。",
+   "gender": "any",
+   "id": "pi_cadet_hydraulic_engineer",
+   "reputation": "理论知识丰富但缺乏一线悬空抢险实操经验，面对极速失控吓得面无人色。",
+   "resources": [
+    "一盒特种耐高压快速膨胀自粘密封油膏",
+    "一本重力坝压力钢管事故工况应急速查手册"
+   ],
+   "risks": [
+    "被冰冷倒灌激流冲倒跌落管底造成骨折",
+    "高压射流冲击导致眼角膜损伤"
+   ],
+   "role": "水利水电工程专业青年助理水工技师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}助理"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    48,
+    54
+   ],
+   "baseline": "在大坝深孔检修一线摸爬滚打三十年的老钳工，仅凭耳朵听水声就能辨别闸门卡死高度。",
+   "gender": "any",
+   "id": "pi_veteran_dam_gate_rigger",
+   "reputation": "沉默寡言经验老到，视大坝深孔闸门为驯服万顷恶浪的人间玄关。",
+   "resources": [
+    "一把大号重型全钢防脱手动丝杠棘轮加力扳手",
+    "两块耐高压合成石棉高强度防漏水闸板垫片"
+   ],
+   "risks": [
+    "长期深坝阴湿环境患有慢性风湿关节炎发力艰难",
+    "在冰冷渗水中体温流失极快逼近失温"
+   ],
+   "role": "大坝水下启闭机械特级老铆装工长",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老将"
+    }
+   ]
+  }
+ ],
+ "premise": "峡谷里的特大水坝进入汛期，所有人吃住在坝上，库区移民村的灯一盏盏亮在半山腰。傲娇的女总监带着闸门运行值班长和防汛督察，白天巡坝、看水情，夜里在调度室盯着水位曲线。上游连着下雨，深孔拦污栅前漂木越积越多，快速闸门的旁通阀去年就该大修。",
+ "pressures": [
+  {
+   "choice": "等待上方启动炸封引信引爆炸平进水塔，还是由女总监带队在激流中暴力转动摇把脱险。",
+   "exits": [
+    {
+     "cost": "廊道顶上的渗水滴个不停，合金摇把手柄发生微小弯曲变形，操作人员手掌被粗糙防滑纹磨出大面积血泡鲜血浸透水流。",
+     "option": "用大口径耐高压加长合金反向旋转卸荷手动摇把顺时针死转三十圈平压落槽脱险。"
+    },
+    {
+     "cost": "大扳手受强烈反冲脱手崩飞划破在场人员面颊与肩膀。",
+     "option": "用破拆大活动扳手反向砸碎副排气截止阀强行制造机械泄压自救。"
+    }
+   ],
+   "far": {
+    "consequence": "深孔廊道化为万吨水泥石棺，内部突击抢险全员在冰冷灭顶中当场溺亡殉难。",
+    "due_days": 1,
+    "trigger": "高压大江之水彻底灌满深孔廊道"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_water_hammer_burst_surge",
+   "immediate": {
+    "minutes": 2,
+    "text": "震耳欲聋的激流咆哮如巨兽嘶吼，冰冷刺骨的大江之水猛烈冲击胸膛，水位以肉眼可见的速度暴涨。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "廊道内水位漫过脖颈仅剩最后二十公分空气，刺骨寒水夺走人员全部体温，手脚失去知觉。"
+   },
+   "objective": "在廊道彻底被水压淹没前手动旋转旁通阀注水平压使闸门重力自沉自救。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "百米高压射流冲垮人孔盖倒灌廊道",
+   "trigger": "快速启闭门卡死导致进水口高压射流冲垮检修人孔盖，每秒四十吨冰冷激流倒灌进水下百米深孔廊道，水位急速漫过胸口，距完全灭顶仅剩四分钟。"
+  },
+  {
+   "choice": "强行蛮力硬拧博取前两圈位移，还是等待老装配工头递上石棉防滑衬垫稳步推进。",
+   "exits": [
+    {
+     "cost": "消耗尽绝版深水耐高压密封耗材，老工长左手手掌被锋利金属毛刺划伤渗血。",
+     "option": "老装配工头塞入高强度石棉防滑衬垫纠正两度切角协助摇把深咬自救。"
+    },
+    {
+     "cost": "值班长肩部软组织受剧烈反震严重挫伤渗血。",
+     "option": "值班长用肩膀顶住加长摇把传动轴消除偏心扭矩为女总监争取旋转角度脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "断裂的合金丝杠如高速鱼雷穿透人体，丧失唯一平压手段导致闸门彻底悬空冲毁。",
+    "due_days": 1,
+    "trigger": "手动卸荷丝杠在极度剪切偏载下扭断崩飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hydraulic_piston_deadlock_crush",
+   "immediate": {
+    "minutes": 3,
+    "text": "厚达六公分的旁通阀传动套筒传出一声让人牙酸的金属摩擦尖叫，表层防腐漆爆裂剥落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "阀腔因受万吨水压挤压产生微米级椭圆变形，摇把棘爪在槽口边缘发生剧烈打滑火花四溅。"
+   },
+   "objective": "找准旁通阀偏心阀腔右偏两度死角并套上加长管合力顺时针猛转。",
+   "source": "accident",
+   "start_minute": 1398,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "主液压启闭缸抱死必须依靠水力自平压",
+   "trigger": "断电电涌引发主液压管路阀门死锁，重达百吨的快速启闭门失去下降动力，必须依靠手动开启旁通平衡阀引入高压水注入闸门底缘消除动水闭门阻力。"
+  },
+  {
+   "choice": "退入干燥上层走廊，还是咬牙憋住一口热气在冰水中完成最后三十圈下旋。",
+   "exits": [
+    {
+     "cost": "衣衫被冰冷大江渗水浸透黏在肌肤上，双臂遭受重度浅表冻伤脱皮。",
+     "option": "暴雨已经连下了十九天，两人紧密相贴借彼此胸膛滚烫热息御寒双手死扣摇把以自重猛转脱险。"
+    },
+    {
+     "cost": "手忙脚乱弄洒了小半瓶药剂导致部分急救配额受损。",
+     "option": "防汛警报在坝顶一声接一声，从药包抽出高效神经解痉含片含服协助其维持清醒意志脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "人员在极寒中当场冻结休克溺毙，在大水倒灌中不幸牺牲殉难。",
+    "due_days": 1,
+    "trigger": "核心体温跌破三十度导致心室纤颤骤停"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cold_hypothermia_paralysis_shock",
+   "immediate": {
+    "minutes": 2,
+    "text": "女总监面颊被冰水冻得通红泛紫，牙齿不受控制地剧烈上下打颤。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "肌肉出现严重失控性寒战与麻木抽搐，双手抓握力骤降一半以上，意识出现虚幻恍惚。"
+   },
+   "objective": "两人紧密贴合屈膝对抗极寒水流并含服高能葡萄糖维持神智与手劲。",
+   "source": "nature",
+   "start_minute": 1400,
+   "tags": [
+    "disaster"
+   ],
+   "title": "水下百米零度极寒大江渗水诱发急性失温",
+   "trigger": "百米大坝深层江水温度逼近冰点，浸泡在水中的人员四肢体温急剧流失，手指迅速失去知觉变得麻木僵硬，核心体温跌破三十五度临界线。"
+  },
+  {
+   "choice": "向调度室请求强行开启全场事故泄洪深孔，还是在下方机房内争分夺秒完成刚性锁卡。",
+   "exits": [
+    {
+     "cost": "割枪反喷烧毁配电箱，邱工程师右手背被飞溅火花轻度烫伤。",
+     "option": "邱工程师在坝顶用氧乙炔气割枪快速切断悬空偏心牵引副索消除回弹自救。"
+    },
+    {
+     "cost": "女总监双手虎口被合金摇把粗暴棱角磨破鲜血淋漓。",
+     "option": "女总监爆发全力旋转旁通阀平压使闸门切断钢索动载拉力脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "数百吨起重天车在巨大回弹力下轰然砸穿坝顶楼板，大坝主控室全员殉难。",
+    "due_days": 1,
+    "trigger": "坝顶门式起重机提升钢索彻底绷断抽击"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_dam_crest_gate_cable_snap_risk",
+   "immediate": {
+    "minutes": 3,
+    "text": "粗壮的钢丝绳在狂风中发出令人毛骨悚然的金属拉伸啸叫，卷筒排绳器螺栓断裂一颗。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_dam_crest_hoist_hall_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "门机天车大梁受力严重扭曲变形，主提升钢丝绳毛刺根根竖立即将彻底崩裂。"
+   },
+   "objective": "在主绳崩断前完成平压落槽脱开门机拉力。",
+   "source": "accident",
+   "start_minute": 1402,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "门机主钢丝绳受到数十吨异常动载拉扯",
+   "trigger": "快速启闭门斜卡使坝顶门式起重机受偏心载荷巨震，粗大钢丝绳在卷筒上发生跳槽乱绳，即将崩断横扫坝顶主控通廊。"
+  },
+  {
+   "choice": "防汛警报在坝顶一声接一声，孤注一掷加大肉身压载强拧，还是稍微回退半寸套入助理技术员送来的加长钢管。",
+   "exits": [
+    {
+     "cost": "钢管在高压下咬死变形彻底无法从摇把上拔脱。",
+     "option": "助理技术员送达加长特种钢管套在摇把末端分担应力合力下旋撬平自锁脱险。"
+    },
+    {
+     "cost": "两臂肘关节承受数十吨极度反震导致软组织严重挫伤渗血。",
+     "option": "女总监与值班长调整站位将发力点向摇把根部收缩以肉体爆发力强行压死轴齿自救。"
+    }
+   ],
+   "far": {
+    "consequence": "崩断的高速合金利刃击穿操作手胸膛，丧失唯一杠杆工具彻底断绝生路。",
+    "due_days": 1,
+    "trigger": "合金摇把头部棘爪彻底粉碎崩飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_lever_alloy_valve_shear_yield",
+   "immediate": {
+    "minutes": 2,
+    "text": "摇把头部传出一声令人心悸的合金棘爪咬死脆响，表层耐磨镀层爆裂脱落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_intake_gate_gallery_deadlock"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "摇把手柄发生超过十五度的明显塑性弯曲，棘爪末端即将崩脱滑出偏心槽。"
+   },
+   "objective": "防汛警报在坝顶一声接一声，套上加长镀锌套管延长力臂并将发力点移至轴心消除冲击偏载。",
+   "source": "accident",
+   "start_minute": 1404,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "特种合金卸荷摇把棘爪承受超载扭矩濒断",
+   "trigger": "受损旁通阀偏心阀腔内部积聚的细碎贝壳与泥沙使咬合扭矩暴增数倍，七十五公分合金摇把头部棘爪承受了极限剪切，特种合金表面浮现微细疲劳晶斑发出尖锐金铁哀鸣。"
+  },
+  {
+   "choice": "由值班长在门外用大活动扳手砸烂专员控制盒，还是在水下抢先完成摇把旋转化解危机。",
+   "exits": [
+    {
+     "cost": "值班长面临违抗联合防汛安全条例文书的军法重惩。",
+     "option": "暴雨已经连下了十九天，值班长夺下专员手电终端砸碎自毁继电器强行拔掉熔断保险丝争取生机。"
+    },
+    {
+     "cost": "近身对抗导致女总监右手臂被尖锐仪表外壳划伤渗血。",
+     "option": "女总监以水利总工程师身份喝退随身近卫并亲手扯断自毁继电器脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "数万吨进水塔混凝土塔身在惊天巨爆中坍塌砸向廊道，廊道突击突围全员粉身碎骨殉难。",
+    "due_days": 1,
+    "trigger": "深孔进水塔防爆雷管彻底引爆炸塌塔身"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_inspector_explosive_flood_countdown",
+   "immediate": {
+    "minutes": 2,
+    "text": "长廊顶角响起尖叫的红色大坝自毁炸封警报，雷管起爆继电器发出短促的倒数蜂鸣。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_dam_crest_hoist_hall_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "廊道顶上的渗水滴个不停，炸封倒计时仅剩最后三十秒，进水口火工引信开始哧哧燃烧冒出刺鼻白烟。"
+   },
+   "objective": "在炸药引爆前完成旁通阀开启平压落槽并勒令专员停掣。",
+   "source": "institution",
+   "start_minute": 1406,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "防汛特派督察官拉下深孔炸封电闸倒计时",
+   "trigger": "特派防汛专员认定快速启闭门已经无法抢救，在坝顶按开深孔炸封电闸，防爆雷管启动了三分钟彻底引爆炸毁进水塔封闭深孔的自毁倒计时。"
+  },
+  {
+   "choice": "当面把调度记录摊开给村民看，还是等调查组来了再交",
+   "exits": [
+    {
+     "cost": "记录上那一道开闸令，是女总监顶着防汛督察的命令下的",
+     "option": "当面给村民看调度记录"
+    },
+    {
+     "cost": "老马要把自家那块被淹的地也报进赔偿里",
+     "option": "请老马回村说情"
+    }
+   ],
+   "far": {
+    "consequence": "女总监背处分，调度令上签字的值班长也要停职",
+    "due_days": 5,
+    "trigger": "调查组定责"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_yingxue_wet_logbook",
+    "hook_zhenchuan_duty_roster",
+    "hook_ma_village_lights",
+    "hook_xiaoding_instant_noodles",
+    "hook_fang_dispatch_order",
+    "hook_yingxue_duty_room"
+   ],
+   "id": "p_village_flood_rumor",
+   "immediate": {
+    "minutes": 5,
+    "text": "小丁跑进值班间，说村民在坝顶拉了横幅"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hoist_hall_duty_room"
+   ],
+   "near": {
+    "deadline_minutes": 360,
+    "text": "下午两点，县里的调查组到坝上"
+   },
+   "objective": "在县里的调查组下来之前，让村民看到那一夜的开闸记录",
+   "source": "rumor",
+   "start_minute": 480,
+   "tags": [],
+   "title": "移民村的横幅",
+   "trigger": "洪峰过后第二天早上，库区移民村的村民上了坝：那一夜下游淹了三百亩田，村里传说是坝上为保大坝故意多开了闸"
+  }
+ ],
+ "region": "水下百米大坝进水口快速启闭门检修排水廊道",
+ "rules": [
+  {
+   "id": "r_dam_penstock_intake_gate_limit",
+   "text": "压力钢管快速启闭门在失去动力时必须在四分钟内手动摇平旁通阀。"
+  },
+  {
+   "id": "r_hydrostatic_bypass_valve_code",
+   "text": "旋转卸荷手动摇把时必须确保偏心定位卡块完全卡入平衡阀传动套筒。"
+  },
+  {
+   "id": "r_dam_inspection_gallery_flood_rule",
+   "text": "百米深孔检修廊道积水超过膝盖时严禁擅自开启末端应急自流排水泵。"
+  },
+  {
+   "id": "r_heavy_gravity_dam_water_hammer_limit",
+   "text": "水锤正压波峰值超过设计水头一点五倍时全坝泄洪深孔自动爆破启闭。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "看表验缝",
+  "committed": "大江誓约",
+  "familiar": "浪头相依",
+  "flirting": "冷水热息",
+  "intimate": "深坝共命",
+  "stranger": "进廊核压",
+  "testing": "同握摇把"
+ },
+ "status": "released",
+ "style_hint": "冷硬森严的水利重工硬核工笔，刻画水下百米深层混凝土廊道受万吨水压挤压的沉闷呻吟、特种合金加长摇把在偏心阀腔内旋转时的机械咬合、潜水背心下被冰水与热汗浸透的起伏躯体，台词充斥着严苛的水锤计算与决断。",
+ "tension_engines": [
+  {
+   "id": "te_dam_water_hammer_vs_lever_turn",
+   "text": "百米水头水锤倒灌灭顶绝命倒计时与利用加长合金摇把旋转旁通阀的机械自救。"
+  },
+  {
+   "id": "te_inspector_blowup_gate_vs_rescue",
+   "text": "特派防汛专员企图强行炸毁进水塔弃廊逃生与一线突击队誓死保全全员生还的生死对决。"
+  },
+  {
+   "id": "te_tsundere_director_pride_vs_mechanic",
+   "text": "傲娇冰山女总监的绝顶水力威严与重装水工老班长托付性命的肉体爆发力反差共鸣。"
+  },
+  {
+   "id": "te_freezing_cascade_soak_vs_tight_press",
+   "text": "百米深坝刺骨冰冷渗水淹溺窒息与两人在摇晃廊道中紧贴发力合转摇把的炽烈生命羁绊。"
+  }
+ ],
+ "title": "水电站大坝·压力钢管拦污栅卡死",
+ "tone": [
+  "水下百米万钧水锤沉闷轰鸣",
+  "泄水阀缝隙刺耳激流咆哮",
+  "大坝廊道冰冷透骨渗水暴雨",
+  "廊道顶上滴答不停的渗水"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_bypass_eccentric_groove_located",
+   "requires": [
+    "director_jiang_yingxue"
+   ],
+   "text": "{director_jiang_yingxue.name}在受损闸门旁通阀侧壁摸出了当年水利设计所预留的手动防扭矩反转卡止安全暗槽。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_mechanic_disarms_corrupt_inspector",
+   "requires": [
+    "mechanic_luo_zhenchuan"
+   ],
+   "text": "{mechanic_luo_zhenchuan.name}反手夺下特派防汛专员的炸封引信钥匙，全面接管大坝机修最高战时处置权。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_anti_cold_spray_distributed",
+   "requires": [
+    "director_jiang_yingxue"
+   ],
+   "text": "{director_jiang_yingxue.name}掰开贴身药盒，将四支高效神经舒缓抗寒喷雾分发给现场力竭同伴对抗急性极寒失温抽搐。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_asbestos_gasket_stops_water_slip",
+   "requires": [
+    "senior_dam_gate_fitter_ma"
+   ],
+   "text": "{senior_dam_gate_fitter_ma.name}用冲子撬开备用自流排水旁通阀门，依法平衡廊道内外压力化解了人孔盖单向剧烈受剪。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_emergency_bypass_drops_head_pressure",
+   "requires": [
+    "director_jiang_yingxue"
+   ],
+   "text": "{director_jiang_yingxue.name}利用摇把柄端挑开了备用排气管道，强行为受损旁通阀压制住最后三十秒超温抱死窗口。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_mechanic_shields_director_surge_shock",
+   "requires": [
+    "director_jiang_yingxue",
+    "mechanic_luo_zhenchuan"
+   ],
+   "text": "{mechanic_luo_zhenchuan.name}在冰冷激流大面积喷洒瞬间挺身扑在{director_jiang_yingxue.name}上方，用加厚潜水背心与宽阔背脊死死挡下高压射流。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_penstock_gate_locks_true_dam_saved",
+   "requires": [
+    "director_jiang_yingxue"
+   ],
+   "text": "顺时针死死旋开的旁通平衡阀在加长合金摇把与石棉衬垫的强力咬合下轰然自平水压，悬空抱死的快速启闭门稳稳自沉落入导轨底槽，百米重力大坝安然脱险平息生还。"
+  }
+ ]
+}

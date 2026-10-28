@@ -1,0 +1,2425 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "现年满二十八岁，国家一级母带混音录音师，具备完全民事行为能力。",
+   "age_range": [
+    28,
+    28
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_mixing_engineer_laocheng",
+   "line": "混音台对讲已切换至应急广播频段，单向泄压孔就在玻璃门下铰链处，别压即可进气！",
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "name": "老程",
+   "role": "主控室首席混音师"
+  },
+  {
+   "adult_context": "现年满二十六岁，乙女游戏核心文案主策划兼剧情编剧，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    26
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_game_script_writer_miss_qiao",
+   "line": "声优的声音是这部乙游的灵魂，无论如何大家一定要平安无事推门出来啊！",
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "name": "乔编剧",
+   "role": "游戏文案主策划"
+  },
+  {
+   "adult_context": "现年满二十九岁，音频中心暖通自控系统特聘值班工程师，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_hvac_technician_master_fan",
+   "line": "变频器强排风主回路已成功断电跳闸，排风机惯性转速正在下降，气压马上止跌！",
+   "location_ids": [
+    "loc_hvac_plant_antechamber"
+   ],
+   "name": "范师傅",
+   "role": "地下暖通机房值班电工"
+  },
+  {
+   "adult_context": "现年满二十五岁，录音艺术毕业对白剪辑助理，具备完全民事行为能力。",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_dialogue_editor_xiaowen",
+   "line": "声优别急，我刚把防喷罩铸铁底座挪过来了，咱们一起给杠杆搭牢底座！",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "name": "小文",
+   "role": "现场音频对白助理"
+  },
+  {
+   "adult_context": "现年满二十七岁，一线动漫游戏声学项目监制经理，具备完全民事行为能力。",
+   "age_range": [
+    27,
+    27
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_sound_producer_ah_wei",
+   "line": "明天上午就是全网公测预载节点，母带写保护已经锁定，现在保命保人是第一位的！",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "name": "阿伟",
+   "role": "外部商业监制经理"
+  },
+  {
+   "adult_context": "现年满二十八岁，游戏发行大厂版权商务高级代表，具备完全民事行为能力。",
+   "age_range": [
+    28,
+    28
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_game_client_representative_mr_zhao",
+   "line": "现场医护和应急救护车已经在地下车库入口待命，门一开全员立即接受纯氧补给！",
+   "location_ids": [
+    "loc_hvac_plant_antechamber"
+   ],
+   "name": "赵代表",
+   "role": "发行方商务驻场代表"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "清纯配音女声优与音频总监的隔窗生命共鸣，录音导演在主控室统筹吸盘外拉并校准对讲口令，声优在室内合抱扳手下压挑脱气密胶阀均压，内外精准呼应在缺氧绝境中撬开生门。",
+   "id": "combo_su_and_director_sound_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "pure_actress_su_qing_han",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在极度逼仄负压缺氧绝境中同握金属扳手下压撬阀的生死相托。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "sound_director_cheng_huai_an",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "大型游戏配音工程长达数月的专业默契配合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "pure_actress_su_qing_han",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "sound_director_cheng_huai_an",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对音频总监临危不乱精准争取时间窗口的由衷钦佩。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "pure_actress_su_qing_han",
+    "sound_director_cheng_huai_an"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保二人技术协同在人员因缺氧窒息受创前均压推门脱险。",
+    "limit_gap": "录音棚内氧气含量急剧流失，隔着四十毫米超厚隔音玻璃无法直接物理传递工具。",
+    "meeting_reason": "终章告白录到第十一遍，录音导演按下对讲：再来一遍，这次别演，就当说给一个人听。",
+    "resource_gap": "录音导演掌控混音台应急广播与外侧工业吸盘力量，声优手握防震架高硬度扳手内部破阀关键支点。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_booth_negative_pressure_differential",
+    "eng_dual_sided_vacuum_pull_thrust_sync"
+   ]
+  },
+  {
+   "chemistry": "清纯声优与声学气动工程师的科学合璧，声学工程师以数显微压差计指引单向阀微孔受力点，声优沉着以三十度斜角刺入胶皮挑起膜片，严谨运用流体力学攻克千帕真空。",
+   "id": "combo_su_and_acoustic_engineer_team",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "pure_actress_su_qing_han",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死危机面前并肩践行工科自救常识的真挚信赖。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "acoustic_tuner_ye_zi_xuan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "录音室声学环境调校中的长期默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "pure_actress_su_qing_han",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "acoustic_tuner_ye_zi_xuan",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "在科学排险与艺术追求中结成的心灵相通知己之情。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "pure_actress_su_qing_han",
+    "acoustic_tuner_ye_zi_xuan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保全流程无损挑开均压阀片并安全推开大门脱险。",
+    "limit_gap": "录音室内空气闷热耳鸣难忍，扳手稍有偏载即有划伤钢化玻璃风险。",
+    "meeting_reason": "声学工程师在棚里调吸音板，说今晚排风机的声音有点不对，声优摘下耳机听了一会儿。",
+    "resource_gap": "声学工程师精通气动阀门图纸并执掌高精度压差计，声优具备过硬动手定力与全金属防震架调校扳手。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_mic_shockmount_wrench_leverage_limit"
+   ]
+  },
+  {
+   "chemistry": "清纯女声优与特勤队员的生命接力，巡视队员在外侧以两百公斤双爪工业吸盘死死咬合门板并以铿锵口令读秒，声优在内侧同步下压扳手破开负压，前后合力彻底征服气动死锁迎候清风。",
+   "id": "combo_su_and_patrol_officer_vacuum_pull",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "pure_actress_su_qing_han",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死危机面前毫不慌乱通力自救的真挚敬意。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "studio_patrol_officer_mo_tian_lang",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "对特勤巡视队员临危不乱恪守职责的崇高信赖。",
+     "stage": "familiar"
+    },
+    {
+     "a": "pure_actress_su_qing_han",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "studio_patrol_officer_mo_tian_lang",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对特勤队员刚毅铁血在外拉动重门之举由衷敬重。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "pure_actress_su_qing_han",
+    "studio_patrol_officer_mo_tian_lang"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以内外精确协同节奏拉开沉重门扉避免震碎双层钢化玻璃。",
+    "limit_gap": "隔着厚重超厚钢化玻璃无法直接言语交流，口令全凭对讲与目视手势毫秒级配合。",
+    "meeting_reason": "录音导演把通宵的盒饭摆在主控台上，问声优喝不喝热汤，嗓子要紧。",
+    "resource_gap": "巡视队员掌控工业吸盘牵引力与安全通道权限，声优掌控内侧单向气密阀打破真空关键机关。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_dual_sided_vacuum_pull_thrust_sync"
+   ]
+  },
+  {
+   "chemistry": "清纯声优学姐与贴心学妹的真挚相守，录音助理跪地死死护住乐谱架铸铁底座并递送降温湿巾与硅油，声优护佑学妹在前从容执扳手撬阀，展现超乎年龄的冷静担当与大姐姐般温柔气魄。",
+   "id": "combo_su_and_apprentice_support",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "pure_actress_su_qing_han",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "录音室日常配音指导与伴随服务中的深厚感情。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "sound_apprentice_wen_si_ruo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "对学妹勤快懂事后勤补位的由衷喜爱。",
+     "stage": "familiar"
+    },
+    {
+     "a": "pure_actress_su_qing_han",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "sound_apprentice_wen_si_ruo",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "在生死危机面前彼此相护超越普通同袍的真挚姐妹深情。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "pure_actress_su_qing_han",
+    "sound_apprentice_wen_si_ruo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保受困全员毫发无损安全脱出气压牢笼。",
+    "limit_gap": "学妹体质纤弱耳压反应强烈，录音间内氧气储备正以分钟级急剧锐减。",
+    "meeting_reason": "录音助理给声优换了一杯温水，小声说导演今晚已经抽了半包烟。",
+    "resource_gap": "声优具备镇定决策权威与全金属调校扳手，录音助理手握密封硅油与医用降温湿巾物资。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_booth_negative_pressure_differential"
+   ]
+  },
+  {
+   "chemistry": "清纯声优与硬件工程师的硬核力学联动，白天舟加装悬臂加长撬杆组装二级增力杠杆，声优合抱下压，二人合力在微米级精度下挑开老化黏连的气密单向阀片打破真空。",
+   "id": "combo_su_and_hardware_engineer_fulcrum",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "pure_actress_su_qing_han",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "于千钧一发之际合抱二级杠杆撬开生路之交。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "sound_engineer_bai_ting_zhou",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "录音硬件系统维护与定制麦克风研发中的长期默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "pure_actress_su_qing_han",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "sound_engineer_bai_ting_zhou",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对硬件工程师冷静组装二级杠杆搭建力学支点的由衷敬佩。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "pure_actress_su_qing_han",
+    "sound_engineer_bai_ting_zhou"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "精确构筑二级增力杠杆挑开胶阀打破负压确保全员生还。",
+    "limit_gap": "杠杆一旦受偏载脱扣将导致扳手反弹击裂钢化门，录音间内含氧量分秒流失。",
+    "meeting_reason": "声优录完一句，隔着玻璃朝主控室比了个手势，导演愣了一下才按下对讲说过了。",
+    "resource_gap": "白天舟精通精密机械几何力矩与二级杠杆组装，声优手握高硬度防震架扳手核心刃口。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_mic_shockmount_wrench_leverage_limit"
+   ]
+  },
+  {
+   "chemistry": "音频总监与特勤巡查员的外侧铁血协作，一人用对讲精准调度机房跳闸并倒数读秒，一人紧扣双爪工业吸盘向外施加两百公斤爆发拉力，专业协同为内侧人员自救赢得了最关键的生机。",
+   "id": "combo_director_and_patrol_officer_team",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "sound_director_cheng_huai_an",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "数字音频制作中心安全保障一线的长期搭档。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "studio_patrol_officer_mo_tian_lang",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "安保特勤一线的过硬技术信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "sound_director_cheng_huai_an",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "studio_patrol_officer_mo_tian_lang",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "多次在突发机电抢险中结成的钢铁战友盟约。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "sound_director_cheng_huai_an",
+    "studio_patrol_officer_mo_tian_lang"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保外侧牵引力与内侧均压达到最佳时序窗口协助脱困。",
+    "limit_gap": "棚内负压持续升高，外侧抢险作业必须争分夺秒抢救人员。",
+    "meeting_reason": "巡视队员敲开主控室的门，说暖通机房在报警，问棚里还要录多久。",
+    "resource_gap": "录音导演掌控制作区总调度对讲与声学监测数据，巡视队员掌控外侧重型真空吸盘装备与安保绿色通道。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_booth_negative_pressure_differential",
+    "eng_dual_sided_vacuum_pull_thrust_sync"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_booth_talkback_intercom_system",
+   "reach": "贯通密闭录音棚、主控混音室与暖通机房对讲专用对讲频段",
+   "text": "录音室高保真双向对讲监听广播网络"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_booth_glass_door_optical_visual_line",
+   "reach": "穿透双层防爆钢化玻璃实现内外人员对准均压孔与吸盘牵引点毫秒级目视联动",
+   "text": "超厚双层隔音玻璃双向目视激光指示光路"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "传媒大学播音系毕业，签约声优工作室第五年，配过十几部乙女游戏的女主与旁白，接什么角色、录到几点由本人拿主意。",
+   "age_range": [
+    24,
+    27
+   ],
+   "appearance_options": [
+    "身穿浅米色毛圈软糯针织开衫搭配浅蓝直筒牛仔裤，扎着柔顺低马尾，秀美纯净的俏脸未施粉黛，两颊带着天然温润紧致的微婴儿肥与饱满水润胶原蛋白，眼眸清澈澄澈宛若秋水，声线娇柔甜美却透着超乎寻常的坚定韧性。",
+    "面对突发剧烈负压与紧绷耳鸣，额间渗出细密剔透汗珠，微抿水润樱唇，神情没有丝毫慌张哭喊，双手稳健握持全金属麦克风调校工具展现过硬冷静自救气魄。"
+   ],
+   "decision": {
+    "avoids": [
+     "惊慌尖叫白白消耗密闭录音棚内宝贵氧气",
+     "用重物蛮力砸击双层钢化玻璃导致爆裂飞溅"
+    ],
+    "contrast": "外表宛如邻家初恋般清纯温婉且两颊微婴儿肥尽显水润胶原蛋白，面对狂暴负压吸死大门却展现出分毫不退的工科级自救魄力。",
+    "core_value": "清纯不是软弱无力，我的声音能抚慰千万玩家，在这密闭险境里我也绝不会坐以待毙，这柄金属扳手就是解开气锁的钥匙！",
+    "goal_options": [
+     "用防震架扳手扁平刃口深入门边单向排气微孔下压挑脱橡胶阀片",
+     "协同搭档以铸铁乐谱架横梁为支点借体重静载撬起气密门缝"
+    ],
+    "never": [
+     "在危机未平息前独自退缩或放弃对同伴的协力援助"
+    ],
+    "prefers": [
+     "严格符合流体力学气压平衡原理的科学施救方案",
+     "沉稳严谨无声契合的心领神会协同"
+    ],
+    "pressure_responses": {
+     "breaking": "在均压气流狂啸涌入瞬间深吸一口清凉空气从容跨出大门",
+     "high": "双手重叠合抱扳手柄身借乐谱架横梁杠杆同搭档一同向下施加全部体重",
+     "low": "双手轻按耳屏咽下唾液平衡中耳气压并清声提醒同伴切勿惊慌大叫",
+     "mid": "反手迅速拧下电容麦防震架底部加厚调校扳手将平头端对准气阀微孔"
+    },
+    "relationship_stance": "外表清纯温婉，骨子里极有主见；嘴上埋怨导演一句台词抠十一遍，每次收工却都等对方关完主控台才一起走。",
+    "withdrawal": "坐在主控室软椅上轻抚胸口小口饮用温水平复清润呼吸甜美展颜。"
+   },
+   "gender": "female",
+   "gender_reason": "爆款乙女游戏官配女主的清纯声优，传媒大学播音系出身。",
+   "id": "pure_actress_su_qing_han",
+   "identity": {
+    "authority": "对录音间内配音节奏、个人防震麦克风五金组件拆装及应急避险操作享有第一现场决定权。",
+    "exposure": "为了极致诠释乙游女主心动声线曾连续三天在录音棚内练习微表情发音控制",
+    "hidden": "随身手袋暗格珍藏着考入中传播音专业时母亲赠送的一支老式木质音叉",
+    "limits": [
+     "肺活量与耳膜受剧烈气压差压迫，长时间说话会引起轻微胸闷头晕",
+     "体格纤柔无法单凭个人臂力推开承受数千帕吸力的巨型玻璃门"
+    ],
+    "obligations": [
+     "在耳膜受损前利用机械杠杆挑开气阀平衡气压推门脱险"
+    ],
+    "resources": [
+     "一柄长十五厘米由特种加厚冷锻不锈钢精工制成的电容麦防震架微调扁平扳手（端部带薄型平头起子刃口）",
+     "一罐随身携带的食品级纯天然护嗓润喉清凉喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在逼仄缺氧录音间中毫无惧色同自己并肩下压扳手撬阀的挺拔身姿",
+     "两人双手在冰冷金属扳手上紧扣发力时掌心传递而来的滚烫坚实力量"
+    ],
+    "boundaries": [
+     "严守清纯自重的人格尊严与闺阁清白底线",
+     "绝不允许借搭救之名产生任何逾矩非分索取"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "同对方并肩站在落地窗前静听黎明鸟鸣享受静谧与宁和。",
+    "dislikes": [
+     "遇事推诿自暴自弃的软弱者",
+     "自命不凡口出狂言却无动手能力的轻薄之徒"
+    ],
+    "expression": "耳根悄然染上一抹动人粉红，微微低头抚平开衫衣角，将温热清润的矿泉水轻柔递到搭档手心温软道谢。",
+    "likes": [
+     "精通声学与机械常识且尊重专注女性的沉稳清澈眼神",
+     "在劫后余生时相视一笑的澄澈温情"
+    ],
+    "preconditions": [
+     "录音棚气压成功平衡且气密玻璃门完全推开脱险",
+     "配音母带工程毫发无损安全归档封存",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "乙女游戏主役人气女声优",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_master_recording_dubbing_booth",
+     "to": 1400
+    },
+    {
+     "from": 1401,
+     "location_id": "loc_master_recording_dubbing_booth",
+     "to": 1420
+    },
+    {
+     "from": 1421,
+     "location_id": "loc_sound_master_control_mixing_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "不锈钢乐谱架横梁表面拉丝层产生微小金属挤压刮痕，{npc.name}手心因承受反作用力泛起微红。",
+      "option": "{npc.name}使用防震架扁平扳手深入排气孔挑开胶阀，两人借乐谱架横梁下压打破负压吸附推门脱困。"
+     },
+     {
+      "cost": "价值数万元的德国进口高等级双层特种隔音钢化玻璃整体报废需高额工料赔付。",
+      "option": "由外侧巡勤动用防暴破玻工具强行击碎双层玻璃门上方观察窗百叶以换取均压通气。"
+     }
+    ],
+    "pressure": "棚内气压骤降导致氧气稀薄，受困者耳压剧痛并伴有轻微眩晕，若两分钟内未能破坏负压平衡，人员将陷入缺氧昏迷甚至耳膜穿孔危险。",
+    "trigger": "录音大楼新风排风机变频器失灵疯狂抽吸，录音间瞬时形成高达一千五百帕的巨大负压，超厚钢化玻璃门被死死吸在橡胶密封圈上，门舌机械受剪锁死。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要这柄高硬度扳手能挑开单向气密阀片，空气就会对流均压，大家就一定能平安推开玻璃门冲出去！",
+    "surface": "大家千万别大喊大叫消耗氧气！这是新风强排风引起的千帕负压差，越使蛮力门吸得越紧！快把防震架这柄淬火不锈钢扳手拿来，对准门下角单向泄压孔，听我口令，借乐谱架横梁往下压！"
+   }
+  },
+  {
+   "adult_context": "录音艺术专业毕业，做了八年游戏配音导演，这部乙女游戏的音频总监，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    33
+   ],
+   "appearance_options": [
+    "身穿深灰色工装衬衫佩戴监听耳机，身材修长挺拔面容俊逸目光深邃专注。",
+    "神情沉着刚毅，双手戴着专业防静电纤维操作手套，散发着声音导演特有的敏锐节奏感与技术担当魄力。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目暴躁撞门导致玻璃门应力失衡爆裂",
+     "惊慌失措传递负面情绪扰乱救援节奏"
+    ],
+    "contrast": "平日文雅专注甚至略显严苛，直面生死考验却毫不犹豫挺身而出承担极限外拉重荷。",
+    "core_value": "声音是心灵的共鸣，生命是艺术的基石，在我的录音棚里，决不允许任何声优受到一丝伤害！",
+    "goal_options": [
+     "在外侧用双爪吸盘精准吸附玻璃门受力重心施加向外牵引力",
+     "通过监听麦克风对讲清晰指引内侧找准单向均压阀孔精确位置"
+    ],
+    "never": [
+     "在棚内声优安全出舱前擅自离开救援指挥一线"
+    ],
+    "prefers": [
+     "分秒不差的精准对讲内外力学合璧方案",
+     "以最小机械代价实现人员与设备双保全"
+    ],
+    "pressure_responses": {
+     "breaking": "在门缝漏气嘶鸣响起刹那拼尽全力向外拉动吸盘大开生路",
+     "high": "贴近观察窗以洪亮节拍倒数指引内侧对准杠杆支点向下施力",
+     "low": "手握对讲手咪沉着提醒录音棚内全员原地半蹲做深呼吸减压",
+     "mid": "双手紧扣工业双爪吸盘锁扣牢牢压在玻璃门拉手水平线上"
+    },
+    "relationship_stance": "对着耳机里那把声音挑剔了五年，挑到后来，最怕的是哪天棚里换了别人。",
+    "withdrawal": "摘下耳机倚在混音台旁大口喘息欣慰向声优点头致意。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "sound_director_cheng_huai_an",
+   "identity": {
+    "authority": "对录音母带审听、录音棚声学安全设备调用及外侧吸盘破拆协调享有最高指挥权。",
+    "exposure": "曾连续七十二小时通宵奋战带领团队拿下全球音频工程金奖",
+    "hidden": "衬衫胸袋珍藏着大学时期亲手绕制的第一颗音频动圈变压器",
+    "limits": [
+     "隔着双层隔音玻璃无法直接将外侧工具递入录音间内部",
+     "主控室排风支管控制阀锈蚀无法单靠手动完全闭合"
+    ],
+    "obligations": [
+     "在人员缺氧受创前指挥内外协同安全推开气密门"
+    ],
+    "resources": [
+     "一组德国进口高扭矩球头加长内六角调整手柄",
+     "一部直通地下安保中控电台的强频对讲机"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在绝境负压中处变不惊并肩死磕到底的沉稳刚毅侧颜",
+     "隔窗相对时彼此眼神中倾注的绝对信赖与共克时艰意志"
+    ],
+    "boundaries": [
+     "恪守音频总监职业操守与做人底线",
+     "绝不允许违背自愿原则的越界行径"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "伫立于监听音箱旁见证清澈美妙的艺术之声完美传世。",
+    "dislikes": [
+     "推卸责任的软骨头",
+     "鲁莽蛮干的盲目破坏者"
+    ],
+    "expression": "露出俊朗舒心的释然微笑，递上干净毛巾向声优竖起大拇指深切赞许。",
+    "likes": [
+     "条理分明的专业沟通",
+     "临危不乱彼此守望的过硬执行力"
+    ],
+    "preconditions": [
+     "录音棚气压成功平衡且气密门顺畅拉开全员平安出舱",
+     "配音母带数据安全完成双重备份固态归档",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "游戏音频制作总监兼录音导演",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_sound_master_control_mixing_room",
+     "to": 1400
+    },
+    {
+     "from": 1401,
+     "location_id": "loc_sound_master_control_mixing_room",
+     "to": 1420
+    },
+    {
+     "from": 1421,
+     "location_id": "loc_master_recording_dubbing_booth",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "工业吸盘高密度橡胶吸附盘表面因极限抗拉产生两道细微受拉微纹。",
+      "option": "{npc.name}与外侧巡勤双手扣紧双爪工业吸盘向外施加一百五十公斤外拉峰值力矩。"
+     },
+     {
+      "cost": "主控室实木观察窗下沿隔音装饰边框出现轻微受压变形。",
+      "option": "利用气动顶杆直接顶在主控室观察窗金属边框上向外挤出门缝微隙。"
+     }
+    ],
+    "pressure": "若不能及时通过外侧吸盘施加抵消拉力，单凭内侧挑开胶阀难以瞬间克服巨大的密封圈干涩粘连阻力。",
+    "trigger": "主控室外门与录音间之间气压传感器失衡，外侧锁扣因内外气压差受剪死锁。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "千帕负压足以压死门锁，必须在变频排风机把棚内空气彻底抽干前把气压泄掉推开大门！",
+    "surface": "声优别慌！外侧双爪工业吸盘已经锁死在门板受力点上了！对讲系统保持通畅，听我倒数三秒，对准门角泄压阀孔借乐谱架往下压，我们外侧同时向外拉！"
+   }
+  },
+  {
+   "adult_context": "现年满三十二岁，建筑物理声学与暖通工程工学学士毕业，声学实验室特聘助理工程师，具备完全民事行为能力。",
+   "age_range": [
+    32,
+    35
+   ],
+   "appearance_options": [
+    "戴细黑框防尘护目镜，身穿藏青色工装夹克，手提便携声学检测箱与数显微压差计，面容清秀神采干练。",
+    "修长手指擅长摆弄精密气动阀门与胶条构件，面对狂暴负压抱死门锁，行事严密周详充满工科严谨气魄。"
+   ],
+   "decision": {
+    "avoids": [
+     "估算失准凭直觉蛮干导致玻璃偏载爆碎",
+     "大声喧哗干扰压差仪表声学传感灵敏度"
+    ],
+    "contrast": "外表文弱书生充满学术书卷气，面对狂暴气压死锁却算无遗策分毫不差精准制导。",
+    "core_value": "气压有数流体有道，千帕真空虽固若铁石，只要找准那枚单向阀孔，微力亦可破万钧！",
+    "goal_options": [
+     "以数显压差计实时通报棚内负压回升曲线指引最佳撬动瞬间",
+     "指导声优将扳手斜切三十度探入硅胶膜片中心卸压槽"
+    ],
+    "never": [
+     "在气压数值回升至安全阈值前擅自撤离监测岗位"
+    ],
+    "prefers": [
+     "严格符合流体力学与帕斯卡定律的微阻力破拆方案",
+     "保护贵重声学检测仪器的科学救护流程"
+    ],
+    "pressure_responses": {
+     "breaking": "在气流回冲啸叫响起刹那指挥全员平稳发力顺势推门",
+     "high": "隔着观察窗高举图纸用激光笔红点精准照亮内侧泄压阀孔位置",
+     "low": "飞快打开数显压差计屏幕贴在玻璃门缝处实时读出负压数值",
+     "mid": "双手紧扣胶条起子在门外侧橡胶接缝处剔开微米级引气先导缝"
+    },
+    "relationship_stance": "极度佩服声优临危受命下的精准动手协调力，视其为最具科学领悟力的艺术搭档。",
+    "withdrawal": "收起微压差计坐在机房走廊台阶上揉搓发胀太阳穴欣慰微笑。"
+   },
+   "gender": "male",
+   "gender_reason": "录音棚声学气动平衡三十二岁青年工程师流体力学工学学士。",
+   "id": "acoustic_tuner_ye_zi_xuan",
+   "identity": {
+    "authority": "对录音棚管道气动阻力、门缝硅胶密封圈变形临界点及均压阀孔结构拥有最高专业发言权。",
+    "exposure": "曾在国家大剧院声学改造中精准排查出通风管气流共振瑕疵获嘉奖",
+    "hidden": "工具箱内层珍藏着亲手用声学阻尼胶制作的微缩录音间模型",
+    "limits": [
+     "体格偏瘦弱无法承担重型破拆重负",
+     "必须力保录音间内昂贵的高保真声学软包不被气流冲击撕裂"
+    ],
+    "obligations": [
+     "精准指明单向气密阀膜片穿刺受力点并计算均压破除时机"
+    ],
+    "resources": [
+     "一柄声学实验室专用淬火薄刃密封胶条挑针",
+     "一台手持式双通道高灵敏度气体差压巡检仪"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在昏暗微光中以毫米级精度互相配合打破真空的严密科学默契",
+     "彼此眼神中对物理规律坚信不疑的执着纯粹与共鸣"
+    ],
+    "boundaries": [
+     "恪守青年学者道德礼法与学术严谨界限",
+     "坚决杜绝任何逾矩冒犯之行"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "伫立于声学分析屏前静听纯净无暇的母带音轨流淌。",
+    "dislikes": [
+     "轻视科学规律的莽汉",
+     "遇难推脱责任的投机客"
+    ],
+    "expression": "推了推护目镜腼腆一笑，温和向声优与搭档点头示意致敬赞佩。",
+    "likes": [
+     "尊重工程逻辑与严谨数据的知音",
+     "临危不乱处变不惊的实干同好"
+    ],
+    "preconditions": [
+     "单向阀片成功挑开气压恢复常压且大门顺畅推开",
+     "录音棚声学软包与高敏电容麦克风毫发无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "录音室声学气动工程师",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_sound_master_control_mixing_room",
+     "to": 1400
+    },
+    {
+     "from": 1401,
+     "location_id": "loc_sound_master_control_mixing_room",
+     "to": 1420
+    },
+    {
+     "from": 1421,
+     "location_id": "loc_master_recording_dubbing_booth",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "高碳不锈钢胶条起子刃尖产生微细弯曲磨痕需重新研磨校准。",
+      "option": "{npc.name}用胶条起子配合声优内侧扳手同时刺入单向阀内外两侧挑散黏连层。"
+     },
+     {
+      "cost": "消耗整整一罐特种食品级气密橡胶专用维护硅油配额。",
+      "option": "向阀门缝隙注入高压脱水硅油溶解老化黏连层促成气流微缝隙。"
+     }
+    ],
+    "pressure": "若不使用硬质工具从侧面将其挑离孔壁，单凭自然气压差无法触发被动均压机制。",
+    "trigger": "气密门单向泄压阀硅胶膜片因长年高密封吸附发生微量老化黏连，在负压下死死贴在金属孔壁上无法自动弹开。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要这枚微型阀片被挑开，内外气压差将在两秒内彻底平衡，吸死的大门就会瞬间卸载重荷！",
+    "surface": "声优，压差计显示目前负压已经达到一千两百帕！单向均压阀就在门铰链下方八厘米的橡胶凹槽内，用扳手尖端以三十度斜角刺入胶皮边缘，向下别压三毫米就能引爆气流！"
+   }
+  },
+  {
+   "adult_context": "现年满二十九岁，国家高级保安员，退役武警特战队员，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    32
+   ],
+   "appearance_options": [
+    "身穿黑色战术作训服，头戴抢险救援头盔，配备高流明防爆电筒与手台，身材伟岸雄健威严冷峻。",
+    "站立如松目光如电，双手沉稳把持两只工业级双爪真空吸盘，充满令人心安的人民卫士英武气魄。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目使用大锤砸门引发双层钢化玻璃碎裂伤人",
+     "慌张急躁导致内外发力节奏失调卡死门轴"
+    ],
+    "contrast": "外表威严刚硬冷峻如铁，内心深处对受困群众安危牵肠挂肚充满滚烫担当。",
+    "core_value": "忠诚履职生命至上，在我的防区内，决不允许任何演职人员受困于意外机械死锁！",
+    "goal_options": [
+     "压下真空吸盘排气扳把使两百公斤吸附力牢固作用在玻璃门下沿",
+     "在气流均压嘶鸣响起的同一毫秒向外侧猛力拉动门把手"
+    ],
+    "never": [
+     "在确认录音间内人员全部脱险前撤离抢险第一战位"
+    ],
+    "prefers": [
+     "严守防灾抢险倒计时步调的毫秒级战术联动",
+     "服从现场安全指挥的铁的纪律协同"
+    ],
+    "pressure_responses": {
+     "breaking": "在均压瞬间双臂肌肉隆起暴发全部牵引力一举拉开沉重玻璃门",
+     "high": "隔着玻璃门以军旅铿锵口令倒数读秒引导内侧合抱同步下压发力",
+     "low": "手持电台沉声通报地下录音区应急抢险绿色通道已全面清空",
+     "mid": "双手猛压真空吸盘扳把将两只吸盘死死咬合在玻璃门上下受力面"
+    },
+    "relationship_stance": "极度钦佩声优与同伴临危不乱的工科自救素养，视其为具备极强心理素质的优秀青年。",
+    "withdrawal": "向协同破拆的团队敬礼致意后靠在通道受力立柱边摘盔擦汗。"
+   },
+   "gender": "male",
+   "gender_reason": "音频中心夜间安全巡视特勤二十九岁退伍特警队员。",
+   "id": "studio_patrol_officer_mo_tian_lang",
+   "identity": {
+    "authority": "对地下录音中心夜间抢险警戒、防暴破拆工具调配及应急牵引拉力实施享有最高处置权。",
+    "exposure": "曾多次在一线大型城市突发公共安全与机电封闭抢险中立功受奖",
+    "hidden": "特训背心内袋珍藏着退伍考核全优获得的纯钢纪念勇士勋章",
+    "limits": [
+     "严禁在未确认内部人员避险距离时盲目击打钢化隔音门",
+     "必须在录音棚空气耗竭前安全救出受困人员"
+    ],
+    "obligations": [
+     "在外侧用真空吸盘紧紧吸附玻璃门并在均压瞬间施加爆发力拉开大门"
+    ],
+    "resources": [
+     "两具带负压压力表的特战防滑双盘真空搬运手柄",
+     "一根特战加厚淬火合金双钩战术破拆撬棍"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危难关头毫不畏缩并肩救援的过硬默契与雷厉风行风采",
+     "彼此眼神交汇时流淌出的崇高敬意与人性纯粹担当"
+    ],
+    "boundaries": [
+     "严守特勤应急队员纪律操守红线",
+     "绝不允许违反现场安全管理条例的盲动"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "伫立于音频大楼门前守卫全员平安归途。",
+    "dislikes": [
+     "遇难退缩的懦夫",
+     "不服从指令擅自盲动者"
+    ],
+    "expression": "端正敬礼致意，随后伸出有力双手同大家紧紧相握以示赞佩与宽慰。",
+    "likes": [
+     "沉着果断的抢险协同者",
+     "严守纪律的专业人员"
+    ],
+    "preconditions": [
+     "气密玻璃门在外拉协助下顺畅滑开且全员毫发无损出舱",
+     "受困全员在缺氧眩晕加重前顺利完成呼吸平复"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "音频中心特勤巡视队员",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_sound_master_control_mixing_room",
+     "to": 1400
+    },
+    {
+     "from": 1401,
+     "location_id": "loc_sound_master_control_mixing_room",
+     "to": 1420
+    },
+    {
+     "from": 1421,
+     "location_id": "loc_master_recording_dubbing_booth",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "特战防护手套掌心防滑加厚层被剧烈反向力道磨出两道深色擦痕。",
+      "option": "{npc.name}双手紧扣双爪真空吸盘手柄以反向力矩强行向外拽开两厘米缝隙。"
+     },
+     {
+      "cost": "外门底托金属压条边缘出现微细塑性压痕需事后研磨平整。",
+      "option": "用战术破拆撬棍深入外侧门缝底托位置向上稍作顶撬减缓门轴摩擦力。"
+     }
+    ],
+    "pressure": "若不从外侧施加强大拉力分担剪切力，单凭内侧挑开胶阀难以让卡死的锁舌回缩脱槽。",
+    "trigger": "气密门外侧不锈钢拉手在千帕负压吸附下受到侧向超载剪切，门把手锁舌死死咬在门框锁孔边缘偏心卡位。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "地下机房排风机还在狂转，必须抓住均压那半秒钟窗口把门彻底拉开，绝不容许分秒失误！",
+    "surface": "录音室内部注意！外侧工业级双爪吸盘已经完成真空咬合，两百公斤拉力随时就位！内侧立刻对准均压孔向下施压，听我口令，三、二、一，拉！"
+   }
+  },
+  {
+   "adult_context": "现年满二十六岁，录音工程专业毕业，录音棚正式助理学徒工，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    29
+   ],
+   "appearance_options": [
+    "身穿浅灰色连帽卫衣与黑色工装短裙，扎着丸子头，面容娇柔甜美，颊肉圆润饱满带着水润胶原蛋白与未褪的微婴儿肥，目光清亮灵动。",
+    "神情温婉细致，双手佩戴防静电无尘手套，虽然面对突发气压骤降与耳鸣心跳略显慌张，但在声优镇定安抚下迅速稳住阵脚协助搬运乐谱架搭设支点。"
+   ],
+   "decision": {
+    "avoids": [
+     "只知慌张尖叫打转消耗宝贵氧气",
+     "擅自乱动陌生配电设施引发次生险情"
+    ],
+    "contrast": "外表是娇柔甜美的学徒少女，面对狂暴负压抱死危局却迅速克服恐慌成长为不可或缺的后勤小臂膀。",
+    "core_value": "声优是我的榜样，危急关头我绝不能添乱掉眼泪，我也要成为能独当一面的声音工程护卫者！",
+    "goal_options": [
+     "双手死死按住乐谱架铸铁底座防止强力杠杆撬动时金属脚垫打滑",
+     "向门缝单向阀橡胶圈精准喷洒软化脱水硅油消除胶条干涩吸附力"
+    ],
+    "never": [
+     "在声优安全出舱前擅自丢下工作岗位逃离"
+    ],
+    "prefers": [
+     "细致周密绝不盲动的后勤辅助方案",
+     "大家齐心协力并肩克难的温暖互助氛围"
+    ],
+    "pressure_responses": {
+     "breaking": "在门缝洞开瞬间第一个上前迎候递上温热纯净水协助学姐平复呼吸",
+     "high": "用双膝抵住铸铁乐谱架底座将全身重力压在下方构筑绝对刚性支点",
+     "low": "迅速拆开降温湿巾分发给声优与搭档并指导做下颌吞咽动作缓解耳鸣",
+     "mid": "双手紧握硅油喷罐对准门框边缘单向泄压孔缝隙均匀喷注润滑剂"
+    },
+    "relationship_stance": "极度崇拜声优的清纯高贵与遇险沉着风范，视其为完美领路人，关键时刻爆发出坚定的陪伴韧劲。",
+    "withdrawal": "坐在录音转椅上长长舒出一口气擦去额头汗珠破涕为笑。"
+   },
+   "gender": "female",
+   "gender_reason": "录音室声学辅助运维二十六岁兼职女伴兼录音学徒工播音系出身的声优。",
+   "id": "sound_apprentice_wen_si_ruo",
+   "identity": {
+    "authority": "对录音间乐谱架位置摆放、备用音频连线整理及便携润喉喷雾保管享有优先调度权。",
+    "exposure": "曾连续一个月在录音棚通宵协助母带对轨零失误获得团队好评",
+    "hidden": "卫衣内袋珍藏着声优亲自主役配音第一部广播剧的限定明信片",
+    "limits": [
+     "初次遭遇大楼强排风变频失控负压危机，缺乏重工业排险经历",
+     "体格娇小对缺氧与强耳压较为敏感"
+    ],
+    "obligations": [
+     "全力协助稳固乐谱架杠杆底座并照料全员耳压呼吸状况"
+    ],
+    "resources": [
+     "一罐特种橡胶密封胶条无味软化脱水硅油",
+     "一包医用加厚高纯度降温保湿纯净水湿巾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在险境中像大姐姐一样临危不乱护佑身旁的伟岸担当气魄",
+     "劫后余生时彼此紧紧相拥传来的滚烫安心感与纯真情谊"
+    ],
+    "boundaries": [
+     "恪守青年学徒的纯真自尊与礼貌边界",
+     "坚决杜绝任何逾越身份的非分非礼行为"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "立于录音间调音台前笑靥如花迎候每一位踏入棚间的主角。",
+    "dislikes": [
+     "大声斥责新人的暴躁之徒",
+     "冷血自私不顾同伴死活者"
+    ],
+    "expression": "两颊泛起微红，微微仰起带有微婴儿肥的俏脸甜甜一笑：声优，还有大家，你们刚才合抱扳手撬阀的样子真的太帅气了！",
+    "likes": [
+     "温和宽厚有责任心的同袍",
+     "遇事沉着指引方向的长辈伙伴"
+    ],
+    "preconditions": [
+     "录音棚气压成功恢复常压且大门完全打开全员脱险",
+     "全员在红外安防布防前顺利离馆且健康无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "录音棚声学助理学徒工",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_master_recording_dubbing_booth",
+     "to": 1400
+    },
+    {
+     "from": 1401,
+     "location_id": "loc_master_recording_dubbing_booth",
+     "to": 1420
+    },
+    {
+     "from": 1421,
+     "location_id": "loc_sound_master_control_mixing_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗掉整整半卷加厚无尘纤维吸油纸巾与微量润滑硅油。",
+      "option": "{npc.name}跪在门前用细扁撬片配合硅油喷雾迅速理平卷边胶条消除卡位。"
+     },
+     {
+      "cost": "录音室特制双唇形隔音橡胶密封胶条局部受损需事后整根更换。",
+      "option": "用剪刀直接切除卷入地槽的三厘米多余变形橡胶密封唇边。"
+     }
+    ],
+    "pressure": "若不及时用硅油润滑并顺平卷边，即使气压平衡，变形的硬质胶垫也将卡死门扇下摆。",
+    "trigger": "气密门下方地脚防尘胶垫因受负压强烈挤压向内侧发生卷边，卡死在门框底槛凹槽内阻碍门扇向外推开。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要我能把这个支点稳住，学姐手里的扳手就能发挥最大力矩，大家就一定能撬开门平安脱险！",
+    "surface": "学姐别慌！乐谱架铸铁底座我用全身力气死死按住了，脚底下绝对滑不脱！密封圈喷剂我已经喷进门缝了，你们快踩稳杠杆用力压！"
+   }
+  },
+  {
+   "adult_context": "现年满三十二岁，电气工程与精密机械制造本科学士毕业，音频中心特聘硬件工程师，具备完全民事行为能力。",
+   "age_range": [
+    32,
+    35
+   ],
+   "appearance_options": [
+    "身穿黑色多功能战术马甲与牛仔裤，腰挂精密五金快拆钳套与高精度万用表，面容清朗儒雅目光机警沉静。",
+    "双手修长指节分明擅长精密机械装配，面对负压吸死大门的力学构件，行事井井有条充满工程理性风采。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目使用过载蛮力破坏工具机械结构",
+     "慌张急躁导致杠杆失稳滑脱脱扣伤人"
+    ],
+    "contrast": "外表文质彬彬充满工科书卷气，面对重物搬运与高难度杠杆破拆却爆发力惊人毫不推诿退避。",
+    "core_value": "硬件是声音的容器，力学是解困的明灯，只要杠杆比例分毫不爽，千斤负压亦能挑起！",
+    "goal_options": [
+     "将加长撬杆与防震架扳手精密咬合组成二级增力杠杆倍增下压力矩",
+     "全程监测不锈钢乐谱架横梁挠度变形严防金属疲劳受剪脆折"
+    ],
+    "never": [
+     "在气密门地销与气阀完全平衡前让身后杠杆支点偏斜半毫米"
+    ],
+    "prefers": [
+     "经过严密几何力矩计算的可靠二级杠杆增力方案",
+     "保全昂贵专业录音设备完好率的科学破拆手法"
+    ],
+    "pressure_responses": {
+     "breaking": "在气阀弹开气流轰鸣瞬间同声优一同完成最后冲刺下压",
+     "high": "用宽阔肩膀顶住乐谱架立柱分担横向剪切分力防止支点滑移",
+     "low": "迅速旋转螺丝刀卸下悬臂固定加长撬杆搬运至玻璃门前",
+     "mid": "双手紧扣撬杆尾端精准套在防震架扳手硬柄上构成二级增力臂"
+    },
+    "relationship_stance": "视声优为兼具艺术灵性与工科领悟力的绝佳搭档，甘愿作为最坚固的工程基石守护其安全脱险。",
+    "withdrawal": "坐在器材运输箱上擦拭撬杆汗迹欣慰向搭档微笑道谢。"
+   },
+   "gender": "male",
+   "gender_reason": "音频中心录音工程硬件系统三十二岁机电一体化青年名匠。",
+   "id": "sound_engineer_bai_ting_zhou",
+   "identity": {
+    "authority": "对乐谱架力学承重刚度、麦克风防震架五金抗弯强度及二级杠杆力矩比配享有权威计算权。",
+    "exposure": "曾亲手为国家重点声音博物馆修复多台半世纪前绝版开盘录音机名噪一时",
+    "hidden": "战术马甲内袋珍藏着母亲亲手缝制的红绳护身符",
+    "limits": [
+     "必须力保价值数十万元的古董级电子管电容麦克风不在颠簸中摔落受损",
+     "体能有限需协同全员发力维持杠杆平稳施压"
+    ],
+    "obligations": [
+     "为声优校准最佳杠杆受力点并计算扳手抗弯极限安全载荷"
+    ],
+    "resources": [
+     "一柄长二十厘米由实心冷锻铬钼钢打造的防震麦克风悬臂固定加长调校撬杆",
+     "一瓶专业级高流动性微量金属气密阀门除锈润滑喷剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在昏暗录音棚中心有灵犀协同组装二级增力杠杆的过硬工程默契",
+     "彼此眼神交汇时对科学真理与生命尊严坚信不移的炽热共鸣"
+    ],
+    "boundaries": [
+     "恪守青年学者的严谨礼法与道德边界",
+     "坚决杜绝任何逾矩冒犯之举"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "伫立于录音工程机架旁守护声音科技之火熊熊不熄。",
+    "dislikes": [
+     "轻浮狂妄的无知者",
+     "遇事退缩推诿的庸碌之辈"
+    ],
+    "expression": "温和点头示意，向声优与同伴递上干净棉柔毛巾深切致敬。",
+    "likes": [
+     "热爱精密工程与音频艺术的同道",
+     "遇事沉着刚毅的实干派伙伴"
+    ],
+    "preconditions": [
+     "二级杠杆成功挑开单向气密阀片且大门完全打开全员脱困",
+     "录音棚全部精密麦克风硬件设备毫发无损归位封存"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "音频硬件系统工程师",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_master_recording_dubbing_booth",
+     "to": 1400
+    },
+    {
+     "from": 1401,
+     "location_id": "loc_master_recording_dubbing_booth",
+     "to": 1420
+    },
+    {
+     "from": 1421,
+     "location_id": "loc_sound_master_control_mixing_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "六角扳手发黑防锈镀层被超限紧固力矩磨出两道亮银色金属擦痕。",
+      "option": "白天舟迅速用高硬度六角扳手旋紧备用防滑止退螺母消除横梁偏摆。"
+     },
+     {
+      "cost": "白天舟右侧肩胛处软组织受金属双管压迫产生大片深色挤压淤痕。",
+      "option": "用后背死死顶住乐谱架双管立柱强行以肉身平衡横梁偏心旋转力矩。"
+     }
+    ],
+    "pressure": "若不迅速使用内六角扳手重新紧固螺栓，下压瞬间横梁将发生翻转导致整个杠杆系统崩溃脱落。",
+    "trigger": "乐谱架横梁螺栓因受超载杠杆弯矩作用发生微量滑牙，横梁支撑角度偏离中心线十度。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要二级杠杆力矩咬死，这枚小小的气密阀片就绝对逃不脱物理力学的规律，大家有救了！",
+    "surface": "声优，防震麦克风悬臂加长撬杆我已经加装在扳手上了！二级杠杆力矩放大了整整四倍，只要我们顺着法向垂直下压，胶阀绝对会被挑开！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "资料片交付前一周，十一月",
+  "minute": 1380
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace_power",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "顶级乙游女声优开嗓前习惯双手托腮轻揉脸颊微婴儿肥以舒缓面部发音肌群",
+  "专业录音助理在封闭棚门前必先用手背感知气密密封胶条温度以核验负压",
+  "清纯声优面对突发失衡气压习惯深吸一口气微仰秀颈严密遵循技术口令自救",
+  "两人合力撬开机械密封胶阀时须按倒数同向发力以防工具侧向受剪脆断"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "开录前，声优在录音间里试麦，念了几句游戏里的台词。",
+    "主控室里的录音导演点点头，又让声优把告白那句换个语气再试一次。",
+    "第三遍念完，导演在对讲里说：就是这个感觉，记住它。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_bai_aligns_vertical_force_axis",
+    "hook_bai_couples_secondary_extension",
+    "hook_su_and_crew_thrust_downward_pulse"
+   ],
+   "id": "act_su_qing_han_pries_airtight_valve",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "workplace"
+   ],
+   "title": "录音间里试麦"
+  },
+  {
+   "beats": [
+    "录到午夜，总监提着两袋关东煮走进主控室，招呼大家歇一歇。",
+    "声优从录音间里出来，捧着一碗关东煮缩在沙发上，说嗓子快哑了。",
+    "总监给声优泡了一杯胖大海，说终章那段不急，明晚再录也行。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_cheng_attaches_vacuum_cups_call",
+    "hook_ye_points_laser_to_valve_slot",
+    "hook_observe_cheng_and_patrol_haul_door"
+   ],
+   "id": "act_cheng_attaches_vacuum_cups_and_calls",
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "workplace"
+   ],
+   "title": "主控室的宵夜"
+  },
+  {
+   "beats": [
+    "声学工程师将数显压差计探针贴在门缝处实时读出千帕负压峰值",
+    "开启工程级绿色激光笔将明亮光标牢牢锚定在门框硅胶排气微孔正中",
+    "通过对讲用严密流体力学口令指导扳手以三十度斜切刺入胶皮"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_ye_measures_differential_pressure",
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "start_minute": 1381,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "观察窗前微压差计实时读数与红点指引"
+  },
+  {
+   "beats": [
+    "声学学妹双膝跪地死死压住乐谱架铸铁配重底盘构筑稳固基座",
+    "手持密封硅油喷罐对准门框单向阀孔与地槽均匀喷注润滑脱水剂",
+    "在气门挑开瞬间第一个递上纯净水湿巾为学姐敷面降温"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_wen_anchors_stand_and_sprays",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "start_minute": 1381,
+   "tags": [
+    "workplace"
+   ],
+   "title": "录音室乐谱架铸铁底座固定与密封润滑"
+  },
+  {
+   "beats": [
+    "硬件工程师迅速拆下麦克风悬臂加长撬杆牢牢套接在扳手硬柄上",
+    "用宽阔肩膀顶住乐谱架立柱消除侧向分力保持力矩法向垂直",
+    "配合声优按压加长端将四倍下压力矩精准传递至气阀膜片"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_bai_assembles_secondary_leverage",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "start_minute": 1383,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "录音间加装悬臂撬杆搭建二级增力杠杆"
+  },
+  {
+   "beats": [
+    "录音导演把今晚录的几段剪成小样，在主控室里放给大家听。",
+    "声优听到自己的声音，紧张地攥着衣角，等导演的评价。",
+    "导演听完摘下耳机：比上一版好，告白那句再录两遍就收工。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_cheng_attaches_vacuum_cups_call",
+    "hook_ye_points_laser_to_valve_slot",
+    "hook_observe_cheng_and_patrol_haul_door"
+   ],
+   "id": "act_mo_drags_door_with_vacuum_cups",
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "workplace"
+   ],
+   "title": "主控室里听小样"
+  },
+  {
+   "beats": [
+    "气密门撬开、第十一条告白台词总算录完之后，声优窝进休息室的沙发，肩颈绷得发僵，嗓子哑得只剩气声。",
+    "声优背过身，让人从后颈一路揉到肩胛，揉到第三遍，声优轻轻哼了一声，整个人往后靠进对方怀里。",
+    "声优仰起脸，用录音时那把甜到发腻的嗓子小声问：今晚这句告白，换我对你说，好不好？你点头，我才说下去。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_lounge_after_booth",
+   "location_ids": [
+    "loc_voice_actress_lounge"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "休息室里替声优揉开僵住的肩"
+  },
+  {
+   "beats": [
+    "声优盘腿坐在沙发上，台本摊在膝头，说男主的台词没人配，只好拜托你来念。",
+    "念到「留下来」那一句，声优忽然没了声音，耳尖红透，把台本往脸上一盖：……再念一遍，这次看着我念。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_lounge_script_read",
+   "location_ids": [
+    "loc_voice_actress_lounge"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "对一遍明天的告白台本"
+  },
+  {
+   "beats": [
+    "声优从小冰箱里拿出一瓶雪梨水，放进热水杯里温着，说这是录完夜戏后唯一的奖励。",
+    "温好了，声优先抿一口，又递到对方嘴边：分你一半。……这种事，我只跟你分。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_lounge_pear_water",
+   "location_ids": [
+    "loc_voice_actress_lounge"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "一瓶温过的雪梨水"
+  },
+  {
+   "beats": [
+    "凌晨五点多，写字楼的灯一盏盏熄掉，声优裹着软毯缩在沙发角落，脑袋枕在对方肩上。",
+    "声优闭着眼睛小声说：今天没有通告。……别急着走，再陪我看一会儿天亮。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_lounge_dawn_city",
+   "location_ids": [
+    "loc_voice_actress_lounge"
+   ],
+   "start_minute": 330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "天亮前看写字楼一盏盏熄灯"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代顶级声音工程制作基地深夜乙女游戏年度资料片压轴配音阶段",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "幼态",
+  "幼女",
+  "少女感",
+  "催情",
+  "迷乱",
+  "欲火"
+ ],
+ "hooks": [
+  {
+   "id": "hook_su_takes_down_mic_wrench",
+   "kind": "approach",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "slot": "pure_actress_su_qing_han",
+   "text": "{pure_actress_su_qing_han.name}微抿水润樱唇，神情没有丝毫慌张，反手迅速拧下电容麦防震架底部加厚调校扳手，将四毫米加厚扁平平头刃口深深探入气密门边缘单向泄压孔。"
+  },
+  {
+   "id": "hook_cheng_attaches_vacuum_cups_call",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "slot": "sound_director_cheng_huai_an",
+   "text": "{sound_director_cheng_huai_an.name}在主控室压下双爪工业真空吸盘扳把牢牢吸附在外门中线上，手持对讲手咪向棚内高声宣读气压下降曲线并指示均压的最佳时机。"
+  },
+  {
+   "id": "hook_ye_points_laser_to_valve_slot",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "slot": "acoustic_tuner_ye_zi_xuan",
+   "text": "{acoustic_tuner_ye_zi_xuan.name}将数显微压差计探针贴在门缝处实时读出负压峰值，手持激光笔将耀眼红点精准投射在内侧橡胶单向阀卸压槽中心，清晰指明扳手刺入角度。"
+  },
+  {
+   "id": "hook_wen_hands_wet_wipe_water",
+   "kind": "approach",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "slot": "sound_apprentice_wen_si_ruo",
+   "text": "{sound_apprentice_wen_si_ruo.name}双膝跪地死死压住乐谱架铸铁底座构筑稳固基座，双手将浸透纯净水的医用降温湿巾稳稳递到声优手心，柔声安慰学姐稳住呼吸。"
+  },
+  {
+   "id": "hook_bai_couples_secondary_extension",
+   "kind": "approach",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "slot": "sound_engineer_bai_ting_zhou",
+   "text": "{sound_engineer_bai_ting_zhou.name}迅速将麦克风悬臂加长撬杆套接在扳手硬柄上构成二级增力臂，用宽阔肩膀顶住乐谱架立柱消除侧向分力，为下压撬阀搭建好绝对受力支架。"
+  },
+  {
+   "id": "hook_mo_grips_vacuum_handles_ready",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "slot": "studio_patrol_officer_mo_tian_lang",
+   "text": "{studio_patrol_officer_mo_tian_lang.name}双手扣死真空吸盘把手将身躯向后倾斜施加两百公斤外拉峰值，贴紧对讲手咪以军旅铿锵音调倒数读秒引导内外两侧毫秒级同步爆发发力。"
+  },
+  {
+   "id": "hook_su_exhorts_partner_to_hold_steady",
+   "kind": "approach",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "slot": "pure_actress_su_qing_han",
+   "text": "{pure_actress_su_qing_han.name}侧过清丽出尘的俏脸，两颊微鼓泛着水润微红，清澈澄澈的眸光凝视身旁搭档：“深呼吸稳住心跳！听外侧倒数，数到一就顺着杠杆把全身重量压上去！”"
+  },
+  {
+   "id": "hook_cheng_shouts_counter_pull_engaged",
+   "kind": "approach",
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "slot": "sound_director_cheng_huai_an",
+   "text": "{sound_director_cheng_huai_an.name}通过对讲系统传来洪亮高吼：“排风机强电主闸已跳开！外侧两百公斤牵引拉力已经就位！阀门挑开的瞬间内外同向发力推门！”"
+  },
+  {
+   "id": "hook_wen_anchors_stand_iron_base",
+   "kind": "approach",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "slot": "sound_apprentice_wen_si_ruo",
+   "text": "{sound_apprentice_wen_si_ruo.name}双手牢牢抱紧乐谱架铸铁底盘，用双膝抵紧地面防滑垫，防止超载下压瞬间金属基座发生丝毫滑移偏斜。"
+  },
+  {
+   "id": "hook_bai_aligns_vertical_force_axis",
+   "kind": "approach",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "slot": "sound_engineer_bai_ting_zhou",
+   "text": "{sound_engineer_bai_ting_zhou.name}单手按紧连接套管螺母，严密校准下压施力轴线与玻璃门面的垂直法向角，确保千牛静载分毫不偏直抵橡胶单向阀芯。"
+  },
+  {
+   "id": "hook_su_and_crew_thrust_downward_pulse",
+   "kind": "approach",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "slot": "pure_actress_su_qing_han",
+   "text": "“三、二、一，压！”{pure_actress_su_qing_han.name}同身侧搭档双手重叠合抱加长撬柄，全身重力化作澎湃力矩向下猛压，单向阀片伴随一声刺耳气流呼啸应声弹起脱扣！"
+  },
+  {
+   "id": "hook_observe_airtight_valve_hisses_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "slot": "pure_actress_su_qing_han",
+   "text": "单向气密阀片被硬生生挑开的刹那，一股强劲清凉的常压气流如狂潮般自门缝微孔尖啸涌入，原本紧绷窒息的负压差在两秒内彻底归零平衡！"
+  },
+  {
+   "id": "hook_observe_cheng_and_patrol_haul_door",
+   "kind": "observe",
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "slot": "sound_director_cheng_huai_an",
+   "text": "外侧特勤与总监在均压瞬间借工业吸盘向外猛烈发力拉拽，厚达四十毫米的超厚双层气密玻璃门伴随着清脆的锁舌脱扣声顺畅滑移大开！"
+  },
+  {
+   "id": "hook_observe_mo_restores_safety_passage",
+   "kind": "observe",
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "slot": "studio_patrol_officer_mo_tian_lang",
+   "text": "主控室清凉充沛的新鲜空气如甘泉般灌入录音棚内，窒息耳鸣瞬间烟消云散，全员平稳撤离至通道绿色安全区域，抢险任务圆满告捷。"
+  },
+  {
+   "id": "hook_observe_su_embraces_fresh_air",
+   "kind": "observe",
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "slot": "pure_actress_su_qing_han",
+   "text": "{pure_actress_su_qing_han.name}脱力般倚靠在门框边轻抚泛红的手腕，清澈眼眸含着温软笑意，两颊紧致微婴儿肥泛着娇柔光泽：“呼……大家快看，气压平衡了，门终于推开了！”"
+  },
+  {
+   "id": "hook_voice_actress_lounge_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_voice_actress_lounge"
+   ],
+   "slot": "pure_actress_su_qing_han",
+   "text": "{npc.name}倚在休息室门口，嗓子还哑着：楼下的灯都关了。……进来喝口雪梨水再走吧。"
+  }
+ ],
+ "id": "pure_voice_actress_booth_lock",
+ "locations": [
+  {
+   "affordances": [
+    "取下麦克风防震架全金属调校扁平扳手深入气密胶条边缘泄压单向微孔",
+    "合力将铸铁配重乐谱架横梁搭在玻璃门门框金属边条上构建杠杆支点",
+    "手持防震架扳手硬柄对准泄压孔单向硅胶膜片向下强力别压打破真空平衡"
+   ],
+   "detail": "面积十五平米的专业母带级录音间，四壁覆满灰蓝色加厚聚酯纤维吸音软包与实木扩散板。中央立着一支悬挂于全金属防震架上的德国顶级电容麦克风，旁边设有一副加重实心铸铁底座不锈钢双管乐谱架。通往主控室的大门为两米高、厚达四十毫米的双层超厚钢化隔音气密玻璃门。此时新风强排风过载，棚内气压骤降产生千帕负压，超厚玻璃门被强力死死吸附在磁吸硅胶密封圈内，门把手机械舌死咬纹丝不动，棚内空气稀薄耳压剧烈升高。",
+   "exits": [
+    "loc_sound_master_control_mixing_room",
+    "loc_hvac_plant_antechamber"
+   ],
+   "id": "loc_master_recording_dubbing_booth",
+   "name": "高保真母带配音录音间",
+   "pressure_modifiers": {
+    "p_booth_negative_pressure_lock": "千帕负压将超厚玻璃门如同焊死般吸在门框上，耳膜刺痛感持续加剧。",
+    "p_hypoxia_ear_pressure_vertigo_strain": "密闭录音棚内氧气急剧抽空，受困者面色潮红呼吸变得沉重困难。"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_dialogue_editor_xiaowen",
+    "bg_sound_producer_ah_wei"
+   ]
+  },
+  {
+   "affordances": [
+    "双手拉住外侧双爪工业吸盘手柄配合内侧撬动向外猛力拉拽玻璃门",
+    "按下混音台应急对讲强通按钮向录音间内高声宣读气压自救口诀",
+    "启动控制台备用二氧化碳灭火排气旁通阀切断部分排风支管抽吸力"
+   ],
+   "detail": "与录音间仅一窗之隔的宽敞主控室，装配有大型母带混音控制台与三块高清监听返送屏幕。透过双层隔音观察窗可清晰目击录音间内部状况。控制台上方新风负压警报红灯急促闪烁，外侧玻璃门把手处已架设好工业级真空双爪吸盘，对讲系统正发出高频警报杂音。",
+   "exits": [
+    "loc_master_recording_dubbing_booth",
+    "loc_hvac_plant_antechamber",
+    "loc_voice_actress_lounge"
+   ],
+   "id": "loc_sound_master_control_mixing_room",
+   "name": "主控混音监听控制室",
+   "pressure_modifiers": {
+    "p_exhaust_fan_variable_speed_runaway": "排风机狂转噪声自通风管隆隆传来，负压数值步步逼近玻璃破裂阈值。"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_mixing_engineer_laocheng",
+    "bg_game_script_writer_miss_qiao"
+   ]
+  },
+  {
+   "affordances": [
+    "使用绝缘手柄合上压力平衡旁通风阀强行向录音棚管网倒灌自然风",
+    "拉下变频器总开关切断高功率排风离心机强力吸风动力",
+    "在负压解除瞬间引导医护人员携便携式氧气袋赶赴录音室门前"
+   ],
+   "detail": "位于地下二层走廊尽头的暖通配电前室，安装有大楼新风排风总动力配电柜与管道压力平衡箱。失控的变频器排风总闸断路器指示灯呈过载橙黄色，机电值班员正手持绝缘工具试图强行拉下变频器旁路接触器电源。",
+   "exits": [
+    "loc_master_recording_dubbing_booth",
+    "loc_sound_master_control_mixing_room"
+   ],
+   "id": "loc_hvac_plant_antechamber",
+   "name": "暖通机房前室",
+   "pressure_modifiers": {
+    "p_hvac_breaker_overload_trip_hazard": "配电柜继电器过载发烫，若不及时断电可能引发风机绕组短路烧毁。"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_hvac_technician_master_fan",
+    "bg_game_client_representative_mr_zhao"
+   ]
+  },
+  {
+   "affordances": [
+    "替声优按揉僵住的肩颈",
+    "陪声优对一遍明天的台本",
+    "锁上休息室的隔音门"
+   ],
+   "detail": "录音中心顶楼隔出的一间休息室，一张铺着软毯的布艺沙发、一台小冰箱塞满润喉的雪梨水、墙上贴着乙女游戏的角色立绘，窗外是深夜的写字楼灯海。",
+   "exits": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "id": "loc_voice_actress_lounge",
+   "name": "录音棚楼上的声优休息室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "隔音门一合，楼下监听音箱的低频全被吞掉，只剩空调的细响和自己的心跳。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "苏",
+   "叶",
+   "沐",
+   "温",
+   "程",
+   "沈",
+   "顾",
+   "白",
+   "陆",
+   "秦",
+   "莫",
+   "薛",
+   "乔",
+   "何"
+  ],
+  "given_female": [
+   "清菡",
+   "晚晴",
+   "雨萱",
+   "思若",
+   "芷兰",
+   "梦琪",
+   "韵宁",
+   "雪纯",
+   "妙彤",
+   "宛凝",
+   "书瑶",
+   "素馨",
+   "若微",
+   "语冰"
+  ],
+  "given_male": [
+   "景安",
+   "淮安",
+   "子轩",
+   "嘉述",
+   "明朗",
+   "廷舟",
+   "浩然",
+   "泽宇",
+   "修远",
+   "承逸",
+   "铭远",
+   "文翰",
+   "星阑",
+   "楚航"
+  ],
+  "given_neutral": [
+   "希音",
+   "听雨",
+   "沐川",
+   "若初",
+   "清源",
+   "景和",
+   "予怀",
+   "亦安",
+   "思齐",
+   "嘉木",
+   "怀瑾",
+   "望舒",
+   "言蹊",
+   "浅予"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留乙女游戏终章配音、母带录音棚、排风机变频失控负压吸死双层气密玻璃门、防震架扳手挑单向胶阀均压的骨架与录音棚味道。为与刚改成声优的漫展世界拉开，开局落在深夜录终章告白台词：声优录了十一遍，录音导演在主控室一遍遍喊重来。女主从大二学生改成签约第五年的职业声优，年龄拉开到二十四到二十七岁，导演拉到二十九到三十三岁。用户已放开内容限制，只守红线；外貌描写照留，只改写死的人名、代词、年龄。新增录音棚楼上的休息室与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    32,
+    36
+   ],
+   "baseline": "统筹顶级乙游压轴全剧情配音工程，随身佩戴录音棚主控全频降噪耳机与机械五金校准便携工具组。",
+   "gender": "any",
+   "id": "pi_audio_director_chief_producer",
+   "reputation": "熟谙国家数字音频中心各录音棚气路管道走向，处置突发录音设备故障极其冷静果断。",
+   "resources": [
+    "一套精密音频五金快拆冷锻高硬度六角扳手组",
+    "一具剧场级高流明防爆强光检查笔"
+   ],
+   "risks": [
+    "若未能在负压窒息前救出人员将面临重大演艺安全事故与商业索赔",
+    "在门外盲操若发力不当可能导致双层钢化玻璃碎裂"
+   ],
+   "role": "乙女游戏主打音频制作总监兼录音导演",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总监"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}导演"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    32,
+    36
+   ],
+   "baseline": "专业负责录音室静音新风管道气流平衡与声学减震，精通负压泄压阀门与隔音门磁力气密锁结构。",
+   "gender": "any",
+   "id": "pi_acoustic_engineer_master_tuner",
+   "reputation": "声学工程领域青年才俊，多次在一线大型声学实验室排解气压锁门危机。",
+   "resources": [
+    "一把高碳不锈钢平头加长微型气密胶条起子",
+    "一支便携式高精度数显微压差计"
+   ],
+   "risks": [
+    "大楼排风机变频器失控持续抽风导致负压不断飙升",
+    "必须在棚内受困者缺氧耳膜破裂前物理破开均压通道"
+   ],
+   "role": "录音棚声学环境与气动平衡工程师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工程师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    32,
+    36
+   ],
+   "baseline": "负责地下录音区夜间消防与安全保卫，随身配备特种工业重型真空吸盘与防暴破拆撬具。",
+   "gender": "any",
+   "id": "pi_studio_safety_patrol_officer",
+   "reputation": "身体强健敏捷，熟记地下各机房强电断路器位置，行动雷厉风行。",
+   "resources": [
+    "一对额定承重两百公斤的工业级双爪真空玻璃吸盘",
+    "一部直通地下机房强电控制箱的应急对讲电台"
+   ],
+   "risks": [
+    "若外拉力矩与内侧撬阀力矩失调将导致玻璃偏心受力受损",
+    "需防范断电后走廊应急照明短缺造成的视线受阻"
+   ],
+   "role": "音频中心夜间安全巡视特勤队员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}特勤"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}巡官"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    27,
+    31
+   ],
+   "baseline": "现年满二十七岁具备完全民事行为能力，录音棚正式声学设备运维学徒工，负责麦克风防震架整理与门缝清洁，熟记气密门橡胶圈位置。",
+   "gender": "any",
+   "id": "pi_voice_studio_apprentice_assistant",
+   "reputation": "勤恳踏实熟悉录音间内每一处五金紧固件，遇到险情反应稍显局促。",
+   "resources": [
+    "一罐高渗透型特种橡胶密封胶条无味软化脱水硅油",
+    "一双防滑耐磨加厚无尘纤维操作手套"
+   ],
+   "risks": [
+    "作为底层运维人员面临设备受损追责惩处压力",
+    "操作杠杆时需防范手部被紧贴的钢化玻璃挤压夹伤"
+   ],
+   "role": "录音室声学辅助运维成年学徒工",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工友"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}小师傅"
+    }
+   ]
+  }
+ ],
+ "premise": "乙女游戏的年度资料片还有一周交付。签约第五年的声优每晚在母带录音棚里录到凌晨，录音导演在主控室一遍遍喊重来，声学工程师和夜间巡视的特勤也常来看一眼。录音棚的双层气密玻璃门靠负压密封，大楼的排风机变频器最近不太稳。",
+ "pressures": [
+  {
+   "choice": "选择利用防震架调校扳手深入气阀撬退胶片，或等待机电人员拉闸慢速泄压。",
+   "exits": [
+    {
+     "cost": "不锈钢乐谱架横梁产生细微受力挤压划痕，声优手腕因对抗反震受力隐隐酸软。",
+     "option": "声优与搭档合抱加长调校扳手借助乐谱架横梁下压，成功挑开老化气阀膜片引入均压气流推门脱险。"
+    },
+    {
+     "cost": "录音棚特制双层气密隔音磁性密封橡胶圈整体撕裂报废需重金进口换件。",
+     "option": "由外侧特勤使用防暴破拆撬棍强行从门下沿撬挤密封胶条豁开通气缝。"
+    }
+   ],
+   "far": {
+    "consequence": "棚内全体人员陷入急性缺氧休克与声带毛细血管破裂危及终生艺术生涯。",
+    "due_days": 1,
+    "trigger": "录音室内空气被强排风近乎抽尽达到人体生理窒息耐受极限"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_booth_negative_pressure_lock",
+   "immediate": {
+    "minutes": 3,
+    "text": "负压警报尖锐蜂鸣，耳膜传来如同针扎般的剧烈刺痛，声优额角沁出冷汗，呼吸急促困难。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "距人员缺氧虚脱仅剩三分钟，若未能挑开均压阀，玻璃门将在超载负压下产生微裂甚至震伤中耳。"
+   },
+   "objective": "在人员耳膜穿孔窒息前挑开单向气密阀片平衡气压推门脱险。",
+   "source": "institution",
+   "start_minute": 1380,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "录音棚千帕剧烈负压差抱死超厚玻璃门绝境",
+   "trigger": "中央新风系统强排风变频器过载失控，录音室内瞬时产生一千五百帕负压，钢化双层玻璃门被强力吸附在密封橡胶圈内，门把手机械舌受剪咬死。"
+  },
+  {
+   "choice": "选择合力下压扳手破开胶阀，或使用护嗓喷雾与湿巾做生理减压坚守。",
+   "exits": [
+    {
+     "cost": "用完录音棚备用的全部医用纯净水降温保湿洁面湿巾与提神喷雾。",
+     "option": "录音助理迅速递上降温湿巾为声优敷面，全员同心协力下压扳手破开均压阀脱困。"
+    },
+    {
+     "cost": "消耗掉整套昂贵的应急氧气发生装置备用药剂包。",
+     "option": "按下母带录音台消防备用呼吸气瓶向棚内缓慢释放备用氧气。"
+    }
+   ],
+   "far": {
+    "consequence": "天才声优听力与声线受损丧失从事顶级配音艺术之生理机能。",
+    "due_days": 1,
+    "trigger": "中耳气压差超过鼓膜极限承受压强引发不可逆穿孔损伤"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hypoxia_ear_pressure_vertigo_strain",
+   "immediate": {
+    "minutes": 3,
+    "text": "喉咙干涩发紧，胸腔内空气受挤压产生轻微钝痛，视线边缘出现因缺氧导致的轻微重影。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若两分钟内未能完成均压通气，声优极其娇嫩的咽喉粘膜与声带肌群将受到急性气压创伤。"
+   },
+   "objective": "借防震架扁平扳手尽快破除气压真空恢复新鲜空气流通。",
+   "source": "accident",
+   "start_minute": 1380,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "密闭录音棚缺氧与中耳气压剧痛生理极限",
+   "trigger": "强排风持续狂抽，录音棚内部空气含氧量断崖式下跌，受困者面颊潮红呼吸困难，剧烈耳压引发轻度眩晕。"
+  },
+  {
+   "choice": "选择机电人员强行拉断主断路器，或在录音间内手动泄压。",
+   "exits": [
+    {
+     "cost": "高压绝缘拉杆受电弧灼烧端部产生微小碳化痕迹需重新做耐压试验。",
+     "option": "地下机房电工使用加长绝缘拉杆手动挑开变频器旁路接触器彻底切断风机强电。"
+    },
+    {
+     "cost": "重锤阀撞击限位销产生永久塑性微量凹陷变形需返修维护。",
+     "option": "合上排风总管紧急防烟防火自垂密闭重锤阀强行切断抽风通道。"
+    }
+   ],
+   "far": {
+    "consequence": "高速金属碎片击穿主风道导致录音大楼暖通管网彻底瘫痪报废。",
+    "due_days": 1,
+    "trigger": "排风机离心风轮在超频共振下发生机械疲劳碎裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_exhaust_fan_variable_speed_runaway",
+   "immediate": {
+    "minutes": 3,
+    "text": "天花板风管发出如同火车轰鸣的低沉震颤，吸音板剧烈抖动，负压吸力以每秒五十帕速度持续攀升。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hvac_plant_antechamber"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若三分钟内未断电或均压，超限运转的排风机电机绕组将发生高温绝缘击穿并引发局部电气火险。"
+   },
+   "objective": "在风机过载烧毁前断开旁路接触器或在内侧挑开均压阀消除风阻压差。",
+   "source": "accident",
+   "start_minute": 1382,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "大楼排风机变频器失控转速超限风道共振",
+   "trigger": "暖通配电箱变频驱动芯片受潮短路，排风机以额定功率一点五倍超频运转，风道产生沉闷低频共振并疯狂抽风。"
+  },
+  {
+   "choice": "选择利用乐谱架搭建精准受力基座，或加装悬臂撬杆组成二级增力臂。",
+   "exits": [
+    {
+     "cost": "悬臂撬杆连接螺母表面防滑纹理产生微量拉伸磨痕需重新校核丝扣牙型。",
+     "option": "白天舟加装悬臂撬杆组装二级增力杠杆指引声优严格沿法向轴心垂直下压。"
+    },
+    {
+     "cost": "消耗整整一包专业级电容麦克风阻尼避震专用硅胶缓冲垫片。",
+     "option": "在扳手硬柄受力点缠绕三层防震硅胶吸能垫片消除局部接触应力集中。"
+    }
+   ],
+   "far": {
+    "consequence": "室内人员彻底丧失物理自救手段沦为任由千帕负压紧缩窒息的绝境受害者。",
+    "due_days": 1,
+    "trigger": "唯一的特种全金属调校扳手在过载受剪力矩下折断损坏"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_mic_shockmount_tool_bending_hazard",
+   "immediate": {
+    "minutes": 3,
+    "text": "扳手刃口深入单向阀承受剧烈静载发出金属受压微颤，稍有偏载便有永久弯曲变形甚至脆断风险。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_master_recording_dubbing_booth"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "首次撬动若角度偏差超过五度，扳手平头端部将发生微观卷刃或滑牙脱扣，丧失唯一破阀利器。"
+   },
+   "objective": "严格依托乐谱架横梁黄金支点沿法向垂直施力确保扳手安全挑开阀片。",
+   "source": "accident",
+   "start_minute": 1380,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "防震架扳手硬柄受力过载挠度极限风险",
+   "trigger": "电容麦防震架全金属调校扳手虽为特种淬火不锈钢，但厚度仅四毫米，在深入气阀承受千帕反力下压时逼近屈服强度。"
+  },
+  {
+   "choice": "选择严格遵循外侧特勤倒数口令慢推慢拉，或在玻璃门四周涂抹减摩硅油。",
+   "exits": [
+    {
+     "cost": "巡视队员防护手套手心防滑皮层被吸盘手柄剧烈摩擦撕裂开一道浅磨痕。",
+     "option": "巡视队员通过对讲清晰倒数读秒指挥内外全员在最后一秒同步爆发全部力矩平稳推开大门。"
+    },
+    {
+     "cost": "一块高密度工程尼龙垫片被挤压力矩压出深达八毫米的永久形变凹槽。",
+     "option": "在门框接触面垫入加厚高密度实心尼龙减震片消除门框硬碰硬刚性挤压碰撞。"
+    }
+   ],
+   "far": {
+    "consequence": "整扇气密玻璃门彻底卡死在门框内丧失一切人工开启可能性。",
+    "due_days": 1,
+    "trigger": "双层钢化玻璃门重型铰链轴销在反向扭力下发生永久性塑性弯曲扭绞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_vacuum_cups_coordination_slip_risk",
+   "immediate": {
+    "minutes": 3,
+    "text": "超厚钢化玻璃门发出刺耳的金属与橡胶受挤闷响，门轴受偏心扭矩锁死，稍有差池门扇将彻底卡死。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sound_master_control_mixing_room"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若内外发力节拍相差零点五秒以上，反向剪切力将把门铰链偏心轴销死死别在槽沿内无法复位。"
+   },
+   "objective": "内外人员依照对讲广播三秒倒数实现毫秒级同步启闭确保气密门平顺脱槽滑开。",
+   "source": "accident",
+   "start_minute": 1384,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "推拉力矩节拍偏差导致密封圈二次抱死危机",
+   "trigger": "若外侧特勤过早猛拉吸盘而内侧胶阀未完全破开引气，内外剪力将把门扇反向别死在门框止口内。"
+  },
+  {
+   "choice": "选择启动主控室便携应急储能电源，或全员依赖防爆手电筒冷光协同。",
+   "exits": [
+    {
+     "cost": "混音台应急逆变器整流滤波电容承受大电流瞬时冲击发热需冷却维护。",
+     "option": "录音导演迅速合上混音台应急逆变储能开关为门区投射两盏高流明防眩目冷光泛光灯。"
+    },
+    {
+     "cost": "消耗两组特战强光防爆手电筒内置特种大容量低温锂电池组全部电量。",
+     "option": "巡视队员与声学工程师手持战术防爆强光手电交叉照亮玻璃门铰链与均压孔消除暗角。"
+    }
+   ],
+   "far": {
+    "consequence": "现场混乱导致机械杠杆滑脱砸碎玻璃并造成人员群死群伤重大恶性事故。",
+    "due_days": 1,
+    "trigger": "地下控制区全域陷入绝对黑暗引发人员方位感迷失与自救动作失控"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hvac_breaker_overload_trip_hazard",
+   "immediate": {
+    "minutes": 3,
+    "text": "走廊顶灯闪烁两下后熄灭，应急指示灯泛着幽绿冷光，录音棚内外视野骤然昏暗压抑。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hvac_plant_antechamber"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若两分钟内未能建立稳定备用照明，昏暗光线下扳手撬阀微操将面临偏位误伤玻璃的巨大风险。"
+   },
+   "objective": "使用防爆应急强光手电锁定均压阀孔并维持对讲调度顺畅。",
+   "source": "accident",
+   "start_minute": 1382,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "暖通配电总柜过载跳闸后应急照明失电恐慌",
+   "trigger": "强电断路器跳闸可能瞬间引发地下二层走廊与机房局部照明失电，昏暗环境下救援视线严重受阻。"
+  },
+  {
+   "choice": "嗓子还哑着就进棚补录，还是让出这个角色",
+   "exits": [
+    {
+     "cost": "录音导演得陪着一遍遍重来，直到天亮",
+     "option": "哑着嗓子补录"
+    },
+    {
+     "cost": "违约金要声优自己出一半",
+     "option": "换人重录"
+    }
+   ],
+   "far": {
+    "consequence": "签约第五年的主役没了，声优的名字从片头里拿掉",
+    "due_days": 7,
+    "trigger": "角色换人"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_voice_actress_lounge_door"
+   ],
+   "id": "p_publisher_recast",
+   "immediate": {
+    "minutes": 5,
+    "text": "赵代表把排期表推到声优面前，晚上七点那一格空着"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_voice_actress_lounge"
+   ],
+   "near": {
+    "deadline_minutes": 540,
+    "text": "晚上七点，发行方上线评审"
+   },
+   "objective": "在发行方晚上的上线评审之前，把告白那段录完",
+   "source": "money",
+   "start_minute": 600,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "换人重录",
+   "trigger": "录音棚出事后的第二天上午，发行方的赵代表在楼上休息室等着：终章告白没录完，资料片就上不了线，要么今晚补录，要么换人重录整个角色"
+  }
+ ],
+ "region": "国家数字音频制作中心地下二层专业级母带录音棚与主控混音控制室",
+ "rules": [
+  {
+   "id": "rule_audio_booth_airtight_pressure_code",
+   "text": "高保真母带级录音棚气密压差管控制度：当棚内外负压差超过三百帕时，严禁使用电动推杆强行拉门，须优先启闭机械式应急均压泄压阀门。"
+  },
+  {
+   "id": "rule_condenser_mic_shockmount_tool_code",
+   "text": "专业录音电容麦克风微调工具规约：防震架特种全金属调校扁平扳手仅限用于悬臂阻尼微调，遇险情用于破拆时须严格卡准力学受力支点。"
+  },
+  {
+   "id": "rule_heavy_music_stand_load_limit",
+   "text": "录音棚不锈钢配重乐谱架结构承载戒律：铸铁底座加厚双管乐谱架在充当杠杆支撑时，垂直承受静载荷禁止超过一百五十公斤。"
+  },
+  {
+   "id": "rule_master_tape_security_code",
+   "text": "乙女游戏年度资料片商业配音母带保密纪律：在突发机械故障疏散时，必须优先按下控制台硬核固态阵列一键物理写保护急停旋钮。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "试音并肩",
+  "committed": "金石同音",
+  "familiar": "对轨共处",
+  "flirting": "隔窗凝视",
+  "intimate": "声息相护",
+  "stranger": "初入棚间",
+  "testing": "扳手撬阀"
+ },
+ "status": "released",
+ "style_hint": "吸音软包与冷调微光里的密闭负压：耳膜刺痛、呼吸发紧。写清纯声优水润的婴儿肥、汗湿的鬓角与压低的喘息，动作落在防震架扳手挑开气密阀上。",
+ "tension_engines": [
+  {
+   "id": "eng_booth_negative_pressure_differential",
+   "text": "排风机失控导致录音棚千帕负压差飙升引发窒息耳压刺痛危机"
+  },
+  {
+   "id": "eng_mic_shockmount_wrench_leverage_limit",
+   "text": "全金属电容麦防震架扳手硬柄深入单向气密胶阀之抗弯抗剪极限"
+  },
+  {
+   "id": "eng_master_tape_acoustic_bond",
+   "text": "乙女游戏绝版压轴配音母带在硬核物理自救中数据完好保全责任"
+  },
+  {
+   "id": "eng_dual_sided_vacuum_pull_thrust_sync",
+   "text": "外侧工业真空吸盘拉拽与内侧杠杆撬阀毫秒级同步协同克服抱死"
+  }
+ ],
+ "title": "清纯乙游声优·深夜录音棚气密门负压死锁",
+ "tone": [
+  "录音棚负压吸死",
+  "耳压刺痛缺氧",
+  "麦克风扳手撬阀",
+  "泄压平衡脱困"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_solid_steel_mic_wrench_resilience",
+   "requires": [
+    "pure_actress_su_qing_han"
+   ],
+   "text": "{pure_actress_su_qing_han.name}手中这柄电容麦防震架微调扁平扳手由特种加厚不锈钢经深冷淬火制成，四毫米硬刃在狭窄均压孔内承受数千牛顿力矩绝不发生弯曲折断。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_tuner_calculates_pressure_null",
+   "requires": [
+    "acoustic_tuner_ye_zi_xuan"
+   ],
+   "text": "{acoustic_tuner_ye_zi_xuan.name}通过微压差计严密监测负压回升曲线，准确计算出内外气压差归零的黄金半秒节点，为内外同步发力破门提供了至关重要的数据指引。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_patrol_officer_vacuum_haul_sync",
+   "requires": [
+    "studio_patrol_officer_mo_tian_lang",
+    "sound_director_cheng_huai_an"
+   ],
+   "text": "{studio_patrol_officer_mo_tian_lang.name}与{sound_director_cheng_huai_an.name}在外侧双爪吸盘上把控倒数发力时钟，在外侧分担了超厚玻璃门数百公斤干摩擦阻力，保全了内侧人员从容下压的生机。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_audio_center_curfew_relief_protocol",
+   "requires": [
+    "sound_director_cheng_huai_an"
+   ],
+   "text": "国家数字音频制作中心关于母带录音棚遭遇极端气压锁闭特别应急规程被录音导演果断启动，地下暖通总闸被依法手动跳闸，排风机超频抽风危局被彻底粉碎。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_two_minutes_hypoxia_time_barrier",
+   "requires": [
+    "pure_actress_su_qing_han",
+    "sound_engineer_bai_ting_zhou"
+   ],
+   "text": "录音棚内残存空气含氧量仅能支撑受困人员最后一百二十秒清醒窗口，声优冷静把握时机在此黄金时间内合力下压扳手，一举将单向气阀平稳别脱。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_su_qing_han_hand_overlap_leverage",
+   "requires": [
+    "pure_actress_su_qing_han"
+   ],
+   "text": "在气阀弹脱的一瞬间，二人四手紧扣共同握住冰冷的扳手柄身拼尽全力向下按压，{pure_actress_su_qing_han.name}娇躯借力微倾依偎在搭档身侧，微婴儿肥俏脸泛起动人水润红晕，急促心跳交织却满是化险为夷的深沉托付与信赖。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_master_tape_acoustic_triumph",
+   "requires": [
+    "pure_actress_su_qing_han",
+    "sound_director_cheng_huai_an"
+   ],
+   "text": "随着气密玻璃门大开与常压恢复，混音台上的压轴母带波形显示屏完好无损常亮，声优天籁般的清纯声线与全套工程数据毫发无损安全归档，大获全胜。"
+  }
+ ]
+}

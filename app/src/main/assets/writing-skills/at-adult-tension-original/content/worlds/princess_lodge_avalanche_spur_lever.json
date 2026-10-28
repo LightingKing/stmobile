@@ -1,0 +1,2295 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "行宫老管家，在门外焦急指挥仆从生火。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_head_butler_karl",
+   "line": "殿下！侍卫长！大沙龙的备用通道清理出来了，你们千万坚持住啊！",
+   "location_ids": [
+    "loc_hunting_lodge_grand_salon"
+   ],
+   "name": "卡尔大管家",
+   "role": "雪峰行宫六十岁老管家"
+  },
+  {
+   "adult_context": "忠诚的青年女侍，在门外等候接应长皇女。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_royal_maid_elsa",
+   "line": "殿下！壁炉已经升起大火了，防风厚羊毛毯已经备好，请殿下务必当心身体！",
+   "location_ids": [
+    "loc_hunting_lodge_grand_salon"
+   ],
+   "name": "艾尔莎女仆",
+   "role": "二十一岁的皇家近身贴身侍女"
+  },
+  {
+   "adult_context": "通过门缝传授野战机械破拆经验的老士官。",
+   "age_range": [
+    50,
+    60
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_veteran_sergeant_otto",
+   "line": "侍卫长！门顶是偏心棘爪自锁，用骑兵淬火马刺刚好能卡进死角齿槽，反向向上顶！",
+   "location_ids": [
+    "loc_hunting_lodge_grand_salon"
+   ],
+   "name": "奥托老士官",
+   "role": "近卫步骑兵团五十岁重装老军士"
+  },
+  {
+   "adult_context": "在走廊外侧勘察雪崩厚度的年轻士兵。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_patrol_soldier_hans",
+   "line": "外廊的积雪有三米深，外部撬棍根本插不进门缝，全靠侍卫长在里面自救了！",
+   "location_ids": [
+    "loc_hunting_lodge_grand_salon"
+   ],
+   "name": "汉斯上等兵",
+   "role": "二十一岁的行宫近卫巡逻兵"
+  },
+  {
+   "adult_context": "熟悉皇家骑乘装备质量的老马夫。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_stable_master_jakob",
+   "line": "殿下靴子上的马刺是克虏伯特种淬火钢打的，两千磅力气也折不断，定能成事！",
+   "location_ids": [
+    "loc_hunting_lodge_grand_salon"
+   ],
+   "name": "雅各布马夫长",
+   "role": "皇家马厩老马夫长"
+  },
+  {
+   "adult_context": "在门外准备姜汤与冻伤药膏的年老医师。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_court_physician_weber",
+   "line": "大殿温度已经到了冰点以下，低温会迅速麻痹神经，绝不能在里面停留超过一刻钟！",
+   "location_ids": [
+    "loc_hunting_lodge_grand_salon"
+   ],
+   "name": "韦伯御医",
+   "role": "随行宫廷老医师"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "流亡的长皇女与近卫侍卫长在铅门夹层里背抵着门框、手叠着手，把淬火马刺卡进导轨偏心齿，一寸寸往上顶。",
+   "id": "cc_princess_and_guardsman_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "princess_helena",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "雪崩压顶的铅门夹层里一起顶着马刺，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "sergeant_andrei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同为皇家近卫精锐，知晓彼此手上力道与破拆技巧。",
+     "stage": "familiar"
+    },
+    {
+     "a": "princess_helena",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "sergeant_andrei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "落魄长皇女与忠诚侍卫官在灾厄中成为生死不离的脱困搭档。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "princess_helena",
+    "sergeant_andrei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在彻底失温冻僵前合力向上撬脱偏心卡死滑轮推开暗门脱险。",
+    "limit_gap": "长皇女体能消耗巨大身躯微颤，侍卫长身处逼仄夹层后背抵住冰冷石墙。",
+    "meeting_reason": "雪崩前一刻，长皇女带着侍卫长下到古董收藏室，清点最后几件可以变卖的帝国珍藏。",
+    "resource_gap": "长皇女拥有淬火高碳钢特制皇家马刺，侍卫长掌握军旅重装破拆与杠杆发力直觉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_avalanche_hypothermia_frostbite_surge",
+    "te_close_contact_body_heat"
+   ]
+  },
+  {
+   "chemistry": "摄政大公与营造主管以精准建筑力学拆解偏心暗槽咬合，严丝合缝操作工具突破阻滞。",
+   "id": "cc_regent_and_architect_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "princess_helena",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "长期共议行宫修缮营造，对彼此专业定力深具信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "sergeant_andrei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在行宫部门共事，熟悉各处机械构造。",
+     "stage": "familiar"
+    },
+    {
+     "a": "princess_helena",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "sergeant_andrei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在沉重机械死锁压迫下并肩发力，消除君臣身份悬殊界限。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "princess_helena",
+    "sergeant_andrei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "利用马刺精准卡死轨道缺口并顺势撬动滑轮自救。",
+    "limit_gap": "严寒导致金属件冷缩咬合加剧，必须在昏暗火光中凭手感盲操机械脱扣。",
+    "meeting_reason": "行宫的暗门年久失修，长皇女叫来懂营造的人，和侍卫长一起去看那条上导轨。",
+    "resource_gap": "摄政大公掌握行宫密道避难总路线，主管拥有暗门蓝图与纯铜硬撬刀。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_lead_door_track_crush_jam",
+    "te_lead_counterweight_drop_hazard"
+   ]
+  },
+  {
+   "chemistry": "机要参事官以严密推演统摄全局，长皇女依令协同配合，合力爆发千钧推力破死锁。",
+   "id": "cc_aide_and_princess_high",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "princess_helena",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "参事官指导长皇女校准发力矢量，展现卓越技术领导力。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "sergeant_andrei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "内阁军政上下级，配合极为娴熟。",
+     "stage": "familiar"
+    },
+    {
+     "a": "princess_helena",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "sergeant_andrei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "典雅皇女与近卫骨干共赴生死，结成无间同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "princess_helena",
+    "sergeant_andrei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以高刚性力矩反推破除偏心卡死完成无损自救脱困。",
+    "limit_gap": "积雪压顶处于临界偏载，任何蛮动都会引发拱顶进一步开裂。",
+    "meeting_reason": "复辟派的密使冒雪上山求见，长皇女在收藏室里接见，侍卫长按着佩剑守在门边。",
+    "resource_gap": "参事官掌握整座雪峰行宫地下管网图谱，长皇女掌握淬火精钢马刺配件。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_lead_counterweight_drop_hazard",
+    "te_lead_door_track_crush_jam"
+   ]
+  },
+  {
+   "chemistry": "长皇女以皇女威仪沉着鼓舞士气，青年猎手严谨配合测算每道力矩数值。",
+   "id": "cc_huntsman_and_specialist_command",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "princess_helena",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "同处绝境，上下级界限消融于贴身死斗协作中。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "sergeant_andrei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在随护卫队共事，彼此熟稔信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "princess_helena",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "sergeant_andrei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "长皇女全力依赖青年臂膀发力破局。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "princess_helena",
+    "sergeant_andrei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保暗门轨道免遭彻底碾断，全员安全脱困。",
+    "limit_gap": "极寒低温导致孤立无援，必须紧密依偎配合。",
+    "meeting_reason": "冬狩归来的黄昏，长皇女连骑马服都没换，就拉着侍卫长去收藏室取一幅旧日的家族画像。",
+    "resource_gap": "长皇女拥有坚忍不拔的意志，猎手精通雪压与杠杆撬正法则。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_avalanche_hypothermia_frostbite_surge",
+    "te_lead_door_track_crush_jam"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_nook_frost_breath",
+   "reach": "all",
+   "text": "四十公分门顶夹层两人肌肤相贴急促白雾般的喘息与心跳共鸣"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_lodge_wind_howl",
+   "reach": "local",
+   "text": "石室门外穿堂刺骨暴风雪呼啸与门框铅皮吱嘎紧绷声"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁，接受过正统帝国古典宫廷教育与皇家近卫骑术训练，平日高贵典雅端庄，危难关头展现出非凡的沉着与信任。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身穿墨绿修身双排扣羊毛骑马服，内衬蕾丝领花，足蹬及膝硬牛皮马靴，容颜高贵典雅，两腮带着健康的红润，在极寒冻气与剧烈施力中，面颊泛起娇艳红晕，汗水顺着端庄下颌滑落。",
+    "骑马大衣下摆在狭缝中收拢，腰间系着精致烫金皮质武装带，两腮面庞在提灯火光下白里透红，双手全力握住硬钢马刺受力端，典雅端庄中透出不输铁血骑士的凛然坚毅。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱啼哭的软弱行径",
+     "逾矩冒犯的轻浮举止"
+    ],
+    "contrast": "在残存的朝臣面前一丝不苟，连流亡的晚宴都要按帝国旧礼排座次；铅门砸死时，长皇女却第一个弯下腰，亲手拆下了马靴上的马刺。",
+    "core_value": "哪怕帝国动荡身陷落魄，皇家高贵长女也绝不在风雪绝境中向机械死锁低头，侍卫长是唯一的依靠。",
+    "goal_options": [
+     "将高硬度淬火马刺卡入滑轨偏心齿撬脱滑轮自锁",
+     "与侍卫长双手重叠紧密相依合力顶起暗门脱困"
+    ],
+    "never": [
+     "在忠诚侍卫脱险前独自舍弃对方"
+    ],
+    "prefers": [
+     "沉稳忠勇且臂力过人的刚毅近卫",
+     "严谨扎实的硬核机械自救手段"
+    ],
+    "pressure_responses": {
+     "breaking": "哪怕双臂酸麻颤抖、急促滚烫的吐息交织在侍卫长耳侧，亦咬紧银牙全力顶住杠杆绝不松手。",
+     "high": "在四十公分狭小夹层内整个人贴伏在侍卫长胸前，双手覆在侍卫长手背上倾注全身力气下压。",
+     "low": "在雪崩震顶断电刹那冷静安抚侍卫长，迅速指出暗门上方有导轨偏心检修口。",
+     "mid": "毫不犹豫脱下单侧马靴卸下淬火马刺，递交侍卫长作为刚性撬具。"
+    },
+    "relationship_stance": "近卫侍卫长是帝国覆灭那一夜护着长皇女出城的人；三年来，长皇女的帐篷、马匹和门口那盏灯，都由侍卫长一个人守着，君臣之礼一次没有越过。",
+    "withdrawal": "脱险后脱力倚靠在侍卫长臂弯中微喘，面庞埋在侍卫长肩甲处掩饰娇羞。"
+   },
+   "gender": "female",
+   "gender_reason": "二十一岁的落魄帝国执政长皇女，身兼皇家典雅贵气与临危不乱的刚毅果决。",
+   "id": "princess_helena",
+   "identity": {
+    "authority": "对行宫内部全部侍从与随行防卫力量拥有最高合法执政统辖权。",
+    "exposure": "贴身羊毛骑马服在近身施力与挤压中紧紧贴合优美起伏身段，在狭小夹层中毫无保留地倚靠在侍卫长坚实怀中。",
+    "hidden": "内袋贴身妥善保管着帝国正统金印与玉玺",
+    "limits": [
+     "严寒极度消耗体能导致单人无法撬动数千磅咬死门轨",
+     "夹层空间狭窄限制了修长身姿的发力范围"
+    ],
+    "obligations": [
+     "保全自身执政血脉与帝国复兴希望",
+     "保护忠诚侍卫长免遭严寒冻毙脱险"
+    ],
+    "resources": [
+     "一双皇家近卫骑兵团特制淬火硬钢马刺（高纯度工具钢淬火打造，长十二公分带高硬度棘爪卡槽与淬火折沿，抗弯刚性极强）",
+     "一件厚实防风双层羊毛军呢大衣",
+     "一柄镶嵌红宝石的小型纯银拆信硬短刀"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "侍卫长在万吨雪崩轰鸣中以血肉之躯死死护住{npc.name}的忠勇如山",
+     "在昏暗夹层中侍卫长沉着排查滑轨机械死锁时的坚毅目光与伟岸臂膀"
+    ],
+    "boundaries": [
+     "恪守正统皇女的端庄高贵底线",
+     "自救脱困纯靠硬核物理杠杆绝不涉性"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在暗门夹层背靠侍卫长胸膛，双手叠于侍卫长粗糙大手共同紧握淬火马刺奋力向上撬顶。",
+    "dislikes": [
+     "轻浮孟浪的越界举动",
+     "懦弱推诿的自私作风"
+    ],
+    "expression": "脱险后温柔地为侍卫长拂去肩头落雪与冷汗，偏过绯红面庞柔声道‘侍卫长……今日之命，皆卿所赐’。",
+    "likes": [
+     "在刺骨极寒中被宽厚胸膛紧紧环抱传来的滚烫体温与安全感",
+     "两人双手紧扣合力爆发千钧之力破开暗门时的心跳共振"
+    ],
+    "preconditions": [
+     "暗门上滑轨偏心卡爪成功顶脱归位",
+     "铅包木重门合力拉开脱出严寒绝境",
+     "两人都清醒，心意出于自己，不是雪崩绝境里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "流亡的帝国长皇女",
+   "schedule": [
+    {
+     "from": 1050,
+     "location_id": "loc_antique_vault_chamber",
+     "to": 1055
+    },
+    {
+     "from": 1055,
+     "location_id": "loc_lead_lined_door_gap",
+     "to": 1085
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "马刺棘齿承受数百磅压剪力产生微磨损，两人手掌手臂被冰冷金属与木框边缘硌破淤青。",
+      "option": "用淬火硬钢马刺折沿卡入上滑轨变形齿，两人身躯紧贴合力向上撬动顶脱偏心死锁脱困。"
+     },
+     {
+      "cost": "铅皮具备极强吸能韧性，盲目敲砸只会震裂手骨并导致大理石碎裂割伤肌体。",
+      "option": "徒手用古董大理石石雕猛砸厚重铅包木门。"
+     }
+    ],
+    "pressure": "室内温度降至零下且空气快速流失，必须在肢体彻底冻僵前手动撬开滑轨自救。",
+    "trigger": "雪崩积雪重压行宫顶梁，铅包木防爆暗门上滑轨严重受压咬死，严寒极速入侵逼近绝境。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "从前在宫里，连舞会上都没有人敢离本宫这么近……侍卫长的呼吸就落在耳边。帝国没了，礼数……还要守吗？",
+    "surface": "侍卫长，不必慌。马刺是骑兵团的旧制，淬火钢，撑得住。卡准槽口，随本宫一起往上顶。"
+   }
+  },
+  {
+   "adult_context": "二十一岁，具备成熟的国家大局观与危机应变心智，沉着冷峻。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "深蓝宫廷骑装披黑色貂毛滚边斗篷，两腮线条饱满紧致带着柔和的轮廓，在暴雪严寒中神情威严从容。",
+    "发髻在震颤中微散，几缕发丝贴在温润微红的面颊上，明眸如星双手稳稳托住马刺撬杆。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱失措",
+     "虚妄冒进"
+    ],
+    "contrast": "至高无上的摄政长女，在沉重冰冷机械死线前爆发出凛然不屈的钢铁意志。",
+    "core_value": "一切金属变形皆有物理抗阻极限，找准切向力矩，万斤重压亦可挑开。",
+    "goal_options": [
+     "利用马刺建立刚性抗剪撬点",
+     "协同侍卫长顶脱变形卡扣脱困"
+    ],
+    "never": [
+     "弃同伴于不顾独自求生"
+    ],
+    "prefers": [
+     "沉稳专业的力学配合",
+     "毫无保留的效忠"
+    ],
+    "pressure_responses": {
+     "breaking": "哪怕掌心被钢刺硌出红印，亦咬牙坚持直至滑轮滑开。",
+     "high": "以整个人向后倚靠借力，与侍卫长协同发力打破自锁。",
+     "low": "冷静判定门扇并未整体变形，死锁仅仅卡在滑轮偏心齿卡死。",
+     "mid": "亲手将硬钢马刺对准齿槽精准切入，建立杠杆受力面。"
+    },
+    "relationship_stance": "视侍卫长为唯一无可替代的擎天白玉柱，危难中确立深厚的情感依托。",
+    "withdrawal": "在脱出后迅速整理衣冠恢复端庄执政者威仪。"
+   },
+   "gender": "female",
+   "gender_reason": "帝国摄政执政女大公态，掌握最高政治统率与决断权，端庄威严中显担当。",
+   "id": "regent_helena",
+   "identity": {
+    "authority": "掌控帝国全部防卫与撤离总路线决策权。",
+    "exposure": "骑装紧裹优美曲线，近身发力时毫无保留展现健美身姿。",
+    "hidden": "随身携带帝国边防要塞布防密匙",
+    "limits": [
+     "受困幽闭空间缺乏重型机械辅助",
+     "必须在十分钟内恢复通行"
+    ],
+    "obligations": [
+     "保全近卫官兵性命",
+     "率部打破行宫死锁安全撤离"
+    ],
+    "resources": [
+     "淬火高碳钢马刺",
+     "防冻皮质武装带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "侍卫长在危局中毫不犹豫将长皇女护于身下的忠烈男子气概",
+     "贴身施力时对方宽厚胸甲传来的雄浑力量与滚烫体温"
+    ],
+    "boundaries": [
+     "严守皇家尊严底线",
+     "出路恪守物理机械力矩"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在暗门顶端夹层并肩发力，由侍卫长在后托住腰肢稳固重心，双手合握马刺全力向上撬顶。",
+    "dislikes": [
+     "轻浮孟浪",
+     "退缩怯懦"
+    ],
+    "expression": "解下随身貂毛披肩轻轻为侍卫长披上，轻柔叮嘱其注意保暖。",
+    "likes": [
+     "彼此心领神会的眼神交汇",
+     "重门轰然移开时的风雪呼啸声"
+    ],
+    "preconditions": [
+     "滑轨偏心齿成功脱扣",
+     "人员全部安全出险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "帝国摄政大公兼执政议长",
+   "schedule": [
+    {
+     "from": 1050,
+     "location_id": "loc_antique_vault_chamber",
+     "to": 1055
+    },
+    {
+     "from": 1055,
+     "location_id": "loc_lead_lined_door_gap",
+     "to": 1085
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员手掌指关节承受极强金属反冲产生青紫淤痕与轻微擦伤。",
+      "option": "利用淬火硬钢马刺卡入滑轨变形齿，双手合力向上扳动顶正滑轮脱扣自救。"
+     },
+     {
+      "cost": "数吨重的铅门坚如磐石，极易造成肩胛骨脱臼骨折。",
+      "option": "盲目用肩膀撞击沉重的铅包厚木门扇。"
+     }
+    ],
+    "pressure": "温度跌破零下十度，必须在肢体彻底冻僵前利用马刺撬动滑轮自救。",
+    "trigger": "雪崩积雪压顶造成行宫顶梁沉降，暗门滑轮咬死在偏心死点，严寒入侵逼近休克。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "积雪太重了……但侍卫长的臂膀像铁一样坚固。拼尽全力，我也要带侍卫长一起活着走出去！",
+    "surface": "侍卫长，卡准第三处棘齿！这柄马刺是特制硬钢，承受得住两千磅剪切力，随我一起向上顶！"
+   }
+  },
+  {
+   "adult_context": "二十一岁，深研欧洲古典建筑与古代防爆机械锁钥，冷静机敏。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "深灰绒面旅行斗篷内搭修身骑装，两腮线条饱满紧致带着柔和的轮廓，在昏暗提灯下目光沉静专注。",
+    "长发束在脑后，面颊在寒风中透着清丽动人的酡红，双手牢牢把持住淬火马刺受力端。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "无端猜忌"
+    ],
+    "contrast": "端庄温婉的学者皇女，在沉重机械危机面前爆发出惊人的端庄铿锵韧劲。",
+    "core_value": "一切古典机械皆有咬合间隙，以点破面，千斤重门亦能回转归位。",
+    "goal_options": [
+     "利用马刺折沿撬起滑轮轴颈",
+     "协同侍卫长推正暗门脱险"
+    ],
+    "never": [
+     "临阵退缩放弃同伴"
+    ],
+    "prefers": [
+     "精准的力学配合",
+     "沉着果断的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "紧咬银牙死死压住杠杆，直至机械锁产生脱开金属震响。",
+     "high": "以全身重量紧贴侍卫长臂膀向上借力消除滑移。",
+     "low": "迅速判断出滑轮卡死死点在于上导轨偏心棘齿。",
+     "mid": "果断将马刺外缘折沿切入滑轨受压缝隙，建立支点。"
+    },
+    "relationship_stance": "视侍卫长为最忠诚稳固的骑士，在灾厄中缔结生死不渝的心灵誓约。",
+    "withdrawal": "在脱出后退至安全平层深呼吸平复心绪并检查古籍。"
+   },
+   "gender": "female",
+   "gender_reason": "古典行宫营造与古董考据长皇女态，精通机关构造与古建筑重载滑轨。",
+   "id": "archaeologist_helena",
+   "identity": {
+    "authority": "对古董藏宝室内全部机关暗道与滑拉门受力原理拥有精准知识。",
+    "exposure": "斗篷解开后修身骑装紧贴腰身，在贴身施力中完全展现高贵端庄的柔韧体魄。",
+    "hidden": "随身携带行宫密道古铜主钥匙",
+    "limits": [
+     "夹层空间狭窄无法施展大型杠杆",
+     "必须在十分钟内解除卡阻"
+    ],
+    "obligations": [
+     "保护珍贵典籍完好",
+     "与侍卫长同生共死"
+    ],
+    "resources": [
+     "淬火高碳钢马刺",
+     "纯银古董怀表",
+     "羊皮手记本"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "侍卫长在危急时刻硬扛雪崩震落横梁护住长皇女的伟岸身躯",
+     "贴身施力时对方宽厚胸膛传来的雄浑力量与温热气息"
+    ],
+    "boundaries": [
+     "严守皇家尊严与自尊底线",
+     "出路纯靠机械杠杆自救"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "伏在侍卫长怀侧死角，双手叠于侍卫长手背合力向上顶推马刺柄部。",
+    "dislikes": [
+     "轻浮孟浪",
+     "迟疑推诿"
+    ],
+    "expression": "轻柔递上手帕为侍卫长擦去额角冷汗，温言抚慰并察看对方手掌磨痕。",
+    "likes": [
+     "彼此心领神会的眼神对碰",
+     "滑轮跳回轨道瞬间的清脆金属鸣响"
+    ],
+    "preconditions": [
+     "滑轮成功复位脱扣",
+     "暗门完全推开全员出险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "皇家古建筑学者兼长皇女",
+   "schedule": [
+    {
+     "from": 1050,
+     "location_id": "loc_antique_vault_chamber",
+     "to": 1055
+    },
+    {
+     "from": 1055,
+     "location_id": "loc_lead_lined_door_gap",
+     "to": 1085
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员前臂与手掌承受强烈反力矩压迫造成肌肉酸麻淤青。",
+      "option": "以特制硬钢马刺切入变形槽，双手合力向上扳动顶出偏心销脱扣自救。"
+     },
+     {
+      "cost": "门扇巨大的静摩擦阻力非人力可动，极易拉伤腰肌挫伤手腕。",
+      "option": "强行用力推挤被数百公斤积雪顶死的门扇。"
+     }
+    ],
+    "pressure": "室内热量迅速流失，必须在肢体失去知觉前手动撬开滑轮脱困。",
+    "trigger": "雪崩重压导致古建筑顶梁变形，暗门滑轮咬死在闭合位，极寒迅速入侵。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "室内温度快降到零下了……但侍卫长一直在护着我。拼尽全力，我也一定要帮侍卫长把这扇门撬开！",
+    "surface": "侍卫长，受力点在上导轨第三个偏心凹槽！马刺厚度刚好卡死，顺着切线撬，我们一起用力！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的军官，体格雄健刚毅骁勇，具备极高职业操守与忠诚誓约。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深墨绿双排扣近卫军呢大衣，肩配金线侍卫官肩章，身姿挺拔双臂结实，神情刚毅沉静。",
+    "腰系加厚武装带，佩戴防冻皮手套，在极寒幽暗的夹层死角稳如磐石护住长皇女。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延",
+     "盲目冒进"
+    ],
+    "contrast": "铁血刚毅的近卫侍卫长与端庄典雅的长皇女，在极寒死线前形成强烈反差与紧绷张力。",
+    "core_value": "哪怕粉身碎骨，也定护殿下周全；只要找准杠杆支点，万钧铁门亦当撬开。",
+    "goal_options": [
+     "以马刺精准卡入滑轨死点",
+     "全力向上撬动顶正滑轮"
+    ],
+    "never": [
+     "背弃对殿下的誓死誓言"
+    ],
+    "prefers": [
+     "硬朗扎实的机械力学自救",
+     "毫无保留的生死信赖"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将咬死的滑轮顶回导轨正位。",
+     "high": "双手包覆住长皇女双手，毫无保留爆发全身背阔肌与核心力量上顶。",
+     "low": "在雪崩震顶断电刹那一把将长皇女拉入怀中避开坠落吊灯，沉着安抚对方。",
+     "mid": "伏身狭缝死角指导长皇女调整握持手势，建立稳固反向力臂支点。"
+    },
+    "relationship_stance": "城破那一夜背着长皇女翻过宫墙，三年来守在帐外、门外、马车外，从没跨进过一步。",
+    "withdrawal": "确认暗门开启长皇女安全脱困后方才脱力靠在门框长舒一口气。"
+   },
+   "gender": "male",
+   "gender_reason": "青年近卫侍卫长，精通雪山极端野战自救与重物杠杆破拆。",
+   "id": "sergeant_andrei",
+   "identity": {
+    "authority": "掌控行宫现场防卫、战术破拆与人员营救行动最高现场处置权。",
+    "exposure": "军大衣解开半边露出结实胸膛与贴身皮袄，在近身施力时阳刚气魄完全展现。",
+    "hidden": "随身携带一枚皇家近卫忠诚铜十字徽章",
+    "limits": [
+     "身负护卫殿下重任绝不退缩",
+     "检修夹层狭窄难以施展长力臂工具"
+    ],
+    "obligations": [
+     "保护殿下免受严寒冻伤",
+     "合力打破上导轨机械死锁"
+    ],
+    "resources": [
+     "淬火硬钢马刺（长皇女提供）",
+     "重型不锈钢短手斧",
+     "防风提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "长皇女在万吨雪崩前毫不慌乱、毅然褪下马靴并肩拼命的端庄英气",
+     "紧贴施力时长皇女面颊透出的温润娇红与急促滚烫的吐息"
+    ],
+    "boundaries": [
+     "恪守近卫军人职业操守",
+     "绝无轻慢之意"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "后背抵住夹层石墙，双手握住马刺长柄，由长皇女伏于胸前合力向上撬顶。",
+    "dislikes": [
+     "轻慢女性",
+     "言而无信"
+    ],
+    "expression": "脱险后默默将自身呢大衣披在长皇女微颤的肩头，单膝跪地以手背贴额行效忠礼。",
+    "likes": [
+     "彼此掌心交叠时的沉稳踏实",
+     "同声发力突破难关时的心意共鸣"
+    ],
+    "preconditions": [
+     "全员脱困安全无虞",
+     "暗门推开脱离死角"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "帝国近卫的侍卫长",
+   "schedule": [
+    {
+     "from": 1050,
+     "location_id": "loc_antique_vault_chamber",
+     "to": 1055
+    },
+    {
+     "from": 1055,
+     "location_id": "loc_lead_lined_door_gap",
+     "to": 1085
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌虎口在剧烈金属反冲下产生剧烈震颤与轻度淤血。",
+      "option": "借淬火马刺折沿作为刚性力臂，双手叠合以全身力量向上扳动滑轮脱扣自救。"
+     },
+     {
+      "cost": "厚铅皮与老橡木极其坚韧，手斧必定崩口卷刃，白白耗尽体力。",
+      "option": "用手斧猛砍包铅门板试图砍穿门体。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开暗槽，否则内外积雪冻结将彻底封死生路。",
+    "trigger": "雪崩积雪压顶造成建筑沉降，暗门滑轮死卡，极度严寒侵袭逼近昏迷。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "殿下整个人都在臣怀里……三年了，从来不敢离这么近。手要稳，今晚臣得把殿下完整地带出这扇门。",
+    "surface": "殿下别怕，有臣在！滑轮偏心齿就在轨道内侧，马刺卡进去，臣数三下，一同往上顶！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的学者，具备扎实工程力学知识，冷静严谨。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深棕厚呢工装外披羊毛斗篷，身姿矫健动作敏捷，目光从容镇定。",
+    "手持纯铜测绘尺，腰间佩戴工具袋，在急迫险情下有条不紊精准指挥。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目冒险",
+     "违规操作"
+    ],
+    "contrast": "古典学者与端庄皇女在极寒死角的硬核协作。",
+    "core_value": "任何机械自锁都有杠杆解法，力矩找对，千斤顶也不及合理支点。",
+    "goal_options": [
+     "利用马刺精准撬正偏心滑轮",
+     "协同顶起抱死门扇安全脱困"
+    ],
+    "never": [
+     "在风险未清前让长皇女以身犯险"
+    ],
+    "prefers": [
+     "严谨精准的技术推演",
+     "临危不乱的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "毫不动摇维持发力姿势直至听见滑轮复位的清脆回响。",
+     "high": "在极限死角内以身躯挡住长皇女防止擦伤，合力向上撬推马刺。",
+     "low": "迅速判断滑轨变形死点位于上梁第三处螺栓，明确反向撬动方案。",
+     "mid": "用提灯为长皇女精准标定马刺插入齿槽的角度与深度。"
+    },
+    "relationship_stance": "恪尽职守又深怀体贴，在危险中给予长皇女无可替代的坚实安全感。",
+    "withdrawal": "协助长皇女撤至安全平层后立即设立警示标识。"
+   },
+   "gender": "male",
+   "gender_reason": "皇家营造副总管，熟悉古典建筑沉降与铅包木防爆门受力平衡点。",
+   "id": "civil_engineer_andrei",
+   "identity": {
+    "authority": "掌控行宫受损结构现场勘验与应急支撑方案制定权。",
+    "exposure": "工装服被热汗浸透贴紧胸背，近距离伏卧时散发着阳刚利落的气息。",
+    "hidden": "熟悉行宫地下避难烟道确切方位",
+    "limits": [
+     "受困孤立石室缺乏大型起重千斤顶",
+     "必须依靠现有便携器材完成力矩反推"
+    ],
+    "obligations": [
+     "排查消除石砌大殿次生垮塌风险",
+     "安全护送长皇女脱离死角绝境"
+    ],
+    "resources": [
+     "行宫暗门图纸",
+     "纯铜直尺撬刀",
+     "麂皮防滑手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "长皇女在危机中对力学原理解释的敏锐领悟与毫无迟疑的信赖配合",
+     "彼此贴身协作中长皇女身上淡淡冷香与急促呼吸形成的反差冲击"
+    ],
+    "boundaries": [
+     "严守专业学者职业操守",
+     "君臣礼数分明"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "并肩伏卧于死角狭缝，单手撑住门框保持避险空隙，另一手与长皇女紧握马刺全力撬推。",
+    "dislikes": [
+     "违规蛮干",
+     "自暴自弃"
+    ],
+    "expression": "护送长皇女至壁炉前，微笑着递上干燥毛毯，目光温和坚定。",
+    "likes": [
+     "默契的眼神确认",
+     "手把手校准器械时的体温传递"
+    ],
+    "preconditions": [
+     "完全排除暗门二次坠落风险",
+     "人员无伤撤离"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "皇家建筑营造副总管",
+   "schedule": [
+    {
+     "from": 1050,
+     "location_id": "loc_antique_vault_chamber",
+     "to": 1055
+    },
+    {
+     "from": 1055,
+     "location_id": "loc_lead_lined_door_gap",
+     "to": 1085
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "马刺折沿产生微小磨损，施力人员手臂承受剧烈肌肉酸胀。",
+      "option": "以马刺反撬滑轮并借力矩顶正偏心卡爪，顺势推开暗门自救。"
+     },
+     {
+      "cost": "铜尺抗弯强度不足瞬间弯折损坏，彻底丧失撬具。",
+      "option": "用随身铜尺强行撬动数千磅门板底部。"
+     }
+    ],
+    "pressure": "降温持续威胁核心体温，必须在肌肉冻僵前手动松开滑轨自救。",
+    "trigger": "雪崩重载使拱顶微沉，滑轮深陷轨道齿槽咬死，极寒环境严峻逼人。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要淬火马刺不滑脱，这个反力矩完全足够克服铅门重压……殿下，抓紧我！",
+    "surface": "殿下，滑轮偏心齿就在轨道内侧三寸！马刺折沿刚好能卡进齿隙，听臣数三二一，我们一同向上顶！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的工匠主管，体格健硕神情沉毅，熟悉全部行宫古典构件。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深色加厚羊毛工装衬衫配耐磨皮长裤，双臂青筋隆起，神情沉静坚毅，眼神深邃可靠。",
+    "佩戴皮质工具带，在幽暗严寒的石室死角内从容沉着指挥脱困自救。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿扯皮",
+     "投机取巧"
+    ],
+    "contrast": "深沉强悍的工匠与高贵典雅的长皇女，在极寒死线前形成的强烈反差张力。",
+    "core_value": "一切木石金铁皆有力学破绽，只要找准力矩反支点，千斤大门亦可顶起。",
+    "goal_options": [
+     "利用马刺组装复合撬杠",
+     "合力撬正咬死的滑轮偏心齿"
+    ],
+    "never": [
+     "在重门未开前抛下同伴"
+    ],
+    "prefers": [
+     "硬桥硬马的扎实手艺",
+     "毫无保留的生死协作"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将滑轮顶回导轨正位。",
+     "high": "双手死死握住马刺最外端，以千钧背肌全力向上猛推到底。",
+     "low": "冷静扫视暗门结构，瞬间锁定受力最集中的滑轨死点。",
+     "mid": "护住长皇女身躯，指导其将马刺紧紧卡入受力齿槽。"
+    },
+    "relationship_stance": "视长皇女为值得誓死守护的高贵女子，危难中建立生死莫逆的赤诚信任。",
+    "withdrawal": "确认滑门开启长皇女脱困后，单臂护送长皇女安全撤至中央壁炉。"
+   },
+   "gender": "male",
+   "gender_reason": "行宫特种古建营造大木匠，对黑胡桃木重型暗门与导轨锁钥制作工艺知根知底。",
+   "id": "master_carpenter_andrei",
+   "identity": {
+    "authority": "掌控暗门结构现场破拆与排障最高处置指挥权。",
+    "exposure": "羊毛衬衫被热汗湿透勾勒出雄健背脊，散发着沉稳刚烈的阳刚气概。",
+    "hidden": "掌握行宫暗门夹层平衡重力铅块确切悬吊位置",
+    "limits": [
+     "暴雪封门切断外部机械援助通道",
+     "缺少大型千斤顶只能借助马刺支点"
+    ],
+    "obligations": [
+     "保护殿下免遭严寒冻伤",
+     "确保重门平稳脱离卡阻"
+    ],
+    "resources": [
+     "淬火硬钢马刺",
+     "高强度应急煤油灯",
+     "加厚羊皮防冻手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "长皇女在极寒绝境中不失皇家威严的坚韧端庄魄力",
+     "贴身施力时长皇女温润如玉的身段与柔韧坚毅的发力姿态"
+    ],
+    "boundaries": [
+     "严守君臣分寸",
+     "严守自愿安全原则"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "单臂护在长皇女身前构成安全空隙，另一手与长皇女共同紧握马刺全力上撬。",
+    "dislikes": [
+     "轻浮傲慢",
+     "无端猜忌"
+    ],
+    "expression": "脱险后退后半步躬身递上毛毯，沉声道一句‘殿下受惊了，侍卫长在，没事了’。",
+    "likes": [
+     "彼此心照不宣的眼神对碰",
+     "合力突破死锁瞬间的畅快淋漓"
+    ],
+    "preconditions": [
+     "滑轮彻底复位人员出险",
+     "暗门平稳推开"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "行宫古建营造综合总管",
+   "schedule": [
+    {
+     "from": 1050,
+     "location_id": "loc_antique_vault_chamber",
+     "to": 1055
+    },
+    {
+     "from": 1055,
+     "location_id": "loc_lead_lined_door_gap",
+     "to": 1085
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手臂与手掌肌肉极度酸痛，工具把手产生微量金属疲劳应力。",
+      "option": "以淬火马刺组装复合支点，合力向上猛撬顶出滑轮偏心齿脱扣自救。"
+     },
+     {
+      "cost": "数千磅自重极大极易造成肩关节脱臼骨折，成功率几乎为零。",
+      "option": "强行以身体肩膀向上托举铅包门试图撑开缝隙。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开齿槽，否则低温将使人员丧失肌肉力量。",
+    "trigger": "雪崩导致古董室门梁压沉，滑轮深陷咬死，严寒险情迫在眉睫。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "殿下的身子全靠着我……这股淡雅冷香直往鼻尖里钻。拼了这条命，也绝不让门板出意外！",
+    "surface": "殿下莫慌！这滑门吃的是偏心死扣！马刺咬准了齿缝，我们合力管保将卡死处顶回正槽！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "1867 年，隆冬",
+  "minute": 1050
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "bodily_harm",
+  "substance",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "帝国皇家亲王与长皇女随身佩戴皇家近卫骑兵团特制淬火硬钢防滑马刺。",
+  "雪峰行宫古董室铅铸夹层门上方预留有防贼防震偏心机械锁紧齿槽。",
+  "皇家近卫侍卫官外出护卫随身携带多功能防风火折子与淬火战术手斧。",
+  "帝国古典骑行服配有高密度羊毛衬里与高筒加厚硬质牛皮骑兵马靴。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用麂皮细致擦拭马靴淬火精钢马刺表面油脂与防锈蜡",
+    "检查棘齿外缘折沿与固定铆钉有无松脱或微小形变",
+    "使用硬度试块测试马刺棘爪高刚性受力指标"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_spur_calibration_check",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "start_minute": 1050,
+   "tags": [
+    "workplace"
+   ],
+   "title": "晨间皇家淬火精钢马刺刃口巡检"
+  },
+  {
+   "beats": [
+    "清理滑轨槽口边缘残留的干燥石灰碎屑与陈年润滑脂",
+    "察看偏心棘爪滑轮限位回弹阻尼与卡止行程",
+    "核验顶梁防坠铅块固定钢索的张紧度"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_lead_door_routine_check",
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "start_minute": 1055,
+   "tags": [
+    "workplace"
+   ],
+   "title": "古董收藏室铅包木暗门上滑轨巡查"
+  },
+  {
+   "beats": [
+    "察看透气石窗铁栅外侧积雪堆积厚度与通气量",
+    "使用探针清理阻碍气流的坚硬冰挂与霜壳",
+    "核验室内煤油提灯燃烧火焰颜色判断含氧量"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vault_ventilation_test",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "start_minute": 1060,
+   "tags": [
+    "workplace"
+   ],
+   "title": "石室高处通风换气石窗除雪巡查"
+  },
+  {
+   "beats": [
+    "检查石砌壁炉烟道口是否有雪块坠入堵塞",
+    "点燃耐寒松木段建立行宫主体温差排气对流",
+    "核验备用防雪通道双层木门机械插销闭锁状态"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_lodge_salon_fireplace_patrol",
+   "location_ids": [
+    "loc_hunting_lodge_grand_salon"
+   ],
+   "start_minute": 1065,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "中央大沙龙壁炉烟道抗雪崩巡检"
+  },
+  {
+   "beats": [
+    "长皇女在收藏室里擦拭一只旧日皇宫带出来的银烛台，擦得很慢。",
+    "近卫队长在一旁站着，长皇女说这只烛台曾经放在母后的梳妆台上。",
+    "擦完了，长皇女把烛台放回架上，看了很久。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "hk_atrium_air_pressure_drop",
+    "hk_end_relief_praise",
+    "hook_andrei_door_lamp"
+   ],
+   "id": "act_frostbite_evac_drill",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "start_minute": 900,
+   "tags": [
+    "workplace"
+   ],
+   "title": "收藏室里擦古董"
+  },
+  {
+   "beats": [
+    "长皇女亲自核验古董室正门防盗杠杆锁定状态",
+    "落下上导轨防滑落机械保险插销",
+    "确认平衡配重铅块稳固落入防震支架"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_dusk_lodge_lock_log",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "start_minute": 1075,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "日暮古董室重型铅门安全挂锁"
+  },
+  {
+   "beats": [
+    "马刺顶开死扣、铅门滑回正槽、外面的近卫挖通了雪道之后，长皇女没有回寝宫，只让人在收藏室的旧壁炉里生了火，墨绿的骑马服湿透了，发髻也散了。",
+    "火光里，长皇女背过身，让人一颗颗解开双排扣，把湿冷的外套从肩上褪下，又俯身替长皇女脱下那双少了马刺的马靴，长皇女低头看着，没有喊停。",
+    "长皇女伸手托起对方的下巴：帝国已经没了，本宫也不必再守着君臣的礼……今晚，叫本宫的名字。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vault_fireside_riding_habit",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "收藏室壁炉边替长皇女解开骑马服"
+  },
+  {
+   "beats": [
+    "古董收藏室里，长皇女给旧八音盒上了发条，一支宫廷华尔兹响起来，墨绿骑马服换成了一件旧日的舞会长裙。",
+    "长皇女向人伸出戴着长手套的手：帝国没了，舞还是要跳的。……跳完这一支，我想听你说一个字，好或不好。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vault_last_waltz",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "start_minute": 1240,
+   "tags": [
+    "intimate"
+   ],
+   "title": "收藏室里的最后一支华尔兹"
+  },
+  {
+   "beats": [
+    "壁炉里的松木噼啪作响，长皇女坐在熊皮地毯上，用银勺搅着一壶热红酒，长发散下来垂到腰际。",
+    "长皇女把杯子递过来：复辟的密信不会来了。……我不想再等一封信，我想要一个人，你愿意吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vault_mulled_wine",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "壁炉边的热红酒"
+  },
+  {
+   "beats": [
+    "雪崩后的第三天早晨，阳光照在雪峰上，收藏室的透气石窗白得晃眼，长皇女在毛毯里醒来，枕着人的胳膊。",
+    "长皇女闭着眼说：从前在皇宫，有一百个人叫我起床。……现在只有你，可我一点也不想起。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vault_snow_window",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "雪光里醒来"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "近代欧洲帝国风雪避难所",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_avalanche_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "slot": "princess_helena",
+   "text": "{princess_helena.name}按住胸口急促起伏的墨绿双排扣骑马服，面颊在寒风提灯下冻得微红，毅然从佩靴卸下一枚皇家淬火精钢马刺直指暗门顶梁。"
+  },
+  {
+   "id": "hk_snow_avalanche_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "slot": "princess_helena",
+   "text": "{princess_helena.name}听到外廊雪崩震落横梁的沉闷巨响，在滚烫急喘中咬紧银牙侧身踏上古董箱直面咬死的门顶滑轨。"
+  },
+  {
+   "id": "hk_lead_door_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "slot": "sergeant_andrei",
+   "text": "{sergeant_andrei.name}双臂张开紧贴冰冷门框，以坚实如山的身躯硬生生护住身前长皇女免受上方掉落碎石砸伤，大声提醒殿下看准滑轮偏心齿孔！"
+  },
+  {
+   "id": "hk_track_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "slot": "sergeant_andrei",
+   "text": "{sergeant_andrei.name}反手抽出短手斧木柄垫入轨道下方，用粗糙皮手套牢牢护住马刺锋利硬刃末端防止滑脱，大声喝道就是这个偏心自锁棘爪！"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "slot": "princess_helena",
+   "text": "{princess_helena.name}整个人伏在侍卫长怀前，面庞几乎贴上侍卫长颈侧，滚烫娇喘混合着淡雅冷香在狭小夹层中与侍卫长的雄浑体温猛烈交融。"
+  },
+  {
+   "id": "hk_riding_coat_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "slot": "princess_helena",
+   "text": "{princess_helena.name}羊毛呢骑马装紧绷勾勒出优美身姿，双手毅然越过侍卫长粗壮手腕重叠紧握马刺外柄，合力向上一寸寸奋力顶撬！"
+  },
+  {
+   "id": "hk_spur_notch_flange_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "slot": "princess_helena",
+   "text": "{princess_helena.name}以皇家骑士的端庄果决，将高硬度淬火精钢制成的坚硬马刺折沿，精准别入扭曲滑轨偏心齿的自锁死点。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "slot": "sergeant_andrei",
+   "text": "{sergeant_andrei.name}将随身防冻军用武装带猛然卡入门梁受力缝隙，单臂如铜浇铁铸般撑开避险空隙，大吼道支点已成，殿下只管合力上顶！"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "slot": "princess_helena",
+   "text": "{princess_helena.name}亲手解下领口洁白高贵的丝质领巾，紧紧缠绕在两人满是冷汗的手背与马刺柄部，将两人的手臂力量彻底刚性绞合为一体！"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "slot": "princess_helena",
+   "text": "{princess_helena.name}察觉提灯火苗微弱闪烁将熄，断然喊道光要灭了，立刻随本宫并肩踏上木箱进行最后致命一撬！"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "slot": "sergeant_andrei",
+   "text": "{sergeant_andrei.name}与长皇女齐声发力，后背肌肉如山丘般隆起，将整整两百斤体重与臂力完全倾注于挥动的马刺杠杆末端！"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "slot": "princess_helena",
+   "text": "{princess_helena.name}手心感受到清脆至极的金属巨震，偏心滑轮硬生生被马刺顶脱死锁弹回轨道，数吨重的铅包门板发出轰然松脱巨响！"
+  },
+  {
+   "id": "hk_vault_escape_roll_fresh_air",
+   "kind": "approach",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "slot": "princess_helena",
+   "text": "{princess_helena.name}顺势推开厚重暗门，被侍卫长单臂护住腰肢抱出夹层，两人迎着沙龙壁炉扑面而来的温暖热浪大口喘息，绝境脱困成功！"
+  },
+  {
+   "id": "hk_end_relief_praise",
+   "kind": "approach",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "slot": "princess_helena",
+   "text": "{princess_helena.name}披着侍卫长的军大衣靠在大理石柱旁微微喘息，面颊泛着劫后余生的嫣红，侧过脸轻声对身侧侍卫长道‘卿之忠勇，本宫铭感五内’。"
+  },
+  {
+   "id": "hook_helena_last_waltz",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "princess_helena",
+   "text": "{npc.name}在空荡荡的大沙龙里站定，把手伸过来：宫里的舞会再也开不成了。陪本宫跳完这一支华尔兹，就当帝国还在。"
+  },
+  {
+   "id": "hook_helena_sealed_letter",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "princess_helena",
+   "text": "{npc.name}把一封封着火漆的信递过来，压低声音：复辟派的密信。本宫只信你一个人，替本宫读一读。"
+  },
+  {
+   "id": "hook_helena_riding_boots",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "princess_helena",
+   "text": "{npc.name}坐在壁炉边，把一只沾雪的马靴伸过来：冬狩跑了一天，靴子冻住了。帮本宫脱下来。"
+  },
+  {
+   "id": "hook_helena_mulled_wine",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "princess_helena",
+   "text": "{npc.name}倒了两杯热红酒，把其中一杯推到对面：今晚没有君臣。坐下，陪本宫说说宫墙外面的事。"
+  },
+  {
+   "id": "hook_andrei_door_lamp",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "sergeant_andrei",
+   "text": "{npc.name}提着一盏防风灯守在长皇女的门外，见人过来，往旁边让了半步：殿下还没睡。你若有事，我替你通报。"
+  },
+  {
+   "id": "hook_andrei_sword",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "sergeant_andrei",
+   "text": "{npc.name}坐在马厩边擦着佩剑，头也不抬：城破那一夜，这把剑砍断过三根门闩。想学的话，我教你握剑。"
+  },
+  {
+   "id": "hook_helena_vault_music_box",
+   "kind": "approach",
+   "location_ids": [
+    "loc_antique_vault_chamber"
+   ],
+   "slot": "princess_helena",
+   "text": "{npc.name}站在收藏室门口，手里托着一只旧八音盒：发条上好了。……进来，陪我跳一支。"
+  }
+ ],
+ "id": "princess_lodge_avalanche_spur_lever",
+ "locations": [
+  {
+   "affordances": [
+    "从古董陈列架取下丝绒桌毯垫在地面阻隔刺骨地气",
+    "点燃防风提灯照射暗门滑轨受压扭曲点",
+    "合力靠近暗门缝隙探查外部积雪压迫与冷空气流向"
+   ],
+   "detail": "位于行宫最深处的古典石砌藏宝大殿，四周陈列着厚重的黑胡桃木古董架与大理石雕塑。雪崩断电后整座大殿陷入昏暗，积雪将高处透气石窗彻底封死，刺骨严寒顺着石缝不断渗入，大殿温度已降至零下八度。",
+   "exits": [
+    "loc_lead_lined_door_gap",
+    "loc_hunting_lodge_grand_salon"
+   ],
+   "id": "loc_antique_vault_chamber",
+   "name": "古董收藏室黑胡桃木内殿",
+   "pressure_modifiers": {
+    "p_avalanche_hypothermia_frostbite_surge": "大殿温度随雪崩积雪覆盖持续暴跌，极度严寒使手指知觉逐步丧失。",
+    "p_lead_door_track_crush_jam": "上方承重拱顶受雪崩偏载沉降，将暗门上部重型滑轨压弯深达两公分死死卡死。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "一盏微弱的防风煤油提灯在大理石地面上映出昏黄光晕，能看清殿内空气中弥漫的白茫茫冻气与彼此口鼻呼出的浓厚白雾。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "将长皇女马靴上特制淬火硬钢马刺折沿卡入滑轨变形齿槽",
+    "两人踩在古董木箱上双手重叠握住马刺受力臂全力向上撬动",
+    "在滑轮被杠杆顶脱偏心死点的瞬间顺势合力侧推暗门脱困"
+   ],
+   "detail": "重型铅包厚木防爆滑拉门顶端的检修夹层狭缝，进深仅四十公分。厚达五公分的黑胡桃木门板外裹厚铅皮，顶部高碳钢滑轮深陷在扭曲变形的U型铸铁轨道内，偏心防脱棘爪被百钧重荷死死顶住咬合在死点。",
+   "exits": [
+    "loc_antique_vault_chamber"
+   ],
+   "id": "loc_lead_lined_door_gap",
+   "name": "暗门导轨夹层",
+   "pressure_modifiers": {
+    "p_close_contact_body_heat_tension": "在四十公分狭小夹层中两人身躯紧紧相贴，长皇女高贵端庄的急促呼气拂在耳畔，羊毛大衣下的柔软体温成为严寒中唯一的生机。",
+    "p_lead_door_track_crush_jam": "数千磅铅包木门自重与上部雪压合力叠加，反向杠杆扭矩极其沉重。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "提灯火光从下方斜照而上，铸铁导轨上剥落的黑色漆皮与淬火钢齿咬死的划痕清晰可见。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "通过暗门通风孔向内递送撬棍与备用火把",
+    "在外侧清理压在门缝下沿的细碎浮雪与碎石",
+    "引燃中央壁炉建立温度屏障迎接皇女脱险"
+   ],
+   "detail": "行宫主体建筑的中央大沙龙，高耸的石砌壁炉虽已熄火但烟道通畅，一侧拱门连接着通往山下安全避难所的备用防雪通道。外廊虽被积雪压塌，但此处地质结构依然稳固。",
+   "exits": [
+    "loc_antique_vault_chamber"
+   ],
+   "id": "loc_hunting_lodge_grand_salon",
+   "name": "壁炉大沙龙",
+   "pressure_modifiers": {
+    "p_avalanche_hypothermia_frostbite_surge": "外侧仆从缺乏大型起重工具，无法单凭人力从外部拉开数吨重的铅包滑拉门。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "从暗门缝隙透出的微光与烟道微光微弱相连，地面散落着避难毯与储备干柴。",
+   "witnesses": [
+    "bg_head_butler_karl",
+    "bg_royal_maid_elsa",
+    "bg_veteran_sergeant_otto"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "霍亨索伦",
+   "哈布斯堡",
+   "罗曼诺夫",
+   "萨克森",
+   "巴伐利亚",
+   "符腾堡",
+   "温莎",
+   "奥尔良",
+   "波旁",
+   "汉诺威",
+   "黑森",
+   "巴登",
+   "拿骚",
+   "霍尔斯坦"
+  ],
+  "given_female": [
+   "海伦娜",
+   "维多利亚",
+   "夏洛特",
+   "阿德莱德",
+   "伊丽莎白",
+   "索菲亚",
+   "卡罗琳",
+   "玛格丽特",
+   "安娜贝尔",
+   "艾米莉",
+   "路易丝",
+   "奥古斯塔",
+   "特蕾莎",
+   "塞西莉"
+  ],
+  "given_male": [
+   "安德烈",
+   "弗朗茨",
+   "威廉",
+   "亚历山大",
+   "格奥尔格",
+   "克里斯",
+   "海因里希",
+   "利奥波德",
+   "费迪南",
+   "爱德华",
+   "马克西",
+   "恩斯特",
+   "阿道夫",
+   "尤利乌斯"
+  ],
+  "given_neutral": [
+   "克莱尔",
+   "奥古斯特",
+   "瓦尔特",
+   "康拉德",
+   "阿尔伯特",
+   "尤金",
+   "路易",
+   "马克西姆",
+   "雷蒙德",
+   "弗洛里安",
+   "马里恩",
+   "达利安",
+   "莱昂",
+   "特里斯坦"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留阿尔卑斯雪峰行宫万吨雪崩、古董收藏室铅包暗门导轨压弯咬死与长皇女用骑兵马靴淬火马刺顶开偏心死扣的骨架。同一批有六个同模板的世界，这里拉开的方向是亡国与君臣之礼：帝国覆灭后第三个冬天、等不来的复辟密信、流亡晚宴仍按旧礼排座次、空沙龙里的最后一支华尔兹，搭档写成城破那夜背着长皇女翻过宫墙的近卫侍卫长。写死的人名改为身份称呼；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；长皇女亲密前提写明脱困之后、双方清醒自愿；新增一个收藏室壁炉边替长皇女解开骑马服的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的皇家近卫侍卫官，精通雪崩应急野战破拆与重型机械力矩撬运，忠诚强健。",
+   "gender": "male",
+   "id": "pi_guardsman_andrei",
+   "reputation": "多次在边境雪原与要塞遇险中挽救皇室成员，行事沉毅果敢深受长皇女信任。",
+   "resources": [
+    "一双帝国制式高筒硬牛皮军靴配淬火精钢马刺",
+    "一柄加厚重型不锈钢战术短手斧",
+    "防风铜壳防水火绒筒与高亮度防风提灯"
+   ],
+   "risks": [
+    "若不能在夹层空气被严寒冻透前撬开滑轨，持续低温与缺氧将导致两人冻伤截肢乃至失温昏迷。"
+   ],
+   "role": "帝国皇家近卫第一步骑兵团青年侍卫长",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}侍卫长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}卿"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}长官"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的皇家建筑营造学者，亲手测绘过雪峰行宫古董收藏室暗门滑轨图纸。",
+   "gender": "male",
+   "id": "pi_court_architect_andrei",
+   "reputation": "熟知行宫各处密道与防爆门的力学机关结构，遇事冷静严谨。",
+   "resources": [
+    "行宫古董室暗门双向联动偏心滑轮测绘蓝图",
+    "一支加厚纯铜直尺兼刻线撬刀",
+    "一副加厚防冻麂皮工装防滑手套"
+   ],
+   "risks": [
+    "暗门上方重力铅块若平衡失调可能直接垂直下砸封死全部逃生缝隙。"
+   ],
+   "role": "皇家行宫建筑营造青年副总管",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}总管"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工正"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}建筑师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的帝国青年机要大臣，在政变与雪灾危局中始终坚定护卫长皇女。",
+   "gender": "male",
+   "id": "pi_imperial_regent_aide_andrei",
+   "reputation": "文武兼备的年轻重臣，在雪岭绝境中展现出非凡的沉着与臂力。",
+   "resources": [
+    "纯钢制内阁印玺（印体为实心硬质精钢具备极高平整度）",
+    "特制防风铜壳高山指南针与测压计",
+    "一件双层防风加厚羊绒军大衣"
+   ],
+   "risks": [
+    "暗门外走廊持续低温渗风将加速带走人体核心热量。"
+   ],
+   "role": "帝国执政内阁青年机要参事官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}参事"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}卿"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}参事官"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的山地巡护猎手，精通雪崩后建筑雪压传导与重物杠杆撬正法则。",
+   "gender": "male",
+   "id": "pi_alpine_huntsman_andrei",
+   "reputation": "在暴雪与雪崩搜救中屡立奇功，熟悉行宫周边山体走势与避难通道。",
+   "resources": [
+    "硬化钢雪地防滑登山冰爪",
+    "一盘特种高强度编织防冻马鬃缆绳",
+    "一柄硬质锋利剥皮猎刀"
+   ],
+   "risks": [
+    "单人力量难以撬动重达数千磅的铅包木防爆门，必须完美协作发力。"
+   ],
+   "role": "阿尔卑斯皇家猎场首席青年巡山向导",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}向导"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}猎长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}猎手"
+    }
+   ]
+  }
+ ],
+ "premise": "帝国覆灭后的第三个冬天，流亡的长皇女带着最后一队近卫，躲在阿尔卑斯雪峰上的旧日行宫里，等一封复辟密信。白天清点古董收藏、给近卫训话，夜里在壁炉边读旧报纸。行宫的外廊年久失修，山上的积雪一天比一天厚。",
+ "pressures": [
+  {
+   "choice": "是冒险利用马刺强行撬动滑轨，还是在严寒大殿中等待外部仆从挖雪救援？",
+   "exits": [
+    {
+     "cost": "马刺棘爪受力微磨损，两人手掌手臂受冰冷金属严重冻红擦伤。",
+     "option": "两人合力以淬火精钢马刺向上顶动偏心滑轮撬脱死锁自救脱困。"
+    },
+    {
+     "cost": "极其被动，外部积雪数米深救援耗时过长将直接导致失温冻死。",
+     "option": "裹紧大衣蜷缩在古董架旁被动等待救援。"
+    }
+   ],
+   "far": {
+    "consequence": "受困人员因重度低体温症心肺功能衰竭，在严寒石室内双双冻毙身亡。",
+    "due_days": 1,
+    "trigger": "极度低温诱发深度失温心肺衰竭"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_avalanche_hypothermia_frostbite_surge",
+   "immediate": {
+    "minutes": 2,
+    "text": "刺骨寒风从门缝尖啸灌入，口鼻呼出的水汽瞬间结霜，手指冰冷刺痛近乎失去知觉。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_antique_vault_chamber",
+    "loc_lead_lined_door_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "室内温度跌破零下十度，长皇女嘴唇冻得发紫，呼吸急促虚弱，思维逐渐迟缓。"
+   },
+   "objective": "必须在严重失温导致昏迷前，用淬火精钢马刺撬脱滑轨推开暗门自救。",
+   "source": "nature",
+   "start_minute": 1050,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "极寒雪崩断电失温冻伤危机",
+   "trigger": "雪崩积雪填平透气窗，断电石室内温度降至零下八度，极度严寒引发肢体麻木失温危局。"
+  },
+  {
+   "choice": "是单人使用随身短刀尝试剔撬，还是两人身躯紧密相贴合力向上扳动精钢马刺？",
+   "exits": [
+    {
+     "cost": "工具把手产生微小塑性形变，施力人员手臂酸麻。",
+     "option": "以手斧木柄护垫构成刚性防滑支点，叠合双手全力托紧马刺向上撬动。"
+    },
+    {
+     "cost": "硬质撞击导致铸铁槽口崩裂，彻底堵死自救通道。",
+     "option": "用工具盲目砍砸咬死的滑轮部件。"
+    }
+   ],
+   "far": {
+    "consequence": "导轨彻底被压垮咬死，暗门成为永久无法开启的冰冷墓门。",
+    "due_days": 1,
+    "trigger": "滑轨彻底被压折滑轮咬死断裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_lead_door_track_crush_jam",
+   "immediate": {
+    "minutes": 2,
+    "text": "沉重铅包门被咬死在凹槽内，偏心滑轮在数千磅重压下纹丝不动阻尼极沉。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "上部沉降继续扩大，滑轨变形加深，手动撬动复位的窗口极速关闭。"
+   },
+   "objective": "在导轨彻底被上部重力压折断前，以淬火精钢马刺撬脱偏心棘爪恢复滑轮平移自救。",
+   "source": "accident",
+   "start_minute": 1050,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "暗门上导轨受压变形偏心咬死",
+   "trigger": "雪崩积雪压迫使行宫上部拱梁沉降，暗门高碳钢滑轮深陷在扭曲变形槽内，偏心棘爪卡死在死点。"
+  },
+  {
+   "choice": "是因君臣礼法矜持拉开距离导致施力分散，还是坦然贴身相拥爆发出最大协同扭矩？",
+   "exits": [
+    {
+     "cost": "矜持君臣防线被彻底打破，两人心灵产生不可磨灭的深厚依恋。",
+     "option": "抛弃一切杂念，长皇女伏于侍卫长怀前双手重叠紧握马刺一鼓作气突破自救。"
+    },
+    {
+     "cost": "力矩不足无法撼动偏心棘齿，导致自救彻底失败。",
+     "option": "刻意保持距离单手侧向发力。"
+    }
+   ],
+   "far": {
+    "consequence": "马刺滑出齿槽，错过最后撬动自救时间窗导致人员彻底冻僵。",
+    "due_days": 1,
+    "trigger": "羞怯分心导致发力失衡工具脱落"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_close_contact_body_heat_tension",
+   "immediate": {
+    "minutes": 2,
+    "text": "长皇女修身骑装传来的温热体温透过布料传递，急促滚烫的吐息直接拂在耳侧颈项。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "长皇女的呼吸乱了，冰凉的脸颊贴在颈边，帝国的礼数被心跳撞得七零八落。"
+   },
+   "objective": "在极度贴近的肢体接触与异性张力冲击下，克制心神专注机械对位发力。",
+   "source": "person",
+   "start_minute": 1050,
+   "tags": [
+    "workplace"
+   ],
+   "title": "暗门夹层贴身相依滚烫喘息",
+   "trigger": "两人被迫同时挤在不足四十公分的夹层狭缝，厚羊毛大衣紧贴，严寒中温热体温与急促喘息剧烈交叠。"
+  },
+  {
+   "choice": "是冒险就地撬门，还是退回大殿避开铅块？",
+   "exits": [
+    {
+     "cost": "全力投入撬门无暇顾及自身擦伤，承受巨大紧迫心理压力。",
+     "option": "两人贴面眼神交汇瞬间爆发全身力量一击撬脱滑轨拉开大门自救脱离。"
+    },
+    {
+     "cost": "失去最后靠近门轨的自救机会，被困大殿直至冻死。",
+     "option": "退回大殿被动躲避坠落。"
+    }
+   ],
+   "far": {
+    "consequence": "数千磅铅块重重砸在门缝处，彻底封死通道并将地面砸毁垮塌。",
+    "due_days": 1,
+    "trigger": "平衡铅块钢索崩断垂直坠落砸下"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_lead_counterweight_cable_snap",
+   "immediate": {
+    "minutes": 2,
+    "text": "上方悬吊钢索发出尖锐金属摩擦声，沉重铅块在两人头顶微微倾斜摇晃。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "钢索外层出现细微断丝，铅块下坠数寸，留给撬门的时间所剩无几。"
+   },
+   "objective": "必须在平衡铅块脱索砸落前完成马刺卡齿撬正并拉开门扇撤离。",
+   "source": "accident",
+   "start_minute": 1050,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "门顶防爆平衡铅块脱轨悬吊",
+   "trigger": "上部雪震导致数百磅平衡铅块在悬吊钢索上剧烈晃动，随时可能坠落封死门缝。"
+  },
+  {
+   "choice": "是忍痛咬牙紧扣工具，还是分神活动肢体调整重心？",
+   "exits": [
+    {
+     "cost": "身体摩擦加剧，肌肤泛起大片淤青擦痕。",
+     "option": "长皇女与侍卫长互相用双靴死死别住彼此脚跟稳固重心合力上撬自救。"
+    },
+    {
+     "cost": "偏心滑轮在重压下再度深陷变形咬死。",
+     "option": "暂停撬动后撤舒展肢体。"
+    }
+   ],
+   "far": {
+    "consequence": "马刺被反弹力强行震飞，彻底失去最后撬动机会。",
+    "due_days": 1,
+    "trigger": "双脚打滑彻底失去反向支撑力矩"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_frost_glazed_floor_slip_hazard",
+   "immediate": {
+    "minutes": 2,
+    "text": "光滑冰面使靴底摩擦力急剧下降，双膝在发力时连连微滑。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_lead_lined_door_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "持续静力发力使小腿肌肉发生剧烈震颤，下踩支撑力濒临极限。"
+   },
+   "objective": "克服双脚打滑与足部严寒麻木，保持稳定反向杠杆平衡发力姿态。",
+   "source": "nature",
+   "start_minute": 1050,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "夹层石阶结冰霜结打滑失稳",
+   "trigger": "严寒导致渗入的雪水在石阶上冻结成光滑薄冰，两人垫脚发力极易打滑脱空。"
+  },
+  {
+   "choice": "是立即加大力度一鼓作气扳动马刺，还是等待调整火芯再行操作？",
+   "exits": [
+    {
+     "cost": "身心极度疲惫，手臂肌肉严重拉伤酸痛。",
+     "option": "趁着最后一抹灯光，双手重叠倾注全力将马刺向上猛扳顶脱卡死自救。"
+    },
+    {
+     "cost": "冻僵手指打翻提灯引发燃油挥发，彻底丧失光源。",
+     "option": "分心尝试摸黑添加灯油。"
+    }
+   ],
+   "far": {
+    "consequence": "石室内完全陷入极寒死黑，无法目视对位机械零件彻底丧失逃生可能。",
+    "due_days": 1,
+    "trigger": "煤油燃尽提灯彻底熄灭陷入黑暗"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_antique_lantern_oil_exhaustion",
+   "immediate": {
+    "minutes": 2,
+    "text": "昏黄提灯火苗缩如豆大，四周阴森石壁逐渐被黑暗吞噬。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_antique_vault_chamber",
+    "loc_lead_lined_door_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "火苗剧烈跳动，灯油即将彻底燃尽，微弱光芒仅能照亮马刺尖端。"
+   },
+   "objective": "在光芒彻底熄灭前，准确卡入马刺折沿并合力撬开暗门。",
+   "source": "nature",
+   "start_minute": 1050,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "防风煤油提灯火苗渐微将熄",
+   "trigger": "提灯煤油在严寒下流动性降低且燃料将尽，灯光昏暗闪烁，面临陷入绝对死黑绝境。"
+  },
+  {
+   "choice": "签字换近卫们一条生路，还是卖掉收藏室里的古董，再撑一个冬天",
+   "exits": [
+    {
+     "cost": "长皇女从此只是一个没有名号的流亡女人",
+     "option": "签字"
+    },
+    {
+     "cost": "那些都是父皇留下的东西，买家要侍卫长亲自押送下山",
+     "option": "卖掉收藏室的古董"
+    }
+   ],
+   "far": {
+    "consequence": "宪兵上山，近卫们以叛乱罪论处，长皇女被押回首都受审",
+    "due_days": 14,
+    "trigger": "雪化"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_helena_last_waltz",
+    "hook_helena_riding_boots",
+    "hook_helena_mulled_wine",
+    "hook_andrei_door_lamp",
+    "hook_andrei_sword"
+   ],
+   "id": "p_republic_envoy",
+   "immediate": {
+    "minutes": 10,
+    "text": "卡尔大管家把特使引进壁炉大沙龙，特使的靴子还在滴雪水"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hunting_lodge_grand_salon"
+   ],
+   "near": {
+    "deadline_minutes": 1260,
+    "text": "明早天亮，特使下山"
+   },
+   "objective": "在特使下山之前，给出一个回答",
+   "source": "person",
+   "start_minute": 600,
+   "tags": [],
+   "title": "共和国的特使",
+   "trigger": "雪崩过后第三天，山下的共和国派来一位特使，踩着积雪上了行宫：只要长皇女签字放弃复辟，近卫们都能拿到通行证，否则雪化以后上山的就是宪兵"
+  }
+ ],
+ "region": "阿尔卑斯雪峰行宫古董收藏室暗门铅铸夹层",
+ "rules": [
+  {
+   "id": "r_lodge_avalanche_weight_limit",
+   "text": "行宫外廊已被万吨雪崩彻底填平，严禁盲目向外砸穿外墙引发雪崩二次倒灌。"
+  },
+  {
+   "id": "r_lead_wood_door_track_leverage",
+   "text": "铅包厚木防爆滑拉门顶梁咬死后只能通过淬火钢件卡入滑轨偏心齿反向撬动平移。"
+  },
+  {
+   "id": "r_hypothermia_shelter_protocol",
+   "text": "极寒环境中严禁随意解开具有防风阻寒功能的双层羊毛骑兵呢大衣与贴身皮袄。"
+  },
+  {
+   "id": "r_adult_mechanical_escape_standard",
+   "text": "脱困全凭物理力学与机械自救，一切互动严守成年自愿与安全防护原则。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "共御雪灾",
+  "committed": "相守终生",
+  "familiar": "誓死相随",
+  "flirting": "贴身取暖",
+  "intimate": "倾心不离",
+  "stranger": "君臣之防",
+  "testing": "生死同命"
+ },
+ "status": "released",
+ "style_hint": "帝国古典宫廷与高寒雪灾结合的严谨工笔，刻画暴雪封门下的绝对低温窒息危机、沉重铅包木暗门导轨受力变形咬死细节，典雅长皇女古典骑马服在近身施力发力时的紧绷身段与端庄面庞的冷汗娇喘，动作硬核写实充满古典骑士精神。",
+ "tension_engines": [
+  {
+   "id": "te_avalanche_hypothermia_frostbite_surge",
+   "text": "石室内温度跌至零下八度，暴风雪呼啸渗透，极度极寒引发失温休克危局。"
+  },
+  {
+   "id": "te_lead_door_track_crush_jam",
+   "text": "万吨积雪压顶使拱梁微沉，铅包木防爆门滑轮咬死在偏心棘齿死点无法平移。"
+  },
+  {
+   "id": "te_close_contact_body_heat",
+   "text": "在四十公分狭小夹层中两人完全贴伏，湿透骑装与大衣体温催生极度异性张力。"
+  },
+  {
+   "id": "te_lead_counterweight_drop_hazard",
+   "text": "门顶暗槽平衡重力铅块因震颤发生位移，稍有不慎可能瞬间脱轨砸落彻底封死生路。"
+  }
+ ],
+ "title": "帝国长皇女·雪崩行宫古董收藏室暗门",
+ "tone": [
+  "流亡第三年的旧日行宫",
+  "等不来的复辟密信",
+  "雪崩压顶后咬死的铅门",
+  "暗门夹层里湿透的骑马服"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_spur_flange_slot_located",
+   "requires": [
+    "princess_helena"
+   ],
+   "text": "{princess_helena.name}借提灯微弱火光，在扭曲的滑轨夹缝深处准确定位出咬死滑轮偏心棘爪的微小受力孔槽。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_lead_door_counterweight_groan_alarm",
+   "requires": [
+    "princess_helena"
+   ],
+   "text": "{princess_helena.name}听到悬吊重力铅块发出沉重金属呻吟，整条横梁微沉，面庞上映出冷峻决意。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_axe_handle_chock_safety",
+   "requires": [
+    "sergeant_andrei"
+   ],
+   "text": "{sergeant_andrei.name}从腰间抽出短手斧，用硬木斧柄死死塞入门框边缘下方，彻底构筑起刚性防滑落安全支撑间隙。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_silk_scarf_bind_tight",
+   "requires": [
+    "princess_helena",
+    "sergeant_andrei"
+   ],
+   "text": "{princess_helena.name}解下蕾丝领巾，由{sergeant_andrei.name}迅速将马刺把手与手掌紧密捆扎，消除了严寒手滑脱落隐患。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_frostbite_alarm_final_minute_rush",
+   "requires": [
+    "princess_helena"
+   ],
+   "text": "石室内温度骤降逼近绝对冰点，提灯火苗即将彻底耗尽，生死死线已逼近最后生理极限。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_close_body_tight_bind_leverage",
+   "requires": [
+    "princess_helena",
+    "sergeant_andrei"
+   ],
+   "text": "{sergeant_andrei.name}在暗门夹层紧紧护住{princess_helena.name}，两人滚烫手指紧握硬钢马刺，急促滚烫的吐息与心跳在幽暗中彻底交叠。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_spur_lever_release_success",
+   "requires": [
+    "princess_helena"
+   ],
+   "text": "伴随一声震耳欲聋的金属回弹巨响，淬火精钢马刺成功顶脱偏心棘爪，滑轮滑回主轨，两人合力推开沉重铅门顺利脱险自救。"
+  }
+ ]
+}

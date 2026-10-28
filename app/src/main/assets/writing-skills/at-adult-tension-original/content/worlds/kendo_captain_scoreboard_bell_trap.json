@@ -1,0 +1,2343 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "执裁二十年的成年剑道副裁判，负责决胜台的开赛秩序。",
+   "age_range": [
+    58,
+    58
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_umpire_liang_ting_feng",
+   "line": "秒表仅剩最后十秒，请双方参赛主将立刻入场！",
+   "location_ids": [
+    "loc_arena_center_tatami_platform",
+    "loc_umpire_judging_seat_front"
+   ],
+   "name": "老吴",
+   "role": "副裁判"
+  },
+  {
+   "adult_context": "实业团保障员年满三十一岁成年，负责队旗视线阻隔与备用器械交接。",
+   "age_range": [
+    31,
+    31
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_assistant_su_xiao_he",
+   "line": "前辈放心，队旗我拉得严严实实，外人一眼都瞧不见！",
+   "location_ids": [
+    "loc_arena_center_tatami_platform",
+    "loc_scoreboard_winch_corridor_edge",
+    "loc_athletes_tunnel_screen_corner"
+   ],
+   "name": "阿禾",
+   "role": "实业团替补队员"
+  },
+  {
+   "adult_context": "测控工程应届生年满二十三周岁，持特种维保执业证，巡视吊装平衡。",
+   "age_range": [
+    23,
+    23
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_tech_tang_ming_yue",
+   "line": "卡死的是自锁棘爪，用纯钢卡销向斜下方挑开卡块！",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge",
+    "loc_umpire_judging_seat_front",
+    "loc_athletes_tunnel_screen_corner"
+   ],
+   "name": "小柯",
+   "role": "吊架值班技工"
+  },
+  {
+   "adult_context": "依法成年执勤安保专员，佩戴胸卡维持通道隔离线肃静严谨。",
+   "age_range": [
+    24,
+    24
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_arena_security_officer",
+   "line": "通道隔离线内保持肃静，无关人员退至白线以外！",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge",
+    "loc_athletes_tunnel_screen_corner"
+   ],
+   "name": "巡场特勤",
+   "role": "赛场巡回特勤安保员"
+  },
+  {
+   "adult_context": "持证成年融媒体摄影记者，负责擂台中央开赛高清画面捕捉。",
+   "age_range": [
+    23,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_telephoto_press_camera",
+   "line": "主将登台倒数归零了，转播机位准备抓拍王者特写！",
+   "location_ids": [
+    "loc_arena_center_tatami_platform"
+   ],
+   "name": "转播记者",
+   "role": "官方转播长焦摄影师"
+  },
+  {
+   "adult_context": "体育运营毕业年级届满三十周岁，依法享有完全责任能力，统筹通道安保动线。",
+   "age_range": [
+    30,
+    30
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_deputy_director_zhou_yi",
+   "line": "通道两侧保持绝对畅通，任何媒体不得越过警戒线！",
+   "location_ids": [
+    "loc_athletes_tunnel_screen_corner",
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "name": "阿鸣",
+   "role": "检录处值班员"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "女工程师在立柱后的每一声冷静力学参数提示，皆化作主将指尖纯钢卡销破拆的定海神针；主将前襟紧绷的每一下起伏，皆牵动着女工程师心头最紧绷的技术守护。",
+   "id": "combo_captain_and_engineer_trust",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "kendo_captain_gu_ling_xuan",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在台口密切注视主将纯钢卡销破拆进展并协同提供力学支点指引。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "tech_director_tang_ming_yue",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "同为保障赛事顺利进行的核心人员保持绝对战术配合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "kendo_captain_gu_ling_xuan",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "tech_director_tang_ming_yue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "台前幕后患难见真章的顶尖搭档，眼神交汇便明力学玄机。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "kendo_captain_gu_ling_xuan",
+    "tech_director_tang_ming_yue"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保赛场公用设备安全受控且王牌女主将完美从容破拆登台。",
+    "limit_gap": "裁判长步步逼近的严苛读秒与胸前纯银乳铃受拉微颤的极限拉锯",
+    "meeting_reason": "总决赛开赛前夕大太鼓吊索升降校准确认。",
+    "resource_gap": "工程师对特种吊装设备与滑轮自锁特性的绝对了然与滑轮两毫米微观物理自救空间的巨大反差"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_scoreboard_pulley_uniform_jam",
+    "eng_chief_umpire_twenty_second_rush"
+   ]
+  },
+  {
+   "chemistry": "学妹两米加厚队旗的决绝阻隔与主将沉着自救的侧颜交织，空气中充斥着绝处逢生的队友死守默契。",
+   "id": "combo_captain_and_assistant_shield",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "kendo_captain_gu_ling_xuan",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "在极度危难中全力协助主将维持视线死角。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "team_substitute_su_xiao_he",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "并肩守护实业团荣誉与主将清白。",
+     "stage": "familiar"
+    },
+    {
+     "a": "kendo_captain_gu_ling_xuan",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "team_substitute_su_xiao_he",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "生死相托的挚友队友，无声默契坚不可摧。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "kendo_captain_gu_ling_xuan",
+    "team_substitute_su_xiao_he"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在不惊动全场数万名观众的前提下悄无声息消弭这场社死风暴。",
+    "limit_gap": "裁决长稳步迈进的无情压迫与受困主将绝境中的超常冷静应变",
+    "meeting_reason": "候场检录时突发道袍前襟系绳绞入滑轮死角之意外险情。",
+    "resource_gap": "队旗的大幅面正面遮蔽与竹刀纯钢卡销的微观力学破拆自救"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_kimono_collar_strain_tear_panic",
+    "eng_scoreboard_pulley_uniform_jam"
+   ]
+  },
+  {
+   "chemistry": "严苛宗师级老裁判长的秒表威压与成年三连冠女主将的傲骨抗衡，在擂台台口碰撞出窒息般的竞技张力。",
+   "id": "combo_umpire_vs_captain_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 3
+     },
+     "b": "kendo_captain_gu_ling_xuan",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 3
+     },
+     "reason": "在裁判长威严凝视下见证主将绝境自救。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "chief_umpire_liang_ting_feng",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "承受来自终审执裁官的铁血规程威压。",
+     "stage": "stranger"
+    },
+    {
+     "a": "kendo_captain_gu_ling_xuan",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 3
+     },
+     "b": "chief_umpire_liang_ting_feng",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 3
+     },
+     "reason": "武者傲骨与规程铁壁的正面对决。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "kendo_captain_gu_ling_xuan",
+    "chief_umpire_liang_ting_feng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在裁判长哨音吹响前的最后一秒合规踏上擂台行礼。",
+    "limit_gap": "二十秒刚性倒计时与道服前襟撕裂边缘的极限博弈",
+    "meeting_reason": "总决赛开赛鸣哨前最后的入场秩序核验。",
+    "resource_gap": "裁判长手握取消参赛资格红牌与主将仅凭两毫米卡销自救的极端悬殊"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_chief_umpire_twenty_second_rush",
+    "eng_telephoto_lenses_scrutiny_dread"
+   ]
+  },
+  {
+   "chemistry": "老派严厉执裁者与敏锐干练女工程师在通道前形成的专业对峙，以器械安全为由为选手筑起最后缓冲。",
+   "id": "combo_umpire_vs_engineer_clash",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "chief_umpire_liang_ting_feng",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "配合工程师以合规方式向裁判长报备现场设备状态。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "tech_director_tang_ming_yue",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "坚决执行工程安全保障防线。",
+     "stage": "familiar"
+    },
+    {
+     "a": "chief_umpire_liang_ting_feng",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "tech_director_tang_ming_yue",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "裁判长对技术部门突发状况的苛刻审视。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "chief_umpire_liang_ting_feng",
+    "tech_director_tang_ming_yue"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "为主将争取宝贵的最后十秒自救窗口。",
+    "limit_gap": "准点鸣哨开赛要求与排查机械夹阻的客观现实拉锯",
+    "meeting_reason": "工程师察觉滑轮异动后提醒裁判长注意特种设备安全边界。",
+    "resource_gap": "现场技术总控设备安全权与终审裁判规程权威的正面交锋"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_telephoto_lenses_scrutiny_dread",
+    "eng_chief_umpire_twenty_second_rush"
+   ]
+  },
+  {
+   "chemistry": "玻璃解说席上激昂澎湃的名嘴点评与擂台台口主将冷峻如霜的自救侧颜交相辉映，声画拉扯烘托极致高潮。",
+   "id": "combo_host_and_captain_spotlight",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "kendo_captain_gu_ling_xuan",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "注视着王者主将从阴影迈向聚光灯的高光转变。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "arena_broadcast_host_zhao_yun",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "认可解说员高超的应变控场艺术。",
+     "stage": "familiar"
+    },
+    {
+     "a": "kendo_captain_gu_ling_xuan",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "arena_broadcast_host_zhao_yun",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "竞技巨星与专业传媒名嘴之间的隔空致敬。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "kendo_captain_gu_ling_xuan",
+    "arena_broadcast_host_zhao_yun"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在千万观众眼前定格女主将英武不凡的登顶神级画面。",
+    "limit_gap": "全国直播千万视线的聚焦与选手隐秘配件濒临失守的凶险博弈",
+    "meeting_reason": "总决赛开播巅峰介绍与选手登台特写切换。",
+    "resource_gap": "全场公频转播话筒引导权与台口选手方寸之间微观脱困的明暗对比"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_telephoto_lenses_scrutiny_dread",
+    "eng_kimono_collar_strain_tear_panic"
+   ]
+  },
+  {
+   "chemistry": "在武道馆台口方寸极限空间内，主将呼吸如兰眼神若冰，以超越常理的沉稳机智完成绝处逢生的破拆传奇。",
+   "id": "combo_captain_and_player_breakout",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "kendo_captain_gu_ling_xuan",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "在极度危机中以无声默契结下的患难敬重之约。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "kendo_captain_gu_ling_xuan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在秒表跳归零点的刹那助主将重获自由从容登台成就绝世高光。",
+    "limit_gap": "数万名观众注视下的绝对隐秘自救要求不得产生半丝突兀失态",
+    "meeting_reason": "全国锦标赛天王山决战在卷扬机死角结成的生死考验。",
+    "resource_gap": "主将受制于滑轮死锁而周围具备微薄的器械杠杆自救支点"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_scoreboard_pulley_uniform_jam",
+    "eng_kimono_collar_strain_tear_panic"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_arena_public_pa_system",
+   "reach": "全场数万名观众、转播机位、解说台与赛场主擂台",
+   "text": "武道馆大屏环绕扩音公频广播"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_referee_official_intercom",
+   "reach": "裁判长、现场终审委员会与边裁耳麦",
+   "text": "全国剑道联盟执裁专用加密对讲"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_team_tactical_walkie_line",
+   "reach": "后勤队友后勤耳麦、候场区备用对讲机与女工程师测控端",
+   "text": "实业团后勤备用对讲私密通信"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "体育学院毕业后加入实业团剑道队，打了七年全国赛，这届女子团体的主将，比赛之外穿什么、戴什么、跟谁亲近都由本人拿主意。",
+   "age_range": [
+    25,
+    28
+   ],
+   "appearance_options": [
+    "英气明艳鹅蛋脸颊，五官精致立体，热身后两颊泛着天然诱人酡红，留存少许紧致微婴儿肥与水润胶原蛋白反差娇嫩，星眸清澈明亮，额角沁着晶莹汗珠。",
+    "高挑匀称沙漏身段，深绀色高支纯棉剑道稽古服上衣与百褶袴裤，内衬暗红纯黑真皮漆木胴甲贴身护胸，前胸暗系纯银细链响铃，执握四片桂竹竹刀。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目猛拽导致道袍彻底扯破分崩离析",
+     "在候场通道发出失态惊呼",
+     "被裁判组以此借口当众判罚弃权"
+    ],
+    "contrast": "平时看似阳光明媚的元气女主将，面对灭顶走光危机时指尖却展现出极其惊人的机械冷酷与微观杠杆魄力。",
+    "core_value": "誓死捍卫剑道武者清白与王者风骨，绝不向任何人求救，纯靠过人定力与微观机械智慧自救脱困。",
+    "goal_options": [
+     "在倒计时归零前用竹刀纯钢卡销撬开滑轮棘爪脱钩并掩正道服前襟",
+     "侧身前倾维持单手持刀英武身姿绝不让台下长焦镜头察觉胸前死锁"
+    ],
+    "never": [
+     "因慌乱放弃竞技武者尊严风骨",
+     "让纯洁圣洁的名誉蒙受恶俗非议"
+    ],
+    "prefers": [
+     "绝对精密的微观物理自救",
+     "台前万众瞩目的从容仪态",
+     "克制深沉的无声守护"
+    ],
+    "pressure_responses": {
+     "breaking": "在气阀泄压瞬间反向推脱横臂抱箍并接应宋婉儿递来的磁吸扣迅速扣好前襟",
+     "high": "在导播推流读秒长鸣刹那同搭档一同垂直下压背夹克服八百牛顶力",
+     "low": "双手死死按在讲台木质边缘以极低气声下达排障破拆指令掩饰内心惊涛骇浪",
+     "mid": "忍受胸衣金属骨架勒紧压迫紧贴讲台内侧配合搭档调整翻页笔背夹插入角度"
+    },
+    "relationship_stance": "在决胜台上谁都不怕，偏偏每次比赛前都要去吊架下找那位女工程师说两句话才安心。",
+    "withdrawal": "左手优雅反抓道服前襟稳住身形，美眸清澈平视前方，右手借调整刀镡之势极自然地拔下柄首纯钢卡销。"
+   },
+   "gender": "female",
+   "gender_reason": "实业团剑道队的元气女主将，全国锦标赛三连霸。",
+   "id": "kendo_captain_gu_ling_xuan",
+   "identity": {
+    "authority": "统领全队赛前战术整备并全权决定个人登台节奏",
+    "exposure": "若在聚光灯前道袍破裂导致春光外泄将断送全部竞技生涯",
+    "hidden": "{npc.name}随身桂竹剑把手暗藏两毫米冷磨纯钢扁平卡销，实为专破棘爪死锁的绝密自救撬棒。",
+    "limits": [
+     "严禁在万人眼前脱落胴甲露出真空前胸，绝不容许纯银乳铃发出清脆脆响引发全场围观"
+    ],
+    "obligations": [
+     "必须在倒计时二十秒内登台捍卫实业团至高竞技荣誉与清白尊严"
+    ],
+    "resources": [
+     "赛级加厚桂竹剑柄首微观力学纯钢拔销",
+     "特制阻尼减震硬质防滑胶圈套片"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在危难之际以宽阔队旗恰到好处挡住侧向长焦镜头的默契",
+     "彼此心照不宣的眼神信任"
+    ],
+    "boundaries": [
+     "严禁外人触碰深绀色道服前襟与私密暗红胴甲"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "成为全国剑道界无可撼动的四连冠无瑕第一王者主将。",
+    "dislikes": [
+     "借端茶之名居心叵测揩油的傲慢纨绔",
+     "恶俗无下限的猎奇偷拍",
+     "轻浮自大之辈"
+    ],
+    "expression": "秀美唇角勾起一抹若有若无的出尘微笑，眼神清澈平视擂台，右手食指与拇指娴熟反握纯钢卡销向下探入滑轮缝隙精准挑开棘爪。",
+    "likes": [
+     "沉稳可靠的幕后默默相助",
+     "懂分寸知轻重的绅士举动",
+     "纯粹神圣的武道共鸣"
+    ],
+    "preconditions": [
+     "滑轮死锁顺利化解且全国总决赛登台夺冠",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "实业团剑道女主将，全国锦标赛三连霸",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_scoreboard_winch_corridor_edge",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_scoreboard_winch_corridor_edge",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_arena_center_tatami_platform",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "白皙肩颈娇嫩肌肤被受拉系带勒出红印且单手盲操指尖酸麻。",
+      "option": "反握竹刀纯钢卡销探入滑轮缝隙以铸铝外壳为支点施加四牛顿力矩下别棘爪自救脱扣。"
+     },
+     {
+      "cost": "大幅队旗可能引来巡场安保关于阻挡通道的当场盘查。",
+      "option": "向后勤副手投去眼神示意借展开队旗遮挡争取缓冲时间。"
+     }
+    ],
+    "pressure": "裁判长手握口哨迈过红白隔离线仅剩二十秒，深蓝制服受力紧绷欲裂，外圈数十家长焦大炮聚焦。",
+    "trigger": "校核大太鼓吊索时道服前襟系带与胴甲内绳滑入卷扬机滑轮自锁齿隙死锁。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "系带被滑轮棘爪咬死了，裁判长走过隔离线了，纯钢卡销只要顶住弹片向前发力一挑就能脱钩脱险！",
+    "surface": "裁判长请看选手仪容，道服整肃，竹刀规整，全国总决赛随时可以发令开打。"
+   }
+  },
+  {
+   "adult_context": "剑道界德高望重的终审决断元老，依法行使总决赛执裁公权之完全责任成年人，恪守钟表严规。",
+   "age_range": [
+    58,
+    58
+   ],
+   "appearance_options": [
+    "面庞方正冷峻，双眉如墨染般浓密倒竖，眼神如鹰隼般锐利苛刻，嘴角紧抿不苟言笑。",
+    "身着深灰色裁判长正装西服，佩戴全国锦标赛红白专属裁判袖章，胸前挂有金属裁判哨，手持精密秒表。"
+   ],
+   "decision": {
+    "avoids": [
+     "任何打乱转播节奏的意外拖延",
+     "选手衣冠不整登台失态",
+     "裁判权威受损"
+    ],
+    "contrast": "平时看似铁面无私不近人情的老裁判长，面对选手刚毅英武的礼仪时内心亦会泛起由衷敬佩。",
+    "core_value": "以极致严苛的规则程序捍卫赛场秩序，维护全国总决赛至高公信力。",
+    "goal_options": [
+     "在倒计时归零前督促双方主将按规程正身步入红白线内就位",
+     "若选手逾期未登台依法吹响长哨出示红牌判处弃权失格"
+    ],
+    "never": [
+     "因私情偏袒宽限违规选手",
+     "容许赛场出现有失武德之闹剧"
+    ],
+    "prefers": [
+     "分秒不差的流程规范",
+     "端庄严整的武道仪态",
+     "堂堂正正的胜负裁决"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷发声瞬间停住脚步退回侧幕维持同僚体面",
+     "high": "迈步登上红地毯台阶准备直接切入讲台中央核心演讲区",
+     "low": "在对讲机中平稳催促台前人员汇报讲台升降测试状态",
+     "mid": "迈步逼近侧翼台阶手持备用麦克风大声询问会长是否身体不适"
+    },
+    "relationship_stance": "对恪守时间规程的选手深表赏识，对任何擅自滞留拖延赛程的举动零容忍。",
+    "withdrawal": "单手按住红木裁判长席位边缘，目光冷峻严厉注视台口，严守终审裁判员中立威仪。"
+   },
+   "gender": "male",
+   "gender_reason": "全国剑道终审首席裁决长职务由年满五十八周岁行业宗师出任",
+   "id": "chief_umpire_liang_ting_feng",
+   "identity": {
+    "authority": "终审裁决取消参赛资格权力、赛场秩序维持与全场高音广播鸣哨指令权",
+    "exposure": "若因执裁不严导致重大赛场事故将面临国家体育总局质询处分",
+    "hidden": "{npc.name}暗中肩负全国卫视直播收视率考核压力，极力确保决赛在整点黄金档准秒开打。",
+    "limits": [
+     "不可逾越裁判员职业操守，不得无故闯入女运动员候场安全红线区"
+    ],
+    "obligations": [
+     "确保全国电视直播在整点黄金时间准时鸣哨，对任何赛程延宕零容忍"
+    ],
+    "resources": [
+     "精密双针机械执裁计时表",
+     "全国锦标赛红白裁决旗帜包",
+     "国家级裁判终身执业信誉"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "英姿飒爽坚毅不屈的武者风骨",
+     "泰山崩于前而色不变的从容气度"
+    ],
+    "boundaries": [
+     "严守裁判员公私界限，绝不干涉选手私下整备"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "成为全国剑道界最公正严明令人敬畏的终审仲裁之柱。",
+    "dislikes": [
+     "赛前投机取巧违规迟到的傲慢选手",
+     "在裁判席喧哗起哄之徒",
+     "不守规矩之人"
+    ],
+    "expression": "威严抬手亮出秒表，声如洪钟沉稳宣读：“距离开赛尚余最后二十秒，请主将立刻入场！”",
+    "likes": [
+     "主将临危不乱的王者气度",
+     "规矩周全的竞技礼节",
+     "无可挑剔的专业身姿"
+    ],
+    "preconditions": [
+     "选手合乎一切着装与登台规程且准点开赛"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "全国剑道锦标赛终审执裁裁判长",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_umpire_judging_seat_front",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_arena_center_tatami_platform",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_arena_center_tatami_platform",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "步伐逼近可能直接目睹台口器械突发异样。",
+      "option": "手握口哨大步迈向台口督促主将正身步入擂台迎接开战。"
+     },
+     {
+      "cost": "若选手超时仍未现身将不得不承担直接判负的舆论压力。",
+      "option": "在裁判席前沿原地驻足高举秒表给予最后十秒合规警示。"
+     }
+    ],
+    "pressure": "全国卫视千万直播镜头聚焦擂台，转播导演在耳麦中严催准点鸣哨。",
+    "trigger": "大屏秒表跳入二十秒倒计时而台口主将迟迟未现身擂台正中。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "秒表已至最后十秒，若主将再不踏上擂台，老夫纵有惜才之心也唯有依规吹哨判负！",
+    "surface": "开战前仅剩二十秒倒数，请双方主将正身踏入主赛区！"
+   }
+  },
+  {
+   "adult_context": "机电工程专业毕业，做了八年场馆吊装设备，这座武道馆的机械工程师，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    33
+   ],
+   "appearance_options": [
+    "清爽利落齐耳短发，面容清秀英挺，鼻梁架着一副无框防静电护目镜，双眸透着理科生的冷静果断。",
+    "身穿深蓝防静电工程连体工装裤，腰间系挂工具袋，手持无线工业测控面板。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目蛮拉导致器械崩坏",
+     "推诿扯皮掩盖隐患",
+     "缺乏安全意识的粗暴操作"
+    ],
+    "contrast": "平时少言寡语的技术极客，在突发卡阻时展现出的参数指引却极尽精确高效。",
+    "core_value": "以硬核技术把控设备零故障，杜绝任何机械隐患危害运动员安全与赛事尊严。",
+    "goal_options": [
+     "以排查吊装受力平衡为由站在台口为主将提供微观机械破拆参数指导",
+     "暗中微调升降牵引力荷载泄压阀降低钢索咬死摩擦阻力"
+    ],
+    "never": [
+     "带故障违规运行重型设备",
+     "对运动员遭遇的器械夹阻坐视不理"
+    ],
+    "prefers": [
+     "精确到牛顿的发力参数",
+     "临危不乱的机械解构",
+     "专业严谨的工程协作"
+    ],
+    "pressure_responses": {
+     "breaking": "看到顾冷霜完成暗扣闭合瞬间果断下推T杆完成神级切镜",
+     "high": "在团委催促推流指令下强行插入两秒礼堂全景空镜头过渡",
+     "low": "在耳麦中短促播报推流倒计时并督促台前清场",
+     "mid": "发现特写画面纽扣脱落异样时右手悬停在T型推杆上暂缓切镜"
+    },
+    "relationship_stance": "每场比赛都站在吊架下看主将出场，主将赢了从不上前，只在散场后递一瓶冰水。",
+    "withdrawal": "单手插袋手握测控终端立于立柱阴影侧翼，用专业冷静目光注视滑轮咬合缝隙。"
+   },
+   "gender": "female",
+   "gender_reason": "武道馆的女机械工程师，管大太鼓吊架和计时屏。",
+   "id": "tech_director_tang_ming_yue",
+   "identity": {
+    "authority": "场馆中央吊装系统升降总控与突发故障紧急断电处置权",
+    "exposure": "若因升降滑轮机械咬死事故造成直播中断将承担严重行业问责",
+    "hidden": "{npc.name}深知计分牌卷扬机液压电磁阀存在微弱偶发卡滞，急于在赛前排查隐患。",
+    "limits": [
+     "严禁非授权人员操作特种液压升降设备，保障选手物理安全"
+    ],
+    "obligations": [
+     "排查卷扬机偶发性电磁制动异常，防止发生下坠恶性事故"
+    ],
+    "resources": [
+     "特种机械轴承消音硅脂喷罐",
+     "扁平加厚硬质碳素挑针"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "英气外表下运用纯钢卡销微观挑开棘爪的极客反差魅力",
+     "坚毅果敢的目光"
+    ],
+    "boundaries": [
+     "严守特种设备工程师执业规范，非技术排查绝不逾矩"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "成为场馆特种机械设备最专业可靠的安全守护神。",
+    "dislikes": [
+     "缺乏器械常识盲目蛮干之徒",
+     "违章操作特种设备之辈",
+     "推诿责任之人"
+    ],
+    "expression": "在对讲机中沉稳压低声音报出参数：“卡死的是逆向自锁止退爪，用两毫米硬刃向斜下挑开，施力四牛顿！”",
+    "likes": [
+     "主将精通力学杠杆的聪慧魄力",
+     "干脆利落的自救身姿",
+     "高度默契的眼神配合"
+    ],
+    "preconditions": [
+     "滑轮死锁顺利排除且大屏设备安全受控",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "特种设备维保工程师与场馆机械督导",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_scoreboard_winch_corridor_edge",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_scoreboard_winch_corridor_edge",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_arena_center_tatami_platform",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "若被裁判长察觉可能被质询技术人员违规靠近选手通道。",
+      "option": "手持测控终端靠近立柱暗中指导主将以精确力矩下挑棘爪脱困。"
+     },
+     {
+      "cost": "微动电磁阀动作伴随细微喀哒声可能引起侧向注意。",
+      "option": "无线触发卷扬机备用微动电磁阀为钢索释放微米级松弛间隙隙。"
+     }
+    ],
+    "pressure": "大屏倒计时正在跳红且裁判长已迈步逼近，十秒内必须完成物理泄力脱扣。",
+    "trigger": "测控终端捕捉到升降钢索拉力激增，目睹主将道服系带滑入机壳卡槽。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "主将道服被自锁卡牙死死卡住了，老裁判长快到台口了，得提醒主将找准受力支点一次性挑开卡块！",
+    "surface": "测控终端显示卷扬机张力传感器恢复常态，中央悬吊设施平稳锁止，器械合格。"
+   }
+  },
+  {
+   "adult_context": "传统武道专业毕业，年满三十周岁成年人，享有完全独立民事责任地位，担任实业团主力候补与主将后勤保障专员。",
+   "age_range": [
+    30,
+    33
+   ],
+   "appearance_options": [
+    "活泼娇俏鹅蛋圆脸，双眸水汪汪充满灵动生气，扎着两条微卷低马尾，神情带着几分调皮与关切。",
+    "个头娇小约一百六十三公分，深绀色剑道队服外套配白色速干T恤，随身挎着加厚帆布器械急救包，双手展开队旗。"
+   ],
+   "decision": {
+    "avoids": [
+     "恶俗镜头拍到前辈一寸肌肤",
+     "前辈被违规判罚失格",
+     "主将的秘密被外人知道"
+    ],
+    "contrast": "平时看似活泼俏皮甚至有点小迷糊，在前辈危急关头却展现出惊人的护短勇气与决绝。",
+    "core_value": "全心全意守护主将前辈的尊严与荣誉，愿用娇躯为前辈挡下所有明枪暗箭。",
+    "goal_options": [
+     "高举宽两米加厚金丝绒队旗遮断侧方全部单反抓拍视线",
+     "在通道拐角用战术手电反光干扰远处记者镜头焦点为主将争取自救时间"
+    ],
+    "never": [
+     "在任何危险面前退缩弃守",
+     "背叛实业团与前辈的深厚信任"
+    ],
+    "prefers": [
+     "前辈王者凯旋的无瑕身姿",
+     "无死角的视线掩护",
+     "同甘共苦的姐妹真情"
+    ],
+    "pressure_responses": {
+     "breaking": "在讲台侧后方用红丝绒托盘斜立遮挡光线以极快手法递入暗扣",
+     "high": "迈开优雅端庄的礼仪步伐抢在陆晨舟之前从侧翼台阶移步登台",
+     "low": "在侧幕边缘端正托盘平稳呼吸密切注视讲台前襟状态",
+     "mid": "发现纽扣崩落瞬间悄悄从夹层扣出磁吸扣捏在掌心手汗中"
+    },
+    "relationship_stance": "对主将充满无条件的崇拜与爱戴，对傲慢逼近的裁判人员充满戒备防范。",
+    "withdrawal": "双手死死抓牢队旗两侧铜环拉直旗面，背对主将坚定筑起视线绝壁。"
+   },
+   "gender": "female",
+   "gender_reason": "主将贴身后勤保障员兼队友由三十岁女性担任",
+   "id": "team_substitute_su_xiao_he",
+   "identity": {
+    "authority": "候场通道实业团物资布设与选手器械交接管理权",
+    "exposure": "若主将私下戴乳铃的事被镜头拍到，后勤队友会觉得是自己没守好这个秘密。",
+    "hidden": "主将赛前有在胴甲里戴纯银乳铃压紧张的私密习惯，全队只告诉过后勤队友一个人，此刻后勤队友急得手心全是汗。",
+    "limits": [
+     "誓死维护主将个人清白与隐私，用身体遮挡一切窥探目光"
+    ],
+    "obligations": [
+     "全力协助主将完成赛前整备并消除一切场外干扰"
+    ],
+    "resources": [
+     "备用纯棉吸汗大毛巾",
+     "医用加厚弹性防滑绷带卷"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "前辈在绝境中单手拔销挑开滑轮的绝对王者霸气",
+     "娇嫩容颜下的刚毅眼神"
+    ],
+    "boundaries": [
+     "誓死守卫前辈的隐私红线，绝不允许任何人掀开锦旗窥探"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "成为主将身边最忠诚坚固的专属守护之盾。",
+    "dislikes": [
+     "借鉴赏之名居心不良凑近的纨绔少爷",
+     "恶俗无下限的狗仔偷拍",
+     "挑拨离间之人"
+    ],
+    "expression": "焦急压低嗓音连声提醒：“前辈别怕！{npc.name}把视线全挡住了！纯钢卡销就在刀柄顶上，快拔出来挑断簧片！”",
+    "likes": [
+     "主将英气飒爽的挥刀英姿",
+     "脱险后相视一笑的默契",
+     "亲密无间的姐妹关怀"
+    ],
+    "preconditions": [
+     "前辈完好脱困且顺利登台拿下全国总冠军"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "实业团主力候补兼主将贴身后勤助手",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_athletes_tunnel_screen_corner",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_athletes_tunnel_screen_corner",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_arena_center_tatami_platform",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "双臂肌肉因极度紧绷拉扯产生剧烈酸胀痛感。",
+      "option": "飞身展开宽大幅面实业团锦旗筑起两米人工视线隔离墙。"
+     },
+     {
+      "cost": "喊叫过响可能引来巡场干事警告注意赛场肃静。",
+      "option": "大声向边裁报告器械核验就位以高亢嗓音掩盖滑轮破拆声响。"
+     }
+    ],
+    "pressure": "长焦单反镜头红外对焦光点正不断扫向通道，裁判长沉重脚步声已近在咫尺。",
+    "trigger": "目睹主将道服被滑轮咬死且胸前纯银乳铃在冷风中隐隐颤动。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "千万别响……我答应过前辈谁也不告诉的，就算拼了命也要把队旗举稳！",
+    "surface": "实业团后勤准备就绪！主将队长的比赛竹刀与护具全部合规，马上登台！"
+   }
+  },
+  {
+   "adult_context": "传媒学院播音专业应届毕业生达到法定成年要求，持有全国普通话一级甲等证书，主控全场赛事解说。",
+   "age_range": [
+    26,
+    29
+   ],
+   "appearance_options": [
+    "面容俊朗阳光，梳着得体的商务背头，佩戴专业领夹麦克风与隔音监听耳机，言谈举止从容自信。",
+    "身着深蓝修身主持人西装，手持赛事秩序册与选手技术分析平板电脑，端坐在玻璃解说席后方。"
+   ],
+   "decision": {
+    "avoids": [
+     "任何直播事故与口误冷场",
+     "恶俗镜头给运动员带来困扰",
+     "失控的舆论风向"
+    ],
+    "contrast": "平时神采奕奕的主持名嘴，在突发冷场关口却爆发出非同寻常的沉稳控场魄力。",
+    "core_value": "以高度专业的体育传媒素养传递纯粹竞技之美，杜绝任何低俗噱头炒作。",
+    "goal_options": [
+     "在倒计时最后二十秒用激昂精彩的历史战绩解说填补候场空白调动全场情绪",
+     "引导转播导播将主镜头切向擂台全景与观众席为台口整肃掩护视角"
+    ],
+    "never": [
+     "利用公共话筒传播不雅揣测",
+     "背离专业新闻工作者职业操守"
+    ],
+    "prefers": [
+     "激荡人心的竞技解说",
+     "无可挑剔的赛场仪态",
+     "纯粹高尚的体育风范"
+    ],
+    "pressure_responses": {
+     "breaking": "在听到气压释放嘶鸣声后迅速闭合地槽动力断路器完成排障",
+     "high": "在耳麦中大声指挥台前人员借激光笔淬火背夹下压挑卡簧",
+     "low": "在耳麦中短促通报电机短路电磁阀烧结警报并要求台前切勿强拔",
+     "mid": "快速查阅管路图纸找出立柱内侧两毫米应急泄压孔确切方位"
+    },
+    "relationship_stance": "对主将的巅峰竞技实力推崇备至，对媒体圈追逐低俗花边的风气深恶痛绝。",
+    "withdrawal": "端坐解说席面向全场，以沉稳专业的语调把控直播节奏，展现一线解说名嘴风采。"
+   },
+   "gender": "male",
+   "gender_reason": "总决赛特邀官方现场解说嘉宾由年满二十六周岁播音专业青年出任",
+   "id": "arena_broadcast_host_zhao_yun",
+   "identity": {
+    "authority": "现场万名观众与卫视转播公频解说词引导权与焦点镜头解说权",
+    "exposure": "解说出现重大播音失误或误导公众将面临广播电视总台严肃问责",
+    "hidden": "{npc.name}舟一直对主将的剑道才华抱有由衷敬佩，密切关注着主将出场前的每一个细微动作。",
+    "limits": [
+     "严禁在直播公频传播未经证实的低俗花边与选手隐私绯闻"
+    ],
+    "obligations": [
+     "用专业激昂的语调向全国千万观众生动解说比赛进程与竞技看点"
+    ],
+    "resources": [
+     "无线便携式高保真监听耳机",
+     "专业级多功能领夹麦克风发射器"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "全国卫视镜头下主将那份颠倒众生却又冷峻英武的极致反差神采",
+     "坚毅的眼神"
+    ],
+    "boundaries": [
+     "严守媒体公信力红线，尊重运动员个人边界"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "成为全国亿万观众心目中最权威受人尊敬的体育名嘴。",
+    "dislikes": [
+     "制造恶俗花边炒作的无良媒体",
+     "散布恶意谣言的键盘侠",
+     "破坏赛风之徒"
+    ],
+    "expression": "对着高保真麦克风声情并茂地解说：“观众朋友们，三连冠王者主将即将踏上擂台，让我们屏息以待！”",
+    "likes": [
+     "主将登台时不可一世的王者气场",
+     "纯正堂皇的剑道风骨",
+     "专业同行的默契协作"
+    ],
+    "preconditions": [
+     "选手从容登台且奉献出一场载入史册的巅峰决战"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "全国卫视体育频道特邀官方赛事解说员",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_arena_center_tatami_platform",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_arena_center_tatami_platform",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_arena_center_tatami_platform",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "高强度连续播音消耗大量肺活量并使声带微有干哑。",
+      "option": "用富有激情的经典战例回顾牢牢抓住全场注意力掩护台口整装。"
+     },
+     {
+      "cost": "临时切镜需要与导播团队承担微弱配合瑕疵责任。",
+      "option": "提示导播切换看台热烈助威镜头缓冲台口画面。"
+     }
+    ],
+    "pressure": "全国转播倒计时读秒不允许出现任何超过三秒的广播停顿与失误。",
+    "trigger": "监视器画面显示大屏倒计时正在逼近而主将仍在台口阴影处专注调校器械。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "主将似乎在台口做最后的刀具校准，导播先切全景大镜头，给这位王牌选手留出最专注的登台空间！",
+    "surface": "全场数万名观众朋友们，万众瞩目的全国青年剑道锦标赛女单巅峰对决，开战在即！"
+   }
+  },
+  {
+   "adult_context": "赛事管理工程专业届年届三十六周岁整，具备综合调度资格，统管通道安保巡查。",
+   "age_range": [
+    36,
+    39
+   ],
+   "appearance_options": [
+    "面容俊朗神色严肃，身穿赛事组委会黑色商务冲锋衣，佩戴红底总控巡视胸牌与加密对讲耳麦。",
+    "手持赛事检录平板电脑，步伐急促穿梭于各通道之间，行事干练果断不喜拖泥带水。"
+   ],
+   "decision": {
+    "avoids": [
+     "无关人员擅闯候场区",
+     "低俗媒体无序跟拍",
+     "通道拥堵事故"
+    ],
+    "contrast": "平时严肃认真的运营总监，面对选手窘境时展现出极具原则的体面守护。",
+    "core_value": "严格维护候场区动线畅通与纪律红线。",
+    "goal_options": [
+     "劝阻后排长焦媒体靠近通道维护选手隐私空间",
+     "在规则许可范围内为主将提供最清静的备赛通道环境"
+    ],
+    "never": [
+     "滥用职权擅闯选手隐私区",
+     "无端刁难参赛运动员"
+    ],
+    "prefers": [
+     "严谨的赛场动线",
+     "规范的检录流程",
+     "职业的体育操守"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷庄重开口发声后满意点头向校领导躬身汇报",
+     "high": "在耳麦中严厉提醒导播台按预定时间点准点切屏不得延误",
+     "low": "在贵宾席前平稳确认领导座次并用手势示意各单位倒计时开场",
+     "mid": "察觉讲台略有偏高时抬眼注视台前要求副主席做好应急准备"
+    },
+    "relationship_stance": "对裁判长充满敬畏，对主将保持纯粹的同行敬重。",
+    "withdrawal": "立于通道外侧警戒线前，双手抱胸严密注视外围人员动向。"
+   },
+   "gender": "male",
+   "gender_reason": "现场运行副总监兼检录长由\u0001的成年男性出任",
+   "id": "arena_deputy_director_zhou_yi",
+   "identity": {
+    "authority": "维持候场通道动线通畅与对违规滞留人员劝离权",
+    "exposure": "若发生重大通道拥堵或安保事故将承担组委会问责处分",
+    "hidden": "{npc.name}对主将的剑道造诣由衷钦佩，暗中守护着选手更衣登台的安全防线。",
+    "limits": [
+     "严禁干扰裁判长执裁与无故滞留选手更衣防线"
+    ],
+    "obligations": [
+     "确保主将通道无障碍登台并排除任何闲杂人员聚集"
+    ],
+    "resources": [
+     "赛场检录主控平板电脑",
+     "通道巡查高权限授权门禁卡"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "主将身上那种纯粹坚定的武者专注力",
+     "英武不屈的眼神"
+    ],
+    "boundaries": [
+     "严守赛事组委会执业操守，非公事绝不逾矩"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "全国顶级综合体育赛事现场运营总监之位。",
+    "dislikes": [
+     "缺乏教养无端起哄之徒",
+     "不听劝阻强行拍照的狗仔",
+     "胡搅蛮缠之人"
+    ],
+    "expression": "对着对讲机简短下达指令：“安保组注意，后勤通道保持绝对清场，请无关人员退后！”",
+    "likes": [
+     "严守赛程纪律的优秀选手",
+     "井然有序的赛场环境",
+     "无声默契的协作"
+    ],
+    "preconditions": [
+     "选手合规登台且赛场秩序井然"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "赛事现场运营副总监兼检录长",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_athletes_tunnel_screen_corner",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_scoreboard_winch_corridor_edge",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_arena_center_tatami_platform",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "调动安保需要承担微弱现场调度协调压力。",
+      "option": "指挥巡场安保在通道外围拉起第二道警戒线隔离媒体。"
+     },
+     {
+      "cost": "亲自值守消耗较多巡查精力。",
+      "option": "亲自立于拐角处核查人员证件拦截闲杂人等。"
+     }
+    ],
+    "pressure": "组委会严禁任何媒体越过隔离线进行贴脸拍摄。",
+    "trigger": "注意到台口附近聚集较多长焦镜头且倒计时正在跳动。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "主将正在台口做最后整备，{npc.name}得把后面的长焦记者全挡在十米开外！",
+    "surface": "检录处确认完毕，女单决赛双方主将装备核验合格，通道保持畅通。"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "锦标赛决赛日，八月",
+  "minute": 1140
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "workplace_power"
+ ],
+ "custom": false,
+ "customs": [
+  "全国成年剑道总决赛头号女将在开赛前亲自校核大太鼓与场地平整度的规程",
+  "一流剑道女主将多在竹剑柄首嵌装硬度极高特种钢销的工艺风尚",
+  "主裁判长在终审鸣哨前十秒含哨步入赛场中央红白隔离线的固定执裁惯例",
+  "全场四面超高清环形巨幕与卫视长焦摄像机在登台倒计时抓拍选手特写的转播动线"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "成年维保工程师使用千分尺测量滑轮齿轮箱间隙",
+    "成年维保人员俯身调整阻尼缓冲弹簧减速机受力平整度"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_scoreboard_pulley_tension_pre_check",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "start_minute": 120,
+   "tags": [],
+   "title": "大太鼓吊架卷扬机滑轮伺服阻尼千分尺校准"
+  },
+  {
+   "beats": [
+    "工程师在主控台测试赛场照明并向主裁判长汇报台面照度参数",
+    "四面聚光灯以完美角度展开确保决赛双方威武英姿如画"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_kendo_arena_lighting_calibration",
+   "location_ids": [
+    "loc_arena_center_tatami_platform"
+   ],
+   "start_minute": 125,
+   "tags": [],
+   "title": "全国锦标赛决赛主擂台无影冷光调试"
+  },
+  {
+   "beats": [
+    "裁判长在终审席精准校准全国卫视直播主时钟倒数频段",
+    "大屏幕实时显示参赛主将登台检录进入最后二十秒紧张关口"
+   ],
+   "duration_minutes": 12,
+   "hook_ids": [],
+   "id": "act_countdown_twenty_second_sync",
+   "location_ids": [
+    "loc_umpire_judging_seat_front"
+   ],
+   "start_minute": 128,
+   "tags": [],
+   "title": "总决赛开赛二十秒倒计时广播时钟同步"
+  },
+  {
+   "beats": [
+    "主将优雅俯身单手扶住大太鼓立柱校准视线夹角",
+    "深绀色稽古服胸前系绳在身体微倾间不慎滑入滑轮棘爪齿隙"
+   ],
+   "duration_minutes": 8,
+   "hook_ids": [],
+   "id": "act_captain_crouch_pose_incident",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "start_minute": 130,
+   "tags": [],
+   "title": "女主将俯身校核大太鼓吊索微调站姿"
+  },
+  {
+   "beats": [
+    "决赛前一天，工作人员在武道馆里挂太鼓，女主将在台口帮着扶吊索。",
+    "太鼓挂好了，女主将敲了一下，鼓声在空荡荡的馆里回响了很久。",
+    "女主将笑着说：明天赢了，我要亲手敲三下。"
+   ],
+   "duration_minutes": 5,
+   "hook_ids": [
+    "hook_01_winch_pulley_snag_groan",
+    "hook_03_bamboo_pin_lever_extract",
+    "hook_06_steel_pin_blade_into_pulley_gap"
+   ],
+   "id": "act_winch_reverse_lock_incident",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "start_minute": 960,
+   "tags": [],
+   "title": "决赛前的场地布置"
+  },
+  {
+   "beats": [
+    "执裁总裁裁判长捏紧金属裁判哨大步跨过红白隔离线",
+    "女工程师高挑身形骤然跨出以工程报备沉稳阻断裁判长逼近脚步"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_umpire_chair_approach",
+   "location_ids": [
+    "loc_umpire_judging_seat_front"
+   ],
+   "start_minute": 133,
+   "tags": [],
+   "title": "终审裁判长离席迈步走向台口视察"
+  },
+  {
+   "beats": [
+    "决赛之后，主将跪坐在榻榻米上，汗湿的道服贴在背上，抬手示意你过来帮忙。",
+    "你解开胴甲的系绳，主将长长吐出一口气，往后一靠，整个人倚进你怀里不动了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dojo_armor_off",
+   "location_ids": [
+    "loc_dojo_captain_room"
+   ],
+   "start_minute": 1140,
+   "tags": [
+    "intimate"
+   ],
+   "title": "替主将解下护具"
+  },
+  {
+   "beats": [
+    "主将扯开道服的前襟，那对小小的乳铃还挂着，一动就发出细响，主将的脸一下子红透。",
+    "主将抓住你的手腕按到胸前：你别笑……替我摘了。我自己戴的，也只给你摘。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dojo_bells",
+   "location_ids": [
+    "loc_dojo_captain_room"
+   ],
+   "start_minute": 1170,
+   "tags": [
+    "intimate"
+   ],
+   "title": "摘下那对藏在道服里的乳铃"
+  },
+  {
+   "beats": [
+    "主将倒了两杯冰麦茶，一口气喝完自己那杯，又伸手把你那杯也拿过去喝了一半。",
+    "主将把剩下的半杯推回来，眼睛看着别处：……喝我喝过的，不许嫌弃。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dojo_barley_tea",
+   "location_ids": [
+    "loc_dojo_captain_room"
+   ],
+   "start_minute": 1080,
+   "tags": [
+    "intimate"
+   ],
+   "title": "一壶冰麦茶"
+  },
+  {
+   "beats": [
+    "天刚亮，晨练的竹刀声还没响，主将枕着你的手臂睡在榻榻米上。",
+    "主将醒了也不起来，在你颈窝里蹭了蹭：今天晨练翘了。……你陪我躺着。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_dojo_dawn_tatami",
+   "location_ids": [
+    "loc_dojo_captain_room"
+   ],
+   "start_minute": 330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "清晨在榻榻米上醒来"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代杭州百年木造武道馆，全国剑道锦标赛女子团体决赛开赛前二十秒",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "它们",
+  "旁人",
+  "她俩",
+  "他们",
+  "幼女",
+  "萝莉",
+  "初中生",
+  "高中生",
+  "未成年",
+  "幼态",
+  "肉便器",
+  "母狗",
+  "骚货",
+  "贱货",
+  "玩物",
+  "强奸",
+  "轮奸",
+  "迷奸",
+  "性奴",
+  "失禁"
+ ],
+ "hooks": [
+  {
+   "id": "hook_01_winch_pulley_snag_groan",
+   "kind": "approach",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "slot": "kendo_captain_gu_ling_xuan",
+   "text": "通道广播里传来裁判长低沉威严的倒数提醒，{kendo_captain_gu_ling_xuan.name}俯身校核大太鼓时前胸却被一股冰冷阻力反向拉扯，重型钢索滑轮随之发出逆向棘爪咬死轻颤！"
+  },
+  {
+   "id": "hook_02_kimono_collar_strain_jam",
+   "kind": "approach",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "slot": "kendo_captain_gu_ling_xuan",
+   "text": "{kendo_captain_gu_ling_xuan.name}微微敛下颌保持高冷从容神态，深绀色纯棉稽古服前襟细绳不知何时深深卡入了卷扬机滑轮自锁死角，前襟受拉紧绷欲裂动弹不得！"
+  },
+  {
+   "id": "hook_03_bamboo_pin_lever_extract",
+   "kind": "approach",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "slot": "kendo_captain_gu_ling_xuan",
+   "text": "{kendo_captain_gu_ling_xuan.name}单手持刀稳如磐石维持端庄侧颜，右手极度自然优雅地顺势探向手中比赛竹刀柄首，别在柄端的高硬度纯钢拔销瞬间反握在指尖！"
+  },
+  {
+   "id": "hook_04_umpire_iron_standoff",
+   "kind": "approach",
+   "location_ids": [
+    "loc_arena_center_tatami_platform"
+   ],
+   "slot": "chief_umpire_liang_ting_feng",
+   "text": "女工程师手持测控平板高挑身形一步跨至通道入口正前方，如屏障般横在通道处冷声向大步迈来的裁判长汇报吊装平衡参数阻断逼近脚步！"
+  },
+  {
+   "id": "hook_05_assistant_flag_shield",
+   "kind": "approach",
+   "location_ids": [
+    "loc_athletes_tunnel_screen_corner"
+   ],
+   "slot": "team_substitute_su_xiao_he",
+   "text": "{team_substitute_su_xiao_he.name}站在台口侧前方敏锐察觉异样，干练迈步将两米加厚实业团金丝绒锦旗高高举起，严严实实挡住台下一切斜向窥探长焦视线！"
+  },
+  {
+   "id": "hook_06_steel_pin_blade_into_pulley_gap",
+   "kind": "approach",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "slot": "kendo_captain_gu_ling_xuan",
+   "text": "纯钢卡销细平尖端顺着狭窄滑轮缝隙精准探入止退卡爪下方，指尖感知到棘爪咬紧尼龙纤维的极大张力！"
+  },
+  {
+   "id": "hook_07_umpire_footsteps_hall",
+   "kind": "approach",
+   "location_ids": [
+    "loc_umpire_judging_seat_front"
+   ],
+   "slot": "chief_umpire_liang_ting_feng",
+   "text": "终审总执裁{chief_umpire_liang_ting_feng.name}手握金属哨子威严逼近，皮鞋踏在实木地板上发出沉闷步声，距离受困台口仅剩最后三步！"
+  },
+  {
+   "id": "hook_08_engineer_supports_pulley_bracket",
+   "kind": "approach",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "slot": "tech_director_tang_ming_yue",
+   "text": "女工程师手持测控仪半掩在立柱阴影处假装巡检，暗中借绝缘手套替主将托住滑轮外壳底座分担下挑破拆负荷！"
+  },
+  {
+   "id": "hook_09_wrist_twist_steel_pin_pop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "slot": "kendo_captain_gu_ling_xuan",
+   "text": "{kendo_captain_gu_ling_xuan.name}美眸沉静秀唇微抿，单手运力稳如泰山，右手腕借滑轮金属外壳作为支点向斜下方施加四牛顿强劲微挑力矩！"
+  },
+  {
+   "id": "hook_10_kimono_ties_snaps_free",
+   "kind": "approach",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "slot": "kendo_captain_gu_ling_xuan",
+   "text": "一声极细微的金属自锁弹片弹开清脆轻响迸发，咬死的系带卡块被精准挑开，绞死的系带纤维瞬间脱扣滑出，深绀色道袍重获自由彻底解除死锁！"
+  },
+  {
+   "id": "hook_11_captain_stands_tall_and_free",
+   "kind": "accident",
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "slot": "kendo_captain_gu_ling_xuan",
+   "text": "解脱瞬间{kendo_captain_gu_ling_xuan.name}优雅直身顺手抚平道服前襟掩正领口，迈步迎着走近台口的裁判长露出无可挑剔的英气从容微笑！"
+  },
+  {
+   "id": "hook_12_flawless_captain_poise_captured",
+   "kind": "observe",
+   "location_ids": [
+    "loc_arena_center_tatami_platform"
+   ],
+   "slot": "chief_umpire_liang_ting_feng",
+   "text": "赛场聚光灯下的主将英姿飒爽仪态万千宛若不败武神，清绝果敢的气场引得看台数万名观众爆发出由衷赞叹！"
+  },
+  {
+   "id": "hook_13_grand_match_standing_ovation",
+   "kind": "observe",
+   "location_ids": [
+    "loc_arena_center_tatami_platform"
+   ],
+   "slot": "kendo_captain_gu_ling_xuan",
+   "text": "全国总决赛开赛哨响定格下行礼如仪惊艳神采，踏上擂台瞬间全场起立欢呼，{kendo_captain_gu_ling_xuan.name}双手执刀定格下锦标赛神级高光！"
+  },
+  {
+   "id": "hook_14_umpire_retreats_in_awe",
+   "kind": "request",
+   "location_ids": [
+    "loc_umpire_judging_seat_front"
+   ],
+   "slot": "chief_umpire_liang_ting_feng",
+   "text": "被女工程师严谨参数正面释疑且被女主将无瑕武道风采震撼的裁判长只得收敛严肃，规规矩矩含哨后撤立于裁判席前吹哨致敬！"
+  },
+  {
+   "id": "hook_15_steel_pin_tucked_whisper_smile",
+   "kind": "request",
+   "location_ids": [
+    "loc_arena_center_tatami_platform"
+   ],
+   "slot": "kendo_captain_gu_ling_xuan",
+   "text": "战歌激昂掌声雷动间隙{kendo_captain_gu_ling_xuan.name}优雅将纯钢卡销悄然插回竹刀柄首，隔着台口与后勤队友相视一笑尽显顶级默契的守护真情！"
+  },
+  {
+   "id": "hook_dojo_captain_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_dojo_captain_room"
+   ],
+   "slot": "kendo_captain_gu_ling_xuan",
+   "text": "{npc.name}拉开休息室的纸门，道服还没换：馆里没人了。……进来喝杯麦茶？"
+  }
+ ],
+ "id": "kendo_captain_scoreboard_bell_trap",
+ "locations": [
+  {
+   "affordances": [
+    "以英气从容剑道主将姿态执刀肃立维持正面仪态",
+    "借竹剑柄头纯钢拔销极硬细端探入滑轮死角实施下挑自救"
+   ],
+   "detail": "铺设特制高弹枫木运动地板的四方形主台，上空吊挂环形超高清直播大屏，裁判长终审席正对台前。",
+   "exits": [
+    "loc_scoreboard_winch_corridor_edge",
+    "loc_umpire_judging_seat_front",
+    "loc_athletes_tunnel_screen_corner"
+   ],
+   "id": "loc_arena_center_tatami_platform",
+   "name": "决胜擂台",
+   "pressure_modifiers": {
+    "press_chief_umpire_footstep_rush": "裁判长皮鞋踏上木地板加剧二十秒逼近绝境",
+    "press_kimono_collar_tearing_slip": "卷扬机滑轮咬死系带加剧道服前襟撕裂与走光风险"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "四周观众与长焦媒体无死角俯仰平视，聚光灯打在擂台之上，参赛者一举一动分毫毕现。",
+   "witnesses": [
+    "bg_umpire_liang_ting_feng",
+    "bg_assistant_su_xiao_he"
+   ]
+  },
+  {
+   "affordances": [
+    "借卷扬机金属外壳边缘作为纯钢卡销杠杆支点",
+    "在死角内借呼吸运力实施微观物理破拆下挑自救"
+   ],
+   "detail": "擂台侧后方候场通道交接处，竖立着直径十二公分加厚冷锻冲压滑轮支架，高强度碳素钢索正穿梭于自锁棘爪滑轮槽内，深绀色道服系带正被死死咬死于轮齿缝隙。",
+   "exits": [
+    "loc_arena_center_tatami_platform",
+    "loc_umpire_judging_seat_front",
+    "loc_athletes_tunnel_screen_corner"
+   ],
+   "id": "loc_scoreboard_winch_corridor_edge",
+   "name": "太鼓吊架台口",
+   "pressure_modifiers": {
+    "press_countdown_twenty_second_buzzer": "大屏高音倒计时蜂鸣加剧超时弃权判罚风险",
+    "press_silver_bell_chime_panic": "外围长焦大炮锁焦加剧胸前纯银乳铃爆响与走光恐慌"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "立柱外壳遮挡侧面视线，但若从裁判席正面走来，前襟撕裂露出的雪白香肩与胴甲边缘一览无遗。",
+   "witnesses": [
+    "bg_tech_tang_ming_yue",
+    "bg_assistant_su_xiao_he"
+   ]
+  },
+  {
+   "affordances": [
+    "以清澈坚毅眼神注视裁判长脚步迫使其步伐在规程礼节下放缓",
+    "倾听皮鞋踏木脚步声精准计算自救秒数"
+   ],
+   "detail": "铺设深绿呢绒台布的红木长桌前沿，裁判长此刻正立身离席，威严身躯正跨过红白隔离线迈步走向台口。",
+   "exits": [
+    "loc_arena_center_tatami_platform",
+    "loc_scoreboard_winch_corridor_edge",
+    "loc_athletes_tunnel_screen_corner"
+   ],
+   "id": "loc_umpire_judging_seat_front",
+   "name": "裁判席前",
+   "pressure_modifiers": {
+    "press_chief_umpire_footstep_rush": "裁判长登台迫近加剧取消参赛资格危机",
+    "press_countdown_twenty_second_buzzer": "倒计时红字闪烁加剧发令鸣哨迫近"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "直面台口通道操作区，迈出每一步皆将居高临下看清主将胸前状态与身姿异常。",
+   "witnesses": [
+    "bg_umpire_liang_ting_feng",
+    "bg_tech_tang_ming_yue"
+   ]
+  },
+  {
+   "affordances": [
+    "借锦旗掩护调整呼吸迅速单手拔下竹刀卡销",
+    "向后勤求取强光手电利用折射反光干扰远处镜头调焦"
+   ],
+   "detail": "通道转角处的视觉防线，后勤队友正双手张开两米宽加厚金丝绒实业团锦旗，死死封堵看台方向所有长焦相机视线与巡场人员通道。",
+   "exits": [
+    "loc_arena_center_tatami_platform",
+    "loc_scoreboard_winch_corridor_edge",
+    "loc_umpire_judging_seat_front",
+    "loc_dojo_captain_room"
+   ],
+   "id": "loc_athletes_tunnel_screen_corner",
+   "name": "通道拐角",
+   "pressure_modifiers": {
+    "press_kimono_collar_tearing_slip": "撕裂布料拉扯加剧胴甲脱扣危机",
+    "press_silver_bell_chime_panic": "通道强风加剧纯银乳铃晃动爆响恐慌"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "队旗提供局部遮挡掩护，但在强光灯穿透下隐约透出人影轮廓，无法抵御正面裁判视线。",
+   "witnesses": [
+    "bg_assistant_su_xiao_he",
+    "bg_tech_tang_ming_yue"
+   ]
+  },
+  {
+   "affordances": [
+    "替主将解下护具",
+    "帮主将摘下那对乳铃",
+    "拉上休息室的纸门"
+   ],
+   "detail": "武道馆后面一间铺着榻榻米的小屋，墙上挂着竹刀和历届锦标赛的旗子，角落叠着护具，矮桌上放着一壶麦茶。",
+   "exits": [
+    "loc_athletes_tunnel_screen_corner"
+   ],
+   "id": "loc_dojo_captain_room",
+   "name": "武道馆后面的主将休息室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "纸门一拉，馆里的呐喊声隔着两道走廊只剩模糊的回响。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "顾",
+   "梁",
+   "唐",
+   "苏",
+   "陆",
+   "霍",
+   "姜",
+   "谢",
+   "沈",
+   "赵",
+   "周",
+   "韩",
+   "林",
+   "陈",
+   "安",
+   "温"
+  ],
+  "given_female": [
+   "灵萱",
+   "小禾",
+   "芊芊",
+   "晚柠",
+   "知微",
+   "小舟",
+   "清漪",
+   "雨晴",
+   "浅雪",
+   "芷琳",
+   "小念",
+   "萌萌",
+   "清婉",
+   "诗音",
+   "羽灵",
+   "静姝"
+  ],
+  "given_male": [
+   "廷锋",
+   "景深",
+   "临川",
+   "铁峰",
+   "逸轩",
+   "震霆",
+   "长青",
+   "天成",
+   "文瀚",
+   "天麟",
+   "博庸",
+   "少卿",
+   "承宇",
+   "霆威",
+   "修远",
+   "致远"
+  ],
+  "given_neutral": [
+   "晨曦",
+   "星芒",
+   "子墨",
+   "安然",
+   "星澜",
+   "沐川",
+   "青霄",
+   "千寻",
+   "若水",
+   "素风",
+   "清欢",
+   "景澄",
+   "秋水",
+   "云帆",
+   "微澜",
+   "清和"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "female",
+    "pattern": "小{given}"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留剑道锦标赛的枫木决胜台、元气女主将调整吊索时滑轮逆向棘爪咬死深蓝道服前襟的细绳与胴甲内衬、道服滑脱大半露出雪白香肩与真空胴甲、胸前暗戴的纯银乳铃随时会响、开赛鸣哨二十秒倒数、借竹剑的金属销钉和减震胶圈做杠杆挑开锁止簧片的骨架与元气色气的味道。按用户确认的去重方案，场馆从万人体育馆改成百年木造武道馆，机关从记分牌钢索改成悬挂大太鼓的吊索滑轮，女主从校队队长改成实业团女主将，与断电剑道计分屏的花剑世界拉开；乳铃改成主将自己私下戴着、只告诉过后勤队友的习惯。原稿的时代、地点、开局时刻和基调是从学生会长模板复制的，已重写；玩家身份原稿照抄了几位主要角色，已改成武道馆里的其他人。女主年龄二十五到二十八岁，心仪的女工程师二十九到三十三岁。用户已放开内容限制、色情尺度优先，只守红线；卡住的险情期间不写性互动。新增武道馆后面的选手宿舍与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    38,
+    42
+   ],
+   "baseline": "体育管理专业毕业，接手家传的百年武道馆十二年，这届锦标赛的承办方负责人。",
+   "gender": "any",
+   "id": "pi_kendo_captain_gu_ling_xuan",
+   "reputation": "把一座快拆掉的老武道馆撑成全国赛场地的馆长",
+   "resources": [
+    "武道馆全部场地与设备的调度权",
+    "和裁判长三十年的交情"
+   ],
+   "risks": [
+    "决赛出了事故，百年武道馆的承办资格会被收回"
+   ],
+   "role": "武道馆的馆长，主持这届锦标赛的承办",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}馆长"
+    },
+    {
+     "gender": "male",
+     "pattern": "{given}先生"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    34
+   ],
+   "baseline": "剑道七段，执裁十年，这场女子团体决赛的副审之一。",
+   "gender": "any",
+   "id": "pi_chief_umpire_liang_ting_feng",
+   "reputation": "判罚公正、从不看人情的中年副审",
+   "resources": [
+    "红白判罚旗",
+    "可以向裁判长申请延迟开赛的权限"
+   ],
+   "risks": [
+    "判罚出错会被裁判委员会停哨"
+   ],
+   "role": "这场决赛的副审",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}副审"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    32,
+    36
+   ],
+   "baseline": "和太鼓专业毕业，在武道馆击鼓八年，每场决赛的开场鼓都由此人擂响。",
+   "gender": "any",
+   "id": "pi_tech_engineer_tang_ming_yue",
+   "reputation": "全馆唯一能让三千人同时安静下来的鼓手",
+   "resources": [
+    "一对桧木鼓槌",
+    "站在大太鼓吊架正下方的位置"
+   ],
+   "risks": [
+    "开场鼓误了时辰，转播事故的责任会落到鼓手头上"
+   ],
+   "role": "开赛擂响大太鼓的太鼓手",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}鼓手"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    27
+   ],
+   "baseline": "社会体育专业毕业，周末在武道馆做志愿者，管选手通道和毛巾冰水。",
+   "gender": "any",
+   "id": "pi_team_assistant_su_xiao_he",
+   "reputation": "选手们最喜欢的场务，谁的护具带子松了都先找",
+   "resources": [
+    "一整箱冰毛巾",
+    "选手通道的出入钥匙"
+   ],
+   "risks": [
+    "在选手通道出了岔子，下届就不会再被叫来帮忙"
+   ],
+   "role": "武道馆的场务志愿者",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}场务"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "百年木造武道馆里，全国剑道锦标赛进入最后三天，三连霸的元气女主将每天在决胜台上练到闭馆，馆长、副审和太鼓手都是看着主将长大的。主将胴甲里私下戴着一对纯银乳铃，一动就轻轻一颤；悬挂大太鼓的吊索滑轮组最近有点松。",
+ "pressures": [
+  {
+   "choice": "选择借纯钢卡销两毫米硬角杠杆下挑脱扣，抑或盲目硬扯导致道服崩脱当众露底走光。",
+   "exits": [
+    {
+     "cost": "右侧香肩肌肤被死死绷拽留下一道微红勒痕且单手运力手指微麻。",
+     "option": "借助特制淬火硬质纯钢卡销找准四牛顿力矩精准挑弹滑轮棘爪解开死扣自救脱险。"
+    },
+    {
+     "cost": "需要工程师承担未经报备介入候场区的微弱违纪风险。",
+     "option": "由工程师女工程师在暗处用手掌稳住滑轮外壳分担下挑破拆扭矩。"
+    }
+   ],
+   "far": {
+    "consequence": "造成灾难性锦标赛名誉事故，三连冠女主将职业生涯彻底终结遭体坛除名。",
+    "due_days": 1,
+    "trigger": "女主将在万人众目睽睽下道袍扯破意外走光"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_kimono_collar_tearing_slip",
+   "immediate": {
+    "minutes": 1,
+    "text": "坚硬金属滑轮死死卡住系带，胸口被反向拽死在立柱前，动弹不得。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若无法在二十秒内解除绞合，上身后仰将直接扯烂粗棉道服露出贴身暗红胴甲引发全网轰动。"
+   },
+   "objective": "在道服前襟彻底撕裂前用比赛竹刀纯钢卡销下挑棘爪脱钩自救。",
+   "source": "accident",
+   "start_minute": 132,
+   "tags": [
+    "disaster"
+   ],
+   "title": "道服滑轮咬死系带前襟撕裂走光",
+   "trigger": "校核动作导致道服前襟系带被重型滑轮棘爪死死卡在机械缝隙。"
+  },
+  {
+   "choice": "选择争分夺秒单手盲操卡销自救，抑或在通道呼救引发全场总决赛叫停大乱。",
+   "exits": [
+    {
+     "cost": "若最终仍未解脱将承担顶撞终审裁判长的当场通报处分。",
+     "option": "女工程师以汇报吊装受力参数为由挺身横阻在裁判长身前争取时间。"
+    },
+    {
+     "cost": "承受超负荷心理紧绷与指骨极度酸痛。",
+     "option": "主将指尖爆发极强稳定性在倒数第三秒挑落卡死系带从容拉拢前襟。"
+    }
+   ],
+   "far": {
+    "consequence": "争冠资格当场被取消，面临实业团纪律追责与终身心理创伤。",
+    "due_days": 1,
+    "trigger": "全国体育直播曝光王牌主将受困受辱窘态"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_chief_umpire_footstep_rush",
+   "immediate": {
+    "minutes": 1,
+    "text": "广播中二十秒倒数读秒清晰可闻，裁判长严厉挑剔的目光正隔着隔离线扫视台口。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_umpire_judging_seat_front"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "倒数归零若选手呈现身体受拽上装撕裂姿态，走近的视线将把受困窘态暴露无遗。"
+   },
+   "objective": "在裁判长完全踏入台口前解除束缚并抚平道服从容登台了结危机。",
+   "source": "institution",
+   "start_minute": 133,
+   "tags": [],
+   "title": "终审裁决长裁判长逼近二十秒倒数",
+   "trigger": "高音广播确认开赛登台倒数，裁判长皮鞋踏木步声正一步一步向台口逼近。"
+  },
+  {
+   "choice": "选择由队友好友高举金丝绒队旗阻挡，抑或任由长焦镜头抓拍到死锁细节沦为头条丑闻。",
+   "exits": [
+    {
+     "cost": "可能遭受巡场干事关于展示站位偏离候场席的批评。",
+     "option": "后勤队友优雅大跨步挥展两米实业团金丝绒队旗遮挡主将侧前方死锁盲区。"
+    },
+    {
+     "cost": "需要解说人员承担来自转播导演的微弱质疑压力。",
+     "option": "解说员解说舟果断提示导播切换全景画面彻底阻断低角度窥视视线。"
+    }
+   ],
+   "far": {
+    "consequence": "全国剑道第一元气女神形象瞬间粉碎，遭遇全网恶俗网络暴力声讨。",
+    "due_days": 1,
+    "trigger": "隐秘胴甲受困细节被体育媒体大肆散播"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_telephoto_lenses_focus_dread",
+   "immediate": {
+    "minutes": 1,
+    "text": "单反快门声如雨点般传来，长焦镜头密集对准台口，前襟微小细节无处遁形。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_arena_center_tatami_platform"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "摄影师镜头只要下移半寸即可看清主将系带卡死在滑轮上的窘态并大声喧哗。"
+   },
+   "objective": "在长焦镜头捕捉到暗红胴甲与道服撕裂前构筑防线或完成自救脱钩。",
+   "source": "person",
+   "start_minute": 133,
+   "tags": [],
+   "title": "全馆看台数十台专业长焦大炮长距离锁焦",
+   "trigger": "外圈观摩看台数十名体育摄影记者密集连拍，长焦镜头死死锁定台口道服细节。"
+  },
+  {
+   "choice": "选择调整呼吸沉稳发力微撬，抑或因卡销打滑脱落彻底丧失唯一工具并崩断竹刀配件。",
+   "exits": [
+    {
+     "cost": "消耗最后宝贵的两秒钟并加大指骨关节受压酸胀。",
+     "option": "手腕向内微旋用橡胶垫圈增加摩擦咬稳卡槽向前微挑。"
+    },
+    {
+     "cost": "需要工程师极度隐蔽配合防止引来裁判长视线。",
+     "option": "女工程师在暗处用专用碳素挑针协助固定外壳防止卡销滑动。"
+    }
+   ],
+   "far": {
+    "consequence": "只能任由数万看客与大批长焦相机全景围观惨烈社死。",
+    "due_days": 1,
+    "trigger": "卡销脱落大面积走光"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_steel_pin_blade_slip_risk",
+   "immediate": {
+    "minutes": 1,
+    "text": "纯钢卡销在光滑金属滑轮上发出极轻微滑动微响，心跳几乎停滞。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若卡销滑脱落地，不仅无法挑开棘爪更会导致身体受惯性反弹扯烂整件粗棉道服。"
+   },
+   "objective": "套上硬橡胶刀镡垫圈死死咬稳卡爪根部精准向前微挑下压。",
+   "source": "person",
+   "start_minute": 134,
+   "tags": [],
+   "title": "滑轮铸铝曲面纯钢卡销打滑风险",
+   "trigger": "紧张冷汗与圆滑滑轮外壳导致纯钢卡销尖端在卡爪狭窄缝隙边缘产生滑动。"
+  },
+  {
+   "choice": "选择收紧胸肌屏息压制铃身震动，抑或动作变形导致铃声失控爆响引发全场骇然。",
+   "exits": [
+    {
+     "cost": "胸大肌与手臂因别扭承重姿势产生剧烈酸痛感。",
+     "option": "用左手自然按在立柱无漆区收紧胸肌为身体平衡分担倾斜拉力压死铃舌。"
+    },
+    {
+     "cost": "双人贴身站位过紧可能略微引起边裁注意。",
+     "option": "队友后勤队友并肩侧立以自身道服衣袖恰到好处贴身压住主将前胸。"
+    }
+   ],
+   "far": {
+    "consequence": "全国成年剑道三连冠至高荣誉荡然无存，身败名裂面临全球网络恶俗非议。",
+    "due_days": 1,
+    "trigger": "女主将当众解开胴甲验身春光大泄"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_silver_bell_chime_panic",
+   "immediate": {
+    "minutes": 1,
+    "text": "暗红胴甲内侧纯银响铃极度敏感，随呼吸起伏发出细微金属脆声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_scoreboard_winch_corridor_edge"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "铃声一旦穿透通道回音传出，将被全场裁判与观众当场判定携带违规异物当众检身。"
+   },
+   "objective": "在纯银乳铃彻底爆响响彻场馆前完成脱扣并迅速拉拢前襟恢复端庄仪态。",
+   "source": "nature",
+   "start_minute": 134,
+   "tags": [
+    "disaster"
+   ],
+   "title": "前胸恶作剧纯银响铃受拉爆鸣危机",
+   "trigger": "系带被死死扣住而身体受牵引导致胴甲内侧纯银细链响铃微弱晃动发出脆鸣。"
+  },
+  {
+   "choice": "选择顶住开演重压完成硬核卡销自救，抑或被恐怖高压击垮彻底慌乱失措。",
+   "exits": [
+    {
+     "cost": "需要极强的专业心理素质瞬间切换神态展现一线王者武者风骨。",
+     "option": "挑落系带瞬间以无瑕的英姿从容微笑执刀登台迎接全场掌声。"
+    },
+    {
+     "cost": "微调检录节奏需要实业团承担微弱程序瑕疵责任。",
+     "option": "由后勤后勤队友高声汇报主将竹刀技术参数争取三秒缓冲。"
+    }
+   ],
+   "far": {
+    "consequence": "高校剑道品牌形象遭受毁灭性打击，当事实业团遭受纪律严厉通报惩处。",
+    "due_days": 1,
+    "trigger": "全国剑道总决赛沦为恶俗女将走光翻车现场"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_countdown_twenty_second_buzzer",
+   "immediate": {
+    "minutes": 1,
+    "text": "大屏红色倒计时数字高亮闪烁，全景转播摄像机红点正徐徐对准台口出场通道。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_arena_center_tatami_platform"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若扫中选手受困拉扯僵硬的身影，万千观众的期待将瞬间转化为全网舆论海啸风暴。"
+   },
+   "objective": "在倒数计时的瞬间完美脱困端正执刀步入擂台赢得全场起立欢呼。",
+   "source": "person",
+   "start_minute": 135,
+   "tags": [],
+   "title": "武道馆总决赛登场二十秒绝境重压",
+   "trigger": "中央四面大屏上倒计时数字疯狂跳动，全场高音广播蜂鸣已切入最后倒数。"
+  }
+ ],
+ "region": "木造武道馆：枫木决胜台、大太鼓吊索滑轮台口、裁判长席与选手通道的队旗拐角",
+ "rules": [
+  {
+   "id": "rule_arena_kendo_uniform_decorum",
+   "text": "全国成年女子剑道锦标总决赛着装守则：登场选手道服必须严谨周正，严禁前襟散乱、胴甲松脱或发生任何不雅走光失态。"
+  },
+  {
+   "id": "rule_scoreboard_steel_cable_winch_safety",
+   "text": "武道馆悬吊升降机构严禁蛮力拖拽，防止诱发滑轮反向过载自锁卡死或钢索崩断造成严重伤亡。"
+  },
+  {
+   "id": "rule_arena_twenty_second_countdown_limit",
+   "text": "总决赛发令哨前开赛前二十秒踏上擂台红白线为刚性时限，逾期未在主擂台就位将直接判处弃权失格。"
+  },
+  {
+   "id": "rule_adult_athlete_legal_code",
+   "text": "参赛主将与裁判组全员皆为年满二十周岁完全民事责任人，扰乱赛场秩序或损坏公用特种设备须依法严厉追责。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "组织规约",
+  "committed": "金石同盟",
+  "familiar": "台容核检",
+  "flirting": "暗光对视",
+  "intimate": "俯仰共济",
+  "stranger": "初登讲台",
+  "testing": "执夹撬簧"
+ },
+ "status": "released",
+ "style_hint": "百年武道馆的木香与太鼓声里的屏息。写元气女主将婴儿肥两颊的红晕、滑落的道服下雪白香肩与真空胴甲里轻颤的乳铃、憋着不敢喘的气，动作落在竹剑销钉挑锁止簧片上。",
+ "tension_engines": [
+  {
+   "id": "eng_scoreboard_pulley_uniform_jam",
+   "text": "深绀色道服系带与暗红胴甲卡入升降滑轮自锁逆向死角，稍有后仰即引发道服崩裂大面积走光与纯银乳铃惊天脆响之恐怖机械死锁威压。"
+  },
+  {
+   "id": "eng_chief_umpire_twenty_second_rush",
+   "text": "终审裁判长威严迈步逼近与大屏二十秒登台倒计时无情流逝，与元气剑道女主将反手持竹刀纯钢卡销微观杠杆下挑棘爪自救形成的秒级生死时速对抗。"
+  },
+  {
+   "id": "eng_telephoto_lenses_scrutiny_dread",
+   "text": "全场数十家长焦大炮与全国卫视直播镜头密集锁焦，与受困女选手贴身真空胴甲体面濒临失守带来的极端职业名誉社死心理拉锯。"
+  },
+  {
+   "id": "eng_kimono_collar_strain_tear_panic",
+   "text": "深绀色粗棉道服前襟缝线断裂受拉紧绷，成年全国三连冠最年轻女主将以非凡坚韧与机械智慧捍卫尊严神格之绝境自救。"
+  }
+ ],
+ "title": "元气剑道女主将·武道馆大太鼓吊索绞死道服与乳铃",
+ "tone": [
+  "道服滑落香肩",
+  "乳铃随时会响",
+  "裁判长二十秒",
+  "竹剑销钉挑簧片"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_info_bamboo_pin_craft",
+   "requires": [
+    "kendo_captain_gu_ling_xuan"
+   ],
+   "text": "主将手中特制桂竹竹刀柄首配有两毫米超硬冷锻金属扁平插销与硬橡胶垫，硬度极高且头部微平，实为专破各类机械自锁卡爪的微观力学破拆利器。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_spatial_winch_housing_shadow_blind",
+   "requires": [
+    "tech_director_tang_ming_yue"
+   ],
+   "text": "武道馆大太鼓吊架卷扬机立柱与侧壁之间形成一处天然光影遮蔽盲区，为女工程师暗中托住外壳与主将下肢站立提供了物理隐蔽屏障。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_umpire_exclusive_veto_ban",
+   "requires": [
+    "chief_umpire_liang_ting_feng"
+   ],
+   "text": "巡场人员企图借违纪之名非分窥探女选手候场区的行径被赛事仲裁委员会当场喝止，现场取消其干预通道秩序的特权。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_pure_captain_grit_burst",
+   "requires": [
+    "kendo_captain_gu_ling_xuan"
+   ],
+   "text": "看似明朗纯真的元气剑道女主将在死锁与裁判长逼近绝境中迸发出惊人冷静意志，单手运销微观撬开棘爪展现出令人心折的极品坚韧。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_engineer_winch_buffer",
+   "requires": [
+    "tech_director_tang_ming_yue"
+   ],
+   "text": "女工程师在台口果断向裁判长汇报吊装安全参数并挺身阻截催逼步伐，为主将纯钢卡销挑开滑轮棘爪争取到无价黄金时间窗。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_social_assistant_flag_brace",
+   "requires": [
+    "team_substitute_su_xiao_he"
+   ],
+   "text": "看似活泼调皮的队友借展开锦旗为由用身躯死死挡住外围长焦单反拍摄，以硬核队友情谊构筑最稳固操作后盾。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_anti_pinch_pulley_spring_yield",
+   "requires": [
+    "tech_director_tang_ming_yue"
+   ],
+   "text": "滑轮自锁卡块在纯钢卡销四牛顿偏角微观下挑力矩下顺畅挑开弹起，道服系带顺势脱扣滑出化解深绀色道袍撕裂危局。"
+  }
+ ]
+}

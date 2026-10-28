@@ -1,0 +1,2347 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满五十二岁，资深营造博士，成年老工匠。",
+   "age_range": [
+    52,
+    58
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_artisan_old_lu",
+   "line": "自第七齿倒角退刀槽别进去！把全身力气压上去，老汉保你一撬就开！",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "name": "老卢",
+   "role": "老营造博士老卢"
+  },
+  {
+   "adult_context": "年满五十岁，司天台监正，成年指挥官。",
+   "age_range": [
+    50,
+    56
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_observatory_director_cui",
+   "line": "底层水运天街主阀关闭了！附加扭矩已卸去，抓紧撬开齿轮离开高台！",
+   "location_ids": [
+    "loc_observatory_observation_deck_edge"
+   ],
+   "name": "崔监正",
+   "role": "司天监监正崔大人"
+  },
+  {
+   "adult_context": "年满二十二岁，见习文生，成年从役。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_astronomy_cadet_wang",
+   "line": "缠住轴承的烂麻绳全割断了！女史大人、陆大人，快使劲啊！",
+   "location_ids": [
+    "loc_observatory_observation_deck_edge"
+   ],
+   "name": "小王",
+   "role": "司历生小王"
+  },
+  {
+   "adult_context": "年满二十八岁，禁军军官，成年武官。",
+   "age_range": [
+    28,
+    34
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_guard_captain_xue",
+   "line": "救生大绳拽紧了！大人放心发力，末将死死拉住你们！",
+   "location_ids": [
+    "loc_armillary_clockwork_machinery_vault"
+   ],
+   "name": "薛哨长",
+   "role": "禁军哨长薛刚"
+  },
+  {
+   "adult_context": "年满四十五岁，内侍省太监，成年内官。",
+   "age_range": [
+    45,
+    52
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_court_eunuch_liao",
+   "line": "天雷震怒乃是不祥之兆！赶紧封死楼梯，莫让雷火引燃了皇城！",
+   "location_ids": [
+    "loc_observatory_observation_deck_edge"
+   ],
+   "name": "廖太监",
+   "role": "内侍省宣慰中官廖太监"
+  },
+  {
+   "adult_context": "年满三十五岁，司天台主簿，成年官员。",
+   "age_range": [
+    35,
+    42
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_imperial_astronomy_clerk_sun",
+   "line": "雷暴中心正在向北移动！还有最后半刻钟避雷间歇窗口！",
+   "location_ids": [
+    "loc_observatory_observation_deck_edge"
+   ],
+   "name": "孙令史",
+   "role": "司历掌印令史孙主簿"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "典雅孤傲的大唐钦天监女官与沉毅刚强的灵台郎在三十丈露天浑天台同生共死，两人在狂风雷暴中十指紧扣，借高硬度青铜量天尺侧棱别入咬死齿轮凹槽，合力猛撬顶脱自锁卡扣脱困自救。",
+   "id": "cc_astronomer_and_engineer_ruler_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "astronomer_pei_zhaohua",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "狂风雷暴中共同握持量天尺撬锁，建立起生死托付的坚实同盟。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "engineer_lu_cang_lingtai",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "司天台并肩作战的技术知己。",
+     "stage": "familiar"
+    },
+    {
+     "a": "astronomer_pei_zhaohua",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "engineer_lu_cang_lingtai",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "典雅女官与硬核营造郎在雷火深渊中相依为命。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "astronomer_pei_zhaohua",
+    "engineer_lu_cang_lingtai"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在下一道强雷劈下或坠楼前撬脱卡扣脱身撤离至安全舱室。",
+    "limit_gap": "女官身娇体单受困于朝服被绞入深处，灵台郎面临狂风撕扯与缺乏重装起重机械支撑。",
+    "meeting_reason": "子时将近，女官在漏刻值房盯着最后一箭的刻度，灵台郎从楼上探头喊齿轮又慢了半刻，两人隔着楼梯对时辰。",
+    "resource_gap": "女官拥有淬火精锡高硬度量天尺与精准力学算度，灵台郎具备强悍的机械构造公差掌控力与雄健体魄臂力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_lightning_strike_vs_bronze_gear_jam",
+    "te_high_altitude_fall_vs_leverage_wrench"
+   ]
+  },
+  {
+   "chemistry": "老营造博士口授第七齿倒角退刀槽独门绝学，典雅女官眼明手快引尺切入，老少合力化解自锁死局。",
+   "id": "cc_astronomer_and_artisan_notch_guide",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "astronomer_pei_zhaohua",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "深信女史精准敏锐的眼力定力。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "artisan_old_lu_mechanic",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "老匠人四十年营造经验一字千金。",
+     "stage": "familiar"
+    },
+    {
+     "a": "astronomer_pei_zhaohua",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "artisan_old_lu_mechanic",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "两代大唐天文营造学者的默契互敬。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "astronomer_pei_zhaohua",
+    "artisan_old_lu_mechanic"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "找准倒角斜面一举顶翻自锁棘爪推开通道。",
+    "limit_gap": "老匠人年迈体衰高空受风无力推撬，女官承担主撬发力面临反向震颤冲击。",
+    "meeting_reason": "老营造博士来给浑天仪换一枚磨秃的齿牙，女官端着酪浆在一旁看，非要学怎么听齿轮咬得紧不紧。",
+    "resource_gap": "老匠人掌握四十年青铜齿轮倒角退刀暗槽位置，女官手握合金精锡高硬度侧棱。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_lightning_strike_vs_bronze_gear_jam"
+   ]
+  },
+  {
+   "chemistry": "监正大人在下层果断指挥关闸卸荷，灵台郎在上层抓住附加扭矩消散瞬间全力一撬，里应外合破除险情。",
+   "id": "cc_engineer_and_director_valve_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "engineer_lu_cang_lingtai",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "敬佩灵台郎顶天立地的技术骨气。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "director_cui_observatory",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "服从监正大局调度指示。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "engineer_lu_cang_lingtai",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "director_cui_observatory",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "长官与骨干在天灾面前的生死信赖。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "engineer_lu_cang_lingtai",
+    "director_cui_observatory"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "切断水流卸载并在齿轮间隙回弹瞬间完成撬脱。",
+    "limit_gap": "崔监正隔在下层无法亲身登台作业，灵台郎独自承受雷电烈焰与狂风拉扯伤害。",
+    "meeting_reason": "监正深夜登楼，要灵台郎把水运天街的转速再调快一分，说宫里嫌今夏的更鼓报得晚。",
+    "resource_gap": "崔监正掌控全台水运总动力输入控制权，灵台郎身在顶层一线掌控量天尺下压发力窗口。"
+   },
+   "tags": [
+    "workplace_power",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_high_altitude_fall_vs_leverage_wrench"
+   ]
+  },
+  {
+   "chemistry": "随行文生小王顶着狂风暴雨以小铜刀奋力割断缠乱绳索，女官从容下尺直捣黄龙，同僚协力破解卡阻。",
+   "id": "cc_astronomer_and_cadet_rope_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "astronomer_pei_zhaohua",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "信赖女史大人处变不惊的高绝造诣。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "cadet_wang_recorder",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "督促青年后生摒除杂念专注割绳。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "astronomer_pei_zhaohua",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "cadet_wang_recorder",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "典雅上官对年轻僚属的严格生死考验。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "astronomer_pei_zhaohua",
+    "cadet_wang_recorder"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在最短时间内清理齿缝障碍为量天尺开辟通畅下潜间隙。",
+    "limit_gap": "见习生恐高双腿发颤，女官承担主撬重任面临严重体能消耗。",
+    "meeting_reason": "女官带着新来的司历生在西市收摊前买纸笔，教司历生怎么从坊门的鼓声里听出今夜的时辰准不准。",
+    "resource_gap": "见习生具备处理细致乱绳的锋利小工具，女官掌握精准量天尺别插技术。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_lightning_strike_vs_bronze_gear_jam"
+   ]
+  },
+  {
+   "chemistry": "禁军哨长以重铠与大绳死死拉住狂风中的发力支点，灵台郎趁势借力下挫撬脱棘爪，同袍默契无间。",
+   "id": "cc_engineer_and_captain_rope_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "engineer_lu_cang_lingtai",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "深信灵台郎在狂风暴雨中沉着发力的惊人定力。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "captain_xue_jinwu",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "服从哨长高空系留指引。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "engineer_lu_cang_lingtai",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "captain_xue_jinwu",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "军工合作在天灾面前的生死信赖。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "engineer_lu_cang_lingtai",
+    "captain_xue_jinwu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "牵引稳固重心并在齿轮间隙回弹瞬间完成撬脱。",
+    "limit_gap": "薛哨长不通精密齿轮构造，灵台郎独自承受雷电烈焰与狂风拉扯伤害。",
+    "meeting_reason": "三十丈露天高台极端风暴防坠抢险。",
+    "resource_gap": "薛哨长具备万斤高空防坠牵引钢索，灵台郎身在顶层一线掌控量天尺下压发力窗口。"
+   },
+   "tags": [
+    "workplace_power",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_high_altitude_fall_vs_leverage_wrench"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_observatory_thunder_storm_roar",
+   "reach": "all",
+   "text": "三十丈露天摘星楼狂风呼啸与雷暴轰击声"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_clockwork_copper_gear_snap",
+   "reach": "local",
+   "text": "青铜浑天仪传动齿轮自锁卡扣受力震响"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "算学出身，开元年间司历策试第一，在钦天监管了五年漏刻，正七品朝廷女官，长安的时辰都从这位女官手里报出去，去留进退由本人拿主意。",
+   "age_range": [
+    26,
+    30
+   ],
+   "appearance_options": [
+    "身穿苍青金丝女官袍衬窄袖，青丝在狂风中飞扬，容貌典雅出尘，两腮带成年青年女性特有的健康紧致微婴儿肥与水润胶原蛋白，在雷光下泛起玉石红晕，双手握紧量天尺，微婴儿肥面颊透着皇家天象威仪。",
+    "雨水浇透典雅官服勾勒出窈窕高挑的优美曲线，半跪在疾风骤雨的青铜转台前，微婴儿肥的面容在紫电青霜中坚毅凛然，眼神如夜空北极星般澄澈决绝。"
+   ],
+   "decision": {
+    "avoids": [
+     "唯唯诺诺的软弱逃避",
+     "弄虚作假的荒诞谶纬"
+    ],
+    "contrast": "平日仪态万方典雅端庄的皇家女官且两腮带着娇美微婴儿肥，在三十丈高空雷暴与万斤青铜崩裂大灾面前爆发出摧枯拉朽的钢铁手腕。",
+    "core_value": "天行有常，星规不灭，千斤铜轮休想困死钦天女官，灵台郎，借尺开槽！",
+    "goal_options": [
+     "以青铜量天尺侧棱别入咬死齿轮凹槽顶脱卡舌自救",
+     "协助灵台郎切断下层水运飞绳防止齿轮彻底绞碎"
+    ],
+    "never": [
+     "在浑天仪齿轮彻底解扣前弃同僚独自退下摘星楼"
+    ],
+    "prefers": [
+     "分秒不差的精密算式",
+     "顶天立地的君子铁骨"
+    ],
+    "pressure_responses": {
+     "breaking": "整个人扑倒在灵台郎怀中借两人体重将尺柄死死下压",
+     "high": "将量天尺高硬度侧棱精准插进两牙咬合的微小死隙",
+     "low": "在狂风呼啸中镇定报出雷云移动高度与风速刻度",
+     "mid": "果断拔下发簪割断多余披帛下摆缩小受牵制范围"
+    },
+    "relationship_stance": "女官报时，灵台郎校齿轮，三年来每夜子时一前一后上摘星楼；女官嘴上说灵台郎的齿轮总慢半刻，却每回都在漏壶边留一盏温着的酪浆。",
+    "withdrawal": "退守至平台中央青铜基座内侧背风死角，单手紧挽护腰钢索傲然挺立。"
+   },
+   "gender": "female",
+   "gender_reason": "大唐钦天监正七品灵台算历兼浑天仪守护女官",
+   "id": "astronomer_pei_zhaohua",
+   "identity": {
+    "authority": "对开元大衍历的定历、浑天仪校准与雷暴应急破障拥有最终签字权。",
+    "exposure": "曾为坚持更正皇家历法差数在延英殿前与太史令当众争辩三日",
+    "hidden": "官袍贴身内衬的绣囊里珍藏着一张紫微垣岁差推演星图，是灵台郎亲手测算绘制送来的。",
+    "limits": [
+     "虽精通算理但纯物理力量无法匹敌重达千斤的青铜转盘",
+     "朝服披帛被卷入传动轴深处行动受制于咫尺方寸之间"
+    ],
+    "obligations": [
+     "守护国家重器青铜浑天仪免于彻底焚毁并确保星象记录完好"
+    ],
+    "resources": [
+     "一柄祖传正统加厚高硬度青铜量天尺（长两尺四寸、四方锐角侧棱、合金比例铜八锡二极度坚硬不弯、刻有二十八星宿金错刀度数）",
+     "一枚由天子御赐的九章璇玑青玉镇纸"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在三十丈暴风高台上如山岳挺拔守护身侧的安全感",
+     "两人十指相扣合力下压青铜量天尺时滚烫的心跳共鸣"
+    ],
+    "boundaries": [
+     "严守朝廷官制礼数与男女之大防",
+     "不以私情亵渎天象圣职"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被灵台郎从身后环抱稳住身形，四手紧握青铜量天尺长柄，借自重与内劲猛烈下压。",
+    "dislikes": [
+     "登徒浪子的轻浮放肆",
+     "权贵对天文学术的蛮横践踏"
+    ],
+    "expression": "脱险后俏脸泛起微红，微微偏过带着微婴儿肥的容颜，轻咳一声递上方巾示意灵台郎擦拭雨水。",
+    "likes": [
+     "齿轮咔哒一声反向松扣弹开时对方眼底绽放的喜悦光芒",
+     "被强健臂弯一把从飞旋铜轮边抱入怀中的坚实怀抱"
+    ],
+    "preconditions": [
+     "青铜浑天仪卡扣顺利解脱朝服脱险",
+     "全员平安撤回观象台下层避难舱室",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "钦天监正七品女官",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_armillary_sphere_open_air_platform",
+     "to": 1395
+    },
+    {
+     "from": 1395,
+     "location_id": "loc_armillary_sphere_open_air_platform",
+     "to": 1410
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "量天尺侧棱边缘出现微细咬合磨损划痕，{npc.name}掌心被金属棱角擦破红肿渗血。",
+      "option": "用加厚青铜量天尺高硬度侧棱精准卡入齿轮节圆暗槽合力猛撬顶脱自锁卡扣自救脱险。"
+     },
+     {
+      "cost": "起子受力反震脱手跌落石阶砸变形。",
+      "option": "灵台郎用八角青铜起子猛砸咬死齿牙受力点震退锁扣脱险。"
+     }
+    ],
+    "pressure": "三十丈露天高台狂风撕扯随时有坠楼危险，第二道强雷将在半刻钟内劈下，若不能借青铜量天尺撬开齿轮自锁卡扣脱身，全员将被雷火炸碎或被拉扯坠崖。",
+    "trigger": "万钧雷击轰击摘星楼避雷铜柱，青铜浑天仪主轴过热抱死咬死女官织锦朝服披帛。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "三十丈高空的雷火又如何……灵台郎就在身旁，绝不会让国家重器与我们一同折在这里！",
+    "surface": "灵台郎！休要慌张！浑天仪赤道环主轴受热胀抱死了！我这柄量天尺是青铜精锡所铸，四棱极硬！插进第七颗齿槽，与我合力顺着逆向力矩顶开这道齿！"
+   }
+  },
+  {
+   "adult_context": "年满二十六岁，工部考工及第钦天监专职机械营造官，成年公职指挥官，具备完全民事行为能力与仪器战时抢修全权。",
+   "age_range": [
+    26,
+    29
+   ],
+   "appearance_options": [
+    "身穿带有玄铁扣环的暗灰耐磨灵台武官公服，挽起袖口，小臂肌肉线条分明布满机油痕迹与雨水，剑眉星目神情沉着如铁，眼神在闪电照耀下深邃沉稳。",
+    "浑身湿透散发着学者与工匠双重魅力，沉着护在女官身前，双脚死死扣住转台防滑凹槽对抗狂风。"
+   ],
+   "decision": {
+    "avoids": [
+     "怨天尤人的软弱哭天",
+     "鲁莽蛮干的盲目蛮力"
+    ],
+    "contrast": "平日少言寡语只知埋首图纸的工科书呆子，在百尺高空黑风暴与万钧雷霆碾压时爆发出撼天动地的顶天立地的担当。",
+    "core_value": "天地机械皆在算学分寸，只要量天尺找到了反向支点，万斤铜山我也能掀翻！",
+    "goal_options": [
+     "接下女官量天尺找准齿轮公差反牙死点全力下压",
+     "用身躯挡住女官防止被甩出三十丈悬空露台"
+    ],
+    "never": [
+     "在女官安全脱困前松开手中撬杠"
+    ],
+    "prefers": [
+     "严丝合缝的机械美学",
+     "同生共死的过硬担当"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂发力青筋暴起将女官环在怀中咬牙下压长柄",
+     "high": "接过量天尺稳准狠地插入仅有两毫米的节圆缝隙",
+     "low": "在狂风呼啸中迅速心算齿轮受热膨胀公差极值",
+     "mid": "冒着电弧扑上前用身体挡在女官身前护住要害"
+    },
+    "relationship_stance": "三年来每夜跟着女官的更鼓上楼，灵台郎校齿轮从来不看漏壶，只看那盏灯下报时的人。",
+    "withdrawal": "退至平台东南角背风石阶前，双手死死攥住避雷接地钢柱稳固重心。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "engineer_lu_cang_lingtai",
+   "identity": {
+    "authority": "对浑天仪水运天街传动系统切断、青铜齿轮受力公差调试与现场应急拆解拥有一票终决权。",
+    "exposure": "曾因私自改进浑天仪擒纵齿轮被保守派老太史指责擅改祖宗成法",
+    "hidden": "公服内袋里用油布细细包裹着一本女官早年编撰的《步天歌正误详注》",
+    "limits": [
+     "徒手力量在万斤扭矩前极为有限",
+     "高空湿滑缺乏大型气压千斤顶工具支持"
+    ],
+    "obligations": [
+     "誓死守卫国家天文神器不毁与裴女官人身安全"
+    ],
+    "resources": [
+     "一把特种冷锻淬火加粗四方纯青铜敲击大别杠",
+     "一套高空防坠牛皮特制双挂钩安全带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "皇家女官高贵典雅面具下赤诚勇敢的坚韧灵魂",
+     "两具身躯在三十丈暴风高台抵死相依的生命律动"
+    ],
+    "boundaries": [
+     "恪守公门规矩与男女清白名节",
+     "不以救命大恩挟制私情"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "将女官紧紧护入怀抱固定在铜台立柱前，双手包覆女官的手合力下压尺柄。",
+    "dislikes": [
+     "天灾对同伴生命的威胁",
+     "自己力量不足导致的无力感"
+    ],
+    "expression": "脱险后迅速解下自己干燥的防风保暖大氅紧紧裹住女官颤抖的肩头，低声沉稳宽慰。",
+    "likes": [
+     "齿轮咔哒一声解开束缚时的清脆金鸣",
+     "女官眼中泛着水光却依然坚定骄傲的动人神采"
+    ],
+    "preconditions": [
+     "浑天仪自锁齿轮成功撬脱朝服脱险",
+     "全员安然返回地面主殿安全区域",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "钦天监正六品灵台郎",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_armillary_sphere_open_air_platform",
+     "to": 1410
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}右臂肌肉遭受剧烈拉伤拉扯淤血。",
+      "option": "{npc.name}指导女官利用青铜尺侧棱配合二人体重借杠杆力矩顶脱抱死棘爪自救脱险。"
+     },
+     {
+      "cost": "青铜起子前端断折报废。",
+      "option": "用青铜起子猛砸齿轮间隙震碎咬死焊点脱险。"
+     }
+    ],
+    "pressure": "若不能在三分钟内借量天尺顶脱棘爪，下一道雷暴将引发青铜仪整体带电致全员触电身亡。",
+    "trigger": "青铜浑天仪自锁棘爪受高温熔胀卡死在死槽深处无法手动回弹。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "纵使这三十丈摘星楼真被天雷劈碎，我拼上这条命，也绝不会让女官伤到一根头发！",
+    "surface": "站稳！狂风窗口期到了！量天尺侧棱已经咬死主齿轮副槽，跟我数三二一，我们合力借自重往死里压，给我开！"
+   }
+  },
+  {
+   "adult_context": "年满五十二岁，大唐将作监与钦天监联合受封资深营造博士，成年老匠人，具备完全民事行为能力。",
+   "age_range": [
+    52,
+    58
+   ],
+   "appearance_options": [
+    "身穿带有深色桐油油渍的粗麻匠人围裙与护腕，白发苍苍神情沉着如磐石，手持长柄铜油壶在狂风暴雨中抹拭雨水。",
+    "双手满是厚厚的老茧与铜水烫伤伤痕，大声向两个年轻人指引自锁咬合点构造。"
+   ],
+   "decision": {
+    "avoids": [
+     "投机取巧的粗制滥造",
+     "遇到险情就跳楼等死的懦夫"
+    ],
+    "contrast": "看似土气卑微的老工匠，在皇家浩瀚天文器械大劫面前展现出中国古代工程技艺的通天大智。",
+    "core_value": "铜铁虽硬但讲公差咬合，找准了倒角退刀槽，一柄量天尺就能顶翻千斤顶！",
+    "goal_options": [
+     "口授女官与灵台郎找准第七主齿槽倒角下刀的秘诀",
+     "向咬死齿面泼洒菜籽油减小摩擦阻尼"
+    ],
+    "never": [
+     "在齿轮受力结构上给出错误误导信息"
+    ],
+    "prefers": [
+     "分毫不差的工匠匠心",
+     "尊师重道的后生人品"
+    ],
+    "pressure_responses": {
+     "breaking": "用身躯抵住侧方摆动的铜规为年轻人分担后顾之忧",
+     "high": "冒着雷击危险涉险上前喷淋菜籽润滑油",
+     "low": "在暴风雨中举着防风油灯仔细辨析齿轮抱死位置",
+     "mid": "大声向两人喊出找准第七齿倒角退刀槽的关键指令"
+    },
+    "relationship_stance": "对裴女官的算学天才由衷钦佩，对灵台郎视若衣钵传人，危难关头甘当定盘星倾囊相助。",
+    "withdrawal": "缩在下层梯口背风平台处，双手死死抱紧扶手大口喘息。"
+   },
+   "gender": "male",
+   "gender_reason": "负责皇家星台天文器械营造的资深老匠官",
+   "id": "artisan_old_lu_mechanic",
+   "identity": {
+    "authority": "对全套青铜浑天仪六合仪、三辰仪与四游仪四百八十颗齿牙锻造间隙拥有四十年经验裁决权。",
+    "exposure": "年轻时曾因熔铜温度偏低导致第一代浑天仪齿轮缩孔受过内侍省罚俸",
+    "hidden": "深知浑天仪第七颗主齿槽外缘预留了半毫米倒角安全退刀槽",
+    "limits": [
+     "年老气衰在三十丈高空顶风受寒行动迟缓",
+     "体能透支无法参与重力猛撬"
+    ],
+    "obligations": [
+     "将营造绝技传授后辈并誓死保护青铜浑天仪传世"
+    ],
+    "resources": [
+     "一听耐高温特制青铜防锈菜籽润滑油",
+     "一盒精钢淬火样冲工具"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "两代天文机械建设者的工匠精神共鸣",
+     "在灭顶风暴中同舟共济的忘年真情"
+    ],
+    "boundaries": [
+     "恪守老匠人本分规矩长幼秩序",
+     "不妄议年轻官长私情"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "蹲在平台转轴右侧，双手用力握紧油壶向缝隙喷注机油提供润滑。",
+    "dislikes": [
+     "皇家重器毁于天火",
+     "无辜后生在风暴中夭折"
+    ],
+    "expression": "用沾满机油的大手重重拍在灵台郎与女官肩头，咧开大嘴踏实欣慰地笑了起来。",
+    "likes": [
+     "齿牙弹脱时清脆的金属撞击声",
+     "年轻人青出于蓝的过硬本领"
+    ],
+    "preconditions": [
+     "浑天仪安然脱困齿轮咬死彻底化解",
+     "全员平安脱险返回地面"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "司天台老营造博士",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_armillary_sphere_open_air_platform",
+     "to": 1410
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "老工正手背被溅起的火星烫起两处燎泡。",
+      "option": "依老工正指引将量天尺自第七齿倒角退刀槽斜向插入借重力下压撬脱死扣自救脱险。"
+     },
+     {
+      "cost": "样冲尖端受强烈反震折断。",
+      "option": "用钢样冲硬敲倒角边缘脱险。"
+     }
+    ],
+    "pressure": "若不知晓第七齿倒角退刀槽方位而盲目硬扳，量天尺侧棱势必崩裂打滑损坏。",
+    "trigger": "咬死齿面产生高温金属粘连无法通过常规直角撬动脱开。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "好俊的一对公门神仙眷侣……老天爷开眼，这等栋梁之材可千万不能折在雷公手里！",
+    "surface": "女史大人！沧哥儿！听老汉一句！莫直着硬戳！第七颗大齿槽外头留着半毫米倒角退刀槽，把尺子顺着斜面别进去，两个人一起借体重压下去，立时就脱扣！"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁，国子监算学馆保送钦天监青年见习生，成年从役文官，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "身穿浅绿司历生公服头戴方巾，神情慌乱小脸煞白，怀中死死抱着用油皮层层包裹的防水黄道大衍星图匣子。",
+    "在三十丈高空狂风暴雨中双腿发软战战兢兢，紧紧跟随在裴女官身后协助递送工具。"
+   ],
+   "decision": {
+    "avoids": [
+     "高空深渊的眩晕恐惧",
+     "凶暴天威的无情吞噬"
+    ],
+    "contrast": "平日文弱腼腆见风就抖的年轻书生，在百尺高空雷火灭顶大劫面前敢迎风冲向飞旋齿轮割断乱绳。",
+    "core_value": "誓死守护星图与女史大人，大人在我就在！",
+    "goal_options": [
+     "用修竹小铁刮子迅速割断缠死在轴承上的备用牵引麻绳",
+     "协助女史大人稳固下盘支撑点"
+    ],
+    "never": [
+     "弃裴女官与星图于不顾独自逃跑"
+    ],
+    "prefers": [
+     "严谨工整的算学笔记",
+     "裴女官温和淡雅的鼓励目光"
+    ],
+    "pressure_responses": {
+     "breaking": "哭着用双手死死拉住女官的护腰安全带",
+     "high": "用单薄身子挡住飞溅的青铜火花",
+     "low": "紧抱星图箱缩在石柱后方瑟瑟发抖",
+     "mid": "鼓起勇气冲上前递上修竹小铁刮子"
+    },
+    "relationship_stance": "对女官忠心耿耿钦佩万分，在极端自然雷暴面前爆发出不顾生死的护主意志。",
+    "withdrawal": "缩在下层梯道入口避雨死角，紧抱木匣抽泣。"
+   },
+   "gender": "male",
+   "gender_reason": "钦天监青年随行司历生",
+   "id": "cadet_wang_recorder",
+   "identity": {
+    "authority": "对星象原始观测草表、防水星象匣与备用小刀拥有经办权。",
+    "exposure": "在一次月食记录中曾因手抖写错漏刻度数受过学监训诫",
+    "hidden": "暗自将女官视作自己毕生最为崇拜的算学偶像",
+    "limits": [
+     "严重恐高在三十丈露天栏杆边两腿战栗头晕目眩",
+     "体质单薄力气不足"
+    ],
+    "obligations": [
+     "誓死保全记录大衍历法的天文草表完好无损"
+    ],
+    "resources": [
+     "一盒防水羊皮包裹的珍贵星图",
+     "一柄精巧双面开刃的乌木柄修竹小铁刮子"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女官临危不乱的星辰般高贵定力",
+     "同舟共济的公门同袍情谊"
+    ],
+    "boundaries": [
+     "严守本分名节长幼规矩",
+     "严遵下级礼数"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "半蹲在转台安全索桩边，双手用力拽紧安全带引绳，大声为长官加油助威。",
+    "dislikes": [
+     "雷暴天灾对人力的无情践踏",
+     "自己懦弱无能拖累大人"
+    ],
+    "expression": "喜极而泣向女官与灵台郎深深长揖叩谢，双手紧紧捧着完好的星图匣子破涕为笑。",
+    "likes": [
+     "齿轮轰然脱开时天光复明的开朗景象",
+     "女官轻轻拍打自己肩膀的温柔鼓励"
+    ],
+    "preconditions": [
+     "全员平安撤离摘星楼星图完好无损",
+     "脱离雷击险境安全避难"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "钦天监见习司历生",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_armillary_sphere_open_air_platform",
+     "to": 1410
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "小铁刮子受铜齿挤压卷刃磨损。",
+      "option": "小王递上小铁刮子迅速割断缠绕在齿缝周遭的坚硬麻绳为量天尺清理通道脱险自救。"
+     },
+     {
+      "cost": "火折子被暴雨瞬时浇灭。",
+      "option": "用火折子烧断绳头自救。"
+     }
+    ],
+    "pressure": "若不割断乱绳，量天尺侧棱将无法深入到底部咬合点。",
+    "trigger": "粗硬麻绳被暴风卷入咬死齿轮缝隙缠绕打结阻塞卡槽。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "王小七不能怕，女史大人在前面顶着天雷，我绝不能让大人和星图出任何差错！",
+    "surface": "女史大人！灵台郎！缠在转轴上的湿麻绳全被我用小刀割断了！星图也绑紧了，你们快使劲！"
+   }
+  },
+  {
+   "adult_context": "年满五十岁，进士及第大唐从三品司天台主管大臣，成年公职指挥官，具备完全民事行为能力与朝廷天象紧急处置权。",
+   "age_range": [
+    50,
+    56
+   ],
+   "appearance_options": [
+    "身穿带有三品紫袍金鱼袋的宽袍大袖，头戴进贤冠，面容威严刻满风霜，在下层观象台回廊扶手边焦急万分大声呼喊指挥。",
+    "满身雨水浑然不顾，双目在电闪雷鸣中死死注视着三十丈顶层浑天仪动向。"
+   ],
+   "decision": {
+    "avoids": [
+     "见风使舵的奸佞小人",
+     "遇难弃责的懦弱逃兵"
+    ],
+    "contrast": "平日威严持重恪守繁文缛节的三品大员，在爱将遇险时流露出重于泰山的长者担当与真性情。",
+    "core_value": "人在仪在，女官与灵台郎乃大唐司历未来，绝不容有失！",
+    "goal_options": [
+     "下令切断底层水运天街重力水流卸除传动附加扭矩",
+     "通过铁传声筒向下传令调度救援"
+    ],
+    "never": [
+     "在全体人员撤下高台前擅自回府"
+    ],
+    "prefers": [
+     "严谨精微的天文推演",
+     "舍身护国的忠勇风骨"
+    ],
+    "pressure_responses": {
+     "breaking": "脱下紫袍亲自拉住底层安全大绳协助固定",
+     "high": "严词拒绝内侍省提前弃台封闭楼梯的荒唐提议",
+     "low": "在回廊严密测算雷云消散时刻与风势走向",
+     "mid": "亲自带领水工合力关闭下层水轮重锤供水闸门"
+    },
+    "relationship_stance": "将女官与灵台郎视若掌上明珠与国士栋梁，在下方竭尽全力提供最坚实的战术体系支撑。",
+    "withdrawal": "退守在下层观象大殿中堂，双手死死按在海图桌沿。"
+   },
+   "gender": "male",
+   "gender_reason": "大唐钦天监从三品总领台务司天监正",
+   "id": "director_cui_observatory",
+   "identity": {
+    "authority": "对全台避难疏散令下达、水运天街主阀关闭与灾后向皇帝上表奏本拥有终决裁量权。",
+    "exposure": "早年曾因占候突发日食未能提前推步受过先帝停俸处分",
+    "hidden": "暗中启动了下层避雷铁索与水运主阀泄水闸门以降低上层雷爆烈度",
+    "limits": [
+     "年迈兼有心疾无法攀爬三十丈陡峭铁梯上顶台救援",
+     "隔着风雨大吼声音极易被雷声吞没"
+    ],
+    "obligations": [
+     "誓死保全朝廷历法命脉与司内顶尖青年俊杰性命"
+    ],
+    "resources": [
+     "一枚调动全司天台五百差役与金吾卫铜鱼符",
+     "一具高倍率波斯单筒天文望远镜"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "大唐天文世家代代相传的赤诚忠魂",
+     "在浩瀚宇宙与狂暴天威面前人类守望相助的崇高光辉"
+    ],
+    "boundaries": [
+     "恪守朝廷官员品阶法度与长幼礼数",
+     "不干预年轻人私人情缘"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "倚立在下层通风口，高举望远镜向顶台大声报出雷暴间隙秒数。",
+    "dislikes": [
+     "天灾对社稷栋梁的无情吞噬",
+     "背弃职责的苟且怯懦"
+    ],
+    "expression": "快步走上平台紧紧握住灵台郎与女官的双手，老泪纵横连呼社稷之幸、苍天有眼。",
+    "likes": [
+     "雷暴退散后紫微星重新闪耀的清朗夜空",
+     "点名时年轻人洪亮中气十足的应答声"
+    ],
+    "preconditions": [
+     "全员安然脱险浑天仪主体完好无损",
+     "大衍历法观测数据完整保全"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "钦天监正卿大人",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_observatory_observation_deck_edge",
+     "to": 1410
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "底层水运木轮因强行制动发生部分轮齿开裂。",
+      "option": "崔监正下令全闸关闭切断水流卸除扭矩协助顶层二人一举别脱卡扣自救脱险。"
+     },
+     {
+      "cost": "斩断麻绳反弹抽破监正官袍下摆。",
+      "option": "用大斧斩断底层麻绳传动带脱险。"
+     }
+    ],
+    "pressure": "若不能及时切断水流卸荷，齿轮受双向反扭力将发生彻底剪切断裂引发结构崩解。",
+    "trigger": "底层水运天街持续运转持续为抱死主轴注入数千牛顿机械扭矩。"
+   },
+   "tags": [
+    "workplace_power",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "这两个孩子可是大唐司历的希望，若折在这里，老夫万死难辞其咎，苍天庇佑我大唐！",
+    "surface": "女官！灵台郎！老夫已命人关闭底层水运飞轮闸门！齿轮附加扭矩已卸去大半，速速借尺发力脱险！"
+   }
+  },
+  {
+   "adult_context": "年满二十八岁，长安金吾卫从六品随行武官，成年将官，具备完全民事行为能力与险情搜救指挥权。",
+   "age_range": [
+    28,
+    34
+   ],
+   "appearance_options": [
+    "身穿被狂风暴雨浇透的玄铁黑光甲，腰胯重钢战刀，身躯伟岸如铁塔，单臂死死拉拽着固定在平台铜柱上的加粗高空救生缆绳。",
+    "神情冷峻坚毅，满脸雨水顺着下巴流淌，大声指引高台防风站位。"
+   ],
+   "decision": {
+    "avoids": [
+     "见风使舵的懦弱小人",
+     "临阵脱逃的无耻逃兵"
+    ],
+    "contrast": "平日不苟言笑的铁血军汉，在极端自然雷暴面前爆发出视死如归的磐石担当。",
+    "core_value": "军令如山，纵使被天雷劈中，也绝不松开救命缆绳半寸！",
+    "goal_options": [
+     "用全身自重死死拉紧安全引绳对抗狂风冲击",
+     "用铁盾遮挡飞溅的雷击青铜火花"
+    ],
+    "never": [
+     "在女官与灵台郎撤离前松开手中安全索"
+    ],
+    "prefers": [
+     "雷厉风行的军规口令",
+     "临危不乱的硬汉骨气"
+    ],
+    "pressure_responses": {
+     "breaking": "双腿跪地死死将牵引主索缠在手臂上抵消冲击",
+     "high": "用宽厚身躯挡住迎面吹来的十二级高空狂风暴雨",
+     "low": "迅速检查各处护栏安全自锁挂钩牢固程度",
+     "mid": "涉水前出将加厚救生索牢固套在女官与灵台郎腰间"
+    },
+    "relationship_stance": "敬佩裴女官的从容胆色与灵台郎的技术硬骨，在风暴中充当最不可撼动的生命支柱。",
+    "withdrawal": "退至平台背风扶手石柱前死死拉住大绳。"
+   },
+   "gender": "male",
+   "gender_reason": "大唐禁军随防观象重地当值铁甲军校",
+   "id": "captain_xue_jinwu",
+   "identity": {
+    "authority": "对摘星楼高空防坠救援系缆、差役疏散与防雷绳网牵拉拥有战术统领权。",
+    "exposure": "曾因在御苑巡防失职受过上峰杖责处分",
+    "hidden": "暗自备有一把军用锋利特种断索短匕以防绳索受雷击时割断脱身",
+    "limits": [
+     "身负重甲在湿滑铜台移动相对笨重",
+     "不通晓天文机械精密齿轮构造"
+    ],
+    "obligations": [
+     "誓死保卫监正与典仪女官性命不致坠楼"
+    ],
+    "resources": [
+     "一捆加粗三股防滑牛皮编织高空安全牵引大绳",
+     "一袋特制高空铁爪自锁扣"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "司法天文精英舍命护宝的崇高气节",
+     "同生共死的军警同袍钢铁意志"
+    ],
+    "boundaries": [
+     "严守禁军与钦天监职权重合界限",
+     "不越权干预私情"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "半蹲在栏杆立柱下，单手死死挽住救生绳圈为二人提供稳定借力拉力。",
+    "dislikes": [
+     "暴风海难对生命的践踏",
+     "战友的牺牲"
+    ],
+    "expression": "向女官与灵台郎重重抱拳行军礼，沉声喝道大人威武、钦天监神威。",
+    "likes": [
+     "重门推开全员安然无恙的欣慰时刻",
+     "雷暴散尽东方既白的破晓天光"
+    ],
+    "preconditions": [
+     "全员平安脱困登上主甲板",
+     "确保自身生命安全得到保障"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "摘星楼亲军护卫哨长",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_armillary_clockwork_machinery_vault",
+     "to": 1410
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "薛哨长掌心被粗麻绳勒得鲜血淋漓磨损皮肉。",
+      "option": "薛哨长带领军士以高空安全索死死拉住两人身躯稳固重心协助合力撬动脱险。"
+     },
+     {
+      "cost": "铁盾被狂风刮落坠下高台摔碎。",
+      "option": "用铁盾卡在铜台缝隙充当挡风墙自救。"
+     }
+    ],
+    "pressure": "若无外力牵引稳固下盘重心，两人稍有不慎将被狂风刮落三十丈深渊粉身碎骨。",
+    "trigger": "强风暴将两人吹得立足不稳难以形成稳定受力杠杆支点。"
+   },
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "只要我薛刚这双手还能握得住绳子，就绝不让大唐的星官从这三十丈楼上掉下去！",
+    "surface": "女官！陆大人！救生大绳已死死套在主柱上了！放心发力，就算天塌下来，末将也把你们拉住！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "开元十二年，盛夏雷雨季",
+  "minute": 1380
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "death",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "钦天监女官登台夜观星象前习惯用羊脂玉簪挽起高髻并束紧窄袖云肩。",
+  "司天台灵台郎巡视百尺铜仪时习惯随身佩带纯铜罗盘与高强度象牙角尺。",
+  "长安工匠营造大型青铜天文仪时习惯在每个传动齿槽内涂抹耐寒菜籽熟油。",
+  "露天天象台遭遇夏季雷暴时习惯拉响黄铜云锣通知下层司历生迅速避雷。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "使用青铜量天尺四棱核验赤道环传动齿距公差",
+    "使用长嘴铜油壶向六合仪转轴注入极品菜籽润滑油",
+    "在司天台观象日簿加盖当值算历女官青玉方印"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_armillary_sphere_gear_mesh_audit",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "浑天仪四百八十齿轮节圆咬合度与游标巡检"
+  },
+  {
+   "beats": [
+    "使用特制粗砂布擦除引雷铜线表面铜绿与水锈",
+    "测试地表引雷接地铜桩在潮湿土壤中的导电阻抗",
+    "用生铁扳手紧固八宝栏杆固定避雷缆绳锚定螺栓"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_lightning_rod_cable_check",
+   "location_ids": [
+    "loc_observatory_observation_deck_edge"
+   ],
+   "start_minute": 1385,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "三十丈高台避雷铜缆与接地铜柱氧化层打磨"
+  },
+  {
+   "beats": [
+    "用细羊毛软布蘸取烧酒擦拭尺身金错刀分划刻痕",
+    "将量天尺直立于花岗岩基准台上校核垂直度与弯曲差",
+    "校验四角高硬度侧棱的抗剪韧度与边缘平滑度"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_bronze_measuring_ruler_calibration",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "start_minute": 1390,
+   "tags": [
+    "workplace"
+   ],
+   "title": "加厚青铜量天尺二十八宿星度与侧棱平整校验"
+  },
+  {
+   "beats": [
+    "记录底层平水壶箭尺浮标每刻钟上升毫厘刻度",
+    "调整水轮受水格偏心翻斗重锤配重自锁卡销行程",
+    "在暗室传声筒前向顶台测试报更金锣响声清晰度"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_clockwork_water_wheel_escapement_log",
+   "location_ids": [
+    "loc_armillary_clockwork_machinery_vault"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "水运天街擒纵机械滴水漏壶水压与转速记录"
+  },
+  {
+   "beats": [
+    "核准紫微垣各恒星极距读数并在卷尾加盖校历章",
+    "使用天然红松香胶密封羊皮星图专用防雨硬木箱",
+    "请司天监正崔大人亲佩金鱼袋加盖朝廷御制关防印"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_star_chart_parchment_sealing",
+   "location_ids": [
+    "loc_observatory_observation_deck_edge"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace_power",
+    "disaster"
+   ],
+   "title": "大唐开元大衍黄道经纬星图桐油封箱巡检"
+  },
+  {
+   "beats": [
+    "检查三股编织麻绳在暴雨淋漓下的抗拉纤维受力状态",
+    "涂抹羊油养护牛皮自锁护腰卡扣防滑齿咬合弹簧",
+    "在石柱环形地锚处演练双人防风系留安全挂钩操作"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_high_altitude_rescue_harness_audit",
+   "location_ids": [
+    "loc_armillary_clockwork_machinery_vault"
+   ],
+   "start_minute": 1405,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "露天浑天台防坠安全带与锁扣抗拉巡查"
+  },
+  {
+   "beats": [
+    "齿轮别开、雷火扑灭、浑天仪保住、子时的更鼓照常报出去之后，女官回到漏刻值房，官袍被雨浇透了，披帛撕破了一角。",
+    "女官背过身，让人解开官袍的系带，再用干布擦去肩背上的雨水，布擦到腰际时，女官轻轻吸了口气，往后靠了过来。",
+    "女官转过身，抓住对方的手按在漏壶边：今夜的时辰我报完了。……剩下的，你愿意陪我，就留下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_clock_room_wet_robe",
+   "location_ids": [
+    "loc_water_clock_duty_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "值房里替女官解下湿透的官袍"
+  },
+  {
+   "beats": [
+    "雨后的夜很静，女官换了身家常的襦裙，坐在卧榻边，把一根刻箭横在膝上，一格一格地教人认刻度。",
+    "女官握着人的手指，按在刻箭上：一刻，两刻……别看我，看刻箭。看错了，今晚就不放你走。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_clock_room_count",
+   "location_ids": [
+    "loc_water_clock_duty_room"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "教你数一夜的刻"
+  },
+  {
+   "beats": [
+    "女官从西市夜市回来，石榴红的襦裙上沾着胡饼的芝麻，手里还拎着一壶没喝完的葡萄酒。",
+    "女官把酒壶搁下，靠在人肩上：今夜我替自己报一回时辰——想你留下的时辰。你说好，我才起身。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_clock_room_night_market",
+   "location_ids": [
+    "loc_water_clock_duty_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "夜市回来的那一夜"
+  },
+  {
+   "beats": [
+    "五更的晨鼓快要敲了，女官在卧榻上醒来，青丝散在人的胸口，侧耳听着漏壶的滴水声。",
+    "女官把脸埋回人怀里：还有半刻，坊门才开。……再抱一会儿，这一刻不报。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_clock_room_dawn",
+   "location_ids": [
+    "loc_water_clock_duty_room"
+   ],
+   "start_minute": 300,
+   "tags": [
+    "intimate"
+   ],
+   "title": "晨鼓响起之前"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "大唐盛世开元年间国家皇家天文台与观象授时巅峰期",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_zhaohua_reports_cloud_height",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "{astronomer_pei_zhaohua.name}一手扶住转台立柱，官袍在暴风雨中紧贴，两腮微婴儿肥的面颊典雅从容：灵台郎！雷云逼近五丈了！我这柄量天尺精锡青铜铸造四棱极硬，随我顺退刀槽撬开齿轮！"
+  },
+  {
+   "id": "hook_gear_groans_under_seizure",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "{astronomer_pei_zhaohua.name}半跪在湿滑积水之中，两腮微婴儿肥的面颊在电光照耀下莹润如玉，眼神沉静：转轴受热胀抱死了，披帛绞在齿轮里！灵台郎，将起子借我当支点，我以量天尺切入齿槽，你我合力下扳！"
+  },
+  {
+   "id": "hook_lightning_cable_melts_fire",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "{astronomer_pei_zhaohua.name}拔出发簪割断外层碍事锦缎，两腮微婴儿肥的面容毫无惧色：避雷引铜缆烧融了，第二道强雷马上轰顶！量天尺已卡入第七齿倒角了，听老卢号令，三、二、一，借体重往下压！"
+  },
+  {
+   "id": "hook_cang_grips_ruler_ready",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "engineer_lu_cang_lingtai",
+   "text": "{engineer_lu_cang_lingtai.name}大步迈过飞溅的电弧，从身后一把将女官护在怀里：莫怕！万斤青铜齿轮的分量全交给我，量天尺卡死节圆牙槽了，听我口令一起往死里压！"
+  },
+  {
+   "id": "hook_old_lu_calls_notch_angle",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "artisan_old_lu_mechanic",
+   "text": "{artisan_old_lu_mechanic.name}抹了把脸上的雨水大吼：女史大人好眼力！莫要直着硬别，第七颗大齿槽外头留着倒角退刀槽，顺着斜面插到底，把全身分量压下去，老汉保你一撬就脱！"
+  },
+  {
+   "id": "hook_wang_cuts_snarled_ropes",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "cadet_wang_recorder",
+   "text": "{cadet_wang_recorder.name}扑跪在铜台边用小铜刀死命割断缠死在轴上的麻绳哭喊道：大人！齿轮缝里的烂绳子全割干净了！量天尺能插到底了，雷云压下来了，快发力啊大人！"
+  },
+  {
+   "id": "hook_director_calls_valve_closed",
+   "kind": "approach",
+   "location_ids": [
+    "loc_observatory_observation_deck_edge"
+   ],
+   "slot": "director_cui_observatory",
+   "text": "{director_cui_observatory.name}在下层栏杆边高声呼喊：女官！灵台郎！水运主阀全切断了！附加扭矩全卸掉了，抓住平稳窗口，速速撬开卡扣脱身！"
+  },
+  {
+   "id": "hook_xue_holds_safety_line",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armillary_clockwork_machinery_vault"
+   ],
+   "slot": "captain_xue_jinwu",
+   "text": "{captain_xue_jinwu.name}双臂死死缠紧加粗救生大绳稳如磐石大吼：大人放心发力！末将带弟兄们死死拉住主索，三十丈狂风刮不倒咱们！"
+  },
+  {
+   "id": "hook_water_wheel_torques_shaft",
+   "kind": "request",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "{astronomer_pei_zhaohua.name}屏住呼吸，素手稳若苍山，两腮微婴儿肥的面颊在电火中透着皇家天象官的绝世傲骨：灵台郎！卡扣已经松脱半厘！听我号令，屏气凝神，合力往死里压！"
+  },
+  {
+   "id": "hook_measuring_ruler_creaks_under_load",
+   "kind": "request",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "engineer_lu_cang_lingtai",
+   "text": "{engineer_lu_cang_lingtai.name}双臂肌肉如铁铸般隆起，沉声低吼：女官，量天尺受力到极限了，最后一次机会！跟我一起使劲，顶翻棘爪！"
+  },
+  {
+   "id": "hook_gale_drags_towards_precipice",
+   "kind": "request",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "{astronomer_pei_zhaohua.name}反手死死扣紧灵台郎宽厚粗粝的大手，美眸中星芒流转坚不可摧：灵台郎，大唐星规绝不能灭，你我同生共死，给我起！"
+  },
+  {
+   "id": "hook_observe_astronomer_heroic_contrast",
+   "kind": "observe",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "{astronomer_pei_zhaohua.name}湿透的青色官袍勾勒出清雅曼妙的窈窕身段，两腮微婴儿肥的面颊在狂风电闪中如雪中红梅，典雅高贵微婴儿肥的容颜与手中寒光森森的青铜量天尺形成极度刚毅反差。"
+  },
+  {
+   "id": "hook_observe_crowd_holds_breath_in_storm",
+   "kind": "observe",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "下层监正与军士在狂风暴雨中紧紧攥紧双拳，屏息注视着三十丈露天绝壁上紧密相拥、十指相扣合力下压青铜大尺的身影，气魄震慑雷霆苍穹。"
+  },
+  {
+   "id": "hook_observe_armillary_gear_bursts_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "伴随着一声震天动地的清脆机括崩脱巨响，咬死的青铜齿轮被量天尺硬生生撬脱反弹，死锁卡扣瞬间解脱，朝服脱落生路洞开，两人在灵台郎掩护下飞身撤入暗室脱险。"
+  },
+  {
+   "id": "hook_zhaohua_night_market",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "{npc.name}换了一身石榴红的襦裙，在长安夜市的胡饼摊前回头：报完这一更，还有半个时辰。……你请我。"
+  },
+  {
+   "id": "hook_zhaohua_water_clock",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "{npc.name}把人的手指按在漏壶的刻箭上：一刻十五分，一更两个时辰。……你在楼上待的每一刻，我都记着。"
+  },
+  {
+   "id": "hook_zhaohua_star_point",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "{npc.name}站在浑天台上，握着人的手腕往天上指：那是织女，那是牛郎。……别看我，看星。"
+  },
+  {
+   "id": "hook_cang_star_chart",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "engineer_lu_cang_lingtai",
+   "text": "{npc.name}把一卷星图塞进人手里，耳根发红：紫微垣，算了三个月。……就当是校历用的。"
+  },
+  {
+   "id": "hook_zhaohua_clock_room",
+   "kind": "approach",
+   "location_ids": [
+    "loc_water_clock_duty_room"
+   ],
+   "slot": "astronomer_pei_zhaohua",
+   "text": "{npc.name}推开漏刻值房的门，手里擎着一盏灯：今夜的更报完了。……进来坐坐。"
+  }
+ ],
+ "id": "astronomer_observatory_lightning_blind",
+ "locations": [
+  {
+   "affordances": [
+    "抓牢浑天仪青铜底座支架稳固下盘抗衡高空狂风",
+    "掏出随身加厚青铜量天尺侧棱对准抱死齿轮",
+    "两人合力反向撬动齿轮卸除卡扣"
+   ],
+   "detail": "高耸入云达三十丈的皇家观象台顶层，巨大的八角形花岗岩露天露台四面无遮无拦，中央矗立着重达万斤的高大青铜浑天仪。狂风呼啸暴雨倾盆，一道道刺目的惊雷自云层撕裂而下，巨大的青铜齿轮主轴在雷击电涌下发出耀眼的电弧火花，机械转台被雷火引燃的铜缆死死缠绕抱死，脚下是万家灯火尽收眼底的长安夜景与深渊般的百尺悬崖。",
+   "exits": [
+    "loc_observatory_observation_deck_edge",
+    "loc_armillary_clockwork_machinery_vault"
+   ],
+   "id": "loc_armillary_sphere_open_air_platform",
+   "name": "露天浑天台",
+   "pressure_modifiers": {
+    "p_armillary_sphere_gear_seizure": "重型青铜齿轮节圆因雷击热胀变形死死抱死，衣物被绞入深处无法自拔。",
+    "p_high_altitude_gale_lightning_strike": "三十丈露天高台狂风撕扯，雷电不断劈向避雷铜柱，电光火石闪烁夺目。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_artisan_old_lu"
+   ]
+  },
+  {
+   "affordances": [
+    "割断被雷火烧融的避雷缆绳消除接地引雷风险",
+    "利用雕花石栏立柱固定安全救生绳索",
+    "借雷电闪光俯瞰齿轮卡滞咬合点"
+   ],
+   "detail": "露天平台边缘的八宝汉白玉雕花栏杆，狂风卷着暴雨将地面洗刷得湿滑如镜，粗大的避雷纯铜引雷缆顺着楼体外侧垂下，此时受雷击爆燃熔化，刺鼻焦糊味弥漫，栏杆外侧悬空三十丈深不见底。",
+   "exits": [
+    "loc_armillary_sphere_open_air_platform",
+    "loc_armillary_clockwork_machinery_vault"
+   ],
+   "id": "loc_observatory_observation_deck_edge",
+   "name": "引雷铜缆转角",
+   "pressure_modifiers": {
+    "p_observatory_thunderbolt_direct_strike": "云层高度逼近高台顶端，第二道万钧重雷即将劈下引爆全场设施。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "disaster"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_observatory_director_cui",
+    "bg_astronomy_cadet_wang"
+   ]
+  },
+  {
+   "affordances": [
+    "手动搬动水运擒纵制动重力手柄切断动力输入",
+    "搜寻被雨水冲落的铸铁长把螺栓扳手",
+    "向下方楼层传声筒发出紧急避险口令"
+   ],
+   "detail": "浑天仪正下方的坚固砖石夹层暗室，巨大水轮与数以百计的大小铜齿轮咬合运转，轰鸣震耳欲聋，雷电穿透天花板导致齿轮间隙火星激溅，机油在雨水中泛起七彩斑斓的光泽。",
+   "exits": [
+    "loc_armillary_sphere_open_air_platform",
+    "loc_observatory_observation_deck_edge",
+    "loc_water_clock_duty_room"
+   ],
+   "id": "loc_armillary_clockwork_machinery_vault",
+   "name": "齿轮暗室",
+   "pressure_modifiers": {
+    "p_clockwork_water_wheel_overload_torque": "传动主轴受外部死卡剧烈扭转，铸铁转轴传出嘎吱悲鸣随时崩断飞溅。"
+   },
+   "privacy": "private",
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "visibility": "dark",
+   "witnesses": [
+    "bg_guard_captain_xue"
+   ]
+  },
+  {
+   "affordances": [
+    "替女官解下湿透的官袍披帛",
+    "陪女官看漏壶的刻箭",
+    "合上值房的木门"
+   ],
+   "detail": "摘星楼底层的漏刻值房，四只铜漏壶一层层往下滴水，墙边一张铺着竹席的卧榻、一张摊满星图和更筹的书案，窗外就是长安城一百零八坊的灯火。",
+   "exits": [
+    "loc_armillary_clockwork_machinery_vault"
+   ],
+   "id": "loc_water_clock_duty_room",
+   "name": "摘星楼下的漏刻值房",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "木门一合，楼上浑天仪的齿轮声就闷成了很远的一层，只剩漏壶的滴水声一下一下数着时辰。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "裴",
+   "陆",
+   "袁",
+   "李",
+   "苏",
+   "崔",
+   "薛",
+   "韦",
+   "杜",
+   "房",
+   "张",
+   "严"
+  ],
+  "given_female": [
+   "昭华",
+   "望舒",
+   "紫薇",
+   "微月",
+   "静姝",
+   "玉衡",
+   "疏影",
+   "清漪",
+   "若兰",
+   "明月",
+   "灵均",
+   "文漪"
+  ],
+  "given_male": [
+   "沧",
+   "天罡",
+   "淳风",
+   "一行",
+   "子渊",
+   "敬玄",
+   "元轨",
+   "守拙",
+   "知机",
+   "秉正",
+   "承天",
+   "思敬"
+  ],
+  "given_neutral": [
+   "青",
+   "璇",
+   "玑",
+   "权",
+   "衡",
+   "开",
+   "阳",
+   "摇",
+   "光",
+   "枢",
+   "极",
+   "纬"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "阿{given_last}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留开元年间三十丈摘星楼露天浑天台、仲夏雷暴、青铜齿轮主轴抱死、女官用青铜量天尺侧棱别开齿轮的骨架与盛唐天文味道。为与已有的两学士相争世界拉开，用户拍板把重心放在钦天监的授时、漏刻与长安夜市：女官管漏刻报时、每夜给长安城定更鼓，灵台郎管浑天仪的水运机械，两人一个看水一个看齿轮，是搭档而不是对头。用户已放开内容限制，只守红线；外貌描写照留，只改写死的人名、代词、年龄。新增女官在摘星楼下的漏刻值房与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    26,
+    30
+   ],
+   "baseline": "负责长安摘星楼巨型青铜浑天仪机械结构设计、齿轮咬合校正与防雷抢修的技术重臣。",
+   "gender": "any",
+   "id": "pi_observatory_lingtai_engineer",
+   "reputation": "精通九章算术与西域机械传动，身手矫健沉毅果决，受三省六部重臣信赖。",
+   "resources": [
+    "一柄特制加厚八角形淬火实心青铜锻打起子",
+    "一枚钦天监颁历正印铜质腰牌"
+   ],
+   "risks": [
+    "直接暴露在狂风雷暴高空面临被狂风刮落百尺高台",
+    "雷火灼伤与肌肉拉伤"
+   ],
+   "role": "钦天监正六品保章正兼灵台仪器营造郎",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "male",
+     "pattern": "{family}灵台郎"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}大人"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    50,
+    58
+   ],
+   "baseline": "亲手铸造摘星楼巨型浑天仪每一处齿轮模具与水运擒纵机构的老牌工匠头领。",
+   "gender": "any",
+   "id": "pi_observatory_master_artisan_mechanic",
+   "reputation": "听音辨位通晓每一颗青铜齿牙受力公差，脾气耿直技艺通神。",
+   "resources": [
+    "一把铸铁防滑加长偏心铜锤",
+    "一桶特制耐高温防凝固菜籽机油"
+   ],
+   "risks": [
+    "年迈在三十丈露天高台顶风受寒四肢剧烈抽筋",
+    "视力受暴雨雨水冲刷模糊"
+   ],
+   "role": "司天台四十年工龄官造青铜铸造老博士",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}老工正"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老匠头"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    25
+   ],
+   "baseline": "负责记录各星宿出没时刻、誊抄浑天仪环规刻度并保管防水星图的年轻文员。",
+   "gender": "any",
+   "id": "pi_imperial_astronomy_cadet_recorder",
+   "reputation": "手脚麻利算学扎实，但初次遭遇高空极端雷暴心神慌乱。",
+   "resources": [
+    "一盒防雨特制羊皮封卷星象黄道历书",
+    "一柄裁竹割绳锋利小铜刀"
+   ],
+   "risks": [
+    "恐高眩晕失足跌落",
+    "风雨中失温发抖失去行动力"
+   ],
+   "role": "钦天监随行观象测影青年司历生",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}司历生"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}学士"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    35
+   ],
+   "baseline": "镇守摘星楼下层通道防止闲杂人等闯入并负责高空抢险安全牵引的军官。",
+   "gender": "any",
+   "id": "pi_observatory_guard_captain_jinwu",
+   "reputation": "忠于职守臂力惊人，擅长在绝壁高楼拉索救援。",
+   "resources": [
+    "一捆加粗三股高空编织麻绳",
+    "一具带有防滑铁齿的攀爬抓钩"
+   ],
+   "risks": [
+    "雷击引燃牵引绳索面临下坠摔伤",
+    "隔着旋转台铁网难以迅速近身"
+   ],
+   "role": "摘星楼当值护卫金吾卫亲军随从哨长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}哨长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}校尉"
+    }
+   ]
+  }
+ ],
+ "premise": "开元年间，钦天监的女官管漏刻，每夜从摘星楼报出时辰，长安一百零八坊的更鼓跟着响；灵台郎管浑天仪的水运机械，齿轮慢一刻，全城的时辰就错一刻。两人一个看水一个看齿轮，在三十丈高台上搭档了三年。仲夏雷雨多，摘星楼的避雷铜缆该换了。",
+ "pressures": [
+  {
+   "choice": "留在原地等待雷暴过境，还是女官与灵台郎合力在暴风雨中顶脱自锁卡扣脱险。",
+   "exits": [
+    {
+     "cost": "量天尺侧棱出现轻微咬合压痕，女官掌心被金属棱角擦破红肿渗血。",
+     "option": "女官与灵台郎紧握青铜量天尺侧棱借两人体重猛力下压顶脱卡扣自救脱险。"
+    },
+    {
+     "cost": "起子头部金属产生微小崩角飞溅。",
+     "option": "用青铜起子猛砸咬死铜齿震脱卡扣脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "高台发生剧烈雷爆解体，滞留台顶的女官与灵台郎全员触电坠亡牺牲。",
+    "due_days": 1,
+    "trigger": "万钧雷暴第二次直接命中露天青铜浑天台"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_high_altitude_gale_lightning_strike",
+   "immediate": {
+    "minutes": 6,
+    "text": "三十丈高空的狂风夹杂着冰冷雨水如钢针般拍击面庞，四面悬崖深不见底，头顶雷云翻滚紫电狂舞，电火花在浑天仪青铜环规上滋滋炸响。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "near": {
+    "deadline_minutes": 9,
+    "text": "风速已逼近极值，平台地面雨水横流湿滑难行，电弧沿铜环向立柱迅速漫延，立足之地即将被高压雷电流全面覆盖。"
+   },
+   "objective": "在雷火彻底炸毁浑天仪前用青铜量天尺撬脱齿轮自救脱困。",
+   "source": "nature",
+   "start_minute": 1380,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "三十丈露天摘星楼狂风暴雨雷击轰顶",
+   "trigger": "仲夏夜暴雨突袭长安城，三十丈露天摘星楼顶层遭遇十二级高空狂风肆虐，万钧雷霆轰击避雷铜柱，电弧在万斤青铜浑天仪上乱窜，距离第二道灭顶雷暴轰击仅剩最后半刻钟。"
+  },
+  {
+   "choice": "徒手硬扯衣物导致皮肉撕裂，还是借青铜量天尺精准下尺巧力顶脱卡扣。",
+   "exits": [
+    {
+     "cost": "量天尺长柄留下深深的齿轮挤压凹痕。",
+     "option": "两人四手相扣以青铜尺为杠杆合力下挫顶脱抱死咬合牙齿脱险。"
+    },
+    {
+     "cost": "铜锤把手开裂折损。",
+     "option": "老工正用长柄铜锤猛击转轴偏心受力点震开间隙脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "裴女官身躯被卷入巨型青铜机械骨架中碾压重创殉难。",
+    "due_days": 1,
+    "trigger": "青铜齿轮发生永久机械抱死扯碎人员身躯"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_armillary_sphere_gear_seizure",
+   "immediate": {
+    "minutes": 5,
+    "text": "厚重青铜齿牙发出沉闷如雷的咬死悲鸣，金丝锦缎被数千牛顿拉力死死嵌进齿缝，女官纤细身躯被牢牢牵制在金属转轴旁无法动弹。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "齿轮咬合间隙已被金属碎屑彻底塞死，若再不及时插尺撬动，扭曲的铜轴将发生塑性变形彻底锁死成为绝对死铁。"
+   },
+   "objective": "找准齿轮公差间隙借量天尺侧棱撬开自锁棘爪解脱束缚。",
+   "source": "accident",
+   "start_minute": 1382,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "浑天仪青铜星规齿轮主轴受热抱死咬死朝服",
+   "trigger": "万斤青铜转台在雷击电涌产生的高温与雨水骤冷剧烈收缩下发生热胀冷缩抱死，传动齿牙死死咬合咬死女官加厚金丝织锦朝服披帛，将其身体死死固定在飞旋齿轮边缘。"
+  },
+  {
+   "choice": "冒险徒手修补熔断铜缆，还是全员集中于大尺撬锁一鼓作气脱身撤离。",
+   "exits": [
+    {
+     "cost": "量天尺侧棱受电弧灼烧留下微小黑斑。",
+     "option": "两人踩在绝缘干燥石台借量天尺一力顶脱棘爪抢在雷击前脱困逃入暗室自救脱险。"
+    },
+    {
+     "cost": "羊皮毯烧焦报废。",
+     "option": "用湿羊皮毯强行覆盖断缆扑灭明火脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "百尺高台化作一片焦黑雷火火海，人员全数化为飞灰。",
+    "due_days": 1,
+    "trigger": "天雷直接轰顶引爆摘星楼顶层木石构架"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_observatory_thunderbolt_direct_strike",
+   "immediate": {
+    "minutes": 4,
+    "text": "断裂的引铜缆在暴风雨中如火蛇般乱舞，铜水滴落木构底座冒起滚滚浓烟，空气中电离子浓度急剧攀升，毛发根根直立浑身酥麻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_observatory_observation_deck_edge"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "头顶雷云已压至高台栏杆上方不到五丈，青白色的电光在空气中噼啪作响，毁灭性的天雷只需数秒即可完成空气击穿。"
+   },
+   "objective": "在第二波强雷降临前脱离露天金属平台退入石室。",
+   "source": "nature",
+   "start_minute": 1384,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "避雷引铜缆受雷火烧融引发二次强雷引爆",
+   "trigger": "粗大的避雷纯铜引雷缆在第一波雷击中熔断起火，铜缆失去接地防雷效果，三十丈高台顶层变为方圆十里最突出的引雷针，云层蓄积的万伏高压雷火即将再次倾泻。"
+  },
+  {
+   "choice": "等待底层水工慢慢排水，还是顶层两人迎着反作用力借助量天尺瞬间反挑撬开卡扣。",
+   "exits": [
+    {
+     "cost": "飞绳崩断抽烂暗室两扇通风木格百叶窗。",
+     "option": "工正切断下层水运飞绳解脱附加拉力使顶层二人顺势脱困。"
+    },
+    {
+     "cost": "短铁锏锏身弯曲受损。",
+     "option": "灵台郎用短铁锏卡入水轮飞绳导轮强行别停脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "断裂的青铜轴承与飞齿如炮弹般横扫高台，将人员击穿粉碎。",
+    "due_days": 1,
+    "trigger": "水运传动主轴彻底扭断崩裂造成灾难性飞溅"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_clockwork_water_wheel_overload_torque",
+   "immediate": {
+    "minutes": 5,
+    "text": "地下暗室传来令人头皮发麻的飞轮轰鸣声，传动大绳被拉扯得如弓弦般紧绷微鸣，重达数吨的青铜主轴在剧烈扭曲中泛起刺耳的金属摩擦啸叫。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_armillary_clockwork_machinery_vault"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "主轴扭转角已逼近材料剪切屈服极限，轴承铜套冒出焦臭青烟，持续受力主轴即将脆断解体形成漫天金属破片。"
+   },
+   "objective": "配合监正关闸断水并借反力矩顶脱卡扣。",
+   "source": "accident",
+   "start_minute": 1386,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "底层水运天街过载驱动施加致命反向剪力",
+   "trigger": "暴雨倒灌入底层蓄水漏壶导致水轮转速失控飙升数倍，通过粗大传动飞绳向抱死的浑天台主轴持续注入数万牛顿极限制扭矩，青铜主轴濒临彻底扭断飞溅。"
+  },
+  {
+   "choice": "盲目加大蛮力赌一把，还是收回半寸微调受力轴线巧力挫开齿槽。",
+   "exits": [
+    {
+     "cost": "量天尺侧棱留下永久性轻度弧形咬痕。",
+     "option": "女官微调受力轴向灵台郎顺应退刀槽合力沉腰下压震开自锁齿牙自救脱险。"
+    },
+    {
+     "cost": "小铜刀被压碎断裂。",
+     "option": "垫入小铜刀分担剪切应力撬开卡扣脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "唯一救命高硬度杠杆器械化为乌有，死锁齿轮无法开启全员丧生高台。",
+    "due_days": 1,
+    "trigger": "青铜量天尺彻底崩折断裂解体"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_bronze_measuring_ruler_bending_limit",
+   "immediate": {
+    "minutes": 3,
+    "text": "青铜量天尺四方锐棱处传来细微的金属紧绷悲鸣，极度坚硬的青铜体在两人全力重压下出现肉眼可见的微小弧度，火星从两齿咬合缝隙中激溅。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "尺身星宿刻度根部出现细微应力白痕，持续承受猛烈横向剪力，这柄皇家重宝势必断为两截彻底断绝生路。"
+   },
+   "objective": "依老工正指引找准第七齿倒角退刀槽顺势下压一举脱扣。",
+   "source": "accident",
+   "start_minute": 1388,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "加厚青铜量天尺承受极限撬动负荷濒临塑断",
+   "trigger": "咬死齿牙极为沉重坚硬，两人施加的合力体重让这柄长两尺四寸的战国古法淬火青铜量天尺承受了极高的局部弯曲剪切应力，尺身发出尖锐低鸣濒临脆性折断。"
+  },
+  {
+   "choice": "松手后退保命，还是抓牢安全索咬紧牙关拼死一撬。",
+   "exits": [
+    {
+     "cost": "重缆表层牛皮包裹层磨损脱落。",
+     "option": "亲军军士借绞盘重缆合力回拉二人身躯稳固下盘脱险。"
+    },
+    {
+     "cost": "女官膝盖受强烈撞击青紫红肿。",
+     "option": "两人双腿死死勾住铜柱底座凹槽抗住狂风自救。"
+    }
+   ],
+   "far": {
+    "consequence": "大唐钦天监首席女官与机械天才坠地身亡，惨烈殉职。",
+    "due_days": 1,
+    "trigger": "狂风将人员吹落三十丈高台摔下悬崖粉身碎骨"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_high_altitude_fall_precipice_peril",
+   "immediate": {
+    "minutes": 3,
+    "text": "脚下官靴在湿滑铜板上不断打滑，狂风如巨浪般迎面拍来，身体不由自主向三十丈悬崖边缘倾斜，低头即可看见深渊万丈与点点灯火。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_armillary_sphere_open_air_platform"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "距离悬空栏杆仅剩最后半步，狂风拉扯着衣襟呼呼作响，若失去最后一道抓地平衡，二人将双双翻过栏杆坠落千丈。"
+   },
+   "objective": "在薛哨长安全大绳牵引下稳住下盘完成破门。",
+   "source": "nature",
+   "start_minute": 1390,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "高台湿滑狂风肆虐濒临坠下三十丈悬崖",
+   "trigger": "暴雨将汉白玉与青铜平台冲刷得如同冰面般湿滑，狂风呼啸阵风达十二级，两人在施加杠杆力矩时下盘立足不稳，身体被狂风卷向只有半人高栏杆的高台边缘。"
+  },
+  {
+   "choice": "照实说是雷火咬死了齿轮，还是让一个人把错扛下来",
+   "exits": [
+    {
+     "cost": "簿上昨夜有一段两个人都停了笔的空白",
+     "option": "交出漏刻簿原本"
+    },
+    {
+     "cost": "老卢得承认那根主轴早该换，是自己拖了半年",
+     "option": "请老卢作证齿轮是被雷火烧坏的"
+    },
+    {
+     "cost": "你三年报时从无差错的名声，到今天为止",
+     "option": "自己在奏状上署名担下"
+    }
+   ],
+   "far": {
+    "consequence": "若没人担下这一刻，整个钦天监本季的俸禄都要罚，灵台的齿轮也不许再改一颗",
+    "due_days": 2,
+    "trigger": "奏状递到御前"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_zhaohua_water_clock",
+    "hook_cang_star_chart",
+    "hook_zhaohua_clock_room"
+   ],
+   "id": "p_late_quarter_inquiry",
+   "immediate": {
+    "minutes": 10,
+    "text": "廖太监站在漏刻值房门口，要看昨夜的漏刻簿原本"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_water_clock_duty_room"
+   ],
+   "near": {
+    "deadline_minutes": 180,
+    "text": "辰时，崔监正要把奏状递进宫"
+   },
+   "objective": "在监正把奏状递进宫之前，把晚了的那一刻说清楚",
+   "source": "institution",
+   "start_minute": 300,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "漏报的一刻",
+   "trigger": "五更时分，内侍省的廖太监带着两个小黄门上了摘星楼，手里拿着昨夜各坊的更筹记录：子时那一通鼓，全城晚了一刻"
+  },
+  {
+   "choice": "向崔监正开口，还是去西市找胡商赊铜",
+   "exits": [
+    {
+     "cost": "那是女官母亲留下的唯一一样东西",
+     "option": "押上女官那面铜镜"
+    },
+    {
+     "cost": "康大郎要每月初一上摘星楼看一回星",
+     "option": "向西市胡商康大郎赊铜"
+    }
+   ],
+   "far": {
+    "consequence": "浑天仪停一季，长安的时辰只靠漏刻，女官每夜都得守在值房里合不了眼",
+    "due_days": 5,
+    "trigger": "炉子一封就到秋后"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_zhaohua_night_market",
+    "hook_zhaohua_star_point",
+    "hook_cang_star_chart"
+   ],
+   "id": "p_bronze_for_new_axle",
+   "immediate": {
+    "minutes": 10,
+    "text": "账房先生坐在齿轮暗室门口，算盘打得噼啪响"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_armillary_clockwork_machinery_vault"
+   ],
+   "near": {
+    "deadline_minutes": 420,
+    "text": "日落，将作监的炉子封火"
+   },
+   "objective": "在将作监封炉之前，把差的两百贯凑出来",
+   "source": "money",
+   "start_minute": 840,
+   "tags": [],
+   "title": "三百贯铜钱",
+   "trigger": "雷火过后第三天，将作监的账房送来一张单子：重铸主轴要铜八百斤、钱三百贯，钦天监今年的公廨钱只剩一百贯"
+  }
+ ],
+ "region": "长安城南郊皇室观象台摘星楼三十丈高空开敞式露天浑天台",
+ "rules": [
+  {
+   "id": "r_observatory_lightning_safety",
+   "text": "雷暴时浑天仪机械回转台必须在一刻钟内切断主水运天街传动绳。"
+  },
+  {
+   "id": "r_bronze_measuring_rule_torque_limit",
+   "text": "青铜量天尺硬棱别入齿轮凹槽时横向撬动力臂不得超过两尺。"
+  },
+  {
+   "id": "r_observatory_high_altitude_rule",
+   "text": "摘星楼露天浑天台作业时必须扣紧纯熟牛皮高空防坠安全护腰。"
+  },
+  {
+   "id": "r_armillary_sphere_gear_mesh_statute",
+   "text": "浑天仪六合仪环齿轮咬死后必须自下而上反向借力顶脱自锁齿爪。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "步天测轨",
+  "committed": "天枢同心",
+  "familiar": "狂飙共御",
+  "flirting": "雷光顾盼",
+  "intimate": "脱难相拥",
+  "stranger": "星台初遇",
+  "testing": "量天别齿"
+ },
+ "status": "released",
+ "style_hint": "盛唐钦天监的浪漫：漏刻滴水、更鼓一声声传遍坊墙、浑天仪上的星宿。写典雅女官被雨浇透的官袍曲线与喘息，动作落在量天尺侧棱别开齿轮上。",
+ "tension_engines": [
+  {
+   "id": "te_lightning_strike_vs_bronze_gear_jam",
+   "text": "三十丈高空特大雷暴劈击灭顶危机与青铜浑天仪自锁齿轮咬死朝服的硬核机械脱困。"
+  },
+  {
+   "id": "te_high_altitude_fall_vs_leverage_wrench",
+   "text": "百尺露天悬崖失足下坠深渊倒计时与两人用加厚量天尺合力下压撬脱死扣的意志较量。"
+  },
+  {
+   "id": "te_astronomer_vs_iron_engineer",
+   "text": "大唐典雅女官清雅卓绝与硬汉机械灵台郎在雷霆风暴高台上的反差与深情依托。"
+  },
+  {
+   "id": "te_soaked_embrace_vs_chart_oath",
+   "text": "冰雨湿衣相濡以沫的躯体交叠温存与誓保大唐观象神器代代相传的坚定信念。"
+  }
+ ],
+ "title": "钦天监女官·观象台摘星楼开敞式露天浑天台",
+ "tone": [
+  "三十丈露天摘星楼疾风骤雨",
+  "青铜齿轮咬合锐鸣",
+  "万钧惊雷撕裂苍穹紫电青霜",
+  "青铜量天尺撬顶机括脆响"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_bronze_measuring_ruler_high_tin_core",
+   "requires": [
+    "astronomer_pei_zhaohua"
+   ],
+   "text": "{astronomer_pei_zhaohua.name}随身所佩这枚家传量天尺系战国古法高锡青铜冷锻铸造，硬度极高韧性十足，恰能承受千斤反向杠杆剪切力矩。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_artisan_seventh_notch_relief_angle",
+   "requires": [
+    "artisan_old_lu_mechanic"
+   ],
+   "text": "{artisan_old_lu_mechanic.name}指出了浑天仪第七颗主齿槽外缘预留的半毫米倒角退刀槽，指导斜向插入避开咬死死角，使量天尺精准发力脱扣。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_cadet_copper_knife_cuts_binding_ropes",
+   "requires": [
+    "cadet_wang_recorder"
+   ],
+   "text": "{cadet_wang_recorder.name}递送的精制锋利小铜刀迅速割断了卷入齿缝的硬化麻绳，为量天尺深入槽底清除了致命物理阻塞。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_director_cuts_water_escapement_torque",
+   "requires": [
+    "director_cui_observatory"
+   ],
+   "text": "{director_cui_observatory.name}在下层果断切断水运天街重力水流卸除了数万牛顿附加扭矩，为顶层合力撬脱创造了关键零阻力窗口。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_cang_shields_zhaohua_electric_arc",
+   "requires": [
+    "astronomer_pei_zhaohua",
+    "engineer_lu_cang_lingtai"
+   ],
+   "text": "{engineer_lu_cang_lingtai.name}在齿轮弹开的瞬间挺身扑倒，用坚实后背替{astronomer_pei_zhaohua.name}硬生生挡下了避雷引铜缆爆燃崩裂激溅的滚烫铜星。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_imperial_observatory_triumph_sunrise",
+   "requires": [
+    "astronomer_pei_zhaohua",
+    "engineer_lu_cang_lingtai"
+   ],
+   "text": "风暴散尽雷云消退，晨曦金光洒在百尺摘星楼青铜浑天仪上，两人并肩立于高台远眺长安万里锦绣，青铜量天尺泛着温润朝晖，成就盛唐观象传奇。"
+  }
+ ]
+}

@@ -1,0 +1,2248 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "城市应急救援队干了十五年的潜水员。",
+   "age_range": [
+    35,
+    50
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_rescue_diver",
+   "line": "水流太急，液压钳靠不上去，你们只能先从里面把水压平了！",
+   "location_ids": [
+    "loc_door_release_recess"
+   ],
+   "name": "救援潜水员老秦",
+   "role": "城市应急救援队的潜水员"
+  },
+  {
+   "adult_context": "集团车队的队长，跟了老司机十年。",
+   "age_range": [
+    35,
+    48
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_chief_driver",
+   "line": "车载电话还通着！顾董，您说话，我们在暗渠入口！",
+   "location_ids": [
+    "loc_door_release_recess",
+    "loc_tower_sky_lounge"
+   ],
+   "name": "车队队长阿强",
+   "role": "集团车队的队长"
+  },
+  {
+   "adult_context": "市交警大队的队长，暴雨夜负责封路。",
+   "age_range": [
+    40,
+    52
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_city_police",
+   "line": "暗渠已经封闭，谁也不许再往里冲，等水位降下来！",
+   "location_ids": [
+    "loc_door_release_recess"
+   ],
+   "name": "交警队长周队",
+   "role": "市交警大队的队长"
+  },
+  {
+   "adult_context": "跑财经线的年轻记者，二十六岁，嗅觉灵敏。",
+   "age_range": [
+    25,
+    32
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_financial_reporter",
+   "line": "顾董今晚又让那位保镖替顾董挡酒了？明天的头条我已经想好了。",
+   "location_ids": [
+    "loc_tower_sky_lounge"
+   ],
+   "name": "财经记者小林",
+   "role": "盯着集团的财经记者"
+  },
+  {
+   "adult_context": "跟着老董事长打天下的元老董事，叔叔一派。",
+   "age_range": [
+    60,
+    72
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_board_member",
+   "line": "一个小姑娘坐在董事长的位置上，迟早要出事。",
+   "location_ids": [
+    "loc_tower_sky_lounge"
+   ],
+   "name": "老董事钱老",
+   "role": "集团的元老董事"
+  },
+  {
+   "adult_context": "城里名流晚宴常请的主持人，三十出头。",
+   "age_range": [
+    28,
+    38
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_gala_host",
+   "line": "下一个拍品，顾董出价三千万，全场掌声！",
+   "location_ids": [
+    "loc_tower_sky_lounge"
+   ],
+   "name": "晚宴主持人苏曼",
+   "role": "慈善晚宴的主持人"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "新任董事长与贴身保镖在淹水的后座里胸背相贴、手叠着手，把钨钢锤尖别进三角窗泄压槽，一点一点平衡水压。",
+   "id": "cc_chair_guard_switch",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "chairwoman_gu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一起被困在淹水的车里，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "personal_bodyguard",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "三年寸步不离，知道对方的每一个习惯。",
+     "stage": "familiar"
+    },
+    {
+     "a": "chairwoman_gu",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "personal_bodyguard",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "休息室门外那道影子，两个人谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chairwoman_gu",
+    "personal_bodyguard"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "平衡水压、踹开车门，活着游出暗渠，查清是谁改了路线。",
+    "limit_gap": "董事长的西装套裙在水里施展不开，保镖个子太高，在后座里转不过身。",
+    "meeting_reason": "暴雨夜从董事会回来，董事长靠在后座闭着眼，保镖坐在旁边盯着窗外，车子忽然拐进了一条陌生的辅路。",
+    "resource_gap": "董事长有钨钢安全锤和临危不乱的脑子，保镖有一身力气和特种部队练出的水下经验。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_culvert_flood_rise",
+    "te_icy_water_body_heat"
+   ]
+  },
+  {
+   "chemistry": "董事长与保镖在车门前四只手叠在拉手上，一个数拍子一个蹬门，把三年的默契压成一股劲。",
+   "id": "cc_chair_guard_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "chairwoman_gu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "为一份提案该不该签，在车上争了一路，争到最后谁都不肯先闭嘴。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "personal_bodyguard",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "在深夜的顶层办公室里一起熬过很多个通宵。",
+     "stage": "familiar"
+    },
+    {
+     "a": "chairwoman_gu",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "personal_bodyguard",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个说一不二一个惜字如金，三年里说过的话不多，句句都记得。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chairwoman_gu",
+    "personal_bodyguard"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "踹开车门，带着这个问题的答案活着出去。",
+    "limit_gap": "董事长放不下董事长的架子，保镖不习惯不听命令自己拿主意。",
+    "meeting_reason": "董事会上吵了一整天，董事长在车上第一次开口问保镖：如果你是我，会怎么选？",
+    "resource_gap": "董事长记得父亲教过的每一条逃生要领，保镖认得每一种车门锁的构造。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_door_water_lock",
+    "te_air_pocket_shrink"
+   ]
+  },
+  {
+   "chemistry": "收购方的人在车载电话那头听着，董事长和保镖一个压锤一个顶门，谁也不肯在外人面前先喊冷。",
+   "id": "cc_chair_guard_acquirer",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "chairwoman_gu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "头一回在收购方面前谈判，也头一回在收购方面前把命交出去。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "personal_bodyguard",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "早听说董事长身边有个寸步不离的保镖。",
+     "stage": "familiar"
+    },
+    {
+     "a": "chairwoman_gu",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "personal_bodyguard",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在外人面前不敢多看一眼，可每一句口令都只喊给一个人听。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chairwoman_gu",
+    "personal_bodyguard"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让收购方亲眼看见，这位年轻的董事长扛得住事。",
+    "limit_gap": "董事长不敢在收购方面前露怯，保镖不习惯被外人听着。",
+    "meeting_reason": "收购基金的合伙人约董事长在车上谈股份，保镖坐在前排，车子开进了暴雨里。",
+    "resource_gap": "董事长手里有安全锤和董事会的票，保镖手里有手电和一身力气。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_air_pocket_shrink",
+    "te_door_water_lock"
+   ]
+  },
+  {
+   "chemistry": "董事长一边压锤柄一边给新秘书发号施令，保镖顶着车门，把三个人的力气拧成一股。",
+   "id": "cc_chair_guard_secretary",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "chairwoman_gu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "董事长拿新秘书当个跑腿的，今晚却要把命交到这双生手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "personal_bodyguard",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "第一次见面就一起被困在淹水的车里。",
+     "stage": "familiar"
+    },
+    {
+     "a": "chairwoman_gu",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "personal_bodyguard",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "董事长和保镖默契得像练过一样，新秘书都看在眼里。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chairwoman_gu",
+    "personal_bodyguard"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "带着新秘书一起活着出去，把明早九点的董事会开完。",
+    "limit_gap": "新秘书什么都不懂，董事长得一边救人一边教。",
+    "meeting_reason": "新秘书第一次跟着董事长去开董事会，回程坐在后座整理文件，保镖坐在旁边。",
+    "resource_gap": "董事长有安全锤和集团的权限，保镖有力气和经验。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_culvert_flood_rise",
+    "te_door_water_lock"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_cabin_whisper",
+   "reach": "all",
+   "text": "后座里两人贴着脸的低语和呼吸"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_car_phone_static",
+   "reach": "local",
+   "text": "车载电话里断断续续、夹着雨声的呼救"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁的长女，父亲猝逝后接任集团董事长，大学刚毕业就坐进了顶层办公室，去留进退由本人拿主意。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "身着定制深灰色羊绒西装套裙与高支白真丝衬衫，青丝虽略显湿润，白皙面颊带着青年女性特有带着柔和的轮廓，眼神在暗淡车厢内流转着深邃从容的光芒，优雅端庄中尽显干练。",
+    "真丝衬衫被漫上来的冰冷浑水彻底浸透，紧贴在柔韧曼妙的身躯上，饱满两颊因寒水与缺氧泛起微红，眼神坚毅无比，紧握钨钢安全锤递向身旁同伴，展现出令人心折的刚烈反差。"
+   ],
+   "decision": {
+    "avoids": [
+     "当面奉承、背后递刀的人",
+     "把自己当成需要哄的人"
+    ],
+    "contrast": "在董事会上一句话不让，叔叔一派的老狐狸都吵不过；车子沉进暗渠时，却是董事长第一个从手袋里摸出安全锤，把保镖的手按在了槽口上。",
+    "core_value": "父亲交到手里的东西，一样都不能丢，跟着自己的人，一个都不能丢。",
+    "goal_options": [
+     "用钨钢安全锤别开三角窗泄压槽，平衡水压",
+     "和保镖一起踹开车门，游出暗渠"
+    ],
+    "never": [
+     "丢下跟着自己的人先走"
+    ],
+    "prefers": [
+     "说到做到、不看人下菜碟的人",
+     "知道自己的脆弱却从不拿出来说的人"
+    ],
+    "pressure_responses": {
+     "breaking": "冻得嘴唇发紫也不松手，咬着牙数完拍子。",
+     "high": "扯开挂住的裙摆暗扣，把全身重量压在锤柄上。",
+     "low": "车子一沉就解开安全带，先让保镖把手机举高照明。",
+     "mid": "从手袋里摸出安全锤，指给对方看角窗的泄压槽。"
+    },
+    "relationship_stance": "父亲生前亲自挑选的保镖，三年来寸步不离，董事长人前叫一声“先生”，私下却只在保镖面前脱下过高跟鞋。",
+    "withdrawal": "脱险后裹着保镖的外套站在雨里，先给董事会秘书处打了个电话，才肯让人看见自己在发抖。"
+   },
+   "gender": "female",
+   "gender_reason": "千亿财阀的新任董事长，按原稿写作女性。",
+   "id": "chairwoman_gu",
+   "identity": {
+    "authority": "集团的每一笔投资、每一次人事任免，都要董事长签字才算数。",
+    "exposure": "冰冷的浑水把真丝衬衫浸得透湿，紧贴在身上，在后座里只能整个人贴进保镖怀里取暖。",
+    "hidden": "抽屉里锁着一份父亲猝逝前没签完的遗嘱修正案，上面写着保镖的名字。",
+    "limits": [
+     "年纪太轻，董事会里没几个人真心服气",
+     "西装套裙和高跟鞋在水里施展不开"
+    ],
+    "obligations": [
+     "守住父亲留下的集团",
+     "查清那辆车为什么会开进暗渠"
+    ],
+    "resources": [
+     "一把藏在手袋里的特制钨钢破窗安全锤，尖锥是超硬钨钢",
+     "一部能直通董事会秘书处的私人手机",
+     "父亲留下的一本董事会笔记"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "暗渠里替自己挡住冰水、把最后一口空气让过来的那个人",
+     "三年来每一个深夜，都站在休息室门外的那道影子"
+    ],
+    "boundaries": [
+     "人前守住董事长的体面，私下的心意只给认定的人",
+     "每一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "休息室里由人替自己解开湿透衬衫的近身位",
+    "dislikes": [
+     "被当成需要保护的小姑娘",
+     "趁人之危的手"
+    ],
+    "expression": "嘴上还在说明早九点的董事会，手却把休息室的门轻轻反锁了。",
+    "likes": [
+     "被人擦干湿透的头发",
+     "真丝衬衫的纽扣被一颗颗解开时屏住的那口气",
+     "被叫名字，而不是“顾董”"
+    ],
+    "preconditions": [
+     "车门踹开、两人都游出暗渠之后",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "千亿财阀的新任董事长",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_tower_sky_lounge",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_chairwoman_rest_room",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "锤尖可能滑脱，手掌会被玻璃毛刺划伤",
+      "option": "用安全锤别开角窗泄压槽，和保镖合力踹开车门"
+     },
+     {
+      "cost": "暗渠水流太急，救援队靠不上来",
+      "option": "仰头贴着车顶等救援队"
+     }
+    ],
+    "pressure": "洪水漫过车窗，车门被水压死死压住，必须在空气耗尽前平衡水压。",
+    "trigger": "暴雨夜从董事会回来，防弹座驾被导进泄洪暗渠，董事长正在后座看叔叔一派递来的提案。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "水好冷……保镖的心跳贴在背上，是这辆车里唯一暖和的东西。爸爸，你挑的人，真的没让我失望。",
+    "surface": "别慌，看着我。锤尖别进角窗的泄压槽，水压平了门就推得开——你压锤柄，我数到三。"
+   }
+  },
+  {
+   "adult_context": "三十出头，跟过老董事长十年，如今把同样的忠心给了新董事长。",
+   "age_range": [
+    30,
+    40
+   ],
+   "appearance_options": [
+    "一身剪裁利落的黑色套装，平板电脑从不离手，耳朵里永远塞着一只蓝牙耳机。",
+    "站在董事长身后半步，替董事长挡掉每一个不该接的电话。"
+   ],
+   "decision": {
+    "avoids": [
+     "董事长的首席秘书最烦临阵推诿"
+    ],
+    "contrast": "在董事们面前冷得像一块冰，深夜却会给董事长的保温杯里换上热姜茶。",
+    "core_value": "老董事长的知遇之恩，要还在新董事长身上。",
+    "goal_options": [
+     "先把人救出来",
+     "董事长的首席秘书再追究是谁的错"
+    ],
+    "never": [
+     "董事长的首席秘书不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "董事长的首席秘书看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "董事长的首席秘书嗓子喊哑了也不肯走",
+     "high": "董事长的首席秘书顶着危险往里递东西",
+     "low": "董事长的首席秘书先稳住身边的人",
+     "mid": "董事长的首席秘书四处找能用的工具"
+    },
+    "relationship_stance": "看着董事长从手足无措的新人长成能镇住董事会的掌舵人，心疼却从来不说。",
+    "withdrawal": "事情过去后，董事长的首席秘书一个人躲开抽根烟"
+   },
+   "gender": "any",
+   "gender_reason": "董事长的首席秘书这个位置不限性别。",
+   "id": "chief_secretary",
+   "identity": {
+    "authority": "董事长的行程、谁能进顶层办公室，首席秘书说了算。",
+    "exposure": "董事长的首席秘书忙起来顾不上衣着体面",
+    "hidden": "做董事长的首席秘书这些年，有件事没对旁人说过",
+    "limits": [
+     "董事长的首席秘书不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住董事长的首席秘书手上的那一摊事"
+    ],
+    "resources": [
+     "一份董事会全体成员的把柄清单",
+     "董事长的首席秘书随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "董事长的首席秘书欣赏做事干脆利落的人",
+     "董事长的首席秘书记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，董事长的首席秘书就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和董事长的首席秘书并肩站着",
+    "dislikes": [
+     "董事长的首席秘书讨厌轻浮的手"
+    ],
+    "expression": "董事长的首席秘书话不多，递东西时指尖会多停一下",
+    "likes": [
+     "董事长的首席秘书收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "董事长的首席秘书要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "董事长的首席秘书",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_tower_sky_lounge",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "董事长的首席秘书未必赶得上",
+      "option": "董事长的首席秘书在外面调度接应"
+     },
+     {
+      "cost": "可能把董事长的首席秘书自己也搭进去",
+      "option": "董事长的首席秘书硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，董事长的首席秘书进不去",
+    "trigger": "警报传到董事长的首席秘书那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "那辆车的行车路线是谁改的……等董事长出来，我一定要查清楚。",
+    "surface": "顾董！听得见吗？救援队十分钟到，您一定要撑住！"
+   }
+  },
+  {
+   "adult_context": "二十二岁，老董事长在外面的女儿，父亲死后才被接回家，叔叔一派想拿来当棋子。",
+   "age_range": [
+    21,
+    26
+   ],
+   "appearance_options": [
+    "一身张扬的红色连衣裙，耳垂上的钻石晃得人睁不开眼。",
+    "端着香槟靠在酒廊吧台边，冷眼看着姐姐被一群董事围住。"
+   ],
+   "decision": {
+    "avoids": [
+     "董事长同父异母的妹妹最烦临阵推诿"
+    ],
+    "contrast": "在晚宴上故意让姐姐难堪，独自一人时却会翻看手机里那张唯一的、三个人的合照。",
+    "core_value": "这个家欠我的，迟早要还回来。",
+    "goal_options": [
+     "先把人救出来",
+     "董事长同父异母的妹妹再追究是谁的错"
+    ],
+    "never": [
+     "董事长同父异母的妹妹不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "董事长同父异母的妹妹看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "董事长同父异母的妹妹嗓子喊哑了也不肯走",
+     "high": "董事长同父异母的妹妹顶着危险往里递东西",
+     "low": "董事长同父异母的妹妹先稳住身边的人",
+     "mid": "董事长同父异母的妹妹四处找能用的工具"
+    },
+    "relationship_stance": "嘴上处处跟董事长作对，可听说暴雨夜姐姐的车出了事，第一个冲到了暗渠入口。",
+    "withdrawal": "事情过去后，董事长同父异母的妹妹一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "老董事长在外面的女儿，按设定写作女性。",
+   "id": "half_sister",
+   "identity": {
+    "authority": "手里握着父亲留下的一部分股份，叔叔一派想要，董事长也需要。",
+    "exposure": "董事长同父异母的妹妹忙起来顾不上衣着体面",
+    "hidden": "做董事长同父异母的妹妹这些年，有件事没对旁人说过",
+    "limits": [
+     "董事长同父异母的妹妹不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住董事长同父异母的妹妹手上的那一摊事"
+    ],
+    "resources": [
+     "父亲留下的百分之五股份",
+     "董事长同父异母的妹妹随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "董事长同父异母的妹妹欣赏做事干脆利落的人",
+     "董事长同父异母的妹妹记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，董事长同父异母的妹妹就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和董事长同父异母的妹妹并肩站着",
+    "dislikes": [
+     "董事长同父异母的妹妹讨厌轻浮的手"
+    ],
+    "expression": "董事长同父异母的妹妹话不多，递东西时指尖会多停一下",
+    "likes": [
+     "董事长同父异母的妹妹收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "董事长同父异母的妹妹要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "董事长同父异母的妹妹",
+   "schedule": [
+    {
+     "from": 720,
+     "location_id": "loc_tower_sky_lounge",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "董事长同父异母的妹妹未必赶得上",
+      "option": "董事长同父异母的妹妹在外面调度接应"
+     },
+     {
+      "cost": "可能把董事长同父异母的妹妹自己也搭进去",
+      "option": "董事长同父异母的妹妹硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，董事长同父异母的妹妹进不去",
+    "trigger": "警报传到董事长同父异母的妹妹那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "叔叔说那辆车是意外……可那天早上，是叔叔的人改的行车路线。",
+    "surface": "姐！你给我活着出来！你要是死了，谁来跟我抢这个家！"
+   }
+  },
+  {
+   "adult_context": "二十八岁，特种部队退役，三年前被老董事长亲自挑中，派到长女身边，去留进退由本人拿主意。",
+   "age_range": [
+    26,
+    32
+   ],
+   "appearance_options": [
+    "一身黑西装，领带永远打得一丝不苟，耳后藏着通讯耳麦，西装下摆遮着一道旧伤疤。",
+    "西装外套早就脱给了董事长，白衬衫被冰水泡透，贴在宽阔的肩背上，在后座里用身体替董事长挡住水流。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿董事长当棋子的人"
+    ],
+    "contrast": "在人前沉默得像一堵墙，董事会上谁的声音大一点，保镖的眼神就冷一分；可董事长一句“累了”，保镖就会默默把车开到楼下。",
+    "core_value": "命令就是命令，可董事长的命比命令要紧。",
+    "goal_options": [
+     "用后背顶住对侧车门，给董事长腾出发力的支点",
+     "双脚抵住门板，在水压平衡的一瞬间全力踹出去"
+    ],
+    "never": [
+     "让董事长一个人留在车里"
+    ],
+    "prefers": [
+     "说话算话的人"
+    ],
+    "pressure_responses": {
+     "breaking": "憋着最后一口气，吼着数完最后一个三。",
+     "high": "用后背顶住车门，双臂环住董事长，和董事长一起压锤柄。",
+     "low": "一把将董事长拉到身边，先把手机举高照明。",
+     "mid": "把潜水手套套到董事长手上，免得被玻璃毛刺划伤。"
+    },
+    "relationship_stance": "三年来每一个深夜都站在休息室门外，董事长没叫就不进去，董事长叫了也只站在门边。",
+    "withdrawal": "确认董事长游出水面后才松开手，靠在暗渠壁上长长吐出一口气。"
+   },
+   "gender": "male",
+   "gender_reason": "父亲生前挑选的贴身保镖，按原稿写作男性。",
+   "id": "personal_bodyguard",
+   "identity": {
+    "authority": "董事长身边三步之内，谁能靠近、谁该退下，保镖说了算。",
+    "exposure": "白衬衫被冰水泡透，在后座里用胸口和手臂把董事长整个人圈在怀里。",
+    "hidden": "老董事长临终前交代过一句话，保镖三年来一直记着，却从没对董事长说过。",
+    "limits": [
+     "个子太高，在淹水的后座里施展不开",
+     "手边没有能破开防弹玻璃的工具"
+    ],
+    "obligations": [
+     "护住董事长不被冰水冻僵",
+     "把董事长活着带出暗渠"
+    ],
+    "resources": [
+     "一副防割的潜水手套",
+     "一把战术折刀",
+     "一只防水的强光手电"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "董事长在冰水里还记得给人报数的那份镇定",
+     "董事会上那个寸步不让、回到车里却悄悄脱下高跟鞋的人"
+    ],
+    "boundaries": [
+     "董事长没开口就不越一步",
+     "人前不让董事长难做"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "落地窗前从身后环住董事长的近身位",
+    "dislikes": [
+     "当众逾矩",
+     "背后嚼舌根"
+    ],
+    "expression": "替董事长擦干头发时手停了很久，最后只说了一句：老董事长让我护着你，我自己也想。",
+    "likes": [
+     "董事长难得叫一次自己的名字",
+     "深夜被递来一杯热咖啡"
+    ],
+    "preconditions": [
+     "车门踹开、两人都安全清醒之后",
+     "董事长点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "董事长的贴身保镖",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_tower_sky_lounge",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_tower_sky_lounge",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "肩背会被车门边缘压伤，冰水会让手臂脱力",
+      "option": "用后背顶住车门，和董事长合力压下锤柄"
+     },
+     {
+      "cost": "天窗一开，洪水会瞬间灌满车厢",
+      "option": "独自砸开天窗游出去求救"
+     }
+    ],
+    "pressure": "洪水越涨越高，空气越来越少，必须赶在空气耗尽前打开车门。",
+    "trigger": "防弹座驾被导进暗渠时保镖坐在后座，第一时间把董事长护在了身下。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "董事长整个人都贴在我怀里，冷得在发抖……别分神。老董事长把这个人交给我，今晚我绝不能食言。",
+    "surface": "顾董，靠过来，别松手！锤尖别进槽口，我顶住门，你往下压——水压一平，我们一起踹。"
+   }
+  },
+  {
+   "adult_context": "五十五岁，老董事长的亲弟弟，在集团里经营了三十年，一直觉得董事长的位置该是自己的。",
+   "age_range": [
+    50,
+    60
+   ],
+   "appearance_options": [
+    "一身老派的深色西装，手腕上的老怀表是祖上传下来的，笑起来像一尊弥勒佛。",
+    "坐在会议桌的另一头，慢悠悠地转着手里的钢笔。"
+   ],
+   "decision": {
+    "avoids": [
+     "叔叔派的副董事长最烦临阵推诿"
+    ],
+    "contrast": "在董事会上笑里藏刀，独自一人时却会对着大哥的遗照发很久的呆。",
+    "core_value": "集团是我和大哥一起打下来的，轮不到一个小丫头说了算。",
+    "goal_options": [
+     "先把人救出来",
+     "叔叔派的副董事长再追究是谁的错"
+    ],
+    "never": [
+     "叔叔派的副董事长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "叔叔派的副董事长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "叔叔派的副董事长嗓子喊哑了也不肯走",
+     "high": "叔叔派的副董事长顶着危险往里递东西",
+     "low": "叔叔派的副董事长先稳住身边的人",
+     "mid": "叔叔派的副董事长四处找能用的工具"
+    },
+    "relationship_stance": "嘴上叫着“乖侄女”，背地里却在一张张收集董事长的错处；听说车出了事，却在暗渠入口站了一整夜。",
+    "withdrawal": "事情过去后，叔叔派的副董事长一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "老董事长的亲弟弟，按设定写作男性。",
+   "id": "vice_chairman_uncle",
+   "identity": {
+    "authority": "董事会里有一半的票，看的是副董事长的眼色。",
+    "exposure": "叔叔派的副董事长忙起来顾不上衣着体面",
+    "hidden": "做叔叔派的副董事长这些年，有件事没对旁人说过",
+    "limits": [
+     "叔叔派的副董事长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住叔叔派的副董事长手上的那一摊事"
+    ],
+    "resources": [
+     "董事会里一半的人情账",
+     "叔叔派的副董事长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "叔叔派的副董事长欣赏做事干脆利落的人",
+     "叔叔派的副董事长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，叔叔派的副董事长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和叔叔派的副董事长并肩站着",
+    "dislikes": [
+     "叔叔派的副董事长讨厌轻浮的手"
+    ],
+    "expression": "叔叔派的副董事长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "叔叔派的副董事长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "叔叔派的副董事长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "叔叔派的副董事长",
+   "schedule": [
+    {
+     "from": 600,
+     "location_id": "loc_tower_sky_lounge",
+     "to": 1200
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "叔叔派的副董事长未必赶得上",
+      "option": "叔叔派的副董事长在外面调度接应"
+     },
+     {
+      "cost": "可能把叔叔派的副董事长自己也搭进去",
+      "option": "叔叔派的副董事长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，叔叔派的副董事长进不去",
+    "trigger": "警报传到叔叔派的副董事长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "改行车路线是为了躲记者……我只是想让侄女难堪一次，没想让侄女送命。",
+    "surface": "救援队给我把最好的设备都调过来！我侄女要是出了事，你们谁都别想好过！"
+   }
+  },
+  {
+   "adult_context": "六十岁出头，给老董事长开了三十年车，董事长小时候是坐在老司机膝上学的认路。",
+   "age_range": [
+    58,
+    68
+   ],
+   "appearance_options": [
+    "一身洗得发白的司机制服，白手套从不离手，鬓角全白了。",
+    "站在大厦门口的雨棚下，伸着脖子张望每一辆进出的车。"
+   ],
+   "decision": {
+    "avoids": [
+     "开了三十年车的老司机最烦临阵推诿"
+    ],
+    "contrast": "在旁人面前一声不吭，见了董事长却总要从口袋里摸出一颗薄荷糖递过去。",
+    "core_value": "车开得稳，人才能睡得安稳。",
+    "goal_options": [
+     "先把人救出来",
+     "开了三十年车的老司机再追究是谁的错"
+    ],
+    "never": [
+     "开了三十年车的老司机不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "开了三十年车的老司机看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "开了三十年车的老司机嗓子喊哑了也不肯走",
+     "high": "开了三十年车的老司机顶着危险往里递东西",
+     "low": "开了三十年车的老司机先稳住身边的人",
+     "mid": "开了三十年车的老司机四处找能用的工具"
+    },
+    "relationship_stance": "那天被临时换下了班，换上了一个叔叔那边的新司机，老司机悔得一夜没合眼。",
+    "withdrawal": "事情过去后，开了三十年车的老司机一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "给老董事长开了三十年车的老司机，按设定写作男性。",
+   "id": "old_chauffeur",
+   "identity": {
+    "authority": "集团所有的车、每一条路线，老司机闭着眼都记得。",
+    "exposure": "开了三十年车的老司机忙起来顾不上衣着体面",
+    "hidden": "做开了三十年车的老司机这些年，有件事没对旁人说过",
+    "limits": [
+     "开了三十年车的老司机不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住开了三十年车的老司机手上的那一摊事"
+    ],
+    "resources": [
+     "一本记了三十年行车路线的旧本子",
+     "开了三十年车的老司机随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "开了三十年车的老司机欣赏做事干脆利落的人",
+     "开了三十年车的老司机记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，开了三十年车的老司机就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和开了三十年车的老司机并肩站着",
+    "dislikes": [
+     "开了三十年车的老司机讨厌轻浮的手"
+    ],
+    "expression": "开了三十年车的老司机话不多，递东西时指尖会多停一下",
+    "likes": [
+     "开了三十年车的老司机收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "开了三十年车的老司机要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "开了三十年车的老司机",
+   "schedule": [
+    {
+     "from": 420,
+     "location_id": "loc_tower_sky_lounge",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "开了三十年车的老司机未必赶得上",
+      "option": "开了三十年车的老司机在外面调度接应"
+     },
+     {
+      "cost": "可能把开了三十年车的老司机自己也搭进去",
+      "option": "开了三十年车的老司机硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，开了三十年车的老司机进不去",
+    "trigger": "警报传到开了三十年车的老司机那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "大小姐小时候最怕打雷，总是钻到车后座里躲着……今晚，后座怎么就成了这样。",
+    "surface": "暗渠的排水闸在东边！我开车三十年，那条路我熟，让我去！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "七月，雨季",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "substance",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "nightlife",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "财阀女掌舵人手袋常备高硬度钨钢实心多功能破窗安全锥，硬度达到洛氏硬度HRC68，可抵御重载冲击。",
+  "防弹行政车装有重型机械自锁死车门锁舌，断电后需先平衡内外水压方能依靠人力克服阻尼。",
+  "车内后排配有应急机械通风手动泄压阀旋钮，遇淹没浸泡需借助工具别开防误触锁片。",
+  "水下座舱逃生遵循静水压差物理定律，必须在车内彻底注满水压平衡瞬间全力踹推车门。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "长会议桌两侧坐满了董事，叔叔一派的人一个接一个发难，董事长靠在椅背上，一页一页翻着提案。",
+    "等最后一个人说完，董事长合上文件夹：说完了？那我们表决。"
+   ],
+   "duration_minutes": 90,
+   "hook_ids": [],
+   "id": "act_board_meeting",
+   "location_ids": [
+    "loc_tower_sky_lounge"
+   ],
+   "start_minute": 540,
+   "tags": [
+    "workplace"
+   ],
+   "title": "顶层会议室里的董事会"
+  },
+  {
+   "beats": [
+    "闪光灯一阵接一阵，记者的话筒差点戳到董事长脸上，问的全是老董事长的死因。",
+    "保镖不动声色地上前半步，董事长却抬手拦住：让记者问，我有的是时间。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_press_ambush",
+   "location_ids": [
+    "loc_tower_sky_lounge"
+   ],
+   "start_minute": 720,
+   "tags": [
+    "workplace"
+   ],
+   "title": "大堂里被记者堵住"
+  },
+  {
+   "beats": [
+    "落地窗外是整座城市的夜景，董事长端着香槟应付一轮又一轮的敬酒，笑得滴水不漏。",
+    "敬到第七杯时，董事长把杯子往身边一递，低声说：替我挡一下，我的脚快疼死了。"
+   ],
+   "duration_minutes": 90,
+   "hook_ids": [],
+   "id": "act_charity_gala",
+   "location_ids": [
+    "loc_tower_sky_lounge"
+   ],
+   "start_minute": 1170,
+   "tags": [
+    "workplace"
+   ],
+   "title": "空中酒廊的慈善晚宴"
+  },
+  {
+   "beats": [
+    "休息室里只开一盏落地灯，董事长踢掉高跟鞋窝在沙发里，一份一份签着文件。",
+    "签到一半，董事长揉着眼睛把文件推过来：你念，我签。两个人快一点。"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "act_late_paperwork",
+   "location_ids": [
+    "loc_chairwoman_rest_room"
+   ],
+   "start_minute": 1290,
+   "tags": [
+    "workplace"
+   ],
+   "title": "休息室里批完今晚的文件"
+  },
+  {
+   "beats": [
+    "红酒柜最里面那瓶是父亲生前留着要在女儿婚礼上开的，董事长今晚把这瓶酒拿了出来。",
+    "董事长倒了两杯，把其中一杯推过来：别说你在值班。今晚，陪我喝一杯。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_father_wine",
+   "location_ids": [
+    "loc_chairwoman_rest_room"
+   ],
+   "start_minute": 1350,
+   "tags": [
+    "workplace"
+   ],
+   "title": "分一瓶父亲留下的红酒"
+  },
+  {
+   "beats": [
+    "暴雨打在落地窗上，整座城市的灯光都被雨水晕开了，酒廊里只剩两个人。",
+    "董事长靠着玻璃，轻声说：爸爸走的那天，也下这么大的雨。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rain_window",
+   "location_ids": [
+    "loc_tower_sky_lounge"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "workplace"
+   ],
+   "title": "站在落地窗前看暴雨里的城市"
+  },
+  {
+   "beats": [
+    "车门踹开、两人游出暗渠、被救援队拉上岸之后，董事长没有回家，让车直接开回了大厦顶层，真丝衬衫湿透了，头发还在滴水。",
+    "落地灯下，董事长背过身，让人用毛巾一点点擦干头发，再一颗颗解开贴在身上的真丝衬衫，冰凉的皮肤被热毛巾裹住时，董事长往后靠了过来。",
+    "董事长转过身，指尖抵着对方湿透的领带：三年了，你一直站在门外……今晚，进来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rest_room_silk_shirt",
+   "location_ids": [
+    "loc_chairwoman_rest_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "休息室里替董事长解开湿透的真丝衬衫"
+  },
+  {
+   "beats": [
+    "休息室里，董事长踢掉高跟鞋，穿着真丝衬衫盘腿坐在沙发上改董事会纪要，丝袜包着的脚趾一下下勾着。",
+    "董事长头也不抬：你站了三年的门，今天坐下来。……坐我旁边，我改完这一页，就听你的。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rest_room_board_minutes",
+   "location_ids": [
+    "loc_chairwoman_rest_room"
+   ],
+   "start_minute": 1230,
+   "tags": [
+    "intimate"
+   ],
+   "title": "陪董事长改董事会纪要"
+  },
+  {
+   "beats": [
+    "董事长倒了两杯威士忌，赤脚站在落地窗前，整座城市的灯在脚下铺开，真丝衬衫只扣了中间两颗。",
+    "董事长回过头：在董事会我是董事长。……在这里，我只想当二十一岁的自己，你陪不陪？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rest_room_whisky_city",
+   "location_ids": [
+    "loc_chairwoman_rest_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "顶楼的夜景和威士忌"
+  },
+  {
+   "beats": [
+    "清晨，董事长裹着人的西装外套站在镜子前，替人一圈一圈打领带，打歪了又拆开重来。",
+    "董事长踮脚把领结推上去：以后每天早上都我来打。……这是董事长的命令。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rest_room_morning_tie",
+   "location_ids": [
+    "loc_chairwoman_rest_room"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "替保镖打领带"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "现代都市豪门商战与极端暴雨防汛时代",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_flooded_rear_cabin"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{chairwoman_gu.name}仰头贴紧车顶顶棚急促呼吸，面颊在冰水浸泡下泛起激惹红晕，果断递出钨钢破窗安全锤。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_flooded_rear_cabin"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{chairwoman_gu.name}浸在漫过胸口的浑水中，借着手电微光摸索出后角窗密封条卡死凹槽，沉着发出破压指令。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "slot": "personal_bodyguard",
+   "text": "{personal_bodyguard.name}双臂紧紧环抱住董事长肩头抵御冰水寒意，以脊背稳稳顶住对侧车门，为董事长腾出发力支点。"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "slot": "personal_bodyguard",
+   "text": "{personal_bodyguard.name}反手将潜水手套套在董事长掌心，防止破窗瞬间尖锐钛合金毛刺划伤董事长娇嫩指节。"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{chairwoman_gu.name}侧脸贴在保镖湿透的肩窝，面容近在咫尺，温热的微弱吐息吹拂在对方颈侧。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{chairwoman_gu.name}西装套裙被浑水彻底湿透紧裹曼妙身段，在狭窄后排挪动长腿，轻声提醒同伴注意水压平衡时机。"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{chairwoman_gu.name}展现出财阀领袖的非凡胆魄，冷静判定车内外压差即将均等，示意在最后十公分空气耗尽时共同潜水下踹。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "slot": "personal_bodyguard",
+   "text": "{personal_bodyguard.name}在冰冷车顶被洪流拍打的震颤中，将全部力道凝聚在董事长掌背上，与董事长心跳轰鸣共振。"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{chairwoman_gu.name}双手交叠握紧同伴小臂，两副年轻身躯在浸满冷水的逼仄后座毫无间隙地贴合在一起。"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_flooded_rear_cabin"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{chairwoman_gu.name}辨听车外水流涡旋声响，准确预判车门开启的最佳力学窗口，沉声叮嘱同伴一鼓作气。"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "slot": "personal_bodyguard",
+   "text": "{personal_bodyguard.name}与董事长并肩贴在车门前，双脚抵住门板，在浑水灌满车顶的瞬间同步爆发出全身推力。"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{chairwoman_gu.name}在水流倒灌冲刷中重心失衡，顺势紧紧依偎在保镖怀中，反手紧扣车门机械拉手完成最后一道扳动。"
+  },
+  {
+   "id": "hook_gu_heels_off",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tower_sky_lounge",
+    "loc_chairwoman_rest_room"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{npc.name}靠在落地窗边，悄悄把一只高跟鞋踢掉，冲人招了招手：过来，挡在我前面。别让那些记者拍到。"
+  },
+  {
+   "id": "hook_gu_second_opinion",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tower_sky_lounge"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{npc.name}把一份提案推到人面前，压低声音：董事会上那群老狐狸都在看我笑话。你替我看看，这一页哪里不对？"
+  },
+  {
+   "id": "hook_gu_father_wine",
+   "kind": "approach",
+   "location_ids": [
+    "loc_chairwoman_rest_room"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{npc.name}把一瓶落着灰的红酒放在茶几上：这瓶是我爸留着要在我婚礼上开的。今晚，我想先开了这瓶。陪我？"
+  },
+  {
+   "id": "hook_gu_night_drive",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tower_sky_lounge"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{npc.name}拎着车钥匙站在电梯口，回头看人：司机下班了。陪我兜一圈，哪儿都行，只要不是回家。"
+  },
+  {
+   "id": "hook_guard_umbrella",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tower_sky_lounge"
+   ],
+   "slot": "personal_bodyguard",
+   "text": "{npc.name}撑着一把黑伞站在大厦门口，伞面往人这边倾了一大半，自己的肩膀湿了也没在意：雨大，我送你到车上。"
+  },
+  {
+   "id": "hook_guard_old_scar",
+   "kind": "approach",
+   "location_ids": [
+    "loc_chairwoman_rest_room",
+    "loc_tower_sky_lounge"
+   ],
+   "slot": "personal_bodyguard",
+   "text": "{npc.name}解开袖扣，露出小臂上一道旧伤疤：老董事长出事那年，我替大小姐挡的。你想知道那天的事？"
+  },
+  {
+   "id": "hook_gu_rest_room_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_chairwoman_rest_room"
+   ],
+   "slot": "chairwoman_gu",
+   "text": "{npc.name}推开休息室的门，回头看人：门外不用守了。……进来，陪我坐一会儿。"
+  }
+ ],
+ "id": "chaebol_chairwoman_submerged_maybach",
+ "locations": [
+  {
+   "affordances": [
+    "背靠后排真皮座椅靠背形成稳固借力反作用力支点",
+    "将钨钢破窗锥尖端对准后角窗聚碳酸酯嵌缝薄弱点",
+    "感受车内水面上浮时残存空气的温差与流动"
+   ],
+   "detail": "位于防弹行政轿车后排密闭座舱，混浊冰冷的暗渠积水已漫至胸口，仅剩车顶顶棚下方不足十公分的微弱空气层，车外是黑压压奔腾的地下泄洪洪流。",
+   "exits": [
+    "loc_quarter_window_seal",
+    "loc_door_release_recess"
+   ],
+   "id": "loc_flooded_rear_cabin",
+   "name": "淹水的后排",
+   "pressure_modifiers": {
+    "p_air_pocket_shrink": "空气层只剩一掌宽，呼出的白气都撞在车顶上。",
+    "p_culvert_flood_rise": "洪水每涨一寸，顶棚下的空气就少一寸，两人只能仰着头贴近车顶。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "手机电筒在水面上晃着，能看清对方湿透的睫毛和冻得发白的嘴唇。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "用手指探明密封条硬质塑料卡扣的偏心别撬位",
+    "双人合力握持安全锤短柄向缝隙内狠命插撬"
+   ],
+   "detail": "由双层夹胶防弹玻璃与高强度钛合金压条封装的受力卡槽，缝隙间卡着变形的密封胶条与水密压紧螺栓。",
+   "exits": [
+    "loc_flooded_rear_cabin"
+   ],
+   "id": "loc_quarter_window_seal",
+   "name": "后角窗密封泄压卡槽接缝",
+   "pressure_modifiers": {
+    "p_hammer_tip_slip": "胶条又湿又滑，锤尖稍一偏就会滑出槽口。",
+    "p_icy_water_chill": "两人挤在角窗边，董事长整个人贴在保镖怀里，冰水里只剩彼此的体温。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "双层夹胶玻璃的压条缝里卡着变形的胶条，钨钢锤尖别进去时发出刺耳的摩擦声。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "双脚共同蹬住车门内饰板准备在压差平衡瞬间全力踹门",
+    "用手掌紧扣机械把手同步施加爆发力推开逃生通道"
+   ],
+   "detail": "浸泡在泥水中的纯钢机械解锁拉手，阻尼拉杆承受着车外数千公斤水压产生的巨大自锁摩擦力。",
+   "exits": [
+    "loc_flooded_rear_cabin",
+    "loc_tower_sky_lounge"
+   ],
+   "id": "loc_door_release_recess",
+   "name": "车门应急把手",
+   "pressure_modifiers": {
+    "p_door_water_lock": "外面的救援队想用液压钳，可暗渠水流太急，靠不上来。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "车门内凹槽里的拉手泡在泥水中，车载电话里不时传来外面的喊声。",
+   "witnesses": [
+    "bg_rescue_diver",
+    "bg_chief_driver",
+    "bg_city_police"
+   ]
+  },
+  {
+   "affordances": [
+    "在落地窗边陪董事长喝一杯咖啡",
+    "在晚宴上替董事长挡掉一轮敬酒",
+    "站在窗前看暴雨里的城市"
+   ],
+   "detail": "集团总部大厦顶层的酒廊，落地窗外是整座城市的夜景，白天是董事们开完会喝咖啡的地方，夜里常办慈善晚宴，记者的镜头从来不缺。",
+   "exits": [
+    "loc_chairwoman_rest_room",
+    "loc_door_release_recess"
+   ],
+   "id": "loc_tower_sky_lounge",
+   "name": "集团大厦顶层的空中酒廊",
+   "pressure_modifiers": {},
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "酒廊里人来人往，董事、记者、合作方都在，董事长对谁多笑一下，第二天就会上财经版。",
+   "witnesses": [
+    "bg_financial_reporter",
+    "bg_board_member",
+    "bg_chief_driver",
+    "bg_gala_host"
+   ]
+  },
+  {
+   "affordances": [
+    "陪董事长批完今晚的文件",
+    "坐在落地窗前分一瓶父亲留下的红酒",
+    "替对方擦干头发、解开湿透的衬衫"
+   ],
+   "detail": "顶层董事长办公室后面的一间小休息室，一张皮沙发、一个红酒柜、一扇对着城市夜景的落地窗，是父亲生前午睡的地方。",
+   "exits": [
+    "loc_tower_sky_lounge"
+   ],
+   "id": "loc_chairwoman_rest_room",
+   "name": "董事长休息室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "只开一盏落地灯，窗外的雨声盖住了一切，屋里的人能看清彼此的每一个表情。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "顾",
+   "沈",
+   "陆",
+   "傅",
+   "江",
+   "裴",
+   "温",
+   "霍",
+   "秦",
+   "宋",
+   "叶",
+   "许",
+   "程",
+   "萧"
+  ],
+  "given_female": [
+   "清雅",
+   "若宁",
+   "知夏",
+   "婉清",
+   "以宁",
+   "念初",
+   "书瑶",
+   "雨桐",
+   "晚晴",
+   "静姝",
+   "安然",
+   "语嫣",
+   "思琪",
+   "梦琪"
+  ],
+  "given_male": [
+   "承泽",
+   "景行",
+   "砚之",
+   "慕白",
+   "致远",
+   "北辰",
+   "叙白",
+   "怀瑾",
+   "子墨",
+   "时宴",
+   "临川",
+   "逸舟",
+   "沉舟",
+   "知行"
+  ],
+  "given_neutral": [
+   "一诺",
+   "子衿",
+   "云舒",
+   "清和",
+   "长安",
+   "知微",
+   "望舒",
+   "南星",
+   "初阳",
+   "星野",
+   "听澜",
+   "怀安",
+   "知秋",
+   "予安"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入。原稿除标题、简介、基调、董事长外貌、世界规则与三处脱困地点外，人物、压力与钩子大多照抄了吸血鬼地宫那一篇，这里按财阀继承的题材整篇重写：父亲猝逝后二十一岁接下集团、董事会里叔叔一派虎视眈眈、暴雨夜那辆被导进泄洪暗渠的防弹座驾未必是意外；搭档从随行学者改成父亲生前亲自挑选的贴身保镖，其余人物换成首席秘书、同父异母的妹妹、叔叔派的副董事长和开了三十年车的老司机。新增集团大厦顶层的空中酒廊与董事长办公室里间的休息室两处日常地点。标题里的真实汽车品牌改成了“防弹座驾”；原稿里“肢体接触只服务于发力、不得偏离自救”的规则改成了世界内的规则；董事长亲密前提写明脱困之后、双方清醒自愿；新增一个休息室里替董事长解开湿透真丝衬衫的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    25
+   ],
+   "baseline": "刚从名校毕业进集团，被分到董事长办公室打杂，第一周就撞见董事长在休息室里一个人发呆。",
+   "gender": "any",
+   "id": "pi_new_secretary",
+   "reputation": "董事长办公室最年轻的人，旁人还叫不出名字。",
+   "resources": [
+    "一张顶层办公室的门禁卡",
+    "一本记满董事长行程的笔记",
+    "一部永远在响的工作手机"
+   ],
+   "risks": [
+    "做错一件事，就会被叔叔一派拿来做文章。"
+   ],
+   "role": "新来的秘书助理",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    34
+   ],
+   "baseline": "盯了这家财阀三年，手里有一份没发出去的稿子，写的是老董事长猝逝的疑点。",
+   "gender": "any",
+   "id": "pi_financial_reporter",
+   "reputation": "财经圈里出了名的难缠，董事们见了都绕着走。",
+   "resources": [
+    "一台随身的录音笔",
+    "一份没发出去的调查稿",
+    "几个董事会里的线人"
+   ],
+   "risks": [
+    "稿子发出去，董事长的位置可能就保不住了。"
+   ],
+   "role": "跑财经线的记者",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "两家是三代的对手，也是三代的世交，小时候和董事长在同一个游泳池里学过憋气。",
+   "gender": "any",
+   "id": "pi_rival_heir",
+   "reputation": "名流圈里人人都说两家迟早要联姻。",
+   "resources": [
+    "一家财团的继承权",
+    "一张两家共同项目的合同",
+    "一辆停在楼下的车"
+   ],
+   "risks": [
+    "跟董事长走得太近，家里的长辈会起疑。"
+   ],
+   "role": "另一家财团的继承人",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    42
+   ],
+   "baseline": "手里握着集团百分之十二的股份，叔叔一派和董事长都想拉拢，一票就能决定董事会的走向。",
+   "gender": "any",
+   "id": "pi_acquisition_partner",
+   "reputation": "董事会上人人都要看合伙人的脸色。",
+   "resources": [
+    "集团百分之十二的股份",
+    "一份收购意向书",
+    "一支随时待命的律师团"
+   ],
+   "risks": [
+    "押错了边，基金会亏掉几十亿。"
+   ],
+   "role": "收购基金的合伙人",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "父亲猝逝后，长女接下了千亿财阀，董事会里叔叔一派虎视眈眈，只等新任董事长出一次错。新董事长白天开会、见银行，夜里坐防弹座驾回家，后座只有父亲生前亲自挑选的贴身保镖。雨季到了，城里的地下泄洪暗渠每年都要淹几条路，司机里也说不准谁是叔叔的人。",
+ "pressures": [
+  {
+   "choice": "是趁水流稍缓的间隙冒险下锤，还是等水再涨一点、压差小了再动手？",
+   "exits": [
+    {
+     "cost": "锤尖受力过猛可能崩断，手掌会被玻璃毛刺划伤",
+     "option": "趁水流间隙两人合力压下锤柄别开泄压槽"
+    },
+    {
+     "cost": "水不会停，等不到救援队",
+     "option": "仰头贴着车顶等救援"
+    }
+   ],
+   "far": {
+    "consequence": "座舱被浑水灌满，两人被困在沉没的车里。",
+    "due_days": 1,
+    "trigger": "洪水淹没车顶"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_culvert_flood_rise",
+   "immediate": {
+    "minutes": 2,
+    "text": "车身猛地一沉，两人撞在一起，冰水呛进鼻子。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_flooded_rear_cabin",
+    "loc_quarter_window_seal"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "水又涨了一寸，空气层只剩一掌宽，车门被压得咯吱作响。"
+   },
+   "objective": "在洪水淹没车顶之前，用安全锤别开角窗泄压槽，平衡内外水压。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "暗渠洪水急暴上涨没顶淹没",
+   "trigger": "山洪一阵接一阵倒灌进暗渠，浑水漫过车窗、漫过胸口，顶棚下只剩十公分的空气。"
+  },
+  {
+   "choice": "是先开泄压槽再踹门，还是两件事同时来？",
+   "exits": [
+    {
+     "cost": "腿会被门板反震伤",
+     "option": "两人双脚抵住门板，等水压一平同时踹"
+    },
+    {
+     "cost": "可能把门锁撬坏，再也打不开",
+     "option": "用折刀撬门锁"
+    }
+   ],
+   "far": {
+    "consequence": "门锁变形卡死，再也打不开。",
+    "due_days": 1,
+    "trigger": "车门被水压彻底压死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_door_water_lock",
+   "immediate": {
+    "minutes": 2,
+    "text": "拉手冰得握不住，车门外传来洪水一下一下撞击的闷响。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "车门边缘开始往里渗水，门锁的阻尼拉杆咯吱作响。"
+   },
+   "objective": "泄压槽打开之后，还得等水压平衡，才能合力踹开车门。",
+   "source": "accident",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "车外数吨水压死锁防弹车门",
+   "trigger": "车外数吨水压把装甲车门死死压住，机械拉手纹丝不动。"
+  },
+  {
+   "choice": "是为了体面拉开半寸距离，还是干脆贴紧了一起发力？",
+   "exits": [
+    {
+     "cost": "这一夜之后，休息室门外那道影子再也不会只站在门外了",
+     "option": "放下顾虑贴紧对方，四只手一起压在锤柄上"
+    },
+    {
+     "cost": "力气使不到一处，泄压槽撬不开",
+     "option": "各自侧身单手发力"
+    }
+   ],
+   "far": {
+    "consequence": "锤尖从泄压槽里滑出去，错过水压平衡的那一瞬。",
+    "due_days": 1,
+    "trigger": "分心导致锤尖滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_icy_water_chill",
+   "immediate": {
+    "minutes": 2,
+    "text": "董事长急促的呼吸拂在耳边，湿透的真丝衬衫隔着一层布传来体温。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "冰水里只有两颗心跳是热的，撞得越来越乱。"
+   },
+   "objective": "贴得这么近的时候，还得把心思放在锤尖的角度和数拍子上。",
+   "source": "person",
+   "start_minute": 10,
+   "tags": [
+    "workplace"
+   ],
+   "title": "冰冷积水漫胸体温急剧流失",
+   "trigger": "冰冷的积水漫过胸口，两人只能贴紧了互相取暖，牙关冻得直打战。"
+  },
+  {
+   "choice": "是放慢动作省着喘气，还是一鼓作气拼到底？",
+   "exits": [
+    {
+     "cost": "可能在最后一下之前就眼前发黑",
+     "option": "压低呼吸，把力气全留给最后一下"
+    },
+    {
+     "cost": "换气的时候手上就松了",
+     "option": "轮流把脸贴近车顶缝隙换气"
+    }
+   ],
+   "far": {
+    "consequence": "两人在车里失去意识，等不到救援队撬开车门。",
+    "due_days": 1,
+    "trigger": "空气耗尽"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_air_pocket_shrink",
+   "immediate": {
+    "minutes": 2,
+    "text": "空气越来越闷，每喘一口都带着泥腥味。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_flooded_rear_cabin",
+    "loc_quarter_window_seal"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "眼前开始发黑，手指发麻，数拍子的声音越来越轻。"
+   },
+   "objective": "在空气耗尽、两人晕过去之前打开车门。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "顶棚残存空气层缩减窒息告急",
+   "trigger": "顶棚下的空气层一点点变薄，每呼一口气都撞在车顶上，眼前开始发黑。"
+  },
+  {
+   "choice": "是继续加力赌一把，还是退出来换个角度重新别？",
+   "exits": [
+    {
+     "cost": "手套一湿，手指更冷",
+     "option": "用潜水手套裹住锤柄再压"
+    },
+    {
+     "cost": "折刀太软，别不开防弹玻璃的压条",
+     "option": "退出来改用折刀刀尖"
+    }
+   ],
+   "far": {
+    "consequence": "安全锤从槽口滑出去，沉进浑水里找不到了。",
+    "due_days": 1,
+    "trigger": "锤尖滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hammer_tip_slip",
+   "immediate": {
+    "minutes": 2,
+    "text": "锤柄在掌心里一点点往外滑，握锤的指节冻得发白。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_quarter_window_seal"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "锤尖已经滑出半截，再偏一点就会彻底脱槽。"
+   },
+   "objective": "得在锤尖滑脱之前找准最后一个受力点。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "钨钢破窗锥尖端受力滑脱风险",
+   "trigger": "钨钢锤尖别在湿滑的密封胶条里，锤柄被水压压得往外滑。"
+  },
+  {
+   "choice": "是一个人摸索、一个人照明，还是两个人一起摸？",
+   "exits": [
+    {
+     "cost": "照明的人手会冻僵",
+     "option": "一个人照明一个人摸，用声音互相引路"
+    },
+    {
+     "cost": "可能摸错地方，浪费最后的空气",
+     "option": "关掉电筒省电，全凭手感"
+    }
+   ],
+   "far": {
+    "consequence": "座舱里一片漆黑，再也找不到槽口。",
+    "due_days": 1,
+    "trigger": "电筒熄灭"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_silt_blind_water",
+   "immediate": {
+    "minutes": 2,
+    "text": "泥沙打在脸上，睁眼就疼，手只能在冰水里一寸寸地摸。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_flooded_rear_cabin",
+    "loc_quarter_window_seal"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "电筒的光越来越暗，手机快没电了。"
+   },
+   "objective": "在什么都看不见的水里，靠摸索找到泄压槽和车门拉手。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "浑浊水流泥沙阻挡视线与摸索",
+   "trigger": "浑浊的泥水里什么都看不见，手机电筒的光只照得见一团黄。"
+  },
+  {
+   "choice": "让保镖站出来说是自己选错了路，还是董事长亲口承认那条路是自己定的",
+   "exits": [
+    {
+     "cost": "保镖在这一行再也找不到雇主",
+     "option": "让保镖背下选错路的责任"
+    },
+    {
+     "cost": "集团股价第二天跌停，父亲留下的东西跟着一起跌",
+     "option": "把叔叔一派改过导航路线的证据交给财经记者小林"
+    }
+   ],
+   "far": {
+    "consequence": "叔叔接手集团，保镖被开除，董事长手里只剩父亲留下的一间空办公室",
+    "due_days": 1,
+    "trigger": "罢免案通过"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_gu_heels_off",
+    "hook_gu_father_wine",
+    "hook_guard_old_scar",
+    "hook_gu_rest_room_door"
+   ],
+   "id": "p_emergency_board_vote",
+   "immediate": {
+    "minutes": 5,
+    "text": "首席秘书敲门进来，说钱老在电话里等一句准话"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_chairwoman_rest_room"
+   ],
+   "near": {
+    "deadline_minutes": 120,
+    "text": "上午十点，临时董事会投票"
+   },
+   "objective": "在董事会投票之前，稳住三位元老董事的票",
+   "source": "person",
+   "start_minute": 480,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "临时董事会",
+   "trigger": "暗渠出事后第二天早上八点，副董事长叔叔召集临时董事会，议题只有一条：董事长深夜开进泄洪区，判断力是否还能胜任"
+  }
+ ],
+ "region": "暴雨泄洪排涝地下暗渠受困防弹防暴豪华轿车座舱",
+ "rules": [
+  {
+   "id": "r_group_succession",
+   "text": "集团章程：董事长上任一年内若出重大差错，董事会可以三分之二票数提请罢免。"
+  },
+  {
+   "id": "r_door_release_by_hammer",
+   "text": "防弹车门受外侧巨大水压死锁，只可通过特种钨钢安全锤坚硬尖锥别开三角窗密封槽平衡水压方可推门脱险。"
+  },
+  {
+   "id": "r_monsoon_culvert",
+   "text": "每年梅雨季，城市地下泄洪暗渠会在山洪来时开闸，暗渠入口与市政辅路只隔一道栏杆。"
+  },
+  {
+   "id": "r_bodyguard_protocol",
+   "text": "保镖守则：董事长在哪里，保镖就在哪里；董事长说“退下”，保镖也只退到看得见的地方。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "勘察压差",
+  "committed": "冲破水门",
+  "familiar": "摸索泄孔",
+  "flirting": "相拥取暖",
+  "intimate": "同心破压",
+  "stranger": "沉着应对",
+  "testing": "共顶钨钢"
+ },
+ "status": "released",
+ "style_hint": "现代财阀继承的工笔：白天写顶层会议室的刀光剑影、闪光灯下的微笑、空中酒廊的慈善晚宴；夜里写淹没座舱里的冰水、十公分的空气与贴身发力。董事长人前滴水不漏，张力藏在只对一个人卸下的那一点脆弱里。",
+ "tension_engines": [
+  {
+   "id": "te_culvert_flood_rise",
+   "text": "暗渠里的洪水一寸寸往上涨，顶棚下的空气越来越少。"
+  },
+  {
+   "id": "te_door_water_lock",
+   "text": "车外数吨水压把装甲车门死死压住，安全锤别进去就再难退出。"
+  },
+  {
+   "id": "te_icy_water_body_heat",
+   "text": "冰冷的积水漫过胸口，两人只能贴紧了互相取暖。"
+  },
+  {
+   "id": "te_air_pocket_shrink",
+   "text": "顶棚下的空气层一点点变薄，每一口都比上一口更闷。"
+  }
+ ],
+ "title": "千亿财阀女掌舵人·泄洪暗渠防弹座驾淹没",
+ "tone": [
+  "浑水淹没车顶",
+  "防弹车门水压",
+  "冰冷积水漫胸",
+  "钨钢尖锥别槽"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_hammer_bitten",
+   "requires": [
+    "chairwoman_gu"
+   ],
+   "text": "洪流漩涡猛烈冲击车尾，车身剧烈倾斜，插入角窗密封槽的钨钢安全锤被死死咬住，必须依靠两人体重反向猛掰方能撬动卡扣。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_skirt_hem_caught",
+   "requires": [
+    "chairwoman_gu"
+   ],
+   "text": "董事长西装长裙下摆在水中被后排中央扶手铰链挂住，董事长果断单手扯开暗扣撕脱阻碍，毫不犹豫护住发力核心平衡。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_wet_hair_on_jaw",
+   "requires": [
+    "personal_bodyguard"
+   ],
+   "text": "董事长额前湿发散落，饱满带着面颊贴在保镖下颌处，在逼仄水面残存空间中激起近在咫尺的滚烫屏息。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_handle_four_hands",
+   "requires": [
+    "chairwoman_gu",
+    "personal_bodyguard"
+   ],
+   "text": "机械开门扳手在数吨水压下卡死阻滞，单人手臂根本无法掰开，董事长自侧面合身贴上，四只手重叠死扣把手合力借力。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_sunroof_silt_jet",
+   "requires": [
+    "chairwoman_gu"
+   ],
+   "text": "天窗密封圈突发微小破裂喷出冰冷泥柱，狭窄车厢内两人不得不进一步紧贴俯身，用脊背为彼此遮挡呛鼻泥沙。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_kick_on_three",
+   "requires": [
+    "chairwoman_gu",
+    "personal_bodyguard"
+   ],
+   "text": "保镖借董事长肩背为支撑形成极限反推力矩，两人同频数到三将双腿全力蹬向车门，清脆的门锁脱扣机械声骤然激荡。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_door_bursts_open",
+   "requires": [
+    "chairwoman_gu"
+   ],
+   "text": "内外水压彻底齐平，重达数百公斤的防弹装甲车门被两人合力悍然踹开，浑水倒卷中两人携手蹬出座舱，成功脱困自救。"
+  }
+ ]
+}

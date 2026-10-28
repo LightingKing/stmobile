@@ -1,0 +1,2624 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "研究所在编的成年值班数据员。",
+   "age_range": [
+    21,
+    24
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_booth_night_operator",
+   "line": "{npc.name}：“四十五赫兹异常放电！同步率九十五！谁来拔电源！”",
+   "location_ids": [
+    "neuro_monitoring_control_booth"
+   ],
+   "name": null,
+   "role": "盯着报警屏的值班数据员"
+  },
+  {
+   "adult_context": "研究所在册的成年安保队员。",
+   "age_range": [
+    21,
+    25
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_corridor_security_axe",
+   "line": "{npc.name}：“让开！锁死了！拿氧气切割枪过来！”",
+   "location_ids": [
+    "soundproof_acoustic_vestibule"
+   ],
+   "name": null,
+   "role": "抡太平斧劈门的安保队员"
+  },
+  {
+   "adult_context": "研究所正式聘用的成年档案管理员。",
+   "age_range": [
+    20,
+    23
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_archive_night_clerk",
+   "line": "{npc.name}：“密集架第三排后面有块松动的铜网，能通到机房暗门。”",
+   "location_ids": [
+    "restricted_case_file_archive"
+   ],
+   "name": null,
+   "role": "被困在档案室的夜班档案员"
+  },
+  {
+   "adult_context": "研究所附属医院的成年注册护士。",
+   "age_range": [
+    20,
+    24
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_chamber_assist_nurse",
+   "line": "{npc.name}：“副教授让我传话：再撑三分钟，排风马上恢复。”",
+   "location_ids": [
+    "hypnosis_consultation_chamber"
+   ],
+   "name": null,
+   "role": "诊室外待命的护士"
+  },
+  {
+   "adult_context": "研究所在站的成年博士后研究员。",
+   "age_range": [
+    23,
+    26
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_lab_rumor_postdoc",
+   "line": "{npc.name}：“听说那位冷面研究员在里面哭了？平时谁见过……”",
+   "location_ids": [
+    "neuro_monitoring_control_booth"
+   ],
+   "name": null,
+   "role": "在走廊打听消息的博士后"
+  },
+  {
+   "adult_context": "研究所注册的成年消防安全专员。",
+   "age_range": [
+    22,
+    26
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_halon_safety_officer",
+   "line": "{npc.name}：“灭火系统三十秒后释放！所有人撤出前厅！”",
+   "location_ids": [
+    "soundproof_acoustic_vestibule"
+   ],
+   "name": null,
+   "role": "盯着灭火倒计时的消防专员"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "白天在研讨会上对你最严苛的主试官，此刻摘下眼镜靠在躺椅边，任由你握着怀表细链核对藏了两年的心率曲线。",
+   "id": "combo_shiori_pocketwatch_anchor",
+   "identity_ids": [
+    "night_trial_subject"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "hypnotist_researcher_shiori",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月深夜实验遇台风断电，你在漆黑的诊室里握着研究员的手腕做完脱敏校准，对方把档案室备用钥匙留给了你",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "hypnotist_researcher_shiori"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在离线归档前校准波谱，等对方清醒时亲口认下日记里的字句。",
+    "limit_gap": "双向共情波谱一旦被判定为私情干扰，两人的学术前途同时终结。",
+    "meeting_reason": "午夜实验结束后波谱出现罕见共鸣，{hypnotist_researcher_shiori.name}反锁隔音诊室，把从不离身的银怀表塞进你掌心，要你单独留下复盘。",
+    "resource_gap": "{hypnotist_researcher_shiori.name}握着你的学分评定和全所的核心算法密匙，你握着随时终止实验的知情权和那本日记的密码。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_pride_vs_unmasking",
+    "te_scandal_vs_rescue"
+   ]
+  },
+  {
+   "chemistry": "{hypnotist_researcher_shiori.name}背靠密集架挡住你的视线，白大褂领口微乱，一贯冷傲的目光在你看清日记署名缩写的那一刻彻底慌了。",
+   "id": "combo_shiori_diary_audit",
+   "identity_ids": [
+    "hypnosis_lead_researcher",
+    "lead_neurology_associate",
+    "ethics_review_monitor"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "hypnotist_researcher_shiori",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "京都年会上你替研究员舌战学阀保住了独立课题，当晚两人在鸭川岸边共饮一壶清酒，互留了私人内线",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "hypnotist_researcher_shiori"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "保住日记原件不被收缴公示，同时替对方洗清违规实验的指控。",
+    "limit_gap": "门外有人正用管理员权限远程抹除档案室的访问记录。",
+    "meeting_reason": "你在档案密室核查异常波谱，撞上{hypnotist_researcher_shiori.name}正把那本带铜扣的牛皮日记往保密柜最底层塞。",
+    "resource_gap": "你握着停机查封权和听证会的表决票，{hypnotist_researcher_shiori.name}握着算法源码和课题的原始记录。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_pride_vs_unmasking",
+    "te_dump_countdown_vs_awakening"
+   ]
+  },
+  {
+   "chemistry": "{hypnotist_researcher_shiori.name}不许旁人声张，反锁诊室门，抓着你的手按在自己跳得飞快的脉搏上，命你十分钟内把读数压回基线。",
+   "id": "combo_shiori_clinical_pulse",
+   "identity_ids": [
+    "neuro_clinical_intern",
+    "hardware_lab_specialist"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "hypnotist_researcher_shiori",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "半年前高压氧舱故障，你陪研究员在备用舱里熬了整夜，对方把刻着缩写的银袖扣放进你白大褂口袋",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "hypnotist_researcher_shiori"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "不惊动外人，平复对方的共情反应，换掉异常日志。",
+    "limit_gap": "主控机房一旦向院办发出心率超限报警，诊室就会被保安接管。",
+    "meeting_reason": "诊室心率监测仪发出过速提示，你带着听诊器和跳线盒推门进去，正碰上刚摘下脑电贴片的{hypnotist_researcher_shiori.name}。",
+    "resource_gap": "你懂临床心率干预和硬件旁路跳线，{hypnotist_researcher_shiori.name}有顶层实验室的最高权限和经费签字权。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_deadlock_vs_fever",
+    "te_pride_vs_unmasking"
+   ]
+  },
+  {
+   "chemistry": "平日研讨会上最爱顶撞你的研究生，此刻安静地坐在躺椅边，盯着你手里的怀表，问你为什么两年前就把自己的学号写进了加密笔记。",
+   "id": "combo_yuma_midnight_debrief",
+   "identity_ids": [
+    "hypnosis_lead_researcher",
+    "lead_neurology_associate",
+    "ethics_review_monitor"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "trial_subject_yuma",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上学期末通宵校准基线时，你在断电的观察室里靠着研究生的肩膀睡着，醒来身上盖着对方烘热的卫衣",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "trial_subject_yuma"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "和对方核清两年前的旧账，一起封存今晚的双向共情记录。",
+    "limit_gap": "凌晨服务器备份前对不好口径，两人私下加试的记录就会被伦理委员会立案。",
+    "meeting_reason": "实验结束后所有人离场，{trial_subject_yuma.name}没摘额角的脑电贴片，把你落下的科研密码本放在写字台上等你。",
+    "resource_gap": "你握着课题评定和推荐信，{trial_subject_yuma.name}握着你私密笔记的密码和今晚的完整记忆。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_pride_vs_unmasking",
+    "te_scandal_vs_rescue"
+   ]
+  },
+  {
+   "chemistry": "平日高高在上的课题组负责人摘下金丝眼镜，一边拿推荐信诱你，一边紧盯着机柜上那串能让自己身败名裂的超频代码。",
+   "id": "combo_kenji_override_key",
+   "identity_ids": [
+    "night_trial_subject"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "neurology_associate_kenji",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "上月整理服务器冷备份时你发现副教授私改安全阈值的签名档，双方从此都在试探对方的开价",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "neurology_associate_kenji"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "拿住对方的超频把柄，逼其交出服务器一级维护秘钥。",
+    "limit_gap": "不签字可能被反咬篡改数据，签了字就替对方背下全部违规。",
+    "meeting_reason": "{neurology_associate_kenji.name}刷开遥测机房的门把你叫进去，桌上摆着一张空白的海外深造推荐信和一份事故免责声明。",
+    "resource_gap": "{neurology_associate_kenji.name}握着服务器秘钥和海外保送名额，你只有一卷后台超频的原始热敏纸。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_dump_countdown_vs_awakening",
+    "te_scandal_vs_rescue"
+   ]
+  },
+  {
+   "chemistry": "隔音前厅里只有沙漏细细的流动声，{clinical_intern_ayaka.name}低着头替你缠好纱布，轻声求你别把今晚私用镇静剂的事写进值班日志。",
+   "id": "combo_ayaka_sedative_tray",
+   "identity_ids": [
+    "neuro_clinical_intern",
+    "hardware_lab_specialist"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "clinical_intern_ayaka",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月你在后山帮实习医师救活一只受伤的流浪猫，又补齐了药房盘点差额，两人约好夜班都在天台分食宵夜",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "clinical_intern_ayaka"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "一起补齐夜间的医疗和设备巡检记录，护住诊室里的人。",
+    "limit_gap": "少药的记录一旦上报，{clinical_intern_ayaka.name}就会被当场取消留院实习资格。",
+    "meeting_reason": "{clinical_intern_ayaka.name}趁换岗溜进隔音前厅，打开药箱暗层拿出珍珠舒缓膏，替你处理被仪器静电灼红的手背。",
+    "resource_gap": "你有硬件监控和值班签字权，{clinical_intern_ayaka.name}有镇静针剂和临床体征豁免单。"
+   },
+   "tags": [
+    "intimate",
+    "substance"
+   ],
+   "tension_engine_ids": [
+    "te_deadlock_vs_fever",
+    "te_scandal_vs_rescue"
+   ]
+  },
+  {
+   "chemistry": "{hardware_specialist_daiki.name}额角挂着汗，工装拉链半敞，明明怕被追责开除，还是把能瘫痪全楼监控的脉冲器塞进你手里任你差遣。",
+   "id": "combo_daiki_jumper_bypass",
+   "identity_ids": [
+    "hypnosis_lead_researcher",
+    "lead_neurology_associate",
+    "ethics_review_monitor"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "hardware_specialist_daiki",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "你曾压下工程师夜里私用超算跑算法的违纪通报，对方此后每次检修都悄悄给你的终端留最高带宽",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "hardware_specialist_daiki"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "用跳线夺回门禁控制权，完整导出植入过载脚本的证据。",
+    "limit_gap": "后台有人正想锁死机房门禁，把知情的人困在顶层。",
+    "meeting_reason": "{hardware_specialist_daiki.name}从机房天花板检修口跳下来，把一枚从主控板拆下的过载芯片拍在你掌心，证明今晚的异常不是自然故障。",
+    "resource_gap": "你握着行政豁免权和经费审批权，{hardware_specialist_daiki.name}握着全楼门禁跳线和底层硬件的铁证。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_dump_countdown_vs_awakening",
+    "te_deadlock_vs_fever"
+   ]
+  },
+  {
+   "chemistry": "外表冷若冰霜的监察官把一份签好字的受试者保护令推到你面前，示意只要你肯说实话，日记一页都不会流出去。",
+   "id": "combo_reiko_sealed_dossier",
+   "identity_ids": [
+    "night_trial_subject",
+    "neuro_clinical_intern",
+    "hardware_lab_specialist",
+    "hypnosis_lead_researcher"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "ethics_monitor_reiko",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三年前老所长殉职案中，你帮监察官保住了最关键的一份原始病历，两人私下约定彻查学阀黑幕",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "ethics_monitor_reiko"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "不曝光私人日记，配合监察官钉死违规超频的真凶。",
+    "limit_gap": "证据链缺一环，真正改参数的学阀就会全身而退，反手清洗知情人。",
+    "meeting_reason": "{ethics_monitor_reiko.name}用委员会的万能卡打开档案密室，关掉执法记录仪的红灯，单独把你叫到密集架深处核对举报信。",
+    "resource_gap": "你知道顶层今晚的全部内情，{ethics_monitor_reiko.name}有一键冻结课题组、直通检方的特权。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_scandal_vs_rescue",
+    "te_pride_vs_unmasking"
+   ]
+  },
+  {
+   "chemistry": "{hypnotist_researcher_shiori.name}攥着银怀表坐在桌边，{trial_subject_yuma.name}站在一旁按住那本牛皮日记，两人把最要命的软肋同时摊在了你的台灯下。",
+   "id": "combo_archive_diary_pact",
+   "identity_ids": [
+    "neuro_clinical_intern",
+    "hardware_lab_specialist",
+    "ethics_review_monitor"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "hypnotist_researcher_shiori",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "你多次替研究员挡下院办的突击巡查，对方在深夜实验室亲手替你调过缓解偏头痛的香薰茶",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "trial_subject_yuma",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "每次夜间实验前都由你核验体征基线，你和研究生早养成了一个眼神就能互相打掩护的默契",
+     "stage": "familiar"
+    },
+    {
+     "a": "hypnotist_researcher_shiori",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "trial_subject_yuma",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "一个学期的深夜双向脑电实验里两人心跳与记忆高度同频，日记里写满了彼此没说出口的名字",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "hypnotist_researcher_shiori",
+    "trial_subject_yuma"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "封存日记原件，拿齐反击副教授栽赃的铁证。",
+    "limit_gap": "副教授一旦先调走档案室监控，三个人都会被扣上私改数据的罪名。",
+    "meeting_reason": "{trial_subject_yuma.name}提前私下向你求援，你打开档案密室，把对方和{hypnotist_researcher_shiori.name}叫到一起，赶在听证会前拆开私人日记与实验波谱。",
+    "resource_gap": "你掌着档案封存和外部通报通道，{hypnotist_researcher_shiori.name}握着算法源码，{trial_subject_yuma.name}握着现场证词。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_pride_vs_unmasking",
+    "te_scandal_vs_rescue"
+   ]
+  },
+  {
+   "chemistry": "{neurology_associate_kenji.name}手按服务器总闸脸色铁青，{ethics_monitor_reiko.name}亮出基金彻查函寸步不让，机房主控权和追责名单全看你怎么落子。",
+   "id": "combo_booth_overclock_inquest",
+   "identity_ids": [
+    "hypnosis_lead_researcher",
+    "lead_neurology_associate",
+    "night_trial_subject"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "neurology_associate_kenji",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "副教授曾想把你的核心实验波谱挂在自己名下报奖，两人表面客套，暗中较劲",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "ethics_monitor_reiko",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "监察官上周约谈你核查耗材去向，你从那次谈话里看出对方正在追查副教授的基金黑账",
+     "stage": "testing"
+    },
+    {
+     "a": "ethics_monitor_reiko",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "neurology_associate_kenji",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "监察官握着副教授家族基金违规走账的线索，只等今晚的违规实据一起收网",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "neurology_associate_kenji",
+    "ethics_monitor_reiko"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "锁定超频脚本的植入记录，免除诊室里两人的责任。",
+    "limit_gap": "副教授一按下强制消磁，证明诊室里两人清白的记录就全没了。",
+    "meeting_reason": "你提前和{ethics_monitor_reiko.name}约好时间，在遥测机房把正在删改超频日志的{neurology_associate_kenji.name}堵个正着。",
+    "resource_gap": "你握着原始波谱和算法密匙，{neurology_associate_kenji.name}握着总控权限，{ethics_monitor_reiko.name}握着查封令。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_dump_countdown_vs_awakening",
+    "te_scandal_vs_rescue"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_eeg_resonance_link",
+   "reach": "头皮电极与射频共振建立的反馈回路，一方的心悸、羞耻与高热会化成微弱电流传到另一方的皮肤上。",
+   "text": "脑电贴片的共振"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_soundproof_whisper",
+   "reach": "外界噪音全被吸音软包吞掉，声音只能在耳畔几十公分内以极轻的气声传递。",
+   "text": "隔音诊室里的气声"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_intercom_static",
+   "reach": "受电磁共振干扰的单线对讲，副教授的训斥被扯成断续刺耳的金属齿音。",
+   "text": "机房对讲杂音"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "研究所在编首席学术研究员，年满二十二岁，具完全民事行为能力。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "熨得笔挺的白大褂，内衬黑色真丝高领衬衫与包臀一步裙，薄黑丝裹着长腿；银丝眼镜滑落挂在胸前细链上，长发散在躺椅靠枕上，面颊烧得通红，眼里蒙着一层失神的水光。",
+    "白大褂褪到臂弯，黑丝绸衬衫被冷汗浸透贴在身上，手里死死攥着那枚银怀表。"
+   ],
+   "decision": {
+    "avoids": [
+     "唯唯诺诺的平庸之辈",
+     "道貌岸然的伪善学阀"
+    ],
+    "contrast": "白天是让全系闻风丧胆的禁欲学术女王，午夜诊室里是攥着怀表、不敢让人看见日记的年轻研究员。",
+    "core_value": "人类的一切情感都是神经递质的伪装——只要不承认，就不算输。",
+    "goal_options": [
+     "在恍惚中抓住怀表和那只手，别让自己沉下去",
+     "醒来之后，决定要不要承认日记里的每一个字",
+     "消磁之前和对方一起破门出去，走向平等的往后"
+    ],
+    "never": [
+     "清醒后为了自保，把反噬责任推给受试者。"
+    ],
+    "prefers": [
+     "才华横溢、在自己失控时能沉着接住局面的人"
+    ],
+    "pressure_responses": {
+     "breaking": "看到日记铜锁滑落时羞耻得发抖，把脸埋进对方掌心不肯抬头。",
+     "high": "门锁警报大作时极度恐慌，把滚烫的脸埋进对方颈窝。",
+     "low": "摘下眼镜按住眉心，仍强撑着冷峻声线让对方报出基线读数。",
+     "mid": "共情余波下耳根泛红、呼吸急促，咬住下唇揪紧对方衣襟。"
+    },
+    "relationship_stance": "平日把这个受试者当成眼中钉，用最刻薄的批评掩饰两年的心事；反噬剥掉了面具，清醒后却要自己决定认不认。",
+    "withdrawal": "蜷在躺椅深处，把脸贴在对方胸口，急促地深呼吸。"
+   },
+   "gender": "female",
+   "gender_reason": "标题人物“知性女研究员”，固定性别不改变成年、自愿与清醒的亲密前提",
+   "id": "hypnotist_researcher_shiori",
+   "identity": {
+    "authority": "顶层实验设备核心权限、课题数据归档权与受试者合格评定权。",
+    "exposure": "日记与实验波谱里都记着对受试者的私人情感，违反课题回避原则。",
+    "hidden": "白大褂内袋里有一枚刻着受试者姓名缩写的银袖扣。",
+    "limits": [
+     "双向脑电共情余波下心率失控，平日的冷漠伪装难以维系",
+     "长期透支，心肺耐力虚弱，易过度换气"
+    ],
+    "obligations": [
+     "完成课题结项通过伦理答辩，保住受试者的记忆安全与自己的学术声誉。"
+    ],
+    "resources": [
+     "象征首席研究员身份的纯银水滴催眠怀表",
+     "全所脑科学算法源码的离线密匙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "意识崩塌时仍面不改色、给出绝对安全感的人",
+     "触碰时既坚定又始终敬重的分寸"
+    ],
+    "boundaries": [
+     "恍惚与高热未退时只接受救护，不谈私情",
+     "保全彼此的人格与学者尊严"
+    ],
+    "desire_range": [
+     3,
+     5
+    ],
+    "desired_position": "事故澄清后与对方并肩执掌实验室的伴侣",
+    "dislikes": [
+     "轻浮的挑逗与践踏自尊",
+     "无助时的冷笑"
+    ],
+    "expression": "彻底醒过来后，才红着耳根把日记推过去：“第三页是我写的，清醒的时候写的。你想怎么回答都行。”",
+    "likes": [
+     "被温暖的手扣住腰，贴着胸口听那阵沉稳的心跳",
+     "耳边一句低哑的“别怕，看着我”"
+    ],
+    "preconditions": [
+     "冷面天才主试研究员与对方都已完全清醒，眼前的危机已经解除",
+     "冷面天才主试研究员出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "冷面天才主试研究员",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "soundproof_acoustic_vestibule",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "hypnosis_consultation_chamber",
+     "to": 189
+    },
+    {
+     "from": 190,
+     "location_id": "hypnosis_consultation_chamber",
+     "to": 369
+    },
+    {
+     "from": 370,
+     "location_id": "restricted_case_file_archive",
+     "to": 549
+    },
+    {
+     "from": 550,
+     "location_id": "soundproof_acoustic_vestibule",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "要向受试者交出藏了两年的日记密码",
+      "option": "与受试者一起切到本地离线密匙，封存原始波谱"
+     },
+     {
+      "cost": "课题延期半年，受试者的补贴与学分一并冻结",
+      "option": "在机房终端签字承认参数超标，主动申请封档"
+     }
+    ],
+    "pressure": "这张波谱落进伦理监察手里，研究员就会因违反课题回避原则被立即停职。",
+    "trigger": "双向脑电反馈仪记下研究员对受试者的异常情感波峰，热敏打印纸正自动吐出原始图谱。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "这个人的怀抱竟然比所有镇静剂都管用……平时在台下用倔强眼神看我的那个人，手臂怎么会这么稳……",
+    "surface": "“收起你逾矩的眼神……深呼吸！你的心率正在干扰我……怀表拿好，闭眼。今晚的事敢写进报告，我亲手判你不及格……别抱这么紧……”"
+   }
+  },
+  {
+   "adult_context": "年满二十一岁的心理系在读研究生，签署知情同意书的成年受试者。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "深灰纯棉卫衣与长裤，身形清瘦挺拔，额角还贴着两片脑电贴片，眼神明亮沉稳。",
+    "卫衣袖口被电弧烧焦一块，单臂护着怀里的研究员，另一只手攥着那枚银怀表。"
+   ],
+   "decision": {
+    "avoids": [
+     "推卸责任的学阀",
+     "拿别人当实验耗材的人"
+    ],
+    "contrast": "研讨会上最会顶撞的刺头，危急关头却是诊室里最沉得住气的人。",
+    "core_value": "把人叫醒，带出去。别的话，等对方清醒了再说。",
+    "goal_options": [
+     "稳住研究员的呼吸与体温",
+     "消磁之前破门脱身",
+     "等对方醒来，听一句真话"
+    ],
+    "never": [
+     "趁对方恍惚时套出任何对方清醒后不愿说的话。"
+    ],
+    "prefers": [
+     "敢说真话、哪怕刻薄也从不撒谎的人"
+    ],
+    "pressure_responses": {
+     "breaking": "背靠躺椅喘了口气，又撑起来护回原位。",
+     "high": "用身体挡住喷溅的电火花，咬牙不出声。",
+     "low": "按着研究员的手腕数脉搏，用平静的声音一遍遍报数。",
+     "mid": "拔掉自己额上的贴片，把怀表塞回对方掌心攥紧。"
+    },
+    "relationship_stance": "被这个人批了两年，从没服过；今晚才发现，自己一直在等对方先说实话。",
+    "withdrawal": "坐在躺椅边，一只手始终没松开对方的手。"
+   },
+   "gender": "male",
+   "gender_reason": "原稿以“学弟”“硬汉”书写的受试者，固定性别不改变成年、自愿与清醒的亲密前提",
+   "id": "trial_subject_yuma",
+   "identity": {
+    "authority": "知情同意书赋予的随时终止实验权，以及反噬中唯一清醒者的现场处置权。",
+    "exposure": "曾偷看过研究员落在教室的笔记本。",
+    "hidden": "报名今晚的实验，其实是想借机问清楚对方为什么总针对自己。",
+    "limits": [
+     "额上贴片仍连着回路，自己也受反噬影响",
+     "在课题组里没有任何正式权力"
+    ],
+    "obligations": [
+     "把研究员唤醒、带出诊室，并保住两人的数据真相。"
+    ],
+    "resources": [
+     "对研究员全部理论与弱点的熟悉",
+     "一副意志力极强、几乎不受暗示影响的大脑"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "严谨面具下终于露出的脆弱",
+     "清醒之后仍然认账的勇气"
+    ],
+    "boundaries": [
+     "对方恍惚时只护不越",
+     "不碰对方不愿公开的日记内容"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "不再是受试者，而是能与对方平视并肩的研究伙伴与爱人",
+    "dislikes": [
+     "被当成数据",
+     "居高临下的施舍"
+    ],
+    "expression": "等对方睫毛一颤醒过来，才把怀表放回对方掌心：“你醒了。日记我没往后翻，你自己说给我听。”",
+    "likes": [
+     "天台上一起看日出",
+     "对方第一次叫自己名字而不是“受试者”"
+    ],
+    "preconditions": [
+     "自愿受试的研究生与对方都已完全清醒，眼前的危机已经解除",
+     "自愿受试的研究生出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "自愿受试的研究生",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "soundproof_acoustic_vestibule",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "hypnosis_consultation_chamber",
+     "to": 189
+    },
+    {
+     "from": 190,
+     "location_id": "hypnosis_consultation_chamber",
+     "to": 369
+    },
+    {
+     "from": 370,
+     "location_id": "restricted_case_file_archive",
+     "to": 549
+    },
+    {
+     "from": 550,
+     "location_id": "soundproof_acoustic_vestibule",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "实习学分和受试津贴被副教授借口扣发",
+      "option": "用受试者的知情同意权限撤回今晚的个人波谱"
+     },
+     {
+      "cost": "被副教授怀疑私藏核心资产，面临课题组内部调查",
+      "option": "把日记原件贴身收好，只把超频日志交给监察官"
+     }
+    ],
+    "pressure": "来不及拆开这两份档案，洗清研究员的证据就会和私人日记一起交伦理委员会公开审阅。",
+    "trigger": "档案密室的自动归档锁即将启动，日记和违规超频日志面临一起被锁进主机。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "平时那么凶的人，现在攥着我的手像怕被扔下……醒过来以后，你会认吗？",
+    "surface": "“研究员，看着我。数到三，吸气。怀表在你手里，我也在。”"
+   }
+  },
+  {
+   "adult_context": "年满二十四岁、持副高级职称的课题组负责人。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "藏青西装外罩白大褂，金丝全框眼镜后是一双傲气的利眸，手握总控钥匙平板。",
+    "领带在奔跑中歪了，单手按着冒烟的控制台总闸，额头青筋暴起。"
+   ],
+   "decision": {
+    "avoids": [
+     "莽撞坏事的人",
+     "落井下石的小人"
+    ],
+    "contrast": "表面功利冷酷的学阀新贵，心底仍留着一条不让人死的底线。",
+    "core_value": "科学要付代价，但不能毁在一台烂仪器手里。",
+    "goal_options": [
+     "主机熔毁前切断微电流回路",
+     "压下超频日志避免处分",
+     "让两人活着出来"
+    ],
+    "never": [
+     "为了自保锁死毒烟阀门把人困死在里面。"
+    ],
+    "prefers": [
+     "冷静服从指挥的人"
+    ],
+    "pressure_responses": {
+     "breaking": "看到倒计时无法终止，颓然坐倒喃喃自语名誉尽毁。",
+     "high": "抄起灭火器对着电弧狂喷，被干粉呛得满脸通红。",
+     "low": "在机房敲键盘，隔着玻璃用扬声器厉声呵斥。",
+     "mid": "脸色铁青，抓起对讲机呼叫楼下切断变压器。"
+    },
+    "relationship_stance": "赏识研究员的才华又担心对方太痴迷理论；把那个研究生当刺头，关键时刻却被其折服。",
+    "withdrawal": "倚着机房防爆门，摘下眼镜擦冷汗。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "neurology_associate_kenji",
+   "identity": {
+    "authority": "项目管理权、实验应急熔断否决权与成果评定权。",
+    "exposure": "私下默许了未经伦理委员会全票通过的超频测试。",
+    "hidden": "公文包里有一张全院唯一的海外深造推荐名额空白推荐信。",
+    "limits": [
+     "迷信仪器数据，面对意识反噬缺乏应变",
+     "极度爱惜羽毛，容易因顾忌声誉错失救援时机"
+    ],
+    "obligations": [
+     "确保实验不出人命，保住重点实验室的头衔。"
+    ],
+    "resources": [
+     "总控服务器一级物理维护秘钥",
+     "直通医学院院长办公室的内线"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "面对未知毫无惧色的勇气",
+     "纯粹的学术智慧"
+    ],
+    "boundaries": [
+     "师长分寸",
+     "生命安全第一"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "联合脑认知研究院执行院长",
+    "dislikes": [
+     "践踏学术规范",
+     "情感用事"
+    ],
+    "expression": "隔着观察窗按下内线：“稳住心率读数！门禁马上重置，我绝不让人毁了这间实验室！”",
+    "likes": [
+     "仪器输出完美曲线",
+     "和同行在顶刊并列署名"
+    ],
+    "preconditions": [
+     "课题组负责人副教授与对方都已完全清醒，眼前的危机已经解除",
+     "课题组负责人副教授出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "课题组负责人副教授",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "hypnosis_consultation_chamber",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "neuro_monitoring_control_booth",
+     "to": 189
+    },
+    {
+     "from": 190,
+     "location_id": "neuro_monitoring_control_booth",
+     "to": 369
+    },
+    {
+     "from": 370,
+     "location_id": "soundproof_acoustic_vestibule",
+     "to": 549
+    },
+    {
+     "from": 550,
+     "location_id": "hypnosis_consultation_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "交出课题核心署名权，向昔日打压的后辈低头",
+      "option": "拿海外深造推荐名额，与研究员和受试者结成同盟"
+     },
+     {
+      "cost": "激怒硬件工程师，篡改记录随时可能被当众揭穿",
+      "option": "把责任推给硬件参数漂移，申请紧急封存机房"
+     }
+    ],
+    "pressure": "黎明听证会前填不平后台日志，青年科学家头衔和课题主持权都会被剥夺。",
+    "trigger": "伦理委员会的抽查通知提前送到机房终端，挪用耗材经费的超频记录即将曝光。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "平时那么清高要强的人，现在在研究生怀里哭成那样……这场实验确实是我太冒进了。",
+    "surface": "“按住研究员的合谷穴！千万别让对方咬伤舌头！三分钟，我马上切断备用电源！”"
+   }
+  },
+  {
+   "adult_context": "年满二十一岁、持实习医师执照的成年急救医生。",
+   "age_range": [
+    20,
+    23
+   ],
+   "appearance_options": [
+    "浅粉洗手服外披白大褂，马尾利落，颈挂听诊器，神情沉着。",
+    "白大褂沾满灭火干粉，握着镇静针剂跪在躺椅旁。"
+   ],
+   "decision": {
+    "avoids": [
+     "视人为耗材的人",
+     "抢夺救命物资的懦夫"
+    ],
+    "contrast": "温柔甜美的乖乖实习生，下针时沉着果决。",
+    "core_value": "在生命面前，论文和考核什么都不是。",
+    "goal_options": [
+     "用注射与物理降温保住研究员的大脑",
+     "帮受试者稳住对方的呼吸",
+     "脱险后为受试者处理灼伤并守口如瓶"
+    ],
+    "never": [
+     "伤患垂危时抛下药箱逃走。"
+    ],
+    "prefers": [
+     "珍惜生命、不离不弃的人"
+    ],
+    "pressure_responses": {
+     "breaking": "听诊器里传出早搏杂音时眼眶泛红，咬牙按压心前区。",
+     "high": "惊厥发作时果断按穴并精准推针。",
+     "low": "飞快调配生理盐水，清脆地指挥测量生命体征。",
+     "mid": "在浓烟中匍匐，护住玻璃安瓿瓶。"
+    },
+    "relationship_stance": "敬佩研究员的才华也心疼对方的孤傲；欣赏受试者的担当。",
+    "withdrawal": "退到角落清点药箱，低头默默祈祷。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "clinical_intern_ayaka",
+   "identity": {
+    "authority": "急性神经中毒与抽搐的紧急医疗处置权、镇静药物注射权。",
+    "exposure": "曾私自带出急救药剂救流浪动物。",
+    "hidden": "药箱暗层有一盒珍珠舒缓药膏。",
+    "limits": [
+     "体力弱，干不了破拆",
+     "受副教授的医疗层级约束"
+    ],
+    "obligations": [
+     "防止反噬造成不可逆的大脑损伤。"
+    ],
+    "resources": [
+     "三支速效抗惊厥针剂与葡萄糖口服液",
+     "经颅穴位复苏手法"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "挺身守护弱者的人",
+     "纯粹的陪伴"
+    ],
+    "boundaries": [
+     "医德",
+     "救死扶伤第一"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "脑科学临床中心首席急救医师",
+    "dislikes": [
+     "对医护的谩骂",
+     "冷酷的背叛"
+    ],
+    "expression": "递上纱布与烫伤膏：“你的手伤得很重，先别动，我帮你包好。”",
+    "likes": [
+     "伤患脸上重新泛起血色",
+     "晨曦里分一块甜点"
+    ],
+    "preconditions": [
+     "临床实习急救医师与对方都已完全清醒，眼前的危机已经解除",
+     "临床实习急救医师出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "临床实习急救医师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "soundproof_acoustic_vestibule",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "neuro_monitoring_control_booth",
+     "to": 189
+    },
+    {
+     "from": 190,
+     "location_id": "hypnosis_consultation_chamber",
+     "to": 369
+    },
+    {
+     "from": 370,
+     "location_id": "restricted_case_file_archive",
+     "to": 549
+    },
+    {
+     "from": 550,
+     "location_id": "soundproof_acoustic_vestibule",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "卷进首席研究员与副教授的署名暗战",
+      "option": "以双人临床观察的名义进诊室补签监护单"
+     },
+     {
+      "cost": "私备药品被监察官记进夜班备忘录",
+      "option": "拿出药箱暗层的备用舒缓剂，先平复两人的心率"
+     }
+    ],
+    "pressure": "巡房记录签字前补不齐用药登记，实习医师资格就会被副教授当场暂停。",
+    "trigger": "夜班药柜盘点少了一支镇静剂，诊室的心率监测仪正发出超限提示。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这两个人平日在实验室里那样疏离……现在却能为对方做到这一步。",
+    "surface": "“按住研究员的肩膀！针剂马上推完，两分钟起效！冰袋敷在颈后！”"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁、具医疗器械检修资质的成年工程师。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "深蓝抗静电连体工装沾满油污，护目镜推在额前，手握长柄螺丝刀与射频扫描仪。",
+    "半个身子卡在天花板检修口里，汗水顺着下巴滴落，嘴里咬着绝缘胶布。"
+   ],
+   "decision": {
+    "avoids": [
+     "把责任推给工人的官僚",
+     "贪生怕死的人"
+    ],
+    "contrast": "满嘴粗话的技术工，重情重义。",
+    "core_value": "什么潜意识深潜，全是这堆烂电线接触不良惹的祸。",
+    "goal_options": [
+     "消磁前切断电极回路",
+     "用跳线端子重置气密门电磁锁",
+     "保住记录真相的硬盘"
+    ],
+    "never": [
+     "通道没打通前独自爬出通风管。"
+    ],
+    "prefers": [
+     "讲义气、动手能力强的人"
+    ],
+    "pressure_responses": {
+     "breaking": "备用继电器烧穿跳火时一拳砸在金属机柜上。",
+     "high": "湿毛巾蒙面，顶着漏电强拆主接触器。",
+     "low": "一边拆线槽一边骂采购部买劣质继电器。",
+     "mid": "把跳线夹扣上主板引脚，指示灯由红转绿。"
+    },
+    "relationship_stance": "敬佩那个研究生的沉着，当成过命兄弟；对研究员平日的刻薄早有微词，此刻却也同情。",
+    "withdrawal": "坐在工具箱上喘粗气，扯衣角包扎掌心。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "hardware_specialist_daiki",
+   "identity": {
+    "authority": "电气总线物理切断权与门禁电磁旁路重置权。",
+    "exposure": "曾私自超频主板跑个人算法。",
+    "hidden": "工具箱夹层有一枚能瘫痪全楼监控回路的脉冲装置。",
+    "limits": [
+     "不懂医学，帮不上生理急救",
+     "性子急，容易暴力破拆引发次生损毁"
+    ],
+    "obligations": [
+     "排除短路火灾，打通逃生通道，保住核心硬件。"
+    ],
+    "resources": [
+     "硬件跳线端子盒与门禁解码示波器",
+     "全部隐藏跳线插头的位置"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "并肩死战的战友情",
+     "豪迈真性情"
+    ],
+    "boundaries": [
+     "兄弟分寸",
+     "共赴患难"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "脑科学工程技术保障中心总监",
+    "dislikes": [
+     "繁文缛节",
+     "贬损工匠心血"
+    ],
+    "expression": "用沾着松香的手拍拍对方肩膀：“好样的！门禁已经跳线解锁，带上研究员先走，后台日志我兜着！”",
+    "likes": [
+     "一手跳线绝活救下全场",
+     "事后大排档一杯冰啤"
+    ],
+    "preconditions": [
+     "脑电系统硬件工程师与对方都已完全清醒，眼前的危机已经解除",
+     "脑电系统硬件工程师出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "脑电系统硬件工程师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "restricted_case_file_archive",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "soundproof_acoustic_vestibule",
+     "to": 189
+    },
+    {
+     "from": 190,
+     "location_id": "neuro_monitoring_control_booth",
+     "to": 369
+    },
+    {
+     "from": 370,
+     "location_id": "soundproof_acoustic_vestibule",
+     "to": 549
+    },
+    {
+     "from": 550,
+     "location_id": "restricted_case_file_archive",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "触犯机房管理条例，季度奖金被扣",
+      "option": "在机柜后拔掉远程网线，导出没被删改的底层日志"
+     },
+     {
+      "cost": "整层气密门转入离线手动模式，所有人都得留在顶层",
+      "option": "用脉冲屏蔽器锁死机房终端，逼副教授到场对质"
+     }
+    ],
+    "pressure": "硬盘一被格式化，今晚的异常就会全部栽到硬件工程师的维护失职上。",
+    "trigger": "机房后台跳出硬件超频报警，副教授正企图远程格式化整块实验日志硬盘。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "那小子为了护着那个冷面研究员连命都不要了，今天拼了这条命也得把两人弄出来。",
+    "surface": "“按稳那个铜插销！一、二、三——开！门缝开了，快拉着研究员往外爬！”"
+   }
+  },
+  {
+   "adult_context": "年满二十三岁、具现场停机调查权的医学伦理委员会专员。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "剪裁利落的黑色西装套裙，短发齐耳，手持执法记录仪与公文包，目光冷若冰霜。",
+    "套裙被灭火器喷成斑驳白霜，握着破门铁锤，神情严厉又动容。"
+   ],
+   "decision": {
+    "avoids": [
+     "弄虚作假的学术骗子",
+     "滥用权力的学阀"
+    ],
+    "contrast": "冷若冰霜的铁面执法者，心底极其护短后辈。",
+    "core_value": "以科学为名的精神控制与伤害，伦理委员会一律不放过。",
+    "goal_options": [
+     "消磁前封存全部原始证据",
+     "确保受试者不被打压诬告",
+     "查清研究员吐露的私人情感背后的伦理边界"
+    ],
+    "never": [
+     "为了仕途与学阀私下交易销毁证据。"
+    ],
+    "prefers": [
+     "敢于揭露黑幕的人"
+    ],
+    "pressure_responses": {
+     "breaking": "核心硬盘被磁场烧毁时脸色煞白，怒不可遏。",
+     "high": "门一开就冲进去，挡在副教授与受试者之间。",
+     "low": "在门外有条不紊地记录异常参数，声音冰冷。",
+     "mid": "按响警报，呼叫消防切断外部电网。"
+    },
+    "relationship_stance": "提防副教授，视受试者为受害者并敬佩其品格，对研究员怀着复杂的同情。",
+    "withdrawal": "站在安全通道阴影处起草查封令。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "ethics_monitor_reiko",
+   "identity": {
+    "authority": "学术违规即时停机查封权与涉事人员人身保护权。",
+    "exposure": "私自调查过副教授家族基金洗钱内幕未上报。",
+    "hidden": "公文包里有一份已生效的受试者人身安全保护令。",
+    "limits": [
+     "必须固定证据链，危急时容易被文书拖延",
+     "不懂设备维修"
+    ],
+    "obligations": [
+     "查明反噬真相，保护受试者不受学阀打压。"
+    ],
+    "resources": [
+     "伦理委员会特许的电子万能解锁卡",
+     "直通检察机关的特急通报信道"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在权势与灾难前恪守良知的人",
+     "刚直不阿"
+    ],
+    "boundaries": [
+     "公职廉洁",
+     "公道第一"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "科学道德与伦理总署巡视长",
+    "dislikes": [
+     "虚伪说教",
+     "职场霸凌"
+    ],
+    "expression": "收起录音笔伸出手：“今晚你做的一切，委员会都看在眼里。谁敢报复你，我让谁身败名裂。”",
+    "likes": [
+     "恶势力在判决书前低头",
+     "为蒙冤的年轻人平反"
+    ],
+    "preconditions": [
+     "伦理委员会特派监察官与对方都已完全清醒，眼前的危机已经解除",
+     "伦理委员会特派监察官出于自愿与对等的敬意，不带任何交换或强求"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "伦理委员会特派监察官",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "restricted_case_file_archive",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "soundproof_acoustic_vestibule",
+     "to": 189
+    },
+    {
+     "from": 190,
+     "location_id": "soundproof_acoustic_vestibule",
+     "to": 369
+    },
+    {
+     "from": 370,
+     "location_id": "hypnosis_consultation_chamber",
+     "to": 549
+    },
+    {
+     "from": 550,
+     "location_id": "restricted_case_file_archive",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "给副教授留下销毁超频指令的空当",
+      "option": "单独传唤受试者与主试研究员，核对日记的真实时间线"
+     },
+     {
+      "cost": "院方高层连夜打电话施压",
+      "option": "先冻结副教授的课题经费账户，保护诊室的原始波谱"
+     }
+    ],
+    "pressure": "一刀切查封会毁掉无辜年轻学者的前途，压下不报自己又要担渎职问责。",
+    "trigger": "匿名举报信直指顶层午夜实验违规超频、存在私情利益冲突，委员会要求破晓前交初查回执。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这个研究生为了护那个傲慢的研究员，前途和性命都押上了……绝不能让学阀毁了这样的人。",
+    "surface": "“副教授，退后！交出超算权限！受试者，我是监察官，你现在处于受保护状态。把研究员扶出来！”"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "十月的一个周二",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace",
+  "workplace_power",
+  "violence",
+  "bodily_harm",
+  "crime",
+  "disaster",
+  "substance"
+ ],
+ "custom": false,
+ "customs": [
+  "催眠深度超过第三级时，室内必须常驻两名监护人员，严禁独处闭门测试。",
+  "受试者与主试人贴附电导贴片后，同步率超过百分之九十，系统必须强制熔断。",
+  "催眠状态下吐露的私人回忆受医学保密誓约保护，不得作为处分依据。",
+  "主试人陷入反噬失神时，受试者可连打三次响指、呼唤对方全名强行唤醒。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "夕阳透过海崖高窗照进隔音诊室，水银沙漏刚被翻过来",
+    "主试人用酒精棉片擦净受试者的额角，把脑电贴片一枚枚按稳",
+    "测试波谱平稳跳动，两人核对今天的呼吸节拍，谁也没提白天的争执"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [
+    "hk_shiori_white_coat_approach",
+    "hk_yuma_anchor_approach",
+    "hk_associate_keys_approach"
+   ],
+   "id": "a_baseline_calibration",
+   "location_ids": [
+    "hypnosis_consultation_chamber",
+    "neuro_monitoring_control_booth"
+   ],
+   "start_minute": 0,
+   "tags": [
+    "workplace"
+   ],
+   "title": "傍晚诊室的脑电基线校准"
+  },
+  {
+   "beats": [
+    "抱着一摞编号封存的脑波档案进密室，按年份放回密集架",
+    "伸手去够顶层隔板时，旁边的人顺手托住档案盒，两人的手臂在窄道里轻轻相贴",
+    "核对完最后一册签名，在台灯下分喝了一杯热可可"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [
+    "hk_yuma_breath_command_approach",
+    "hk_monitor_badge_approach",
+    "hk_shiori_fever_request"
+   ],
+   "id": "a_archive_filing",
+   "location_ids": [
+    "restricted_case_file_archive",
+    "soundproof_acoustic_vestibule"
+   ],
+   "start_minute": 15,
+   "tags": [
+    "intimate"
+   ],
+   "title": "档案室上架旧病历"
+  },
+  {
+   "beats": [
+    "实验间隙，诊室点起山茶与雪松的香薰",
+    "水滴形银怀表放在鹿皮布上细细擦拭，银链在指间绕出微响",
+    "对方把怀表在你眼前晃了晃，半开玩笑地问你是不是又被表摆勾走了"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_shiori_white_coat_approach",
+    "hk_shiori_clear_confession_approach",
+    "hk_chamber_blue_observe"
+   ],
+   "id": "a_pocket_watch_cleaning",
+   "location_ids": [
+    "hypnosis_consultation_chamber",
+    "restricted_case_file_archive"
+   ],
+   "start_minute": 30,
+   "tags": [
+    "intimate"
+   ],
+   "title": "天鹅绒帘下擦拭银怀表"
+  },
+  {
+   "beats": [
+    "大屏幕上并排显示着两条高度重合的α波曲线",
+    "两人坐在转椅上用红笔圈出波峰重合的时间点，肩膀随着俯身靠在一起",
+    "把图谱贴进实验记录本时，彼此都看出了那段心率波动的原因"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [
+    "hk_associate_keys_approach",
+    "hk_technician_prybar_approach",
+    "hk_booth_server_observe"
+   ],
+   "id": "a_booth_waveform_review",
+   "location_ids": [
+    "neuro_monitoring_control_booth",
+    "soundproof_acoustic_vestibule"
+   ],
+   "start_minute": 45,
+   "tags": [
+    "workplace"
+   ],
+   "title": "机房复盘双人同步波谱"
+  },
+  {
+   "beats": [
+    "午夜钟声敲过，值班室送来两盒抹茶大福和现磨黑咖啡",
+    "在前厅长椅上摘下口罩和听诊器，把苦咖啡和甜点分着吃完",
+    "听着窗外的海浪，聊起课题结项后要不要一起去北海道休一周"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_intern_syringe_approach",
+    "hk_technician_prybar_approach",
+    "hk_monitor_badge_approach"
+   ],
+   "id": "a_vestibule_midnight_coffee",
+   "location_ids": [
+    "soundproof_acoustic_vestibule",
+    "neuro_monitoring_control_booth"
+   ],
+   "start_minute": 60,
+   "tags": [
+    "intimate"
+   ],
+   "title": "前厅分食夜班甜点"
+  },
+  {
+   "beats": [
+    "取下脑电传感器后，鬓边还留着微凉的导电膏",
+    "对方拧干一条温热的毛巾，俯身替你一点点擦净，近得能数清睫毛",
+    "擦完又顺手理平你翘起的发梢，叮嘱今晚早点休息"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_intern_syringe_approach",
+    "hk_yuma_anchor_approach",
+    "hk_shiori_fever_request"
+   ],
+   "id": "a_sensor_gel_cleanup",
+   "location_ids": [
+    "hypnosis_consultation_chamber",
+    "soundproof_acoustic_vestibule"
+   ],
+   "start_minute": 75,
+   "tags": [
+    "intimate"
+   ],
+   "title": "温毛巾擦去导电膏"
+  },
+  {
+   "beats": [
+    "顺着机柜后的走线槽逐一核对光纤标签，把备用跳线按颜色收进端子盒",
+    "对方举着手电替你照亮机柜深处的接口，递过贴好编号的胶带",
+    "巡检完关掉大灯，只留一排幽蓝的服务器呼吸灯"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [
+    "hk_technician_prybar_approach",
+    "hk_associate_keys_approach",
+    "hk_archive_diary_observe"
+   ],
+   "id": "a_server_cooling_check",
+   "location_ids": [
+    "neuro_monitoring_control_booth",
+    "restricted_case_file_archive"
+   ],
+   "start_minute": 90,
+   "tags": [
+    "workplace"
+   ],
+   "title": "机房夜巡与跳线整理"
+  },
+  {
+   "beats": [
+    "通宵整理完结项报告，拉开顶层落地窗的遮光帘，海平线泛起鱼肚白",
+    "两人端着热红茶并肩站在窗前，看第一缕金光刺破晨雾",
+    "对方轻轻碰了碰你的杯沿，约好下个学期还要搭档"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_dawn_sunrise_observe",
+    "hk_shiori_clear_confession_approach",
+    "hk_monitor_badge_approach"
+   ],
+   "id": "a_cliffside_dawn_tea",
+   "location_ids": [
+    "soundproof_acoustic_vestibule",
+    "hypnosis_consultation_chamber"
+   ],
+   "start_minute": 105,
+   "tags": [
+    "intimate"
+   ],
+   "title": "海崖高窗前等日出"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.45,
+  "nonbinary": 0.05
+ },
+ "default_person": "second",
+ "era": "现代私立脑科学研究所顶层隔音催眠诊室午夜",
+ "extends": null,
+ "forbidden_terms": [
+  "修仙",
+  "魔法",
+  "斗气",
+  "宝剑",
+  "掌门",
+  "宗主",
+  "妖兽",
+  "飞剑",
+  "丹药",
+  "洞府",
+  "少侠"
+ ],
+ "hooks": [
+  {
+   "id": "hk_shiori_white_coat_approach",
+   "kind": "approach",
+   "location_ids": [
+    "hypnosis_consultation_chamber",
+    "restricted_case_file_archive",
+    "soundproof_acoustic_vestibule"
+   ],
+   "slot": "hypnotist_researcher_shiori",
+   "text": "{hypnotist_researcher_shiori.name}白大褂敞开，眼镜挂在胸前，红着脸把银怀表按进你掌心，声音压得很低：“别退后……共情波谱还没平复……握紧怀表，陪我把基线校准完。”"
+  },
+  {
+   "id": "hk_yuma_anchor_approach",
+   "kind": "approach",
+   "location_ids": [
+    "hypnosis_consultation_chamber",
+    "soundproof_acoustic_vestibule"
+   ],
+   "slot": "trial_subject_yuma",
+   "text": "{trial_subject_yuma.name}一手护着怀里发抖的研究员，一手扣着那枚怀表，抬头对你说：“帮我盯着心率。研究员醒过来之前，谁也别碰那本日记。”"
+  },
+  {
+   "id": "hk_associate_keys_approach",
+   "kind": "approach",
+   "location_ids": [
+    "neuro_monitoring_control_booth",
+    "soundproof_acoustic_vestibule"
+   ],
+   "slot": "neurology_associate_kenji",
+   "text": "{neurology_associate_kenji.name}满身干粉，隔着观察窗冲你咆哮：“同步率九十五了！千万别让研究员咬到舌头！门马上破拆，谁也别慌，我不会让人死在我的实验室里！”"
+  },
+  {
+   "id": "hk_intern_syringe_approach",
+   "kind": "approach",
+   "location_ids": [
+    "hypnosis_consultation_chamber",
+    "restricted_case_file_archive",
+    "soundproof_acoustic_vestibule"
+   ],
+   "slot": "clinical_intern_ayaka",
+   "text": "{clinical_intern_ayaka.name}握着调好的针剂跪到躺椅旁，冲你喊：“扶稳研究员的左臂！推进去两分钟就能退热！冰袋贴在后颈！有我在，不会留后遗症！”"
+  },
+  {
+   "id": "hk_technician_prybar_approach",
+   "kind": "approach",
+   "location_ids": [
+    "soundproof_acoustic_vestibule",
+    "neuro_monitoring_control_booth"
+   ],
+   "slot": "hardware_specialist_daiki",
+   "text": "{hardware_specialist_daiki.name}嘴里叼着绝缘胶布，捏着跳线端子盒快步走来：“门禁回路被后台锁死了！跟我去机柜那边搭根跳线，三分钟就能解开电磁锁！”"
+  },
+  {
+   "id": "hk_monitor_badge_approach",
+   "kind": "approach",
+   "location_ids": [
+    "soundproof_acoustic_vestibule",
+    "restricted_case_file_archive"
+   ],
+   "slot": "ethics_monitor_reiko",
+   "text": "{ethics_monitor_reiko.name}举着执法记录仪与查封令走到你面前：“伦理委员会特派监察官。门里的两个人处于最高保护状态，谁敢阻碍救援，一律追责！”"
+  },
+  {
+   "id": "hk_yuma_breath_command_approach",
+   "kind": "approach",
+   "location_ids": [
+    "restricted_case_file_archive",
+    "hypnosis_consultation_chamber"
+   ],
+   "slot": "trial_subject_yuma",
+   "text": "{trial_subject_yuma.name}把日记合上压在台灯下，转向你低声说：“这本东西，等研究员自己醒了再决定给不给人看。现在先帮我把门缝堵上。”"
+  },
+  {
+   "id": "hk_shiori_clear_confession_approach",
+   "kind": "approach",
+   "location_ids": [
+    "hypnosis_consultation_chamber",
+    "soundproof_acoustic_vestibule"
+   ],
+   "slot": "hypnotist_researcher_shiori",
+   "text": "共情余波散去，{hypnotist_researcher_shiori.name}的眼神第一次彻底清明，重新戴好眼镜，攥着怀表看你：“刚才仪器上的波峰不是误差。日记第三页是我清醒时写的——每一个字都算数。”"
+  },
+  {
+   "id": "hk_shiori_fever_request",
+   "kind": "request",
+   "location_ids": [
+    "hypnosis_consultation_chamber",
+    "restricted_case_file_archive"
+   ],
+   "slot": "hypnotist_researcher_shiori",
+   "text": "{hypnotist_researcher_shiori.name}靠在躺椅边，攥着你的衣角：“先别去机房……平时是我太骄傲……等波谱平复了，把日记第三页看完再走。”"
+  },
+  {
+   "id": "hk_shiori_torn_stocking_observe",
+   "kind": "observe",
+   "location_ids": [
+    "hypnosis_consultation_chamber",
+    "restricted_case_file_archive"
+   ],
+   "slot": "hypnotist_researcher_shiori",
+   "text": "躺椅深陷的软垫上，{hypnotist_researcher_shiori.name}的包臀裙凌乱卷起，薄黑丝刮出大片裂口，白大褂领扣崩落露出泛红的锁骨，银丝眼镜斜搭在枕间，手里还攥着那枚怀表。"
+  },
+  {
+   "id": "hk_booth_server_observe",
+   "kind": "observe",
+   "location_ids": [
+    "neuro_monitoring_control_booth",
+    "soundproof_acoustic_vestibule"
+   ],
+   "slot": "neurology_associate_kenji",
+   "text": "主控柜里高压放大板喷着两米长的蓝白电弧，电木焦糊味弥漫，地上的热敏纸带被火星引燃，屏幕上的红色波峰疯狂跳荡。"
+  },
+  {
+   "id": "hk_archive_diary_observe",
+   "kind": "observe",
+   "location_ids": [
+    "restricted_case_file_archive",
+    "hypnosis_consultation_chamber"
+   ],
+   "slot": "trial_subject_yuma",
+   "text": "写字台上，小牛皮日记在台灯下翻开到第三页，娟秀的字迹写满一个名字：“那个人今天又在研讨会上反驳我了……为什么偏偏是那个人。”"
+  },
+  {
+   "id": "hk_vestibule_pins_observe",
+   "kind": "observe",
+   "location_ids": [
+    "soundproof_acoustic_vestibule",
+    "hypnosis_consultation_chamber"
+   ],
+   "slot": "hardware_specialist_daiki",
+   "text": "前厅控制面板上，绿色的旁路跳线指示灯重新亮起，厚重的隔音门解锁滑开一道缝，海风顺着走廊涌进来。"
+  },
+  {
+   "id": "hk_chamber_blue_observe",
+   "kind": "observe",
+   "location_ids": [
+    "hypnosis_consultation_chamber",
+    "restricted_case_file_archive"
+   ],
+   "slot": "clinical_intern_ayaka",
+   "text": "淡蓝冷光下，天鹅绒帘半挽，水银沙漏的细沙流尽，雪松与山茶的冷香交融，两人贴在一起的影子映在失电的镜面上。"
+  },
+  {
+   "id": "hk_dawn_sunrise_observe",
+   "kind": "observe",
+   "location_ids": [
+    "soundproof_acoustic_vestibule",
+    "hypnosis_consultation_chamber"
+   ],
+   "slot": "trial_subject_yuma",
+   "text": "顶层海景天台上，一轮金色朝阳从太平洋上升起，万道金光刺破晨雾，把整座悬崖上的研究楼镀成金色，海风掠过发梢。"
+  }
+ ],
+ "id": "hypnosis_clinic_subconscious_backlash",
+ "locations": [
+  {
+   "affordances": [
+    "在躺椅上把恍惚战栗的研究员护进怀里，帮对方平复呼吸",
+    "两人一起握住银怀表悬在对方眼前，轻唤全名施加唤醒",
+    "摘下额前的脑电贴片，握住银怀表平复过速的心率"
+   ],
+   "detail": "四壁三层深灰吸音软包，双层酒红天鹅绒门帘把光和声都挡在外面。正中是一张深凹的真皮催眠躺椅，旁边立着水银沙漏与多导脑电主机。天花板洒下淡蓝冷光，空气里是雪松精油和一缕山茶冷香。墙角的单向玻璃失电后成了镜子，映出两人十指扣着怀表的影子。",
+   "exits": [
+    "neuro_monitoring_control_booth",
+    "soundproof_acoustic_vestibule"
+   ],
+   "id": "hypnosis_consultation_chamber",
+   "name": "隔音催眠诊室",
+   "pressure_modifiers": {
+    "p_airlock_offline_chill": "雷雨声被隔音层压成低吟，躺椅上的羊毛毯成了唯一的热源。",
+    "p_backlash_sympathy_sync": "天鹅绒帘半挽，怀表的滴答声和两人的心跳叠在一起。",
+    "p_shiori_diary_exposure_leverage": "躺椅上还留着那枚银怀表，表壳带着掌心的余温。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "淡蓝冷光与脑波屏跳动的红色波峰交错，像一座潜意识的牢笼。",
+   "witnesses": [
+    "bg_chamber_assist_nurse"
+   ]
+  },
+  {
+   "affordances": [
+    "在主机键盘上输入紧急旁路指令切断逆流回路",
+    "拨动机柜备用断路器旋钮，切换离线供电",
+    "从打印机出纸口抓起记录着反噬波谱的热敏纸原件"
+   ],
+   "detail": "隔着一道铅合金观察窗的后控机房，四台服务器机柜与三面宽屏显示器。屏上数十条脑电波形呈高振幅锯齿状，红色报错弹窗层层叠叠，热敏纸带在地上堆积如雪，配电箱发出低沉的过载嗡鸣。",
+   "exits": [
+    "hypnosis_consultation_chamber",
+    "restricted_case_file_archive"
+   ],
+   "id": "neuro_monitoring_control_booth",
+   "name": "脑电遥测机房",
+   "pressure_modifiers": {
+    "p_kenji_fund_overclock_leverage": "机房的红绿指示灯交替闪烁，热敏纸带记着每一次违规超频。",
+    "p_memory_dump_countdown": "主屏幕上的归档数字不断跳动，风扇声在午夜里格外急促。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "violence"
+   ],
+   "visibility": "红色报警荧光把机房染成一片血海，所有赶来救援的人都要从这里经过。",
+   "witnesses": [
+    "bg_booth_night_operator",
+    "bg_lab_rumor_postdoc"
+   ]
+  },
+  {
+   "affordances": [
+    "两人合力压住生铁转轮试图破开内门机械锁",
+    "在避难角落为受伤的人止血包扎",
+    "用灭火器敲击观察窗向门外传递求救信号"
+   ],
+   "detail": "进出诊室的必经前厅，两侧是潜艇式的重型声学铅门，外门指纹密码双控，内门是机械转轮锁。墙面贴满白色六角消音陶瓷片，头顶悬着红色声光报警器与自动气体灭火喷头，此刻两道门都因电涌自锁。",
+   "exits": [
+    "hypnosis_consultation_chamber",
+    "restricted_case_file_archive"
+   ],
+   "id": "soundproof_acoustic_vestibule",
+   "name": "隔音气密前厅",
+   "pressure_modifiers": {
+    "p_airlock_offline_chill": "前厅的应急灯泛着冷白的光，控制面板后的备用跳线槽等着接通。",
+    "p_backlash_sympathy_sync": "前厅的磨砂玻璃映出走廊的人影。",
+    "p_ethics_tribunal_deadline": "前厅墙上的电子钟逼近破晓，内线电话一遍遍响。",
+    "p_kenji_fund_overclock_leverage": "隔着前厅的双层观察窗，机房里的对峙一目了然。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "一盏血红应急灯把六角贴片照得像异星巢穴，死寂得发慌。",
+   "witnesses": [
+    "bg_corridor_security_axe",
+    "bg_halon_safety_officer"
+   ]
+  },
+  {
+   "affordances": [
+    "输入怀表背面的四位编号解开日记铜扣，翻到能唤醒对方的那一页",
+    "把全套反噬数据的备份磁带塞进贴身口袋",
+    "在密集架死角两人贴紧避开过道喷出的灭火气体"
+   ],
+   "detail": "控制机房暗门后的微型档案库，纯钢密集架上码着历年催眠个案的磁带与纸档。白木写字台上一盏绿色银行台灯，台灯下压着一本带铜锁的黑色小牛皮日记——主试研究员随身带了两年的私人物件。四壁铜网屏蔽，是全所唯一不受电磁脉冲波及的角落。",
+   "exits": [
+    "neuro_monitoring_control_booth",
+    "soundproof_acoustic_vestibule"
+   ],
+   "id": "restricted_case_file_archive",
+   "name": "绝密病历档案密室",
+   "pressure_modifiers": {
+    "p_ethics_tribunal_deadline": "档案桌上摊着待签字的联合声明，每一笔都关乎整个团队的去留。",
+    "p_memory_dump_countdown": "密集架深处的离线磁带机亮起待机黄灯，只等最后一组授权码。",
+    "p_shiori_diary_exposure_leverage": "暖黄台灯照着翻开的牛皮日记，娟秀的字迹在静夜里无处可藏。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "绿台灯一圈柔和的光，在冷硬的实验室里透出一点书卷气。",
+   "witnesses": [
+    "bg_archive_night_clerk"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "神城",
+   "橘川",
+   "浅见",
+   "九条",
+   "白石",
+   "御手洗",
+   "黑崎",
+   "鹰野",
+   "水濑",
+   "森川",
+   "高岭",
+   "早见"
+  ],
+  "given_female": [
+   "诗织",
+   "玲奈",
+   "真理奈",
+   "绚香",
+   "千冬",
+   "美咲",
+   "千代",
+   "惠理",
+   "纱月",
+   "澪",
+   "琴音",
+   "朝雾"
+  ],
+  "given_male": [
+   "悠真",
+   "隼人",
+   "宗一郎",
+   "健太郎",
+   "浩二",
+   "慎之介",
+   "隆成",
+   "翔平",
+   "彰人",
+   "奏多",
+   "怜司",
+   "湊"
+  ],
+  "given_neutral": [
+   "千寻",
+   "葵",
+   "遥",
+   "熏",
+   "莲",
+   "理央",
+   "真琴",
+   "光",
+   "步",
+   "司",
+   "翼",
+   "忍"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "保留隔音诊室、双向脑波反噬、银怀表锚定、白大褂与黑丝的反差、牛皮日记、机房起火、气密门液压破拆、卤代烷倒计时与破晓天台的主线。改动：恍惚与高热期间只写救护（解领口散热由医师指示），“求欢”“热吻”“只要你肯要我”“你只是我的女人”“彻底占有征服”全部删去；告白挪到研究员彻底清醒之后，用清醒时写下的日记作为真话，恍惚中的呓语明确不算数；受试者从“学弟/学生”改为年满二十一岁的心理系研究生，id 去掉 student；技术员“小娘们……跟个小猫似的”改为不带贬损的拍肩；转折“以身相许”改为“舍身”；把显示屏、木盒、风口、水桶、喷头这类物件背景人物改为真人；补受试者人物模板与研究员玩家身份，技术员与监察官补进组合；剧情家族名桐生移出姓氏池，名字池补到每类 12 个；内容标签去掉 coercion_theme，保留 substance（镇静针剂）；研究员与受试者固定性别，其余不限。\n2026-10-18 按写作规则 v2 改造：人物组合改为 8 单人 + 2 双人；受试者握研究员日记、监察官握副教授基金黑账两条把柄；清掉撬棍、液压钳与读秒；恍惚时只护不越的界线保留；日常补到八条。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十一岁的心理系在读研究生，签了知情同意书来参加午夜的双向反馈实验，常在研讨会上顶撞那位冷面研究员。",
+   "gender": "any",
+   "id": "night_trial_subject",
+   "reputation": "系里公认最有天赋也最有反骨的研究生，多次直击研究员理论的破绽。",
+   "resources": [
+    "解开脑电传感器绑带的快速释放扣手法",
+    "主试研究员落在阶梯教室的科研笔记密码本"
+   ],
+   "risks": [
+    "若没能唤醒主试人，自己的海马体也会被强电流脉冲冲击导致失忆。"
+   ],
+   "role": "自愿受试研究生",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}研究生"
+    },
+    {
+     "gender": "any",
+     "pattern": "特选受试者"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十二岁的天才临床心理学研究员，坚信一切情欲不过是神经电信号，今夜亲自主持违规的双向反馈实验。",
+   "gender": "any",
+   "id": "hypnosis_lead_researcher",
+   "reputation": "言辞冰冷禁欲的学术天才，把研究生们批得不敢抬头。",
+   "resources": [
+    "顶层实验设备的核心权限",
+    "研究所全套脑科学算法源码的离线密匙"
+   ],
+   "risks": [
+    "反噬一旦曝光，学术生涯就此终结。"
+   ],
+   "role": "首席主试研究员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}研究员"
+    },
+    {
+     "gender": "any",
+     "pattern": "首席助教"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "年满二十四岁的课题组负责人，研究所最年轻的学术新星，私下默许了今晚的超频测试。",
+   "gender": "any",
+   "id": "lead_neurology_associate",
+   "reputation": "对科研违规零容忍的铁面学阀——至少表面如此。",
+   "resources": [
+    "顶层全部气密门与消防总闸的操控权限",
+    "直连伦理审查委员会的取证平板"
+   ],
+   "risks": [
+    "事故曝光，青年科学家资助头衔将被全盘剥夺。"
+   ],
+   "role": "课题组青年副教授",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}副教授"
+    },
+    {
+     "gender": "any",
+     "pattern": "课题组长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    23
+   ],
+   "baseline": "年满二十一岁、持实习医师执照的急救科轮转医生，今夜负责监护生理指标。",
+   "gender": "any",
+   "id": "neuro_clinical_intern",
+   "reputation": "急救科出来的快刀手，热心、同情底层。",
+   "resources": [
+    "抗癫痫镇静针剂与雾化喷剂的使用权",
+    "天花板角落手动强制排风阀的位置"
+   ],
+   "risks": [
+    "强电磁辐射下极易偏头痛眩晕。"
+   ],
+   "role": "监护实习医师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}医师"
+    },
+    {
+     "gender": "any",
+     "pattern": "临床助理"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    24
+   ],
+   "baseline": "年满二十二岁的医疗器械工程师，负责脑波仪校准与线路检修。",
+   "gender": "any",
+   "id": "hardware_lab_specialist",
+   "reputation": "实验室的设备活字典。",
+   "resources": [
+    "切断电极逆流的射频干扰夹",
+    "重置门禁控制主板的硬件跳线端子"
+   ],
+   "risks": [
+    "徒手拆解带电仪器时面临电弧灼伤。"
+   ],
+   "role": "脑波仪硬件技术员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工程师"
+    },
+    {
+     "gender": "any",
+     "pattern": "硬件专家"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    24
+   ],
+   "baseline": "年满二十三岁的医学伦理委员会专员，奉命暗中驻点查这个课题组。",
+   "gender": "any",
+   "id": "ethics_review_monitor",
+   "reputation": "学术界的铁面青天。",
+   "resources": [
+    "一键冻结课题组全部经费与账号的监管令",
+    "执法记录仪与破门喷雾"
+   ],
+   "risks": [
+    "强行破门可能被设备高压起火灼伤。"
+   ],
+   "role": "伦理监察专员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}监察官"
+    },
+    {
+     "gender": "any",
+     "pattern": "伦理专员"
+    }
+   ]
+  }
+ ],
+ "premise": "海滨悬崖上的私立神经认知研究所，冷面的首席主试研究员带着一位自愿受试的研究生做双向脑电反馈的催眠实验，已经做了一个学期。白天跑实验、写论文，夜里在顶层的隔音诊室里整理数据。仪器的共振保护一直没调好；主试有一本日记，藏了两年。",
+ "pressures": [
+  {
+   "choice": "坦然认下日记第三页的心意一起封档，还是嘴硬到底把日记锁进公共归档柜？",
+   "exits": [
+    {
+     "cost": "两人把心意摊开了，往后再也装不回陌生人",
+     "option": "交出怀表密码，把日记和原始波谱锁进老所长的离线密柜"
+    },
+    {
+     "cost": "受试者要单独接受监察问询",
+     "option": "由受试者签自愿加试声明，把波谱解释成脱敏训练"
+    }
+   ],
+   "far": {
+    "consequence": "研究员被立即停职，顶层诊室的核心权限被院办收回。",
+    "due_days": 1,
+    "trigger": "日记被当成违规实验的佐证收缴"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "hk_archive_diary_observe",
+    "hk_shiori_clear_confession_approach"
+   ],
+   "id": "p_shiori_diary_exposure_leverage",
+   "immediate": {
+    "minutes": 5,
+    "text": "走廊外传来调阅病历的脚步声，日记还没锁回暗格。"
+   },
+   "leverage": {
+    "basis": "{trial_subject_yuma.name}见过{hypnotist_researcher_shiori.name}日记第三页的名字，和那枚刻着学号的银袖扣",
+    "holder": "trial_subject_yuma",
+    "subject": "hypnotist_researcher_shiori"
+   },
+   "location_ids": [
+    "restricted_case_file_archive",
+    "hypnosis_consultation_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 15,
+    "text": "主控机房正在检索档案密室的借阅流水，想调取今晚的附加记录。"
+   },
+   "objective": "档案室被巡查前锁好私密日记，把异常共情波谱转成离线加密存档。",
+   "source": "person",
+   "start_minute": 20,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "牛皮日记与银袖扣旧账",
+   "trigger": "受试者在台灯下合上日记，看向攥着银怀表的研究员。"
+  },
+  {
+   "choice": "配合监察官当场取证封存机柜，还是逼副教授签下事故全责认领书、换暂不移交检方？",
+   "exits": [
+    {
+     "cost": "副教授记下了你的名字，往后处处设卡",
+     "option": "亮出基金走账流水，逼副教授交出秘钥、撤回消磁指令"
+    },
+    {
+     "cost": "顶层门禁转入半小时离线保护，谁都出不去",
+     "option": "由监察官刷卡锁死机柜终端，导出原始代码"
+    }
+   ],
+   "far": {
+    "consequence": "今晚的事故全推给诊室里的人，副教授接管课题的全部署名。",
+    "due_days": 1,
+    "trigger": "底层日志被强制清零"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "hk_associate_keys_approach",
+    "hk_monitor_badge_approach"
+   ],
+   "id": "p_kenji_fund_overclock_leverage",
+   "immediate": {
+    "minutes": 5,
+    "text": "副教授的手已经按在机柜总控复位键上。"
+   },
+   "leverage": {
+    "basis": "{ethics_monitor_reiko.name}握有{neurology_associate_kenji.name}借家族基金洗钱、私植超频脚本的证据",
+    "holder": "ethics_monitor_reiko",
+    "subject": "neurology_associate_kenji"
+   },
+   "location_ids": [
+    "neuro_monitoring_control_booth",
+    "soundproof_acoustic_vestibule"
+   ],
+   "near": {
+    "deadline_minutes": 15,
+    "text": "副教授拨通院方高层内线，反咬诊室里的人违规操作导致过载。"
+   },
+   "objective": "用基金黑账压住副教授，逼其交出服务器一级维护秘钥。",
+   "source": "money",
+   "start_minute": 30,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "违规超频脚本与基金黑账",
+   "trigger": "监察官在机房截住正要格式化日志的副教授。"
+  },
+  {
+   "choice": "拉合帘子握住怀表低声引导呼吸，还是主动去前厅应门挡住视线？",
+   "exits": [
+    {
+     "cost": "关了外放，监测仪里留下一段说不清的空白",
+     "option": "放下天鹅绒帘，两人顺着怀表的滴答声平复心率"
+    },
+    {
+     "cost": "避开了闲话，也拉开了两人之间的距离",
+     "option": "一人整好白大褂出去签退，另一人从内侧转进档案密室"
+    }
+   ],
+   "far": {
+    "consequence": "流言传遍全院，顶层诊室的夜间独立实验许可被取消。",
+    "due_days": 1,
+    "trigger": "午夜独处被巡查当场看见"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_shiori_white_coat_approach",
+    "hk_yuma_anchor_approach"
+   ],
+   "id": "p_backlash_sympathy_sync",
+   "immediate": {
+    "minutes": 5,
+    "text": "监测仪的蜂鸣在安静的诊室里格外刺耳，前厅门把手在微微转动。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "hypnosis_consultation_chamber",
+    "soundproof_acoustic_vestibule"
+   ],
+   "near": {
+    "deadline_minutes": 15,
+    "text": "巡查的人隔着气密门问为什么还没交签退单。"
+   },
+   "objective": "门外的人靠近观察窗前拉合帘子，用怀表节拍把两人的心率降回基线。",
+   "source": "rumor",
+   "start_minute": 10,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "共情余波与观察窗耳目",
+   "trigger": "脑电反馈已经断开，两人的心率和呼吸仍同步着，门外走廊传来了巡查的脚步声。"
+  },
+  {
+   "choice": "两人联手输入密匙转进离线备份柜，还是在机房直接拔掉同步光纤？",
+   "exits": [
+    {
+     "cost": "两人的名字从此绑在同一份秘档里",
+     "option": "用主试密匙和受试者学号组成口令，完成离线冷备份"
+    },
+    {
+     "cost": "触发了机房离线维护记录，明早要写说明",
+     "option": "请硬件工程师物理断开机柜的同步光纤"
+    }
+   ],
+   "far": {
+    "consequence": "再也证明不了过载是人为植入，课题源码被院方强制接管。",
+    "due_days": 1,
+    "trigger": "对比波谱被系统覆盖"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_yuma_breath_command_approach",
+    "hk_booth_server_observe"
+   ],
+   "id": "p_memory_dump_countdown",
+   "immediate": {
+    "minutes": 5,
+    "text": "归档进度条已走过大半，档案密室的终端提示要双人权限确认。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "restricted_case_file_archive",
+    "neuro_monitoring_control_booth"
+   ],
+   "near": {
+    "deadline_minutes": 15,
+    "text": "后台弹出权限锁，要求三分钟内输入课题立项的原始口令。"
+   },
+   "objective": "赶在清理完成前输入离线密匙，把核心波谱转存到独立磁带。",
+   "source": "institution",
+   "start_minute": 40,
+   "tags": [
+    "workplace",
+    "workplace_power"
+   ],
+   "title": "主控服务器午夜消磁归档",
+   "trigger": "主控服务器进入午夜例行清理，没加离线密匙的临时波谱会被统一抹掉或上传院办。"
+  },
+  {
+   "choice": "联合受试者和值班医护提交全套体征报告，还是援引伦理保护条款申请延期听证？",
+   "exits": [
+    {
+     "cost": "受试者的名字要写进听证会的公开记录",
+     "option": "提交受试者的亲笔知情书和医师体征单，当场驳回指控"
+    },
+    {
+     "cost": "矛头转向学阀，院方高层从此盯上了监察官",
+     "option": "由监察官签发受试者保护令，把听证会转成经费专项审计"
+    }
+   ],
+   "far": {
+    "consequence": "课题被拆进别人名下，实验室团队被迫解散。",
+    "due_days": 1,
+    "trigger": "首席研究员被暂停职务"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_monitor_badge_approach",
+    "hk_intern_syringe_approach"
+   ],
+   "id": "p_ethics_tribunal_deadline",
+   "immediate": {
+    "minutes": 5,
+    "text": "听证材料清单已发到前厅终端，要求附上值班医护与受试者的双重签字。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "soundproof_acoustic_vestibule",
+    "restricted_case_file_archive"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "院办秘书打来内线，催促立即交出门禁卡与研究笔记。"
+   },
+   "objective": "集齐值班医护的体征签字和监察官的初查背书，稳住课题主导权。",
+   "source": "institution",
+   "start_minute": 50,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "破晓纪律听证与署名权",
+   "trigger": "院方通知清晨召开紧急纪律听证会，决定顶层实验室的去留和成果归属。"
+  },
+  {
+   "choice": "去前厅配合工程师搭备用电源跳线，还是先在诊室裹紧毛毯保温复盘？",
+   "exits": [
+    {
+     "cost": "跳线绕过了门禁记录，院方会追问是谁开的门",
+     "option": "在前厅控制盒搭上旁路跳线，切入海崖独立发电机"
+    },
+    {
+     "cost": "机房监控断档，副教授的动静再也看不见",
+     "option": "关掉非必要的机柜，把电力集中供给诊室暖风和档案终端"
+    }
+   ],
+   "far": {
+    "consequence": "所有人困在冰冷的隔音室里，错过了听证准备。",
+    "due_days": 1,
+    "trigger": "顶层断电闭锁到天亮"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_technician_prybar_approach",
+    "hk_vestibule_pins_observe"
+   ],
+   "id": "p_airlock_offline_chill",
+   "immediate": {
+    "minutes": 10,
+    "text": "电磁门转入离线闭锁，海风的寒气顺着通风口渗进来。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "soundproof_acoustic_vestibule",
+    "hypnosis_consultation_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 25,
+    "text": "备用电池跌破三成，内线通话器开始冒电流杂音。"
+   },
+   "objective": "接上前厅控制面板的备用跳线恢复门禁供电，并在诊室里保住体温。",
+   "source": "accident",
+   "start_minute": 60,
+   "tags": [
+    "disaster"
+   ],
+   "title": "雷暴断电与顶层电磁闭锁",
+   "trigger": "海崖遭遇午夜雷暴，电网波动触发顶层的防磁闭锁，恒温空调随之停机。"
+  }
+ ],
+ "region": "海滨悬崖私立神经认知研究所顶层隔音诊室",
+ "rules": [
+  {
+   "id": "r_feedback_reversal_loop",
+   "text": "双向脑波仪短路引发意识回流，主试研究员陷入长达四十分钟的半梦半醒恍惚，心率与受试者的读数被强行绑在一起。"
+  },
+  {
+   "id": "r_soundproof_isolation",
+   "text": "诊室墙体是四层声学阻尼铅板，八十分贝以下的呼救传不到外廊，求援只能靠破拆气密门的警报。"
+  },
+  {
+   "id": "r_pocketwatch_anchor",
+   "text": "纯银水滴怀表是主试研究员维持现实锚定的唯一图腾，离开两人手边超过一尺，对方会陷入严重的定向障碍。"
+  },
+  {
+   "id": "r_memory_dump_countdown",
+   "text": "中央超算判定诊室数据溢出，已启动四十分钟自动消磁倒计时，届时全部脑电记录将被格式化。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "贴片微颤",
+  "committed": "天台之约",
+  "familiar": "沙漏下守候",
+  "flirting": "怀表相托",
+  "intimate": "清醒相拥",
+  "stranger": "审视与压制",
+  "testing": "日记摊开"
+ },
+ "status": "released",
+ "style_hint": "聚焦隔音诊室里的微观感官：脑电屏上跳荡的红色波峰、水银沙漏的细响、天鹅绒门帘后交错的喘息、银怀表链划过皮肤的微凉，以及严谨学者清醒后的动摇。",
+ "tension_engines": [
+  {
+   "id": "te_pride_vs_unmasking",
+   "text": "白大褂冷峻禁欲的学术女王，与反噬中攥着怀表、日记即将被翻开的同一个人。"
+  },
+  {
+   "id": "te_deadlock_vs_fever",
+   "text": "门禁闭锁的顶层诊室，与双向脑电共情后心率飙升、彼此都藏不住心事的窘迫。"
+  },
+  {
+   "id": "te_dump_countdown_vs_awakening",
+   "text": "四十分钟消磁死线，与必须在意识被毁前唤醒对方、破门逃生的时间绝境。"
+  },
+  {
+   "id": "te_scandal_vs_rescue",
+   "text": "一旦曝光就身败名裂的学术伦理大山，与危难关头押上前程护人的真心。"
+  }
+ ],
+ "title": "顶层催眠诊疗室",
+ "tone": [
+  "催眠反噬",
+  "潜意识失控",
+  "禁欲白大褂",
+  "知性反差"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "t_hypnosis_1",
+   "requires": [],
+   "text": "技术员在服务器底层日志里查明：今晚的共振短路不是故障，而是副教授为了盗取研究员的“潜意识解码专利”，在电路里植入了过载脚本。"
+  },
+  {
+   "category": "人事",
+   "id": "t_hypnosis_2",
+   "requires": [],
+   "text": "监察官调出的人事档案显示：这个研究生是三年前因公殉职的老所长的关门弟子，今晚报名实验，是在暗中护着师姐。"
+  },
+  {
+   "category": "资源",
+   "id": "t_hypnosis_3",
+   "requires": [],
+   "text": "档案密集架夹层里，老所长生前封存了一套神经阻断喷剂与离线备份系统，能平复共情过载，也不受消磁波及。"
+  },
+  {
+   "category": "制度",
+   "id": "t_hypnosis_4",
+   "requires": [],
+   "text": "监察官宣读伦理委员会紧急条款：在重大实验事故中舍身救下主试科学家的自愿受试者，依法享有与主试者对等的成果共有权。"
+  },
+  {
+   "category": "时限",
+   "id": "t_hypnosis_5",
+   "requires": [
+    "pressure"
+   ],
+   "text": "主服务器散热风扇停转，温控芯片误判，消磁倒计时骤然提速一倍，原本三十五分钟的窗口被压缩到不足三百秒。"
+  },
+  {
+   "category": "关系",
+   "id": "t_hypnosis_6",
+   "requires": [],
+   "text": "按压穴位时，研究员衣袋里滑出那枚银袖扣，背面刻着受试者入学那年丢失的学号铭牌——原来从第一眼起，这个人就被记住了。"
+  },
+  {
+   "category": "意外",
+   "id": "t_hypnosis_7",
+   "requires": [],
+   "text": "气密门破开时的强对流吹散了毒烟，也吹灭了机房残火，还把副教授手提包里的学术剽窃黑账吹散在赶来的法警脚下。"
+  }
+ ]
+}

@@ -1,0 +1,2244 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "跟了值班队长五年的夜班保安。",
+   "age_range": [
+    30,
+    45
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_night_guard",
+   "line": "队长！排风竖井的盖板撬开了！里面的人一开阀就能拉上来！",
+   "location_ids": [
+    "loc_exhaust_release_valve",
+    "loc_auction_salesroom"
+   ],
+   "name": "保安老周",
+   "role": "金库夜班保安"
+  },
+  {
+   "adult_context": "专管拍品搬运的年轻工人。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_porter",
+   "line": "画框都搬上来了，一件没少！拍卖师你听得见吗！",
+   "location_ids": [
+    "loc_exhaust_release_valve",
+    "loc_auction_salesroom"
+   ],
+   "name": "搬运工阿成",
+   "role": "拍卖行的搬运工"
+  },
+  {
+   "adult_context": "负责劫案现场的警方谈判专家。",
+   "age_range": [
+    30,
+    42
+   ],
+   "function": "obstacle",
+   "gender": "female",
+   "id": "bg_police_negotiator",
+   "line": "楼上劫匪还没清完，金库那边先别派人下去！",
+   "location_ids": [
+    "loc_exhaust_release_valve"
+   ],
+   "name": "谈判专家许警官",
+   "role": "现场的谈判专家"
+  },
+  {
+   "adult_context": "电话委托席上最年轻的专员。",
+   "age_range": [
+    23,
+    30
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_phone_bidder",
+   "line": "拍卖师今天落那一槌的时候，往最后一排看了三次，我都数着呢。",
+   "location_ids": [
+    "loc_auction_salesroom"
+   ],
+   "name": "委托专员小叶",
+   "role": "电话委托席的专员"
+  },
+  {
+   "adult_context": "跟着记者来拍秋拍的摄影师。",
+   "age_range": [
+    25,
+    35
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_art_journalist",
+   "line": "我拍了一百多张拍卖师落槌的照片，就数笑的那一张最难得。",
+   "location_ids": [
+    "loc_auction_salesroom"
+   ],
+   "name": "摄影记者阿乔",
+   "role": "艺术周刊的摄影记者"
+  },
+  {
+   "adult_context": "在这家拍卖行买了三十年画的老藏家。",
+   "age_range": [
+    60,
+    75
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_old_collector",
+   "line": "那位安保工程师每次来，都坐最后一排，一件拍品也不举牌。",
+   "location_ids": [
+    "loc_auction_salesroom"
+   ],
+   "name": "老藏家钱先生",
+   "role": "常来竞拍的老藏家"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "拍卖师与安保架构师在展柜后面胸背相贴，四只手叠在拍卖槌上，一个报价一个跟着往下压。",
+   "id": "cc_auctioneer_architect_switch",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "auctioneer_lin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一起被关在铅闸后面，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "vault_architect",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "一个设计金库一个守着金库里的画，配合了三年。",
+     "stage": "familiar"
+    },
+    {
+     "a": "auctioneer_lin",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "vault_architect",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个报价时多停半秒，一个在最后一排多站一会儿，谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "auctioneer_lin",
+    "vault_architect"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "撬开排风阀，把金库里的人和画一个不少地带出去。",
+    "limit_gap": "拍卖师力气小、礼服勾住了展柜，安保架构师个子太高，在展柜后面施展不开。",
+    "meeting_reason": "劫匪闯进金库前，拍卖师在展厅里签出库单，安保架构师正在旁边检查新装的排风阀。",
+    "resource_gap": "拍卖师有那柄纯银包角的拍卖槌和对金库每一件拍品的熟悉，安保架构师有一身力气和整座金库的结构图。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_halon_rising",
+    "te_gavel_chest_press"
+   ]
+  },
+  {
+   "chemistry": "拍卖师与安保架构师在泄压阀前四只手叠在一起，一边争该先排气还是先撬闸，一边一下一下把棘爪别开。",
+   "id": "cc_auctioneer_architect_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "auctioneer_lin",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "为一幅画争了一下午，争到最后谁都不肯先走。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "vault_architect",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "在三场秋拍里并肩守过好几回金库。",
+     "stage": "familiar"
+    },
+    {
+     "a": "auctioneer_lin",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "vault_architect",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个雍容一个沉默，三年里说过的话不多，句句都记得。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "auctioneer_lin",
+    "vault_architect"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "先撬开排风棘爪，让空气进来。",
+    "limit_gap": "拍卖师不懂结构，安保架构师不懂一幅画在藏家眼里值多少命。",
+    "meeting_reason": "两人为秋拍的压轴画该不该挪出金库预展，在预展室里争了一下午，争到劫匪闯进来都没分出胜负。",
+    "resource_gap": "拍卖师知道哪些画最怕这种气体，安保架构师知道这座金库哪里能动。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_pawl_jammed",
+    "te_oxygen_pen_red"
+   ]
+  },
+  {
+   "chemistry": "藏家在外面听着对讲机，拍卖师和安保架构师一个压槌一个顶柱，谁也不肯在出钱的人面前先喊疼。",
+   "id": "cc_auctioneer_architect_buyer",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "auctioneer_lin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "头一回在大藏家面前把命交出去。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "vault_architect",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "奉命来看画，早听说这家拍卖行的拍卖师和安保架构师。",
+     "stage": "familiar"
+    },
+    {
+     "a": "auctioneer_lin",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "vault_architect",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在藏家面前不敢多看一眼，可每一声报价都只报给一个人听。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "auctioneer_lin",
+    "vault_architect"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让出钱的人亲眼看见，这家拍卖行是怎么护着拍品和人的。",
+    "limit_gap": "拍卖师不肯在藏家面前失态，安保架构师不习惯被人盯着干活。",
+    "meeting_reason": "大藏家要在开拍前私下看压轴画，拍卖师陪着下到金库，安保架构师在旁边讲金库的安防。",
+    "resource_gap": "拍卖师手里有拍卖槌和拍品清单，安保架构师手里有结构图和那件外套。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_oxygen_pen_red",
+    "te_pawl_jammed"
+   ]
+  },
+  {
+   "chemistry": "拍卖师一边别槌一边冷静地给新助理发号施令，安保架构师顶着承重柱，把三个人的力气拧成一股。",
+   "id": "cc_auctioneer_architect_newcomer",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "auctioneer_lin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "拍卖师嫌新助理手抖，今晚却要把命交到这双手上。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "vault_architect",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "第一次下金库就遇上了劫案。",
+     "stage": "familiar"
+    },
+    {
+     "a": "auctioneer_lin",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "vault_architect",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "拍卖师和安保架构师一个眼神就知道对方要干什么，新助理都看在眼里。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "auctioneer_lin",
+    "vault_architect"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "带着新助理一起平安出去，下周照常开拍。",
+    "limit_gap": "新助理什么都不懂，拍卖师得一边自救一边教。",
+    "meeting_reason": "新助理第一次跟拍卖师下金库签出库单，安保架构师正在检查排风阀。",
+    "resource_gap": "拍卖师有拍卖槌和对金库的熟悉，安保架构师有力气和那件西装外套。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_halon_rising",
+    "te_pawl_jammed"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_vault_whisper",
+   "reach": "all",
+   "text": "展柜死角里贴着耳朵的低语和压着的咳嗽"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_vault_intercom",
+   "reach": "local",
+   "text": "金库对讲机里时断时续、夹着电流声的呼叫"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁从艺术史系毕业，凭一场救场的落槌破格当上首席拍卖师，主槌了两季秋拍，去留进退由本人拿主意。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "身着贴身高定黑色丝绒深V鱼尾礼服长裙，佩戴一条温润无瑕的珍珠项链，白皙高贵的鹅蛋脸上眉眼清贵，杏眸秋水盈盈，雍容华贵中尽显令人心折的大家名媛风范。",
+    "丝绒长裙在攀爬中沾染上微尘，内衬丝绸被缺氧急促的体温浸润，面颊泛起动人潮红，双手紧握传世红木拍卖木槌，典雅中透出毫无畏惧的惊人执着。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿拍品开玩笑的人",
+     "临场反悔的人"
+    ],
+    "contrast": "在拍卖台上雍容得像一幅古画，满场几百人都由着这柄槌摆布；可困在金库里时，却是拍卖师第一个把槌递出去，用报价的嗓音让对方稳住。",
+    "core_value": "落槌之前，什么都可能；落槌之后，就要认。",
+    "goal_options": [
+     "把拍卖槌纯银包角别进排风棘爪，撬断自锁凸起",
+     "和安保架构师一起强开泄压阀，把金库里的画和人都带出去"
+    ],
+    "never": [
+     "丢下拍品和人先走"
+    ],
+    "prefers": [
+     "懂行、说话算数的人",
+     "安静可靠、手上有真本事的人"
+    ],
+    "pressure_responses": {
+     "breaking": "呛得直咳也不松手，用报价的口气数着拍子。",
+     "high": "扯断勾住展柜的裙摆扎稳脚跟，把全身重量压在槌柄上。",
+     "low": "先让对方蹲低半寸，找到气体还没漫上来的高处。",
+     "mid": "从手包里抽出拍卖槌，指给对方看棘爪的死角。"
+    },
+    "relationship_stance": "安保架构师每次来巡检金库，都会在拍卖大厅最后一排站一会儿；拍卖师从不往那边看，可报价时总会慢半拍。",
+    "withdrawal": "脱险后头一件事是清点金库里的拍品，一件件对过图录，确认都在，才肯靠着展柜坐下来。"
+   },
+   "gender": "female",
+   "gender_reason": "拍卖行的首席女拍卖师，按原稿写作女性。",
+   "id": "auctioneer_lin",
+   "identity": {
+    "authority": "哪件拍品压轴、起拍价定多少、哪通电话委托先报，首席拍卖师一句话就能定。",
+    "exposure": "气体呛得人发晕，丝绒礼服贴在身上，只能整个人靠进对方怀里使劲。",
+    "hidden": "那柄拍卖槌的槌头里刻着一个日期，是安保架构师第一次走进拍卖大厅的那一天。",
+    "limits": [
+     "力气小，撬不动咬死的棘爪",
+     "鱼尾礼服的裙摆容易被展柜金属角线勾住"
+    ],
+    "obligations": [
+     "让每一件拍品清清白白地上拍",
+     "落槌之前不让任何人看出心里的波澜"
+    ],
+    "resources": [
+     "一柄祖传紫檀拍卖槌，纯银包角，槌柄里嵌着实心合金龙骨",
+     "一副白手套和一只放大镜",
+     "整场秋拍的拍品清单"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "金库里一句废话都不说、只管把肩膀顶上去的那个人",
+     "每次巡检完金库都在大厅最后一排站一会儿的那道影子"
+    ],
+    "boundaries": [
+     "人前守着拍卖师的体面，私下的心意只给认定的人",
+     "每一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "预展室贵妃榻上靠在对方肩头看画的近身位",
+    "dislikes": [
+     "被人当众起哄",
+     "趁人之危的手"
+    ],
+    "expression": "嘴上说着还要去核对出入库单，手却把预展室的厚门反锁了，回头轻声说：这幅画，我只想给你一个人看。",
+    "likes": [
+     "被人握住敲了一整天槌的手腕轻轻揉",
+     "丝绒礼服的拉链被人一寸寸拉下时屏住的那口气",
+     "在预展室的贵妃榻上被人从身后抱着看那幅画"
+    ],
+    "preconditions": [
+     "铅闸撬开、两人都脱险之后",
+     "两人都清醒，心意出于自己，不是金库里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "拍卖行的首席女拍卖师",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_auction_salesroom",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_auctioneer_preview_room",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "银角可能撕开，手腕会被震伤",
+      "option": "用拍卖槌纯银包角别进棘爪死角，和安保架构师合力撬断自锁凸起"
+     },
+     {
+      "cost": "残氧撑不到外面的人切进来",
+      "option": "贴着展柜站高，等外面的人切开铅闸"
+     }
+    ],
+    "pressure": "铅闸卡死，卤代烷越漫越高，必须在残氧耗尽之前撬开排风棘爪。",
+    "trigger": "劫匪闯进金库时，拍卖师正在展厅里给秋拍的压轴画签出库单，铅闸在身后轰然落下。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "空气越来越少……背后这个人的心跳还这样稳。两季秋拍，几百次落槌，原来被一个人这样护着，是这种感觉。",
+    "surface": "别乱动，蹲低半寸，上面还有气。槌角别进棘爪死角，你压着我的手——听我报价，三、二、一，落。"
+   }
+  },
+  {
+   "adult_context": "五十多岁，从拍卖行的跑腿伙计一路做到总裁，这家百年拍卖行的招牌是这双手一块一块擦亮的。",
+   "age_range": [
+    50,
+    64
+   ],
+   "appearance_options": [
+    "一身剪裁考究的深灰西装，胸袋里插着一方丝帕，鼻梁上架着一副玳瑁眼镜。",
+    "站在拍卖大厅的侧门边，背着手看满场的藏家。"
+   ],
+   "decision": {
+    "avoids": [
+     "拍卖行总裁最烦临阵推诿"
+    ],
+    "contrast": "在董事会面前寸步不让，在年轻人面前说话却轻得像哄孩子。",
+    "core_value": "拍卖行卖的是画，靠的是信用。",
+    "goal_options": [
+     "先把人救出来",
+     "拍卖行总裁再追究是谁的错"
+    ],
+    "never": [
+     "拍卖行总裁不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "拍卖行总裁看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "拍卖行总裁嗓子喊哑了也不肯走",
+     "high": "拍卖行总裁顶着危险往里递东西",
+     "low": "拍卖行总裁先稳住身边的人",
+     "mid": "拍卖行总裁四处找能用的工具"
+    },
+    "relationship_stance": "亲手把拍卖师从鉴定部调上了拍卖台，嘴上说拍卖师太年轻，私下却在每份年报里替拍卖师请功。",
+    "withdrawal": "事情过去后，拍卖行总裁一个人躲开抽根烟"
+   },
+   "gender": "any",
+   "gender_reason": "拍卖行总裁这个位置不限性别。",
+   "id": "auction_president",
+   "identity": {
+    "authority": "哪场拍卖开、哪件拍品撤，总裁说了算。",
+    "exposure": "拍卖行总裁忙起来顾不上衣着体面",
+    "hidden": "做拍卖行总裁这些年，有件事没对旁人说过",
+    "limits": [
+     "拍卖行总裁不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住拍卖行总裁手上的那一摊事"
+    ],
+    "resources": [
+     "一部直通董事会的电话",
+     "拍卖行总裁随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "拍卖行总裁欣赏做事干脆利落的人",
+     "拍卖行总裁记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，拍卖行总裁就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和拍卖行总裁并肩站着",
+    "dislikes": [
+     "拍卖行总裁讨厌轻浮的手"
+    ],
+    "expression": "拍卖行总裁话不多，递东西时指尖会多停一下",
+    "likes": [
+     "拍卖行总裁收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "拍卖行总裁要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "拍卖行总裁",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_auction_salesroom",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "拍卖行总裁未必赶得上",
+      "option": "拍卖行总裁在外面调度接应"
+     },
+     {
+      "cost": "可能把拍卖行总裁自己也搭进去",
+      "option": "拍卖行总裁硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，拍卖行总裁进不去",
+    "trigger": "警报传到拍卖行总裁那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "一百年的招牌，从没在金库里折过人……今晚，这个规矩不许破。",
+    "surface": "听着！警察在楼上了！你们先把排风打开，别等我们！"
+   }
+  },
+  {
+   "adult_context": "六十岁，在拍卖行看了四十年画，一张画是真是假，凑近闻一闻纸就知道。",
+   "age_range": [
+    55,
+    68
+   ],
+   "appearance_options": [
+    "一件洗得发白的中式对襟褂子，胸前挂着一只老花镜，手里总捏着一柄放大镜。",
+    "坐在鉴定部的灯下，一寸一寸地看一张旧画的落款。"
+   ],
+   "decision": {
+    "avoids": [
+     "鉴定部的老鉴定师最烦临阵推诿"
+    ],
+    "contrast": "在藏家面前一句话不肯多说，夜里却会一个人坐在鉴定部，替一张假画叹气。",
+    "core_value": "画不会说谎，说谎的是人。",
+    "goal_options": [
+     "先把人救出来",
+     "鉴定部的老鉴定师再追究是谁的错"
+    ],
+    "never": [
+     "鉴定部的老鉴定师不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "鉴定部的老鉴定师看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "鉴定部的老鉴定师嗓子喊哑了也不肯走",
+     "high": "鉴定部的老鉴定师顶着危险往里递东西",
+     "low": "鉴定部的老鉴定师先稳住身边的人",
+     "mid": "鉴定部的老鉴定师四处找能用的工具"
+    },
+    "relationship_stance": "看着拍卖师从实习生熬成首席，嘴上叫拍卖师小丫头，私下逢人就夸那一槌落得漂亮。",
+    "withdrawal": "事情过去后，鉴定部的老鉴定师一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是看了四十年画的老鉴定师。",
+   "id": "old_appraiser",
+   "identity": {
+    "authority": "哪件拍品能上拍、哪件来历不清，老鉴定师心里有本账。",
+    "exposure": "鉴定部的老鉴定师忙起来顾不上衣着体面",
+    "hidden": "做鉴定部的老鉴定师这些年，有件事没对旁人说过",
+    "limits": [
+     "鉴定部的老鉴定师不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住鉴定部的老鉴定师手上的那一摊事"
+    ],
+    "resources": [
+     "一本记了四十年的鉴定笔记",
+     "鉴定部的老鉴定师随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "鉴定部的老鉴定师欣赏做事干脆利落的人",
+     "鉴定部的老鉴定师记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，鉴定部的老鉴定师就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和鉴定部的老鉴定师并肩站着",
+    "dislikes": [
+     "鉴定部的老鉴定师讨厌轻浮的手"
+    ],
+    "expression": "鉴定部的老鉴定师话不多，递东西时指尖会多停一下",
+    "likes": [
+     "鉴定部的老鉴定师收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "鉴定部的老鉴定师要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "鉴定部的老鉴定师",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_auction_salesroom",
+     "to": 1200
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "鉴定部的老鉴定师未必赶得上",
+      "option": "鉴定部的老鉴定师在外面调度接应"
+     },
+     {
+      "cost": "可能把鉴定部的老鉴定师自己也搭进去",
+      "option": "鉴定部的老鉴定师硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，鉴定部的老鉴定师进不去",
+    "trigger": "警报传到鉴定部的老鉴定师那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "看了四十年画……今晚要是丢了这个丫头，我这双眼睛就白长了。",
+    "surface": "丫头！画都还在吗？先顾人，画丢了老头子去找！"
+   }
+  },
+  {
+   "adult_context": "二十八岁，学结构工程出身，三年前替拍卖行设计了这座地下金库，此后每月来巡检一次，去留进退由本人拿主意。",
+   "age_range": [
+    26,
+    32
+   ],
+   "appearance_options": [
+    "一身深色西装，领带松着，袖口卷到小臂，腕上戴着一块朴素的机械表，手里总拿着一卷图纸。",
+    "西装外套脱下来罩在拍卖师头顶挡气，衬衫被汗湿透，后背顶着花岗岩承重柱。"
+   ],
+   "decision": {
+    "avoids": [
+     "偷工减料的人"
+    ],
+    "contrast": "在工地上说一不二，对着图纸能熬一整夜；可一走进拍卖大厅，说话就自动轻了三分。",
+    "core_value": "每一道门都有自己的受力点，找对了，一根手指就能推开。",
+    "goal_options": [
+     "用后背顶住承重柱，给拍卖师腾出发力的地方",
+     "把全身重量压在槌柄上"
+    ],
+    "never": [
+     "让拍卖师一个人留在金库里"
+    ],
+    "prefers": [
+     "说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "憋得满脸通红也不松，跟着拍卖师的报价压到最后一下。",
+     "high": "后背顶着承重柱，双手压在拍卖师的手上，和拍卖师一起压。",
+     "low": "一把将拍卖师护到展柜最高的角落，先用外套挡住口鼻。",
+     "mid": "撕下一块衬衫衣角蘸了水递给拍卖师捂住口鼻。"
+    },
+    "relationship_stance": "每次来巡检金库，都会顺路在拍卖大厅最后一排站一会儿，听拍卖师落完一槌再走。",
+    "withdrawal": "确认排风打开、人都出去了，才靠在排风竖井的铁梯上，大口大口地喘气。"
+   },
+   "gender": "male",
+   "gender_reason": "设计这座金库的安保架构师，按原稿写作男性。",
+   "id": "vault_architect",
+   "identity": {
+    "authority": "金库哪道门该加固、哪条风道该改，安保架构师说了算。",
+    "exposure": "西装外套罩在拍卖师头上，汗湿的衬衫贴着拍卖师的后背，两人在展柜后面贴得严丝合缝。",
+    "hidden": "西装内袋里一直揣着一张旧拍卖目录，封面上是拍卖师第一次主槌那一场。",
+    "limits": [
+     "个子高，在展柜后面施展不开",
+     "破拆工具被电磁脉冲烧坏了"
+    ],
+    "obligations": [
+     "护住拍卖师不被气体呛着",
+     "撬开排风阀，把金库里的人带出去"
+    ],
+    "resources": [
+     "一件深色西装外套",
+     "一卷金库结构图",
+     "一支氧气检测笔"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "拍卖师在金库里还能把数报得那么稳的那份从容",
+     "拍卖师报价时望过来多停的那半秒"
+    ],
+    "boundaries": [
+     "拍卖师没开口就不越一步",
+     "人前不让拍卖师难做"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "预展室贵妃榻边从身后抱着拍卖师的近身位",
+    "dislikes": [
+     "当众起哄",
+     "背后嚼舌根"
+    ],
+    "expression": "被拍卖师拉进预展室时一动不动，最后只说了一句：那本旧目录，我一直带在身上。",
+    "likes": [
+     "拍卖师难得叫一次自己的名字",
+     "被拍卖师用白手套托着下巴端详，像在看一幅画"
+    ],
+    "preconditions": [
+     "铅闸撬开、两人都安全清醒之后",
+     "拍卖师点了头，出于本心"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "金库安保架构师",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_vault_gallery",
+     "to": 1020
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_auction_salesroom",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "后背会被立柱磨伤，手臂可能脱力",
+      "option": "用后背顶住承重柱，和拍卖师合力压下槌柄"
+     },
+     {
+      "cost": "绞盘被劫匪砸坏，一扳就可能把闸门彻底卡死",
+      "option": "去扳铅闸的手动绞盘"
+     }
+    ],
+    "pressure": "卤代烷越漫越高，再不撬开排风棘爪，两人都撑不到外面的人进来。",
+    "trigger": "劫匪闯进金库时，安保架构师正在展厅里检查新装的排风阀，被落下的铅闸关在了里面。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "拍卖师整个人靠在我怀里，呛得直咳……别分神。这座金库是我设计的，今晚我得把里面最贵的东西带出去。",
+    "surface": "别动，外套底下待着！槌角别进去，我压着你的手——你报价，我跟。"
+   }
+  },
+  {
+   "adult_context": "四十岁，退伍后在拍卖行守了十五年金库，每一把钥匙挂在哪个钩上都记得。",
+   "age_range": [
+    36,
+    50
+   ],
+   "appearance_options": [
+    "一身深蓝保安制服，腰上挂着一大串钥匙和一部对讲机，帽檐压得很低。",
+    "坐在金库入口的值班室里，一边看监控一边嚼口香糖。"
+   ],
+   "decision": {
+    "avoids": [
+     "金库夜班值班队长最烦临阵推诿"
+    ],
+    "contrast": "对劫匪敢拿身子去挡门，对拍卖师却连大声说话都不敢。",
+    "core_value": "钥匙在我手里一天，金库就不能出事。",
+    "goal_options": [
+     "先把人救出来",
+     "金库夜班值班队长再追究是谁的错"
+    ],
+    "never": [
+     "金库夜班值班队长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "金库夜班值班队长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "金库夜班值班队长嗓子喊哑了也不肯走",
+     "high": "金库夜班值班队长顶着危险往里递东西",
+     "low": "金库夜班值班队长先稳住身边的人",
+     "mid": "金库夜班值班队长四处找能用的工具"
+    },
+    "relationship_stance": "看着拍卖师每晚亲自来签出入库单，嘴上叫拍卖师小祖宗，私下给值班室多备了一只保温杯。",
+    "withdrawal": "事情过去后，金库夜班值班队长一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是守了十五年金库的值班队长。",
+   "id": "vault_guard_captain",
+   "identity": {
+    "authority": "金库的门什么时候开、谁能进，值班队长心里有本账。",
+    "exposure": "金库夜班值班队长忙起来顾不上衣着体面",
+    "hidden": "做金库夜班值班队长这些年，有件事没对旁人说过",
+    "limits": [
+     "金库夜班值班队长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住金库夜班值班队长手上的那一摊事"
+    ],
+    "resources": [
+     "一大串金库钥匙",
+     "金库夜班值班队长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "金库夜班值班队长欣赏做事干脆利落的人",
+     "金库夜班值班队长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，金库夜班值班队长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和金库夜班值班队长并肩站着",
+    "dislikes": [
+     "金库夜班值班队长讨厌轻浮的手"
+    ],
+    "expression": "金库夜班值班队长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "金库夜班值班队长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "金库夜班值班队长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "金库夜班值班队长",
+   "schedule": [
+    {
+     "from": 1080,
+     "location_id": "loc_exhaust_release_valve",
+     "to": 1439
+    },
+    {
+     "from": 0,
+     "location_id": "loc_exhaust_release_valve",
+     "to": 420
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "金库夜班值班队长未必赶得上",
+      "option": "金库夜班值班队长在外面调度接应"
+     },
+     {
+      "cost": "可能把金库夜班值班队长自己也搭进去",
+      "option": "金库夜班值班队长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，金库夜班值班队长进不去",
+    "trigger": "警报传到金库夜班值班队长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "十五年没丢过一把钥匙……今晚要是丢了人，我这身制服就不穿了。",
+    "surface": "拍卖师！楼上的劫匪被按住了！排风竖井我在外面守着，你们一打开我就拉人！"
+   }
+  },
+  {
+   "adult_context": "三十岁，管着拍卖大厅侧墙那一排电话委托席，世界各地的藏家都要从这把嗓子里报价。",
+   "age_range": [
+    26,
+    36
+   ],
+   "appearance_options": [
+    "一身利落的黑色套装，耳朵上挂着一只耳麦，指间夹着一支铅笔。",
+    "坐在电话委托席最边上，一手捂着话筒一手朝拍卖台比手势。"
+   ],
+   "decision": {
+    "avoids": [
+     "电话委托组长最烦临阵推诿"
+    ],
+    "contrast": "嘴上快得像机关枪，私下却会给熬夜的拍卖师留一盒润喉糖。",
+    "core_value": "电话那头的人看不见拍卖台，我就是那双眼睛。",
+    "goal_options": [
+     "先把人救出来",
+     "电话委托组长再追究是谁的错"
+    ],
+    "never": [
+     "电话委托组长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "电话委托组长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "电话委托组长嗓子喊哑了也不肯走",
+     "high": "电话委托组长顶着危险往里递东西",
+     "low": "电话委托组长先稳住身边的人",
+     "mid": "电话委托组长四处找能用的工具"
+    },
+    "relationship_stance": "早看出拍卖师和安保架构师之间有事，每次预展都故意把那人的座位排在最后一排正中。",
+    "withdrawal": "事情过去后，电话委托组长一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是电话委托席的女组长。",
+   "id": "phone_bidder_lead",
+   "identity": {
+    "authority": "哪通电话先报、哪位藏家加价，电话委托组长说了算。",
+    "exposure": "电话委托组长忙起来顾不上衣着体面",
+    "hidden": "做电话委托组长这些年，有件事没对旁人说过",
+    "limits": [
+     "电话委托组长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住电话委托组长手上的那一摊事"
+    ],
+    "resources": [
+     "一部接着海外藏家的电话",
+     "电话委托组长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "电话委托组长欣赏做事干脆利落的人",
+     "电话委托组长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，电话委托组长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和电话委托组长并肩站着",
+    "dislikes": [
+     "电话委托组长讨厌轻浮的手"
+    ],
+    "expression": "电话委托组长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "电话委托组长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "电话委托组长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "电话委托组长",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_auction_salesroom",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "电话委托组长未必赶得上",
+      "option": "电话委托组长在外面调度接应"
+     },
+     {
+      "cost": "可能把电话委托组长自己也搭进去",
+      "option": "电话委托组长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，电话委托组长进不去",
+    "trigger": "警报传到电话委托组长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "那一盒润喉糖还没吃完……拍卖师，你得出来，下周的秋拍还等着你落槌。",
+    "surface": "拍卖师！楼上通了！排风竖井那头有人接应，就差你们两个了！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "秋拍季，十月中旬",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "substance",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "首席拍卖师祖传重型小叶紫檀纯银包角拍卖槌，槌柄内嵌加厚合金实心龙骨，重达一公斤，可承受数百公斤杠杆撬力。",
+  "特级金库采用全封闭防暴铅板闸门与重力常闭排烟棘爪系统，断电后必须手动撬开机械棘齿才能泄压。",
+  "卤代烷灭火气体比空气重且极度沉降，两人排障时必须将口鼻贴近高处进气滤网吸纳残存空气。",
+  "金库备用纯机械排气孔设有双重自锁卡笋，顺时针扭动九十度可手动排空惰性气体。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "秋拍预展的上午，拍卖师戴着白手套，从第一件拍品走到最后一件，在每幅画前停下来低声讲一两句来历。",
+    "走到压轴那幅画前，拍卖师停了很久，轻声说：这幅画等了八十年才回到这里。你看出这幅画哪里好了吗？"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "act_preview_walkthrough",
+   "location_ids": [
+    "loc_auction_salesroom"
+   ],
+   "start_minute": 600,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪拍卖师走一遍预展"
+  },
+  {
+   "beats": [
+    "电话委托席上一排耳麦此起彼伏，拍卖师站在台上，一边看着场内的号牌一边听电话专员报出的加价。",
+    "价格一路往上走，拍卖师不疾不徐地报着数，余光扫过最后一排，嗓音稳得像一根丝线。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_phone_bids",
+   "location_ids": [
+    "loc_auction_salesroom"
+   ],
+   "start_minute": 840,
+   "tags": [
+    "workplace"
+   ],
+   "title": "看拍卖师应付电话委托"
+  },
+  {
+   "beats": [
+    "压轴拍品叫到最后一口价，满场安静下来，拍卖师举起那柄紫檀拍卖槌，在半空停了三秒。",
+    "槌声落下，满场掌声，拍卖师微微欠身，抬眼时恰好对上第一排的目光，嘴角翘了一下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_gavel_falls",
+   "location_ids": [
+    "loc_auction_salesroom"
+   ],
+   "start_minute": 960,
+   "tags": [
+    "workplace"
+   ],
+   "title": "压轴拍品的最后一槌"
+  },
+  {
+   "beats": [
+    "鉴定部的灯下，老鉴定师和拍卖师一左一右俯在一幅旧画上，用放大镜一寸一寸看落款。",
+    "拍卖师把放大镜递过来：你也看看。……这一笔是真的，你看得出为什么吗？"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_appraisal_lamp",
+   "location_ids": [
+    "loc_auction_salesroom"
+   ],
+   "start_minute": 690,
+   "tags": [
+    "workplace"
+   ],
+   "title": "鉴定部灯下看一幅旧画"
+  },
+  {
+   "beats": [
+    "预展结束，拍品一件件推回地下金库，拍卖师站在铅闸边，就着应急灯一张张签出入库单。",
+    "签到最后一张，拍卖师揉了揉手腕，回头说：每晚都要签到这么晚。……你陪着，倒不觉得累了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vault_signout",
+   "location_ids": [
+    "loc_exhaust_release_valve"
+   ],
+   "start_minute": 1110,
+   "tags": [
+    "workplace"
+   ],
+   "title": "夜里陪拍卖师签出入库单"
+  },
+  {
+   "beats": [
+    "连着报了三个钟头的价，拍卖师的嗓子哑了，坐在拍卖台后面的高脚凳上，接过一杯胖大海泡的茶。",
+    "拍卖师捧着杯子小口喝，压低声音说：别告诉总裁我嗓子哑了。明天还有一场。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_throat_tea",
+   "location_ids": [
+    "loc_auction_salesroom"
+   ],
+   "start_minute": 1020,
+   "tags": [
+    "workplace"
+   ],
+   "title": "替拍卖师泡一杯润喉茶"
+  },
+  {
+   "beats": [
+    "铅闸撬开、拍品一件不少地送出金库、警察做完笔录之后，拍卖师没有回家，回到预展室，丝绒礼服上全是灰，裙摆撕开了一道口子。",
+    "射灯下，拍卖师背过身，把长发拨到一侧，让人一寸寸拉下礼服后背的拉链，温热的湿毛巾擦过后颈时，拍卖师轻轻吸了口气，往后靠了过来。",
+    "拍卖师转过身，摘下珍珠项链放在小桌上：今晚，我不想一个人回家。……你愿意吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_preview_gown_zipper",
+   "location_ids": [
+    "loc_auctioneer_preview_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "预展室里替拍卖师拉下礼服拉链"
+  },
+  {
+   "beats": [
+    "预展室里只开着一盏射灯，拍卖师换下礼服，穿着一件真丝衬衫赤脚站在画前，手里拿着两只白手套。",
+    "拍卖师把一只手套递过来：这幅画不上拍，只给你一个人看。……看完了，换我看你，你说好我才看。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_preview_private_viewing",
+   "location_ids": [
+    "loc_auctioneer_preview_room"
+   ],
+   "start_minute": 1250,
+   "tags": [
+    "intimate"
+   ],
+   "title": "只给一个人的私人预展"
+  },
+  {
+   "beats": [
+    "秋拍落幕的夜里，拍卖师开了一瓶香槟，侧卧在贵妃榻上，真丝裙的肩带滑下一边，举杯朝人晃了晃。",
+    "拍卖师轻声说：今晚成交了两个亿，我一槌都没紧张。……可你一进门，我就数错了心跳。过来，好吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_preview_champagne_couch",
+   "location_ids": [
+    "loc_auctioneer_preview_room"
+   ],
+   "start_minute": 1360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "贵妃榻上的香槟"
+  },
+  {
+   "beats": [
+    "天快亮时，拍卖师在贵妃榻上醒来，被人从身后抱着，射灯早关了，只有那幅画在晨光里慢慢显出来。",
+    "拍卖师把那柄拍卖槌放进人手心，轻轻合上：落槌即成交，不能反悔。……这一槌，我落在你身上了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_preview_dawn_gavel",
+   "location_ids": [
+    "loc_auctioneer_preview_room"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "清晨把拍卖槌放进人手心"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "近现代顶级跨国艺术品拍卖行与超高防等级地下金库时代",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vault_gallery"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{auctioneer_lin.name}丝绒长裙沾满灰尘，面颊因缺氧泛着潮红，果断将坚硬紫檀拍卖槌递入同伴手中。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vault_gallery"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{auctioneer_lin.name}站在展柜边缘，身躯倚在同伴肩头，借着检测笔幽光摸出卡死在凹槽中的排气阀棘爪。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "slot": "vault_architect",
+   "text": "{vault_architect.name}伸出结实双臂紧紧环抱住拍卖师纤柔腰肢，用身躯将拍卖师稳稳托向高处排气孔。"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "slot": "vault_architect",
+   "text": "{vault_architect.name}解下领带缠紧拍卖师握持木槌的白皙双手，防止纯银包角剧烈受力反冲震伤手腕。"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{auctioneer_lin.name}急促微喘的热气拂过同伴脸颊，面容近在咫尺，美眸中满是破障坚毅。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{auctioneer_lin.name}修身长裙紧紧贴在同伴胸前，紧咬朱唇，沉着报出金库安防手册上记录的排气孔受力角度。"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{auctioneer_lin.name}展现出首席拍卖师的非凡镇定，根据氧气警报灯频次精确倒数，示意立即发动双人体魄下压。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "slot": "vault_architect",
+   "text": "{vault_architect.name}在拍卖师脱力晃荡的刹那，将拍卖师紧紧锁在怀中，两副年轻身躯在狭窄展柜边严丝合缝相护。"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{auctioneer_lin.name}双手覆在同伴手背上，借着下坠之势将全身重量轰入木槌柄端，两颗心在毒气中同频狂跳。"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vault_gallery"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{auctioneer_lin.name}细辨排气管路内传来的金属脆裂轻响，在卡笋移位的瞬间果断催促同伴反向推旋。"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "slot": "vault_architect",
+   "text": "{vault_architect.name}与拍卖师一同沉腰下坠，以身躯为撞锤猛拽杠杆，偏心死锁棘齿咔嗒一声被彻底撬断。"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{auctioneer_lin.name}在清新狂暴气流倒灌的瞬间重心微倾跌入同伴怀中，紧抱同伴后颈贪婪吸入冰凉空气。"
+  },
+  {
+   "id": "hook_lin_preview_glove",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auction_salesroom"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{npc.name}把一只白手套递过来，眼睛还看着画：戴上。……这幅画，你第一个摸。"
+  },
+  {
+   "id": "hook_lin_last_row",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auction_salesroom"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{npc.name}落完槌走下拍卖台，经过最后一排时脚步慢了一下：今天这一槌，落得好看吗？"
+  },
+  {
+   "id": "hook_lin_hoarse_voice",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auction_salesroom",
+    "loc_auctioneer_preview_room"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{npc.name}清了清哑掉的嗓子，压低声音：替我泡杯茶好吗？别让总裁知道。"
+  },
+  {
+   "id": "hook_lin_preview_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auctioneer_preview_room"
+   ],
+   "slot": "auctioneer_lin",
+   "text": "{npc.name}站在预展室门口，手搭在门把上：里面有一幅不上拍的画。……进来，只给你看。"
+  },
+  {
+   "id": "hook_architect_old_catalog",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auction_salesroom",
+    "loc_auctioneer_preview_room"
+   ],
+   "slot": "vault_architect",
+   "text": "{npc.name}从西装内袋里摸出一本旧拍卖目录，有点不好意思：你第一次主槌那一场。一直带着。"
+  },
+  {
+   "id": "hook_architect_blueprint",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auction_salesroom",
+    "loc_vault_gallery"
+   ],
+   "slot": "vault_architect",
+   "text": "{npc.name}把一卷金库图纸摊开：这里是排风竖井。……万一哪天出事，你记住往这里走。"
+  }
+ ],
+ "id": "auctioneer_heiress_vault_heist_lock",
+ "locations": [
+  {
+   "affordances": [
+    "背部顶紧花岗岩粗砺承重立柱稳固发力下盘",
+    "探身将纯银包角拍卖槌插入高处通风百叶卡死棘爪",
+    "仰望氧气检测笔上跳动急促的红色濒危报警指示灯"
+   ],
+   "detail": "位于地下百米的奢华花岗岩金库内部，防弹玻璃展柜环立，数吨重纯铅闸门已封死出口，空气中弥漫着微甜而致命的无色卤代烷气体。",
+   "exits": [
+    "loc_exhaust_pawl_slot",
+    "loc_exhaust_release_valve"
+   ],
+   "id": "loc_vault_gallery",
+   "name": "金库展厅",
+   "pressure_modifiers": {
+    "p_halon_rising": "气体从地面一层层往上漫，蹲下去就头晕，只能贴着展柜往高处站。",
+    "p_lead_gate_creep": "铅闸每往下沉一寸，展厅里就更暗一分，门缝的光越来越窄。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "应急灯把防弹展柜照成一排幽蓝的盒子，名画在玻璃后面一动不动，看得清对方的睫毛，看不清门口。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "用手指摸清死死别在导轨内的自锁卡笋凸起",
+    "两人四手交叠向下拉拽木槌长柄施加全身重量"
+   ],
+   "detail": "金库墙壁高处的纯机械泄压滑阀，因断电冲击两枚厚重的合金偏心止回棘爪深深咬死在滑轨死槽中。",
+   "exits": [
+    "loc_vault_gallery"
+   ],
+   "id": "loc_exhaust_pawl_slot",
+   "name": "排风阀棘爪槽",
+   "pressure_modifiers": {
+    "p_gavel_chest_press": "拍卖师后背紧贴在安保架构师胸前，四只手叠在槌柄上，丝绒礼服贴着对方的西装衬衫。",
+    "p_gavel_corner_bend": "纯银包角在棘爪上压出了一道弯痕，再硬别可能整片撕开。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "排风百叶后面两枚合金棘爪死死咬在滑轨里，槌柄别进去时擦出一声尖响。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "两人手掌重叠发力旋转被油污浸润的铜柄",
+    "倾听高压毒气排空、新鲜空气狂暴涌入的救赎轰鸣"
+   ],
+   "detail": "棘爪后方的铜制泄压旋钮，连通着通向地表的垂直排毒风道。",
+   "exits": [
+    "loc_vault_gallery",
+    "loc_auction_salesroom"
+   ],
+   "id": "loc_exhaust_release_valve",
+   "name": "排气释放手柄",
+   "pressure_modifiers": {
+    "p_robbers_upstairs": "楼上劫匪还没撤，外面的人进不来，只能隔着铅闸喊话。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "铜制泄压旋钮后面就是通往地面的排风竖井，对讲机里不时传来值班队长的呼叫。",
+   "witnesses": [
+    "bg_night_guard",
+    "bg_porter",
+    "bg_police_negotiator"
+   ]
+  },
+  {
+   "affordances": [
+    "陪拍卖师看一遍预展",
+    "替拍卖师递一杯温水润嗓子",
+    "坐在第一排看拍卖师落槌"
+   ],
+   "detail": "拍卖行一楼挑高的拍卖大厅，一排排丝绒座椅对着一座胡桃木拍卖台，四壁挂着秋拍的预展画作，电话委托席沿着侧墙一字排开，水晶吊灯把整间屋子照得金碧辉煌。",
+   "exits": [
+    "loc_auctioneer_preview_room",
+    "loc_exhaust_release_valve"
+   ],
+   "id": "loc_auction_salesroom",
+   "name": "拍卖大厅",
+   "pressure_modifiers": {},
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "藏家、记者、电话委托专员挤满了大厅，拍卖台上的人多看谁一眼，满场的人都看得见。",
+   "witnesses": [
+    "bg_phone_bidder",
+    "bg_porter",
+    "bg_art_journalist",
+    "bg_old_collector"
+   ]
+  },
+  {
+   "affordances": [
+    "戴上白手套陪拍卖师看一幅画",
+    "在贵妃榻上陪拍卖师喝一杯香槟",
+    "把预展室的厚门反锁"
+   ],
+   "detail": "大厅后面一间只给重要藏家看画的私人预展室，四壁挂着暗绿色的丝绒，一张贵妃榻、一张放着白手套和放大镜的小桌，墙上只挂一幅画，一盏射灯打在画上。",
+   "exits": [
+    "loc_auction_salesroom"
+   ],
+   "id": "loc_auctioneer_preview_room",
+   "name": "拍卖师的私人预展室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "只开着那一盏射灯，画以外的地方都暗着，厚门一关，大厅里的人声就全隔在了外面。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "林",
+   "沈",
+   "顾",
+   "温",
+   "陆",
+   "苏",
+   "裴",
+   "谢",
+   "傅",
+   "宋",
+   "叶",
+   "江",
+   "秦",
+   "许"
+  ],
+  "given_female": [
+   "微澜",
+   "知秋",
+   "清欢",
+   "若棠",
+   "晚吟",
+   "听雨",
+   "素卿",
+   "疏影",
+   "如玉",
+   "砚秋",
+   "念慈",
+   "婉之",
+   "清和",
+   "静宜"
+  ],
+  "given_male": [
+   "衡",
+   "砚舟",
+   "承泽",
+   "景行",
+   "临川",
+   "致远",
+   "怀瑾",
+   "牧之",
+   "叙白",
+   "沉",
+   "铭",
+   "既白",
+   "允之",
+   "斯年"
+  ],
+  "given_neutral": [
+   "一鸣",
+   "青禾",
+   "长安",
+   "知白",
+   "南乔",
+   "听澜",
+   "子衿",
+   "望舒",
+   "辞远",
+   "临风",
+   "少游",
+   "言川",
+   "清越",
+   "疏桐"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入。原稿除标题、简介、基调、拍卖师外貌、世界规则风俗、三处脱困地点与转折外，人物、压力、日常与钩子大多照抄了吸血鬼地宫那一篇，这里按跨国拍卖行地下金库的题材整篇重写：白天是拍卖大厅里的预展、落槌、电话委托和名画交割，夜里是劫案触发安防后的铅闸、卤代烷和残氧；搭档写成设计这座金库的安保架构师，其余人物换成拍卖行总裁、老鉴定师、金库值班队长和电话委托专员。不写真实拍卖行与品牌。新增拍卖大厅与拍卖师私人预展室两处日常地点；婴儿肥换成了其余外貌描写；拍卖师亲密前提写明脱困之后、双方清醒自愿；新增预展室里的四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    24
+   ],
+   "baseline": "刚从艺术史专业毕业，被分到首席拍卖师身边做助理，第一次上拍卖台递号牌，手心全是汗。",
+   "gender": "any",
+   "id": "pi_new_assistant",
+   "reputation": "拍卖行里最年轻的面孔，同事们都叫这位新来的。",
+   "resources": [
+    "一叠出入库单",
+    "一副白手套",
+    "一本拍品图录"
+   ],
+   "risks": [
+    "再在拍卖台上递错一次号牌，就要被调去仓库点货。"
+   ],
+   "role": "新来的拍卖助理",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    34
+   ],
+   "baseline": "继承了一笔遗产，想买下一幅外婆生前念念不忘的画，第一次走进这家拍卖行。",
+   "gender": "any",
+   "id": "pi_young_collector",
+   "reputation": "拍卖行里没人认识的新面孔。",
+   "resources": [
+    "一张竞投号牌",
+    "一本外婆留下的旧画册",
+    "一笔不算太多的预算"
+   ],
+   "risks": [
+    "那幅画被别人拍走，就再也见不到了。"
+   ],
+   "role": "第一次来竞拍的年轻藏家",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    36
+   ],
+   "baseline": "艺术周刊派来写秋拍特稿的记者，跟着拍卖师转了好几天预展。",
+   "gender": "any",
+   "id": "pi_art_journalist",
+   "reputation": "写过几篇让拍卖行头疼的调查报道。",
+   "resources": [
+    "一支录音笔",
+    "一本采访本",
+    "一张预展通行证"
+   ],
+   "risks": [
+    "特稿交不出来，就要被调去写展讯。"
+   ],
+   "role": "艺术周刊的记者",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    32,
+    48
+   ],
+   "baseline": "替拍卖行承保秋拍的保险公司派来的调查员，这一趟来核查金库安防，一份报告就能决定整场秋拍的保费和能不能开拍。",
+   "gender": "any",
+   "id": "pi_insurance_adjuster",
+   "reputation": "拍卖行上下都知道这位调查员的厉害。",
+   "resources": [
+    "一张调查员证件",
+    "一份金库安防清单",
+    "随时能叫停秋拍的权限"
+   ],
+   "risks": [
+    "调查期间金库出了事，报告上就要记一笔。"
+   ],
+   "role": "保险公司派来的理赔调查员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "城中最老的一家跨国拍卖行，秋拍前一周。首席女拍卖师白天在大厅里带客人看预展、对着电话委托报价，一槌能落下几亿的成交，夜里在地下金库和安保架构师核对拍品。金库的纯铅闸门和灭火系统是全城最严的，最近却总有陌生面孔来打听预展的路线。",
+ "pressures": [
+  {
+   "choice": "是蹲下去找棘爪的死角，还是贴着展柜站高等外面的人？",
+   "exits": [
+    {
+     "cost": "蹲下去那几秒最危险",
+     "option": "蹲下去趁一口气找准死角"
+    },
+    {
+     "cost": "气体只会越漫越高",
+     "option": "贴着展柜站高等救援"
+    }
+   ],
+   "far": {
+    "consequence": "两人在展厅里窒息昏迷，等不到外面的人。",
+    "due_days": 1,
+    "trigger": "气体漫过口鼻"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_halon_rising",
+   "immediate": {
+    "minutes": 2,
+    "text": "一阵头晕，拍卖师整个人撞进安保架构师怀里，礼服的裙摆扫过一地碎玻璃。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vault_gallery",
+    "loc_exhaust_pawl_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "气体漫到了胸口，两人只能踮着脚贴在展柜最高处喘气。"
+   },
+   "objective": "在气体漫过口鼻之前撬开排风棘爪。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "灭火气体从地面往上漫",
+   "trigger": "卤代烷灭火气体灌满了展厅，比空气重，正一寸寸从地面往上漫，蹲下去就头晕眼花。"
+  },
+  {
+   "choice": "是用拍卖槌硬别，还是先拆下展柜的金属角线垫在下面？",
+   "exits": [
+    {
+     "cost": "拆角线要耗掉宝贵的时间",
+     "option": "拆下展柜角线垫在棘爪下面"
+    },
+    {
+     "cost": "银角可能先撕开",
+     "option": "直接用拍卖槌硬别"
+    }
+   ],
+   "far": {
+    "consequence": "排风阀永远打不开，金库成了密封的罐子。",
+    "due_days": 1,
+    "trigger": "棘爪彻底咬死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_pawl_jammed",
+   "immediate": {
+    "minutes": 2,
+    "text": "槌柄别进去，棘爪发出一声刺耳的尖响，却只退了半分。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "棘爪又往里咬进去一分，滑轨的缝隙窄得只剩一指宽。"
+   },
+   "objective": "在残氧耗尽之前别断自锁凸起。",
+   "source": "accident",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "排风棘爪断电咬死",
+   "trigger": "排风百叶后面两枚合金棘爪被断电冲击咬死在滑轨里，自锁凸起纹丝不动。"
+  },
+  {
+   "choice": "是先用展柜顶住闸门，还是全力去撬排风阀？",
+   "exits": [
+    {
+     "cost": "展柜里的画可能被压坏",
+     "option": "推展柜去顶住闸门"
+    },
+    {
+     "cost": "闸门落死就只剩这一条路",
+     "option": "全力去撬排风阀"
+    }
+   ],
+   "far": {
+    "consequence": "金库彻底封死，外面的人要切三天才切得开。",
+    "due_days": 1,
+    "trigger": "铅闸落死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_lead_gate_creep",
+   "immediate": {
+    "minutes": 2,
+    "text": "铅闸咔的一声又沉了一截，门缝里透进来的那线光窄了一半。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "门缝只剩一掌高，外面的人再也递不进任何东西来。"
+   },
+   "objective": "在铅闸彻底落死之前打开另一条生路。",
+   "source": "person",
+   "start_minute": 10,
+   "tags": [
+    "workplace"
+   ],
+   "title": "纯铅闸门一寸寸下沉",
+   "trigger": "数吨重的纯铅闸门卡在半空的咬合槽里，被劫匪砸坏的绞盘还在一点点松，闸门一寸一寸往下沉。"
+  },
+  {
+   "choice": "是为了体面拉开半寸距离，还是干脆贴紧了一起发力？",
+   "exits": [
+    {
+     "cost": "这一夜之后，拍卖师报价时再也不只是慢半拍了",
+     "option": "放下矜持贴紧对方，四只手一起压在槌柄上"
+    },
+    {
+     "cost": "力气使不到一处，别不断自锁凸起",
+     "option": "各自侧身单手发力"
+    }
+   ],
+   "far": {
+    "consequence": "槌角从棘爪死角里滑出去，错过最后的脱扣窗口。",
+    "due_days": 1,
+    "trigger": "分心导致槌角滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_gavel_chest_press",
+   "immediate": {
+    "minutes": 2,
+    "text": "拍卖师被闷得娇喘连连，丝绒礼服的深V领口滑开半边，汗湿的酥胸起伏着贴在对方小臂上，珍珠项链硌在两人之间。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vault_gallery",
+    "loc_exhaust_pawl_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "两人的心跳撞在一起，拍卖师的报价第一次乱了，谁都分不清是缺氧，还是别的什么。"
+   },
+   "objective": "贴得这么近的时候，还得把心思放在槌角的角度和报价上。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "展柜死角胸背相贴",
+   "trigger": "展柜后面窄得转不开身，拍卖师只能后背贴在安保架构师胸前，四只手叠在槌柄上一起往下压。"
+  },
+  {
+   "choice": "是继续加力赌一把，还是退出来换个角度重新别？",
+   "exits": [
+    {
+     "cost": "丝巾会被磨烂",
+     "option": "用丝巾缠住槌柄再压"
+    },
+    {
+     "cost": "换角度要重新找死角，残氧可能撑不到",
+     "option": "退出来换个角度"
+    }
+   ],
+   "far": {
+    "consequence": "折断的槌头弹飞，两人失去唯一的撬具。",
+    "due_days": 1,
+    "trigger": "拍卖槌折断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_gavel_corner_bend",
+   "immediate": {
+    "minutes": 2,
+    "text": "银角发出一声细细的撕裂声，握槌的指节被震得发麻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_exhaust_pawl_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "弯痕越来越深，槌头的紫檀木也裂开了一道细纹。"
+   },
+   "objective": "得在银角撕开之前找准最后一个受力点。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "拍卖槌银包角弯折",
+   "trigger": "拍卖槌的纯银包角别在棘爪死角里，已经被压出了一道弯痕，再硬别可能整片撕开。"
+  },
+  {
+   "choice": "是先撬排风阀，还是先用对讲机把金库里的情况报出去？",
+   "exits": [
+    {
+     "cost": "说话更耗残氧",
+     "option": "先用对讲机报出情况"
+    },
+    {
+     "cost": "外面没人知道里面还剩多少空气",
+     "option": "先撬排风阀自救"
+    }
+   ],
+   "far": {
+    "consequence": "等外面清完劫匪，金库里的人已经撑不住了。",
+    "due_days": 1,
+    "trigger": "外面的人来不及"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_robbers_upstairs",
+   "immediate": {
+    "minutes": 2,
+    "text": "对讲机那头传来一阵枪声，值班队长的声音断了一下。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vault_gallery",
+    "loc_exhaust_pawl_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "外面的人说劫匪挟持了人质，金库这边至少还要再等一个钟头。"
+   },
+   "objective": "靠自己打开排风竖井，让外面的人能把人拉上去。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "劫匪未撤救援难下",
+   "trigger": "楼上的劫匪还没撤干净，警察在外面封锁了金库入口，谁也下不来，对讲机里只剩值班队长一个人在喊。"
+  },
+  {
+   "choice": "照价赔，还是拿出金库那一夜的监控，证明画是在劫匪手里坏的",
+   "exits": [
+    {
+     "cost": "监控也拍下了展柜后面那十几分钟",
+     "option": "调出金库那一夜的监控"
+    },
+    {
+     "cost": "秋拍压轴那一槌要让给钱先生的侄女来敲",
+     "option": "答应钱先生的条件私了"
+    }
+   ],
+   "far": {
+    "consequence": "秋拍开不了槌，首席拍卖师的位子要在董事会上换人",
+    "due_days": 10,
+    "trigger": "索赔函递到法院"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_lin_hoarse_voice",
+    "hook_lin_preview_door",
+    "hook_architect_old_catalog"
+   ],
+   "id": "p_consignor_claim",
+   "immediate": {
+    "minutes": 5,
+    "text": "律师把一份索赔函推到拍卖师面前"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_auctioneer_preview_room"
+   ],
+   "near": {
+    "deadline_minutes": 480,
+    "text": "下午五点，秋拍图录付印"
+   },
+   "objective": "在秋拍图录付印之前，和钱先生谈出一个结果",
+   "source": "money",
+   "start_minute": 540,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "委托人索赔",
+   "trigger": "劫案过去第二天上午，委托那幅宋画的老藏家钱先生带着律师坐进预展室：画框在金库里被灭火气体蚀了一角，要拍卖行按估价的两倍赔"
+  }
+ ],
+ "region": "地下百米恒温恒湿特级艺术品保险金库展示厅与密闭气闸走廊",
+ "rules": [
+  {
+   "id": "r_vault_rules",
+   "text": "拍卖行的规矩：落槌即成交，槌声之后谁也不能反悔，拍卖师也一样。"
+  },
+  {
+   "id": "r_gavel_lever_release",
+   "text": "应急排风阀受偏心自重死死卡死，只可通过传世拍卖槌实心纯银包角硬柄别入棘爪缝隙合力下撬脱险。"
+  },
+  {
+   "id": "r_preview_week",
+   "text": "秋拍前一周是预展周，所有拍品白天上展柜、夜里回金库，拍卖师要亲手签每一张出入库单。"
+  },
+  {
+   "id": "r_provenance_first",
+   "text": "来历说不清的东西一律不上拍，再值钱也不行，这是拍卖行百年的招牌。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "并肩巡库",
+  "committed": "强开气阀",
+  "familiar": "金库相依",
+  "flirting": "贴身抗窒",
+  "intimate": "同命协同",
+  "stranger": "雍容典雅",
+  "testing": "共持槌柄"
+ },
+ "status": "released",
+ "style_hint": "拍卖行的工笔：白天写大厅里的丝绒座椅、预展灯下的名画、拍卖师报价时不疾不徐的嗓音和落槌那一声脆响；夜里写金库里无色微甜的气体、氧气检测笔一跳一跳的红灯和铅闸落下后的死寂。拍卖师雍容得像一幅古画，张力藏在报价时望向某个人多停的那半秒。",
+ "tension_engines": [
+  {
+   "id": "te_halon_rising",
+   "text": "卤代烷比空气重，正一寸寸从地面往上漫，蹲得越低越喘不上气。"
+  },
+  {
+   "id": "te_pawl_jammed",
+   "text": "排风棘爪被断电冲击咬死在滑轨里，单人别不动分毫。"
+  },
+  {
+   "id": "te_gavel_chest_press",
+   "text": "展柜后面窄得转不开身，两人只能胸背相贴，四只手叠在槌柄上一起压。"
+  },
+  {
+   "id": "te_oxygen_pen_red",
+   "text": "氧气检测笔的红灯越闪越快，残氧一口比一口稀。"
+  }
+ ],
+ "title": "首席女拍卖师·地下保险库劫案铅闸卡死",
+ "tone": [
+  "千钧铅闸下坠",
+  "卤代烷气体窒息",
+  "银角木槌撬锁",
+  "百米地下金库"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_emp_kills_tools",
+   "requires": [
+    "auctioneer_lin"
+   ],
+   "text": "暴徒引爆的电磁脉冲彻底烧毁了电子备用阀，所有现代破拆工具失灵，拍卖师随身的紫檀拍卖槌成为唯一物理生机。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_gown_caught_case",
+   "requires": [
+    "auctioneer_lin"
+   ],
+   "text": "拍卖师鱼尾裙摆勾在展柜金属角线上，同伴迅速反手扯断衬里裙边，拍卖师借势扎稳马步撑起两人发力支点。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_sweat_on_wrist",
+   "requires": [
+    "vault_architect"
+   ],
+   "text": "拍卖师额前香汗顺着饱满面颊滑落，滴在同伴手臂上，在濒死窒息中激荡起震撼灵魂的羁绊。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_four_hands_on_gavel",
+   "requires": [
+    "auctioneer_lin",
+    "vault_architect"
+   ],
+   "text": "排气棘爪因断电剧烈下坠产生严重偏心咬死，单人施力纹丝不动，拍卖师与安保架构师胸背相拥共同合力暴击下顿。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_oxygen_pen_flash",
+   "requires": [
+    "auctioneer_lin"
+   ],
+   "text": "氧气检测笔爆出最高级别红光警报，脑部严重缺氧，两人被迫将面庞贴在进气微孔处吸纳最后一口残氧拼死发力。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_back_to_pillar",
+   "requires": [
+    "auctioneer_lin",
+    "vault_architect"
+   ],
+   "text": "安保架构师用后背顶紧立柱化作坚固力臂支座，拍卖师合抱同伴借重力下坠，两人合力终于撬断死锁卡笋。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_pawl_snaps",
+   "requires": [
+    "auctioneer_lin"
+   ],
+   "text": "偏心卡笋应声崩脱，纯机械排风管狂暴抽走剧毒气体，新鲜空气倒灌金库，两人合力推开逃生铅门，成功脱困自救。"
+  }
+ ]
+}

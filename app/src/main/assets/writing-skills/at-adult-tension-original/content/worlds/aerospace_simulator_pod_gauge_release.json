@@ -1,0 +1,2325 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "测控中心总指挥，在大厅地面焦急调度登高作业。",
+   "age_range": [
+    50,
+    60
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_command_chief_director_zhao",
+   "line": "女飞官和总师还在十米悬空的模拟球舱里！应急登高车抓紧靠上去，快啊！",
+   "location_ids": [
+    "loc_aerospace_assembly_hall_floor"
+   ],
+   "name": "赵总指挥",
+   "role": "商业航天测控中心常务总指挥"
+  },
+  {
+   "adult_context": "通过应急无线对讲指导机械泄压技巧的老专家。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_telemetry_operator_master_qian",
+   "line": "总师！偏心泄压阀是逆时针旋转卸压的，硬质合金测角规刚好能插进六角暗槽，反向旋松！",
+   "location_ids": [
+    "loc_aerospace_assembly_hall_floor"
+   ],
+   "name": "钱总工",
+   "role": "全动模拟飞行器驻场特级总工"
+  },
+  {
+   "adult_context": "严格执行防爆防泄漏条例的保卫主管，暂时阻拦了外部盲目接近。",
+   "age_range": [
+    35,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_security_officer_sun",
+   "line": "六自由度液压支柱高压管路出现异常油压，严禁无防护人员靠近平台下方危险区！",
+   "location_ids": [
+    "loc_aerospace_assembly_hall_floor"
+   ],
+   "name": "孙队长",
+   "role": "总装大厅特勤安保主管"
+  },
+  {
+   "adult_context": "在地面急救台密切监测生理遥测指标的医生。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_female_flight_doctor_lin",
+   "line": "女飞官！总师！遥测心率已经突破一百六了，舱温四十五度了，你们千万坚持住啊！",
+   "location_ids": [
+    "loc_aerospace_assembly_hall_floor"
+   ],
+   "name": "林航医",
+   "role": "基地二十一岁的女航医"
+  },
+  {
+   "adult_context": "在平台基座检查伺服阀并向现场通报故障状态的老工人。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_hydraulics_master_lao_zhou",
+   "line": "全动平台液压锁已经机械挂死，外部电磁释放完全断电了，只能靠舱内手动泄压！",
+   "location_ids": [
+    "loc_aerospace_assembly_hall_floor"
+   ],
+   "name": "老周师傅",
+   "role": "六自由度液压伺服老技师"
+  },
+  {
+   "adult_context": "在控制台监控舱内通信与视频信号的助手。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_telemetry_apprentice_xiao_wu",
+   "line": "舱内有线监控花屏了，高温把同轴视频线缆烤熔了，只能听见两人急促的呼吸声！",
+   "location_ids": [
+    "loc_aerospace_assembly_hall_floor"
+   ],
+   "name": "小吴",
+   "role": "测控大厅二十一岁的遥测助理"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "首席女飞官与环控总师在过热的座舱里肩抵着肩、手叠着手，把硬质合金测角规卡进泄压阀暗槽，一格一格往回转。",
+   "id": "cc_pilot_and_engineer_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "pilot_gu_tianjiao",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "模拟舱里一起扳着卡扣，生死只隔一块仪表盘，彼此性命相托。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "life_support_lead_shen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同为航天工程技术骨干，知晓彼此手上力道与工具用法。",
+     "stage": "familiar"
+    },
+    {
+     "a": "pilot_gu_tianjiao",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "life_support_lead_shen",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "傲娇飞官与沉毅工匠在灾厄中成为生死不离的脱困搭档。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "pilot_gu_tianjiao",
+    "life_support_lead_shen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在窒息休克前合力旋松偏心泄压阀恢复内外气压平衡脱险。",
+    "limit_gap": "女飞官抗荷服湿透且体温燥热，总师身处逼仄死角后背承受剧烈晃动冲击。",
+    "meeting_reason": "女飞官第四次要求加跑黑障模拟，环控总师拗不过，陪着坐进了副驾驶位。",
+    "resource_gap": "女飞官拥有淬火高硬度钨钴合金航图测角规，总师掌握空天座舱偏心机械泄压拆解直觉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_cabin_overheat_hypoxia_surge",
+    "te_close_contact_body_heat"
+   ]
+  },
+  {
+   "chemistry": "中队长与机械主管以精准机械原理拆解偏心暗槽咬合，严丝合缝操作工具突破阻滞。",
+   "id": "cc_commander_and_mechanic_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "pilot_gu_tianjiao",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "多年协同试飞积累深厚默契，对彼此专业定力深具信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "life_support_lead_shen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在航天工程部门共事，熟悉模拟器各处机械构造。",
+     "stage": "familiar"
+    },
+    {
+     "a": "pilot_gu_tianjiao",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "life_support_lead_shen",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在沉重机械死锁压迫下并肩伏卧发力，消除身份悬殊界限。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "pilot_gu_tianjiao",
+    "life_support_lead_shen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "利用测角规精准卡死阀芯缺口并顺势撬动偏心销自救。",
+    "limit_gap": "悬空十米无法借助外援，必须在昏暗红光中凭手感盲操机械脱扣。",
+    "meeting_reason": "深夜的总装大厅只剩两盏灯，女飞官端着两杯速溶咖啡来找总师吵供氧曲线。",
+    "resource_gap": "中队长掌握座舱视景断电旁路位置，主管拥有高精度螺丝撬棒与防爆手电。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_pneumatic_lock_expansion_deadlock",
+    "te_flight_simulator_blackout_rush"
+   ]
+  },
+  {
+   "chemistry": "试飞总指挥以绝对权威统摄全局，女飞官依令协同配合，合力爆发千钧推力破死锁。",
+   "id": "cc_director_and_pilot_high",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "pilot_gu_tianjiao",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "总指挥指导女飞官校准发力矢量，展现卓越技术领导力。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "life_support_lead_shen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "工程部上下级，配合极为娴熟。",
+     "stage": "familiar"
+    },
+    {
+     "a": "pilot_gu_tianjiao",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "life_support_lead_shen",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "傲娇飞官与工程骨干共赴生死，结成无间同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "pilot_gu_tianjiao",
+    "life_support_lead_shen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以高刚性力矩反推破除偏心卡死完成无损自救脱困。",
+    "limit_gap": "全动液压平台处于临界偏载，任何蛮动都会引发晃动加剧。",
+    "meeting_reason": "集团派人来审下个月的载人试飞方案，女飞官被点名演示，总师在舱外盯着数据。",
+    "resource_gap": "总指挥掌握整座测控中心模拟器地下管网图谱，女飞官掌握全部高强度合金配件。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_flight_simulator_blackout_rush",
+    "te_pneumatic_lock_expansion_deadlock"
+   ]
+  },
+  {
+   "chemistry": "女飞官以机长身份沉着鼓舞士气，青年领航员严谨配合测算每道力矩数值。",
+   "id": "cc_cadet_and_specialist_command",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "pilot_gu_tianjiao",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "同处绝境，上下级界限消融于贴身死斗协作中。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "life_support_lead_shen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在试飞组共事，彼此熟稔信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "pilot_gu_tianjiao",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "life_support_lead_shen",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "女飞官全力依赖工匠臂膀发力破局。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "pilot_gu_tianjiao",
+    "life_support_lead_shen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保偏心阀体免遭撕裂损毁，全员安全脱困。",
+    "limit_gap": "高温缺氧导致孤立无援，必须紧密依偎配合。",
+    "meeting_reason": "考核结束后，女飞官赖在模拟舱里不肯出来，说要看完最后一段星图回放，总师只好进去叫人。",
+    "resource_gap": "女飞官拥有坚忍不拔的心理素质，领航员精通偏心螺栓咬合解构。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_cabin_overheat_hypoxia_surge",
+    "te_pneumatic_lock_expansion_deadlock"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_pod_whisper_breath",
+   "reach": "all",
+   "text": "三十五公分球舱死角狭缝两人肌肤相贴急促滚烫的吐息与心跳共振"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_pod_alarm_static",
+   "reach": "local",
+   "text": "座舱应急警报红光闪烁与对讲耳机里断续的电流杂音回响"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁，持有商业超高音速飞行资质与空天领航执照，平日英姿飒爽略带傲娇，遇险展现出异乎寻常的果敢信任。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身穿一套量身定制的深蓝修身耐高压抗荷服，外系银白航空轻量化卡扣装备带，短发利落中带着英气，容颜明艳娇美，两腮带着莹润的光泽，在高温座舱滚烫喘息中双颊泛起娇艳酡红与细腻冷汗，下颌挂着晶莹水滴。",
+    "抗荷服被汗水湿透紧紧贴合在修长健美起伏的身躯上，两腮面庞在仪表红光下透出如凝脂般的柔润光泽，双手全力按压硬质合金测角规毫不退缩，傲娇英气中透着令人心颤的铿锵反差。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱啼哭的软弱作态",
+     "鲁莽盲动的粗暴蛮干"
+    ],
+    "contrast": "嘴上从来不饶人，考核满分了还要嫌模拟器不够真；舱温一路飙红时，女飞官却第一个松开安全带，把父亲留下的测角规拍进了人手里。",
+    "core_value": "哪怕平日在空天编队里心高气傲，生死关头也要成为能与总师并肩撕碎机械死锁的无畏战友。",
+    "goal_options": [
+     "将硬质合金测角规卡入泄压阀内六角槽撬脱偏心轴销",
+     "与总师双手重叠合力下压打破自锁推开主门"
+    ],
+    "never": [
+     "在同伴脱困前独自退缩放弃"
+    ],
+    "prefers": [
+     "沉稳专注且臂力强健的工科男子",
+     "细致严谨的硬核工匠手段"
+    ],
+    "pressure_responses": {
+     "breaking": "哪怕双臂酸胀脱力、急促滚烫的吐息交织在总师耳侧，亦咬紧贝齿全力抵住力矩绝不松手。",
+     "high": "在三十五公分逼仄狭缝内整个人伏在总师胸前，双手覆在总师手背上倾注全身重量猛按测角规。",
+     "low": "在模拟舱过载报警瞬间冷静关闭次要航电，指出泄压阀在左下死角。",
+     "mid": "毫不犹豫脱卸受阻的外层头盔，俯身逼仄死角递出硬质合金测角规。"
+    },
+    "relationship_stance": "跟环控总师吵了两年，从供氧曲线吵到座椅角度；可每次进舱前，女飞官都会先确认今晚值班的是不是那个人。",
+    "withdrawal": "安全脱险后脱力靠在总师肩头微喘，面庞埋在总师颈窝掩饰羞怯。"
+   },
+   "gender": "female",
+   "gender_reason": "二十一岁的商业航天财阀空天女飞官，兼具英武傲娇与绝境中坚韧决绝的钢铁意志。",
+   "id": "pilot_gu_tianjiao",
+   "identity": {
+    "authority": "对模拟球舱内部领航仪器与随身飞行装备拥有最高应急调度处置权。",
+    "exposure": "贴身抗荷服被汗水浸透勾勒出窈窕起伏身姿，在逼仄死角近身发力时毫无保留地贴合在总师怀前。",
+    "hidden": "内袋贴身放着总师调校的领航数据卡",
+    "limits": [
+     "座舱高温导致心率逼近极限单人无法输出峰值反扭矩",
+     "逼仄死角使修长双腿难以施展全力"
+    ],
+    "obligations": [
+     "保护全动模拟球舱核心视景与航电芯片免遭爆燃",
+     "与总师同舟共济排除机械死锁安全脱险"
+    ],
+    "resources": [
+     "一枚专业特制硬质合金航图测角规（高纯度钨钴硬质合金一体线切割成型，长二十公分厚四毫米，直角硬刃抗扭刚性极高）",
+     "一双航空阻燃高摩擦羊皮飞行手套",
+     "一罐高压应急备用纯氧喷雾气罐"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "总师在球舱过载高温失衡瞬间以宽厚臂膀将{npc.name}护入怀中的无畏与可靠",
+     "在昏暗红光死角内总师沉着冷静排查机械故障的专注眼神"
+    ],
+    "boundaries": [
+     "恪守正派女飞官的端庄自尊底线",
+     "脱困自救纯靠硬核物理机械力矩绝不涉性"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在气锁死角紧贴总师胸前，双手叠在总师手背上共同握紧测角规全力下扳。",
+    "dislikes": [
+     "轻浮孟浪的越界举动",
+     "临阵推诿的自私行径"
+    ],
+    "expression": "脱险后温柔地为总师擦去额头冷汗，偏过绯红面颊低声道‘总师……刚才表现还挺像样’。",
+    "likes": [
+     "在剧烈失重震颤中被有力大手紧扣住腰肢维持重心的踏实感",
+     "座舱里两人的手套叠在一起扳动时，隔着手套传来的掌心的热"
+    ],
+    "preconditions": [
+     "偏心泄压阀成功逆向旋松脱扣",
+     "主气密舱门手动推开降温平压",
+     "两人都清醒，心意出于自己，不是过热座舱里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "商业航天的首席女飞官",
+   "schedule": [
+    {
+     "from": 1250,
+     "location_id": "loc_flight_simulator_cabin",
+     "to": 1255
+    },
+    {
+     "from": 1255,
+     "location_id": "loc_simulator_relief_valve_nook",
+     "to": 1285
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "测角规刃口承受数百牛顿反力矩微磨损，两人手掌手臂被高温金属和门框边缘磨破烫红。",
+      "option": "用硬质合金测角规直角折沿切入偏心阀六角暗槽，两人身体紧贴合力向下施压扳转阀芯自救脱困。"
+     },
+     {
+      "cost": "数吨级耐压视窗非人力所能破坏，反冲力极易造成手骨严重粉碎性骨折。",
+      "option": "徒手用力砸击球舱复合材料密封视窗试图破窗呼救。"
+     }
+    ],
+    "pressure": "内外压差与高温膨胀持续加剧，必须在十分钟氧气耗尽前手动旋转偏心泄压阀自救。",
+    "trigger": "超高音速再入黑障模拟过载，主气锁密封胶条热胀变形抱死，舱内高温飙升逼近窒息。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "好热，快喘不上气了……可贴着总师的后背，心跳比过载时还快。真丢人，这种时候想的居然是这个。",
+    "surface": "愣着干什么？测角规是硬质合金的，比你那套扳手结实。角度你来算，力气我来出——别让本少校等。"
+   }
+  },
+  {
+   "adult_context": "二十一岁，持有商业航天高难课目指挥资质，遇险沉着理智调度果决。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "深灰飞行皮夹克内搭高领紧身黑色抗荷背心，两腮线条饱满紧致带着柔和的轮廓，在高温座舱中神情冷峻坚毅。",
+    "短发微湿散在额前，面颊在警报红光下透着激动的酡红，修长双腿死死蹬住座舱地板卡槽，双手握紧测角规受力端。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "怨天尤人"
+    ],
+    "contrast": "威严傲娇的飞行中队长，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "一切气动自锁皆有力矩破绽，找准切向力矩，千斤阻尼亦能瓦解。",
+    "goal_options": [
+     "利用测角规构建刚性撬杠扭转偏心阀",
+     "协同总师顶正摇臂自救脱困"
+    ],
+    "never": [
+     "临阵抛下同舱战友独自逃生"
+    ],
+    "prefers": [
+     "沉稳专注的机电操作",
+     "毫不犹豫的协同发力"
+    ],
+    "pressure_responses": {
+     "breaking": "银牙咬碎双手青筋微显，死死抵住杠杆直至机械锁脱开。",
+     "high": "以全身自重压向力臂末端，与总师紧密相依共同下扳。",
+     "low": "迅速判断出密封抱死在于偏心轴销过热卡位，明确杠杆支点位置。",
+     "mid": "果断将测角规硬刃卡入偏心暗孔，以手掌固定其切向夹角。"
+    },
+    "relationship_stance": "视总师为最可靠的硬核后盾，在灾厄中缔结生死不渝的深厚默契。",
+    "withdrawal": "在脱困后退至安全区域深呼吸平复心绪并整理衣服。"
+   },
+   "gender": "female",
+   "gender_reason": "飞行中队长指挥官态，具备极高的领航威权与战略果决度，傲娇中见担当。",
+   "id": "commander_gu_tianjiao",
+   "identity": {
+    "authority": "对座舱内全部乘员应急逃生规程拥有最终指挥决策权。",
+    "exposure": "单薄抗荷背心被冷汗浸透贴紧身姿，在逼仄空间展露无遗。",
+    "hidden": "随身携带基地应急停机坪通行钥匙卡",
+    "limits": [
+     "受困狭小球形空间缺乏长力臂撬棍",
+     "必须在十分钟内打破机械自锁"
+    ],
+    "obligations": [
+     "保护同舱总师人身安全",
+     "同总师紧密协作破除气锁"
+    ],
+    "resources": [
+     "硬质合金航图测角规",
+     "高压防静电绝缘手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "总师在危难中展现出的航天机电专业判断力与勇猛担当",
+     "近距离贴身支撑时对方如山岳般可靠的臂弯温度"
+    ],
+    "boundaries": [
+     "严守飞行军官自尊底线",
+     "自救恪守硬核机械物理底线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在阀体死角俯身相依，胸前紧贴总师臂膀共同握持工具完成绝地逆转。",
+    "dislikes": [
+     "轻浮孟浪",
+     "退缩怯懦"
+    ],
+    "expression": "默默递上干燥纸巾为总师擦拭额头汗水，低声叮嘱总师调整呼吸。",
+    "likes": [
+     "彼此心领神会的眼神对视",
+     "泄压阀清脆脱开瞬间的气流呼啸声"
+    ],
+    "preconditions": [
+     "偏心泄压阀成功脱扣",
+     "人员全员脱险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "空天飞行中队长兼首席试飞员",
+   "schedule": [
+    {
+     "from": 1250,
+     "location_id": "loc_flight_simulator_cabin",
+     "to": 1255
+    },
+    {
+     "from": 1255,
+     "location_id": "loc_simulator_relief_valve_nook",
+     "to": 1285
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员手腕手掌承受强烈金属反冲压迫造成肌肉酸麻与红肿。",
+      "option": "以硬质合金测角规卡死偏心阀内六角槽，双手合力向下施压旋转顶出暗销脱扣自救。"
+     },
+     {
+      "cost": "破坏仪表线束可能诱发电气短路引发舱内明火。",
+      "option": "盲目使用仪表台金属把手砸击舱壁螺栓。"
+     }
+    ],
+    "pressure": "舱内氧气快速耗竭且电磁解锁烧损，必须在人员昏厥前手动旋转偏心阀泄压。",
+    "trigger": "全动模拟舱再入黑障模拟过载，主气锁热膨胀抱死，舱内温度达四十五度。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "温度太高了……但总师一直用后背护着我。拼尽全力，我也一定要帮总师把这扇舱门撬开！",
+    "surface": "总师，看准偏心槽口！测角规刚好能卡死暗销，顺着逆时针方向一起往下压！"
+   }
+  },
+  {
+   "adult_context": "二十一岁，具备专业航电与飞行力学双重资质，遇险沉着机敏。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "白T恤外搭浅蓝工装薄款飞行马甲，两腮线条饱满紧致带着柔和的轮廓，在高温座舱中目光冷静敏锐。",
+    "短发用飞行发网固定，面颊在仪表荧光下泛着坚毅的冷白，双手紧紧扣住测角规受力点。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "无端猜忌"
+    ],
+    "contrast": "温雅清丽的技术飞官，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "一切自锁机构皆有力矩弱点，找准切向力矩，百钧死锁亦可瓦解。",
+    "goal_options": [
+     "利用测角规直角折沿撬脱自锁偏心阀",
+     "协同总师顶正气闸门自救脱困"
+    ],
+    "never": [
+     "临阵退缩放弃同伴"
+    ],
+    "prefers": [
+     "精准的力学配合",
+     "沉着果断的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "紧咬银牙死死压住杠杆，直至机械阀产生脱开气鸣声。",
+     "high": "以全身重量紧贴总师臂膀向下施压消除打滑。",
+     "low": "迅速判断偏心阀卡死死点位于下部偏心卡爪。",
+     "mid": "果断将钨钴合金测角规以特定角度切入阀体槽孔。"
+    },
+    "relationship_stance": "视总师为最可靠的工科后盾，在灾厄中缔结生死不渝的默契同盟。",
+    "withdrawal": "在脱困后退至安全区域深呼吸平复心绪并检查仪表。"
+   },
+   "gender": "female",
+   "gender_reason": "空天遥测与航电系统试飞女飞官态，精通座舱气动管路与气密压差配平。",
+   "id": "telemetry_pilot_gu_tianjiao",
+   "identity": {
+    "authority": "对座舱气动管路排布与偏心阀受力参数拥有精准专业计算。",
+    "exposure": "湿透的飞行马甲贴紧腰肢曲线，在逼仄空间完全展露青春女性罕见的柔韧体态。",
+    "hidden": "随身携带微型防磁六角调整螺丝刀",
+    "limits": [
+     "死角狭窄缺乏大型千斤顶支撑",
+     "必须在十分钟内排除机械阻尼"
+    ],
+    "obligations": [
+     "力保昂贵空天遥测芯片完好",
+     "与技术总师紧密协作逃生"
+    ],
+    "resources": [
+     "加厚钨钴合金航图测角规",
+     "高抗拉阻燃绑带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "总师在危急时刻硬扛高温热浪护住女飞官的男子汉气概",
+     "贴身施力时对方宽阔胸膛传来的雄浑力量与温热气息"
+    ],
+    "boundaries": [
+     "严守自尊自爱底线",
+     "出路纯靠机械杠杆自救"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "伏在总师怀侧死角，双手叠于总师手背合力下按测角规柄部。",
+    "dislikes": [
+     "轻浮孟浪",
+     "迟疑推诿"
+    ],
+    "expression": "轻柔递上干纸巾为总师擦去额头冷汗，温言抚慰并察看对方手掌磨痕。",
+    "likes": [
+     "彼此心领神会的对视",
+     "偏心阀弹开瞬间的清脆金属鸣响"
+    ],
+    "preconditions": [
+     "座舱内外压差完全归零",
+     "全员安然脱困出险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "空天航电技术试飞员",
+   "schedule": [
+    {
+     "from": 1250,
+     "location_id": "loc_flight_simulator_cabin",
+     "to": 1255
+    },
+    {
+     "from": 1255,
+     "location_id": "loc_simulator_relief_valve_nook",
+     "to": 1285
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员前臂与手掌承受强烈反力矩压迫造成肌肉酸麻淤青。",
+      "option": "以特制钨钴合金测角规切入槽孔，双手合力向下施压旋转顶出偏心销脱扣自救。"
+     },
+     {
+      "cost": "金属框架巨大的摩擦阻力非人力可动，极易拉伤腰肌挫伤手腕。",
+      "option": "强行用力推挤被热膨胀胶条咬死的主门扇。"
+     }
+    ],
+    "pressure": "内外气压差随着升温持续扩大，必须在阀芯彻底咬死前手动撬开泄压。",
+    "trigger": "超音速过载模拟导致气密密封件热膨胀变形，泄压阀抱死在闭合位。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "座舱温度快失控了……但总师一直在护着我。拼尽全力，我也一定要帮总师把这扇门撬开！",
+    "surface": "总师，受力点在第四个凹槽！测角规厚度刚好卡死，顺着切线压，我们一起下压！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的工程师，具备高等级载人航天环控设计资质，沉毅果敢担当可靠。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深灰航天工装连体服，身姿挺拔双臂结实，眼神沉静锐利，额角浸满汗水。",
+    "腰系轻量化多功能装备带，佩戴阻燃防割手套，在升温震颤的球舱死角稳如磐石护住女飞官。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延",
+     "盲目冒进"
+    ],
+    "contrast": "平日沉稳寡言的工科青年，在生死一线时爆发出令人心折的刚毅与担当。",
+    "core_value": "机械自锁虽坚固，必有反向力矩解法；有我在，绝不会让女飞官受到半分伤害。",
+    "goal_options": [
+     "以测角规精准插入泄压阀孔",
+     "全力下压杠杆扳转偏心轴销"
+    ],
+    "never": [
+     "背弃女飞官的信任与托付"
+    ],
+    "prefers": [
+     "扎实的机械力学自救",
+     "毫无保留的生死信赖"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将咬死的偏心轴销扳转到位。",
+     "high": "双手包覆住女飞官双手，毫无保留爆发全身背阔肌与核心重量下按。",
+     "low": "在球舱断电报警瞬间一把将女飞官拉入怀中避开倒伏支架，低声安抚对方。",
+     "mid": "伏身狭缝死角指导女飞官调整握持手势，建立稳固反向力臂支点。"
+    },
+    "relationship_stance": "在基地管了两年生命保障，被女飞官挑了两年的刺；女飞官每一次进舱的供氧曲线，总师都是亲手调的。",
+    "withdrawal": "确认气压彻底平衡女飞官脱困后方才脱力坐在地板上长舒一口气。"
+   },
+   "gender": "male",
+   "gender_reason": "青年航天环控总师，精通空天座舱气密锁死与热力学自救。",
+   "id": "life_support_lead_shen",
+   "identity": {
+    "authority": "对模拟球舱内部环控管路、气锁机构与应急泄压拥有最高现场处置裁决权。",
+    "exposure": "工装连体服被热汗浸透勾勒出结实胸膛，在近身施力时阳刚气魄完全展现。",
+    "hidden": "随身携带一枚备用十字合金螺丝刀头",
+    "limits": [
+     "身负护卫女飞官重任绝不退缩",
+     "检修死角逼仄难以伸展全身"
+    ],
+    "obligations": [
+     "保护女飞官免受高温热浪灼伤",
+     "合力打破偏心泄压阀机械自锁"
+    ],
+    "resources": [
+     "硬质合金航图测角规（女飞官提供）",
+     "高亮度防爆手电",
+     "阻燃防滑手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女飞官在突发危机前毫不娇气、毅然跪地与自己并肩拼命的坚韧勇气",
+     "紧贴施力时女飞官面颊透出的温润娇红与急促滚烫的吐息"
+    ],
+    "boundaries": [
+     "恪守规矩分寸",
+     "绝无轻慢之意"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "后背抵住球舱门框立柱，双手握住测角规长边，由女飞官伏于胸前合力下压。",
+    "dislikes": [
+     "轻慢女性",
+     "言而无信"
+    ],
+    "expression": "脱险后默默将自身干燥毛巾递在女飞官微湿的肩头，紧紧握住女飞官双手以体温抚慰。",
+    "likes": [
+     "彼此掌心交叠时的沉稳踏实",
+     "同声发力突破难关时的心意共鸣"
+    ],
+    "preconditions": [
+     "全员脱困安全无虞",
+     "球舱平压开启"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "测控基地的环控总师",
+   "schedule": [
+    {
+     "from": 1250,
+     "location_id": "loc_flight_simulator_cabin",
+     "to": 1255
+    },
+    {
+     "from": 1255,
+     "location_id": "loc_simulator_relief_valve_nook",
+     "to": 1285
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌虎口在剧烈金属反冲下产生剧烈震颤与轻度淤血。",
+      "option": "借硬质合金测角规折沿作为刚性力臂，双手叠合以全身重量下压扳动偏心销脱扣自救。"
+     },
+     {
+      "cost": "复合材料球舱蒙皮厚达数公分，徒劳消耗最后体力并加速窒息。",
+      "option": "用工具砸击仪表台试图砸穿舱壁金属蒙皮。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开偏心阀，否则内外压差将彻底锁死逃生通道。",
+    "trigger": "超音速模拟过载致使密封气锁抱死，偏心泄压阀死卡，舱内温度飙升缺氧严重。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "少校的抗荷服都湿透了，还在嘴硬……别看了，看压力表。这一舱的空气是我管的，我得把人完整地带出去。",
+    "surface": "少校先别动，舱压我盯着！测角规插进泄压阀暗槽，逆时针，我数三下一起转。"
+   }
+  },
+  {
+   "adult_context": "二十二岁的工程师，具备大型公建特种设备应急抢险资质，冷静机敏。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深蓝连体防静电工装配工装靴，身姿矫健动作敏捷，目光从容镇定。",
+    "手持防爆强光手电，拉链半开露出坚实锁骨，在急迫险情下有条不紊精准指挥。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目冒险",
+     "违规操作"
+    ],
+    "contrast": "现代工程青年与傲娇空天女飞官在高温死角的硬核协作。",
+    "core_value": "任何机械自锁都有杠杆解法，力矩找对，千斤顶也不及合理支点。",
+    "goal_options": [
+     "利用测角规精准下压偏心泄压阀",
+     "协同顶起抱死锁扣安全脱困"
+    ],
+    "never": [
+     "在风险未清前让女飞官以身犯险"
+    ],
+    "prefers": [
+     "严谨精准的技术推演",
+     "临危不乱的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "毫不动摇维持发力姿势直至听见偏心销脱开的清脆回弹声。",
+     "high": "在极限死角内以身躯挡住女飞官防止晃动撞击，合力下按测角规。",
+     "low": "迅速判断密封抱死死点位于下部偏心销，明确逆向旋松方案。",
+     "mid": "用手电光束为女飞官精准标定测角规插入孔洞的角度与深度。"
+    },
+    "relationship_stance": "恪尽职守又深怀体贴，在危险中给予女飞官无可替代的坚实安全感。",
+    "withdrawal": "协助女飞官撤至安全平层后立即设立警示标识通知中控。"
+   },
+   "gender": "male",
+   "gender_reason": "商业航天地面总装技术主管，精通大跨度测试大厅高空升降平台应急维保。",
+   "id": "civil_aerospace_engineer_shen",
+   "identity": {
+    "authority": "掌控悬空模拟球舱液压姿态与受力点紧急破拆现场最终决断权。",
+    "exposure": "工装服被热汗浸透贴紧胸背，近距离伏卧时散发着阳刚利落的气息。",
+    "hidden": "熟悉总装大厅高空防坠安全网手动挂扣位置",
+    "limits": [
+     "悬空十米高空导致外部人员登高耗时长",
+     "必须依靠现有便携器材自救"
+    ],
+    "obligations": [
+     "排查消除球舱液压失稳倾覆风险",
+     "安全护送女飞官脱离死角绝境"
+    ],
+    "resources": [
+     "防爆工业强光手电",
+     "防爆特种数显力矩扳手头",
+     "加厚橡胶防滑手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女飞官在危机中对力学原理解释的敏锐领悟与毫无迟疑的信赖配合",
+     "彼此贴身协作中女飞官身上淡淡馨香与急促呼吸形成的反差冲击"
+    ],
+    "boundaries": [
+     "严守专业工程师职业操守",
+     "规矩分明"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "并肩伏卧于死角狭缝，单手撑地保持避险空隙，另一手与女飞官紧握测角规全力压制。",
+    "dislikes": [
+     "违规蛮干",
+     "自暴自弃"
+    ],
+    "expression": "护送女飞官至安全区域后，微笑着递上干燥纸巾，目光温和坚定。",
+    "likes": [
+     "默契的眼神确认",
+     "手把手校准器械时的体温传递"
+    ],
+    "preconditions": [
+     "完全排除座舱过热爆炸风险",
+     "人员无伤撤离"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "地面总装特种设备技术员",
+   "schedule": [
+    {
+     "from": 1250,
+     "location_id": "loc_flight_simulator_cabin",
+     "to": 1255
+    },
+    {
+     "from": 1255,
+     "location_id": "loc_simulator_relief_valve_nook",
+     "to": 1285
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "测角规产生微小磨损，施力人员手臂承受剧烈肌肉酸胀。",
+      "option": "以测角规反撬偏心阀并借力矩压平自锁连杆，顺势松开气密门自救。"
+     },
+     {
+      "cost": "十米悬空跳跃非死即残，属于极度危险的绝路盲动。",
+      "option": "强行扒开舱门试图直接向外跳向十米半空地面。"
+     }
+    ],
+    "pressure": "升温持续逼近抗荷服材料极限，必须在结构损伤前手动松开偏心阀门自救。",
+    "trigger": "超音速模拟造成座舱过热抱死，偏心泄压阀卡死，球舱悬空十米半空。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要合金测角规不打滑，这个反力矩完全足够克服胶条阻尼……女飞官，抓紧我！",
+    "surface": "女飞官，阀芯就在暗孔内侧五公分！测角规刚好能卡进六角槽，听我数三二一，我们一起下压！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的主管，体格健硕神情沉毅，熟悉全部商业航天试验规程。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深色工作T恤配耐磨工装长裤，双臂青筋隆起，神情沉静坚毅，眼神深邃可靠。",
+    "佩戴战术腰带与对讲机，在高温震颤的模拟球舱死角内从容沉着指挥脱困自救。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿扯皮",
+     "投机取巧"
+    ],
+    "contrast": "深沉强悍的机械总师与傲娇英气的空天女飞官，在机械死线前形成的强烈反差张力。",
+    "core_value": "飞行器的每一处结构都算过力，找准反支点，再死的卡扣也能松开。",
+    "goal_options": [
+     "利用测角规组装复合撬杠",
+     "合力扳动卡死的偏心泄压阀"
+    ],
+    "never": [
+     "在重门未开前抛下同伴"
+    ],
+    "prefers": [
+     "硬桥硬马的扎实手艺",
+     "毫无保留的生死协作"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将偏心销反向顶脱位。",
+     "high": "双手死死握住杠杆最外端，以千钧背肌全力向下猛按到底。",
+     "low": "冷静扫视死角结构，瞬间锁定受力最集中的偏心孔槽。",
+     "mid": "护住女飞官身躯，指导其将测角规紧紧卡入受力暗槽。"
+    },
+    "relationship_stance": "视女飞官为值得誓死守护的英武女子，危难中建立生死莫逆的赤诚信任。",
+    "withdrawal": "确认球舱平压女飞官脱困后，单臂护送女飞官安全撤至干燥控制台。"
+   },
+   "gender": "male",
+   "gender_reason": "特种航天机械总工艺师，对全动模拟器液压平衡与气动机械锁死拆解经验极深。",
+   "id": "master_mechanic_shen",
+   "identity": {
+    "authority": "掌控座舱气锁受力结构现场破拆与排障最高处置指挥权。",
+    "exposure": "黑色T恤被汗水湿透勾勒出雄健背脊，散发着沉稳刚烈的阳刚气概。",
+    "hidden": "掌握总装大厅地下消防主管道手动泄水闸确切位置",
+    "limits": [
+     "高温密闭切断外部机械援助通道",
+     "必须依靠现有便携器材完成力矩反推"
+    ],
+    "obligations": [
+     "保护同机飞官女飞官人身安全",
+     "确保球舱平稳释放气动自锁"
+    ],
+    "resources": [
+     "特种钨钼合金加力套筒接头",
+     "高强度应急手电",
+     "防割手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女飞官在高温绝境中不失沉静果决的坚韧魄力",
+     "贴身施力时女飞官温润如玉的身段与柔韧坚毅的发力姿态"
+    ],
+    "boundaries": [
+     "严守专业分寸",
+     "严守自愿安全原则"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "单臂护在女飞官身前构成安全空隙，另一手与女飞官共同紧握测角规全力下压。",
+    "dislikes": [
+     "轻浮傲慢",
+     "无端猜忌"
+    ],
+    "expression": "脱险后退后半步递上纸巾，沉声道一句‘女飞官受惊了，总师在，没事了’。",
+    "likes": [
+     "彼此心照不宣的眼神对碰",
+     "合力突破死锁瞬间的畅快淋漓"
+    ],
+    "preconditions": [
+     "偏心阀彻底松脱人员出险",
+     "球舱平稳降温"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "特种航天机械综合总工",
+   "schedule": [
+    {
+     "from": 1250,
+     "location_id": "loc_flight_simulator_cabin",
+     "to": 1255
+    },
+    {
+     "from": 1255,
+     "location_id": "loc_simulator_relief_valve_nook",
+     "to": 1285
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手臂与手掌肌肉极度酸痛，工具把手产生微量金属疲劳应力。",
+      "option": "以硬质合金测角规组装复合支点，合力向下猛压撬出偏心销脱扣自救。"
+     },
+     {
+      "cost": "耐压舱体自重极大极易造成肩关节脱臼骨折，成功率几乎为零。",
+      "option": "强行以身体肩膀向上托举座舱顶盖试图撑开缝隙。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开暗槽死锁，否则座舱持续升温将引燃内部线缆。",
+    "trigger": "模拟器过载导致气锁热膨胀抱死，偏心阀死死咬死，高温险情迫在眉睫。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "女飞官的身子全靠着我……这股淡雅发香直往鼻尖里钻。拼了这条命，也绝不让阀门出意外！",
+    "surface": "女飞官莫慌！这阀体吃的是偏心阻滞！测角规咬准了槽口，我们合力管保将卡死处顶松！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "十一月的一个周四，晴",
+  "minute": 1250
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "death",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "商业航天超高音速领航员随身配备硬质钨钴合金高精度航图测角分度规。",
+  "六自由度飞行模拟球舱座舱侧壁配有应急手动气压平衡双向偏心螺栓插口。",
+  "航天环控工程师巡查全动座舱随身携带阻燃防割耐磨战术手套与测温仪。",
+  "抗荷服配有下肢高压充气囊带与高强度合金快速脱开锁扣用于维持血液循环。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用丝绒布细致擦拭钨钴合金测角规直角硬刃表面油污",
+    "检查直角规分度刻线与防滑圆孔边缘有无微小毛刺",
+    "使用高精度测微仪校核测角规厚度与抗扭刚性指标"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_gauge_calibration_check",
+   "location_ids": [
+    "loc_flight_simulator_cabin"
+   ],
+   "start_minute": 1250,
+   "tags": [
+    "workplace"
+   ],
+   "title": "晨间硬质合金航图测角分度规校验"
+  },
+  {
+   "beats": [
+    "清理泄压阀内六角槽孔边缘残留的润滑油脂与粉尘",
+    "察看偏心轴销限位卡簧弹性阻尼与回位行程指标",
+    "确认阀体金属防护盖板锁扣开闭顺畅无卡滞"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_pod_relief_valve_routine_check",
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "start_minute": 1255,
+   "tags": [
+    "workplace"
+   ],
+   "title": "模拟球舱侧壁手动泄压阀密封巡检"
+  },
+  {
+   "beats": [
+    "察看高压纯氧减压阀输出端压力表指针稳压区间",
+    "检查氧气面罩快速接头单向活门密封状态",
+    "手动测试应急排气阀微动开关电信号响应灵敏度"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_life_support_oxygen_test",
+   "location_ids": [
+    "loc_flight_simulator_cabin"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "workplace"
+   ],
+   "title": "座舱高压应急供氧回路气密性巡测"
+  },
+  {
+   "beats": [
+    "检查六自由度液压支柱高压油管表面有无渗油龟裂",
+    "使用探照手电察看高空防坠安全钩锁定状态",
+    "核验地面主液压泵站电控截止阀紧急切断动作"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_assembly_hall_crane_patrol",
+   "location_ids": [
+    "loc_aerospace_assembly_hall_floor"
+   ],
+   "start_minute": 1265,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "总装大厅高空升降平台应急导轨巡查"
+  },
+  {
+   "beats": [
+    "上午九点，女飞官钻进模拟舱做每周例行的对接训练，舱外的屏幕跟着亮起来。",
+    "测控台的人在耳机里报数据，女飞官一边操纵一边回报，声音平稳得像在聊天。",
+    "训练结束，女飞官从舱里爬出来，摘下头盔甩了甩汗湿的头发：再来一遍。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "hk_atrium_air_pressure_drop",
+    "hk_countdown_reading_rush",
+    "hk_end_relief_praise"
+   ],
+   "id": "act_pod_blackout_evac_drill",
+   "location_ids": [
+    "loc_flight_simulator_cabin"
+   ],
+   "start_minute": 540,
+   "tags": [
+    "workplace"
+   ],
+   "title": "模拟舱里的例行训练"
+  },
+  {
+   "beats": [
+    "女飞官亲自核验领航平显系统关机与数据备份",
+    "拉下模拟舱高压主断路器机械隔离手柄",
+    "确认六自由度平台机械防下沉安全插销就位挂锁"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_dusk_pod_main_switch_log",
+   "location_ids": [
+    "loc_flight_simulator_cabin"
+   ],
+   "start_minute": 1275,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "日暮全动模拟器主电源归零锁定"
+  },
+  {
+   "beats": [
+    "泄压阀转开、舱压回零、气锁终于松脱之后，球舱慢慢冷却下来，女飞官瘫在座椅上，抗荷服被汗浸透，额前的碎发一绺绺贴在脸上。",
+    "舱里只剩一盏蓝色的应急灯，女飞官没让人走，抬起下巴示意领口：卡住了。对方替女飞官一点点拉开抗荷服的拉链，拿毛巾擦去锁骨上的汗，女飞官别过脸，耳朵红得发烫。",
+    "女飞官忽然抓住那只手，按在自己还跳得飞快的心口：听见了吧？跟过载没关系……这回，是你害的。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_cooled_pod_g_suit",
+   "location_ids": [
+    "loc_flight_simulator_cabin"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "冷却下来的模拟舱里替女飞官解开抗荷服"
+  },
+  {
+   "beats": [
+    "宿舍里，女飞官穿着宽大的飞行员T恤坐在床上，捧着一杯速溶咖啡，盯着墙上一排满分成绩单。",
+    "女飞官别过脸：三次满分，没一个人夸我。……你夸一句，说得好听的话，我就让你坐过来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_coffee_scores",
+   "location_ids": [
+    "loc_pilot_base_quarters"
+   ],
+   "start_minute": 1230,
+   "tags": [
+    "intimate"
+   ],
+   "title": "满分成绩单与咖啡"
+  },
+  {
+   "beats": [
+    "女飞官把自己的飞行头盔扣到人头上，跨坐在床沿，隔着面罩敲了敲，笑得像赢了一场比赛。",
+    "女飞官说：现在你是我的僚机。……僚机要听长机的，但这一次，你说想要，我才俯冲。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_helmet_on",
+   "location_ids": [
+    "loc_pilot_base_quarters"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "替人戴上飞行头盔"
+  },
+  {
+   "beats": [
+    "清晨，女飞官裹着被子靠在窗边，看总装大厅换班的人进进出出，回头把冰凉的脚伸到人腿上。",
+    "女飞官傲娇地说：今天模拟舱检修，我不用飞。……那你也别去上班，陪我。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_hangar_dawn",
+   "location_ids": [
+    "loc_pilot_base_quarters"
+   ],
+   "start_minute": 440,
+   "tags": [
+    "intimate"
+   ],
+   "title": "总装大厅的清晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代近未来商业航天超高音速测控基地",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_rainstorm_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_flight_simulator_cabin"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{pilot_gu_tianjiao.name}按住胸口急促起伏的修身抗荷服，面颊在仪表红光下冷汗涔涔，毅然从领航图板抽出一柄特制钨钴合金航图测角规直指死角泄压阀。"
+  },
+  {
+   "id": "hk_countdown_reading_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_flight_simulator_cabin"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{pilot_gu_tianjiao.name}听到座舱低压警报尖锐啸叫，在滚烫急喘中咬紧银牙侧身跪倒在三十五公分死角直面咬死的气密阀。"
+  },
+  {
+   "id": "hk_bookshelf_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "slot": "life_support_lead_shen",
+   "text": "{life_support_lead_shen.name}双膝跪地紧贴冰冷地板，以坚实身躯硬生生护住身前女飞官免受悬空倾斜晃动撞击，大声提醒女飞官对准偏心泄压阀内六角槽孔！"
+  },
+  {
+   "id": "hk_rail_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "slot": "life_support_lead_shen",
+   "text": "{life_support_lead_shen.name}反手抽出战术手电垫入阀体底层，用粗糙手掌牢牢护住测角规直角硬刃末端防止滑动，大声喝道就是这个偏心自锁轴销！"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{pilot_gu_tianjiao.name}整个人伏在总师怀前，面庞几乎贴上总师颈项，滚烫娇喘混合着淡雅馨香在狭小检修孔旁猛烈交融。"
+  },
+  {
+   "id": "hk_dress_sweat_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{pilot_gu_tianjiao.name}单薄抗荷服被热汗浸得半透紧贴背脊曲线，双手毅然越过总师手臂重叠紧握测角规把手，合力向下一寸寸猛压！"
+  },
+  {
+   "id": "hk_brass_paperweight_flange_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{pilot_gu_tianjiao.name}以空天女飞官的绝对果决，将高纯度钨钴硬质合金打造的坚硬测角规，精准别入偏心泄压阀暗孔内六角的自锁死点。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "slot": "life_support_lead_shen",
+   "text": "{life_support_lead_shen.name}将随身防滑手套猛然卡入门框受力边缘，单臂如铜浇铁铸般撑开避险空隙，大吼道支点已成，女飞官尽管用力下压！"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{pilot_gu_tianjiao.name}亲手解下随身阻燃防静电领巾，紧紧缠绕在两人满是冷汗的手背与测角规柄部，将两人的手臂力量彻底刚性绞合为一体！"
+  },
+  {
+   "id": "hk_simulator_overheat_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{pilot_gu_tianjiao.name}凝视控制台飙升的极端温度示数，面颊泛起不容动摇的绝决，誓死要在死角中同总师一起冲出重围！"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_flight_simulator_cabin"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{pilot_gu_tianjiao.name}察觉座舱蓄电池蜂鸣声愈发凄厉，断然喊道电量要耗尽了，立刻随我全员趴下进行杠杆最终突压！"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "slot": "life_support_lead_shen",
+   "text": "{life_support_lead_shen.name}与女飞官齐声发力，后背肌肉如山丘般隆起，将整整两百斤体重与臂力完全倾注于挥动的测角规末端！"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{pilot_gu_tianjiao.name}手心感受到清脆至极的机械巨震，偏心轴销硬生生被测角规扳转到位，高压气流伴随震耳欲聋的喷气声骤然回退释压！"
+  },
+  {
+   "id": "hk_vault_escape_roll_fresh_air",
+   "kind": "approach",
+   "location_ids": [
+    "loc_flight_simulator_cabin"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{pilot_gu_tianjiao.name}顺势推开主气锁门扇，被总师单臂揽住纤腰抱出舱口，两人迎着总装大厅的清凉空气大口喘息，绝境脱困成功！"
+  },
+  {
+   "id": "hk_end_relief_praise",
+   "kind": "approach",
+   "location_ids": [
+    "loc_flight_simulator_cabin"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{pilot_gu_tianjiao.name}靠在登高车护栏旁微微喘息，面颊带着劫后余生的嫣红，侧过脸轻声对身侧总师道多亏总师勇敢护着我。"
+  },
+  {
+   "id": "hook_tianjiao_coffee",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{npc.name}把一杯速溶咖啡重重放在人桌上，抱起胳膊：别误会，是买一送一。喝完了陪我去跑一遍黑障。"
+  },
+  {
+   "id": "hook_tianjiao_fathers_gauge",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{npc.name}把一枚磨得发亮的测角规放在桌上，指尖点了点：我爸留下的，跟着飞了三十年。除了我，你是第一个碰这枚测角规的人。"
+  },
+  {
+   "id": "hook_tianjiao_hangar_roof",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{npc.name}坐在机库顶上，冲下面的人招手：上来。今晚没云，能看见空间站过境——就四分钟，错过了别怪我。"
+  },
+  {
+   "id": "hook_tianjiao_zipper",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{npc.name}背对着人，抗荷服的拉链拉到一半就卡住了，头也不回：还愣着？过来帮我拉一下。看什么看。"
+  },
+  {
+   "id": "hook_shen_oxygen_curve",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "life_support_lead_shen",
+   "text": "{npc.name}把一张打印出来的供氧曲线推过来，上面全是红笔圈：少校嫌上一版太闷，我改了七遍。你帮我看看，这回能不能过。"
+  },
+  {
+   "id": "hook_shen_ration",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "life_support_lead_shen",
+   "text": "{npc.name}把两份航天营养餐放进微波炉，回头说：少校又没吃晚饭。你帮我送进去，我送进去少校不吃。"
+  },
+  {
+   "id": "hook_tianjiao_quarters_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pilot_base_quarters"
+   ],
+   "slot": "pilot_gu_tianjiao",
+   "text": "{npc.name}在宿舍门口把飞行头盔往人怀里一塞：今天又是满分。……进来，夸我。"
+  }
+ ],
+ "id": "aerospace_simulator_pod_gauge_release",
+ "locations": [
+  {
+   "affordances": [
+    "紧贴仪表控制台稳固两人重心维持施力体态",
+    "从领航图板卡槽抽出特制硬质合金航图测角规",
+    "合力跪伏在侧壁检修位察看主气锁密封摇臂状态"
+   ],
+   "detail": "悬挂在十米高空的双人碳纤维高压密封球形座舱，四周布满环形高亮度平显仪表与全景视景弧面。因超高音速再入模拟摩擦生热与电磁过载，座舱内部温度已飙升至四十五度，红光警报与低压警报交织狂响。",
+   "exits": [
+    "loc_simulator_relief_valve_nook",
+    "loc_aerospace_assembly_hall_floor"
+   ],
+   "id": "loc_flight_simulator_cabin",
+   "name": "模拟球舱",
+   "pressure_modifiers": {
+    "p_cabin_overheat_hypoxia_surge": "座舱温度飙升且环控失效，氧气分压急剧暴跌，闷热窒息感疯狂侵袭人体神经。",
+    "p_pneumatic_lock_thermal_expansion_jam": "特种三元乙丙密封胶条因摩擦高热膨胀变形抱死，主门摇臂咬死在偏心锁止槽内无法电动弹开。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "应急红色荧光与仪表暗光将狭小座舱染成赤红，近身能看清彼此面庞上滑落的细腻汗珠、急促起伏的抗荷服胸甲。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "将硬质合金航图测角规直角折沿切入偏心泄压阀内六角槽孔",
+    "双手重叠握住测角规长边以门框钢圈为支点全力向下猛按扳转阀芯",
+    "在气压骤然喷涌释压瞬间顺势合力推开主锁闭摇臂自救"
+   ],
+   "detail": "位于主出入气闸门框左下方的逼仄检修死角，空间不足三十五公分见方。内嵌一个直径四公分的不锈钢手动偏心泄压阀芯，侧面带有特制内六角长孔，被高温熔胀的密封胶边缘死死顶住。",
+   "exits": [
+    "loc_flight_simulator_cabin"
+   ],
+   "id": "loc_simulator_relief_valve_nook",
+   "name": "泄压阀死角",
+   "pressure_modifiers": {
+    "p_close_contact_body_heat_tension": "在三十五公分逼仄死角内两人身体彻底贴伏，女飞官急促滚烫的吐息拂过颈侧，湿透抗荷服传递着惊人的异性体温。",
+    "p_pneumatic_lock_thermal_expansion_jam": "内外压差持续累积导致偏心销咬合摩擦力倍增，杠杆反扭阻尼逼近极限。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "强光手电窄光束直射在布满反光耐高温涂层的阀体上，能清晰辨认偏心销受压变形痕迹。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "通过外置无线应急回路向舱内发送机械解锁参数指令",
+    "手动切断球舱外部液压泵源高压供油防止误动作摆动",
+    "调派高空登高作业车携带加压破拆管组向球舱靠拢"
+   ],
+   "detail": "挑高十五米的开阔现代化航天总装大厅，地面整齐排列着测试工装与供气管路。六自由度全动液压平台正将模拟球舱托举在十米半空，值班技术员正通过地面终端焦急呼叫舱内人员。",
+   "exits": [
+    "loc_flight_simulator_cabin",
+    "loc_pilot_base_quarters"
+   ],
+   "id": "loc_aerospace_assembly_hall_floor",
+   "name": "总装大厅",
+   "pressure_modifiers": {
+    "p_cabin_overheat_hypoxia_surge": "登高车升起需要八分钟，外部救援速度无法赶在舱内人员窒息前完成开启。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "数十盏高杆LED工矿灯照亮开阔地面，大屏幕上显示着球舱内部急剧攀升的温湿度曲线。",
+   "witnesses": [
+    "bg_command_chief_director_zhao",
+    "bg_telemetry_operator_master_qian",
+    "bg_security_officer_sun"
+   ]
+  },
+  {
+   "affordances": [
+    "陪女飞官喝一杯速溶咖啡",
+    "替女飞官拉开抗荷服的拉链",
+    "锁上宿舍的门"
+   ],
+   "detail": "测控基地宿舍楼顶层的一间单人宿舍，一张单人床、一只挂着飞行头盔的衣帽架、墙上贴满黑障模拟的满分成绩单。",
+   "exits": [
+    "loc_aerospace_assembly_hall_floor"
+   ],
+   "id": "loc_pilot_base_quarters",
+   "name": "女飞官的基地宿舍",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "窗外是总装大厅彻夜不灭的灯，屋里只开一盏床头灯，门一锁，模拟舱的轰鸣就只剩一点点。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "顾",
+   "沈",
+   "周",
+   "陆",
+   "秦",
+   "江",
+   "林",
+   "苏",
+   "萧",
+   "白",
+   "宋",
+   "何",
+   "叶",
+   "方"
+  ],
+  "given_female": [
+   "天骄",
+   "若冰",
+   "语晨",
+   "凌霜",
+   "清雅",
+   "诗涵",
+   "晓雨",
+   "宛婷",
+   "静芸",
+   "思凝",
+   "心悦",
+   "芷萱",
+   "若薇",
+   "文汐"
+  ],
+  "given_male": [
+   "星河",
+   "浩宇",
+   "泽远",
+   "子轩",
+   "天明",
+   "睿达",
+   "思源",
+   "博文",
+   "俊杰",
+   "宏毅",
+   "志高",
+   "承泽",
+   "修远",
+   "景行"
+  ],
+  "given_neutral": [
+   "骄",
+   "河",
+   "辰",
+   "澈",
+   "寒",
+   "渊",
+   "舟",
+   "微",
+   "远",
+   "岚",
+   "非",
+   "宁",
+   "羽",
+   "清"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留商业航天测控中心黑障模拟过载、全动球舱气锁高温抱死与傲娇女飞官用硬质合金航图测角规旋转泄压阀的骨架。同一批有六个同模板的世界，与合租公寓、爱豆演播厅拉开：这里写成斗嘴两年的欢喜冤家——满分了还不肯签字收工的考核、买一送一的速溶咖啡、父亲飞了三十年的测角规、机库顶上看空间站过境、被改了七遍的供氧曲线，搭档写成环控总师。写死的人名改为身份称呼；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；女飞官亲密前提写明脱困之后、双方清醒自愿；新增一个冷却下来的模拟舱里替女飞官解开抗荷服的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的特种飞行器环境控制总设计师，精通空天座舱气密锁死与热力学膨胀自救，冷静刚毅。",
+   "gender": "male",
+   "id": "pi_life_support_engineer_shen",
+   "reputation": "多次处置载人模拟飞行极端气压卡阻险情，经验丰富，深得女飞官尊重与信赖。",
+   "resources": [
+    "一把航空级硬质合金航图测角规（高硬度钨钴合金材质，厚度四毫米直角结构具备极高抗扭强度）",
+    "一具高亮度防爆LED强光探照手电",
+    "一副加厚耐磨全指防滑防割阻燃航空手套"
+   ],
+   "risks": [
+    "若不能在座舱氧气浓度降至临界前开启泄压阀，高温缺氧将在十分钟内引发脑水肿昏迷。"
+   ],
+   "role": "商业航天生命保障与环控青年总师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}总师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的机械工程青年骨干，熟悉球舱气动密封锁闭摇臂自锁传动机构与偏心回退轨迹。",
+   "gender": "male",
+   "id": "pi_aerospace_mechanic_shen",
+   "reputation": "对模拟器液压与机械咬合结构了如指掌，遇事沉着果决。",
+   "resources": [
+    "全套模拟球舱机械传动三维结构图谱终端",
+    "一支精密不锈钢多功能笔型螺丝撬棒",
+    "高等级阻燃防静电连体飞行工作服"
+   ],
+   "risks": [
+    "六自由度液压支架失压晃动可能拉裂外部供电电缆导致全面断电。"
+   ],
+   "role": "六自由度液压平台总装测试主管",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}主管"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工程师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的试飞指挥技术掌舵人，统揽航天模拟大厅全部试验权限与应急处置决断权。",
+   "gender": "male",
+   "id": "pi_flight_test_director_shen",
+   "reputation": "年轻有为的技术领袖，处置重大航天地面模拟事故沉着从容。",
+   "resources": [
+    "硬质钨钴合金航图测角分度规",
+    "特种机电应急主控无线复位终端",
+    "高等级防割耐低温特种战术手套"
+   ],
+   "risks": [
+    "气压平衡失效可能导致舱门在内外压差下瞬间向外崩飞伤人。"
+   ],
+   "role": "商业航天试飞指挥中心副总指挥",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}指挥"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}指挥"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁青年领航员，具备出色的抗过载体能与高精度机械盲操感知力。",
+   "gender": "male",
+   "id": "pi_flight_cadet_shen",
+   "reputation": "与女飞官在双人空天机组中长期协同，默契极佳。",
+   "resources": [
+    "高强度航空阻燃抗荷服",
+    "高硬度硬质合金测角规",
+    "一副高抓地力耐磨防滑手套"
+   ],
+   "risks": [
+    "单人力量难以克服数百公斤密封胶条摩擦阻尼，必须完美协同发力。"
+   ],
+   "role": "空天飞行协同领航青年试飞员",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}领航员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}试飞员"
+    }
+   ]
+  }
+ ],
+ "premise": "商业航天测控基地的总装大厅里，全动模拟球舱一天要跑二十个小时。傲娇的首席女飞官连着三次在黑障模拟里拿了满分，还是不肯签字收工，非要再跑一遍，环控总师只好陪着守到最后一班。球舱的主气锁去年改过设计，温控回路的报警阈值一直有人说定得太松。",
+ "pressures": [
+  {
+   "choice": "是冒险利用测角规强行撬动泄压阀，还是在高温座舱中等待外部救援登高？",
+   "exits": [
+    {
+     "cost": "测角规刃口受力微磨损，两人手掌手臂受金属高温烫伤。",
+     "option": "两人合力以合金测角规下扳偏心泄压阀旋转轴销自救复位。"
+    },
+    {
+     "cost": "极其被动，外部升梯耗时过长将直接导致窒息死亡。",
+     "option": "伏于地面紧抱座椅被动等待登高车救援。"
+    }
+   ],
+   "far": {
+    "consequence": "受困人员因急性重度缺氧休克心脏骤停，在高温密闭球舱内双双殉职身亡。",
+    "due_days": 1,
+    "trigger": "极度缺氧诱发深度昏迷心脏停跳"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cabin_overheat_hypoxia_surge",
+   "immediate": {
+    "minutes": 2,
+    "text": "闷热窒息的热浪席卷全身，呼吸道如同被灼烧般刺痛，冷汗瞬间浸透衣衫。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_flight_simulator_cabin",
+    "loc_simulator_relief_valve_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "氧气分压跌破安全线，女飞官嘴唇泛起淡紫，视线模糊，知觉逐渐迟钝。"
+   },
+   "objective": "必须在严重缺氧导致昏迷前，用合金测角规撬松偏心泄压阀推开主门自救。",
+   "source": "nature",
+   "start_minute": 1250,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "模拟球舱高温缺氧窒息危机",
+   "trigger": "超音速再入模拟摩擦生热导致舱温飙升至四十五度，氧气浓度剧降，极度闷热引发休克危局。"
+  },
+  {
+   "choice": "是单人使用随身钥匙尝试抠动，还是两人身体紧密相贴合力下压航图测角规？",
+   "exits": [
+    {
+     "cost": "工具把手产生微小塑性形变，施力人员手臂酸麻。",
+     "option": "以手电金属外壳护垫构成刚性防滑支点，叠合双手全力压紧测角规下扳。"
+    },
+    {
+     "cost": "金属敲击反冲破坏铰链暗槽，彻底堵死自救通道。",
+     "option": "用工具盲目敲打咬死的气锁摇臂。"
+    }
+   ],
+   "far": {
+    "consequence": "偏心轴销彻底折断滑丝，球舱成为永久无法开启的高空铁棺。",
+    "due_days": 1,
+    "trigger": "偏心阀芯受压彻底咬死无法回转"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_pneumatic_lock_thermal_expansion_jam",
+   "immediate": {
+    "minutes": 2,
+    "text": "膨胀胶条将门缝死死咬死，偏心阀芯在巨大压差下纹丝不动阻尼极沉。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "座舱内外压差达到三个大气压，阀芯受压变形，手动解锁窗口极速关闭。"
+   },
+   "objective": "在金属完全受热冷焊抱死前，以硬质测角规撬动偏心泄压阀平衡内外压差自救。",
+   "source": "accident",
+   "start_minute": 1250,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "气锁密封胶条热胀变形抱死",
+   "trigger": "特种密封胶条高温受热膨胀变形，主气锁摇臂死死咬入偏心槽，电磁开启回路烧毁抱死。"
+  },
+  {
+   "choice": "是因男女礼法矜持拉开距离导致施力分散，还是坦然贴身相拥爆发出最大协同扭矩？",
+   "exits": [
+    {
+     "cost": "矜持心理防线被彻底打破，两人心灵产生不可磨灭的深厚依恋。",
+     "option": "抛弃一切杂念，女飞官伏于总师胸前双手重叠压紧把手一鼓作气突破自救。"
+    },
+    {
+     "cost": "力矩不足无法撼动偏心轴销，导致自救彻底失败。",
+     "option": "刻意保持距离单手侧向发力。"
+    }
+   ],
+   "far": {
+    "consequence": "测角规滑出暗槽，错过最后泄压自救时间窗导致座舱氧气彻底耗尽。",
+    "due_days": 1,
+    "trigger": "羞怯分心导致发力失衡工具脱落"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_close_contact_body_heat_tension",
+   "immediate": {
+    "minutes": 2,
+    "text": "女飞官单薄抗荷服温热柔润的触感传来，急促滚烫的吐息直接拂在耳侧颈项。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "女飞官的头盔面罩上蒙了一层雾，急促的呼吸和心跳一起撞在耳边。"
+   },
+   "objective": "在极度贴近的肢体接触与异性荷尔蒙冲击下，克制心神专注机械对位发力。",
+   "source": "person",
+   "start_minute": 1250,
+   "tags": [
+    "workplace"
+   ],
+   "title": "座舱死角贴身相依滚烫喘息",
+   "trigger": "两人被迫同时趴在不足三十五公分的死角狭缝，湿透抗荷服与工装紧贴，体温与粗重喘息交叠。"
+  },
+  {
+   "choice": "是关掉应急灯节省微弱电量摸黑操作，还是抓紧最后光亮全力以赴一搏？",
+   "exits": [
+    {
+     "cost": "全力投入泄压无暇顾及自身擦伤，承受巨大紧迫压力。",
+     "option": "争分夺秒就着最后光线扳动测角规旋松偏心泄压阀推开主门自救。"
+    },
+    {
+     "cost": "摸黑盲操极易导致工具脱手，彻底丧失逃生机会。",
+     "option": "被动等待电量耗尽在黑暗中摸索。"
+    }
+   ],
+   "far": {
+    "consequence": "座舱彻底断电陷入黑暗，再也看不清仪表和卡扣的位置。",
+    "due_days": 1,
+    "trigger": "蓄电池彻底耗尽断电陷入死黑"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_flight_simulator_power_drain",
+   "immediate": {
+    "minutes": 2,
+    "text": "仪表暗光剧烈抖动闪烁，控制台显示屏接连黑屏熄灭。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_flight_simulator_cabin",
+    "loc_simulator_relief_valve_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "蓄电池低压警报尖叫不断，微弱光线仅能照亮指尖毫厘。"
+   },
+   "objective": "必须在照明彻底熄灭前完成测角规插入与偏心阀旋松操作。",
+   "source": "nature",
+   "start_minute": 1250,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "模拟球舱应急蓄电池电量枯竭",
+   "trigger": "座舱备用蓄电池因过载电涌电量暴跌，应急红光频繁闪烁，面临陷入绝对黑暗绝境。"
+  },
+  {
+   "choice": "是忍痛咬牙紧扣工具，还是分神活动肢体调整重心？",
+   "exits": [
+    {
+     "cost": "身体摩擦加剧，肌肤泛起大片淤青擦痕。",
+     "option": "女飞官与总师互相用双腿死死卡住彼此脚踝稳固重心合力下压自救。"
+    },
+    {
+     "cost": "偏心阀在气压下再度深陷变形咬死。",
+     "option": "暂停按压后撤舒展肢体。"
+    }
+   ],
+   "far": {
+    "consequence": "测角规被偏心反弹力强行震飞，彻底失去最后开启机会。",
+    "due_days": 1,
+    "trigger": "双腿打滑彻底失去反向支撑力矩"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_sweat_soaked_floor_slip_hazard",
+   "immediate": {
+    "minutes": 2,
+    "text": "光滑碳纤维地面摩擦系数急剧下降，膝盖发力时连连微滑。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_simulator_relief_valve_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "持续静力发力使前臂与腿部肌肉发生剧烈震颤，下踩支撑力濒临极限。"
+   },
+   "objective": "穿着抗荷服在倾斜的座舱里稳住双腿，保持反向杠杆的发力姿势。",
+   "source": "nature",
+   "start_minute": 1250,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "座舱碳纤维地板热汗打滑失稳",
+   "trigger": "剧烈出汗导致碳纤维地板布满黏湿汗渍，两人半跪施力双腿极易打滑脱位。"
+  },
+  {
+   "choice": "是立即加大下压力度一鼓作气扳松测角规，还是等待晃动间歇再行操作？",
+   "exits": [
+    {
+     "cost": "身心极度疲惫，手臂肌肉严重拉伤酸痛。",
+     "option": "两人贴面眼神交汇瞬间爆发全身重量峰值力矩震松偏心轴销自救。"
+    },
+    {
+     "cost": "平台彻底失衡垮塌丧失全部物理生存可能。",
+     "option": "被动等待平台晃动减退。"
+    }
+   ],
+   "far": {
+    "consequence": "球舱从十米高空脱落坠毁地面，舱内人员遭受毁灭性冲击重伤殉难。",
+    "due_days": 1,
+    "trigger": "液压支柱彻底失压侧翻砸地"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hydraulic_platform_pressure_drop",
+   "immediate": {
+    "minutes": 2,
+    "text": "球舱整体向外侧倾斜两度，悬空晃动带来剧烈失重眩晕。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_flight_simulator_cabin"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "液压支柱发出沉重的机械喘息声，倾斜角度缓慢扩大。"
+   },
+   "objective": "在平台彻底失压坠碰安全网前完成泄压，平层开启舱门撤离。",
+   "source": "nature",
+   "start_minute": 1250,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "六自由度液压平台支柱失压微晃",
+   "trigger": "悬空球舱外部液压伺服阀出现微渗，十米半空的球舱产生倾斜微小晃动。"
+  },
+  {
+   "choice": "说出是女飞官自己坚持再跑一遍，还是把加跑算在指挥中心的口头批准上",
+   "exits": [
+    {
+     "cost": "录音里有两个人最后十分钟的喘息和说话",
+     "option": "交出舱内录音"
+    },
+    {
+     "cost": "赵总指挥要女飞官在全中队面前念检讨",
+     "option": "请赵总指挥补签加跑的批准单"
+    }
+   ],
+   "far": {
+    "consequence": "球舱停飞半年，女飞官的首席位置要让出来",
+    "due_days": 7,
+    "trigger": "拒赔函寄到集团"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_tianjiao_coffee",
+    "hook_tianjiao_fathers_gauge",
+    "hook_shen_oxygen_curve",
+    "hook_shen_ration"
+   ],
+   "id": "p_insurer_refuses_claim",
+   "immediate": {
+    "minutes": 10,
+    "text": "理赔员要调当晚的舱内录音"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_aerospace_assembly_hall_floor"
+   ],
+   "near": {
+    "deadline_minutes": 480,
+    "text": "下午四点，理赔员的车开出基地"
+   },
+   "objective": "在理赔员下午离开基地之前，证明那一遍加跑是批准过的",
+   "source": "money",
+   "start_minute": 480,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "拒赔",
+   "trigger": "球舱出事后第二天早上八点，保险公司的理赔员拿着合同站在总装大厅：事故当晚加跑的那一遍模拟不在报备科目里，三千万的维修费一分不赔"
+  }
+ ],
+ "region": "大跨度总装测试大厅悬空六自由度模拟飞行球舱内部",
+ "rules": [
+  {
+   "id": "r_flight_simulator_pod_safety",
+   "text": "全动模拟飞行球舱悬空状态下严禁强行解锁外部液压六自由度支架。"
+  },
+  {
+   "id": "r_pneumatic_seal_manual_relief",
+   "text": "气密主门热胀抱死后只能通过座舱侧壁机械泄压阀旋转偏心轴销释放锁闭压差。"
+  },
+  {
+   "id": "r_hypervelocity_g_force_limit",
+   "text": "过载后座舱升温环境严禁盲目脱除具有阻燃防静电功能的内层抗荷服。"
+  },
+  {
+   "id": "r_adult_mechanical_escape_standard",
+   "text": "绝境脱困依靠纯物理力矩与机械自救，一切互动严守成年自愿与安全防护原则。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "共御过载",
+  "committed": "相守不离",
+  "familiar": "信赖相依",
+  "flirting": "贴身喘息",
+  "intimate": "患难真情",
+  "stranger": "座舱协同",
+  "testing": "生死相托"
+ },
+ "status": "released",
+ "style_hint": "商业航天座舱硬核机械工笔，刻画超高音速模拟过载后的高温缺氧绝境、硬质钨钴合金航图测角规在气密偏心阀暗槽中的剧烈杠杆反扭力矩，傲娇女飞官抗荷服被汗水浸透勾勒身姿的视觉张力，台词干练果决充满默契协同。",
+ "tension_engines": [
+  {
+   "id": "te_cabin_overheat_hypoxia_surge",
+   "text": "座舱温度飙升突破四十五度，氧气浓度断崖式暴跌，极度闷热与窒息双重逼近。"
+  },
+  {
+   "id": "te_pneumatic_lock_expansion_deadlock",
+   "text": "重型气密密封胶条因摩擦高热膨胀变形抱死，偏心泄压阀内外压差阻尼逼近极限。"
+  },
+  {
+   "id": "te_close_contact_body_heat",
+   "text": "在三十五公分逼仄死角两人完全贴伏，湿透抗荷服与工装体温催生极度异性张力。"
+  },
+  {
+   "id": "te_flight_simulator_blackout_rush",
+   "text": "球舱应急电池与备用生保电量急剧耗尽，面临陷入绝对黑暗与永久封闭的高空铁棺死局。"
+  }
+ ],
+ "title": "空天女飞官·商业航天测控中心模拟舱",
+ "tone": [
+  "连跑二十小时的模拟球舱",
+  "不肯签字收工的满分考核",
+  "黑障过载后抱死的气锁",
+  "座舱红光里湿透的抗荷服"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_valve_socket_slot_located",
+   "requires": [
+    "pilot_gu_tianjiao"
+   ],
+   "text": "{pilot_gu_tianjiao.name}借战术手电强光，在漆黑的门框夹缝底层准确定位出咬死偏心泄压阀暗孔内六角的微小受力支点。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_cabin_pressure_groan_alarm",
+   "requires": [
+    "pilot_gu_tianjiao"
+   ],
+   "text": "{pilot_gu_tianjiao.name}听到悬空球舱外壳发出刺耳的二次热胀金属呻吟，平台剧烈晃动，面庞上映出冷峻决意。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_rubber_glove_chock_safety",
+   "requires": [
+    "life_support_lead_shen"
+   ],
+   "text": "{life_support_lead_shen.name}从口袋抽出防滑加厚手套，死死垫在门框边缘下方，彻底构筑起刚性防挤压安全作业间隙。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_satin_scarf_bind_tight",
+   "requires": [
+    "pilot_gu_tianjiao",
+    "life_support_lead_shen"
+   ],
+   "text": "{pilot_gu_tianjiao.name}解下随身阻燃领巾，由{life_support_lead_shen.name}迅速将测角规把手与手背紧密捆扎，消除了手汗打滑隐患。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_hypoxia_alarm_final_minute_rush",
+   "requires": [
+    "pilot_gu_tianjiao"
+   ],
+   "text": "座舱氧气分压表发出最后微弱的失氧长鸣，仪表灯光即将熄灭，生死死线已逼近绝对生理极限。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_close_body_tight_bind_leverage",
+   "requires": [
+    "pilot_gu_tianjiao",
+    "life_support_lead_shen"
+   ],
+   "text": "{life_support_lead_shen.name}在座舱死角紧紧护住{pilot_gu_tianjiao.name}，两人滚烫手指紧握硬质合金规，急促滚烫的吐息与心跳在幽暗中彻底交叠。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_carbide_gauge_release_success",
+   "requires": [
+    "pilot_gu_tianjiao"
+   ],
+   "text": "伴随一声清脆金属断扣声，硬质合金测角规成功扳转偏心泄压阀，高压气锁瞬间回退释压，两人合力推开主门顺利脱险自救。"
+  }
+ ]
+}

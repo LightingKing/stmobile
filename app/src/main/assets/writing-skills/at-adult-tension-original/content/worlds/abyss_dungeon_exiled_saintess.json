@@ -1,0 +1,2064 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "在深渊矿井守了十几年的成年巡井人",
+   "age_range": [
+    35,
+    45
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_gareth_miner_guard",
+   "line": "加雷斯双目圆睁紧攥绞盘制动杆，时刻盯着吊索断口一点点被拉长。",
+   "location_ids": [
+    "loc_abyss_chasm_bridge"
+   ],
+   "name": "加雷斯",
+   "role": "竖井站台安全长"
+  },
+  {
+   "adult_context": "跟随治疗修女下矿的成年见习修女",
+   "age_range": [
+    22,
+    28
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_clara_acolyte_healer",
+   "line": "克拉拉捧着感应水晶板核对圣女的圣气读数，神色肃穆地备好了药匣。",
+   "location_ids": [
+    "loc_saintess_refuge_grotto"
+   ],
+   "name": "克拉拉",
+   "role": "随行修女侍从"
+  },
+  {
+   "adult_context": "矮人氏族里干了二十多年的成年锻铁匠",
+   "age_range": [
+    40,
+    50
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_gaston_winch_operator",
+   "line": "加斯顿抡着扳手守在泄压阀前，扯着嗓子朝悬桥喊管线又在回弹。",
+   "location_ids": [
+    "loc_cavern_pump_station"
+   ],
+   "name": "加斯顿",
+   "role": "矿井卷扬机操作手"
+  },
+  {
+   "adult_context": "跟随审判所多年的成年火把手，负责传递警讯。",
+   "age_range": [
+    21,
+    25
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_bruno_torchbearer",
+   "line": "布鲁诺举着火把对着传声海螺吼报毒瘴读秒，火光把石壁映得通红。",
+   "location_ids": [
+    "loc_abyss_suspended_cage"
+   ],
+   "name": "布鲁诺",
+   "role": "审判所先锋火把手"
+  },
+  {
+   "adult_context": "教廷工械兵团的成年测绘兵",
+   "age_range": [
+    30,
+    40
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_hugo_safety_patrol",
+   "line": "雨果用听岩锤一下下敲着断裂的岩梁，压低声音向后方报告裂缝扩大的速度。",
+   "location_ids": [
+    "loc_abyss_chasm_bridge"
+   ],
+   "name": "雨果",
+   "role": "岩层地质勘探员"
+  },
+  {
+   "adult_context": "圣殿驻矿区的成年灭火僧兵",
+   "age_range": [
+    28,
+    35
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_vincent_rescue_leader",
+   "line": "文森特带着四名圣教兵扛来圣水桶与风箱，在石闸外又布下一道驱瘴水幕。",
+   "location_ids": [
+    "loc_saintess_refuge_grotto"
+   ],
+   "name": "文森特",
+   "role": "抢险圣教分队长"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "高贵圣洁女圣女与铁血严苛审判长在神殿戒律与体面名节上的意志交锋与默契配合。",
+   "id": "combo_cecilia_and_victor",
+   "identity_ids": [
+    "identity_miner_dorn",
+    "identity_inquisitor_victor"
+   ],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_cecilia_saintess",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "悬空吊篮内生死相依建立之崇高圣职信赖",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_victor_inquisitor",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "审判庭威严与战地紧急脱险之间的试探与尊长互敬",
+     "stage": "testing"
+    },
+    {
+     "a": "char_cecilia_saintess",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_victor_inquisitor",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "审判长爱惜圣殿明珠，女圣女誓死自卫保持体面之无声较量",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "char_cecilia_saintess",
+    "char_victor_inquisitor"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保圣女完好无损圣威不堕在毒烟弥漫前从容脱出矿井。",
+    "limit_gap": "审判官必须依律追查异端线索，圣女绝不容许在教兵众目睽睽下圣袍破损走光受辱失态。",
+    "meeting_reason": "深渊九十九层魔晶矿区空前塌方遇险现场搜救与查验。",
+    "resource_gap": "审判官执掌深渊竖井断路钥匙，圣女仅凭手头法器实施应急自救。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_dungeon_hoist_jam",
+    "engine_falling_stalactites_danger"
+   ]
+  },
+  {
+   "chemistry": "圣女与近卫女骑士多年相濡以沫之绝对信托与生死默契，女骑士舍命展平大氅筑起无瑕阴影屏障。",
+   "id": "combo_cecilia_and_lucia",
+   "identity_ids": [
+    "identity_saintess_cecilia"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_cecilia_saintess",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "圣殿修行历经生死考验之无间契合与隐私相托",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_lucia_paladin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "近卫护持与遮光防御之忠勇执行与默契协同",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_cecilia_saintess",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "char_lucia_paladin",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "同一年在圣殿受洗，从见习起就形影不离",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "char_cecilia_saintess",
+    "char_lucia_paladin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保两位女官在深渊毒瘴倒数结束前完好撤离吊篮。",
+    "limit_gap": "圣女金丝束带有崩脱撕开风险，女骑士必须在一秒内完成大氅一百八十度遮蔽展开。",
+    "meeting_reason": "地下魔晶矿井巡视前随身法器校准与圣袍防护核查。",
+    "resource_gap": "圣女掌握纯银法杖破拆力矩，女骑士手持双层加厚纯白大氅充当唯一移动视线掩体。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_dungeon_hoist_jam",
+    "engine_dignity_exposure_hazard"
+   ]
+  },
+  {
+   "chemistry": "高贵温柔教廷圣女与质朴矮人重装采矿长在险情破拆中的恪守礼法与刚性援护。",
+   "id": "combo_cecilia_and_dorn",
+   "identity_ids": [
+    "identity_paladin_lucia",
+    "identity_inquisitor_victor"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_cecilia_saintess",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "矮人在下面推绞盘，圣女在上面压卡爪，隔着一层铁板对喊口令",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_dorn_miner",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "老矮人嘴上嫌圣殿的人娇气，手上的活却一点不含糊",
+     "stage": "testing"
+    },
+    {
+     "a": "char_cecilia_saintess",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_dorn_miner",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "高阶女长官对厚重朴实地下匠人之由衷嘉许与安全托付",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_cecilia_saintess",
+    "char_dorn_miner"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "阻止重型吊篮坠入熔岩地脉并彻底解除圣袍咬扣束缚。",
+    "limit_gap": "圣女不许任何男子靠近吊篮三步之内，采矿长只能趴在绞盘底下凭手感干活。",
+    "meeting_reason": "落石砸歪了升降吊篮，采矿长是离得最近的人。",
+    "resource_gap": "圣女拥有精准物理力矩手感，采矿长拥有三十公斤精钢垫铁刚性支撑力道。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_dungeon_hoist_jam",
+    "engine_falling_stalactites_danger"
+   ]
+  },
+  {
+   "chemistry": "受困温柔女圣女与端庄清丽修女长在生理极限与心理防御上的温情抚慰与专业监护。",
+   "id": "combo_cecilia_and_elena",
+   "identity_ids": [
+    "identity_saintess_cecilia",
+    "identity_paladin_lucia",
+    "identity_inquisitor_victor",
+    "identity_miner_dorn"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_cecilia_saintess",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "神术疗愈与主祭威仪之间的默契互补与托付",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_elena_healer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "治疗修女替圣女包扎过每一次苦修留下的伤",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_cecilia_saintess",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_elena_healer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "圣女与修女之间超越生死之真挚同侪情谊",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "char_cecilia_saintess",
+    "char_elena_healer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在瘴气熏倒圣女之前撬开卡爪，裹着圣水斗篷走上石阶。",
+    "limit_gap": "治疗长依规必须检视圣女体征，圣女坚守圣名绝不愿在人前显露狼狈柔弱。",
+    "meeting_reason": "深渊避难石窟前哨站紧急神术生理干预。",
+    "resource_gap": "治疗长备有驱毒圣水与纯白急救大氅，圣女仅凭一口神圣内息强撑神智清明。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_gas_leak_countdown",
+    "engine_dignity_exposure_hazard"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "channel_dungeon_crystals_comms",
+   "reach": "悬空石桥哨所与受困矿井吊篮内侧",
+   "text": "溶洞回音壁在岩层震颤中发出尖锐共振嗡鸣，地下探索频道紧急转入定向光脉冲低频呼叫模式。"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "channel_saintess_spiritual_telemetry",
+   "reach": "整个矿区，一顿饭的工夫传遍，传到第三个人嘴里就走了样",
+   "text": "矿工们在泵房里一边喝麦酒一边传的闲话"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "光辉圣殿在籍二十一岁高等圣女，享有完全法定理化民事决断权柄与绝境避险特许权。",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "淡金微卷长发如瀑披散，碧蓝眼眸清澈温柔，丰满修长身段端庄优雅，白瓷肌肤天然微带莹润的光泽反差惊艳，身穿高定圣女真丝金纹白袍配雪白长裙。",
+    "素雪白丝绸披风迎风微摆，颈项白皙如羊脂美玉，神圣纯银十字护符垂在胸口，周身流转纯净温润之圣洁神光。"
+   ],
+   "decision": {
+    "avoids": [
+     "呼叫外侧粗野矿工动用大铁剪强行剪破雪白神职礼袍",
+     "在悬空吊篮重心未稳前慌乱挣扎诱发钢索彻底滑脱断裂"
+    ],
+    "contrast": "平时温柔仁爱如春风化雨，面临走光绝境时果决冷傲宛若九天极光。",
+    "core_value": "誓死捍卫高阶圣女之圣洁威仪与神圣信仰名节",
+    "goal_options": [
+     "依靠随身法杖硬角精准挑退铁齿卡扣实现体面脱离",
+     "在女骑士圣洁大氅严密遮蔽下从容抽身应对追兵审问"
+    ],
+    "never": [
+     "让审判所的人拿匕首把神袍从身上割开"
+    ],
+    "prefers": [
+     "倒握圣光银杖，用杖底的方托去顶绞盘的卡爪",
+     "要求近卫女骑士及时撑起双层纯白大氅形成绝对阴影盲区"
+    ],
+    "pressure_responses": {
+     "breaking": "若圣袍撕裂走光，宁可释放强光闪烁致盲全场以圣辉光幕封锁全域视线。",
+     "high": "咬住下唇，把银杖方托死死抵进齿隙，低声念着祷词一点点往下压",
+     "low": "面容温润沉静维持祈祷重心，单手试探性摸索卷扬机生铁棘爪咬合咬缝。",
+     "mid": "胸口起伏略显急促但碧眸愈发澄澈，左手紧挽吊篮缆绳右手握紧银杖尖端。"
+    },
+    "relationship_stance": "对近卫女骑士绝对托付背后隐私，对审判所异端追兵严守三米禁入防线。",
+    "withdrawal": "脱险后神情圣洁从容理平衣襟，轻握银杖肃穆端立绝口不提适才狼狈险情。"
+   },
+   "gender": "female",
+   "gender_reason": "教廷圣女一职只由女子承袭",
+   "id": "char_cecilia_saintess",
+   "identity": {
+    "authority": "高阶神圣仪式全权主祭与地下遇险紧急避险处断权柄",
+    "exposure": "雪白真丝神袍若在受困拉扯中崩解撕开，纯情圣女清誉与神殿圣名将当场蒙受灭顶奇耻大辱。",
+    "hidden": "白袍内层金丝束带暗结其实早被铁轮倒齿勾紧，一旦蛮拉前襟布料便会彻底脱扣走光。",
+    "limits": [
+     "吊篮斜成这样，硬扯神袍只会连金丝系带一起扯断"
+    ],
+    "obligations": [
+     "在毒瘴蔓延前排除机械故障护卫随行圣职人员安全脱困"
+    ],
+    "resources": [
+     "神圣法器纯银直角硬棱防滑开槽手杖",
+     "高阶圣女神圣金丝抽带应急解扣银针"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对极端困境下临危不乱展现精湛物理破拆智慧者暗生钦佩",
+     "在火把光里转过身去、替圣女挡住所有目光的人"
+    ],
+    "boundaries": [
+     "落难时伸来的手只是援手，圣女记着恩，不记成情",
+     "神袍的金丝系带，唯有圣女亲口准许才能解"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "主掌全盘大局之圣洁决断位",
+    "dislikes": [
+     "野蛮粗鲁的暴力破拆",
+     "不怀好意之探头窥视"
+    ],
+    "expression": "褪下沾满岩灰的外袍跪坐在石穴里，耳垂还红着：石门合上吧……今夜不是圣女，只是想被人抱一会儿的人。",
+    "likes": [
+     "工艺绝伦之神圣纯银法器",
+     "脱险后有人陪着坐在避难石穴里，替自己把被齿轮咬碎的金丝束带一根根解下"
+    ],
+    "preconditions": [
+     "离开了深渊，头顶重新看得见星空",
+     "不是落难时的依赖，也不是对恩人的报答"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "教廷高阶圣女",
+   "schedule": [
+    {
+     "from": 1370,
+     "location_id": "loc_abyss_suspended_cage",
+     "to": 1400
+    },
+    {
+     "from": 1401,
+     "location_id": "loc_abyss_chasm_bridge",
+     "to": 1430
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "娇嫩手腕被生铁铸件边缘毛刺刮蹭出道道血痕刺痛",
+      "option": "反握纯银杖首将三毫米硬棱探入咬死铁齿施展解剖级微观杠杆推力"
+     },
+     {
+      "cost": "避难大氅外侧被坠落的小块碎石划出微量刮痕",
+      "option": "示意女骑士迅速扬起双层纯白避难大氅遮断深渊下方窥探视线"
+     }
+    ],
+    "pressure": "深渊毒瘴二十秒倒数窒息与圣袍崩裂走光双重绝境",
+    "trigger": "落石砸断吊索八吨升降吊篮倾斜三十度悬空卡死"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "“毒瘴气囊还有二十秒弥漫扩散，若让审判所人员撞见白袍崩解受困之态，圣殿威仪荡然无存……必须亲自撬退这枚卡爪！”",
+    "surface": "“女骑士，切莫惊慌生拉硬拽，生铁齿轮已咬死长袍丝缎，拿稳白氅挡住下方火把长焦！”"
+   }
+  },
+  {
+   "adult_context": "圣殿近卫骑士团在籍二十一岁正规女官，依法享有完全独立自主作战协助权柄，纯情处女。",
+   "age_range": [
+    22,
+    23
+   ],
+   "appearance_options": [
+    "绯红及肩短发英姿勃发，金眸锐利充满忠诚，身穿轻量化秘银胸甲配纯白紧身战袍，身姿英气飒爽。",
+    "铠甲修身线条分明，双手佩戴防割鞣皮战术手套，手持精钢长剑严阵以待护卫长官。"
+   ],
+   "decision": {
+    "avoids": [
+     "惊慌失措大声呼叫引来更多异端审判所探子聚集围观",
+     "在长官运劲关键时刻盲目晃动吊篮受力钢架"
+    ],
+    "contrast": "平日刚强勇毅言辞短促，守护圣女时细腻温柔唯恐长官受丝毫惊扰。",
+    "core_value": "捍卫圣女殿下之无瑕圣洁高于自身性命",
+    "goal_options": [
+     "严密撑展避难大氅构筑密不透风之阴影盲区防线",
+     "向圣女提供准确的三点八牛顿侧向反作用力点支撑"
+    ],
+    "never": [
+     "让审判所的黑袍看见圣女神袍半敞的样子"
+    ],
+    "prefers": [
+     "用双臂死死撑开双层避难大氅遮断飞石与外探火光",
+     "向长官提供三点八牛顿刚性支撑支点以稳定受力平衡"
+    ],
+    "pressure_responses": {
+     "breaking": "若狂风撕破大氅，直接纵身抱住圣女用自身战袍完全遮蔽外探视线。",
+     "high": "奋不顾身用铠甲后背死死顶住倾斜篮框，为长官创造黄金破拆空隙。",
+     "low": "沉着展平大氅两端，单足踏稳倾斜吊篮底架吸震护卫。",
+     "mid": "双手攥紧大氅四角系带，厉声喝退下方企图攀岩靠近之异端黑袍卫士。"
+    },
+    "relationship_stance": "对圣女虔诚追随情同姐妹，对外部审判庭爪牙冷眉相对严加戒备。",
+    "withdrawal": "确认圣女衣装整肃后默默收拢大氅，抚胸行骑士最高效忠军礼。"
+   },
+   "gender": "female",
+   "gender_reason": "圣殿近卫骑士团只收女骑士护卫圣女",
+   "id": "char_lucia_paladin",
+   "identity": {
+    "authority": "近卫圣骑士防御战阵布设与突发险情紧急遮蔽防护权",
+    "exposure": "护卫失职导致圣女殿下在审判所火把照耀下走光，近卫骑士将被剥夺剑印受审。",
+    "hidden": "怀中常备宽幅丝织护胸暗帘，一旦大氅受损便立刻以自身娇躯筑成人肉屏障。",
+    "limits": [
+     "严禁在圣女脱险前擅自跳出吊篮抛弃长官逃生"
+    ],
+    "obligations": [
+     "以骑士誓言守护圣女的性命与清誉"
+    ],
+    "resources": [
+     "高织密纯白厚毛呢防污防寒斗篷",
+     "近卫配剑附带之硬质合金螺纹起子"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "被圣女临危沉静之神圣风姿所折服",
+     "愿终生化作长官手中最锋利之守护圣剑"
+    ],
+    "boundaries": [
+     "圣女惊魂未定时，只握着手，什么都不做",
+     "人前照旧是圣女与骑士"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "圣女身侧最可靠之近卫副手位",
+    "dislikes": [
+     "心怀叵测的虚伪审查",
+     "轻浮无礼的冒犯言行"
+    ],
+    "expression": "解下头盔甩开汗湿的头发，额头抵着圣女的额头：殿下，誓言里没写不许骑士心动吧……就今夜。",
+    "likes": [
+     "保养极佳之锋锐圣剑",
+     "脱险后卸下胸甲靠在石壁上，替圣女揉开发僵的手腕"
+    ],
+    "preconditions": [
+     "毒瘴已经散尽，两人都缓过了神",
+     "两人都确信这份心意早在落难之前就有了"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "近卫女圣骑士",
+   "schedule": [
+    {
+     "from": 1375,
+     "location_id": "loc_abyss_chasm_bridge",
+     "to": 1405
+    },
+    {
+     "from": 1406,
+     "location_id": "loc_cavern_pump_station",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}双手十指被粗糙帆布边缘猛烈磨擦泛起道道血痕",
+      "option": "解下骑士披风，用剑鞘撑开挂在吊篮的铁角上，挡住火把的光"
+     },
+     {
+      "cost": "近卫佩剑剑鞘被钢丝绳刮出深深划痕折损耐久",
+      "option": "探身按压吊篮备用手动平衡配重阀辅助主座减载"
+     }
+    ],
+    "pressure": "强光投射与吊篮钢索崩裂导致悬空篮体重心失稳",
+    "trigger": "圣女后摆卡死且下方审判官手持火把狂奔逼近"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“毒气气囊已经开始弥漫白烟了，圣女殿下的束带扣得太紧，必须赶快配合别退棘爪！”",
+    "surface": "“殿下安心，{npc.name}已用大氅将下方石桥视野尽数封死，请专注下压杖柄！”"
+   }
+  },
+  {
+   "adult_context": "五十六岁异端审判庭特级执法官成年男性高级主教，负责深渊矿井安全巡查与圣职法度，治事极其严苛。",
+   "age_range": [
+    55,
+    58
+   ],
+   "appearance_options": [
+    "银发整齐梳向脑后，鹰隼般目光威严锐利，身穿墨黑刺绣暗红审判长袍配黑曜石印章戒，手握沉重铁铸权杖。",
+    "身形高瘦肃穆，面部轮廓如刀刻斧凿，胸前悬挂审判所纯银天平徽章，脚步沉重踏石而来。"
+   ],
+   "decision": {
+    "avoids": [
+     "批准未经长官首肯之粗暴重斧劈砍吊篮外壳",
+     "毒瘴一起就乱了方寸，丢下掌印官的体面"
+    ],
+    "contrast": "平时盘查言辞冷酷令人生畏，指挥救人时分毫不差极其沉着。",
+    "core_value": "严谨无情之圣殿法统戒律与对古老高洁圣女尊严之深沉敬重",
+    "goal_options": [
+     "通过回音管道向吊篮内部口授齿轮受力回转避险参数",
+     "在控制室扳动备用止逆阀切断主提升机气动绞盘避免拉裂"
+    ],
+    "never": [
+     "宁可放走异端，也不让重斧砍在有人的吊篮上"
+    ],
+    "prefers": [
+     "利用传声铜管精准指导受困人员施展物理卡扣脱钩",
+     "在绞盘中枢强行制动卷筒防止牵引线缆受力崩断"
+    ],
+    "pressure_responses": {
+     "breaking": "若吊篮坠毁，舍身扑上制动绞盘以血肉之躯硬拉备用锁链充当阻尼。",
+     "high": "单手奋力扳倒重型卷扬机释压铸铜阀门，迫使钢索自重拉力下降两成。",
+     "low": "单手提着防风火把仔细辨识断裂吊篮倾斜角度，语调低沉发号施令。",
+     "mid": "厉声喝令身后黑袍卫士尽数背过身去熄灭强光火把，快步走向绞盘。"
+    },
+    "relationship_stance": "严酷法度执行者亦具深沉卫道风骨，以铁血手腕守护年轻圣女之声名。",
+    "withdrawal": "险情排除后背对悬崖默默收拢法袍，严令卫士将适才情状列入最高绝密封存。"
+   },
+   "gender": "male",
+   "gender_reason": "异端审判庭的掌印官历来由男性主教担任",
+   "id": "char_victor_inquisitor",
+   "identity": {
+    "authority": "深渊九十九层全域戒严封锁与应急搜查司法审判全权",
+    "exposure": "若在值班巡查时致使高阶圣女受辱走光或吊篮坠毁，将被解职押送宗教裁判所论罪。",
+    "hidden": "早知卷扬机第三组棘齿受潮容易卡阻，暗藏泄压套筒专备应急撬脱之用。",
+    "limits": [
+     "严禁命令卫士擅自砍断吊索危及高阶圣女生命安全引发大乱"
+    ],
+    "obligations": [
+     "在严重地陷战损态势下确保高阶圣女安好及矿井法度完整"
+    ],
+    "resources": [
+     "深渊竖井总控制台高碳钢断电闭锁阀匙",
+     "提升绞盘备用泄压青铜旋转套管"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对圣女百折不弯之高贵傲骨深怀敬重",
+     "视圣洁神女为教廷延续圣光之真正希望"
+    ],
+    "boundaries": [
+     "严守圣职男女大防，非万不得已严禁擅入未加遮蔽之受困吊篮",
+     "严禁手下卫士私自携带显影晶石靠近受困长官"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "掌控全盘局势之总调度法官位",
+    "dislikes": [
+     "逾矩僭越的轻浮探看",
+     "丢盔弃甲的慌乱失仪"
+    ],
+    "expression": "铁铸权杖顿地沉声喝出卷扬机卡爪最佳右旋撬开倾角",
+    "likes": [
+     "严整如一之教会律法",
+     "看一个被放逐的人，在绝境里仍守着教义"
+    ],
+    "preconditions": [
+     "恪守圣殿伦理与尊长互敬之神圣法统规范",
+     "指挥处置严格依循审判庭遇险救援条例之严密机械章程"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "异端审判掌印官",
+   "schedule": [
+    {
+     "from": 1385,
+     "location_id": "loc_cavern_pump_station",
+     "to": 1415
+    },
+    {
+     "from": 1416,
+     "location_id": "loc_saintess_refuge_grotto",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "卷扬机铸铁齿轮受巨力卡死崩落数枚火星碎屑",
+      "option": "拉下崖壁控制箱主制动杠杆强行闭锁液压卷筒阻止下滑"
+     },
+     {
+      "cost": "{npc.name}严厉呼喝导致喉部受毒烟熏呛沙哑生疼",
+      "option": "向对讲晶石大声报出卷扬机自锁棘爪内部力矩偏转角度"
+     }
+    ],
+    "pressure": "断崖落石如雨倾泻与深渊毒瘴上涌双重危机",
+    "trigger": "卷扬机钢索崩断数股吊篮倾斜警钟长鸣"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“圣女素来纯洁自持，若教兵鲁莽扯破白袍导致走光，神圣信仰荡然无存……必须依仗长官随身银杖脱险！”",
+    "surface": "“悬空吊索承重已近极限，所有审判所随从退至二十米外，{npc.name}在崖顶手动减荷！”"
+   }
+  },
+  {
+   "adult_context": "矮人采掘军团服役三十年、年满四十四岁的特级采矿长",
+   "age_range": [
+    43,
+    46
+   ],
+   "appearance_options": [
+    "络腮胡修剪整齐，身材矮壮结实如铁塔，身穿加厚耐火皮革工装背带裤，双臂青筋虬结孔武有力。",
+    "头戴带有防爆魔晶矿灯之钢盔，肩扛沉重开山撬棍，脚步坚实稳如磐石。"
+   ],
+   "decision": {
+    "avoids": [
+     "任何可能冒犯受困圣女圣洁仪容之鲁莽探视动作",
+     "盲目挥动重锤敲击卷扬机大梁诱发链条滑脱"
+    ],
+    "contrast": "外表粗犷看似笨重，调试矿井卡榫垫片却如钟表匠般精确无误。",
+    "core_value": "恪守工匠信条以血肉之躯构筑矿井脱险之坚实根基",
+    "goal_options": [
+     "在崖壁下方迅速楔入三十公斤精钢止跌垫铁分散剪切力",
+     "背对吊篮入口单手盲操紧固岩壁防滑钢缆锚桩"
+    ],
+    "never": [
+     "绝不违规抬头窥视受困高阶女长官哪怕半眼"
+    ],
+    "prefers": [
+     "及时将止跌垫铁嵌入岩隙以缓解横向撕扯应力",
+     "盲操紧固底部承重锁扣以防止整框发生翻转"
+    ],
+    "pressure_responses": {
+     "breaking": "若岩壁彻底塌方，舍身以钢镐卡死主梁为上方长官争取脱出时间。",
+     "high": "单手死死扣紧岩锚钢缆咬口，身躯充当防倾倒人肉压舱重锤。",
+     "low": "肩扛沉重撬杠步履沉稳前行，稳稳踩准陡峭落石裂隙边缘。",
+     "mid": "双臂发力将三十公斤精钢垫铁狠狠锤入岩缝锁死位移。"
+    },
+    "relationship_stance": "对圣女阁下满怀崇敬严守非礼勿视，以粗豪忠厚赢得全员信赖。",
+    "withdrawal": "稳固锚链后迅速退入矿道背光处垂首肃立，绝不逾越半分规矩。"
+   },
+   "gender": "male",
+   "gender_reason": "矮人采掘军团的工长一职传给氏族男丁",
+   "id": "char_dorn_miner",
+   "identity": {
+    "authority": "地下深渊矿层开采机械作业现场调度与地质支撑权",
+    "exposure": "因操作不当诱发岩层二次坍塌将直接送入深渊苦役营服刑。",
+    "hidden": "曾亲手装配过这台重型卷扬机，知晓银杖底托硬棱插入后只需下压三寸即可脱扣。",
+    "limits": [
+     "严禁在圣女避难遮蔽帘布未展开前擅自抬头张望吊篮内部"
+    ],
+    "obligations": [
+     "遵从审判官指挥为倾斜吊篮下方架设刚性防坠岩锚支撑"
+    ],
+    "resources": [
+     "特制防滑生铁制动卡楔止跌总成",
+     "重型淬火合金开山铁镐原件"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "被圣女高雅端庄却坚韧沉着之气度深深折服",
+     "敬重慈爱平民之高尚品行"
+    ],
+    "boundaries": [
+     "下矿救人时眼睛只盯着绞盘，圣女的事一个字也不往外说",
+     "圣女不开口，矮人就只是个挖矿的"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "深渊底下替圣女撑住吊篮的那块硬骨头",
+    "dislikes": [
+     "华而不实的轻浮言辞",
+     "敷衍疏忽的安全隐患"
+    ],
+    "expression": "背对着石穴门口站得笔直，粗声粗气地说：俺什么也没看见……可圣女阁下要是想喝一口矮人麦酒，俺这儿有。",
+    "likes": [
+     "厚重实在之优质高碳钢件",
+     "收工后在泵房门口并肩坐着，听对方讲矮人地底城的酒歌"
+    ],
+    "preconditions": [
+     "圣女已经安然回到地面，喝上了一口麦酒",
+     "圣女亲口说出来，矮人才肯信"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "重装矮人采矿长",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_saintess_refuge_grotto",
+     "to": 1410
+    },
+    {
+     "from": 1411,
+     "location_id": "loc_abyss_suspended_cage",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}双臂筋肉受剧烈震荡反冲产生剧烈酸胀刺痛",
+      "option": "双手合力将三十公斤精钢防滑垫铁狠狠楔入导槽裂缝阻断位移"
+     },
+     {
+      "cost": "帆布钢扣倒拉擦伤{npc.name}手背留下数条血印",
+      "option": "背向吊篮迅速将厚重粗亚麻帆布挂钩扣在栏杆边缘构筑遮光层"
+     }
+    ],
+    "pressure": "岩层开裂巨响连绵且深渊熔岩热浪灼烤脚踝",
+    "trigger": "吊篮导轨受落石砸弯产生五公分险恶侧倾"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“圣女殿下仁厚宽和，如今长袍受卡，要是让粗汉看了去俺{npc.name}万死难赎，俺只管低头打桩！”",
+    "surface": "“下方防滑精钢垫铁已咬死二号导槽！支撑已稳，圣女阁下尽管发力脱爪！”"
+   }
+  },
+  {
+   "adult_context": "修女医疗会修业期满、年满二十八岁的首席治疗修女，专治深渊瘴气",
+   "age_range": [
+    27,
+    30
+   ],
+   "appearance_options": [
+    "神态温婉知性，秀发挽入深蓝修士头巾，身穿素净修女长袍配白色整洁罩衣，手持驱毒圣水银壶。",
+    "容貌端丽沉静，神职法袍一尘不染，颈系神圣治愈十字护符，碧蓝眼眸流转关切温柔神采。"
+   ],
+   "decision": {
+    "avoids": [
+     "在长官运劲关键瞬间大惊小怪干扰其专注决断",
+     "使用尖锐器械盲目探入吊篮划损神袍丝织布料"
+    ],
+    "contrast": "平时轻言细语柔如春水，面临救治秩序被扰时威严庄重不可侵犯。",
+    "core_value": "护佑圣职人员生命健康尊严与身心完好无损生还",
+    "goal_options": [
+     "隔空传授神圣内息调和法避免圣女因紧张诱发过度喘息",
+     "抱着浸过圣水的亚麻斗篷守在吊篮口，随时接应"
+    ],
+    "never": [
+     "绝不坐视受困人员在毒雾弥漫时强行闭气损伤心肺器官"
+    ],
+    "prefers": [
+     "隔着吊篮栅栏教圣女放慢吐纳，别在瘴气里大口喘",
+     "把圣水斗篷先备好，人一出来就裹上"
+    ],
+    "pressure_responses": {
+     "breaking": "若圣女缺氧昏迷，毅然冒死穿透毒烟施展人工净气救治。",
+     "high": "亲自攀上绝壁将微型净化呼吸面甲递至吊篮缝隙供长官含吸。",
+     "low": "沉着注视感应晶石波形跳动，语调平静温婉给予精神慰藉。",
+     "mid": "快步越过坍塌石梁踏上悬空栈道，双手抖开大号避难披风。"
+    },
+    "relationship_stance": "兼具医者慈悲与修女恭谨，与圣女亦师亦友引为至亲知己。",
+    "withdrawal": "圣女脱困后立刻用大氅将其身姿紧紧护住，肃穆挡在前方护送入殿。"
+   },
+   "gender": "female",
+   "gender_reason": "修女医疗会只收女修士",
+   "id": "char_elena_healer",
+   "identity": {
+    "authority": "深渊探险全员生理体征监护与紧急毒瘴救治权",
+    "exposure": "急救处置失察导致圣女因缺氧窒息走光将承担严重神律失职处分。",
+    "hidden": "特备大号纯白无菌急救大氅，只待圣女脱钩瞬间一秒包裹严防寒毒侵袭与视线沾染。",
+    "limits": [
+     "严禁在圣女自主脱困前擅自动用利刃割裂受神圣祝圣之长袍"
+    ],
+    "obligations": [
+     "监视圣女心率血气，杜绝急性毒气窒息或昏厥"
+    ],
+    "resources": [
+     "高纯度驱毒圣水喷洒银壶",
+     "神圣纯棉加厚无菌急救被单两套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对圣女温柔外表下之如钢傲骨充满爱怜与景仰",
+     "视守护圣女洁白如初为毕生圣职天命"
+    ],
+    "boundaries": [
+     "恪守修女医道清规，严禁非救治人员在创伤检视时窥探近旁",
+     "以至善慈悲之圣职同理心抚慰受困女长官紧绷心弦"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "圣女身边那个替圣女守着呼吸的人",
+    "dislikes": [
+     "莽撞野蛮之冒失行径",
+     "轻视生命之鲁莽做派"
+    ],
+    "expression": "隔着防毒面罩以温润清澈目光注视圣女传递圣光宁静力量",
+    "likes": [
+     "调配纯净无瑕之驱毒圣露",
+     "整齐洁净之修女织品"
+    ],
+    "preconditions": [
+     "神术救护必须与战术脱险步调协同，切莫打乱杠杆自救节奏",
+     "全程维护圣女之尊贵仪容与清名"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "修女团首席治疗长",
+   "schedule": [
+    {
+     "from": 1370,
+     "location_id": "loc_abyss_suspended_cage",
+     "to": 1400
+    },
+    {
+     "from": 1401,
+     "location_id": "loc_abyss_chasm_bridge",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "神圣银壶外壳被飞溅碎石磕碰出微小凹坑",
+      "option": "将微型驱毒圣水棉条顺着吊篮缝隙递入供圣女含于唇齿之间"
+     },
+     {
+      "cost": "修女洁白罩袍下摆被岩壁煤灰蹭染出数处深黑痕迹",
+      "option": "把圣水斗篷展开挂在吊篮侧边，挡住审判所的火把"
+     }
+    ],
+    "pressure": "低氧血症昏迷风险与毒瘴灼伤呼吸道双重威胁",
+    "trigger": "溶洞毒气囊破裂浓雾开始向吊篮内蔓延"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“毒囊喷发的浊雾已经渗进吊篮了，若是再受外力撕扯，内衬薄裙定然遮挡不住……{npc.name}必须备好被单！”",
+    "surface": "“圣女殿下，圣气回流平稳，心火未乱，缓舒胸膈，切莫屏气竭力！”"
+   }
+  },
+  {
+   "adult_context": "三十二岁教廷工械兵团退役成年男性军械士官，精通深渊矿井全系列升降卷扬机与止逆自锁齿轮构造。",
+   "age_range": [
+    30,
+    34
+   ],
+   "appearance_options": [
+    "右眼戴着单筒精密放大镜，身穿黑色耐磨工械皮革马甲，腰间挂满各类专用拔销冲子与起子撬棍。",
+    "身姿硬朗步态扎实，皮带上别着各色铜制量规，面容严肃精干。"
+   ],
+   "decision": {
+    "avoids": [
+     "在毒烟未散前擅自启动地面提升水车",
+     "从正面窥探圣女胸前受外力崩紧之神圣法衣"
+    ],
+    "contrast": "平时沉迷机械零件沉默寡言，危难报出力矩角度快如连珠炮。",
+    "core_value": "精确无误之机械运作法则与对工械自救规律之透彻洞察",
+    "goal_options": [
+     "举着矿灯在绞盘齿上照出一个光点，告诉圣女往哪里压",
+     "绕到绞盘背面，用长柄撬钩挑开备用的止逆棘爪"
+    ],
+    "never": [
+     "绝不容许毛糙生锈的杂劣工具触碰圣女吊篮滑槽"
+    ],
+    "prefers": [
+     "利用测距瞄具向吊篮齿隙投射清晰之施力支点基准",
+     "以特制长起子在吊篮背阴面挑开备用防脱阻尼链"
+    ],
+    "pressure_responses": {
+     "breaking": "若齿轮崩裂，舍身冲上用撬杠死死卡进齿轮箱硬行阻滞连环脱轨。",
+     "high": "单手高举绝缘木杆伸入吊篮死角充当副杠杆支点。",
+     "low": "熟练固定好两枚红铜安全销，通过对讲铜管沉声通报齿隙参数。",
+     "mid": "侧身隐在岩柱背阴处，手持透镜笔提供精确受力基准指示。"
+    },
+    "relationship_stance": "严谨内敛之机械技师风范，以精密客观之数据默默援护圣女。",
+    "withdrawal": "确认长官脱险后立刻卸下透镜肃立退后，避入阴影处绝不多看一眼。"
+   },
+   "gender": "male",
+   "gender_reason": "教廷工械兵团只征召男兵",
+   "id": "char_marcus_mechanic",
+   "identity": {
+    "authority": "矿井提升卷扬机安全卡榫调试与应急外力脱销处断权",
+    "exposure": "因机械指引失当诱发卷扬机崩齿导致长官坠亡将送上军事法庭重判。",
+    "hidden": "精通卷扬机棘爪之金属力矩临界点，隔空便能断定四点二牛顿角向力矩即可脱爪。",
+    "limits": [
+     "严禁在卷扬机处于逆向受力状态时擅自敲击主受力齿轮"
+    ],
+    "obligations": [
+     "确保吊篮提升钢索与齿轮棘爪处于可控自救力矩平衡状态"
+    ],
+    "resources": [
+     "卷扬机卡爪手动脱扣三棱淬火冲子",
+     "加长高硬度绝缘硬木长起子"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对圣女精妙掌控纯银杖柄施展微观腕力深感震撼",
+     "敬佩圣职长官通晓工械杠杆之敏锐慧根"
+    ],
+    "boundaries": [
+     "严守工匠规矩，工具交接完毕后立刻退至三米以外",
+     "在长官脱困期间全神贯注监控绞盘齿轮磨损读数"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "绞盘背后那个只报齿数、不露脸的人",
+    "dislikes": [
+     "以次充好的劣铁",
+     "蛮横胡来的乱打乱砸"
+    ],
+    "expression": "推了推单筒放大镜平稳报出右旋三十度特定脱扣力矩",
+    "likes": [
+     "矮人锻炉里打出来的好钢",
+     "绞盘转起来一点杂音都没有"
+    ],
+    "preconditions": [
+     "向吊篮传递任何破拆器械必须经过近卫女骑士转手",
+     "恪守正规教会工械安全规章杜绝任何僭越失仪"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "矿井器械主管",
+   "schedule": [
+    {
+     "from": 1375,
+     "location_id": "loc_abyss_chasm_bridge",
+     "to": 1405
+    },
+    {
+     "from": 1406,
+     "location_id": "loc_cavern_pump_station",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "硬木起子尖端承受剪切重载崩裂细微木屑缺损",
+      "option": "将绝缘硬木长起子平口顶入绞盘底座充当副支点平衡反作用力"
+     },
+     {
+      "cost": "铁制销钉边缘倒刺划破{npc.name}右手鞣皮手套",
+      "option": "拔掉卷扬机主传动销钉彻底阻断齿轮箱反向回弹冲击"
+     }
+    ],
+    "pressure": "齿轮彻底碎裂引发坠井与吊篮二次倾覆双重重压",
+    "trigger": "卷扬机主轴断裂产生剧烈金属颤音危及上方吊篮"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“卷扬机卡槽里的逆止爪是冷锻特种生铁，蛮力根本掰不动，全看圣女殿下能否吃准四点二牛顿角度！”",
+    "surface": "“卷扬机反向刹车棘轮已完成应力锁固，绝不会回弹倒滑，圣女殿下请放心下压！”"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "圣历一二〇七年，雨季",
+  "minute": 1380
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "supernatural",
+  "disaster"
+ ],
+ "custom": true,
+ "customs": [
+  "进入深渊竖井前修士必须当面核对法杖底部银托之尺寸公差，确认三毫米淬火直角硬棱严丝合缝无松动。",
+  "圣袍受损咬死时随行圣骑士必须在三秒内撑起纯白厚毛呢大氅构筑视线屏障保障圣女仪容尊严。",
+  "矿工下井前要往竖井口的铁盆里丢一枚铜币，说是买深渊的路，出井时再捡回来。",
+  "圣职者在深渊里不点圣烛，只提矮人做的油灯，免得圣光惊动沉睡在岩层里的东西。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "细致检查圣光法杖实心银底托三毫米硬棱是否平整无伤",
+    "轻触卷扬机自锁棘爪测试反向脱钩阻尼弹性响应",
+    "确认近卫骑士避难大氅挂载于应急滑扣随时待命"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_saintess_staff_calibration",
+   "location_ids": [
+    "loc_abyss_suspended_cage"
+   ],
+   "start_minute": 1380,
+   "tags": [],
+   "title": "出征前纯银法杖尖底托核验"
+  },
+  {
+   "beats": [
+    "拧开绞盘边的泄气孔，把管子里积的瘴气放干净",
+    "用矮人卡尺量吊索主梁弯了几分",
+    "核查配重铁盒锁闭销钉之稳固状态"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_chasm_bridge_hoist_drain",
+   "location_ids": [
+    "loc_abyss_chasm_bridge"
+   ],
+   "start_minute": 1405,
+   "tags": [],
+   "title": "悬空栈桥卷扬机管线泄压巡视"
+  },
+  {
+   "beats": [
+    "平复圣女脉搏并测定基础圣息与精神力波动波形",
+    "把圣水斗篷一件件叠好放进药箱",
+    "对高浓度驱毒圣水银壶喷嘴实施无菌棉布擦拭"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_saintess_spiritual_audit",
+   "location_ids": [
+    "loc_saintess_refuge_grotto"
+   ],
+   "start_minute": 1390,
+   "tags": [],
+   "title": "高阶圣女体征感应水晶检视"
+  },
+  {
+   "beats": [
+    "将鲜红防误转安全锁片插进卷扬机棘爪缝隙",
+    "用绝缘硬木长起子微调滑槽自锁弹簧张紧力",
+    "向主祭圣女当面汇报防坠绳索固定状态"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_mechanic_pawl_safing",
+   "location_ids": [
+    "loc_abyss_suspended_cage"
+   ],
+   "start_minute": 1415,
+   "tags": [],
+   "title": "卷扬机自锁齿轮防滑脱短接"
+  },
+  {
+   "beats": [
+    "女骑士举起披风，在祈祷室门口挡出一块角落",
+    "圣女借着披风遮挡，把金丝系带一道道重新束好",
+    "女骑士轻敲剑鞘两下，示意门外没有人"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_emergency_shroud_drill",
+   "location_ids": [
+    "loc_abyss_suspended_cage"
+   ],
+   "start_minute": 1420,
+   "tags": [],
+   "title": "晨祷前替圣女束紧神袍"
+  },
+  {
+   "beats": [
+    "测试石室厚重防爆大门之快速降落卡死阻断速度",
+    "演练怎么把担架从窄窄的石阶抬进避难石室",
+    "确认毒气蔓延期间全域晶石通讯畅通无阻"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_grotto_evacuation_drills",
+   "location_ids": [
+    "loc_saintess_refuge_grotto"
+   ],
+   "start_minute": 1430,
+   "tags": [],
+   "title": "避难密室防毒气隔离闭锁推演"
+  },
+  {
+   "beats": [
+    "警报解除后的避难石穴只剩一盏圣光灯，圣女披着外袍坐在石床边，后摆的金丝束带还缠着齿轮咬碎的断丝。",
+    "圣女背过身，请人替自己把碎掉的束带一根根解下，指尖每碰到后腰一下，烛火就跟着颤一下。",
+    "最后一根束带解下时，圣女没有回头，只抬手把石门的门闩推上。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_grotto_changing_robe",
+   "location_ids": [
+    "loc_saintess_refuge_grotto"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "intimate"
+   ],
+   "title": "避难石穴更换神袍"
+  },
+  {
+   "beats": [
+    "石穴深处有一眼温泉，圣女褪下沾满瘴尘的神袍，只披一层薄纱坐在池边，水汽把脸颊蒸得泛红。",
+    "圣女回头问：替我擦一擦背，可以吗？得到回答后才让薄纱滑下肩头，温水顺着脊背淌下去，圣女轻轻吸了口气。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_grotto_hot_spring",
+   "location_ids": [
+    "loc_saintess_refuge_grotto"
+   ],
+   "start_minute": 1350,
+   "tags": [
+    "intimate"
+   ],
+   "title": "石穴温泉里替圣女擦背"
+  },
+  {
+   "beats": [
+    "晨祷钟还没响，石床窄窄的，圣女醒来时整个人蜷在人怀里，神袍皱成一团压在腰下。",
+    "圣女没有起身，把脸埋进人胸口低声说：主会原谅我多躺一刻钟的。……你也不许先走。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_grotto_dawn_vigil",
+   "location_ids": [
+    "loc_saintess_refuge_grotto"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "晨祷钟响前赖在怀里"
+  },
+  {
+   "beats": [
+    "圣女取下一条白色祈祷绶带，在人手腕上松松绕了两圈，眼里带着从没在信众面前露过的笑意。",
+    "圣女先把话说在前面：说一声“阿门”就解开。看人点了头，才俯下身，把吻落在被系住的手腕内侧。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_grotto_prayer_sash",
+   "location_ids": [
+    "loc_saintess_refuge_grotto"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "用祈祷绶带系住手腕"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "剑与魔法奇幻",
+ "extends": null,
+ "forbidden_terms": [],
+ "hooks": [
+  {
+   "id": "hook_cage_hydraulic_binding",
+   "kind": "observe",
+   "location_ids": [
+    "loc_abyss_suspended_cage"
+   ],
+   "slot": "char_cecilia_saintess",
+   "text": "{npc.name}身姿受阻于倾斜吊篮死角，长袍后摆系带被卷扬机生铁棘爪紧紧扣咬，雪白丝绸布料受拉几近断裂。"
+  },
+  {
+   "id": "hook_lucia_tactical_shroud",
+   "kind": "approach",
+   "location_ids": [
+    "loc_abyss_suspended_cage"
+   ],
+   "slot": "char_lucia_paladin",
+   "text": "{npc.name}单手抓牢吊篮龙骨单手张开宽幅避难大氅，死死隔绝下方黑袍教兵刺目火把之窥探视线。"
+  },
+  {
+   "id": "hook_abyss_gas_countdown",
+   "kind": "accident",
+   "location_ids": [
+    "loc_abyss_chasm_bridge"
+   ],
+   "slot": "char_victor_inquisitor",
+   "text": "{npc.name}在栈桥控制箱前听闻气囊尖啸大作，窒息毒烟二十秒读秒在空旷溶洞内轰鸣回荡。"
+  },
+  {
+   "id": "hook_falling_stalactites_threat",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cavern_pump_station"
+   ],
+   "slot": "char_dorn_miner",
+   "text": "{npc.name}仰头目睹受损吊架销轴处爆开道道裂缝，球形吊篮倾斜悬吊半空面临下坠深坑之凶险。"
+  },
+  {
+   "id": "hook_saintess_wrench_breakaway",
+   "kind": "approach",
+   "location_ids": [
+    "loc_abyss_suspended_cage"
+   ],
+   "slot": "char_cecilia_saintess",
+   "text": "{npc.name}倒执圣光银杖将硬质底托探入齿轮咬隙内部，以冷轧平柄硬棱抵紧卡槽施展微观精密杠杆。"
+  },
+  {
+   "id": "hook_all_clear_triumphant_salute",
+   "kind": "approach",
+   "location_ids": [
+    "loc_saintess_refuge_grotto"
+   ],
+   "slot": "char_elena_healer",
+   "text": "{npc.name}提着药箱从石阶上走下来，在吊篮口蹲下，隔着栅栏轻声问还能不能自己呼吸。"
+  },
+  {
+   "id": "hook_lucia_quiet_watch",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_lucia_paladin",
+   "text": "{npc.name}卸下头盔夹在臂弯里走过来，靠在旁边的岩壁上，低声问今夜要不要换个人守前半夜。"
+  },
+  {
+   "id": "hook_victor_ledger_visit",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_victor_inquisitor",
+   "text": "{npc.name}拄着权杖慢慢走近，把一本翻旧了的审判簿合上，说想听听落难之人自己的说法。"
+  },
+  {
+   "id": "hook_dorn_ale_offer",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_dorn_miner",
+   "text": "{npc.name}拎着两只锡杯晃过来，把其中一杯往这边一推：深渊里冷，喝口麦酒暖暖再说话。"
+  },
+  {
+   "id": "hook_elena_pulse_check",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_elena_healer",
+   "text": "{npc.name}提着药箱走近，不由分说地拉过手腕按住脉门，眉头微微皱起。"
+  },
+  {
+   "id": "hook_cecilia_grotto_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_saintess_refuge_grotto"
+   ],
+   "slot": "char_cecilia_saintess",
+   "text": "{npc.name}站在石穴门口回头看了一眼：外面的瘴气还没散。……进来吧，门闩我来推。"
+  }
+ ],
+ "id": "abyss_dungeon_exiled_saintess",
+ "locations": [
+  {
+   "affordances": [
+    "反握随身纯银法杖将淬火尖端探入齿隙施展微观物理力矩破拆",
+    "借吊篮的铁角当支点，用银杖去顶卡爪",
+    "示意近卫骑士展开双层防风大氅彻底遮挡深渊下方火光"
+   ],
+   "detail": "悬吊于深渊九十九层断崖绝壁离地数十米之重型生铁升降吊篮，三十度悬空脱轨倾侧，生铁棘爪咬死圣袍系带受力紧绷。",
+   "exits": [
+    "loc_abyss_chasm_bridge",
+    "loc_saintess_refuge_grotto"
+   ],
+   "id": "loc_abyss_suspended_cage",
+   "name": "悬空魔晶矿井吊篮核心区",
+   "pressure_modifiers": {
+    "press_dungeon_hoist_jam": "倾斜悬空自重致使卷扬机棘爪死死咬合圣女白袍金丝束带"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "吊篮外侧受下方审判所大队火把强烈照射，内侧幽暗仅由石缝磷光微弱照亮，女骑士大氅形成唯一正面视线遮挡屏障。",
+   "witnesses": [
+    "bg_gareth_miner_guard",
+    "bg_bruno_torchbearer"
+   ]
+  },
+  {
+   "affordances": [
+    "在此架设高倍率瞄准镜为受困吊篮提供精准光斑投射",
+    "手持传声铜管向吊篮内部通告毒雾扩散倒计时",
+    "拉开神圣戒严绳索勒令外围教兵后退三十米"
+   ],
+   "detail": "横跨于深渊裂隙上方之生铁结构悬空维修栈桥，宽仅一米二，铺设防滑木板，审判官率队在此设立前线督查警戒线。",
+   "exits": [
+    "loc_abyss_suspended_cage",
+    "loc_cavern_pump_station"
+   ],
+   "id": "loc_abyss_chasm_bridge",
+   "name": "绝壁开采生铁悬桥走廊",
+   "pressure_modifiers": {
+    "press_gas_leak_suffocation": "溶洞顶部毒瘴气囊持续向外喷射带刺鼻酸味的浓白雾气"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "高空悬索视野可纵览深渊矿区，受崩塌断木阻挡，仅能透过岩隙观测受困吊篮外部轮廓。",
+   "witnesses": [
+    "bg_gareth_miner_guard",
+    "bg_gaston_winch_operator"
+   ]
+  },
+  {
+   "affordances": [
+    "扳动铸铁旁通回水阀强制降低整套提升管线压力",
+    "合力将重型刚性防滑铁块楔入导槽基底稳固底架",
+    "开通暗河阻隔水阀阻隔可燃矿气四溢"
+   ],
+   "detail": "深埋于断崖下方深处之中央魔晶泵房，数台符文压力机轰鸣作响，地面积存一层滑腻的地下暗河渗水与矿物油污。",
+   "exits": [
+    "loc_abyss_chasm_bridge",
+    "loc_saintess_refuge_grotto"
+   ],
+   "id": "loc_cavern_pump_station",
+   "name": "地下溶洞开采泵房大堂",
+   "pressure_modifiers": {
+    "press_falling_stalactites": "矿脉管线破损导致魔晶热雾持续喷涌散发刺鼻气味"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "火把光芒摇曳充斥水汽与热烟，采矿长工长在此操作手动泄压手轮与防滑千斤顶。",
+   "witnesses": [
+    "bg_gaston_winch_operator",
+    "bg_hugo_safety_patrol"
+   ]
+  },
+  {
+   "affordances": [
+    "在石室门前展开纯白神圣急救大氅接应脱险圣女",
+    "调配高纯度解毒圣水为受困长官恢复体力",
+    "扳动密室沉重石门杠杆硬撑最后脱困安全空隙"
+   ],
+   "detail": "连通地下大空洞与安全竖井之坚固岩石密室，铺设整洁亚麻地毯，配有两顶洁净帐篷与避难幕帘，治疗长在此待命接应。",
+   "exits": [
+    "loc_cavern_pump_station",
+    "loc_abyss_suspended_cage"
+   ],
+   "id": "loc_saintess_refuge_grotto",
+   "name": "圣女避难神圣石穴密室",
+   "pressure_modifiers": {
+    "press_iron_gate_closing": "全封闭石制避难防爆大门处于倒计时自动降落状态"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "圣光晶石冷光纯净明亮，环境清幽肃穆，与外围硝烟弥漫之崩塌矿井形成鲜明反差。",
+   "witnesses": [
+    "bg_clara_acolyte_healer",
+    "bg_hugo_safety_patrol"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "阿尔",
+   "诺顿",
+   "雷恩",
+   "克莱",
+   "斯特",
+   "修斯",
+   "安德",
+   "霍克",
+   "贝尔",
+   "格雷",
+   "洛克",
+   "温特"
+  ],
+  "given_female": [
+   "西莉",
+   "露西",
+   "维娅",
+   "傲雪",
+   "以宁",
+   "清璇",
+   "冰岚",
+   "若晴",
+   "艾琳",
+   "米娅",
+   "赛拉",
+   "诺娜"
+  ],
+  "given_male": [
+   "维克",
+   "多尔",
+   "马库",
+   "成业",
+   "建平",
+   "志远",
+   "振东",
+   "绍德",
+   "奥兰",
+   "卢恩",
+   "加文",
+   "塞德"
+  ],
+  "given_neutral": [
+   "安",
+   "宁",
+   "平",
+   "青",
+   "言",
+   "诺",
+   "舟",
+   "凡",
+   "晨",
+   "岚",
+   "霁",
+   "澄"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "老{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留剑与魔法深渊迷宫的背景。改动：三条规则原本是写作说明，改写为深渊与教廷的规矩；背景人物台词里的占位改为各自的名字，平板电脑、无线电、探伤仪等科幻残留改为水晶板、传声海螺、听岩锤等奇幻器物；四个玩家身份原本与人物模板是同一批人，改写为王都派来的监察使、冒险者公会的向导、矿井伙房的厨娘或厨子、流放途中同行的吟游诗人；圣女、近卫女骑士与矮人采矿长的倾向卡放宽到脱险后可心动，亲密前提写明危机解除、双方清醒自愿；新增一个避难石穴里更换神袍的亲密日常；写死的人名改为身份称呼或占位。另：按用户决定与机甲、辣妹、巫女三个同族世界拉开差异，重写人物决策、亲密倾向、压力出口、日常与转折，口吻落回剑与魔法的深渊矿井；原稿几处性别说明误写成医院角色，治疗修女与器械主管的性别、年龄与成年说明互相矛盾，统一改正。",
+ "player_identities": [
+  {
+   "age_range": [
+    30,
+    45
+   ],
+   "baseline": "奉国王之命监督圣女流放的监察使，有权决定流放是否就此作罢。",
+   "gender": "any",
+   "id": "identity_saintess_cecilia",
+   "reputation": "冷峻公正，教廷与王室都忌惮这位三分。",
+   "resources": [
+    "国王的监察令与金狮印信",
+    "调动审判所随从的口令"
+   ],
+   "risks": [
+    "圣女若死在深渊，监察使要向国王交代"
+   ],
+   "role": "王都派来的成年监察使",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}大人"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "被雇来给流放队伍带路的老向导，熟悉深渊九十九层每一条岔道。",
+   "gender": "any",
+   "id": "identity_paladin_lucia",
+   "reputation": "嘴硬心软，公会里都说跟着这位下深渊能活着回来。",
+   "resources": [
+    "一张手绘的深渊地图",
+    "一捆攀岩绳和几瓶解毒药水"
+   ],
+   "risks": [
+    "向导若把雇主带丢了，公会执照就保不住"
+   ],
+   "role": "冒险者公会的成年向导",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "一路跟着流放队伍写歌谣的吟游诗人，想把圣女的故事唱遍王都。",
+   "gender": "any",
+   "id": "identity_inquisitor_victor",
+   "reputation": "能说会唱，审判官也懒得赶走这位。",
+   "resources": [
+    "一把鲁特琴和半本歌谣草稿",
+    "王都几家酒馆老板的交情"
+   ],
+   "risks": [
+    "歌谣若唱出教廷丑闻，诗人会被当成异端"
+   ],
+   "role": "流放途中同行的成年吟游诗人",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "在矿井伙房煮黑麦粥的帮厨，每天往吊篮送饭，跟矿工们混得最熟。",
+   "gender": "any",
+   "id": "identity_miner_dorn",
+   "reputation": "勤快爽朗，矿工们都叫一声小伙房。",
+   "resources": [
+    "伙房的钥匙和一锅热粥",
+    "一把剁肉刀和一盏油灯"
+   ],
+   "risks": [
+    "帮厨私闯圣女的吊篮要挨鞭子"
+   ],
+   "role": "矿井伙房的成年帮厨",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "小{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "被教廷流放的高阶圣女，押解途中被安置在深渊九十九层的开采竖井营地。白天替矿工祷告疗伤，夜里在钟乳石溶洞里守一盏圣灯；监察使、向导和吟游诗人住在同一排木屋。升降吊篮的绞盘早该换了，瘴气囊离营地不远，追捕的审判官据说还在路上。",
+ "pressures": [
+  {
+   "choice": "是反握冷锻实心银杖施展四点二牛顿角向杠杆巧劲挑开卡爪，抑或呼唤近卫强拉衣物冒撕裂走光之险？",
+   "exits": [
+    {
+     "cost": "白皙指掌被生铁部件边缘蹭出道道深红压痕隐隐作痛",
+     "option": "反握法杖尖端直角棱角探入棘爪缝隙以四点二牛顿巧劲别退弹簧卡舌"
+    },
+    {
+     "cost": "避难大氅受狂乱气流撕扯几乎脱手飞出悬崖",
+     "option": "示意女骑士迅速撑展厚毛呢白色大氅掩护周遭视线暗中用力"
+    }
+   ],
+   "far": {
+    "consequence": "圣女至圣名节尽失，神圣教廷典籍将录入此段严重受辱事故终生蒙羞。",
+    "due_days": 1,
+    "trigger": "吊篮滑槽发生脆性断裂圣女长袍撕开走光，在深渊数十名教兵众目睽睽下被吊出悬崖彻底社死。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_dungeon_hoist_jam",
+   "immediate": {
+    "minutes": 1,
+    "text": "吊篮生铁卡爪咬入圣袍金丝层，真丝内衬受自重猛烈拉扯大面积紧绷濒临崩裂，毒瘴警报急促长鸣。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_abyss_suspended_cage",
+    "loc_abyss_chasm_bridge"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "审判长沉重铁靴踏在栈桥铁板上正步步逼近，火把照耀下生铁绞盘故障警示反光森然闪烁。"
+   },
+   "objective": "在神袍被卡爪撕开之前顶退卡爪，以圣女的仪态站起来。",
+   "source": "accident",
+   "start_minute": 1395,
+   "tags": [
+    "disaster"
+   ],
+   "title": "吊篮倾斜自重咬死高阶圣女白袍",
+   "trigger": "落石砸断主升降索致八吨吊篮三十度倾斜下坠，变形提升机倒爪紧紧咬死圣女金丝腰带。"
+  },
+  {
+   "choice": "是趁倒数过半拼着呛也要顶开卡爪，还是先咬住女骑士递来的圣水布条？",
+   "exits": [
+    {
+     "cost": "纯银法杖尖端底托在手心压出微量酸痛红斑",
+     "option": "一口气把银杖压到底，赶在第八声钟响前顶开卡爪"
+    },
+    {
+     "cost": "高纯度圣露微苦辛辣口感刺激咽喉引起短促轻咳",
+     "option": "单手接住女骑士递送之浸润驱毒圣水棉条含入口中深呼吸维持心神清明"
+    }
+   ],
+   "far": {
+    "consequence": "两位女官将面临不可逆灵力脉络损伤，断送往后神圣修士前途命运。",
+    "due_days": 1,
+    "trigger": "恶性毒烟全域弥漫渗透吊篮，受困人员因剧烈神经中毒陷入深度昏迷。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_gas_leak_suffocation",
+   "immediate": {
+    "minutes": 1,
+    "text": "溶洞上空毒囊破裂发出刺耳嗤嗤喷射尖啸，距离二十秒全域弥漫强制窒息仅剩最后倒数，半开吊篮即将灌满致命浓白毒雾。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_abyss_chasm_bridge"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "毒气警示晶石红光狂闪蜂鸣大作，浓厚酸雾即将封锁悬空走廊所有撤退石阶。"
+   },
+   "objective": "在浓烈致幻毒雾彻底灌满吊篮前脱离半开空间，避免神智昏迷窒息休克。",
+   "source": "institution",
+   "start_minute": 1385,
+   "tags": [],
+   "title": "深渊毒瘴气囊破裂绝命倒数",
+   "trigger": "溶洞上空毒气囊受落石穿刺破裂触发全域恶性毒瘴逃生警报程序。"
+  },
+  {
+   "choice": "是喝令采矿长在下方加塞三十公斤重型精钢垫铁固定导轨，抑或自行挑断长袍非核心金丝挂扣轻身跳离？",
+   "exits": [
+    {
+     "cost": "吊篮受撞击剧烈颠簸震得圣女心口一阵发闷",
+     "option": "让采矿长把一块精钢垫铁砸进导槽的裂缝里"
+    },
+    {
+     "cost": "神圣祝圣之贵重金丝配件彻底损毁需重新编织",
+     "option": "用法杖尖端锋口狠心挑断长袍外挂非核心金丝附带减轻拉扯"
+    }
+   ],
+   "far": {
+    "consequence": "九十九层远古开采核心彻底废弃，全教区神殿陷入重大人员财产惨剧。",
+    "due_days": 1,
+    "trigger": "开采悬桥整体垮塌跌落千丈地脉，重型吊篮与乘员尽数化为齑粉。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_falling_stalactites",
+   "immediate": {
+    "minutes": 2,
+    "text": "吊索钢缆在巨石轰击下接连崩断数股，悬空吊篮随时面临连人带筐整体滑落深渊熔岩裂隙摔成粉碎之灭顶之灾。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_abyss_chasm_bridge"
+   ],
+   "near": {
+    "deadline_minutes": 3,
+    "text": "断口生铁金属撕裂纹路顺着主梁延伸，吊篮整机承载极限正以肉眼可见速度衰减。"
+   },
+   "objective": "在吊索耳板被剪断之前垫住吊篮，别让圣女连人带篮掉进熔岩井。",
+   "source": "nature",
+   "start_minute": 1390,
+   "tags": [
+    "disaster"
+   ],
+   "title": "地下溶洞顶层巨石二次断裂险情",
+   "trigger": "深层地脉震动波加剧导致洞顶千万吨巨石接连崩落砸中吊篮主索。"
+  },
+  {
+   "choice": "是让女骑士撑开披风挡住吊篮，还是让掌印官命令黑袍们背过身去？",
+   "exits": [
+    {
+     "cost": "圣女连声威严呼喝使原本温柔动人之嗓音微显沙哑",
+     "option": "以高阶圣女主祭威严厉声喝令全场教兵向后转肃立不准直视吊篮半分"
+    },
+    {
+     "cost": "大氅受溶洞气浪扯动几乎从女骑士手心脱落",
+     "option": "示意女骑士撑开展平厚毛呢白色斗篷完全遮蔽吊篮破损侧翼形成视线黑障"
+    }
+   ],
+   "far": {
+    "consequence": "圣女一生积攒之神圣清誉毁于一旦，将被迫退隐修士院终生蒙垢。",
+    "due_days": 1,
+    "trigger": "光辉教廷最温柔圣洁之圣女在教兵围观下长袍半褪受困失仪，成为全教区流言蜚语名节尽毁。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_inquisition_torch_exposure",
+   "immediate": {
+    "minutes": 1,
+    "text": "矿道大门受气浪冲开，数十名黑袍执法教兵手举火把狂奔而来，刺目火光直直扫向倾斜吊篮正中。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_abyss_suspended_cage"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "搜捕队长靴声在岩壁回荡，火把强光正顺着破损篮板空隙寸寸逼近主祭圣女身段。"
+   },
+   "objective": "在数十名执法教兵火把照亮吊篮前阻绝所有窥探视线保全圣洁名节。",
+   "source": "person",
+   "start_minute": 1395,
+   "tags": [],
+   "title": "审判所大队黑袍教兵火把聚焦之社死绝境",
+   "trigger": "矿道石闸受气浪冲开引来数十名手持耀眼火把之异端黑袍随从。"
+  },
+  {
+   "choice": "是倒执纯银法杖以杖身绝缘木鞘精准挑开落石，抑或命令器械主管以长杆推落火源？",
+   "exits": [
+    {
+     "cost": "法杖外鞘绝缘皮革被高温矿火瞬间燎出刺鼻焦痕",
+     "option": "倒执法杖以绝缘皮套端头精准将落石火屑拨落悬崖跌入深渊绝壁"
+    },
+    {
+     "cost": "扑打反冲力导致女骑士手腕手骨发生微量挫伤",
+     "option": "女骑士单手抓起随身便携灭火沙袋对准火苗猛力扑打拍灭火种"
+    }
+   ],
+   "far": {
+    "consequence": "九十九层矿坑将陷入大火火海，全区开采物资尽数化为焦炭灰烬。",
+    "due_days": 1,
+    "trigger": "吊篮下方引发剧烈爆燃大火，将彻底烧毁吊索木架与逃生人员生命安全。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_methane_spark_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "岩壁夹层持续窜出幽蓝矿火苗头，逼近渗漏至吊篮下方的易燃高压矿油，极小火星便能引发瞬间剧烈爆燃。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_cavern_pump_station"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "瓦斯浓度感应水晶红芒闪烁，空气中弥漫的油气分子正逐步达到爆炸临界极限。"
+   },
+   "objective": "在火星点着矿井底积着的火油之前，堵死通风口。",
+   "source": "money",
+   "start_minute": 1400,
+   "tags": [],
+   "title": "落石摩擦火花引燃深渊高压瓦斯矿气",
+   "trigger": "崩塌岩块相互猛烈撞击飞溅连串耀眼火星逼近矿井瓦斯缝隙。"
+  },
+  {
+   "choice": "是在卡爪脱扣瞬间拉起女骑士飞身鱼跃穿过铁闸，抑或留守吊篮等待外界开凿挖掘？",
+   "exits": [
+    {
+     "cost": "二人长靴鞋底在粗糙岩石地面摩擦擦滑出剧烈白烟",
+     "option": "卡爪一松就拉着女骑士冲过正在落下的铁闸"
+    },
+    {
+     "cost": "两根钨钢钎杆在数吨重闸门重压下发生严重弯曲凹陷",
+     "option": "采矿长工长奋力将两根高强度钨钢凿岩钎杆卡入铁闸导槽硬撑三秒"
+    }
+   ],
+   "far": {
+    "consequence": "外面的人要挖好几天才进得来，困在里面的人会被瘴气一点点熬死。",
+    "due_days": 1,
+    "trigger": "全体人员被死死困在浓烟滚滚的深渊大溶洞内，等待外界漫长开凿救援。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_iron_gate_closing",
+   "immediate": {
+    "minutes": 1,
+    "text": "避难石室的玄铁闸门开始下落，只剩三十秒。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_saintess_refuge_grotto"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "铁闸的齿条一格一格往下咬，门下的缝只剩半人高。"
+   },
+   "objective": "在玄铁闸门落死之前，所有人都钻进避难石室。",
+   "source": "rumor",
+   "start_minute": 1410,
+   "tags": [],
+   "title": "避难石室防爆铁闸自动下坠封锁倒数",
+   "trigger": "深渊中控台依据避难防灾条例发出全区重型铁闸降落阻断指令。"
+  }
+ ],
+ "region": "深渊九十九层钟乳石地下大溶洞开采竖井",
+ "rules": [
+  {
+   "id": "rule_dungeon_hoist_safety",
+   "text": "吊篮悬空倾斜时，任何人不得强拽或割开圣袍，只能由受困者自内侧逐齿退开绞盘卡爪。"
+  },
+  {
+   "id": "rule_saintess_modesty_protocol",
+   "text": "圣女的金丝束带受过祝圣，断在外人手里即视为亵渎，断带者须受审判庭问罪。"
+  },
+  {
+   "id": "rule_abyss_gas_evacuation_law",
+   "text": "溶洞岩顶毒瘴气囊破裂读秒启动时，受困圣职人员享有依循神圣法典自救脱险之特许权。"
+  },
+  {
+   "id": "rule_adulthood_cleric_liability",
+   "text": "被流放的圣女仍须守教廷仪容，异端审判官当面查验时衣袍不整，即可当场剥夺圣职。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "接诊",
+  "committed": "共济",
+  "familiar": "默契",
+  "flirting": "会意",
+  "intimate": "信托",
+  "stranger": "初见",
+  "testing": "试探"
+ },
+ "status": "released",
+ "style_hint": "奇幻深渊地下城重型机械开采工程，无第三人称单数代词，全员成年合法自立",
+ "tension_engines": [
+  {
+   "id": "engine_dungeon_hoist_jam",
+   "text": "悬空自重载荷导致卷扬机生铁棘爪死死扣紧白袍金丝束带，稍有剧烈拉扯即告真丝撕裂走光坠崖。"
+  },
+  {
+   "id": "engine_gas_leak_countdown",
+   "text": "地下毒气囊破裂读秒急促长鸣，高浓度致幻雾霭即将笼罩倾斜吊篮引发窒息休克。"
+  },
+  {
+   "id": "engine_falling_stalactites_danger",
+   "text": "溶洞顶部巨型钟乳石在余震中爆出道道断裂石缝，重型吊篮摇摇欲坠随时可能整体坠入熔岩深井粉碎。"
+  },
+  {
+   "id": "engine_dignity_exposure_hazard",
+   "text": "矿道石闸弹开引来全队审判黑袍卫士火把搜寻，受困圣女面临大面积走光圣威尽失之社死绝境。"
+  }
+ ],
+ "title": "地下迷宫·败犬圣女·深渊99层钟乳石地下大空洞",
+ "tone": [
+  "圣洁",
+  "硬核",
+  "紧迫",
+  "高贵",
+  "纯粹",
+  "端庄"
+ ],
+ "twists": [
+  {
+   "category": "人事",
+   "id": "twist_hoist_pressure_backflow",
+   "requires": [
+    "press_dungeon_hoist_jam"
+   ],
+   "text": "手动制动阀门拉断刹那并未顺势泄压，残存缆力突发反向回弹导致卷扬机棘爪咬合更深一毫米，圣女阁下临危不乱改变施力角度成功破局。"
+  },
+  {
+   "category": "关系",
+   "id": "twist_lucia_protective_cloak_deploy",
+   "requires": [
+    "press_inquisition_torch_exposure"
+   ],
+   "text": "火把照过来的一瞬，女骑士扬起披风挡住了光，深渊里倒灌的风兜进披风，竟把歪斜的吊篮往回推正了一寸。"
+  },
+  {
+   "category": "时限",
+   "id": "twist_gas_vent_delay",
+   "requires": [
+    "press_gas_leak_suffocation"
+   ],
+   "text": "倒计时跳入第十秒红区关头溶洞排气孔受气流对冲突然延迟喷发五秒，圣女借这宝贵五秒彻底撬退受死卡爪。"
+  },
+  {
+   "category": "制度",
+   "id": "twist_miner_wedge_lock",
+   "requires": [
+    "press_falling_stalactites"
+   ],
+   "text": "悬空吊索受力钢缆彻底崩断刹那采矿长神勇推入重达六十斤防滑铁楔，吊篮下坠数寸即被死死止跌卡稳，避免了机毁人亡之惨烈灾难。"
+  },
+  {
+   "category": "资源",
+   "id": "twist_saintess_reverse_torque_breakaway",
+   "requires": [
+    "press_dungeon_hoist_jam"
+   ],
+   "text": "银杖压到底时咔的一声，卡爪退了回去，神袍从齿隙里抽了出来，只在袍角留下一道焦黑的齿印。"
+  },
+  {
+   "category": "信息",
+   "id": "twist_base_alarm_all_clear_signal",
+   "requires": [
+    "press_iron_gate_closing"
+   ],
+   "text": "圣女双足稳稳踏上神圣地坪瞬间地震平息警报解除，全矿区神职卫士目睹两位女官衣冠端正圣容如雪之飒爽英姿，欢呼敬礼响彻穹顶。"
+  }
+ ]
+}

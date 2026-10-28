@@ -1,0 +1,2504 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "现年满二十八岁，特种升降机机电高级维保技师，具备完全民事行为能力。",
+   "age_range": [
+    28,
+    28
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_lift_mechanic_master_zhao",
+   "line": "货梯结构图纸已核对无误，导轨防坠落重锤止逆舌就在门槛右侧三公分处，向上别压即可退牙！",
+   "location_ids": [
+    "loc_loft_vertical_lift_shaft_landing"
+   ],
+   "name": "赵师傅",
+   "role": "升降机维保首席技工"
+  },
+  {
+   "adult_context": "现年满二十九岁，文化产业园区微型消防站专职站长，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_fire_inspector_captain_sun",
+   "line": "正压排烟风机正在满载运转，阁楼内烟气已排散大半，受困人员保持低姿，外侧随时接应！",
+   "location_ids": [
+    "loc_backstage_merch_inspection_aisle"
+   ],
+   "name": "孙队长",
+   "role": "微型消防站应急队长"
+  },
+  {
+   "adult_context": "现年满二十一岁，动漫谷子同好会资深藏家兼大客户代表，具备完全民事行为能力。",
+   "age_range": [
+    21,
+    21
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_merch_collector_xiaotian",
+   "line": "店长咱们不慌，整箱限量大吧唧我都帮您看护得好好的，咱们听口令齐心协力把门撬开！",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "name": "小田",
+   "role": "周边首发资深漫迷代表"
+  },
+  {
+   "adult_context": "现年满二十二岁，文化街区周边旗舰店收银主管，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    22
+   ],
+   "function": "obstacle",
+   "gender": "female",
+   "id": "bg_part_time_clerk_linlin",
+   "line": "门外排队的漫迷已经有好几百号人了，无论如何必须在早晨开门前把大门修好确保按时首发！",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "name": "琳琳",
+   "role": "潮玩旗舰店前台收银主管"
+  },
+  {
+   "adult_context": "现年满二十七岁，动漫街区首发物流特运专职货运司机，具备完全民事行为能力。",
+   "age_range": [
+    27,
+    27
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_logistics_driver_brother_qiang",
+   "line": "外侧钢构楼梯通道已全部清空，防雨帆布已搭设完毕，一旦门开立即转运进封闭货车！",
+   "location_ids": [
+    "loc_backstage_merch_inspection_aisle"
+   ],
+   "name": "强哥",
+   "role": "首发谷子货运专车司机"
+  },
+  {
+   "adult_context": "现年满二十九岁，动漫商业大厦安防机电总值班长，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_commercial_patrol_officer_laowang",
+   "line": "整栋大厦监控与备用消防管网运转正常，底层短路已阻断，全力协助二层阁楼破拆！",
+   "location_ids": [
+    "loc_loft_vertical_lift_shaft_landing"
+   ],
+   "name": "老王",
+   "role": "商业大厦安防值班班长"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "温柔女店主与硬派机电工程师的跨界合璧，机电师傅在外侧旋松导向螺栓消除夹紧力矩，店长在内侧合抱冲压钢杆下压挑起自锁重锤，里应外合于分秒间化解窒息危局。",
+   "id": "combo_gu_and_electrician_team",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "gentle_merch_boss_gu_wan_qing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在极度闷热烟熏的狭小阁楼中同握冲压钢杆下压撬门的生死托付。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "merch_store_electrician_ruan_bo_zhou",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "商厦日常机电动力维护与应急安防巡查中的长久信赖。",
+     "stage": "familiar"
+    },
+    {
+     "a": "gentle_merch_boss_gu_wan_qing",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "merch_store_electrician_ruan_bo_zhou",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对机电工程师临危不乱精准指导力学卸荷的由衷钦佩。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "gentle_merch_boss_gu_wan_qing",
+    "merch_store_electrician_ruan_bo_zhou"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保二人技术协同在浓烟迷眼脱力前撬开自锁舌安全撤离。",
+    "limit_gap": "阁楼内部环境温度持续攀升，机电师傅受阻于厚重大门外无法直接物理接触卡舌。",
+    "meeting_reason": "首发前夜，门外的队已经排到了街角，店长抱着一箱吧唧上阁楼，机电师傅蹲在升降机井口拧螺丝，头也不抬：这箱别再往里塞了，超重。",
+    "resource_gap": "机电师傅掌控配电总闸与导轨螺栓调节扳手，店长手握高硬度冲压钢杆内部撬动关键支点。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_loft_smoke_and_heat_countdown",
+    "eng_press_steel_rod_bending_load_limit"
+   ]
+  },
+  {
+   "chemistry": "温柔主理人与合伙人姐妹的莫逆相守，联名合伙人紧抱限量徽章周转箱为店长稳固战术手电光束，店长沉着施压以纯净静载挑起重锤，默契捍卫生命与青春心血。",
+   "id": "combo_gu_and_co_founder_guardians",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "gentle_merch_boss_gu_wan_qing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死危机面前并肩坚守首发周边完好无损的职业操守。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "merch_store_co_founder_xu_tian_ya",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "动漫潮玩店铺日常运营与通宵理货中的高度默契配合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "gentle_merch_boss_gu_wan_qing",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "merch_store_co_founder_xu_tian_ya",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "从大学摆摊创业至今在危难中铸就的生死姐妹盟约。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "gentle_merch_boss_gu_wan_qing",
+    "merch_store_co_founder_xu_tian_ya"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保全流程首发周边毫发未损并安全撬开吊门脱险。",
+    "limit_gap": "烟雾弥漫视野受限，周转箱在狭窄钢梁间搬运极易发生磕碰受损。",
+    "meeting_reason": "联名合伙人拿着首发的排号表跑上阁楼，说门外的人比预计多了一倍，限购要不要改成一人一枚。",
+    "resource_gap": "联名合伙人执掌限量吧唧周转箱与封签权限，店长具备精湛手工定力与冲压钢杆武器。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_limited_badge_stock_security_pledge"
+   ]
+  },
+  {
+   "chemistry": "温柔店主与道具工匠的硬核力学协同，打板师拆卸十公斤实心合金模具垫板稳妥垫入死槽下方充当黄金支点，店长合力下压，二人合抱在微米级精度下攻克咬死重锤。",
+   "id": "combo_gu_and_prop_maker_fulcrum",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "gentle_merch_boss_gu_wan_qing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "于千钧一发之际合抱冲压钢杆撬开生路之交。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "merch_store_prop_maker_lu_ting_xuan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "动漫道具模具制作与五金机械改造中的长期默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "gentle_merch_boss_gu_wan_qing",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "merch_store_prop_maker_lu_ting_xuan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对道具打板师冷静拆卸重物搭建支点的由衷敬佩。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "gentle_merch_boss_gu_wan_qing",
+    "merch_store_prop_maker_lu_ting_xuan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "精准构筑下压支点撬起自锁重锤确保全员生还。",
+    "limit_gap": "支点垫板一旦发生侧滑将导致冲压钢杆瞬间脆性崩折，阁楼空气含氧量分秒流失。",
+    "meeting_reason": "打板师扛着一人高的立牌上楼，店长让打板师放在门口，说明天要让第一个进店的人跟立牌合影。",
+    "resource_gap": "打板师精通模具力学结构与支点垫板搭设，店长手握高碳工具钢冲压手柄。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_press_steel_rod_bending_load_limit"
+   ]
+  },
+  {
+   "chemistry": "温柔女店主与特勤巡查队员的生命呼应，消防巡查员在外侧架设排烟风机并以军旅口令读秒指挥，店长在内侧同步下压，前后合力彻底破开自锁重门迎候清凉生路。",
+   "id": "combo_gu_and_fire_officer_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "gentle_merch_boss_gu_wan_qing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死危机面前毫不慌乱通力自救的真挚敬意。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "fire_patrol_officer_song_chen_yi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "对退役特勤队员临危不乱组织救援的崇高信赖。",
+     "stage": "familiar"
+    },
+    {
+     "a": "gentle_merch_boss_gu_wan_qing",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "fire_patrol_officer_song_chen_yi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对消防队员铁血担当架设风机抽散浓烟的由衷敬重。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "gentle_merch_boss_gu_wan_qing",
+    "fire_patrol_officer_song_chen_yi"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以内外精确协同节奏推开沉重门扉避免破坏门框主体。",
+    "limit_gap": "内外隔着厚重不锈钢门无法目视，口令全凭对讲与门缝呼喊毫秒级联动。",
+    "meeting_reason": "街区消防巡查员来店里查通道，看见阁楼上堆到房梁的纸箱，皱着眉让店长今晚必须清出一条路。",
+    "resource_gap": "消防巡查员掌控工业正压排烟风机与外侧撬棍力量，店长掌控内侧重力锁舌解脱关键机关。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_dual_sided_coordinated_heave_pulse"
+   ]
+  },
+  {
+   "chemistry": "温柔店长姐姐与懂事兼职学妹的暖心守望，兼职店员快速分发湿毛巾并清理脚底绊绊磕磕，店长护佑学妹在前从容持杆撬锁，展现大姐姐般温暖治愈的人格担当。",
+   "id": "combo_gu_and_intern_care_team",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "gentle_merch_boss_gu_wan_qing",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "谷子店团队日常工作中的温暖深厚感情。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "merch_store_intern_clerk_bai_qing_yi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "对兼职学妹勤快懂事后勤补位的由衷喜爱。",
+     "stage": "familiar"
+    },
+    {
+     "a": "gentle_merch_boss_gu_wan_qing",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "merch_store_intern_clerk_bai_qing_yi",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "在生死危机面前彼此相护超越普通雇佣的亲如姐妹之情。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "gentle_merch_boss_gu_wan_qing",
+    "merch_store_intern_clerk_bai_qing_yi"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保受困全员毫发无损安全脱出险境。",
+    "limit_gap": "学妹体质纤弱极易吸入浓烟，室内氧气与视线正在急速耗尽。",
+    "meeting_reason": "兼职店员给门外排队的人送热水，回来说队伍里有人为了插队吵起来了，店长放下手里的吧唧下楼。",
+    "resource_gap": "店长拥有冷静指挥权威与高硬度撬门钢杆，兼职店员手握湿毛巾与提神喷雾物资。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_loft_smoke_and_heat_countdown"
+   ]
+  },
+  {
+   "chemistry": "机电工程师与消防巡查队员的外侧通力合作，一人断电除险旋松滑槽固定螺栓，一人架设排烟机强力抽烟破门，专业技术联动为内侧人员自救构筑了最稳固的支撑。",
+   "id": "combo_electrician_and_fireman_team",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "merch_store_electrician_ruan_bo_zhou",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "街区安全应急演练中的老搭档。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "fire_patrol_officer_song_chen_yi",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "消防救援特勤一线的过命配合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "merch_store_electrician_ruan_bo_zhou",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "fire_patrol_officer_song_chen_yi",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "多次在商厦综合体突发机电抢险中结成的钢铁战友盟约。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "merch_store_electrician_ruan_bo_zhou",
+    "fire_patrol_officer_song_chen_yi"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保外侧排险与排烟达到最佳窗口协助内侧脱困。",
+    "limit_gap": "烟气持续升腾，外侧救援作业需分秒必争抢救被困群众。",
+    "meeting_reason": "机电师傅和消防巡查员在店门口对着电表箱发愁，说今晚整条街都在通宵，电闸怕是扛不住。",
+    "resource_gap": "机电师傅掌握配电间控制权与机械螺栓调整工具，消防巡查员掌控破拆风机与安全警戒力量。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_loft_smoke_and_heat_countdown",
+    "eng_dual_sided_coordinated_heave_pulse"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_loft_intercom_wired_system",
+   "reach": "贯通二层仓储阁楼、升降机井口检修平台与室外消防检修通道全员调度频段",
+   "text": "仓储阁楼有线防爆对讲调度通信网"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_loft_door_gap_acoustic_channel",
+   "reach": "穿透钢门微小门缝实现内侧冲压撬动与外侧顶推人员无延时口令实时协同",
+   "text": "厚重不锈钢吊门缝隙声波穿透呼应"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "商学院文化产业管理硕士毕业，开了五年谷子店，是周边连锁品牌主理人兼法人，进什么货、几点开门由本人拿主意。",
+   "age_range": [
+    26,
+    30
+   ],
+   "appearance_options": [
+    "身穿米白色软糯羊绒开衫与浅色压褶长裙，胸前系着印有二次元吉祥物图案的淡粉色细麻围裙，面容白皙温婉柔美，两靥带着未褪的紧致微婴儿肥与饱满光泽胶原蛋白，眼眸清澈似水，气质治愈而恬淡。",
+    "神情专注而从容，秀发挽成温婉低发髻，戴着贴手的浅灰色超薄理货棉手套，面对吊门坠落咬死与烟雾积聚，眼神中毫无骄矜任性，唯有沉静果敢的坚韧护花风骨。"
+   ],
+   "decision": {
+    "avoids": [
+     "惊慌失措只知哭泣推诿耗尽氧气",
+     "盲目使用钝器猛砸引发结构塌陷"
+    ],
+    "contrast": "外表是娇柔秀丽且双颊微带水润紧致微婴儿肥的书卷才女，面对沉重冰冷钢架锁死却展现出毫不娇气的硬核杠杆实操魄力。",
+    "core_value": "温柔绝非柔弱，在顾客面前我是传递温暖的店家，在危难关头我也绝不会坐以待毙，这柄冲压钢杆就是撬开铁闸的钥匙！",
+    "goal_options": [
+     "以高碳钢冲压手柄插入滑道死槽借钢梁支点挑起配重止逆舌",
+     "在吊门洞开瞬间同搭档平稳护送限量徽章周转箱撤入安全走廊"
+    ],
+    "never": [
+     "在危机平息前舍弃同伴或遗弃顾客预定的心血藏品独自撤离"
+    ],
+    "prefers": [
+     "符合严密机械杠杆平衡的高效解法",
+     "心照不宣沉着平稳的无声默契配合"
+    ],
+    "pressure_responses": {
+     "breaking": "在门缝爆出脱扣脆响瞬间同搭档并排顶门一鼓作气推开生路",
+     "high": "双手紧扣高碳钢柄身借全身重心下沉向下猛压顶起自锁重锤",
+     "low": "柔声安抚身旁慌乱搭档并迅速递上沾湿的纯棉手帕遮掩口鼻",
+     "mid": "微挽开衫衣袖单膝跪在门槛前将冲压手柄准确深入轨道卡槽缝隙"
+    },
+    "relationship_stance": "外表温柔似水语调轻软，嘴上嫌机电师傅修升降机修了三回都没修好，每回却都泡好一罐温热红茶等对方上楼。",
+    "withdrawal": "立于室外钢梯走廊清凉夜风中轻轻拭去额角薄汗温柔展颜浅笑。"
+   },
+   "gender": "female",
+   "gender_reason": "独栋动漫谷子潮玩集合店的温柔治愈系女店长。",
+   "id": "gentle_merch_boss_gu_wan_qing",
+   "identity": {
+    "authority": "对全店所有限定动漫周边资产处置、仓储货位调度及设备应急排险享有最高裁决权。",
+    "exposure": "为了给同好寻觅孤品原画特典曾独自通宵奔波展馆排队十余小时",
+    "hidden": "围裙内袋珍藏着创业初期赚取第一笔收益时定制的黄铜纪念小勋章",
+    "limits": [
+     "体格娇柔纤细，单凭纯臂力无法推开受数百公斤配重卡死的厚重钢门",
+     "身为品牌创始人必须誓死捍卫通宵首发绝版限定谷子毫发无损"
+    ],
+    "obligations": [
+     "在烟气致人窒息与高温烤焦纸品前撬开吊门自锁重锤安全撤离"
+    ],
+    "resources": [
+     "一柄长二十五厘米由淬火高碳合金工具钢制成的马口铁徽章压机专用特种冲压手柄（尾端带扁平实心撬把）",
+     "一箱高密度抗震防水首发限量特大马口铁徽章周转硬盒"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在烟熏升温绝境中义无反顾同自己并肩合抱钢杆用力的刚毅侧颜",
+     "两人双手紧紧重叠握住冰冷冲压手柄时从对方掌心传来的滚烫支撑力"
+    ],
+    "boundaries": [
+     "恪守温柔自尊的清白闺秀礼数与操守底线",
+     "绝不允许以搭救为名提出任何逾矩非分索求"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "同对方并肩站在灯火通明的明亮展厅前含笑迎候晨光中首批进店的二次元同好。",
+    "dislikes": [
+     "临危退缩推卸责任的虚伪之徒",
+     "借机轻浮冒犯不守礼法的轻薄之流"
+    ],
+    "expression": "泛着微婴儿肥的秀美面庞浮起一抹娇羞绯红，双手捧上一罐温热红茶轻声细语：谢谢你方才护着我，要不是你一起发力，我一个人可推不开这扇门。",
+    "likes": [
+     "精通机械物理常识又懂得体贴守护同伴的沉稳可靠目光",
+     "在险境化解后彼此会心一笑无需多言的脉脉深情"
+    ],
+    "preconditions": [
+     "吊门自锁重力舌被冲压钢柄成功撬起且大门顺畅推开",
+     "首发限量吧唧展品完好无损转移至安全展柜",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "动漫潮流周边集合店主理人",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_anime_merch_loft_storage_floor",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_anime_merch_loft_storage_floor",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_backstage_merch_inspection_aisle",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "冲压钢杆尾端撬柄产生细微受力划痕，{npc.name}纤细手腕受反震冲击隐隐泛酸。",
+      "option": "{npc.name}拔出徽章压机加厚高碳钢冲压手柄，两人合力深入门槽限位孔借钢梁向下压别脱开卡舌。"
+     },
+     {
+      "cost": "货运升降吊门导轨总成整体受力弯曲报废，需耗费数万元整体更换定制。",
+      "option": "由外侧消防巡查员使用液压剪切钳强行剪断吊门外侧两根定位角铁拉杆排险。"
+     }
+    ],
+    "pressure": "阁楼内部环境温度在五分钟内急剧攀升逼近安全警戒，浓烟阻断视线且氧气消耗剧烈，若未能及时撬开防坠销舌将导致全员缺氧熏昏。",
+    "trigger": "升降吊门导向钢丝绳受重脱轨滑跳，两百公斤铸铁防坠自锁重力舌如断头台般猛烈下插卡死在门框槽内，底层电气箱短路浓烟沿吊井倒灌室内。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要这柄高碳钢冲压杆还在手中，我{npc.name}就绝不会在自己的仓储阁楼里被困死，大家的心血也绝不能在此毁于一旦！",
+    "surface": "别怕，先别用蛮力撞门！这是卷扬导向轮脱落引发的机械防坠重力舌咬死，越撞自锁楔块咬得越死！快拿我压吧唧这柄特种加厚冲压钢杆来，插进轨道下沿限位死槽，以这根梯梁为支点，咱们数到三一起往下压！"
+   }
+  },
+  {
+   "adult_context": "现年满二十六岁，建筑电气与智能化工程工学学士，特种低压电工作业与电梯机修双证技术员，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    26
+   ],
+   "appearance_options": [
+    "身穿深灰色耐磨工装连体检修服，腰间挂着工业测电笔与重型棘轮绝缘扳手，体格挺拔匀称神色沉毅机警。",
+    "面容硬朗英武，双手戴着防触电劳保手套，充满工科男特有的严密务实与雷厉风行风采。"
+   ],
+   "decision": {
+    "avoids": [
+     "无常识的胡乱砸门引发二次卡滞",
+     "遇难慌张大呼小叫消耗宝贵时间"
+    ],
+    "contrast": "平日少言寡语专注于线路原理，直面突发险情却爆发力惊人处置迅猛如电。",
+    "core_value": "电流有道力矩有常，只要卸下了受阻剪切力，多沉重的死锁铁门也是通途！",
+    "goal_options": [
+     "在配电箱迅速拉断空调短路回路切断浓烟火源",
+     "在外侧用千斤顶协助顶起重力锁舌分担内侧下压力矩"
+    ],
+    "never": [
+     "在阁楼受困同伴安全脱身前离开操作战位"
+    ],
+    "prefers": [
+     "符合工业机电规程的严密处置",
+     "心领神会的精准战术口令响应"
+    ],
+    "pressure_responses": {
+     "breaking": "在门缝弹开瞬间号召外侧人员同向拉住外门把手合力开门",
+     "high": "单臂撑住门框用对讲高声指引内侧找准重锤受力杠杆支点",
+     "low": "在井口通过对讲电台清晰通报底层短路电源已安全隔离切断",
+     "mid": "双手紧握扳手快速旋松导轨侧向定位螺栓消除过盈咬合应力"
+    },
+    "relationship_stance": "升降机其实第二回就修好了，第三回是自己找的理由；街区里那么多店，只有这一家的红茶是温的。",
+    "withdrawal": "坐在钢梯走道旁卸下绝缘手套长舒一口气大口饮水平复心绪。"
+   },
+   "gender": "male",
+   "gender_reason": "动漫商厦综合物业配电与弱电机修二十六岁青年骨干工程师。",
+   "id": "merch_store_electrician_ruan_bo_zhou",
+   "identity": {
+    "authority": "对商厦全域动力配电跳闸切断、排烟控制阀启闭及货梯应急检修享有第一处置权。",
+    "exposure": "曾在文化商厦大型灯会突发电气火灾中勇闯主变压器室断电排险立功",
+    "hidden": "工具包底层珍藏着大学时期获全国机械创新设计大赛特等奖纪念徽章",
+    "limits": [
+     "被阻断在阁楼外侧升降平台，无法直接翻越卡死的不锈钢升降大门",
+     "底层配电间短路引发主空开过热闭锁需在配电柜紧急排查"
+    ],
+    "obligations": [
+     "在外部切断火灾隐患电源并协同舱内人员解除自锁重锤"
+    ],
+    "resources": [
+     "一具手持高精度数字绝缘电阻兆欧表",
+     "一柄铬钒合金钢加长双头手动气阀调节扳手"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在险境中以纯粹机电力学掌控全局生机的沉稳阳刚风采",
+     "隔门联动毫无保留的生死信任与默契呼应"
+    ],
+    "boundaries": [
+     "恪守机电工程维保安全规约红线",
+     "绝不因紧急险情而跳过必要安全核查程序"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "筑起守护街区店铺电力与通道畅通的技术安全护盾。",
+    "dislikes": [
+     "蛮干胡来的违章操作",
+     "只知推脱责任的软弱者"
+    ],
+    "expression": "露出爽朗坦荡的释然微笑，向脱困众人用力比出坚实大拇指致敬。",
+    "likes": [
+     "条理分明的专业对白",
+     "临危不乱彼此守望的过硬执行力"
+    ],
+    "preconditions": [
+     "底层短路隐患彻底排除且升降吊门顺畅推开",
+     "阁楼通风恢复安全空气指标全面正常",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "动漫街区特种机电工程师",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_loft_vertical_lift_shaft_landing",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_loft_vertical_lift_shaft_landing",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_backstage_merch_inspection_aisle",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "高强度铬钒合金套筒扳手头部因极限扭力挤压产生两毫米细微磨损滑牙。",
+      "option": "{npc.name}在升降井口用长柄套筒扳手强行旋松外侧四枚定位膨胀螺母消除侧向夹紧力矩。"
+     },
+     {
+      "cost": "整栋动漫大厦二层所有冷柜与照明全面断电造成数千元冷藏损耗。",
+      "option": "拔掉备用配电柜主熔断器保险丝直接彻底切断整栋店铺所有进线动力电源。"
+     }
+    ],
+    "pressure": "若不及时拉断短路支路并松开膨胀螺丝，阁楼内烟气浓度将急剧提升剥夺受困人员视线与氧气。",
+    "trigger": "底层配电箱接触器受热过载起火跳闸，浓烟通过升降吊井迅速窜入二层阁楼，导轨外侧螺母受热膨胀抱死夹板。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "烟气正在往阁楼夹层倒灌，必须赶在大家发生烟气中毒前协助内侧把自锁重锤彻底顶开！",
+    "surface": "别慌！底层的故障空调回路已经被我强行拉闸切断，不会再有明火蔓延！导向滑轨这边的过盈螺丝我已经拧松，你那柄冲压钢杆硬度极高，听我倒数口令，冲着重力楔块下沿向下发力！"
+   }
+  },
+  {
+   "adult_context": "现年满二十二岁，文化产业经济学学士毕业，谷子潮玩店联名合伙人兼运营主管，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    22
+   ],
+   "appearance_options": [
+    "身穿浅咖色干练工装衬衫与九分牛仔裤，长发扎成利落高马尾，面容清丽娇俏，颊肉带有细腻活力的胶原蛋白，目光敏锐沉静。",
+    "神情专注沉稳，随身携带着条码扫码枪与防尘毛刷，即便面对突发卡死险情，双手依然稳稳护住身前限量谷子周转硬箱。"
+   ],
+   "decision": {
+    "avoids": [
+     "遇事尖叫慌乱自乱阵脚的懦弱举动",
+     "为求独逃抛弃团队与心血藏品的自私行径"
+    ],
+    "contrast": "外表是娇俏灵动的新潮女孩，面对浓烟封闭危局却展现出极高冷静与严谨细致定力。",
+    "core_value": "信诺千金心血难凉，在绝境面前同伴生命大于天，周边艺术也必须毫发未损！",
+    "goal_options": [
+     "紧抱限量吧唧周转箱为撬门作业开辟无障碍作业通道",
+     "迅速用阻燃胶带封死烟气通风缝隙为室内争取宝贵清醒时间"
+    ],
+    "never": [
+     "在危机平息前放弃对同伴的照明指引与后勤接应"
+    ],
+    "prefers": [
+     "恪守契约与资产安全的稳妥自救方案",
+     "温柔而坚定的团队情绪支撑与细致补位"
+    ],
+    "pressure_responses": {
+     "breaking": "在门缝洞开瞬间第一个协助托举周转箱护送人员安全穿行出舱",
+     "high": "用湿润丝巾轻轻覆在店长口鼻处低语鼓励沉住气保持体力",
+     "low": "在货架旁迅速将限量大徽章收入密封加厚硬箱并扣好双重安全扣",
+     "mid": "半蹲在门前高举强光手电将雪亮光束稳稳聚焦在重锤锁舌咬合点"
+    },
+    "relationship_stance": "视店长如莫逆姐妹，被其温柔而坚韧的担当所折服，生死关头毫不犹豫将后背托付对方。",
+    "withdrawal": "倚靠在走廊护栏边抚平衣角大口呼吸新鲜夜风欣慰含笑。"
+   },
+   "gender": "female",
+   "gender_reason": "动漫潮玩集合店联名合伙人二十二岁青年才女文化经济学士。",
+   "id": "merch_store_co_founder_xu_tian_ya",
+   "identity": {
+    "authority": "对首发限量谷子分发装箱、粉丝社群预售履约及现场货品盘点拥有全权处置权。",
+    "exposure": "曾在一线动漫大展上主导万人级别限量盲盒平稳高效发售",
+    "hidden": "背包夹层珍藏着与店长初次摆摊创业时共同签名的第一份合伙协议",
+    "limits": [
+     "臂力相对有限，无法独立承担重负荷铁门撬动",
+     "必须誓死捍卫通宵首发珍藏限量徽章毫无划痕瑕疵"
+    ],
+    "obligations": [
+     "守护首发资产并为撬门行动提供照明指引与支点加固"
+    ],
+    "resources": [
+     "一瓶环保型防静电微量精密模具润滑除尘喷雾",
+     "一卷高粘度特种加厚阻燃封箱胶带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在险境中挺身而出护佑展品与同胞周全的果敢担当",
+     "彼此眼神交汇时流淌出的绝对信任与相濡以沫之深情"
+    ],
+    "boundaries": [
+     "坚守合伙人契约伦理与女性自尊底线",
+     "绝不允许以搭救为借口提出逾矩冒犯诉求"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "同大家共同见证首发徽章圆满售罄与青春梦想盛放的灿烂时刻。",
+    "dislikes": [
+     "夸夸其谈的浮夸狂徒",
+     "贪生怕死背弃职责的宵小"
+    ],
+    "expression": "温柔含笑理顺耳畔发丝，主动递上温热湿巾向并肩作战的同伴致以真挚谢意。",
+    "likes": [
+     "守信重诺的专业实干派",
+     "遇事冷静有担当的伙伴"
+    ],
+    "preconditions": [
+     "首发限量周转箱完好无损通过大门且全员平安生还",
+     "店铺周边发售工作在安全环境下重新启动"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "动漫周边店联名合伙人",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_anime_merch_loft_storage_floor",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_anime_merch_loft_storage_floor",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_backstage_merch_inspection_aisle",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "拆箱刀加厚钢制刀鞘边缘磨出多道划痕，{npc.name}右手拇指被粗糙纸箱擦破皮层轻微泛红。",
+      "option": "{npc.name}用加厚美工全钢拆箱刀硬柄切开受力死角成功拖出密封周转箱保护资产。"
+     },
+     {
+      "cost": "陈列纸盒外部特种烫金防伪封签发生局部破损折痕。",
+      "option": "放弃外层陈列托盘直接抱出内层高密度防震泡沫内胆迅速转移至门前安全区。"
+     }
+    ],
+    "pressure": "若不能及时抽离周转箱，上方坠落杂物将砸损纸品外包装导致限量展品不可逆折痕贬值。",
+    "trigger": "限量徽章周转硬箱提手被震落的钢构货架托臂挂钩卡死在货架深处无法抽出。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要能同店长平安脱困，哪怕今晚通宵发售延期我也认了，生命比任何周边都要金贵！",
+    "surface": "店长，那批全城唯一的首发限量绝版吧唧我已经全部锁入防震周转硬箱！胶带封条完好无损，现在全心专注于撬开这扇门！"
+   }
+  },
+  {
+   "adult_context": "现年满二十二岁，国家初级消防设施操作员，退役消防特勤士官，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    22
+   ],
+   "appearance_options": [
+    "身穿黑色高强度轻型阻燃特勤作战服，头戴抢险救援头盔，佩戴战术对讲手咪与强光防爆电筒，身材魁梧挺拔目光如炬。",
+    "面容刚毅神态坚毅肃穆，双手稳稳把持双刃合金战术撬棍，散发着训练有素的救生军旅英气。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目使用大锤野蛮砸门破坏逃生受力结构",
+     "临阵慌乱导致对讲联络信息失真延误战机"
+    ],
+    "contrast": "外表威严刚硬不苟言笑，内心对群众安危牵肠挂肚充满炽热的护民赤诚。",
+    "core_value": "生命重于泰山灾情就是命令，在我的巡区内，决不允许任何群众遭受烟熏窒息！",
+    "goal_options": [
+     "以正压排烟风机对准百叶窗全功率抽烟稀释室内有毒气团",
+     "在门开瞬间第一时间护送受困人员佩戴呼吸器撤出危险区"
+    ],
+    "never": [
+     "在确认最后一名受困人员安全撤离前离开排险岗位"
+    ],
+    "prefers": [
+     "严守防灾救援倒计时的战术规范联动",
+     "服从现场指挥大局的严密纪律协同"
+    ],
+    "pressure_responses": {
+     "breaking": "在门缝洞开瞬间果断伸手将受困人员逐一护送搀扶出舱",
+     "high": "双手反握合金撬棍深入外侧门缝配合内侧形成同步外拉力矩",
+     "low": "手握对讲手咪沉声通报正压排烟风机已就位启动排烟通道",
+     "mid": "隔着观察窗高声以军旅读秒口令引导全员集中向下方施力"
+    },
+    "relationship_stance": "极度敬佩店长与同伴临危不乱的自救魄力，视其为具备过硬自救素养的优秀市民。",
+    "withdrawal": "向协同抢险的各路人员敬礼致意后靠在受力钢柱旁摘盔平复呼吸。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "fire_patrol_officer_song_chen_yi",
+   "identity": {
+    "authority": "对商厦现场火险警戒、疏散引导及便携式正压排烟设备调配下达执行指令。",
+    "exposure": "曾多次在一线复杂商业综合体烟热搜救演练中夺得全能破拆第一名",
+    "hidden": "特勤作训服内袋珍藏着退役时战友集体赠予的微型镀金应急破窗器",
+    "limits": [
+     "门外盲目动用重型撬棍可能破坏门框铰链引发永久性机械死锁",
+     "外部大队消防车赶赴现场尚需十分钟，必须立足现场组织自救"
+    ],
+    "obligations": [
+     "指挥排烟降低毒素并引导室内人员依照科学杠杆脱困"
+    ],
+    "resources": [
+     "一套大风量便携式电动防爆正压排烟风机",
+     "一柄高强度双刃合金战术破拆撬棍"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危急关头毫不退缩并肩救援的过硬默契与雷厉风行风采",
+     "彼此眼神交汇时流淌出的崇高敬意与人性温情"
+    ],
+    "boundaries": [
+     "严守特勤应急队员纪律操守红线",
+     "绝不允许违反现场安全管理条例的盲动"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "伫立于商厦安全通道前守护全员平安凯旋。",
+    "dislikes": [
+     "遇难退缩的懦夫",
+     "不服从指令自乱阵脚者"
+    ],
+    "expression": "端正敬礼致意，随后伸出有力双手与大家紧紧相握以示赞佩。",
+    "likes": [
+     "沉着果敢的战术协同者",
+     "严守安全纪律的专业人员"
+    ],
+    "preconditions": [
+     "大门在外拉协助下完全开启且受困人员零伤亡撤出",
+     "阁楼火险隐患彻底排除移交后续安保巡查"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "街区微型消防站特勤巡查员",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_backstage_merch_inspection_aisle",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_backstage_merch_inspection_aisle",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_anime_merch_loft_storage_floor",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "战术撬棍合金尖端因强行撬压产生微量漆面磨损与轻微崩边。",
+      "option": "{npc.name}用战术撬棍精准别开百叶窗联动卡扣强制推平全部排烟叶片。"
+     },
+     {
+      "cost": "消耗掉微型消防站常备的两具特种干粉灭火器全部药剂配额。",
+      "option": "动用便携式干粉灭火器直接向百叶窗风道喷射形成局部抑燃阻隔层。"
+     }
+    ],
+    "pressure": "若不及时强行破开百叶窗，排烟风机将无法形成有效负压风幕带走阁楼热气。",
+    "trigger": "排烟百叶窗外侧防雨百叶被大风卡滞在半闭合角度阻碍抽排风道顺畅流通。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "烟气正在从吊井往外冒，大队水罐车还在路上，内侧这柄冲压钢杆就是大家唯一的破局生路！",
+    "surface": "二层人员注意，外侧正压排烟风机已经启动抽风！室内浓烟会在一分钟内明显稀释，注意保持低姿放平呼吸，听我外侧读秒，一起发力！"
+   }
+  },
+  {
+   "adult_context": "现年满二十二岁，美术学院工业设计系本科在读，手工道具工作室首席打板师，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    22
+   ],
+   "appearance_options": [
+    "身穿深蓝色多口袋耐磨工装马甲，内搭深灰色卫衣，戴平光树脂防飞溅防护镜，面容清秀神采奕奕。",
+    "双手修长长年握持模具打磨工具带有硬茧，随身携带着精密游标卡尺与特种金属锉刀，行事细致严密。"
+   ],
+   "decision": {
+    "avoids": [
+     "估算模糊凭感觉蛮干导致工具受剪崩断",
+     "大喊大叫破坏团队情绪的毛躁举止"
+    ],
+    "contrast": "外表文雅斯文充满艺术书卷气，面对重物搬运与硬核杠杆实操却爆发力惊人毫不退避。",
+    "core_value": "造型是视觉的表达，力学是现实的支撑，只要支点稳如泰山，再沉重的机械死销也能撬起！",
+    "goal_options": [
+     "拆卸冲压机实心钢制底座垫板稳妥垫入卡槽下方充当黄金支点",
+     "严密监测冲压手柄下压受力垂直度防止偏心受剪弯折"
+    ],
+    "never": [
+     "在杠杆撬动脱扣完成前让身下支点产生半毫米滑移"
+    ],
+    "prefers": [
+     "计算精确分毫不爽的刚体几何支点搭设",
+     "保护贵重冲压模具核心工装的妥善施救方案"
+    ],
+    "pressure_responses": {
+     "breaking": "在自锁舌脱扣瞬间同店长一同按压手柄完成最后脱扣",
+     "high": "用双膝抵紧钢垫侧向防止过载下压瞬间垫块发生滑移偏位",
+     "low": "迅速旋转螺栓三秒卸下冲压机十公斤实心合金钢配重垫板",
+     "mid": "双手紧扣垫板底部死死抵在梯梁横档上构筑杠杆力学基座"
+    },
+    "relationship_stance": "视店长为审美与情怀的知音盟友，甘愿倾尽全部结构力学手艺为脱困铺就坚实支点。",
+    "withdrawal": "坐在理货台脚踏板上揉捏发酸的双膝欣慰展颜微笑。"
+   },
+   "gender": "male",
+   "gender_reason": "二次元手工道具设计制作名匠二十二岁工业设计在读青年才俊。",
+   "id": "merch_store_prop_maker_lu_ting_xuan",
+   "identity": {
+    "authority": "对吧唧冲压模具硬度载荷、模具手柄材质金相结构及杠杆支点力矩平衡享有专业发言权。",
+    "exposure": "曾亲手为多部现象级国创动漫打造高精还原度金属等比例道具",
+    "hidden": "工具箱夹层收藏着亲手打磨的第一枚全金属二次元硬核徽章试模件",
+    "limits": [
+     "垫板一旦移作支点，操作台上的限量模具将面临失衡倾倒危险",
+     "体能有限需协同全员发力维持受力垫板平稳"
+    ],
+    "obligations": [
+     "为店长搭建最稳固的下压杠杆支点并校准冲压手柄受力法向角"
+    ],
+    "resources": [
+     "一枚重达十公斤由实心冷锻合金钢制成的模具底座垫板（平头实心厚重）",
+     "一套专业模具加固高硬度内六角扳手组"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在浓烟微光中以毫米级精度互相配合构筑力学支点的严谨默契",
+     "彼此眼神中对匠心工艺与生命尊严坚信不疑的真挚执着"
+    ],
+    "boundaries": [
+     "恪守青年学者的严谨礼数与道德边界",
+     "坚决杜绝任何逾矩冒犯之举"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "静立于手工工作台旁守护二次元造物工匠之火重燃。",
+    "dislikes": [
+     "粗心大意的破坏狂",
+     "轻视手工力学常识的狂妄者"
+    ],
+    "expression": "推了推护目镜腼腆一笑，温和向店长与同伴点头示意并肩胜利。",
+    "likes": [
+     "热爱精密工程与二次元艺术的同好",
+     "沉着应变的实干派伙伴"
+    ],
+    "preconditions": [
+     "模具实心底板成功化解锁舌咬合并将大门完全打开",
+     "受困人员安全撤离且首发限量模具关键构件完好回收"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "动漫手工道具高级打板师",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_anime_merch_loft_storage_floor",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_anime_merch_loft_storage_floor",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_backstage_merch_inspection_aisle",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "价值数千元的定制实心冷锻模具垫板表面导轨产生微细受力滑痕。",
+      "option": "{npc.name}迅速拆下模具底座垫板搬运至门框死角稳固垫起杠杆支点。"
+     },
+     {
+      "cost": "{npc.name}肩背部软组织承受剧烈挤压出现大片浅青色淤斑。",
+      "option": "用后背死死顶住倾斜货架支柱直至同伴用尼龙打包带将其牢牢捆扎在主承重梁上。"
+     }
+    ],
+    "pressure": "若不迅速拆卸底板分担承重，倾倒的箱体将砸断阁楼应急通信专线并彻底堵塞门前通道。",
+    "trigger": "理货阁楼钢梁货架因吊门坠落冲击波震裂两枚固定螺栓，货架上层沉重模具箱面临倾覆。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要能帮店长撑稳这个支点，吊门的重力自锁舌就绝对逃不脱杠杆力矩的撬动！",
+    "surface": "店长，冲压机这块十公斤实心冷锻合金垫板已经被我拆下来了！高硬度平头正好能垫在梯梁跟轨道之间充当黄金支点，快把手柄插上来！"
+   }
+  },
+  {
+   "adult_context": "现年满二十岁，外国语大学日语文化专业大二在读，谷子店兼职店员，具备完全民事行为能力。",
+   "age_range": [
+    20,
+    20
+   ],
+   "appearance_options": [
+    "身穿店铺统一印花员工围裙与浅蓝色针织毛衣，扎着双马尾，面容娇憨清秀，颊肉饱满圆润带有未褪的婴儿肥与水润胶原蛋白，目光明澈惹人怜爱。",
+    "神情虽然略带紧张，但在店长安抚下迅速稳住阵脚，双手细致地分发浸湿毛巾并协助清理地面积聚杂物。"
+   ],
+   "decision": {
+    "avoids": [
+     "只知慌张哭泣打转的软弱退缩",
+     "任性妄为乱动陌生机械设备"
+    ],
+    "contrast": "外表是娇软乖巧的邻家少女，面对火警险情却迅速收敛眼泪成长为可靠的后勤小帮手。",
+    "core_value": "店长待我如亲妹妹，越是危险关头，我越不能哭鼻子添乱，我也要成为有用的人！",
+    "goal_options": [
+     "迅速分发湿毛巾确保全员口鼻湿润严防吸入热烟",
+     "协助清理门前杂物确保撬门发力时脚底绝不滑脱"
+    ],
+    "never": [
+     "在店长姐安全撤离前丢下工作岗位独跑"
+    ],
+    "prefers": [
+     "细致周到不添乱的后勤保障方案",
+     "大家紧紧抱团互帮互助的温暖氛围"
+    ],
+    "pressure_responses": {
+     "breaking": "在门推开瞬间第一个上前搀扶店长并呈递清凉温水",
+     "high": "高举手电筒将明亮光线持续投射在冲压手柄下压刻度线上",
+     "low": "飞快打开纯净水浸湿毛巾并逐一递到店长与同伴手心",
+     "mid": "双手用力将散落在门口的空纸箱踢开消除绊倒障碍"
+    },
+    "relationship_stance": "极度崇拜店长的温柔与担当，视其为人生榜样，危急关头爆发出超越年龄的坚韧。",
+    "withdrawal": "坐在钢梯走道旁小口喝水擦拭泛红的眼角欣喜破涕为笑。"
+   },
+   "gender": "female",
+   "gender_reason": "谷子店新晋兼职实习店员二十岁外语学院大二在读青年学生。",
+   "id": "merch_store_intern_clerk_bai_qing_yi",
+   "identity": {
+    "authority": "对现场应急急救湿毛巾准备、人员体征看护及通道地物清理享有首要协作权。",
+    "exposure": "曾在动漫同人展会志愿者服务中因热情周到获得优秀志愿者表彰",
+    "hidden": "员工围裙小口袋里藏着一块店长面试时赠送的草莓夹心曲奇饼干",
+    "limits": [
+     "初次遭遇严重机械故障，缺乏重型设备排故经验",
+     "体质较弱对浓烟刺激较为敏感"
+    ],
+    "obligations": [
+     "保障受困全员呼吸道湿润并协助维持现场通道整洁"
+    ],
+    "resources": [
+     "一包医用加厚纯净水湿敷应急洁面巾",
+     "一瓶随身携带的清凉提神薄荷精油喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在险境中像大哥哥大姐姐一样挡在身前护佑自己的伟岸担当",
+     "并肩克难脱险后获得摸头鼓励时那一抹甜美安心感"
+    ],
+    "boundaries": [
+     "严守青年学生的纯真自尊与礼仪边界",
+     "坚决杜绝任何逾越身份的非分非礼行为"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "立于店铺收银台前笑靥如花迎候每一位踏入店门的漫迷。",
+    "dislikes": [
+     "大声斥责新人的暴躁之徒",
+     "冷血自私不顾同伴死活者"
+    ],
+    "expression": "两颊泛起微红，微微仰起带有微婴儿肥的俏脸甜甜一笑：店长，还有大家，你们方才下压钢杆的样子真是太帅气太可靠了！",
+    "likes": [
+     "温和宽厚有责任心的同袍",
+     "遇事沉着指引方向的长辈伙伴"
+    ],
+    "preconditions": [
+     "全员安全撤出阁楼且呼吸道未受严重烟气损伤",
+     "店铺恢复营业且同伴们均安然无恙"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "动漫周边店兼职实习店员",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_anime_merch_loft_storage_floor",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_anime_merch_loft_storage_floor",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_backstage_merch_inspection_aisle",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗掉准备用于制作痛包样品的两张崭新高密度吸水纯棉毛毡垫。",
+      "option": "{npc.name}迅速拔掉低位插座电线并用干燥棉毯彻底吸干地面积水消除滑脱隐患。"
+     },
+     {
+      "cost": "用掉整整一卷高等级防静电绝缘绝湿特种胶带。",
+      "option": "用防静电胶带将倒伏水桶死死固定在立柱旁防止水流进一步蔓延扩渗。"
+     }
+    ],
+    "pressure": "若不迅速断开地面插座并吸干积水，地面湿滑将导致撬门发力人员脚底打滑失衡脱力。",
+    "trigger": "阁楼内部应急纯净水桶因震动滑倒水流满地，险些浸湿操作台前电气插座。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "我一定要帮店长照亮门缝，只要听店长的指挥，咱们就一定能把门撬开平安出去！",
+    "surface": "店长，湿毛巾我都浸透了，大家快捂住口鼻！门前的散落纸箱我也都搬空了，你们用力踩稳地面，千万别滑倒！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "新品首发前一天，十月",
+  "minute": 1260
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace_power",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "谷子店长拆封珍藏吧唧前习惯佩戴高弹超细纤维白手套仔细擦拭金属表面浮尘",
+  "仓储理货员登高作业前须手推检查双层不锈钢货架立柱加固斜撑螺栓受力锁死状况",
+  "温柔女店主每次化解盘点差错后习惯微扬唇角双手奉上一杯温热桂花乌龙茶轻声致谢",
+  "两人合抱杠杆撬动重构件时须依照三二一口令同频倾注重心避免工具单侧侧滑脱位"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "首发前一晚，店长坐在二楼阁楼的理货台前，把几千枚吧唧按角色分装进小袋。",
+    "店长一边装一边念叨每个角色的名字，碰到自己最喜欢的那个，会多看两眼。",
+    "装完一箱，店长伸了个懒腰，说今晚大概又要通宵了。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_bai_hands_wet_towel_water",
+    "hook_bozhou_lift_excuse",
+    "hook_gu_and_crew_thrust_downward"
+   ],
+   "id": "act_gu_wan_qing_pries_latch_tongue",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "workplace"
+   ],
+   "title": "阁楼里清点吧唧"
+  },
+  {
+   "beats": [
+    "机电师傅被叫来修货运吊门，一边拧螺丝一边说这门比自己的年纪还大。",
+    "店长端来一杯热奶茶，师傅说不喝甜的，店长又去换了一杯茶。",
+    "修好了，吊门上下跑了两趟，师傅收拾工具说：以后有事再喊我。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_bozhou_lift_excuse",
+    "hook_ruan_loosens_rail_bolts_call",
+    "hook_wanqing_hidden_badge"
+   ],
+   "id": "act_ruan_loosens_rail_bracket_bolts",
+   "location_ids": [
+    "loc_loft_vertical_lift_shaft_landing"
+   ],
+   "start_minute": 1140,
+   "tags": [
+    "workplace"
+   ],
+   "title": "师傅来修吊门"
+  },
+  {
+   "beats": [
+    "排队的老顾客实在等不住，跑上阁楼来帮店长打包。",
+    "两人一个装袋一个封口，配合得越来越快，店长笑着说要给帮手发工资。",
+    "封完最后一箱，帮手问能不能先买一枚，店长假装板起脸：明早排队去。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_bai_hands_wet_towel_water",
+    "hook_bozhou_lift_excuse",
+    "hook_gu_and_crew_thrust_downward"
+   ],
+   "id": "act_xu_seals_badge_box_securely",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "workplace"
+   ],
+   "title": "帮店长打包"
+  },
+  {
+   "beats": [
+    "使用内六角扳手快速卸下冲压机十公斤实心冷锻模具底座垫板",
+    "双手搬运实心钢垫严丝合缝垫入门框与梯梁之间充当受力支点",
+    "双膝抵紧垫板侧向防止强负荷下压瞬间金属垫块发生位移滑脱"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_lu_positions_die_base_fulcrum",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "start_minute": 1263,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "阁楼门槛实心合金模具垫板支点搭设"
+  },
+  {
+   "beats": [
+    "店门外的长队从傍晚排到了街角，有人带着折叠椅和睡袋准备通宵。",
+    "店长从外侧钢梯走下来，给排队的人每人发一瓶热饮。",
+    "队伍里有人认出店长，喊着加油，店长红着脸挥了挥手。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_bozhou_lift_excuse",
+    "hook_song_calibrates_smoke_fan_run",
+    "hook_wanqing_hidden_badge"
+   ],
+   "id": "act_song_deploys_smoke_exhaust_fan",
+   "location_ids": [
+    "loc_backstage_merch_inspection_aisle"
+   ],
+   "start_minute": 1170,
+   "tags": [
+    "workplace"
+   ],
+   "title": "钢梯边的长队"
+  },
+  {
+   "beats": [
+    "女学妹迅速拆开医用纯净水湿巾细致浸润并分发给撬门人员",
+    "双手用力将门前通道堆积的空纸箱杂物踢开消除脚下打滑障碍",
+    "吊门一推开就抢先递上一瓶冰镇的乌龙茶，扶着同伴从阁楼口钻出来"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_bai_prepares_wet_towels_for_crew",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "start_minute": 1261,
+   "tags": [
+    "workplace"
+   ],
+   "title": "阁楼作业区纯净水湿润毛巾后勤保障"
+  },
+  {
+   "beats": [
+    "锁舌撬开、楼下的火扑灭、几千枚吧唧一枚没少、首发照常开门之后，店长回到阁楼的小卧室，羊绒开衫被汗和烟熏得湿漉漉的。",
+    "店长背过身，让人一颗颗解开开衫的扣子，再用温热的毛巾擦去颈后的汗和烟灰，毛巾擦到腰际时，店长轻轻吸了口气，往后靠了过来。",
+    "店长转过身，捧着一罐温热的红茶，眼睛弯成月牙：今晚……留下来好不好？你点头，我才放你。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_sweaty_cardigan",
+   "location_ids": [
+    "loc_loft_little_bedroom"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "小卧室里替店长解开汗湿的开衫"
+  },
+  {
+   "beats": [
+    "打烊后，店长换了身软软的家居服，盘腿坐在床上，把一盒隐藏款吧唧倒出来，一枚一枚地数。",
+    "店长挑出一枚按进人掌心：这枚不卖，给你。……坐过来，陪我数完。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_hidden_badge",
+   "location_ids": [
+    "loc_loft_little_bedroom"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "数一盒隐藏款"
+  },
+  {
+   "beats": [
+    "首发卖空的那一夜，店长关了店，坐在小卧室的窗边，看着楼下空荡荡的街，手里攥着那根撬过锁舌的钢杆。",
+    "店长把钢杆放下，靠在人肩上：累坏了。……今晚想让你抱着睡，你说好，我才关灯。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_after_launch",
+   "location_ids": [
+    "loc_loft_little_bedroom"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "首发结束的那一夜"
+  },
+  {
+   "beats": [
+    "清晨街区还没开门，店长在单人床上醒来，头发蹭着人的下巴，手机里补货的消息响个不停。",
+    "店长把手机塞到枕头底下：十点才开门……再抱一会儿，补货的车还没到。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_morning_restock",
+   "location_ids": [
+    "loc_loft_little_bedroom"
+   ],
+   "start_minute": 480,
+   "tags": [
+    "intimate"
+   ],
+   "title": "补货之前"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代大型动漫文化街区独栋周边集合店首发通宵理货上架阶段",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "幼态",
+  "幼女",
+  "少女感",
+  "催情",
+  "迷乱",
+  "欲火"
+ ],
+ "hooks": [
+  {
+   "id": "hook_gu_takes_down_punch_handle",
+   "kind": "approach",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "slot": "gentle_merch_boss_gu_wan_qing",
+   "text": "{gentle_merch_boss_gu_wan_qing.name}单膝跪在吊门门槛冰冷不锈钢板前，温柔抿起朱唇，稳稳拔出徽章压机加厚冲压手柄，将扁平高硬度圆柄深深探入导轨限位孔锁定自锁重锤底端。"
+  },
+  {
+   "id": "hook_ruan_loosens_rail_bolts_call",
+   "kind": "approach",
+   "location_ids": [
+    "loc_loft_vertical_lift_shaft_landing"
+   ],
+   "slot": "merch_store_electrician_ruan_bo_zhou",
+   "text": "{merch_store_electrician_ruan_bo_zhou.name}在井口平台双手把持长柄套筒扳手套紧导轨侧向固定螺栓，伴随着咔哒回旋退牙声，向门内清晰喊出下压自锁卡舌的最佳卸荷时机。"
+  },
+  {
+   "id": "hook_xu_stows_badge_hard_case",
+   "kind": "approach",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "slot": "merch_store_co_founder_xu_tian_ya",
+   "text": "{merch_store_co_founder_xu_tian_ya.name}紧紧抱住沉重的限量吧唧密封硬箱，半蹲在理货架边，高举防爆战术强光手电，把雪白明亮光束精准聚焦在限位孔受力点。"
+  },
+  {
+   "id": "hook_lu_places_solid_die_fulcrum",
+   "kind": "approach",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "slot": "merch_store_prop_maker_lu_ting_xuan",
+   "text": "{merch_store_prop_maker_lu_ting_xuan.name}单手稳住沉甸甸的十公斤实心冷锻模具底座垫板，小心翼翼卡入冲压手柄正下方，为下压撬动构建出黄金杠杆受力支点。"
+  },
+  {
+   "id": "hook_song_calibrates_smoke_fan_run",
+   "kind": "approach",
+   "location_ids": [
+    "loc_backstage_merch_inspection_aisle"
+   ],
+   "slot": "fire_patrol_officer_song_chen_yi",
+   "text": "{fire_patrol_officer_song_chen_yi.name}双手扶正大风量排烟风机出风管对准百叶窗全功率抽排浓烟，贴紧隔音耳罩凝视门缝微隙，口中以沉稳音调倒数读秒引导双侧同步发力。"
+  },
+  {
+   "id": "hook_bai_hands_wet_towel_water",
+   "kind": "approach",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "slot": "merch_store_intern_clerk_bai_qing_yi",
+   "text": "{merch_store_intern_clerk_bai_qing_yi.name}快步上前将浸满纯净水的加厚湿毛巾稳稳递到店长手心，柔声低语：店长用湿毛巾捂住呼吸，地面的纸箱我都清空了！"
+  },
+  {
+   "id": "hook_gu_exhorts_partner_to_hold_steady",
+   "kind": "approach",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "slot": "gentle_merch_boss_gu_wan_qing",
+   "text": "{gentle_merch_boss_gu_wan_qing.name}抬头温柔凝视身旁同伴一眼，两靥微带紧致水润婴儿肥浮起绯红：“听外侧读秒，两只手跟我一起合抱手柄尾端，数到一就立刻倾尽全力往下压！”"
+  },
+  {
+   "id": "hook_ruan_shouts_counter_torque_ready",
+   "kind": "approach",
+   "location_ids": [
+    "loc_loft_vertical_lift_shaft_landing"
+   ],
+   "slot": "merch_store_electrician_ruan_bo_zhou",
+   "text": "{merch_store_electrician_ruan_bo_zhou.name}通过门缝传来洪亮高吼：“外侧四枚夹紧螺栓已全部旋松退扣！重力卡舌一旦顶起，大门就会产生五公分回弹缝隙！”"
+  },
+  {
+   "id": "hook_xu_wipes_perspiration_gu_brow",
+   "kind": "approach",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "slot": "merch_store_co_founder_xu_tian_ya",
+   "text": "{merch_store_co_founder_xu_tian_ya.name}轻轻抽出纸巾，探身替店长拂去额角凝结的细密汗珠，柔声鼓励：“店长沉住气，整箱限量吧唧完好无损，大家都把命交在你手里了！”"
+  },
+  {
+   "id": "hook_lu_shores_up_fulcrum_wedge",
+   "kind": "approach",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "slot": "merch_store_prop_maker_lu_ting_xuan",
+   "text": "{merch_store_prop_maker_lu_ting_xuan.name}迅速用双膝死死抵紧垫板底座边缘，双手按紧钢板防滑齿，防止强负荷下压瞬间金属垫块发生侧向滑动脱位。"
+  },
+  {
+   "id": "hook_gu_and_crew_thrust_downward",
+   "kind": "approach",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "slot": "gentle_merch_boss_gu_wan_qing",
+   "text": "“三、二、一，下压！”{gentle_merch_boss_gu_wan_qing.name}与身侧同伴四手紧扣冲压手柄，全身重力化作惊人力矩向下猛别，铸铁自锁重锤应声弹起脱扣！"
+  },
+  {
+   "id": "hook_observe_loft_door_pops_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "slot": "gentle_merch_boss_gu_wan_qing",
+   "text": "厚重的不锈钢垂直升降吊门发出一阵极清脆的金铁脱扣退销咬合声，紧紧咬死的自锁重锤被硬生生撬起，大门伴随着咔哒一声脆响顺畅向上滑开半人高逃生生路！"
+  },
+  {
+   "id": "hook_observe_ruan_and_crew_haul_door",
+   "kind": "observe",
+   "location_ids": [
+    "loc_loft_vertical_lift_shaft_landing"
+   ],
+   "slot": "merch_store_electrician_ruan_bo_zhou",
+   "text": "外侧人员在螺栓松脱与重锤弹开瞬间合力扣住外门把手同向向上抬举，厚重如铁壁的吊门平稳升起大开，室外清凉甘洌的夜风如甘泉般席卷而入。"
+  },
+  {
+   "id": "hook_observe_song_restores_fresh_air",
+   "kind": "observe",
+   "location_ids": [
+    "loc_backstage_merch_inspection_aisle"
+   ],
+   "slot": "fire_patrol_officer_song_chen_yi",
+   "text": "外侧大风量正压排烟风机强劲气流将阁楼内残存的热风与刺鼻焦糊白烟彻底吹扫稀释，室内空气重新恢复清爽干净，火警隐患全面瓦解转危为安。"
+  },
+  {
+   "id": "hook_observe_gu_embraces_triumph",
+   "kind": "observe",
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "slot": "gentle_merch_boss_gu_wan_qing",
+   "text": "{gentle_merch_boss_gu_wan_qing.name}脱力般倚靠在门框边揉着通红酸软的手腕，温柔别过泛着水润红晕的精致脸颊浅浅一笑：“太好了……大家都平平安安，首发限量徽章也都毫发无损呢！”"
+  },
+  {
+   "id": "hook_wanqing_warm_tea",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "gentle_merch_boss_gu_wan_qing",
+   "text": "{npc.name}把一罐温热的红茶塞进人手里，眼睛弯成月牙：在暖柜里放了一下午。……专门给你留的。"
+  },
+  {
+   "id": "hook_wanqing_hidden_badge",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "gentle_merch_boss_gu_wan_qing",
+   "text": "{npc.name}从围裙口袋里摸出一枚隐藏款吧唧，悄悄按进人掌心：别告诉排队的人。……这枚只给你。"
+  },
+  {
+   "id": "hook_wanqing_queue_night",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "gentle_merch_boss_gu_wan_qing",
+   "text": "{npc.name}坐在店门口的台阶上，看着通宵排队的长龙，往人肩上一靠：明天会很累的。……现在让我靠一会儿。"
+  },
+  {
+   "id": "hook_bozhou_lift_excuse",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "merch_store_electrician_ruan_bo_zhou",
+   "text": "{npc.name}拎着工具箱站在楼梯口，挠了挠头：升降机……我再来看看。"
+  },
+  {
+   "id": "hook_wanqing_loft_curtain",
+   "kind": "approach",
+   "location_ids": [
+    "loc_loft_little_bedroom"
+   ],
+   "slot": "gentle_merch_boss_gu_wan_qing",
+   "text": "{npc.name}从书架后探出头，手里捧着一罐温热的红茶：楼下太吵了。……进来歇会儿。"
+  }
+ ],
+ "id": "gentle_merch_shop_loft_latch_trap",
+ "locations": [
+  {
+   "affordances": [
+    "将徽章冲压模具特种淬火高碳钢压杆坚硬圆柄探入吊门轨道限位槽内",
+    "二人四手紧握冲压手柄以钢梯横梁为支点向上猛力撬起自锁重力舌",
+    "抱紧高密度密封塑料周转箱将整批限量珍品首发徽章稳妥转移掩蔽"
+   ],
+   "detail": "动漫街区独栋商铺二层的密闭钢结构仓储夹层，四壁密密麻麻排列着重型仓储货架，整齐堆放着数千盒首发马口铁徽章、亚克力立牌与珍藏痛包。此时底层空调跳闸浓烟沿吊井倒灌，阁楼唯一的不锈钢垂直升降吊门因钢丝绳滑脱防坠销死死咬在门槛上，空气闷热难耐带有焦糊味，天花板应急荧光灯幽微摇曳。",
+   "exits": [
+    "loc_loft_vertical_lift_shaft_landing",
+    "loc_backstage_merch_inspection_aisle",
+    "loc_loft_little_bedroom"
+   ],
+   "id": "loc_anime_merch_loft_storage_floor",
+   "name": "二层钢结构仓储理货阁楼",
+   "pressure_modifiers": {
+    "p_counterweight_latch_heavy_deadlock": "数百公斤防坠配重死死压在止逆舌上，徒手盲目推拉完全纹丝不动。",
+    "p_loft_ambient_overheat_smoke_hazard": "烟气与闷热烘烤不断加速体能流失，未佩戴面罩人员出现呼吸急促。"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_merch_collector_xiaotian",
+    "bg_part_time_clerk_linlin"
+   ]
+  },
+  {
+   "affordances": [
+    "手持高压除锈润滑喷剂顺着门框密封滑道缝隙均匀喷注化解干涩阻力",
+    "将液压千斤顶顶头卡入外侧导向支架施加向上的预紧分力减轻咬合",
+    "通过防爆对讲拾音器向阁楼内侧高声通报重锤自锁销咬合受力退位读数"
+   ],
+   "detail": "紧靠仓储阁楼边缘的垂直货运升降机装卸步道，不锈钢吊门厚重密实如同铁壁。升降钢丝绳在侧向导向轮处松脱崩跳散乱，吊箱顶部的防坠落机械制动爪由于失重坠落在导轨凹槽深处咬死。金属门框表面滚烫，缝隙丝丝往外冒出刺鼻白烟，货梯检修技师正在门前紧张测量形变卡位。",
+   "exits": [
+    "loc_anime_merch_loft_storage_floor",
+    "loc_backstage_merch_inspection_aisle"
+   ],
+   "id": "loc_loft_vertical_lift_shaft_landing",
+   "name": "货运升降吊门井口平台",
+   "pressure_modifiers": {
+    "p_winch_cable_snag_secondary_drop": "松脱钢丝绳如弹簧般扭曲蓄力，稍有剧烈晃动便有崩断反抽危险。"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_lift_mechanic_master_zhao",
+    "bg_commercial_patrol_officer_laowang"
+   ]
+  },
+  {
+   "affordances": [
+    "架设便携式排烟风机对准阁楼百叶窗全功率抽吸室内积聚白烟",
+    "从平台工具架递入加长加厚防滑手套与湿毛巾接应受困人员",
+    "在吊门下沿撬开微隙瞬间合力用肩膀与外门把手向外拉开生路"
+   ],
+   "detail": "连通二层货运阁楼与店铺一楼卖场的室外应急检修钢梯走廊。钢构平台悬于半空，微凉的夜风穿堂吹拂，明亮泛光灯照射着不锈钢格栅踏板。此时消防安保队员正在平台外侧架设便携式正压排烟风机，手持强光手电隔着排风百叶窗密切注视阁楼内人员排故自救进展。",
+   "exits": [
+    "loc_anime_merch_loft_storage_floor",
+    "loc_loft_vertical_lift_shaft_landing"
+   ],
+   "id": "loc_backstage_merch_inspection_aisle",
+   "name": "外侧钢梯",
+   "pressure_modifiers": {
+    "p_limited_edition_badges_scratch_risk": "首发限量稀缺徽章一旦遭受高温或跌落撞击将引发严重折价损毁。"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_fire_inspector_captain_sun",
+    "bg_logistics_driver_brother_qiang"
+   ]
+  },
+  {
+   "affordances": [
+    "替店长解开汗湿的开衫",
+    "陪店长数一盒隐藏款吧唧",
+    "拉上隔间的布帘"
+   ],
+   "detail": "仓储阁楼尽头用书架隔出的一间小卧室，一张铺着印花床单的单人床、一排摆满限量手办的书架、一盏星星形状的夜灯，窗外是动漫街区的霓虹招牌。",
+   "exits": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "id": "loc_loft_little_bedroom",
+   "name": "阁楼隔间的店长小卧室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "书架后的布帘一拉，外头的纸箱和楼下排队的人声就远了，只剩夜灯的一点暖光。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "顾",
+   "阮",
+   "陆",
+   "唐",
+   "沈",
+   "许",
+   "宋",
+   "程",
+   "苏",
+   "温",
+   "秦",
+   "莫",
+   "薛",
+   "魏"
+  ],
+  "given_female": [
+   "宛晴",
+   "温瑜",
+   "轻语",
+   "恬雅",
+   "语琴",
+   "书瑶",
+   "若薇",
+   "沛岚",
+   "清漪",
+   "梦岚",
+   "诗翠",
+   "听兰",
+   "思凝",
+   "采薇"
+  ],
+  "given_male": [
+   "景和",
+   "天衡",
+   "云澈",
+   "柏舟",
+   "修远",
+   "廷轩",
+   "辰逸",
+   "浩然",
+   "致远",
+   "瀚海",
+   "绍辉",
+   "明哲",
+   "子墨",
+   "星遥"
+  ],
+  "given_neutral": [
+   "青川",
+   "怀瑾",
+   "嘉木",
+   "霁林",
+   "少煊",
+   "逸凡",
+   "望舒",
+   "景明",
+   "亦安",
+   "予怀",
+   "知衡",
+   "若谷",
+   "楚寒",
+   "凌霜"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留动漫街区独栋谷子店、二层钢结构仓储阁楼、货运升降机配重钢丝绳导轮滑脱、防坠锁舌咬死阁楼唯一出口、店长用压吧唧的加厚冲压钢杆撬配重锁舌的骨架与二次元味道。为与已有的同类世界拉开，用户拍板把开局放在首发日：限量吧唧首发前夜，店门外已经排起了通宵的长队，店长和街区机电师傅在阁楼上赶着理货。用户已放开内容限制，只守红线；外貌描写照留，只改写死的人名、代词、年龄（店长改为毕业几年的主理人）。新增店长在阁楼隔间的小卧室与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    22
+   ],
+   "baseline": "负责潮流动漫街区大型衍生品仓储调配与立体货架消防安防，随身携带防爆照明灯与重型多功能五金工具箱。",
+   "gender": "any",
+   "id": "pi_anime_merch_warehouse_supervisor",
+   "reputation": "精通仓储货运升降机械结构图纸，对配重抱死与自锁导轨偏心受力了如指掌。",
+   "resources": [
+    "一套加厚不锈钢六角套筒棘轮快速扳手",
+    "一台工业级便携式红外线测温烟雾寻迹仪"
+   ],
+   "risks": [
+    "若撬动时找错支点可能导致冲压冲头受剪切崩断彻底封死出路",
+    "在烟雾积聚的阁楼闷热环境中存在热中暑与烟熏窒息高危风险"
+   ],
+   "role": "动漫周边仓储物流高级主管",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}主管"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}队长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    21
+   ],
+   "baseline": "店长大学创业挚友，负责首发谷子通宵盲盒拆箱分装与粉丝社群对接，性情沉静细腻动手敏捷。",
+   "gender": "any",
+   "id": "pi_anime_consignment_junior_partner",
+   "reputation": "对各类限量首发动漫吧唧工艺真伪鉴别极具眼力，在周边同好圈深孚众望。",
+   "resources": [
+    "一把加厚高硬度全钢无缝金属美工拆箱刀",
+    "一罐环保型防静电亚克力模具快干除尘剂"
+   ],
+   "risks": [
+    "限量周边受潮磕碰将导致严重经济损失与粉丝信誉危机",
+    "体力有限在高温烟熏密闭狭间内耐受时间短暂"
+   ],
+   "role": "二次元谷子潮玩店联名合伙人",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}合伙人"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}掌柜"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    22
+   ],
+   "baseline": "负责动漫街区地下与阁楼重点防火单位夜巡巡检，随身携带战术破拆斧与防毒逃生自救呼吸器面罩。",
+   "gender": "any",
+   "id": "pi_commercial_block_fire_patrol_guard",
+   "reputation": "体魄精干受过严格特勤破拆训练，多次在封闭仓储烟热事故中临危救援立功。",
+   "resources": [
+    "一具过滤式消防自救呼吸器备用面罩",
+    "一柄高强度双刃合金战术防爆撬棍"
+   ],
+   "risks": [
+    "外侧暴力破拆可能震塌轻薄阁楼夹层钢架伤及室内人员",
+    "必须严守消防规程优先确保受困人员人身生命绝对安全"
+   ],
+   "role": "文化街区特勤微型消防站巡查员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}特勤"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}队员"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    20
+   ],
+   "baseline": "现年满二十岁具备完全民事行为能力，特种设备维保单位机电正式学徒工，负责店铺货梯钢丝绳涂油与导轨保养，熟记滑块暗销方位。",
+   "gender": "any",
+   "id": "pi_loft_lift_maintenance_apprentice",
+   "reputation": "手脚勤快熟悉阁楼升降机所有机械死角暗扣，但面临大祸易慌张失措。",
+   "resources": [
+    "一罐高压极压抗磨轴承齿轮润滑除锈剂",
+    "一盒特种耐高温防滑丁腈机械手套"
+   ],
+   "risks": [
+    "身为底层运维人员面对设备意外停摆承受直接考核责难",
+    "在高处狭缝操作时需严防被回弹构件夹伤手指"
+   ],
+   "role": "升降机维保机电成年学徒工",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工友"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}小师傅"
+    }
+   ]
+  }
+ ],
+ "premise": "动漫街区的一家独栋谷子店，周末有限量吧唧首发。温柔的女店长这几天都在二层仓储阁楼清点几千枚马口铁吧唧，街区的机电师傅被叫来修那台老是卡顿的货运升降机。首发那天的长队会从傍晚排到街角；升降机的防坠锁舌是老式的，阁楼只有一个出口。",
+ "pressures": [
+  {
+   "choice": "选择利用徽章冲压高碳钢手柄撬开自锁舌，或等待外部大队消防破拆。",
+   "exits": [
+    {
+     "cost": "冲压钢杆高碳表面产生受力压痕，店长掌心被冷锻钢铁反震得轻微发麻。",
+     "option": "店长与搭档双手紧扣合抱淬火冲压钢杆向下施力，成功别起重力自锁楔块推开吊门脱险。"
+    },
+    {
+     "cost": "消耗完毕仓储阁楼全部高压水雾便携式灭火降温瓶配额。",
+     "option": "开启阁楼应急消防逃生湿化水雾喷淋瓶向空气喷洒水雾降温阻绝热烟气流。"
+    }
+   ],
+   "far": {
+    "consequence": "阁楼内部全体人员陷入重度烟雾中毒昏迷引发呼吸道不可逆损伤。",
+    "due_days": 1,
+    "trigger": "高热浓烟彻底充满密闭阁楼剥夺所有游离氧气"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_loft_ambient_overheat_smoke_hazard",
+   "immediate": {
+    "minutes": 3,
+    "text": "浓烟弥漫夹层，阁楼温度升至四十度，店长白皙面颊被熏得泛红，呼吸干热胸口发闷。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "烟气浓度在两分钟内将突破人体耐受阈值，若未能撬开自锁吊门，人员将因急性烟熏窒息倒地。"
+   },
+   "objective": "在受困人员吸入过多有害浓烟昏厥前撬开防坠自锁门脱出室外。",
+   "source": "accident",
+   "start_minute": 1260,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "仓储阁楼封闭空间环境升温烟熏危险",
+   "trigger": "底层电气控制箱短路过载起火，刺鼻电线绝缘皮焦糊浓烟沿吊井倒灌，阁楼密闭夹层温度迅速升温逼近极限。"
+  },
+  {
+   "choice": "选择利用高碳钢冲压手柄深入下沿撬动，或由外部强行动用液压剪切拉杆。",
+   "exits": [
+    {
+     "cost": "冲压手柄扁平撬把表面出现细微受力擦痕，两人手臂肌肉因对抗反弹微微酸胀。",
+     "option": "二人双手重叠握稳冲压手柄，对准导轨自锁楔块以三十度斜角狠狠下压脱开止逆扣。"
+    },
+    {
+     "cost": "不锈钢升降门框底部特制防撞减震纯铜衬套受强力砸击严重凹陷报废。",
+     "option": "外侧机电工使用重型大锤连续敲击门框下角减震铜垫试图强行震退卡死楔块。"
+    }
+   ],
+   "far": {
+    "consequence": "升降吊门彻底沦为无法人工开启的绝望铁壁危及全员性命安全。",
+    "due_days": 1,
+    "trigger": "防坠自锁机构因局部过载发生塑性咬死形变"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_counterweight_latch_heavy_deadlock",
+   "immediate": {
+    "minutes": 3,
+    "text": "厚重不锈钢门体缝隙传来金属咬死的沉闷震响，徒手拼命推拉完全纹丝不动如同焊接死一般。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_loft_vertical_lift_shaft_landing"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "重锤楔块在重力与导轨过盈摩擦下咬合加剧，若两分钟内未能下压挑脱将彻底咬死自锁齿牙。"
+   },
+   "objective": "借冲压工具高硬度手柄下压撬起防坠自锁重力舌化解机械死锁。",
+   "source": "accident",
+   "start_minute": 1260,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "货运升降吊门防坠重力锁舌抱死卡槽",
+   "trigger": "升降导向钢丝绳脱跳，两百公斤铸铁防坠自锁重力舌下落深深咬入不锈钢门框卡死凹槽。"
+  },
+  {
+   "choice": "选择在外侧用快速卸扣将钢丝绳固定在受力横梁上，或派专人手持盾牌阻隔飞溅。",
+   "exits": [
+    {
+     "cost": "重型紧绳器特种高强度尼龙收紧带承受尖锐钢丝毛刺撕划出现起毛断股损伤。",
+     "option": "机电师傅在升降井侧用棘轮快速紧绳器将松脱钢丝绳牢牢捆扎在受力主柱上消除抽弹危险。"
+    },
+    {
+     "cost": "一张崭新的特种涂层防火帆布被绞入绳圈撕扯开一道大口子破损报废。",
+     "option": "在井口上方拉设防火特种帆布阻隔层将钢丝绳整体覆盖减缓冲击动能。"
+    }
+   ],
+   "far": {
+    "consequence": "造成现场人员严重机械撕裂外伤并彻底砸毁逃生门扇传动链。",
+    "due_days": 1,
+    "trigger": "张紧钢丝绳断裂崩脱化作高速钢鞭甩击"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_winch_cable_snag_secondary_drop",
+   "immediate": {
+    "minutes": 3,
+    "text": "粗壮钢丝绳如巨蟒般在门框侧面发出高频受力震颤嗡鸣，钢丝表面毛刺在灯光下闪烁寒光。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_loft_vertical_lift_shaft_landing"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若撬门震动引发钢丝绳二次跳槽脱落，剧烈崩弹将瞬间抽碎门框玻璃并伤及近距离人员肢体。"
+   },
+   "objective": "在撬门脱困全过程中避开钢丝绳崩弹扇面并用固定索临时束紧。",
+   "source": "accident",
+   "start_minute": 1262,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "松脱钢丝绳扭曲蓄力二次抽弹回伤危机",
+   "trigger": "卷扬机钢丝绳脱出导向轮后扭曲盘结在升降立柱外侧，承受数千牛顿残存张力随时有崩脱抽伤危险。"
+  },
+  {
+   "choice": "选择用美工刀鞘挑开卡阻托臂，或直接抱出泡沫内胆贴身护持。",
+   "exits": [
+    {
+     "cost": "周转硬箱外层防刮保护膜与铁架擦碰刮出数道浅痕，周转箱角扣轻微磨损。",
+     "option": "联名合伙人与搭档双手护稳周转硬箱，迅速推入操作台下实心冷锻模具架内完全避险。"
+    },
+    {
+     "cost": "三件印有二次元精美图案的工作围裙在粗糙货架蹭上大片深色机油污渍。",
+     "option": "全员将防尘纯棉围裙集中包裹在周转箱四周作为缓冲防震垫层隔绝烘烤。"
+    }
+   ],
+   "far": {
+    "consequence": "造成数十万元重大商业资产损毁并引发通宵排队漫迷的信任危机。",
+    "due_days": 1,
+    "trigger": "限量绝版马口铁周边大面积遭受硬性磕碰与高温灼伤"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_limited_edition_badges_scratch_risk",
+   "immediate": {
+    "minutes": 3,
+    "text": "纸盒翻倒发出脆响，联名合伙人飞身扑上前用脊背抵住倾斜货架，双手死死抱紧装有首发大吧唧的周转箱。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "阁楼高温烘烤可能导致徽章内部烫金色纸产生起泡软化，若未及时撤出将导致整箱周边报废。"
+   },
+   "objective": "将限量吧唧硬质周转箱稳妥转移至门槛安全凹槽内实施全封闭保护。",
+   "source": "accident",
+   "start_minute": 1261,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "首发限量绝版马口铁徽章划痕破损风险",
+   "trigger": "货架受震晃动，上方未固定的一箱绝版徽章面临跌落，一旦金属镜面遭受硬物挤压将产生致命划痕折光折价。"
+  },
+  {
+   "choice": "选择利用拆卸的实心合金模具垫板搭设基座，或在柄身缠绕阻燃胶带缓冲点应力。",
+   "exits": [
+    {
+     "cost": "精密不锈钢游标卡尺尺身因超限震动受到微小冲击导致零位微量失准需重新校核。",
+     "option": "打板师在下方严密扶正支点垫板指引店长严格沿垂直轴线重心下压发力。"
+    },
+    {
+     "cost": "消耗整整两卷德国原装进口高阻燃特种机械缓冲胶带。",
+     "option": "在冲压钢杆受力中段缠绕多层加厚耐高温高强绝缘聚酰亚胺胶带缓冲接触点应力。"
+    }
+   ],
+   "far": {
+    "consequence": "阁楼内部人员彻底丧失物理自救手段沦为任由高温浓烟吞噬的绝望受害者。",
+    "due_days": 1,
+    "trigger": "唯一的特种加厚冲压钢杆在过载剪应力下当场折断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_punch_steel_handle_stress_fracture",
+   "immediate": {
+    "minutes": 3,
+    "text": "冲压钢杆插入门槽深处承受剧烈受力时发出极其清脆的金属抗阻微吟，稍有偏载便有不可逆受弯之虞。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "首次撬动若角度偏移超过五度，工具中段将产生永久塑性微弯甚至脆裂，彻底丧失唯一撬门杠杆。"
+   },
+   "objective": "严格依托实心合金垫板支点沿中轴法向垂直下压确保钢柄稳妥顶起锁舌。",
+   "source": "accident",
+   "start_minute": 1260,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "冲压机高碳钢手柄受剪切过载弯折风险",
+   "trigger": "冲压机手柄虽为淬火高碳钢但截面受剪切力矩过大，撬压角度若偏离法向中心线过大将承受危险弯曲应力。"
+  },
+  {
+   "choice": "是跟着楼梯口巡查员的读秒一点点往上抬吊门，还是先在吊门底边塞一摞压扁的纸箱当缓冲。",
+   "exits": [
+    {
+     "cost": "巡查员的防护手套被吊门边沿的毛刺划开了一道口子，掌心磨得通红。",
+     "option": "消防巡查员在楼梯口用对讲倒数，阁楼里外的人在最后一秒一齐发力，把吊门稳稳抬了上去。"
+    },
+    {
+     "cost": "那摞纸箱里装过的限量海报全被压出了折痕，再也卖不出去。",
+     "option": "把一摞压扁的周边纸箱垫进门缝卡位，让吊门落下时先砸在纸板上。"
+    }
+   ],
+   "far": {
+    "consequence": "数吨重不锈钢吊门彻底焊死在导轨中丧失一切人工开启可能性。",
+    "due_days": 1,
+    "trigger": "自锁重力舌与门槛倒钩在反向力矩下彻底咬死崩裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_loft_door_pull_push_cadence_mismatch",
+   "immediate": {
+    "minutes": 3,
+    "text": "门框铰链承受内外相反剪切扭力发出刺耳尖啸，金属缝隙微动卡死，若不同步发力将彻底焊死门扇。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_loft_vertical_lift_shaft_landing"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若内外发力节拍相差半秒以上，反向剪切力将把重力卡舌反向别死在钢板内再也无法下压抬起。"
+   },
+   "objective": "内外人员依照对讲三秒倒数实现毫秒级同步启闭确保吊门平稳外移推开。",
+   "source": "accident",
+   "start_minute": 1264,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "内外推拉力矩节奏失衡导致卡舌反咬危机",
+   "trigger": "若外侧人员过早暴力外拉门扇而内侧自锁舌未完全挑出卡槽，巨力将把楔块死死别在倒钩齿内无法复位。"
+  },
+  {
+   "choice": "把阁楼上的货当众搬下来点数，还是先查出照片是谁拍的",
+   "exits": [
+    {
+     "cost": "开门要晚一个钟头，排了一夜的人会骂一整天",
+     "option": "当众开箱点数"
+    },
+    {
+     "cost": "照片是店里自己人拍的，店里要少一个人",
+     "option": "查出照片是谁拍的"
+    }
+   ],
+   "far": {
+    "consequence": "首发当天就上了热搜，品牌方收回下一季的首发授权",
+    "due_days": 3,
+    "trigger": "传言没压下去"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_wanqing_warm_tea",
+    "hook_wanqing_hidden_badge",
+    "hook_wanqing_loft_curtain"
+   ],
+   "id": "p_scalper_rumor",
+   "immediate": {
+    "minutes": 5,
+    "text": "收银主管在楼下喊，有人在拍卷帘门"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_loft_little_bedroom",
+    "loc_anime_merch_loft_storage_floor"
+   ],
+   "near": {
+    "deadline_minutes": 120,
+    "text": "十点开门"
+   },
+   "objective": "在十点开门之前，让门外的长队相信每一枚都在这里",
+   "source": "rumor",
+   "start_minute": 480,
+   "tags": [],
+   "title": "黄牛传言",
+   "trigger": "早上八点，排队群里有人贴出一张阁楼货架的照片，说限量款早被店里留给了黄牛，门外的队伍开始骚动"
+  },
+  {
+   "choice": "自己吞下这笔钱，还是去跟代理商说是升降机出了事",
+   "exits": [
+    {
+     "cost": "店里这个月的房租就交不上了",
+     "option": "自己买下这箱吧唧"
+    },
+    {
+     "cost": "机电师傅的维保公司会因此被大厦解约",
+     "option": "请机电师傅写一份升降机故障说明"
+    }
+   ],
+   "far": {
+    "consequence": "开了四年的小店只能靠旧货撑，合伙人也在考虑退股",
+    "due_days": 7,
+    "trigger": "下一批联名断货"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_wanqing_warm_tea",
+    "hook_wanqing_hidden_badge",
+    "hook_wanqing_queue_night",
+    "hook_bozhou_lift_excuse",
+    "hook_wanqing_loft_curtain"
+   ],
+   "id": "p_scratched_badges",
+   "immediate": {
+    "minutes": 5,
+    "text": "手机上是代理商发来的报价单，数字后面三个零"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_loft_little_bedroom"
+   ],
+   "near": {
+    "deadline_minutes": 720,
+    "text": "明早九点，代理商的人来清点"
+   },
+   "objective": "在代理商明早清点之前，决定这箱吧唧怎么办",
+   "source": "money",
+   "start_minute": 1290,
+   "tags": [],
+   "title": "一箱划花的吧唧",
+   "trigger": "首发那天晚上，版权代理打来电话：一箱限量吧唧在阁楼里压出了划痕，店里要按零售价全部买下，否则下一批联名不再给货"
+  }
+ ],
+ "region": "动漫街区旗舰店二层钢结构周边仓储阁楼与货运升降吊门通道",
+ "rules": [
+  {
+   "id": "rule_loft_freight_drop_lock_safety",
+   "text": "仓库二层货运升降井坠落防护规约：当提升钢丝绳张力骤降时，导轨防坠落自锁重锤将在半秒内动作卡死门框，禁止强行踩踏吊箱顶部。"
+  },
+  {
+   "id": "rule_paper_merch_smoke_evacuation_code",
+   "text": "二次元纸品谷子易燃仓储安全规程：阁楼堆存大量马口铁原盒与烫金色纸，烟雾传感器报警后须在十五分钟内排除电气隐患疏散人员。"
+  },
+  {
+   "id": "rule_manual_lever_anti_jam_protocol",
+   "text": "机械防坠自锁重锤应急解脱规程：需使用截面直径不小于十六毫米淬火高碳工具深入滑槽下缘，以梯架横梁为支点向上撬开止逆销。"
+  },
+  {
+   "id": "rule_limited_merch_safe_keeping_code",
+   "text": "首发限量稀缺展品无损搬运规范：紧急撤离时涉案限量珍藏大徽章必须密封于高密度防潮周转箱内，严禁挤压磕碰产生划痕折光损毁。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "理货并肩",
+  "committed": "金石同盟",
+  "familiar": "库房共处",
+  "flirting": "暗光凝视",
+  "intimate": "梯台共渡",
+  "stranger": "阁楼初识",
+  "testing": "冲压撬栓"
+ },
+ "status": "released",
+ "style_hint": "二次元的热闹与阁楼的闷：门外通宵排队的长龙、马口铁吧唧的反光、纸箱堆到房梁。写温柔店长软糯开衫下的身段、汗湿的鬓发与喘息，动作落在冲压钢杆撬配重锁舌上。",
+ "tension_engines": [
+  {
+   "id": "eng_loft_smoke_and_heat_countdown",
+   "text": "仓储阁楼封闭空间内部烟雾积聚与环境升温引发人员中暑窒息紧迫感"
+  },
+  {
+   "id": "eng_press_steel_rod_bending_load_limit",
+   "text": "高碳合金钢冲压手柄深入滑道下沿撬动防坠重力锁舌之抗弯抗剪极限"
+  },
+  {
+   "id": "eng_limited_badge_stock_security_pledge",
+   "text": "全城独家通宵首发绝版限量马口铁徽章在剧烈破拆中完好保全重大信诺"
+  },
+  {
+   "id": "eng_dual_sided_coordinated_heave_pulse",
+   "text": "阁楼内外两侧人员借助对讲倒数毫秒级同步发力克服数百公斤锁舌咬合"
+  }
+ ],
+ "title": "温柔谷子店女老板·动漫衍生品仓库阁楼升降吊门自锁",
+ "tone": [
+  "吊门跌落咬死",
+  "闷热烟雾积聚",
+  "冲压钢杆撬栓",
+  "破除卡锁脱困"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_solid_punch_steel_hardness_limit",
+   "requires": [
+    "gentle_merch_boss_gu_wan_qing"
+   ],
+   "text": "{gentle_merch_boss_gu_wan_qing.name}手中这柄马口铁徽章压机专用冲压手柄由淬火特种高碳工具钢制成，实心加厚圆柄硬度超群，在狭窄限位槽内撬压数千牛顿力矩绝不折断。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_electrician_guides_latch_notch",
+   "requires": [
+    "merch_store_electrician_ruan_bo_zhou"
+   ],
+   "text": "{merch_store_electrician_ruan_bo_zhou.name}凭借对商厦货梯装配图纸的深刻记忆，隔门指出了防坠重力舌的核心受力卸荷角，指导冲压钢杆以斜三十度切入直抵止逆卡爪核心。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_fire_officer_pull_coordination",
+   "requires": [
+    "fire_patrol_officer_song_chen_yi",
+    "merch_store_co_founder_xu_tian_ya"
+   ],
+   "text": "{fire_patrol_officer_song_chen_yi.name}与{merch_store_co_founder_xu_tian_ya.name}在内外两侧严密把控倒数发力节奏并卡死强光照明指引，为受困人员合抱下压冲压钢杆自救赢得了最关键的平稳施救空间。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_merch_loft_emergency_relief_code",
+   "requires": [
+    "merch_store_electrician_ruan_bo_zhou"
+   ],
+   "text": "动漫产业街区关于仓储物流升降吊门突发钢丝绳滑脱自锁应急排险规程被严格执行，外侧导轨螺栓依法手动旋松，彻底粉碎了门扇过盈夹紧死锁的危局。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_smoke_heat_decompression_window_limit",
+   "requires": [
+    "gentle_merch_boss_gu_wan_qing",
+    "merch_store_prop_maker_lu_ting_xuan"
+   ],
+   "text": "阁楼内部环境耐受仅能在烟熏中极限维持两分钟清醒窗口，店长冷静把握时机在此黄金时间内合力下压冲压钢柄，一举将重锤自锁舌平稳别脱。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_gu_wan_qing_hand_overlap_prying",
+   "requires": [
+    "gentle_merch_boss_gu_wan_qing"
+   ],
+   "text": "在重锤弹脱的一瞬间，二人四手紧扣共同握住冰冷的冲压钢柄拼尽全力向下按压，{gentle_merch_boss_gu_wan_qing.name}娇躯借力微倾依偎在搭档身旁，微婴儿肥俏脸泛起娇羞红晕，急促心跳交织却满是化险为夷的深沉信赖。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_limited_edition_badges_triumph",
+   "requires": [
+    "gentle_merch_boss_gu_wan_qing",
+    "merch_store_co_founder_xu_tian_ya"
+   ],
+   "text": "随着当啷一声清脆的金属脱扣回弹声，吊门自锁重力舌彻底脱开移平，店长与同伴合力护送整箱限量首发徽章周转硬盒安全出舱，绝版周边在清凉晨曦中折射出璀璨流光完好无损。"
+  }
+ ]
+}

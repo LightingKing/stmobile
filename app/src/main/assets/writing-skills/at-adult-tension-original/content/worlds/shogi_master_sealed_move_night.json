@@ -1,0 +1,2612 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满二十周岁在会馆修业担任后勤杂务的年轻见习帮工。",
+   "age_range": [
+    20,
+    22
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_rain_sweeper_apprentice",
+   "line": "{npc.name}：屋檐落了几片铜瓦，回廊积水快漫上来了，我去把排水沟疏通！",
+   "location_ids": [
+    "cypress_veranda_rain_corridor"
+   ],
+   "name": null,
+   "role": "在回廊外冒暴雨疏通排水沟青年扫雨杂役"
+  },
+  {
+   "adult_context": "年满二十周岁在联盟事务局供职的年轻办事员。",
+   "age_range": [
+    20,
+    22
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_panicked_federation_errand",
+   "line": "{npc.name}：外线电话全断了，备用电瓶只够一小时！",
+   "location_ids": [
+    "shogi_archive_secret_vault"
+   ],
+   "name": null,
+   "role": "捧着蓄电池灯的理事会差役"
+  },
+  {
+   "adult_context": "年满二十一周岁在盘驹工坊潜心学艺的年轻工匠骨干。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_shogi_pawn_craftsman_witness",
+   "line": "{npc.name}：盘面湿度又上去了，得赶紧控湿，不然木头要发胀。",
+   "location_ids": [
+    "yugen_inner_tatami_chamber"
+   ],
+   "name": null,
+   "role": "守在门边看护名盘的雕驹工匠"
+  },
+  {
+   "adult_context": "年满二十一周岁受雇于八卦周刊企图抓拍绯闻的年轻摄影狗仔。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_tabloid_paparazzi_photographer",
+   "line": "{npc.name}：听说幽玄室停电了，里面只剩两个人！这可是明天的头条！",
+   "location_ids": [
+    "zen_stone_courtyard_rain_gate"
+   ],
+   "name": null,
+   "role": "蹲守庭院外墙偷拍的小报狗仔"
+  },
+  {
+   "adult_context": "年满二十一周岁在NHK广播电台担任外景主持的年轻播音员。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_radio_broadcast_anchor_voice",
+   "line": "{npc.name}：气象通报，台风“白梅”正面经过千駄谷，名人战面临因灾流局！",
+   "location_ids": [
+    "zen_stone_courtyard_rain_gate"
+   ],
+   "name": null,
+   "role": "转播车里播报台风灾情的播音员"
+  },
+  {
+   "adult_context": "年满二十二周岁、因作弊被除名后替赌盘跑腿的前棋士。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_disqualified_retired_prodigy",
+   "line": "{npc.name}：只要今夜比赛作废，盘口就全部退注……这盘棋最好下不完。",
+   "location_ids": [
+    "cypress_veranda_rain_corridor"
+   ],
+   "name": null,
+   "role": "替外围赌盘跑腿的落魄前棋士"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "{proud_female_meijin_yukiko.name}在聚光灯下从不假辞色，却唯独允许你在停电后挪近火钵、替棋圣展平那柄从不离身的白玉折扇。",
+   "id": "combo_yukiko_sealed_envelope_vigil",
+   "identity_ids": [
+    "sealed_move_special_adjudicator",
+    "tea_ceremony_attendant_scion"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "proud_female_meijin_yukiko",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "去年京都王座战庆功宴散席后，你替胃痉挛的棋圣挡下三轮敬酒并背着走完鸭川长堤，那枚白玉扇坠至今收在你内袋里。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "proud_female_meijin_yukiko"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "守着信封到天亮，再听棋圣说一句头衔之外的话。",
+    "limit_gap": "棋圣在人前不能示弱，只肯在停电后让你挪近火钵。",
+    "meeting_reason": "首日封手签封后突逢会馆停电，{proud_female_meijin_yukiko.name}点名留你在幽玄室核对双联发条钟并彻夜看护名盘。",
+    "resource_gap": "棋圣握着名人头衔与整座会馆的礼遇；你握着封手信封的保管权。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_meijin_pride_vs_soaked_kimono_warmth",
+    "te_sealed_move_envelope_vs_life_or_death"
+   ]
+  },
+  {
+   "chemistry": "一人拭盘，一人执驹，两人在摇曳烛火下借古谱步数试探彼此深藏了数年的心意。",
+   "id": "combo_yukiko_board_oil_late_review",
+   "identity_ids": [
+    "traditional_craftsman_board_maker",
+    "renegade_prodigy_challenger_player"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "proud_female_meijin_yukiko",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "春天的棋具大展上棋圣一眼挑中你养护的虎斑黄杨王将，还在收据背面留了私人传呼号码约你赛后单独品茗。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "proud_female_meijin_yukiko"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "护好名盘，把那盘旧日盲棋下完。",
+    "limit_gap": "两人都只用棋步说话，谁也不肯先开口。",
+    "meeting_reason": "台风夜湿气倒灌顶层，{proud_female_meijin_yukiko.name}邀你在幽玄室闭门养护受潮的日向榧木名盘，顺势摆开一副旧日盲棋。",
+    "resource_gap": "你懂榧木也懂古谱；棋圣满腹残局，却没人能陪着下盲棋。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_chess_rivalry_vs_tender_embrace_defen",
+    "te_blackout_candlelight_vs_dawn_adjudica"
+   ]
+  },
+  {
+   "chemistry": "{senior_titleholder_rival_ryo.name}把全会馆的元老都当空气，唯独在你面前肯卸下满身刺，与你并肩靠着廊柱分喝一壶热茶。",
+   "id": "combo_ryo_corridor_iron_fan",
+   "identity_ids": [
+    "traditional_craftsman_board_maker"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "senior_titleholder_rival_ryo",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三年前关西地下棋馆被人砸场时，你与挑战者背靠背护住整箱古棋谱并立下字据，约定杀进头衔战那天绝不让外人弄脏棋盘。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "senior_titleholder_rival_ryo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "一起查清旧谱的来路，保住这盘棋的清白。",
+    "limit_gap": "挑战者在元老面前没人撑腰，一句辩白都显得可疑。",
+    "meeting_reason": "封手落锁后外廊风声鹤唳，{senior_titleholder_rival_ryo.name}在桧木回廊截住巡夜的你，把那册来路不明的匿名旧谱拍在你掌心要求共查。",
+    "resource_gap": "挑战者手里有那册来路不明的旧谱；你能作证它从未拆封。"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_chess_rivalry_vs_tender_embrace_defen",
+    "te_sealed_move_envelope_vs_life_or_death"
+   ]
+  },
+  {
+   "chemistry": "金丝眼镜后的目光一贯严苛如尺，可每当核对完封条，{federation_arbiter_master_soji.name}都会把唯二的备用钥匙留给你保管。",
+   "id": "combo_soji_vault_wax_seal",
+   "identity_ids": [
+    "sealed_move_special_adjudicator"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "federation_arbiter_master_soji",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月棋院纪律听证会休庭的暴雨夜，你在档案室替发烧硬撑的监查长抄完十二页抗辩词，两人隔着卷宗柜共享过同一条羊绒围巾。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "federation_arbiter_master_soji"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "和监查长一起把封手守到开封，顶住理事会的调令。",
+    "limit_gap": "监查长事事要留书面痕迹，私下的信任说不出口。",
+    "meeting_reason": "理事会夜电催促流局，{federation_arbiter_master_soji.name}将你单独叫进封手保密库，反锁铁门后把被压下的撤换调令摊在条案上。",
+    "resource_gap": "监查长握着保密库的双钥与程序裁定权；你是唯一在场的立会人。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_sealed_move_envelope_vs_life_or_death",
+    "te_blackout_candlelight_vs_dawn_adjudica"
+   ]
+  },
+  {
+   "chemistry": "{traditional_kimono_dresser_chiyo.name}替你缝补袖口时呼吸近在咫尺，指腹带着白檀暖香，把那张可能惹祸的废案纸角全盘托付给你定夺。",
+   "id": "combo_chiyo_screen_warm_haori",
+   "identity_ids": [
+    "shogi_federation_executive_director"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "traditional_kimono_dresser_chiyo",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "京都祇园祭那天你替着衣师从醉客手里护住整箱西阵织礼服，对方后来亲手绣了一枚白檀香囊塞进你的立会公文包。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "traditional_kimono_dresser_chiyo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "妥善处置那张纸角，让着衣师不必再担惊受怕。",
+    "limit_gap": "着衣师怕连累棋圣，话总说一半。",
+    "meeting_reason": "夜雨浸湿了当值衣袍，{traditional_kimono_dresser_chiyo.name}请你进幽玄室屏风内侧烘烤外衫，并悄悄打开针线匣向你求助。",
+    "resource_gap": "你握着联盟的仲裁牙牌；着衣师只有一只针线匣，和一张惹祸的纸角。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_meijin_pride_vs_soaked_kimono_warmth",
+    "te_blackout_candlelight_vs_dawn_adjudica"
+   ]
+  },
+  {
+   "chemistry": "狭小的保密库里只有暗房红灯微亮，{shogi_reporter_chronicler_shin.name}把关乎饭碗的原版底片塞进你手里，半开玩笑说今夜只听你的调遣。",
+   "id": "combo_shin_darkroom_wet_negative",
+   "identity_ids": [
+    "shogi_federation_executive_director"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "shogi_reporter_chronicler_shin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "年初新锐赛有人诬指你超时落子，正是记者交出连拍底片替你洗清冤屈，却一直追问你那天终局弃子的真正用意。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "shogi_reporter_chronicler_shin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "认出底片里的人，再决定这张照片的去向。",
+    "limit_gap": "记者夹在报社饭碗与旧日同门之间，进退两难。",
+    "meeting_reason": "{shogi_reporter_chronicler_shin.name}在保密库后窗拍到可疑黑影，连夜找你借用保密库红灯冲洗底片，请你在发稿前先作裁夺。",
+    "resource_gap": "你有权裁定底片能不能发；记者手里有拍到人影的唯一一卷胶片。"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_sealed_move_envelope_vs_life_or_death",
+    "te_blackout_candlelight_vs_dawn_adjudica"
+   ]
+  },
+  {
+   "chemistry": "茶烟袅袅中{zen_tea_master_confidant_kurenai.name}借递碗之机轻轻按住你微凉的手腕，把门外窥探的风波都隔绝在一盏热茗之外。",
+   "id": "combo_kurenai_hearth_midnight_tea",
+   "identity_ids": [
+    "traditional_craftsman_board_maker",
+    "renegade_prodigy_challenger_player"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "zen_tea_master_confidant_kurenai",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "镰仓雨季的茶会结束后你替茶道师修好了开裂的竹茶杓，对方自那以后每次在会馆当值都会单独为你留一碗头道玉露。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "zen_tea_master_confidant_kurenai"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "陪茶道师守完这一炉炭，再一起处理那张笺纸。",
+    "limit_gap": "茶道师守着茶席清规，不肯轻易卷进联盟的争执。",
+    "meeting_reason": "半夜巡查归来，{zen_tea_master_confidant_kurenai.name}在幽玄室茶席专程为你留了一炉红炭，从茶则底下取出那半截门阀私印笺纸请你过目。",
+    "resource_gap": "茶道师藏着那半截门阀私印笺纸；你懂得什么时候该把它交出去。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_meijin_pride_vs_soaked_kimono_warmth",
+    "te_chess_rivalry_vs_tender_embrace_defen"
+   ]
+  },
+  {
+   "chemistry": "在你的裁决权限之下，一向冷硬的{federation_arbiter_master_soji.name}卸下官样文章，甘愿做你整顿棋院积弊最锋利的一把刀。",
+   "id": "combo_soji_director_statute_audit",
+   "identity_ids": [
+    "shogi_federation_executive_director"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "federation_arbiter_master_soji",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "两年前棋院黑金丑闻调查时你力排众议保下了监查长的监查席位，两人在神田旧书店立过共同肃清棋院门阀的私下盟约。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "federation_arbiter_master_soji"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "借监查长之手反制保守派，守住名人战的独立。",
+    "limit_gap": "监查长一旦越级，就要独自背下违抗指令的处分。",
+    "meeting_reason": "你持联盟最高仲裁牙牌巡视保密库，{federation_arbiter_master_soji.name}主动锁上门向你汇报夜间电报异常，请示是否反制保守派理事。",
+    "resource_gap": "你握着最高仲裁权；监查长握着被压下的调令电报与夜间巡检记录。"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_sealed_move_envelope_vs_life_or_death",
+    "te_chess_rivalry_vs_tender_embrace_defen"
+   ]
+  },
+  {
+   "chemistry": "一张废案纸角与一卷未公开的黑白底片摆在同一张红木条案上，三人围绕如何守住棋圣清誉与明晨开封各怀心思又彼此牵制。",
+   "id": "combo_vault_draft_and_negative_pact",
+   "identity_ids": [
+    "sealed_move_special_adjudicator",
+    "shogi_federation_executive_director",
+    "traditional_craftsman_board_maker"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "proud_female_meijin_yukiko",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "停电前棋圣亲手把备用保险柜副钥塞进你掌心，叮嘱你无论今夜谁来盘问都只准听你一人的决断。",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "traditional_kimono_dresser_chiyo",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "着衣师傍晚发现废案纸角时第一时间没有声张，而是借送热毛巾之机悄悄塞进你袖袋求你拿主意。",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "shogi_reporter_chronicler_shin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你与记者在历届头衔战巡回中合作过十余次现场记录，深知对方虽爱抢独家却从不歪曲事实。",
+     "stage": "familiar"
+    },
+    {
+     "a": "shogi_reporter_chronicler_shin",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "traditional_kimono_dresser_chiyo",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "记者拍到了更衣屏风外有人捡拾纸角的侧影，正试探着衣师究竟替棋圣藏起了什么。",
+     "stage": "testing"
+    },
+    {
+     "a": "traditional_kimono_dresser_chiyo",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "proud_female_meijin_yukiko",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "着衣师替棋圣打理头衔战礼服已有三季，知道对方每次换衣时最怕被人瞧见疲态",
+     "stage": "familiar"
+    },
+    {
+     "a": "shogi_reporter_chronicler_shin",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "proud_female_meijin_yukiko",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "记者跟拍棋圣多年从未写过一句花边，却一直想问出对方封手那晚为何失眠",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "proud_female_meijin_yukiko",
+    "traditional_kimono_dresser_chiyo",
+    "shogi_reporter_chronicler_shin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让三人把纸角与底片一同封存，谁也不必出卖谁。",
+    "limit_gap": "棋圣不容清誉受损，着衣师怕担责，记者怕丢饭碗。",
+    "meeting_reason": "着衣师事先托你保管那张废案纸角，你随即把棋圣与手握后窗底片的记者请进保密库当面核对。",
+    "resource_gap": "着衣师藏着废案纸角，记者握着拍到纸角的底片，棋圣握着保险柜副钥。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_meijin_pride_vs_soaked_kimono_warmth",
+    "te_sealed_move_envelope_vs_life_or_death"
+   ]
+  },
+  {
+   "chemistry": "铁面监查、桀骜挑战者与沉静茶师围坐在夜雨回廊下，每一句应对都决定着明晨是如期开封还是全盘掀桌。",
+   "id": "combo_corridor_statute_and_pamphlet_trap",
+   "identity_ids": [
+    "sealed_move_special_adjudicator",
+    "shogi_federation_executive_director",
+    "traditional_craftsman_board_maker"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "federation_arbiter_master_soji",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "夜检保密库时监查长特意把你拉到灯影死角，将私自扣下的理事会撤换电报底稿交给你过目。",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "senior_titleholder_rival_ryo",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "首日封手休会后你陪挑战者在廊下复盘到雨势暴涨，对方把磨得发亮的铁骨折扇留给你当守夜信物。",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "zen_tea_master_confidant_kurenai",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你察觉茶道师在茶则底下藏了门阀理事遗落的半截笺纸，对方正观察你是否值得托付这桩大忌。",
+     "stage": "testing"
+    },
+    {
+     "a": "federation_arbiter_master_soji",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "senior_titleholder_rival_ryo",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "监查长查到有人向挑战者行囊塞入匿名分析册，正严密审视挑战者是否曾私下翻阅。",
+     "stage": "testing"
+    },
+    {
+     "a": "zen_tea_master_confidant_kurenai",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "federation_arbiter_master_soji",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "茶道师傍晚听见门阀理事的通话，正掂量监查长是否值得托付那半截笺纸",
+     "stage": "testing"
+    },
+    {
+     "a": "zen_tea_master_confidant_kurenai",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "senior_titleholder_rival_ryo",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "挑战者每回来会馆对局，茶道师都会替其备一碗不加糖的浓茶，彼此心照不宣",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "federation_arbiter_master_soji",
+    "senior_titleholder_rival_ryo",
+    "zen_tea_master_confidant_kurenai"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "把笺纸与旧谱摊开，证明是场外有人栽赃。",
+    "limit_gap": "监查长要程序，挑战者要清白，茶道师不愿卷进联盟的争执。",
+    "meeting_reason": "你事先约好茶道师在回廊茶席稳住场面，再请来监查长与挑战者，把私印笺纸与匿名旧谱一并摊开对质。",
+    "resource_gap": "监查长握着撤换电报，挑战者背着匿名旧谱，茶道师藏着门阀私印笺纸。"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_blackout_candlelight_vs_dawn_adjudica",
+    "te_chess_rivalry_vs_tender_embrace_defen"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_tatami_shogi_stone_echo",
+   "reach": "棋子落在榧木盘上的清响，在静室里格外分明。",
+   "text": "日向榧木盘虎斑黄杨名驹落盘金石清响"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_paper_candle_wick_flicker",
+   "reach": "烛芯的毕剥声、羽织的摩挲声，与肩头相抵时压低的呼吸。",
+   "text": "和纸生铁烛台烛芯毕剥微光与衣料摩挲颤音"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_typhoon_rain_gutter_roar",
+   "reach": "风雨拍打回廊铜瓦与雨链的轰响，盖过了门外的人声。",
+   "text": "特大台风暴雨敲击桧木回廊铜瓦凄厉怒吼"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "年满二十一周岁，荣登将棋界名人与棋圣双冠的职业九段女棋士。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "雪青色真丝付下外罩深紫白梅羽织，博多带束腰，面容清冷，久坐算棋唇色微白",
+    "换上干羽织正坐榻榻米上，湿发垂肩，目光沉静地落在榧木盘上"
+   ],
+   "decision": {
+    "avoids": [
+     "借赞助或门阀势利干预棋局的投机客"
+    ],
+    "contrast": "聚光灯下是寸步不让的九段棋圣，停电烛影里却是会悄悄拽住对方袖口怕冷的年轻女子。",
+    "core_value": "棋道即人道，落子无悔，绝不接受盘外妥协或虚假平局。",
+    "goal_options": [
+     "在停电雨夜里复盘推演封手之后的终局变化",
+     "查清是谁在暗中向外界泄露幽玄室的对局动向",
+     "在破晓开封前与身旁信任之人定下赛后同行的约定"
+    ],
+    "never": [
+     "绝不拿封手棋步或头衔胜负作私下交易。"
+    ],
+    "prefers": [
+     "棋品端正、心思缜密且在风波中守口如瓶的同行者"
+    ],
+    "pressure_responses": {
+     "breaking": "在屏风后卸下紧绷的防备，额头抵着对方肩头低声倾诉连日失眠的倦意。",
+     "high": "亲自按住封手信封与名盘，要求立会人当场核验双道火漆。",
+     "low": "端坐榻榻米上凝视盘面，指尖轻叩扇骨推算步数。",
+     "mid": "拢紧羽织捧起热茶，目光冷冽地回绝延期或流局提议。"
+    },
+    "relationship_stance": "对外矜傲寡言，唯独在深夜替自己温茶守夜的知己面前会流露依赖。",
+    "withdrawal": "退回幽玄室床柱旁独坐摆棋，不许无关人员靠近半步。"
+   },
+   "gender": "female",
+   "gender_reason": "九段女棋圣在传统男性主导的将棋门阀中孤身卫冕是世界核心张力，因此固定为女性。",
+   "id": "proud_female_meijin_yukiko",
+   "identity": {
+    "authority": "执掌名人头衔卫冕对局权，在会馆对局室享有最高赛场礼遇与复盘裁量权。",
+    "exposure": "第一日封手前曾因指尖发冷在废纸上试写过两手候选棋步，废纸不慎遗落在保密库条案夹缝。",
+    "hidden": "厌倦了被家族当作门面标尺的孤高生活，渴望在胜负之外能有一位知冷知热的同道并肩。",
+    "limits": [
+     "连日高强度算棋导致失眠与胃寒",
+     "门阀元老紧盯其胜负，一旦流局或落败便会借机施压逼其让出棋院席位"
+    ],
+    "obligations": [
+     "守住封手秘密与名人头衔，堂堂正正下完两天终局。"
+    ],
+    "resources": [
+     "历代名人相传的白玉折扇",
+     "江户名匠雕琢的虎斑黄杨木盛上名驹"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "读秒重压下依旧沉稳精准的陪伴",
+     "替自己捧来热茶与干羽织时的分寸感"
+    ],
+    "boundaries": [
+     "公开对局席与记者镜头前严守棋圣威仪",
+     "绝不容许触碰棋局公正底线"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "卸下头衔重担后能与知己在雨夜和室里安心共饮热茶的对等伴侣",
+    "dislikes": [
+     "居高临下的怜悯",
+     "拿绯闻当筹码的试探"
+    ],
+    "expression": "展平随身白玉折扇递过墨笔，轻声让你在扇骨内侧题字，随后主动握住你温热的手指靠向你肩头。",
+    "likes": [
+     "夜雨打廊时隔着火钵对坐推演残局",
+     "无人处在烛下被轻声唤出本名而非头衔"
+    ],
+    "preconditions": [
+     "双方神志清醒、夜寒已退且封手信封已妥善锁入保险柜",
+     "出于纯粹的对等敬意与心意相通，不带任何赛事利益交换"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "将棋联盟现任九段女棋圣兼名人头衔持有者",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "yugen_inner_tatami_chamber",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "shogi_archive_secret_vault",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "yugen_inner_tatami_chamber",
+     "to": 89
+    },
+    {
+     "from": 90,
+     "location_id": "cypress_veranda_rain_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "须整夜留在顶层与立会人轮流值守保密库",
+      "option": "与立会人联名签署夜间封手完好确认书，坚持明晨按时开封续弈"
+     },
+     {
+      "cost": "引发门外蹲守记者对顶层闭门独处的密集揣测",
+      "option": "要求监查长启用会馆备用蓄电灯并封锁顶层回廊"
+     }
+    ],
+    "pressure": "一旦同意延期，外围赞助方与门阀保守派将借机更换立会班底并质疑封手效力。",
+    "trigger": "理事会夜间打来内部电话，以台风停电为由试探是否将首日对局改判无胜负择期重赛。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "茶已经喝暖了，手也不凉了……别叫头衔，坐近一点，陪我听一会儿廊外的雨声。",
+    "surface": "只要幽玄室的蜡烛还亮着，这盘名人战就没有中断的理由。请按规程守好封手信封。"
+   }
+  },
+  {
+   "adult_context": "年满二十二周岁，凭连胜杀入名人头衔挑战赛的职业七段棋士。",
+   "age_range": [
+    22,
+    25
+   ],
+   "appearance_options": [
+    "身穿深灰素面和服与黑色行灯袴，腰插铁骨折扇，目光锐利坦荡，指节因常年拍击棋盘留有薄茧。",
+    "盘坐于回廊避风处推演随身袖珍折棋盘，发梢带着夜雨水汽，神色桀骜却对棋盘礼法极为敬畏。"
+   ],
+   "decision": {
+    "avoids": [
+     "暗中买通关节的政客与掮客"
+    ],
+    "contrast": "嘴上桀骜不驯，看到同伴受寒时却会不动声色把干手巾递过去。",
+    "core_value": "胜负只留在八十一格棋盘之内，绝不容许任何人弄脏封手。",
+    "goal_options": [
+     "巡视回廊与保密库外围，防备闲杂人等夜间靠近封手信封",
+     "将行囊里的匿名分析册当面交出以证清白",
+     "在雨夜复盘时与对方畅谈纯粹棋道"
+    ],
+    "never": [
+     "绝不在对手倦怠或受扰时占盘外便宜。"
+    ],
+    "prefers": [
+     "行事磊落、不畏门阀压力的直率同伴"
+    ],
+    "pressure_responses": {
+     "breaking": "卸下桀骜锋芒，坐在台阶上低声承认自己同样害怕这盘棋被外人毁掉。",
+     "high": "主动把匿名送来的分析册拍在条案上，要求监查长封存备查。",
+     "low": "抱臂靠在廊柱旁闭目盲算棋步，对风声夷然不惧。",
+     "mid": "用折扇敲击木栏，冷声喝退企图靠近幽玄室探听的闲人。"
+    },
+    "relationship_stance": "快意恩仇、重诺守信，对真正懂棋且敢担事的人毫无保留。",
+    "withdrawal": "退到枯山水庭院檐下独自吹风清醒头脑。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "senior_titleholder_rival_ryo",
+   "identity": {
+    "authority": "名人战正式挑战者，享有封手会签权与对局环境异议申诉权。",
+    "exposure": "赛前曾收到匿名赞助商送来的棋圣旧局习惯分析册，虽未拆封但仍留在随身行囊底层。",
+    "hidden": "打心底敬重棋圣独撑门楣的骨气，最痛恨外围赌盘与保守派用盘外伎俩玷污这盘巅峰对局。",
+    "limits": [
+     "连续两日苦战体力消耗极大",
+     "出身无门派道场，在联盟理事会内缺乏人脉庇护"
+    ],
+    "obligations": [
+     "堂堂正正凭棋力在盘面上与棋圣分出高下。"
+    ],
+    "resources": [
+     "随身铁骨对弈扇",
+     "野战派飞车急攻残局手札"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "风波之中纹丝不乱的胆识",
+     "看穿自己孤军奋战处境后的坦诚相待"
+    ],
+    "boundaries": [
+     "开封续弈前绝不泄露半句自身棋路",
+     "不借私情影响裁决"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "棋盘上是全力以赴的宿敌、棋盘下是可以把后背相托的亲密同路人",
+    "dislikes": [
+     "拐弯抹角的试探",
+     "拿门第压人的傲慢"
+    ],
+    "expression": "收起铁骨折扇轻轻抵住你掌心，偏过头低声道：‘等明早这一局下完，无论输赢，换我请你喝一整晚。’",
+    "likes": [
+     "并肩守在夜雨回廊下分食热茶点",
+     "棋局复盘到精妙处时的视线相撞"
+    ],
+    "preconditions": [
+     "双方清醒坦诚，盘外嫌疑已彻底厘清",
+     "出于自愿与对等欣赏，无关赛果让渡"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "将棋界野战派新锐挑战者七段",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "cypress_veranda_rain_corridor",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "yugen_inner_tatami_chamber",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "shogi_archive_secret_vault",
+     "to": 89
+    },
+    {
+     "from": 90,
+     "location_id": "zen_stone_courtyard_rain_gate",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "须交代送册中间人的来路，得罪大赞助商",
+      "option": "当着立会人的面取出原封册子加盖火漆封存"
+     },
+     {
+      "cost": "耗费宝贵的夜间养神时间",
+      "option": "与立会人连夜排查会馆出入记录找出送信人"
+     }
+    ],
+    "pressure": "若不在开封前把未拆封的原件交由立会与监查核验，无论胜败都会被扣上舞弊污名。",
+    "trigger": "外围有人散布流言称挑战者赛前收到了内部流出的棋圣复盘笔记。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "名门那些规矩看着都累。今夜有你在廊下守着，我倒能安安心心算完最后二十手。",
+    "surface": "这盘棋我等了五年，谁敢在封手夜搞鬼，先问过我手里的折扇！"
+   }
+  },
+  {
+   "adult_context": "年满二十四周岁，执掌将棋联盟赛事法度与现场仲裁权的总立会监查长。",
+   "age_range": [
+    24,
+    28
+   ],
+   "appearance_options": [
+    "深黑三件套西装佩联盟监查章，金丝眼镜后目光冷峻，手握怀表与规程夹",
+    "立在保密库条案前核验火漆，袖口沾着巡廊时溅上的雨痕"
+   ],
+   "decision": {
+    "avoids": [
+     "利用规则漏洞徇私舞弊之人"
+    ],
+    "contrast": "人前是铁面无私的规程机器，私下却会替同伴备好热姜汤与免责背书。",
+    "core_value": "程序正义是护住纯粹棋道的唯一防线，绝不让外行权贵染指对局室。",
+    "goal_options": [
+     "与立会人共同完成夜间三次保密库封条巡检",
+     "顶住理事会夜电压力维持比赛原定日程",
+     "彻查记者拍到的保密库外围可疑人员"
+    ],
+    "never": [
+     "绝不在监察记录上篡改任何一个时间刻度。"
+    ],
+    "prefers": [
+     "守时守密、在关键时刻顶得住问责的可靠搭档"
+    ],
+    "pressure_responses": {
+     "breaking": "摘下金丝眼镜揉着酸痛的眉心，在无人保密库里流露出罕见的疲惫与依赖。",
+     "high": "将私下压住的调令电报坦诚摊开给信任之人，请求联手稳住局面。",
+     "low": "推了推眼镜，按怀表刻度冷静记录每一项环境变动。",
+     "mid": "出示联盟章程第十四条，言辞锋利地驳回场外干预请求。"
+    },
+    "relationship_stance": "表面公事公办、界限分明，实则对并肩扛下压力的同僚极为护短。",
+    "withdrawal": "退回封手保密库条案后独自整理监察卷宗。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "federation_arbiter_master_soji",
+   "identity": {
+    "authority": "拥有名人战现场程序裁定权、保密库双钥掌管权与违规通报权。",
+    "exposure": "私下压下了保守派要求中途更换立会记录官的内部调令电报，一旦赛事出错将独自背锅。",
+    "hidden": "身为联盟内部推动赛制透明化的改革派，暗中全力支持青年棋士摆脱门阀控制。",
+    "limits": [
+     "凡事须讲求书面证据与程序留痕",
+     "夹在保守派元老与青年棋士之间承受双重问责"
+    ],
+    "obligations": [
+     "确保封手信封从落锁到明晨开封全程无瑕可击。"
+    ],
+    "resources": [
+     "联盟理事会特许赛事裁决公文",
+     "带双道防伪封条的封手金属密码匣"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "高压问责下毫不推诿的担当",
+     "看穿自己改革派孤立处境后的默契配合"
+    ],
+    "boundaries": [
+     "执勤签字时绝不逾越监查礼法",
+     "不泄露未公开的封手内容"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在严苛规程之外唯一能让自己卸下防备、共担风雨的机密伴侣",
+    "dislikes": [
+     "不守规矩的轻浮试探",
+     "拿公权作人情交易"
+    ],
+    "expression": "合上怀表盖放进你掌心，摘下眼镜低声道：‘这一个时辰是休会期，不必叫我监查长。’",
+    "likes": [
+     "深夜保密库核验完封条后并肩独处的静谧",
+     "对方替自己摘下起雾眼镜时的温热呼吸"
+    ],
+    "preconditions": [
+     "巡检程序已全部合规完成、双方清醒且无公务冲突",
+     "基于双向信任与平等心意"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "将棋联盟现场总立会监查长",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "shogi_archive_secret_vault",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "yugen_inner_tatami_chamber",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "cypress_veranda_rain_corridor",
+     "to": 89
+    },
+    {
+     "from": 90,
+     "location_id": "shogi_archive_secret_vault",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人整夜寸步不离绑定在保密库与回廊之间",
+      "option": "与现场立会人补齐整夜每半小时一次的联合签封记录"
+     },
+     {
+      "cost": "承担违抗行政指令的处分风险",
+      "option": "以台风通讯受阻为由延后回复，先锁定现场外泄源头"
+     }
+    ],
+    "pressure": "若不能在明晨开封前提交无懈可击的双人巡检背书，监查长将被停职问责。",
+    "trigger": "保守派常务理事发来加急传真，追问为何尚未执行更换现场立会官的指令。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "那封调令被我压在公文包底层了。只要今夜你我把封手守到天亮，谁也动不了这盘棋。",
+    "surface": "依联盟特别对局章程第十四条，只要双道火漆完好、立会人在场，任何人无权宣告流局。"
+   }
+  },
+  {
+   "adult_context": "年满二十一周岁，出身京都西阵织工坊、专司头衔战礼服着装的职业着衣师。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "身穿素雅绀青色小纹和服，外系洁白半身前挂，随身携带织锦针线匣，手指修长温软，周身带着淡淡白檀熏香。",
+    "跪坐在屏风内侧用温热棉布熨平潮湿的羽织袖口，眼神专注柔和，动作轻巧得听不见衣料摩擦声。"
+   ],
+   "decision": {
+    "avoids": [
+     "借势欺人、随意翻检内务衣箱的无礼之徒"
+    ],
+    "contrast": "平时连说话都轻声细语，遇到有人刁难同伴时却敢寸步不让地护在身前。",
+    "core_value": "衣冠是人的第二层气骨，守住一身干爽温暖，才能守住盘面上的心神。",
+    "goal_options": [
+     "妥善处理针线匣里的废案纸角，不让外人借题发挥",
+     "在屏风后替被夜雨淋湿的同伴烘衣暖手",
+     "协助茶道师维持和室内的炭火温度"
+    ],
+    "never": [
+     "绝不将更衣屏风后的私密言行透露给外人。"
+    ],
+    "prefers": [
+     "懂得珍惜织物与匠心、待人温厚的同伴"
+    ],
+    "pressure_responses": {
+     "breaking": "在幽暗保密库一角攥紧对方衣袖，低声承认自己藏起了那张可能惹祸的废纸。",
+     "high": "悄悄把针线匣里的废案纸角交给最信任的人商议处置。",
+     "low": "安静跪坐在屏风侧方整理备用足袋，低声提醒添衣。",
+     "mid": "挡在更衣屏风前，温和而坚定地谢绝无关人员入内探视。"
+    },
+    "relationship_stance": "体贴入微、外柔内韧，对真诚尊重内务匠人的人格外眷恋。",
+    "withdrawal": "退到幽玄室屏风后方独自熨烫衣褶。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "traditional_kimono_dresser_chiyo",
+   "identity": {
+    "authority": "掌管幽玄室更衣屏风、备用礼服与随身织物烘护的贴身内务权限。",
+    "exposure": "在替棋圣烘烤换下的湿羽织时，从袖袋里抖落了一张写有废案棋步的宣纸角并悄悄收进了针线匣。",
+    "hidden": "与棋圣早年在京都旧道场相识，深知对方在高傲外表下有多害怕孤身一人面对漫长封手夜。",
+    "limits": [
+     "属于赛场内务随侍，无权直接参与棋局规程表决",
+     "心软护短，容易为维护熟识之人担下责难"
+    ],
+    "obligations": [
+     "照料对局者与立会人员的衣冠整洁与夜间防寒。"
+    ],
+    "resources": [
+     "京都西阵织备用厚羽织与白足袋",
+     "随身银针线匣与白檀香囊"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在细微处体谅自己辛劳的温和目光",
+     "替自己分担秘密时的沉稳可靠"
+    ],
+    "boundaries": [
+     "正式开封仪式前绝不让对局礼服出现半点褶皱",
+     "不越俎代庖干涉赛果"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在漫长雨夜里为你缝补衣襟、共享一方屏风暖意的贴心伴侣",
+    "dislikes": [
+     "粗鲁扯拽衣料的莽撞",
+     "把体贴当成理所当然的傲慢"
+    ],
+    "expression": "替你系好领口系带后没有立刻收回手，而是用温热掌心贴了贴你的手背，低声问你今晚能不能留在屏风内侧歇息。",
+    "likes": [
+     "借整理衣领与系带时近在咫尺的呼吸交错",
+     "夜深人静时共披一件烘暖羽织的体温"
+    ],
+    "preconditions": [
+     "内务差事已毕、周围无外人窥视且双方完全清醒自愿",
+     "毫无地位压迫或利益挟制"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "幽玄室当值专属和服着衣师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "yugen_inner_tatami_chamber",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "shogi_archive_secret_vault",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "yugen_inner_tatami_chamber",
+     "to": 89
+    },
+    {
+     "from": 90,
+     "location_id": "cypress_veranda_rain_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人因此结下共同守密的私下同盟",
+      "option": "与信任之人一起在火钵旁核对并妥善封存那张纸角"
+     },
+     {
+      "cost": "需经过监查长把守的走廊，容易引起盘问",
+      "option": "借送备用足袋之机将针线匣转移至保密库"
+     }
+    ],
+    "pressure": "针线匣里恰巧藏着那张未销毁的废案纸角，一旦被搜出将引发轩然大波。",
+    "trigger": "随行记者在回廊打听棋圣换下的旧羽织里有没有夹带对局便条。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "刚才烘衣服时掉出来的那张纸角，我已经收进针线匣底层了……你来看一眼，这可不能让记者瞧见。",
+    "surface": "外廊风大湿气重，请先把湿外套脱下来交给我烘干，着了凉可怎么熬到明早开封。"
+   }
+  },
+  {
+   "adult_context": "年满二十二周岁，受聘于全国大报棋道专栏的首席随行特派摄影记者。",
+   "age_range": [
+    22,
+    25
+   ],
+   "appearance_options": [
+    "米色摄影背心配工装长裤，颈挂胶片单反，指腹带着定影药水的气味",
+    "蹲在回廊暗影里擦拭镜头，速记本里夹着刚冲出的相纸"
+   ],
+   "decision": {
+    "avoids": [
+     "拿舆论当棍子使的门阀政客"
+    ],
+    "contrast": "嘴上常拿头条新闻打趣，关键时刻却会亲手抽走可能连累同伴的胶卷。",
+    "core_value": "快门记录的是千古棋道，绝不为迎合流俗小报而捏造半句黑稿。",
+    "goal_options": [
+     "在保密库暗灯下冲洗出那卷关键底片看清人影",
+     "顶住报社主编索要花边绯闻的压力，守住幽玄室隐私",
+     "与现场最可靠的人核对夜间异常出入时间线"
+    ],
+    "never": [
+     "绝不出卖信任自己的受访者。"
+    ],
+    "prefers": [
+     "敢说真话、在镜头内外表里如一的搭档"
+    ],
+    "pressure_responses": {
+     "breaking": "放下相机靠着廊柱苦笑，坦言自己夹在报社饭碗与旧日同门情谊之间快要撑不住了。",
+     "high": "把刚显影的黑白底片塞进对方手里，约定天亮前绝不外传。",
+     "low": "安静退在回廊门侧抓拍烛光剪影，绝不开启刺眼闪光灯。",
+     "mid": "按住相机皮套，严词拒绝外围狗仔高价收购底片的拉拢。"
+    },
+    "relationship_stance": "重情义、有底线，对在名利场里依然保有赤诚的人极易倾心。",
+    "withdrawal": "退到枯山水庭院门廊下借着雨声独自翻看旧速记本。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "shogi_reporter_chronicler_shin",
+   "identity": {
+    "authority": "持有联盟颁发的幽玄室独家随行摄影证与赛后头版特稿发稿权。",
+    "exposure": "傍晚在回廊试拍夜景时，无意间拍到了有人在保密库后窗接递纸条的剪影底片。",
+    "hidden": "早年曾是棋院研修生，虽转行新闻却始终将守护棋士尊严看得比销量头条更重。",
+    "limits": [
+     "受新闻伦理约束不得在开封前泄露盘面",
+     "报社主编不断催讨劲爆内幕稿件"
+    ],
+    "obligations": [
+     "用镜头与文字完整记录这场名人头衔战的真实始末。"
+    ],
+    "resources": [
+     "高感度黑白胶卷与机械单反相机",
+     "便携式暗房显影罐与速记档案本"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在风浪中心依然沉着坦荡的眼神",
+     "愿意与自己共享底片秘密的绝对信任"
+    ],
+    "boundaries": [
+     "正式开封公证时严守记者席位",
+     "不偷拍对方明言拒绝的私密时刻"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "既是为你记录荣光的执笔人，也是关上镜头后与你共度长夜的知心伴侣",
+    "dislikes": [
+     "逢场作戏的官样套话",
+     "借保密之名行威逼之实"
+    ],
+    "expression": "从显影夹上取下那张烛下特写相纸递给你保管，摘下相机挂带放在一旁，低声说这一刻只用眼睛记。",
+    "likes": [
+     "在红灯微弱的暗室里并肩看相纸一点点显影",
+     "把只拍给彼此看的双人合影收进内袋"
+    ],
+    "preconditions": [
+     "双方完全清醒且底片归属已达成共识",
+     "纯粹出于心意吸引，绝无用版面或底片做交易"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "主流报业集团棋道专栏随行记者",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "cypress_veranda_rain_corridor",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "yugen_inner_tatami_chamber",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "shogi_archive_secret_vault",
+     "to": 89
+    },
+    {
+     "from": 90,
+     "location_id": "zen_stone_courtyard_rain_gate",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "需在保密库闭门共处一小时完成显影",
+      "option": "与立会人共同冲洗核对夜间胶卷，锁定外泄渠道"
+     },
+     {
+      "cost": "彻底得罪报社内部追求猎奇花边的副主编",
+      "option": "以主流大报首席署名提前签发赛场合规纪实简报"
+     }
+    ],
+    "pressure": "若不在天亮前用权威现场记录压住流言并找出内鬼，棋圣与立会人都将陷入舆论风暴。",
+    "trigger": "庭院外墙的小报狗仔扬言已买通内线拿到幽玄室夜间停电独处的照片。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "主编催稿的传真我全扣下了。来保密库帮我搭把手，刚才拍到的那张剪影，只有你能帮我认出是谁。",
+    "surface": "我的镜头只认棋道真章，谁想塞黑钱买流局通稿，趁早省省心！"
+   }
+  },
+  {
+   "adult_context": "年满二十一周岁，在镰仓古刹修习茶道、受聘负责幽玄室点茶养神的首席茶道师范。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "身穿淡青色无纹和服与纯白茶衣，长发束成端庄低髻，双手稳定净洁，周身萦绕着宇治玉露与松炭清香。",
+    "跪坐于紫铜火钵旁借红炭微光执筅击拂，动作行云流水，在风雨声中守着一方安宁茶席。"
+   ],
+   "decision": {
+    "avoids": [
+     "借酒撒疯或亵渎茶席的粗鄙之客"
+    ],
+    "contrast": "看似超然物外的清雅茶人，护起心上人时却比谁都果决执拗。",
+    "core_value": "一期一会，茶席之上只留真心，绝不让外廊的脏水泼进这间和室。",
+    "goal_options": [
+     "以热茶与炭火稳住在场之人的体温与心绪",
+     "将拾到的那半截私印笺纸交给可信之人查清内情",
+     "在雨势最急的半夜陪守夜之人静坐分茶"
+    ],
+    "never": [
+     "绝不在茶水点心中掺入任何有损神思之物。"
+    ],
+    "prefers": [
+     "心性澄明、懂得在风雨里静气凝神的同行者"
+    ],
+    "pressure_responses": {
+     "breaking": "放下茶筅握住对方微凉的手腕，低声恳求今晚无论如何别让自己独自面对那些逼问。",
+     "high": "从茶袱纱下取出那半截私印笺纸，低声揭破门阀理事的盘算。",
+     "low": "凝神击拂茶汤，将温热茶碗无声推至对方膝前。",
+     "mid": "借添炭之机挡住穿堂冷风，用眼神示意隔墙有耳。"
+    },
+    "relationship_stance": "沉静温润、守礼知心，一旦认定对方赤诚便会倾心相待。",
+    "withdrawal": "退至茶席水屋一隅静默擦拭古陶茶碗。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "zen_tea_master_confidant_kurenai",
+   "identity": {
+    "authority": "掌管幽玄室茶席、炭火调配与夜间安神茶点的奉送权限。",
+    "exposure": "傍晚奉茶时曾听见门阀理事在廊下低声交代记者搜集流局借口，手中还留着对方遗落的半截私印笺纸。",
+    "hidden": "早年与棋圣同在京都名师门下习礼，立誓在暗流汹涌的头衔战里替故人守住这方净土。",
+    "limits": [
+     "恪守茶席清规，不直接介入联盟行政争执",
+     "对旧识过于挂怀，难以及时抽身"
+    ],
+    "obligations": [
+     "维持幽玄室炭火不灭与在场之人的心神清明。"
+    ],
+    "resources": [
+     "江户名匠打造的紫铜火钵与老铁壶",
+     "百年茶树玉露与沉香定心丸"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "夜深独坐时无需多言的呼吸默契",
+     "看穿自己沉静外表下那份挂怀的温柔"
+    ],
+    "boundaries": [
+     "点茶奉客时严守茶礼仪轨",
+     "不拿故人隐私作谈资"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "在胜负喧嚣之外为你温茶守夜、共度岁月的知心伴侣",
+    "dislikes": [
+     "急躁莽撞的索取",
+     "把清雅茶席当成名利场的算计"
+    ],
+    "expression": "将温好的末茶与你分饮半盏，轻轻覆上你搁在榻榻米上的手背，低声邀你共守这一炉残炭。",
+    "likes": [
+     "借捧碗奉茶时指腹隔着温热陶壁的摩挲",
+     "炭火微光下并肩听雨的安宁"
+    ],
+    "preconditions": [
+     "茶事已毕、双方清醒且环境安稳私密",
+     "双方完全自愿对等，不掺杂任何威逼或交换"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "幽玄室当值首席茶道师范",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "yugen_inner_tatami_chamber",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "shogi_archive_secret_vault",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "yugen_inner_tatami_chamber",
+     "to": 89
+    },
+    {
+     "from": 90,
+     "location_id": "cypress_veranda_rain_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人必须口径一致应对监查盘问",
+      "option": "将笺纸交由立会人锁入保密库作为违规干预物证"
+     },
+     {
+      "cost": "引起差役对茶席内情的怀疑",
+      "option": "以幽玄室夜间静心规程为由将差役挡在回廊外"
+     }
+    ],
+    "pressure": "若不能妥善安置茶则底下的私印笺纸，茶道师将被以刺探机密为由逐出会馆。",
+    "trigger": "理事会差役借检查防灾炭火之名进入回廊，盘问傍晚是谁在廊下听见了内部通话。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "刚才在回廊拾到的那半截笺纸，我夹在茶则底下了……等外头的人散了，我拿给你看。",
+    "surface": "风雨虽急，炭火尚温。请先饮下这碗热茶，心定下来，棋路自然就清了。"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "名人战第七局第一天，七月",
+  "minute": 0
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace_power",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "和服被雨浸透时，着衣师在屏风后替棋圣换上干羽织，其余人背身回避。",
+  "深夜寒气重时，立会人先用掌心捂热茶碗，再把热茶奉给棋圣。",
+  "风声大作时，棋圣会把随身的黄杨木王将按在对坐之人的手心里定神。",
+  "开封那天清晨，棋圣在素白折扇上题字盖印，赠给守夜的人。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "在红木条案前借台灯微光检查封手信封的双重骑缝签名与红蜡火漆。",
+    "与身旁值守的人低声核对明晨六点开封的流程细节。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "h_soji_adjust_glasses_stoic_observe",
+    "h_yukiko_kimono_obi_whisper",
+    "h_shin_camera_shutter_history_shout"
+   ],
+   "id": "a_seal_envelope_wax_check",
+   "location_ids": [
+    "shogi_archive_secret_vault",
+    "yugen_inner_tatami_chamber"
+   ],
+   "start_minute": 1340,
+   "tags": [
+    "workplace"
+   ],
+   "title": "核验封手火漆"
+  },
+  {
+   "beats": [
+    "蘸取少许山茶花籽精油，用细鹿皮顺着日向榧木的纹理轻轻拭去表面潮气。",
+    "将虎斑黄杨木棋子逐枚收回桐木驹箱，听棋子相碰的清脆木音。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "h_yukiko_candlelight_shogi_finger_breath",
+    "h_yukiko_wet_sleeves_clasp_observe",
+    "h_ryo_iron_fan_shout"
+   ],
+   "id": "a_oil_cypress_shogi_board",
+   "location_ids": [
+    "yugen_inner_tatami_chamber"
+   ],
+   "start_minute": 1355,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "山茶油护养名盘"
+  },
+  {
+   "beats": [
+    "用铜火箸拨旺火钵里的白炭，听老铁壶水沸如松风作响。",
+    "将点好的温热玉露递给身旁手凉的同伴，指腹隔着粗陶茶碗相触。"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "h_kurenai_tea_whisk_peace_whisper",
+    "h_yukiko_matcha_bowl_hands_request",
+    "h_chiyo_dry_towel_tuck_request"
+   ],
+   "id": "a_whisk_warm_gyokuro_tea",
+   "location_ids": [
+    "yugen_inner_tatami_chamber",
+    "cypress_veranda_rain_corridor"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "火钵烹茶暖手"
+  },
+  {
+   "beats": [
+    "在更衣屏风内侧展开被夜雨水汽浸潮的羽织，借炭盆余温一点点烘散湿气。",
+    "白檀熏香随着暖意弥漫开来，替对方抚平肩头微皱的衣领。"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "h_chiyo_warm_tea_kimono_whisper",
+    "h_chiyo_dry_towel_tuck_request",
+    "h_yukiko_wet_sleeves_clasp_observe"
+   ],
+   "id": "a_dry_damp_haori_by_screen",
+   "location_ids": [
+    "yugen_inner_tatami_chamber",
+    "shogi_archive_secret_vault"
+   ],
+   "start_minute": 1385,
+   "tags": [
+    "intimate"
+   ],
+   "title": "屏风后烘烤羽织"
+  },
+  {
+   "beats": [
+    "不动正式封存的棋盘，只凭记忆在烛光下轻声报出步数，推演第一日第68手后的分歧。",
+    "算到精妙险峻处，两人不约而同抬头对视，在雨声中会心一笑。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [
+    "h_ryo_iron_fan_shout",
+    "h_yukiko_candlelight_shogi_finger_breath",
+    "h_yukiko_fan_inscribe_request"
+   ],
+   "id": "a_blind_endgame_quiet_replay",
+   "location_ids": [
+    "yugen_inner_tatami_chamber",
+    "cypress_veranda_rain_corridor"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "烛下盲棋拆解"
+  },
+  {
+   "beats": [
+    "掩好保密库铁门，在暗红安全灯下摇晃便携显影罐。",
+    "将湿漉漉的黑白相纸夹在细绳上晾干，并肩辨认画面上的烛影与人迹。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "h_shin_camera_shutter_history_shout",
+    "h_soji_stopwatch_statute_shout",
+    "h_yukiko_whisper_back_embrace_request"
+   ],
+   "id": "a_develop_film_in_vault",
+   "location_ids": [
+    "shogi_archive_secret_vault"
+   ],
+   "start_minute": 1415,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "保密库暗灯显影"
+  },
+  {
+   "beats": [
+    "提着防风手电走过桧木回廊，将松动的木制雨户一一落下插销。",
+    "在避风廊角停步，听铜雨链倾泻暴雨的哗哗声响。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "h_ryo_reinforce_shoji_request",
+    "h_soji_stopwatch_statute_shout",
+    "h_yukiko_dawn_fan_triumph_vow"
+   ],
+   "id": "a_patrol_rain_corridor_shutters",
+   "location_ids": [
+    "cypress_veranda_rain_corridor",
+    "zen_stone_courtyard_rain_gate"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "workplace"
+   ],
+   "title": "巡查桧木回廊雨户"
+  },
+  {
+   "beats": [
+    "在条案端砚里滴入清水缓缓研墨，展平素白折扇。",
+    "伴着窗外渐歇的雨声在扇面落下墨迹，墨香与蔺草气息交融。"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "h_yukiko_fan_inscribe_request",
+    "h_yukiko_whisper_back_embrace_request",
+    "h_kurenai_tea_whisk_peace_whisper"
+   ],
+   "id": "a_inscribe_folding_fan_vow",
+   "location_ids": [
+    "yugen_inner_tatami_chamber",
+    "shogi_archive_secret_vault"
+   ],
+   "start_minute": 10,
+   "tags": [
+    "intimate"
+   ],
+   "title": "折扇研墨题字"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.45,
+  "nonbinary": 0.05
+ },
+ "default_person": "second",
+ "era": "当代盛夏台风夜（东京千駄谷将棋会馆顶层）",
+ "extends": null,
+ "forbidden_terms": [
+  "人工智能棋力复盘软件",
+  "手机红外作弊发射器",
+  "高压电热取暖器",
+  "防风特种冲锋衣",
+  "微型无线耳机",
+  "卫星直连通讯机"
+ ],
+ "hooks": [
+  {
+   "id": "h_yukiko_candlelight_shogi_finger_breath",
+   "kind": "approach",
+   "location_ids": [
+    "yugen_inner_tatami_chamber",
+    "cypress_veranda_rain_corridor"
+   ],
+   "slot": "proud_female_meijin_yukiko",
+   "text": "{proud_female_meijin_yukiko.name}端坐于幽玄和室席上，清冷眼眸睨向你低语：“立会人，会馆停了电，发条钟还在走。我的棋局绝不因风雨中断——坐到对面来，把火钵挪近些。”"
+  },
+  {
+   "id": "h_yukiko_kimono_obi_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "yugen_inner_tatami_chamber",
+    "shogi_archive_secret_vault"
+   ],
+   "slot": "proud_female_meijin_yukiko",
+   "text": "{proud_female_meijin_yukiko.name}拢着你递来的干燥外衫，按住条案上的红蜡封套：“外头有人想探封手底细。只要这枚信封未拆，我的名号与你的立会签章就系在一处，明白么？”"
+  },
+  {
+   "id": "h_yukiko_dawn_fan_triumph_vow",
+   "kind": "approach",
+   "location_ids": [
+    "zen_stone_courtyard_rain_gate",
+    "cypress_veranda_rain_corridor"
+   ],
+   "slot": "proud_female_meijin_yukiko",
+   "text": "{proud_female_meijin_yukiko.name}立在雨势渐歇的庭院檐下，侧首看向你：“今夜这一局棋与满身寒意，是你守着火钵一碗碗热茶陪我熬过来的。明早开封，我要你坐在正席见证。”"
+  },
+  {
+   "id": "h_yukiko_wet_sleeves_clasp_observe",
+   "kind": "observe",
+   "location_ids": [
+    "yugen_inner_tatami_chamber"
+   ],
+   "slot": "proud_female_meijin_yukiko",
+   "text": "{proud_female_meijin_yukiko.name}换上干燥羽织后倚着凭几微喘，微湿长发散在肩头，素白足袋收于下摆之内，耳垂在火钵映照下泛起淡红，目光却始终落在你执茶碗的手上。"
+  },
+  {
+   "id": "h_yukiko_matcha_bowl_hands_request",
+   "kind": "request",
+   "location_ids": [
+    "yugen_inner_tatami_chamber"
+   ],
+   "slot": "proud_female_meijin_yukiko",
+   "text": "{proud_female_meijin_yukiko.name}指节被夜雨冻得发白，避开你的视线低声道：“手指有些僵，拈不稳棋子……你的手伸过来一点，替我把茶碗捂热，别惊动了外廊的人。”"
+  },
+  {
+   "id": "h_yukiko_whisper_back_embrace_request",
+   "kind": "request",
+   "location_ids": [
+    "yugen_inner_tatami_chamber",
+    "shogi_archive_secret_vault"
+   ],
+   "slot": "proud_female_meijin_yukiko",
+   "text": "{proud_female_meijin_yukiko.name}饮尽热茶，指腹终于回了血色，轻合双眸道：“我已经暖过来了，神志也很清醒——就十分钟，坐近些让我靠一会儿，别出声。”"
+  },
+  {
+   "id": "h_yukiko_fan_inscribe_request",
+   "kind": "request",
+   "location_ids": [
+    "yugen_inner_tatami_chamber"
+   ],
+   "slot": "proud_female_meijin_yukiko",
+   "text": "{proud_female_meijin_yukiko.name}从怀中取出白玉折扇展平，眼尾微红地凝视你：“替我研墨，在扇骨内侧题上‘同道’二字。这盘棋若无你守着，我一个人走不完。”"
+  },
+  {
+   "id": "h_ryo_iron_fan_shout",
+   "kind": "approach",
+   "location_ids": [
+    "cypress_veranda_rain_corridor",
+    "yugen_inner_tatami_chamber",
+    "shogi_archive_secret_vault"
+   ],
+   "slot": "senior_titleholder_rival_ryo",
+   "text": "{senior_titleholder_rival_ryo.name}单手将铁骨折扇抵在回廊木柱上，甩去发梢雨珠低笑道：“外头那两个想摸进来看封手的闲人已经被我喝退了。立会人，今晚这扇门咱们一起守。”"
+  },
+  {
+   "id": "h_ryo_reinforce_shoji_request",
+   "kind": "request",
+   "location_ids": [
+    "cypress_veranda_rain_corridor",
+    "zen_stone_courtyard_rain_gate"
+   ],
+   "slot": "senior_titleholder_rival_ryo",
+   "text": "{senior_titleholder_rival_ryo.name}按住被狂风吹得作响的雨户木栓，侧头招呼你：“过来搭把手！把这边的防风木闩插紧，可别让雨水潲进和室淋坏了棋盘。”"
+  },
+  {
+   "id": "h_soji_stopwatch_statute_shout",
+   "kind": "approach",
+   "location_ids": [
+    "shogi_archive_secret_vault",
+    "cypress_veranda_rain_corridor",
+    "zen_stone_courtyard_rain_gate",
+    "yugen_inner_tatami_chamber"
+   ],
+   "slot": "federation_arbiter_master_soji",
+   "text": "{federation_arbiter_master_soji.name}推了推金丝眼镜，将特许公文压在案头：“理事会催促流局的电话已被我依章驳回。只要封手火漆完好，今夜谁也休想用盘外招干预名人战。”"
+  },
+  {
+   "id": "h_soji_adjust_glasses_stoic_observe",
+   "kind": "observe",
+   "location_ids": [
+    "shogi_archive_secret_vault",
+    "cypress_veranda_rain_corridor"
+   ],
+   "slot": "federation_arbiter_master_soji",
+   "text": "{federation_arbiter_master_soji.name}镜片上映着保密箱的冷光，正对照登记簿逐字核验封手签封时间，西装袖口扣得一丝不苟，指腹却在旧怀表盖上轻轻摩挲。"
+  },
+  {
+   "id": "h_chiyo_warm_tea_kimono_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "yugen_inner_tatami_chamber",
+    "shogi_archive_secret_vault",
+    "cypress_veranda_rain_corridor"
+   ],
+   "slot": "traditional_kimono_dresser_chiyo",
+   "text": "{traditional_kimono_dresser_chiyo.name}捧着烘暖的厚羽织走近屏风旁，低声向你耳语：“外衫都被廊下的水汽浸潮了。劳驾在门边守片刻，把炭火拨旺些，更衣的事交给我。”"
+  },
+  {
+   "id": "h_chiyo_dry_towel_tuck_request",
+   "kind": "request",
+   "location_ids": [
+    "yugen_inner_tatami_chamber",
+    "cypress_veranda_rain_corridor"
+   ],
+   "slot": "traditional_kimono_dresser_chiyo",
+   "text": "{traditional_kimono_dresser_chiyo.name}跪坐在榻榻米边整理针线匣，抬头轻声道：“你袖口也被雨打湿了，把手伸过来，我用干棉巾替你擦干，再把袖口开线的地方缝两针。”"
+  },
+  {
+   "id": "h_kurenai_tea_whisk_peace_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "yugen_inner_tatami_chamber",
+    "shogi_archive_secret_vault",
+    "cypress_veranda_rain_corridor"
+   ],
+   "slot": "zen_tea_master_confidant_kurenai",
+   "text": "{zen_tea_master_confidant_kurenai.name}将新点好的温热玉露奉至你膝前，语声沉静温和：“风雨夜最易乱心。先饮完这碗热茶暖一暖胃，后半夜守封手的事，我陪你一起盯着。”"
+  },
+  {
+   "id": "h_shin_camera_shutter_history_shout",
+   "kind": "approach",
+   "location_ids": [
+    "cypress_veranda_rain_corridor",
+    "zen_stone_courtyard_rain_gate",
+    "shogi_archive_secret_vault"
+   ],
+   "slot": "shogi_reporter_chronicler_shin",
+   "text": "{shogi_reporter_chronicler_shin.name}护着防潮胶卷盒闪进廊下，压低声音冲你晃了晃速记本：“我刚拍到有人在保密库后窗探头！进屋详谈，这张底片咱们得先洗出来。”"
+  }
+ ],
+ "id": "shogi_master_sealed_move_night",
+ "locations": [
+  {
+   "affordances": [
+    "在机械钟的滴答声里推演残局",
+    "同披一件厚羽织隔着火钵取暖",
+    "用火漆印熔封信封"
+   ],
+   "detail": "十二叠青蔺草和室，正中摆着日向榧木名盘，四壁挂着历代名人墨宝，一盏生铁和纸烛台照着盘面。",
+   "exits": [
+    "cypress_veranda_rain_corridor",
+    "shogi_archive_secret_vault"
+   ],
+   "id": "yugen_inner_tatami_chamber",
+   "name": "幽玄之室",
+   "pressure_modifiers": {
+    "p_blackout_charcoal_chill": "断电后的和室越来越冷，只有火钵里的红炭透着暖光。",
+    "p_board_adjournment_ultimatum": "砚台下压着那张催促流局的传真。",
+    "p_discarded_move_slip_leverage": "屏风后的针线匣里藏着那张试写过棋步的废纸。",
+    "p_rainwater_seepage_cypress_board_hazard": "湿气顺着拉门缝漫向榧木名盘。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "烛光在盘面投下修长的影子，拉门被风吹得鼓起，对坐两人膝前不过三尺。",
+   "witnesses": [
+    "bg_shogi_pawn_craftsman_witness"
+   ]
+  },
+  {
+   "affordances": [
+    "落下雨户插好木闩",
+    "在避风的廊角拧干湿衣",
+    "巡查回廊外侧有无闲人"
+   ],
+   "detail": "环绕幽玄室的桧木回廊，栏杆外是漆黑的夜空，铜雨链上的雨水哗哗倾泻。",
+   "exits": [
+    "yugen_inner_tatami_chamber",
+    "zen_stone_courtyard_rain_gate"
+   ],
+   "id": "cypress_veranda_rain_corridor",
+   "name": "桧木回廊",
+   "pressure_modifiers": {
+    "p_paparazzi_blackout_rumor": "外墙方向不时闪过镁光灯。",
+    "p_rainwater_seepage_cypress_board_hazard": "横潲的雨打湿了桧木地板，雨户得立刻落闩。",
+    "p_unopened_dossier_leverage": "回廊暗处，那册未拆封的旧谱被按在木栏上对质。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "横潲的雨打湿了地板，闪电亮起时整座庭院一览无余。",
+   "witnesses": [
+    "bg_rain_sweeper_apprentice",
+    "bg_disqualified_retired_prodigy"
+   ]
+  },
+  {
+   "affordances": [
+    "把封手信封锁进保险柜",
+    "在条案前核验文书、加盖火漆",
+    "翻阅历代对局录"
+   ],
+   "detail": "幽玄室后方的保密库，生铁灰泥墙，摆着历代对局手迹、防火保险柜与一张红木条案。",
+   "exits": [
+    "yugen_inner_tatami_chamber",
+    "zen_stone_courtyard_rain_gate"
+   ],
+   "id": "shogi_archive_secret_vault",
+   "name": "封手保密库",
+   "pressure_modifiers": {
+    "p_blackout_charcoal_chill": "铁门隔开了外廊的风，台灯透着一点温热。",
+    "p_board_adjournment_ultimatum": "条案上的传真机刚吐出要求中止对局的急件。",
+    "p_discarded_move_slip_leverage": "暗红的显影灯下，刚洗出的底片还在滴水。",
+    "p_unopened_dossier_leverage": "密码匣旁摆着那册惹出争议的旧谱。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "铁门隔开了九成风雨声，蓄电台灯投下暖黄的光，案上摆着待验的信封与封蜡锅。",
+   "witnesses": [
+    "bg_panicked_federation_errand"
+   ]
+  },
+  {
+   "affordances": [
+    "清理被落叶堵住的排水暗渠",
+    "在铜门前核验出入",
+    "隔着铜门打听外面的消息"
+   ],
+   "detail": "幽玄室前的枯山水庭院，白砂青苔已积成水洼，尽头是一扇紧闭的铜门。",
+   "exits": [
+    "cypress_veranda_rain_corridor",
+    "shogi_archive_secret_vault"
+   ],
+   "id": "zen_stone_courtyard_rain_gate",
+   "name": "枯山水庭院",
+   "pressure_modifiers": {
+    "p_paparazzi_blackout_rumor": "铜门外聚着打听停电内幕的小报记者与转播车。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power"
+   ],
+   "visibility": "暴雨如注，古枫在风里摇晃，铜门外偶尔亮起转播车的灯。",
+   "witnesses": [
+    "bg_tabloid_paparazzi_photographer",
+    "bg_radio_broadcast_anchor_voice"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "藤原",
+   "九条",
+   "神宫寺",
+   "橘",
+   "浅仓",
+   "白鸟",
+   "水无月",
+   "黑泽",
+   "桐生",
+   "绫濑",
+   "西园寺",
+   "一条"
+  ],
+  "given_female": [
+   "千夏",
+   "诗织",
+   "千鹤",
+   "美月",
+   "遥香",
+   "真理奈",
+   "怜奈",
+   "千冬",
+   "彩音",
+   "由实",
+   "咲良",
+   "绫香"
+  ],
+  "given_male": [
+   "悠真",
+   "宗次郎",
+   "直树",
+   "俊介",
+   "疾风",
+   "莲",
+   "健一",
+   "龙之介",
+   "苍介",
+   "弦之介",
+   "雅人",
+   "吾郎"
+  ],
+  "given_neutral": [
+   "司",
+   "透",
+   "葵",
+   "律",
+   "薰",
+   "凉",
+   "和",
+   "真",
+   "光",
+   "清",
+   "涉",
+   "遥"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "保留台风闭锁、封手信封、读秒对赌与烛下张力的主线。改动：女棋圣失温时的“解衣贴胸复温”“口对口喂茶”改为屏风后换衣、火钵、热茶与毛毯；亲密台词与靠肩挪到暖过来、神志清明之后；去掉“脆弱少女”“娇躯”等措辞；修正“第封手”“本部长”笔误；写死的人名改为称谓；请求类钩子改为主动接近。\n2026-10-18 按写作规则 v2 改造：标题改为《千駄谷的封手信封》；人物组合改为 8 单人 + 2 多人；记者握着衣师的废案纸角底片、监查长握挑战者的匿名旧谱两条把柄；六十秒读秒判负、瓦片崩落、亡命徒与神迹式转折改为日常尺度；钩子、模板、日常按方案替换。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十一周岁、以研修会第一名升上职业的青年棋士，受托担任这场头衔战的现场立会人。",
+   "gender": "any",
+   "id": "sealed_move_special_adjudicator",
+   "reputation": "棋规严明、计算精准，深受棋圣暗中赏识。",
+   "resources": [
+    "封手专用的红蜡火漆印",
+    "一具发条双联机械读秒钟"
+   ],
+   "risks": [
+    "封手信封若受潮损坏或开拆起争议，要被棋院除名。"
+   ],
+   "role": "将棋联盟特派立会人兼记录员",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "特派立会官"
+    },
+    {
+     "gender": "any",
+     "pattern": "对局记录官"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    22
+   ],
+   "baseline": "年满二十周岁、从野战流派杀进循环赛的七段，曾是棋圣早年道场的后辈。",
+   "gender": "any",
+   "id": "renegade_prodigy_challenger_player",
+   "reputation": "棋风凌厉，敢在绝境里发起突击。",
+   "resources": [
+    "一副随身的折叠将棋盘",
+    "一卷江户古流残局手抄本"
+   ],
+   "risks": [
+    "这一季若成绩下滑，就要失去循环赛的席位。"
+   ],
+   "role": "野战派青年七段棋士",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "逆袭挑战者"
+    },
+    {
+     "gender": "any",
+     "pattern": "新锐七段"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "年满二十二周岁、执掌会馆赛事运营与转播的青年理事，握有联盟的调解权。",
+   "gender": "any",
+   "id": "shogi_federation_executive_director",
+   "reputation": "手腕强硬，誓要维护将棋殿堂的清白。",
+   "resources": [
+    "一枚盖着联盟朱印的赛事仲裁牙牌",
+    "一柄祖传象牙折扇"
+   ],
+   "risks": [
+    "比赛若草草流局，要面对上百家赞助商的索赔。"
+   ],
+   "role": "将棋联盟事务局执行理事",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "事务理事"
+    },
+    {
+     "gender": "any",
+     "pattern": "会馆总管"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十一周岁、继承百年木作坊的盘驹师，专司养护幽玄室的名盘。",
+   "gender": "any",
+   "id": "traditional_craftsman_board_maker",
+   "reputation": "眼光毒辣，凭木纹就能断定棋盘受潮几分。",
+   "resources": [
+    "一盒山茶花籽油与细鹿皮",
+    "一柄乌木刮刀"
+   ],
+   "risks": [
+    "名盘若受潮开裂，作坊要背上难以偿还的赔偿。"
+   ],
+   "role": "名盘养护师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "盘驹名匠"
+    },
+    {
+     "gender": "any",
+     "pattern": "木艺师范"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    22
+   ],
+   "baseline": "年满二十周岁、修习茶道多年的侍应，专司头衔战期间的茶点。",
+   "gender": "any",
+   "id": "tea_ceremony_attendant_scion",
+   "reputation": "举止典雅，总能在对局者最疲惫时奉上热茶。",
+   "resources": [
+    "一只铜火钵配长炭与铁壶",
+    "一罐宇治玉露末茶"
+   ],
+   "risks": [
+    "火钵的炭火若烫坏榻榻米，要赔上半年工钱。"
+   ],
+   "role": "幽玄室当值奉茶侍应",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "茶道侍应"
+    },
+    {
+     "gender": "any",
+     "pattern": "名门掌茶"
+    }
+   ]
+  }
+ ],
+ "premise": "盛夏的东京千駄谷，将棋名人头衔战打到终局，九段女棋圣与挑战者在会馆顶层的幽玄之室对局两天。第一天傍晚封手，信封交给青年立会人保管，第二天开封再续。棋圣连着几夜睡不着，在和室里一个人摆棋；台风季的会馆停过一次电。",
+ "pressures": [
+  {
+   "choice": "把纸角与底片一并锁进保密库副格，由你签字证明是赛前弃稿，还是劝记者交出底片换一次独家专访？",
+   "exits": [
+    {
+     "cost": "三人从此绑在同一个秘密上",
+     "option": "主持两人把纸角与底片一同封存，签字作证"
+    },
+    {
+     "cost": "欠下记者一个人情，专访里免不了被追问",
+     "option": "劝记者交出底片，答应开封后给一次独家专访"
+    }
+   ],
+   "far": {
+    "consequence": "外人咬定有人趁停电传递封手暗号，开封仪式蒙上阴影。",
+    "due_days": 1,
+    "trigger": "照片外流"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_chiyo_warm_tea_kimono_whisper",
+    "h_shin_camera_shutter_history_shout"
+   ],
+   "id": "p_discarded_move_slip_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "底片上清楚映出针线匣夹层里的宣纸一角，着衣师的手停在半空。"
+   },
+   "leverage": {
+    "basis": "记者拍到了着衣师在屏风后把棋圣试写的废案纸角藏进针线匣的底片",
+    "holder": "shogi_reporter_chronicler_shin",
+    "subject": "traditional_kimono_dresser_chiyo"
+   },
+   "location_ids": [
+    "shogi_archive_secret_vault",
+    "yugen_inner_tatami_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 40,
+    "text": "记者要着衣师当场交出原纸核对笔迹，否则就写进明早的特刊。"
+   },
+   "objective": "在底片外流之前，把纸角与底片的去向谈定。",
+   "source": "person",
+   "start_minute": 1385,
+   "tags": [
+    "workplace"
+   ],
+   "title": "针线匣里的废案纸角",
+   "trigger": "记者在保密库红灯下洗出底片，追问着衣师那张写着棋步的废纸去了哪里。"
+  },
+  {
+   "choice": "当场检验火漆、联名签字把手札封进保密库，还是调出茶道师拾到的私印笺纸，证明是场外栽赃？",
+   "exits": [
+    {
+     "cost": "要交代送册的中间人来路，得罪大赞助商",
+     "option": "检验火漆完好，以立会权限联名封存手札"
+    },
+    {
+     "cost": "茶道师从此被保守派记恨",
+     "option": "拿出门阀私印笺纸，证明有人故意栽赃"
+    }
+   ],
+   "far": {
+    "consequence": "无论胜负，挑战者都要背上舞弊的嫌疑。",
+    "due_days": 1,
+    "trigger": "质询记入夜间监察卷宗"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_soji_stopwatch_statute_shout",
+    "h_ryo_iron_fan_shout"
+   ],
+   "id": "p_unopened_dossier_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "手札封皮的火漆完好，可它出现在挑战者的行囊里，已经够触发纪律质询。"
+   },
+   "leverage": {
+    "basis": "监查长查获了外围赞助商塞进挑战者行囊的棋圣旧局分析册",
+    "holder": "federation_arbiter_master_soji",
+    "subject": "senior_titleholder_rival_ryo"
+   },
+   "location_ids": [
+    "cypress_veranda_rain_corridor",
+    "shogi_archive_secret_vault"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "监查长打开怀表记下时间：没有第三方作证，就暂停挑战者明早入席。"
+   },
+   "objective": "在质询记入卷宗前，证明那册手札从未拆封。",
+   "source": "person",
+   "start_minute": 1400,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "行囊底层的匿名旧谱",
+   "trigger": "监查长在回廊例行核查随身物品，点名要挑战者解释行囊底层那册未署名的分析手札。"
+  },
+  {
+   "choice": "拉上回廊内侧的雨户、由随行记者发一份签章的值守纪要，还是亲自去铜门前请安保清退越界的人？",
+   "exits": [
+    {
+     "cost": "记者得罪了想要花边的副主编",
+     "option": "落下雨户，由随行记者发布签章的值守纪要"
+    },
+    {
+     "cost": "淋了一身雨，回屋时湿得透透的",
+     "option": "去铜门前核验门禁，请安保清退越界人员"
+    }
+   ],
+   "far": {
+    "consequence": "顶层众人在开封前就要先应付一轮非议。",
+    "due_days": 1,
+    "trigger": "偷拍传闻在转播席间扩散"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_yukiko_dawn_fan_triumph_vow",
+    "h_shin_camera_shutter_history_shout",
+    "h_kurenai_tea_whisk_peace_whisper"
+   ],
+   "id": "p_paparazzi_blackout_rumor",
+   "immediate": {
+    "minutes": 10,
+    "text": "回廊外闪过两道镁光灯，雨声里传来关于封手夜密会的哄笑。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "zen_stone_courtyard_rain_gate",
+    "cypress_veranda_rain_corridor",
+    "yugen_inner_tatami_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "转播车也开始打听停电时顶层的动静。"
+   },
+   "objective": "在流言传遍棋坛前，用权威的现场记录压住它。",
+   "source": "rumor",
+   "start_minute": 1415,
+   "tags": [
+    "workplace"
+   ],
+   "title": "外墙的闪光偷拍",
+   "trigger": "蹲在庭院外墙的小报记者借着闪电隔窗抓拍，扬言要把停电夜幽玄室里的画面登上早报。"
+  },
+  {
+   "choice": "援引特别章程第十四条三方联署驳回，还是出示机械钟与火漆完好的记录，把裁定留到明晨开封？",
+   "exits": [
+    {
+     "cost": "三人一起背上抗命的处分风险",
+     "option": "与棋圣、监查长三方联署驳回指令"
+    },
+    {
+     "cost": "事务局扬言明早派专员接管保密库",
+     "option": "出示机械钟与火漆记录，要求裁定留到开封"
+    }
+   ],
+   "far": {
+    "consequence": "头衔归属悬而未决，赞助方与门阀借机更换立会班底。",
+    "due_days": 1,
+    "trigger": "流局指令生效"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_soji_stopwatch_statute_shout",
+    "h_soji_adjust_glasses_stoic_observe",
+    "h_yukiko_kimono_obi_whisper",
+    "h_chiyo_warm_tea_kimono_whisper"
+   ],
+   "id": "p_board_adjournment_ultimatum",
+   "immediate": {
+    "minutes": 15,
+    "text": "传真机吐出盖着事务局急章的指令单，限现场一刻钟内回复。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "shogi_archive_secret_vault",
+    "yugen_inner_tatami_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "差役在保密库门外催问回音，签下流局，数月的对局就成了谈判筹码。"
+   },
+   "objective": "在回复期限前驳回流局，守住明晨的开封。",
+   "source": "institution",
+   "start_minute": 1430,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "理事会的流局电令",
+   "trigger": "保守派理事以停电有保管隐患为由发来传真，要求中止本期名人战、封存名盘。"
+  },
+  {
+   "choice": "先去回廊落下雨户、疏导积水，还是先把信封移进保密库、把火钵挪近棋盘？",
+   "exits": [
+    {
+     "cost": "衣袖湿透，只好回屏风后换干羽织",
+     "option": "落下雨户疏导积水，再用山茶油与鹿皮护住盘面"
+    },
+    {
+     "cost": "用掉了大半备用的炭",
+     "option": "把信封移进保密库，挪近火钵烘散潮气"
+    }
+   ],
+   "far": {
+    "consequence": "开封后只能换用备用棋盘，棋圣耿耿于怀。",
+    "due_days": 1,
+    "trigger": "名盘受潮变形"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_ryo_reinforce_shoji_request",
+    "h_yukiko_candlelight_shogi_finger_breath",
+    "h_chiyo_dry_towel_tuck_request"
+   ],
+   "id": "p_rainwater_seepage_cypress_board_hazard",
+   "immediate": {
+    "minutes": 15,
+    "text": "室内湿度越来越高，榧木盘面浮起一层细雾，拉门被风吹得簌簌作响。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "cypress_veranda_rain_corridor",
+    "yugen_inner_tatami_chamber",
+    "zen_stone_courtyard_rain_gate"
+   ],
+   "near": {
+    "deadline_minutes": 40,
+    "text": "再不控湿，名盘受潮微胀，明早续弈就要受影响。"
+   },
+   "objective": "封好外廊雨户，再用山茶油与炭火替名盘控湿。",
+   "source": "accident",
+   "start_minute": 5,
+   "tags": [
+    "disaster"
+   ],
+   "title": "廊檐雨水与名盘返潮",
+   "trigger": "台风吹落几片檐瓦，雨水顺着桧木回廊漫向幽玄室门槛。"
+  },
+  {
+   "choice": "从茶席取备用长炭拨旺火钵、分披烘暖的厚羽织，还是把值守挪进隔风的保密库？",
+   "exits": [
+    {
+     "cost": "两人肩挨着肩守到天亮",
+     "option": "拨旺火钵煮玉露，分披烘暖的厚羽织"
+    },
+    {
+     "cost": "保密库窄，两人只能挨着坐在条案边",
+     "option": "把值守挪进保密库，守着台灯与保温茶瓶"
+    }
+   ],
+   "far": {
+    "consequence": "清晨头重脚轻，开封仪式上强撑着精神。",
+    "due_days": 1,
+    "trigger": "守夜的人受了寒"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_yukiko_matcha_bowl_hands_request",
+    "h_yukiko_whisper_back_embrace_request",
+    "h_kurenai_tea_whisk_peace_whisper",
+    "h_chiyo_warm_tea_kimono_whisper"
+   ],
+   "id": "p_blackout_charcoal_chill",
+   "immediate": {
+    "minutes": 15,
+    "text": "烛火在寒气里摇晃，久坐算棋的人指节发白，呼吸都带着白雾。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "yugen_inner_tatami_chamber",
+    "shogi_archive_secret_vault"
+   ],
+   "near": {
+    "deadline_minutes": 40,
+    "text": "铁壶里的热水不多了，再不添炭，后半夜要着凉。"
+   },
+   "objective": "添炭、烧水、换下潮衣，别让守夜的人受寒。",
+   "source": "nature",
+   "start_minute": 20,
+   "tags": [
+    "intimate"
+   ],
+   "title": "停电长夜的炭火",
+   "trigger": "会馆断电后暖气停了，深夜暴雨让顶层和室越来越冷，备用的白炭也快烧完了。"
+  }
+ ],
+ "region": "关东平原被特大台风瘫痪的千駄谷将棋会馆顶层古雅幽玄和室与断电庭院",
+ "rules": [
+  {
+   "id": "r_yugen_sealed_move_absolute_confidentia",
+   "text": "封手信封由立会人与棋圣共同签字、加盖双道火漆后锁进保密库，违者取消棋士资格。"
+  },
+  {
+   "id": "r_blackout_manual_mechanical_clock_law",
+   "text": "停电期间改用发条双联机械钟计时，第二天开封后照常续弈。"
+  },
+  {
+   "id": "r_tatami_traditional_etiquette_code",
+   "text": "进入幽玄室须换上白足袋，对局期间不得喧哗，不得触碰盘上的棋子。"
+  },
+  {
+   "id": "r_dawn_unsealing_public_resumption_rule",
+   "text": "清晨六点开锁后，封手信封当众拆封，由到场媒体一同见证。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "雨夜同室",
+  "committed": "破晓棋圣",
+  "familiar": "烛影对弈",
+  "flirting": "羽织同披",
+  "intimate": "榧木定情",
+  "stranger": "对局立会",
+  "testing": "封手相托"
+ },
+ "status": "released",
+ "style_hint": "短句写烛影、雨声与落子声，对白简省，用棋语和沉默推进张力。",
+ "tension_engines": [
+  {
+   "id": "te_meijin_pride_vs_soaked_kimono_warmth",
+   "text": "棋圣的名门傲骨，与和服湿透后不得不接过对方递来的干羽织与热茶。"
+  },
+  {
+   "id": "te_sealed_move_envelope_vs_life_or_death",
+   "text": "封手信封里关乎头衔与赞助的一手，与要守到天亮的漫长一夜。"
+  },
+  {
+   "id": "te_blackout_candlelight_vs_dawn_adjudica",
+   "text": "停电后只剩烛光的和室，与清晨六点当众开封的公开场面。"
+  },
+  {
+   "id": "te_chess_rivalry_vs_tender_embrace_defen",
+   "text": "盘面上分毫不让的胜负，与风雨稍歇后隔着火钵对坐时乱了的心跳。"
+  }
+ ],
+ "title": "千駄谷的封手信封",
+ "tone": [
+  "台风闭馆",
+  "羽织同披",
+  "封手信封",
+  "烛影对坐"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "t_shogi_1",
+   "requires": [],
+   "text": "立会人在保密库防火柜的暗格里翻出一卷江户名人的残局手抄本，棋圣看了一夜，心里有了底。"
+  },
+  {
+   "category": "信息",
+   "id": "t_shogi_2",
+   "requires": [],
+   "text": "记者洗出的底片里，后窗递纸条的人原来是外围赌盘雇来的前棋士；监查长据此向联盟提请调查。"
+  },
+  {
+   "category": "制度",
+   "id": "t_shogi_3",
+   "requires": [],
+   "text": "监查长用短波电台连上联盟元老评议会，评议会依紧急章程授予现场自决权，理事会的流局指令作废。"
+  },
+  {
+   "category": "人事",
+   "id": "t_shogi_4",
+   "requires": [],
+   "text": "茶道师奉茶时露出的玉坠，与棋圣的扇坠正好成对：两人是当年京都同一位师父门下的同门。"
+  },
+  {
+   "category": "时限",
+   "id": "t_shogi_5",
+   "requires": [],
+   "text": "台风在凌晨五点半移出海面，天光提前亮起，开封仪式也跟着提前半小时。"
+  },
+  {
+   "category": "关系",
+   "id": "t_shogi_6",
+   "requires": [],
+   "text": "整理换下的衣物时，发现棋圣贴身的香囊上绣着立会人十年前在道场送出的纹样。"
+  },
+  {
+   "category": "意外",
+   "id": "t_shogi_7",
+   "requires": [],
+   "text": "名盘受潮后木纹舒展，盘底浮出江户宗师留下的“道法自然”四字隐刻。"
+  }
+ ]
+}

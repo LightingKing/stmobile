@@ -1,0 +1,2240 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "在暗河上撑了几年船的船工。",
+   "age_range": [
+    21,
+    28
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_village_boatman_kid",
+   "line": "统领！泄洪口的石头搬开了！里面的人一撬开就能出来！",
+   "location_ids": [
+    "loc_gate_sluice_mouth",
+    "loc_guardian_village_shrine"
+   ],
+   "name": "船工阿水",
+   "role": "村里年轻的船工"
+  },
+  {
+   "adult_context": "在祠堂敲了几年鼓的鼓手。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_shrine_drummer",
+   "line": "鼓我一直敲着！听得见就往鼓声那边走！",
+   "location_ids": [
+    "loc_gate_sluice_mouth",
+    "loc_guardian_village_shrine"
+   ],
+   "name": "鼓手阿青",
+   "role": "守陵祠的鼓手"
+  },
+  {
+   "adult_context": "跟着主事来的县衙差役。",
+   "age_range": [
+    40,
+    55
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_county_runner",
+   "line": "主事有令，地宫没查清之前，谁也不许下去！",
+   "location_ids": [
+    "loc_gate_sluice_mouth"
+   ],
+   "name": "差役老周",
+   "role": "县衙派来的差役"
+  },
+  {
+   "adult_context": "常年在这条路上挑担的挑夫。",
+   "age_range": [
+    25,
+    40
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_tea_porter",
+   "line": "那位巫女每天都来茶棚坐一会儿，坐的总是探险先生对面那张凳子。",
+   "location_ids": [
+    "loc_guardian_village_shrine"
+   ],
+   "name": "挑夫大牛",
+   "role": "在茶棚歇脚的挑夫"
+  },
+  {
+   "adult_context": "在祠前卖了几十年香烛的老人。",
+   "age_range": [
+    50,
+    68
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_incense_seller",
+   "line": "巫女前两天来买了一对红烛，说是祠里用，可祠里从来不点红烛。",
+   "location_ids": [
+    "loc_guardian_village_shrine"
+   ],
+   "name": "香婆",
+   "role": "祠前卖香烛的"
+  },
+  {
+   "adult_context": "修了一辈子神道石兽的石匠。",
+   "age_range": [
+    45,
+    60
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_stone_carver",
+   "line": "那位探险先生量水位的时候，眼睛总往巫女那边瞟。",
+   "location_ids": [
+    "loc_guardian_village_shrine"
+   ],
+   "name": "石匠老陈",
+   "role": "修神道石兽的石匠"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "剑巫女与探险家在冰水里胸腹相贴，四只手叠在剑鞘上，一个数着呼吸一个跟着往下压。",
+   "id": "cc_maiden_explorer_switch",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "shrine_maiden_ruoxue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一起被困在冰水里，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "crypt_hydraulic_explorer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "一个带路一个勘察，并肩走了一个月的神道。",
+     "stage": "familiar"
+    },
+    {
+     "a": "shrine_maiden_ruoxue",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "crypt_hydraulic_explorer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个话少一个嘴笨，一个月里说过的话不多，句句都记得。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "shrine_maiden_ruoxue",
+    "crypt_hydraulic_explorer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "撬断死卡铜销，顶起水闸，两人一起出去。",
+    "limit_gap": "剑巫女在冰水里手脚发麻，探险家的工具在落闸时被冲走了。",
+    "meeting_reason": "暗河决堤前，剑巫女带着探险家在神道尽头量水位。",
+    "resource_gap": "剑巫女有那只紫铜剑鞘和对地宫每一块石头的熟悉，探险家有那本暗河水道图和一身水性。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_water_to_throat",
+    "te_scabbard_chest_press"
+   ]
+  },
+  {
+   "chemistry": "剑巫女与探险家在闸底石槽前四只手叠在一起，一边争该先撬卡齿还是先清泥沙，一边一下一下把铜销别开。",
+   "id": "cc_maiden_explorer_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "shrine_maiden_ruoxue",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "为暗河改不改道争了一下午，谁都不肯先认输。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "crypt_hydraulic_explorer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "一个月里在茶棚对面坐过好多回。",
+     "stage": "familiar"
+    },
+    {
+     "a": "shrine_maiden_ruoxue",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "crypt_hydraulic_explorer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个清冷一个木讷，谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "shrine_maiden_ruoxue",
+    "crypt_hydraulic_explorer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "先清开闸底的泥沙，让水有地方泄。",
+    "limit_gap": "剑巫女不懂水道，探险家不懂王陵的禁忌。",
+    "meeting_reason": "两人为该不该把暗河改道，在祠堂里争了一下午，争到暗河决堤都没分出胜负。",
+    "resource_gap": "剑巫女知道这座地宫哪里能碰，探险家知道暗河的水往哪里走。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_cam_pin_jammed",
+    "te_silt_buries_slot"
+   ]
+  },
+  {
+   "chemistry": "守陵司主事在外面等着消息，剑巫女和探险家一个压剑鞘一个顶石壁，谁也不肯在大人物面前先喊冷。",
+   "id": "cc_maiden_explorer_official",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "shrine_maiden_ruoxue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "头一回在朝廷的人面前把命交出去。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "crypt_hydraulic_explorer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "奉命来督办勘察，早听说这位剑巫女和那个探险家。",
+     "stage": "familiar"
+    },
+    {
+     "a": "shrine_maiden_ruoxue",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "crypt_hydraulic_explorer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在主事面前不敢多看一眼，可每一声数数都只说给一个人听。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "shrine_maiden_ruoxue",
+    "crypt_hydraulic_explorer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让主事亲眼看见，守陵的人和勘察的人能一起把命捡回来。",
+    "limit_gap": "剑巫女不肯在主事面前失了守陵人的体面，探险家不习惯被大人物盯着干活。",
+    "meeting_reason": "主事要亲眼看看暗河的水情，剑巫女带路，探险家在旁边讲水道。",
+    "resource_gap": "剑巫女手里有剑鞘和萤石灯，探险家手里有水道图和那捆麻绳。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_silt_buries_slot",
+    "te_cam_pin_jammed"
+   ]
+  },
+  {
+   "chemistry": "剑巫女一边别剑鞘一边轻声教新来的挑夫怎么踩稳，探险家顶着石壁，把三个人的力气拧成一股。",
+   "id": "cc_maiden_explorer_newhand",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "shrine_maiden_ruoxue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "剑巫女嫌挑夫毛躁，今晚却要把命交到这双手上。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "crypt_hydraulic_explorer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "第一次进王陵就遇上了暗河决堤。",
+     "stage": "familiar"
+    },
+    {
+     "a": "shrine_maiden_ruoxue",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "crypt_hydraulic_explorer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "剑巫女和探险家一个眼神就知道对方要干什么，挑夫都看在眼里。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "shrine_maiden_ruoxue",
+    "crypt_hydraulic_explorer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "带着挑夫一起平安出去，明天照常勘察。",
+    "limit_gap": "新来的挑夫什么都不懂，剑巫女得一边自救一边教。",
+    "meeting_reason": "挑夫第一次跟着下神道，探险家正在讲暗河的来历。",
+    "resource_gap": "剑巫女有剑鞘和守陵的经验，探险家有水道图和麻绳。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_water_to_throat",
+    "te_cam_pin_jammed"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_water_whisper",
+   "reach": "all",
+   "text": "冰水里贴着耳朵的低语和打颤的牙齿声"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_shrine_drum",
+   "reach": "local",
+   "text": "守陵祠的鼓声，隔着厚土一声声传下来"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "守陵村这一代的剑巫女，十几岁起跟着老巫女学剑守陵，如今独自守了五年，去留进退由本人拿主意。",
+   "age_range": [
+    23,
+    27
+   ],
+   "appearance_options": [
+    "一头柔顺纯净的胜雪白发被暗河冷水浸透湿漉贴在肩背，身着素白红边巫女御神袍，薄透布料湿透后紧紧勾勒出青年女性苗条紧致的身段，白玉般的清丽脸蛋轮廓柔和，清澈紫眸宛若深潭，透着纯净坚毅的破障光芒。",
+    "白发微乱贴在泛着娇嫩微红的面颊旁，浑身湿透在刺骨冰水中微微发颤，清纯娇颜满是决绝，素手紧握沉重厚实的降魔重剑紫铜剑鞘，毫无保留地倚靠在同伴怀中借力。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿古物换钱的人",
+     "不听劝往里闯的人"
+    ],
+    "contrast": "在村里清冷得像一捧雪，说话从不多一个字；可困在冰水里时，却是剑巫女第一个把剑鞘递过去，让对方抓住自己的手。",
+    "core_value": "守陵的人，先守人，再守陵。",
+    "goal_options": [
+     "把剑鞘底箍别进偏心卡齿，撬断死卡铜销",
+     "顶起水闸，和探险家一起出去"
+    ],
+    "never": [
+     "丢下同伴自己逃"
+    ],
+    "prefers": [
+     "说话算数、肯下水的人",
+     "敬畏王陵的人"
+    ],
+    "pressure_responses": {
+     "breaking": "冻得手指发青也不松手，轻声数着呼吸往下压。",
+     "high": "顶着冰水把全身重量压在剑鞘上，咬紧牙关不出声。",
+     "low": "先摸清水下卡齿的位置，把萤石灯咬在嘴里照着水面。",
+     "mid": "把剑鞘横过来，指给对方看卡齿的死角。"
+    },
+    "relationship_stance": "探险家来村里勘察这一个月，剑巫女每天带路，话说得不多，可哪天对方没来祠前，傍晚总要去茶棚看一眼。",
+    "withdrawal": "脱险后头一件事是清点有没有人还困在神道里，确认都上来了，才肯靠着石兽坐下，把湿透的白发拧干。"
+   },
+   "gender": "female",
+   "gender_reason": "守陵的剑巫女，按原稿写作女性。",
+   "id": "shrine_maiden_ruoxue",
+   "identity": {
+    "authority": "地宫里哪条路能走、哪道门能碰，剑巫女一句话就能定。",
+    "exposure": "冰水漫到锁骨，湿透的巫女袍贴在身上，只能整个人靠进对方怀里借力。",
+    "hidden": "小院的枕头底下压着一张探险家画的暗河水道图，背面写着一行字，剑巫女看了好几夜。",
+    "limits": [
+     "冰水里泡久了手脚发麻",
+     "湿透的巫女袍沉得拖人"
+    ],
+    "obligations": [
+     "守住王陵，不让暗河冲垮神道",
+     "把带进去的人平平安安带出来"
+    ],
+    "resources": [
+     "一柄降魔重剑，配一只古法锻造的实心加厚紫铜剑鞘，鞘底包箍厚两公分带淬硬直角折沿",
+     "一盏萤石灯",
+     "全村人的信任"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "冰水里把自己往石台上托的那双手",
+     "每天在神道上低头量水位的那道背影"
+    ],
+    "boundaries": [
+     "人前守着剑巫女的清冷，心意只给认定的人",
+     "每一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "火盆边靠在对方肩上的近身位",
+    "dislikes": [
+     "被人当众议论",
+     "趁人之危的手"
+    ],
+    "expression": "低着头替人倒了一碗热姜汤，指尖碰到对方的手又没缩回去，轻声说：夜里冷，你……要不要留下来烤火。",
+    "likes": [
+     "被人用干布巾一缕缕擦干白发",
+     "在火盆边被人握着冻僵的手捂热",
+     "夜里听着蛙鸣，被人从身后抱着"
+    ],
+    "preconditions": [
+     "水闸顶开、两人都脱险之后",
+     "两人都清醒，心意出于自己，不是冰水里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "王陵守陵剑巫女",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_guardian_village_shrine",
+     "to": 1020
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_shrine_maiden_courtyard",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "底箍可能翻卷，手指会被冻伤",
+      "option": "把剑鞘底箍别进卡齿，和探险家合力撬断铜销"
+     },
+     {
+      "cost": "冰水灭顶时谁都撑不住",
+      "option": "爬到神道顶上等外面的人挖开泄洪口"
+     }
+    ],
+    "pressure": "冰水一寸寸往上漫，必须在灭顶之前撬断铜销，顶起水闸。",
+    "trigger": "暗河决堤时，剑巫女正带着探险家在神道尽头量水位，青铜门在身后轰地一声坠了下来。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "冷得骨头都在打颤……背后这个人的心跳倒是暖的。守了五年陵，从没被谁这样护着过。",
+    "surface": "别松手。把剑鞘别进去——你压着我的手，我数到三，一起往下压。"
+   }
+  },
+  {
+   "adult_context": "六十岁，守了四十年王陵，剑巫女的剑就是这双手教出来的。",
+   "age_range": [
+    55,
+    70
+   ],
+   "appearance_options": [
+    "一身褪了色的旧巫女袍，白发挽成一个髻，插着一根木簪，手里拄着一根乌木杖。",
+    "坐在祠堂门口的竹椅上，眯着眼听鼓声。"
+   ],
+   "decision": {
+    "avoids": [
+     "守陵的老巫女最烦临阵推诿"
+    ],
+    "contrast": "在村里人面前严得像块石头，私下却会给剑巫女留一碗热汤。",
+    "core_value": "陵守得住，人得活着出来。",
+    "goal_options": [
+     "先把人救出来",
+     "守陵的老巫女再追究是谁的错"
+    ],
+    "never": [
+     "守陵的老巫女不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "守陵的老巫女看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "守陵的老巫女嗓子喊哑了也不肯走",
+     "high": "守陵的老巫女顶着危险往里递东西",
+     "low": "守陵的老巫女先稳住身边的人",
+     "mid": "守陵的老巫女四处找能用的工具"
+    },
+    "relationship_stance": "早看出剑巫女和那个探险家之间有事，每回都故意让两人一块儿下神道。",
+    "withdrawal": "事情过去后，守陵的老巫女一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是守陵多年的老巫女。",
+   "id": "old_shrine_matron",
+   "identity": {
+    "authority": "守陵村里祭什么、什么时候封地宫，老巫女心里有本账。",
+    "exposure": "守陵的老巫女忙起来顾不上衣着体面",
+    "hidden": "做守陵的老巫女这些年，有件事没对旁人说过",
+    "limits": [
+     "守陵的老巫女不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住守陵的老巫女手上的那一摊事"
+    ],
+    "resources": [
+     "一串地宫各处的铜钥匙",
+     "守陵的老巫女随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "守陵的老巫女欣赏做事干脆利落的人",
+     "守陵的老巫女记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，守陵的老巫女就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和守陵的老巫女并肩站着",
+    "dislikes": [
+     "守陵的老巫女讨厌轻浮的手"
+    ],
+    "expression": "守陵的老巫女话不多，递东西时指尖会多停一下",
+    "likes": [
+     "守陵的老巫女收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "守陵的老巫女要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "守陵的老巫女",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_guardian_village_shrine",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "守陵的老巫女未必赶得上",
+      "option": "守陵的老巫女在外面调度接应"
+     },
+     {
+      "cost": "可能把守陵的老巫女自己也搭进去",
+      "option": "守陵的老巫女硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，守陵的老巫女进不去",
+    "trigger": "警报传到守陵的老巫女那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "那孩子是我一手带大的……今晚要是在地宫里折了，我这把老骨头没脸去见祖师。",
+    "surface": "若是听得见鼓声，就往泄洪口那边别！外面的人在挖了！"
+   }
+  },
+  {
+   "adult_context": "五十八岁，守陵村的族长，村里大小事都得经这个人的手。",
+   "age_range": [
+    50,
+    66
+   ],
+   "appearance_options": [
+    "一身深灰色的粗布长衫，留着花白长须，腰上挂着一只旱烟袋。",
+    "站在祠堂前的青石阶上，望着陵前神道的方向。"
+   ],
+   "decision": {
+    "avoids": [
+     "守陵村的老族长最烦临阵推诿"
+    ],
+    "contrast": "在官差面前客客气气，在村里人面前说一不二。",
+    "core_value": "村子靠着王陵活了几百年，王陵出事，村子也活不成。",
+    "goal_options": [
+     "先把人救出来",
+     "守陵村的老族长再追究是谁的错"
+    ],
+    "never": [
+     "守陵村的老族长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "守陵村的老族长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "守陵村的老族长嗓子喊哑了也不肯走",
+     "high": "守陵村的老族长顶着危险往里递东西",
+     "low": "守陵村的老族长先稳住身边的人",
+     "mid": "守陵村的老族长四处找能用的工具"
+    },
+    "relationship_stance": "嘴上嫌探险家是外人，私下却叮嘱村里人好生照看这位客人。",
+    "withdrawal": "事情过去后，守陵村的老族长一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是守陵村的老族长。",
+   "id": "village_headman",
+   "identity": {
+    "authority": "村里出多少人、出几条船，老族长说了算。",
+    "exposure": "守陵村的老族长忙起来顾不上衣着体面",
+    "hidden": "做守陵村的老族长这些年，有件事没对旁人说过",
+    "limits": [
+     "守陵村的老族长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住守陵村的老族长手上的那一摊事"
+    ],
+    "resources": [
+     "全村的青壮和船只",
+     "守陵村的老族长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "守陵村的老族长欣赏做事干脆利落的人",
+     "守陵村的老族长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，守陵村的老族长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和守陵村的老族长并肩站着",
+    "dislikes": [
+     "守陵村的老族长讨厌轻浮的手"
+    ],
+    "expression": "守陵村的老族长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "守陵村的老族长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "守陵村的老族长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "守陵村的老族长",
+   "schedule": [
+    {
+     "from": 420,
+     "location_id": "loc_guardian_village_shrine",
+     "to": 1200
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "守陵村的老族长未必赶得上",
+      "option": "守陵村的老族长在外面调度接应"
+     },
+     {
+      "cost": "可能把守陵村的老族长自己也搭进去",
+      "option": "守陵村的老族长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，守陵村的老族长进不去",
+    "trigger": "警报传到守陵村的老族长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "活了大半辈子，头一回见暗河涨得这么凶……那两个孩子可千万得出来。",
+    "surface": "后生们都拿着铁锹在泄洪口了！你们撑住！"
+   }
+  },
+  {
+   "adult_context": "二十八岁，跑遍了南北十几座古陵的暗河水道，这一回奉命来勘察王陵，去留进退由本人拿主意。",
+   "age_range": [
+    26,
+    33
+   ],
+   "appearance_options": [
+    "一身靛青色的短打，裤腿扎进绑腿里，腰上挂着一只装满竹尺和墨斗的皮囊，背上一捆浸过桐油的麻绳。",
+    "短打湿透了贴在身上，肩膀顶着神道的石壁，双臂把剑巫女托在石台最高处。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿古物换钱的人"
+    ],
+    "contrast": "在县衙的官员面前能把水道讲得头头是道，被剑巫女看一眼，就忘了自己要说什么。",
+    "core_value": "水往低处走，人往活路走。",
+    "goal_options": [
+     "用肩膀顶住石壁，给剑巫女腾出发力的支点",
+     "把全身重量压在剑鞘上"
+    ],
+    "never": [
+     "让剑巫女一个人留在水里"
+    ],
+    "prefers": [
+     "说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "冻得嘴唇发紫也不松，跟着剑巫女的数数压到最后一下。",
+     "high": "肩膀顶着石壁，双手压在剑巫女的手上，和剑巫女一起压。",
+     "low": "一把将剑巫女托到石台最高处，自己站在水最深的地方。",
+     "mid": "摸着门缝里的水流，报出卡齿的方位。"
+    },
+    "relationship_stance": "每天跟着剑巫女下神道量水位，量着量着，量的就不只是水了。",
+    "withdrawal": "确认水闸顶开、外面的人都没事，才靠在神道的石兽上，大口大口地喘气。"
+   },
+   "gender": "male",
+   "gender_reason": "朝廷派来的古陵水工探险家，按原稿写作男性。",
+   "id": "crypt_hydraulic_explorer",
+   "identity": {
+    "authority": "古陵暗河里哪处能堵、哪处能泄，探险家心里有数。",
+    "exposure": "湿透的短打贴着剑巫女的后背，两人在冰水里贴得严丝合缝。",
+    "hidden": "暗河水道图的背面写着一行小字，是来村里第三天写下的，一直没敢给剑巫女看。",
+    "limits": [
+     "冰水里站不稳脚",
+     "工具在落闸时被冲走了"
+    ],
+    "obligations": [
+     "把剑巫女托在水面上",
+     "撬开水闸，两人一起出去"
+    ],
+    "resources": [
+     "一捆浸过桐油的麻绳",
+     "一本暗河水道图",
+     "一只防水的竹筒"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "剑巫女在冰水里还能数得那么稳的那份定力",
+     "剑巫女被夸了一句就别过脸去的那一下"
+    ],
+    "boundaries": [
+     "剑巫女没开口就不越一步",
+     "人前不让剑巫女难做"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "火盆边让剑巫女靠着肩膀的近身位",
+    "dislikes": [
+     "当众起哄",
+     "背后嚼舌根"
+    ],
+    "expression": "被剑巫女留下烤火时愣了很久，最后把那张水道图递了过去：背面那行字，我写了一个月，一直没敢给你。",
+    "likes": [
+     "剑巫女难得叫一次自己的名字",
+     "被剑巫女牵着袖子带进小院"
+    ],
+    "preconditions": [
+     "水闸顶开、两人都安全清醒之后",
+     "剑巫女点了头，出于本心"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "勘察古陵暗河的水工探险家",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_bronze_gate_ledge",
+     "to": 1020
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_guardian_village_shrine",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "肩膀会被石壁磨伤，手臂可能冻僵",
+      "option": "用肩膀顶住石壁，和剑巫女合力压下剑鞘"
+     },
+     {
+      "cost": "潜下去就未必能浮上来",
+      "option": "潜下去找别的出水口"
+     }
+    ],
+    "pressure": "水位越涨越高，再不撬开水闸，两人都撑不到外面的人挖开泄洪口。",
+    "trigger": "暗河决堤时，探险家正跟着剑巫女在神道尽头量水位，回头就看见青铜门砸了下来。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "剑巫女整个人靠在我怀里，冻得发抖……别分神。跑了十几座古陵，今晚这一座，我得带着人出去。",
+    "surface": "抓住我！剑鞘别进去，我压着你的手——你数，我跟。"
+   }
+  },
+  {
+   "adult_context": "三十六岁，带着十几个守陵卫守了王陵外围十年，地宫外面的事归这个人管。",
+   "age_range": [
+    30,
+    42
+   ],
+   "appearance_options": [
+    "一身青灰色的皮甲，腰上挂着一柄朴刀，脸被风吹得黝黑。",
+    "站在泄洪口边，手里攥着一根粗麻绳。"
+   ],
+   "decision": {
+    "avoids": [
+     "守陵卫的统领最烦临阵推诿"
+    ],
+    "contrast": "对盗墓贼下手狠得很，对村里的孩子却总揣着一把糖。",
+    "core_value": "守陵卫守的是陵，更是守陵的人。",
+    "goal_options": [
+     "先把人救出来",
+     "守陵卫的统领再追究是谁的错"
+    ],
+    "never": [
+     "守陵卫的统领不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "守陵卫的统领看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "守陵卫的统领嗓子喊哑了也不肯走",
+     "high": "守陵卫的统领顶着危险往里递东西",
+     "low": "守陵卫的统领先稳住身边的人",
+     "mid": "守陵卫的统领四处找能用的工具"
+    },
+    "relationship_stance": "嘴上嫌探险家多事，可剑巫女每回下神道，统领都在神道口守着。",
+    "withdrawal": "事情过去后，守陵卫的统领一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是守陵卫的统领。",
+   "id": "crypt_watch_captain",
+   "identity": {
+    "authority": "陵外谁能进、谁能出，守陵卫统领说了算。",
+    "exposure": "守陵卫的统领忙起来顾不上衣着体面",
+    "hidden": "做守陵卫的统领这些年，有件事没对旁人说过",
+    "limits": [
+     "守陵卫的统领不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住守陵卫的统领手上的那一摊事"
+    ],
+    "resources": [
+     "一队守陵卫",
+     "守陵卫的统领随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "守陵卫的统领欣赏做事干脆利落的人",
+     "守陵卫的统领记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，守陵卫的统领就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和守陵卫的统领并肩站着",
+    "dislikes": [
+     "守陵卫的统领讨厌轻浮的手"
+    ],
+    "expression": "守陵卫的统领话不多，递东西时指尖会多停一下",
+    "likes": [
+     "守陵卫的统领收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "守陵卫的统领要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "守陵卫的统领",
+   "schedule": [
+    {
+     "from": 1080,
+     "location_id": "loc_gate_sluice_mouth",
+     "to": 1439
+    },
+    {
+     "from": 0,
+     "location_id": "loc_gate_sluice_mouth",
+     "to": 360
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "守陵卫的统领未必赶得上",
+      "option": "守陵卫的统领在外面调度接应"
+     },
+     {
+      "cost": "可能把守陵卫的统领自己也搭进去",
+      "option": "守陵卫的统领硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，守陵卫的统领进不去",
+    "trigger": "警报传到守陵卫的统领那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "守了十年陵，从没见暗河这么凶……那两个人要是出不来，我这统领也别干了。",
+    "surface": "泄洪口挖开一半了！你们撬开了就喊，我第一个下去拉人！"
+   }
+  },
+  {
+   "adult_context": "四十五岁，跟掌柜一起开了十年茶棚，村口来往的人都喝过这一碗粗茶。",
+   "age_range": [
+    38,
+    55
+   ],
+   "appearance_options": [
+    "一身蓝布衣裳，围着一块洗得发白的围裙，头上包着花头巾。",
+    "站在茶棚的灶台前，一边烧水一边招呼客人。"
+   ],
+   "decision": {
+    "avoids": [
+     "茶棚的老板娘最烦临阵推诿"
+    ],
+    "contrast": "嘴上骂官差喝茶不给钱，私下却给探险队多送了两包干粮。",
+    "core_value": "喝口热的，天大的事也能过去。",
+    "goal_options": [
+     "先把人救出来",
+     "茶棚的老板娘再追究是谁的错"
+    ],
+    "never": [
+     "茶棚的老板娘不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "茶棚的老板娘看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "茶棚的老板娘嗓子喊哑了也不肯走",
+     "high": "茶棚的老板娘顶着危险往里递东西",
+     "low": "茶棚的老板娘先稳住身边的人",
+     "mid": "茶棚的老板娘四处找能用的工具"
+    },
+    "relationship_stance": "每回给剑巫女的茶碗里多放一勺红糖，说这孩子守陵太清苦。",
+    "withdrawal": "事情过去后，茶棚的老板娘一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是茶棚的老板娘。",
+   "id": "teahouse_aunt",
+   "identity": {
+    "authority": "茶棚里谁喝什么茶、谁欠了几文钱，老板娘心里有本账。",
+    "exposure": "茶棚的老板娘忙起来顾不上衣着体面",
+    "hidden": "做茶棚的老板娘这些年，有件事没对旁人说过",
+    "limits": [
+     "茶棚的老板娘不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住茶棚的老板娘手上的那一摊事"
+    ],
+    "resources": [
+     "一口烧了十年水的大铜壶",
+     "茶棚的老板娘随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "茶棚的老板娘欣赏做事干脆利落的人",
+     "茶棚的老板娘记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，茶棚的老板娘就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和茶棚的老板娘并肩站着",
+    "dislikes": [
+     "茶棚的老板娘讨厌轻浮的手"
+    ],
+    "expression": "茶棚的老板娘话不多，递东西时指尖会多停一下",
+    "likes": [
+     "茶棚的老板娘收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "茶棚的老板娘要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "茶棚的老板娘",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_guardian_village_shrine",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "茶棚的老板娘未必赶得上",
+      "option": "茶棚的老板娘在外面调度接应"
+     },
+     {
+      "cost": "可能把茶棚的老板娘自己也搭进去",
+      "option": "茶棚的老板娘硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，茶棚的老板娘进不去",
+    "trigger": "警报传到茶棚的老板娘那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "那孩子今早还在我这儿喝了碗茶……可千万得出来。",
+    "surface": "巫女！先生！姜汤我熬着呢，你们出来了就有得喝！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "春汛时节",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "古陵神道青铜重闸依靠重力落闸自锁，底部设有一道偏心逆止棘齿，一旦被泥沙与脱扣铜销锁死便无法抬升。",
+  "守陵剑巫女传承重剑配装古法锻造的实心加厚紫铜剑鞘，鞘底包箍厚达两公分带淬硬直角折沿，专为古代重械维护设计。",
+  "地下暗河水温逼近冰点，浸泡超过十分钟四肢会因低温失温麻痹，两人必须胸腹相贴互相借体温御寒。",
+  "地宫神道石壁上方设有两道泄洪暗槽，只要合力将青铜门撬起半尺空隙，内外水压便可瞬间平复阻滞暗水上涨。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "清晨的守陵祠里，剑巫女跪在蒲团上，把一炷线香插进香炉，堂前的牛皮鼓还挂着露水。",
+    "上完香，剑巫女起身拍了拍膝上的灰，轻声说：今天水涨了两指。你量的时候，别走太深。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_shrine_incense",
+   "location_ids": [
+    "loc_guardian_village_shrine"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪剑巫女在祠堂上早香"
+  },
+  {
+   "beats": [
+    "晌午的茶棚里坐满了歇脚的挑夫，剑巫女坐在角落那张凳子上，捧着一碗加了红糖的粗茶。",
+    "剑巫女低头吹着茶，忽然开口：老板娘又多放了糖。……你那碗，要不要分一半？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_teahouse_bowl",
+   "location_ids": [
+    "loc_guardian_village_shrine"
+   ],
+   "start_minute": 720,
+   "tags": [
+    "workplace"
+   ],
+   "title": "晌午在茶棚分一碗红糖茶"
+  },
+  {
+   "beats": [
+    "傍晚的神道两旁，一对对长满青苔的石兽沉默地站着，夕阳把剑巫女的白发染成淡金色。",
+    "剑巫女伸手摸了摸一只石麒麟的头，轻声说：小时候我总骑在这只上面。……别告诉老巫女。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_stone_beast_walk",
+   "location_ids": [
+    "loc_guardian_village_shrine"
+   ],
+   "start_minute": 1020,
+   "tags": [
+    "workplace"
+   ],
+   "title": "傍晚陪剑巫女摸石麒麟"
+  },
+  {
+   "beats": [
+    "神道尽头的石台上，探险家蹲在水边，用竹尺一格格地量着暗河的水位，剑巫女举着萤石灯在旁边照着。",
+    "剑巫女看着水面，眉头微微皱起：比昨天又高了。……今晚我守夜，你早点回去歇着。"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "act_water_level_mark",
+   "location_ids": [
+    "loc_bronze_gate_ledge"
+   ],
+   "start_minute": 540,
+   "tags": [
+    "workplace"
+   ],
+   "title": "下神道量水位"
+  },
+  {
+   "beats": [
+    "守陵小院的老井边，剑巫女挽起袖子打水，木桶撞在井壁上发出闷闷的响声。",
+    "剑巫女把一桶水递过来，指尖碰到对方的手又缩了回去：你力气大。……帮我提进去。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_well_water",
+   "location_ids": [
+    "loc_shrine_maiden_courtyard"
+   ],
+   "start_minute": 960,
+   "tags": [
+    "workplace"
+   ],
+   "title": "帮剑巫女把井水提进屋"
+  },
+  {
+   "beats": [
+    "天还没亮透，祠堂后的空地上，剑巫女握着那柄降魔重剑一招一式地练，剑风扫落一地竹叶。",
+    "收剑时，剑巫女把剑尖停在人眼前一寸，眼神清冷：你看了一刻钟。……看得懂吗？"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_sword_practice",
+   "location_ids": [
+    "loc_guardian_village_shrine"
+   ],
+   "start_minute": 300,
+   "tags": [
+    "workplace"
+   ],
+   "title": "清晨陪剑巫女练剑"
+  },
+  {
+   "beats": [
+    "水闸顶开、外面的人都没事、老巫女报了平安之后，剑巫女回到小院，湿透的巫女袍还在滴水，白发贴在背上。",
+    "火盆边，剑巫女背过身坐着，让人用干布巾一缕缕擦干白发，再替自己换下冰冷的湿衣，布巾擦过后颈时，剑巫女轻轻吸了口气，往后靠了过来。",
+    "剑巫女转过头，声音很轻：今夜……我不想一个人守着火。你愿意留下吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_courtyard_hair_drying",
+   "location_ids": [
+    "loc_shrine_maiden_courtyard"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "火盆边替剑巫女烘干白发"
+  },
+  {
+   "beats": [
+    "小院的灶台上，一锅姜汤咕嘟咕嘟地冒着热气，剑巫女只穿着一件素白的中衣，坐在灶前添柴，白发松松地挽着。",
+    "剑巫女把一碗姜汤推过来：喝完。……然后坐过来些，火边暖和。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_courtyard_ginger_tea",
+   "location_ids": [
+    "loc_shrine_maiden_courtyard"
+   ],
+   "start_minute": 1240,
+   "tags": [
+    "intimate"
+   ],
+   "title": "小院里一起煮姜汤"
+  },
+  {
+   "beats": [
+    "汛期过去的那一夜，剑巫女在小院里点起那对从香婆那里买来的红烛，烛光映得素白的被褥一片暖红。",
+    "剑巫女站在烛边没回头：祠里从来不点红烛……这一对，是给今夜买的。你若点头，我才转身。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_courtyard_red_candles",
+   "location_ids": [
+    "loc_shrine_maiden_courtyard"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "点起那对红烛"
+  },
+  {
+   "beats": [
+    "天快亮的时候，井边的蛙鸣渐渐停了，剑巫女在素白的被褥里醒来，白发铺了满枕，整个人缩在人怀里。",
+    "剑巫女把脸埋进人胸口，闷声说：今天的早香……晚一刻再去。老巫女不会知道的。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_courtyard_dawn_frogs",
+   "location_ids": [
+    "loc_shrine_maiden_courtyard"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "蛙鸣里醒来"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "东方奇幻上古王陵地宫与机关神道暗河秘境时代",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_ledge"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{shrine_maiden_ruoxue.name}素白巫女袍被冰水浸透贴在身躯上，带着一点血色的俏脸冻得苍白，紧握重剑紫铜剑鞘交到同伴手中。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_ledge"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{shrine_maiden_ruoxue.name}仰头避开漫上唇边的冰水，湿漉白发紧贴耳廓，紧紧抱住同伴肩头指向水下咬死的青铜齿轮。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "slot": "crypt_hydraulic_explorer",
+   "text": "{crypt_hydraulic_explorer.name}用强健双臂将剑巫女稳稳抱在胸前，用体温为剑巫女驱散严寒，锁定水下撬杆最佳受力面。"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "slot": "crypt_hydraulic_explorer",
+   "text": "{crypt_hydraulic_explorer.name}握住剑巫女被冰水冻得发红的玉手，两手相扣死死按压在紫铜剑鞘加厚包箍长柄顶端。"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{shrine_maiden_ruoxue.name}带着柔和的轮廓的脸颊因憋气泛起淡淡血色，澄澈紫眸满是坚定，伏在同伴耳畔急促报出破障倒计时。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{shrine_maiden_ruoxue.name}修长双腿与同伴在激流中紧紧纠缠互作支撑，咬紧银牙抵御暗河浪涌，全力稳住撬动重心。"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{shrine_maiden_ruoxue.name}展现出古陵守护者的果决纯真，借着水位上升带来的浮力转换，娇呼提醒同伴借势下压。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "slot": "crypt_hydraulic_explorer",
+   "text": "{crypt_hydraulic_explorer.name}在巨浪扑来的瞬间将剑巫女护在怀中承受暗流水击，两具年轻身躯在激流中严丝合缝同生共死。"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{shrine_maiden_ruoxue.name}将温软娇躯毫无保留倚在同伴怀里，同频呼吸化作破浪一击，将全部力道倾注于紫铜剑鞘。"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_ledge"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{shrine_maiden_ruoxue.name}细辨水下机械咬合脱扣的脆响，在死锁铜销崩裂前夕清声发出全力下顿口令。"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "slot": "crypt_hydraulic_explorer",
+   "text": "{crypt_hydraulic_explorer.name}与剑巫女一同在激流中暴顿沉力，借着力臂优势生生压断水下自锁卡扣，重闸轰然震颤。"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{shrine_maiden_ruoxue.name}在水流呼啸泄出的回旋旋涡中紧紧环住同伴脖颈，随着水位退落安然落回石台。"
+  },
+  {
+   "id": "hook_ruoxue_tea_half",
+   "kind": "approach",
+   "location_ids": [
+    "loc_guardian_village_shrine"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{npc.name}把一碗加了红糖的粗茶推过来，低着头：太甜了，喝不完。"
+  },
+  {
+   "id": "hook_ruoxue_where_explorer",
+   "kind": "approach",
+   "location_ids": [
+    "loc_guardian_village_shrine"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{npc.name}在茶棚边站了一会儿，轻声问：探险先生……今天没下神道吗？"
+  },
+  {
+   "id": "hook_ruoxue_sword_tip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_guardian_village_shrine",
+    "loc_shrine_maiden_courtyard"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{npc.name}把重剑横在膝上擦拭，抬眼看人：想学吗？……只教一招。"
+  },
+  {
+   "id": "hook_ruoxue_courtyard_gate",
+   "kind": "approach",
+   "location_ids": [
+    "loc_shrine_maiden_courtyard"
+   ],
+   "slot": "shrine_maiden_ruoxue",
+   "text": "{npc.name}倚在竹篱门边，白发被晚风吹起：火盆生好了。……进来坐会儿。"
+  },
+  {
+   "id": "hook_explorer_map_back",
+   "kind": "approach",
+   "location_ids": [
+    "loc_guardian_village_shrine",
+    "loc_shrine_maiden_courtyard"
+   ],
+   "slot": "crypt_hydraulic_explorer",
+   "text": "{npc.name}把暗河水道图翻过来又翻回去：背面……没写什么。"
+  },
+  {
+   "id": "hook_explorer_exit_note",
+   "kind": "approach",
+   "location_ids": [
+    "loc_guardian_village_shrine",
+    "loc_bronze_gate_ledge"
+   ],
+   "slot": "crypt_hydraulic_explorer",
+   "text": "{npc.name}指着水道图上一处：泄洪口在这里。万一出事，你记住往这里走。"
+  }
+ ],
+ "id": "sword_shrine_maiden_submerged_crypt_gate",
+ "locations": [
+  {
+   "affordances": [
+    "在湍急冰水中死死抓紧青铜门面蟠龙浮雕稳住身形",
+    "潜入刺骨浑水中探摸闸门底槽偏心咬齿卡死位置",
+    "用双肩顶住倾斜石台借水流浮力调整身体支点"
+   ],
+   "detail": "位于神道尽头被浑浊暗河淹没的青铜巨闸下方，冰冷湍急的水流不断从缝隙喷涌，水位已蔓延至两人脖颈，万斤蟠龙青铜门咬死在底槽。",
+   "exits": [
+    "loc_bronze_gate_cam_slot",
+    "loc_gate_sluice_mouth"
+   ],
+   "id": "loc_bronze_gate_ledge",
+   "name": "水淹神道青铜巨闸落水台",
+   "pressure_modifiers": {
+    "p_ice_water_numbness": "泡得太久，手脚一阵阵发麻，握不住东西。",
+    "p_water_to_throat": "水位又涨了一指，冰水拍到下巴上。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "萤石灯的冷光照在浑浊的水面上，看得清对方冻白的嘴唇，看不清水底的泥沙。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "将重剑紫铜鞘底箍直角折沿深深插进咬齿缝隙",
+    "迎着倒灌喷射的水流死死顶紧剑鞘长身"
+   ],
+   "detail": "青铜门侧翼深埋在水下的自锁咬齿，因钢缆脱扣后猛烈砸落，淬火铜制死锁销轴深深嵌入齿轮缝隙无法退回。",
+   "exits": [
+    "loc_bronze_gate_ledge"
+   ],
+   "id": "loc_bronze_gate_cam_slot",
+   "name": "巨闸齿槽",
+   "pressure_modifiers": {
+    "p_scabbard_band_bend": "紫铜底箍被卡齿压出一道凹痕，再硬别可能整圈翻卷。",
+    "p_scabbard_chest_press": "剑巫女背贴在探险家胸前，四只手叠在剑鞘上，湿透的巫女袍贴着对方的衣衫。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "水下的偏心卡齿死死咬着铜销，剑鞘底箍别进去时，浑水里冒出一串气泡。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "两人合抱剑鞘向斜上方全力猛别撬断死卡销轴",
+    "感受沉重铜门被撬起半尺后洪峰呼啸泄出的震荡"
+   ],
+   "detail": "青铜门底部与石基之间的狭长缝隙，正承受着整条暗河十数吨的水压冲击。",
+   "exits": [
+    "loc_bronze_gate_ledge",
+    "loc_guardian_village_shrine"
+   ],
+   "id": "loc_gate_sluice_mouth",
+   "name": "闸底石槽平压泄水泄洪口",
+   "pressure_modifiers": {
+    "p_air_pocket_shrinks": "神道顶上那一尺空气越来越少，喘气都带着水腥味。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "闸底石槽外就是泄洪口，守陵祠的鼓声顺着暗槽传进来，一阵比一阵急。",
+   "witnesses": [
+    "bg_village_boatman_kid",
+    "bg_shrine_drummer",
+    "bg_county_runner"
+   ]
+  },
+  {
+   "affordances": [
+    "陪剑巫女在祠堂里上一炷香",
+    "在村口茶棚喝一碗粗茶",
+    "顺着神道去看石兽"
+   ],
+   "detail": "王陵前守陵村口的一座老祠堂，青瓦白墙，堂前一面牛皮大鼓，香炉里终年燃着一炷线香，祠外就是通往陵前神道的青石板路和村口的茶棚。",
+   "exits": [
+    "loc_shrine_maiden_courtyard",
+    "loc_gate_sluice_mouth"
+   ],
+   "id": "loc_guardian_village_shrine",
+   "name": "守陵祠",
+   "pressure_modifiers": {},
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "村里的老人、茶棚的客人、来往的挑夫都在祠前歇脚，剑巫女跟谁多说一句话，晚饭前全村都知道。",
+   "witnesses": [
+    "bg_shrine_drummer",
+    "bg_village_boatman_kid",
+    "bg_tea_porter",
+    "bg_county_runner"
+   ]
+  },
+  {
+   "affordances": [
+    "坐在火盆边替剑巫女烘干白发",
+    "在井边帮剑巫女打水",
+    "把竹篱门合上"
+   ],
+   "detail": "守陵祠后一座竹篱围着的小院，三间瓦房，院里一口老井、一架晾衣竹竿，屋里一张铺着素白被褥的木床、一只烧着炭的铜火盆，那柄降魔重剑挂在床头。",
+   "exits": [
+    "loc_guardian_village_shrine"
+   ],
+   "id": "loc_shrine_maiden_courtyard",
+   "name": "剑巫女的守陵小院",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "竹篱门一合，祠前的人声就远了，只剩井边的蛙鸣和炭火的噼啪声。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "云",
+   "沈",
+   "苏",
+   "顾",
+   "谢",
+   "裴",
+   "陆",
+   "温",
+   "萧",
+   "柳",
+   "林",
+   "江",
+   "白",
+   "宋"
+  ],
+  "given_female": [
+   "若雪",
+   "清漪",
+   "素心",
+   "疏影",
+   "月华",
+   "绛雪",
+   "凝霜",
+   "听澜",
+   "青棠",
+   "晚晴",
+   "照影",
+   "寒枝",
+   "微云",
+   "初霁"
+  ],
+  "given_male": [
+   "怀远",
+   "砚舟",
+   "行之",
+   "长风",
+   "济川",
+   "临渊",
+   "景行",
+   "问渠",
+   "云起",
+   "知白",
+   "承泽",
+   "望川",
+   "鹤年",
+   "沧澜"
+  ],
+  "given_neutral": [
+   "溪",
+   "岚",
+   "渡",
+   "砚",
+   "汀",
+   "川",
+   "苇",
+   "泓",
+   "雁",
+   "岑",
+   "澈",
+   "漪",
+   "峤",
+   "湄"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "{family}先生"
+   },
+   {
+    "gender": "any",
+    "pattern": "阿{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入。原稿除标题、简介、基调、剑巫女外貌、世界规则风俗、三处脱困地点与转折外，人物、压力、日常与钩子大多照抄了吸血鬼地宫那一篇，这里按东方上古王陵的题材整篇重写：守陵剑巫女在陵前的守陵村里过日子，朝廷派来的古陵水工探险家来勘察地宫的暗河水道，白天在守陵祠、村口茶棚、陵前神道上来往，夜里是暗河决堤、青铜重闸坠地、冰水漫到脖颈。新增守陵祠与剑巫女的守陵小院两处日常地点；年龄放宽到二十出头往上；婴儿肥换成了其余外貌描写；亲密前提写明脱险之后、双方清醒自愿；新增小院里的四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    30
+   ],
+   "baseline": "被探险队雇来扛行李的挑夫，平生第一次进王陵，一路上都在念叨别惊动了里面的东西。",
+   "gender": "any",
+   "id": "pi_hired_porter",
+   "reputation": "挑夫里最肯出力的一个。",
+   "resources": [
+    "一副扁担",
+    "一包干粮",
+    "一卷粗麻绳"
+   ],
+   "risks": [
+    "探险队要是出了事，工钱就拿不到了。"
+   ],
+   "role": "跟着探险队来的挑夫",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    40
+   ],
+   "baseline": "在守陵村口开了十年茶棚的掌柜，往来的挑夫、香客、官差都在这里歇脚。",
+   "gender": "any",
+   "id": "pi_teahouse_keeper",
+   "reputation": "村里消息最灵通的人之一。",
+   "resources": [
+    "一座茶棚",
+    "一口烧水的大铜壶",
+    "一肚子村里的闲话"
+   ],
+   "risks": [
+    "王陵出了事，村口就没人来了。"
+   ],
+   "role": "村口茶棚的掌柜",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    36
+   ],
+   "baseline": "县衙派来跟着探险队记录暗河水情的书吏，每一道水位都要写进呈给上头的文书。",
+   "gender": "any",
+   "id": "pi_water_clerk",
+   "reputation": "县衙里以字迹工整出名的书吏。",
+   "resources": [
+    "一本水情簿",
+    "一方县衙的印信",
+    "一支竹尺"
+   ],
+   "risks": [
+    "水情记错了，下游几个村子就要遭殃。"
+   ],
+   "role": "县衙派来的河工书吏",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    32,
+    50
+   ],
+   "baseline": "朝廷守陵司派来督办这次勘察的主事，王陵能不能动、地宫要不要封，最后都落在这个人的一句话上。",
+   "gender": "any",
+   "id": "pi_tomb_commissioner",
+   "reputation": "守陵村上下都知道这位主事的分量。",
+   "resources": [
+    "一枚守陵司的铜印",
+    "一道封陵的敕令底稿",
+    "随时能叫停勘察的权限"
+   ],
+   "risks": [
+    "勘察期间王陵出了事，主事的官帽就保不住。"
+   ],
+   "role": "朝廷守陵司的主事",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "上古王陵前有一座守陵村，村里世代出守陵的剑巫女。今年汛期，朝廷派来一位古陵水工探险家勘察地宫的暗河水道，剑巫女奉命带路，白天下地宫测水位，夜里在村口茶棚里听挑夫和河工书吏聊天。地宫神道尽头的蟠龙青铜重闸，绞盘已经锈死了一半。",
+ "pressures": [
+  {
+   "choice": "是趁浪头退下去的间隙下撬，还是先爬到石台最高处喘口气？",
+   "exits": [
+    {
+     "cost": "撬到一半浪头又来，可能前功尽弃",
+     "option": "趁浪头退下去合力下撬"
+    },
+    {
+     "cost": "水只会一阵比一阵高",
+     "option": "爬到石台最高处喘口气"
+    }
+   ],
+   "far": {
+    "consequence": "两人被淹在神道里，等不到外面的人。",
+    "due_days": 1,
+    "trigger": "冰水漫过神道顶"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_water_to_throat",
+   "immediate": {
+    "minutes": 2,
+    "text": "一个浪头拍过来，剑巫女整个人被推进探险家怀里，萤石灯差点脱手。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bronze_gate_ledge",
+    "loc_bronze_gate_cam_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "水位又涨了一指，两人只能仰着头喘气，冰水拍在嘴唇上。"
+   },
+   "objective": "在冰水灭顶之前撬断铜销。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "暗河冰水漫到咽喉",
+   "trigger": "暗河冰水一寸寸往上漫，从胸口漫到锁骨，再漫到下巴，神道顶上只剩一尺空气。"
+  },
+  {
+   "choice": "是用剑鞘硬别，还是先潜下去把齿缝里的泥沙掏出来？",
+   "exits": [
+    {
+     "cost": "潜下去要憋很久的气",
+     "option": "潜下去掏泥沙"
+    },
+    {
+     "cost": "底箍可能先翻卷",
+     "option": "直接用剑鞘硬别"
+    }
+   ],
+   "far": {
+    "consequence": "卡齿再也撬不动，水闸只能等暗河自己退。",
+    "due_days": 1,
+    "trigger": "齿缝被泥沙填死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cam_pin_jammed",
+   "immediate": {
+    "minutes": 2,
+    "text": "剑鞘底箍别进去，水下传来一声闷响，铜销只退了半分。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "泥沙又灌进来一层，卡齿咬得更死了。"
+   },
+   "objective": "在泥沙把齿缝填死之前别断铜销。",
+   "source": "accident",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "青铜闸卡齿被泥沙咬死",
+   "trigger": "青铜门的偏心卡齿死死咬住铜销，泥沙填满了齿缝，铜销弯着卡在里面，退不回也压不断。"
+  },
+  {
+   "choice": "是先胸腹相贴互相借体温，还是趁手还能动赶紧下撬？",
+   "exits": [
+    {
+     "cost": "贴着就没法使出全力",
+     "option": "胸腹相贴互相借体温"
+    },
+    {
+     "cost": "冻僵了就再也没机会",
+     "option": "趁手还能动赶紧下撬"
+    }
+   ],
+   "far": {
+    "consequence": "两人再也握不住剑鞘，只能被冰水推着往门上撞。",
+    "due_days": 1,
+    "trigger": "手脚冻僵"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_ice_water_numbness",
+   "immediate": {
+    "minutes": 2,
+    "text": "剑巫女的牙齿打着颤，握剑鞘的手一滑，差点松开。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "手指冻得没了知觉，两人只能把手叠在一起，靠对方的手捂着。"
+   },
+   "objective": "在冻僵之前用完最后一把力气。",
+   "source": "person",
+   "start_minute": 10,
+   "tags": [
+    "workplace"
+   ],
+   "title": "刺骨冰水冻僵手脚",
+   "trigger": "暗河的水冷得刺骨，泡久了手脚一阵阵发麻，握剑鞘的手指开始发青。"
+  },
+  {
+   "choice": "是为了矜持拉开半寸距离，还是干脆贴紧了一起发力？",
+   "exits": [
+    {
+     "cost": "这一夜之后，剑巫女再也不是只远远看着对方了",
+     "option": "放下矜持贴紧对方，四只手一起压在剑鞘上"
+    },
+    {
+     "cost": "力气使不到一处，别不断铜销",
+     "option": "各自侧身单手发力"
+    }
+   ],
+   "far": {
+    "consequence": "剑鞘从卡齿死角里滑出去，错过最后的脱扣窗口。",
+    "due_days": 1,
+    "trigger": "分心导致剑鞘滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_scabbard_chest_press",
+   "immediate": {
+    "minutes": 2,
+    "text": "剑巫女冻得娇喘细细，湿透的素白巫女袍滑下半边肩头，酥胸半露着贴在对方手臂上，白发散在两人之间。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bronze_gate_ledge",
+    "loc_bronze_gate_cam_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "两人的心跳撞在一起，剑巫女的数数第一次乱了，谁都分不清是冷，还是别的什么。"
+   },
+   "objective": "贴得这么近的时候，还得把心思放在剑鞘的角度和数数上。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "冰水石台胸腹相贴",
+   "trigger": "石台窄得只容两人，剑巫女只能背贴在探险家胸前，四只手叠在剑鞘上一起往下压。"
+  },
+  {
+   "choice": "是继续加力赌一把，还是退出来换个角度重新别？",
+   "exits": [
+    {
+     "cost": "麻绳会被磨断",
+     "option": "用麻绳缠住剑鞘再压"
+    },
+    {
+     "cost": "换角度要重新找死角，冰水可能等不及",
+     "option": "退出来换个角度"
+    }
+   ],
+   "far": {
+    "consequence": "翻卷的底箍再也别不进卡齿，两人失去唯一的撬具。",
+    "due_days": 1,
+    "trigger": "剑鞘底箍翻卷"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_scabbard_band_bend",
+   "immediate": {
+    "minutes": 2,
+    "text": "底箍发出一声刺耳的刮响，握剑鞘的指节被震得发麻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bronze_gate_cam_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "凹痕越来越深，剑鞘的鞘身也开始微微变形。"
+   },
+   "objective": "得在底箍翻卷之前找准最后一个受力点。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "紫铜剑鞘底箍凹陷",
+   "trigger": "剑鞘的紫铜底箍别在卡齿死角里，已经被压出一道凹痕，再硬别可能整圈翻卷。"
+  },
+  {
+   "choice": "是先撬水闸，还是先敲石壁给外面的人报信？",
+   "exits": [
+    {
+     "cost": "敲石壁更耗力气",
+     "option": "先敲石壁报信"
+    },
+    {
+     "cost": "外面的人可能挖错方向",
+     "option": "先撬水闸自救"
+    }
+   ],
+   "far": {
+    "consequence": "两人在神道顶上憋晕过去，外面的人挖开时已经晚了。",
+    "due_days": 1,
+    "trigger": "空气耗尽"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_air_pocket_shrinks",
+   "immediate": {
+    "minutes": 2,
+    "text": "外面传来铁锹撞石头的声音，鼓声一下子敲急了。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bronze_gate_ledge",
+    "loc_bronze_gate_cam_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "空气越来越稀，两人眼前开始发黑。"
+   },
+   "objective": "撬开水闸，让外面的人知道里面的人还活着。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "神道顶上空气将尽",
+   "trigger": "神道顶上那一尺空气越来越少，喘气都带着水腥味，外面的鼓声一阵比一阵急，泄洪口还没挖开。"
+  },
+  {
+   "choice": "剑巫女以守陵人的身份作保，还是交出探险家画的水道图证明暗河是自己决堤的",
+   "exits": [
+    {
+     "cost": "探险家往后出了任何事，剑巫女都要一起领罪",
+     "option": "剑巫女作保"
+    },
+    {
+     "cost": "图上画着地宫里所有的暗道，从此谁都知道怎么进王陵",
+     "option": "交出水道图"
+    }
+   ],
+   "far": {
+    "consequence": "盗陵是死罪，剑巫女带路进了地宫，也要被守陵司革去巫女之位",
+    "due_days": 5,
+    "trigger": "探险家被押走"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_ruoxue_sword_tip",
+    "hook_explorer_map_back"
+   ],
+   "id": "p_county_grave_robbing",
+   "immediate": {
+    "minutes": 5,
+    "text": "老周在院门口搓着手，说县太爷只给了半天的工夫"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_shrine_maiden_courtyard"
+   ],
+   "near": {
+    "deadline_minutes": 480,
+    "text": "傍晚，差役押人去县衙"
+   },
+   "objective": "在差役傍晚押人上路之前，替探险家洗清盗墓的罪名",
+   "source": "institution",
+   "start_minute": 600,
+   "tags": [],
+   "title": "县衙的拘票",
+   "trigger": "暗河退水后的第二天，差役老周拿着县衙的拘票进了守陵小院：地宫进了水，朝廷怪罪下来，县太爷说是勘察的水工探险家挖开了暗河，要押去县衙问罪"
+  }
+ ],
+ "region": "水淹王陵地宫神道尽头万斤蟠龙青铜升降巨闸底槽与急流泄水口",
+ "rules": [
+  {
+   "id": "r_guardian_rules",
+   "text": "守陵村的规矩：王陵地宫只有剑巫女能带外人进，进去的人生死自负。"
+  },
+  {
+   "id": "r_scabbard_band_release",
+   "text": "万斤青铜闸门由于自重脱扣深陷泥沙卡槽，必须借坚固实心紫铜剑鞘底箍直角折沿别入咬齿合力撬断死卡铜销自救。"
+  },
+  {
+   "id": "r_flood_season_vigil",
+   "text": "汛期守夜：暗河涨水的那几十天里，剑巫女每夜都要下到神道口看一眼水位。"
+  },
+  {
+   "id": "r_no_lamp_in_crypt",
+   "text": "地宫里不许点明火，只能用剑巫女祠里传下来的萤石灯。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "并肩涉水",
+  "committed": "顶起水闸",
+  "familiar": "冰流相依",
+  "flirting": "贴身御寒",
+  "intimate": "同命下撬",
+  "stranger": "清冷警惕",
+  "testing": "共持鞘箍"
+ },
+ "status": "released",
+ "style_hint": "东方上古王陵的水墨笔法：白天写守陵村的炊烟、祠堂里的鼓声、陵前神道两旁长满青苔的石兽；夜里写暗河冰水一寸寸漫到咽喉、青铜门上蟠龙浮雕被浊浪拍打的冷。剑巫女清冷寡言，张力藏在冰水里贴紧时那一下没躲开的呼吸里。",
+ "tension_engines": [
+  {
+   "id": "te_water_to_throat",
+   "text": "冰水一寸寸往上漫，从胸口漫到锁骨，再漫到下巴。"
+  },
+  {
+   "id": "te_cam_pin_jammed",
+   "text": "青铜门的偏心卡齿被泥沙和铜销死死咬住，单人别不动分毫。"
+  },
+  {
+   "id": "te_scabbard_chest_press",
+   "text": "石台窄得只容两人，冰水里只能胸腹相贴，借对方的体温撑住。"
+  },
+  {
+   "id": "te_silt_buries_slot",
+   "text": "泥沙不断从门缝灌进来，眼看要把卡齿的槽口填满。"
+  }
+ ],
+ "title": "清纯剑巫女·水淹地宫青铜闸门脱扣",
+ "tone": [
+  "暗河倒灌漫顶",
+  "万斤青铜重闸",
+  "紫铜剑鞘底箍",
+  "冰水相拥借力"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_boardwalk_washed_away",
+   "requires": [
+    "shrine_maiden_ruoxue"
+   ],
+   "text": "暗河急流冲垮了神道外围木栈道，剑巫女随身携带的祖传破魔重剑成为绝境中唯一的坚固撬杠。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_feet_slip_whirlpool",
+   "requires": [
+    "shrine_maiden_ruoxue"
+   ],
+   "text": "冰水浸泡下剑巫女双脚冻得发僵险些滑入水底漩涡，同伴果断伸手将剑巫女揽入怀中紧贴借温。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_drops_on_cheek",
+   "requires": [
+    "crypt_hydraulic_explorer"
+   ],
+   "text": "剑巫女晶莹剔透的水珠顺着略带面颊滑落，在幽暗水光映照下宛若谪仙降世般纯美动人。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_bodies_on_scabbard",
+   "requires": [
+    "shrine_maiden_ruoxue",
+    "crypt_hydraulic_explorer"
+   ],
+   "text": "万斤青铜重门因单边脱扣造成严重偏心卡阻，单人力量无法动摇，两人必须胸腹相贴顺应浮力合力猛撬。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_air_last_foot",
+   "requires": [
+    "shrine_maiden_ruoxue"
+   ],
+   "text": "水位逼近地宫神道顶部仅剩最后一尺呼吸空间，空气濒临耗尽，两人被迫孤注一掷将体重全压向长柄。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_shoulder_to_wall",
+   "requires": [
+    "shrine_maiden_ruoxue",
+    "crypt_hydraulic_explorer"
+   ],
+   "text": "探险家用肩膀顶死神道石壁充当力臂支点，剑巫女双足踏地合抱施力，紫铜剑鞘顶端终于撬断死卡销轴。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_pin_snaps",
+   "requires": [
+    "shrine_maiden_ruoxue"
+   ],
+   "text": "死锁铜销断裂，青铜水门被汹涌洪峰推开一道巨大缝隙，积水瞬间奔涌排空，两人携手脱险自救成功。"
+  }
+ ]
+}

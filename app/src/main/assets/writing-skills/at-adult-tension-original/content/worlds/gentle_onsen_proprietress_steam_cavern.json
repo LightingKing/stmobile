@@ -1,0 +1,2242 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "在旅馆帮工几年的年轻人。",
+   "age_range": [
+    21,
+    28
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_young_bath_hand",
+   "line": "导流口的碎石搬开了！里面的人一撬开就能出来！",
+   "location_ids": [
+    "loc_drain_cold_vent",
+    "loc_ryokan_lobby"
+   ],
+   "name": "帮工阿健",
+   "role": "管汤的年轻帮工"
+  },
+  {
+   "adult_context": "在旅馆前台做了几年的接待员。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_front_desk_clerk",
+   "line": "我一直守着对讲机！听得见就回一声！",
+   "location_ids": [
+    "loc_drain_cold_vent",
+    "loc_ryokan_lobby"
+   ],
+   "name": "前台小雪",
+   "role": "旅馆的前台"
+  },
+  {
+   "adult_context": "跟着课长来的县厅职员。",
+   "age_range": [
+    30,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_county_inspector",
+   "line": "课长有令，后山没稳之前，谁也不许下去！",
+   "location_ids": [
+    "loc_drain_cold_vent"
+   ],
+   "name": "县厅的田中",
+   "role": "县观光课的职员"
+  },
+  {
+   "adult_context": "每年秋天都来住一周的老客人。",
+   "age_range": [
+    60,
+    75
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_regular_guest",
+   "line": "老板娘每天早上亲手给那位先生端早饭，我们来了二十年，头一回见。",
+   "location_ids": [
+    "loc_ryokan_lobby"
+   ],
+   "name": "常客老夫妇",
+   "role": "每年来泡汤的老夫妇"
+  },
+  {
+   "adult_context": "在厨房帮工的女人。",
+   "age_range": [
+    25,
+    40
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_kitchen_helper",
+   "line": "老板娘这一个月，每天都来厨房问那位先生爱吃什么。",
+   "location_ids": [
+    "loc_ryokan_lobby"
+   ],
+   "name": "厨房的阿梅",
+   "role": "厨房的帮工"
+  },
+  {
+   "adult_context": "在温泉村口开花店的人。",
+   "age_range": [
+    40,
+    60
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_village_florist",
+   "line": "老板娘这个月天天来买花，买的都是同一种。",
+   "location_ids": [
+    "loc_ryokan_lobby"
+   ],
+   "name": "村口的花店",
+   "role": "村口卖花的"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "少老板娘与工程师在热雾里胸腹相贴，四只手叠在测温棒上，一个数着呼吸一个跟着往下压。",
+   "id": "cc_proprietress_engineer_switch",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "proprietress_ayaka",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一起被困在热雾里，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "geothermal_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "一个带路一个勘察，在后山走了一个月。",
+     "stage": "familiar"
+    },
+    {
+     "a": "proprietress_ayaka",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "geothermal_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个温柔一个嘴笨，一个月里说过的话不多，句句都记得。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "proprietress_ayaka",
+    "geothermal_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "撬起闸板泄水降温，两人一起出去。",
+    "limit_gap": "少老板娘在热雾里喘不上气，工程师的工兵铲被落石砸断了。",
+    "meeting_reason": "地震前，少老板娘带着工程师在后山溶洞里看泉道的水位。",
+    "resource_gap": "少老板娘有那根测温棒和对后山每一块石头的熟悉，工程师有泉道勘察图和对地热的了解。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_steam_scald",
+    "te_rod_chest_press"
+   ]
+  },
+  {
+   "chemistry": "少老板娘与工程师在导流口前四只手叠在一起，一边争该先泄水还是先救露天风吕的客人，一边一下一下把闸板撬起来。",
+   "id": "cc_proprietress_engineer_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "proprietress_ayaka",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "为封不封泉道争了一下午，谁都不肯先认输。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "geothermal_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "一个月里在地炉边对坐过好多回。",
+     "stage": "familiar"
+    },
+    {
+     "a": "proprietress_ayaka",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "geothermal_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个温婉一个木讷，谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "proprietress_ayaka",
+    "geothermal_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "先泄水降温，再疏散露天风吕的客人。",
+    "limit_gap": "少老板娘不懂地热，工程师不懂旅馆的规矩。",
+    "meeting_reason": "两人为后山泉道要不要暂时封掉，在大堂里争了一下午，争到地震来都没分出胜负。",
+    "resource_gap": "少老板娘知道旅馆里每一位客人在哪，工程师知道泉水往哪里流。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_drain_gate_jammed",
+    "te_boiling_water_creep"
+   ]
+  },
+  {
+   "chemistry": "县观光课的课长在外面等着消息，少老板娘和工程师一个压测温棒一个挡热雾，谁也不肯在课长面前先喊烫。",
+   "id": "cc_proprietress_engineer_official",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "proprietress_ayaka",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "头一回在县里的人面前把命交出去。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "geothermal_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "奉命来看勘察，早听说这位少老板娘和那个工程师。",
+     "stage": "familiar"
+    },
+    {
+     "a": "proprietress_ayaka",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "geothermal_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在课长面前不敢多看一眼，可每一声数数都只说给一个人听。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "proprietress_ayaka",
+    "geothermal_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让课长亲眼看见，开旅馆的人和勘察的人能一起把命捡回来。",
+    "limit_gap": "少老板娘不肯在课长面前失了旅馆的体面，工程师不习惯被大人物盯着干活。",
+    "meeting_reason": "课长要亲眼看看后山的泉道，少老板娘带路，工程师在旁边讲勘察结果。",
+    "resource_gap": "少老板娘手里有测温棒和旅馆的钥匙，工程师手里有勘察图和测温计。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_boiling_water_creep",
+    "te_drain_gate_jammed"
+   ]
+  },
+  {
+   "chemistry": "少老板娘一边别测温棒一边轻声教新来的帮工伏低身子，工程师挡着热雾，把三个人的力气拧成一股。",
+   "id": "cc_proprietress_engineer_newhand",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "proprietress_ayaka",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "少老板娘嫌帮工毛躁，今晚却要把命交到这双手上。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "geothermal_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "第一次下溶洞就遇上了地震。",
+     "stage": "familiar"
+    },
+    {
+     "a": "proprietress_ayaka",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "geothermal_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "少老板娘和工程师一个眼神就知道对方要干什么，帮工都看在眼里。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "proprietress_ayaka",
+    "geothermal_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "带着帮工一起平安出去，明天旅馆照常开门。",
+    "limit_gap": "新来的帮工什么都不懂，少老板娘得一边自救一边教。",
+    "meeting_reason": "帮工第一次跟着下后山溶洞搬东西，工程师正在讲泉道的来历。",
+    "resource_gap": "少老板娘有测温棒和管旅馆的经验，工程师有勘察图和头灯。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_steam_scald",
+    "te_drain_gate_jammed"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_cavern_whisper",
+   "reach": "all",
+   "text": "热雾里贴着耳朵的低语和压着的喘息"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_ryokan_bell",
+   "reach": "local",
+   "text": "旅馆前台的铜铃和对讲机里断断续续的呼叫"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "老风吕旅馆家的女儿，在城里读完大学又回到山里，从母亲手里接过旅馆三年，大小事都自己拿主意。",
+   "age_range": [
+    25,
+    30
+   ],
+   "appearance_options": [
+    "一头柔顺温婉的乌黑长发盘成传统发髻，几缕被热气浸湿的发丝柔顺贴在雪白玉颈旁，身着素雅印花浴衣，湿透布料勾勒出青年女子成熟曼妙、丰润起伏的身姿，白皙柔美的鹅蛋脸线条温婉，杏眸清澈含情，温婉柔美中透着动人心魄的反差纯情韵味。",
+    "浴衣袖口微挽露出白皙如藕的小臂，面颊因承受滚烫热雾而泛起娇艳动人的酡红，双手紧握实心不锈钢测温棒，虽香汗淋漓仍毫无保留地依偎在同伴怀中借力，从容中流露出将性命全然相托的柔情。"
+   ],
+   "decision": {
+    "avoids": [
+     "对帮工大呼小叫的人",
+     "糟蹋温泉的人"
+    ],
+    "contrast": "在客人面前温柔周到，说话轻声细语从不失礼；可困在热雾里时，却是少老板娘第一个把测温棒递过去，说一句：我信你。",
+    "core_value": "客人进了门，就是一家人。",
+    "goal_options": [
+     "把测温棒扁头别进闸板底角，撬起闸板泄水",
+     "和工程师一起从导流管道出去"
+    ],
+    "never": [
+     "丢下同伴自己逃"
+    ],
+    "prefers": [
+     "说话算数、肯为旁人着想的人",
+     "吃饭时会说一声好吃的人"
+    ],
+    "pressure_responses": {
+     "breaking": "烫得眼眶发红也不松手，轻声数着呼吸往下压。",
+     "high": "把浴衣的袖子扎起来，把全身重量压在测温棒上。",
+     "low": "先伏低身子贴住湿凉的石基，看清沸泉漫到哪里。",
+     "mid": "把测温棒抽出来，指给对方看闸板卡死的那一角。"
+    },
+    "relationship_stance": "工程师在旅馆住了一个月，少老板娘每天早上亲手端早饭过去，饭碗里的东西从来不重样；哪天工程师回来晚了，大堂的灯就一直亮着。",
+    "withdrawal": "脱险后头一件事是赶回露天风吕清点客人，确认一个不少，才肯坐在回廊的台阶上，把湿透的发髻解开。"
+   },
+   "gender": "female",
+   "gender_reason": "风吕旅馆的少老板娘，按原稿写作女性。",
+   "id": "proprietress_ayaka",
+   "identity": {
+    "authority": "旅馆里客人怎么安排、后山谁能进，少老板娘一句话就能定。",
+    "exposure": "被热雾逼得喘不上气，湿透的浴衣贴在身上，只能整个人伏进对方怀里避开蒸汽。",
+    "hidden": "离屋的壁龛里那枝花，每天都换，换的都是工程师随口说过好看的那种。",
+    "limits": [
+     "热雾里喘不上气",
+     "湿透的浴衣沉得拖人"
+    ],
+    "obligations": [
+     "守住旅馆和后山的泉道",
+     "把困在里面的人都平平安安带出去"
+    ],
+    "resources": [
+     "一根实心食品级加厚不锈钢水温测量棒，前端扁头厚一点五公分带直角台阶",
+     "一串旅馆各处的钥匙",
+     "全旅馆上下的信任"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "热雾里用后背挡在自己头顶的那个人",
+     "每天傍晚满身泥土从后山回来的那道背影"
+    ],
+    "boundaries": [
+     "人前守着老板娘的分寸，心意只给认定的人",
+     "每一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "小汤池边靠在对方肩上的近身位",
+    "dislikes": [
+     "被客人议论",
+     "趁人之危的手"
+    ],
+    "expression": "把离屋的拉门轻轻合上，跪坐着替对方倒了一杯热酒，低着头小声说：今晚……不回客房了，好吗？",
+    "likes": [
+     "被人用凉水一点点擦去脸上的热汗",
+     "在小汤池边被人从身后抱着看雪",
+     "夜里听着泉水声，被人握着手"
+    ],
+    "preconditions": [
+     "闸板撬起、两人都脱险之后",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "百年风吕旅馆的少老板娘",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_ryokan_lobby",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_proprietress_annex",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "扁头可能折断，手会被热水溅伤",
+      "option": "把测温棒扁头别进闸板底角，和工程师合力撬起"
+     },
+     {
+      "cost": "热雾往上走，越高越烫",
+      "option": "爬到石台最高处等外面的人挖开出水口"
+     }
+    ],
+    "pressure": "沸泉倒灌，热雾越来越烫，必须在被烫伤之前撬起闸板泄水。",
+    "trigger": "地震时，少老板娘正带着工程师在后山溶洞里看泉道的水位，出水口的巨石轰地一声塌了下来。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "烫得喘不上气……背后这个人的心跳倒还稳。守了三年旅馆，原来被人这样护着，是这种感觉。",
+    "surface": "伏低，别抬头！把棒子别进去——你压着我的手，我数到三，一起往下压。"
+   }
+  },
+  {
+   "adult_context": "六十二岁，把旅馆交给女儿以后还是天天在大堂里坐着，旅馆百年的规矩都在这个脑子里。",
+   "age_range": [
+    56,
+    70
+   ],
+   "appearance_options": [
+    "一身深紫色的和服，银发挽成一个髻，插着一根玳瑁簪，手里总捧着一只茶碗。",
+    "跪坐在大堂的地炉边，一边添炭一边看来往的客人。"
+   ],
+   "decision": {
+    "avoids": [
+     "退下来的老老板娘最烦临阵推诿"
+    ],
+    "contrast": "在客人面前端庄得一丝不苟，私下却会偷偷给女儿的饭碗里多夹一块烤鱼。",
+    "core_value": "温泉是山给的，人得对山客气。",
+    "goal_options": [
+     "先把人救出来",
+     "退下来的老老板娘再追究是谁的错"
+    ],
+    "never": [
+     "退下来的老老板娘不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "退下来的老老板娘看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "退下来的老老板娘嗓子喊哑了也不肯走",
+     "high": "退下来的老老板娘顶着危险往里递东西",
+     "low": "退下来的老老板娘先稳住身边的人",
+     "mid": "退下来的老老板娘四处找能用的工具"
+    },
+    "relationship_stance": "早看出女儿和那个工程师之间有事，每回都故意让女儿亲自去送饭。",
+    "withdrawal": "事情过去后，退下来的老老板娘一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是退下来的老老板娘。",
+   "id": "retired_okami",
+   "identity": {
+    "authority": "旅馆里百年的老规矩怎么守，老老板娘说了算。",
+    "exposure": "退下来的老老板娘忙起来顾不上衣着体面",
+    "hidden": "做退下来的老老板娘这些年，有件事没对旁人说过",
+    "limits": [
+     "退下来的老老板娘不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住退下来的老老板娘手上的那一摊事"
+    ],
+    "resources": [
+     "一本旅馆百年的账簿",
+     "退下来的老老板娘随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "退下来的老老板娘欣赏做事干脆利落的人",
+     "退下来的老老板娘记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，退下来的老老板娘就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和退下来的老老板娘并肩站着",
+    "dislikes": [
+     "退下来的老老板娘讨厌轻浮的手"
+    ],
+    "expression": "退下来的老老板娘话不多，递东西时指尖会多停一下",
+    "likes": [
+     "退下来的老老板娘收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "退下来的老老板娘要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "退下来的老老板娘",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_ryokan_lobby",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "退下来的老老板娘未必赶得上",
+      "option": "退下来的老老板娘在外面调度接应"
+     },
+     {
+      "cost": "可能把退下来的老老板娘自己也搭进去",
+      "option": "退下来的老老板娘硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，退下来的老老板娘进不去",
+    "trigger": "警报传到退下来的老老板娘那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "这旅馆交给那孩子才三年……今晚要是出了事，我怎么去见祖宗。",
+    "surface": "孩子！外面在挖了！你们撑住，只管把那道闸撬开！"
+   }
+  },
+  {
+   "adult_context": "五十五岁，在旅馆的厨房里掌勺三十年，客人吃的每一顿怀石料理都出自这双手。",
+   "age_range": [
+    48,
+    62
+   ],
+   "appearance_options": [
+    "一身雪白的厨师服，头上扎着一条蓝布头巾，手上满是刀茧。",
+    "站在厨房的灶台前，一边熬高汤一边骂帮工手慢。"
+   ],
+   "decision": {
+    "avoids": [
+     "旅馆的料理长最烦临阵推诿"
+    ],
+    "contrast": "骂起帮工来整个后院都听得见，可对少老板娘说话从来不大声。",
+    "core_value": "吃一顿好饭，什么难事都能熬过去。",
+    "goal_options": [
+     "先把人救出来",
+     "旅馆的料理长再追究是谁的错"
+    ],
+    "never": [
+     "旅馆的料理长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "旅馆的料理长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "旅馆的料理长嗓子喊哑了也不肯走",
+     "high": "旅馆的料理长顶着危险往里递东西",
+     "low": "旅馆的料理长先稳住身边的人",
+     "mid": "旅馆的料理长四处找能用的工具"
+    },
+    "relationship_stance": "嘴上嫌工程师吃饭挑剔，私下却照着工程师的口味多做一道菜。",
+    "withdrawal": "事情过去后，旅馆的料理长一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是旅馆的老料理长。",
+   "id": "head_chef",
+   "identity": {
+    "authority": "厨房里做什么、谁先吃，料理长说了算。",
+    "exposure": "旅馆的料理长忙起来顾不上衣着体面",
+    "hidden": "做旅馆的料理长这些年，有件事没对旁人说过",
+    "limits": [
+     "旅馆的料理长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住旅馆的料理长手上的那一摊事"
+    ],
+    "resources": [
+     "一厨房的锅碗和高汤",
+     "旅馆的料理长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "旅馆的料理长欣赏做事干脆利落的人",
+     "旅馆的料理长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，旅馆的料理长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和旅馆的料理长并肩站着",
+    "dislikes": [
+     "旅馆的料理长讨厌轻浮的手"
+    ],
+    "expression": "旅馆的料理长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "旅馆的料理长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "旅馆的料理长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "旅馆的料理长",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_ryokan_lobby",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "旅馆的料理长未必赶得上",
+      "option": "旅馆的料理长在外面调度接应"
+     },
+     {
+      "cost": "可能把旅馆的料理长自己也搭进去",
+      "option": "旅馆的料理长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，旅馆的料理长进不去",
+    "trigger": "警报传到旅馆的料理长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "看着那孩子长大的……可千万得出来。",
+    "surface": "热汤我熬着呢！你们出来了就有得喝！"
+   }
+  },
+  {
+   "adult_context": "三十岁，在大学里研究了十年地热，跑遍了县里大大小小的温泉，这一回被派来勘察后山的泉道，去留进退由本人拿主意。",
+   "age_range": [
+    28,
+    34
+   ],
+   "appearance_options": [
+    "一身沾满泥土的深灰色工作服，腰上挂着一只装满地质锤和测温计的工具包，头上戴着一盏头灯。",
+    "工作服湿透了贴在身上，后背顶着湿滑的钟乳石壁，双臂护着少老板娘伏在石台上。"
+   ],
+   "decision": {
+    "avoids": [
+     "糟蹋温泉的人"
+    ],
+    "contrast": "在县厅的会议上能把地热讲得头头是道，被少老板娘问一句饭菜合不合口，就只会点头。",
+    "core_value": "地底下的水，总会找到一条路出去。",
+    "goal_options": [
+     "用后背顶住钟乳石壁，给少老板娘腾出发力的支点",
+     "把全身重量压在测温棒上"
+    ],
+    "never": [
+     "让少老板娘一个人留在溶洞里"
+    ],
+    "prefers": [
+     "说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "烫得手背起泡也不松，跟着少老板娘的数数压到最后一下。",
+     "high": "后背顶着石壁，双手压在少老板娘的手上，和少老板娘一起压。",
+     "low": "一把将少老板娘按低在石台上，用后背挡住头顶的热雾。",
+     "mid": "摸着闸板的缝隙，报出碎石卡死的位置。"
+    },
+    "relationship_stance": "每天早上吃少老板娘亲手端来的早饭，吃着吃着，心思就不只在泉道上了。",
+    "withdrawal": "确认闸板撬起、外面的客人都撤出来了，才靠在导流管道口，大口大口地吸着山里的冷风。"
+   },
+   "gender": "male",
+   "gender_reason": "县里派来的地热地质工程师，按原稿写作男性。",
+   "id": "geothermal_engineer",
+   "identity": {
+    "authority": "后山的泉道怎么走、哪里能泄，工程师心里有数。",
+    "exposure": "湿透的工作服贴着少老板娘的后背，两人在热雾里贴得严丝合缝。",
+    "hidden": "勘察图的背面画着一个穿浴衣的背影，是第一天在旅馆门口看见少老板娘时画的，一直没敢给人看。",
+    "limits": [
+     "热雾里看不清路",
+     "工兵铲被落石砸断了"
+    ],
+    "obligations": [
+     "护住少老板娘不被热雾烫到",
+     "撬起闸板，两人一起出去"
+    ],
+    "resources": [
+     "一本泉道勘察图",
+     "一只防水的测温计",
+     "一盏头灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "少老板娘在热雾里还能数得那么稳的那份镇定",
+     "少老板娘被夸了一句就低下头的那一下"
+    ],
+    "boundaries": [
+     "少老板娘没开口就不越一步",
+     "人前不让少老板娘难做"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "小汤池边让少老板娘靠着肩膀的近身位",
+    "dislikes": [
+     "当众起哄",
+     "背后嚼舌根"
+    ],
+    "expression": "接过那杯热酒愣了很久，最后把勘察图翻过来递过去：背面这个人，我画了一个月。",
+    "likes": [
+     "少老板娘难得叫一次自己的名字",
+     "被少老板娘牵着手带进离屋"
+    ],
+    "preconditions": [
+     "闸板撬起、两人都安全清醒之后",
+     "少老板娘点了头，出于本心"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "勘察温泉泉道的地热地质工程师",
+   "schedule": [
+    {
+     "from": 420,
+     "location_id": "loc_spring_cavern_ledge",
+     "to": 1020
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_ryokan_lobby",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "后背会被烫伤，手臂可能脱力",
+      "option": "用后背挡住热雾，和少老板娘合力压下测温棒"
+     },
+     {
+      "cost": "沸泉烫得下不去手",
+      "option": "潜进沸泉里找出水口"
+     }
+    ],
+    "pressure": "热雾越来越烫，再不撬起闸板，两人都撑不到外面的人挖开出水口。",
+    "trigger": "地震时，工程师正在后山溶洞里量泉道的水温，回头就看见出水口的巨石塌了下来。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "少老板娘整个人伏在我怀里，烫得直喘……别分神。勘察了一个月的泉道，今晚得找准这一道闸。",
+    "surface": "伏低，我挡着！把棒子别进去，我压着你的手——你数，我跟。"
+   }
+  },
+  {
+   "adult_context": "四十二岁，管了二十年旅馆的露天风吕，泉水什么时候烫、什么时候凉，摸一下就知道。",
+   "age_range": [
+    36,
+    48
+   ],
+   "appearance_options": [
+    "一身藏青色的作务衣，袖子扎着，脖子上搭着一条毛巾，脚上一双木屐。",
+    "站在露天风吕边的石灯笼旁，手里攥着一根长竹竿。"
+   ],
+   "decision": {
+    "avoids": [
+     "露天风吕的管汤人最烦临阵推诿"
+    ],
+    "contrast": "对不守规矩的客人凶得很，对来泡汤的老人家却总是搀一把。",
+    "core_value": "汤守得住，客人得平平安安泡完。",
+    "goal_options": [
+     "先把人救出来",
+     "露天风吕的管汤人再追究是谁的错"
+    ],
+    "never": [
+     "露天风吕的管汤人不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "露天风吕的管汤人看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "露天风吕的管汤人嗓子喊哑了也不肯走",
+     "high": "露天风吕的管汤人顶着危险往里递东西",
+     "low": "露天风吕的管汤人先稳住身边的人",
+     "mid": "露天风吕的管汤人四处找能用的工具"
+    },
+    "relationship_stance": "嘴上嫌工程师乱动后山的泉道，可少老板娘每回下溶洞，管汤人都在导流口守着。",
+    "withdrawal": "事情过去后，露天风吕的管汤人一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是管露天风吕的老手。",
+   "id": "bath_keeper",
+   "identity": {
+    "authority": "露天风吕谁能进、什么时候清场，管汤人说了算。",
+    "exposure": "露天风吕的管汤人忙起来顾不上衣着体面",
+    "hidden": "做露天风吕的管汤人这些年，有件事没对旁人说过",
+    "limits": [
+     "露天风吕的管汤人不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住露天风吕的管汤人手上的那一摊事"
+    ],
+    "resources": [
+     "一队管汤的帮工",
+     "露天风吕的管汤人随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "露天风吕的管汤人欣赏做事干脆利落的人",
+     "露天风吕的管汤人记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，露天风吕的管汤人就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和露天风吕的管汤人并肩站着",
+    "dislikes": [
+     "露天风吕的管汤人讨厌轻浮的手"
+    ],
+    "expression": "露天风吕的管汤人话不多，递东西时指尖会多停一下",
+    "likes": [
+     "露天风吕的管汤人收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "露天风吕的管汤人要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "露天风吕的管汤人",
+   "schedule": [
+    {
+     "from": 1080,
+     "location_id": "loc_drain_cold_vent",
+     "to": 1439
+    },
+    {
+     "from": 0,
+     "location_id": "loc_drain_cold_vent",
+     "to": 360
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "露天风吕的管汤人未必赶得上",
+      "option": "露天风吕的管汤人在外面调度接应"
+     },
+     {
+      "cost": "可能把露天风吕的管汤人自己也搭进去",
+      "option": "露天风吕的管汤人硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，露天风吕的管汤人进不去",
+    "trigger": "警报传到露天风吕的管汤人那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "管了二十年汤，从没见泉水这么凶……那两个人要是出不来，我这管汤人也别干了。",
+    "surface": "客人我都撤出来了！你们撬开了就喊，我第一个下去拉人！"
+   }
+  },
+  {
+   "adult_context": "四十五岁，管着旅馆所有的女中，客房的被褥、客人的茶点都归这里管。",
+   "age_range": [
+    38,
+    52
+   ],
+   "appearance_options": [
+    "一身浅粉色的和服，系着一条白围裙，头发盘得一丝不乱。",
+    "站在回廊的拐角，一边吩咐女中一边往后山的方向看。"
+   ],
+   "decision": {
+    "avoids": [
+     "旅馆的女中头最烦临阵推诿"
+    ],
+    "contrast": "在客人面前笑得滴水不漏，私下却会替少老板娘挡掉难缠的客人。",
+    "core_value": "客人的事，再小也是大事。",
+    "goal_options": [
+     "先把人救出来",
+     "旅馆的女中头再追究是谁的错"
+    ],
+    "never": [
+     "旅馆的女中头不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "旅馆的女中头看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "旅馆的女中头嗓子喊哑了也不肯走",
+     "high": "旅馆的女中头顶着危险往里递东西",
+     "low": "旅馆的女中头先稳住身边的人",
+     "mid": "旅馆的女中头四处找能用的工具"
+    },
+    "relationship_stance": "跟少老板娘情同姐妹，私下里总问那个工程师到底怎么样。",
+    "withdrawal": "事情过去后，旅馆的女中头一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是旅馆的女中头。",
+   "id": "head_maid",
+   "identity": {
+    "authority": "客房怎么排、哪位客人要多照顾，女中头心里有本账。",
+    "exposure": "旅馆的女中头忙起来顾不上衣着体面",
+    "hidden": "做旅馆的女中头这些年，有件事没对旁人说过",
+    "limits": [
+     "旅馆的女中头不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住旅馆的女中头手上的那一摊事"
+    ],
+    "resources": [
+     "一队手脚麻利的女中",
+     "旅馆的女中头随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "旅馆的女中头欣赏做事干脆利落的人",
+     "旅馆的女中头记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，旅馆的女中头就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和旅馆的女中头并肩站着",
+    "dislikes": [
+     "旅馆的女中头讨厌轻浮的手"
+    ],
+    "expression": "旅馆的女中头话不多，递东西时指尖会多停一下",
+    "likes": [
+     "旅馆的女中头收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "旅馆的女中头要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "旅馆的女中头",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_ryokan_lobby",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "旅馆的女中头未必赶得上",
+      "option": "旅馆的女中头在外面调度接应"
+     },
+     {
+      "cost": "可能把旅馆的女中头自己也搭进去",
+      "option": "旅馆的女中头硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，旅馆的女中头进不去",
+    "trigger": "警报传到旅馆的女中头那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "这傻孩子……嘴上说只是客人，心里早就……今晚可千万要出来。",
+    "surface": "毯子和干浴衣我都备好了！你们出来就换！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "十一月，红叶季",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "温泉引水溶洞侧翼设有一道暗渠旁通铸铁重力泄水闸，一旦主泉道受阻，撬开闸板即可将沸泉迅速排入下层冷水溪流。",
+  "风吕旅馆少老板娘随身携带的专业水温测量棒，采用实心食品级加厚不锈钢一体成型，前端测温扁头厚达一点五公分且带直角加强台阶，具备高强度撬动抗弯能力。",
+  "溶洞内湿热蒸汽聚集在上方，两人必须放低身段贴紧湿凉的钟乳石基座，胸腹相依减少体表面积暴露以防高热烫伤。",
+  "暗渠闸板上方装有配重提升吊环，只要利用测量棒金属扁头撬起卡死的一角，沉重闸板便能顺着滑轨平稳升起通流。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "清晨的客房里，少老板娘跪坐着把托盘放下，烤鱼、味噌汤、腌菜一样样摆好，热气在晨光里飘着。",
+    "少老板娘低着头说：今天的烤鱼是料理长新进的。……您尝尝，合不合口。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_morning_tray",
+   "location_ids": [
+    "loc_ryokan_lobby"
+   ],
+   "start_minute": 390,
+   "tags": [
+    "workplace"
+   ],
+   "title": "清晨给工程师端早饭"
+  },
+  {
+   "beats": [
+    "午后的大堂里，地炉上的铁壶咕嘟咕嘟地响，少老板娘跪坐在炉边，给人倒了一杯刚焙好的茶。",
+    "少老板娘捧着茶碗，轻声问：后山的泉道，还能用吗？……您说实话就好。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_hearth_tea",
+   "location_ids": [
+    "loc_ryokan_lobby"
+   ],
+   "start_minute": 900,
+   "tags": [
+    "workplace"
+   ],
+   "title": "地炉边喝一杯焙茶"
+  },
+  {
+   "beats": [
+    "傍晚的回廊上，少老板娘提着一支长杆，一盏一盏地点亮灯笼，暖黄的光映在石板路上。",
+    "点到最后一盏，少老板娘回头笑了笑：小时候，我最喜欢点这一盏。……从这里能看到整座山。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_lantern_corridor",
+   "location_ids": [
+    "loc_ryokan_lobby"
+   ],
+   "start_minute": 1050,
+   "tags": [
+    "workplace"
+   ],
+   "title": "傍晚跟少老板娘去点回廊的灯笼"
+  },
+  {
+   "beats": [
+    "后山溶洞里，工程师蹲在泉边，把测温计一次次插进水里，少老板娘举着头灯在旁边照着，记下每一个数。",
+    "少老板娘看着本子上的数字，轻声说：比昨天又高了两度。……您下来的时候，一定要叫上我。"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "act_cavern_survey",
+   "location_ids": [
+    "loc_spring_cavern_ledge"
+   ],
+   "start_minute": 600,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪工程师下溶洞量水温"
+  },
+  {
+   "beats": [
+    "午后旅馆门口停下一辆车，少老板娘跪坐在玄关迎客，替客人摆好拖鞋，接过行李，说话轻声细语。",
+    "送客人进房后，少老板娘回头冲人吐了吐舌头：这位客人每年都来，最难伺候。……帮我记着别把客房排错。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_guest_welcome",
+   "location_ids": [
+    "loc_ryokan_lobby"
+   ],
+   "start_minute": 960,
+   "tags": [
+    "workplace"
+   ],
+   "title": "跟少老板娘去门口接客人"
+  },
+  {
+   "beats": [
+    "清晨下了一夜雪，少老板娘裹着厚羽织，拿着竹扫帚一下下扫着通往露天风吕的石板路。",
+    "少老板娘把另一把扫帚递过来：您扫那边。……扫完了，请您喝一碗甜酒。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_snow_path_sweep",
+   "location_ids": [
+    "loc_ryokan_lobby"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪少老板娘扫石板路上的雪"
+  },
+  {
+   "beats": [
+    "闸板撬起、热雾散去、露天风吕的客人一个不少地撤出来之后，少老板娘回到离屋，湿透的浴衣上全是泥水，发髻散了一半。",
+    "火钵边，少老板娘背过身，让人解开湿透的浴衣腰带，再用凉水一点点擦去肩背上热雾熏出的红，湿布擦过后颈时，少老板娘轻轻吸了口气，往后靠了过来。",
+    "少老板娘转过身，声音很轻：今晚……我不想一个人听泉水的声音。您愿意留下吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_annex_yukata_sash",
+   "location_ids": [
+    "loc_proprietress_annex"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "离屋里替少老板娘解开浴衣腰带"
+  },
+  {
+   "beats": [
+    "离屋的拉门外，小汤池冒着热气，少老板娘只穿着一件薄薄的白浴衣，坐在池边把脚浸进温泉里，黑发松松地披着。",
+    "少老板娘拍了拍身边的石头：坐过来。……这一池汤，只有我自己泡过。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_annex_private_bath",
+   "location_ids": [
+    "loc_proprietress_annex"
+   ],
+   "start_minute": 1290,
+   "tags": [
+    "intimate"
+   ],
+   "title": "离屋的小汤池边一起泡脚"
+  },
+  {
+   "beats": [
+    "勘察结束、工程师明天要下山的那一夜，少老板娘跪坐在离屋的窗前，看着外面的雪一片片落进小汤池，手里捏着一枝刚换的花。",
+    "少老板娘没回头：明天您就要下山了。……今晚您要是留下，明年冬天，这间离屋还给您留着。您说好，我才转身。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_annex_survey_end",
+   "location_ids": [
+    "loc_proprietress_annex"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "勘察结束的那一夜"
+  },
+  {
+   "beats": [
+    "天快亮的时候，拉门外的雪光映进来，少老板娘在素色的被褥里醒来，黑发铺了满枕，整个人缩在人怀里。",
+    "少老板娘把脸埋进人胸口，闷声说：早饭……今天晚一刻再端。料理长不会说什么的。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_annex_dawn_snow",
+   "location_ids": [
+    "loc_proprietress_annex"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "雪光里醒来"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "现代和风温泉山庄与天然地热溶洞水工时代",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_spring_cavern_ledge"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{proprietress_ayaka.name}素雅浴衣被热气浸湿贴在身上，面容泛着如醉酡红，果断递出加厚不锈钢测温棒。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_spring_cavern_ledge"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{proprietress_ayaka.name}伏在同伴胸前避开上方滚烫蒸汽，长发微湿，侧过脸庞轻声指点暗渠闸门的位置与结构。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "slot": "geothermal_engineer",
+   "text": "{geothermal_engineer.name}用强健身躯将少老板娘紧紧搂在怀里抵御高温热浪，用体魄为少老板娘筑起防烫避难所。"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "slot": "geothermal_engineer",
+   "text": "{geothermal_engineer.name}握紧少老板娘温热而满是薄汗的双手，合力将测温棒高硬度金属扁头狠狠送入闸板底缝最深处。"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{proprietress_ayaka.name}带着柔和的轮廓的俏脸贴在同伴耳侧，急促滚烫的吐息拂过颈项，温柔报出洞内温度攀升的临界时间。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{proprietress_ayaka.name}身躯紧靠在同伴怀中，在滚烫泉水漫上台阶边缘时，沉着稳固双手施力的平衡支点。"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{proprietress_ayaka.name}展现出少老板娘的坚韧从容，借着暗渠下方水流反冲的节律，柔声娇呼下达合力顿撬号令。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "slot": "geothermal_engineer",
+   "text": "{geothermal_engineer.name}在巨浪热雾再次扑来的刹那死死护住少老板娘双肩，两副年轻身躯在狭小石台严丝合缝同甘共苦。"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{proprietress_ayaka.name}将温软娇躯毫无保留倚向同伴，以同频心跳化作破障合力，将周身重压完全倾注于测温棒端。"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_spring_cavern_ledge"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{proprietress_ayaka.name}细听闸板卡槽内碎石受力碾碎的脆响，在卡榫松脱的瞬间催促同伴施加最后一记猛顿。"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "slot": "geothermal_engineer",
+   "text": "{geothermal_engineer.name}与少老板娘一同沉下身形暴发全力，借杠杆之力将死卡闸板一举撬起，沸泉呼啸倾泻。"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{proprietress_ayaka.name}在清凉山风呼啸涌入的震撼中扑入同伴怀中，深呼吸清凉空气，双手紧紧搂住同伴后背。"
+  },
+  {
+   "id": "hook_ayaka_extra_dish",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ryokan_lobby"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{npc.name}在托盘上多放了一小碟腌梅，低着头：料理长多做的。……您不爱吃，就留着。"
+  },
+  {
+   "id": "hook_ayaka_where_engineer",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ryokan_lobby"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{npc.name}在玄关站了一会儿，轻声问前台：那位先生……今天还没从后山回来吗？"
+  },
+  {
+   "id": "hook_ayaka_amazake",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ryokan_lobby",
+    "loc_proprietress_annex"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{npc.name}捧着两碗甜酒走过来，递过一碗：天冷。……喝了再去后山吧。"
+  },
+  {
+   "id": "hook_ayaka_annex_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_proprietress_annex"
+   ],
+   "slot": "proprietress_ayaka",
+   "text": "{npc.name}跪坐在离屋的拉门边，黑发松松披着：汤池的水正好。……进来坐坐吗？"
+  },
+  {
+   "id": "hook_engineer_yukata_sketch",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ryokan_lobby",
+    "loc_proprietress_annex"
+   ],
+   "slot": "geothermal_engineer",
+   "text": "{npc.name}把勘察图翻过来又翻回去：背面……没画什么。"
+  },
+  {
+   "id": "hook_engineer_vent_note",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ryokan_lobby",
+    "loc_spring_cavern_ledge"
+   ],
+   "slot": "geothermal_engineer",
+   "text": "{npc.name}在勘察图上画了一道线：溶洞的导流口在这里。……万一出事，你记住往这里走。"
+  }
+ ],
+ "id": "gentle_onsen_proprietress_steam_cavern",
+ "locations": [
+  {
+   "affordances": [
+    "伏低身体贴紧湿凉石基避开上方滚烫蒸汽层",
+    "抓住钟乳石天然凸起作为抵御湿滑的立足支点",
+    "迎着蒸腾热浪在石壁下方摸索暗渠应急提升闸槽"
+   ],
+   "detail": "位于露天风吕后山深处的挑高溶洞，出水口被坍塌巨石彻底堵塞，滚烫沸泉水位已漫至石台边缘，浓郁的地热白雾蒸腾翻滚令能见度不足一米。",
+   "exits": [
+    "loc_drain_gate_slot",
+    "loc_drain_cold_vent"
+   ],
+   "id": "loc_spring_cavern_ledge",
+   "name": "溶洞石台",
+   "pressure_modifiers": {
+    "p_boiling_water_creep": "沸泉又漫上来一指，石台边缘冒着细密的气泡。",
+    "p_steam_scald": "一股热雾翻上来，脸上像被烫了一下。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "白雾翻滚，头灯的光只照得出一米远，看得清对方被热气熏红的脸，看不清泉水漫到哪里。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "将不锈钢水温测量棒前端高硬度扁头狠狠别入闸门底角缝隙",
+    "配合同伴发力节律调整力矩长臂撬动支点"
+   ],
+   "detail": "深嵌在岩壁下方的铸铁泄水闸板，由于震落的泥沙与鹅卵石碎屑严重塞死在滑槽底角，闸门偏心卡死无法提拉。",
+   "exits": [
+    "loc_spring_cavern_ledge"
+   ],
+   "id": "loc_drain_gate_slot",
+   "name": "闸板滑槽",
+   "pressure_modifiers": {
+    "p_rod_chest_press": "少老板娘背贴在工程师胸前，四只手叠在测温棒上，湿透的浴衣贴着对方的工作服。",
+    "p_rod_tip_bend": "测温棒的扁头被闸板压出一道弯，再硬别可能整个折掉。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "岩壁下方的铸铁闸板被碎石塞死在滑槽底角，测温棒别进去时溅起一片滚烫的水花。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "合力下压测量棒长杆生生撬起卡阻的铸铁板角",
+    "感受沉重闸板在哗啦声中升起、冷冽山风呼啸涌入的清凉"
+   ],
+   "detail": "闸板后方连接外部山涧的导流管道，是迅速带走滚烫沸泉与引进山间冷空气的关键通道。",
+   "exits": [
+    "loc_spring_cavern_ledge",
+    "loc_ryokan_lobby"
+   ],
+   "id": "loc_drain_cold_vent",
+   "name": "暗渠快速泄水对流通风口",
+   "pressure_modifiers": {
+    "p_guests_in_outdoor_bath": "露天风吕里还有客人没撤，热水从地下往上冒，外面的人一边疏散一边挖。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "闸板后面的导流管通向山涧，旅馆的铜铃声和对讲机的呼叫从管道里传进来，一阵比一阵急。",
+   "witnesses": [
+    "bg_young_bath_hand",
+    "bg_front_desk_clerk",
+    "bg_county_inspector"
+   ]
+  },
+  {
+   "affordances": [
+    "陪少老板娘在地炉边喝一杯茶",
+    "在回廊里看灯笼一盏盏亮起",
+    "陪少老板娘迎接新到的客人"
+   ],
+   "detail": "老旅馆的大堂，榻榻米上摆着一座地炉，炉上吊着一只铁壶，墙上挂着百年前的旅馆招牌，拉门外是通往露天风吕的石板路和一排挂着灯笼的回廊。",
+   "exits": [
+    "loc_proprietress_annex",
+    "loc_drain_cold_vent"
+   ],
+   "id": "loc_ryokan_lobby",
+   "name": "风吕旅馆大堂",
+   "pressure_modifiers": {},
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "住店的客人、来泡汤的村民、厨房的帮工都在大堂里来往，少老板娘跟谁多说几句话，晚饭前整间旅馆都知道了。",
+   "witnesses": [
+    "bg_young_bath_hand",
+    "bg_front_desk_clerk",
+    "bg_regular_guest",
+    "bg_county_inspector"
+   ]
+  },
+  {
+   "affordances": [
+    "坐在小汤池边陪少老板娘泡脚",
+    "替少老板娘解开浴衣的腰带",
+    "把离屋的拉门合上"
+   ],
+   "detail": "旅馆后院一座独立的小离屋，拉门外是一方只属于这间屋子的小汤池，屋里铺着榻榻米、一床素色的被褥、一只小小的火钵，壁龛里插着一枝当季的花。",
+   "exits": [
+    "loc_ryokan_lobby"
+   ],
+   "id": "loc_proprietress_annex",
+   "name": "少老板娘的离屋",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "拉门一合，大堂里的人声就远了，只剩小汤池里泉水汩汩的声音。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "浅井",
+   "白石",
+   "高桥",
+   "樱井",
+   "森",
+   "小野",
+   "宫本",
+   "藤原",
+   "中村",
+   "早川",
+   "水野",
+   "结城",
+   "柏木",
+   "冈田"
+  ],
+  "given_female": [
+   "绫香",
+   "千代",
+   "雪乃",
+   "葵",
+   "椿",
+   "美咲",
+   "琴音",
+   "凛",
+   "小百合",
+   "静香",
+   "枫",
+   "澪",
+   "栞",
+   "朝子"
+  ],
+  "given_male": [
+   "和也",
+   "拓海",
+   "健一",
+   "修司",
+   "隼人",
+   "直树",
+   "悠真",
+   "大辅",
+   "诚",
+   "翔太",
+   "亮",
+   "圭介",
+   "慎吾",
+   "浩二"
+  ],
+  "given_neutral": [
+   "汤",
+   "雾",
+   "泉",
+   "樱",
+   "雪",
+   "灯",
+   "竹",
+   "苔",
+   "铃",
+   "月",
+   "山",
+   "溪",
+   "石",
+   "炉"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "{family}先生"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留日式温泉旅馆的场景与人名风格。原稿除标题、简介、基调、少老板娘外貌、世界规则风俗、三处脱困地点与转折外，人物、压力、日常与钩子大多照抄了吸血鬼地宫那一篇，这里按温泉旅馆的题材整篇重写：山里一家老风吕旅馆的少老板娘，接手旅馆第三年，山体连着几次小地震，县里派来的地热地质工程师在旅馆住了一个月，勘察后山溶洞的泉道；白天是旅馆的大堂、厨房、露天风吕和后山小路，夜里是地震落石封死泉道、沸泉倒灌溶洞。新增旅馆大堂与少老板娘住的离屋两处日常地点；年龄放宽；婴儿肥换成了其余外貌描写；亲密前提写明脱险之后、双方清醒自愿；新增离屋里的四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    25
+   ],
+   "baseline": "刚来旅馆帮工的年轻人，扫地、搬被褥、烧洗澡水都干，第一次见识地震，吓得腿软。",
+   "gender": "any",
+   "id": "pi_new_bath_hand",
+   "reputation": "旅馆里最年轻的帮工。",
+   "resources": [
+    "一把扫帚",
+    "一身旅馆的作务衣",
+    "一本写满规矩的小本子"
+   ],
+   "risks": [
+    "干不好，就要被打发回山下的镇子。"
+   ],
+   "role": "旅馆新来的帮工",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    42
+   ],
+   "baseline": "在温泉村里开了十年陶窑的陶艺师，旅馆里用的茶碗一半出自这双手。",
+   "gender": "any",
+   "id": "pi_village_potter",
+   "reputation": "村里消息最灵通的人之一。",
+   "resources": [
+    "一座陶窑",
+    "一架子茶碗",
+    "一肚子村里的闲话"
+   ],
+   "risks": [
+    "温泉要是断了，整个村子都没客人了。"
+   ],
+   "role": "村里的陶艺师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    48
+   ],
+   "baseline": "每年冬天都来旅馆包一间房写稿的作家，跟少老板娘一家认识了十几年。",
+   "gender": "any",
+   "id": "pi_regular_writer",
+   "reputation": "旅馆里最老的熟客。",
+   "resources": [
+    "一间包了整个冬天的客房",
+    "一叠写了一半的稿子",
+    "一支旧钢笔"
+   ],
+   "risks": [
+    "温泉断了，这个冬天的稿子就写不下去了。"
+   ],
+   "role": "常年包房的作家",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    38,
+    55
+   ],
+   "baseline": "县里管温泉和观光的课长，温泉村能不能继续营业、后山泉道要不要封，最后都落在这个人的一句话上。",
+   "gender": "any",
+   "id": "pi_prefecture_director",
+   "reputation": "整个温泉村都知道这位课长的分量。",
+   "resources": [
+    "一枚县厅的公章",
+    "一份温泉村停业的预案",
+    "随时能叫停勘察的权限"
+   ],
+   "risks": [
+    "勘察期间出了人命，课长在县里也难交代。"
+   ],
+   "role": "县观光课的课长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "山里一家开了百年的老风吕旅馆，少老板娘从母亲手里接过旅馆的第三年。山体连着闹了几次小地震，县里派来一位地热地质工程师，在旅馆住了一个月，勘察后山溶洞的泉道。白天量水温、修引水暗渠，夜里在帐场对账。后山的出水口有块巨石松动了，泉温最近一直往上走。",
+ "pressures": [
+  {
+   "choice": "是趁热雾散开的间隙下撬，还是先伏低身子躲开蒸汽？",
+   "exits": [
+    {
+     "cost": "撬到一半热雾又压下来，可能前功尽弃",
+     "option": "趁热雾散开的间隙合力下撬"
+    },
+    {
+     "cost": "热雾只会越来越厚",
+     "option": "先伏低身子躲开蒸汽"
+    }
+   ],
+   "far": {
+    "consequence": "两人被热雾烫伤昏迷，等不到外面的人。",
+    "due_days": 1,
+    "trigger": "热雾烫到极限"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_steam_scald",
+   "immediate": {
+    "minutes": 2,
+    "text": "一股热雾翻上来，少老板娘整个人往后撞进工程师怀里，测温棒差点脱手。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_spring_cavern_ledge",
+    "loc_drain_gate_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "热雾又厚了一层，两人只能伏在石台上，脸贴着湿凉的石头喘气。"
+   },
+   "objective": "在被烫伤之前撬起闸板泄水。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "沸泉白雾逼近烫伤",
+   "trigger": "沸泉倒灌溶洞，滚烫的白雾越积越厚，往上一站就像被开水浇，喘一口气都烫得嗓子发疼。"
+  },
+  {
+   "choice": "是用测温棒硬别，还是先把滑槽里的碎石抠出来？",
+   "exits": [
+    {
+     "cost": "抠碎石要把手伸进热水里",
+     "option": "先把滑槽里的碎石抠出来"
+    },
+    {
+     "cost": "扁头可能先折断",
+     "option": "直接用测温棒硬别"
+    }
+   ],
+   "far": {
+    "consequence": "闸板再也撬不动，只能等外面的人挖开出水口。",
+    "due_days": 1,
+    "trigger": "滑槽填死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_drain_gate_jammed",
+   "immediate": {
+    "minutes": 2,
+    "text": "测温棒扁头别进去，闸板底下传来一声闷响，只抬起了半分。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "又一股泥沙冲进滑槽，闸板卡得更死了。"
+   },
+   "objective": "在泥沙把滑槽填死之前撬起闸板。",
+   "source": "accident",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "暗渠闸板被碎石塞死",
+   "trigger": "引流暗渠的铸铁闸板被震落的泥沙和鹅卵石塞死在滑槽底角，偏心卡着，提不起来也退不回去。"
+  },
+  {
+   "choice": "是用碎石垒一道矮坝挡一挡，还是全力去撬闸板？",
+   "exits": [
+    {
+     "cost": "垒坝就没法去撬闸板",
+     "option": "用碎石垒一道矮坝"
+    },
+    {
+     "cost": "沸泉可能先漫上来",
+     "option": "全力去撬闸板"
+    }
+   ],
+   "far": {
+    "consequence": "两人被沸泉烫伤，再也站不住。",
+    "due_days": 1,
+    "trigger": "沸泉漫上石台"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_boiling_water_creep",
+   "immediate": {
+    "minutes": 2,
+    "text": "沸泉又漫上来一指，溅起的水花烫得少老板娘缩了一下脚。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "石台上能站的地方越来越小，两人只能挤在最高的那一角。"
+   },
+   "objective": "在沸泉漫上石台之前泄水。",
+   "source": "person",
+   "start_minute": 10,
+   "tags": [
+    "workplace"
+   ],
+   "title": "沸泉一寸寸漫上石台",
+   "trigger": "滚烫的沸泉一寸寸漫上石台，离脚边只剩一掌，石台的边缘冒着细密的气泡。"
+  },
+  {
+   "choice": "是为了老板娘的分寸拉开半寸距离，还是干脆贴紧了一起发力？",
+   "exits": [
+    {
+     "cost": "这一夜之后，少老板娘再也不是只隔着拉门送早饭了",
+     "option": "放下分寸贴紧对方，四只手一起压在测温棒上"
+    },
+    {
+     "cost": "力气使不到一处，撬不起闸板",
+     "option": "各自侧身单手发力"
+    }
+   ],
+   "far": {
+    "consequence": "测温棒从闸板缝隙里滑出去，错过最后的撬起窗口。",
+    "due_days": 1,
+    "trigger": "分心导致测温棒滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_rod_chest_press",
+   "immediate": {
+    "minutes": 2,
+    "text": "少老板娘被热雾熏得娇喘细细，浴衣的腰带松开了，湿透的浴衣滑下半边肩头，酥胸半露着贴在对方手臂上，盘起的黑发散了满背。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_spring_cavern_ledge",
+    "loc_drain_gate_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "两人的心跳撞在一起，少老板娘的数数第一次乱了，谁都分不清是热，还是别的什么。"
+   },
+   "objective": "贴得这么近的时候，还得把心思放在扁头的角度和数数上。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "热雾石台胸背相贴",
+   "trigger": "石台窄得只容两人，少老板娘只能背贴在工程师胸前，四只手叠在测温棒上一起往下压。"
+  },
+  {
+   "choice": "是继续加力赌一把，还是退出来换个角度重新别？",
+   "exits": [
+    {
+     "cost": "腰带会被磨断",
+     "option": "用浴衣的腰带缠住棒身再压"
+    },
+    {
+     "cost": "换角度要重新找死角，沸泉可能等不及",
+     "option": "退出来换个角度"
+    }
+   ],
+   "far": {
+    "consequence": "折断的测温棒再也别不进闸板，两人失去唯一的撬具。",
+    "due_days": 1,
+    "trigger": "测温棒折断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_rod_tip_bend",
+   "immediate": {
+    "minutes": 2,
+    "text": "扁头发出一声刺耳的刮响，握测温棒的指节被震得发麻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_drain_gate_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "弯得越来越厉害，测温棒的棒身也开始发烫。"
+   },
+   "objective": "得在扁头折断之前找准最后一个受力点。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "测温棒扁头压弯",
+   "trigger": "测温棒的扁头别在闸板底角里，已经被压出一道弯，再硬别可能整个折掉。"
+  },
+  {
+   "choice": "是先撬闸板，还是先敲管道给外面的人报信？",
+   "exits": [
+    {
+     "cost": "敲管道更耗力气",
+     "option": "先敲管道报信"
+    },
+    {
+     "cost": "外面的人可能挖错方向",
+     "option": "先撬闸板泄水"
+    }
+   ],
+   "far": {
+    "consequence": "露天风吕的水烫到极限，没撤出去的客人被烫伤。",
+    "due_days": 1,
+    "trigger": "露天风吕烫伤客人"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_guests_in_outdoor_bath",
+   "immediate": {
+    "minutes": 2,
+    "text": "管道里传来铁锹撞石头的声音，铜铃一下子摇急了。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_spring_cavern_ledge",
+    "loc_drain_gate_slot"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "露天风吕的水越来越烫，外面的人越来越乱。"
+   },
+   "objective": "撬起闸板泄水，让外面的人知道里面的人还活着，露天风吕的水也能降下来。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "露天风吕客人未撤",
+   "trigger": "地震把热水从露天风吕的地底下顶了上来，还有客人没撤出去，外面的人一边疏散一边挖出水口，旅馆的铜铃响个不停。"
+  },
+  {
+   "choice": "让工程师照实写泉道塌了一半，还是求工程师把话写得宽一点",
+   "exits": [
+    {
+     "cost": "旅馆至少停业半年，母亲留下的老客人会一个个走掉",
+     "option": "照实写"
+    },
+    {
+     "cost": "报告上签的是工程师的名字，往后出一点事都算在工程师头上",
+     "option": "求工程师把话写宽一点"
+    }
+   ],
+   "far": {
+    "consequence": "百年旅馆这个旺季没有露天风吕，少老板娘接手的第三年就要关门",
+    "due_days": 7,
+    "trigger": "审查会定下停业"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_ayaka_amazake",
+    "hook_ayaka_annex_door",
+    "hook_engineer_yukata_sketch"
+   ],
+   "id": "p_prefecture_closure",
+   "immediate": {
+    "minutes": 5,
+    "text": "田中在离屋门口鞠了一躬，把通知放在榻榻米上"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_proprietress_annex"
+   ],
+   "near": {
+    "deadline_minutes": 2880,
+    "text": "周六上午，县厅开审查会"
+   },
+   "objective": "在县厅周六的审查会之前，让工程师的报告写出能重开的结论",
+   "source": "institution",
+   "start_minute": 480,
+   "tags": [],
+   "title": "县厅的停业通知",
+   "trigger": "地震过后第二天，县厅的田中送来一份通知：后山溶洞列入危险区，露天风吕停业，要等地热工程师的勘察报告签了字才能重开"
+  }
+ ],
+ "region": "露天风吕后山挑高十米天然钟乳石引水溶洞与引流暗渠闸槽",
+ "rules": [
+  {
+   "id": "r_ryokan_rules",
+   "text": "旅馆的规矩：客人的事少老板娘说了算，后山泉道的事要等工程师勘察完再说。"
+  },
+  {
+   "id": "r_thermo_rod_release",
+   "text": "应急暗渠铸铁闸板受碎石挤压卡滞在底槽中，必须借实心不锈钢水温测量棒金属扁头别入缝隙合力撬起泄流。"
+  },
+  {
+   "id": "r_survey_month",
+   "text": "勘察只有一个月，月底之前要交出泉道能不能继续用的结论。"
+  },
+  {
+   "id": "r_no_guests_in_cavern",
+   "text": "后山溶洞不许客人进，只有旅馆的人和勘察的人能下去。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "并肩巡泉",
+  "committed": "提闸泄热",
+  "familiar": "热雾相依",
+  "flirting": "贴身避烫",
+  "intimate": "同命下撬",
+  "stranger": "礼貌奉茶",
+  "testing": "共持测棒"
+ },
+ "status": "released",
+ "style_hint": "老温泉旅馆的温润笔法：白天写大堂里的地炉、厨房里炖着的味噌汤、露天风吕上飘的热气和客人们的木屐声；夜里写溶洞里翻滚的白雾、沸泉一寸寸漫上石台的灼热。少老板娘温柔周到，张力藏在被热雾逼得贴进对方怀里时那一声没忍住的轻喘里。",
+ "tension_engines": [
+  {
+   "id": "te_steam_scald",
+   "text": "溶洞里的白雾越来越烫，往上一站就像被开水浇。"
+  },
+  {
+   "id": "te_drain_gate_jammed",
+   "text": "铸铁闸板被泥沙和碎石塞死在滑槽里，单人撬不动分毫。"
+  },
+  {
+   "id": "te_rod_chest_press",
+   "text": "石台窄得只容两人，只能伏低身子胸腹相贴，躲开头顶的蒸汽。"
+  },
+  {
+   "id": "te_boiling_water_creep",
+   "text": "沸泉一寸寸漫上石台，离脚边只剩一掌。"
+  }
+ ],
+ "title": "温泉老板娘·后山露天风吕全景天然溶洞",
+ "tone": [
+  "高温沸泉倒灌",
+  "滚烫白雾蒸腾",
+  "出水口巨石封死",
+  "不锈钢测温棒撬闸"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_shovel_snapped_by_rock",
+   "requires": [
+    "proprietress_ayaka"
+   ],
+   "text": "地震落石砸断了工程师携带的铁柄工兵铲，少老板娘随身携带的不锈钢水温测量棒成为溶洞内唯一坚实撬棍。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_geta_slips_ledge",
+   "requires": [
+    "proprietress_ayaka"
+   ],
+   "text": "石台湿滑导致少老板娘木屐打滑险些跌入滚水，工程师果断伸臂将少老板娘稳稳抱入怀中，两人死死踩稳石台。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_sweat_on_cheek",
+   "requires": [
+    "geothermal_engineer"
+   ],
+   "text": "少老板娘额头香汗顺着略带面颊滑落，在幽暗溶洞热雾映照下，更显温婉娇美与纯真动人的反差。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_bodies_on_rod",
+   "requires": [
+    "proprietress_ayaka",
+    "geothermal_engineer"
+   ],
+   "text": "重力闸板被碎石卡死极沉，单人绝难撼动，少老板娘与工程师必须胸背紧贴呼吸同频，融汇二人体重合力猛撬。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_heat_last_minutes",
+   "requires": [
+    "proprietress_ayaka"
+   ],
+   "text": "洞内温度已达极限仅剩最后数分钟耐受时间，若不能及时泄热，两人将遭受严重烫伤，生死一线逼迫全力一击。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_back_to_stalactite",
+   "requires": [
+    "proprietress_ayaka",
+    "geothermal_engineer"
+   ],
+   "text": "工程师以后背顶住钟乳石壁化作杠杆支座，少老板娘合抱发力顺应势头下压，测温棒终于将死卡碎石生生别碎。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_gate_rises",
+   "requires": [
+    "proprietress_ayaka"
+   ],
+   "text": "卡阻解除铸铁闸板升起，滚烫沸泉奔涌排空，外部冷风灌入吹散高温白雾，两人携手相扶成功自救脱险。"
+  }
+ ]
+}

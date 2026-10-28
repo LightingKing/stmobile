@@ -1,0 +1,2386 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "乐团的乐谱管理员，在团里做了二十年。",
+   "age_range": [
+    45,
+    55
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_orchestra_librarian",
+   "line": "{npc.name}抱着一摞分谱在台边分发，抬头看了独奏家一眼，又低下头去数谱子。",
+   "location_ids": [
+    "loc_golden_hall_solo_stage"
+   ],
+   "name": null,
+   "role": "乐谱管理员"
+  },
+  {
+   "adult_context": "金色大厅的驻场灯光师。",
+   "age_range": [
+    30,
+    40
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_lighting_operator",
+   "line": "{npc.name}在灯控台后面喊了一声：独奏席的追光暗一档，别晃着独奏家。",
+   "location_ids": [
+    "loc_golden_hall_solo_stage"
+   ],
+   "name": null,
+   "role": "灯光师"
+  },
+  {
+   "adult_context": "音乐学院毕业的后台跑场，在大厅打第二年工。",
+   "age_range": [
+    22,
+    28
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_stage_runner",
+   "line": "{npc.name}掀开垂幔探进头来：指挥请独奏家五分钟后回台上。",
+   "location_ids": [
+    "loc_side_stage_tuning_alcove"
+   ],
+   "name": null,
+   "role": "后台跑场"
+  },
+  {
+   "adult_context": "厂家派来的恒湿设备维修工。",
+   "age_range": [
+    40,
+    50
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_depot_humidity_keeper",
+   "line": "{npc.name}蹲在恒湿机前拆面板，头也不抬：整备室今天谁也别待太久。",
+   "location_ids": [
+    "loc_backstage_instrument_depot"
+   ],
+   "name": null,
+   "role": "恒湿机维修工"
+  },
+  {
+   "adult_context": "在这家咖啡馆做了三十年的老侍者。",
+   "age_range": [
+    50,
+    60
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_cafe_waiter",
+   "line": "{npc.name}端着托盘经过，压低声音说：那个摄像师，昨天也是坐在这个位子上打电话。",
+   "location_ids": [
+    "loc_musikverein_cafe"
+   ],
+   "name": "老约瑟夫",
+   "role": "咖啡馆侍者"
+  },
+  {
+   "adult_context": "维也纳一家报纸的资深乐评人。",
+   "age_range": [
+    40,
+    55
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_music_critic",
+   "line": "{npc.name}坐在窗边写东西，偶尔抬头看一眼对面的金色大厅，又看一眼你们这一桌。",
+   "location_ids": [
+    "loc_musikverein_cafe"
+   ],
+   "name": null,
+   "role": "乐评人"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "合约上是你签下了{cellist_shen_nan_qiao.name}，赌约里是{cellist_shen_nan_qiao.name}把钥匙交给了你；台上谁听谁的，台下就未必。",
+   "id": "combo_cellist_manager_key",
+   "identity_ids": [
+    "pi_solo_cellist_shen_nan_qiao"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "cellist_shen_nan_qiao",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 3
+     },
+     "reason": "排练周开始那晚的赌约是独奏家自己提的，银钥匙也是独奏家亲手放进你掌心的。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "cellist_shen_nan_qiao"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "独奏家要靠自己撑到首演，证明赌约输了，人没输。",
+    "limit_gap": "独奏家不能在台上失态，你不能让人看出钥匙在你身上。",
+    "meeting_reason": "排练周每一场，总经理都会坐在第一排听。",
+    "resource_gap": "你握着钥匙和乐团的一切安排，独奏家只握着暗号和琴声。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_silver_key_pledge",
+    "eng_premiere_checks"
+   ]
+  },
+  {
+   "chemistry": "你和{cellist_shen_nan_qiao.name}从来谁也不服谁；这一局独奏家把钥匙押给了你，首演那晚谁赢，看谁先沉不住气。",
+   "id": "combo_cellist_concertmaster_wager",
+   "identity_ids": [
+    "pi_score_turner_lu_ze_yuan",
+    "pi_instrument_technician_song_ting_feng"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "cellist_shen_nan_qiao",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "庆功宴上两人当着全团打了赌，同台四年谁也不服谁，这一回谁也不肯先认输。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "cellist_shen_nan_qiao"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "独奏家要在首演谢幕时亲手赢回钥匙。",
+    "limit_gap": "两人天天同台，谁的异样都会被另一个先看见。",
+    "meeting_reason": "排练时你就在独奏家几步之外。",
+    "resource_gap": "你有钥匙和台上的位置，独奏家有暗号和主角的光。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_silver_key_pledge",
+    "eng_cold_surface_warm_lock"
+   ]
+  },
+  {
+   "chemistry": "{cellist_shen_nan_qiao.name}是金色大厅的主角，你只是每天送水的引座员；那把银钥匙却在你的制服口袋里。",
+   "id": "combo_cellist_usher_trust",
+   "identity_ids": [
+    "pi_stage_coordinator_wen_zi_mo"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "cellist_shen_nan_qiao",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "那晚散场后独奏家在空荡的侧台吻了你，说想把钥匙交给一个跟这一切无关的人。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "cellist_shen_nan_qiao"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "独奏家想知道，一个跟这一切无关的人握着钥匙时，会怎么做。",
+    "limit_gap": "你不能越过本分，独奏家不能在一个引座员面前失了体面。",
+    "meeting_reason": "每天排练前，你都要去侧台给独奏家送一杯温水。",
+    "resource_gap": "独奏家一句话就能让你丢了工作，你握着钥匙和大厅里所有没人走的小路。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_silver_key_pledge",
+    "eng_cold_surface_warm_lock"
+   ]
+  },
+  {
+   "chemistry": "钥匙在你手里，暗号在{cellist_shen_nan_qiao.name}嘴边；首演一过，赌约就要换个方向重新算。",
+   "id": "combo_cellist_switch_key",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "cellist_shen_nan_qiao",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "上一轮钥匙在独奏家手里，你被逼着在后台撑完整场彩排，散场后两人在琴房里越过了界。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "cellist_shen_nan_qiao"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "独奏家要在首演之后，换自己来握钥匙。",
+    "limit_gap": "你逼得太紧，独奏家一句“休止”就结束；独奏家撑不住，就要认输。",
+    "meeting_reason": "排练周每天都要见面，赌约规定钥匙要随身带着。",
+    "resource_gap": "你握着钥匙，独奏家握着暗号和下一局的规矩。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_silver_key_pledge",
+    "eng_premiere_checks"
+   ]
+  },
+  {
+   "chemistry": "{cellist_lin_wei_an.name}坐在乐团第二排拉了四年，一直站在别人的光后面；只有在对街咖啡馆最里面的卡座，才肯摘下那副稳重。",
+   "id": "combo_vice_principal_cafe_booth",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "cellist_lin_wei_an",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "排练周每天下午都在同一个卡座喝咖啡，副首席总替你点好萨赫蛋糕，却从不说为什么。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "cellist_lin_wei_an"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "副首席想知道，你约这杯咖啡是为了名单，还是为了人。",
+    "limit_gap": "副首席不能被人看出在讨好你，你不能让团里以为位子是靠交情换的。",
+    "meeting_reason": "排练间隙，你们挤进了对街咖啡馆最里面的卡座。",
+    "resource_gap": "副首席手里有乐团所有的闲话，你手里有下一季首席的人选名单。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_cold_surface_warm_lock",
+    "eng_premiere_checks"
+   ]
+  },
+  {
+   "chemistry": "{turner_lu_ze_yuan.name}在钢琴前等你的呼吸；五年前在音乐学院的琴房里，两人也这样等过彼此。",
+   "id": "combo_pianist_old_practice_room",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "turner_lu_ze_yuan",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 2
+     },
+     "reason": "五年前在音乐学院同居过半年，你拿到维也纳的合约后不告而别，两人在这座大厅里重逢。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "turner_lu_ze_yuan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "伴奏想知道，当年那场不告而别，你后不后悔。",
+    "limit_gap": "伴奏不能在团里露出旧情，你不能让人知道闭馆后琴房里还有谁。",
+    "meeting_reason": "闭馆后的加练，只剩伴奏和你。",
+    "resource_gap": "伴奏管着加练的速度和琴房的钥匙，你管着首演的曲目单。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_cold_surface_warm_lock",
+    "eng_premiere_checks"
+   ]
+  },
+  {
+   "chemistry": "{conductor_carl_von_hohenberg.name}点名留你单独加练，大厅里只剩一盏工作灯，和指挥棒落在谱架上的声音。",
+   "id": "combo_conductor_white_rose",
+   "identity_ids": [],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "conductor_carl_von_hohenberg",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "前年巡演在萨尔茨堡谢幕后，指挥把一支白玫瑰塞进你手里，之后谁也没提，却总把你排在身边。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "conductor_carl_von_hohenberg"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "指挥要在首演前，逼出你最真的那一面。",
+    "limit_gap": "指挥不能被看出偏爱，你不能在全团面前接住那份偏爱。",
+    "meeting_reason": "排练结束后，指挥点名留你加练。",
+    "resource_gap": "指挥握着首演名单和你在这个乐团的去留，你握着指挥写给你的那张没署名的卡片。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_premiere_checks",
+    "eng_cold_surface_warm_lock"
+   ]
+  },
+  {
+   "chemistry": "{technician_song_ting_feng.name}是你亲自从克雷莫纳请来的，整备室里的每一把琴都经过那双手；只有你知道，那双手第一次发抖是在什么时候。",
+   "id": "combo_luthier_unwritten_promise",
+   "identity_ids": [
+    "pi_solo_cellist_shen_nan_qiao"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "technician_song_ting_feng",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "三年前你替技师还清了克雷莫纳作坊的债，技师答应只替你的乐团做琴，这个约定没写进合同。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "technician_song_ting_feng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "技师想在合约到期前，听你说一句不是雇主的话。",
+    "limit_gap": "技师不能越过雇主的界限，你不能让团里知道整备室的门为什么总是闩着。",
+    "meeting_reason": "首演前一晚，你带着那把旧琴来整备室找技师。",
+    "resource_gap": "你握着技师的合约和整个乐团的琴，技师握着你私下托付的那把旧琴。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_premiere_checks",
+    "eng_cold_surface_warm_lock"
+   ]
+  },
+  {
+   "chemistry": "{cameraman_chen_xing_lan.name}手里有一段不该有的录像，{cellist_shen_nan_qiao.name}手里只有暗号，你口袋里有那把钥匙。",
+   "id": "combo_cellist_cameraman_lens",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "cellist_shen_nan_qiao",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "赌约的两个人站在长焦镜头的另一头，银钥匙就在你上衣内袋里。",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 0
+     },
+     "b": "cameraman_chen_xing_lan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 1
+     },
+     "reason": "摄像师去年把你在后台发火的画面放上了网，你托律师逼着撤了片，两人从此见面就互呛。",
+     "stage": "testing"
+    },
+    {
+     "a": "cellist_shen_nan_qiao",
+     "a_to_b": {
+      "tension": 4,
+      "trust": -2
+     },
+     "b": "cameraman_chen_xing_lan",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 0
+     },
+     "reason": "独奏家拒绝过摄像师的专访，摄像师一直记着。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "cellist_shen_nan_qiao",
+    "cameraman_chen_xing_lan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "独奏家要拿回那段录像，又不让赌约的秘密多一个人知道。",
+    "limit_gap": "摄像师不能明着要挟，独奏家不能露出慌乱，你不能被看出钥匙在哪。",
+    "meeting_reason": "彩排结束后，摄像师在侧台拦住了独奏家，你正好在旁边。",
+    "resource_gap": "摄像师握着录像，你握着钥匙，独奏家只能靠自己的体面。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_long_lens",
+    "eng_silver_key_pledge"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_backstage_intercom",
+   "reach": "舞台、侧台和灯控台，原样、即时",
+   "text": "后台对讲机"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_orchestra_gossip",
+   "reach": "一杯咖啡的工夫传遍全团，传到第三个人嘴里就变了样",
+   "text": "乐团排练间隙的闲话"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "维也纳音乐学院硕士毕业，柴可夫斯基大赛金奖得主，欧洲巡演第四年，演什么、穿什么、跟谁亲近都由本人拿主意。",
+   "age_range": [
+    26,
+    29
+   ],
+   "appearance_options": [
+    "墨发挽成天鹅髻，肌肤似雪，墨蓝露背真丝长裙勾出细腰，清冷的脸上还留着一点没褪干净的婴儿肥。",
+    "排练时只穿一件黑色高领毛衣和长裙，修长的手指扣着琴弓，坐下时双膝并得很紧，裙摆垂到脚踝。"
+   ],
+   "decision": {
+    "avoids": [
+     "当众失态",
+     "欠人情",
+     "被人追问"
+    ],
+    "contrast": "台上清冷得像一捧雪，被人看穿那把锁时会红到耳根。",
+    "core_value": "琴声要干净，心意也要是自己的。",
+    "goal_options": [
+     "撑到首演谢幕，一次“休止”也不说，亲手赢回那把钥匙",
+     "找个只有两人的时候，问清楚握着钥匙的人心里到底怎么想"
+    ],
+    "never": [
+     "拿琴声去换私情",
+     "在摄像师面前低头"
+    ],
+    "prefers": [
+     "说到做到的人",
+     "在人前替独奏家留足体面",
+     "安静"
+    ],
+    "pressure_responses": {
+     "breaking": "当着最近的那个人，低声说出“休止”。",
+     "high": "说要回休息室换弦，把握钥匙的人叫进去。",
+     "low": "弓速放慢，声音更冷，换把时轻轻吸一口气。",
+     "mid": "排练间隙看握钥匙的人一眼，像警告，也像求救。"
+    },
+    "relationship_stance": "对乐评和观众都冷淡，只在握钥匙的人面前会笑。",
+    "withdrawal": "抱着琴转过身去，一遍遍拉同一个音阶，谁叫也不应。"
+   },
+   "gender": "female",
+   "gender_reason": "柴赛金奖的清冷大提琴独奏家，这场首演的主角。",
+   "id": "cellist_shen_nan_qiao",
+   "identity": {
+    "authority": "首演的速度、分句和谢幕，都由独奏家一个人说了算。",
+    "exposure": "那件贞操带和那场赌约一旦传出去，乐评会写的就不再是琴声。",
+    "hidden": "赌约是独奏家自己提的。把钥匙交出去那一刻，心里第一次觉得踏实，像终于有人替自己记着分寸。",
+    "limits": [
+     "首演之前锁扣解不开，钥匙不在自己手里",
+     "过金属探测门、做全身彩排都得格外小心"
+    ],
+    "obligations": [
+     "首演那晚拉出最好的一场",
+     "守住柴赛金奖得主的名声"
+    ],
+    "resources": [
+     "一把古董名琴",
+     "暗号“休止”",
+     "整个乐团对独奏家的敬重"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "握着钥匙却从不拿来要挟的分寸",
+     "在台上替独奏家挡住一个机位的那一下"
+    ],
+    "boundaries": [
+     "“休止”一出口立刻停，钥匙当场归还",
+     "不在第三个人面前碰那件贞操带"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "台上一个人拉完全场，台下只把钥匙交给一个人。",
+    "dislikes": [
+     "拿赌约当把柄的人",
+     "当众的轻浮",
+     "长焦镜头"
+    ],
+    "expression": "把松香盒塞进对方手里，指尖在掌心停一下才拿开。",
+    "likes": [
+     "被人记住暗号",
+     "一段只给一个人听的即兴",
+     "谢幕后的白玫瑰"
+    ],
+    "preconditions": [
+     "首演那一关过了，人在锁得上门的地方",
+     "两人都清醒，心意出于自己，不是赌约逼出来的"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "柴赛金奖大提琴独奏家",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_side_stage_tuning_alcove",
+     "to": 600
+    },
+    {
+     "from": 600,
+     "location_id": "loc_golden_hall_solo_stage",
+     "to": 780
+    },
+    {
+     "from": 780,
+     "location_id": "loc_musikverein_cafe",
+     "to": 840
+    },
+    {
+     "from": 840,
+     "location_id": "loc_golden_hall_solo_stage",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_backstage_instrument_depot",
+     "to": 1200
+    },
+    {
+     "from": 1200,
+     "location_id": "loc_soloist_green_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "每一场排练都要分一半心神压住在意，拉错一个音乐团都会看出来。",
+      "option": "咬牙撑到首演，一次“休止”也不说。"
+     },
+     {
+      "cost": "离开排练会被乐团看见，谈出来的条件也未必由自己定。",
+      "option": "排练间隙把握钥匙的人叫进休息室，当面谈条件。"
+     }
+    ],
+    "pressure": "带妆彩排要上全身机位，首演当天还要过金属探测门，钥匙在别人手里。",
+    "trigger": "排练周开始那晚自己提了赌约，首演之前那件贞操带都要锁着。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "钥匙就在那个人口袋里……{npc.name}不能分心，再拉完这一段，就这一段。",
+    "surface": "第二乐章再慢一点。……这里的弱音，我要整个大厅都屏住呼吸。"
+   }
+  },
+  {
+   "adult_context": "钢琴伴奏专业硕士毕业，乐团驻团伴奏第五年，这场首演的排练伴奏。",
+   "age_range": [
+    29,
+    33
+   ],
+   "appearance_options": [
+    "黑色衬衫袖口挽到小臂，无框眼镜，坐在琴凳上背挺得笔直。",
+    "说话轻，笑起来很温和，乐谱上用铅笔写满了独奏家的呼吸记号。"
+   ],
+   "decision": {
+    "avoids": [
+     "争执",
+     "被卷进别人的私事"
+    ],
+    "contrast": "看起来什么都不在意，其实独奏家每一下皱眉都记着。",
+    "core_value": "好的伴奏，是让独奏家忘了伴奏在。",
+    "goal_options": [
+     "今天的排练让独奏家顺顺利利拉完",
+     "弄清楚独奏家为什么频频看向握钥匙的人"
+    ],
+    "never": [
+     "出卖独奏家"
+    ],
+    "prefers": [
+     "安静的排练",
+     "把话说清楚"
+    ],
+    "pressure_responses": {
+     "breaking": "当着所有人合上琴盖，说今天到此为止。",
+     "high": "说钢琴音不准，请大家休息一刻钟。",
+     "low": "把速度悄悄放慢半拍，替独奏家留一口气。",
+     "mid": "借口换谱，停下排练两分钟。"
+    },
+    "relationship_stance": "对谁都温和，对独奏家格外小心。",
+    "withdrawal": "低头翻谱，一句话也不说。"
+   },
+   "gender": "male",
+   "gender_reason": "乐团驻团钢琴伴奏，排练周每天陪独奏家合伴奏。",
+   "id": "turner_lu_ze_yuan",
+   "identity": {
+    "authority": "排练时的速度和停顿，伴奏可以跟独奏家商量。",
+    "exposure": "要是被人知道伴奏早就看出了那场赌约，还替独奏家打掩护，合约不会续。",
+    "hidden": "暗恋独奏家很多年，从来没说出口。",
+    "limits": [
+     "正式演出不上台",
+     "不能替独奏家做任何决定"
+    ],
+    "obligations": [
+     "每天陪独奏家合伴奏"
+    ],
+    "resources": [
+     "排练厅的钢琴和钥匙",
+     "独奏家每一个呼吸的记号"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "独奏家拉琴时的侧脸",
+     "认真对待音乐的人"
+    ],
+    "boundaries": [
+     "不碰独奏家的私事"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "做独奏家最可靠的伴奏。",
+    "dislikes": [
+     "轻浮",
+     "拿音乐开玩笑"
+    ],
+    "expression": "在谱子的空白处写一句只有对方看得懂的话。",
+    "likes": [
+     "深夜的琴房",
+     "一杯热茶"
+    ],
+    "preconditions": [
+     "独奏家那边没有任何麻烦，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "乐团驻团钢琴伴奏",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_golden_hall_solo_stage",
+     "to": 780
+    },
+    {
+     "from": 780,
+     "location_id": "loc_musikverein_cafe",
+     "to": 840
+    },
+    {
+     "from": 840,
+     "location_id": "loc_golden_hall_solo_stage",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_soloist_green_room",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "指挥会发现，追问伴奏为什么拖。",
+      "option": "把速度放慢，替独奏家遮过去。"
+     },
+     {
+      "cost": "等于承认自己看出了什么，以后就是共犯。",
+      "option": "去找握钥匙的人，请对方今天别让独奏家分心。"
+     }
+    ],
+    "pressure": "指挥要求明天的速度再快一档。",
+    "trigger": "排练时独奏家两次在同一个地方乱了呼吸。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "又是那个眼神……{npc.name}只能把这一段弹得再慢一点。",
+    "surface": "第三小节我等你。……慢慢来，不急。"
+   }
+  },
+  {
+   "adult_context": "克雷莫纳制琴学校毕业，乐团驻场弦乐器技师第八年。",
+   "age_range": [
+    30,
+    36
+   ],
+   "appearance_options": [
+    "深色工装背心，腰上挂着一个皮质工具套，手指上有几道细小的刀痕。",
+    "话很少，看琴的眼神比看人专注，袖口上总沾着一点松香粉。"
+   ],
+   "decision": {
+    "avoids": [
+     "后台的闲话",
+     "被人催"
+    ],
+    "contrast": "看起来冷冰冰，修好一把琴会高兴一整天。",
+    "core_value": "琴不会说谎。",
+    "goal_options": [
+     "首演前把独奏家那把琴的面板修好",
+     "弄清楚整备室里那个松香盒为什么总被人动过"
+    ],
+    "never": [
+     "拿琴去冒险"
+    ],
+    "prefers": [
+     "安静的工作台",
+     "说话直接的人"
+    ],
+    "pressure_responses": {
+     "breaking": "当着指挥的面说，独奏家必须换一把琴。",
+     "high": "说这把琴今晚不能上台，要连夜粘面板。",
+     "low": "敲敲琴的面板，说“还撑得住”。",
+     "mid": "把独奏家的琴锁进恒湿柜，不让任何人碰。"
+    },
+    "relationship_stance": "对琴比对人上心，对爱琴的人另眼相看。",
+    "withdrawal": "戴上放大镜，背过身去修琴，谁说话也不理。"
+   },
+   "gender": "male",
+   "gender_reason": "乐团驻场的弦乐器技师，管着全团的琴和弓。",
+   "id": "technician_song_ting_feng",
+   "identity": {
+    "authority": "琴能不能上台，技师说了算。",
+    "exposure": "要是被查出私下替人改过琴的档案，执照会被吊销。",
+    "hidden": "看见过独奏家把一把银钥匙的照片设成手机屏保。",
+    "limits": [
+     "不能动独奏家的私人物品",
+     "恒湿机坏了要等厂家来修"
+    ],
+    "obligations": [
+     "首演那晚每一把琴都要在最好的状态"
+    ],
+    "resources": [
+     "整备室的钥匙与工具",
+     "全团每一把琴的档案"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "一双懂琴的手",
+     "肯陪自己熬夜修琴的人"
+    ],
+    "boundaries": [
+     "不在整备室里越线"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "做那个替所有人守住琴的人。",
+    "dislikes": [
+     "粗手粗脚",
+     "催促"
+    ],
+    "expression": "把一根调好的弦缠成圈，递到对方手里。",
+    "likes": [
+     "木头的味道",
+     "安静"
+    ],
+    "preconditions": [
+     "琴先修好，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "乐团驻场弦乐器技师",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_backstage_instrument_depot",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_side_stage_tuning_alcove",
+     "to": 1200
+    },
+    {
+     "from": 1200,
+     "location_id": "loc_backstage_instrument_depot",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "独奏家今晚没琴可练。",
+      "option": "连夜粘面板，让琴在整备室里过夜。"
+     },
+     {
+      "cost": "独奏家会很不高兴，首演的声音也会打折扣。",
+      "option": "请独奏家暂时换一把备用琴。"
+     }
+    ],
+    "pressure": "首演之前必须修好，否则只能换琴。",
+    "trigger": "整备室的恒湿机坏了，独奏家那把琴的面板开始开胶。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "那个松香盒的位置又变了……{npc.name}不问，但都看在眼里。",
+    "surface": "面板开了一道缝，今晚得粘，明早才干得透。"
+   }
+  },
+  {
+   "adult_context": "维也纳音乐学院毕业，乐团大提琴声部副首席，和独奏家同窗四年。",
+   "age_range": [
+    28,
+    32
+   ],
+   "appearance_options": [
+    "栗色长发微卷垂肩，穿一件宽松的米色针织衫，笑起来眼睛弯弯的。",
+    "排练时坐在独奏家斜后方，琴弓在指间转一圈，眼睛总往独奏家那边看。"
+   ],
+   "decision": {
+    "avoids": [
+     "背后说人",
+     "被当成外人"
+    ],
+    "contrast": "看起来大大咧咧，其实最会察言观色。",
+    "core_value": "朋友就是要在台下接住你的人。",
+    "goal_options": [
+     "弄清楚独奏家这几天为什么魂不守舍",
+     "替独奏家挡住乐团里的闲话"
+    ],
+    "never": [
+     "把朋友的秘密说出去"
+    ],
+    "prefers": [
+     "直来直去",
+     "一起吃顿好的"
+    ],
+    "pressure_responses": {
+     "breaking": "当着声部的人替独奏家顶一句，把火引到自己身上。",
+     "high": "去找握钥匙的人，问对方到底想干什么。",
+     "low": "在排练间隙递给独奏家一块巧克力。",
+     "mid": "把独奏家拉到一边，小声问“你还好吗”。"
+    },
+    "relationship_stance": "对朋友掏心掏肺，对外人有点护短。",
+    "withdrawal": "抱着琴回到声部的座位，一言不发地调弦。"
+   },
+   "gender": "female",
+   "gender_reason": "乐团大提琴声部的副首席，独奏家在音乐学院的同窗。",
+   "id": "cellist_lin_wei_an",
+   "identity": {
+    "authority": "大提琴声部的排练由副首席带。",
+    "exposure": "当年和独奏家竞争同一个大赛名额，私下说过不好听的话，被人翻出来会很难看。",
+    "hidden": "那场赌约的庆功宴上，副首席也在，看见了钥匙交出去的那一幕。",
+    "limits": [
+     "不是独奏家，首演轮不到自己",
+     "跟独奏家走太近会被说攀附"
+    ],
+    "obligations": [
+     "带好声部，给独奏家托底"
+    ],
+    "resources": [
+     "声部里的人缘",
+     "同窗四年的了解"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对独奏家好的人",
+     "会逗自己笑的人"
+    ],
+    "boundaries": [
+     "不碰朋友的人"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "做独奏家一辈子的朋友。",
+    "dislikes": [
+     "装腔作势",
+     "欺负朋友的人"
+    ],
+    "expression": "把自己那块蛋糕推过去，说“你吃，我不饿”。",
+    "likes": [
+     "热闹",
+     "萨赫蛋糕"
+    ],
+    "preconditions": [
+     "独奏家那边一切都好，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "乐团大提琴声部副首席",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_golden_hall_solo_stage",
+     "to": 780
+    },
+    {
+     "from": 780,
+     "location_id": "loc_musikverein_cafe",
+     "to": 840
+    },
+    {
+     "from": 840,
+     "location_id": "loc_golden_hall_solo_stage",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_musikverein_cafe",
+     "to": 1200
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "说法要跟技师对上，否则会被拆穿。",
+      "option": "替独奏家编一个说法，说是在换新弦不适应。"
+     },
+     {
+      "cost": "问出来的事，副首席也要一起扛。",
+      "option": "直接去问握钥匙的人。"
+     }
+    ],
+    "pressure": "闲话再传下去，就会传到指挥和乐评人耳朵里。",
+    "trigger": "声部里有人开始说独奏家这几天“不对劲”。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "钥匙……那晚交出去的钥匙。{npc.name}早该想到的。",
+    "surface": "你今天的揉弦有点紧。……别跟我说是因为指挥。"
+   }
+  },
+  {
+   "adult_context": "维也纳乐坛的老指挥，乐团的终身艺术总监，执棒四十年。",
+   "age_range": [
+    55,
+    62
+   ],
+   "appearance_options": [
+    "银发梳得一丝不苟，深色天鹅绒外套，乌木指挥棒总握在手里。",
+    "排练时不看谱，只看独奏家，眼神严厉得像要把人看穿。"
+   ],
+   "decision": {
+    "avoids": [
+     "闲聊",
+     "借口"
+    ],
+    "contrast": "排练时像暴君，散场后会一个人坐在空大厅里发呆。",
+    "core_value": "音乐面前，没有私事。",
+    "goal_options": [
+     "把独奏家逼到最好的状态",
+     "首演那晚不出一点差错"
+    ],
+    "never": [
+     "在音乐上妥协"
+    ],
+    "prefers": [
+     "专注",
+     "准时"
+    ],
+    "pressure_responses": {
+     "breaking": "当着全团说，独奏家要是心不在这里，可以换人。",
+     "high": "要求独奏家单独留下来加练。",
+     "low": "用指挥棒敲谱架，说“再来一遍”。",
+     "mid": "点名独奏家，问刚才那一段在想什么。"
+    },
+    "relationship_stance": "对谁都严厉，只对真心爱音乐的人柔软一点。",
+    "withdrawal": "放下指挥棒，转身面对空空的观众席，很久不说话。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "conductor_carl_von_hohenberg",
+   "identity": {
+    "authority": "首演的一切，包括独奏家，最后都要指挥点头。",
+    "exposure": "身体其实已经撑不住整场，要是被人知道，这就是最后一场。",
+    "hidden": "这场协奏曲是指挥最后一次登台，谁也没告诉。",
+    "limits": [
+     "年纪大了，排练不能超过三小时",
+     "要顾全乐团的名声"
+    ],
+    "obligations": [
+     "交出一场配得上金色大厅的首演"
+    ],
+    "resources": [
+     "四十年的声望",
+     "乐团的全部排练时间"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "真心爱音乐的人",
+     "敢在排练时跟指挥顶一句的胆子"
+    ],
+    "boundaries": [
+     "不在乐团里有私情"
+    ],
+    "desire_range": [
+     0,
+     2
+    ],
+    "desired_position": "做独奏家这一生最后一个严师。",
+    "dislikes": [
+     "敷衍",
+     "迟到"
+    ],
+    "expression": "在散场后的空大厅里，请对方坐下听一段老唱片。",
+    "likes": [
+     "空无一人的大厅",
+     "老唱片"
+    ],
+    "preconditions": [
+     "音乐先放在第一位，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "乐团终身艺术总监、首演指挥",
+   "schedule": [
+    {
+     "from": 600,
+     "location_id": "loc_golden_hall_solo_stage",
+     "to": 780
+    },
+    {
+     "from": 840,
+     "location_id": "loc_golden_hall_solo_stage",
+     "to": 1020
+    },
+    {
+     "from": 1020,
+     "location_id": "loc_musikverein_cafe",
+     "to": 1140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "加练太多，指挥自己会先倒下。",
+      "option": "单独留下独奏家加练，逼出最好的状态。"
+     },
+     {
+      "cost": "指挥会知道一些不该知道的事。",
+      "option": "找握钥匙的人谈，问独奏家到底怎么了。"
+     }
+    ],
+    "pressure": "首演只剩几天，指挥的身体撑不了太多加练。",
+    "trigger": "独奏家这几天在同一个乐句上反复走神。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "那孩子的心不在这里……{npc.name}还剩几场能等？",
+    "surface": "不对。再来。……我要的不是漂亮，是真。"
+   }
+  },
+  {
+   "adult_context": "影视摄影专业毕业，转播公司的主摄像师，拍过十年古典音乐直播。",
+   "age_range": [
+    31,
+    36
+   ],
+   "appearance_options": [
+    "黑色多口袋马甲，头上戴着通话耳麦，手总搭在摇臂的操纵杆上。",
+    "笑起来很随和，眼睛却一直盯着取景器，长焦镜头总落在独奏家身上。"
+   ],
+   "decision": {
+    "avoids": [
+     "留下书面记录",
+     "得罪导播"
+    ],
+    "contrast": "人前随和健谈，人后什么都拿来做交易。",
+    "core_value": "好镜头就是钱。",
+    "goal_options": [
+     "拍到一个能卖大价钱的独家画面",
+     "拿那段录像换独奏家一次私下的“专访”"
+    ],
+    "never": [
+     "当面承认自己拍过什么"
+    ],
+    "prefers": [
+     "拿捏别人的软肋",
+     "独家"
+    ],
+    "pressure_responses": {
+     "breaking": "说要把素材交给导播“看看怎么用”。",
+     "high": "约独奏家去咖啡馆单独谈。",
+     "low": "把长焦推近一格，对着独奏家的裙摆。",
+     "mid": "在后台跟独奏家搭话，提一句彩排的素材“很有意思”。"
+    },
+    "relationship_stance": "对有用的人热情，对挡路的人冷淡。",
+    "withdrawal": "收起摇臂，摘下耳麦，说今天的机位调好了。"
+   },
+   "gender": "male",
+   "gender_reason": "转播公司派来的主摄像师，负责首演的全球直播。",
+   "id": "cameraman_chen_xing_lan",
+   "identity": {
+    "authority": "首演的画面拍什么、怎么拍，摄像师有很大的话语权。",
+    "exposure": "私下把彩排素材卖给八卦网站的事，要是被转播公司知道，饭碗立刻没了。",
+    "hidden": "彩排时的长焦镜头拍到独奏家俯身时真丝裙下贞操带的轮廓，一直留在自己的硬盘里。",
+    "limits": [
+     "录像不能外传",
+     "导播随时会换掉主机位"
+    ],
+    "obligations": [
+     "交出一场漂亮的直播"
+    ],
+    "resources": [
+     "彩排的全部录像",
+     "长焦镜头和摇臂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "镜头里越冷越想拍的那张脸",
+     "被拒绝过的那口气"
+    ],
+    "boundaries": [
+     "不在机位和导播面前越线"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "让独奏家主动来找自己。",
+    "dislikes": [
+     "被人挡镜头",
+     "被无视"
+    ],
+    "expression": "把一杯咖啡推到对方面前，说“我们私下聊聊素材的事”。",
+    "likes": [
+     "别人有求于己",
+     "独家画面"
+    ],
+    "preconditions": [
+     "对方心甘情愿，而不是被拿捏，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "首演转播主摄像师",
+   "schedule": [
+    {
+     "from": 600,
+     "location_id": "loc_golden_hall_solo_stage",
+     "to": 780
+    },
+    {
+     "from": 780,
+     "location_id": "loc_musikverein_cafe",
+     "to": 840
+    },
+    {
+     "from": 840,
+     "location_id": "loc_golden_hall_solo_stage",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_musikverein_cafe",
+     "to": 1200
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "独奏家要是告到转播公司，饭碗不保。",
+      "option": "拿素材去找独奏家谈条件。"
+     },
+     {
+      "cost": "一旦查到源头，再也接不到古典音乐的活。",
+      "option": "私下卖给八卦网站。"
+     }
+    ],
+    "pressure": "转播公司在催独家花絮，摄像师需要一个大新闻。",
+    "trigger": "回放彩排录像时，发现了独奏家俯身时的那一帧。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "那个轮廓……{npc.name}没看错。这段素材，值钱。",
+    "surface": "独奏家，明天的彩排我想给您一个全身机位，从脚踝慢慢摇上来。"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "首演周的星期二，五月",
+  "minute": 600
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "workplace_power",
+  "gambling",
+  "coercion_theme"
+ ],
+ "custom": false,
+ "customs": [
+  "独奏家上台前要在侧台调音廊里拉一遍空弦，这时候谁也不许说话。",
+  "乐团排练间隙在对街的老咖啡馆喝一杯米朗琪咖啡，配一块萨赫蛋糕。",
+  "首演前一晚，独奏家会把松香盒交给最信任的人保管，图个吉利。",
+  "谢幕时收到的第一朵白玫瑰，要插在休息室的花瓶里留到下一场。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "独奏家闭着眼拉空弦，四根弦一根一根过，呼吸压得很深。",
+    "拉到C弦，独奏家停了一下，睁眼看你：钥匙带着吗？"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_cellist_open_string_glance",
+    "hook_cellist_alcove_hem"
+   ],
+   "id": "act_morning_open_strings",
+   "location_ids": [
+    "loc_side_stage_tuning_alcove"
+   ],
+   "start_minute": 545,
+   "tags": [],
+   "title": "侧台的空弦"
+  },
+  {
+   "beats": [
+    "指挥用指挥棒敲谱架，第一乐章从头再来，独奏家的琴声冷得像冰。",
+    "第二乐章的弱音段，独奏家的弓轻轻抖了一下，又稳住了。",
+    "排练间隙，独奏家把松香盒放在谱架上，朝你这边推了一推。"
+   ],
+   "duration_minutes": 150,
+   "hook_ids": [
+    "hook_cellist_rosin_on_stand",
+    "hook_conductor_baton_tap",
+    "hook_cameraman_lens_push"
+   ],
+   "id": "act_full_orchestra_rehearsal",
+   "location_ids": [
+    "loc_golden_hall_solo_stage"
+   ],
+   "start_minute": 610,
+   "tags": [],
+   "title": "全团排练"
+  },
+  {
+   "beats": [
+    "独奏家坐进最里面的卡座，双手捧着咖啡，一口也没喝。",
+    "副首席端着两块萨赫蛋糕挤进来，看看独奏家，又看看你。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [
+    "hook_cellist_cafe_booth",
+    "hook_friend_cake_across"
+   ],
+   "id": "act_cafe_melange_break",
+   "location_ids": [
+    "loc_musikverein_cafe"
+   ],
+   "start_minute": 790,
+   "tags": [],
+   "title": "对街的米朗琪"
+  },
+  {
+   "beats": [
+    "独奏家换上墨蓝露背长裙，坐上高脚琴凳，裙摆在灯下泛着光。",
+    "摄像师的摇臂慢慢降下来，长焦镜头停在独奏家的脚踝边。"
+   ],
+   "duration_minutes": 120,
+   "hook_ids": [
+    "hook_cellist_hem_whisper",
+    "hook_cameraman_lens_push"
+   ],
+   "id": "act_afternoon_dress_rehearsal",
+   "location_ids": [
+    "loc_golden_hall_solo_stage"
+   ],
+   "start_minute": 850,
+   "tags": [],
+   "title": "下午的带妆彩排"
+  },
+  {
+   "beats": [
+    "技师把独奏家的琴放上工作台，一根一根松弦，松香的味道浮起来。",
+    "独奏家把松香盒抱在怀里，不肯放下，眼睛却看着你。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [
+    "hook_cellist_rosin_box",
+    "hook_technician_panel_seam"
+   ],
+   "id": "act_depot_string_change",
+   "location_ids": [
+    "loc_backstage_instrument_depot"
+   ],
+   "start_minute": 1090,
+   "tags": [],
+   "title": "整备室换弦"
+  },
+  {
+   "beats": [
+    "伴奏坐在立式钢琴前，独奏家抱着琴坐在沙发边上，三个人谁也没说话。",
+    "加练结束，伴奏收起谱子先走了，门在身后轻轻合上。"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [
+    "hook_pianist_waits_breath",
+    "hook_cellist_green_room_lock"
+   ],
+   "id": "act_late_rehearsal_with_piano",
+   "location_ids": [
+    "loc_soloist_green_room"
+   ],
+   "start_minute": 1200,
+   "tags": [],
+   "title": "闭馆后的加练"
+  },
+  {
+   "beats": [
+    "演出结束，独奏家坐在立式钢琴前，让你随便弹几个和弦，自己抱着琴跟上。",
+    "合到最后一个长音，独奏家放下琴弓，侧过身把额头抵在你肩上，很久没有说话。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hook_cellist_green_room_lock"
+   ],
+   "id": "act_green_room_duet",
+   "location_ids": [
+    "loc_soloist_green_room"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "合一段即兴二重奏"
+  },
+  {
+   "beats": [
+    "独奏家坐在天鹅绒沙发上，朝你摊开掌心，等那把银钥匙落下来。",
+    "独奏家握着钥匙看了很久，又把它放回你手里：赌约结束了。……这一次，是我自己想要你开。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hook_cellist_palm_for_key"
+   ],
+   "id": "act_green_room_belt",
+   "location_ids": [
+    "loc_soloist_green_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "银钥匙物归原主"
+  },
+  {
+   "beats": [
+    "独奏家从花瓶里抽出一朵白玫瑰，掰掉刺，别在你的衣襟上。",
+    "独奏家退后一步端详，忽然凑过来在你唇角碰了一下：……这朵，是今晚最好的一朵。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hook_cellist_green_room_lock"
+   ],
+   "id": "act_green_room_rose",
+   "location_ids": [
+    "loc_soloist_green_room"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "intimate"
+   ],
+   "title": "一朵谢幕的白玫瑰"
+  },
+  {
+   "beats": [
+    "天亮前，独奏家披着你的外套坐在沙发上，慢慢给琴弓上松香。",
+    "独奏家把琴弓递给你，手指勾住你的手：今天不练琴了。……就这样待着。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hook_cellist_palm_for_key"
+   ],
+   "id": "act_green_room_dawn_rosin",
+   "location_ids": [
+    "loc_soloist_green_room"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "清晨替琴弓上松香"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代维也纳，金色大厅一场大提琴协奏曲首演前的排练周",
+ "extends": null,
+ "forbidden_terms": [
+  "幼女",
+  "萝莉",
+  "幼态",
+  "未成年",
+  "初中",
+  "高中生",
+  "女童",
+  "男童",
+  "儿童",
+  "少女",
+  "少男",
+  "幼小",
+  "稚嫩",
+  "初潮",
+  "变态",
+  "他",
+  "她"
+ ],
+ "hooks": [
+  {
+   "id": "hook_cellist_open_string_glance",
+   "kind": "approach",
+   "location_ids": [
+    "loc_side_stage_tuning_alcove"
+   ],
+   "slot": "cellist_shen_nan_qiao",
+   "text": "{npc.name}拉完最后一根空弦，弓还搭在弦上，抬眼看着你，轻声问：钥匙带着吗？"
+  },
+  {
+   "id": "hook_cellist_alcove_hem",
+   "kind": "approach",
+   "location_ids": [
+    "loc_side_stage_tuning_alcove"
+   ],
+   "slot": "cellist_shen_nan_qiao",
+   "text": "垂幔后面，{npc.name}背对着你站起来，低声说：裙摆后面……帮我看看，平不平。"
+  },
+  {
+   "id": "hook_cellist_rosin_on_stand",
+   "kind": "approach",
+   "location_ids": [
+    "loc_golden_hall_solo_stage"
+   ],
+   "slot": "cellist_shen_nan_qiao",
+   "text": "排练间隙，{npc.name}把松香盒放在谱架边，用指尖朝你推了一寸，又若无其事地调弦。"
+  },
+  {
+   "id": "hook_cellist_hem_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "loc_golden_hall_solo_stage"
+   ],
+   "slot": "cellist_shen_nan_qiao",
+   "text": "{npc.name}借着调谱架侧过身，声音压得很低：待会儿起身……你站在镜头那边。"
+  },
+  {
+   "id": "hook_cellist_cafe_booth",
+   "kind": "approach",
+   "location_ids": [
+    "loc_musikverein_cafe"
+   ],
+   "slot": "cellist_shen_nan_qiao",
+   "text": "{npc.name}坐进最里面的卡座，捧着咖啡，朝你抬了抬下巴：坐这儿。我们谈谈钥匙的事。"
+  },
+  {
+   "id": "hook_cellist_rosin_box",
+   "kind": "approach",
+   "location_ids": [
+    "loc_backstage_instrument_depot"
+   ],
+   "slot": "cellist_shen_nan_qiao",
+   "text": "{npc.name}把松香盒塞进你手里，指尖在你掌心停了一下：首演之前，替我收好。"
+  },
+  {
+   "id": "hook_cellist_green_room_lock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_soloist_green_room"
+   ],
+   "slot": "cellist_shen_nan_qiao",
+   "text": "{npc.name}倚在休息室门边，手搭在门锁上：今天的排练结束了。……进来吗？"
+  },
+  {
+   "id": "hook_cellist_palm_for_key",
+   "kind": "request",
+   "location_ids": [
+    "loc_soloist_green_room"
+   ],
+   "slot": "cellist_shen_nan_qiao",
+   "text": "{npc.name}坐在天鹅绒沙发上，朝你摊开掌心：钥匙。今晚，换我来定规矩。"
+  },
+  {
+   "id": "hook_conductor_baton_tap",
+   "kind": "observe",
+   "location_ids": [
+    "loc_golden_hall_solo_stage"
+   ],
+   "slot": "conductor_carl_von_hohenberg",
+   "text": "{npc.name}用指挥棒敲了敲谱架，目光越过空荡的乐池，落在你身上，停了两秒。"
+  },
+  {
+   "id": "hook_cameraman_lens_push",
+   "kind": "observe",
+   "location_ids": [
+    "loc_golden_hall_solo_stage"
+   ],
+   "slot": "cameraman_chen_xing_lan",
+   "text": "{npc.name}的摇臂慢慢降下来，长焦镜头对准了独奏家的裙摆，又朝你这边偏了一偏。"
+  },
+  {
+   "id": "hook_cameraman_cafe_phone",
+   "kind": "request",
+   "location_ids": [
+    "loc_musikverein_cafe"
+   ],
+   "slot": "cameraman_chen_xing_lan",
+   "text": "{npc.name}端着咖啡在你旁边坐下，把手机屏幕朝下扣在桌上：聊聊？关于彩排的素材。"
+  },
+  {
+   "id": "hook_friend_cake_across",
+   "kind": "approach",
+   "location_ids": [
+    "loc_musikverein_cafe"
+   ],
+   "slot": "cellist_lin_wei_an",
+   "text": "{npc.name}把一块萨赫蛋糕推到你面前，自己搅着咖啡：今天这块，算我请你的。"
+  },
+  {
+   "id": "hook_pianist_waits_breath",
+   "kind": "approach",
+   "location_ids": [
+    "loc_soloist_green_room"
+   ],
+   "slot": "turner_lu_ze_yuan",
+   "text": "{npc.name}的手停在琴键上，没有回头，轻声说：你每次走神，都会慢半拍。还是老样子。"
+  },
+  {
+   "id": "hook_technician_panel_seam",
+   "kind": "approach",
+   "location_ids": [
+    "loc_backstage_instrument_depot"
+   ],
+   "slot": "technician_song_ting_feng",
+   "text": "{npc.name}把放大镜递给你，指着那把旧琴琴头内侧刻着的两个字母：这是你当年刻的吧。"
+  }
+ ],
+ "id": "cellist_hall_tailpin_lock_jam",
+ "locations": [
+  {
+   "affordances": [
+    "替独奏家调一下谱架",
+    "在台口递上一杯温水",
+    "替独奏家挡住一个机位"
+   ],
+   "detail": "金色大厅鎏金的舞台中央，一把高脚琴凳、一块红毯，身后是整个乐团，台下是一排排空着的红丝绒座椅。",
+   "exits": [
+    "loc_side_stage_tuning_alcove"
+   ],
+   "id": "loc_golden_hall_solo_stage",
+   "name": "独奏台",
+   "pressure_modifiers": {
+    "press_dress_rehearsal_close_up": "全身机位就架在台口，裙摆的每一道褶都会进画面"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "整个乐团和转播机位都对着这里，独奏家的每一下呼吸都在灯下。",
+   "witnesses": [
+    "bg_orchestra_librarian",
+    "bg_lighting_operator"
+   ]
+  },
+  {
+   "affordances": [
+    "陪独奏家听一遍空弦",
+    "替独奏家整理裙摆",
+    "隔着垂幔低声说一句话"
+   ],
+   "detail": "舞台侧面的一条窄廊，挂着暗金色的垂幔，一把椅子、一个琴架，墙上的湿度计指针在微微发抖。",
+   "exits": [
+    "loc_golden_hall_solo_stage",
+    "loc_backstage_instrument_depot",
+    "loc_soloist_green_room",
+    "loc_musikverein_cafe"
+   ],
+   "id": "loc_side_stage_tuning_alcove",
+   "name": "侧台调音廊",
+   "pressure_modifiers": {
+    "press_cameraman_footage": "调音廊没有监控，谈价钱的话只有两人听得见",
+    "press_metal_detector_gate": "探测门就装在调音廊出口，谁身上带着什么，一过门就知道"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "垂幔后面只有一盏小灯，路过的乐手掀帘就能看见里面的人。",
+   "witnesses": [
+    "bg_stage_runner"
+   ]
+  },
+  {
+   "affordances": [
+    "和技师一起检查琴的面板",
+    "替独奏家换一根弦",
+    "把银钥匙藏进松香盒"
+   ],
+   "detail": "后台恒温恒湿的整备室，一排琴柜、一张工作台、满墙的弓和弦，空气里是松香和木头的味道。",
+   "exits": [
+    "loc_side_stage_tuning_alcove"
+   ],
+   "id": "loc_backstage_instrument_depot",
+   "name": "乐器整备室",
+   "pressure_modifiers": {
+    "press_humidity_seam_opening": "整备室的恒湿机坏了，琴放在这里一小时，面板就多开一分"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "门从里面能闩上，唯一的小窗被一排琴箱挡住；外面只当里面在调湿度，没人会推门。",
+   "witnesses": [
+    "bg_depot_humidity_keeper"
+   ]
+  },
+  {
+   "affordances": [
+    "陪独奏家合一段二重奏",
+    "把银钥匙放回独奏家掌心",
+    "锁上休息室的门"
+   ],
+   "detail": "金色大厅后台的独奏家休息室，一架立式钢琴、一张天鹅绒长沙发、琴盒敞着放在墙边，花瓶里插着谢幕时收到的白玫瑰。",
+   "exits": [
+    "loc_side_stage_tuning_alcove"
+   ],
+   "id": "loc_soloist_green_room",
+   "name": "独奏家休息室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "门一锁，舞台上的掌声隔着两道门只剩一点余韵。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "替独奏家点一杯米朗琪",
+    "坐进最里面的卡座",
+    "在桌下把钥匙递过去或收回来"
+   ],
+   "detail": "金色大厅对街一家百年老咖啡馆，大理石小圆桌、红色皮卡座，玻璃柜里摆着萨赫蛋糕，窗外就是大厅的后门。",
+   "exits": [
+    "loc_side_stage_tuning_alcove"
+   ],
+   "id": "loc_musikverein_cafe",
+   "name": "对街的咖啡馆",
+   "pressure_modifiers": {
+    "press_cameraman_footage": "摄像师坐在靠窗的位子，手机屏幕朝下扣在桌上",
+    "press_patron_dinner_seat": "赞助人的秘书就在柜台前订晚宴的位子",
+    "press_section_rumor_key": "乐团的人就坐在隔壁卡座，一句话说重了就会传回排练厅"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "乐团的人、乐评人和游客挤在一起，谁和谁同坐一张卡座，转眼就会被人说起。",
+   "witnesses": [
+    "bg_cafe_waiter",
+    "bg_music_critic"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "沈",
+   "霍",
+   "陆",
+   "顾",
+   "温",
+   "许",
+   "宋",
+   "程",
+   "裴",
+   "商",
+   "林",
+   "苏",
+   "阮",
+   "司",
+   "白",
+   "姜"
+  ],
+  "given_female": [
+   "南乔",
+   "知微",
+   "安然",
+   "倾城",
+   "灵萱",
+   "羽灵",
+   "诗音",
+   "浅雪",
+   "萌萌",
+   "清婉",
+   "晚柠",
+   "语蝶",
+   "映雪",
+   "芷晴",
+   "曼云",
+   "雪见"
+  ],
+  "given_male": [
+   "修远",
+   "廷锋",
+   "长青",
+   "景川",
+   "震霆",
+   "天成",
+   "博瀚",
+   "逸轩",
+   "承宇",
+   "明哲",
+   "子墨",
+   "绍辉",
+   "弘文",
+   "元化",
+   "泽远",
+   "汉斯"
+  ],
+  "given_neutral": [
+   "知秋",
+   "若水",
+   "青川",
+   "云舟",
+   "怀瑾",
+   "望舒",
+   "沐风",
+   "鸣谦",
+   "秋白",
+   "书禾",
+   "书意",
+   "景行",
+   "玄同",
+   "丹青",
+   "天音",
+   "景澄"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "{family}先生"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "2026-10-17 按用户提供的改造方案重写：保留世界 ID、清冷大提琴女神的人设与外貌、钛合金贞操带，加一把银钥匙；去掉尾针咬死锁壳、琴弓银螺母撬簧片和十五秒起拍倒数的脱困套路，改成排练周里的钥匙抵押博弈。赌约由独奏家自己提出，暗号“休止”一说钥匙当场归还，所以钥匙不登记为把柄；把柄只放在摄像师对独奏家身上。新增四个只有独奏家一人在场的组合，覆盖四种权力结构；原来的指挥台换成对街的咖啡馆。\n2026-10-18 按写作规则 v2 改造：组合改成 8 组单人加 1 组摄像师同场；副首席、伴奏、指挥、技师各有一段和你的旧账（卡座暧昧、音乐学院旧情、白玫瑰、没写进合同的约定）；整备室改成可躲藏的私密空间。",
+ "player_identities": [
+  {
+   "age_range": [
+    34,
+    42
+   ],
+   "baseline": "这场首演是自己一手促成的，独奏家的合约也是自己签的；排练周开始那晚，银钥匙交到了自己手里。",
+   "gender": "any",
+   "id": "pi_solo_cellist_shen_nan_qiao",
+   "reputation": "在维也纳经营乐团十五年、说一不二的总经理",
+   "resources": [
+    "乐团的预算与排期",
+    "那把银钥匙",
+    "大厅后台的全部门禁"
+   ],
+   "risks": [
+    "首演砸了，乐团明年的赞助全部落空"
+   ],
+   "role": "乐团的艺术总经理",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    29,
+    36
+   ],
+   "baseline": "坐在指挥左手边，开场的定音由自己领；和独奏家在音乐学院同过学，那场赌约是两人在庆功宴上打的。",
+   "gender": "any",
+   "id": "pi_score_turner_lu_ze_yuan",
+   "reputation": "乐团里唯一敢跟独奏家争一个速度的人",
+   "resources": [
+    "整个乐团的定音",
+    "那把银钥匙",
+    "十年的同窗情分"
+   ],
+   "risks": [
+    "和独奏家走得太近，乐团里的闲话会说首席偏心"
+   ],
+   "role": "乐团的首席小提琴",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}首席"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    40
+   ],
+   "baseline": "开幕、灯光和转播信号都归自己调度；独奏家说信得过舞台上最冷静的人，就把银钥匙押给了自己。",
+   "gender": "any",
+   "id": "pi_instrument_technician_song_ting_feng",
+   "reputation": "在金色大厅做了十年、从没出过错的舞台监督",
+   "resources": [
+    "后台的调度与对讲",
+    "那把银钥匙",
+    "彩排录像的调阅权限"
+   ],
+   "risks": [
+    "后台出了岔子，十年的口碑一夜清零"
+   ],
+   "role": "金色大厅的舞台监督",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}监督"
+    },
+    {
+     "gender": "any",
+     "pattern": "老{family}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    29
+   ],
+   "baseline": "管前排贵宾和侧台通道，每天给独奏家送水；那晚独奏家说想把钥匙交给一个跟这一切无关的人，交给了自己。",
+   "gender": "any",
+   "id": "pi_stage_coordinator_wen_zi_mo",
+   "reputation": "安静、靠得住、谁也不会多看一眼的引座员",
+   "resources": [
+    "侧台通道的钥匙",
+    "那把银钥匙",
+    "大厅里每一条没人走的小路"
+   ],
+   "risks": [
+    "被人知道和独奏家有私交，工作就保不住了"
+   ],
+   "role": "金色大厅的引座员",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "小{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "维也纳金色大厅的大提琴协奏曲首演前一周，清冷的大提琴女神每天排练到闭馆。排练周开始那晚，女神自己提了一个赌约：首演之前锁着那件钛合金贞操带，银钥匙押在赢家手里，撑不住就说“休止”，钥匙当场归还。转播组的摄像师最近总把长焦对着女神的裙摆。",
+ "pressures": [
+  {
+   "choice": "替独奏家去跟导播争机位，就得给一个理由；不争，那件锁就要在灯下过三回。",
+   "exits": [
+    {
+     "cost": "导播会记住是你出面，摄像师也会知道是谁挡了镜头。",
+     "option": "你去找导播，说独奏家要求只拍半身。"
+    },
+    {
+     "cost": "指挥会追问伤势，乐团里会传出独奏家身体不好的话。",
+     "option": "让独奏家自己说腰伤了，鞠躬只做一次。"
+    }
+   ],
+   "far": {
+    "consequence": "首演的直播里会多出一段独奏家起身的特写，乐评人会注意到。",
+    "due_days": 3,
+    "trigger": "那几帧画面被导播选进花絮"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_cellist_hem_whisper",
+    "hook_cameraman_lens_push",
+    "hook_conductor_baton_tap"
+   ],
+   "id": "press_dress_rehearsal_close_up",
+   "immediate": {
+    "minutes": 10,
+    "text": "摇臂降下来，灯光师喊了一声“全身光”，独奏家握着琴弓站了起来。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_golden_hall_solo_stage"
+   ],
+   "near": {
+    "deadline_minutes": 240,
+    "text": "彩排录像今晚就会交给导播挑镜头。"
+   },
+   "objective": "让彩排顺顺利利走完，不让镜头里留下任何不该有的东西。",
+   "source": "institution",
+   "start_minute": 860,
+   "tags": [],
+   "title": "全身机位的彩排",
+   "trigger": "导播通知：今天的带妆彩排要测全身机位，独奏家要起身鞠躬三次，镜头从脚踝摇到肩膀。"
+  },
+  {
+   "choice": "答应摄像师私下“专访”，就是把柄换把柄；拒绝，那一帧随时会落到导播或八卦网站手里。",
+   "exits": [
+    {
+     "cost": "调阅会留下记录，你就成了这件事里第三个知情的人。",
+     "option": "你去找舞台监督调彩排录像的原始文件，看那一帧在不在公司的服务器上。"
+    },
+    {
+     "cost": "投诉就得说清楚那一帧拍到了什么，秘密会多几个人知道。",
+     "option": "独奏家冷着脸去找转播公司投诉摄像师。"
+    }
+   ],
+   "far": {
+    "consequence": "首演变成一场丑闻，独奏家的欧洲巡演合约全部取消。",
+    "due_days": 5,
+    "trigger": "那一帧被卖给八卦网站"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "hook_cameraman_cafe_phone",
+    "hook_cellist_cafe_booth"
+   ],
+   "id": "press_cameraman_footage",
+   "immediate": {
+    "minutes": 15,
+    "text": "摄像师把手机收回口袋，笑着说：不急，独奏家想好了再来找我。"
+   },
+   "leverage": {
+    "basis": "摄像师硬盘里有彩排时拍到独奏家真丝裙下贞操带轮廓的那一帧。",
+    "holder": "cameraman_chen_xing_lan",
+    "subject": "cellist_shen_nan_qiao"
+   },
+   "location_ids": [
+    "loc_musikverein_cafe",
+    "loc_side_stage_tuning_alcove"
+   ],
+   "near": {
+    "deadline_minutes": 1200,
+    "text": "摄像师说明天彩排之前要一个答复。"
+   },
+   "objective": "在摄像师把素材交出去之前，弄清楚对方要什么，再把素材拿回来。",
+   "source": "person",
+   "start_minute": 800,
+   "tags": [
+    "coercion_theme"
+   ],
+   "title": "长焦里的那一帧",
+   "trigger": "摄像师在咖啡馆拦住独奏家，把手机亮了一下：彩排录像里有一帧，独奏家俯身时，真丝裙下的轮廓看得很清楚。"
+  },
+  {
+   "choice": "出面解释，就得编一个说法；不管，闲话会越传越像真的。",
+   "exits": [
+    {
+     "cost": "钥匙得先藏到别处，藏在哪儿又是一个风险。",
+     "option": "你当着乐团的人把口袋翻出来，说里面只有排练表。"
+    },
+    {
+     "cost": "副首席从此就是知情人，这份人情要还。",
+     "option": "让副首席去声部里替独奏家编个说法。"
+    }
+   ],
+   "far": {
+    "consequence": "首演的乐评会先写独奏家的私生活，再写琴声。",
+    "due_days": 4,
+    "trigger": "闲话被乐评人写进专栏"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_friend_cake_across",
+    "hook_cellist_cafe_booth",
+    "hook_pianist_waits_breath"
+   ],
+   "id": "press_section_rumor_key",
+   "immediate": {
+    "minutes": 15,
+    "text": "副首席在咖啡馆里小声提了一句，眼睛往隔壁卡座瞟。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_musikverein_cafe",
+    "loc_golden_hall_solo_stage"
+   ],
+   "near": {
+    "deadline_minutes": 90,
+    "text": "下午排练前，这话可能已经传遍声部。"
+   },
+   "objective": "在闲话传到指挥和乐评人耳朵里之前，把它压下去。",
+   "source": "rumor",
+   "start_minute": 795,
+   "tags": [],
+   "title": "钥匙的闲话",
+   "trigger": "乐团里有人说，独奏家这几天总盯着同一个人的口袋看，“像是有什么东西押在那里”。"
+  },
+  {
+   "choice": "钥匙放进托盘，保安会看见；藏在别处，又怕出门时取不回来。",
+   "exits": [
+    {
+     "cost": "申请要写理由，签字的人会记住这件事。",
+     "option": "你去找舞台监督，替独奏家申请走贵宾通道免检。"
+    },
+    {
+     "cost": "赌约就此作罢，独奏家输了这一局。",
+     "option": "独奏家说出“休止”，你当场把钥匙还回去，先把锁取下来。"
+    }
+   ],
+   "far": {
+    "consequence": "首演当天要请独奏家到安检室单独检查。",
+    "due_days": 3,
+    "trigger": "保安记下独奏家过门时报警"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_cellist_alcove_hem",
+    "hook_cellist_open_string_glance"
+   ],
+   "id": "press_metal_detector_gate",
+   "immediate": {
+    "minutes": 10,
+    "text": "保安在调音廊出口装好了门，第一个过去的乐手身上响了一声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_side_stage_tuning_alcove"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "独奏家半小时后要从这里回台上，那件锁一过门就会响。"
+   },
+   "objective": "让独奏家和那把钥匙都过得了门，不在保安面前留下疑点。",
+   "source": "accident",
+   "start_minute": 960,
+   "tags": [],
+   "title": "后台的金属探测门",
+   "trigger": "大厅临时宣布：因为首演有贵宾出席，从今天起后台所有人都要过金属探测门，钥匙和首饰放进托盘。"
+  },
+  {
+   "choice": "连夜粘面板，琴今晚就离不开整备室；换备用琴，独奏家首演的声音会打折扣。",
+   "exits": [
+    {
+     "cost": "整夜都在门上有小窗的整备室里，谁路过都看得见三个人。",
+     "option": "你陪技师和独奏家在整备室守一夜，看着胶慢慢干。"
+    },
+    {
+     "cost": "独奏家会难过一整晚，也会怪你不肯陪那把琴熬。",
+     "option": "把备用琴从琴柜里拿出来，让独奏家先试一晚。"
+    }
+   ],
+   "far": {
+    "consequence": "这把琴要送回克雷莫纳大修，首演只能用备用琴。",
+    "due_days": 2,
+    "trigger": "面板裂缝扩大到音梁"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_technician_panel_seam",
+    "hook_cellist_rosin_box"
+   ],
+   "id": "press_humidity_seam_opening",
+   "immediate": {
+    "minutes": 20,
+    "text": "技师敲了敲面板，脸色沉下来：缝在往里走。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_backstage_instrument_depot"
+   ],
+   "near": {
+    "deadline_minutes": 720,
+    "text": "胶要十二小时才干得透，明早的排练就要用琴。"
+   },
+   "objective": "在首演前把琴修好，或者找到一把能替代的琴。",
+   "source": "nature",
+   "start_minute": 1100,
+   "tags": [],
+   "title": "面板开胶",
+   "trigger": "整备室的恒湿机坏了，独奏家那把古董琴的面板边缘开了一道细缝。"
+  },
+  {
+   "choice": "推掉晚宴，赞助会打折；去了，就要穿着紧身长裙坐一整晚，钥匙还在别人手里。",
+   "exits": [
+    {
+     "cost": "晚宴上所有人都会看见你们坐在一起，第二天乐团就有闲话。",
+     "option": "你作为陪同坐在独奏家身边，替独奏家挡掉那些敬酒和起身。"
+    },
+    {
+     "cost": "赞助人会不高兴，这个人情要你自己去还。",
+     "option": "你去找赞助人，说独奏家首演前要静养，改成首演后单独致谢。"
+    }
+   ],
+   "far": {
+    "consequence": "赞助人明年的赞助减半，乐团要裁掉一个声部。",
+    "due_days": 7,
+    "trigger": "独奏家推掉晚宴或在晚宴上失态"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_cellist_cafe_booth",
+    "hook_friend_cake_across"
+   ],
+   "id": "press_patron_dinner_seat",
+   "immediate": {
+    "minutes": 20,
+    "text": "赞助人的秘书在咖啡馆柜台前订好了位子，回头朝独奏家笑了笑。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_musikverein_cafe"
+   ],
+   "near": {
+    "deadline_minutes": 180,
+    "text": "晚宴三小时后开始，独奏家得先回休息室换裙子。"
+   },
+   "objective": "让独奏家体面地出席，又不让晚宴上的任何人看出那件锁。",
+   "source": "money",
+   "start_minute": 1020,
+   "tags": [],
+   "title": "赞助人的晚宴",
+   "trigger": "乐团最大的赞助人临时请独奏家出席今晚的私人晚宴，要穿那件墨蓝露背长裙，坐满整整三小时。"
+  }
+ ],
+ "region": "金色大厅：独奏台、侧台调音廊、乐器整备室、独奏家休息室与对街的咖啡馆",
+ "rules": [
+  {
+   "id": "rule_rehearsal_hall_closed",
+   "text": "排练周金色大厅不对外开放，进出后台要刷工作证，闭馆后只有独奏家和值班的人能留下。"
+  },
+  {
+   "id": "rule_premiere_security_check",
+   "text": "首演当天，后台所有人都要过金属探测门，随身的钥匙、首饰和工具要放进托盘过检。"
+  },
+  {
+   "id": "rule_broadcast_rehearsal_cameras",
+   "text": "转播组从带妆彩排起就架好机位，彩排的画面会录下来给导播挑镜头，未经独奏家同意不得外传。"
+  },
+  {
+   "id": "rule_wager_ends_on_xiuzhi",
+   "text": "那场赌约是独奏家自己提的：只要说一声“休止”，持钥匙的人必须当场把银钥匙交还，赌约作罢，谁也不许追问。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "点头之交",
+  "committed": "首演之后",
+  "familiar": "同台排练",
+  "flirting": "钥匙在握",
+  "intimate": "休息室落锁",
+  "stranger": "台下听众",
+  "testing": "押与赎"
+ },
+ "status": "released",
+ "style_hint": "写琴声里一丝不乱的清冷和裙下藏不住的在意，句子短，落在呼吸、弓速、膝盖与指尖上；钥匙在谁手里，就写谁的手。",
+ "tension_engines": [
+  {
+   "id": "eng_silver_key_pledge",
+   "text": "银钥匙押在一个人口袋里，“休止”在另一个人嘴边：谁先开口，谁就输了这场赌约。"
+  },
+  {
+   "id": "eng_cold_surface_warm_lock",
+   "text": "台上清冷得一丝不乱，真丝裙下那件冷冰冰的锁，只有两个人知道。"
+  },
+  {
+   "id": "eng_long_lens",
+   "text": "转播组的长焦镜头一直对着独奏家，拍到什么、留下什么，都在别人手里。"
+  },
+  {
+   "id": "eng_premiere_checks",
+   "text": "首演前的全身彩排和金属探测门，每一关都可能让那个秘密露出一角。"
+  }
+ ],
+ "title": "金色大厅的首演周",
+ "tone": [
+  "一把银钥匙",
+  "真丝裙下的冷",
+  "说休止就停",
+  "清冷的琴声"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_info_key_engraving",
+   "requires": [
+    "cellist_shen_nan_qiao"
+   ],
+   "text": "银钥匙的柄上刻着一行很小的字，是独奏家第一次登台那天的日期。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_people_cameraman_replaced",
+   "requires": [
+    "cameraman_chen_xing_lan"
+   ],
+   "text": "转播公司临时通知，主机位换人，原来的摄像师被调去拍观众席。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_resource_spare_key",
+   "requires": [
+    "cellist_lin_wei_an"
+   ],
+   "text": "副首席的琴盒夹层里，有一把独奏家很多年前寄存的备用钥匙，一直没还。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_rule_vip_corridor",
+   "requires": [
+    "pressure"
+   ],
+   "text": "大厅规定首演当晚独奏家走贵宾通道，不必过探测门，但要有人全程陪同。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_deadline_rehearsal_moved",
+   "requires": [
+    "conductor_carl_von_hohenberg"
+   ],
+   "text": "指挥临时把带妆彩排提前到明天一早，今晚就是最后一个安静的晚上。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_relation_pianist_confession",
+   "requires": [
+    "turner_lu_ze_yuan"
+   ],
+   "text": "伴奏在谱子最后一页的空白处，用铅笔写了一句话，独奏家翻谱时看见了。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_accident_power_cut",
+   "requires": [
+    "daily"
+   ],
+   "text": "后台忽然停电，侧台调音廊里一片漆黑，只剩独奏家的呼吸和你口袋里那把钥匙的轻响。"
+  }
+ ]
+}

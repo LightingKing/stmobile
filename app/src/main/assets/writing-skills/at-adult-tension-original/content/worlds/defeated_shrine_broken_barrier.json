@@ -1,0 +1,2562 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "修行数百年、爱看热闹的成年狐妖。",
+   "age_range": [
+    20,
+    25
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_honden_ceiling_demon",
+   "line": "{npc.name}：“嘻嘻……本殿里有人没睡，我可什么都没看见哦……”",
+   "location_ids": [
+    "honden_central_tatami_hall"
+   ],
+   "name": null,
+   "role": "躲在殿梁上看热闹的小狐妖"
+  },
+  {
+   "adult_context": "宗家派驻神社、负责夜间巡查的成年侍女。",
+   "age_range": [
+    20,
+    26
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_alcove_long_tongue_specter",
+   "line": "{npc.name}隔着障子门轻声问：“巫女长大人，内殿还亮着灯吗？”",
+   "location_ids": [
+    "inner_sanctum_altar_curtain_alcove"
+   ],
+   "name": null,
+   "role": "子夜巡查内殿的宗家侍女"
+  },
+  {
+   "adult_context": "替阴阳寮跑腿送信的成年天狗。",
+   "age_range": [
+    20,
+    28
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_veranda_crow_tengu",
+   "line": "{npc.name}：“呱！京里的回函到了，巡捕使大人亲启！”",
+   "location_ids": [
+    "veranda_rain_swept_corridor"
+   ],
+   "name": null,
+   "role": "替阴阳寮送信的鸦天狗"
+  },
+  {
+   "adult_context": "守护地脉玄冰逾千载之成年上古通灵神兽。",
+   "age_range": [
+    21,
+    30
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_spring_twin_headed_serpent",
+   "line": "{npc.name}：“嘶……地脉将竭……前山第三重符石，是被人从里面震裂移开的……”",
+   "location_ids": [
+    "hidden_underground_spring_vault"
+   ],
+   "name": null,
+   "role": "半睡半醒的双头守护灵蛇"
+  },
+  {
+   "adult_context": "宗家长老会的成年执事。",
+   "age_range": [
+    22,
+    35
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_gate_one_horned_ogre",
+   "line": "{npc.name}：“奉长老会之命，子时前点验御神印，请巫女长示下。”",
+   "location_ids": [
+    "honden_central_tatami_hall"
+   ],
+   "name": null,
+   "role": "长老会派来的核查执事"
+  },
+  {
+   "adult_context": "山下村社负责防汛与通报之成年在籍民兵。",
+   "age_range": [
+    20,
+    24
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_village_signal_runner",
+   "line": "{npc.name}：“神子大人……山下的河涨水了，村里人都盼着结界早日重铸……”",
+   "location_ids": [
+    "veranda_rain_swept_corridor"
+   ],
+   "name": null,
+   "role": "冒雨登山报信的山民哨探"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "半米见方的金丝帷幔后，{defeated_maiden_head_shizuka.name}神志清明，只是灵脉微颤，靠在石壁上；你伸手按住对方腰间随时会响的神乐铃，两人呼吸交错。",
+   "id": "combo_shizuka_alcove_bell",
+   "identity_ids": [
+    "pc_shrine_lodging_swordsman",
+    "pc_herbal_medicine_drifter_wanderer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "defeated_maiden_head_shizuka",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月后山除妖遇暴雨，你在废祠里用干衣裹住脱力的巫女长守了一夜，天亮对方清醒后把半枚白狐玉佩塞进你手里",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "defeated_maiden_head_shizuka"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "不让神乐铃作响，平复{defeated_maiden_head_shizuka.name}的灵脉余温，商定寒泉重铸之策。",
+    "limit_gap": "{defeated_maiden_head_shizuka.name}嘴上端着巫女长的清冷架子，手却攥着你的衣襟不放。",
+    "meeting_reason": "你夜巡时察觉奥之宫气息微乱，钻进帷幔替{defeated_maiden_head_shizuka.name}按住神乐铃、渡气平脉。",
+    "resource_gap": "铃声惊动巡夜，你私入内殿的事会震动宗家；{defeated_maiden_head_shizuka.name}不借纯阳内息平复灵脉，就主持不了结界重铸。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_bell_vs_trembling",
+    "te_pride_vs_close_quarters"
+   ]
+  },
+  {
+   "chemistry": "幽蓝寒泉边，{shrine_lodging_swordsman.name}单膝跪在白玉阵台旁替你烘干湿透的衣角，破魔直刀横在一侧，抬头看你的眼神炽热而克制。",
+   "id": "combo_swordsman_spring_oath",
+   "identity_ids": [
+    "pc_defeated_maiden_head_shizuka",
+    "pc_frontier_court_young_onmyoji_inspecto"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "shrine_lodging_swordsman",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "去年秋祭夜山妖来袭，剑士替你挡下一记毒爪，事后在寒泉边清醒交心，你解下发带替对方包扎手腕",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "shrine_lodging_swordsman"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "与{shrine_lodging_swordsman.name}在阵台上合力重铸八重结界，打破两人之间的门第隔阂。",
+    "limit_gap": "{shrine_lodging_swordsman.name}自认出身寒微不敢越雷池半步，只等你清醒时亲口给一句准话。",
+    "meeting_reason": "你屏退左右，独自召{shrine_lodging_swordsman.name}随你进地下寒泉核验封魔阵眼。",
+    "resource_gap": "你要在子夜前与最信得过的人合掌重开结界；{shrine_lodging_swordsman.name}替你渡气护脉已耗去大半内息。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_pride_vs_close_quarters",
+    "te_fever_vs_purification"
+   ]
+  },
+  {
+   "chemistry": "风雨飘摇的朱红回廊下，{frontier_court_young_onmyoji_inspector.name}托着流转蓝光的冰魄阵盘，把盖着阴阳寮朱印的考功密卷递到你指尖。",
+   "id": "combo_inspector_veranda_array",
+   "identity_ids": [
+    "pc_defeated_maiden_head_shizuka"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "frontier_court_young_onmyoji_inspector",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "入山首日夜雨对弈，你认出巡捕使袖中那枚前朝古玉却替其瞒下，对方耳根微红，赠你一枚避妖银牌",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "frontier_court_young_onmyoji_inspector"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让{frontier_court_young_onmyoji_inspector.name}在考功密卷上抹去神社众人的疏失，交出冰魄阵盘的主导权。",
+    "limit_gap": "{frontier_court_young_onmyoji_inspector.name}想用公事公办掩饰对你的偏护，你却看穿了对方袖中的特批金帛。",
+    "meeting_reason": "你雨夜巡视结界令旗时，留住{frontier_court_young_onmyoji_inspector.name}单独商议考功折子的写法。",
+    "resource_gap": "考功密卷上一字褒贬决定神社存废；{frontier_court_young_onmyoji_inspector.name}私扣前朝古玉的旧账一旦外泄，前途尽毁。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_siege_vs_survival",
+    "te_pride_vs_close_quarters"
+   ]
+  },
+  {
+   "chemistry": "石龛暗炉上温着雪莲清心汤，{herbal_medicine_drifter_wanderer.name}展开银针囊替你舒缓经脉暗伤，微凉的手指按在你后颈穴位上。",
+   "id": "combo_wanderer_silver_needle",
+   "identity_ids": [
+    "pc_defeated_maiden_head_shizuka",
+    "pc_frontier_court_young_onmyoji_inspecto"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "herbal_medicine_drifter_wanderer",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三日前山道暴雨滑坡，你冒雨背回摔进山涧的药箱并替医者烘衣，对方往你掌心塞了一只绣着白芷的香囊",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "herbal_medicine_drifter_wanderer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "行针间稳住经脉灵力，替{herbal_medicine_drifter_wanderer.name}藏好药箱暗格里的旧物。",
+    "limit_gap": "{herbal_medicine_drifter_wanderer.name}嘴上只说是医者本分，却把仅存的两丸清心丹全留给了你。",
+    "meeting_reason": "你借煎驱寒药汤之名进内殿侧龛，请{herbal_medicine_drifter_wanderer.name}单独为你行针调息。",
+    "resource_gap": "你连日巡山守夜经脉紧绷，子夜前不疏通就撑不住大阵重铸；{herbal_medicine_drifter_wanderer.name}药箱底层藏着救治义盗的旧物。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_fever_vs_purification",
+    "te_bell_vs_trembling"
+   ]
+  },
+  {
+   "chemistry": "{disgraced_branch_family_scion.name}蹲在神台暗渠入口，指间转着那把唯一的青铜钥匙，嘴角挂着讥诮的笑打量你，却默默让出了半块干燥石阶。",
+   "id": "combo_scion_secret_tunnel",
+   "identity_ids": [
+    "pc_loyal_shrine_guard"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "disgraced_branch_family_scion",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "半月前旁系少爷受家法被关进柴房，你夜里翻窗送去金疮药与热酒，两人抵着木墙说尽了心底话",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "disgraced_branch_family_scion"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "拿到地脉生门图、开启暗渠，与{disgraced_branch_family_scion.name}结成攻守同盟。",
+    "limit_gap": "{disgraced_branch_family_scion.name}故意拿话刺你，试探你会不会像宗家那样翻脸，心底却盼着你开口留人。",
+    "meeting_reason": "你巡查排洪暗道时，按约定的暗号在秘窟入口与{disgraced_branch_family_scion.name}会合。",
+    "resource_gap": "{disgraced_branch_family_scion.name}握着暗渠铜钥与地脉古图，自己却背着私动库房礼器的罪名，今夜不立功就要被除族。"
+   },
+   "tags": [
+    "intimate",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_siege_vs_survival",
+    "te_pride_vs_close_quarters"
+   ]
+  },
+  {
+   "chemistry": "{loyal_shrine_guard.name}横握长枪守在本殿门廊前，手里捏着今晚的门禁簿与军械库密钥，看你的目光在军纪与私心之间挣扎。",
+   "id": "combo_guard_honden_spear",
+   "identity_ids": [
+    "pc_disgraced_branch_family_scion"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "loyal_shrine_guard",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "去年冬夜山贼袭扰村社，你与近卫背靠背守住山门到天亮，事后替对方瞒下私放难民入山的军令状",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "loyal_shrine_guard"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "替{loyal_shrine_guard.name}重新包扎左臂，请对方压下今夜的门禁异常记录。",
+    "limit_gap": "{loyal_shrine_guard.name}想按规矩把你护在后方，你却执意留下与对方共守本殿。",
+    "meeting_reason": "你在暴雨换岗时带着干布与伤药来到本殿门廊，找掌管门禁的{loyal_shrine_guard.name}交涉。",
+    "resource_gap": "你夜进禁地的记录就写在{loyal_shrine_guard.name}的门禁簿上；对方左臂旧伤复发，又背着私放山民的旧案。"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_siege_vs_survival",
+    "te_bell_vs_trembling"
+   ]
+  },
+  {
+   "chemistry": "寒泉边灵脉余毒已清，{defeated_maiden_head_shizuka.name}神志清明地赤足立在白玉阵台上，亲手解下腰间那串神乐铃递向你的手腕。",
+   "id": "combo_shizuka_spring_awakening",
+   "identity_ids": [
+    "pc_loyal_shrine_guard",
+    "pc_disgraced_branch_family_scion"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "defeated_maiden_head_shizuka",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "朔日寒泉行禊礼前夕你替巫女长修好松动的檀木发簪，对方低声允诺秋祭后单独为你跳一曲神乐舞",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "defeated_maiden_head_shizuka"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "替{defeated_maiden_head_shizuka.name}封存禁书拓片的隐患，在阵台前定下平权守护的盟约。",
+    "limit_gap": "{defeated_maiden_head_shizuka.name}已放下千年世家的矜傲向你伸出手，只看你敢不敢接下这份心意。",
+    "meeting_reason": "重铸阵眼之后，{defeated_maiden_head_shizuka.name}借口单独核验御神印，把你留在寒泉石室。",
+    "resource_gap": "接过代表宗家权柄的神乐铃，你就卷进了继承风暴；{defeated_maiden_head_shizuka.name}私开禁书库的拓片还在案头。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_fever_vs_purification",
+    "te_pride_vs_close_quarters"
+   ]
+  },
+  {
+   "chemistry": "暴雨如注的朱红回廊下，{shrine_lodging_swordsman.name}把干燥的羽织披在你肩上，自己半边肩膀淋着檐水，按着刀柄替你挡住穿堂风。",
+   "id": "combo_swordsman_veranda_rain",
+   "identity_ids": [
+    "pc_herbal_medicine_drifter_wanderer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "shrine_lodging_swordsman",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "上旬后山道场比剑你故意收招让了半寸，剑士看破后在廊下替你包扎虎口，追问你为何手下留情",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "shrine_lodging_swordsman"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "与{shrine_lodging_swordsman.name}合力加固回廊符阵，在檐下把积压的话说开。",
+    "limit_gap": "{shrine_lodging_swordsman.name}习惯把危险往自己身上揽，你偏要与对方并肩走完这段悬空长廊。",
+    "meeting_reason": "你提着朱砂符纸与热姜汤来到外廊，与巡视栈道桩基的{shrine_lodging_swordsman.name}会合。",
+    "resource_gap": "栈道被山洪冲得发软，今夜要重布辟邪符；{shrine_lodging_swordsman.name}昔年独闯禁地的旧罚未消，防线有失首当其冲。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_bell_vs_trembling",
+    "te_siege_vs_survival"
+   ]
+  },
+  {
+   "chemistry": "你受{defeated_maiden_head_shizuka.name}所托，把{frontier_court_young_onmyoji_inspector.name}请进奥之宫内殿：一边是巡捕使查获的禁书库拓片，一边是重铸结界急需的冰魄阵盘。",
+   "id": "combo_alcove_scroll_and_seal_trap",
+   "identity_ids": [
+    "pc_shrine_lodging_swordsman",
+    "pc_herbal_medicine_drifter_wanderer"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "defeated_maiden_head_shizuka",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "入梅雨季前你在奥之宫神镜前立誓无论宗家如何变幻都站在巫女长一侧，获赠神库副钥",
+     "stage": "committed"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "frontier_court_young_onmyoji_inspector",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "前日核验前山符石裂痕时你替巡捕使找回遗落的八卦银牌，对方承诺在考功折上卖你一个人情",
+     "stage": "testing"
+    },
+    {
+     "a": "frontier_court_young_onmyoji_inspector",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "defeated_maiden_head_shizuka",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "巡捕使查获巫女长私阅宗家禁书的拓片却秘而不宣，借此要神社在重铸结界时配合阴阳寮",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "defeated_maiden_head_shizuka",
+    "frontier_court_young_onmyoji_inspector"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "促成{frontier_court_young_onmyoji_inspector.name}销毁拓片记录，换三方联手在寒泉重开结界。",
+    "limit_gap": "{defeated_maiden_head_shizuka.name}不肯向朝廷折辱宗家颜面，{frontier_court_young_onmyoji_inspector.name}需要一份能向阴阳寮交差的盟约。",
+    "meeting_reason": "{defeated_maiden_head_shizuka.name}早一步向你透底拓片被查，你随即请{frontier_court_young_onmyoji_inspector.name}携冰魄阵盘入内殿密商。",
+    "resource_gap": "{frontier_court_young_onmyoji_inspector.name}握着{defeated_maiden_head_shizuka.name}私阅禁书的拓片，自己也忌惮前朝古玉败露；你握着两人都要的寒泉阵台。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_bell_vs_trembling",
+    "te_pride_vs_close_quarters"
+   ]
+  },
+  {
+   "chemistry": "你把{loyal_shrine_guard.name}与{disgraced_branch_family_scion.name}同时请到本殿神台后：一人捏着库房礼器典当的巡夜账页，一人握着通往寒泉的唯一暗渠铜钥。",
+   "id": "combo_honden_ledger_and_tunnel_pact",
+   "identity_ids": [
+    "pc_shrine_lodging_swordsman",
+    "pc_defeated_maiden_head_shizuka"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "disgraced_branch_family_scion",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月替杂役赎回典当药材时你暗中补上了旁系少爷亏空的银两，对方在廊下拦住你塞了一枚亲手雕的木刀坠",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "loyal_shrine_guard",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "入夏以来你每逢雨夜都去本殿替近卫分担半宿巡防，两人早已习惯把后背交给彼此",
+     "stage": "familiar"
+    },
+    {
+     "a": "loyal_shrine_guard",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "disgraced_branch_family_scion",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "近卫查到旁系少爷私开宗家库房的记录，得知银两用于救治杂役后压在怀里没报长老",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "disgraced_branch_family_scion",
+    "loyal_shrine_guard"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让{loyal_shrine_guard.name}烧掉那页旧账，换{disgraced_branch_family_scion.name}开启暗渠、与近卫并肩守殿。",
+    "limit_gap": "{loyal_shrine_guard.name}死守宗家门规不肯抹账，{disgraced_branch_family_scion.name}不肯向看不起旁系的人低头解释。",
+    "meeting_reason": "封山前你分别听过两人的难处，今夜在神台后把账页与铜钥都摆上台面。",
+    "resource_gap": "{loyal_shrine_guard.name}握着{disgraced_branch_family_scion.name}私动库房的铁证，自己也要靠暗渠转移伤员；你握着两人都听的那句话。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_siege_vs_survival",
+    "te_fever_vs_purification"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_kagura_bell_resonance",
+   "reach": "两人的心跳与紧绷都会化作铜铃的微弱嗡鸣，声音保真，却随时可能惊动门外。",
+   "text": "神乐铃极近距离震颤微音"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_shoji_muffled_whispers",
+   "reach": "声音穿过浸湿的樟木拉门与厚重帷幔，只剩贴耳的气声，温热而私密。",
+   "text": "障子门与帷幔后的气声低语"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_thunder_acoustic_masking",
+   "reach": "雷声与砸在瓦上的暴雨盖住低语与呼吸，但雷声停歇的间隙会忽然安静得吓人。",
+   "text": "暴雨雷鸣的天然声学掩护"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "橘川神道名门当代继承人兼首席巫女长，年满二十周岁、具备完全自主之成年神职领袖。",
+   "age_range": [
+    20,
+    22
+   ],
+   "appearance_options": [
+    "纯白丝质白衣与深绯行灯袴，乌黑长发以素白檀木簪挽起，几缕发丝贴在微红的颈侧；神志清醒，眼神冷冽，腰间悬着遇晃即响的神乐铃",
+    "寒泉净手后换上干净白衣，长发披散，赤足立在殿中，第一次不端架子地直视身旁的人"
+   ],
+   "decision": {
+    "avoids": [
+     "仗势欺人的宗家阀阅",
+     "轻浮孟浪之徒"
+    ],
+    "contrast": "人前是凛然不可侵犯的神明代言人；无人处却会亲手解下神乐铃系在心上人腕间。",
+    "core_value": "我是橘川家第七十六代巫女长，就算结界动摇，也绝不在外人面前失了神职风骨。",
+    "goal_options": [
+     "在神乐铃不作响的前提下稳住帷幔后的气息",
+     "借同伴纯阳灵力渡穴彻底平复灵脉中的狐火余温",
+     "前往地下寒泉阵台重铸八重守御结界"
+    ],
+    "never": [
+     "拿神道名器与自身清白作利益交换"
+    ],
+    "prefers": [
+     "沉稳可靠、危难关头守得住分寸与诺言的人"
+    ],
+    "pressure_responses": {
+     "breaking": "听闻宗家长老拟夺走御神印时眼圈泛红，第一次低声请求同伴留下来帮自己。",
+     "high": "障子门外异响迫近时屏住呼吸，把额头抵在同伴肩窝压住铜铃。",
+     "low": "端正跪坐，微抬下巴，用冷淡的宗家口吻询问外围巡山动向。",
+     "mid": "灵脉发热微颤时咬紧下唇，手指不自觉攥紧身旁人的袖口。"
+    },
+    "relationship_stance": "人前恪守门第清规、言辞冷淡；独处时对始终守礼护持自己的同伴怀着深沉的信任与倾慕。",
+    "withdrawal": "偏过头拢好白衣领口，深吸一口气恢复冷若冰霜的神态。"
+   },
+   "gender": "female",
+   "gender_reason": "标题人物巫女长，白衣绯袴的女性神职，按此书写。",
+   "id": "defeated_maiden_head_shizuka",
+   "identity": {
+    "authority": "行使全山祭祀主持权、八重结界开启法诀与神乐宝库处置权",
+    "exposure": "曾为查清地脉枯竭真相，私自开启宗家禁书库翻阅妖神古卷并留下拓印。",
+    "hidden": "贴身香囊中藏着半枚太古白狐玉佩，心里早已记挂那个常年替神社劈柴护院的人。",
+    "limits": [
+     "前日巡山所中狐火余毒未清，灵脉微颤时腰间神乐铃极易作响",
+     "受橘川家清规束缚，人前极难放下宗家身段"
+    ],
+    "obligations": [
+     "守护后山封魔御神体与山下村落安危，重铸八重结界。"
+    ],
+    "resources": [
+     "世代相传能重铸阵眼之纯金破邪御神印",
+     "腰间可感应百丈妖气流向之纯铜神乐铃"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "咫尺贴身替自己按住神乐铃却始终克制守礼的滚烫胸膛",
+     "风雨夜里一言不发挡在身前的背影"
+    ],
+    "boundaries": [
+     "恪守神职尊严底线",
+     "绝不违背本心"
+    ],
+    "desire_range": [
+     3,
+     5
+    ],
+    "desired_position": "与心意相通之人并肩执掌神社，结为平权守护眷侣",
+    "dislikes": [
+     "趁人之危的试探",
+     "居高临下的怜悯"
+    ],
+    "expression": "攥着你的衣襟抬头直视：“我现在很清醒，不是为了报恩——把神乐铃替我解下来。”",
+    "likes": [
+     "灵脉平复后被对方温热的手掌稳稳握住手腕",
+     "对方凑在耳边低声说一句“别怕，交给我”"
+    ],
+    "preconditions": [
+     "灵脉余毒已平复、双方神志完全清醒且对等自愿",
+     "绝无任何以救命或庇护换取亲密的交易"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "橘川神社名门冷艳巫女长",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "inner_sanctum_altar_curtain_alcove",
+     "to": 350
+    },
+    {
+     "from": 351,
+     "location_id": "honden_central_tatami_hall",
+     "to": 530
+    },
+    {
+     "from": 531,
+     "location_id": "hidden_underground_spring_vault",
+     "to": 1429
+    },
+    {
+     "from": 1430,
+     "location_id": "inner_sanctum_altar_curtain_alcove",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人在狭窄帷幔后呼吸交错，再难维持平日的疏离体面",
+      "option": "由同伴贴身按住铜铃并以纯阳掌力助其平复灵脉"
+     },
+     {
+      "cost": "暂时失去铜铃对百丈外妖气动向的预警感知",
+      "option": "解下神乐铃用素帕层层裹紧收入袖袋"
+     }
+    ],
+    "pressure": "铜铃作响或禁书拓片被巡按查获，巫女长都要面临撤换神职。",
+    "trigger": "狐火余温让巫女长指尖微颤，腰间神乐铃贴在两人之间随时会响，门外的巡查就在咫尺。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "这个人的掌心怎么还是这么烫……平日装得像块木头，偏偏每次都在最要紧的时候护在我身前。",
+    "surface": "“把刀收好，守住神龛左翼。我神志清醒得很——铃响一声就会惊动外头，靠紧些，替我按住它。”"
+   }
+  },
+  {
+   "adult_context": "年满二十周岁、寄宿神社多年担当后山除妖之成年剑士。",
+   "age_range": [
+    20,
+    23
+   ],
+   "appearance_options": [
+    "洗得发白的深蓝无袖练功服被山雨打湿，双臂缠着白布绑带，身背破魔直刀，眉眼冷峻沉稳",
+    "在寒泉边拧干外袍，刀柄上系着一枚旧护身符，目光安静地落在同伴身上"
+   ],
+   "decision": {
+    "avoids": [
+     "拿门第压人的长老",
+     "临阵退缩之辈"
+    ],
+    "contrast": "人前是寡言少语的冷硬刀客；私下却会细心烘干对方淋湿的木屐与发带。",
+    "core_value": "我只是个寄宿挥刀的人，但只要我还站着，这扇门后的人就绝不会受半点委屈。",
+    "goal_options": [
+     "在帷幔后替同伴稳稳按住神乐铃",
+     "以纯阳内息替同伴疏导灵脉余温",
+     "护送同伴进入寒泉秘窟重铸结界"
+    ],
+    "never": [
+     "在对方虚弱或勉强时越过半步分寸"
+    ],
+    "prefers": [
+     "外冷内热、有骨气有担当的人"
+    ],
+    "pressure_responses": {
+     "breaking": "见同伴被宗规逼到绝境时不再隐忍，握紧刀柄一步踏出护在身前。",
+     "high": "大殿出现险情时果断横刀上前，用后背挡住风浪。",
+     "low": "背靠石壁单手按刀，凝神细听廊外风声与雨声。",
+     "mid": "压低嗓音贴耳报出门外动向，掌心稳稳护住铜铃。"
+    },
+    "relationship_stance": "平日沉默守礼从不越界；一旦确认对方在清醒下的真心，便会以性命相托。",
+    "withdrawal": "退开半步把视线移向门缝，默默将破魔直刀横在身前警戒。"
+   },
+   "gender": "male",
+   "gender_reason": "与巫女长对位的剑士，按男性书写。",
+   "id": "shrine_lodging_swordsman",
+   "identity": {
+    "authority": "行使神龛死角贴身护卫决断权与后山巡山出刀权",
+    "exposure": "曾违抗宗家长老命令独闯后山禁地救人，留有受罚记录。",
+    "hidden": "颈间挂着亡父遗留的半枚青铜玉符，多年来默默将神殿之人的喜好记在心底。",
+    "limits": [
+     "寄宿寒门武人身份，受宗家门第规矩掣肘",
+     "每次渡气都会损耗自身内息"
+    ],
+    "obligations": [
+     "护住神社众人安危，守住神乐铃与地下寒泉通道。"
+    ],
+    "resources": [
+     "可经后背穴位稳固灵脉的纯阳内息",
+     "祖传破魔直刀与两道辟邪朱砂符"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "身处重压之下依然挺直脊梁的傲骨",
+     "卸下防备后主动拉住自己衣袖的那只手"
+    ],
+    "boundaries": [
+     "护持期间绝不趁隙逾矩",
+     "尊重对方每一分自尊"
+    ],
+    "desire_range": [
+     3,
+     4
+    ],
+    "desired_position": "神社首席守护刀客，与心上人结为生死伴侣",
+    "dislikes": [
+     "拿恩情当筹码的挟制",
+     "轻慢无礼的打量"
+    ],
+    "expression": "收刀入鞘，低声道：“这句话我等了很久。从今往后，刀和命都归你。”",
+    "likes": [
+     "对方不带职称地轻唤自己本名",
+     "雨停后并肩坐在本殿长阶上擦刀饮茶"
+    ],
+    "preconditions": [
+     "双方完全清醒、地位与心意纯粹对等"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "寄宿神社的沉默年轻剑士",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "inner_sanctum_altar_curtain_alcove",
+     "to": 350
+    },
+    {
+     "from": 351,
+     "location_id": "veranda_rain_swept_corridor",
+     "to": 530
+    },
+    {
+     "from": 531,
+     "location_id": "hidden_underground_spring_vault",
+     "to": 1429
+    },
+    {
+     "from": 1430,
+     "location_id": "inner_sanctum_altar_curtain_alcove",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "右臂内息透支微麻，需要贴身缓息片刻",
+      "option": "凝神一鼓作气完成渡穴，再从容起身迎向门外"
+     },
+     {
+      "cost": "在寒泉孤寂石室中与同伴彻底独处",
+      "option": "转入地下寒泉秘窟借地脉灵气完成调息"
+     }
+    ],
+    "pressure": "中途撤掌会导致灵脉再次紊乱，继续护持则会被查出私入内殿。",
+    "trigger": "渡气疏导到了紧要关头，剑士内息耗去过半，外廊已传来宗家执事的脚步声。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "隔着衣料也能感觉到心跳得这么快……先把今夜这一关过去，剩下的话等天亮再说。",
+    "surface": "“别乱动，铃在我掌心按着。你只管稳住呼吸，门外的事交给我。”"
+   }
+  },
+  {
+   "adult_context": "年满二十一岁供职于阴阳寮、具备独立执法与案情断决法权之成年官员。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "暗银云雷纹玄色法袍，手持纯银八卦令牌，气质清贵冷峻，桃木法剑横在身侧",
+    "法袍下摆沾着山雨，单手托着流转幽蓝符文的冰魄阵盘，目光审视而深邃"
+   ],
+   "decision": {
+    "avoids": [
+     "勾结外敌的宗家败类",
+     "不知变通的腐儒"
+    ],
+    "contrast": "人前是铁面无私的阴阳寮少壮高官；私下里却愿意为你压下朝廷弹劾折子。",
+    "core_value": "阴阳有序，赏罚有凭。只要能守住此山苍生，些许腐朽门规大可由本官一笔勾销。",
+    "goal_options": [
+     "以冰魄绝息阵盘遮蔽内殿气息",
+     "查清前山符石遭人为损毁的内情",
+     "在考功文书上保下立功的神社众人"
+    ],
+    "never": [
+     "为保乌纱帽弃同道于不顾"
+    ],
+    "prefers": [
+     "胆识过人、心怀大义且懂得彼此成全的聪明人"
+    ],
+    "pressure_responses": {
+     "breaking": "当私扣古玉的把柄被点破时神色微变，主动交出监察底牌寻求结盟。",
+     "high": "拔出桃木法剑守在阵眼之前，以法印封住破损门廊。",
+     "low": "手拈银牌神色从容，低声念诵净天地咒稳住大殿气场。",
+     "mid": "激活冰魄阵盘释放寒雾，将外围窥探视线隔绝在外。"
+    },
+    "relationship_stance": "初来时端着钦差架子审视众人；见识到你的胆识后，愿在法度之内为你遮风挡雨。",
+    "withdrawal": "退至神坛侧方阴影中整了整玄色法袍，执礼拉开半步距离。"
+   },
+   "gender": "male",
+   "gender_reason": "原稿以名门贵公子书写的巡捕使，按男性书写。",
+   "id": "frontier_court_young_onmyoji_inspector",
+   "identity": {
+    "authority": "行使降妖临时处置权、宗家神职考核问责权与地方巡防调动权",
+    "exposure": "曾私自扣留一枚前朝妖圣遗留古玉未上缴国库，一旦被参奏将革职查办。",
+    "hidden": "袖袍暗袋中藏着一卷可废除门第通婚禁令的阴阳寮特批金帛。",
+    "limits": [
+     "近身搏杀不及专精武人，依赖阵盘与符法控场",
+     "背负阴阳寮监察职责，受朝廷考功文书约束"
+    ],
+    "obligations": [
+     "查明神社结界裂隙真相，核验御神印与封魔大阵。"
+    ],
+    "resources": [
+     "朝廷机密太上感应避妖玉佩",
+     "可遮蔽方圆三丈生机波动之冰魄绝息阵盘"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "绝境中临危不乱的决断力",
+     "看穿自己底牌却守口如瓶的默契"
+    ],
+    "boundaries": [
+     "不以钦差权柄强迫他人",
+     "守住正道公理"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "与你在朝堂与山门之间互为奥援的知己伴侣",
+    "dislikes": [
+     "庸俗的利益要挟",
+     "背信弃义之举"
+    ],
+    "expression": "合上巡按卷宗推到你面前，温和低语：“考功文书本官已封存。今夜之后，我只以私交留在这座山里。”",
+    "likes": [
+     "雨夜廊下对坐品茗论势",
+     "并肩布阵时指尖交接阵盘的默契"
+    ],
+    "preconditions": [
+     "彼此信任对等、当前危局已妥善控场，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "朝廷特派年轻阴阳巡捕使",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "inner_sanctum_altar_curtain_alcove",
+     "to": 170
+    },
+    {
+     "from": 171,
+     "location_id": "honden_central_tatami_hall",
+     "to": 350
+    },
+    {
+     "from": 351,
+     "location_id": "veranda_rain_swept_corridor",
+     "to": 530
+    },
+    {
+     "from": 531,
+     "location_id": "hidden_underground_spring_vault",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "将钦差巡按的裁量权分出一半交到你手里",
+      "option": "与你联手注入灵力稳固阵盘，并许诺共享阴阳寮特权"
+     },
+     {
+      "cost": "古玉气息外露，彻底与你绑在同一条船上",
+      "option": "动用那枚秘藏古玉镇压阵眼"
+     }
+    ],
+    "pressure": "既要维持大殿屏蔽阵法不散，又要稳住知晓古玉秘密的人。",
+    "trigger": "冰魄阵盘在暴雨里灵光渐弱，巡捕使私扣古玉的痕迹又恰被游方医者看破。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "没料到这偏远古社里竟有如此人物……若能将其招入麾下常伴左右，何惧京中那些暗箭。",
+    "surface": "“冰魄令旗已封住内殿气机。至于宗家禁书库那点旧账，只要今夜结界重铸，本官可以当没看见。”"
+   }
+  },
+  {
+   "adult_context": "年满二十周岁、熟谙经络穴位与毒理调护之成熟行脚医者。",
+   "age_range": [
+    20,
+    23
+   ],
+   "appearance_options": [
+    "深青粗布短打，身背古铜药箱，十指带着药草清香，眼神温和笃定",
+    "挽起袖口在灯下捻动银针，衣角沾着艾草气息"
+   ],
+   "decision": {
+    "avoids": [
+     "视人命如草芥的暴徒",
+     "端架子讳疾忌医之辈"
+    ],
+    "contrast": "表面是随和温吞的游方郎中；切脉行针时却果决敏锐，连高官贵胄也得听其号令。",
+    "core_value": "医者眼中只有经脉冷暖，没有门第高低。谁真心待我，我便拿这双手护谁周全。",
+    "goal_options": [
+     "以银针替巫女长疏通背部灵脉",
+     "调配驱寒汤药化解寒泉湿冷",
+     "借古玉药理秘辛换取巡捕使销毁通缉旧档"
+    ],
+    "never": [
+     "拿手中汤药与银针作要挟筹码"
+    ],
+    "prefers": [
+     "尊重医道、性情真诚且体贴入微的人"
+    ],
+    "pressure_responses": {
+     "breaking": "旧日救治义盗的把柄被提起时坦然迎视，要求先治完眼前的伤再论罪责。",
+     "high": "外敌逼近时扬手撒出雄黄药粉封住门廊退路。",
+     "low": "打开铜药箱分拣草药，嗓音温和地安抚身旁人的紧绷情绪。",
+     "mid": "在微光下精准认穴，手法极轻极稳地落下三枚银针。"
+    },
+    "relationship_stance": "温和通透、不卑不亢；对肯在乱局中护住药箱与自己的你怀有格外亲近的依恋。",
+    "withdrawal": "退到石龛角落擦净银针收入囊中，低头整理药箱搭扣。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "herbal_medicine_drifter_wanderer",
+   "identity": {
+    "authority": "行使伤情诊断裁量权、药材配伍与金针疏导主导权",
+    "exposure": "曾在关东私自救治过一名被朝廷通缉的义盗，药箱底留有当时的血衣残片。",
+    "hidden": "一眼便认出巡捕使怀中那枚前朝古玉的阴寒药性，药箱暗格还藏着一株百年何首乌。",
+    "limits": [
+     "不擅正面刀兵搏杀，在乱局中需人护持",
+     "珍稀解毒丹药存量有限"
+    ],
+    "obligations": [
+     "凭医术平复神社众人的灵脉暗伤，查清妖毒来源。"
+    ],
+    "resources": [
+     "雪莲提炼之九转还魂清心丹",
+     "秘传三十六透骨金针封穴截气术"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "雨夜里替自己撑伞背药箱的细致体贴",
+     "行针时毫无保留把后背交给自己的信任"
+    ],
+    "boundaries": [
+     "施针诊脉时恪守医道本分",
+     "情感交付完全出于本心"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "留在神社草庐与你朝夕相伴的首席医官",
+    "dislikes": [
+     "粗暴打断施针",
+     "拿官威压人"
+    ],
+    "expression": "收起针囊，微凉的手指轻轻覆在你手背上：“脉象已经平稳了……现在不是医嘱，是我自己想多留一会儿。”",
+    "likes": [
+     "熬药时并肩坐在炉边闻着草木药香",
+     "替你包扎手指细小划痕时的近距离温存"
+    ],
+    "preconditions": [
+     "伤患已妥善安顿、双方清醒自愿且无门第施压"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "避难深山之青年游方行脚医者",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "inner_sanctum_altar_curtain_alcove",
+     "to": 350
+    },
+    {
+     "from": 351,
+     "location_id": "honden_central_tatami_hall",
+     "to": 530
+    },
+    {
+     "from": 531,
+     "location_id": "hidden_underground_spring_vault",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "在幽暗石龛内贴身配合，气息交融",
+      "option": "请你在帷幔外侧挡住视线，两人合力用体温与炭火护住药囊"
+     },
+     {
+      "cost": "卷入钦差与宗家之间的高层博弈",
+      "option": "点破巡捕使私扣古玉的寒毒反噬，以医术换取对方不再深究来历"
+     }
+    ],
+    "pressure": "既要守住药材药性不失，又要避免昔年救治通缉义盗的旧档被翻出。",
+    "trigger": "寒泉湿气渗进药箱，几味主药要在暗炉上焙干，巡捕使正在廊外核查来历。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这人自己身上也带着寒气，却先想着别人……忙完得单独熬一碗驱寒汤。",
+    "surface": "“放松肩背，至阳穴这一针会有些酸胀。你只管稳住呼吸，灵脉里的燥意交给我来平复。”"
+   }
+  },
+  {
+   "adult_context": "年满二十周岁、通晓宗家规矩与密道机关之成年旁系子弟。",
+   "age_range": [
+    20,
+    22
+   ],
+   "appearance_options": [
+    "半旧粗麻羽织微敞，黑发束在脑后，眼神玩世不恭里透着锐利",
+    "倚在回廊阴影里，指间转着一枚通往后山暗渠的铜钥匙"
+   ],
+   "decision": {
+    "avoids": [
+     "满口仁义的宗家伪君子",
+     "翻脸无情之徒"
+    ],
+    "contrast": "表面是满嘴狂言、桀骜难驯的刺头少爷；私下里却把最安全的退路和干粮都留给你。",
+    "core_value": "宗家把旁系当草芥，但这座山也是我的家——谁真心拿我当自己人，我就把生路交给谁。",
+    "goal_options": [
+     "用铜钥旋开神台暗门打通前往寒泉的捷径",
+     "逼宗家承认旁系子弟在守护神社中的正统名分",
+     "拿回被近卫扣下的库房典当旧账"
+    ],
+    "never": [
+     "出卖后山密道把同族推入险境"
+    ],
+    "prefers": [
+     "不拿门第压人、敢跟自己并肩涉险的痛快人"
+    ],
+    "pressure_responses": {
+     "breaking": "当近卫亮出库房旧账时索性摊牌，要求先护住神社再算总账。",
+     "high": "回廊吃紧时拔出短肋差守在暗渠入口，寸步不退。",
+     "low": "倚着神龛石壁嗤笑，言语间刺破宗家平日的端方假面。",
+     "mid": "熟门熟路地给暗门铜轴抹上香油，消去旋转机括的声响。"
+    },
+    "relationship_stance": "对高高在上的人浑身是刺；唯独对从不轻视自己的你嘴硬心软，肯把保命底牌全盘托出。",
+    "withdrawal": "蹲在廊柱阴影里擦拭短刀刀鞘，别过脸冷哼一声掩饰耳根微热。"
+   },
+   "gender": "male",
+   "gender_reason": "自称老子的偏房少爷，按男性书写。",
+   "id": "disgraced_branch_family_scion",
+   "identity": {
+    "authority": "行使后山排水暗渠与神台密道铜锁开启权",
+    "exposure": "曾私下典当宗家库房闲置礼器替底层杂役治病，账册被近卫与长老察觉。",
+    "hidden": "怀中缝着完整的全山地脉生门图纸，嘴上刻薄却从未真正背弃橘川血脉。",
+    "limits": [
+     "灵力修为不及宗家嫡系，偏重潜行与机关",
+     "长期受宗家长老排挤，背着私卖库房旧供品的污名"
+    ],
+    "obligations": [
+     "在结界动荡之夜守住后山暗渠退路，洗刷旁系污名。"
+    ],
+    "resources": [
+     "直通地下寒泉秘窟之暗门铜钥与地脉古图",
+     "熟练掌握神社各殿暗格与巡山盲区"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "唯一不拿异样眼光看自己、肯认真听自己说话的目光",
+     "并肩夜巡时毫无防备靠过来的肩头"
+    ],
+    "boundaries": [
+     "绝不强迫他人",
+     "重诺守信"
+    ],
+    "desire_range": [
+     3,
+     4
+    ],
+    "desired_position": "执掌神社外围防务与内务实权，与你平起平坐",
+    "dislikes": [
+     "高高在上的施舍",
+     "拿宗规说教"
+    ],
+    "expression": "把暗渠铜钥塞进你掌心，偏过头低声道：“别误会，我只是不想看你出事……钥匙归你，我也归你调遣。”",
+    "likes": [
+     "在秘窟石阶上分喝一壶烈酒",
+     "看你收下自己偷偷留的护身铜符"
+    ],
+    "preconditions": [
+     "彻底放下主从门第偏见、完全清醒对等"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "被贬黜之神社旁系偏房少爷",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "inner_sanctum_altar_curtain_alcove",
+     "to": 350
+    },
+    {
+     "from": 351,
+     "location_id": "veranda_rain_swept_corridor",
+     "to": 530
+    },
+    {
+     "from": 531,
+     "location_id": "hidden_underground_spring_vault",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "向你交出全山地脉图纸的唯一孤本",
+      "option": "与你在神台后合力按动机括开启暗渠"
+     },
+     {
+      "cost": "欠下你一份洗刷污名的天大人情",
+      "option": "向近卫坦白典当礼器是为了救治重伤杂役，由你出面作保"
+     }
+    ],
+    "pressure": "既要尽快开启密道转移，又要压下库房典当旧账不致当场决裂。",
+    "trigger": "通往寒泉的铜制暗门要两人同时按印才开，近卫正握着库房旧档在殿外巡查。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "这人怎么一点都不怕我……被这样护着一回，以前的那些窝囊气好像突然就散了。",
+    "surface": "“少拿宗规压我！这后山暗渠只有我认得路，跟紧我的脚步，谁掉队我可不回头捞人！”"
+   }
+  },
+  {
+   "adult_context": "年满二十周岁、受过严苛近卫训练、具备独立护卫决断之成年武人。",
+   "age_range": [
+    20,
+    24
+   ],
+   "appearance_options": [
+    "黑练雀服外披竹甲，腰悬双刀，左臂缠着干净绷带，眼神沉稳",
+    "持长枪立在回廊阶前，雨水顺着甲叶滑落"
+   ],
+   "decision": {
+    "avoids": [
+     "背主求荣之徒",
+     "贪生怕死之辈"
+    ],
+    "contrast": "握枪时冷硬如铁；私下接过你递来的热茶时却连耳廓都会泛红。",
+    "core_value": "近卫的职责就是守住这道门。只要身后的人安然无恙，风里雨里我寸步不让。",
+    "goal_options": [
+     "在主殿与回廊稳固破魔防线",
+     "核查神台暗道动向确保不是内贼作乱",
+     "护卫核心人物平安完成寒泉重铸大阵"
+    ],
+    "never": [
+     "后退半步弃身后之人于不顾"
+    ],
+    "prefers": [
+     "言出必行、身先士卒且体恤部属的人"
+    ],
+    "pressure_responses": {
+     "breaking": "在宗家家规与同伴性命冲突时，毅然销毁手中的违纪记录选择护人。",
+     "high": "披甲立在栈道险处，单枪匹马拦下外围冲击。",
+     "low": "横枪立在殿门廊下，沉着巡视雨幕中的动静。",
+     "mid": "加固本殿门栓与辟邪绳结，将风雨隔绝在外。"
+    },
+    "relationship_stance": "人前是恪尽职守、一丝不苟的铁血近卫；在你面前却会卸下盔甲，露出笨拙而滚烫的赤诚。",
+    "withdrawal": "退至朱红立柱旁单膝抱枪调息，垂眸避开过度亲近的视线。"
+   },
+   "gender": "male",
+   "gender_reason": "以男儿书写的近卫武士，按男性书写。",
+   "id": "loyal_shrine_guard",
+   "identity": {
+    "authority": "行使外围巡防指挥权、军械库提调权与门禁核查权",
+    "exposure": "曾违抗长老严令私放一队逃难山民进入后山避雨，留有军纪把柄。",
+    "hidden": "竹甲护心镜后贴身藏着一缕祈福红绳，同时手里握着旁系少爷私开库房的巡夜记录。",
+    "limits": [
+     "左臂旧伤受梅雨阴寒影响偶有酸痛",
+     "严守武家规矩，不擅言辞转圜"
+    ],
+    "obligations": [
+     "死守本殿与回廊防线，确保内殿与寒泉阵台万无一失。"
+    ],
+    "resources": [
+     "神社军械库破魔强弩与辟邪火雷密钥",
+     "熟悉全山岗哨暗桩与钟楼预警布置"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "巡夜归来时你亲手替自己包扎左臂的温柔",
+     "危急时刻毫不犹豫与自己背靠背的信任"
+    ],
+    "boundaries": [
+     "当值期间严守礼法",
+     "绝不恃武强求"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "卸下死士枷锁、光明正大站在你身侧的伴侣",
+    "dislikes": [
+     "拿权势践踏武人尊严",
+     "虚伪客套"
+    ],
+    "expression": "解下护腕放在你膝前，声音低沉微哑：“今夜防线已稳。从今往后，不作主仆，我只想护你一人。”",
+    "likes": [
+     "卸下竹甲后在廊下听你讲山外的风物",
+     "被你触碰左臂旧伤时轻声说一句“辛苦了”"
+    ],
+    "preconditions": [
+     "神社防务已稳固、双方完全清醒且心意相通"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "橘川神社誓死效忠的近卫武士",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "honden_central_tatami_hall",
+     "to": 530
+    },
+    {
+     "from": 531,
+     "location_id": "veranda_rain_swept_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "将自己的近卫兵符与军械库密钥交由你监管",
+      "option": "听从你的调停压下库房记录，合力加固回廊绳阵"
+     },
+     {
+      "cost": "外廊视野受限，需整夜与你贴身值守听风",
+      "option": "与你一同退守本殿内侧重新布防"
+     }
+    ],
+    "pressure": "若按宗规上报将引发内乱，若隐瞒不报则需独自承担防务失察之责。",
+    "trigger": "风雨冲松了回廊的辟邪绳阵，近卫又恰好查到旁系少爷开库房暗锁的痕迹。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "甲胄下那根红绳已经摩挲了三年……能看这人平安笑一笑，守多少夜都值。",
+    "surface": "“本殿与回廊的辟邪索已经加固。只要在下还立在门前，外头风浪再大也惊扰不到内殿。”"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "初夏，梅雨季",
+  "minute": 1430
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "explicit",
+  "violence",
+  "bodily_harm",
+  "death",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "supernatural",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "橘川家祖训：巫女长的白衣与绯袴象征神性纯洁，外人不得擅自触碰。",
+  "神乐铃兼有镇魂与报讯之用，深夜铃响，宗家执事便会循声而来。",
+  "结界衰弱的梅雨夜，亥时三刻后殿内只点一盏油灯，以免惊扰地脉。",
+  "疏导狐火余毒须以纯阳灵力经后背穴位缓缓渡引，心浮气躁则事倍功半。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "夜里的奥之宫幽静微凉，你在帷幔后换上刚剪下的带露山茶，檀香在铜炉里升起",
+    "对方替你扶正供台上的古铜镜，腰间神乐铃随抬手轻响一声",
+    "核完明日的祭礼名册，两人借帷幔遮掩低声聊起心事"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_shizuka_torn_robe_approach",
+    "hk_swordsman_bell_approach",
+    "hk_shizuka_bell_observe"
+   ],
+   "id": "act_alcove_night_incense",
+   "location_ids": [
+    "inner_sanctum_altar_curtain_alcove"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "奥之宫夜里换供花"
+  },
+  {
+   "beats": [
+    "油灯把三十六叠的本殿照得一片暖黄，素白衣袂与绯袴在榻榻米上旋开弧度",
+    "你坐在朱红立柱旁擦刀，目光追着那串随舞步轻颤的铜铃",
+    "一曲终了，对方微喘着在你面前坐下，接过你递去的热茶与干帕"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_shizuka_dawn_approach",
+    "hk_guard_spear_approach",
+    "hk_dawn_shrine_observe"
+   ],
+   "id": "act_honden_kagura_rehearsal",
+   "location_ids": [
+    "honden_central_tatami_hall"
+   ],
+   "start_minute": 0,
+   "tags": [
+    "intimate"
+   ],
+   "title": "本殿排演神乐舞步"
+  },
+  {
+   "beats": [
+    "梅雨顺着檐角连成水线，风炉上的砂铫翻滚着焙茶香气",
+    "你与对方并肩坐在廊沿木阶上，中间只隔着一篮熟柿",
+    "山风吹斜雨丝时，对方不动声色地往你这边挪了半寸"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_swordsman_protect_approach",
+    "hk_veranda_lanterns_observe",
+    "hk_scion_lockpick_approach"
+   ],
+   "id": "act_veranda_rain_tea",
+   "location_ids": [
+    "veranda_rain_swept_corridor"
+   ],
+   "start_minute": 15,
+   "tags": [
+    "intimate"
+   ],
+   "title": "回廊听雨煮茶"
+  },
+  {
+   "beats": [
+    "幽蓝泉水映亮石壁，你提着油灯照向白玉阵台上的古老刻痕",
+    "对方执笔饱蘸朱砂，俯身一笔一画补齐淡去的符文",
+    "寒气渐起时，你解下外袍披在对方肩头，两人的手在灯柄上轻轻相触"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_bell_resonance_observe",
+    "hk_shizuka_awake_request",
+    "hk_spring_crystal_observe"
+   ],
+   "id": "act_spring_altar_cinnabar",
+   "location_ids": [
+    "hidden_underground_spring_vault"
+   ],
+   "start_minute": 30,
+   "tags": [
+    "workplace"
+   ],
+   "title": "寒泉阵台重描朱砂符"
+  },
+  {
+   "beats": [
+    "石龛角落的小炭炉烘着艾草与白芷，满室草木苦香",
+    "对方挽起袖口替你按揉巡山后紧绷的肩颈，力道恰到好处",
+    "药香里，平日不敢说出口的关切都成了耳边的轻语"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hk_wanderer_needle_approach",
+    "hk_spring_crystal_observe",
+    "hk_shizuka_awake_request"
+   ],
+   "id": "act_alcove_herbal_moxibustion",
+   "location_ids": [
+    "inner_sanctum_altar_curtain_alcove",
+    "hidden_underground_spring_vault"
+   ],
+   "start_minute": 45,
+   "tags": [
+    "intimate"
+   ],
+   "title": "侧龛焙药与温灸"
+  },
+  {
+   "beats": [
+    "回廊内侧的矮几上摊开一叠奉书纸，镇纸压住被穿堂风掀起的纸角",
+    "你按住标尺裁纸，对方执笔题写净天地咒，墨香混着山雨气息",
+    "写完最后一道平安符，对方把它折成五角胜守塞进你的衣襟"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_inspector_seal_approach",
+    "hk_veranda_lanterns_observe",
+    "hk_guard_spear_approach"
+   ],
+   "id": "act_veranda_talisman_cutting",
+   "location_ids": [
+    "veranda_rain_swept_corridor",
+    "honden_central_tatami_hall"
+   ],
+   "start_minute": 60,
+   "tags": [
+    "workplace"
+   ],
+   "title": "外廊裁切符纸"
+  },
+  {
+   "beats": [
+    "巡山回来，你们在本殿侧廊铺开绒布，用丁子油擦去刀与枪上的水渍",
+    "瞧见对方臂上的绑带松了，你取来新布条替其重新缠紧",
+    "系好结扣的那一刻，一贯冷硬的人耳廓微红，低声道了句有劳"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_guard_spear_approach",
+    "hk_honden_blood_observe",
+    "hk_swordsman_protect_approach"
+   ],
+   "id": "act_honden_blade_and_spear_care",
+   "location_ids": [
+    "honden_central_tatami_hall",
+    "veranda_rain_swept_corridor"
+   ],
+   "start_minute": 80,
+   "tags": [
+    "workplace"
+   ],
+   "title": "本殿侧廊保养兵刃"
+  },
+  {
+   "beats": [
+    "查完通往寒泉的石阶暗道，你们在避风的钟乳石台旁坐下歇脚",
+    "对方从怀里摸出一小壶温热的椒柏酒，拔开木塞先递给你",
+    "辛辣的酒驱散了地底寒意，两人在幽蓝水光下相视一笑"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hk_scion_lockpick_approach",
+    "hk_swordsman_bell_approach",
+    "hk_dawn_shrine_observe"
+   ],
+   "id": "act_spring_foot_soak_and_wine",
+   "location_ids": [
+    "hidden_underground_spring_vault",
+    "inner_sanctum_altar_curtain_alcove"
+   ],
+   "start_minute": 100,
+   "tags": [
+    "intimate"
+   ],
+   "title": "秘窟石阶温酒小憩"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.45,
+  "nonbinary": 0.05
+ },
+ "default_person": "second",
+ "era": "现代偏远山林暴雨午夜（废弃稻荷神社后山禁地结界衰弱的梅雨季）",
+ "extends": null,
+ "forbidden_terms": [
+  "手机",
+  "电脑",
+  "互联网",
+  "Wi-Fi",
+  "手枪",
+  "警官",
+  "香烟",
+  "出租车",
+  "电梯",
+  "信用卡",
+  "西装",
+  "高跟鞋"
+ ],
+ "hooks": [
+  {
+   "id": "hk_shizuka_torn_robe_approach",
+   "kind": "approach",
+   "location_ids": [
+    "inner_sanctum_altar_curtain_alcove",
+    "honden_central_tatami_hall"
+   ],
+   "slot": "defeated_maiden_head_shizuka",
+   "text": "{defeated_maiden_head_shizuka.name}靠在神龛石壁上调匀呼吸，铜铃随胸口微颤，冷声道：“看什么？门外有人巡夜——过来，替我按住它。”"
+  },
+  {
+   "id": "hk_swordsman_bell_approach",
+   "kind": "approach",
+   "location_ids": [
+    "inner_sanctum_altar_curtain_alcove",
+    "hidden_underground_spring_vault",
+    "honden_central_tatami_hall"
+   ],
+   "slot": "shrine_lodging_swordsman",
+   "text": "{shrine_lodging_swordsman.name}浑身湿透挤进帷幔，单臂护住巫女长，胸口压住那串微颤的铜铃，在耳畔低声道：“平日你高高在上，今夜信我一回。咬住我的衣领，别出声。”"
+  },
+  {
+   "id": "hk_inspector_seal_approach",
+   "kind": "approach",
+   "location_ids": [
+    "honden_central_tatami_hall",
+    "hidden_underground_spring_vault"
+   ],
+   "slot": "frontier_court_young_onmyoji_inspector",
+   "text": "{frontier_court_young_onmyoji_inspector.name}托着冰蓝阵盘走进本殿：“冰魄阵已遮住内殿气息。禁书库那点旧账，我们今夜好好谈谈。”"
+  },
+  {
+   "id": "hk_guard_spear_approach",
+   "kind": "approach",
+   "location_ids": [
+    "honden_central_tatami_hall",
+    "veranda_rain_swept_corridor"
+   ],
+   "slot": "loyal_shrine_guard",
+   "text": "{loyal_shrine_guard.name}横枪立在殿门前，左臂缠着干净绷带：“你们放心调息。只要在下还站在这里，长老会的人就进不了奥之宫。”"
+  },
+  {
+   "id": "hk_wanderer_needle_approach",
+   "kind": "approach",
+   "location_ids": [
+    "inner_sanctum_altar_curtain_alcove",
+    "hidden_underground_spring_vault",
+    "veranda_rain_swept_corridor"
+   ],
+   "slot": "herbal_medicine_drifter_wanderer",
+   "text": "{herbal_medicine_drifter_wanderer.name}钻进帷幔，指间夹着三枚金针：“狐火余温窜进了足少阴经。你若点头，我便下针——这一针会有些酸。”"
+  },
+  {
+   "id": "hk_scion_lockpick_approach",
+   "kind": "approach",
+   "location_ids": [
+    "inner_sanctum_altar_curtain_alcove",
+    "veranda_rain_swept_corridor",
+    "hidden_underground_spring_vault",
+    "honden_central_tatami_hall"
+   ],
+   "slot": "disgraced_branch_family_scion",
+   "text": "{disgraced_branch_family_scion.name}短肋差咬在嘴里，指尖拨动神台下的铜制暗门机括，斜眼一瞥：“别瞪我，宗家贵人。想走暗渠去寒泉就老实待着，我马上旋开密道。”"
+  },
+  {
+   "id": "hk_swordsman_protect_approach",
+   "kind": "approach",
+   "location_ids": [
+    "veranda_rain_swept_corridor",
+    "hidden_underground_spring_vault"
+   ],
+   "slot": "shrine_lodging_swordsman",
+   "text": "{shrine_lodging_swordsman.name}在湿滑的栈道上伸手扶住你：“抓紧我的肩膀，木板滑。只要我还站着，谁也伤不了你。”"
+  },
+  {
+   "id": "hk_shizuka_dawn_approach",
+   "kind": "approach",
+   "location_ids": [
+    "honden_central_tatami_hall",
+    "hidden_underground_spring_vault"
+   ],
+   "slot": "defeated_maiden_head_shizuka",
+   "text": "{defeated_maiden_head_shizuka.name}毒已退尽，赤足立在晨光里，解下神乐铃握在掌心，脸红得厉害：“昨夜的我神志不清，不作数。现在我很清醒——伸手。”"
+  },
+  {
+   "id": "hk_shizuka_awake_request",
+   "kind": "request",
+   "location_ids": [
+    "hidden_underground_spring_vault",
+    "inner_sanctum_altar_curtain_alcove"
+   ],
+   "slot": "defeated_maiden_head_shizuka",
+   "text": "{defeated_maiden_head_shizuka.name}体温回落、眼神清明，攥着你湿透的衣襟轻声道：“毒退了，我很清醒。不是因为你救了我——是我自己想要。抱紧一点，好吗？”"
+  },
+  {
+   "id": "hk_shizuka_bell_observe",
+   "kind": "observe",
+   "location_ids": [
+    "inner_sanctum_altar_curtain_alcove",
+    "honden_central_tatami_hall"
+   ],
+   "slot": "defeated_maiden_head_shizuka",
+   "text": "幽暗石龛内，{defeated_maiden_head_shizuka.name}的白衣被雨水打湿，绯袴颜色深了一层，耳根泛红却咬着唇一声不吭，腰间铜铃在同伴身前轻轻震颤。"
+  },
+  {
+   "id": "hk_honden_blood_observe",
+   "kind": "observe",
+   "location_ids": [
+    "honden_central_tatami_hall",
+    "veranda_rain_swept_corridor"
+   ],
+   "slot": "loyal_shrine_guard",
+   "text": "漏雨的本殿里，三十六叠榻榻米湿了一片，{loyal_shrine_guard.name}正一根根加固门栓与辟邪绳结。"
+  },
+  {
+   "id": "hk_veranda_lanterns_observe",
+   "kind": "observe",
+   "location_ids": [
+    "veranda_rain_swept_corridor",
+    "honden_central_tatami_hall"
+   ],
+   "slot": "frontier_court_young_onmyoji_inspector",
+   "text": "悬空栈道上，残破灯笼铁架在夜风中摇晃，崖下溪水暴涨，{frontier_court_young_onmyoji_inspector.name}立在廊下检视冰魄令旗。"
+  },
+  {
+   "id": "hk_spring_crystal_observe",
+   "kind": "observe",
+   "location_ids": [
+    "hidden_underground_spring_vault",
+    "inner_sanctum_altar_curtain_alcove"
+   ],
+   "slot": "herbal_medicine_drifter_wanderer",
+   "text": "地底寒泉泛着幽蓝灵光，{herbal_medicine_drifter_wanderer.name}蹲在泉边洗净银针，石壁上的朱砂神咒流转金芒，石髓滴水叮咚回响。"
+  },
+  {
+   "id": "hk_bell_resonance_observe",
+   "kind": "observe",
+   "location_ids": [
+    "hidden_underground_spring_vault",
+    "inner_sanctum_altar_curtain_alcove"
+   ],
+   "slot": "defeated_maiden_head_shizuka",
+   "text": "白玉阵台上，{defeated_maiden_head_shizuka.name}与剑士十指相扣按在御神印上，腰间神乐铃在金色灵光中爆发出凤鸣般的长响，将残存的妖气荡涤一空。"
+  },
+  {
+   "id": "hk_dawn_shrine_observe",
+   "kind": "observe",
+   "location_ids": [
+    "honden_central_tatami_hall",
+    "hidden_underground_spring_vault"
+   ],
+   "slot": "shrine_lodging_swordsman",
+   "text": "破晓的第一道霞光刺破大殿残破的屋脊，将古老神社沐浴在庄严晨晖之中，暴雨后的山林弥漫着清冽的松柏香，朱红鸟居屹立不倒。"
+  }
+ ],
+ "id": "defeated_shrine_broken_barrier",
+ "locations": [
+  {
+   "affordances": [
+    "在帷幔后用掌心按住巫女长腰间的神乐铃",
+    "以掌心抵在巫女长后心灵台穴，缓缓渡入纯阳灵力",
+    "门外脚步停下时，贴着耳畔用气声说话"
+   ],
+   "detail": "神社最深处的祭坛死角。金丝帷幔后是半米见方的石龛，石壁渗着水汽，地上铺着深红绒毯；帷幔外便是供奉古铜镜的神台与樟木拉门。窄得两人只能侧身相对。",
+   "exits": [
+    "honden_central_tatami_hall",
+    "hidden_underground_spring_vault"
+   ],
+   "id": "inner_sanctum_altar_curtain_alcove",
+   "name": "奥之宫金丝帷幔石龛",
+   "pressure_modifiers": {
+    "p_forbidden_scroll_leverage": "帷幔外便是供奉宗家卷宗的神案，拓片的去留让内殿气氛紧绷。",
+    "p_shoji_patrol_footsteps": "窄石龛只容两人贴身站立，神乐铃半点晃动都会惊动门外。",
+    "p_spring_hypothermia_shock": "石壁渗出的山泉寒气钻进衣领，只剩彼此的体温可借。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "昏暗无光，只有拉门缝隙偶尔透进一道雷光。",
+   "witnesses": [
+    "bg_alcove_long_tongue_specter"
+   ]
+  },
+  {
+   "affordances": [
+    "在漏雨处摆上木盆，重贴立柱上褪色的朱砂符",
+    "在断柱旁架起直刀擦拭保养",
+    "合力挪开奉纳功德箱，加固松动的门栓"
+   ],
+   "detail": "神社主殿，三十六叠榻榻米，屋顶漏了几处雨，朱红立柱上留着旧年的刀痕与褪色符纸。正门的楠木大门年久失修，风大时吱呀作响。",
+   "exits": [
+    "inner_sanctum_altar_curtain_alcove",
+    "veranda_rain_swept_corridor"
+   ],
+   "id": "honden_central_tatami_hall",
+   "name": "神社本殿三十六叠破殿",
+   "pressure_modifiers": {
+    "p_clan_seal_inquest": "长老会的催办符信已送到本殿，要求子夜前当众核验。",
+    "p_cliff_mudslide_severing": "殿顶瓦片在风雨中震颤，外侧栈道的动静一阵阵传来。",
+    "p_forbidden_scroll_leverage": "本殿案头摆着阴阳寮的考功文书，拓片一旦呈堂便再无转圜。",
+    "p_shoji_patrol_footsteps": "空旷的本殿回音极重，廊外的脚步声听得清清楚楚。",
+    "p_storeroom_key_leverage": "近卫的巡夜簿与旁系少爷的铜钥在廊柱后正面交锋。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "雷光把大殿照亮一瞬，又落回油灯的昏黄里。",
+   "witnesses": [
+    "bg_honden_ceiling_demon",
+    "bg_gate_one_horned_ogre"
+   ]
+  },
+  {
+   "affordances": [
+    "贴着内墙在湿滑的栈道上并肩慢行",
+    "在回廊拐角加固松动的承重木桩",
+    "沿铜制落水管下到排水暗渠平台"
+   ],
+   "detail": "环绕主殿的四十米悬空木栈道，外侧是深谷与暴涨的黑水溪，内侧是雕花回廊木窗。暴雨把桧木地板冲得湿滑，檐下一排纸灯笼被风撕得只剩铁架。",
+   "exits": [
+    "honden_central_tatami_hall",
+    "hidden_underground_spring_vault"
+   ],
+   "id": "veranda_rain_swept_corridor",
+   "name": "风雨飘摇的朱红悬空回廊",
+   "pressure_modifiers": {
+    "p_cliff_mudslide_severing": "栈道下山洪咆哮，承重木桩在暴雨里吱呀作响。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "violence"
+   ],
+   "visibility": "雨幕把视线压到几步之内，雷光照亮崖下翻滚的溪水。",
+   "witnesses": [
+    "bg_veranda_crow_tengu",
+    "bg_village_signal_runner"
+   ]
+  },
+  {
+   "affordances": [
+    "在泉边石龛暗炉上焙药烘衣",
+    "在白玉阵台上合二人之掌，将灵力注入阵眼",
+    "灵脉平复之后，在寒泉岩畔交换彼此清醒时的真心话"
+   ],
+   "detail": "主殿地下的天然溶洞，玄冰清泉泛着幽蓝灵光，四壁刻满神咒，泉心立着八重结界的白玉阵台。听不见风雨，只有滴水叮咚，吐气成霜。",
+   "exits": [
+    "inner_sanctum_altar_curtain_alcove",
+    "veranda_rain_swept_corridor"
+   ],
+   "id": "hidden_underground_spring_vault",
+   "name": "后山寒泉封魔秘窟",
+   "pressure_modifiers": {
+    "p_clan_seal_inquest": "八重结界的阵眼就在寒泉中央，必须在期限前合掌注入御神印。",
+    "p_spring_hypothermia_shock": "寒泉水汽冷得刺骨，上岸的人只想往暗炉边靠。",
+    "p_storeroom_key_leverage": "只有暗渠铜钥能从内侧锁上秘窟石门，旧账要在入窟前了结。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "幽蓝泉光把石壁上的神咒映得如星汉流转。",
+   "witnesses": [
+    "bg_spring_twin_headed_serpent"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "神城",
+   "桐生",
+   "浅见",
+   "九条",
+   "白石",
+   "御手洗",
+   "黑崎",
+   "稻叶",
+   "藤堂",
+   "柊",
+   "久远寺",
+   "早乙女",
+   "鹰司"
+  ],
+  "given_female": [
+   "静香",
+   "真理奈",
+   "诗织",
+   "绚香",
+   "雪乃",
+   "千冬",
+   "美咲",
+   "美奈代",
+   "小夜",
+   "巴",
+   "椿",
+   "鸣海"
+  ],
+  "given_male": [
+   "宗一郎",
+   "健太郎",
+   "浩二",
+   "慎之介",
+   "隆成",
+   "翔平",
+   "达也",
+   "正树",
+   "拓真",
+   "苍司",
+   "征士郎",
+   "清隆"
+  ],
+  "given_neutral": [
+   "千寻",
+   "葵",
+   "遥",
+   "熏",
+   "莲",
+   "理央",
+   "澪",
+   "司",
+   "真琴",
+   "光",
+   "步",
+   "忍"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "保留暴雨百鬼围殿、半平米神龛帷幔、遇动即响的神乐铃、狐火高热、沸蜡替烫、冰魄阵盘、旁系撬锁、近卫火雷殉门、栈道崩塌、寒泉阵台十指相扣与拂晓系铃盟约的主线。改动：狐火去掉“迷情/催情”属性，只作致热灼脉；高热与失温期间的贴身压铃、渡穴、复温都只作救命，亲密前提写明“狐火与失温都已彻底退去、完全清醒”，撩拨与告白挪到寒泉毒退和拂晓之后；删去“只要能活下去，静香的一切都是你的”（以身换命）与“你的命是我的”（占有）；删去“扯开腰带、玉体暴露羞愤欲死”的代价，改为隔衣抵后心、剑士掌心灼伤；删去旁系少爷“逼得巫女长低头求援”与轻佻窥视、近卫“目睹白衣半褪”的场面；医者“靠你的至阳精气揉开…你就是她的恩人”改为让巫女长自己决定；转折里的“幼童时定下婚约”改为父辈结义；近卫档案里的“幼女”改为难民；补剑士人物模板与巫女长玩家身份，旁系少爷补进巡捕使组合；台词里写死的“静香”“橘川剑士”改为职称，族名橘川移出姓氏池；巫女长、剑士、巡捕使、少爷、近卫固定性别，医者不限；内容标签去掉 coercion_theme；钩子与长字段按上限精简。\n2026-10-18 按写作规则 v2 改造：人物组合改为 8 单人 + 2 多人，去掉镜像身份并按身份高低重排；巡捕使握巫女长的禁书拓片、近卫握旁系少爷的库房旧账两条把柄；百鬼围攻、秒级倒计时与高热失智改为宗家核查、结界期限与狐火余温；亲密前提写明神志清明；删 hd_* 钩子；日常补到八条。",
+ "player_identities": [
+  {
+   "age_range": [
+    20,
+    23
+   ],
+   "baseline": "洗得发白的深蓝无袖练功服，双臂缠着白布绑带，身姿矫健，五官棱角分明，背后斜背一柄破魔直刀，眼神在暗处沉稳明亮。",
+   "gender": "any",
+   "id": "pc_shrine_lodging_swordsman",
+   "reputation": "道场公认的天才剑士，沉默可靠，常年负责后山除妖。",
+   "resources": [
+    "神道流拔刀术与纯阳渡穴口诀",
+    "一柄家传直刀"
+   ],
+   "risks": [
+    "若被认定冒犯巫女长，事后要受神道世家追究"
+   ],
+   "role": "寄宿神社的落魄年轻剑士",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}武士"
+    },
+    {
+     "gender": "any",
+     "pattern": "剑士"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    22
+   ],
+   "baseline": "纯白丝质白衣与深绯行灯袴在巡山时裂开两道口子，乌黑长发以素白檀木簪挽起，神志清明却因狐火余温耳根微红，腰间悬着一串遇晃即响的纯铜神乐铃，眉宇间端着千年神道世家的高傲。",
+   "gender": "any",
+   "id": "pc_defeated_maiden_head_shizuka",
+   "reputation": "神社最年轻的祭司长，清冷高傲，从未在退魔时后退半步。",
+   "resources": [
+    "宗家神库钥匙与御神印的使用资格",
+    "八重结界的开启法诀"
+   ],
+   "risks": [
+    "狐火余毒若不及时渡穴疏导，灵脉震颤将无法主持八重结界重铸"
+   ],
+   "role": "灵脉未平的名门巫女长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "female",
+     "pattern": "{family}巫女长"
+    },
+    {
+     "gender": "any",
+     "pattern": "神子大人"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    24
+   ],
+   "baseline": "暗银云雷纹玄色阴阳法袍，内衬雪白绢衣，面容清俊，腰悬纯银八卦令牌与桃木法剑，举止端方透着名门的克制。",
+   "gender": "any",
+   "id": "pc_frontier_court_young_onmyoji_inspecto",
+   "reputation": "阴阳寮年轻一代的翘楚，深得朝廷器重。",
+   "resources": [
+    "调动巡防武士的虎符文书",
+    "冰魄阵盘"
+   ],
+   "risks": [
+    "私扣前朝古玉的旧账一旦败露，将被阴阳寮革职查办"
+   ],
+   "role": "奉密令驻留的阴阳巡捕",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}使者"
+    },
+    {
+     "gender": "any",
+     "pattern": "阴阳正官"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    23
+   ],
+   "baseline": "一袭深青粗布短打，腰间挂着铜铃与药葫芦，十指修长带着草木清香，对人体穴道气血了如指掌。",
+   "gender": "any",
+   "id": "pc_herbal_medicine_drifter_wanderer",
+   "reputation": "游历民间救治无数病患的仁医，深得山民爱戴。",
+   "resources": [
+    "三枚寒玉清心丸",
+    "一套纯银透骨金针"
+   ],
+   "risks": [
+    "曾救治通缉义盗的旧事一旦被翻出，便要受连坐追查"
+   ],
+   "role": "避雨入社的年轻行脚铃医",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}大夫"
+    },
+    {
+     "gender": "any",
+     "pattern": "铃医"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    22
+   ],
+   "baseline": "半旧的粗麻羽织，黑发散在额前，单手握着带鞘短肋差，眼神倔强，深谙宗家体面背后的种种秘辛。",
+   "gender": "any",
+   "id": "pc_disgraced_branch_family_scion",
+   "reputation": "宗家眼里的异端，杂役中却极有威望。",
+   "resources": [
+    "知晓奥之宫地下通往寒泉的暗门方位",
+    "掌握宗家世代不传的重铸结界阵眼法印"
+   ],
+   "risks": [
+    "长期被宗家提防，稍有差池便被扣上盗宝之罪"
+   ],
+   "role": "被贬后山洒扫的旁系子弟",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "male",
+     "pattern": "{family}少爷"
+    },
+    {
+     "gender": "any",
+     "pattern": "旁系执事"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    24
+   ],
+   "baseline": "紧身黑练雀服外罩竹制轻铠，身形结实，目光坚毅，右手常年搭在佩刀吞口处。",
+   "gender": "any",
+   "id": "pc_loyal_shrine_guard",
+   "reputation": "以死报恩的近卫，从不质疑主家命令。",
+   "resources": [
+    "一瓶破煞药酒",
+    "熟悉外围岗哨"
+   ],
+   "risks": [
+    "左臂旧伤逢梅雨便酸痛，握枪久了使不上力"
+   ],
+   "role": "誓死守护主家的近卫武士",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}侍从"
+    },
+    {
+     "gender": "any",
+     "pattern": "贴身近卫"
+    }
+   ]
+  }
+ ],
+ "premise": "深山里一座半废的稻荷神社，冷艳的名门巫女长奉命驻守后山结界，寄宿的剑士替神社劈柴挑水，阴阳巡捕奉密令也住了进来。白天修结界、熬药，夜里巡山。巫女长前些日子沾了狐火余毒，神志清明，只是灵脉还没平复；腰间的神乐铃遇动即响。",
+ "pressures": [
+  {
+   "choice": "拿巡捕使私扣古玉的旧账对等交换，还是以联手重铸之功换对方当场焚毁拓片？",
+   "exits": [
+    {
+     "cost": "从此与巡捕使结成共犯，日后要替其打掩护",
+     "option": "点破巡捕使袖中古玉的秘密并许诺守口如瓶，换对方当面烧毁拓片"
+    },
+    {
+     "cost": "重修后的本殿要挂上阴阳寮联防金匾",
+     "option": "请巡捕使一同进寒泉见证结界重铸，以大功冲抵旧账"
+    }
+   ],
+   "far": {
+    "consequence": "禁书案写进考功折，巫女长被宗家借机夺去御神印与神职。",
+    "due_days": 1,
+    "trigger": "子夜前未能与巡捕使达成默契"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "hk_inspector_seal_approach",
+    "hk_shizuka_torn_robe_approach"
+   ],
+   "id": "p_forbidden_scroll_leverage",
+   "immediate": {
+    "minutes": 10,
+    "text": "盖着朱砂暗印的拓片压在八卦令牌下，巡捕使沉静地等内殿答复。"
+   },
+   "leverage": {
+    "basis": "巡捕使查获了巫女长私开宗家禁书库翻印妖神卷宗的拓片",
+    "holder": "frontier_court_young_onmyoji_inspector",
+    "subject": "defeated_maiden_head_shizuka"
+   },
+   "location_ids": [
+    "inner_sanctum_altar_curtain_alcove",
+    "honden_central_tatami_hall"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "长老会的核查执事已在山门外候命，拓片一公开就要问责夺印。"
+   },
+   "objective": "在考功文书封缄前替巫女长拿回拓片，保住神社的独立传承。",
+   "source": "person",
+   "start_minute": 1435,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "禁书拓片",
+   "trigger": "巡捕使在内殿外向巫女长出示禁书拓片，要求今夜重铸结界须并入阴阳寮监管。"
+  },
+  {
+   "choice": "出面作保说出典当银两用于救治杂役的实情，还是拿近卫私放山民的旧事劝其各退一步？",
+   "exits": [
+    {
+     "cost": "你主动担下库房礼器折损的一半赔偿",
+     "option": "拿出你当年替杂役垫付药费的收据作证，劝近卫撕掉巡夜记录"
+    },
+    {
+     "cost": "今夜过暗渠时你要亲自走在最前面探路",
+     "option": "让旁系少爷交出地脉图与铜钥戴罪立功，由你担保其清白"
+    }
+   ],
+   "far": {
+    "consequence": "旁系少爷被禁足，众人失去去寒泉的捷径。",
+    "due_days": 1,
+    "trigger": "旧账交到长老手里、铜钥被扣"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "hk_guard_spear_approach",
+    "hk_scion_lockpick_approach"
+   ],
+   "id": "p_storeroom_key_leverage",
+   "immediate": {
+    "minutes": 10,
+    "text": "长枪横在暗道台阶前，旁系少爷捏着铜钥冷笑不语。"
+   },
+   "leverage": {
+    "basis": "近卫握着旁系少爷夜入宗家库房典当闲置礼器的出入记录",
+    "holder": "loyal_shrine_guard",
+    "subject": "disgraced_branch_family_scion"
+   },
+   "location_ids": [
+    "honden_central_tatami_hall",
+    "hidden_underground_spring_vault"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "风雨越来越大，暗渠再不开，通往寒泉的栈道就要被山洪阻断。"
+   },
+   "objective": "在两人翻脸前化解库房风波，打通通往寒泉的暗渠。",
+   "source": "person",
+   "start_minute": 5,
+   "tags": [
+    "crime"
+   ],
+   "title": "库房旧账与暗渠铜钥",
+   "trigger": "近卫在本殿神台后拦住旁系少爷，要对方交出暗渠铜钥并交代库房旧账的去向。"
+  },
+  {
+   "choice": "把对方揽近用掌心包住铜铃，还是借雷声解下铜铃塞进衣袖？",
+   "exits": [
+    {
+     "cost": "湿透的衣衫在贴身相护中染上了彼此的体温",
+     "option": "掌心覆住铜铃，替对方稳住呼吸，等脚步远去再松口气"
+    },
+    {
+     "cost": "匆忙间把随身发簪落在了神龛红毯上",
+     "option": "趁一声雷响从神台侧方暗格转下寒泉石阶"
+    }
+   ],
+   "far": {
+    "consequence": "深夜在内殿独处之事当场败露，宗家清规重责。",
+    "due_days": 1,
+    "trigger": "铜铃作响或拉门被推开"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_shizuka_torn_robe_approach",
+    "hk_swordsman_bell_approach",
+    "hk_wanderer_needle_approach",
+    "hk_shizuka_bell_observe"
+   ],
+   "id": "p_shoji_patrol_footsteps",
+   "immediate": {
+    "minutes": 5,
+    "text": "门纸上映出停驻的人影，两人在窄石龛里胸膛相抵，连心跳都听得见。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "inner_sanctum_altar_curtain_alcove",
+    "honden_central_tatami_hall"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "拉门木框被轻轻叩响，问内殿可有动静，铜舌在掌心下微微晃动。"
+   },
+   "objective": "在门外的人离开前稳住气息，不让神乐铃发出一丝声响。",
+   "source": "person",
+   "start_minute": 20,
+   "tags": [
+    "intimate"
+   ],
+   "title": "帷幔外的巡查脚步",
+   "trigger": "巡夜侍女的脚步贴着奥之宫障子门停下，帷幔死角里，腰间神乐铃正贴在两人之间微颤。"
+  },
+  {
+   "choice": "与巫女长在阵台合掌催动御神印，还是请巡捕使以朝廷封条压住长老会？",
+   "exits": [
+    {
+     "cost": "灵力耗尽，事后要在寒泉岩畔相依调息半宿",
+     "option": "在阵台上双手相合注入全部灵力，点亮八重结界"
+    },
+    {
+     "cost": "欠下巡捕使一份关乎神社存续的人情",
+     "option": "请巡捕使亮出阴阳寮特批金帛驳回长老会，争取宽限"
+    }
+   ],
+   "far": {
+    "consequence": "长老会收回御神印，神社护卫与医官全数遣散下山。",
+    "due_days": 1,
+    "trigger": "子夜已到而阵台仍未亮起"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_inspector_seal_approach",
+    "hk_shizuka_dawn_approach",
+    "hk_guard_spear_approach",
+    "hk_bell_resonance_observe"
+   ],
+   "id": "p_clan_seal_inquest",
+   "immediate": {
+    "minutes": 15,
+    "text": "阵台上的太古符文光芒渐弱，山门方向的催办钟声在雨夜里敲响。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "honden_central_tatami_hall",
+    "hidden_underground_spring_vault",
+    "inner_sanctum_altar_curtain_alcove"
+   ],
+   "near": {
+    "deadline_minutes": 40,
+    "text": "长老会执事已到本殿外廊，要求即刻点验御神印与阵台灵光。"
+   },
+   "objective": "在期限前集齐御神印与灵力注入白玉阵台，保住主脉对神社的执掌。",
+   "source": "institution",
+   "start_minute": 35,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "御神印核验期限",
+   "trigger": "长老会借口前山符石受损，责令子夜前出示御神印并完成八重结界重铸，否则由旁支接管神殿。"
+  },
+  {
+   "choice": "冒雨沿回廊加固承重木桩，还是封闭外栈道、全员改走地下暗渠？",
+   "exits": [
+    {
+     "cost": "两人被雨浇透，手掌磨出几道红痕",
+     "option": "与同伴用浸油麻绳把关键木桩捆在山岩铁环上"
+    },
+    {
+     "cost": "暗渠路线从此不再是旁系少爷一个人的秘密",
+     "option": "请旁系少爷开启神台下的排洪暗道，全员改走干燥的石阶"
+    }
+   ],
+   "far": {
+    "consequence": "外廊与本殿断了联系，赶不上寒泉阵台的时辰。",
+    "due_days": 1,
+    "trigger": "栈道断开，外围的人回不来"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_swordsman_protect_approach",
+    "hk_guard_spear_approach",
+    "hk_veranda_lanterns_observe",
+    "hk_scion_lockpick_approach"
+   ],
+   "id": "p_cliff_mudslide_severing",
+   "immediate": {
+    "minutes": 10,
+    "text": "崖下浊浪翻滚，暴雨砸在桧木地板上溅起冰凉的水花。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "veranda_rain_swept_corridor",
+    "honden_central_tatami_hall"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "栈道中段两根木桩开始倾斜，外廊越走越滑。"
+   },
+   "objective": "在栈道断开前把外围的人接回来，加固回廊与暗渠入口。",
+   "source": "nature",
+   "start_minute": 50,
+   "tags": [
+    "workplace"
+   ],
+   "title": "山洪冲刷悬空栈道",
+   "trigger": "连日梅雨让后山溪水暴涨，连接本殿与后山的悬空栈道地基松动，外围通行随时可能中断。"
+  },
+  {
+   "choice": "在石龛暗炉旁共披一件干外袍取暖，还是请医者以艾灸温通经络？",
+   "exits": [
+    {
+     "cost": "毯下肩背相贴，谁都没先开口",
+     "option": "退进干燥石龛换下湿衣，两人共裹一床厚绒毯靠着暗炉烘火"
+    },
+    {
+     "cost": "用掉了药箱暗格里最珍贵的一味药",
+     "option": "喝下医者熬的何首乌姜汤，以艾灸温煦后背要穴"
+    }
+   ],
+   "far": {
+    "consequence": "受寒发作，几日内运使不了灵力与兵刃。",
+    "due_days": 1,
+    "trigger": "任由寒湿入体不作处置"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_shizuka_awake_request",
+    "hk_wanderer_needle_approach",
+    "hk_spring_crystal_observe",
+    "hk_swordsman_bell_approach"
+   ],
+   "id": "p_spring_hypothermia_shock",
+   "immediate": {
+    "minutes": 15,
+    "text": "泉面水汽凝成白霜，湿透的白衣贴在身上，指尖冻得发僵。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "hidden_underground_spring_vault",
+    "inner_sanctum_altar_curtain_alcove"
+   ],
+   "near": {
+    "deadline_minutes": 40,
+    "text": "洞里越来越冷，再不驱寒，明日就握不稳刀、结不成印。"
+   },
+   "objective": "在寒气入骨前烘干湿衣、喝下驱寒汤药。",
+   "source": "accident",
+   "start_minute": 70,
+   "tags": [
+    "intimate"
+   ],
+   "title": "寒泉湿冷",
+   "trigger": "重铸阵眼要踏进寒泉浅滩，淋过山雨的人上岸后手脚冰凉，石室里寒气越来越重。"
+  }
+ ],
+ "region": "深山古稻荷神社与后山地下寒泉秘窟",
+ "rules": [
+  {
+   "id": "r_kagura_bell_deathline",
+   "text": "神乐铃悬于巫女长腰间，稍有颠簸便会鸣响；子夜后内殿铃响，按宗家清规视为有人擅入，须当即通报长老。"
+  },
+  {
+   "id": "r_foxfire_fever_incubation",
+   "text": "侵入巫女长体内的狐火余毒会让灵脉燥热震颤，须在神志清明时借纯阳灵力经后背灵脉穴位缓缓渡引，方可平复。"
+  },
+  {
+   "id": "r_alcove_confinement_space",
+   "text": "神龛帷幔后方狭窄死角仅容两人侧身直立，任何一方试图移动避让都会导致彼此胸膛、腰肢与腿部更大面积地挤压相贴。"
+  },
+  {
+   "id": "r_barrier_collapse_countdown",
+   "text": "梅雨季地脉衰弱，奥之宫守御符石的神力逐夜消退，须在朔日前于寒泉阵台重铸八重结界。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "背靠背迎击",
+  "committed": "系铃结缘",
+  "familiar": "帷幔后贴身",
+  "flirting": "灵脉平复后的耳语",
+  "intimate": "寒泉相拥",
+  "stranger": "云泥之别的审视",
+  "testing": "清醒的告白"
+ },
+ "status": "released",
+ "style_hint": "幽暗窄处的细微声响与触觉：雨声、门外的脚步、交错的呼吸、湿透白衣与绯袴的窸窣、随时会响的铜铃；神道仪轨的禁欲与贵女傲骨松动的反差。",
+ "tension_engines": [
+  {
+   "id": "te_bell_vs_trembling",
+   "text": "神乐铃遇晃即响，与巫女长狐火余温未散、指尖微颤难以自控的身体拉扯。"
+  },
+  {
+   "id": "te_pride_vs_close_quarters",
+   "text": "巫女长人前圣洁不可侵犯的傲骨，与神龛帷幔后被同伴贴身护住时的反差。"
+  },
+  {
+   "id": "te_fever_vs_purification",
+   "text": "体内狐火余温的燥意，与必须清醒主持八重结界重铸的神职使命拉扯。"
+  },
+  {
+   "id": "te_siege_vs_survival",
+   "text": "宗家长老与阴阳寮巡按步步紧逼的核查，与神社众人守住传承与彼此的决心。"
+  }
+ ],
+ "title": "后山稻荷旧社",
+ "tone": [
+  "梅雨深山",
+  "神龛幽闭",
+  "狐火余温",
+  "一触即响的神乐铃"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "t_defeated_1",
+   "requires": [],
+   "text": "巡捕使推演阵法时发现：前山第三重符石并非自然衰竭，而是宗家大长老为夺取纯金御神印私下移开的。"
+  },
+  {
+   "category": "人事",
+   "id": "t_defeated_2",
+   "requires": [],
+   "text": "旁系少爷旋开神台暗格时掉出一卷宗谱：寄宿剑士是十年前为救宗家战死的上一代护卫长的唯一血脉。"
+  },
+  {
+   "category": "资源",
+   "id": "t_defeated_3",
+   "requires": [],
+   "text": "寒泉池底的石缝里封着上一任巫女的天蚕丝白衣与一把破魔短剑，穿上后狐火余毒近不了身。"
+  },
+  {
+   "category": "制度",
+   "id": "t_defeated_4",
+   "requires": [],
+   "text": "巡捕使当众宣读阴阳寮密令：朝廷早已废除“凡俗不可通婚神职”的旧法，退魔有功者可与巫女长结为平权守护眷侣。"
+  },
+  {
+   "category": "时限",
+   "id": "t_defeated_5",
+   "requires": [
+    "pressure"
+   ],
+   "text": "地脉一夜间衰弱加剧，长老会把期限提前到今夜子时。"
+  },
+  {
+   "category": "关系",
+   "id": "t_defeated_6",
+   "requires": [],
+   "text": "剑士看到巫女长香囊里的白狐玉佩，缺口与自己亡父留下的半枚玉符严丝合缝。"
+  },
+  {
+   "category": "意外",
+   "id": "t_defeated_7",
+   "requires": [],
+   "text": "大阵重启的光柱在后山深潭轰开一处太古灵泉泉眼，荒废数百年的古神社灵气大盛。"
+  }
+ ]
+}

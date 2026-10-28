@@ -1,0 +1,2206 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满四十八岁，避难所职业辐射监测技师，成年公民。",
+   "age_range": [
+    48,
+    52
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_vault_radiation_observer_bai",
+   "line": "盖革计数器示数又跳了五十毫希沃特，外层铅门封条正在被强酸腐蚀！",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "name": "老白",
+   "role": "气闸辐射监测员老白"
+  },
+  {
+   "adult_context": "年满二十六岁，持有正规急救外科执照的女医官，成年公民。",
+   "age_range": [
+    26,
+    30
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_decon_medic_han",
+   "line": "高浓度去污喷淋已满载预热，只要冲过内闸门立刻进行强压洗消！",
+   "location_ids": [
+    "loc_vault_decontamination_corridor"
+   ],
+   "name": "韩医生",
+   "role": "消杀室急救医官韩医生"
+  },
+  {
+   "adult_context": "年满五十二岁，大灾变前老技工，成年废土商人。",
+   "age_range": [
+    52,
+    56
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_scavenger_trader_lao_zhou",
+   "line": "听说管委会要把地表拾荒者的核电池全部扣下，换取不到原来一半的压缩干粮。",
+   "location_ids": [
+    "loc_vault_decontamination_corridor"
+   ],
+   "name": "老蒋",
+   "role": "废品收购商老掌柜"
+  },
+  {
+   "adult_context": "年满二十一岁，避难所卫戍通信兵，成年公民。",
+   "age_range": [
+    21,
+    24
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_filtration_runner_xiao_wu",
+   "line": "报告！三号主离心风机绕组温度突破一百二十度，强冷风扇即将停转！",
+   "location_ids": [
+    "loc_ventilation_shaft_substation"
+   ],
+   "name": "小武",
+   "role": "通风竖井传令兵小武"
+  },
+  {
+   "adult_context": "年满三十岁，荒野武装流民，成年人。",
+   "age_range": [
+    30,
+    35
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_scavenger_blocker_da_pao",
+   "line": "谁也不许抛下我们的抗辐射药品！门不开大家就一起死在这里！",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "name": "大炮",
+   "role": "滞留流民大炮"
+  },
+  {
+   "adult_context": "年满四十五岁，地下工程调度主管，成年高级官员。",
+   "age_range": [
+    45,
+    50
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_central_dispatch_zheng",
+   "line": "净化师，管委会已授权接通二号备用发电机组直流母线，你们还有最后六分钟！",
+   "location_ids": [
+    "loc_vault_decontamination_corridor"
+   ],
+   "name": "郑主任",
+   "role": "地下核心调度总长郑主任"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "清冷专业的首席女净化师与沉稳彪悍的荒野游侠在齿轮抱死绝境中相逢，从戒备怀疑走向手把手压死钛铝撬杠生死相托。",
+   "id": "cc_purifier_and_drifter_lever",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "vault_purification_specialist_lin_che",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "极度恶劣的辐射环境下共同核算力矩杠杆支点，在生死关头建立起技术共鸣。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 1
+     },
+     "b": "wasteland_drifter_leishen",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 1
+     },
+     "reason": "荒野生存者对任何靠近其药品背包的人保持警惕本能。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "vault_purification_specialist_lin_che",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "wasteland_drifter_leishen",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "官方工程师与废土浪客在破拆气闸的极限过程中达成平等互助契约。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "vault_purification_specialist_lin_che",
+    "wasteland_drifter_leishen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在盖革计数器爆表引发急性辐射病前，合力扭转卡死伞齿轮冲破气闸内门。",
+    "limit_gap": "女工程师体力即将耗尽且受限于防化服升温，游侠受限于外来人员身份面临被就地射杀驱离风险。",
+    "meeting_reason": "在强辐射酸雨暴发瞬间被双向死锁封闭于同一座重晶石气闸大厅内。",
+    "resource_gap": "女工程师手握专业辐射测读仪与高强度合金支架，游侠掌握惊人力矩爆发力与改装修车经验。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_radiation_leak_vs_manual_prying",
+    "te_scavenger_distrust_vs_coop_lever"
+   ]
+  },
+  {
+   "chemistry": "一扇防弹厚玻璃相隔的军工同盟，卫戍队长在制度红线前枪指督导为女工程师争取破拆时间，女技师咬牙力挽狂澜。",
+   "id": "cc_purifier_and_guard_captain",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "vault_purification_specialist_lin_che",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同为避难所关键维持岗位，深知对方专业操守。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "vault_guard_captain_chu",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "铁血军人的坚守给予场内技术团队莫大的底气。",
+     "stage": "familiar"
+    },
+    {
+     "a": "vault_purification_specialist_lin_che",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "vault_guard_captain_chu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "共同抵制官僚草菅人命的闭锁决策。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "vault_purification_specialist_lin_che",
+    "vault_guard_captain_chu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在管委会全所防卫锁死前完成气闸排毒自救并保全全员生命。",
+    "limit_gap": "守卫长面临抗命军法审判风险，女技师面临门外直接遭受核粉尘浸润的致命代价。",
+    "meeting_reason": "避难所气闸外部防辐射巡检遭遇意外雷击电涌。",
+    "resource_gap": "守卫长握有阻断永久水泥浇筑的紧急武力控制权，女技师拥有唯一能解除机械故障的专业知识。"
+   },
+   "tags": [
+    "workplace",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_vault_quarantine_vs_humanity_rescue"
+   ]
+  },
+  {
+   "chemistry": "首席导师的冷静指令如定海神针般稳住惊慌失措的年轻助手，两人利用加长镀锌钢管在齿槽间建立精密力矩接力。",
+   "id": "cc_purifier_and_junior_assistant",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "vault_purification_specialist_lin_che",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "紧跟首席工程师的每一个技术手势。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "vault_junior_filterman_xiao_fang",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "鼓励已成年的正式青年助理战胜恐惧承担重任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "vault_purification_specialist_lin_che",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "vault_junior_filterman_xiao_fang",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "师徒般的技术传承与信赖。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "vault_purification_specialist_lin_che",
+    "vault_junior_filterman_xiao_fang"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "扑灭辅机房电气火苗同时将延长杠杆顺利送达齿轮抱死主现场。",
+    "limit_gap": "助手在恐慌中易误触火警按钮，首席技师分身乏术无法独自兼顾两头。",
+    "meeting_reason": "辅机房与气闸大厅之间的联合巡检排班作业。",
+    "resource_gap": "首席技师拥有决断力与钛铝支架核心工具，助手掌握备用管材与辅机房电路走向。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_radiation_leak_vs_manual_prying"
+   ]
+  },
+  {
+   "chemistry": "管委会督导员声嘶力竭挥舞自毁密匙要求立即断绝后路，守备队长按刀拔枪顶在观察窗前据理力争寸步不让。",
+   "id": "cc_inspector_and_captain_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 2
+     },
+     "b": "vault_guard_captain_chu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 2
+     },
+     "reason": "目睹前线军官与官僚的激烈抗辩。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "council_inspector_yan",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对视人命为草芥的特派专员深恶痛绝。",
+     "stage": "stranger"
+    },
+    {
+     "a": "vault_guard_captain_chu",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "council_inspector_yan",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "一线执行力与上层腐朽特权之间的剑拔弩张。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "vault_guard_captain_chu",
+    "council_inspector_yan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "决定气闸大厅内五名人员究竟是被永久封杀还是迎来洗消生路。",
+    "limit_gap": "督导员极端恐惧受污染被就地感染，守备队长受限于下克上的军事叛乱定性。",
+    "meeting_reason": "在过渡长廊监控台前爆发的指挥权正面冲突。",
+    "resource_gap": "督导员手握最高议会自毁授权密匙，守备队长拥有现场武力防暴霰弹枪。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_vault_quarantine_vs_humanity_rescue"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_vault_intercom_wired_speaker",
+   "reach": "all",
+   "text": "避难所气闸内部有线防爆对讲喇叭公共线路"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_scavenger_vent_pipe_whispers",
+   "reach": "local",
+   "text": "通风排毒竖井回音管内流民恐慌耳语转述"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已成年的核工业防化高级净化工程师，年满二十一岁，持有避难所管委会正式签署的环境生命维持系统最高操作执照，完全具备民事与应急指挥能力。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身穿带有高韧性凯夫拉加固条的灰白分体式重型防化服，摘下防毒面具后，露出一张素净出尘的面庞，两腮带着柔和的轮廓，在闷热气阀前泛出晶莹汗珠与剧烈发力后的浅浅红晕。",
+    "扎着利落的高马尾，长睫毛被防化服内的高湿水汽打湿，咬住下唇全力将合金支架压入齿槽时，下颌线透出一股不容置疑的技术威严。"
+   ],
+   "decision": {
+    "avoids": [
+     "歇斯底里的情绪失控",
+     "违背物理规程的蛮干"
+    ],
+    "contrast": "外表清冷端庄，面对失控的数百公斤齿轮抱死时手腕爆发力惊人。",
+    "core_value": "技术面前人人平等，绝不轻易放弃任何一个清醒理智的同类。",
+    "goal_options": [
+     "利用合金支架撬转手动复位齿轮推开内闸门",
+     "在辐射渗透前彻底切断进风管保全主避难所"
+    ],
+    "never": [
+     "为了自身苟活而关闭气闸将无辜同伴封死在辐射死区"
+    ],
+    "prefers": [
+     "精确的扭矩参数计算",
+     "执行力极强的默契协作"
+    ],
+    "pressure_responses": {
+     "breaking": "将抗辐射药剂塞入同伴掌心命令对方先爬入净化通道",
+     "high": "咬牙将肩膀死死顶在合金支架上借全身自重下压",
+     "low": "冷静核对盖革计数器示数并标定齿轮受力盲区",
+     "mid": "快速拆卸探测器支架并指挥同伴寻找承重反力支点"
+    },
+    "relationship_stance": "在生存危机前保持绝对工程师式的严谨冷静，但对共患难的伙伴有着毫无保留的信任。",
+    "withdrawal": "退至气阀承重角钢背后，单手握紧合金支架尖端戒备任何暴乱动作。"
+   },
+   "gender": "female",
+   "gender_reason": "避难所首席女净化师",
+   "id": "vault_purification_specialist_lin_che",
+   "identity": {
+    "authority": "对避难所全区域进出气密门、滤网组反冲洗及辐射隔离区享有绝对技术否决权与现场紧急破拆指挥权。",
+    "exposure": "被管委会发现其私下利用报废滤芯暗中接济外围无证滞留者",
+    "hidden": "防化服内侧工装口袋里藏着母亲在核灾变前留下的唯一一枚银色机械怀表",
+    "limits": [
+     "在气闸完全闭锁前无法动用内侧中央实验室的高纯解毒液",
+     "连续处于高辐射阈值环境会导致白细胞急剧下降"
+    ],
+    "obligations": [
+     "确保避难所地下三千名避难平民的进风总通道不受核辐射粉尘污染"
+    ],
+    "resources": [
+     "一台军工级手持多功能全谱辐射巡测仪（配备可折叠拆卸的实心钛铝合金加长防弯支架）",
+     "一盒高浓度碘化钾防辐射应急阻断针剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在致命辐射尖啸中依然能稳稳递过工具的手",
+     "在失温窒息绝境中毫不犹豫让出滤嘴的担当"
+    ],
+    "boundaries": [
+     "严禁在毒气未退神志恍惚时发生任何逾矩行为",
+     "绝不将生命拯救作为情感索取的契约筹码"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "背靠背哈气擦拭面罩水雾，手把手稳住钛铝支架合力下压撬转伞齿轮。",
+    "dislikes": [
+     "因贪婪抢夺生存资源引发的内耗",
+     "打着生存旗号的践踏与背叛"
+    ],
+    "expression": "安全进入消杀室后默默解开防化服领扣，将一瓶未开封的纯净蒸馏水轻轻推给对方。",
+    "likes": [
+     "两人发力时手臂肌肉贴合传来的踏实感",
+     "脱困后拂去面颊汗水时的专注眼神"
+    ],
+    "preconditions": [
+     "环境辐射剂量率回落至安全常态区间",
+     "双方均完全清醒且完成全套化学去污洗消"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "避难所辐射净化首席技师",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_airlock_transit_chamber",
+     "to": 1410
+    },
+    {
+     "from": 1410,
+     "location_id": "loc_airlock_transit_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "探测仪支架严重扭曲变形，双手掌心隔着手套被磨出大面积血泡。",
+      "option": "用钛铝合金支架充当撬杠别入伞齿轮退让孔暴力反转手动气阀脱险。"
+     },
+     {
+      "cost": "面临极高的高空跌落与高浓度烟气呛咳窒息风险。",
+      "option": "爬上风道检修横梁敲碎防爆防火阀手动熔断销强行分流毒气。"
+     }
+    ],
+    "pressure": "外界辐射读数以每分钟五十毫希沃特速度暴涨，防化服滤料寿命仅剩最后二十分钟。",
+    "trigger": "气闸电动控制系统遭遇雷击电涌烧毁，外部放射性酸雨即刻倒灌进过渡区。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "齿轮终于动了半寸……只要这根支架不崩断，大家都能活着穿过这道气闸，我绝不会倒在这里。",
+    "surface": "别去碰那个电磁线圈，那是高压过载短路点！把探测器底下的钛铝支架卸下来，卡进第四个齿槽！"
+   }
+  },
+  {
+   "adult_context": "年满二十六岁，成年荒野生存专家，具备完全民事行为能力，在废土流亡八年积累了丰富的机械修复经验。",
+   "age_range": [
+    26,
+    30
+   ],
+   "appearance_options": [
+    "身材高大结实，披着满是辐射酸雨灼烧黑斑的厚重防撕裂斗篷，防风护目镜推在额头，眼神如荒原孤狼般警惕锐利。",
+    "手臂缠着自制防刺护臂，腰带挂满工具钳与备用密封圈，神情冷峻沉着。"
+   ],
+   "decision": {
+    "avoids": [
+     "空头支票式的官僚承诺",
+     "毫无准则的内讧抢夺"
+    ],
+    "contrast": "看似粗野不羁的荒原废土浪客，在力学支点微调上的手感细腻如外科手术医生。",
+    "core_value": "信守承诺保住背包，有恩必报从不欠人情。",
+    "goal_options": [
+     "协助净化师撬开闸门冲入消杀区",
+     "用补漏胶泥强行封堵外闸门破损胶条"
+    ],
+    "never": [
+     "背弃在生死关头将后背托付给自己的伙伴"
+    ],
+    "prefers": [
+     "生死相托的行动派",
+     "坚固耐操的纯机械结构"
+    ],
+    "pressure_responses": {
+     "breaking": "用工兵铲死死卡在即将滑脱的齿轮咬合口宁死不退",
+     "high": "握紧钛铝支架另一端倾注全身爆发力协同下压",
+     "low": "利落卸下背包取出重型工具协助固定支点",
+     "mid": "主动用后背挡在漏气孔正前方为女工程师遮蔽喷溅酸雨"
+    },
+    "relationship_stance": "厌恶避难所官僚的虚伪傲慢，但对坚守职责的技术人员充满敬意。",
+    "withdrawal": "退入气闸大厅承重立柱背光处，右手按在工兵铲柄上审视周围人员动向。"
+   },
+   "gender": "male",
+   "gender_reason": "荒野游侠与拾荒猎人",
+   "id": "wasteland_drifter_leishen",
+   "identity": {
+    "authority": "对荒野地形走势、地表掩体分布及废墟地下暗道拥有精准研判力。",
+    "exposure": "背包里被查出藏有避难所失窃的高纯度核能电池",
+    "hidden": "曾经在避难所建设初期担任过地下重型工兵排班长",
+    "limits": [
+     "没有避难所合法公民身份面临随时被驱离的窘境",
+     "身上携带的微型滤芯已接近吸附极限"
+    ],
+    "obligations": [
+     "将搜集到的一箱救命抗生素送回地表孤儿聚落"
+    ],
+    "resources": [
+     "一柄高碳钢重型工兵铲",
+     "半罐军用快干强力密封补漏胶泥"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在冰冷末世依然未曾泯灭的人性纯善",
+     "直面危机毫不退缩的果敢与专注"
+    ],
+    "boundaries": [
+     "严守个人自尊底线不作无谓屈从",
+     "不以任何身体亲昵换取居留特权"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "抢夺扳手时身体贴近，被女工程师冷静指挥后主动退让充当人肉支架。",
+    "dislikes": [
+     "轻蔑的施舍与猜忌",
+     "毫无底线的暗箭伤人"
+    ],
+    "expression": "脱下满是泥泞的外袍，默默用粗糙指节将工兵铲上结出的辐射霜花擦拭干净。",
+    "likes": [
+     "默契无声的行动指引",
+     "危难脱困后大口吞下干净饮用水的痛快"
+    ],
+    "preconditions": [
+     "彻底化解外层辐射毒气渗透危机",
+     "避难所卫戍部队解除武装敌对戒备"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "荒野拾荒队猎手",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_airlock_transit_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "工兵铲刃口严重卷刃开裂，小臂承受强烈反震麻木。",
+      "option": "用工兵铲重重砸向电磁离合器制动销配合支架反别强行脱扣。"
+     },
+     {
+      "cost": "消耗尽全部随身贵重应急物资，丧失地表返航自保筹码。",
+      "option": "将随身快干补漏胶泥全量封在外门裂隙处拖延五分钟时间。"
+     }
+    ],
+    "pressure": "外层气闸传动连杆发出即将断裂的刺耳呻吟，辐射风暴正在撕碎外壁防护网。",
+    "trigger": "气闸卡死在半空，怀里的稀缺抗生素面临高温酸雾变质报废危险。"
+   },
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这姑娘明明可以独自退回内门锁死通道，却留在外面救我们这些拾荒的……冲这口气，老子拼了命也把门撬开。",
+    "surface": "外门的密封圈已经被酸雨烧化了！支架给我，我力气大，你报角度我来压死！"
+   }
+  },
+  {
+   "adult_context": "年满三十五岁，退役防化老兵，避难所职业守卫队长，具有完全民事行为能力。",
+   "age_range": [
+    35,
+    40
+   ],
+   "appearance_options": [
+    "身穿带有铅层装甲板的深黑战术背心，头戴全密封式防暴钢盔，下巴留着硬扎胡茬，眼神森冷铁血。",
+    "防暴霰弹枪斜挎在胸前，手里握着内侧防爆门的机械紧急闭锁推杆。"
+   ],
+   "decision": {
+    "avoids": [
+     "毫无原则的妇人之仁",
+     "越级违章指挥"
+    ],
+    "contrast": "看似铁石心肠动辄举枪威胁，真到了生死关头会毫不犹豫冲上前线顶门。",
+    "core_value": "秩序与规矩是末日延续的唯一铁律。",
+    "goal_options": [
+     "确保内门在极限倒计时前安全闭合",
+     "在符合检疫指标的前提下救回工程师"
+    ],
+    "never": [
+     "背叛避难所内无力自卫的全体平民"
+    ],
+    "prefers": [
+     "雷厉风行的军规条例",
+     "说一不二的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "顶着被免职风险手动扳下内门紧急放行液压闸",
+     "high": "亲自下令将消洗长廊喷淋增压至极限随时准备接应",
+     "low": "在观察窗内冷声提醒外界辐射读数与倒计时",
+     "mid": "顶住管委会压力推迟启动自毁浇筑程序"
+    },
+    "relationship_stance": "言语虽然生硬刻板如同一台冷血机器，但内心深处极重袍泽战友情义。",
+    "withdrawal": "退回重机枪防线内侧，双手按在内门手动锁紧手轮上严阵以待。"
+   },
+   "gender": "male",
+   "gender_reason": "避难所闸门卫戍队长",
+   "id": "vault_guard_captain_chu",
+   "identity": {
+    "authority": "避难所一层气闸区在紧急状态下的最高武力接管与射击授权。",
+    "exposure": "被管委会督导员怀疑与外围流民暗通款曲互通有无",
+    "hidden": "多年前曾在外围荒野遗失过自己的亲生弟弟",
+    "limits": [
+     "必须严格执行管委会核定的人口准入配额",
+     "隔着防弹观察窗无法直接干预外部阀门机械结构"
+    ],
+    "obligations": [
+     "誓死守卫内门气密性，不放进任何一克超标辐射尘埃"
+    ],
+    "resources": [
+     "一具大威力液压扩张破拆手泵",
+     "一套内门电磁死锁的手动旁通插销"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在铁律与人性之间展现出的崇高坚守",
+     "临危不乱的卓越领袖气质"
+    ],
+    "boundaries": [
+     "严守部队战时纪律",
+     "杜绝私相授受与包庇违禁品"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在观察窗内侧焦急握紧手枪，大声指点外侧气闸伞齿轮手动释放扳手卡槽。",
+    "dislikes": [
+     "贪生怕死的擅离职守",
+     "动摇军心的散漫言论"
+    ],
+    "expression": "确认险情排除后沉重地敬了一个标准军礼，转过身大声命令医官备好葡萄糖盐水。",
+    "likes": [
+     "干脆利落的军礼",
+     "战胜风暴后的沉痛默契"
+    ],
+    "preconditions": [
+     "全员顺利完成洗消并通过盖革计数器零超标检验",
+     "恢复战备常态值班序列"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "避难所气闸守备长",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_vault_decontamination_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "涉嫌战时抗命将面临军事法庭严厉指控。",
+      "option": "用枪口逼退管委会督导员强行阻断自毁闭锁程序争取五分钟。"
+     },
+     {
+      "cost": "高压液压软管面临过载爆裂喷溅灼伤操作人员。",
+      "option": "指挥卫戍战士动用液压泵从内门缝隙反向顶推机械销轴脱困。"
+     }
+    ],
+    "pressure": "一旦倒计时结束内门将永久电磁死锁，门外人员将被活活留在辐射风暴中等死。",
+    "trigger": "气闸区倒计时逼近归零，管委会督导员催促立即灌注混凝土封死大门。"
+   },
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "净化师不能死在外面，全所就这一个环境滤网专家，真要没了，我们迟早都得憋死在地下。",
+    "surface": "净化师！距离管委会自动封闭内门还剩八分钟！如果撬不开立刻退回检修井！"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁，避难所职业技术学校成年毕业生，初级通风管道维护工，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    23
+   ],
+   "appearance_options": [
+    "身材偏瘦，身着沾满活性炭黑灰的旧工作服，鼻梁上架着被汗水滑落的护目镜，神色惶恐手足无措。",
+    "腰间工具袋里胡乱塞着管钳与绝缘胶布，双手因紧张而微微发抖。"
+   ],
+   "decision": {
+    "avoids": [
+     "与凶神恶煞的流民打手正面交涉",
+     "高压电线火花"
+    ],
+    "contrast": "胆小如鼠经常被老兵呵斥，但在净化师遇险时能爆发出一股拼命三郎的憨劲。",
+    "core_value": "保命第一，崇拜并绝对服从净化师的每一项指示。",
+    "goal_options": [
+     "协助净化师修复阀门",
+     "在机房寻找备用手动摇把"
+    ],
+    "never": [
+     "背着净化师独自逃入内门藏匿"
+    ],
+    "prefers": [
+     "清晰明白的步骤指令",
+     "安全没有辐射的干燥机房"
+    ],
+    "pressure_responses": {
+     "breaking": "跪倒在控制箱前拼命按压复位按钮祈求电源重启",
+     "high": "鼓起勇气冒着辐射粉尘冲到机房门边递送工具",
+     "low": "在辅机房慌乱翻找可以充当加长杠杆的厚壁钢管",
+     "mid": "大声向气闸大厅通报离心风机电流跳闸参数"
+    },
+    "relationship_stance": "将净化师视为唯一的精神支柱，愿为协助脱困竭尽所能。",
+    "withdrawal": "缩在大型离心风机底座吸风口阴影中，抱紧双膝瑟瑟发抖。"
+   },
+   "gender": "male",
+   "gender_reason": "避难所初级过滤维护工",
+   "id": "vault_junior_filterman_xiao_fang",
+   "identity": {
+    "authority": "辅机房风机电源手动开关与旁通阀门排污口的开启权。",
+    "exposure": "因操作失误曾导致备用排风机轴承轻度磨损发烫",
+    "hidden": "暗恋才貌双全的首席女工程师净化师却自卑不敢表白",
+    "limits": [
+     "缺乏一线实战经验面对突发大事故心理防线脆弱",
+     "身体单薄力气不足"
+    ],
+    "obligations": [
+     "按时记录过滤芯前后压差并清理沉降池泥浆"
+    ],
+    "resources": [
+     "一桶特种耐低温工业黄油",
+     "一套全铜制防爆无火花呆扳手"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "温和宽容的悉心指导",
+     "绝境中不离不弃的坚定背影"
+    ],
+    "boundaries": [
+     "恪守自知之明不作非分之想",
+     "严守下属本分"
+    ],
+    "desire_range": [
+     1,
+     1
+    ],
+    "desired_position": "在辅机房观察窗前焦急挥舞手电，大声呼喊配电盘应急手动摇杆所在位置。",
+    "dislikes": [
+     "残酷暴力的威吓践踏",
+     "被当作累赘抛弃"
+    ],
+    "expression": "手忙脚乱地将一整罐防冻润滑黄油双手递过，紧张得语无伦次连连道歉。",
+    "likes": [
+     "被肯定业务能力时的微笑",
+     "分到的一块压缩饼干"
+    ],
+    "preconditions": [
+     "彻底排除机房电路失火与毒气倒灌危险",
+     "确保自身生命安全得到保障"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "机房过滤系统维护助理",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_ventilation_shaft_substation",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "镀锌管受力过载崩脱划破工作服外侧气密防护层。",
+      "option": "用镀锌钢管套在钛铝支架末端充当二级省力杠杆合力撬动齿轮。"
+     },
+     {
+      "cost": "近距离吸入灭火干粉引发剧烈呼吸道咳嗽刺激。",
+      "option": "冒死爬进配电控制柜用二氧化碳灭火器扑灭主接触器明火。"
+     }
+    ],
+    "pressure": "若不及时手动切换旁通风道，机房蓄积的高温酸气将倒灌入气闸大厅。",
+    "trigger": "主风机变频柜冒烟起火，机房排毒风道负压值持续恶化。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "要是净化师被关在外面，避难所这台烂风机根本没人能修好，我必须帮着把门撑开！",
+    "surface": "净化师！机房的备用黄油我拿来了！还有一根六分镀锌钢管，能套在支架上当延长杆！"
+   }
+  },
+  {
+   "adult_context": "年满四十五岁，避难所管委会核心督导官员，完全民事行为能力人。",
+   "age_range": [
+    45,
+    48
+   ],
+   "appearance_options": [
+    "身穿极其贵重且光洁无瑕的高级正压防化服，面罩下是一张养尊处优微胖的脸，眼神傲慢且充满防备。",
+    "手里紧紧攥着挂在脖子上的管委会最高自毁封锁红色钥匙卡，胸前挂着随从递上的过滤饮水壶。"
+   ],
+   "decision": {
+    "avoids": [
+     "近距离接触带有辐射尘埃的流民",
+     "承担任何实质责任"
+    ],
+    "contrast": "平时满嘴大局观与集体奉献，大难临头比谁都逃得快、叫得惨。",
+    "core_value": "贵胄性命重于草芥，避难所核心利益高于一切。",
+    "goal_options": [
+     "强制启动气闸自毁程序封闭污染",
+     "保全自身高级防护服不受任何划痕"
+    ],
+    "never": [
+     "为了挽救底层人员而延误自己撤入安全区的分秒时间"
+    ],
+    "prefers": [
+     "绝对的服从与特权待遇",
+     "一尘不染的净化空间"
+    ],
+    "pressure_responses": {
+     "breaking": "瘫软在地上交出手中的电子授权卡换取优先撤离权",
+     "high": "被卫戍队长用枪口警告后吓得瑟缩在防爆盾后面",
+     "low": "在后方安全区严厉斥责一线维修人员动作迟缓",
+     "mid": "发现辐射值突破阈值时歇斯底里要求立刻封门"
+    },
+    "relationship_stance": "将底层工人和流民视为随时可以牺牲的数字耗材，对技术骨干表面客气实则严密监控。",
+    "withdrawal": "退回第二道防爆气密门后方，命令卫兵组成人墙护卫自己。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "council_inspector_yan",
+   "identity": {
+    "authority": "代表避难所最高议会行使战时戒严法权与永久封闭外围隔离区的终决权。",
+    "exposure": "私自克扣下拨给外围气闸区的高效防毒滤芯充实私人地窖",
+    "hidden": "暗中准备了逃往南方地下更大规模避难所的单人磁悬浮逃生舱通行证",
+    "limits": [
+     "极度贪生怕死稍有风吹草动便企图自保逃跑",
+     "完全不懂实际工况参数"
+    ],
+    "obligations": [
+     "确保地下核心高层特权区的生存资源不受外来污染破坏"
+    ],
+    "resources": [
+     "一枚管委会二级防爆隔离门电子授权密匙",
+     "随身特制的高效解毒血清单兵急救包"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "能为其提供安全保全的绝对武力或不可替代的技术依赖",
+     "维持其特权体面的奉承"
+    ],
+    "boundaries": [
+     "严禁任何下等民触碰其身体与防护服",
+     "不承担任何同甘共苦义务"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在内门安全通道后方手握对讲机，厉声命令卫戍部队立即执行封死隔离指令。",
+    "dislikes": [
+     "刺鼻的机油味与流民的汗臭",
+     "被枪口指着脑门的恐惧"
+    ],
+    "expression": "战战兢兢地将急救包中的高效阻断剂扔出，嘴里依旧叫嚣着维持纪律的官话。",
+    "likes": [
+     "被唯唯诺诺簇拥的高高在上感",
+     "特权配给的极品香烟"
+    ],
+    "preconditions": [
+     "彻底置身于绝对安全且无任何辐射风险的特级保护舱",
+     "保全既得政治地位"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "管委会资源与安全特派员",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_vault_decontamination_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "当众丧失官僚威信并面临战时应急处置审查。",
+      "option": "交出随身二级电子授权卡解锁内门备用气动泄压旁通回路自救。"
+     },
+     {
+      "cost": "彻底激怒现场守卫丧失对气闸区的实际指挥控制权。",
+      "option": "用急救包里的高效血清换取卫戍部队优先护送其撤入核心区避难。"
+     }
+    ],
+    "pressure": "若五分钟内气闸不闭锁，其手中的终端将直接上报最高核心区启动永久浇筑断裂。",
+    "trigger": "气闸外部辐射警报触发管委会自动防卫条例第二条。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这帮疯子竟然想把带辐射的齿轮撬开，要是把酸雨放进来，我的命谁来赔！立刻封门！",
+    "surface": "守备长！还有净化师！时间到了！立刻停止蛮干后退封门！这是管委会的死命令！"
+   }
+  },
+  {
+   "adult_context": "年满五十岁，大灾变前老机械厂八级车工，成年废土掮客，具备完全民事行为能力。",
+   "age_range": [
+    50,
+    55
+   ],
+   "appearance_options": [
+    "身穿拼凑补丁的厚帆布工作袍，腰间挂着大串各型号废旧钥匙与螺栓，面容沧桑黝黑布满沟壑。",
+    "手里握着一把被烟油熏得发亮的纯铜机械卡尺，眼神世故精明却透着一股老匠人的沉稳。"
+   ],
+   "decision": {
+    "avoids": [
+     "不可预测的枪战流弹",
+     "受潮变质的劣质机油"
+    ],
+    "contrast": "平日里斤斤计较一根保险丝都要换半碗糙米的奸商，在机械抢险时无偿奉献全部私藏法宝。",
+    "core_value": "万物皆可修，好零件不能糟蹋在蠢人手里。",
+    "goal_options": [
+     "指点净化师攻破齿轮箱偏心卡死点",
+     "保全随身携带的珍贵机械配件"
+    ],
+    "never": [
+     "拿劣质断裂螺栓糊弄人命关天的承重结构"
+    ],
+    "prefers": [
+     "严丝合缝的工匠手艺",
+     "踏实守信的以物易物"
+    ],
+    "pressure_responses": {
+     "breaking": "用拐杖死死抵住滑脱的传动链条为年轻人争取发力时间",
+     "high": "用沙哑嗓门大声吼出反向回轮脱扣的最佳角度",
+     "low": "在角落用卡尺迅速测量齿槽形变弧度并高声喊话",
+     "mid": "冒着飞溅酸雾递上干性润滑喷剂缓解齿面干磨"
+    },
+    "relationship_stance": "敬佩懂机械的好后生，看不起只会敲键盘发号施令的官僚草包。",
+    "withdrawal": "躲在重晶石混凝土立柱凹槽内，用厚麻袋死死护住零件箱。"
+   },
+   "gender": "male",
+   "gender_reason": "避难所外围物资黑市老倒爷",
+   "id": "scavenger_elder_lao_zhou",
+   "identity": {
+    "authority": "在外围流民与避难所底层工人之间拥有极高的物资协调与以物易物公信力。",
+    "exposure": "私下组装改装避难所报废的高压气瓶被管委会通缉",
+    "hidden": "深知这座双向气闸大厅齿轮箱设计公差曾存在半毫米的致命偏心缺陷",
+    "limits": [
+     "年事已高患有轻度辐射性肺纤维化",
+     "无武装自卫能力完全依赖游侠保护"
+    ],
+    "obligations": [
+     "将换得的抗辐射酵母粉分发给聚落里的老弱病残"
+    ],
+    "resources": [
+     "一瓶珍贵的二硫化钼干性重负荷润滑喷剂",
+     "几根高强度合金弹簧钢片"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对古典机械力学的敬畏与精湛运用",
+     "在崩塌世界依然保持的匠人良知"
+    ],
+    "boundaries": [
+     "恪守老一辈手艺人的本分不越雷池半步",
+     "不参与任何年轻人的感情纠葛"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在气闸大厅墙角大声咳嗽着指点伞齿轮退让凹槽，将润滑喷剂凌空抛向操作台。",
+    "dislikes": [
+     "粗制滥造的蛮力破坏",
+     "轻视老手艺的盲目自大"
+    ],
+    "expression": "用粗糙开裂的大手重重揉了揉年轻人的后脑勺，咧开漏风的黄牙递过去半块粗盐块。",
+    "likes": [
+     "纯铜机加工零件的清脆回音",
+     "干完重活后一口劣质烧酒的畅快"
+    ],
+    "preconditions": [
+     "彻底排除齿轮箱卡死险情恢复平稳运转",
+     "保全全部机械测量工具完整无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "避难所外围废品回收行掌柜",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_airlock_transit_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗尽珍藏数年的绝版工业润滑剂，掌心被金属碎屑割伤。",
+      "option": "用私藏的二硫化钼干性润滑剂喷入咬死齿槽协助支架滑转脱困。"
+     },
+     {
+      "cost": "猛烈敲击造成齿箱轴承产生微小裂纹降低使用寿命。",
+      "option": "指挥游侠用高碳钢工兵铲反向敲击偏心销钉震松卡滞点。"
+     }
+    ],
+    "pressure": "若无高润滑介质强行介入，钛铝合金支架将在数十吨剪切扭矩下折断。",
+    "trigger": "齿轮箱发出令人牙酸的干磨咬死声，润滑脂已在高热中彻底碳化焦结。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好多年没见过这么灵巧又拼命的女技师了，这手艺要是被毒气埋在门外，那才是造孽。",
+    "surface": "小姑娘！这台伞齿轮当年出厂时装配偏心了半毫米！别直着往下压，往逆时针敲三下退让销再别！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "封闭第七年，尘暴季",
+  "minute": 1380
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "bodily_harm",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "每次进气闸前习惯用手背轻叩三次防毒面具活性炭罐底盖，凭沉闷空响确认滤料未被受潮结块。",
+  "荒野流民相遇时先展示手腕上的未感染无创生物芯片，以示自身未受辐射畸变污染。",
+  "净化工程师出勤时会将测辐射剂量笔别在左胸衣领最近处，方便同伴一低头就能看清数值。",
+  "避难所内喝水前习惯先将蒸馏水滴一滴在掌心测温，防止滚烫的高温冷凝水烫穿防护手套。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "举起手持多功能全谱仪对准气闸外框焊缝测读γ射线本底",
+    "展开钛铝合金加长探针支架深入密封胶条测试α表面沾污",
+    "在防爆手持终端中记录各点位累积当量剂量并同步主网"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_airlock_dosimeter_scan_patrol",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "凌晨四点气闸大厅全谱辐射巡测"
+  },
+  {
+   "beats": [
+    "用黄油枪向重型伞齿轮箱加注抗极压防辐射合成润滑脂",
+    "清理外层传动轴表面因酸雨冷凝析出的暗黄色结晶盐",
+    "轻扣手动离合器手柄确认棘爪自由行程弹跳正常"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_airlock_gear_lubrication_routine",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "start_minute": 1390,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "气动齿轮阀门齿箱注脂点检"
+  },
+  {
+   "beats": [
+    "开启压缩空气储罐向初效金属丝网喷射高压反吹气流",
+    "检查沉降锥斗底部放射性重粉尘自动排污泥阀密封性",
+    "用无水乙醇擦拭风机轴承振动传感器的压电陶瓷触头"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_ventilation_prefilter_backwash",
+   "location_ids": [
+    "loc_ventilation_shaft_substation"
+   ],
+   "start_minute": 1385,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "进风竖井粗效滤网反冲洗排污"
+  },
+  {
+   "beats": [
+    "依次试喷通廊两侧不锈钢旋转洗消喷头的水雾扇面",
+    "用PH试纸测试去污循环水箱内中和洗液的酸碱缓冲值",
+    "清点壁挂式铅胶防辐射雨靴与正压面罩的密封封条"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_decontamination_shower_nozzle_test",
+   "location_ids": [
+    "loc_vault_decontamination_corridor"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "消洗长廊喷淋喷嘴压力测试"
+  },
+  {
+   "beats": [
+    "用便携激光枪扫描拾荒者上缴的铅封电池安全编码",
+    "称量置换抗辐射酵母粉与维生素药片的实物毛重净重",
+    "在三联纸质物资领料单上加盖管委会物资科红色橡胶印"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarantine_manifest_barcode_tally",
+   "location_ids": [
+    "loc_vault_decontamination_corridor"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "避难所外来物资条码核销点验"
+  },
+  {
+   "beats": [
+    "检查防暴霰弹枪枪膛内特种破拆催泪弹药的击发底火",
+    "核对防爆观察窗气密液压锁死压力表指针是否居中",
+    "交接挂在哨兵胸口的一级应急防暴警报器双联机械钥匙"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_guard_shift_handover_weapon_check",
+   "location_ids": [
+    "loc_vault_decontamination_corridor"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "title": "气闸哨位卫戍交接班枪械点检"
+  },
+  {
+   "beats": [
+    "气闸撬开、喷淋洗消做完以后，净化师坐在消杀室的长凳上，防化服背后的气密拉链被酸雾蚀得发涩，自己够不着。",
+    "净化师背过身，把湿透的高马尾拨到一侧，让人捏住拉链头一寸一寸往下拉，汗湿的后颈在冷光灯下微微发红。",
+    "拉链拉到腰际时，净化师按住对方的手腕，低声说：剩下的我自己来……你先别出去。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_decon_suit_unzip",
+   "location_ids": [
+    "loc_vault_decontamination_corridor"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "洗消室里替净化师解防化服"
+  },
+  {
+   "beats": [
+    "宿舍舱里，净化师换了一件洗得发白的旧T恤，蹲在补光灯下给番茄苗浇水，高马尾扫过脖颈。",
+    "净化师小心摘下第一颗红透的小番茄，递到人嘴边：避难所里唯一一颗。……甜吗？甜的话，再给我一个吻。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_tomato_seedling",
+   "location_ids": [
+    "loc_purifier_quarters"
+   ],
+   "start_minute": 1240,
+   "tags": [
+    "intimate"
+   ],
+   "title": "补光灯下的番茄苗"
+  },
+  {
+   "beats": [
+    "净化师按下磁带机的播放键，沙沙的杂音里响起一首末日前的舞曲，光着脚朝人伸出手。",
+    "跳着跳着，净化师把额头抵过来：地表已经没有人跳舞了。……今晚跳完，你想留下的话，我也想。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_cassette_dance",
+   "location_ids": [
+    "loc_purifier_quarters"
+   ],
+   "start_minute": 1360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "旧磁带机里的舞曲"
+  },
+  {
+   "beats": [
+    "净水配额日的早上，净化师打了一盆干净的温水，拧了毛巾，先替人擦脸，又让人替自己擦后颈。",
+    "净化师笑着说：一个月就这一盆干净水。……分给你一半，是我今年做过最奢侈的事。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_clean_water_day",
+   "location_ids": [
+    "loc_purifier_quarters"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "净水配额日"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "核冬天末世辐射尘暴与地下废土期",
+ "extends": null,
+ "forbidden_terms": [
+  "魔法",
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气"
+ ],
+ "hooks": [
+  {
+   "id": "hook_motor_sparks_smoke_billows",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "vault_purification_specialist_lin_che",
+   "text": "{vault_purification_specialist_lin_che.name}单手按住发烫的电机外壳，回身取下巡测仪底座：电机已经烧死了，把支架拆下来，这根钛铝实心管是唯一的撬杠！"
+  },
+  {
+   "id": "hook_purifier_unfolds_dosimeter_probe",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "vault_purification_specialist_lin_che",
+   "text": "{vault_purification_specialist_lin_che.name}迅速旋下探测仪两端的加长钛铝连杆，在齿轮箱前单膝跪地：看好第四个伞齿轮的退让槽，跟我一起往上卡！"
+  },
+  {
+   "id": "hook_geiger_clicks_alarmingly_fast",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "vault_purification_specialist_lin_che",
+   "text": "{vault_purification_specialist_lin_che.name}低头看了一眼胸前狂闪的剂量笔，咬住下唇：辐射穿透外层了，把斗篷裹紧，踩着我的防化靴借力下压！"
+  },
+  {
+   "id": "hook_yellow_mist_seeps_through_vent",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "vault_purification_specialist_lin_che",
+   "text": "{vault_purification_specialist_lin_che.name}一把将身旁的游侠拉进拱顶背风角：上风向在漏酸气，屏住呼吸，后背靠着我，把力气全部留在手臂上！"
+  },
+  {
+   "id": "hook_titanium_strut_groans_creaks",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "vault_purification_specialist_lin_che",
+   "text": "{vault_purification_specialist_lin_che.name}脸颊因极限发力泛出剧烈绯红，长睫毛满是白雾：支架在响……别松手，听我口令，压到底！"
+  },
+  {
+   "id": "hook_scavenger_drifter_grips_strut",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "wasteland_drifter_leishen",
+   "text": "{wasteland_drifter_leishen.name}一把将粗糙布满老茧的双臂覆在支架外侧，沉声低吼：工程师，你报方向，剩下的重量交给我，别伤着手！"
+  },
+  {
+   "id": "hook_sirens_wail_quarantine_countdown",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "vault_purification_specialist_lin_che",
+   "text": "{vault_purification_specialist_lin_che.name}仰头凝视内侧观察窗，眼神冷冽如冰：管委会在倒计时浇筑混凝土，齿轮已经松动了半寸，再加一把劲！"
+  },
+  {
+   "id": "hook_scavenger_lunges_with_knife",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "wasteland_drifter_leishen",
+   "text": "{wasteland_drifter_leishen.name}横过手中重型工兵铲，稳稳挡在工程师身前，目光扫向慌乱的流民：谁敢动这根撬杆，老子先把闹事者的骨头卸了！"
+  },
+  {
+   "id": "hook_captain_checks_shotgun_breech",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vault_decontamination_corridor"
+   ],
+   "slot": "vault_guard_captain_chu",
+   "text": "{vault_guard_captain_chu.name}在防弹玻璃后方哗啦一声推弹上膛，隔着喇叭高喊：净化师！放心撬，督导员的自毁电闸被老子的人按住了，八分钟管够！"
+  },
+  {
+   "id": "hook_old_zhou_offers_lubricant_spray",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "wasteland_drifter_leishen",
+   "text": "{wasteland_drifter_leishen.name}接住老掌柜抛来的半罐黑褐色润滑喷剂：往齿根喷！偏心轴被找到了，垫上弹簧片撬！"
+  },
+  {
+   "id": "hook_purifier_inspects_gearbox_grease",
+   "kind": "request",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "vault_purification_specialist_lin_che",
+   "text": "{vault_purification_specialist_lin_che.name}指着齿轮箱侧面观察窗，喘息着看向维护助理：去机房把备用镀锌钢管取来套上，我们需要更长的一米力臂！"
+  },
+  {
+   "id": "hook_assistant_backwashes_filter_mesh",
+   "kind": "request",
+   "location_ids": [
+    "loc_ventilation_shaft_substation"
+   ],
+   "slot": "vault_junior_filterman_xiao_fang",
+   "text": "{vault_junior_filterman_xiao_fang.name}双手抱着一根厚壁镀锌钢管撞开机房门，泪流满面：净化师！钢管拿来了！还有一整桶耐低温黄油！"
+  },
+  {
+   "id": "hook_medic_tests_shower_pressure",
+   "kind": "request",
+   "location_ids": [
+    "loc_vault_decontamination_corridor"
+   ],
+   "slot": "vault_guard_captain_chu",
+   "text": "{vault_guard_captain_chu.name}按下强压洗消喷淋总阀，急促命令：医务组把担架和正压洗消箱推到门口，门一开立即拉人！"
+  },
+  {
+   "id": "hook_trader_tallies_scavenged_batteries",
+   "kind": "observe",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "vault_purification_specialist_lin_che",
+   "text": "{vault_purification_specialist_lin_che.name}立在白烟滚滚的重晶石气闸大厅正中，防化服被汗水完全浸透，面颊在电光冷照下透出钢铁般的冷静。"
+  },
+  {
+   "id": "hook_observe_acid_fog_red_strobe",
+   "kind": "observe",
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "slot": "vault_purification_specialist_lin_che",
+   "text": "红色警报光旋转扫过高耸的四联齿轮箱，钛铝合金支架在粗壮手臂与纤细手腕的合力下压中紧绷如弓，齿轮咬合处火星迸溅。"
+  },
+  {
+   "id": "hook_linche_water_share",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "vault_purification_specialist_lin_che",
+   "text": "{npc.name}摘下防毒面具挂在腰间，拧开一瓶蒸馏水先递过来：喝两口，嗓子里全是灰。"
+  },
+  {
+   "id": "hook_leishen_campfire_seat",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "wasteland_drifter_leishen",
+   "text": "{npc.name}拎着工兵铲走过来，在旁边的弹药箱上一屁股坐下：外头的风暴还得刮一阵，聊聊？"
+  },
+  {
+   "id": "hook_chu_patrol_stop",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "vault_guard_captain_chu",
+   "text": "{npc.name}巡哨走到这里停下，摘下钢盔夹在臂弯，看了看人，又看了看剂量笔：脸色不对，去医务组量个数。"
+  },
+  {
+   "id": "hook_fang_biscuit_offer",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "vault_junior_filterman_xiao_fang",
+   "text": "{npc.name}从工装口袋里掏出半块压缩饼干，掰成两半递过来一块，耳根有点红：多领的，别跟人说。"
+  },
+  {
+   "id": "hook_yan_cigar_wave",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "council_inspector_yan",
+   "text": "{npc.name}夹着一支特供香烟踱过来，烟头朝人点了点：你是哪个班组的？过来，我问你几句话。"
+  },
+  {
+   "id": "hook_linche_quarters_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_purifier_quarters"
+   ],
+   "slot": "vault_purification_specialist_lin_che",
+   "text": "{npc.name}靠在宿舍舱门上，晃了晃手里的一颗小番茄：熟了一颗。……进来，分你一半。"
+  }
+ ],
+ "id": "wasteland_vault_airlock_filter",
+ "locations": [
+  {
+   "affordances": [
+    "攀爬重型减震龙骨支架",
+    "借实心金属支架卡死齿轮缝隙撬动连杆",
+    "查看墙壁上的大型机械压差表"
+   ],
+   "detail": "挑高九米、由一米厚含硼重晶石混凝土浇筑的圆顶转换大厅，中间矗立着巨大的四联装齿轮气动阀门组，四周布满黄黑相间的辐射警示条纹，外界酸雨撞击穹顶的隆隆声震耳欲聋。",
+   "exits": [
+    "loc_vault_decontamination_corridor",
+    "loc_ventilation_shaft_substation"
+   ],
+   "id": "loc_airlock_transit_chamber",
+   "name": "重型防辐射双向气闸大厅",
+   "pressure_modifiers": {
+    "p_airlock_motor_burnout_jam": "电机绝缘漆焦糊白烟弥漫，齿轮箱内部传动轴完全卡滞失去电力响应。",
+    "p_radiation_storm_peak_leak": "穹顶缝隙处持续落下带有荧光绿色的酸雨冷凝水滴，环境本底辐射读数持续攀升。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_vault_radiation_observer_bai"
+   ]
+  },
+  {
+   "affordances": [
+    "开启紧急消杀化学药剂储罐",
+    "拿起固定在墙壁上的干粉灭火器",
+    "使用壁挂式对讲分机联系指挥中心"
+   ],
+   "detail": "长达五十米的环形不锈钢消杀通廊，安装有数十组高压去污喷嘴与紫外线灭菌灯，连接气闸内门与避难所核心生活区，地面铺设带排毒地漏的花纹钢板。",
+   "exits": [
+    "loc_airlock_transit_chamber",
+    "loc_ventilation_shaft_substation",
+    "loc_purifier_quarters"
+   ],
+   "id": "loc_vault_decontamination_corridor",
+   "name": "消杀长廊",
+   "pressure_modifiers": {
+    "p_vault_quarantine_override_countdown": "内侧装甲隔离门启动了气密闭锁倒计时警报，刺耳红光照亮整条长廊。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_decon_medic_han",
+    "bg_scavenger_trader_lao_zhou"
+   ]
+  },
+  {
+   "affordances": [
+    "手动摇动过滤器导轨张紧绞盘",
+    "扳下主风道旁通阻火闸门连杆",
+    "调阅变电箱直流母线电压指示灯"
+   ],
+   "detail": "充满机油味与高频蜂鸣的辅机重地，数台巨型离心风机正艰难旋转，巨大的粗效与高效颗粒过滤器模块被钢缆固定在滑轨上，地面积着厚厚的石棉保温粉尘。",
+   "exits": [
+    "loc_airlock_transit_chamber",
+    "loc_vault_decontamination_corridor"
+   ],
+   "id": "loc_ventilation_shaft_substation",
+   "name": "进风过滤竖井配电辅机房",
+   "pressure_modifiers": {
+    "p_toxic_acid_fumes_backflow": "回风阀受气压反冲产生刺耳空鸣，少量未经中和的酸性刺激气体从法兰缝隙溢出。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_filtration_runner_xiao_wu"
+   ]
+  },
+  {
+   "affordances": [
+    "陪净化师给番茄苗浇水",
+    "替净化师拉下防化服拉链",
+    "锁上宿舍舱的门"
+   ],
+   "detail": "消杀长廊尽头的一间宿舍舱，一张铁架床、一盆在补光灯下长着的番茄苗、一台老旧的磁带机，墙上贴着地表的旧照片。",
+   "exits": [
+    "loc_vault_decontamination_corridor"
+   ],
+   "id": "loc_purifier_quarters",
+   "name": "净化师的宿舍舱",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "补光灯是唯一的暖光，舱门一锁，盖革计数器的咔哒声也停了，只剩滤网风扇慢慢地转。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "林",
+   "雷",
+   "楚",
+   "白",
+   "秦",
+   "莫",
+   "韩",
+   "邵",
+   "阎",
+   "方",
+   "谭",
+   "封"
+  ],
+  "given_female": [
+   "澈",
+   "遥",
+   "曦",
+   "薇",
+   "凝",
+   "岚",
+   "姝",
+   "羽",
+   "彤",
+   "曼",
+   "青",
+   "宛"
+  ],
+  "given_male": [
+   "烈",
+   "拓",
+   "锋",
+   "越",
+   "赫",
+   "征",
+   "朔",
+   "扬",
+   "骁",
+   "霆",
+   "渊",
+   "铠"
+  ],
+  "given_neutral": [
+   "晨",
+   "寒",
+   "诺",
+   "凌",
+   "野",
+   "初",
+   "原",
+   "寻",
+   "简",
+   "歌",
+   "弦",
+   "舟"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留核冬天废土、第07号地下避难所气闸大厅与女净化师撬齿轮自救的骨架。改动：写死的人名改为身份称呼，背景人物里与掌柜重名的老周改名；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；净化师亲密前提写明洗消完毕、双方清醒自愿；新增一个洗消室里替净化师解防化服的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    35
+   ],
+   "baseline": "在外围废墟搜寻净水滤网与报废电子芯片的年轻荒野猎手，因风暴滞留气闸区。",
+   "gender": "any",
+   "id": "pi_wasteland_scavenger_scout",
+   "reputation": "手脚麻利枪法精准，虽然出身荒野但在避难所守卫眼里是个讲信誉的硬骨头。",
+   "resources": [
+    "一具自制单筒红外测温望远镜",
+    "两截高密度铅皮裹带的备用防辐射裹腿"
+   ],
+   "risks": [
+    "随时可能被避难所管理层当成带菌污染源驱逐",
+    "随身防护服存在微小磨损缝隙"
+   ],
+   "role": "荒野拾荒斥候",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "拾荒斥候{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}游侠"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    40
+   ],
+   "baseline": "驻守气闸大厅装甲观察哨的当值卫戍军官，掌控内侧气密防爆门的电动保险电磁掣。",
+   "gender": "any",
+   "id": "pi_vault_security_sentinel",
+   "reputation": "恪尽职守冷面无私，视隔离条例为至高圣典。",
+   "resources": [
+    "一把大口径防暴霰弹枪配重破拆枪托",
+    "一套避难所内部局域网离线通话机"
+   ],
+   "risks": [
+    "一旦外层气闸失守将直接面对辐射风暴正冲",
+    "若判断失误放进高剂量流民将面临军法审判"
+   ],
+   "role": "避难所闸门卫戍兵",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}哨兵"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}守卫"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    42
+   ],
+   "baseline": "负责排风管道滤网反冲洗的技术员，随身携带气动工具箱熟悉阀门管路分布。",
+   "gender": "any",
+   "id": "pi_environmental_filtration_engineer",
+   "reputation": "技术过硬但胆小怕事，习惯依附高级工程师的指令行事。",
+   "resources": [
+    "一瓶特种防冻硅油润滑喷雾",
+    "一本厚重的避难所通风管网机械公差速查手册"
+   ],
+   "risks": [
+    "在毒气扩散时容易惊慌失措误关排风分支",
+    "体力较弱难以承受长时间重型手动摇杆作业"
+   ],
+   "role": "避难所初级环境过滤工",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}助理"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    55
+   ],
+   "baseline": "掌握地下三层生存物资配给大权的管委会高官，手持封存气闸的紧急自毁密钥卡。",
+   "gender": "any",
+   "id": "pi_vault_council_inspector",
+   "reputation": "高高在上唯数字论，在下层居民眼里是个视人命为消耗指标的冷血官僚。",
+   "resources": [
+    "一具带独立供氧的高级全封闭正压防护服",
+    "一套可强制接管配电系统的管委会电子密匙"
+   ],
+   "risks": [
+    "对一线机械操作一窍不通在断电时极其脆弱",
+    "容易成为绝境中愤怒流民的泄愤目标"
+   ],
+   "role": "避难所管委会特派督导员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}专员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}督导"
+    }
+   ]
+  }
+ ],
+ "premise": "第07号地下避难所封闭的第七年，首席女净化师管着双向气闸大厅和整套空气过滤系统，白天换滤芯、测辐射，夜里在大厅边的值班室里修探测仪。荒野拾荒斥候隔几天就从地表回来一趟，卫戍兵和过滤工都靠净化师的读数吃饭。外层滤网已经补过三次，尘暴季又要到了。",
+ "pressures": [
+  {
+   "choice": "继续等待中控室尝试微弱弱电重启，还是由净化师带队拔出合金支架进行纯机械硬核撬转。",
+   "exits": [
+    {
+     "cost": "高硬度合金支架发生轻度微弯塑性形变，操作人员虎口与小臂肌肉极度酸痛震伤。",
+     "option": "用辐射巡测仪实心钛铝合金支架充当撬杠反向卡入行星齿轮退让孔合力猛扳撬转。"
+    },
+    {
+     "cost": "剧烈冲击可能导致箱体铸铁外壳产生微细裂纹丧失部分防爆性能。",
+     "option": "卸下外壳用工兵铲重击离合器结合面强制震脱卡爪换取手动空间。"
+    }
+   ],
+   "far": {
+    "consequence": "整套重型气闸彻底丧失任何机械启闭可能，人员被永封在辐射死区。",
+    "due_days": 1,
+    "trigger": "齿轮传动轴发生冷焊咬死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_airlock_motor_burnout_jam",
+   "immediate": {
+    "minutes": 10,
+    "text": "电机外壳喷吐出刺鼻蓝白色焦臭浓烟，电磁离合器发出刺耳尖叫死死咬合在齿箱主轴上。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 25,
+    "text": "电机定子彻底融化冷缩卡死主轴，手动盘车机构阻力飙升至常态的八倍以上。"
+   },
+   "objective": "在外界毒气全面灌入前切换为手动传动并将钛铝支架别入齿槽撬开通路。",
+   "source": "accident",
+   "start_minute": 1380,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "气闸齿轮气阀电机电涌烧毁抱死",
+   "trigger": "强辐射风暴雷击引发供电母线浪涌，重型双向防辐射气闸大厅齿轮电动机内部线圈瞬间熔断焦结，四联装重型齿轮组咬死在半开临界位。"
+  },
+  {
+   "choice": "留在气闸大厅中央加快撬动速度，还是退守狭窄排风竖井暂避风芒。",
+   "exits": [
+    {
+     "cost": "负重成倍剧增导致呼吸极度困难，面罩内水汽弥漫视线严重受阻。",
+     "option": "在两人防化服外披上双层防辐射铅皮斗篷顶着酸雨全力转动撬杆。"
+    },
+    {
+     "cost": "高空仰头作业面罩外层被强酸飞溅轻度腐蚀留下永久白斑。",
+     "option": "用快干补漏胶泥暂时填塞头顶主要滴漏石缝减轻局部沾污。"
+    }
+   ],
+   "far": {
+    "consequence": "引发不可逆造血系统崩溃与大面积化学灼伤，丧失逃生体力全员倒伏。",
+    "due_days": 1,
+    "trigger": "人体吸收辐射剂量突破急性致死阈值"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_radiation_storm_peak_leak",
+   "immediate": {
+    "minutes": 12,
+    "text": "盖革计数器发出凄厉疯狂的爆鸣连音，防化服外层凯夫拉布料在强酸雾气中泛起嗤嗤白沫。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 28,
+    "text": "外层铅板被酸蚀脱落，穹顶缝隙扩大，放射性强酸冷凝水如暴雨般大面积淋洒在气动阀门上方。"
+   },
+   "objective": "避开强酸滴落区并在随身防护服被腐蚀穿透前撤入消洗长廊。",
+   "source": "nature",
+   "start_minute": 1390,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "外界超标千倍放射性酸雨暴渗透",
+   "trigger": "外部极端辐射风暴达到峰值，强酸风暴撕裂外层铅板搭接缝，带有高浓度裂变同位素的荧光冷凝酸水顺着穹顶石缝持续飞溅。"
+  },
+  {
+   "choice": "分兵一人进入机房强行合闸，还是集中全力在气闸大厅撬开逃生缝隙。",
+   "exits": [
+    {
+     "cost": "维护助理双手被过热管壁轻度烫伤，耗尽机房应急惰性气体储量。",
+     "option": "由机房助手维护助理手动扳动辅机房排污重力止回阀强制切断倒灌通道。"
+    },
+    {
+     "cost": "两人身体活动范围被限制在半米绳长内，协调破拆难度剧增。",
+     "option": "将两人面罩软管通过三通接头临时并联分担滤料负荷争取十分钟。"
+    }
+   ],
+   "far": {
+    "consequence": "吸入致死性神经刺激烟气引发剧烈肺水肿窒息，十秒内丧失神智倒地。",
+    "due_days": 1,
+    "trigger": "防毒滤芯全面吸附穿透"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_toxic_acid_fumes_backflow",
+   "immediate": {
+    "minutes": 8,
+    "text": "黄绿色刺鼻酸雾沿通风法兰边缘喷涌而出，面罩滤罐吸气阻力瞬间骤增令人胸口憋闷。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airlock_transit_chamber",
+    "loc_ventilation_shaft_substation"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "滤毒罐内部催化剂在强酸湿气中发生板结失效，呼吸气流中开始混入辛辣大蒜焦臭味。"
+   },
+   "objective": "在防毒面具活性炭罐饱和穿透前排除风机故障或封闭反向蝶阀。",
+   "source": "accident",
+   "start_minute": 1395,
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "title": "进风风道微正压失效毒气倒灌",
+   "trigger": "排风辅机房离心风机发生热继电跳闸，气闸大厅原本维持的微正压保护瞬间转为负压，外界未经过滤的硫化物毒气被抽吸倒灌。"
+  },
+  {
+   "choice": "向观察窗内的卫戍部队高呼武力介入，还是全员孤注一掷下压支架强冲内门。",
+   "exits": [
+    {
+     "cost": "守备长面临战时军事叛乱重罪指控，与管委会卫队陷入武装对峙。",
+     "option": "卫戍守备长举枪威慑督导员拔掉自毁密匙保险丝为外侧争取撤退时间。"
+    },
+    {
+     "cost": "工兵铲柄承受数十吨重压发生严重扭曲形变即将折断崩飞。",
+     "option": "在闸门落到最后半米前将实心工兵铲横插在导轨缝隙阻卡滑块下坠。"
+    }
+   ],
+   "far": {
+    "consequence": "整座气闸大厅化为实质性水泥铅石坟墓，一切逃生空间彻底湮灭。",
+    "due_days": 1,
+    "trigger": "速凝混凝土全量灌入气闸大厅"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_vault_quarantine_override_countdown",
+   "immediate": {
+    "minutes": 6,
+    "text": "通廊穹顶响起急促如催命的红色警报蜂鸣，顶部储料罐的速凝水泥搅拌电机轰然运转。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vault_decontamination_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 15,
+    "text": "重型下落式防爆闸门的电磁保险锁舌开始脱开，厚重的钢板沿导轨缓慢下沉。"
+   },
+   "objective": "在混凝土浇筑闸门放下前强行攻破内门并逼迫督导员撤销自毁。",
+   "source": "institution",
+   "start_minute": 1405,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "避难所管委会启动自毁闭锁倒计时",
+   "trigger": "管委会督导员认定气闸已遭不可逆严重污染，在内侧控制台强行输入自毁密匙，启动了六分钟后向气闸通廊注入速凝含硼重混凝土的死锁程序。"
+  },
+  {
+   "choice": "游侠正面拔刀武力弹压，还是净化师利用技术权威与药物分配稳定人心。",
+   "exits": [
+    {
+     "cost": "游侠右肩防撕裂斗篷被划破一道长口子，暴露少许内层防化衣。",
+     "option": "游侠侧身摔倒暴徒夺下土枪反折其手腕将其按在重晶石墙壁上冷声威慑。"
+    },
+    {
+     "cost": "提前耗尽唯一的私人应急医疗储备。",
+     "option": "净化师高举手中的高效辐射阻断药剂宣布只有合力撬开门才能按人头分配生路。"
+    }
+   ],
+   "far": {
+    "consequence": "流弹击穿高压液氨或氧气瓶引发大爆炸，全员在内耗中同归于尽。",
+    "due_days": 1,
+    "trigger": "气闸大厅内爆发自相残杀的流血枪战"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_scavenger_panic_riot_standoff",
+   "immediate": {
+    "minutes": 5,
+    "text": "粗糙的枪栓拉动声在狭小大厅内炸响，暴徒大炮红着眼抓向净化师肩头的防化服拉链。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 12,
+    "text": "混乱的撕扯导致好不容易对准齿槽的钛铝支架险些脱落砸伤众人脚面。"
+   },
+   "objective": "在不引发流血火并的前提下迅速以绝对威慑压制暴动并稳住破拆阵型。",
+   "source": "person",
+   "start_minute": 1398,
+   "tags": [
+    "crime",
+    "violence"
+   ],
+   "title": "滞留拾荒者恐慌暴动抢夺撬杆",
+   "trigger": "气闸大厅内滞留的几名外来拾荒流民在倒计时警报前情绪崩溃，拔出劣质土枪与尖刀企图抢夺钛铝支架强冲内门。"
+  },
+  {
+   "choice": "冒险继续加大下压力度寄希望于齿轮先行松动，还是暂停两秒垫入老掌柜的淬火钢片。",
+   "exits": [
+    {
+     "cost": "垫块在高压下摩擦飞出滚烫火花，险些点燃周围残存焦油。",
+     "option": "老掌柜将随身携带的八级车工高强度淬火弹簧钢片塞入齿槽充当滑移垫块。"
+    },
+    {
+     "cost": "需要两人的上肢肌肉爆发双倍力量，胸膛急剧起伏汗水模糊双眼。",
+     "option": "净化师与游侠调整站位将发力点向支架根部收缩十公分牺牲力臂换取抗剪安全度。"
+    }
+   ],
+   "far": {
+    "consequence": "飞溅的金属断口将割伤操作人员，全场丧失唯一撬杠彻底断绝生路。",
+    "due_days": 1,
+    "trigger": "钛铝合金支架彻底折断崩飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_titanium_strut_bending_limit_snap",
+   "immediate": {
+    "minutes": 4,
+    "text": "支架中心弯曲处传出一声令人毛骨悚然的金属微裂脆响，反光漆层爆裂剥落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airlock_transit_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 10,
+    "text": "支架变形弯曲超过十五度，手握处滑动受力点即将滑脱齿槽陷入死锁。"
+   },
+   "objective": "调整杠杆施力角度垫入耐磨弹性垫铁防止支架瞬间脆断。",
+   "source": "accident",
+   "start_minute": 1402,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "钛铝支架承受极限剪切载荷即将脆断",
+   "trigger": "四联装伞齿轮箱长期缺油偏心，三人合力下压使得实心钛铝合金支架受弯应力突破屈服极限，合金表面出现银灰色微裂纹与刺耳哀鸣。"
+  }
+ ],
+ "region": "第07号地下重型防辐射避难所双向气闸大厅",
+ "rules": [
+  {
+   "id": "r_airlock_radiation_quarantine_code",
+   "text": "双向防辐射气闸大厅必须遵循单门互锁原则，外门未彻底压紧闭合前内侧电动安全门严禁启闭。"
+  },
+  {
+   "id": "r_dosimeter_threshold_evacuation",
+   "text": "环境累积辐射剂量率突破每小时五百毫希沃特时，所有人员必须于二十分钟内撤入主净化区。"
+  },
+  {
+   "id": "r_vault_scavenger_entry_tax",
+   "text": "进入避难所的荒野拾荒者必须无条件上缴所有带菌滤芯与高纯度核电池作为公共维持税。"
+  },
+  {
+   "id": "r_manual_gearbox_bypass_protocol",
+   "text": "主齿阀电机烧毁时必须插入专用硬化合金扳手撬开行星齿轮卡销方可切换为纯机械手动摇转。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "测读剂量",
+  "committed": "新界誓约",
+  "familiar": "面罩相贴",
+  "flirting": "余温分润",
+  "intimate": "卸甲相依",
+  "stranger": "警戒隔音",
+  "testing": "齿轮同盟"
+ },
+ "status": "released",
+ "style_hint": "冷酷严谨的末日硬核科幻工笔，着重刻画钛铝合金支架抵在铸钢齿槽间的剧烈金属形变声、防护服内急促升温的喘息气雾与辐射计数器令人发慌的蜂鸣，台词充满末世生存法则的冰冷与决绝。",
+ "tension_engines": [
+  {
+   "id": "te_radiation_leak_vs_manual_prying",
+   "text": "外部放射性酸雨绝命渗透倒计时与利用实心钛铝合金支架暴力撬转齿轮气阀之间的机械生死竞速。"
+  },
+  {
+   "id": "te_vault_quarantine_vs_humanity_rescue",
+   "text": "避难所内门绝对单向封锁防卫铁律与挽救门外濒死拾荒流民同胞之间的冷酷制度伦理博弈。"
+  },
+  {
+   "id": "te_scavenger_distrust_vs_coop_lever",
+   "text": "荒野流民对地下特权阶层的深重阶级猜忌与合力下压同一根撬杆求生之间的剧烈反差撕扯。"
+  },
+  {
+   "id": "te_hypothermia_burnout_vs_closet_warmth",
+   "text": "气化毒烟腐蚀窒息危险与隔着防化服背靠背哈气共用过滤呼吸之间的极限制动拉扯。"
+  }
+ ],
+ "title": "废土末日·避难所气密门",
+ "tone": [
+  "盖革计数器尖鸣",
+  "黄印辐射雾",
+  "冷汗浸湿滤芯",
+  "心跳回声"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_vault_hidden_bypass_schematic_found",
+   "requires": [
+    "vault_purification_specialist_lin_che"
+   ],
+   "text": "{vault_purification_specialist_lin_che.name}在齿轮箱底座铭牌下摸出了当年建设工兵留下的手动液压偏心旁通阀隐蔽铜销。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_guard_captain_disarms_inspector",
+   "requires": [
+    "vault_guard_captain_chu"
+   ],
+   "text": "{vault_guard_captain_chu.name}带队卸下了管委会特派员的自毁控制器并夺下其配枪，全面接管内侧通廊防务。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_high_grade_iodine_ampoules_shared",
+   "requires": [
+    "vault_purification_specialist_lin_che"
+   ],
+   "text": "{vault_purification_specialist_lin_che.name}掰开随身防化服暗袋，将整整五支高浓度防辐射阻断碘安瓿分发给现场力竭同伴。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_wartime_quarantine_amendment_invoked",
+   "requires": [
+    "vault_guard_captain_chu"
+   ],
+   "text": "{vault_guard_captain_chu.name}签署了战时第一号特别动员令，临时赋予门外全体破拆有功拾荒人员三级合法居留权。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_concrete_hopper_override_clicks_zero",
+   "requires": [
+    "vault_guard_captain_chu"
+   ],
+   "text": "{vault_guard_captain_chu.name}用霰弹枪枪托砸毁了水泥注浆定时器的电磁线圈，为现场强行争取到额外十分钟。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_drifter_shields_purifier_from_acid",
+   "requires": [
+    "vault_purification_specialist_lin_che",
+    "wasteland_drifter_leishen"
+   ],
+   "text": "{wasteland_drifter_leishen.name}在穹顶酸雨大面积塌落瞬间挺身扑在{vault_purification_specialist_lin_che.name}上方，用防撕裂斗篷死死挡住强酸喷淋。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_gearbox_cam_snaps_open_airlock",
+   "requires": [
+    "vault_purification_specialist_lin_che"
+   ],
+   "text": "抱死的巨型行星齿轮在钛铝支架与钢管的强大复合力矩下猛然反转归位，重达数吨的内侧防爆气闸门轰然升起洞开生路。"
+  }
+ ]
+}

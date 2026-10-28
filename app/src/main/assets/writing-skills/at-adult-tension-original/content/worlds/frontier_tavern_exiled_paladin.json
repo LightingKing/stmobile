@@ -1,0 +1,2049 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满四十八周岁精通冷轧铸造之成年工匠，依法承担要塞军械维护民事责任。",
+   "age_range": [
+    48,
+    48
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_blacksmith_dolton",
+   "line": "生铁锚链是铁匠工长亲手锻打的冷铸件，第三齿有半毫米公差，拿硬刃去顶那一齿保准弹开！",
+   "location_ids": [
+    "loc_broken_bridge_abyss"
+   ],
+   "name": "多尔顿工长",
+   "role": "要塞锻造坊首席矮人工匠铁匠工长"
+  },
+  {
+   "adult_context": "年届五十二周岁经历风霜之成年农妇，自负照料车队老幼民事监护责任。",
+   "age_range": [
+    52,
+    52
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_matron_martha",
+   "line": "天可怜见！女统领统领是为了救老妇人和娃儿们才被石桥卡住的，神明一定要保佑女菩萨啊！",
+   "location_ids": [
+    "loc_fortress_hearth_hall"
+   ],
+   "name": "玛尔塔大娘",
+   "role": "边境避难难民车队领头长者"
+  },
+  {
+   "adult_context": "年满二十七周岁身手矫健之成年斥候，恪守巡逻戍边军事誓约。",
+   "age_range": [
+    27,
+    27
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_sentry_thorin",
+   "line": "鹰嘴岩主峰雪崩已越过断层，风压到达城墙！倒计时还剩二十秒，统领快跳！",
+   "location_ids": [
+    "loc_clock_tower_vantage"
+   ],
+   "name": "索林哨长",
+   "role": "极北要塞高空悬崖哨塔值守猎手"
+  },
+  {
+   "adult_context": "年满二十五周岁依法行医之成年女医师，精通冻伤救治与外伤缝合。",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_medic_agnes",
+   "line": "火塘已烧旺，浓缩防冻雪花膏和止血绷带已备好，随时接应统领回厅救治！",
+   "location_ids": [
+    "loc_fortress_hearth_hall"
+   ],
+   "name": "艾格妮丝修女",
+   "role": "随难民车队同行的光辉教会随军成年女医师"
+  },
+  {
+   "adult_context": "年届三十四周岁严格遵守军纪之成年士官，自负闸门机械启闭法定职责。",
+   "age_range": [
+    34,
+    34
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_gate_operator_hoffman",
+   "line": "防暴大门齿轮已挂上机械自锁档，闸门卡在三十公分高度，统领脱困随时能滚进来！",
+   "location_ids": [
+    "loc_clock_tower_vantage"
+   ],
+   "name": "霍夫曼下士",
+   "role": "要塞重型防暴铁闸门动力操控班长"
+  },
+  {
+   "adult_context": "年满三十一周岁身负抢劫前科之成年亡命之徒，受法律严惩通缉中。",
+   "age_range": [
+    31,
+    31
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_scoundrel_roderick",
+   "line": "大门马上就要关死了，再不抢点粮食大伙都得饿死在这冻土城里，弟兄们抄家伙！",
+   "location_ids": [
+    "loc_fortress_hearth_hall"
+   ],
+   "name": "罗德里克头目",
+   "role": "潜伏于难民队伍中的极北流窜溃兵头目"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "戍边老宿将与退役女将校之间的生死信任，老勋爵竭力稳固内侧生铁卷扬机钢索抗衡崩塌，女统领在断崖外侧孤身执行微观撬脱，两代军人以尊严与战术协同死守要塞生机。",
+   "id": "combo_elenna_and_garrick",
+   "identity_ids": [
+    "pi_commander_garrick_valentin",
+    "pi_ranger_bryce_winston"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "char_heroine_elenna_griffin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "风雪悬崖断桥同生共死之至高袍泽信义纽带",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_commander_garrick_valentin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "要塞戍边军令遵从与抢险协同执行",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_heroine_elenna_griffin",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_commander_garrick_valentin",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "如父如帅之至高戍边宿将与唯一器重女统领",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_heroine_elenna_griffin",
+    "char_commander_garrick_valentin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "力保避难马车全数进驻门洞并助女统领无损脱险归建",
+    "limit_gap": "老帅受军纪所限必须保全全城平民，女帅面临捍卫将帅尊严与保全全队生路双重红线",
+    "meeting_reason": "极北要塞阻击暴风雪掩护边境平民避难断后抢险",
+    "resource_gap": "老帅掌控要塞大门与重型卷扬机最高统帅权，女统领仅有一柄高碳钢铁角面对两吨巨石咬合"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_avalanche_thirty_sec_deadline"
+   ]
+  },
+  {
+   "chemistry": "学者精准计算岩梁倾斜角与卡簧舌受力反支点，隔空通过手势与高频哨音指引受力方位，女统领以绝对手劲执行微米级切入撬动，智略与力量在此刻达成完美共振。",
+   "id": "combo_elenna_and_bryce",
+   "identity_ids": [
+    "pi_commander_garrick_valentin",
+    "pi_ranger_bryce_winston"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "char_heroine_elenna_griffin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "悬崖绝壁力矩相托之至纯生命交接",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_ranger_bryce_winston",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "力学测算与抢险路径实测核准",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_heroine_elenna_griffin",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_ranger_bryce_winston",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "知己般默契配合之智勇双全搭档",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_heroine_elenna_griffin",
+    "char_ranger_bryce_winston"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在铁角受力达到极限前分毫不差挑开逆止簧片",
+    "limit_gap": "学者受体魄所限无法直接替统领撬锁，女统领处于视线盲区急需外在坐标指引",
+    "meeting_reason": "雪崩险情下微观机械物理撬脱跨学科联合攻坚",
+    "resource_gap": "学者拥有冰川力学测算知识与声学音叉，女统领拥有百战淬炼之顶尖微观杠杆操控力"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_grindstone_micro_lever_pry"
+   ]
+  },
+  {
+   "chemistry": "女统领在断崖死线舍命破拆无暇自顾，纯情女副官在门洞处舍身拉紧加厚大氅筑起名誉铁壁，二人眼神交汇处尽是誓死不负的同袍信义，瞬间化为坚不可摧的名节铠甲。",
+   "id": "combo_elenna_and_celia",
+   "identity_ids": [
+    "pi_paladin_elenna_griffin"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_heroine_elenna_griffin",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "如影随形誓死相护之至纯主仆同袍",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_squire_celia_lorraine",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "后勤防护与大氅屏障联动作业",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_heroine_elenna_griffin",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "char_squire_celia_lorraine",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "相濡以沫宛若孪生之深厚闺中袍泽",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_heroine_elenna_griffin",
+    "char_squire_celia_lorraine"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在脱扣瞬间百分之百完成身姿遮蔽与安全回收",
+    "limit_gap": "女统领面临铠甲崩解走光危机，副官面临风雪逆风拉扯无法完全遮蔽的考验",
+    "meeting_reason": "名门女骑士与专属副官终生相随之后背相托",
+    "resource_gap": "女统领以主帅威严统御全局，副官唯命是从手持双层大氅守卫主将尊严底线"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_paladin_chaste_honor_defense"
+   ]
+  },
+  {
+   "chemistry": "年轻副官以单薄身躯恳请老要塞长暂缓落闸，老勋爵老将以全城防务相抗，两代边防将士在生死关头达成以铁剑卡死绞盘争取最后十五秒之悲壮誓约。",
+   "id": "combo_celia_and_garrick",
+   "identity_ids": [
+    "pi_squire_celia_lorraine"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_commander_garrick_valentin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "老帅军令遵奉与求生请命",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_squire_celia_lorraine",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "同生共死忠义同盟",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_squire_celia_lorraine",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_commander_garrick_valentin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "晚辈侍从对德高望重老将帅之死谏",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_squire_celia_lorraine",
+    "char_commander_garrick_valentin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在闸门彻底自锁前为女统领夺取唯一通道",
+    "limit_gap": "老将肩负数百平民生死不可违抗军令，女随从愿以性命为抵押乞求暂缓十秒闭门",
+    "meeting_reason": "要塞暴雪落闸倒计时前最后生还门洞之紧急请命",
+    "resource_gap": "老勋爵统领要塞城防全军与防暴铁闸重型绞盘，副官手持防风大氅坚守将帅尊严防线"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_avalanche_thirty_sec_deadline"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_fortress_scout_brass_horn",
+   "reach": "老勋爵老帅与哨塔索林哨长及城门霍夫曼班长",
+   "text": "要塞城楼防风黄铜传令号角声道"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_avalanche_subterranean_rumble",
+   "reach": "断桥全体抢险军民与要塞避难前厅全体难民",
+   "text": "雪崩岩层次声波震颤共鸣声波道"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "年届双十有二岁之成年退役圣殿女统领，依法自负独立法律责任，名门处女之身，白瓷面庞天然带有淡淡的红晕与孤傲清冷反差绝美，心智极度坚韧沉稳",
+   "age_range": [
+    22,
+    22
+   ],
+   "appearance_options": [
+    "一米七六高挑健美的挺拔将校身段，天鹅颈项优美雪白，锁骨深凹，巴掌小脸透着莹润的光泽，冰蓝凤眸凌厉孤傲朱唇微抿气场惊人",
+    "雪亮银白长发高扎成利落马尾露出优美额角，雪白肌肤因极寒暴雪泛着冷艳微粉，通体散发着常年军旅修养造就的紧致处子冷香",
+    "身着贴身锻造秘银重装胸甲配双层咬合扣，内穿深黑高弹防割锁子甲，将傲人饱满身姿勾勒出冷冽优美的力学曲线"
+   ],
+   "decision": {
+    "avoids": [
+     "哭叫哀求",
+     "衣衫破损受人怜悯",
+     "展现出一丝一毫慌乱软弱"
+    ],
+    "contrast": "看似清冷高贵、不可亵渎的贵族名媛千金，身陷万吨雪崩与生铁重甲卡死绝境时爆发出惊骇全场的微观机械力学自救决绝",
+    "core_value": "骑士誓约重于生命，绝不向任何自然灾祸或机械意外屈膝折节",
+    "goal_options": [
+     "维持孤傲冷艳神情借单膝微曲抵紧岩梁卸去下坠张力",
+     "反手握持磨刀铁角借三十度倒棱探入生铁链死隙撬退卡簧",
+     "呼叫要塞守军强行发射重型拖缆进行盲目拉拽"
+    ],
+    "never": [
+     "绝不在任何人面前展现痛苦哀鸣",
+     "绝不放弃守护无辜者的骑士道准则"
+    ],
+    "prefers": [
+     "高碳钢硬棱刚体杠杆自救",
+     "毫无狼狈之态的从容脱困",
+     "零走光绝对自律"
+    ],
+    "pressure_responses": {
+     "breaking": "手腕爆发千钧暗劲顺势向上别动挑开簧舌彻底脱钩",
+     "high": "反握磨刀铁角将三毫米厚直角硬棱斜向插入生铁链自锁槽口",
+     "low": "薄唇紧抿深吸一口极寒霜气，冰蓝双目如电锁准卡死点毫米级受力槽",
+     "mid": "冷眸扫视雪崩冲击波前锋，全身核心肌群紧绷卸去外推压差"
+    },
+    "relationship_stance": "对老勋爵老要塞长怀有敬若长辈之礼，对游侠学者心存智略信赖，对随从副官抱以生死托付之袍泽深情",
+    "withdrawal": "成功脱扣后就地后滚翻借副官展开的加厚大氅严密遮身撤入防爆闸门"
+   },
+   "gender": "female",
+   "gender_reason": "帝国北境公爵家族嫡出长女年届桃李二十二周岁名媛贵女，依法享有完全自主法定民事与军事决断权柄之成年女子",
+   "id": "char_heroine_elenna_griffin",
+   "identity": {
+    "authority": "掌控断后掩护全权防务调度与自身战力极限调配权",
+    "exposure": "一旦秘银胸甲被撕裂导致贴身真丝武装衣崩解走光，将在暴风雪与三军注视下蒙受巨大名誉屈辱",
+    "hidden": "外表孤傲冷冽生人勿近的铁血女帅，内心极度珍视每一个无辜平民生命的赤诚圣骑士",
+    "limits": [
+     "严禁在断桥险境中放弃平民独自脱逃",
+     "绝不容许在众目睽睽之下产生走光丑态玷污将帅尊严"
+    ],
+    "obligations": [
+     "确保难民车队全员安全入堡并保全要塞主轴完整"
+    ],
+    "resources": [
+     "配三毫米直角硬棱之长十五公分淬火高碳钢行军磨具",
+     "百战淬炼之顶尖剑术与核心肌肉群",
+     "家族秘银十字徽记"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "战场风云中生死相托的过命战友情",
+     "危难关头言出必行、舍生取义的刚毅担当"
+    ],
+    "boundaries": [
+     "人前守住体面，私下的心事只对认定的人说",
+     "任何一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "战场与自我宿命的绝对主宰者",
+    "dislikes": [
+     "带着轻浮打量的窥探目光",
+     "临阵脱逃的卑劣懦夫行径"
+    ],
+    "expression": "在暖廊里背过身解下撕破的衬衣，压低嗓子说：替女统领把披风递过来……别急着走。",
+    "likes": [
+     "擦拭得毫无微尘的冷锻秘银甲片",
+     "炉火边有人替自己卸下护臂，粗糙指腹擦过手腕内侧冻伤的地方"
+    ],
+    "preconditions": [
+     "眼前的危局已经过去，双方都清醒、安全",
+     "出于本人的心意，不夹带报恩、交换或旁人的催促"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "帝国北境战功赫赫之退役女将星女统领",
+   "schedule": [
+    {
+     "from": 1070,
+     "location_id": "loc_broken_bridge_abyss",
+     "to": 1110
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "右手虎口被生铁毛刺刮破渗出微量血珠且指尖严重冻僵",
+      "option": "借磨刀铁角平直硬棱向上挑起卡舌脱险"
+     },
+     {
+      "cost": "女统领遭受严重走光冻伤并失去战斗能力",
+      "option": "强行硬拉导致武装衣破裂衣不蔽体且胸骨受挤压重伤"
+     }
+    ],
+    "pressure": "二次雪崩三十秒内排山倒海覆顶，重甲下坠张力逼近八百牛顿即将撕裂武装衣并拉扯{npc.name}坠入深渊",
+    "trigger": "断裂玄武岩梁轰然塌落且要塞防滑生铁链死扣胸甲咬合端"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "生铁链咬死胸甲右侧偏心搭扣了……雪崩第二波还有三十秒！不能硬拽，武装衣领口绷至极限，扯断了锁骨与贴身内衬就会完全暴露……用行军磨刀铁角作撬棍，三十度斜角向上别动，四点二牛顿力矩足够顶退自锁卡簧！",
+    "surface": "老勋爵不必惊慌！副官退后！{npc.name}自己的铠甲{npc.name}自己能解开，区区两吨黑曜石还留不住{npc.name}！"
+   }
+  },
+  {
+   "adult_context": "镇守雪峰要塞逾三十载之五十六岁掌舵宿将，自负法定民事与军事权柄",
+   "age_range": [
+    56,
+    56
+   ],
+   "appearance_options": [
+    "两鬓如霜面庞如古铜雕塑般刚毅，身穿深蓝要塞统帅加厚熊皮大氅配防寒铜鳞甲",
+    "双手布满操纵守城器械造就的老茧，虎目圆睁透出百战老将的沉着大度"
+   ],
+   "decision": {
+    "avoids": [
+     "慌张混乱",
+     "让外界看到主力女统领半点狼狈之态"
+    ],
+    "contrast": "平日里铁面无私、令行禁止的严厉要塞长，在爱将命悬一线时展现出甚至敢拿佩剑硬顶闸门的老帅担当",
+    "core_value": "要塞平民安危与将校尊严至高无上",
+    "goal_options": [
+     "严令绞盘班组卡死主缆插销为女统领稳住断桥最后支撑力",
+     "组织盾牌手筑起人墙遮蔽外界风雪与窥探视线",
+     "指导城门绞盘留出最后半米逃生缝隙"
+    ],
+    "never": [
+     "绝不在还有袍泽受困时提前放弃生机"
+    ],
+    "prefers": [
+     "机械硬性制动延时",
+     "严密的人肉遮挡防线",
+     "果断硬朗"
+    ],
+    "pressure_responses": {
+     "breaking": "在女统领翻入城门刹那果断拔销闭锁全闸阻绝风雪",
+     "high": "在城门即将完全合拢瞬间怒吼下令插入应急精钢限位销",
+     "low": "声若奔雷喝令城防守军各就各位启动防崩程序",
+     "mid": "快步扑至门楼护墙边合抱绞盘主扳手亲自加压制动"
+    },
+    "relationship_stance": "对女统领视若己出极其厚爱，对游侠的勘测学识高度信赖",
+    "withdrawal": "确认女统领安全无恙后坐镇避难前厅调度全堡物资分配"
+   },
+   "gender": "male",
+   "gender_reason": "极北要塞总镇守官老勋爵年满五十六岁成年男长辈",
+   "id": "char_commander_garrick_valentin",
+   "identity": {
+    "authority": "掌控要塞大门启闭与全堡战时管制统领权",
+    "exposure": "若女统领因营救不力惨死门外将引发帝国军部严厉问责弹劾",
+    "hidden": "对女统领如看待亲生女儿般深怀疼惜与敬重的老派铁血军人",
+    "limits": [
+     "必须依法保证堡内数百难民安全严禁延误落闸",
+     "年迈体衰无法单兵攀岩施救"
+    ],
+    "obligations": [
+     "在雪崩抹平要塞前确保前哨防线安全闭锁并尽可能搭救英雄女将"
+    ],
+    "resources": [
+     "要塞重型卷扬机应急控制阀",
+     "守城重弩队与防寒物资储备库"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "泰山压顶不弯腰的长辈如山担当",
+     "恪守军旅尊严的绝对护短与关爱"
+    ],
+    "boundaries": [
+     "严守长辈要塞长与年轻女统领之间的庄重军纪界线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "风雪要塞三军将士最稳固的定海神针",
+    "dislikes": [
+     "轻浮不端的盗匪行径",
+     "畏缩不前的逃兵做派"
+    ],
+    "expression": "以重重合抱双臂与深沉坚毅的眼神传达力量",
+    "likes": [
+     "要塞士兵严整无畏的受阅军容",
+     "凛冽寒风中飘扬不倒的战旗"
+    ],
+    "preconditions": [
+     "建立在三十年戍边铁血军功与崇高威望之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "雪峰要塞城防主帅老勋爵",
+   "schedule": [
+    {
+     "from": 1070,
+     "location_id": "loc_broken_bridge_abyss",
+     "to": 1110
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "右肩旧创剧烈撕裂痛楚且手套被机油生铁磨损",
+      "option": "亲自合抱杠杆插入双重精钢插销稳住钢索张力"
+     },
+     {
+      "cost": "痛失帝国首席女统领并沦为千夫所指之罪魁",
+      "option": "过早闭锁闸门将女统领关在风雪死域"
+     }
+    ],
+    "pressure": "若绞盘滑脱将导致断桥瞬间整体断坠，且必须在三十秒内决定城门落闸时机",
+    "trigger": "雪崩震波冲击卷扬机齿轮箱导致固定插销产生变形位移"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "这暴风雪来得太邪门了！齿轮在打滑，雪崩三十秒就要压过来了……女统领要是折在老夫城门口，老夫这颗项上人头还有何面目去见北境父老！老夫拼上这条老命也得护这丫头周全！",
+    "surface": "女统领统领稳住！莫用蛮力拉扯！老夫已让绞盘班死死咬住主链，听游侠的角度，借石棱撬锁！"
+   }
+  },
+  {
+   "adult_context": "游历北境八年之二十六岁成熟成年学者，享有完全独立探险与民事自决权能",
+   "age_range": [
+    26,
+    26
+   ],
+   "appearance_options": [
+    "墨黑微卷短发沾满霜花，鼻梁挺直，常戴单边黄铜齿轮测距放大镜，身形修长精悍利落",
+    "灰绿色防风防水涂层猎装配高弹力皮革护膝，背负长弓与精密测绘仪器皮囊"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目用蛮力硬拉",
+     "惊慌失措胡乱抛绳加剧卡死"
+    ],
+    "contrast": "看似文质彬彬的文弱书生学者，在生死悬崖边缘展现出令人惊叹的冷静测算与飞身走索勇气",
+    "core_value": "真理与力量的完美契合能够击碎一切绝境",
+    "goal_options": [
+     "通过声学音叉在暴风雪间歇吹响高频指引哨音传达受力角度",
+     "飞身垂降打下辅助固定岩钉分担断桥局部震波",
+     "记录雪崩地质断裂全景图供要塞后续修缮"
+    ],
+    "never": [
+     "绝不在测算未达绝对把握前给出错误操作指引"
+    ],
+    "prefers": [
+     "精密力学矢量指导",
+     "利用声学共鸣传递信息",
+     "冷静理性"
+    ],
+    "pressure_responses": {
+     "breaking": "在女统领脱扣瞬间果断引爆照明荧光指引翻滚落点",
+     "high": "奋力甩出攀岩飞爪牢牢咬合桥体侧壁构建生命副索",
+     "low": "单手调试测距单镜片迅速计算石梁偏角与卡簧反支点",
+     "mid": "伏于桥墩裂口处迎着暴雪大声呼喊纠正受力矢量"
+    },
+    "relationship_stance": "视老勋爵为德高望重之军界砥柱，视女统领为不可亵渎之英勇女神",
+    "withdrawal": "协助完成难民车队物资加固后登上钟楼监测后继余波"
+   },
+   "gender": "male",
+   "gender_reason": "极北自然哲学会注册学者游侠年届二十六周岁成年青年",
+   "id": "char_ranger_bryce_winston",
+   "identity": {
+    "authority": "掌控冰川岩层断裂声波研判与力学力矩方位解释权",
+    "exposure": "若力矩计算偏差导致铁角滑脱将使自救宣告彻底失败",
+    "hidden": "对女统领崇高正义气节深怀纯洁敬慕、愿以智略护卫明月的青年学者",
+    "limits": [
+     "体魄力量不及重甲骑士严禁正面硬扛两吨巨石",
+     "严禁误报数据"
+    ],
+    "obligations": [
+     "在狂风暴雪中精准提供微观力矩几何角度助女统领脱困"
+    ],
+    "resources": [
+     "地质音叉与单筒测距望远镜",
+     "精钢攀岩飞爪与加厚牛筋长索"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女将校身上冷冽高贵的正义灵魂",
+     "科学与力量在危急时刻的灵魂共鸣"
+    ],
+    "boundaries": [
+     "不在对方伤冻未缓时越界",
+     "人前照旧以学者之礼相待"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "狂风暴雪中女武神身侧最可靠的理智之眼",
+    "dislikes": [
+     "迷信盲动的蛮干行径",
+     "对科学规律的傲慢蔑视"
+    ],
+    "expression": "递过一杯热葡萄酒，指尖相碰时没有缩回，低声说：统领的手还是冰的。",
+    "likes": [
+     "古老矮人机械图纸上的精密齿轮线稿",
+     "风雪停了以后并肩坐在钟楼上，听对方讲冰川底下的地层"
+    ],
+    "preconditions": [
+     "对方已经脱险、回暖",
+     "对方先开口，或清楚地回应了心意"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "北境冰川地质勘探游侠",
+   "schedule": [
+    {
+     "from": 1070,
+     "location_id": "loc_broken_bridge_abyss",
+     "to": 1110
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "喉部受冰风灌入轻微干涩咳血",
+      "option": "击打音叉借共鸣高频哨音精准穿透暴雪送达三十度斜角口诀"
+     },
+     {
+      "cost": "彻底葬送女统领微观破拆唯一窗口",
+      "option": "盲目抛绳干扰导致铁链进一步绞死"
+     }
+    ],
+    "pressure": "若女统领因角度盲区错误向下硬撬将当场折断高碳钢铁角断绝生路",
+    "trigger": "风雪狂啸掩盖人声导致力学坐标无法及时送达受困女帅"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "黑曜石切口偏转了十二度！生铁链是左旋受力，女统领的磨刀铁角必须向上斜切三十度才能释放弹簧！哪怕风雪再大，{npc.name}也一定要把这道生还角度喊进统领耳朵里！",
+    "surface": "女统领统领！不要下压！将铁角刃口倒转三十度向上别入第三齿槽，那里的受力已经到达临界点！"
+   }
+  },
+  {
+   "adult_context": "追随女统领转战极北四载之二十一岁成熟成年女官，身心纯洁处女，具备独立民事侵权与行事责任法定能力",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "蜜金色齐肩短发干练利落，圆润杏眼透出清澈执着，两颊带有莹润的光泽与英武剑气",
+    "身姿轻盈迅捷，内穿紧身防寒软皮甲，外罩宽大幅面之加厚深蓝防风羊毛大氅"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱退缩",
+     "让任何外部杂乱视线窥探到统领半分窘态"
+    ],
+    "contrast": "看似秀气温和的年轻侍从，在狂暴雪浪压顶关头展现出甚至敢用身躯迎向飞石的舍命忠勇",
+    "core_value": "主将的生命安全与崇高声誉高于自身一切利益",
+    "goal_options": [
+     "双足蹬紧门洞石坎拉开大氅筑起滴水不漏之深蓝屏障",
+     "在女统领翻滚脱险刹那飞扑上前完美裹护主将身躯",
+     "协助医护人员迅速检查统领体表有无冻伤挫伤"
+    ],
+    "never": [
+     "绝不在统领尚未脱险前退入安全舱门半步"
+    ],
+    "prefers": [
+     "密不透风之毛毯大氅裹护",
+     "毫秒级接应默契",
+     "绝对忠诚"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂紧紧搂住翻滚而入的女统领并用大氅严丝合缝包裹",
+     "high": "在卡簧弹开崩响瞬间毫不犹豫前扑飞跃跨过最后碎石",
+     "low": "杏眼圆睁死死盯准断崖处统领双手细微破拆动作",
+     "mid": "顶着八级冰雪逆风奋力将大氅两角拉伸绷紧如巨大羽翼"
+    },
+    "relationship_stance": "对女统领怀有至死不渝之主仆深情与同袍依恋，对老勋爵老帅充满崇敬",
+    "withdrawal": "护送统领至避难前厅壁炉火塘前细致整理内衬衣袍与热饮"
+   },
+   "gender": "female",
+   "gender_reason": "前圣殿骑士团随军女侍从副官年届双十有一岁成年女子",
+   "id": "char_squire_celia_lorraine",
+   "identity": {
+    "authority": "掌控统领后勤内务护卫与脱险时尊严防护屏障构建权",
+    "exposure": "若大氅展开迟缓导致统领破损战袍暴露在人前将万死莫赎",
+    "hidden": "将女统领视作毕生崇敬之信仰化身、甘愿为其遮挡一切风霜的纯情忠诚副官",
+    "limits": [
+     "气力无法撼动两吨黑曜石必须恪守接应岗位",
+     "严禁擅离退路"
+    ],
+    "obligations": [
+     "在统领破拆脱扣瞬间以大氅严密包裹护卫仪态尊严与体温机能"
+    ],
+    "resources": [
+     "宽达两米五之加厚双层羊毛防风大氅",
+     "急救止血药剂包与备用短匕"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女统领清冷坚毅背影散发的人格光辉",
+     "风霜雪雨中同生共死的纯粹依偎"
+    ],
+    "boundaries": [
+     "严守副官对主帅的敬仰边界与崇高礼仪"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "女统领最贴心信赖的尊严护盾与坚固后背",
+    "dislikes": [
+     "对统领指手画脚的无礼之徒",
+     "刺骨寒风冻裂统领凝脂肌肤"
+    ],
+    "expression": "以泛红眼眶中蕴含的坚定目光与温暖用力的拥抱裹护传达真情",
+    "likes": [
+     "为统领打理得一尘不染的战袍披风",
+     "战火熄灭后二人围炉夜话之静谧时光"
+    ],
+    "preconditions": [
+     "建立在四年军旅生涯无条件生死托付之神圣契约之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "圣殿女统领专属副官兼亲卫侍从副官",
+   "schedule": [
+    {
+     "from": 1070,
+     "location_id": "loc_broken_bridge_abyss",
+     "to": 1110
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "双膝被地面坚硬石棱擦出微量青紫瘀伤",
+      "option": "飞身挥展双层大氅准确捕获翻滚中的统领并顺势滚入避难门洞"
+     },
+     {
+      "cost": "眼睁睁看着主将坠亡铸成毕生悔恨",
+      "option": "因畏缩风暴慢了半秒导致统领滑向裂谷深渊"
+     }
+    ],
+    "pressure": "若接应出现哪怕半秒偏差将导致女统领翻滚受挫甚至走光受辱",
+    "trigger": "女统领脱扣瞬间重力反冲导致衣物撕裂且极易失重滑跌悬崖"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "统领阁下的重甲被卡住了……{npc.name}绝不能看着统领随断桥坠下，大氅准备好了，只要脱扣立刻接应！哪怕冰碴把{npc.name}的脸割破，{npc.name}也绝不眨一下眼睛！",
+    "surface": "统领！{npc.name}就在桥头接应！您只管放手破拆，后面的路有{npc.name}的大氅为您挡风！"
+   }
+  },
+  {
+   "adult_context": "从事重型冷兵器锻造三十载之四十八岁成熟成年铁匠工长，自负法定民事责任",
+   "age_range": [
+    48,
+    48
+   ],
+   "appearance_options": [
+    "络腮胡浓密如刺，宽阔肩膀粗壮双臂如生铁铸就，身穿厚重防烫牛皮围裙",
+    "腰间别着重型八角淬火手锤与长柄撬棍，浑身散发着焦炭与机油混合之硬朗气息"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿扯皮",
+     "因胆怯放弃机械抢修导致全盘卡死"
+    ],
+    "contrast": "外表粗犷嗜酒的老铁匠，在微观金工间隙判定上展现出神乎其技的丝级敏感",
+    "core_value": "生铁不会说谎，唯有精准力道才能解开死结",
+    "goal_options": [
+     "高声通报生铁链第三啮合齿之半毫米公差间隙",
+     "用重锤死卡绞盘回退轮齿防止反向绞杀",
+     "准备急救破拆大截断剪以防万一"
+    ],
+    "never": [
+     "绝不让亲手锻打的铁链成为谋杀英雄的绞索"
+    ],
+    "prefers": [
+     "机械硬性公差匹配",
+     "果断刚脆的物理自救",
+     "重锤定音"
+    ],
+    "pressure_responses": {
+     "breaking": "在脱扣刹那猛拉倒退销解除锚链拉力",
+     "high": "抄起备用平口凿随时准备强冲前线",
+     "low": "大嗓门穿透风雪吼出生铁链退刀槽位置",
+     "mid": "合身扑在齿轮箱上以巨力压下锁止手柄"
+    },
+    "relationship_stance": "敬重老勋爵老帅之威严，赞叹女统领女帅之胆魄",
+    "withdrawal": "确认人员进堡后封闭工坊大门抢修破损绞盘"
+   },
+   "gender": "male",
+   "gender_reason": "要塞资深矮人混血工长铁匠工长年满四十八岁成年男工匠",
+   "id": "char_blacksmith_dolton_anvil",
+   "identity": {
+    "authority": "掌控要塞重型器械锁扣维修与金工结构公差裁定权",
+    "exposure": "若制造的生铁链存在致命铸造缺陷导致事故将承担渎职之责",
+    "hidden": "对帝国名门重装铠甲工艺了如指掌、暗中折服于女统领微观破拆决绝的质朴工匠",
+    "limits": [
+     "受身材粗矮限制无法完成高空走索",
+     "严禁损毁要塞主承重梁"
+    ],
+    "obligations": [
+     "在雪崩冲击下死守卷扬机棘爪制动盒并指导破拆金工要点"
+    ],
+    "resources": [
+     "特制淬火拔钉铁钳与冷锻平刃凿",
+     "纯度极高之防冻润滑鲸油桶"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "战士对精良武器的由衷爱惜",
+     "生死关头对工匠手艺的托付信任"
+    ],
+    "boundaries": [
+     "严守工匠与贵族将领之间的本分界线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "风雪要塞最可靠的钢铁后盾",
+    "dislikes": [
+     "偷工减料的伪劣铸件",
+     "对金工力学的狂妄无知"
+    ],
+    "expression": "以粗厚大手重重拍击胸脯与响亮号子传达信赖",
+    "likes": [
+     "火炉喷吐出的炽热蓝焰",
+     "钢件淬火瞬间清脆悦耳的鸣响"
+    ],
+    "preconditions": [
+     "建立在三十年炉火纯青锻造信誉之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "要塞首席军械修造工长铁匠工长",
+   "schedule": [
+    {
+     "from": 1070,
+     "location_id": "loc_broken_bridge_abyss",
+     "to": 1110
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "锤柄震裂掌心被震得鲜血淋漓",
+      "option": "用手锤硬楔入第二齿槽强行止退"
+     },
+     {
+      "cost": "生铁链彻底绞碎统领胸骨酿成惨祸",
+      "option": "畏缩脱手导致齿轮疯狂反转"
+     }
+    ],
+    "pressure": "若棘爪断裂生铁链将瞬间反卷彻底绞杀女统领",
+    "trigger": "卷扬机生铁棘爪因剧烈震荡即将崩齿反弹"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "那是俺{npc.name}炉子里出来的生铁，俺绝不能看着这条链子把女统领勒死在桥上！咬紧了，给俺挑开！",
+    "surface": "统领莫急！{npc.name}亲手打的链子{npc.name}最清楚，第三个齿留了公差，照着硬棱挑那一齿！"
+   }
+  },
+  {
+   "adult_context": "取得正式医师执照行医五载之二十五岁成熟成年女医师，处女，依法自负医疗责任",
+   "age_range": [
+    25,
+    25
+   ],
+   "appearance_options": [
+    "浅栗色长发梳成齐整发髻隐于防寒头巾内，眼眸温润慈悲，身穿整洁白麻长袍配羊皮医官背心",
+    "随身携带铜制药箱与精致银质缝合剪，散发着草药与艾草沉静清香"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱粗暴撕扯冻伤处贴身衣料",
+     "外界喧哗干扰"
+    ],
+    "contrast": "平日里轻声细语的柔弱女医官，在维持伤兵医疗秩序时展现出寸步不让的坚定原则",
+    "core_value": "生命神圣不容践踏，英雄凤体必须毫发无损",
+    "goal_options": [
+     "在火塘前备好加厚防风保温床铺与温热草药汤剂",
+     "准备微创检查工具迅速核定女统领锁骨与胸部受压状况",
+     "严禁无关闲杂人员靠近火塘窥探女统领创口"
+    ],
+    "never": [
+     "绝不在未做防寒遮蔽前让受创者暴露于冷风中"
+    ],
+    "prefers": [
+     "严谨无菌的创面保护",
+     "温暖私密的愈合环境",
+     "温和慈悲"
+    ],
+    "pressure_responses": {
+     "breaking": "迅速展开医用洁净白布配合副官形成第二重遮蔽圈",
+     "high": "以医者威严喝退围观人群为统领腾出私密救治区",
+     "low": "轻声安抚避难妇孺同时迅速调配冻伤外敷油膏",
+     "mid": "快步迎向门洞指挥担架手准备平稳交接"
+    },
+    "relationship_stance": "将女统领视作守护苍生之光辉化身，将老勋爵视作值得托付之后方长辈",
+    "withdrawal": "完成统领体表创面涂药后指导全堡难民饮用防寒药汤"
+   },
+   "gender": "female",
+   "gender_reason": "光辉教会随军女医师修女医师年满二十五岁成年女子",
+   "id": "char_medic_sister_agnes",
+   "identity": {
+    "authority": "掌控避难前厅伤员检伤分类与冻伤急救处置权",
+    "exposure": "若延误统领严重冻伤诊治将导致皮肉坏死留下严重伤残",
+    "hidden": "内心对女统领舍生忘死庇护难民之圣洁行径崇敬至极、立誓保全英雄凤体之仁心医师",
+    "limits": [
+     "禁止参与军事武器搏杀",
+     "严禁浪费救命外伤药剂"
+    ],
+    "obligations": [
+     "在女统领脱险后第一时间检查胸骨挤压伤与冻伤创面"
+    ],
+    "resources": [
+     "雪莲防冻雪花膏与浓缩烈酒消毒剂",
+     "干净纯棉保暖绷带三十二卷"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女武神舍己救人散发的神圣道德光辉",
+     "医患之间纯洁无瑕的疗愈托付"
+    ],
+    "boundaries": [
+     "严守医师对病患的庄重伦理与纯洁爱护界线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "英雄历经浩劫归来时最宁静温暖的疗愈港湾",
+    "dislikes": [
+     "引发流血冲突的暴民",
+     "刺骨极寒对幼弱生灵的摧残"
+    ],
+    "expression": "以轻柔温暖的手法与关切真诚的问询传递抚慰",
+    "likes": [
+     "火塘中跳跃的温暖火苗",
+     "伤员体温逐渐回升平稳的微弱呼吸"
+    ],
+    "preconditions": [
+     "建立在誓死救死扶伤之希波克拉底契约之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "极北随军避难医疗救护首席女医师修女医师",
+   "schedule": [
+    {
+     "from": 1070,
+     "location_id": "loc_fortress_hearth_hall",
+     "to": 1110
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗珍贵存量雪莲精油",
+      "option": "以温毛巾热敷促使血液循环并轻柔涂抹草药油膏"
+     },
+     {
+      "cost": "统领遭受不可逆冻疮瘢痕损害",
+      "option": "任由冷风吹拂延误复温"
+     }
+    ],
+    "pressure": "若不及时卸甲复温将引发深部组织冻伤坏死与失温昏迷",
+    "trigger": "女统领入堡后因极寒侵袭与重铠压迫体温急剧骤降"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "那生铁链勒得太深了……千万不要伤到锁骨和经络！{npc.name}一定会用最好的草药让女统领统领完好无损地康复！",
+    "surface": "统领受苦了！{npc.name}已备好暖炉与雪莲膏，副官快扶统领过来，门外有老帅守着！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "极北的长冬，霜月",
+  "minute": 1080
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "humiliation",
+  "bodily_harm",
+  "death",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "极北断崖要塞在遭遇二级以上雪崩警报时须在三十秒内落下重型铸铁防暴闸门以保全主堡平民安全。",
+  "退役圣殿骑士交卸兵权后保留佩剑与行军防身工具，享有在危急关头接管临时战场防务之法定特权。",
+  "要塞重型防滑生铁绞盘配备应急逆止棘爪插销，在主缆承受十吨以上冲击时须人工手动介入防脱制动。",
+  "随军女侍从在骑士主将甲胄受损脱落时有义务第一时间展开加厚防寒大氅护卫将领仪态与身心尊严。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "测试加厚淬火磨石硬棱刃口平直度",
+    "细致拉紧秘银胸甲双侧羊皮减震武装带锁扣",
+    "套上特制高弹性真丝锁子甲内衬确认活动度良好"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_heavy_plate_armor_inspection",
+   "location_ids": [
+    "loc_fortress_hearth_hall"
+   ],
+   "start_minute": 1020,
+   "tags": [],
+   "title": "秘银胸甲锁扣除霜与武装带紧固核验"
+  },
+  {
+   "beats": [
+    "铁匠铁匠工长涂抹加热鲸油清理生铁链轮齿隙冰棱",
+    "排查悬空石桥两端八处花岗岩支撑石榫金属疲劳状况",
+    "核验卷扬机自锁防脱棘爪插销制动顺畅度"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_winch_cable_hoist_patrol",
+   "location_ids": [
+    "loc_broken_bridge_abyss"
+   ],
+   "start_minute": 980,
+   "tags": [],
+   "title": "生铁防滑绞盘钢索承重滑轮例行巡检"
+  },
+  {
+   "beats": [
+    "每月初一是要塞的集市日，炉火大堂里挤满了来换盐和铁器的山民。",
+    "老勋爵坐在长桌一头记账，女统领站在门边，替抱孩子的妇人挡开拥挤的人群。",
+    "傍晚人散了，游侠端来一杯热麦酒，说今天卖出了三张狼皮。"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [
+    "hook_cold_paladin_chubby_cheeks",
+    "hook_ranger_voice_through_blizzard",
+    "hook_squire_warm_cloak_shield"
+   ],
+   "id": "act_refugee_wagon_convoy_intake",
+   "location_ids": [
+    "loc_fortress_hearth_hall"
+   ],
+   "start_minute": 600,
+   "tags": [],
+   "title": "集市日的大堂"
+  },
+  {
+   "beats": [
+    "索林哨长用温酒精棉布擦拭黄铜望远镜物镜凝结冰霜",
+    "霍夫曼班长校准防暴闸门重锤配重自锁缆绳平衡",
+    "测试传令黄铜号角在强逆风中的声波穿透力"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_clock_tower_vantage_calibration",
+   "location_ids": [
+    "loc_clock_tower_vantage"
+   ],
+   "start_minute": 1000,
+   "tags": [],
+   "title": "哨戒机械钟楼单筒潜望镜透镜除霜校准"
+  },
+  {
+   "beats": [
+    "铁匠工长工长手持平头锉刀手工修平导向轮咬合齿毛刺",
+    "测试双向棘轮止回阀在冰冻负荷下的回弹灵敏度",
+    "将淬火磨刀铁角置于角向量具上核准直角规整度"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_blacksmith_chain_link_tuning",
+   "location_ids": [
+    "loc_broken_bridge_abyss"
+   ],
+   "start_minute": 950,
+   "tags": [],
+   "title": "生铁锚链导向槽口退刀公差手工修磨"
+  },
+  {
+   "beats": [
+    "副官以加厚大氅将女统领连肩带膝严密包裹",
+    "修女医师涂抹草药雪花膏检查主帅冻伤部位",
+    "老勋爵递上温热麦酒护送女统领至火塘主座"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_post_escape_warmth_recovery",
+   "location_ids": [
+    "loc_fortress_hearth_hall"
+   ],
+   "start_minute": 1115,
+   "tags": [],
+   "title": "脱险后宽长大氅严密包裹与火塘体温复苏"
+  },
+  {
+   "beats": [
+    "地热总阀开启后暖风灌满古老暖廊，女统领靠着温热石壁，冻僵的手指解不开甲扣。",
+    "上前一枚枚解开胸甲侧扣，撕破的衬衣下锁骨的勒痕已经发紫，女统领偏过头没有出声。",
+    "最后一枚扣子落地，女统领握住那只还没收回的手，说今夜想在这里多坐一会儿。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_thermal_tunnel_armor_unlacing",
+   "location_ids": [
+    "loc_ancient_dwarven_thermal_tunnel"
+   ],
+   "start_minute": 1140,
+   "tags": [
+    "intimate"
+   ],
+   "title": "地热暖廊卸甲回暖"
+  },
+  {
+   "beats": [
+    "石室里炉火正旺，女统领卸了甲，只穿一件亚麻长衬衣坐在熊皮上，银白的长辫一直垂到腰间。",
+    "女统领把梳子递过来：辫子是副官编的，太紧了。……替我拆开，手可以慢一点。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_chamber_unbraid",
+   "location_ids": [
+    "loc_commander_stone_chamber"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "intimate"
+   ],
+   "title": "炉火边替女统领拆辫子"
+  },
+  {
+   "beats": [
+    "女统领背对着炉火解开衬衣，后背上横七竖八全是旧伤，在火光里泛着淡淡的白。",
+    "女统领问：想知道每一道是怎么来的吗？等人答应，才拉着那只手，一道一道按在自己身上，从肩胛一路往下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_chamber_old_scars",
+   "location_ids": [
+    "loc_commander_stone_chamber"
+   ],
+   "start_minute": 1350,
+   "tags": [
+    "intimate"
+   ],
+   "title": "数女统领身上的旧伤"
+  },
+  {
+   "beats": [
+    "一夜大雪把石室的窗堵了一半，女统领在厚厚的毛皮被下醒来，整个人被人圈在怀里。",
+    "女统领没有动，低声说：雪封了路，今天不用操练。……退队以后，这是我第一次想赖床。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_chamber_snowed_in",
+   "location_ids": [
+    "loc_commander_stone_chamber"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "大雪封门的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.4,
+  "male": 0.6,
+  "nonbinary": 0.0
+ },
+ "default_person": "third",
+ "era": "极北寒冬暴风雪侵袭万吨雪崩压塌要塞外桥之生死死线",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们",
+  "她们",
+  "他俩",
+  "她们俩",
+  "他的",
+  "她的",
+  "未成年",
+  "幼女",
+  "少女",
+  "幼态",
+  "幼女风",
+  "初中生",
+  "高中生",
+  "强暴",
+  "迷奸",
+  "轮奸",
+  "性虐",
+  "色情",
+  "下流",
+  "露阴",
+  "淫荡"
+ ],
+ "hooks": [
+  {
+   "id": "hook_bridge_collapse_armor_jam_peril",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_heroine_elenna_griffin",
+   "text": "万吨雪崩压塌悬空八十米石桥，女统领{char_heroine_elenna_griffin.name}身上穿戴之重型秘银胸甲已被生铁锚链与深黑石缝死死卡死在断崖绝境深处！"
+  },
+  {
+   "id": "hook_thirty_sec_avalanche_deadline",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_heroine_elenna_griffin",
+   "text": "雪崩主峰咆哮压境仅余三十秒催命倒数，要塞铁闸正在无情下坠，强扯只会撕烂战袍武装衣走光受辱，孤傲女武神该如何在生死盲区中力学破局？"
+  },
+  {
+   "id": "hook_cold_paladin_chubby_cheeks",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_heroine_elenna_griffin",
+   "text": "白瓷小脸微显淡淡的红晕，与那双孤傲清冷的凤眸形成绝美反差，面对重铠锁颈与万吨雪暴压顶，名媛女将的外表下蕴藏着怎样坚不可摧的钢铁骨气？"
+  },
+  {
+   "id": "hook_grindstone_micro_lever_pop",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_heroine_elenna_griffin",
+   "text": "随身配用之十五公分高硬度直角行军磨具，能否在暴风雪呼啸中化作毫米级力矩撬棍，以三毫米硬棱在两毫米咬合死隙内挑退自锁卡簧？"
+  },
+  {
+   "id": "hook_ranger_voice_through_blizzard",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_ranger_bryce_winston",
+   "text": "荒原学者{char_ranger_bryce_winston.name}穿透风雪狂澜的高频哨音指引，能否为盲操中的女统领送达逆向三十度斜角杠杆受力的唯一生还坐标？"
+  },
+  {
+   "id": "hook_squire_warm_cloak_shield",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_squire_celia_lorraine",
+   "text": "忠诚副官{char_squire_celia_lorraine.name}飞身挥展双层防风大氅筑起的人肉护盾，能否抢在任何外界视线聚焦前为主帅筑成严丝合缝的尊严长城？"
+  },
+  {
+   "id": "hook_commander_gate_lock_stand",
+   "kind": "observe",
+   "location_ids": [],
+   "slot": "char_commander_garrick_valentin",
+   "text": "老要塞长{char_commander_garrick_valentin.name}合抱卷扬机死死卡住十吨闸门之决然身影，正与断崖上女武神孤傲求生的身影展开着怎样的生死相托？"
+  },
+  {
+   "id": "hook_glorious_roll_escape_triumph",
+   "kind": "accident",
+   "location_ids": [],
+   "slot": "char_heroine_elenna_griffin",
+   "text": "当秘银胸甲在力矩弹响中骤然解脱的一刹那，那抹自大氅裹护中顺势优雅后滚翻跃入门洞、傲骨凌霜的圣骑士身影，将怎样书写极北绝境的生还神话？"
+  },
+  {
+   "id": "hook_elenna_chamber_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_commander_stone_chamber"
+   ],
+   "slot": "char_heroine_elenna_griffin",
+   "text": "{npc.name}推开石室的门，炉火的热气扑出来：外面冷。进来烤烤火，甲我一个人卸不下来。"
+  }
+ ],
+ "id": "frontier_tavern_exiled_paladin",
+ "locations": [
+  {
+   "affordances": [
+    "反握锋锐铁角探入极窄微隙挑动卡簧脱扣",
+    "蹬踏岩壁凸起借助反冲力向后翻滚跃回安全岩台"
+   ],
+   "detail": "悬空八十米绝壁之上的万载玄冰裂谷，狂风咆哮吹卷暴雪，两吨重黑曜石落梁断口狰狞咬合，生铁锚链在风中发出濒临崩断之刺耳金属呻吟，危机一触即发。",
+   "exits": [
+    "loc_fortress_hearth_hall",
+    "loc_clock_tower_vantage"
+   ],
+   "id": "loc_broken_bridge_abyss",
+   "name": "断桥崖口",
+   "pressure_modifiers": {
+    "press_avalanche_thirty_sec_deadline": "山体剧烈震颤显示第二波万吨雪暴将在三十秒内抹平断桥",
+    "press_chain_corset_strangle_peril": "生铁锚链受拉力持续下坠剧烈勒压锁骨并撕扯武装衣领口"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "暴风雪呼啸卷过悬崖断口，哨塔火把红光映照着冷轧秘银胸甲与深黑岩缝间刺目的金属反光。",
+   "witnesses": [
+    "bg_blacksmith_dolton",
+    "bg_sentry_thorin"
+   ]
+  },
+  {
+   "affordances": [
+    "取用厚实干燥之羊毛毛毯为脱险人员提供严密保暖裹护",
+    "调配草药雪花膏涂抹冻伤红肿部位"
+   ],
+   "detail": "粗凿花岗岩巨柱支撑起挑高十米拱顶，中央巨大铸铁壁炉柴火熊熊燃烧发出噼啪爆响，难民聚集取暖，空气中弥漫着麦酒、松针与劫后余生的浓重暖意。",
+   "exits": [
+    "loc_broken_bridge_abyss",
+    "loc_clock_tower_vantage",
+    "loc_ancient_dwarven_thermal_tunnel",
+    "loc_commander_stone_chamber"
+   ],
+   "id": "loc_fortress_hearth_hall",
+   "name": "炉火大堂",
+   "pressure_modifiers": {
+    "press_iron_gate_emergency_drop": "沉重防暴铁闸双轴自锁滚轮轰鸣下落仅留最后半米生死缝隙",
+    "press_refugee_unrest_quell_duty": "避难人群中潜藏骚动需要威严将领立威震慑维持治安"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "壁炉熊熊橘红火光驱散极寒阴霾，照亮长条橡木长桌与守备军陈列整齐的防暴器械。",
+   "witnesses": [
+    "bg_matron_martha",
+    "bg_medic_agnes"
+   ]
+  },
+  {
+   "affordances": [
+    "扳动主控发条紧急制动摇柄敲响三级避难大钟",
+    "调准高倍率单筒潜望镜监测断崖裂缝应力位移"
+   ],
+   "detail": "由巨型青铜齿轮与千磅生铁摆锤驱动之极北古老报时钟楼，齿轮咬合转动声如闷雷滚过，巨大落地玻璃窗俯瞰整片苍茫雪海与要塞主防线全景。",
+   "exits": [
+    "loc_broken_bridge_abyss",
+    "loc_fortress_hearth_hall",
+    "loc_ancient_dwarven_thermal_tunnel"
+   ],
+   "id": "loc_clock_tower_vantage",
+   "name": "悬崖钟楼",
+   "pressure_modifiers": {
+    "press_avalanche_thirty_sec_deadline": "巨大钟锤以极高频率摆动宣告雪暴主峰正加速撞向要塞"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "巨型青铜发条齿轮投下精密阴影，高倍率黄铜潜望镜清晰捕捉断桥一举一动。",
+   "witnesses": [
+    "bg_sentry_thorin",
+    "bg_gate_operator_hoffman"
+   ]
+  },
+  {
+   "affordances": [
+    "手动转动青铜泄压手轮调节地热蒸汽喷涌量提升室温",
+    "铺设干燥亚麻保温软垫供脱险将帅进行深度体温复苏"
+   ],
+   "detail": "深藏于风化断崖下方六十米花岗岩底层的古代开凿穹顶隧道，粗糙拱顶岩壁凝结着湿润温热的水汽露珠，中央铺设由生铁导轨组成的双向平水矿车道，岩壁两侧青铜管道持续向外吞吐散发着硫磺气息之滚烫地热蒸汽，构筑成阻绝极寒暴雪之天然绝密暖房。",
+   "exits": [
+    "loc_fortress_hearth_hall",
+    "loc_clock_tower_vantage"
+   ],
+   "id": "loc_ancient_dwarven_thermal_tunnel",
+   "name": "矮人地热隧道",
+   "pressure_modifiers": {
+    "press_frostbite_hypothermia_shock": "回暖蒸汽在冷凝作用下产生浓密水雾需要持续保持导轨通风"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "地热蒸汽在低矮矿灯幽暗黄光下翻滚蒸腾，将生铁矿车与厚实保温毛毡映照出朦胧而安全的轮廓阴影。",
+   "witnesses": [
+    "bg_blacksmith_dolton",
+    "bg_medic_agnes"
+   ]
+  },
+  {
+   "affordances": [
+    "在炉火边替女统领拆辫子",
+    "帮女统领把秘银甲挂上甲架",
+    "往壁炉里添一块木柴"
+   ],
+   "detail": "要塞内墙里一间凿出来的石室，铺着熊皮的矮床、一座烧得正旺的壁炉、墙角立着卸下来的秘银甲。",
+   "exits": [
+    "loc_fortress_hearth_hall"
+   ],
+   "id": "loc_commander_stone_chamber",
+   "name": "女统领的石室寝居",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "炉火把整间石室照成暖橙色，厚重的橡木门一关，风雪声就只剩一点闷响。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "格里芬",
+   "瓦伦丁",
+   "温斯顿",
+   "洛林",
+   "铁砧",
+   "银月",
+   "晨曦",
+   "风暴",
+   "黑岩",
+   "霜狼",
+   "鹰扬",
+   "圣歌",
+   "寒芒",
+   "凛刃",
+   "重盔",
+   "苍穹"
+  ],
+  "given_female": [
+   "艾莲娜",
+   "西莉亚",
+   "伊莎贝",
+   "罗莎琳",
+   "薇薇安",
+   "克洛伊",
+   "菲奥娜",
+   "塞拉菲娜",
+   "卡特琳娜",
+   "尤利娅",
+   "达芙妮",
+   "伊索尔德",
+   "特丽丝",
+   "海伦娜",
+   "莫妮卡",
+   "罗莎琳德"
+  ],
+  "given_male": [
+   "加里克",
+   "布莱斯",
+   "卢修斯",
+   "贝特朗",
+   "阿尔里克",
+   "奥斯温",
+   "雷恩",
+   "奥古斯特",
+   "贝尔纳",
+   "埃德蒙",
+   "阿尔伯特",
+   "康拉德",
+   "弗雷德",
+   "戈弗雷",
+   "吉尔伯特",
+   "兰斯洛特"
+  ],
+  "given_neutral": [
+   "风行者",
+   "破晓",
+   "逐光",
+   "凛冬",
+   "孤峰",
+   "坚岩",
+   "断刃",
+   "明昼",
+   "无羁",
+   "重明",
+   "青穹",
+   "远哨",
+   "夜弦",
+   "飞羽",
+   "天堑",
+   "霜歌"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入。改动：规则里的写作说明换成世界内规则；四个玩家身份原本与人物模板是同一批人，改写为领主督军、佣兵剑士、攻城器械师、驯马人；女统领与游侠学者的倾向卡放宽到脱险后可心动，亲密前提写明危机解除、双方清醒自愿；老勋爵、副官与女统领的关系阶段从亲密改为熟识；新增一个脱险后地热暖廊的亲密日常；写死的人名改为身份称呼或占位。",
+ "player_identities": [
+  {
+   "age_range": [
+    30,
+    40
+   ],
+   "baseline": "年过三十的领主督军，持有领主手令，可以越过守备长官直接调动要塞兵员与粮秣。",
+   "gender": "any",
+   "id": "pi_paladin_elenna_griffin",
+   "reputation": "铁面督军，谁都知道领主的意思从这张嘴里说出来。",
+   "resources": [
+    "盖有领主火漆的调兵手令",
+    "一队听命于督军的亲兵"
+   ],
+   "risks": [
+    "要塞失守或难民死伤，督军要回领主城堡领罪"
+   ],
+   "role": "北境领主派驻要塞的成年督军",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}督军"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "受雇护送难民车队北上的佣兵，雪崩时正跟在女统领身后断后。",
+   "gender": "any",
+   "id": "pi_commander_garrick_valentin",
+   "reputation": "拿钱办事，可这一路没扔下过一个难民。",
+   "resources": [
+    "一柄缺口的长剑与一面圆盾",
+    "车队里几个肯听话的壮丁"
+   ],
+   "risks": [
+    "佣兵身份在要塞里没人当回事，出了乱子先被怀疑"
+   ],
+   "role": "随难民车队进堡的成年佣兵剑士",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}剑士"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "负责城头弩炮与闸门绞盘的器械师，比任何人都清楚那道防暴铁闸还能撑多久。",
+   "gender": "any",
+   "id": "pi_ranger_bryce_winston",
+   "reputation": "话少手巧，老勋爵说城门能不能开要先问器械师。",
+   "resources": [
+    "绞盘齿轮的检修钥匙与备用卡销",
+    "一卷要塞机关图"
+   ],
+   "risks": [
+    "闸门绞盘出了故障要背失职的罪名"
+   ],
+   "role": "要塞的成年攻城器械师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}匠师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "照看要塞战马的驯马人，熟悉通往马厩的每一条地道与暗门。",
+   "gender": "any",
+   "id": "pi_squire_celia_lorraine",
+   "reputation": "身份低微，可连老勋爵的坐骑都只肯吃这人喂的草。",
+   "resources": [
+    "一串马厩与草料库的钥匙",
+    "两匹不怕雪崩轰响的老战马"
+   ],
+   "risks": [
+    "战马惊逃或冻死要从工钱里赔"
+   ],
+   "role": "要塞马厩的成年驯马人",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}马夫"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "极北冰封断崖上的要塞，悬空八十米的黑曜石连桥是进堡的唯一通路。被逐出圣殿骑士团的前女统领带着难民车队在这里落脚，白天修城墙、分口粮，夜里在避难前厅的酒馆里听佣兵吹牛；领主派来的督军和攻城器械师都盯着这位不受欢迎的客人。山上的积雪一冬比一冬厚，连桥的铁链已经锈了。",
+ "pressures": [
+  {
+   "choice": "选择利用行军磨刀铁角微观撬退卡簧，或是蛮力硬拔导致铠甲锁死",
+   "exits": [
+    {
+     "cost": "右手虎口受毛刺反震擦破且指尖因极寒冻麻",
+     "option": "反握高碳钢铁角以直角硬棱向上切入挑退卡舌脱扣"
+    },
+    {
+     "cost": "帝国首席女统领英年早逝且要塞外防线全线崩解",
+     "option": "错失撬动时机导致随断桥一同跌入雪谷坠渊"
+    }
+   ],
+   "far": {
+    "consequence": "女统领随断裂桥体坠入八十米冰川绝壁裂谷遭受粉身碎骨万劫不复。",
+    "due_days": 1,
+    "trigger": "雪崩主力彻底撞击桥梁残体造成整体坍塌坠渊"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_avalanche_thirty_sec_deadline",
+   "immediate": {
+    "minutes": 1,
+    "text": "黑曜石断梁随震波持续沉降，两吨巨石死死压扣胸甲锁扣产生剧烈撕扯压迫。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_broken_bridge_abyss"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "三十秒催命震颤以毫秒级流逝，白色雪浪如巨兽张开巨口即将彻底覆灭断桥。"
+   },
+   "objective": "在雪浪吞没断桥前完成卡簧撬解脱扣并跃回安全岩台",
+   "source": "nature",
+   "start_minute": null,
+   "tags": [],
+   "title": "二次雪崩三十秒覆顶灭顶危机",
+   "trigger": "雪峰主峰冰川断裂引发万吨雪暴怒潮以数十米高雪浪压境"
+  },
+  {
+   "choice": "选择迎着风雪刺骨以磨刀铁角探入自锁槽，或是缩身退避加剧勒绞",
+   "exits": [
+    {
+     "cost": "皮护腕受刮擦开裂且肩部遭受轻微勒压红肿",
+     "option": "磨刀铁角精准探入齿隙施加力矩顶开卡簧舌解放扣环"
+    },
+    {
+     "cost": "将帅战袍彻底瓦解走光并终生丧失重剑挥击能力",
+     "option": "硬拽武装带导致肩带崩裂露体且锁骨折断"
+    }
+   ],
+   "far": {
+    "consequence": "高岭之花女将遭受重度冻伤伤残并严重受辱损害名节。",
+    "due_days": 1,
+    "trigger": "胸甲搭扣断裂导致铠甲脱落且锁骨严重骨折"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_chain_corset_strangle_peril",
+   "immediate": {
+    "minutes": 1,
+    "text": "三十公斤重铠受重力下坠将武装衣领口向下猛扯，冰风灌入贴身衣襟刺骨剧痛。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_broken_bridge_abyss"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "锚链若再下沉半公分将彻底绞断真丝肩带，使女帅陷入大面积走光与骨折绝境。"
+   },
+   "objective": "在锁骨被绞断且武装衣被撕碎前卸除下坠张力",
+   "source": "accident",
+   "start_minute": null,
+   "tags": [],
+   "title": "生铁锚链死死勒绞秘银胸甲危局",
+   "trigger": "生铁防滑锚链在八百牛顿拉力下拉直并卡入胸甲侧向铰链死穴"
+  },
+  {
+   "choice": "选择以贴地翻滚战技冲关，或是瞻前顾后被阻绝于严寒死门之外",
+   "exits": [
+    {
+     "cost": "鹿皮长靴跟部磨损且披风下摆被飞石刮破",
+     "option": "借脱扣反冲力就地后空翻紧接贴地滑铲在最后零点三秒冲入门洞"
+    },
+    {
+     "cost": "一代巾帼名将沦为冻毙雪野的无名牺牲者",
+     "option": "动作迟疑被关在重铁门外绝域遭受极寒吞没"
+    }
+   ],
+   "far": {
+    "consequence": "受困者在零下三十度极寒与雪崩余波中失温冻结成冰雕死亡。",
+    "due_days": 1,
+    "trigger": "大门完全闭死将受困者隔离在门外绝域"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_iron_gate_emergency_drop",
+   "immediate": {
+    "minutes": 1,
+    "text": "沉重生铁闸门带起狂暴风压每秒下沉十公分，留给生还者的安全高度急速收缩。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_fortress_hearth_hall"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "一旦闸门齿条自锁啮合，外部机械机构将彻底焊死直至雪暴停息。"
+   },
+   "objective": "在重达十吨铁闸完全砸入地槽前滑铲穿过半米缝隙进入堡内",
+   "source": "institution",
+   "start_minute": null,
+   "tags": [],
+   "title": "要塞防暴厚铁闸门强制落闸死线",
+   "trigger": "要塞三级防空防灾警报触发重型防暴铁门机械延时降落程序"
+  },
+  {
+   "choice": "选择借大氅飞扑掩护从容就地翻滚，或是惊慌护胸丧失重心跌倒",
+   "exits": [
+    {
+     "cost": "副官双臂受风压震荡酸痛且发丝凌乱",
+     "option": "副官以两米宽大氅如翼展铺开严丝合缝包裹接应"
+    },
+    {
+     "cost": "崇高圣骑士名节严重受损并引发军心哗然动荡",
+     "option": "大氅脱手导致衣衫不整受困窘态完全曝光于风雪台前"
+    }
+   ],
+   "far": {
+    "consequence": "圣殿第一女帅崇高威严彻底扫地并遭受严重精神摧残。",
+    "due_days": 1,
+    "trigger": "战袍完全破损走光并在极北军民中沦为风流谈资"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_modesty_exposure_threat",
+   "immediate": {
+    "minutes": 1,
+    "text": "高弹力真丝武装衣在生铁挂钩刮擦下边缘抽丝，雪白香肩与柔嫩肌肤若隐若现。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_broken_bridge_abyss"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若无法在落地一瞬被大氅完全笼罩，将使女统领身姿受难民与戍卫将士窥探。"
+   },
+   "objective": "以严密身形控制与副官大氅屏障完美捍卫名门处女绝对尊严",
+   "source": "person",
+   "start_minute": null,
+   "tags": [],
+   "title": "破拆脱扣战袍撕裂走光受辱危局",
+   "trigger": "重甲脱离瞬间巨大拉扯力极易刮破贴身真丝衬衣露体"
+  },
+  {
+   "choice": "选择拔剑斩断暴徒兵刃立地宣判，或是退让妥协引发踩踏哄抢",
+   "exits": [
+    {
+     "cost": "刚脱困疲惫身躯强行提聚剑气耗损微量体力",
+     "option": "女统领手握阔剑立于石阶以冰冷威压一剑削断头目铁棍立威"
+    },
+    {
+     "cost": "避难堡垒陷入人道主义灾难全员饥寒交迫",
+     "option": "放任哄抢导致平民伤亡与要塞储备彻底告罄"
+    }
+   ],
+   "far": {
+    "consequence": "极北要塞自内部沦陷被暴徒与风雪双重毁灭化作人间地狱。",
+    "due_days": 1,
+    "trigger": "骚乱彻底失控导致要塞内部防务瓦解崩溃"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_refugee_unrest_quell_duty",
+   "immediate": {
+    "minutes": 1,
+    "text": "避难人群中妇孺啼哭声与砍刀挥舞叫嚣声混杂一团，火把浓烟刺鼻弥漫大堂。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_fortress_hearth_hall"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若粮仓大门被强行砸开，数百避难平民将陷入自相残杀之绝境浩劫。"
+   },
+   "objective": "以无可匹敌之女统领威严与高超剑技瞬间弹压暴徒恢复秩序",
+   "source": "person",
+   "start_minute": null,
+   "tags": [],
+   "title": "避难大堂流窜溃兵抢粮骚乱危局",
+   "trigger": "亡命盗匪罗德里克趁要塞落闸混乱纠集数十人持械冲击粮秣重地"
+  },
+  {
+   "choice": "选择配合医官以烈酒药膏快速搓揉神阙关元穴位，或是硬抗导致冻伤加剧",
+   "exits": [
+    {
+     "cost": "皮肤受药力刺激产生剧烈灼痛针刺感",
+     "option": "修女医师以加温雪花膏迅速搓热四肢穴位并引渡热力回暖"
+    },
+    {
+     "cost": "心脏骤停陷入深度昏迷危及生命",
+     "option": "拒绝救治导致深度失温休克濒死"
+    }
+   ],
+   "far": {
+    "consequence": "女统领陷入不可逆深度昏迷乃至心搏停止死亡。",
+    "due_days": 1,
+    "trigger": "极度深低温导致全身多器官衰竭"
+   },
+   "flags": [],
+   "hook_ids": [],
+   "id": "press_frostbite_hypothermia_shock",
+   "immediate": {
+    "minutes": 1,
+    "text": "脸色惨白如霜，嘴唇冻得发紫，周身经络在极寒侵袭下濒临僵化痉挛。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_fortress_hearth_hall"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若在五分钟内未能恢复核心体温，将造成永久性周围神经坏死。"
+   },
+   "objective": "在心脏骤停失温昏厥前完成体温回暖与神经机能激活",
+   "source": "nature",
+   "start_minute": null,
+   "tags": [],
+   "title": "极寒狂风侵袭重度失温休克危局",
+   "trigger": "零下三十度冰风透过撕裂衬衣持续侵袭胸口心脉核心区域"
+  }
+ ],
+ "region": "极北冰封断崖要塞悬空八十米黑曜石连廊断桥与避难前厅",
+ "rules": [
+  {
+   "id": "rule_heavy_plate_armor_safety_protocol",
+   "text": "重达三十公斤之秘银全身重铠在受外力锚链绞死卡位时严禁强行硬拉，须利用硬质平刃工具探入卡轴自锁槽释放簧片张力。"
+  },
+  {
+   "id": "rule_pure_adult_paladin_code",
+   "text": "要塞落闸令一经下达，城门绞盘只听守备长官一人号令，私自扳动闸门绞盘者以叛乱论处。"
+  },
+  {
+   "id": "rule_zero_pronoun_linguistic_standard",
+   "text": "避难大厅的粮秣按人头配给，难民与士兵同等份额，抢粮者当场缴械关入地窖。"
+  },
+  {
+   "id": "rule_sentence_deduplication_mandate",
+   "text": "骑士团退役者入堡须卸下佩剑交由守备登记，危急时经长官许可方可取回。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "戍边同僚",
+  "committed": "永恒战盟",
+  "familiar": "生死袍泽",
+  "flirting": "暗生敬慕",
+  "intimate": "托付后背",
+  "stranger": "要塞初识",
+  "testing": "死线试探"
+ },
+ "status": "released",
+ "style_hint": "以风雪呼啸与金属绞紧压迫感衬托退役女统领高贵坚毅风骨，将冷兵器铠甲机械形变与微观杠杆力矩自救融为一体。",
+ "tension_engines": [
+  {
+   "id": "te_avalanche_thirty_sec_deadline",
+   "text": "极北万吨雪崩主峰断裂雪浪已越过鹰嘴岩如白龙咆哮下压，要塞警钟鸣响仅余三十秒极限自救窗口，慢一秒即被万吨积雪彻底吞没坠入八十米深渊。"
+  },
+  {
+   "id": "te_chain_corset_strangle_peril",
+   "text": "重达六十斤之高阶秘银胸甲在重力牵引下剧烈下坠，生铁锚链逆向自锁齿死死咬入武装带侧向卡轴，胸甲金属上沿剧烈勒压锁骨，同时将贴身真丝衬衣向下撕开大半，尊严与肉体受创双重逼近临界。"
+  },
+  {
+   "id": "te_grindstone_micro_lever_pry",
+   "text": "女统领仅有的自救器具是长十五公分、带三毫米硬棱刃口的行军磨刀铁角，必须在零下二十度冰风中用冻僵五指以严格三十度斜倾角度插入两毫米咬扣死隙，施加逆向剪切力矩顶退自锁簧舌方能脱扣。"
+  },
+  {
+   "id": "te_paladin_chaste_honor_defense",
+   "text": "即便身陷风雪悬崖濒死绝境且战袍受拉撕裂，女统领骨子里的圣骑士傲骨与高贵灵魂绝不动摇分毫，不仅要凭凡人之躯与重力力学博弈夺回生机，更要在脱扣瞬间以无暇姿态完成涅槃自救。"
+  }
+ ],
+ "title": "暗黑奇幻·退队女骑士·雪峰要塞悬桥断裂重甲咬死石缝",
+ "tone": [
+  "冷峻史诗",
+  "极寒压迫",
+  "重甲卡扣",
+  "坚毅纯洁",
+  "硬核杠杆"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "twist_grindstone_lever_pop_success",
+   "requires": [],
+   "text": "行军淬火高硬度直角铁角宛如刚性微观撬杠，在四点二牛顿角向剪切力矩压迫下，生铁防滑锚链卡轴之逆止簧片被整体硬生生撬开两毫米，死咬之黑曜石缝口应声滑脱，前襟扣环顺势弹开脱扣，女统领身形彻底解放！"
+  },
+  {
+   "category": "信息",
+   "id": "twist_ranger_acoustic_leverage_cue",
+   "requires": [],
+   "text": "荒原游侠凭借击打地质音叉在狂风暴雪停顿一瞬吹出高频哨音口令，为女统领盲操磨刀铁角提供了分毫不差的向上三十度斜切力矩坐标！"
+  },
+  {
+   "category": "人事",
+   "id": "twist_cloak_modesty_iron_curtain",
+   "requires": [],
+   "text": "副官在门洞前舍身扯开宽幅加厚深蓝防风大氅筑起密不透风之防窥护盾，彻底封死了任何窥探视线，用赤诚袍泽忠义捍卫了女统领的绝对尊严！"
+  },
+  {
+   "category": "意外",
+   "id": "twist_avalanche_rebound_natural_wall",
+   "requires": [],
+   "text": "汹涌咆哮的第二波万吨雪崩在撞击断桥残体后，受两侧深邃坚硬岩壁导流反向填平了要塞外围冰裂谷，天然筑起一道三十米厚的抗寒防风雪堤！"
+  },
+  {
+   "category": "时限",
+   "id": "twist_commander_manual_pin_drop",
+   "requires": [],
+   "text": "老守备官老勋爵在门楼以佩剑卡死闸门绞盘，以一夫当关之钢铁臂力硬生生为断桥撤离争取到了至关重要的最后十五秒生还窗口！"
+  },
+  {
+   "category": "制度",
+   "id": "twist_noble_crest_ancient_key",
+   "requires": [],
+   "text": "女统领胸前佩戴的家族纯银十字徽记背面凸棱，竟然正与要塞避难前厅远古地下暖廊主控安全锁孔完全吻合，成功开启了地热避寒总阀！"
+  }
+ ]
+}

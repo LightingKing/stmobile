@@ -1,0 +1,2018 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满二十一周岁成年侍奉人员，恪守仪式禁令。",
+   "age_range": [
+    21,
+    25
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_apprentice_miko_1",
+   "line": "{npc.name}垂首肃立在回廊暗影之中，双目含泪紧张注视祭台险局。",
+   "location_ids": [
+    "loc_fuma_outer_corridor"
+   ],
+   "name": "绫音",
+   "role": "神乐殿女侍"
+  },
+  {
+   "adult_context": "年满二十八岁成年安保人员，依法履行执勤职责。",
+   "age_range": [
+    25,
+    35
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_shrine_guard_1",
+   "line": "{npc.name}手握长木杖死死抵住正殿门缝，挡住外界汹涌人流。",
+   "location_ids": [
+    "loc_fuma_outer_corridor"
+   ],
+   "name": "健太",
+   "role": "正殿门卫"
+  },
+  {
+   "adult_context": "年满三十二岁持证特种作业工程师，遵守安全抢修规程。",
+   "age_range": [
+    28,
+    40
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_rescue_worker_1",
+   "line": "{npc.name}扛着液压切割钳在石阶下大汗淋漓等待长官决断信号。",
+   "location_ids": [
+    "loc_fuma_outer_corridor"
+   ],
+   "name": "大辅",
+   "role": "机械技术员"
+  },
+  {
+   "adult_context": "年满三十五岁成年媒体人员，遵守新闻采风边界。",
+   "age_range": [
+    30,
+    45
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_photographer_1",
+   "line": "{npc.name}隔着雨幕举起长焦镜头试图捕捉祭台上方神圣剪影。",
+   "location_ids": [
+    "loc_fuma_outer_corridor"
+   ],
+   "name": "高桥",
+   "role": "新闻摄影官"
+  },
+  {
+   "adult_context": "年满六十二岁退休名誉神官，具备完全民事判断权能。",
+   "age_range": [
+    55,
+    70
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_elder_priest_1",
+   "line": "{npc.name}颤巍巍合十念诵古老降魔真经，祈求宗门安然度过大劫。",
+   "location_ids": [
+    "loc_kagura_storehouse"
+   ],
+   "name": "松本",
+   "role": "顾问老神官"
+  },
+  {
+   "adult_context": "年满二十四岁注册护士，依法执行紧急医疗辅助救护。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_medic_assistant_1",
+   "line": "{npc.name}双手捧着无菌消毒托盘与降温冰袋快步紧跟主治医师身后。",
+   "location_ids": [
+    "loc_kagura_storehouse"
+   ],
+   "name": "早苗",
+   "role": "随行护理师"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "名门大巫女之庄严信任与随身女官之生死相随死士情怀。",
+   "id": "combo_kyoka_and_yukina",
+   "identity_ids": [
+    "ident_miko_kyoka"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_kyoka_miko",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "千年古社主仆相依同甘共苦之深厚羁绊",
+     "stage": "committed"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_yukina_aide",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "誓死捍卫大巫女名誉之忠贞信念",
+     "stage": "committed"
+    },
+    {
+     "a": "char_kyoka_miko",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_yukina_aide",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "大巫女深知女官定会以大氅替自身遮尽外界一切探视",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "char_kyoka_miko",
+    "char_yukina_aide"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保主祭大巫女在铜梁彻底塌陷前体面完好脱出险境。",
+    "limit_gap": "大巫女必须维持祭礼仪轨威严，女官绝不可让大巫女法体遭受外界丝毫窥探。",
+    "meeting_reason": "汉白玉祭坛重型鎏金铜顶受震倾坠突发险情现场。",
+    "resource_gap": "大巫女握持宗门冷锻黄铜法器实施自救，侍女手持织锦披风负责周边防线阻断。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_bronze_collapse_timer",
+    "eng_aide_cloak_blindzone"
+   ]
+  },
+  {
+   "chemistry": "长辈老臣对宗家血脉之后顾忧思与年轻继承人之自立自尊。",
+   "id": "combo_kyoka_and_todo",
+   "identity_ids": [
+    "ident_miko_kyoka",
+    "ident_aide_yukina",
+    "ident_chief_todo",
+    "ident_commander_tachibana"
+   ],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_kyoka_miko",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "古社社务与宗门法统历经数代之信赖",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_todo_chief",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "老臣对宗主忠心不二之护持之忱",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_kyoka_miko",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_todo_chief",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "大巫女依仗社务总长阻拦外部冒进长官之步伐",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_kyoka_miko",
+    "char_todo_chief"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "守死正殿门户留足大巫女内部自救之时间窗口。",
+    "limit_gap": "藤原必须保全宗门百年名誉，大巫女绝不容忍在公职面前露出半点狼狈。",
+    "meeting_reason": "殿堂回廊阻截外部探照灯束与长焦镜头。",
+    "resource_gap": "藤原总长掌控社务所安保执事门徒，大巫女依仗老臣之威严封阻外界窥测。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_shrine_dignity_exposure"
+   ]
+  },
+  {
+   "chemistry": "刚直不阿应急铁腕长官对清冷神圣女祭司之凛然敬畏与责任催逼。",
+   "id": "combo_kyoka_and_tachibana",
+   "identity_ids": [
+    "ident_aide_yukina",
+    "ident_commander_tachibana"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_kyoka_miko",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "现代特勤应急与古老宗教法统现场之理性交锋",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_tachibana_cmd",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "指挥长官威严与神圣宗门尊严之隔空对话",
+     "stage": "testing"
+    },
+    {
+     "a": "char_kyoka_miko",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_tachibana_cmd",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "长官敬畏巫女威仪，大巫女冷对长官强行施压之无声博弈",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "char_kyoka_miko",
+    "char_tachibana_cmd"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保年轻神职小姐在铜架整体倾覆折断前从容脱困。",
+    "limit_gap": "指挥官必须在二十秒内救出人员，大巫女绝不可在公职众目睽睽下祭袍撕裂走光失态。",
+    "meeting_reason": "伏魔殿大殿倒塌生死倒计时之争分夺秒抢险现场。",
+    "resource_gap": "指挥官长官手握重型抢险器械与千斤顶，大巫女仅凭手头纯铜铃柄实施自救。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_bronze_collapse_timer",
+    "eng_shrine_dignity_exposure"
+   ]
+  },
+  {
+   "chemistry": "匠人祖传绝学机关对宗门神器神乐铃物理特性之精妙呼应。",
+   "id": "combo_kyoka_and_sakai",
+   "identity_ids": [
+    "ident_chief_todo",
+    "ident_aide_yukina"
+   ],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_kyoka_miko",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "宗门祭祀与古法匠作相辅相成之互敬互信",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_sakai_smith",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "对传统手艺匠心独运之深厚敬意",
+     "stage": "acquainted"
+    },
+    {
+     "a": "char_kyoka_miko",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_sakai_smith",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "老工匠惊佩大巫女临危不乱精准微撬机关之过人心智",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "char_kyoka_miko",
+    "char_sakai_smith"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以精准施加微观巧劲别退阻尼簧舌达成毫厘解脱。",
+    "limit_gap": "老匠人必须保全千年青铜古物完好，大巫女绝不容许自锁卡舌因受力不均崩碎。",
+    "meeting_reason": "青铜华盖断裂卡滞微观破拆点位之隔空指引。",
+    "resource_gap": "老铜匠谙熟华盖机关自锁簧片构造，大巫女依凭指点发力实施精密微撬。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_bell_lever_breakout"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "chan_whisper",
+   "reach": "耳畔十步距离内之特定密语对象",
+   "text": "十步之内贴近耳畔极轻微之声息传递"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "chan_kagura_hall_public",
+   "reach": "整条回廊，一支烟的工夫就传开，越传越离谱",
+   "text": "防灾队员蹲在回廊下躲雨时互相传的小道消息"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "神道文教专业大三在籍二十一岁成年大巫女，依法享有完全自主民事法定权柄与避险特权。",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "云髻高盘缀素银神簪，肌肤胜雪白皙通透，下颌微显柔和的轮廓与空灵眼眸反差极美；身穿高定纯白真丝双面暗纹千早祭袍外搭绯红折褶长袴。",
+    "神态威仪清冷出尘，素白千早祭袍后摆被青铜断柱死死压住，纤腰处系带与纯铜神乐铃在应急灯光照耀下折射温润黄铜光华。"
+   ],
+   "decision": {
+    "avoids": [
+     "让外面的防灾队动用消防斧劈砍华盖铜柱、划破祭袍",
+     "在华盖重心不稳时慌乱挣扎，把悬斗拱彻底拽塌"
+    ],
+    "contrast": "平时看似清冷端庄不易近人，面临巨难时果敢沉着展现惊人机关破拆手感。",
+    "core_value": "誓死捍卫退魔大巫女之圣洁威严与名门体统",
+    "goal_options": [
+     "利用神乐铃铜柄硬棱精准挑退暗槽簧片实现体面脱身",
+     "在女官大氅严密遮蔽下从容起立完成全套祭礼迎客"
+    ],
+    "never": [
+     "绝不容许旁人以粗暴割破祭袍之侮辱方式实施营救"
+    ],
+    "prefers": [
+     "利用随身冷锻金属工具施展微观物理撬卡解扣技巧",
+     "要求侍女女官撑开展宽双层厚披风形成绝对阴影盲区"
+    ],
+    "pressure_responses": {
+     "breaking": "若祭袍撕裂走光，宁可引燃案前祝祷清香制造浓烟彻底阻隔外界视线。",
+     "high": "贝齿轻咬忍受铜锈刮擦手掌之隐痛，手腕猛然爆发四点二牛顿逆向微撬劲道别脱卡销。",
+     "low": "单足屈膝维持跪姿平衡，指尖细致探寻青铜华盖断柱咬合死角。",
+     "mid": "美眸目光沉静如古井寒潭，左手护住衣襟右手稳步调正黄铜柄端受力夹角。"
+    },
+    "relationship_stance": "对侍女女官绝对信赖托付背后隐私，对公职长官恪守三步禁入威仪防线。",
+    "withdrawal": "脱身解困后容色如初整理千早衣袖，单手执铃从容谢幕绝口不提适才惊险危局。"
+   },
+   "gender": "female",
+   "gender_reason": "神道古社清冷退魔宗门首席大巫女人设",
+   "id": "char_kyoka_miko",
+   "identity": {
+    "authority": "降神神乐祭祀法统主持与殿内紧急物理破拆决断权柄",
+    "exposure": "千早真丝祭袍若在拉扯中崩解撕裂，宗门继承人圣洁清誉与名望将当场荡然无存。",
+    "hidden": "襦袢内层防走光暗扣其实早被铜槽咬死，一旦蛮力硬扯整条前襟便会当场崩脱。",
+    "limits": [
+     "严禁在青铜华盖倾压状态下强行撕扯祭袍造成大面积破损走光"
+    ],
+    "obligations": [
+     "在殿宇垮塌前排除机械卡阻护卫宗门声誉与同伴平安脱险"
+    ],
+    "resources": [
+     "随身佩带加厚重柄纯黄铜神乐法器",
+     "高定真丝抗撕扯千早祭袍面料"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对危局之中沉着冷静恪守礼节者怀抱赞赏",
+     "对非礼勿视默默筑起守护防线之担当暗生信赖"
+    ],
+    "boundaries": [
+     "救险时的触碰只算救命，不算数",
+     "要等自己点头，系带才能解开"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "掌控祭典进退全盘大局之主导位",
+    "dislikes": [
+     "粗暴冒进的野蛮破坏",
+     "肆无忌惮的长焦窥测"
+    ],
+    "expression": "褪下千早只着白襦袢跪坐在库房里，耳尖还热着：门闩上吧……今夜不当大巫女了，只想有个人在身边。",
+    "likes": [
+     "质地厚重之纯黄铜法器器物",
+     "祭典散后有人陪着坐在神乐库房里，替自己把被铜槽咬乱的襦袢系带一根根解开"
+    ],
+    "preconditions": [
+     "眼前的危局已经过去，双方都清醒、安全",
+     "出于本人的心意，不夹带报恩、交换或旁人的催促"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "宗门退魔大巫女",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_kagura_main_altar",
+     "to": 540
+    },
+    {
+     "from": 541,
+     "location_id": "loc_fuma_outer_corridor",
+     "to": 600
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "白嫩掌心被黄铜握柄防滑纹路硌出深红痕迹隐隐作痛",
+      "option": "反握冷锻金属铃柄将转轴硬棱切入卡缝深处施展四点二牛顿偏转巧劲"
+     },
+     {
+      "cost": "大红大氅外层被回廊卷入之风雨淋湿染上深色水渍",
+      "option": "朝回廊侧面打出手势指示女侍迅速扬起宽大防风毛呢外袍完全遮蔽外探光束"
+     }
+    ],
+    "pressure": "华盖承重失衡二十秒坍塌危机与殿外强光聚焦走光双重险情",
+    "trigger": "殿顶主梁震裂致使一点二吨华盖三十度倾覆咬死千早祭袍"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "“瓦砾再过二十秒就要彻底砸落下来了，若是让廊下长官见到衣履不整的狼狈模样……必须立刻以铃柄顶开锁舌！”",
+    "surface": "“女官莫要慌张，铜柱凹槽卡死了祭袍抽绳暗扣，展开大氅挡住回廊探照灯束！”"
+   }
+  },
+  {
+   "adult_context": "古典文献专业毕业二十二周岁成年掌事女官，处女，具备完全民事行事责任。",
+   "age_range": [
+    22,
+    23
+   ],
+   "appearance_options": [
+    "乌发整齐挽成女官结，眉眼柔顺神情坚毅，两颊略带淡淡的红晕；身着深紫素面细棉织长袴配对襟小袖白衣。",
+    "神情紧张敏锐，双手稳稳捧托厚实大红防风大氅，步伐轻捷如灵燕穿行廊下。"
+   ],
+   "decision": {
+    "avoids": [
+     "惊慌失措盲目呼救引来更多高架桥巡查工兵围观",
+     "在大巫女运劲的关键一刻晃动祭台地板"
+    ],
+    "contrast": "外表柔弱恭顺，护卫大巫女名誉时展现视死如归之决绝。",
+    "core_value": "誓死效忠大巫女守卫宗门至高名节",
+    "goal_options": [
+     "展开宽幅大氅严密遮蔽外部视线协助脱身",
+     "向大巫女轻声报读公职长官逼近倒计时以备抽身"
+    ],
+    "never": [
+     "绝不容许任何外人目光亵渎大巫女半分法体"
+    ],
+    "prefers": [
+     "以自身形体张开衣袍构筑绝对遮光防护网",
+     "用柔和暗语提示外部脚步声方位"
+    ],
+    "pressure_responses": {
+     "breaking": "若外界强行闯入，便张开大氅用身躯扑挡在大巫女身前。",
+     "high": "奋不顾身用后背死死顶住倾斜门框，为好友争取黄金操作间隙。",
+     "low": "沉着展平大氅两角，单足蹬住倾斜座椅横杠吸震护卫。",
+     "mid": "双手攥紧大氅边缘，高声喝止下方企图扒窗张望之好事者。"
+    },
+    "relationship_stance": "视大巫女为神明般的主君誓死效忠，对外围长官冷硬戒备。",
+    "withdrawal": "险情排除后默默收拾祭台落瓦，恭顺退守大巫女身后三步。"
+   },
+   "gender": "female",
+   "gender_reason": "神乐殿忠诚机敏侍奉掌事女官人设",
+   "id": "char_yukina_aide",
+   "identity": {
+    "authority": "大巫女贴身内卫执事与祭袍随侍调度权",
+    "exposure": "若让大巫女受困窘态暴露，自身万死难辞其咎。",
+    "hidden": "暗中备好剪刀却深知大巫女绝不肯毁坏宗门祭袍宁可陪同坚守。",
+    "limits": [
+     "严禁任何外人逾越回廊窥测大巫女更衣"
+    ],
+    "obligations": [
+     "以自身形体为大巫女遮蔽一切风雨与外界窥测"
+    ],
+    "resources": [
+     "双层加宽抗风防透光神道披氅",
+     "内廷备用生姜红糖暖身饮与棉布方巾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "被大巫女关键时刻的冷静决绝深深折服",
+     "愿终生做其最坚实的后盾支撑"
+    ],
+    "boundaries": [
+     "不在对方惊魂未定时越界",
+     "人前照旧是大巫女与女官"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "闺蜜身侧最可靠之近身掩护位",
+    "dislikes": [
+     "粗鲁轻浮之无端指责",
+     "危机时刻之推诿退缩"
+    ],
+    "expression": "放下大氅从身后环住大巫女，下巴抵在肩头：刚才真的好怕……今晚就让女官陪着，哪里也不去。",
+    "likes": [
+     "有条不紊之应对方案",
+     "祭典后陪大巫女坐在库房，替对方把散乱的长发一缕缕梳好"
+    ],
+    "preconditions": [
+     "祭典已经平安结束，两人都缓过了神",
+     "彼此都明白说出口的是心里话，不是一时激动"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "内廷掌事女官",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_fuma_outer_corridor",
+     "to": 540
+    },
+    {
+     "from": 541,
+     "location_id": "loc_kagura_storehouse",
+     "to": 600
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "木屐踏在碎瓦断棱上硌破鞋底系绳",
+      "option": "飞身登上祭台以双层大红大氅封死正面直射视线"
+     },
+     {
+      "cost": "双手发力支撑身形导致指节酸痛",
+      "option": "向大巫女报送侧向反作用力点支撑以稳固脱扣重心"
+     }
+    ],
+    "pressure": "大巫女祭袍走光危机与公职人员破门施压",
+    "trigger": "殿顶瓦片崩落，长官皮靴踏阶声迫近台前"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“青铜柱倒塌压死大巫女祭袍了，若是外头抢险队伍冲进来……{npc.name}必须立刻展氅遮挡！”",
+    "surface": "“诸位长官稍候，大巫女正行祭典闭幕全礼，切莫仓促登阶！”"
+   }
+  },
+  {
+   "adult_context": "五十八岁古社代表，享有独立法人监管权力。",
+   "age_range": [
+    58,
+    60
+   ],
+   "appearance_options": [
+    "须发半白面容清癯，神情严峻眼神锐利，身穿深灰暗纹羽织和服配条纹袴。",
+    "面容苍老威严，手扶佩刀肃立殿门，眼神如鹰隼般扫视回廊外围动向。"
+   ],
+   "decision": {
+    "avoids": [
+     "放任防灾队扛着液压钳硬闯祭台",
+     "在电池起火浓烟弥漫关头慌张失态放弃指挥防线"
+    ],
+    "contrast": "平日严谨守旧，危难关头不惜赌上声誉为后辈争夺脱困空窗。",
+    "core_value": "古社体统与宗门尊严高于一切世俗公规",
+    "goal_options": [
+     "严厉喝退公职排障人员为大巫女争取脱身时限",
+     "封闭半扇楠木殿门彻底隔绝外部光线投射"
+    ],
+    "never": [
+     "绝不容忍外人践踏古社规制长驱直入"
+    ],
+    "prefers": [
+     "援引古老法度与宗教特权据理力争",
+     "以自身老臣威严震慑冒进后生"
+    ],
+    "pressure_responses": {
+     "breaking": "若长官强行闯入，便横刀当胸以古老法规据理力争到底。",
+     "high": "亲手扳下华盖悬链的制动木闸，让铜柱的压力松了三成。",
+     "low": "举着灯笼细看华盖倾斜的角度，压低嗓子吩咐神官们退后。",
+     "mid": "厉声喝令身后工兵尽数转过身去关闭强光直射，快步走向电闸箱。"
+    },
+    "relationship_stance": "对宗家大巫女极尽尊崇护持，对现代公职官僚寸步不让。",
+    "withdrawal": "平息危机后抚须肃立，吩咐门徒严密封锁殿内险情消息。"
+   },
+   "gender": "male",
+   "gender_reason": "古社社务所威严传统老总长人设",
+   "id": "char_todo_chief",
+   "identity": {
+    "authority": "神社外务社务所总代表统辖权与门庭戒严令",
+    "exposure": "若大巫女狼狈失态传扬开去，神社声望将一落千丈。",
+    "hidden": "暗中调集精壮门徒结成人墙阻隔外界长焦镜头采风。",
+    "limits": [
+     "不可逾越神乐正规科仪直接干预祭祀过程"
+    ],
+    "obligations": [
+     "维系千年宗门尊严不为外界非议所染"
+    ],
+    "resources": [
+     "社务所历代家老佩带之纯银护身短刀",
+     "正殿楠木重门专用黄铜对开双插销钥匙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对大巫女处变不惊的果决品性深为赞赏",
+     "敬重遇险不失端庄体面之青年骨气"
+    ],
+    "boundaries": [
+     "守着长辈的分寸，绝不越界",
+     "只护宗家体面，不过问私情"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "掌控全盘大局之总指挥位",
+    "dislikes": [
+     "指手画脚之轻浮议论",
+     "慌不择路之失仪失态"
+    ],
+    "expression": "拄着木杖站在台下，沉声说了一句：宗家的体面，保住了。",
+    "likes": [
+     "严整如一之抢修纪律",
+     "处变不惊之大将风度"
+    ],
+    "preconditions": [
+     "在神社的规矩里相识多年，彼此敬重"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "古社社务总长",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_fuma_outer_corridor",
+     "to": 540
+    },
+    {
+     "from": 541,
+     "location_id": "loc_sacred_tree_barrier",
+     "to": 600
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "承受公职长官当面严厉呵斥施压",
+      "option": "手扶佩刀横身封死石阶严令外人止步"
+     },
+     {
+      "cost": "门板震动震落回廊积灰",
+      "option": "下令门徒扣合楠木厚重门扉阻绝外部强光"
+     }
+    ],
+    "pressure": "长官强权施压破门与媒体长焦镜头围堵",
+    "trigger": "指挥官下达携带液压器械破门指令"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“大巫女乃名门宗家颜面所在，若是狼狈之相遭外人窥见，古社百年清誉休矣！”",
+    "surface": "“宗家神乐传承万不可因一时地动稍减体统，指挥官长官请驻足台下。”"
+   }
+  },
+  {
+   "adult_context": "四十六岁政府公职应急总长，具备完全特勤现场处置指挥权能。",
+   "age_range": [
+    46,
+    48
+   ],
+   "appearance_options": [
+    "体格魁梧短寸发，肤色黝黑眼神如电，身着阻燃反光指挥服与防穿刺皮靴。",
+    "面容刚毅目光如炬，腕间战术计时表红色读秒不断跳动，周身散发铁血肃杀之气。"
+   ],
+   "decision": {
+    "avoids": [
+     "任何可能冒犯遇险名媛名誉之鲁莽窥看举动",
+     "用力过猛敲击受损门框诱发车钩彻底脱裂"
+    ],
+    "contrast": "言辞霸道严苛，实则处处考虑人员避险之微观细节。",
+    "core_value": "生命安全第一与严格执行特勤技术规范",
+    "goal_options": [
+     "在承重极限前强行突入救下受困大巫女",
+     "大声报出机械支点参数供大巫女自主破拆脱险"
+    ],
+    "never": [
+     "绝不因繁文琐事延误生死抢险战机"
+    ],
+    "prefers": [
+     "遵循建筑力学安全极限规程",
+     "在最后红线时刻果断采取硬性干预"
+    ],
+    "pressure_responses": {
+     "breaking": "倒数归零瞬间亲自抱起千斤顶破门抢救人员。",
+     "high": "单手死死按紧钢缆锚链锁扣充当人肉平衡重块。",
+     "low": "肩扛沉重卡爪沉稳行进在狭窄悬空栈道边缘。",
+     "mid": "双臂发力把三十公斤垫木狠命楔进华盖底座的缝里。"
+    },
+    "relationship_stance": "对老执事之迂腐深感焦灼，对大巫女之定力暗生敬佩。",
+    "withdrawal": "确认人员无恙后挥手收队，敬礼致意后带队离去。"
+   },
+   "gender": "male",
+   "gender_reason": "应急救援特勤高级技术长官人设",
+   "id": "char_tachibana_cmd",
+   "identity": {
+    "authority": "特大灾害现场特许应急排障与人员强制疏散权",
+    "exposure": "若古建坍塌造成人员伤亡，必受公职严厉问责。",
+    "hidden": "虽态度强硬实则被大巫女清圣凛然之气度深深折服。",
+    "limits": [
+     "不可无端毁损国宝级宗教文物核心主体结构"
+    ],
+    "obligations": [
+     "确保受困人员二十秒内安全撤出危险建筑"
+    ],
+    "resources": [
+     "便携式特种液压扩张剪切两用钳组",
+     "防爆强光探照灯带备用大容量锂电池箱"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "被大巫女临危不乱、寸步不让的傲骨深深折服",
+     "敬重遇难不屈之坚韧品格"
+    ],
+    "boundaries": [
+     "人前照旧守着祭台的规矩",
+     "对方先开口，才往前一步"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "外围基石般坚固之刚性支承位",
+    "dislikes": [
+     "毫无根据之轻浮说辞",
+     "玩忽职守之隐患漏洞"
+    ],
+    "expression": "背对祭台站在台阶下，雨水顺着帽檐往下淌：刚才逼得太紧了，对不住……要是还冷，我的外套给你。",
+    "likes": [
+     "厚重结实之淬火钢构",
+     "雨停后在外回廊并肩站一会儿，听对方讲第一次出任务的事"
+    ],
+    "preconditions": [
+     "对方已经脱险、缓过神来",
+     "对方先开口，或清楚地回应了心意"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "特勤指挥官",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_sacred_tree_barrier",
+     "to": 540
+    },
+    {
+     "from": 541,
+     "location_id": "loc_fuma_outer_corridor",
+     "to": 600
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "皮靴踏响石阶引发回廊回声震动",
+      "option": "拔足踏上三级汉白玉台阶发出最后通牒"
+     },
+     {
+      "cost": "刺目光柱投向祭台微有冒犯之嫌",
+      "option": "利用强光手电照准断口读取力学形变倾角"
+     }
+    ],
+    "pressure": "屋顶二十秒坍塌死线与受困大巫女安危",
+    "trigger": "殿顶瓦片巨木轰然滑坠砸碎在石阶前沿"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“那座青铜大盖重达一吨以上，一旦彻底失压砸死下来神仙难救，必须立刻上去排险！”",
+    "surface": "“建筑桁架应力已经超载变异，无论仪式多重，二十秒内必须疏散完毕！”"
+   }
+  },
+  {
+   "adult_context": "年满二十九岁临床医学在职骨科医师，享有独立处方与急救民事决断权。",
+   "age_range": [
+    29,
+    30
+   ],
+   "appearance_options": [
+    "戴金丝椭圆半框眼镜，黑发利落束于脑后，身穿白大褂手提纯钛外科急救箱。",
+    "眼神冷静专业透着医者温存，手持便携红外测温枪严密关注伤员下肢血运。"
+   ],
+   "decision": {
+    "avoids": [
+     "在大巫女运劲的关键瞬间大声呼喊打乱专注",
+     "用手术剪探进铜槽划破祭袍"
+    ],
+    "contrast": "平日温文尔雅，发出医疗警告时语气不容置疑。",
+    "core_value": "人身健康无损与患者身体尊严同等崇高",
+    "goal_options": [
+     "口头指导人体工学泄力支点减轻肢体压迫",
+     "在解脱瞬间无缝接入无菌创面保暖与包扎"
+    ],
+    "never": [
+     "绝不忽视受压肢体早期微循环衰竭信号"
+    ],
+    "prefers": [
+     "以最小生理创伤方式完成脱身",
+     "提前备齐女性专属更衣与保暖敷料"
+    ],
+    "pressure_responses": {
+     "breaking": "见伤情恶化直接越过封锁冲上阶前展开急救。",
+     "high": "攀上祭台侧梯，把小氧气罩从华盖缝隙递进去。",
+     "low": "沉着注视生命监护仪曲线，语调平静温婉给予心理疏导。",
+     "mid": "快步越过湿滑栈道踏上检修平台，双手抖开大号急救毯。"
+    },
+    "relationship_stance": "专注伤员生命体征，以专业医嘱协调各方行动。",
+    "withdrawal": "检查大巫女足踝确认无碍后合上急救箱露出欣慰微笑。"
+   },
+   "gender": "female",
+   "gender_reason": "应急医疗救护组知性女主治医师人设",
+   "id": "char_sasaki_doctor",
+   "identity": {
+    "authority": "现场伤情评估与紧急医疗处置独占权",
+    "exposure": "若伤员发生不可逆挤压缺血坏死将承担医疗责任。",
+    "hidden": "早已备好私密女性更衣遮蔽帘随时接棒防护。",
+    "limits": [
+     "不可在重物未稳前冒险钻入危险狭缝施救"
+    ],
+    "obligations": [
+     "保障受困者神经与软组织不遭受永久创伤"
+    ],
+    "resources": [
+     "进口便携骨科冷敷止痛喷雾",
+     "无菌真丝防粘连包扎敷料"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对大巫女清冷外表下的如钢傲骨深为爱惜",
+     "视守护市民身心尊严为最高医职天职"
+    ],
+    "boundaries": [
+     "诊治时只是医生，不夹带私情",
+     "不在伤者虚弱时越界"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "提供坚实生理依托之守护者位",
+    "dislikes": [
+     "粗野蛮干的鲁莽行为",
+     "轻视生命之盲目逞能"
+    ],
+    "expression": "摘下护目镜替大巫女拢了拢衣襟，轻声说：没事了，脚踝已经回暖。",
+    "likes": [
+     "精准详实的生理监护数据",
+     "整齐洁净之医护敷料"
+    ],
+    "preconditions": [
+     "救治已经结束，伤者平安无事"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "急救女医师",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_kagura_storehouse",
+     "to": 540
+    },
+    {
+     "from": 541,
+     "location_id": "loc_fuma_outer_corridor",
+     "to": 600
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "需屏息凝神全神贯注凝望卡滞狭缝",
+      "option": "柔声隔空指导大巫女放松腰胯肌肉分散压迫"
+     },
+     {
+      "cost": "白大褂下摆蹭染湿冷地砖污迹",
+      "option": "将无菌羊毛毯顺着石阶推入以防地坪湿冷"
+     }
+    ],
+    "pressure": "局部受压组织缺血坏死与神经拉伤风险",
+    "trigger": "测温仪警报提示大巫女足背末梢循环受阻"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“大巫女小姐的白丝足踝被铜柱棱边挤压了，若是长时间缺血会留下创痕，必须快些解脱！”",
+    "surface": "“大巫女下肢屈曲受限，盲目牵拉易致软组织擦伤，请听从医嘱指引。”"
+   }
+  },
+  {
+   "adult_context": "年满五十二岁传统营造非遗传承人，具备特种文物建筑修复完全责任主体资格。",
+   "age_range": [
+    52,
+    55
+   ],
+   "appearance_options": [
+    "双手布满厚实老茧，面部沟壑深刻须发如钢针，身着耐磨深蓝帆布作务衣。",
+    "神情专注沉凝，腰间插满不同形制古铜撬杠，双目如炬看穿机械机关机理。"
+   ],
+   "decision": {
+    "avoids": [
+     "在殿顶瓦砾未停前擅自拉动华盖升降滑轮",
+     "从正面窥探受困名媛胸前受拉紧绷之短夹克前襟"
+    ],
+    "contrast": "看似目不识丁粗人，实则通晓传统力学微观公差之妙。",
+    "core_value": "古铜机关物理天机与巧劲顺应自然之道",
+    "goal_options": [
+     "以工匠暗语提示逆止簧舌角度助大巫女借力",
+     "在铜构彻底咬死前传授泄力微观发力法门"
+    ],
+    "never": [
+     "绝不容许野蛮切割将精巧青铜古物毁于一旦"
+    ],
+    "prefers": [
+     "运用巧妙机关原理解扣避凶",
+     "以祖传力学口诀点拨受困大巫女"
+    ],
+    "pressure_responses": {
+     "breaking": "华盖欲坠时奋不顾身扛起备用杂木撑杆顶住柱脚。",
+     "high": "单手高举铜錾伸进华盖死角，充当第二个杠杆支点。",
+     "low": "熟练旋紧两枚防滑止动销，通过对讲机沉声通报锁孔受力公差。",
+     "mid": "侧身隐在桥架背风面，手持激光笔提供精确受力支点指引。"
+    },
+    "relationship_stance": "对神圣大巫女充满崇敬，对野蛮切割深恶痛绝。",
+    "withdrawal": "待脱险后默默俯身抚摸青铜榫卯擦拭落灰归盒。"
+   },
+   "gender": "male",
+   "gender_reason": "古建青铜构件营造世家大匠人设",
+   "id": "char_sakai_smith",
+   "identity": {
+    "authority": "古建金属构件机关特性鉴定与破拆建议权",
+    "exposure": "若祖传华盖构件因强拆彻底崩毁难逃世家罪责。",
+    "hidden": "一眼看出大巫女神乐铃柄材质极为刚硬正是天选撬具。",
+    "limits": [
+     "严禁违背力学原理硬砸猛撬古青铜梁柱"
+    ],
+    "obligations": [
+     "传授机关诀窍保全大巫女生命与国宝完好"
+    ],
+    "resources": [
+     "冷轧硬化特种纯铜撬棒",
+     "古法手工锻制润滑牛油盒"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对大巫女以神乐铃柄施展微观腕力深感震撼",
+     "敬佩时尚名媛通晓机械杠杆之敏锐慧根"
+    ],
+    "boundaries": [
+     "工具交接完就退开三步",
+     "不打听宗家的私事"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "隐蔽可靠之机车技术援护位",
+    "dislikes": [
+     "粗制滥造的残次配件",
+     "毫无章法的乱敲乱打"
+    ],
+    "expression": "在廊下放下铜锤，冲祭台点了点头，满脸皱纹里都是笑。",
+    "likes": [
+     "淬火冷锻的高硬度零件",
+     "分毫不差的装配公差"
+    ],
+    "preconditions": [
+     "以手艺相识，敬重对方的胆识"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "青铜营造大匠",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_kagura_storehouse",
+     "to": 540
+    },
+    {
+     "from": 541,
+     "location_id": "loc_kagura_main_altar",
+     "to": 600
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "粗粝嗓音在空旷殿宇内隆隆回响",
+      "option": "抬手指向华盖右后侧暗槽高声提点卡簧方位"
+     },
+     {
+      "cost": "粗糙手掌沾染乌黑油脂",
+      "option": "将一小盒特制润滑牛油沿地面滑向台阶前沿"
+     }
+    ],
+    "pressure": "机械卡槽彻底咬死与青铜构件扭曲断裂",
+    "trigger": "铜柱传来金属疲劳扭绞之刺耳轻鸣"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“只要神乐铃柄顶退底盘侧翼那枚反向逆止铜簧，千斤华盖便能微回两毫米放人！”",
+    "surface": "“伏魔殿华盖乃仿宋八角悬斗拱，倒扣自锁时硬撬柱身必致机关死锁！”"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "夏日神乐祭当天",
+  "minute": 480
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "supernatural",
+  "disaster"
+ ],
+ "custom": true,
+ "customs": [
+  "伏魔殿神乐降神式正礼期间，闲杂人等绝不可擅自登上汉白玉八角祭台主法坛",
+  "大巫女更衣与整理仪容之时，所有护殿门徒与外宾必须全员回避并严守三米禁线",
+  "青铜古构件抢修必须遵循文物保护规程，严禁动用气割暴力损坏古建筑构架",
+  "神乐结束后，大巫女要亲手把神乐铃上的红绳解下一截，系在当夜帮过忙的人手腕上。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "细致检查纯黄铜神乐铃加厚手柄硬棱是否平整无伤",
+    "测试千早祭袍下摆长襦袢系带回弹活动自如",
+    "确认随身神乐铃法器佩挂稳妥随时待命"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hook_brass_bell_readiness"
+   ],
+   "id": "act_morning_kagura",
+   "location_ids": [
+    "loc_kagura_main_altar"
+   ],
+   "start_minute": 480,
+   "tags": [],
+   "title": "清晨神乐降神式演练"
+  },
+  {
+   "beats": [
+    "排查殿宇立柱受潮下沉及瓦片松动隐患",
+    "检查护殿执事警戒人墙站位间距是否合规",
+    "核对外部防灾设备接入通道之阻隔屏障"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hook_searchlight_threat"
+   ],
+   "id": "act_perimeter_patrol",
+   "location_ids": [
+    "loc_fuma_outer_corridor"
+   ],
+   "start_minute": 510,
+   "tags": [],
+   "title": "回廊石阶结界巡检"
+  },
+  {
+   "beats": [
+    "以纯黄铜起子调试祭台华盖悬吊齿轮阻尼卡榫",
+    "涂抹特制牛油润滑暗槽反向防脱舌簧",
+    "确认自锁机构在异常重载下之卡阻临界值"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "hook_canopy_entanglement"
+   ],
+   "id": "act_mechanic_tuning",
+   "location_ids": [
+    "loc_kagura_main_altar"
+   ],
+   "start_minute": 540,
+   "tags": [],
+   "title": "青铜华盖升降滑轮校准"
+  },
+  {
+   "beats": [
+    "例祭前，巫女们在内府库房里清点神乐铃、扇子和红白绳，一样样擦净摆好。",
+    "大巫女拿起一柄旧扇，说这是自己第一次登台时用的，扇骨都磨亮了。",
+    "清点完毕，库房的门一关，外面正下着细雨。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "hook_brass_lever_break"
+   ],
+   "id": "act_first_aid_prep",
+   "location_ids": [
+    "loc_kagura_storehouse"
+   ],
+   "start_minute": 560,
+   "tags": [],
+   "title": "库房里清点祭器"
+  },
+  {
+   "beats": [
+    "以炭火熨斗抚平双层厚实大氅以防折痕透光",
+    "测试披风暗扣在疾风吹卷下之闭合牢固度",
+    "将大氅置于祭台随手易取之处随时待命"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "hook_aide_cloak_guard"
+   ],
+   "id": "act_cloak_inspection",
+   "location_ids": [
+    "loc_kagura_storehouse"
+   ],
+   "start_minute": 580,
+   "tags": [],
+   "title": "大红神道防风大氅整备"
+  },
+  {
+   "beats": [
+    "在御神木基岩打入测斜仪监测深层地动位移",
+    "布设防雷电地线与临时应急抗灾发电设备",
+    "校准指挥部便携热成像仪之测温精度"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "hook_glorious_curtain_call"
+   ],
+   "id": "act_stress_sensor_setup",
+   "location_ids": [
+    "loc_sacred_tree_barrier"
+   ],
+   "start_minute": 600,
+   "tags": [],
+   "title": "地脉应力传导监测布线"
+  },
+  {
+   "beats": [
+    "祭典散后的神乐库房只剩一盏纸灯，大巫女披着大红大氅跪坐在榻上，长襦袢的系带还缠着铜槽咬出的毛边。",
+    "大巫女背过身，请人替自己把系带一根根解开，指尖每碰到后腰一下，神乐铃就轻轻响一声。",
+    "最后一根系带松开时，大巫女没有回头，只把神乐铃放在一旁，吹暗了纸灯。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_storehouse_after_kagura",
+   "location_ids": [
+    "loc_kagura_storehouse"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "神乐库房解下襦袢系带"
+  },
+  {
+   "beats": [
+    "禊祓回来的大巫女跪坐在库房的榻上，湿透的白衣紧贴着身子，勾出起伏的线条，冻得嘴唇发白。",
+    "大巫女把一条干布递过来，轻声问：替我擦一擦……可以吗？等人应了，才把湿衣从肩头褪下去。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_storehouse_after_misogi",
+   "location_ids": [
+    "loc_kagura_storehouse"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "禊祓回来替大巫女擦干身子"
+  },
+  {
+   "beats": [
+    "纸灯下，大巫女盘腿坐着缝一只护身符，红线咬在唇间，膝上摊着一块绣了一半的锦布。",
+    "缝好最后一针，大巫女把护身符塞进人的衣襟，手掌在心口按了一会儿：别摘。……今晚也别走。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_storehouse_omamori",
+   "location_ids": [
+    "loc_kagura_storehouse"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "intimate"
+   ],
+   "title": "纸灯下一起缝护身符"
+  },
+  {
+   "beats": [
+    "大巫女解下神乐铃上的红绳，绕在指间玩了一会儿，抬眼问：你信不信，这根绳能把人留住？",
+    "大巫女先说好：铃一响就停。看人点了头，才把红绳在两人的手腕上缠了一圈，吹暗纸灯，铃声轻轻晃了一下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_storehouse_bell_cord",
+   "location_ids": [
+    "loc_kagura_storehouse"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "intimate"
+   ],
+   "title": "神乐铃的红绳"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "现代神道特区·暴雨受灾深夜",
+ "extends": null,
+ "forbidden_terms": [],
+ "hooks": [
+  {
+   "id": "hook_canopy_entanglement",
+   "kind": "accident",
+   "location_ids": [],
+   "slot": "char_kyoka_miko",
+   "text": "{npc.name}身躯受困于倾塌之青铜华盖断柱死角，高定千早祭袍外裙与丝绸抽绳被生铁卡槽死死扣咬，娇躯半跪受制。"
+  },
+  {
+   "id": "hook_brass_bell_readiness",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_kyoka_miko",
+   "text": "{npc.name}纤手反握沉甸甸纯黄铜冷锻加厚神乐铃，冰凉刺骨之三毫米倒角硬棱在掌心蓄势待发。"
+  },
+  {
+   "id": "hook_searchlight_threat",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_tachibana_cmd",
+   "text": "{npc.name}目睹廊下防爆强光灯束如利剑般撕裂夜雨逼近祭台台阶，外围喧嚣皮靴脚步声急促迫近。"
+  },
+  {
+   "id": "hook_aide_cloak_guard",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_yukina_aide",
+   "text": "{npc.name}双手托展宽幅防风朱红披风侧身挡在祭台阴面，严阵以待准备构筑严密暗影屏障。"
+  },
+  {
+   "id": "hook_brass_lever_break",
+   "kind": "observe",
+   "location_ids": [],
+   "slot": "char_kyoka_miko",
+   "text": "{npc.name}以纯黄铜神乐法器把柄探入缝隙核心，手腕暗施微观角向偏转力矩精准挑退锁片。"
+  },
+  {
+   "id": "hook_glorious_curtain_call",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_kyoka_miko",
+   "text": "{npc.name}拨开垂下的注连绳走到祭台边，压低声音问：手还能动吗，要不要帮忙扶住华盖。"
+  },
+  {
+   "id": "hook_kyoka_storehouse_lamp",
+   "kind": "approach",
+   "location_ids": [
+    "loc_kagura_storehouse"
+   ],
+   "slot": "char_kyoka_miko",
+   "text": "{npc.name}在库房门口停下，把纸灯举高了些：祭典的东西还没收完。……你来帮我，好不好？"
+  }
+ ],
+ "id": "exorcist_miko_broken_kagura_hall",
+ "locations": [
+  {
+   "affordances": [
+    "反执纯黄铜法器硬角切入卡柱死缝实施杠杆自救",
+    "借助断柱阴影收敛身形阻断外探视线",
+    "示意侍女展开双层大氅彻底遮挡回廊探照直射"
+   ],
+   "detail": "挑高十五米之伏魔殿核心汉白玉八角祭台，中央供奉古铜香炉，重达一点二吨之鎏金八角青铜华盖倾塌三十度卡死台阶。",
+   "exits": [
+    "loc_fuma_outer_corridor",
+    "loc_kagura_storehouse"
+   ],
+   "id": "loc_kagura_main_altar",
+   "name": "伏魔殿八角神乐主祭台",
+   "pressure_modifiers": {
+    "press_canopy_door_jam": "倾覆重载产生持续一点二吨挤压下沉力矩"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "全景开敞挑空结构，殿顶天光与外围多路探照灯强光交汇无死角照耀，同伴大氅形成唯一正面视线遮挡屏障。",
+   "witnesses": [
+    "bg_apprentice_miko_1",
+    "bg_shrine_guard_1"
+   ]
+  },
+  {
+   "affordances": [
+    "护殿门徒列队组成隔绝外探之血肉人墙",
+    "抢险指挥长官设立高压起道机作业前沿阵地"
+   ],
+   "detail": "环绕八角主殿之朱漆楠木立柱开敞回廊，地面铺设防滑青石条，正对外部百米开阔神乐仪式广场。",
+   "exits": [
+    "loc_kagura_main_altar",
+    "loc_sacred_tree_barrier"
+   ],
+   "id": "loc_fuma_outer_corridor",
+   "name": "伏魔殿正门环形外回廊",
+   "pressure_modifiers": {
+    "press_gaze_exposure_risk": "外围记者长焦镜头与指挥部强光灯束重重锁定"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "廊柱错落半明半暗，阻隔部分斜射暴雨但可尽览祭台中央全貌。",
+   "witnesses": [
+    "bg_shrine_guard_1",
+    "bg_rescue_worker_1",
+    "bg_photographer_1"
+   ]
+  },
+  {
+   "affordances": [
+    "工程抢修队员在御神木外侧埋设防雷击接地桩与临时备用电源组",
+    "向殿内输送高压防汛抽水管线"
+   ],
+   "detail": "伏魔殿后方连通千年古樟御神木之石砌结界平台，立有粗大注连绳与八座青铜长明石灯笼。",
+   "exits": [
+    "loc_fuma_outer_corridor",
+    "loc_kagura_storehouse"
+   ],
+   "id": "loc_sacred_tree_barrier",
+   "name": "伏魔殿后庭御神木基座",
+   "pressure_modifiers": {
+    "press_canopy_collapse_dead": "地脉震荡导致石灯笼倾斜产生地表微震"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "夜雨茫茫树影婆娑，属相对私密之后勤重地。",
+   "witnesses": [
+    "bg_rescue_worker_1"
+   ]
+  },
+  {
+   "affordances": [
+    "女官迅速取用全新加厚大红神道披风与备用千早裙饰",
+    "医师就地展开无菌创口处理急救床位"
+   ],
+   "detail": "位于八角殿侧翼之坚固双层砖木结构古物库房，内藏历代大巫女备用祭袍、防风大氅与法器锦盒。",
+   "exits": [
+    "loc_kagura_main_altar",
+    "loc_sacred_tree_barrier"
+   ],
+   "id": "loc_kagura_storehouse",
+   "name": "祭祀内府备用神乐库房",
+   "pressure_modifiers": {
+    "press_canopy_door_jam": "无外部直接物理压迫，环境安详稳固"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "室内紧闭门窗点燃暖黄蜡烛，外界探照灯完全无法窥测内部。",
+   "witnesses": [
+    "bg_elder_priest_1",
+    "bg_medic_assistant_1"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "水无月",
+   "朝仓",
+   "藤堂",
+   "立花",
+   "佐佐木",
+   "坂井",
+   "安藤",
+   "神代",
+   "久远寺",
+   "东云",
+   "鹰司",
+   "樱井"
+  ],
+  "given_female": [
+   "镜华",
+   "雪奈",
+   "雅美",
+   "千鹤",
+   "美琴",
+   "静香",
+   "真由",
+   "若晴",
+   "千寻",
+   "铃音",
+   "初音",
+   "小夜"
+  ],
+  "given_male": [
+   "宗严",
+   "义明",
+   "正隆",
+   "健一",
+   "拓也",
+   "浩二",
+   "大佐",
+   "振东",
+   "清隆",
+   "正宗",
+   "秀树",
+   "和也"
+  ],
+  "given_neutral": [
+   "安",
+   "宁",
+   "平",
+   "青",
+   "言",
+   "诺",
+   "舟",
+   "凡",
+   "遥",
+   "光",
+   "澪",
+   "翼"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "老{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留现代神道特区深山古社的背景。改动：三条规则原本是写作说明，改写为伏魔殿的规矩；女官、社务总长、指挥官、女医师、铜匠五人的倾向卡是单轨电车世界的残留（车厢、乘客等），按本世界重写；最后一个钩子写的是大巫女谢礼，槽位从女官改为大巫女；四个玩家身份原本与人物模板是同一批人，改写为神社本厅派来的监事、民俗学研究者、参道茶屋的店员、地方电视台记者；大巫女、女官与特勤指挥官的倾向卡放宽到脱险后可心动，亲密前提写明危机解除、双方清醒自愿；新增一个神乐库房更衣的亲密日常；写死的人名改为身份称呼或占位。",
+ "player_identities": [
+  {
+   "age_range": [
+    32,
+    50
+   ],
+   "baseline": "奉本厅之命来考察大巫女是否够格继承宗家的监事，祭典的成败全写在这位的报告里。",
+   "gender": "any",
+   "id": "ident_miko_kyoka",
+   "reputation": "严谨冷淡，各地神社都怕这位来访。",
+   "resources": [
+    "本厅的考察令",
+    "一票否决继任的权限"
+   ],
+   "risks": [
+    "考察期间出事，监事也要向本厅交代"
+   ],
+   "role": "神社本厅派来的成年监事",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}监事"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "来古社记录降神神乐的大学讲师，获准在回廊旁旁听祭典。",
+   "gender": "any",
+   "id": "ident_aide_yukina",
+   "reputation": "博学温和，老神官很喜欢跟这位聊古事。",
+   "resources": [
+    "一本记满祭文的田野笔记",
+    "大学开的研究介绍信"
+   ],
+   "risks": [
+    "外人在祭典中闯上祭台，会被永远逐出神社"
+   ],
+   "role": "研究山岳信仰的成年民俗学者",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}老师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "山门外茶屋的店员，暴雨夜给避难的参拜客送热茶，顺路进了伏魔殿。",
+   "gender": "any",
+   "id": "ident_chief_todo",
+   "reputation": "爽快热心，神社的人都认得。",
+   "resources": [
+    "一壶热麦茶和几条干毛巾",
+    "茶屋后门的钥匙"
+   ],
+   "risks": [
+    "擅入祭典会被神社拉进黑名单"
+   ],
+   "role": "参道茶屋的成年店员",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "小{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "来拍暴雨中守夜祭典的记者，摄像机一直对着祭台。",
+   "gender": "any",
+   "id": "ident_commander_tachibana",
+   "reputation": "敢拍敢问，却懂得什么镜头不能播。",
+   "resources": [
+    "一台摄像机和直播车的对讲机",
+    "电视台的采访许可"
+   ],
+   "risks": [
+    "若播出大巫女失仪的画面，电视台会被宗家告上法庭"
+   ],
+   "role": "地方电视台的成年记者",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}记者"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "深山古社的大巫女主持伏魔殿的神乐祭，本厅派来的监事、研究山岳信仰的民俗学者和参道茶屋的店员都住在社务所，白天排练神乐、接待参拜，夜里巡一遍结界。连日下雨，神乐殿那顶鎏金青铜华盖已经震松过一次。",
+ "pressures": [
+  {
+   "choice": "是倒执随身法器施展特定四点二牛顿扭脱力道挑开锁片，抑或呼唤侍女强拉裙摆冒撕裂走光之险？",
+   "exits": [
+    {
+     "cost": "白皙掌心被生铁铜槽边缘刮擦泛起道道深红压痕生疼",
+     "option": "反握纯黄铜冷锻法器尾柄以倒角硬角切入卡槽施展微观精密脱扣力矩"
+    },
+    {
+     "cost": "防风大氅被窗外呼啸气流猛烈抽打几乎脱手卷飞",
+     "option": "示意女官迅速撑开深红神道防风大披风下摆遮挡外部探照直射强光暗中脱身"
+    }
+   ],
+   "far": {
+    "consequence": "大巫女千年名门清誉尽失，全网媒体将长久流传此段受辱事故终生蒙垢。",
+    "due_days": 1,
+    "trigger": "铜柱发生不可逆断裂裙裾撕破走光，在全场数十名公职众目睽睽下被抱出神殿彻底社死。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_canopy_door_jam",
+   "immediate": {
+    "minutes": 1,
+    "text": "青铜华盖断柱咬入祭袍抽绳，真丝面料受自重猛烈拉拽大面积紧绷濒临崩裂，瓦砾警报急促长鸣。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_kagura_main_altar",
+    "loc_fuma_outer_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "指挥官皮靴声正快步踏过检修汉白玉石阶向祭台逼近，回廊抢险黄色强光灯血红闪烁。"
+   },
+   "objective": "在真丝祭袍被铜柱彻底扯裂走光前完成力矩脱扣自救，恢复从容仪态迎客。",
+   "source": "accident",
+   "start_minute": 520,
+   "tags": [
+    "disaster"
+   ],
+   "title": "青铜华盖断柱咬死千早祭袍",
+   "trigger": "强风震塌青铜华盖立柱，断裂铜槽死死咬住大巫女千早祭袍暗扣与细银饰链。"
+  },
+  {
+   "choice": "是严词号令社务总长闭合半扇楠木殿门遮蔽，抑或令女官立即飞身登台筑起大氅人墙？",
+   "exits": [
+    {
+     "cost": "沉重殿门闭合震荡引得回廊瓦灰簌簌飘落",
+     "option": "号令执事长社务总长扣合楠木雕花重门切断中庭直射光柱"
+    },
+    {
+     "cost": "女官单薄身姿直面呼啸冷雨瑟瑟颤抖",
+     "option": "命女官手托双层神道大红大氅展开双臂挡在强光灯束正前方"
+    }
+   ],
+   "far": {
+    "consequence": "大巫女衣衫紧绷受窘之态被千万倍率长焦镜头拍下公之于众，千年宗门体面荡然无存。",
+    "due_days": 1,
+    "trigger": "外围闪光灯穿透回廊彻底曝光受窘姿态"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_gaze_exposure_risk",
+   "immediate": {
+    "minutes": 1,
+    "text": "防爆强光灯束打亮祭台台阶，长焦镜头穿透雨幕对准受困大巫女腰间系带。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_fuma_outer_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "探照灯光斑已经移至祭台石阶前沿仅余一步之遥。"
+   },
+   "objective": "封阻外部强光直射大巫女紧绷受困身姿以守全宗门威严。",
+   "source": "person",
+   "start_minute": 525,
+   "tags": [],
+   "title": "探照强光与长焦镜头逼近",
+   "trigger": "指挥官踏上汉白玉台阶，强光手电光斑直射祭台汉白玉石阶。"
+  },
+  {
+   "choice": "是必须在十五秒内完成卡簧挑脱滑步脱身，抑或放弃祭台全面弃守？",
+   "exits": [
+    {
+     "cost": "反冲震力让纤细手腕关节泛起微麻痛感",
+     "option": "手腕爆发精准偏转力矩弹开内部阻尼簧舌"
+    },
+    {
+     "cost": "绯色长袴下摆掠过湿滑石台掠起点点雨水水花",
+     "option": "在卡扣松脱瞬间借铜柱反弹势头单足蹬阶飘然滑退三尺"
+    }
+   ],
+   "far": {
+    "consequence": "千斤青铜巨构轰然砸平祭台，伏魔殿百年核心法坛彻底沦为断壁残垣。",
+    "due_days": 1,
+    "trigger": "主殿桁架全面解体断折压死祭台"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_canopy_collapse_dead",
+   "immediate": {
+    "minutes": 1,
+    "text": "铜柱受力结构产生剧烈脆性微震，屋顶琉璃瓦成片滑落砸碎在石阶外侧。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_kagura_main_altar"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "殿顶主横梁传来撕裂爆响，华盖整体下沉逼近最后极限。"
+   },
+   "objective": "赶在二十吨铜石屋盖彻底失稳压下前抽身脱困。",
+   "source": "accident",
+   "start_minute": 530,
+   "tags": [
+    "disaster"
+   ],
+   "title": "八角鎏金华盖彻底垮塌倒计时",
+   "trigger": "殿顶传来巨木劈裂沉闷巨响，华盖顶端铜链滑脱三颗铜环。"
+  },
+  {
+   "choice": "是脱困后原地肃立顺畅衔接神乐摇铃收尾，抑或仓皇退场由执事代为收束？",
+   "exits": [
+    {
+     "cost": "在狂风骤雨中需极大心力定住身形呼吸",
+     "option": "立定祭台正中双手擎起神乐铃悠扬晃出三折清脆金铃之音"
+    },
+    {
+     "cost": "足尖紧绷维持足踏仪轨极其耗费体力",
+     "option": "挽起雪白千早长袖于大氅掩映下行出古典雅致之万福退步大礼"
+    }
+   ],
+   "far": {
+    "consequence": "千年宗门首度出现主祭狼狈失足中断大典之丑闻，宗家信誉遭受毁灭性重创。",
+    "due_days": 1,
+    "trigger": "乐终主祭失踪断典引发社会轩然大波"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_shinto_ritual_break",
+   "immediate": {
+    "minutes": 1,
+    "text": "古乐编钟即将敲响尾音，主祭者若未能肃立台前行礼将被视为神明弃绝之大不敬。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_kagura_main_altar"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "古钟余音逐渐消歇仅剩三拍节律。"
+   },
+   "objective": "在收尾节拍鸣响前以端正仪态完成祭典万福谢幕礼。",
+   "source": "institution",
+   "start_minute": 535,
+   "tags": [],
+   "title": "降神神乐祭祀科仪失仪危机",
+   "trigger": "殿内青铜古钟发出浑厚低鸣，预告仪式正乐即将步入最后一小节。"
+  },
+  {
+   "choice": "是咬紧贝齿强行发力蹬阶脱困，抑或稍微调整重心以膝骨抵御寒意？",
+   "exits": [
+    {
+     "cost": "小腿肌肉传来骤然充血之酸麻紧绷感",
+     "option": "以足跟稳稳卡住汉白玉台阶阴角防滑凹槽瞬间发力蹬直膝盖"
+    },
+    {
+     "cost": "指节受冷风侵袭略显僵硬",
+     "option": "在袖袍暗中以手指点按委中穴位促使下肢气血活络"
+    }
+   ],
+   "far": {
+    "consequence": "大巫女因肢体麻木失控摔倒于众目睽睽之下，威严尽失且导致韧带严重拉伤。",
+    "due_days": 1,
+    "trigger": "神经受压过久失去平衡机能当场跌仆"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_medical_crush_injury",
+   "immediate": {
+    "minutes": 1,
+    "text": "为减轻祭袍横向拉扯，大巫女单膝屈曲受限逾两分钟，足踝神经受压渐生麻木不适。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_kagura_main_altar"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "足趾部位血运微弱知觉迟钝达临界点。"
+   },
+   "objective": "避免下肢出现不可逆软组织挫伤与失衡摔跌摔失体统。",
+   "source": "accident",
+   "start_minute": 538,
+   "tags": [
+    "disaster"
+   ],
+   "title": "下肢屈曲受限神经缺血麻木",
+   "trigger": "女医师医师红外测温仪发出蜂鸣警报，提示受困肢端体温过低。"
+  },
+  {
+   "choice": "是严格恪守三十度斜倾精准顺角发力，抑或另选沉重木桩勉强支撑？",
+   "exits": [
+    {
+     "cost": "心神高度凝练容不得一丝毫厘偏差",
+     "option": "严格依照老铜匠手势以三十度倾角平推神乐铃柄直角硬棱"
+    },
+    {
+     "cost": "手腕韧带承受微量骤然卸荷冲击",
+     "option": "在卡簧咔哒脱扣瞬间立刻平滑抽回黄铜神乐铃避免多余磨损"
+    }
+   ],
+   "far": {
+    "consequence": "历代相传之镇殿纯铜神乐铃折断受损，法器崩毁酿成宗门大凶之兆。",
+    "due_days": 1,
+    "trigger": "铜柄发生永久性折断损坏无法修复"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_metal_fracture_risk",
+   "immediate": {
+    "minutes": 1,
+    "text": "外力剪切负荷接近纯铜冷锻柄材之微观形变极限，发力夹角稍偏将造成法器破损。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_kagura_main_altar"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "神乐铃柄传来微不可察之高频微震啸鸣。"
+   },
+   "objective": "在纯铜力学弹性极限内达成微观解脱脱扣以保全神器完好。",
+   "source": "nature",
+   "start_minute": 539,
+   "tags": [
+    "disaster"
+   ],
+   "title": "祖传黄铜神乐铃柄微弯风险",
+   "trigger": "老铜匠在廊下以手势示警铜柄咬合偏角已达临界三十度。"
+  }
+ ],
+ "region": "深山古社·伏魔殿主建筑群",
+ "rules": [
+  {
+   "id": "rule_shinto_ritual_purity",
+   "text": "神乐祭典开始后，大巫女不得中途离开八角祭台，衣冠失仪者须向宗家谢罪、停职一年。"
+  },
+  {
+   "id": "rule_bronze_canopy_jam_physics",
+   "text": "伏魔殿的青铜华盖由机关悬吊，倒扣自锁后外人硬撬会让整座斗拱死锁，只能从柱内退开卡榫。"
+  },
+  {
+   "id": "rule_brass_bell_lever_mechanic",
+   "text": "祭典期间男子不得登上祭台，防灾队须等巫女退场或宗家首肯才能入殿。"
+  },
+  {
+   "id": "rule_storm_lantern_half",
+   "text": "暴雨警报解除之前，殿内所有灯笼只许点一半，留一半的暗给退去的妖物让路。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "接引",
+  "committed": "共济",
+  "familiar": "默契",
+  "flirting": "相知",
+  "intimate": "信托",
+  "stranger": "初见",
+  "testing": "试探"
+ },
+ "status": "released",
+ "style_hint": "神圣巫女仪式美学与重型古建青铜机械卡滞物理自救硬核张力交织",
+ "tension_engines": [
+  {
+   "id": "eng_bronze_collapse_timer",
+   "text": "青铜华盖一点二吨断裂重载每秒下沉五毫米，二十秒内若不脱扣将彻底失稳坍塌砸平祭台"
+  },
+  {
+   "id": "eng_shrine_dignity_exposure",
+   "text": "大巫女千早真丝抽绳受力极度紧绷稍动即裂，而外围指挥长官强光探照灯仅距十步之遥"
+  },
+  {
+   "id": "eng_bell_lever_breakout",
+   "text": "实心黄铜铃柄具备微观高刚性，以倒角锋芒抵紧自锁滑块施加巧劲方可别退卡舌"
+  },
+  {
+   "id": "eng_aide_cloak_blindzone",
+   "text": "女侍女官手托织锦防风披风，在扣件弹脱瞬间飞身上前阻绝外界一切窥探探照光线"
+  }
+ ],
+ "title": "退魔巫女·残破神乐·伏魔殿八角祭台青铜华盖断裂咬死白丝千早",
+ "tone": [
+  "庄严清冷",
+  "机械紧绷",
+  "古典雅致",
+  "极限压迫"
+ ],
+ "twists": [
+  {
+   "category": "人事",
+   "id": "twist_hidden_catch_mechanism",
+   "requires": [],
+   "text": "青铜华盖断裂铜柱内部竟暗藏双向阻尼防脱倒勾簧片，唯有朝逆向精准微撬方能挑退逆止舌簧！"
+  },
+  {
+   "category": "资源",
+   "id": "twist_sacred_bell_toughness",
+   "requires": [],
+   "text": "大巫女佩戴之神乐铃握柄由上代名匠采用冷轧加硬铜材打造，其棱角分毫不差吻合暗槽锁槽！"
+  },
+  {
+   "category": "时限",
+   "id": "twist_rainstorm_power_cut",
+   "requires": [],
+   "text": "外殿高压探照电路突发跳闸断电数秒，狂风掀起漫天夜雨遮蔽视线，为大巫女暗中微撬卡榫赢得了最宝贵之黄金五秒！"
+  },
+  {
+   "category": "关系",
+   "id": "twist_aide_absolute_loyalty",
+   "requires": [],
+   "text": "侍从女官早在大氅内衬缝制了防透光柔韧暗衬，在展开刹那完美隔绝所有近距离高清单反长焦镜头之窥探！"
+  },
+  {
+   "category": "信息",
+   "id": "twist_smith_secret_code",
+   "requires": [],
+   "text": "老铜匠在廊下以祖传口诀高声报出卡槽咬合受力角，令大巫女瞬息了悟华盖机关核心支点方位所在！"
+  },
+  {
+   "category": "制度",
+   "id": "twist_miraculous_curtain_call",
+   "requires": [],
+   "text": "大巫女解脱束缚后在铜架彻底倾覆前两秒从容整理长袖端坐礼谢，满殿古铃清音回荡化险为夷！"
+  }
+ ]
+}

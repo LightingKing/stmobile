@@ -1,0 +1,2513 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "现年满二十八岁，大型工业通风离心风机高级巡检技师，具备完全民事行为能力。",
+   "age_range": [
+    28,
+    28
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_exhaust_fan_inspector_laotang",
+   "line": "机房旁路手动阀已经搬到底了，室内风压正在迅速释放，暖通总工抓紧跳接控制线！",
+   "location_ids": [
+    "loc_airbrush_booth_exhaust_duct_room"
+   ],
+   "name": "老唐",
+   "role": "排风风机机房主操技师"
+  },
+  {
+   "adult_context": "现年满二十三岁，知名模玩测评百万博主，受邀现场记录封釉大片，具备完全民事行为能力。",
+   "age_range": [
+    23,
+    23
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_model_blogger_xiaomin",
+   "line": "涂装师姐这套用通针撬动导轨的破拆动作太沉着硬核了，我全程记录下这惊心动魄一幕！",
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "name": "小敏",
+   "role": "模玩测评现场跟拍博主"
+  },
+  {
+   "adult_context": "现年满二十九岁，海外版权方常驻技术监修代表，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_copyright_supervisor_zheng",
+   "line": "绝版原型手办属于核心商业资产，无论如何必须在门开瞬间优先护送进恒温风淋室！",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "name": "郑总",
+   "role": "原型版权商务监修代表"
+  },
+  {
+   "adult_context": "现年满二十二岁，百级无尘风淋烘箱专职操作员，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    22
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_drying_oven_operator_xiaotao",
+   "line": "烘箱温度已经稳定在设定四十度恒温，双重风淋门完全打开，随时接应手办进舱！",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "name": "小陶",
+   "role": "无尘烘干走廊设备操作员"
+  },
+  {
+   "adult_context": "现年满二十七岁，防爆机电动力运行技师，具备完全民事行为能力。",
+   "age_range": [
+    27,
+    27
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_generator_electrician_laowei",
+   "line": "备用发电机组已合闸强投，马道低压照明全部恢复，风机二次启动控制回路就绪！",
+   "location_ids": [
+    "loc_airbrush_booth_exhaust_duct_room"
+   ],
+   "name": "老魏师傅",
+   "role": "应急备用发电机组值班电工"
+  },
+  {
+   "adult_context": "现年满二十岁，中央美术学院雕塑系大二在读实习生，涂装师的同门师妹，具备完全民事行为能力。",
+   "age_range": [
+    20,
+    20
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_airbrush_assistant_xiaoxue",
+   "line": "涂装师姐，备用备件托盘我牢牢护在胸前了，漆膜绝对没碰花，咱们一起发力推门！",
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "name": "小雪",
+   "role": "GK手办打磨上色助理"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "清冷手办涂装师与暖通动力总工的跨界技术协同，暖通总工在顶层机房旋转蝶阀泄放残余负压，涂装师在室内手握通针硬柄别撬轴承卡销，前后呼应于分秒间化解窒息危局。",
+   "id": "combo_ye_and_hvac_engineer",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "figure_painter_ye_ling_xi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在刺鼻浓雾绝境中同握通针下压撬轨的生死托付。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "hvac_mechanic_chu_tian_heng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "车间暖通通风动力机电运维中的深厚信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "figure_painter_ye_ling_xi",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "hvac_mechanic_chu_tian_heng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对理工暖通专家精准调度风道力挽狂澜的由衷敬佩。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "figure_painter_ye_ling_xi",
+    "hvac_mechanic_chu_tian_heng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保二人技术协同在溶剂爆燃前撬开门轨引导全员生还脱险。",
+    "limit_gap": "室内溶剂气体浓度不断逼近红线，暖通总工受阻于过热风机机房无法脱身。",
+    "meeting_reason": "赶展第五个通宵，涂装师在喷漆房里给GK喷最后一层珠光，暖通总工在机房里敲风机外壳，涂装师隔着对讲机：再敲一下，我这层就废了。",
+    "resource_gap": "暖通总工掌控全车间风道阀门与气流压差，涂装师手握加厚淬火不锈钢通针撬杆。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_solvent_vapor_accumulation_choke",
+    "eng_airbrush_needle_handle_pry_limit"
+   ]
+  },
+  {
+   "chemistry": "涂装大师与首席调色师的莫逆知己相扶，调色师隔窗以高灵敏光离子检测仪监控溶剂闪点严防撞击火花，涂装师沉着施压以纯净静载别开门轨，默契捍卫生命与艺术。",
+   "id": "combo_ye_and_color_specialist",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "figure_painter_ye_ling_xi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "于极度危险的溶剂迷雾中并肩坚守防爆底线。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "color_specialist_bai_ruo_wei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "模玩涂装调色工艺上的高度默契配合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "figure_painter_ye_ling_xi",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "color_specialist_bai_ruo_wei",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "从大学同窗到创立顶流工作室生死相托的知音深情。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "figure_painter_ye_ling_xi",
+    "color_specialist_bai_ruo_wei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保全流程零金属火星安全撬开门扉实现人员脱困。",
+    "limit_gap": "双层防爆玻璃隔绝物理接触，室内氧气储量分秒流失。",
+    "meeting_reason": "首席调色师端着一排刚调好的肤色小样进来，跟涂装师为GK的腮红该偏粉还是偏橘争了起来。",
+    "resource_gap": "调色师执掌精准气体检测仪与除味雾化喷剂，涂装师具备精湛手工定力与通针工具。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_solvent_vapor_accumulation_choke"
+   ]
+  },
+  {
+   "chemistry": "清冷女涂装师与园区安监铁军督察长的前后方协同，安全督察在门外组织特勤力量构筑防爆隔离带准备液压托底，涂装师在门内沉着下针撬动偏心销，展现临危不乱的巾帼风骨。",
+   "id": "combo_ye_and_safety_inspector",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "figure_painter_ye_ling_xi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死危机面前毫不慌乱通力自救的真挚敬意。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "safety_inspector_zhou_xun",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "对园区安监铁军临危不乱严密防线的高度信赖。",
+     "stage": "familiar"
+    },
+    {
+     "a": "figure_painter_ye_ling_xi",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "safety_inspector_zhou_xun",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对特勤安监督察长铁血担当守护园区安宁的由衷敬佩。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "figure_painter_ye_ling_xi",
+    "safety_inspector_zhou_xun"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在安全规程许可范围内精准排险确保全员生还。",
+    "limit_gap": "外侧盲目破拆可能产生金属火花引爆室内，内部人员必须自发完成微隙挑脱。",
+    "meeting_reason": "园区安全督察来查溶剂存量，说喷漆房的排风记录不对，要涂装师今晚停工。",
+    "resource_gap": "安全督察掌控园区特勤消防力量与重型破拆设备，涂装师手握轴承内侧关键释放点。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_exhaust_fan_overheat_bearing_seize"
+   ]
+  },
+  {
+   "chemistry": "雕塑原型大师与顶级涂装师的艺术灵魂共振，白模雕刻师隔窗画出导轨轴承剖面偏心受力矢量，涂装师心领神会依图下针，在生死关头携手保全绝版手办孤品安然无恙。",
+   "id": "combo_ye_and_sculptor",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "figure_painter_ye_ling_xi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "于千钧一发之际以通针硬柄撬开生路之交。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "model_sculptor_lu_jing_he",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "手办雕刻与精密机械结构设计上的高度默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "figure_painter_ye_ling_xi",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "model_sculptor_lu_jing_he",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "共同承载模玩国创出海巅峰梦想的艺术同道。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "figure_painter_ye_ling_xi",
+    "model_sculptor_lu_jing_he"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以精巧偏心破拆法脱困并确保原型孤品毫发未损。",
+    "limit_gap": "手办托架受到震动偏载面临倾覆，室内视野受浓烟遮挡逐步恶化。",
+    "meeting_reason": "白模雕刻师抱着重新修过的手部零件跑进来，说原型方临时要改一根手指的角度。",
+    "resource_gap": "白模雕刻师精通精密机构空间力学图解，涂装师具备精湛稳定的微米级手工定力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_masterpiece_gk_model_scratch_peril"
+   ]
+  },
+  {
+   "chemistry": "高级气动维修工与清冷女涂装师的内外力学合璧，滑道检修师在门外喷注二硫化钼化解滑道结焦，涂装师在门内合抱通针施压，二人里应外合瞬间瓦解咬死自锁导轮。",
+   "id": "combo_ye_and_pneumatic_mechanic",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "figure_painter_ye_ling_xi",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在门轨抱死绝境中默契下压通针共克险阻。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "pneumatic_mechanic_cheng_yuan_zhou",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "气动机械维修一线的过命技术信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "figure_painter_ye_ling_xi",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "pneumatic_mechanic_cheng_yuan_zhou",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对一线模具维修工扎实经验与忠厚神力的深刻感激。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "figure_painter_ye_ling_xi",
+    "pneumatic_mechanic_cheng_yuan_zhou"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "内外同时发力克服数百公斤摩擦力推开大门。",
+    "limit_gap": "滑门导轨干涩严重摩擦阻力巨大，门槽死缝深达数公分。",
+    "meeting_reason": "气动滑道检修师蹲在喷漆房门口换门轨滑轮，涂装师在一旁看，说这门每次关都响。",
+    "resource_gap": "滑道检修师拥有高压除锈润滑喷剂与拉力神力，涂装师手握加厚通针内部撬杆支点。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_airbrush_needle_handle_pry_limit"
+   ]
+  },
+  {
+   "chemistry": "暖通工程师与一线机修工的师徒默契担当，一人在机房转动旁路阀门泄压，一人在走廊喷涂润滑剂拉动门把，上下联动以严密机电规程为受困同袍撕开生路。",
+   "id": "combo_engineer_and_mechanic_team",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "hvac_mechanic_chu_tian_heng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "暖通工程机电维保一线的长期搭档。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "pneumatic_mechanic_cheng_yuan_zhou",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "机械检修实干派同袍。",
+     "stage": "familiar"
+    },
+    {
+     "a": "hvac_mechanic_chu_tian_heng",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "pneumatic_mechanic_cheng_yuan_zhou",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "多次在园区重特大机电设备突发抢险中并肩克难结下的过命交情。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "hvac_mechanic_chu_tian_heng",
+    "pneumatic_mechanic_cheng_yuan_zhou"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保全车间动力系统安全排险救出受困人员。",
+    "limit_gap": "机房距离车间有三层楼高差，信号沟通全赖对讲系统传递。",
+    "meeting_reason": "暖通总工和气动滑道检修师在机房对着风机轴承发愁，两人谁也不敢说今晚这台风机能撑住。",
+    "resource_gap": "暖通总工掌控全车间风压气动蝶阀，滑道检修师掌握滑道锁死具体构件微观解法。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_exhaust_fan_overheat_bearing_seize",
+    "eng_airbrush_needle_handle_pry_limit"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_booth_explosion_intercom",
+   "reach": "连通喷漆室操作台、顶层排风机房与走廊安监调度全员频道",
+   "text": "喷涂车间防爆无线调度对讲系统"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_booth_cleanroom_intercom",
+   "reach": "穿透钢化防爆玻璃实现喷涂室内与风淋走廊之间无延时语音沟通",
+   "text": "双层防爆玻璃观察窗双向拾音对讲系统"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "中央美术学院雕塑系毕业，开了四年独立涂装工作室，接过几家大厂的限量款，持有国家特种化学品涂装作业安全培训合格证书，接什么单、熬不熬夜由本人拿主意。",
+   "age_range": [
+    25,
+    29
+   ],
+   "appearance_options": [
+    "身穿耐溶剂灰色防静电连体工装服，防毒半面罩挂在白皙颈项，白皙清秀面庞上带着天然水润紧致的微婴儿肥与饱满光泽胶原蛋白，漆黑长发束成干练低马尾，眸光清冷如霜雪，双手戴着贴合掌指的黑色薄款丁腈耐溶剂手套。",
+    "神情专注沉静，纤细手指稳稳握着定制纯合金气动喷笔，鼻梁挺拔，因车间升温额角沁出细密汗珠，神态冷峻决绝自有一股摄人心魄的英气。"
+   ],
+   "decision": {
+    "avoids": [
+     "惊慌大叫的无谓消耗体能",
+     "盲目暴力撞门引发设备变形"
+    ],
+    "contrast": "外表是清丽出尘且两颊微带水润紧致婴儿肥的文艺才女，直面工业机械卡滞却展现出分毫不乱的硬核动手气魄。",
+    "core_value": "在操作台前我是涂装匠人，在危境关头我也绝不是慌乱的花瓶，这支通针把手就是破门铁尺！",
+    "goal_options": [
+     "以不锈钢通针把手下压撬动滑门自锁轴承脱开卡轨破门",
+     "在门开瞬间稳妥护持展品托架平稳撤入无尘干燥缓冲走廊"
+    ],
+    "never": [
+     "在生死关头遗弃心血凝聚的手办孤品慌乱独逃"
+    ],
+    "prefers": [
+     "精准高效的机械杠杆方案",
+     "沉静理性的无声默契配合"
+    ],
+    "pressure_responses": {
+     "breaking": "在门缝弹开瞬间与搭档同向合力一鼓作气将密封平移门推开",
+     "high": "双手合抱通针柄部借全身下沉力道狠狠别压迫使偏心轮后退",
+     "low": "单手戴上防毒面罩冷声示意身旁人员停止盲目撞门",
+     "mid": "弯腰俯身迅速将通针把手前端插入滑门导轨最深处的卡销缝隙"
+    },
+    "relationship_stance": "外表清冷孤傲言辞简洁，嫌暖通总工修风机吵到了自己喷底漆，却每回熬到凌晨，都给机房那边多点一份外卖。",
+    "withdrawal": "立于风淋走廊洁净风口前优雅摘下面罩理顺鬓发清冷远眺。"
+   },
+   "gender": "female",
+   "gender_reason": "文创圈公认的顶级清冷手办涂装女师。",
+   "id": "figure_painter_ye_ling_xi",
+   "identity": {
+    "authority": "对高定展品色彩配比、涂层工艺流程及喷涂车间工具器材调用享有全权处置权。",
+    "exposure": "为了精研古典矿物色系调配曾连续通宵试色导致嗅觉短暂失灵的潜心学艺经历",
+    "hidden": "防化服内侧口袋珍藏着初入央美时恩师赠予的一枚木质雕刀柄",
+    "limits": [
+     "受困于狭小负压喷涂室内，稀释剂挥发气体逐渐剥夺新鲜氧气",
+     "身为业界顶级涂装师需捍卫亲手涂装的限量孤品白模毫发未损"
+    ],
+    "obligations": [
+     "在气味浓度致人昏迷前破门脱困并保全价值连城的手办封釉图层"
+    ],
+    "resources": [
+     "一支长十二厘米由淬火特种高碳不锈钢制成的喷笔专用加厚通针（尾端带扁平防滑撬具硬柄）",
+     "一瓶高浓度特种水性微量金属轴承渗透润滑油"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在刺鼻溶剂弥漫中义无反顾同自己并肩下压撬具的坚毅侧颜",
+     "两人双手重叠紧握冰冷通针把手发力时掌心传来的滚烫支撑力"
+    ],
+    "boundaries": [
+     "严守青年艺术家的孤高风骨与清白名节",
+     "绝不允许以施救为名提出逾矩冒犯诉求"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "同对方并肩站在风淋走廊明亮玻璃前静看灯火重明展品流光。",
+    "dislikes": [
+     "遇到意外只会摔门抱怨的自私之流",
+     "借机轻浮冒犯不守规矩的浪荡看客"
+    ],
+    "expression": "耳尖泛起一层不易察觉的淡淡微红，微微仰起带有微婴儿肥的下颌轻哼一声，主动将通针硬柄递向对方手心。",
+    "likes": [
+     "精通工业机械原理又懂得尊重专注匠人的温和沉稳目光",
+     "在险情化解后彼此无需多言的心领神会"
+    ],
+    "preconditions": [
+     "门轨偏心自锁轴承被通针把手成功撬开且平移门顺畅推开",
+     "车间险情平息限量手办展品完好无损入柜烘干",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "GK手办独立涂装师",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_airbrush_booth_spray_chamber",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_airbrush_booth_spray_chamber",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_figure_model_cleanroom_drying_aisle",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "不锈钢通针把手边缘磨损产生轻微挤压痕，{npc.name}手腕受力反震隐隐泛红。",
+      "option": "{npc.name}取下合金喷笔特种淬火不锈钢通针硬柄，二人合力插进导轨偏心齿槽向下别撬卡销脱困。"
+     },
+     {
+      "cost": "喷涂室不锈钢密封滑门门框高温受损报废，需返修耗费数万元工料。",
+      "option": "由外侧安全员使用微型氧气乙炔焊枪定点破坏切除滑门外侧固定锁舌。"
+     }
+    ],
+    "pressure": "室内溶剂气体浓度逼近安全极值，呼吸逐渐受阻，若三分钟内不能撬开门轨泄压脱身将导致人员昏迷缺氧。",
+    "trigger": "车间排风主电机跳闸导致气压平衡被打破，重型气动密封平移门被负压吸力吸附在钢槽上，门轨偏心轴承咬死抱死，室内溶剂蒸汽急剧积聚。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要这支加厚通针还在手里，这尊GK和我，都不会闷死在这间喷漆房里。",
+    "surface": "谁也别撞门！这是重型气动自锁轨道，越撞卡齿咬得越死！拿我这支喷笔通针去，淬火特种钢的加厚把手正是最好的撬杆，插进下导轨偏心槽，听我数到三一起下压！"
+   }
+  },
+  {
+   "adult_context": "现年满二十六岁，建筑环境与能源应用工程硕士，车间机电通风主管工程师，持有特种压力管道检验师执照，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    26
+   ],
+   "appearance_options": [
+    "穿戴带有反光条的深蓝色工程检修连体服，腰挂测温仪与棘轮扳手，体格挺拔英挺目光沉着果断。",
+    "皮肤白净轮廓分明，戴着耐油橡胶劳保手套，眉宇间充满理工技术学者的敏锐与严谨。"
+   ],
+   "decision": {
+    "avoids": [
+     "毫无常识的蛮力推撞",
+     "推脱责任的无谓慌乱"
+    ],
+    "contrast": "平日严谨刻板一丝不苟，面对突发险情却爆发力惊人处置果决。",
+    "core_value": "流体有法机械有恒，只要摸准了压差规律，再沉重的死锁铁门也是通途！",
+    "goal_options": [
+     "手动旋转风道应急旁路蝶阀释放室内强大负压吸力",
+     "在机房快速跳接备用控制线圈提供微弱松扣气脉冲"
+    ],
+    "never": [
+     "在室内人员脱困前放弃手动气阀维护战位"
+    ],
+    "prefers": [
+     "符合物理流体力学的规范处置",
+     "条理分明的精准技术协作"
+    ],
+    "pressure_responses": {
+     "breaking": "在气压平衡瞬间通知下方人员同步发力推门出舱",
+     "high": "单臂撑住发热风机机壳用对讲高声呼唤室内找准轴承撬点",
+     "low": "在机房通过对讲拾音器清晰通报当前风道剩余负压读数",
+     "mid": "双手紧握扳手奋力搬动风道侧向旁路常闭手动蝶阀手柄"
+    },
+    "relationship_stance": "修了一礼拜风机，其实第三天就修好了，往后四天只是找个理由在机房里多待一会儿。",
+    "withdrawal": "在风机平台长椅上坐下摘下手套大口喝水平复剧烈心跳。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "hvac_mechanic_chu_tian_heng",
+   "identity": {
+    "authority": "对全车间通风管网风压调配、风机应急启闭及气动阀门安全互锁享有全权技术指挥权。",
+    "exposure": "曾在一线化工净化车间突发风道自锁事故中临危救险立功嘉奖",
+    "hidden": "工作包内珍藏着大学时期获全国力学竞赛一等奖的纪念金属圆珠笔",
+    "limits": [
+     "排风机主电机线圈过热，短时间内无法强行全载送电",
+     "必须坚守机房查明短路源头防止引发配电二次跳闸"
+    ],
+    "obligations": [
+     "为喷涂室内受困人员排除气压负荷并恢复基础换气通道"
+    ],
+    "resources": [
+     "一套专业通风管道测压便携压差计",
+     "一柄高强度合金钢重型手动气阀调节扳手"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在绝境浓烟中以纯粹理工力学掌控生机脉络的沉稳风采",
+     "前后方精准联动毫无保留的生死信任"
+    ],
+    "boundaries": [
+     "严守暖通机电工程安全规程底线",
+     "绝不因紧急险情而放弃设备复核验证程序"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "筑起守护室内气流畅通安宁的技术防线。",
+    "dislikes": [
+     "违背力学常识的胡乱操作",
+     "慌张无措只知哭喊的软弱行径"
+    ],
+    "expression": "爽朗一笑抹去鼻尖汗渍，向脱困众人用力竖起坚实大拇指以表敬佩。",
+    "likes": [
+     "干脆利索的技术对白",
+     "彼此毫无保留的职责坚守"
+    ],
+    "preconditions": [
+     "喷涂室内外负压差成功归零且平移门顺畅推开",
+     "风机电气系统排查完毕重新并入安全备用运行模式",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "负压喷漆房暖通运维高级总工",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_airbrush_booth_exhaust_duct_room",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_airbrush_booth_exhaust_duct_room",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_figure_model_cleanroom_drying_aisle",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手动蝶阀连杆因超限力矩扭曲变形出现十度永久弯曲。",
+      "option": "{npc.name}在顶层机房合抱加长加力杠杆强行旋转旁路泄压蝶阀手轮释放残余负压。"
+     },
+     {
+      "cost": "主不锈钢风管局部破损需重新焊接法兰密封垫圈。",
+      "option": "由维修工用手持电动打孔机在风管侧壁打穿排气泄压孔平衡气压。"
+     }
+    ],
+    "pressure": "若不及时手动泄压，门槽轴承承受的侧向摩擦力高达数百公斤，通针将难以撬开。",
+    "trigger": "排风风道主蝶阀因断电关闭卡死在节流位置，导致室内高压残留废气与走廊形成顽固负压封锁。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "风机轴承过热停摆，负压把门死死吸在框上，全靠室内的人用通针把手撬开偏心锁销了，必须替受困同伴降下压差！",
+    "surface": "稳住！机房这边的旁路泄压蝶阀已经被我手动扳开大半！室内负压差正在从五十帕往下降！你那支通针硬度极高，趁着卡销受力减轻的瞬间向下压！"
+   }
+  },
+  {
+   "adult_context": "现年满二十二岁，色彩与应用化学专业大四在读，持有初级化学品安全化验员资格证书，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    22
+   ],
+   "appearance_options": [
+    "身穿带有各色斑斓油漆点缀的耐脏浅蓝色围裙，长发盘在脑后插着一根塑料调漆棒，神采灵秀动人。",
+    "眼眸明澈如秋水，手指纤长灵巧，佩戴轻便型活性炭防毒口罩，随身携带着测色色卡与稀释剂吸管。"
+   ],
+   "decision": {
+    "avoids": [
+     "鲁莽铁器剧烈撞击引发打火",
+     "忽视溶剂挥发毒性的盲目行为"
+    ],
+    "contrast": "外表温柔娇憨充满少女书卷气，研判化学溶剂安全指标却精细严谨分毫不爽。",
+    "core_value": "色彩是手办的灵魂，安全是生命的底色，决不允许火花吞噬同伴与艺术！",
+    "goal_options": [
+     "紧盯检测仪读数高声通报溶剂闪点浓度严防金属撞击打火",
+     "在通针下压撬动时指导避开干磨摩擦保持平稳静压"
+    ],
+    "never": [
+     "在易燃易爆气体超标时擅自动用产生火花工具"
+    ],
+    "prefers": [
+     "绝对无火花的柔性机械自救",
+     "科学严密的数据沟通"
+    ],
+    "pressure_responses": {
+     "breaking": "在门推开瞬间第一个递上浸湿纯净水冷毛巾护住涂装师口鼻",
+     "high": "双手托起灭火毯守候在滑门外侧准备随时扑灭静电火苗",
+     "low": "在玻璃观察窗外快速敲击色卡提示室内挥发浓度数值",
+     "mid": "隔着观察窗麦克风高声呼唤涂装师保持平缓呼吸切勿剧烈动作"
+    },
+    "relationship_stance": "视涂装师如莫逆知己，被其艺术孤勇所折服，在危急关头甘当最细致的安全耳目。",
+    "withdrawal": "在干燥走廊工作台前静静坐下整理试色板深吸一口气。"
+   },
+   "gender": "female",
+   "gender_reason": "工作室首席色彩调配师二十二岁大四在读青年艺术才女。",
+   "id": "color_specialist_bai_ruo_wei",
+   "identity": {
+    "authority": "对各色矿物漆料溶剂配比、稀释剂化学特性及现场空气毒性辨识拥有首席发言权。",
+    "exposure": "曾连续七天调配出全球首例金属变色龙珍珠漆轰动圈内",
+    "hidden": "工具箱底层收藏着一本自制手绘东方传统色彩谱系图册",
+    "limits": [
+     "体能有限，无法进行重物破拆搬运",
+     "深知稀释剂闪点极低严禁在室内产生任何金属撞击火花"
+    ],
+    "obligations": [
+     "准确监测室内有机蒸汽浓度并指导全员避开高危爆燃火花"
+    ],
+    "resources": [
+     "一具专业级手持光离子化挥发性有机物气体快速检测仪",
+     "一罐高纯度中和除味雾化喷剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在生死悬崖边恪守防爆底线细心守护少女生命的深沉柔情",
+     "对色彩与生命共同怀有的虔诚敬畏之心"
+    ],
+    "boundaries": [
+     "严守危化品防爆操作规程底线",
+     "绝不因紧急险情而放弃安全防范措施"
+    ],
+    "desire_range": [
+     0,
+     2
+    ],
+    "desired_position": "化身守望安全与艺术光芒的解语知己。",
+    "dislikes": [
+     "野蛮暴力的狂躁分子",
+     "自私自利不顾同伴安危"
+    ],
+    "expression": "温柔抿唇一笑，递上一方洁白湿润面巾轻柔拭去同伴唇边污渍。",
+    "likes": [
+     "尊重科学规程的严谨君子",
+     "细腻体贴不事张扬的稳健作风"
+    ],
+    "preconditions": [
+     "车间溶剂浓度在无火花前提下彻底排除",
+     "通针撬开门轨全程零火花产生人员平安脱险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "手办模玩工作室首席调色师",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_figure_model_cleanroom_drying_aisle",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_figure_model_cleanroom_drying_aisle",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_airbrush_booth_spray_chamber",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "阻燃水雾受微风吹拂导致走廊两架备用试色样板表面水渍受潮报废。",
+      "option": "{npc.name}启动缓冲走廊防爆冷雾喷淋系统向门缝微隙喷注微量阻燃水雾。"
+     },
+     {
+      "cost": "消耗掉全车间备用的全部特种灭火绝缘泡沫药剂储备。",
+      "option": "使用低泡阻燃绝缘洗涤泡沫灌注门轨缝隙隔绝摩擦空气。"
+     }
+    ],
+    "pressure": "若撬动轴承时金属干摩擦产生静电火花，室内将瞬间爆燃化为火海。",
+    "trigger": "喷漆室内未抽走的硝基漆溶剂挥发成可燃蒸汽云团，空气检测仪发出高浓度黄色预警。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "气体检测仪读数已经发黄了，时间真不多了，涂装师一定要稳稳压开那个卡销！",
+    "surface": "涂装师别用铁锤猛砸！车间内稀释剂气体浓度正在逼近爆炸下限，任何金铁撞击火花都会引爆！用你的加厚合金通针慢力下压，那是淬火纯不锈钢，不会迸发火星，稳住劲慢慢别！"
+   }
+  },
+  {
+   "adult_context": "现年满二十七岁，安全工程学硕士，文创园区安监部副部长，持有国家注册安全工程师执照，具备完全民事行为能力。",
+   "age_range": [
+    27,
+    27
+   ],
+   "appearance_options": [
+    "身穿黑色消防特勤战术制服，佩戴对讲耳麦与执法记录仪，身材魁梧身姿笔挺，神态沉稳威严气场强大。",
+    "面容黝黑坚毅目光如鹰隼，下颌紧绷双手戴着特种阻燃防护手套，随身佩戴多功能便携破拆钳。"
+   ],
+   "decision": {
+    "avoids": [
+     "无组织无纪律的混乱围观",
+     "危急时刻推卸责任的软弱表现"
+    ],
+    "contrast": "外表威严铁面无私不讲情面，内心对一线科研匠人却充满深沉厚重的关切爱护。",
+    "core_value": "安全职责重于泰山，把每一个涉险群众平安带出来，是安监铁军的如山军令！",
+    "goal_options": [
+     "封锁喷涂车间外围通道驱散围观人员维护绝对救援空间",
+     "在外侧调集干粉灭火器与防毒救援面罩构筑第二道托底防线"
+    ],
+    "never": [
+     "在确认人员全部生还前撤除任何一道安防防线"
+    ],
+    "prefers": [
+     "严格遵纪守法的专业行动",
+     "有胆识、敢作为的临危自救英雄"
+    ],
+    "pressure_responses": {
+     "breaking": "在门扉被撬开瞬间敏捷前跨一步双手合抱接出脱险人员",
+     "high": "单手提起重型灭火器守在门缝正前方严阵以待做好防爆准备",
+     "low": "在通道内沉稳发布清场口令指令安保人员封锁两侧防烟门",
+     "mid": "通过玻璃窗高声向室内人员传达破门脱出后的安全撤离路径"
+    },
+    "relationship_stance": "视一线年轻创业团队如子弟兵，以兄长般的铁血臂膀为其撑起最坚强后盾。",
+    "withdrawal": "在走廊一侧靠墙站立解开武装带深吸一口气欣慰点头。"
+   },
+   "gender": "male",
+   "gender_reason": "文创园区消防与化学品车间安监督察长二十七岁退役骨干。",
+   "id": "safety_inspector_zhou_xun",
+   "identity": {
+    "authority": "对园区突发火险特级应急预案启动、现场人员疏散隔离与外围专业救援引导享有全权指挥权。",
+    "exposure": "曾连续在三次特大火灾抢险中身先士卒疏散群众荣立一等战功",
+    "hidden": "公文包内常年放着一本泛黄的消防战士英烈名录随身勉励",
+    "limits": [
+     "背负着整栋文创大楼数百家企业与人员生命安全的行政责任",
+     "在密闭空间内部情况未明前严禁盲目组织人员破门强攻"
+    ],
+    "obligations": [
+     "确保喷漆房险情在最小范围内彻底化解并杜绝次生灾难"
+    ],
+    "resources": [
+     "一套专业重型液压手动破拆剪切钳组",
+     "一部直通园区管委会总值班室的保密红色应急电话"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在泰山崩于前而色不变的沉着威严风采",
+     "在烈火硝烟前横刀立马守护生灵的崇高铁血担当"
+    ],
+    "boundaries": [
+     "严守国家安全生产法律法规红线",
+     "绝不以权谋私网开一面"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "筑起守护生命长治久安的钢铁长城。",
+    "dislikes": [
+     "盲目蛮干破坏防线",
+     "遇难只知推脱埋怨"
+    ],
+    "expression": "庄重地抬起右手敬礼，目光中满是对青年匠人无畏气魄的由衷敬佩。",
+    "likes": [
+     "执行指令雷厉风行",
+     "遇险沉着自救有勇有谋"
+    ],
+    "preconditions": [
+     "喷涂室内人员毫发无损安全脱困撤入风淋安全走廊",
+     "车间险情彻底排除并按规程签署复工整改安检令"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "文创园区安全监察督察长",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_figure_model_cleanroom_drying_aisle",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_figure_model_cleanroom_drying_aisle",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_airbrush_booth_spray_chamber",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "液压开门器合金顶头在外侧门框留下两处明显金属挤压凹陷。",
+      "option": "{npc.name}指挥特勤安保利用便携液压开门器在外侧门缝施加微量分离推力辅助室内。"
+     },
+     {
+      "cost": "切断原装进口高压特种气动管线导致部件彻底报废需整条更换。",
+      "option": "使用气动切管器切断门外气控供气软管强行释放气动锁舌压力。"
+     }
+    ],
+    "pressure": "若内部无法在规定时限撬开门轨卡销，安监组将不得不动用外侧破拆工具破坏性破门。",
+    "trigger": "气动密封平移门气锁机械装置因过压产生严重机械抱合，外侧常规拉手无法拉动门体。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "浓度报警器响了，气压门咬死，只要里面的年轻人能用通针把手撬开一道缝，我们就能一举接应出人！",
+    "surface": "各单位注意！外围防爆警戒已全面设立，无关人员立即后撤三十米！室内同志听指挥，叶老师拿通针下压撬动卡销，外侧安监组已备齐防爆救援装备，门开瞬间立刻撤出！"
+   }
+  },
+  {
+   "adult_context": "现年满二十五岁，雕塑艺术硕士，工作室首席白模雕刻师，具备完全民事行为能力。",
+   "age_range": [
+    25,
+    25
+   ],
+   "appearance_options": [
+    "身穿沾满树脂碎屑的工装夹克，手指修长沉稳骨节分明，面容俊美儒雅，眼眸清亮透着纯正手艺人的灵气。",
+    "随身携带着精细雕刻刀卷包与精密卡尺，面对险情神色虽焦急却依然保持着极高的冷静分析力。"
+   ],
+   "decision": {
+    "avoids": [
+     "暴力盲动导致手办摔碰",
+     "遇险推诿放弃团队成果"
+    ],
+    "contrast": "外表斯文儒雅宛如书生，抢护手办与技术分析时却反应敏捷爆发力惊人。",
+    "core_value": "泥木有神手中有火，作品是艺术家的生命延续，守护同伴与心血万死不辞！",
+    "goal_options": [
+     "在观察窗前指导通针把手撬动门轨偏心轴承的最佳力学夹角",
+     "在门开瞬间稳妥接出展品托架平稳撤入无尘干燥走廊"
+    ],
+    "never": [
+     "在同伴处于险境时弃之不顾独自离开"
+    ],
+    "prefers": [
+     "精巧入微的物理力学技巧",
+     "对艺术心血的无比珍视"
+    ],
+    "pressure_responses": {
+     "breaking": "在门开瞬间飞身向前接出手办托盘稳稳护入防震转运箱",
+     "high": "双手贴紧玻璃观察窗目不转睛紧盯通针把手的进退深度",
+     "low": "在玻璃观察窗前用记号笔快速画出滑门导轨偏心销受力截面图",
+     "mid": "隔着玻璃双手比划四十五度倾角示意涂装师向下方死槽压下"
+    },
+    "relationship_stance": "与涂装师既是艺术知己又是事业战友，对其超绝的动手气魄敬佩无以复加。",
+    "withdrawal": "在走廊长桌前轻轻放下手办托盘长舒一口气露出发自肺腑的欣慰笑容。"
+   },
+   "gender": "male",
+   "gender_reason": "模玩工作室原型雕刻主设计师二十五岁青年雕塑名家。",
+   "id": "model_sculptor_lu_jing_he",
+   "identity": {
+    "authority": "对高定展品受力结构、手办脆性材料物理特性及抢险转运方案享有裁定权。",
+    "exposure": "曾在一夜之间纯手工精修完成被快递摔碎的原型白模奇迹般赶上展会",
+    "hidden": "工具箱内珍藏着与涂装师共同设计的初代手办初版泥样照片",
+    "limits": [
+     "受困在观察窗外侧无法直接触碰室内卡死导轨",
+     "必须全力保全室内那尊凝结了全团队数月心血的绝版GK手办"
+    ],
+    "obligations": [
+     "在门开瞬间第一时间内完好无损地抢运出限量原型展品"
+    ],
+    "resources": [
+     "一套多功能冷锻合金刮刀与高硬度白钢挑针工具",
+     "一个内衬特种防震发泡记忆海绵的高定手办转运箱"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在绝境浓烟中以纯粹匠人默契共同守护艺术奇迹的深沉心魂交织",
+     "在科学与艺术交融中展现出的沉静知性之美"
+    ],
+    "boundaries": [
+     "严守青年知识分子的高洁品格与清白操守",
+     "绝不因功劳自居挟恩图报逾矩"
+    ],
+    "desire_range": [
+     0,
+     2
+    ],
+    "desired_position": "化身守护艺术灵感与人间平安的坚实臂膀。",
+    "dislikes": [
+     "轻慢手工心血的肤浅狂妄",
+     "遇事推脱借口的软弱懦夫"
+    ],
+    "expression": "温柔爽朗一笑抹去额角冷汗，向脱困众人躬身作揖道一声平安吉祥。",
+    "likes": [
+     "崇尚纯粹手工工艺的知音胸怀",
+     "沉着坚韧不畏艰难的行动力"
+    ],
+    "preconditions": [
+     "通针把手撬退门轨自锁轴承且涂装师安然脱困",
+     "绝版手办原型在抢护中未受丝毫刮碰完整保全"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "模玩工作室首席白模雕刻师",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_figure_model_cleanroom_drying_aisle",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_figure_model_cleanroom_drying_aisle",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_airbrush_booth_spray_chamber",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗掉工位仅有的两组进口微型高强钕铁硼气动磁吸定位底座。",
+      "option": "{npc.name}指导隔窗通过气动磁力座将手办托盘牢牢吸附固定在工位钢板中央。"
+     },
+     {
+      "cost": "防化服下摆被未干油漆浸润染色报废留下大片斑驳色块。",
+      "option": "由涂装师单手用防化服下摆软布包裹住手办底座防止滑动磕碰。"
+     }
+    ],
+    "pressure": "必须在破门自救同时保持双手平衡兼顾手办，否则数月心血将毁于一旦。",
+    "trigger": "展台旋转托盘受到气压颠簸发生微小倾斜，尚未固化的手办白模面临倾覆刮伤硬伤。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "涂装师的手法极准，只要找准那个偏心角，通针就能成为撬天铁尺，手办和人都能平安！",
+    "surface": "涂装师看窗外图纸！导轨内部是双偏心自锁轴承，锁死方向是顺时针！把通针扁平硬柄插进右上角缺口，逆时针向下按三十度！那把通针是我专门白钢冷锻的，完全扛得住！"
+   }
+  },
+  {
+   "adult_context": "现年满二十四岁，机电一体化工程技术学士，车间高级气动机械维修工，具备完全民事行为能力。",
+   "age_range": [
+    24,
+    24
+   ],
+   "appearance_options": [
+    "身穿带有机械机油污渍的工装背带裤，戴着防撞工程帽，手臂肌肉线条结实充满爆发力。",
+    "面容朴实沉稳眼神坚毅，随身工具袋插满各色内六角扳手、金属冲子与铜合金小手锤。"
+   ],
+   "decision": {
+    "avoids": [
+     "野蛮暴力的破坏性乱撬",
+     "盲目推诿耽误救援黄金期"
+    ],
+    "contrast": "外表粗犷憨厚朴实无华，对精密滑道机构间隙的感知却敏锐入微。",
+    "core_value": "机械咬得再死也是人造出来的，顺着力道巧使劲，没有开不了的门！",
+    "goal_options": [
+     "隔窗指导室内人员找准导轨偏心滚轮承重活舌位置",
+     "在外侧用二硫化钼润滑喷剂顺着门框胶条缝隙全力喷注"
+    ],
+    "never": [
+     "在机械卡死未完全解除前擅自松劲放手"
+    ],
+    "prefers": [
+     "精准巧力的机械解构手法",
+     "真抓实干的团队默契配合"
+    ],
+    "pressure_responses": {
+     "breaking": "在滚轮脱扣瞬间双臂爆发神力向外猛拉彻底带开大门",
+     "high": "在门外攥紧把手，跟着屋里通针下压的节拍一起往外拽",
+     "low": "在门外用敲击扳手节奏向室内传递偏心滚轮滑动卡点",
+     "mid": "将二硫化钼细喷管顺着门缝毛刷条缝隙深入喷入滑道"
+    },
+    "relationship_stance": "服从暖通总工指挥，对涂装师的沉稳手法惊叹不已，甘当最踏实的机械助力。",
+    "withdrawal": "坐在工具箱上卸下安全帽大口喘气露出憨厚而欣慰的笑容。"
+   },
+   "gender": "male",
+   "gender_reason": "车间气动与机械传动运维维修工二十四岁特勤骨干。",
+   "id": "pneumatic_mechanic_cheng_yuan_zhou",
+   "identity": {
+    "authority": "对车间气动滑门机械导轨调试、滑轮偏心量校核及轴承解卡享有现场处置全权。",
+    "exposure": "曾连续在极端工况下单人抢修大型气动推拉门自锁故障打破基地纪录",
+    "hidden": "工作服口袋装有一枚师傅退役时传给自己的纯铜游标卡尺",
+    "limits": [
+     "受门内自锁死咬限制，无法单纯从外侧拆解滑轨螺栓",
+     "必须指导室内人员从轴承反力端实施精准别撬"
+    ],
+    "obligations": [
+     "为室内通针撬动提供最准确的偏心结构卡点方位指导"
+    ],
+    "resources": [
+     "一套专用气动滑门偏心滚轮防卡死退销冲子",
+     "一罐高压渗透工业级二硫化钼防锈润滑喷剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在危急关头以纯正工匠神力与精湛经验破除坚冰的厚重安全感",
+     "在大汗淋漓并肩破险中结下的朴实深厚战友情"
+    ],
+    "boundaries": [
+     "严格恪守机械维修工职业道德与安全操作红线",
+     "绝不因抢险有功居功自傲"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "筑起破除机械阻滞的忠勇先锋。",
+    "dislikes": [
+     "纸上谈兵夸夸其谈",
+     "自私冷血弃人不顾"
+    ],
+    "expression": "憨厚地挠了挠头咧嘴大笑，用力搓了搓沾着油污的粗糙双手道一声平安脱险。",
+    "likes": [
+     "踏实肯干的技术派",
+     "遇事沉着不慌乱的同伴"
+    ],
+    "preconditions": [
+     "通针把手撬开门轨轴承且密封门完全拉脱",
+     "喷涂车间气动滑门恢复正常机械行程"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "喷漆车间特种气动滑道检修师",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_figure_model_cleanroom_drying_aisle",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_figure_model_cleanroom_drying_aisle",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_airbrush_booth_spray_chamber",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗掉车间整罐进口特种工业级高附着二硫化钼防锈润滑剂。",
+      "option": "{npc.name}将二硫化钼高压润滑清洗喷剂顺着门框胶条缝隙深入喷注冲刷导轨结焦。"
+     },
+     {
+      "cost": "外门框铝合金护条被冲击震裂一道细微发丝状金属应力裂纹。",
+      "option": "在外侧使用手持冲击螺丝刀震击滑轨固定码通过微振动松脱卡死自锁齿。"
+     }
+    ],
+    "pressure": "导轨干涩严重增加摩擦阻力，若无润滑剂渗透，通针下压可能遭遇严重机械阻抗。",
+    "trigger": "滑门下导轨因长年积聚微量漆雾粉尘产生粘滞结焦，偏心轮在强压下咬死在卡槽死角。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要叶老师手里的白钢通针卡到位，我{npc.name}在外面使上这把子力气，任凭多大的压差也得给我开！",
+    "surface": "叶老师听我声！门下槽左数第二个滚轮就是偏心定位销！通针把手插进去之后，手腕向外扭半圈别住轴套，听我喊口号一起拉！我已经在外面喷上润滑剂了，一撬就脱！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "展前一周，三月",
+  "minute": 1260
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "顶级手办涂装师调配重工珠光漆料前习惯用不锈钢通针把手反复校核喷嘴同轴同心度",
+  "车间作业开机前安全员须手摇测试气动平移滑门导轨侧滑行程并检查防撞橡胶限位胶条",
+  "完成高难度渐变涂装后操作者习惯取下防毒面罩在观察窗前静待漆膜自流平定型收光",
+  "每次通电前配电工必用测温红外仪扫描顶层排风风机电动机轴承温升记录台账"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "涂装师把限量GK的白模固定在转台上，一层层喷上灰色底漆。",
+    "暖通总工在门口探头，说排风机今天又响了一下午。",
+    "涂装师头也不回：修好它，展前我请你吃饭。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_lingxi_figure_face",
+    "hook_lingxi_late_takeout",
+    "hook_tianheng_fan_fixed"
+   ],
+   "id": "act_airbrush_needle_handle_door_pry",
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "workplace"
+   ],
+   "title": "喷涂室里上底漆"
+  },
+  {
+   "beats": [
+    "暖通总工在顶层机房拆开排风机的外壳，轴承上全是黑色的油泥。",
+    "涂装师端着两杯冰美式上来，坐在铁梯上看总工干活。",
+    "总工换下旧轴承递过去，涂装师说：这东西转了八年，比我还能熬。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_chu_rotates_bypass_damper_wheel",
+    "hook_lingxi_figure_face",
+    "hook_lingxi_late_takeout"
+   ],
+   "id": "act_rooftop_exhaust_duct_valve_relief",
+   "location_ids": [
+    "loc_airbrush_booth_exhaust_duct_room"
+   ],
+   "start_minute": 900,
+   "tags": [
+    "workplace"
+   ],
+   "title": "顶层机房修风机"
+  },
+  {
+   "beats": [
+    "烘干走廊的架子上排着一排刚上完色的手办，灯光一照，漆面亮得像瓷。",
+    "涂装师一件件拿起来检查，发现一处流漆就皱着眉放回去。",
+    "总工指着其中一件说这个最好看，涂装师说那是自己的私藏，不卖。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_bai_monitors_gas_ppm_warning",
+    "hook_cheng_sprays_moly_lubricant",
+    "hook_lingxi_figure_face"
+   ],
+   "id": "act_cleanroom_macro_gas_hazard_monitor",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "start_minute": 1020,
+   "tags": [
+    "workplace"
+   ],
+   "title": "烘干走廊里挑成品"
+  },
+  {
+   "beats": [
+    "维修工将特种加长细喷管顺着不锈钢门框胶条缝隙插入",
+    "连续向被结焦漆雾干固的偏心导轮轴承喷注高压二硫化钼",
+    "双手拉住外把手与室内人员下压通针动作形成同步发力"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_door_track_lubricant_spray_cleanse",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "start_minute": 1264,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "门框胶条缝隙二硫化钼高压润滑溶剂清洗"
+  },
+  {
+   "beats": [
+    "展前第五个通宵，涂装师趴在操作台上，手里还捏着一支细喷笔。",
+    "总工轻手轻脚地进来，把一条毯子搭在涂装师背上。",
+    "涂装师迷迷糊糊地睁眼，嘟囔了一句：别碰我的漆……然后又睡着了。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_lingxi_figure_face",
+    "hook_lingxi_late_takeout",
+    "hook_tianheng_fan_fixed"
+   ],
+   "id": "act_masterpiece_figure_stand_secure",
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "start_minute": 240,
+   "tags": [
+    "workplace"
+   ],
+   "title": "第五个通宵"
+  },
+  {
+   "beats": [
+    "接应脱困人员步入百级洁净风淋室开启强力洁净风淋吹扫",
+    "递上湿润纯棉洁面毛巾与防过敏清洗液擦拭手部漆料粉尘",
+    "检查受困人员手腕及呼吸道状况并呈递温热电解质纯净水"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_post_escape_cleanroom_first_aid_care",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "start_minute": 1275,
+   "tags": [
+    "workplace"
+   ],
+   "title": "风淋走廊脱险人员纯氧舒缓与皮肤清洗护理"
+  },
+  {
+   "beats": [
+    "滑门撬开、溶剂蒸汽排净、那尊限量GK一点没花、展会照常开幕之后，涂装师回到阁楼，防毒面罩在脸上勒出两道深深的红印，连体工装上全是漆点。",
+    "涂装师背过身，让人拉开连体工装的拉链，再用温热的毛巾擦去颈后的漆雾和汗，毛巾擦到腰际时，涂装师咬着唇，往后靠了过来。",
+    "涂装师转过身，揪住对方的衣襟：风机你修了一礼拜，我都知道。……今晚你愿意，就别下楼了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_mask_off",
+   "location_ids": [
+    "loc_studio_loft_bedroom"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "阁楼里替涂装师摘下防毒面罩"
+  },
+  {
+   "beats": [
+    "涂装师盘腿坐在工作台前，给一尊小手办画脸，画了一半，忽然抬头盯着人看了很久。",
+    "涂装师冲人勾勾手指：别动，我照着画。……再近一点，我看不清你的睫毛。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_paint_face",
+   "location_ids": [
+    "loc_studio_loft_bedroom"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "照着你画的眉毛"
+  },
+  {
+   "beats": [
+    "限量GK交付的那一夜，涂装师把一尊没对外的小样摆进展柜最显眼的位置，眉眼照着某个人画的。",
+    "涂装师靠在展柜上，没看人：这尊不卖，留给自己。……今晚我也想留你，你说好，我才关灯。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_finished_figure",
+   "location_ids": [
+    "loc_studio_loft_bedroom"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "完工那一夜"
+  },
+  {
+   "beats": [
+    "熬完五个通宵，涂装师一觉睡到了中午，在矮床上醒来，低马尾散了，脸上还留着淡淡的面罩印子。",
+    "涂装师把脸埋回人怀里：今天不开喷笔……外卖你点，我再睡一会儿。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_late_morning",
+   "location_ids": [
+    "loc_studio_loft_bedroom"
+   ],
+   "start_minute": 660,
+   "tags": [
+    "intimate"
+   ],
+   "title": "补觉到中午"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代顶级GK手办模玩工作室高定展品终期涂装封釉阶段",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "幼态",
+  "幼女",
+  "少女感",
+  "催情",
+  "迷乱",
+  "欲火"
+ ],
+ "hooks": [
+  {
+   "id": "hook_ye_takes_down_needle_handle",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "slot": "figure_painter_ye_ling_xi",
+   "text": "{figure_painter_ye_ling_xi.name}单手按住气动自锁滑门门框，微润粉嫩的娇颜透着紧致微婴儿肥朝气，星眸清冷如霜：慌什么！我这支喷笔通针由白钢淬火特制，扁平把手正是硬撬棍，插进导轨轴承凹槽，听口令一同下压！"
+  },
+  {
+   "id": "hook_ye_demands_precision_prying_angle",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "slot": "figure_painter_ye_ling_xi",
+   "text": "{figure_painter_ye_ling_xi.name}将不锈钢通针硬柄精准插入门轨偏心轴承缝隙，额角细汗微润，傲然咬唇：看准偏心滚轮承重活舌受力面，顺着滑槽以三十度倾角向下别，听倒数一起发力撬开卡销！"
+  },
+  {
+   "id": "hook_chu_rotates_bypass_damper_wheel",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airbrush_booth_exhaust_duct_room"
+   ],
+   "slot": "hvac_mechanic_chu_tian_heng",
+   "text": "{hvac_mechanic_chu_tian_heng.name}在顶层机房合抱加长钢管杠杆奋力旋转旁路排气蝶阀手轮，对着对讲机大声高呼：涂装师稳住！管道旁路阀已手动打开，室内负压正在释放，趁现在下压通针撬轴承！"
+  },
+  {
+   "id": "hook_bai_monitors_gas_ppm_warning",
+   "kind": "approach",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "slot": "color_specialist_bai_ruo_wei",
+   "text": "{color_specialist_bai_ruo_wei.name}隔着观察窗紧贴气体检测仪屏幕高声复诵：溶剂蒸汽浓度保持在安全闪点以下！通针下压保持纯静载慢力别动，千万不要暴力击打，绝不能激出静电火星！"
+  },
+  {
+   "id": "hook_zhou_organizes_safety_line",
+   "kind": "approach",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "slot": "safety_inspector_zhou_xun",
+   "text": "{safety_inspector_zhou_xun.name}手持重型干粉灭火器严阵以待守在走廊门侧，按动执法仪沉声指挥：外围防爆警戒已完全就绪，救护组在侧幕待命！只要门缝撬开一道间隙立刻协助全力向外推开！"
+  },
+  {
+   "id": "hook_lu_sketches_bearing_notch_cross",
+   "kind": "approach",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "slot": "model_sculptor_lu_jing_he",
+   "text": "{model_sculptor_lu_jing_he.name}用油性记号笔在观察窗玻璃上飞速勾勒出滑门导向滚轮偏心结构草图，隔窗指引：通针把手向右侧空腔旋入半公分！那就是自锁活舌的薄弱受力点，手办托盘已磁吸固定无忧！"
+  },
+  {
+   "id": "hook_cheng_sprays_moly_lubricant",
+   "kind": "approach",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "slot": "pneumatic_mechanic_cheng_yuan_zhou",
+   "text": "{pneumatic_mechanic_cheng_yuan_zhou.name}将高压二硫化钼润滑喷剂细管顺着门缝胶条狠狠喷入导轨槽内，双臂死死抠住外把手大声高吼：叶老师我摸准轴套了！通针压到底的瞬间跟我一起同向发力推！"
+  },
+  {
+   "id": "hook_ye_braces_partner_in_chamber",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "slot": "figure_painter_ye_ling_xi",
+   "text": "浓烈气味扑鼻而来，{figure_painter_ye_ling_xi.name}伸手稳稳拉住搭档的防化服袖口将身体重心靠拢互抵，两人四手重叠紧扣通针把手，双眸清冷坚毅彼此毫无嫌隙避忌之态。"
+  },
+  {
+   "id": "hook_observe_needle_handle_pries_bearing",
+   "kind": "observe",
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "slot": "figure_painter_ye_ling_xi",
+   "text": "不锈钢通针加厚扁平把手在狭窄导轨缝隙中深深楔入偏心滚轮承重卡销，伴随着一声极清脆的金铁脱扣退销咬合声，紧紧咬死的自锁轴套被硬生生撬退半公分微隙。"
+  },
+  {
+   "id": "hook_observe_sliding_door_pops_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "slot": "figure_painter_ye_ling_xi",
+   "text": "在内外力矩与二硫化钼润滑油渗透共同作用下，卡滞死锁的重型不锈钢密封平移门发出咔哒一声脆响脱开卡槽，顺畅滑移滑开一道三尺宽阔的脱险生命通道。"
+  },
+  {
+   "id": "hook_observe_fresh_air_flushes_chamber",
+   "kind": "observe",
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "slot": "hvac_mechanic_chu_tian_heng",
+   "text": "平移门推开的瞬间，洁净清爽的风淋走廊微正压新风如甘霖般奔涌灌入喷漆室内，浓烈刺鼻的有机溶剂废气瞬间被强力稀释排散，室内空气重新恢复清朗安全。"
+  },
+  {
+   "id": "hook_observe_exhaust_fan_restarts_safely",
+   "kind": "observe",
+   "location_ids": [
+    "loc_airbrush_booth_exhaust_duct_room"
+   ],
+   "slot": "hvac_mechanic_chu_tian_heng",
+   "text": "顶层动力机房电动机过热保护复位完毕，备用离心风机机组伴随着雄浑低沉的轰鸣声重新平稳并网运转，水幕喷漆柜瀑布重新顺畅流淌，系统全面转危为安。"
+  },
+  {
+   "id": "hook_observe_figure_model_safe_in_drying",
+   "kind": "observe",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "slot": "model_sculptor_lu_jing_he",
+   "text": "旋转展示台上的限量绝版手办白模托盘被稳稳接应送入恒温风淋烘箱内，完美无瑕的珠光高光漆层平整如镜毫无划痕斑驳，圆满达成了顶级展品完好无损的保全奇迹。"
+  },
+  {
+   "id": "hook_assistant_brings_warm_towel_water",
+   "kind": "observe",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "slot": "color_specialist_bai_ruo_wei",
+   "text": "调漆助理小雪快步呈上温热洁净纯棉毛巾与清凉电解质水，涂装师两颊泛起微红，接过温水轻抿一口，从容拂去工装服微尘恢复了顶尖手办女宗师的孤高清冷气度。"
+  },
+  {
+   "id": "hook_blogger_records_triumph_stream",
+   "kind": "observe",
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "slot": "figure_painter_ye_ling_xi",
+   "text": "模玩测评博主镜头完整记录下了{figure_painter_ye_ling_xi.name}持喷笔通针从容破拆自救并护全绝版手办的传奇全过程，在场各路代表齐声鼓掌喝彩，盛赞这才是真正德艺双馨的硬核大国工匠。"
+  },
+  {
+   "id": "hook_lingxi_mask_mark",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "figure_painter_ye_ling_xi",
+   "text": "{npc.name}摘下防毒面罩，鼻梁和脸颊上勒出两道红印，没好气地看着人：看什么。……帮我揉揉。"
+  },
+  {
+   "id": "hook_lingxi_late_takeout",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "figure_painter_ye_ling_xi",
+   "text": "{npc.name}把一份外卖放在机房门口，敲了两下就走：多点了一份。……别误会。"
+  },
+  {
+   "id": "hook_lingxi_figure_face",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "figure_painter_ye_ling_xi",
+   "text": "{npc.name}把一尊刚画完脸的小手办举到人眼前：像不像？……眉毛照着你画的。"
+  },
+  {
+   "id": "hook_tianheng_fan_fixed",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "hvac_mechanic_chu_tian_heng",
+   "text": "{npc.name}在机房门口站了半天，终于开口：风机……其实前天就修好了。"
+  },
+  {
+   "id": "hook_lingxi_loft_curtain",
+   "kind": "approach",
+   "location_ids": [
+    "loc_studio_loft_bedroom"
+   ],
+   "slot": "figure_painter_ye_ling_xi",
+   "text": "{npc.name}站在阁楼楼梯口，撩着帘子：楼下味道大。……上来坐。"
+  }
+ ],
+ "id": "cool_figure_painter_airbrush_trap",
+ "locations": [
+  {
+   "affordances": [
+    "将合金喷笔淬火不锈钢通针把手扁平硬柄深深插入门轨偏心轴承缝隙",
+    "双手按紧不锈钢防爆密封滑门把手配合杠杆力道同步向外侧推开",
+    "关闭工位侧向气动减压阀切断喷涂气管防止残余易燃气体持续泄漏"
+   ],
+   "detail": "大开间全不锈钢防爆结构负压喷涂净化车间，正对两组大型循环水幕帘除漆雾柜。工位上方密布防爆漫反射LED冷光源，操作台摆放着精工旋转置件台与数支专业气动喷笔。此时排风主电机突发短路停摆，水幕停止流淌，气动密封推拉滑门因内外负压差与门轨偏心轴承咬死紧闭，空气中弥漫着刺鼻的硝基稀释剂挥发蒸汽，视野逐渐变得闷热模糊。",
+   "exits": [
+    "loc_airbrush_booth_exhaust_duct_room",
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "id": "loc_airbrush_booth_spray_chamber",
+   "name": "不锈钢双工位负压喷涂室",
+   "pressure_modifiers": {
+    "p_pneumatic_sliding_door_deadlock": "巨大负压差配合自锁滑轮咬紧门槽，单凭人力直接推拉完全纹丝不动。",
+    "p_solvent_vapor_accumulation_choke": "溶剂蒸汽浓度急剧攀升逼近安全红线，未佩戴面罩人员出现呼吸干咳。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_model_blogger_xiaomin",
+    "bg_airbrush_assistant_xiaoxue"
+   ]
+  },
+  {
+   "affordances": [
+    "手动合上风机电动机过载热保护断路器实施强制低频重启",
+    "扳开风道管路侧向常开泄压蝶阀迅速平衡喷涂室内外气压",
+    "通过机房扬声器对讲向下方室内高声通报风机轴承抱死抢修进度"
+   ],
+   "detail": "位于喷漆房正上方的设备动力检修间，粗大不锈钢镀锌风管纵横交错。巨大的防爆离心风机机壳发出滚烫热浪，配电箱指示灯频闪告警红光。地面覆着薄薄防滑金属板，刺鼻的机油焦糊味扑鼻而来，机电工手持测温仪与扳手正在过载停摆的风机旁紧急盘车抢修。",
+   "exits": [
+    "loc_airbrush_booth_spray_chamber",
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "id": "loc_airbrush_booth_exhaust_duct_room",
+   "name": "顶层活性炭排风动力机房",
+   "pressure_modifiers": {
+    "p_exhaust_fan_overheat_bearing_seize": "风机轴承过热达到一百一十度，若不立刻降温将引发线圈彻底烧毁。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_exhaust_fan_inspector_laotang",
+    "bg_generator_electrician_laowei"
+   ]
+  },
+  {
+   "affordances": [
+    "从走廊外侧防爆工具箱取出加长合金撬杠贴近密封门接应",
+    "启动风淋通道紧急双向强力送风风机稀释可能外溢的微量漆雾",
+    "通过观察窗对讲拾音麦克风向受困人员清晰喊话指导门轨杠杆方位"
+   ],
+   "detail": "紧邻喷涂车间的百级无尘净化缓冲通道，透过双层防爆钢化玻璃观察窗可清晰俯瞰喷涂室全貌。通道整齐排列着数台高精度数显恒温恒湿干燥烘箱与半成品模玩置物架，冷白荧光灯下一尘不染。此时走廊内聚集着焦急的助手与监修人员，正手持备用工具箱和毛巾贴紧玻璃向内指引。",
+   "exits": [
+    "loc_airbrush_booth_spray_chamber",
+    "loc_airbrush_booth_exhaust_duct_room",
+    "loc_studio_loft_bedroom"
+   ],
+   "id": "loc_figure_model_cleanroom_drying_aisle",
+   "name": "烘干走廊",
+   "pressure_modifiers": {
+    "p_masterpiece_gk_model_scratch_peril": "室内限量孤品手办漆膜未固化，碰撞或溶剂熏蒸将导致表面起泡报废。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_drying_oven_operator_xiaotao",
+    "bg_copyright_supervisor_zheng"
+   ]
+  },
+  {
+   "affordances": [
+    "替涂装师摘下勒红脸颊的防毒面罩",
+    "陪涂装师看展柜里的GK",
+    "拉上阁楼的帘子"
+   ],
+   "detail": "园区工作室楼上的阁楼，一张铺着灰色床单的矮床、一排摆满GK成品的玻璃展柜、一张堆着喷笔和色卡的工作台，天窗外能看见园区的路灯。",
+   "exits": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "id": "loc_studio_loft_bedroom",
+   "name": "工作室阁楼的涂装师卧室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "楼梯口的帘子一拉，楼下喷漆房的风机声就远了，只剩展柜里一圈冷白的灯带。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "叶",
+   "白",
+   "楚",
+   "周",
+   "陆",
+   "程",
+   "唐",
+   "郑",
+   "陶",
+   "魏",
+   "何",
+   "薛",
+   "顾",
+   "沈"
+  ],
+  "given_female": [
+   "灵溪",
+   "若微",
+   "浅月",
+   "芷晴",
+   "静娴",
+   "秋韵",
+   "羽珊",
+   "曼霜",
+   "竹音",
+   "思凝",
+   "沛岚",
+   "清漪",
+   "宛筠",
+   "梦瑶"
+  ],
+  "given_male": [
+   "天衡",
+   "巡",
+   "景和",
+   "远舟",
+   "振峰",
+   "枫",
+   "原",
+   "威",
+   "承宇",
+   "子昂",
+   "绍辉",
+   "文博",
+   "宏远",
+   "冠霖"
+  ],
+  "given_neutral": [
+   "青川",
+   "云舒",
+   "怀瑾",
+   "天音",
+   "嘉木",
+   "书禾",
+   "霁林",
+   "明远",
+   "少煊",
+   "星河",
+   "逸凡",
+   "修竹",
+   "望舒",
+   "景明"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留文创园区不锈钢负压喷漆房、排风离心风机轴承过热跳闸、气动密封推拉滑门负压自锁、溶剂蒸汽积聚、涂装师用合金喷笔通针加厚把手撬下导轨偏心槽的骨架与模玩圈味道。用户已放开内容限制，只守红线；外貌描写照留，只改写死的人名、代词、年龄（原稿二十一岁大三在读，改为毕业几年的独立涂装师）。开局写涂装师赶一尊限量GK的展前涂装，暖通总工被叫来修那台老是过热的排风机；新增涂装师在园区里的工作室阁楼与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    22
+   ],
+   "baseline": "精通工业级防爆负压气流控制与气动自锁滑门受力力学，持有国家注册暖通工程师执照。",
+   "gender": "any",
+   "id": "pi_airbrush_booth_exhaust_engineer",
+   "reputation": "熟谙车间排风管道每道阀门阻力特性，对复杂压差导致的气动卡滞有极高处置经验。",
+   "resources": [
+    "一把航空级合金气动滑门偏心轮快速微调扳手",
+    "一台工业级便携式压差红外流场数字检测仪"
+   ],
+   "risks": [
+    "若误判门轨咬死偏心方向可能导致不锈钢滑轮彻底变形卡死",
+    "在密闭缺氧环境中排险存在溶剂蒸汽中毒窒息危险"
+   ],
+   "role": "工业防爆涂装车间暖通通风总工",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}主管"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    22
+   ],
+   "baseline": "涂装师大学创业合伙人，负责手办大型涂装工程统筹与现场技术安全协同，具备丰富展品保护经验。",
+   "gender": "any",
+   "id": "pi_garage_kit_custom_studio_founder",
+   "reputation": "兼具艺术审美与严密车间管理魄力，在模玩手办界享有很高声望。",
+   "resources": [
+    "一部高强度防爆无线双向数字调度对讲机",
+    "一套车间全域高压配电与送排风紧急控制权限磁卡"
+   ],
+   "risks": [
+    "若展品因事故延误将面临海内外客户大额索赔违约风险",
+    "面对突发气体泄漏必须承担全场演职人员安全第一责任"
+   ],
+   "role": "顶级手办模玩定制工作室联合主理人",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}主理人"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}总监"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    22
+   ],
+   "baseline": "亲手为涂装师定制高硬度合金喷笔与不锈钢实心加长通针，熟悉喷笔各构件金属力学极限。",
+   "gender": "any",
+   "id": "pi_precision_airbrush_tool_repairer",
+   "reputation": "对微型五金工具刚度与力矩了如指掌，能在狭小机械死缝中发挥精巧杠杆效应。",
+   "resources": [
+    "一套多规格不锈钢通针及超硬合金平口微型撬刮刀",
+    "一罐高压快干型特种机械轴承松动润滑清洗喷剂"
+   ],
+   "risks": [
+    "操作失手可能导致通针硬柄折损划伤精密白模表面",
+    "在剧烈机械发力中易被毛刺金属边缘擦伤手指"
+   ],
+   "role": "进口精密气动喷笔改装调试名匠",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}技师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}师傅"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    21
+   ],
+   "baseline": "现年满二十一岁，机电工程职业学院大专毕业，正处于车间实训期，具备完全民事行为能力。",
+   "gender": "any",
+   "id": "pi_coating_booth_maintenance_apprentice",
+   "reputation": "年轻勤快，对喷漆房底层排水沟与顶层通风阀门位置一清二楚。",
+   "resources": [
+    "一把大号绝缘柄不锈钢强力钢丝活动扳手",
+    "一具便携式高压过滤应急空气呼吸气瓶"
+   ],
+   "risks": [
+    "经验欠缺在高压绝境下容易手足无措延误时机",
+    "身为底层运维人员一旦设备损坏最易遭受失职问责"
+   ],
+   "role": "喷涂车间机电运维青年见习技师",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}见习工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}小工"
+    }
+   ]
+  }
+ ],
+ "premise": "文创园区的大型负压喷漆房里，独立手办涂装师在赶一尊限量重工GK的展前涂装，连着熬了五个通宵。园区的暖通总工被叫来修那台老是过热的排风机，一修就修了一礼拜。喷涂室的气动滑门是负压密封的，溶剂蒸汽的浓度表时准时不准。",
+ "pressures": [
+  {
+   "choice": "选择以不锈钢通针硬柄挑开偏心轴承销，或强行动用外侧重型破拆工具砸锁。",
+   "exits": [
+    {
+     "cost": "不锈钢通针尾端撬柄产生细微受力划纹，涂装师掌心受反作用力冲击微微酸麻。",
+     "option": "涂装师拔出合金喷笔淬火加厚通针硬柄，两人合抱深入导轨槽口借杠杆向下别压脱扣开门。"
+    },
+    {
+     "cost": "双层防爆钢化玻璃观察窗气孔密封胶圈严重损坏需全套更换。",
+     "option": "外侧安监队员砸破双层防爆观察窗气孔注入两罐应急工业压缩氧气稀释毒素。"
+    }
+   ],
+   "far": {
+    "consequence": "车间内部人员陷入重度化学品中毒昏迷造成不可逆脑缺氧损伤。",
+    "due_days": 1,
+    "trigger": "高浓度有机气体彻底充满车间剥夺所有环境氧气"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_solvent_vapor_accumulation_choke",
+   "immediate": {
+    "minutes": 3,
+    "text": "刺鼻有机溶剂气味弥漫车间，涂装师清丽眼眸被熏得泛起微红，呼吸急促出现轻度缺氧反应。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "稀释剂挥发气体浓度在两分钟内将突破警戒阈值，若未撬开门槽，人员将因急性中枢神经缺氧倒地。"
+   },
+   "objective": "在有害气体浓度突破极限致人昏厥前撬开平移门轨脱出室外。",
+   "source": "accident",
+   "start_minute": 1260,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "密闭喷漆室内溶剂蒸汽挥发窒息",
+   "trigger": "强力排风离心风机短路停转，大工位喷漆室内数百毫升硝基漆稀释剂挥发气体迅速积聚无法排出。"
+  },
+  {
+   "choice": "选择利用淬火通针硬柄下压撬动卡销，或等待顶层机房排风蝶阀完全手动归零。",
+   "exits": [
+    {
+     "cost": "通针硬柄表面耐磨涂层产生细微咬痕擦伤，两人掌心被冷锻钢铁震得生疼。",
+     "option": "二人双手重叠握稳不锈钢通针硬柄，对准导轨自锁滚轮下槽以三十度斜角狠狠下压脱开偏心销。"
+    },
+    {
+     "cost": "不锈钢平移门底部特制防爆接地铜质毛刷排整体扭曲报废。",
+     "option": "由外侧维修工使用高压气动顶镐强行将平移门下沿顶起三公分脱出滑道。"
+    }
+   ],
+   "far": {
+    "consequence": "喷漆室彻底沦为无法人工开启的绝望密室危及全员性命。",
+    "due_days": 1,
+    "trigger": "气动密封系统偏心构件过载发生塑性变形永久卡死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_pneumatic_sliding_door_deadlock",
+   "immediate": {
+    "minutes": 3,
+    "text": "不锈钢滑门门轨发出令人牙酸的金属挤压沉闷震颤，单凭徒手拼命推拉完全纹丝不动分毫不移。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "门槽气动密封膨胀胶条在压差下膨胀抱死偏心轴套，若两分钟内未能下压撬开卡销将彻底焊死卡槽。"
+   },
+   "objective": "借通针把手撬退门轨自锁滚轮偏心销破坏负压吸附平衡。",
+   "source": "accident",
+   "start_minute": 1260,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "气动密封平移门内外负压咬死门轨",
+   "trigger": "排风骤停打破动压平衡，室内外产生五十帕强大负压差将重型不锈钢平移门死死吸附抱死在门框上。"
+  },
+  {
+   "choice": "选择手动扳开管道旁路常闭蝶阀泄压，或冒险强投备用风机引发二次短路。",
+   "exits": [
+    {
+     "cost": "手动旁通阀固定连杆承受超限扭矩产生微小受力弯痕。",
+     "option": "暖通总工登上风道平台合力搬动旁通泄流蝶阀将管道压强迅速导平化解吸附。"
+    },
+    {
+     "cost": "消耗掉机房全部备用特种高压二氧化碳气体灭火瓶组储备。",
+     "option": "拉动二氧化碳高压气体管路对机房电动机舱实施局部全淹没冷灭火。"
+    }
+   ],
+   "far": {
+    "consequence": "整栋大楼数百万元文创器材化为灰烬造成特大安全事故问责。",
+    "due_days": 1,
+    "trigger": "风道大火失控引发文创园区工业防爆车间特大火灾"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_exhaust_fan_overheat_bearing_seize",
+   "immediate": {
+    "minutes": 4,
+    "text": "动力机房配电柜电闸跳脱发出刺耳警报，风机轴承冒出屡屡青烟散发刺鼻橡胶糊味。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airbrush_booth_exhaust_duct_room"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "轴承余热若引燃活性炭过滤箱，整栋厂房中央通风管网将化为火龙倒灌喷漆室。"
+   },
+   "objective": "在电缆引燃顶层活性炭过滤器前切除电源并手动旋转风道蝶阀。",
+   "source": "accident",
+   "start_minute": 1262,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "顶层离心风机过载跳闸电动机起火",
+   "trigger": "排风风机电动机主轴承缺油抱死引发短路跳闸，电缆包布受高温烘烤散发浓烟。"
+  },
+  {
+   "choice": "选择启动磁力座锁定托盘兼顾自救，或舍弃展品保护专注自身破门。",
+   "exits": [
+    {
+     "cost": "两组微型气动强磁底座承受震动冲击产生细微磁力退磁耗损。",
+     "option": "隔窗指引开启防爆磁力吸附台将手办置件盘紧紧锁固在操作台板上。"
+    },
+    {
+     "cost": "手办左侧衣袖局部珠光渐变层产生微量压痕需后续精细打磨补色。",
+     "option": "由涂装师迅速罩上高透耐溶剂防护罩牺牲局部涂装厚度换取结构安全。"
+    }
+   ],
+   "far": {
+    "consequence": "工作室痛失海外漫展核心参赛作品遭受百万元品牌信誉暴跌。",
+    "due_days": 1,
+    "trigger": "全球限量孤品手办展品彻底报废损毁"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_masterpiece_gk_model_scratch_peril",
+   "immediate": {
+    "minutes": 3,
+    "text": "展台上的飞天手办泥模微光闪烁，漆膜边缘在刺鼻气体侵蚀下泛起微不可察的细微褶皱。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若五分钟内未能转入恒温无尘风淋烘干箱，限量展品表面涂层将彻底发白起泡无法返工修复。"
+   },
+   "objective": "在自救脱困同时稳定手办展示转台并安全转运入干燥走廊。",
+   "source": "accident",
+   "start_minute": 1263,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "限量绝版GK原型手办漆膜未固化损毁",
+   "trigger": "手办表面重工珠光高光漆膜正处于表干临界期，室内溶剂高浓度熏蒸与气流紊乱将导致漆面起橘皮甚至开裂。"
+  },
+  {
+   "choice": "选择配合外门拉力在微动平衡点下压，或孤注一掷全力猛压卡销。",
+   "exits": [
+    {
+     "cost": "通针把手前端高精度定心槽发生微量压扁变形无法再作喷嘴校准使用。",
+     "option": "两人双手重叠按住通针根部加厚扁平处顺着滑轮间隙以纯静载杠杆慢慢向下摇动下压。"
+    },
+    {
+     "cost": "涂装师随身专业薄款丁腈防化手套掌心被钢构彻底磨穿撕裂。",
+     "option": "垫上防化手套耐磨胶皮作为支点分担通针受力剪切载荷。"
+    }
+   ],
+   "far": {
+    "consequence": "彻底丧失车间内部物理自救杠杆陷入绝境直面缺氧窒息绝局。",
+    "due_days": 1,
+    "trigger": "唯一可用的不锈钢通针破拆工具发生脆性断裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_airbrush_needle_handle_bending_risk",
+   "immediate": {
+    "minutes": 3,
+    "text": "细长的淬火通针把手发出微弱紧绷蜂鸣，金属杆身在强压下产生五度弹性形变弧度。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airbrush_booth_spray_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "硬质不锈钢合金晶格剪切应力逼近屈服极限，若九十秒内不能解脱卡销，撬柄将齐根折断断裂。"
+   },
+   "objective": "在通针硬柄断裂或变形前顺应门轴回退轨迹完成全行程卸载。",
+   "source": "accident",
+   "start_minute": 1260,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "不锈钢通针把手承受杠杆超限剪切断裂",
+   "trigger": "二人合抱通针柄部下压撬动卡死门轨偏心轴承时，特种不锈钢合金杆体承受巨大反力扭矩面临塑性弯曲。"
+  },
+  {
+   "choice": "选择在门开瞬间迅速启动走廊超高速强力吹淋风道，或在门外提前架设吸风软管。",
+   "exits": [
+    {
+     "cost": "无尘风淋室高效初中效空气过滤纸芯承受高风阻负荷提前报废。",
+     "option": "安全督察在走廊一侧全开风淋强送风超高洁净风幕形成十帕微正压空气隔离屏障。"
+    },
+    {
+     "cost": "软管外表被高浓度硝基溶剂蒸汽腐蚀软化无法二次重复使用。",
+     "option": "使用便携式工业强力吸风排毒风琴软管封堵门缝排气口抽排残气。"
+    }
+   ],
+   "far": {
+    "consequence": "全园区无尘生产资质被环保部门暂停整顿面临数百万元损失。",
+    "due_days": 1,
+    "trigger": "工业级漆雾彻底污染园区中央无尘洁净室系统"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cleanroom_air_curtain_reverse_leak",
+   "immediate": {
+    "minutes": 4,
+    "text": "观察窗缝隙传来微弱呼啸风哨，门缝胶条受气流牵扯微微震颤，漆雾微粒面临反串风险。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_figure_model_cleanroom_drying_aisle"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "走廊百级无尘环境若遭受硝基漆雾污染，不仅全通道烘箱瘫痪，更将危及整栋文创楼卫生指标。"
+   },
+   "objective": "在破门脱身同时确保风淋走廊微正压系统持续运作阻隔废气。",
+   "source": "accident",
+   "start_minute": 1265,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "风淋走廊双向风幕失衡漆雾反串回流",
+   "trigger": "若喷漆室大门在负压未平衡时突然暴力撬开，高浓度漆雾将因瞬时气流卷吸反冲污染百级无尘风淋走廊。"
+  },
+  {
+   "choice": "按官方设定连夜重喷，还是拿着配色稿去跟版权方硬谈",
+   "exits": [
+    {
+     "cost": "手调的那层渐变要全部洗掉，再熬第六个通宵",
+     "option": "连夜按官方设定重喷"
+    },
+    {
+     "cost": "视频里也拍到了喷漆房出事那一夜",
+     "option": "把跟拍博主录的上色过程发给版权方看"
+    }
+   ],
+   "far": {
+    "consequence": "展位空着，五个通宵的尾款和下一单合作一起没了",
+    "due_days": 2,
+    "trigger": "展品名单锁定"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_lingxi_mask_mark",
+    "hook_lingxi_figure_face",
+    "hook_lingxi_loft_curtain"
+   ],
+   "id": "p_license_review_rejected",
+   "immediate": {
+    "minutes": 3,
+    "text": "郑监修的视频电话已经在桌上震了第三遍"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_studio_loft_bedroom"
+   ],
+   "near": {
+    "deadline_minutes": 480,
+    "text": "下午六点，展会锁定展品名单"
+   },
+   "objective": "在展会锁定展品名单之前，让这尊手办拿到授权编号",
+   "source": "person",
+   "start_minute": 600,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "监修意见",
+   "trigger": "展前一天上午，版权方的郑监修发来一页意见：配色和官方设定差了两个色号，不改就不给授权编号，尾款也一起压着"
+  },
+  {
+   "choice": "放出完整的原片，还是去求小敏自己删掉",
+   "exits": [
+    {
+     "cost": "原片里也有两个人在喷漆房里靠在一起喘气的那一段",
+     "option": "放出完整原片"
+    },
+    {
+     "cost": "小敏要独家拍下这尊手办的全部完成过程",
+     "option": "请小敏删掉视频"
+    }
+   ],
+   "far": {
+    "consequence": "工作室的预售全部退款，园区不再续租喷漆房",
+    "due_days": 3,
+    "trigger": "主办方的声明发出来"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_lingxi_late_takeout",
+    "hook_lingxi_figure_face",
+    "hook_tianheng_fan_fixed",
+    "hook_lingxi_loft_curtain"
+   ],
+   "id": "p_vlogger_cut",
+   "immediate": {
+    "minutes": 5,
+    "text": "手机在床头震个不停，评论区开始有人要退订金"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_studio_loft_bedroom"
+   ],
+   "near": {
+    "deadline_minutes": 840,
+    "text": "明早十点，主办方要发声明"
+   },
+   "objective": "在展会主办方发声明之前，把这条视频的说法改过来",
+   "source": "rumor",
+   "start_minute": 1290,
+   "tags": [],
+   "title": "五十万播放",
+   "trigger": "喷漆房出事后的第二天晚上，跟拍博主小敏发了一条剪辑，标题说涂装师为了赶展把人锁在喷漆房里，播放量一夜过了五十万"
+  }
+ ],
+ "region": "国家级数字文创园区大型不锈钢防爆双工位负压喷涂车间与风淋风道区",
+ "rules": [
+  {
+   "id": "rule_booth_exhaust_interlock_safety",
+   "text": "负压喷涂车间通风规程：室内强力排风离心机一旦停转，气动比例供气系统必须自动切断喷笔压缩空气源。"
+  },
+  {
+   "id": "rule_pneumatic_sliding_door_code",
+   "text": "气动密封平移门急救规约：内外压差超出三十帕导致门轨咬死时，禁止蛮力推拉，须撬动偏心导轮破除负压。"
+  },
+  {
+   "id": "rule_solvent_air_concentration_threshold",
+   "text": "有机挥发溶剂浓度红线：车间内硝基稀释剂蒸汽浓度达到千分之五时，全员必须立即佩戴防毒面罩撤离。"
+  },
+  {
+   "id": "rule_airbrush_maintenance_tool_standard",
+   "text": "精密喷笔养护工具配备标准：每个喷涂工位必须配备加长硬质淬火不锈钢多功能通针以供日常排故使用。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "调漆并肩",
+  "committed": "金石同盟",
+  "familiar": "喷涂共处",
+  "flirting": "暗光凝视",
+  "intimate": "风道共渡",
+  "stranger": "工位初逢",
+  "testing": "通针撬轨"
+ },
+ "status": "released",
+ "style_hint": "模玩圈的偏执与车间的冷：喷笔的嘶嘶声、灯箱下的GK白模、不锈钢的负压房。写清冷涂装师连体工装下的身段、口罩勒出的红痕与喘息，动作落在喷笔通针撬门轨上。",
+ "tension_engines": [
+  {
+   "id": "eng_solvent_vapor_accumulation_choke",
+   "text": "密闭负压喷漆室内挥发性溶剂蒸汽急剧积聚引发人员缺氧窒息火险危机"
+  },
+  {
+   "id": "eng_exhaust_fan_overheat_bearing_seize",
+   "text": "顶层离心排风风机轴承过载卡死跳闸与气动自锁滑门内外负压差咬死门轨"
+  },
+  {
+   "id": "eng_airbrush_needle_handle_pry_limit",
+   "text": "淬火高碳不锈钢喷笔加厚通针硬柄下压撬动重型门轨之材料抗弯剪切极限"
+  },
+  {
+   "id": "eng_masterpiece_gk_model_scratch_peril",
+   "text": "限量绝版GK原型手办在紧急破拆与气流颠簸中面临漆膜刮伤破损报废风险"
+  }
+ ],
+ "title": "手办涂装师·专业级大型工业负压喷漆房",
+ "tone": [
+  "风机停转骤窒",
+  "气密滑门抱死",
+  "喷笔通针撬轨",
+  "破除负压脱困"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_solid_steel_airbrush_needle_handle",
+   "requires": [
+    "figure_painter_ye_ling_xi"
+   ],
+   "text": "{figure_painter_ye_ling_xi.name}手中这支喷笔加厚通针系定制工作室采用特种高碳不锈钢特种淬火冷拔制成，尾端扁平硬柄不仅硬度超群承受数千牛顿力矩绝不折断，且纯不锈钢材质在别撬中绝不迸发摩擦火花。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_mechanic_guides_eccentric_notch",
+   "requires": [
+    "pneumatic_mechanic_cheng_yuan_zhou"
+   ],
+   "text": "{pneumatic_mechanic_cheng_yuan_zhou.name}凭借对车间气动平移门五金内部装配图纸的深刻记忆，准确指出了滑轮下槽暗藏的退销偏心间隙卡点，指导通针硬柄以三十度斜角切入直抵轴承核心受力卸载锁位。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_safety_corridor_human_shield_bracing",
+   "requires": [
+    "safety_inspector_zhou_xun",
+    "color_specialist_bai_ruo_wei"
+   ],
+   "text": "{safety_inspector_zhou_xun.name}与{color_specialist_bai_ruo_wei.name}在门外严密筑牢防爆警戒线并手持灭火防护器材卡死门侧接应位，为室内人员合力撬动通针自救赢得了最关键的三分钟平稳施救空间。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_booth_vent_emergency_hold_code",
+   "requires": [
+    "hvac_mechanic_chu_tian_heng"
+   ],
+   "text": "国家文创产业园区关于大型工业喷涂防爆车间突发动力中断气压泄放特别应急规程被暖通总工严格执行，顶层旁路手动蝶阀依法安全释放，彻底粉碎了负压吸力吸死门体的危局。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_damper_relief_window_ninety_seconds",
+   "requires": [
+    "hvac_mechanic_chu_tian_heng",
+    "figure_painter_ye_ling_xi"
+   ],
+   "text": "顶层通风管道旁路手动泄压阀在开启后仅能维持九十秒的气压平衡低阻抗窗口，涂装师冷静把握时机在此黄金时间内合力下压通针硬柄，一举将偏心卡销平稳别脱。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_ye_ling_xi_hand_overlap_needle_prying",
+   "requires": [
+    "figure_painter_ye_ling_xi"
+   ],
+   "text": "在卡销弹脱的一瞬间，二人四手紧扣共同握住冰冷的不锈钢通针扁平硬柄拼尽全力向下按动，{figure_painter_ye_ling_xi.name}娇躯借力微倾依偎在搭档身旁，微婴儿肥俏脸泛起微红，彼此急促心跳交织共振却满是化险为夷的深沉信赖。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_masterpiece_figure_exhibition_triumph",
+   "requires": [
+    "figure_painter_ye_ling_xi",
+    "model_sculptor_lu_jing_he"
+   ],
+   "text": "随着当啷一声清脆的金属脱扣回弹声，滑门偏心滚轮彻底脱扣移开，涂装师与搭档合力护送限量手办安全进舱，四十度恒温风淋启动，完美漆面定型收光，成就全球模玩手办界永载史册的传世封神之作。"
+  }
+ ]
+}

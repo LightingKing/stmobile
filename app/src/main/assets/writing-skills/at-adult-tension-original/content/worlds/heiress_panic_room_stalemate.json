@@ -1,0 +1,2039 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "二十五周岁成年军官，具备完全独立值守警备民事行为能力。",
+   "age_range": [
+    24,
+    28
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_erik_officer",
+   "line": "报告队长！外围监控光纤被剪断，敌军正向主卧强攻！",
+   "location_ids": [
+    "loc_bedroom_walkin_closet"
+   ],
+   "name": "老邝",
+   "role": "外围安保组长老邝"
+  },
+  {
+   "adult_context": "二十二周岁成年文职职员，具备完全法律文书校印权能。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_clara_scribe",
+   "line": "大小姐，备用发电机正在尝试强启，密道气密正常！",
+   "location_ids": [
+    "loc_secret_escape_tunnel"
+   ],
+   "name": "小蔺",
+   "role": "监控室值班员小蔺"
+  },
+  {
+   "adult_context": "四十二周岁成年武装人员，依雇佣协议执行强攻任务。",
+   "age_range": [
+    40,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_august_vanguard",
+   "line": "门锁马上烧穿！准备爆震弹压制！",
+   "location_ids": [
+    "loc_bedroom_walkin_closet"
+   ],
+   "name": "铁锤",
+   "role": "雇佣兵破门手铁锤"
+  },
+  {
+   "adult_context": "二十八周岁成年医师，享有完全独立处方与伤患急救民事权柄。",
+   "age_range": [
+    27,
+    30
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_grete_medic",
+   "line": "氧气包和抗休克注射剂已就绪，随时接应小姐！",
+   "location_ids": [
+    "loc_secret_escape_tunnel"
+   ],
+   "name": "邵蕙",
+   "role": "随行私人医生邵蕙"
+  },
+  {
+   "adult_context": "四十八周岁成年专业管道技师，负责给排水消防维护法定责任。",
+   "age_range": [
+    45,
+    50
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_bastian_plumber",
+   "line": "水炮管道压力已经加满，随时可以喷水灭火阻敌！",
+   "location_ids": [
+    "loc_hallway_upper_balcony"
+   ],
+   "name": "老岑",
+   "role": "豪宅水暖技工老岑"
+  },
+  {
+   "adult_context": "二十四周岁成年独立法务秘书，依法对商业信托文件享有保密权。",
+   "age_range": [
+    23,
+    26
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_elena_archivist",
+   "line": "信托核心印章完好无损，暴徒休想夺走半张股权凭证。",
+   "location_ids": [
+    "loc_secret_escape_tunnel"
+   ],
+   "name": "裴蔓",
+   "role": "集团法务秘书裴蔓"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "名门千金与金牌女保镖生死相托誓约羁绊",
+   "id": "combo_snow_and_tianjiao",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_heiress_snow",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "这些日子在宅子里打过多次交道，千金肯把后背交出来",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_guard_tianjiao",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "同在安全屋门边护着千金的两个人，一个眼神就能分好工",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_heiress_snow",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_guard_tianjiao",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "主从默契配合以战术大氅构筑绝对视觉盲区",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "char_heiress_snow",
+    "char_guard_tianjiao"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "赶在暴徒踹门搜查前解除衣物卡滞并借大氅掩护撤往避难暗阁。",
+    "limit_gap": "千金身受安全门钢栓物理死锁而保镖必须在门外以盾牌斗篷优先遮挡视线。",
+    "meeting_reason": "安全屋钢栓抱死睡裙与匪徒气割破门绝命危机协同破拆处置。",
+    "resource_gap": "千金掌握家族信托与决策权能而保镖统领拥有顶尖特战反劫持武技。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_panic_room_latch_jam",
+    "engine_silk_nightgown_peril"
+   ]
+  },
+  {
+   "chemistry": "孤高千金与亡命雇佣兵首领生死较量",
+   "id": "combo_snow_and_raymond",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_heiress_snow",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "今夜被困在同一座宅子里、站在千金这一边的人",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_mercenary_raymond",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "企图勒索十亿天价赎金之凶残通缉要犯",
+     "stage": "stranger"
+    },
+    {
+     "a": "char_heiress_snow",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_mercenary_raymond",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "门板两侧智力与暴力之极度悬殊死线较量",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "char_heiress_snow",
+    "char_mercenary_raymond"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "赶在门锁被彻底烧穿前恢复行动自由并以自锁密道反锁敌军。",
+    "limit_gap": "暴徒受警报倒计时逼迫而千金面临睡裙撕裂走光受辱之威胁。",
+    "meeting_reason": "匪帮持气割枪强行破门企图生擒绑架豪门独生女。",
+    "resource_gap": "雇佣兵手握重火力和气割设备而千金深陷三平米密室只能依托智慧自救。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_mercenary_torch_breach"
+   ]
+  },
+  {
+   "chemistry": "名门千金与成年资深老仆电路自检技术配合",
+   "id": "combo_snow_and_qin",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_heiress_snow",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "常在主楼走动，千金认得这张脸",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_butler_qin",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "熟悉宅邸每一处机关锁具之得力老管家",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_heiress_snow",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_butler_qin",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对讲机两端心照不宣之机关破拆指引",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_heiress_snow",
+    "char_butler_qin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "按管家报出的自检时刻，让锉刃一次挑通触点，不给气割第二次机会。",
+    "limit_gap": "老管家无法正面肉搏而千金受困于密室狭小空间。",
+    "meeting_reason": "安全屋离合器短路复位操作与密道接应路线调度。",
+    "resource_gap": "管家掌握备用电路分布而千金拥有亲手插接短路之冷静身手。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_titanium_file_short_circuit"
+   ]
+  },
+  {
+   "chemistry": "金牌女保镖与雇佣兵头目门廊硬碰硬激战",
+   "id": "combo_tianjiao_and_raymond",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_guard_tianjiao",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "在走廊并肩守过几夜的保镖队长",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_mercenary_raymond",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "凶残贪婪持枪逞凶之职业雇佣兵头目",
+     "stage": "stranger"
+    },
+    {
+     "a": "char_guard_tianjiao",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_mercenary_raymond",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "盾牌与气割枪面对面火花四溅之殊死拼杀",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "char_guard_tianjiao",
+    "char_mercenary_raymond"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "顶住气割二十秒，直到千金在密道里接通集团安保总部。",
+    "limit_gap": "女保镖誓死拖延时间而暴徒急于速战速决在特警赶到前撤离。",
+    "meeting_reason": "安全屋外门廊阵地争夺与气割破坏进程之决死较量。",
+    "resource_gap": "女保镖占据狭窄衣帽间防御地形而暴徒拥有人数与重火力优势。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_mercenary_torch_breach"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "channel_intercom_static",
+   "reach": "安全屋内部与走廊保镖",
+   "text": "安全屋双向防爆对讲机杂音信道"
+  },
+  {
+   "fidelity": "exact",
+   "id": "channel_whisper_tac",
+   "reach": "千金与保镖队长",
+   "text": "密道暗语手势战术指令"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "channel_comm_mercenary",
+   "reach": "匪首突击队全体成员",
+   "text": "入侵雇佣兵短波对讲机监听"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一周岁名门千金，具备完全民事权利与信托继承决断权。",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "乌黑长卷发如瀑垂落肩头，白瓷鹅蛋脸微现柔和的轮廓与冷傲凤眸绝美反差；身穿香槟金高定真丝吊带睡裙配晨袍，身姿窈窕玉体凝霜。",
+    "单足后撤于防弹门边微屈下潜，真丝睡裙后摆卡在锁孔槽缝内，薄丝受力紧绷露出大片雪白香肩与修长美腿线条。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目使用蛮力扯坏高定真丝睡裙造成失仪走光",
+     "向武装绑匪屈膝妥协哭泣求饶沦为人质"
+    ],
+    "contrast": "平日颐指气使傲娇难伺候，生死关头展现惊人沉着胆量与果敢智慧。",
+    "core_value": "捍卫豪门名媛尊严与自身冰清玉洁体面",
+    "goal_options": [
+     "倒持修甲锉触碰微动开关实施离合器复位自救",
+     "脱身后退进密道，以本人声纹调动集团安保与人脉，把绑匪困死在半山"
+    ],
+    "never": [
+     "向勒索暴徒低头签下出让家族股权协议"
+    ],
+    "prefers": [
+     "依据精密力学原理实施微观工具破拆物理脱险",
+     "要求保镖展开宽幅斗篷形成绝对视线盲区"
+    ],
+    "pressure_responses": {
+     "breaking": "若睡裙撕裂受困，宁可舍弃外袍亦要握紧报警警报器坚决抗争。",
+     "high": "强忍密室闷热缺氧侵袭，手腕借力门轴施加角向力矩挑退卡舌。",
+     "low": "单手抚平睡裙领口维持沉静呼吸，仔细探寻钢栓锁死缝隙。",
+     "mid": "冷冽凤眸寒光微凝，反握钛合金锉刀精准切入离合器触点深处。"
+    },
+    "relationship_stance": "对保镖队长托付安危，对老管家信赖忠诚，对匪首冷眼蔑视。",
+    "withdrawal": "脱扣后单手拢紧晨袍前襟，在保镖大氅掩护下镇定迈向密道。"
+   },
+   "gender": "female",
+   "gender_reason": "名门傲娇高岭之花千金大小姐人设",
+   "id": "char_heiress_snow",
+   "identity": {
+    "authority": "家族离岸信托全权处置权与最高安保密令",
+    "exposure": "睡裙若撕裂将导致贴身内衬走光，落入镜头将成为勒索死穴。",
+    "hidden": "随身修甲锉金属柄部实为高导电性钛合金制成，可连通离合器微动触片。",
+    "limits": [
+     "睡裙后幅暗扣被两百公斤实心钢栓咬合死锁无法脱离"
+    ],
+    "obligations": [
+     "在匪徒烧穿门板前实现自救脱险并保全家族声誉"
+    ],
+    "resources": [
+     "高硬度冷锻淬火纯钛专业修甲锉配金属钝刃",
+     "高定暗纹香槟真丝细吊带防走光睡裙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危急关头不慌不乱、肯听自己指挥的人",
+     "不看身家、只看自己这个人的眼神"
+    ],
+    "boundaries": [
+     "人前是主家千金，私下的心软只给认定的人",
+     "每一步都要本小姐点头"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "镜墙前由人替自己拆下珍珠暗扣的近身位",
+    "dislikes": [
+     "拿钱衡量一切的嘴脸",
+     "趁人之危的手"
+    ],
+    "expression": "嘴上发号施令，指尖却悄悄攥紧了对方的衣角",
+    "likes": [
+     "冰镇的香槟",
+     "被人仔细揉开的肩颈"
+    ],
+    "preconditions": [
+     "绑匪落网、宅子恢复安静、自己体面脱身之后",
+     "双方都清醒，是真心想要，不是惊魂未定的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "跨国财团独生女",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_panic_room_core",
+     "to": 320
+    },
+    {
+     "from": 321,
+     "location_id": "loc_secret_escape_tunnel",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "指尖触碰冰冷门板受到反冲震荡留下轻微酸痛",
+      "option": "倒持纯钛修甲锉以平直金属硬刃插进离合器缝隙短路触点别开变形卡栓"
+     },
+     {
+      "cost": "消耗一次核心近卫贴身防护调派权能",
+      "option": "示意近卫展开加厚纯黑耐火大披风遮挡身姿避入密道"
+     }
+    ],
+    "pressure": "缺氧窒息倒数二十秒，门外雇佣兵手持气割喷枪十五秒烧穿门锁",
+    "trigger": "外电切断触发安全屋物理死锁，气动钢栓形变夹住真丝睡裙"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "气阀冻结供氧仅剩二十秒，气割火花已经烧穿门缝，绝不能慌乱失态。",
+    "surface": "区区拿钱卖命的亡命之徒，也妄想让本小姐向尔等低头求饶？做梦！"
+   }
+  },
+  {
+   "adult_context": "年满二十四岁的特战退役保镖，持证上岗，去留进退由本人担当。",
+   "age_range": [
+    23,
+    26
+   ],
+   "appearance_options": [
+    "齐耳利落短发神采奕奕，身穿紧身战术作训服配防弹背心，长腿踩高帮战术靴，英武冷艳。",
+    "双手稳握防暴盾牌侧立门廊，神色戒备呼吸平稳，全神贯注警戒门外走廊喷枪切割动静。"
+   ],
+   "decision": {
+    "avoids": [
+     "在小姐挑触点的一瞬撞到门板",
+     "被匪首挑衅激得开枪，惊动整条走廊"
+    ],
+    "contrast": "平日冷着一张脸不苟言笑，替小姐披衣时动作却轻得出奇。",
+    "core_value": "保镖的命是拿来挡在小姐前面的，小姐的体面比命还要紧。",
+    "goal_options": [
+     "顶着防暴盾封死门缝，挡住所有往里窥探的镜头与枪口",
+     "用加密耳麦把集团快反小队的到达时间一分一分报给小姐"
+    ],
+    "never": [
+     "绝不让任何镜头拍到小姐衣衫不整的一瞬"
+    ],
+    "prefers": [
+     "以身形和盾牌构筑视线盲区",
+     "用战术手势报出门外动静"
+    ],
+    "pressure_responses": {
+     "breaking": "若门被踹开，便举盾迎上去，用整个身子封死门洞。",
+     "high": "用肩膀死死顶住烧红的门板，任火花溅在防弹背心上。",
+     "low": "贴着门板听气割枪的嘶声，悄无声息地挪到小姐与门之间。",
+     "mid": "把防暴盾斜顶在门缝前，压低嗓音报出门外的人数与站位。"
+    },
+    "relationship_stance": "视小姐为必须守护到底的雇主与知己，对绑匪寸步不让。",
+    "withdrawal": "危机排除后把备用晨袍披上小姐肩头，退半步护送进密道。"
+   },
+   "gender": "female",
+   "gender_reason": "英姿飒爽特战贴身女保镖统领人设",
+   "id": "char_guard_tianjiao",
+   "identity": {
+    "authority": "豪宅危机应对特别行动现场指挥权",
+    "exposure": "若防御被突破将导致小姐直接暴露于匪徒眼前。",
+    "hidden": "暗藏密道定向爆破阻断敌军追踪手雷。",
+    "limits": [
+     "必须守在安全屋门外誓死阻击"
+    ],
+    "obligations": [
+     "以自身防线捍卫千金生命清白"
+    ],
+    "resources": [
+     "随身备用加厚防弹纯黑大氅披风",
+     "微型液压应急破门撬具"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "小姐在枪口前也不肯低头的傲气",
+     "小姐记得每个保镖生日的细心"
+    ],
+    "boundaries": [
+     "当值时只做保镖，不谈私情",
+     "越过一步之前先问，对方迟疑就停"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "卸下防弹背心后守在床边的贴身护卫位",
+    "dislikes": [
+     "拿钱压人的富家子",
+     "临阵退缩的同行"
+    ],
+    "expression": "摘下耳麦，嘴上仍规规矩矩地叫着小姐",
+    "likes": [
+     "保养得锃亮的配枪",
+     "收工后的一杯烈酒"
+    ],
+    "preconditions": [
+     "绑匪落网、小姐平安之后",
+     "双方都清醒，是自己愿意，不是雇主与保镖的本分"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "贴身女安保队长",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_panic_room_core",
+     "to": 320
+    },
+    {
+     "from": 321,
+     "location_id": "loc_bedroom_walkin_closet",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "斗篷正面被飞溅之高温火星灼穿微小焦痕",
+      "option": "挥臂扬起加厚纯黑斗篷严密遮蔽密室门洞身段侧影"
+     },
+     {
+      "cost": "手臂承受盾牌剧烈震击泛起阵阵酸麻",
+      "option": "横盾跨步抵住破损门洞严阻匪徒突入"
+     }
+    ],
+    "pressure": "破门倒计时仅剩十秒，必须用战术披风封死窥视盲区",
+    "trigger": "气割喷枪火星四溅，安全屋内小姐衣摆受夹"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "门板火花已经烧穿透光，必须在十秒内掩护小姐撤出安全屋！",
+    "surface": "小姐请退到安全死角！只要{npc.name}还有一口气，绝不放一个歹徒踏入半步！"
+   }
+  },
+  {
+   "adult_context": "四十二周岁成年突击指挥官，依黑道受雇协议实施武装行动。",
+   "age_range": [
+    38,
+    45
+   ],
+   "appearance_options": [
+    "板寸平头面带刀疤，身穿重型防弹战术背心手持喷火气割枪，眼神阴鸷狂妄残忍。",
+    "沉重战术靴踏响衣帽间木地板，狞笑注视熔化门锁，迫不及待踢门生擒目标。"
+   ],
+   "decision": {
+    "avoids": [
+     "警笛响起后还恋战",
+     "为一单买卖赔上手下的命"
+    ],
+    "contrast": "说话粗野狠辣，谈起价钱来却精明得像个生意人。",
+    "core_value": "一单买卖而已：人带走，钱到账，谁挡路谁倒霉。",
+    "goal_options": [
+     "气割烧穿门板，抢在警笛到来前把千金带走",
+     "拍下千金穿着睡裙被俘的照片，逼主家掏出天价赎金"
+    ],
+    "never": [
+     "绝不做没有雇主付钱的事"
+    ],
+    "prefers": [
+     "速战速决",
+     "先拿捏住对方的软肋"
+    ],
+    "pressure_responses": {
+     "breaking": "若听见雇主被罢免的消息，便骂一声晦气，带着手下夺路而逃。",
+     "high": "一脚踹向发软的门板，喝令爆破手加大火力。",
+     "low": "叼着烟靠在衣帽间门边，不紧不慢地盯着气割枪烧出的红线。",
+     "mid": "对着对讲机狞笑喊话，劝里面的人乖乖开门。"
+    },
+    "relationship_stance": "把千金当成一张会走路的支票，对保镖队长倒有几分同行间的忌惮。",
+    "withdrawal": "撤退时回头看了一眼那扇门，像是记住了这笔赔本买卖。"
+   },
+   "gender": "male",
+   "gender_reason": "凶悍狡诈雇佣兵突击队长反派人设",
+   "id": "char_mercenary_raymond",
+   "identity": {
+    "authority": "武装入侵小队绝对行动指挥权",
+    "exposure": "若目标逃脱将面临买家残酷追杀肃清。",
+    "hidden": "随身备有神经麻醉剂注射枪。",
+    "limits": [
+     "时间紧迫必须赶在防暴警力赶到前撤离"
+    ],
+    "obligations": [
+     "生擒豪门千金带回避难据点索要十亿"
+    ],
+    "resources": [
+     "便携式高压气割焊枪作业工具包",
+     "突击破障震爆弹配战术背心挂扣"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "猎物在绝境里还敢冲自己冷笑的胆子",
+     "富家千金那份惹人想撕开的傲慢"
+    ],
+    "boundaries": [
+     "生意归生意",
+     "对方说不就收手"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "隔着一扇门讨价还价的对峙位",
+    "dislikes": [
+     "被人压价",
+     "拖泥带水的雇主"
+    ],
+    "expression": "隔着门缝低笑，嗓音沙哑得像砂纸",
+    "likes": [
+     "现金",
+     "好酒"
+    ],
+    "preconditions": [
+     "双方清醒、出于自愿",
+     "不拿人质身份作要挟"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "绑架雇佣兵首领",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_bedroom_walkin_closet",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "直面保镖队长防爆盾牌迎面撞击格挡",
+      "option": "猛力踹向摇摇欲坠防弹门板企图强行破入"
+     },
+     {
+      "cost": "延缓自身突入速度放任目标踏入暗道",
+      "option": "示意手下投掷催泪瓦斯封锁逃生通道"
+     }
+    ],
+    "pressure": "警报警笛声隐隐由远及近，唯余十秒动手时机",
+    "trigger": "气割枪即将熔断最后固定螺栓，准备踢门抓人"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "只要拍下千金穿着单薄睡裙被俘的照片，主家老董事长倾家荡产也得给钱！",
+    "surface": "千金，别在铁盒子里憋死了！乖乖开门跟老子走，保你毫发无损！"
+   }
+  },
+  {
+   "adult_context": "五十五周岁成年资深管家，依法享有豪宅设施管理代理权。",
+   "age_range": [
+    52,
+    58
+   ],
+   "appearance_options": [
+    "银发齐整梳拢脑后戴金丝眼镜，一身笔挺墨黑燕尾服配雪白领结，风度翩翩沉着冷静。",
+    "指节扣紧应急备用中控钥匙串，目光坚定守候在暗道出口，随时准备接应大小姐。"
+   ],
+   "decision": {
+    "avoids": [
+     "在小姐挑触点时报错一秒",
+     "让叛徒察觉卫星报警已经发出"
+    ],
+    "contrast": "平日慢条斯理、礼数周全，真到要命关头比谁都快。",
+    "core_value": "老主人把小姐托付给老朽，这座宅子的每一扇门，都得替小姐开、替歹徒关。",
+    "goal_options": [
+     "报出安全屋断电自检的时刻与离合器触点的位置",
+     "按下卫星静默报警，替小姐接通集团安保总部"
+    ],
+    "never": [
+     "绝不把主家的密道泄露给外人"
+    ],
+    "prefers": [
+     "按宅邸图纸一步一步来",
+     "先保住小姐，再算总账"
+    ],
+    "pressure_responses": {
+     "breaking": "若内保叛徒堵住监控室，便拿出老主人留下的钥匙，从暗门绕进密道接应小姐。",
+     "high": "冒着焦烟冲进监控室，双手扳下密道排风的备用闸刀。",
+     "low": "扶了扶金丝眼镜翻开宅邸图纸，用指尖点出安全屋门锁的触点。",
+     "mid": "对着对讲机一字一句报出自检倒计时，嗓音稳得像在报菜单。"
+    },
+    "relationship_stance": "对小姐敬若亲孙，对私通绑匪的内保恨之入骨。",
+    "withdrawal": "接到小姐后退后半步躬身，递上一杯温热的蜂蜜水。"
+   },
+   "gender": "male",
+   "gender_reason": "忠谨从容老派豪宅总管家人设",
+   "id": "char_butler_qin",
+   "identity": {
+    "authority": "豪宅全盘后勤与隐蔽设施调度权",
+    "exposure": "若暗道遭封锁将导致全员受困地下。",
+    "hidden": "掌握豪宅外部安保卫星直连求救电台。",
+    "limits": [
+     "年事已高无法进行激烈贴身搏击"
+    ],
+    "obligations": [
+     "引导小姐安全撤入地下隐蔽防空堡垒"
+    ],
+    "resources": [
+     "中控配电房防暴总电闸特许钥匙串",
+     "密道通风阀门应急机械转盘图纸"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "小姐临危不乱，颇有老主人当年的风骨",
+     "小姐私下里一声声老管家叫着的那份亲近"
+    ],
+    "boundaries": [
+     "守着管家的本分",
+     "任何靠近都先开口问过"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "书房灯下为人斟茶的老管家位",
+    "dislikes": [
+     "不守规矩的新佣人",
+     "背主求荣的叛徒"
+    ],
+    "expression": "扶正金丝眼镜，轻咳一声才把话说出口",
+    "likes": [
+     "擦得锃亮的银器",
+     "老主人留下的那套茶具"
+    ],
+    "preconditions": [
+     "宅子恢复安宁之后",
+     "两边都清醒，心意是自己的，不是谢恩"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "豪宅总管家",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_secret_escape_tunnel",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌被沉重齿轮铜把手磨出微红老茧擦痕",
+      "option": "手动旋动密道黄铜翻板阀锁死追击路线"
+     },
+     {
+      "cost": "彻底暴露豪宅隐秘卫星通信专属频段",
+      "option": "按下卫星静默求救发射装置引报警力支援"
+     }
+    ],
+    "pressure": "必须在十五秒内引导小姐撤入密道封死气密门",
+    "trigger": "主供电网全断，备用电路倒计时面临耗尽"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "必须在歹徒破门前开启单向翻板门，老主人将小姐托付于我，万不可失！",
+    "surface": "小姐莫慌！密道排风系统已接通备用蓄电池，老奴已在出口等候！"
+   }
+  },
+  {
+   "adult_context": "三十三周岁成年雇佣突击队员，依武装雇佣合约行动。",
+   "age_range": [
+    30,
+    36
+   ],
+   "appearance_options": [
+    "身材魁梧虎背熊腰，身挂两组高压气割气瓶与破拆铁钎，满脸横肉杀气腾腾。",
+    "手持重型撬棍狠砸门框合页，大汗淋漓气喘如牛，急于攻破安全屋防线。"
+   ],
+   "decision": {
+    "avoids": [
+     "让匪首发现自己私藏首饰",
+     "气瓶压力降到红区还硬烧"
+    ],
+    "contrast": "看着五大三粗，拆门锁的手法却细得出奇。",
+    "core_value": "炸开、撬开、烧开，门后面的东西就是老子的。",
+    "goal_options": [
+     "加大气割火力，抢在气瓶耗尽前烧断最后一根固定螺栓",
+     "趁乱摸进衣帽间，把千金的首饰盒揣进自己怀里"
+    ],
+    "never": [
+     "绝不放过到手的财物"
+    ],
+    "prefers": [
+     "暴力破拆",
+     "趁乱捞一把"
+    ],
+    "pressure_responses": {
+     "breaking": "若雇主倒台的消息传来，便扔下气割枪，抱着首饰盒第一个开溜。",
+     "high": "点燃铝热棒直接灼烧门铰链，浓烟呛得满走廊都在咳。",
+     "low": "蹲在门边调着气割枪的火焰，嘴里嚼着口香糖。",
+     "mid": "把撬棍插进烧软的门缝，喘着粗气猛力侧撬。"
+    },
+    "relationship_stance": "只听匪首的，心里只惦记千金的珠宝。",
+    "withdrawal": "被集团安保按倒在半山公路边，怀里还死死搂着首饰盒。"
+   },
+   "gender": "male",
+   "gender_reason": "暴躁凶狠破拆爆破手人设",
+   "id": "char_mercenary_walker",
+   "identity": {
+    "authority": "重型破拆工具组现场操作权",
+    "exposure": "操作不当可能引燃衣帽间高级服装引发火灾。",
+    "hidden": "怀揣私藏的千金首饰盒行窃企图。",
+    "limits": [
+     "盲目依赖蛮力缺乏战术机敏"
+    ],
+    "obligations": [
+     "按队长指令强行冲开安全门阻滞"
+    ],
+    "resources": [
+     "加硬合金重型破拆撬杠",
+     "强效铝热破障燃烧棒"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "闪闪发亮的珠宝",
+     "千金那身昂贵的真丝"
+    ],
+    "boundaries": [
+     "干活时不分心",
+     "对方说不就收手"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "工具箱旁蹲着吹嘘战绩的位置",
+    "dislikes": [
+     "被人指使干苦活",
+     "空手而归"
+    ],
+    "expression": "抹一把满脸的汗，咧嘴露出一口黄牙",
+    "likes": [
+     "火焰与铁水",
+     "一夜暴富的念头"
+    ],
+    "preconditions": [
+     "绑匪散伙、各自脱身之后",
+     "两边清醒，你情我愿，不趁乱动手"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "雇佣兵爆破手",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_bedroom_walkin_closet",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "撬棍受反冲回弹脱手砸青手臂肌肉",
+      "option": "将合金撬棍插进熔软门缝猛力侧撬"
+     },
+     {
+      "cost": "高温浓烟迅速充满衣帽间呛咳不止",
+      "option": "点燃铝热燃烧棒直接灼烧门铰链"
+     }
+    ],
+    "pressure": "气瓶压力指示降入红区，唯余最后一次喷火机会",
+    "trigger": "气割作业进入白热化，高温熔融金属四溅"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "抓到大小姐，首饰盒里的钻石全归老子私吞！",
+    "surface": "队长！门锁快融了！再给我加五秒，铁栓直接熔化！"
+   }
+  },
+  {
+   "adult_context": "二十一周岁成年家政助理，依法享有完全独立起居辅助民事权。",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "低马尾鹅蛋脸清秀微带泪痕，身穿整洁白围裙黑洋装侍女服，怀抱加厚羊绒开衫和毛毯。",
+    "战战兢兢守候在密道转角，双手颤抖紧护备用晨袍，眼眶泛红忧心小姐安危。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱中踩到小姐的裙摆",
+     "在小姐挑触点时出声打扰"
+    ],
+    "contrast": "平日胆小爱哭，护着小姐时却一步也不肯退。",
+    "core_value": "照顾小姐的起居是本分，小姐平安走出这扇门，才算尽了本分。",
+    "goal_options": [
+     "脱身瞬间迎上去，用羊绒披肩裹住小姐的肩身",
+     "抱着备用急救包在密道里引路接应"
+    ],
+    "never": [
+     "绝不让小姐的贴身之物落进绑匪手里"
+    ],
+    "prefers": [
+     "先遮住小姐的身子再说别的",
+     "备齐小姐的衣物和药"
+    ],
+    "pressure_responses": {
+     "breaking": "若睡裙撕裂，便把披肩整个裹在小姐身上，自己冻得发抖也不退。",
+     "high": "顶着焦烟扑到小姐身边，把浸湿的丝巾覆在小姐口鼻前。",
+     "low": "抱着备用晨袍守在密道转角，一遍遍小声报着门外的动静。",
+     "mid": "抖开羊绒披肩，双手举着挡在小姐与门缝之间。"
+    },
+    "relationship_stance": "对小姐忠心到骨子里，对绑匪又怕又恨。",
+    "withdrawal": "进了密道后跪坐在小姐脚边，替小姐揉着冻僵的脚踝。"
+   },
+   "gender": "female",
+   "gender_reason": "胆小但忠心护主生活小侍女人设",
+   "id": "char_maid_xiaoyu",
+   "identity": {
+    "authority": "千金私密衣物起居保管随扈权",
+    "exposure": "若受惊喊叫可能暴露密道具体方位。",
+    "hidden": "暗中备有千金随身哮喘应急吸入剂。",
+    "limits": [
+     "柔弱胆小缺乏自我防卫武力"
+    ],
+    "obligations": [
+     "在小姐脱身瞬间迅速裹好披肩遮挡睡裙"
+    ],
+    "resources": [
+     "加厚防透光纯白羊绒保暖大披肩",
+     "应急补水喷雾与跌打消肿软膏"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "小姐卸了妆后那张不设防的脸",
+     "小姐半夜饿了会偷偷来厨房找自己的那份依赖"
+    ],
+    "boundaries": [
+     "当班时只做佣人该做的事",
+     "小姐一皱眉就停"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "梳妆台前替人吹干长发的近侧位",
+    "dislikes": [
+     "对佣人呼来喝去的客人",
+     "乱翻小姐衣柜的人"
+    ],
+    "expression": "红着眼眶笑，手却一直替人掖着毯子角",
+    "likes": [
+     "熨得平整的围裙",
+     "深夜替小姐吹干头发的时光"
+    ],
+    "preconditions": [
+     "宅子恢复安宁、小姐睡得安稳之后",
+     "彼此都清醒，是自己愿意，不是主仆之命"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "千金生活侍女",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_secret_escape_tunnel",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "慌乱中踩到长裙裙摆险些跌倒",
+      "option": "迎上前双手展平羊绒披肩迅速裹住小姐肩身"
+     },
+     {
+      "cost": "双腿发软心跳如擂鼓般剧烈",
+      "option": "紧握备用急救包引导小姐快步深入密道深处"
+     }
+    ],
+    "pressure": "必须在小姐步出安全屋刹那递上大披肩",
+    "trigger": "小姐睡裙卡在门栓，脱身瞬间急需衣物遮蔽"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "求求老天保佑小姐千万别被那些坏蛋抓到！",
+    "surface": "小姐快披上！外边风大，千万别着凉了！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "初夏的一个周六",
+  "minute": 300
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "coercion_theme",
+  "humiliation",
+  "substance",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": true,
+ "customs": [
+  "豪门千金归邸就寝之时全宅安保必须撤至警戒线外之私密规矩。",
+  "安全屋触发应急死锁必须由主家信托印信方可重启之法权程序。",
+  "保镖队长在突发险情时必须以防弹大氅遮蔽千金仪容之职业准则。",
+  "主家千金遇险时，集团安保总部只认千金本人的声纹口令，旁人代传一律无效。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "以丝绒软布擦拭纯钛修甲锉高硬度金属刃口与导电触点",
+    "检查香槟金真丝刺绣睡裙侧边精钢搭扣与系绳紧实程度",
+    "侍女清点备用防寒长毛毯与应急药箱防潮封条"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_nightgown_file_prep",
+   "location_ids": [
+    "loc_secret_escape_tunnel"
+   ],
+   "start_minute": 60,
+   "tags": [],
+   "title": "千金睡裙暗扣与纯钛修甲锉例行安检整备"
+  },
+  {
+   "beats": [
+    "保镖队长在外围敬礼退至衣帽间走廊立岗戒备",
+    "千金轻解晨袍端坐于软椅前更换轻薄真丝睡裙",
+    "管家轻声通报全宅红外安保网络闭合运转正常"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_closet_retire_ritual",
+   "location_ids": [
+    "loc_panic_room_core"
+   ],
+   "start_minute": 120,
+   "tags": [],
+   "title": "衣帽间换装就寝私密巡检例行仪轨"
+  },
+  {
+   "beats": [
+    "游标卡尺测量双向实心淬火钢栓两毫米伸缩滑槽间隙",
+    "向安全门电磁离合器传动齿轮加注耐高温合成润滑脂",
+    "测试离合器微动开关断电自检手动复位灵敏度"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_panic_door_latch_tuning",
+   "location_ids": [
+    "loc_panic_room_core"
+   ],
+   "start_minute": 240,
+   "tags": [],
+   "title": "安全舱门传动滑块伸缩阻尼例行校核"
+  },
+  {
+   "beats": [
+    "万用表检测露台备用蓄电池组输出电压稳定性",
+    "转动水炮手动截止阀排除管网气阻确保供水充盈",
+    "检查外墙防雷避雷针接地引线抗电涌导通指标"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_balcony_circuit_patrol",
+   "location_ids": [
+    "loc_hallway_upper_balcony"
+   ],
+   "start_minute": 360,
+   "tags": [],
+   "title": "二层挑空露台备用电路与消防喷淋巡检"
+  },
+  {
+   "beats": [
+    "保镖队长双手甩展宽幅双层防弹黑斗篷构筑无死角屏障",
+    "演练五步之内精准封锁走廊强光手电投射视线之身位配合",
+    "检查长斗篷纯铜搭扣在紧急拉扯下瞬间脱扣性能"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_bodyguard_cloak_drill",
+   "location_ids": [
+    "loc_bedroom_walkin_closet"
+   ],
+   "start_minute": 480,
+   "tags": [],
+   "title": "女保安队突发视线遮蔽与大氅展开战术合练"
+  },
+  {
+   "beats": [
+    "千金亲手输入十二位指纹密码确认信托密件封存状态",
+    "管家将加厚羊皮纸契约原本锁入双重气密钛合金保险柜",
+    "二人测试密道终端卫星静默求救发报机待机频率"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_secret_tunnel_vault_seal",
+   "location_ids": [
+    "loc_secret_escape_tunnel"
+   ],
+   "start_minute": 600,
+   "tags": [],
+   "title": "逃生密道暗室信托文件箱夜间防核保密封存"
+  },
+  {
+   "beats": [
+    "集团安保车队封死半山公路、最后一个绑匪被带走之后，千金回到主卧衣帽间，香槟色真丝睡裙的侧幅被钢栓扯开一道长口，吊带也断了一根。",
+    "千金背对整面镜墙站定，把长卷发拢到一侧，让人替自己拆下被钢栓咬变形的珍珠暗扣，指尖每碰一次后腰，镜子里那张冷傲的脸便红上一分。",
+    "最后一枚暗扣松开，残破的睡裙顺着腰线滑落，千金按住胸前没有回头，嗓音低得发哑：让保镖撤到警戒线外……今晚，别走。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_closet_pearl_unhook",
+   "location_ids": [
+    "loc_heiress_master_bedroom"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "衣帽间里替千金拆下变形珍珠暗扣"
+  },
+  {
+   "beats": [
+    "主卧的浴缸放满了热水，千金泡在撒了玫瑰花瓣的水里，香槟杯搁在缸沿，只露出湿漉漉的肩头。",
+    "千金抬眼看着门口的人：水还很热。……想进来，就先问我；我说好，你再脱。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_master_bedroom_bath",
+   "location_ids": [
+    "loc_heiress_master_bedroom"
+   ],
+   "start_minute": 1300,
+   "tags": [
+    "intimate"
+   ],
+   "title": "浴缸里的香槟"
+  },
+  {
+   "beats": [
+    "千金坐在梳妆台前，背对着人撩起长卷发，真丝晨袍滑到肩下，手里捏着一条钻石项链。",
+    "项链扣好，千金握住那只还停在颈后的手，从镜子里看人：扣好了，就别急着拿开。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_master_bedroom_necklace",
+   "location_ids": [
+    "loc_heiress_master_bedroom"
+   ],
+   "start_minute": 1150,
+   "tags": [
+    "intimate"
+   ],
+   "title": "替千金扣项链"
+  },
+  {
+   "beats": [
+    "半山的晨光照进落地窗，海面一片银白，千金在大床上醒来，被单裹到胸口，伸手去摸身边的人。",
+    "千金把脸埋进枕头：今天不见董事会，不见律师。……今天只见你一个。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_master_bedroom_sea_morning",
+   "location_ids": [
+    "loc_heiress_master_bedroom"
+   ],
+   "start_minute": 480,
+   "tags": [
+    "intimate"
+   ],
+   "title": "海景卧室的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "近现代豪门博弈时期",
+ "extends": null,
+ "forbidden_terms": [],
+ "hooks": [
+  {
+   "id": "hook_intro_blackout_flood",
+   "kind": "accident",
+   "location_ids": [],
+   "slot": "char_heiress_snow",
+   "text": "半山豪宅主供电网突遭切断引发防盗死锁，气动防盗重门偏位抱死，红光急促闪烁换气中断。"
+  },
+  {
+   "id": "hook_gear_bite_dress",
+   "kind": "accident",
+   "location_ids": [],
+   "slot": "char_heiress_snow",
+   "text": "防爆安全门回弹滑轨咬合死锁，重型钢栓死死扣住{npc.name}真丝睡袍侧幅挂钩，真丝薄纱紧绷寸步难移。"
+  },
+  {
+   "id": "hook_bishop_boots_approach",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_mercenary_raymond",
+   "text": "衣帽间走廊外，蒙面雇佣兵首领手提乙炔气割喷枪沉重战术靴踏地逼近，高温火花溅射倒计时十五秒破门。"
+  },
+  {
+   "id": "hook_cloak_wall_deploy",
+   "kind": "request",
+   "location_ids": [],
+   "slot": "char_guard_tianjiao",
+   "text": "{npc.name}把防暴盾往门缝前一顶，回头压低声音：小姐别怕，我在。你，转过身去，别看。"
+  },
+  {
+   "id": "hook_badge_lever_unlatch",
+   "kind": "observe",
+   "location_ids": [],
+   "slot": "char_heiress_snow",
+   "text": "{npc.name}将随身携带之纯钛钝刃插入微动触片，手腕顺势施展偏转巧劲弹开咬合钢栓。"
+  },
+  {
+   "id": "hook_escape_verdict_reverse",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_heiress_snow",
+   "text": "钢栓应声回弹，{npc.name}挽起睡袍踏入逃生密道，反手锁死气密门，拨通集团安保总部报出声纹口令：半山公路，封了。神级反转控场！"
+  },
+  {
+   "id": "hook_snow_necklace_clasp",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_heiress_snow",
+   "text": "{npc.name}裹着丝绒睡袍倚在衣帽间的镜墙边，冲人勾了勾手指：过来，帮本小姐把这条项链解下来，扣子卡住了。"
+  },
+  {
+   "id": "hook_snow_champagne",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_heiress_snow",
+   "text": "{npc.name}把一杯没喝完的香槟塞进人手里，下巴一抬：这么晚还在宅子里？那就陪本小姐说会儿话。"
+  },
+  {
+   "id": "hook_tianjiao_pillar_pull",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_guard_tianjiao",
+   "text": "{npc.name}按着耳麦从走廊尽头走来，上下扫了一眼，伸手把人拉到柱子后面：外围监控断了，跟紧，别乱跑。"
+  },
+  {
+   "id": "hook_raymond_intercom",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_mercenary_raymond",
+   "text": "{npc.name}隔着对讲机低笑一声，嗓音沙哑：里面那位朋友，帮个忙把门开了，保你一根汗毛不少。"
+  },
+  {
+   "id": "hook_qin_silver_tray",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_butler_qin",
+   "text": "{npc.name}端着银托盘走过来，扶了扶金丝眼镜：小姐吩咐给您备了热茶。宅子里的路，老朽带您认一认。"
+  },
+  {
+   "id": "hook_snow_bedroom_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_heiress_master_bedroom"
+   ],
+   "slot": "char_heiress_snow",
+   "text": "{npc.name}倚在主卧门边，真丝晨袍的带子松松系着：保镖换班了。……进来，陪我把这杯香槟喝完。"
+  }
+ ],
+ "id": "heiress_panic_room_stalemate",
+ "locations": [
+  {
+   "affordances": [
+    "以加厚钛合金修甲锉探入离合导轨实施微观自救",
+    "展平加厚黑大氅阻绝门外窥视光斑保护千金身段",
+    "单足后撤借端庄半屈膝姿态贴紧防弹门内壁卸去拉力"
+   ],
+   "detail": "位于衣帽间隐秘夹壁内之三平米重装甲安全舱，四壁采用特种防弹钢板与凯夫拉夹层。突发断电引发气动门锁机械顿挫；重型卡槽在咬合应力下卡死真丝睡裙后腰纯银锁扣。",
+   "exits": [
+    "loc_bedroom_walkin_closet",
+    "loc_secret_escape_tunnel"
+   ],
+   "id": "loc_panic_room_core",
+   "name": "装甲安全屋核心舱",
+   "pressure_modifiers": {
+    "press_oxygen_depletion_hazard": "密闭安全屋内循环断电氧气储罐快速见底"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "舱内应急红光昏暗，换气阀停止运转氧气稀薄，门板正上方气割火星穿透焊缝飞溅，全场视线死锁受卡吊带裙摆。",
+   "witnesses": [
+    "bg_erik_officer",
+    "bg_clara_scribe"
+   ]
+  },
+  {
+   "affordances": [
+    "保镖横盾阻挡走廊敌军突击争取破拆时间",
+    "推倒实木衣柜形成战术掩体阻滞气割进度"
+   ],
+   "detail": "两百平米奢华主卧内置多功能开阔衣帽区，高定华服与水晶展柜错落，此时已被荷枪实弹雇佣兵粗暴闯入翻倒一片。",
+   "exits": [
+    "loc_panic_room_core",
+    "loc_hallway_upper_balcony",
+    "loc_heiress_master_bedroom"
+   ],
+   "id": "loc_bedroom_walkin_closet",
+   "name": "主卧挑高衣帽间",
+   "pressure_modifiers": {
+    "press_torch_cutting_breach_hazard": "门外匪徒开启乙炔喷枪发出刺耳轰鸣"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "战术强光手电光柱狂乱晃动，乙炔气割喷枪喷吐耀眼蓝白烈焰，暴徒咆哮声在大理石墙壁间回荡。",
+   "witnesses": [
+    "bg_august_vanguard",
+    "bg_erik_officer"
+   ]
+  },
+  {
+   "affordances": [
+    "启动密道单向自锁闸门彻底封死追兵去路",
+    "更换备用纯羊毛保暖长披肩遮蔽受损睡裙"
+   ],
+   "detail": "安全屋背板隐蔽翻板连通之地下逃生暗廊，直达半山隐秘车库出口，花岗岩石壁干燥整洁，备有常备逃生口粮与备用车辆。",
+   "exits": [
+    "loc_panic_room_core"
+   ],
+   "id": "loc_secret_escape_tunnel",
+   "name": "地下逃生密道暗室",
+   "pressure_modifiers": {
+    "press_tunnel_lockout_deadline": "暗道后方传来接应专车引擎启动轰鸣"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "暗黄色感应地灯顺阶亮起，换气扇低沉平稳运转，厚重气密门可完全隔绝上层枪声与烟尘。",
+   "witnesses": [
+    "bg_clara_scribe",
+    "bg_elena_archivist"
+   ]
+  },
+  {
+   "affordances": [
+    "按下露台消防水炮开关压制衣帽间纵火企图",
+    "观测外围警车红蓝爆闪灯光确认支援距离"
+   ],
+   "detail": "俯瞰豪宅正厅之挑空旋转楼梯走廊，落地玻璃窗已被震碎，狂风暴雨席卷入内，警报红光疯狂闪烁。",
+   "exits": [
+    "loc_bedroom_walkin_closet"
+   ],
+   "id": "loc_hallway_upper_balcony",
+   "name": "二层挑空回廊露台",
+   "pressure_modifiers": {
+    "press_gas_leak_hazard": "外围暴风雨与烟尘自破碎窗棂疯狂灌入"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "电闪雷鸣映照残破雕塑，雨水夹杂玻璃碎屑散落一地，枪声由远及近。",
+   "witnesses": [
+    "bg_bastian_plumber",
+    "bg_grete_medic"
+   ]
+  },
+  {
+   "affordances": [
+    "陪千金在落地窗前喝香槟",
+    "替千金扣上项链",
+    "合上落地窗的窗帘"
+   ],
+   "detail": "豪宅二层的主卧，一张能睡四个人的大床、一整面朝海的落地窗、连着一间大理石浴室和那间挑高衣帽间。",
+   "exits": [
+    "loc_bedroom_walkin_closet"
+   ],
+   "id": "loc_heiress_master_bedroom",
+   "name": "千金的主卧",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "落地窗外是半山的夜海，窗帘一合，整间卧室只剩床头一盏水晶灯。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "沈",
+   "林",
+   "顾",
+   "陆",
+   "周",
+   "宋",
+   "韩",
+   "赵",
+   "许",
+   "唐",
+   "温",
+   "傅"
+  ],
+  "given_female": [
+   "露",
+   "曼",
+   "婉",
+   "清",
+   "语",
+   "宁",
+   "薇",
+   "婷",
+   "瑾",
+   "妍",
+   "璐",
+   "姝"
+  ],
+  "given_male": [
+   "坤",
+   "伯",
+   "卫",
+   "强",
+   "峰",
+   "海",
+   "安",
+   "平",
+   "霆",
+   "远",
+   "哲",
+   "铭"
+  ],
+  "given_neutral": [
+   "云",
+   "华",
+   "文",
+   "明",
+   "嘉",
+   "欣",
+   "宇",
+   "诚",
+   "岚",
+   "棠",
+   "知",
+   "希"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "female",
+    "pattern": "{family}小姐"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留半山临海豪宅、武装绑匪断电突袭、安全屋气动钢栓咬死真丝吊带睡裙、财团千金倒握纯钛修甲锉短路离合器自救的骨架与名节张力。原稿与审判庭、魔族女帝两个世界同一骨架，这里把结局拉向豪门人脉与保镖：主家信托印信与集团安保合约同等有效，千金脱身后退进密道，以本人声纹接通集团安保总部，私人安保车队封死半山公路，绑匪的雇主原来是一位觊觎继承权的董事，董事会连夜罢免的消息传进匪首的对讲机。原稿的玩家身份就是剧中人本人，改成世交财团继承人、主家信托律师、安全屋门锁工程师、夜班司机四个旁人；补齐规则、风俗与名字池，名字池里与角色重名的条目换掉；保镖队长、匪首、管家、爆破手、侍女身上串进来的画师、车厢、医护、工兵等别处文字全部改回豪宅；与另两个世界同形的压力、反转、张力文字逐条改写；写死的人名改为身份称呼，主家姓氏改称主家，背景人物改为中文名；侍女的双马尾圆脸改成低马尾；千金亲密前提写明绑匪落网、双方清醒自愿，新增几个不限地点的靠近型钩子和一个衣帽间里替千金拆下变形珍珠暗扣的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    26,
+    42
+   ],
+   "baseline": "与主家世代往来的另一家财团的继承人，今晚受邀来半山豪宅商谈并购，恰好留宿客房。",
+   "gender": "any",
+   "id": "pi_allied_heir",
+   "reputation": "圈内出了名的手腕硬、眼光毒。",
+   "resources": [
+    "一部直通自家安保公司的加密手机",
+    "两家并购案的保密协议副本"
+   ],
+   "risks": [
+    "被绑匪当成第二个人质"
+   ],
+   "role": "世交财团继承人",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    46
+   ],
+   "baseline": "主家信托基金的签约律师，深夜被叫来核对继承文件，还没来得及下山。",
+   "gender": "any",
+   "id": "pi_trust_lawyer",
+   "reputation": "条理分明，嘴严得像保险柜。",
+   "resources": [
+    "信托印信的授权副本",
+    "一支随时在录音的钢笔"
+   ],
+   "risks": [
+    "被绑匪逼着签下转移股权的文件"
+   ],
+   "role": "主家信托律师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}律师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    44
+   ],
+   "baseline": "安全屋那套气动门锁就是亲手装的，今晚恰好上山做季度检修。",
+   "gender": "any",
+   "id": "pi_vault_engineer",
+   "reputation": "手艺好，话不多。",
+   "resources": [
+    "安全屋门锁的维修密钥",
+    "一套绝缘起子与万用表"
+   ],
+   "risks": [
+    "门锁出事，被当成内鬼"
+   ],
+   "role": "安全屋门锁工程师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{family}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    50
+   ],
+   "baseline": "主家车库的夜班司机，认得半山每一条下山的路，平日连主楼的门都很少进。",
+   "gender": "any",
+   "id": "pi_night_driver",
+   "reputation": "老实本分，从不多问主家的事。",
+   "resources": [
+    "车库全部车辆的钥匙",
+    "一根藏在后备箱的撬棍"
+   ],
+   "risks": [
+    "被绑匪逼着开车运送人质"
+   ],
+   "role": "主家夜班司机",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{family}"
+    }
+   ]
+  }
+ ],
+ "premise": "半山临海的独栋豪宅里，名门千金刚从父亲手里接过家族信托，世交财团的继承人、主家的信托律师和安全屋门锁工程师轮番上门。白天开会签字，夜里在露台上喝酒。家族的对头放话要让千金签不成；豪宅的重装安全屋是新装的，气动门的离合器还在调试。",
+ "pressures": [
+  {
+   "choice": "是否以修甲锉短路触点别开钢栓，抑或强行扯断睡裙承受走光风险？",
+   "exits": [
+    {
+     "cost": "足尖被柜沿硌出一道红印",
+     "option": "踮脚踩上衣帽间的鞋柜边沿，把睡裙受力点向上提起一截"
+    },
+    {
+     "cost": "锉刃打滑，在门板上划出一道白痕",
+     "option": "把修甲锉贴着钢栓滑槽轻轻一探，摸清离合器触点的位置"
+    }
+   ],
+   "far": {
+    "consequence": "千金彻底沦为毫无反抗能力之猎物被暴徒掳走。",
+    "due_days": 1,
+    "trigger": "舱内人员深度缺氧昏迷失去知觉"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_oxygen_depletion_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "密闭舱内氧气指示红灯闪烁，胸口窒息沉闷感急速加剧。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_panic_room_core"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "换气孔吹出干燥闷热气流，视线边缘开始泛起缺氧晕眩雪花。"
+   },
+   "objective": "千金在彻底窒息前利用钛合金修甲锉撬开电磁离合器脱身。",
+   "source": "nature",
+   "start_minute": 305,
+   "tags": [
+    "disaster"
+   ],
+   "title": "安全屋换气中断氧气告竭窒息威胁",
+   "trigger": "供电切断导致换气阀停止运转，密闭舱内氧气二十秒急速见底。"
+  },
+  {
+   "choice": "让保镖队长顶盾封门，还是千金隔门亮出集团的名头，先乱匪首的军心？",
+   "exits": [
+    {
+     "cost": "暴露了自己仍困在门后的事实",
+     "option": "千金隔门报出匪首雇主的代号，警告一切都已录音上传集团云端"
+    },
+    {
+     "cost": "盾面被气割火花烧出一片焦黑",
+     "option": "保镖队长把防暴盾斜顶在门缝前，挡住所有往里窥探的镜头"
+    }
+   ],
+   "far": {
+    "consequence": "千金被拍下失仪照片，豪门清誉毁于一旦沦为筹码。",
+    "due_days": 1,
+    "trigger": "防弹门被踹倒暴徒长驱直入目睹受困窘态"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_torch_cutting_breach_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "气割烈焰在厚重钢板上烧出融化孔洞，焦灼热浪扑面而来。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bedroom_walkin_closet"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "暴徒粗野狞笑与重靴踏地声逼近门板仅隔寸许，破门在即。"
+   },
+   "objective": "在门板烧穿之前脱扣，退进密道，再把这场绑架变成一场反围剿。",
+   "source": "person",
+   "start_minute": 308,
+   "tags": [],
+   "title": "雇佣兵手持高压气割喷枪十五秒破门危机",
+   "trigger": "匪首手持气割枪喷吐蓝白烈焰灼烧门锁，火星飞溅门板通红。"
+  },
+  {
+   "choice": "顺着钢栓牵拉的方向贴门卸力，还是赌锉刀一挑即开？",
+   "exits": [
+    {
+     "cost": "后背贴上冰冷钢板，激起一阵战栗",
+     "option": "侧身贴紧冰凉的门板，让钢栓自己松出半寸"
+    },
+    {
+     "cost": "手腕被电流麻得一抖",
+     "option": "以修甲锉轻挑离合器触点，静等自检那半秒空档"
+    }
+   ],
+   "far": {
+    "consequence": "傲娇千金圣洁威仪扫地，沦为全城谈资笑柄。",
+    "due_days": 1,
+    "trigger": "睡裙撕裂于众目睽睽下失去蔽体之物"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_silk_tear_exposure_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "吊带睡裙的侧幅被钢栓扯出一道细缝，真丝一根根绷断。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_panic_room_core"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "一侧吊带滑下肩头，睡裙前襟只靠一只手按着，镜面墙把一切照得清清楚楚。"
+   },
+   "objective": "保住真丝睡裙的每一根吊带，不让一张狼狈照片流出这间安全屋。",
+   "source": "accident",
+   "start_minute": 312,
+   "tags": [
+    "disaster"
+   ],
+   "title": "蛮力挣脱导致睡裙撕裂大面积走光失仪困局",
+   "trigger": "香槟真丝睡裙受钢栓咬死，稍有蛮力撕扯整条薄裙必将粉碎。"
+  },
+  {
+   "choice": "屏住呼吸等自检空档，还是趁门外下一次撞击猛地一挑？",
+   "exits": [
+    {
+     "cost": "额角沁出细汗，长卷发黏在颈侧",
+     "option": "盯着门框上的自检指示灯，等绿灯一闪再下锉"
+    },
+    {
+     "cost": "赤足踩在散落的珠宝上，疼得倒吸一口气",
+     "option": "钢栓弹开刹那，旋身把睡裙从槽缝里抽出来"
+    }
+   ],
+   "far": {
+    "consequence": "睡裙卡死在防盗门槽彻底陷入万劫不复死锁。",
+    "due_days": 1,
+    "trigger": "修甲锉折断失去唯一自救破拆工具"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_file_bending_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "锉刃在触点缝里滋滋迸着细小电火花，钢栓纹丝不动。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_panic_room_core"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "锉刀中段已经弯出弧度，再用力就要折在缝里。"
+   },
+   "objective": "让锉刃只碰触点不吃力，在锉刀弯折之前等来那半秒释压。",
+   "source": "accident",
+   "start_minute": 314,
+   "tags": [
+    "disaster"
+   ],
+   "title": "钛合金锉刀在短路撬动下承受高负荷弯折风险",
+   "trigger": "纯钛修甲锉刀刃承受两百公斤咬合扭矩，角度稍偏便会折断。"
+  },
+  {
+   "choice": "远程打开露台消防水炮压住浓烟，还是用浸湿的丝巾替千金挡住焦烟？",
+   "exits": [
+    {
+     "cost": "水流倒灌，泡烂了衣帽间整排高定",
+     "option": "老管家远程打开二层露台的消防水炮，水幕压住门外的焦烟"
+    },
+    {
+     "cost": "千金只剩一只手能操作锉刀",
+     "option": "侍女把浸湿的真丝方巾覆在千金口鼻前"
+    }
+   ],
+   "far": {
+    "consequence": "安全屋被毒烟填满导致千金遭受严重肺部灼伤。",
+    "due_days": 1,
+    "trigger": "全员吸入过量烟气昏厥失去自救能力"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_gas_leak_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "刺鼻黑色焦烟自门缝涌入狭小密室，空气充满灼烧胶皮异味。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bedroom_walkin_closet"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "千金的眼眶被熏得通红，每一口气都带着焦糊味。"
+   },
+   "objective": "在气割焦烟灌满安全屋之前，让千金还能清醒地呼吸。",
+   "source": "nature",
+   "start_minute": 316,
+   "tags": [
+    "disaster"
+   ],
+   "title": "衣帽间气割浓烟与毒雾弥漫渗透威胁",
+   "trigger": "高温气割引发衣料焦糊浓烟倒灌，伴随乙炔刺激性气体侵入。"
+  },
+  {
+   "choice": "先反锁密道保住自己，还是先拨通集团安保总部、把匪首的雇主一并揪出来？",
+   "exits": [
+    {
+     "cost": "声纹验证要一字一句念完口令，手心全是冷汗",
+     "option": "脱困瞬间退进密道反锁气密门，以本人声纹接通集团安保总部"
+    },
+    {
+     "cost": "从此欠下一笔见不得光的人情债",
+     "option": "隔着对讲机向匪首手下开出比赎金更高的长期安保合约，当场策反"
+    }
+   ],
+   "far": {
+    "consequence": "逃生通道沦陷，千金在密道死胡同被当场生擒。",
+    "due_days": 1,
+    "trigger": "匪徒赶在密道闭合前扑入暗道"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_tunnel_lockout_deadline",
+   "immediate": {
+    "minutes": 1,
+    "text": "防弹门被踹开一道缝，枪口的红点在衣帽间的镜面上晃动。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_secret_escape_tunnel"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "匪首的对讲机里传来雇主催促的声音，半山公路上却已亮起一串车灯。"
+   },
+   "objective": "千金脱身后第一时间退进密道，以本人声纹调动集团安保与人脉，反将绑匪困死在半山。",
+   "source": "institution",
+   "start_minute": 318,
+   "tags": [],
+   "title": "安保车队须在破门前封死半山公路之死线",
+   "trigger": "若千金不能赶在暴徒破门前接通集团安保总部，半山豪宅便是一座孤岛。"
+  }
+ ],
+ "region": "半山临海独栋豪宅安全屋",
+ "rules": [
+  {
+   "id": "rule_mansion_adults",
+   "text": "半山豪宅里的主家人、保镖、佣人与闯入者都已成年，各自的去留、交易与私情由本人担当。"
+  },
+  {
+   "id": "rule_latch_only_power",
+   "text": "安全屋的钢栓只认电与力：断电自检那半秒释压空档是唯一的机械破绽，没有任何神迹可求。"
+  },
+  {
+   "id": "rule_image_is_stock",
+   "text": "千金的体面就是集团的股价：一张衣衫不整被劫的照片流出去，明早开盘便是几十亿的蒸发。"
+  },
+  {
+   "id": "rule_trust_seal_command",
+   "text": "主家信托印信与集团安保合约同等有效：千金亲口下令，集团旗下所有安保力量即刻听调。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "试探",
+  "committed": "誓约",
+  "familiar": "结盟",
+  "flirting": "默契",
+  "intimate": "交托",
+  "stranger": "警戒",
+  "testing": "博弈"
+ },
+ "status": "released",
+ "style_hint": "现代悬疑、微电机关、名门冷傲、死线逃生",
+ "tension_engines": [
+  {
+   "id": "engine_panic_room_latch_jam",
+   "text": "突发断电引发安全屋气动防爆门双向实心钢栓物理死锁，两百公斤气动咬力死咬真丝睡裙后幅暗扣，真丝经纬线紧绷欲裂，距密室窒息与匪徒破门仅余二十秒死线！"
+  },
+  {
+   "id": "engine_mercenary_torch_breach",
+   "text": "匪首率突击手举着乙炔气割枪灼烧门板，铁水一滴滴淌下；对讲机里雇主不停催促，只要门一开，千金穿着吊带睡裙被俘的照片明早就会登上每一家财经版面。"
+  },
+  {
+   "id": "engine_silk_nightgown_peril",
+   "text": "香槟色真丝吊带睡裙薄得透光，强行拉扯便会从侧幅整片裂开；千金一旦衣衫不整地被拍下，集团股价与继承权会一起崩塌。"
+  },
+  {
+   "id": "engine_titanium_file_short_circuit",
+   "text": "千金倒握纯钛修甲锉，把两毫米的锉刃探进电磁离合器的触点缝，等断电自检那半秒释压空档一到，轻轻一挑，让钢栓自己弹开。"
+  }
+ ],
+ "title": "名门千金·绑架暗格·豪宅衣帽间重装安全屋钢栓抱死真丝睡裙暗扣",
+ "tone": [
+  "现代密室",
+  "机械抱死",
+  "千金傲娇",
+  "硬核自救"
+ ],
+ "twists": [
+  {
+   "category": "人事",
+   "id": "twist_power_cut_inside_job",
+   "requires": [],
+   "text": "豪宅断电竟系外围内保私通绑匪关闭闸刀，意图将千金逼入死地谋取分成。"
+  },
+  {
+   "category": "资源",
+   "id": "twist_titanium_file_conductive",
+   "requires": [],
+   "text": "千金随身修甲锉柄部镀层实为特级高导钛金，恰好可短路离合触点触发自检弹开。"
+  },
+  {
+   "category": "时限",
+   "id": "twist_latch_design_flaw",
+   "requires": [],
+   "text": "安全门气动锁电磁离合器在断电自检时有零点五秒释压空档，精准短路即可复位。"
+  },
+  {
+   "category": "关系",
+   "id": "twist_tianjiao_unshakable_loyalty",
+   "requires": [],
+   "text": "保镖队长把防暴盾顶在烧红的门板上，一边用加密耳麦把集团快反小队的到达时间一分一分报给千金。"
+  },
+  {
+   "category": "信息",
+   "id": "twist_police_siren_approach",
+   "requires": [],
+   "text": "老管家按下的卫星静默报警直连集团安保总部，十分钟后，主家的私人安保车队封死了下山的唯一公路。"
+  },
+  {
+   "category": "制度",
+   "id": "twist_tunnel_door_trapped_raiders",
+   "requires": [],
+   "text": "大门烧穿刹那，千金已在密道里调出雇主身份：集团一位觊觎继承权的董事。董事会连夜罢免的消息传进匪首的对讲机，绑匪们当场作鸟兽散。"
+  }
+ ]
+}

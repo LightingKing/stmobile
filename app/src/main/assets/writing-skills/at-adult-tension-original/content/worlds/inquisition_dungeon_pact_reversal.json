@@ -1,0 +1,2016 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "二十五周岁成年军官，具备完全独立值守警备民事行为能力。",
+   "age_range": [
+    24,
+    28
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_erik_officer",
+   "line": "回禀队长，第二道防线已全部架设铁盾长矛！",
+   "location_ids": [
+    "loc_corridor_iron_gate"
+   ],
+   "name": "埃里克",
+   "role": "圣殿近卫士官"
+  },
+  {
+   "adult_context": "二十二周岁成年文职职员，具备完全法律文书校印权能。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_clara_scribe",
+   "line": "报告大人，副审判卷宗第三联已加盖密封蜡封。",
+   "location_ids": [
+    "loc_archive_secret_vault"
+   ],
+   "name": "克拉拉",
+   "role": "记录副女官"
+  },
+  {
+   "adult_context": "四十二周岁成年武装指挥官，依教区法案行使防暴管制权。",
+   "age_range": [
+    40,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_august_vanguard",
+   "line": "奉主教手谕搜查法庭，阻拦者一律按抗命论处！",
+   "location_ids": [
+    "loc_corridor_iron_gate"
+   ],
+   "name": "奥古斯特",
+   "role": "主教冲锋队长"
+  },
+  {
+   "adult_context": "二十八周岁成年医师，享有完全独立处方与伤患急救民事权柄。",
+   "age_range": [
+    27,
+    30
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_grete_medic",
+   "line": "防酸碱敷料已整备就绪，随时可协助大人处理水银灼伤。",
+   "location_ids": [
+    "loc_archive_secret_vault"
+   ],
+   "name": "格蕾特",
+   "role": "随军急救女医"
+  },
+  {
+   "adult_context": "四十八周岁成年专业管道技师，负责涵洞防汛维护法定责任。",
+   "age_range": [
+    45,
+    50
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_bastian_plumber",
+   "line": "涵洞压力过载，必须马上强开溢流备用翻板！",
+   "location_ids": [
+    "loc_channel_toxic_drain"
+   ],
+   "name": "巴斯蒂安",
+   "role": "暗渠检修管工"
+  },
+  {
+   "adult_context": "二十四周岁成年独立档案管理员，依法对公证册页享有保管公信权。",
+   "age_range": [
+    23,
+    26
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_elena_archivist",
+   "line": "历代大典案卷原件皆已入柜锁死，绝无外泄风险。",
+   "location_ids": [
+    "loc_archive_secret_vault"
+   ],
+   "name": "艾莲娜",
+   "role": "公证档案女史"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "主从誓约与生死相托默契羁绊",
+   "id": "combo_violette_and_sophia",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_inquisitor_violette",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "这几日在法庭内外打过多次交道，审判长肯把后背交出来",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_guard_sophia",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "同在审判台边护着审判长的两个人，一个眼神就能分好工",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_inquisitor_violette",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_guard_sophia",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "主仆二人心意相通配合无间构筑战术盲区",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "char_inquisitor_violette",
+    "char_guard_sophia"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在枢机主教撞门搜查前解脱卡滞法袍并构筑视线盲区完成反转宣判。",
+    "limit_gap": "审判官必须坚守司法程序正义而近卫军必须以肉身筑障优先保全性命。",
+    "meeting_reason": "剧毒水银漫灌与铸铁重闸咬死法袍绝命危机协同破拆处置。",
+    "resource_gap": "审判长掌握最高法律特权而近卫队长手握现场武装禁卫控制权柄。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_inquisition_gear_trap",
+    "engine_sacred_robe_damage_risk"
+   ]
+  },
+  {
+   "chemistry": "秉公法纪与篡权铁血专制之极度敌对交锋",
+   "id": "combo_violette_and_reynold",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_inquisitor_violette",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "今夜站在同一边、一起守着这场审判的人",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_bishop_reynold",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "企图借乱夺权之专横弄权主教政敌",
+     "stage": "stranger"
+    },
+    {
+     "a": "char_inquisitor_violette",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_bishop_reynold",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "司法独立与政治专制之你死我活决死交锋",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "char_inquisitor_violette",
+    "char_bishop_reynold"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "赶在重甲骑士破门逮捕前恢复人身自由并以裁决书反杀控场。",
+    "limit_gap": "主教受制于程序正义表面规制而审判长受困于物理机械卡滞死穴。",
+    "meeting_reason": "教区枢机主教借突发灾变强行破门夺取裁判所判决权柄。",
+    "resource_gap": "监察院主教执掌大批武装骑兵而主审法官执掌教会最高法典裁判裁决权。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_bishop_breach_countdown"
+   ]
+  },
+  {
+   "chemistry": "知性默契与力学参数精准指导搭档",
+   "id": "combo_violette_and_julian",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_inquisitor_violette",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "为这桩案子在书库里一起熬过几个通宵",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_scholar_julian",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "常在书库碰面，彼此借过图谱与法典",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_inquisitor_violette",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_scholar_julian",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "主审席上心照不宣之物理参数指引",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_inquisitor_violette",
+    "char_scholar_julian"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以极精确之三十度力矩参数实现单次徽章卡爪脱钩成功。",
+    "limit_gap": "学者手无缚鸡之力而审判长身受重闸物理咬死束缚。",
+    "meeting_reason": "审判席旋转铸铁闸门咬合力矩数据核算与脱困方案计算。",
+    "resource_gap": "学者精研古代机关图纸而审判长拥有执行物理破拆之冷静心智与徽章工具。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_lever_unlatch_mechanics"
+   ]
+  },
+  {
+   "chemistry": "武装近卫防线与枢机主教私兵骑士团剑拔弩张对抗",
+   "id": "combo_sophia_and_reynold",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_guard_sophia",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "在回廊里打过几次照面的近卫队长，此刻并肩守着铁栅",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_bishop_reynold",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "恃强凌弱图谋兵变之专断主教",
+     "stage": "stranger"
+    },
+    {
+     "a": "char_guard_sophia",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_bishop_reynold",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "大门前后剑拔弩张誓不退让之武装对峙",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "char_guard_sophia",
+    "char_bishop_reynold"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "寸步不让阻击二十秒直至审判长发出主审法槌落槌复位信号。",
+    "limit_gap": "近卫队长严守不先开第一枪纪律而主教企图以防灾搜查为名强攻。",
+    "meeting_reason": "回廊阻隔重门前武装对峙与主教宣召特权之正面交涉。",
+    "resource_gap": "近卫军占据大殿狭窄门廊地形而主教骑兵队拥有压倒性重装人数优势。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_bishop_breach_countdown"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "channel_tribunal_public",
+   "reach": "大殿全体法官与旁听神职人员",
+   "text": "阶梯法庭大殿回声公堂宣示"
+  },
+  {
+   "fidelity": "exact",
+   "id": "channel_guard_tactical",
+   "reach": "近卫队长贴身近卫小队",
+   "text": "近卫战术手势暗语密令"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "channel_scholar_consult",
+   "reach": "学者与首席审判长",
+   "text": "机械学者力学数据耳语简报"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一周岁年届桃李独立女学者，享有完备法定审理决断独立资格。",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "银白长发垂至腰际，白瓷面庞微带一点血色与深紫清冷重瞳绝美反差；身穿黑金立领法袍配雪白真丝内衬连体软靴，胸前佩带纯银十字徽章，姿态端庄圣洁。",
+    "修长身段在铸铁闸门前微屈卸力，黑金法袍下摆卡在齿槽中，真丝内衬受拉紧绷现出大片雪白香肩与优美锁骨线条。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目使用蛮力扯坏高定审判法袍造成失仪走光",
+     "向枢机主教强权威势妥协交出案件审理大权"
+    ],
+    "contrast": "平日公堂之上冷若冰霜严苛无私，绝命险境中展露无畏机敏与绝美反差。",
+    "core_value": "捍卫最高司法程序正义与自身神圣高傲威仪",
+    "goal_options": [
+     "倒持纯银徽章切入卡爪施展角向力矩物理脱扣",
+     "借近卫斗篷遮蔽视线从容升座落槌反转控场"
+    ],
+    "never": [
+     "向构陷政敌屈膝求饶交出司法审判主权"
+    ],
+    "prefers": [
+     "依据精密力学原理实施微观工具破拆物理脱险",
+     "要求近卫展开宽幅斗篷形成绝对视线盲区"
+    ],
+    "pressure_responses": {
+     "breaking": "若长袍撕裂受困，宁可舍弃外袍亦要握紧判词大印当众冷声宣判。",
+     "high": "强忍水银蒸气刺鼻侵袭，手腕暗运劲道施展微观剪切杠杆挑退簧舌。",
+     "low": "单手抚平长袍领口保持沉静呼吸，仔细探查齿轮咬合间隙。",
+     "mid": "深紫双眸冷凝如霜，反握纯银徽章以倒角钢轴准确切入卡爪死穴。"
+    },
+    "relationship_stance": "对近卫队长交付背后安全，对学者采信参数，对枢机主教寸步不让。",
+    "withdrawal": "脱钩后单手抚顺长袍褶皱，在近卫大氅掩护下沉着移步主审法座。"
+   },
+   "gender": "female",
+   "gender_reason": "冷傲坚毅前首席女审判长清冷人设",
+   "id": "char_inquisitor_violette",
+   "identity": {
+    "authority": "裁判所最高审理裁决权与法庭安保全权调配令",
+    "exposure": "黑金外袍若撕裂将大面积走光失仪受辱，教廷法权荡然无存。",
+    "hidden": "长袍内衬暗扣虽被咬死，但纯银徽章暗藏冷锻纯钢高硬度撬刃可自救。",
+    "limits": [
+     "法袍受卡滞于两百公斤回转重闸无法擅动半分"
+    ],
+    "obligations": [
+     "在骑士破门前脱身并完成终审生效判词签署"
+    ],
+    "resources": [
+     "冷锻纯银圣痕勋章配高硬度转轴边刃",
+     "真丝暗纹防酸碱修身黑金礼服长袍"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "死线关头仍替自己守住体面、挡下所有目光的人",
+     "对非礼勿视默默筑起守护防线之忠诚怀抱深切信赖"
+    ],
+    "boundaries": [
+     "人前守住审判长的威仪，私下的心事只给认定的人",
+     "每一步都要先问过，迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "暗阁油灯下由人替自己解开法袍系带的近身位",
+    "dislikes": [
+     "粗野蛮横的暴力破坏",
+     "夺门而入的无礼冒犯"
+    ],
+    "expression": "耳尖微热、下颌微扬，用审判长的冷淡口吻掩饰心慌",
+    "likes": [
+     "质地精巧坚固之冷锻钛合金工具",
+     "严丝合缝之机械精密构件"
+    ],
+    "preconditions": [
+     "铁门外的骑士撤尽、判决已经生效、自己体面脱身之后",
+     "两人都清醒，心意出于自己，不是劫后余生的慌乱依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "首席女审判官",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_hall_tribunal_seat",
+     "to": 320
+    },
+    {
+     "from": 321,
+     "location_id": "loc_archive_secret_vault",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "掌心虎口受纯银棱角强力回弹刮蹭留下浅白压痕泛起微酸",
+      "option": "反握纯银圣痕徽章将三毫米倒角纯钢转轴探入配重死穴施展四点二牛顿角向力矩挑退阻尼卡舌"
+     },
+     {
+      "cost": "消耗一次核心近卫贴身防护调派权能",
+      "option": "示意近卫展开加厚纯黑耐酸大斗篷遮挡身姿避入暗阁"
+     }
+    ],
+    "pressure": "剧毒挥发倒数二十秒，枢机主教率重甲骑兵十五步逼近大门",
+    "trigger": "暗渠毒水漫延，重型铸铁防暴门偏位咬合长袍侧幅"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "铸铁咬扣齿隙唯余两毫米，水银毒气倒数二十秒，断不可有分毫慌乱失仪。",
+    "surface": "肃静，圣殿阶梯法庭审理程序尚未终结，任何人不得擅动防暴闸门半分。"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁的近卫军官，佩剑当值、进退去留都由本人担当。",
+   "age_range": [
+    22,
+    23
+   ],
+   "appearance_options": [
+    "金发利落盘在轻型银灰软盔内，身着贴身暗银雕花半身锁甲配皮质马裤与高筒皮靴，剑眉英挺容颜俊朗英姿飒爽。",
+    "反手按住腰间制式佩剑剑柄，宽幅纯黑大氅在风中微展，眼神锐利如鹰警惕注视大殿回廊拱门任何异动。"
+   ],
+   "decision": {
+    "avoids": [
+     "惊慌高呼引来回廊更多骑士围观",
+     "在审判长撬扣的关键一秒碰撞审判台"
+    ],
+    "contrast": "平日寡言冷硬，替审判长理好领口时动作却轻得出奇。",
+    "core_value": "以身为墙守住审判长的体面与法庭的门，近卫的剑只听法槌的号令。",
+    "goal_options": [
+     "展开双层黑斗篷，替审判长挡住铁栅外每一道火光与目光",
+     "按住剑柄隔着铁栅与主教亲兵对峙，拖住破门的每一秒"
+    ],
+    "never": [
+     "绝不让任何外人的目光落在审判长衣履不整的狼狈瞬间"
+    ],
+    "prefers": [
+     "以自身身形构筑绝对视线盲区",
+     "用近卫手势暗语报出铁栅外的人数与方位"
+    ],
+    "pressure_responses": {
+     "breaking": "若铁门被撞开，便张开斗篷用整个身子封死拱门，剑出鞘半寸不再后退。",
+     "high": "用后背死死顶住震颤的铁栅，任重锤的回震一下下撞在肩胛上。",
+     "low": "沉着展平斗篷两角，侧身站到审判台与拱门之间的那条直线上。",
+     "mid": "双手攥紧斗篷边缘，厉声喝令铁栅外的骑士退回法庭警戒线以外。"
+    },
+    "relationship_stance": "视审判长为必须守护到底的主上与知己，对主教亲兵寸步不让。",
+    "withdrawal": "危机排除后递上一件干净的备用法袍，退半步侍立在审判长身后，护送登上主审台。"
+   },
+   "gender": "female",
+   "gender_reason": "忠诚英武剑术女近卫官刚毅人设",
+   "id": "char_guard_sophia",
+   "identity": {
+    "authority": "审判法庭内务武装禁卫指挥权",
+    "exposure": "若防线失守将被主教私兵解除武装羁押。",
+    "hidden": "暗藏防暴门备用手摇解锁齿轮连杆手柄。",
+    "limits": [
+     "不得擅自违抗主审官司法手令"
+    ],
+    "obligations": [
+     "以身躯为屏障捍卫审判长身姿清白"
+    ],
+    "resources": [
+     "随身备用厚绒保暖大氅外袍",
+     "防卫长枪配合金阻击铁环"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "审判长在毒雾里依旧不肯折腰的那股傲气",
+     "身陷死局还记得先问近卫是否受伤的那份细心"
+    ],
+    "boundaries": [
+     "当值时只做护卫，不谈私情",
+     "越过一步之前先问，对方迟疑就停"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "卸甲后并肩坐在暗阁油灯下的贴身护卫位",
+    "dislikes": [
+     "借职权逼人的嘴脸",
+     "临阵退缩的懦夫"
+    ],
+    "expression": "卸下软盔把金发散在肩上，嘴上仍规规矩矩地称呼大人",
+    "likes": [
+     "令行禁止的同袍",
+     "擦得锃亮的剑脊"
+    ],
+    "preconditions": [
+     "铁门外的骑士撤尽、审判长平安脱身之后",
+     "两人都清醒，心意出于自己，不是劫后余生的冲动"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "审判庭近卫队长",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_hall_tribunal_seat",
+     "to": 320
+    },
+    {
+     "from": 321,
+     "location_id": "loc_corridor_iron_gate",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "斗篷下摆沾染微量石阶飞溅之灰浆污迹",
+      "option": "挥臂扬起加厚纯黑斗篷严密遮蔽主审席身段侧影"
+     },
+     {
+      "cost": "加剧近卫营与主教武装骑兵队摩擦火药味",
+      "option": "佩剑出鞘半寸横挡回廊大门严令主教卫队止步"
+     }
+    ],
+    "pressure": "长靴逼近倒计时，必须用大氅构筑视线屏障",
+    "trigger": "主教私兵强行推撞铁门，审判长身受机关卡滞"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "纵使粉身碎骨，也必保全审判长阁下周全无虞。",
+    "surface": "近卫军全员结阵警戒，任何人不得越过受礼红线半步。"
+   }
+  },
+  {
+   "adult_context": "二十三周岁成年学术研究员，具备完全民事行为能力与图档保管权。",
+   "age_range": [
+    23,
+    25
+   ],
+   "appearance_options": [
+    "戴单片纯金细链金丝眼镜，墨绿丝绒文职长袍纤尘不染，气质儒雅温和。",
+    "指尖沾染些许古代羊皮卷墨痕，手持纯铜圆规伏案测算，神色严谨专注不苟言笑。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿未经验算的方案去赌审判长的安危",
+     "在毒雾里摘下浸湿的口巾高声说话"
+    ],
+    "contrast": "平日埋首故纸堆、说话慢条斯理，算到关键一刻却快得像换了个人。",
+    "core_value": "古籍里的每一张图纸都是证据，算准了的角度比任何蛮力都可靠。",
+    "goal_options": [
+     "翻开铜板图谱，报出旋转闸门自锁棘爪的倾角与临界力矩",
+     "奔向侧墙逆转排水铜轮，替审判台争取不被水银淹没的时间"
+    ],
+    "never": [
+     "绝不为讨好任何权势改动一个数字"
+    ],
+    "prefers": [
+     "用精确的数字指引受困者自救",
+     "先查清机关的原始图纸再动手"
+    ],
+    "pressure_responses": {
+     "breaking": "若钢轴将折，立刻喝停，改报从侧面挑簧舌的第二套方案。",
+     "high": "抱着图谱冲到侧墙，双手攥住生锈的铜轮拼命逆转。",
+     "low": "推了推单片眼镜，铜规在图谱上飞快量出齿槽的偏位角。",
+     "mid": "压低嗓音，一个字一个字报出三十度倾角与四点二牛顿的读数。"
+    },
+    "relationship_stance": "敬重审判长的冷静，报出的参数从不掺水；对主教的威逼一概装作没听见。",
+    "withdrawal": "脱扣后把图谱合上抱在胸前，长出一口气，转身去扶被水银熏倒的文员。"
+   },
+   "gender": "male",
+   "gender_reason": "博学儒雅青年机械学者知性人设",
+   "id": "char_scholar_julian",
+   "identity": {
+    "authority": "裁判所古籍工程卷宗全权调阅权",
+    "exposure": "若计算失误将导致徽章钢轴弯折锁死。",
+    "hidden": "暗中掌握地下涵洞泄洪闸阀启闭机关密匙。",
+    "limits": [
+     "手无寸铁无法正面对抗武装重骑兵"
+    ],
+    "obligations": [
+     "向审判长提供精准机械解扣力学参数"
+    ],
+    "resources": [
+     "大殿暗渠排水铜板平面测绘图",
+     "便携式游标卡尺测距铜规"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "审判长单凭一枚徽章就撬开两百公斤重闸的腕力与胆识",
+     "法庭辩论时那条又冷又准的逻辑线"
+    ],
+    "boundaries": [
+     "审判长脱困期间只盯着齿槽，眼睛不往别处看",
+     "任何靠近都先开口问过"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "书库长桌对面一同翻阅孤本的并肩位",
+    "dislikes": [
+     "对古籍粗手粗脚",
+     "不讲道理的权势"
+    ],
+    "expression": "合上图谱时指尖顿一下，用最平静的声调说出最不平静的话",
+    "likes": [
+     "保存完好的羊皮卷孤本",
+     "深夜书库里的一盏油灯"
+    ],
+    "preconditions": [
+     "审判结束、图谱收回书库之后",
+     "两人都清醒，心意出于自己"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "古法典典狱学者",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_hall_tribunal_seat",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "暴露学者对古老裁判所机关构造之深入掌握",
+      "option": "高声报出齿轮卡爪逆向切入角度与临界释放力值"
+     },
+     {
+      "cost": "衣袖被铜轮齿槽机油微量沾染斑痕",
+      "option": "奔赴侧墙逆向转动排水手动铜轮缓解毒水上升"
+     }
+    ],
+    "pressure": "必须在十五秒内算出钢轴探入自锁卡爪最优力矩参数",
+    "trigger": "水银液面剧烈上涨，重型闸门受力偏位卡死"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "铸铁闸门偏位角差正好为三度两分，以此徽章转轴定点撬动即可瞬间平衡负荷。",
+    "surface": "回禀审判长，涵洞水压差将在三十秒内达峰，请依第三号力学方案脱险。"
+   }
+  },
+  {
+   "adult_context": "五十二周岁成年教区主教，依法享有完全独立主教行政裁决地位。",
+   "age_range": [
+    50,
+    55
+   ],
+   "appearance_options": [
+    "绯红缎面绣金主教大氅配纯白真丝披肩，面色枯瘦目光阴鸷，佩戴祖母绿戒指。",
+    "枯瘦十指紧扣金质权杖把手，冷酷嘴角勾起势在必得弧度，眼底闪烁弄权专横之色。"
+   ],
+   "decision": {
+    "avoids": [
+     "在书记官笔下留下亲手动粗的记录",
+     "公开承认水银暗渠的阀门与自己有关"
+    ],
+    "contrast": "当众句句不离慈悲与秩序，私下算计的每一步都冷到骨子里。",
+    "core_value": "法庭也好，教义也好，都只是权柄的外衣；谁握着骑士，谁就是正义。",
+    "goal_options": [
+     "以防灾搜查为名撞开铁门，当场撞见审判长受困失仪的窘态",
+     "亮出金印手诏，宣布暂停首席审判官的全部权限"
+    ],
+    "never": [
+     "绝不当众认输或撤回已经宣读的手诏"
+    ],
+    "prefers": [
+     "借规章条款的缝隙夺权",
+     "让骑士冲在前头，自己站在火光后面"
+    ],
+    "pressure_responses": {
+     "breaking": "若审判长落槌宣判，便当众指控对方渎神失仪，企图把判决拖进复审。",
+     "high": "亲自逼到铁栅前，隔着火光高声命令里面的人缴械受检。",
+     "low": "隔着铁栅慢条斯理地捻着祖母绿戒指，宣读教区紧急状态条款。",
+     "mid": "抬起权杖示意重甲骑士抡起破门锤，一下比一下沉。"
+    },
+    "relationship_stance": "视审判长为必须拔除的眼中钉，对近卫队长的阻拦嗤之以鼻。",
+    "withdrawal": "程序上落了下风时拂袖转身，丢下一句复审庭上见。"
+   },
+   "gender": "male",
+   "gender_reason": "专断弄权枢机主教阴鸷老练反派人设",
+   "id": "char_bishop_reynold",
+   "identity": {
+    "authority": "教区教务与监察最高管辖裁决权",
+    "exposure": "暗中破坏水阀阴谋败露将遭教皇庭惩处。",
+    "hidden": "调集攻城重锤企图强行破入控制主审。",
+    "limits": [
+     "受制于最高宗教法典程序正义规章"
+    ],
+    "obligations": [
+     "维持教会对外道义形象与统治秩序"
+    ],
+    "resources": [
+     "监察院专属特派逮捕手谕金牌",
+     "主教亲兵骑士队统帅符节印信"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对手在绝境里仍不低头的骄傲，越难折断越想亲眼看着",
+     "权力对峙时你死我活的那份刺激"
+    ],
+    "boundaries": [
+     "在公开场合永远保持主教的体面",
+     "对方说不，就到此为止"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "高背座椅上俯视全场的居高位",
+    "dislikes": [
+     "被人当众驳回",
+     "下属自作主张"
+    ],
+    "expression": "用权杖轻敲掌心，嘴角挂着一丝居高临下的笑意",
+    "likes": [
+     "绯红缎面的主教大氅",
+     "满堂跪拜的肃静"
+    ],
+    "preconditions": [
+     "对峙尘埃落定、胜负已分之后",
+     "双方都清醒，出于自愿，不拿职权作交换"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "教区枢机主教",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_corridor_iron_gate",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "彻底撕破教会内部体面引发公开哗变指责",
+      "option": "喝令四名骑士持盾撞击回廊阻隔铁栏强行推进"
+     },
+     {
+      "cost": "在法律法典层面面临首席法官程序性驳回反诉",
+      "option": "亮出金印手诏宣布暂时冻结首席审判官权限"
+     }
+    ],
+    "pressure": "骑士长靴步步逼近拱门，力求当场抓获现行窘态",
+    "trigger": "水银毒水弥漫大殿，主审法官受卡失仪受困"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "只要撞见长袍破碎走光狼狈之相，便可名正言顺以渎神失仪免去审判长之位。",
+    "surface": "审判大殿突发毒气险情，本主教依特权法案接管现场，所有人立即缴械受检！"
+   }
+  },
+  {
+   "adult_context": "四十六周岁成年工匠工程师，具备完全安全防灾操作民事法律责任。",
+   "age_range": [
+    45,
+    48
+   ],
+   "appearance_options": [
+    "身穿浸油皮革阻燃工匠围裙，头发灰白，随身挎着装满铜扳手与试剂的皮箱。",
+    "粗糙布满老茧之双手紧握高压喷雾管阀门，神色复杂守候在地下暗渠连杆机构死角。"
+   ],
+   "decision": {
+    "avoids": [
+     "毒雾漫进法台时还在等上头的批文",
+     "用蛮力敲击承压的铜管"
+    ],
+    "contrast": "平日沉默寡言、唯唯诺诺，真到救命关头连主教的密令也敢当面违抗。",
+    "core_value": "手艺人的良心只认一件事：暗渠里的水银不能吞掉一条人命。",
+    "goal_options": [
+     "开启高压药阀，用硫化中和剂压住水银蒸气",
+     "隔着暗渠口喊出闸门限位销舌的朝向，指点近卫协助脱困"
+    ],
+    "never": [
+     "绝不照主教的密令眼睁睁看着人被水银吞没"
+    ],
+    "prefers": [
+     "先中和毒气再谈破拆",
+     "按工坊老规矩一步一步来"
+    ],
+    "pressure_responses": {
+     "breaking": "若主教密使阻拦，便把药阀开到最大，宁可耗尽全部存药也不让毒水漫上法台。",
+     "high": "把浸透药剂的厚布缠上口鼻，冒着毒雾硬生生撬开排污翻板。",
+     "low": "沉着地读着耐压表，一边把中和药剂一桶桶推到翻板阀边。",
+     "mid": "踩着湿滑的检修脚手架下到暗渠，双手扳动生锈的长柄阀。"
+    },
+    "relationship_stance": "位卑言轻，被主教密令压着延误救援，心里却早站到审判长这一边。",
+    "withdrawal": "确认水位退下后靠着湿冷的石壁坐倒，默默清点剩下的药剂。"
+   },
+   "gender": "male",
+   "gender_reason": "深谙水银毒化机关之老练工程技师人设",
+   "id": "char_alchemist_valere",
+   "identity": {
+    "authority": "地下管网与泄洪闸门工程维护实权",
+    "exposure": "私下协助主审官破拆脱困或遭主教报复。",
+    "hidden": "暗中保留有中和水银毒液之特级配方药剂。",
+    "limits": [
+     "位卑言轻易受高层主教威逼拿捏"
+    ],
+    "obligations": [
+     "排除地下管网毒水漫灌防汛险情"
+    ],
+    "resources": [
+     "回转底座传动棘爪受力图纸",
+     "高压耐腐蚀硫化中和喷雾瓶"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "审判长被困时仍先下令疏散文员的那份担当",
+     "肯听一个老工匠把话说完的耐心"
+    ],
+    "boundaries": [
+     "当值时不谈私事",
+     "越线之前先问过"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "工坊炉火旁并肩烤手的老友位",
+    "dislikes": [
+     "拿人命当筹码的权谋",
+     "外行乱拧阀门"
+    ],
+    "expression": "粗糙的手掌在围裙上擦了又擦，才肯伸出去",
+    "likes": [
+     "校得分毫不差的压力表",
+     "工坊炉火边的一杯热麦酒"
+    ],
+    "preconditions": [
+     "暗渠排空、众人脱险之后",
+     "彼此清醒，是自己想靠近，不是报恩"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "圣殿工坊炼金工程师",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_channel_toxic_drain",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "耗尽储备之高效中和药液罐体压力",
+      "option": "开启高压药阀压制水银剧毒溶剂刺鼻挥发烟气"
+     },
+     {
+      "cost": "彻底背弃枢机主教下达之延误救援密令",
+      "option": "指点近卫队长看清旋转闸门暗槽内限位销舌具体朝向"
+     }
+    ],
+    "pressure": "必须在毒水漫入法台前开阀减压并中和毒液",
+    "trigger": "水银导管破损承压过载，毒雾迅速升腾弥漫"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "只要徽章钢轴切断卡爪阻尼卡舌，旋转闸门便会自动弹开三寸空隙。",
+    "surface": "回禀大人，地基回转轴承绝无超载破裂之虞，只需巧劲挑动配重卡爪即可。"
+   }
+  },
+  {
+   "adult_context": "二十一周岁年满法定婚龄独立女书记官，依法行使法庭记录签字证明权。",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "栗色长发梳成齐整法官盘发，戴无框银丝眼镜，浅灰真丝领结套裙端庄清丽。",
+    "怀中紧抱厚重羊皮纸公证法典原本，修长指尖紧握纯钢羽毛笔，清澈双眸流露对真理之坚守。"
+   ],
+   "decision": {
+    "avoids": [
+     "在记录里添一个未经核实的字",
+     "被主教的怒视吓得停笔"
+    ],
+    "contrast": "平日说话细声细气，宣读法条时的嗓音却能压过整条回廊。",
+    "core_value": "公证书上的每一个字都必须是真的，程序走完之前，任何刀剑都不算数。",
+    "goal_options": [
+     "把审判全程据实录入公证书，留下主教亲兵擅闯法庭的铁证",
+     "赶在破门前把封蜡与红印压在判决书末尾，呈给审判长落印"
+    ],
+    "never": [
+     "绝不在伪造或被胁迫的文书上签名"
+    ],
+    "prefers": [
+     "一切以书面记录为准",
+     "让每一个动作都留在公证书上"
+    ],
+    "pressure_responses": {
+     "breaking": "若原本被夺，立刻取出防水副卷，当众宣布副卷与原本同等有效。",
+     "high": "把判决原本护在怀里，用身子挡住从门缝探进来的长戟。",
+     "low": "握紧钢笔，逐条记下铁栅外每一声喝令与撞击的时辰。",
+     "mid": "高声宣读教区法典里审理期间法庭不可侵犯的条款，请在场众人作证。"
+    },
+    "relationship_stance": "对审判长敬若师长，对主教的手诏只认程序不认人。",
+    "withdrawal": "落印之后把判决书锁进双锁钢匣，指尖还在发抖，却一个字也没写错。"
+   },
+   "gender": "female",
+   "gender_reason": "文静谨慎青年记录女官知性人设",
+   "id": "char_clerk_beatrice",
+   "identity": {
+    "authority": "裁判判决原本签字公证生效法权",
+    "exposure": "若文书遭主教抢夺将导致案卷彻底篡改。",
+    "hidden": "随身备有复写防水羊皮纸法定公报副卷。",
+    "limits": [
+     "体力柔弱无法对抗武装冲突暴力"
+    ],
+    "obligations": [
+     "确保审判正本盖印手续完整无缺漏"
+    ],
+    "resources": [
+     "审判公证生效签字朱印手令",
+     "防酸耐磨特制墨水与高硬钢笔"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "审判长落槌宣判时那份不容置疑的威仪",
+     "审判长私下批改文书时偶尔流露的温柔"
+    ],
+    "boundaries": [
+     "公务与私情分开记",
+     "每一步都先问过"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "暗阁案卷旁替人研墨的近侧位",
+    "dislikes": [
+     "涂改过的证词",
+     "拿权势压人的大人物"
+    ],
+    "expression": "低头整理案卷，耳根却悄悄红透",
+    "likes": [
+     "新削的羽毛笔",
+     "干透的红色封蜡"
+    ],
+    "preconditions": [
+     "判决生效、案卷封存之后",
+     "双方神志清明，各自点头才算数"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "首席书记官",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_hall_tribunal_seat",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "指尖沾染滚烫封蜡留下浅红微烫印记",
+      "option": "将蜡油与红印稳稳压在裁决书正文末尾呈递审判长"
+     },
+     {
+      "cost": "直接正面承受枢机主教狂怒视线恐吓施压",
+      "option": "手捧法典高声宣读监察主教无权干涉裁决之法定条款"
+     }
+    ],
+    "pressure": "必须协助审判长赶在破门刹那落印宣判",
+    "trigger": "法庭突遭武装逼门，判决书生效面临断崖"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "判决书所有签字皆已齐备，只要审判长大人落槌，法理大势便无可逆转。",
+    "surface": "书记官已将全过程据实录入公证书，任何非程序武装介入皆将构成伪证罪。"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "圣历一四八七年，大斋期",
+  "minute": 300
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "coercion_theme",
+  "humiliation",
+  "workplace"
+ ],
+ "custom": true,
+ "customs": [
+  "首席法官步入法庭升座之时全员必须肃立低头静默致敬之崇高规程。",
+  "重大异端裁决判词必须经主审印信、书记官公证与近卫押运三方签字之神圣法律程序。",
+  "近卫武装人员未经法官口头诏令严禁擅自退离防御屏障岗位。",
+  "终审宣判之前，书记官须把当晚出入法庭的每一个人名与时辰记入公证簿，事后谁也改不得。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "以丝绒软布擦拭纯银圣痕徽章边缘冷锻纯钢转轴锁舌",
+    "检查黑金刺绣法袍后腰双层防割纯丝系绳挂接状态",
+    "书记官核验法官印鉴公证书上蜡封印泥干燥程度"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_robe_buckle_inspection",
+   "location_ids": [
+    "loc_archive_secret_vault"
+   ],
+   "start_minute": 60,
+   "tags": [],
+   "title": "审判法袍暗扣与徽章转轴牢固度例行整备"
+  },
+  {
+   "beats": [
+    "近卫军长枪肃穆立正护卫审判长缓步登临主审高台",
+    "女审判长整理法袍侧摆端坐于回转铸铁宝座正中",
+    "全场肃静执事击响三声铜锣宣告开庭审理程序开启"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tribunal_entry_ritual",
+   "location_ids": [
+    "loc_hall_tribunal_seat"
+   ],
+   "start_minute": 120,
+   "tags": [],
+   "title": "阶梯审讯大殿主审升座神圣入场仪式"
+  },
+  {
+   "beats": [
+    "游标卡尺测定旋转底座齿槽咬合两毫米安全间隙",
+    "向铸铁转轴导轨注滴精炼耐酸特种润滑油脂",
+    "检查自锁单向棘爪复位弹簧抗疲劳弹性衰减指标"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_gear_damper_tuning",
+   "location_ids": [
+    "loc_hall_tribunal_seat"
+   ],
+   "start_minute": 240,
+   "tags": [],
+   "title": "防暴旋转闸门平衡配重阻尼例行校核"
+  },
+  {
+   "beats": [
+    "手持试纸检测排水暗渠酸性蒸汽挥发浓度指标",
+    "摇动生铁翻板阀手轮排查水银凝结沉淀堵塞状况",
+    "核查工坊储备之硫化中和药剂储罐密封压力指示表"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_drain_conduit_patrol",
+   "location_ids": [
+    "loc_channel_toxic_drain"
+   ],
+   "start_minute": 360,
+   "tags": [],
+   "title": "地下水银排污暗渠耐酸管道闭环巡检"
+  },
+  {
+   "beats": [
+    "近卫双手甩展宽幅双层防风黑斗篷构筑无死角屏障",
+    "演练十步之内精准封锁回廊拱门投射光线之身位配合",
+    "检查长斗篷纯铜搭扣在紧急拉扯下瞬间脱扣性能"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_cloak_drill_practice",
+   "location_ids": [
+    "loc_corridor_iron_gate"
+   ],
+   "start_minute": 480,
+   "tags": [],
+   "title": "近卫队突发视线遮蔽与大氅展开战术合练"
+  },
+  {
+   "beats": [
+    "女审判长亲手为涉案重大案卷盖下主教印信防伪暗章",
+    "书记官将加厚羊皮纸判决原本装入双锁纯钢防潮暗箱",
+    "二人核对明日主教监察庭对质抗辩法定条款引述草案"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_night_vault_record_seal",
+   "location_ids": [
+    "loc_archive_secret_vault"
+   ],
+   "start_minute": 600,
+   "tags": [],
+   "title": "暗阁裁判文书终审蜡封归档夜间交接"
+  },
+  {
+   "beats": [
+    "终审落槌、主教一行被押出回廊之后，女审判长回到暗阁反锁上气密石门，黑金法袍后腰那排被齿槽咬过的银扣歪斜变形，怎么也解不开。",
+    "女审判长背对琉璃油灯站定，把银白长发拢到一侧，让人从后颈一颗一颗拨开变形的银扣，真丝内衬随着指尖一路松开，露出被齿槽勒红的腰线。",
+    "最后一颗银扣弹开，法袍顺着肩头滑落，女审判长按住胸前的内衬没有回头，声音比在法庭上低了许多：案卷明早再封……灯留一盏就够了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vault_robe_unlace",
+   "location_ids": [
+    "loc_archive_secret_vault"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "暗阁里替女审判长解开变形银扣"
+  },
+  {
+   "beats": [
+    "暗阁的油灯下，女审判长坐在卷宗堆成的矮墙后面，慢慢摘下黑皮手套，一根手指一根手指地往下褪。",
+    "女审判长把手套搁在案卷上，伸出那只冰凉的手：在法庭上，没人碰过这只手。……你要不要试试？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vault_gloves_off",
+   "location_ids": [
+    "loc_archive_secret_vault"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "intimate"
+   ],
+   "title": "暗阁里一根根摘下手套"
+  },
+  {
+   "beats": [
+    "女审判长解了法袍，只穿着真丝内衬坐上高背椅，银白长发披下来，用羽毛笔点了点面前的人。",
+    "女审判长慢条斯理地说：今晚私设一庭，罪名是让本官分心。……认罪的话，就过来领罚，你不认我也不审。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vault_mock_trial",
+   "location_ids": [
+    "loc_archive_secret_vault"
+   ],
+   "start_minute": 1350,
+   "tags": [
+    "intimate"
+   ],
+   "title": "暗阁里的私审"
+  },
+  {
+   "beats": [
+    "天还没亮，暗阁外传来远远的晨钟声，女审判长在窄榻上醒来，枕着人的肩，长发缠在两人之间。",
+    "女审判长没有睁眼：再响三声，我就要回去当审判官了。……这三声之前，我只是我。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vault_dawn_bells",
+   "location_ids": [
+    "loc_archive_secret_vault"
+   ],
+   "start_minute": 330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "晨钟响起之前"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "欧式古典裁判所时期",
+ "extends": null,
+ "forbidden_terms": [],
+ "hooks": [
+  {
+   "id": "hook_intro_blackout_flood",
+   "kind": "accident",
+   "location_ids": [],
+   "slot": "char_inquisitor_violette",
+   "text": "挑空二十米哥特式穹顶裁判所地下阶梯大殿内，惨白剧毒水银溶剂因管道破损疯狂自暗渠溢出，漫过台阶逼近脚踝。"
+  },
+  {
+   "id": "hook_gear_bite_dress",
+   "kind": "accident",
+   "location_ids": [],
+   "slot": "char_inquisitor_violette",
+   "text": "回转防爆闸门突发顿挫抱死，配重齿槽死死卡住{npc.name}黑金长袍底边与银质搭扣，金丝受拉紧绷寸步难移。"
+  },
+  {
+   "id": "hook_bishop_boots_approach",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_bishop_reynold",
+   "text": "回廊铁栅外，枢机主教率领之数十名重甲圣武骑士沉重长靴踏阶之声步步逼近，距离撞破大门仅余十五秒倒数。"
+  },
+  {
+   "id": "hook_cloak_wall_deploy",
+   "kind": "request",
+   "location_ids": [],
+   "slot": "char_guard_sophia",
+   "text": "{npc.name}双臂展平宽幅纯黑防火呢料长斗篷侧身筑壁，沉着阻隔门外窥视光斑。"
+  },
+  {
+   "id": "hook_badge_lever_unlatch",
+   "kind": "observe",
+   "location_ids": [],
+   "slot": "char_inquisitor_violette",
+   "text": "{npc.name}以纯银圣痕徽章暗藏之加厚钢轴探入齿槽，腕间暗催四点二牛顿巧劲精准别退自锁簧舌。"
+  },
+  {
+   "id": "hook_escape_verdict_reverse",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_inquisitor_violette",
+   "text": "单向卡爪应声弹开脱扣，黑金法袍顺势滑脱解放，{npc.name}挽袍昂首步上主审台落槌：记录在案，武装擅入审理中的法庭，手诏无效。神级反转控场！"
+  },
+  {
+   "id": "hook_violette_read_verdict",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_inquisitor_violette",
+   "text": "{npc.name}从审判席上抬眼，隔着水银白雾冷冷看过来，指尖在法典封皮上敲了两下：你，过来，替本庭把这卷判词念一遍，一个字也不许错。"
+  },
+  {
+   "id": "hook_violette_cold_gloves",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_inquisitor_violette",
+   "text": "{npc.name}退到暗阁门边，解下被水银熏得冰凉的手套递过来，压低声音：替我暖一暖……别让近卫看见。"
+  },
+  {
+   "id": "hook_sophia_behind_cloak",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_guard_sophia",
+   "text": "{npc.name}按着剑柄走过来，上下打量一眼，伸手把人往斗篷内侧一拉：站到我身后，铁栅外的骑士正在找替罪羊。"
+  },
+  {
+   "id": "hook_julian_hold_chart",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_scholar_julian",
+   "text": "{npc.name}抱着一摞铜板图谱从书库出来，差点撞个满怀，扶正单片眼镜：正好，帮我按住这一角，齿槽的倾角只差最后一个数。"
+  },
+  {
+   "id": "hook_reynold_emerald_ring",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_bishop_reynold",
+   "text": "{npc.name}隔着铁栅慢慢转过身，祖母绿戒指在火光下一闪：深夜还留在法庭里？过来，让本主教看看是谁的人。"
+  },
+  {
+   "id": "hook_violette_vault_lamp",
+   "kind": "approach",
+   "location_ids": [
+    "loc_archive_secret_vault"
+   ],
+   "slot": "char_inquisitor_violette",
+   "text": "{npc.name}提着一盏琉璃油灯站在暗阁门口：今晚的卷宗太多。……进来，替我掌灯。"
+  }
+ ],
+ "id": "inquisition_dungeon_pact_reversal",
+ "locations": [
+  {
+   "affordances": [
+    "纯钢转轴探入齿槽施行微观物理杠杆自救",
+    "扬起双层防酸耐磨披风完全切断外围视线探查",
+    "侧身下潜贴紧石台内壁抵消牵拉形变"
+   ],
+   "detail": "二十米挑空古典大堂石阶向下延伸至主审案台。地底暗渠破裂溢流，水银毒液于地砖缝隙涌动；旋转铸铁防暴门偏位抱死，自锁齿槽死死咬合主审外袍底边暗扣。",
+   "exits": [
+    "loc_corridor_iron_gate",
+    "loc_archive_secret_vault",
+    "loc_channel_toxic_drain"
+   ],
+   "id": "loc_hall_tribunal_seat",
+   "name": "阶梯法庭主审大殿",
+   "pressure_modifiers": {
+    "press_mercury_rising_hazard": "水银毒水沿石阶向上翻涌侵袭"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "四周壁炉火光被升腾的水银白雾笼罩，正门回廊长靴踏步与甲胄撞击声如雷贯耳回荡在中庭，全场视线死死锁紧审判台受困死点。",
+   "witnesses": [
+    "bg_erik_officer",
+    "bg_clara_scribe"
+   ]
+  },
+  {
+   "affordances": [
+    "近卫军长枪横陈抵死门缝严禁外部无诏擅闯",
+    "隔门宣读生效裁判文书剥夺主教非法突袭借口"
+   ],
+   "detail": "由加厚生铁雕花栅栏构筑的双向回廊卡点，坚固的重锁插销将主审大厅与外界主教亲兵回廊牢牢阻隔，铁栏外侧已聚集全副武装之重甲圣武骑士。",
+   "exits": [
+    "loc_hall_tribunal_seat",
+    "loc_archive_secret_vault"
+   ],
+   "id": "loc_corridor_iron_gate",
+   "name": "回廊防暴阻隔重门",
+   "pressure_modifiers": {
+    "press_bishop_breach_hazard": "大门外重锤轰击金属轰鸣剧烈震颤"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "回廊火把通明，数十柄沉重精钢长戟在铁栅外投下密密麻麻交叉阴影，枢机主教威严阴冷身形已逼近栅门五步之内。",
+   "witnesses": [
+    "bg_august_vanguard",
+    "bg_erik_officer"
+   ]
+  },
+  {
+   "affordances": [
+    "锁闭金库气密大门避开水银蒸汽侵袭整理受损法袍",
+    "加盖最高公证印信核验生效案卷终审签字原本"
+   ],
+   "detail": "位于主审台后侧暗墙内之防潮全花岗岩密室，四壁嵌满冷轧生铁文件保险柜，厚重气密实心门可完全阻绝水银毒气与外部喧嚣。",
+   "exits": [
+    "loc_hall_tribunal_seat",
+    "loc_corridor_iron_gate"
+   ],
+   "id": "loc_archive_secret_vault",
+   "name": "审判机要暗阁保险室",
+   "pressure_modifiers": {
+    "press_conspiracy_verdict_deadline": "暗阁门外传来骑士巡逻急促铁靴脚步声"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "室内仅点燃一盏防爆防风琉璃油灯，光线柔和昏暗，地面干燥平整，备有整齐换洗审判法袍与应急防酸软膏披毯。",
+   "witnesses": [
+    "bg_clara_scribe",
+    "bg_elena_archivist"
+   ]
+  },
+  {
+   "affordances": [
+    "以长柄扳手强行旋动泄洪水阀降低审判席毒水水位",
+    "倾倒整桶高浓度硫化药剂中和挥发毒气密度"
+   ],
+   "detail": "审判席正下方石砌排水暗渠，破损之水银输送粗铜管正喷吐着惨白毒液，重型铸铁排污翻板阀生锈卡滞导致毒水无法顺畅排入深渊。",
+   "exits": [
+    "loc_hall_tribunal_seat"
+   ],
+   "id": "loc_channel_toxic_drain",
+   "name": "地下水银泄洪涵洞",
+   "pressure_modifiers": {
+    "press_drain_flood_backflow_hazard": "暗渠反冲高压迫使汞毒蒸汽上涌"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "毒雾弥漫能见度不足两米，水银池泛着冷冽死亡银光，必须踩踏生铁检修脚手架方可接近排污铜轮。",
+   "witnesses": [
+    "bg_bastian_plumber",
+    "bg_grete_medic"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "罗严",
+   "克莱",
+   "埃尔",
+   "拉图",
+   "杜邦",
+   "诺曼",
+   "席勒",
+   "哈特",
+   "莫兰",
+   "德维",
+   "卢瓦",
+   "贝朗"
+  ],
+  "given_female": [
+   "薇尔",
+   "索菲",
+   "碧翠",
+   "妮可",
+   "罗莎",
+   "黛芙",
+   "莉莉",
+   "爱丽",
+   "伊莎",
+   "玛蒂",
+   "奥萝",
+   "赛琳"
+  ],
+  "given_male": [
+   "朱利",
+   "雷恩",
+   "瓦勒",
+   "西蒙",
+   "马蒂",
+   "卢卡",
+   "维克",
+   "保罗",
+   "加斯",
+   "莱昂",
+   "费迪",
+   "亚瑟"
+  ],
+  "given_neutral": [
+   "凡",
+   "德",
+   "冯",
+   "杜",
+   "诺",
+   "拉",
+   "贝尔",
+   "圣",
+   "勒",
+   "瓦",
+   "米",
+   "洛"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留欧式古典裁判所、水银暗渠漫灌、旋转铸铁重闸咬死黑金法袍、女审判长倒持圣痕徽章撬开卡爪的骨架与名节张力。原稿与魔族女帝、豪门千金两个世界同一骨架，这里把结局拉向法理程序：新增审理期间武装擅入即属藐视法庭的世界规则，书记官当庭宣读条款、女审判长落槌，主教的金印手诏当场失效。原稿的玩家身份就是剧中人本人，改成教廷巡回监察使、外邦辩护律师、受邀检修闸门的钟表匠、地牢夜班狱卒四个旁人；补齐规则、风俗与名字池；近卫、学者、主教、炼金工匠、书记官身上串进来的画师、车厢、医护、工兵等别处文字全部改回裁判所；写死的人名改为身份称呼；女审判长亲密前提写明脱身之后、双方清醒自愿，新增几个不限地点的靠近型钩子和一个暗阁里替女审判长解开变形银扣的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    35,
+    52
+   ],
+   "baseline": "奉教廷之命巡视各地裁判所的特使，今晚本是来旁听终审，手里的监察印信连枢机主教也要让三分。",
+   "gender": "any",
+   "id": "pi_papal_legate",
+   "reputation": "以秉公严苛著称，所到之处各级教士都要连夜重抄账目。",
+   "resources": [
+    "教廷巡回监察的银质印信",
+    "一纸可当场调阅全部案卷的特许令"
+   ],
+   "risks": [
+    "巡视途中卷入地方夺权之争，被扣上偏袒的罪名"
+   ],
+   "role": "教廷巡回监察使",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}特使"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}阁下"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    42
+   ],
+   "baseline": "从邻国请来替被告辩护的律师，熟读教区法典，与女审判长在庭上针锋相对了整整七天。",
+   "gender": "any",
+   "id": "pi_defense_advocate",
+   "reputation": "口才锋利、寸步不让，旁听席上有人恨也有人敬。",
+   "resources": [
+    "一部批注密密麻麻的教区法典",
+    "被告亲笔签署的全权委托书"
+   ],
+   "risks": [
+    "被主教一派当成异端同党一并拘押"
+   ],
+   "role": "外邦辩护律师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}律师"
+    },
+    {
+     "gender": "male",
+     "pattern": "{given}先生"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    48
+   ],
+   "baseline": "城里手艺最好的钟表匠，受裁判所之邀检修审判台旋转闸门的齿轮，今晚恰好还没收工。",
+   "gender": "any",
+   "id": "pi_gate_clockmaker",
+   "reputation": "手艺精细到能修好百年老钟，从不过问齿轮之外的事。",
+   "resources": [
+    "一套精钢微型撬具与游标卡尺",
+    "闸门齿轮的手绘拆解草图"
+   ],
+   "risks": [
+    "闸门出事，被当成现成的替罪羊"
+   ],
+   "role": "受邀检修闸门的钟表匠",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{family}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    46
+   ],
+   "baseline": "裁判所地牢的夜班狱卒，管着通往暗渠与地牢的每一把钥匙，平日里连抬头看审判长的资格都没有。",
+   "gender": "any",
+   "id": "pi_dungeon_turnkey",
+   "reputation": "老实寡言，在地牢里待得比谁都久。",
+   "resources": [
+    "地牢与暗渠检修门的整串铁钥匙",
+    "一盏防风提灯"
+   ],
+   "risks": [
+    "开错一道门，就要被扔进自己看守的牢房"
+   ],
+   "role": "地牢夜班狱卒",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}看守"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "圣殿裁判所的阶梯大厅里，一位前首席女法官因“同情异端”被停职受审，案子拖了一个季度。教廷派来巡回监察使，外邦辩护律师替女法官出庭，钟表匠受邀检修大厅底槽那道老闸门。白天开庭、对质，夜里各自回廊下的客房。大厅地下的水银机关据说还能用。",
+ "pressures": [
+  {
+   "choice": "是否以纯银圣痕胸章挑击阻尼簧舌，抑或强行扯断法袍承受失仪风险？",
+   "exits": [
+    {
+     "cost": "白皙指节被铸铁齿轮棱角刮擦留下浅红生疼压痕",
+     "option": "踏住审判台凸起汉白玉石棱将长袍受力点上提三公分"
+    },
+    {
+     "cost": "纯银徽章边缘受金属强力反弹发生微量划痕磨损",
+     "option": "手腕施加四点二牛顿逆向剪切力矩别退自锁簧舌"
+    }
+   ],
+   "far": {
+    "consequence": "法官尊严受损失去公信力，教区司法主权沦陷。",
+    "due_days": 1,
+    "trigger": "毒水淹没法袍导致大面积灼蚀毁损"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_mercury_rising_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "底槽液体以每秒两厘米迅猛涌上台阶，挥发异味倒数急速迫近。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hall_tribunal_seat"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "白雾蒸腾翻滚漫过主审台底板，刺鼻汞蒸气逼近面庞令人窒息。"
+   },
+   "objective": "女审判长在毒水漫过靴帮前借助徽章撬开卡爪脱身并恢复从容姿态。",
+   "source": "nature",
+   "start_minute": 305,
+   "tags": [
+    "disaster"
+   ],
+   "title": "水银毒水蔓延逼近脚踝之绝命腐蚀威胁",
+   "trigger": "地下暗渠爆裂喷涌强腐蚀水银毒水，水位迅猛攀升漫向脚踝。"
+  },
+  {
+   "choice": "是否示意近卫以斗篷筑墙阻绝视线，抑或直接隔门当众重槌宣判？",
+   "exits": [
+    {
+     "cost": "手臂内侧真丝袖口因剧烈发力绷落一颗暗扣",
+     "option": "以主审法槌猛烈击响铜案勒令门外武装全员止步"
+    },
+    {
+     "cost": "斗篷正面承受门缝外火把飞溅之细微火星灼痕",
+     "option": "近卫队长跨步挺立双手展平双层黑斗篷封死大门视线"
+    }
+   ],
+   "far": {
+    "consequence": "主审法官被当场罢免，教区裁判所遭军事接管。",
+    "due_days": 1,
+    "trigger": "大门撞塌骑士长驱直入撞见受困窘态"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_bishop_breach_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "重甲骑士巨力撞击铁门爆出刺耳金属轰鸣，铁栅插销震颤欲断。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_corridor_iron_gate"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "骑士长靴皮靴声逼近拱门拐角不足十步，暴喝声已清晰可闻。"
+   },
+   "objective": "在铁门撞塌前完成脱身并重新正座落槌宣告判决生效。",
+   "source": "person",
+   "start_minute": 308,
+   "tags": [],
+   "title": "枢机主教武装亲兵强撞铁门破入搜捕危机",
+   "trigger": "枢机主教率武装骑兵持重锤猛击大门，沉重长靴踏阶逼近拱门。"
+  },
+  {
+   "choice": "选择半屈膝下潜顺势卸力，抑或微调钢轴角度强力撬除棘爪？",
+   "exits": [
+    {
+     "cost": "右膝外侧天鹅绒长靴受金属冰冷磨蹭染上微黑油灰",
+     "option": "借端庄宫廷半屈膝之姿顺应齿轮牵拉方向贴紧内壁"
+    },
+    {
+     "cost": "手腕筋膜承受短促角向剪切拉扯泛起阵阵酸麻",
+     "option": "倒握徽章三毫米钢轴以三十度斜角精准撬开自锁棘爪"
+    }
+   ],
+   "far": {
+    "consequence": "清冷审判长圣洁威仪扫地，沦为全城谈资笑柄。",
+    "due_days": 1,
+    "trigger": "法袍撕裂于众目睽睽下失去蔽体之物"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_robe_tear_exposure_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "真丝法袍经纬线受齿槽拉扯绷成紧绷细弦，薄纱濒临极限。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hall_tribunal_seat"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "领口暗扣被铁栅刮歪，法袍衣襟一路滑开，酥胸半露、香肩毕现，再挣一下就要当众失了体面。"
+   },
+   "objective": "不撕破法袍一针一线，保住审判长在满堂旁听者面前的威仪。",
+   "source": "accident",
+   "start_minute": 312,
+   "tags": [
+    "disaster"
+   ],
+   "title": "蛮力挣脱导致长袍撕裂大面积走光失仪困局",
+   "trigger": "真丝法袍受自锁齿槽拉扯死锁，稍有蛮力撕扯整件外袍必将崩解。"
+  },
+  {
+   "choice": "照学者算出的倾角一分一分加力，还是赌一把猛撬、拼着钢轴崩断？",
+   "exits": [
+    {
+     "cost": "精神高度紧绷额角沁出晶莹微汗打湿额前碎发",
+     "option": "严格依据学者计算之三十度倾角平稳导入剪切扭矩"
+    },
+    {
+     "cost": "修长身段在骤然脱力下微晃半步方才站稳脚跟",
+     "option": "卡爪弹开刹那借助反冲力向后滑步抽离真丝法袍"
+    }
+   ],
+   "far": {
+    "consequence": "长袍焊死于闸门深槽彻底陷入万劫不复死锁。",
+    "due_days": 1,
+    "trigger": "徽章转轴崩断失去唯一自救破拆工具"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_badge_bending_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "转轴硬刃与铸铁齿隙剧烈摩擦迸溅微弱冷星，阻尼簧舌死死咬合。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hall_tribunal_seat"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "纯钢转轴发生微量弹性形变极限，金属疲劳断裂警报大作。"
+   },
+   "objective": "严格控制手腕角向扭矩在四点二牛顿额定阈值内撬退簧舌。",
+   "source": "accident",
+   "start_minute": 314,
+   "tags": [
+    "disaster"
+   ],
+   "title": "徽章转轴在微观撬动下承受高负荷弯折风险",
+   "trigger": "纯钢转轴承受两百公斤铸铁反冲扭矩，稍有倾角偏差便会崩断。"
+  },
+  {
+   "choice": "拉开穹顶彩窗放走毒雾、任夜风扑灭火把，还是先拿药巾掩住口鼻、只剩一只手自救？",
+   "exits": [
+    {
+     "cost": "强劲夜风灌入卷灭大殿半数照明火把暗淡无光",
+     "option": "近卫拉动长索弹开大殿二十米高穹顶彩色琉璃排风窗"
+    },
+    {
+     "cost": "单手受限只能维持单手单侧发力自救姿态",
+     "option": "女审判长自暗袋取出浸泡草药之白真丝方巾掩住口鼻"
+    }
+   ],
+   "far": {
+    "consequence": "裁判所审理体系全线崩溃，涉案罪证遭彻底毁灭。",
+    "due_days": 1,
+    "trigger": "全员汞中毒昏厥任由主教武装摆布"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_drain_flood_backflow_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "惨白浓重毒雾迅速吞没下层石阶，空气中充满灼烧硫化异味。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_channel_toxic_drain"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "在场文职人员与警卫剧烈咳嗽双目刺痛，呼吸维艰。"
+   },
+   "objective": "在毒雾吞没全场前开启高空通风长索并中和沉淀毒液。",
+   "source": "nature",
+   "start_minute": 316,
+   "tags": [
+    "disaster"
+   ],
+   "title": "地下管网反冲高压迫使水银蒸气弥漫倒灌",
+   "trigger": "暗渠水压反冲导致高浓度挥发汞蒸汽倒灌进入阶梯法庭。"
+  },
+  {
+   "choice": "先落印让判决生效，还是先让书记官宣读藐视法庭条款、把主教钉在记录上？",
+   "exits": [
+    {
+     "cost": "袖口沾染微量未干之朱红印泥金粉斑点",
+     "option": "脱困瞬间女审判长单手按落纯金审判大印加盖羊皮正本"
+    },
+    {
+     "cost": "与枢机主教一派彻底撕破脸，复审庭上必有一场恶战",
+     "option": "书记官当庭宣读审理期间武装擅入即属藐视法庭的条款，请全场作证"
+    }
+   ],
+   "far": {
+    "consequence": "异端重犯被私自释放，公正司法程序彻底流产。",
+    "due_days": 1,
+    "trigger": "判决书未及盖印即遭主教兵力抢夺收缴"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_conspiracy_verdict_deadline",
+   "immediate": {
+    "minutes": 1,
+    "text": "大门木栓崩裂木屑飞溅，武装骑士前锋长戟已从门缝探入。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_archive_secret_vault"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "主教狂傲宣称接管之暴喝声震荡回廊，唯余最后数秒空档。"
+   },
+   "objective": "女审判长脱身后第一时间回到主审席落槌，让书记官把主教擅闯的时辰记入公证书，以程序反将一军。",
+   "source": "institution",
+   "start_minute": 318,
+   "tags": [],
+   "title": "藐视法庭条款在破门前当庭宣读入档之死线",
+   "trigger": "若判决文书未能赶在主教破门前生效将被剥夺合法公信力。"
+  }
+ ],
+ "region": "圣殿裁判所阶梯大厅",
+ "rules": [
+  {
+   "id": "rule_tribunal_adults",
+   "text": "裁判所里出庭、当值与旁听的每一个人都已成年，对自己的言行、去留与私情负全责。"
+  },
+  {
+   "id": "rule_pure_physics_unlatch",
+   "text": "地牢的每一道机关都是人造的，杠杆和楔子撬得开，祈祷和咒语撬不开。"
+  },
+  {
+   "id": "rule_robe_is_authority",
+   "text": "审判长的威仪就是审判长的权柄：法袍一旦当众撕裂失仪，主教一派便有理由以渎神之名申请停职复审。"
+  },
+  {
+   "id": "rule_contempt_of_court",
+   "text": "审理尚未终结时，任何武装未经主审口令踏入法庭，一律视为藐视法庭，其所持手令当庭失效。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "相约",
+  "committed": "誓约",
+  "familiar": "同盟",
+  "flirting": "默契",
+  "intimate": "信托",
+  "stranger": "结识",
+  "testing": "试探"
+ },
+ "status": "released",
+ "style_hint": "古典哥特、精密力学、冷冽威仪、绝境反转",
+ "tension_engines": [
+  {
+   "id": "engine_inquisition_gear_trap",
+   "text": "暗渠爆裂喷涌剧毒水银，水位以每秒两厘米攀升漫向靴底，毒雾弥漫；防爆回转重闸因地动偏位抱死，两百公斤齿轮咬死黑金法袍下摆与纯银锁扣，经纬金线紧绷至极限，距毒水吞没与骑士团破门而入仅余二十秒死线！"
+  },
+  {
+   "id": "engine_bishop_breach_countdown",
+   "text": "枢机主教率领数十名全副武装重骑兵手持破门重锤踏响回廊石阶，沉重铁靴脚步声逼近拱门仅余十五步，防暴铁栅在巨力推击下剧烈震颤呻吟，稍有延迟便将被撞破现场撞见女审判长受困窘态！"
+  },
+  {
+   "id": "engine_sacred_robe_damage_risk",
+   "text": "黑金真丝审判长袍代表司法纯洁威仪，强行拉拽必将瞬间撕裂轻薄真丝内衬导致大片雪白香肩走光；一旦衣衫不整受困窘态被主教卫队捕获把柄，将直接面临剥夺法袍与异端构陷之双重极刑！"
+  },
+  {
+   "id": "engine_lever_unlatch_mechanics",
+   "text": "女审判长反握冷锻加厚纯银正十字圣痕徽章，将外沿三毫米高硬度倒角纯钢加固转轴探入配重齿槽死穴，依据杠杆原理以三十度倾角施加四点二牛顿角向剪切偏转力矩，精准挑起自锁单向卡爪使咬死金丝脱扣抽离！"
+  }
+ ],
+ "title": "异端审判·反转牢笼·圣殿裁判所铸铁旋转重闸咬死黑金法袍暗扣",
+ "tone": [
+  "严肃高压",
+  "机械卡扣",
+  "智斗反转",
+  "硬核自救"
+ ],
+ "twists": [
+  {
+   "category": "人事",
+   "id": "twist_water_valve_sabotage",
+   "requires": [],
+   "text": "水银暗渠阀门竟系枢机主教密使蓄意切断连杆制造水患，企图借救灾之名夺取法庭控制权。"
+  },
+  {
+   "category": "资源",
+   "id": "twist_badge_axis_dual_purpose",
+   "requires": [],
+   "text": "首席圣痕徽章内部暗藏历代相传之淬火高硬度倒角钢轴，化为微观物理杠杆破拆神兵利器。"
+  },
+  {
+   "category": "时限",
+   "id": "twist_gear_flaw_known",
+   "requires": [],
+   "text": "审判台回转闸门自锁缺陷早被学者记录于图谱，三十度斜向施力可瞬间顶退自锁簧舌。"
+  },
+  {
+   "category": "关系",
+   "id": "twist_guard_unshakable_loyalty",
+   "requires": [],
+   "text": "近卫骑士团长顶住主教重装兵力威逼严词拒阻，为审判长争取至关重要的脱险二十秒。"
+  },
+  {
+   "category": "信息",
+   "id": "twist_toxic_rising_halted",
+   "requires": [],
+   "text": "炼金工匠奋力转动备用泄水轮，使水银毒水在淹没主审靴面一寸前紧急刹车排空。"
+  },
+  {
+   "category": "制度",
+   "id": "twist_verdict_seal_completed",
+   "requires": [],
+   "text": "大门撞开刹那，书记官当庭宣读藐视法庭条款，女审判长落槌，主教的金印手诏当场失效，率兵闯入的一方反成被告。"
+  }
+ ]
+}

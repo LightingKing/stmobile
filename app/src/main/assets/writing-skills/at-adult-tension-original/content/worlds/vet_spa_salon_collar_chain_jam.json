@@ -1,0 +1,2486 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满四十五周岁高端家族合伙人名门阔太，对纯种爱犬水疗流程严格验收。",
+   "age_range": [
+    45,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "female",
+   "id": "bg_vip_client_mrs_song",
+   "line": "十五秒到了，贵妇客户可要推门亲眼看看宝贝毛发有多蓬松！",
+   "location_ids": [
+    "loc_pet_spa_glass_hall_center",
+    "loc_spa_glass_door_entrance_step"
+   ],
+   "name": "钱太太",
+   "role": "贵妇客户的闺蜜"
+  },
+  {
+   "adult_context": "会所前台助理毕业，年满二十五岁，负责贵宾大浴巾展收与视线掩护。",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_concierge_an_xiao_nian",
+   "line": "院长安心，前台主管把定制出浴披巾高高拉直了，贵妇客户被前台主管挡住了！",
+   "location_ids": [
+    "loc_pet_spa_glass_hall_center",
+    "loc_spa_glass_door_entrance_step",
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "name": "小葵",
+   "role": "前台迎宾"
+  },
+  {
+   "adult_context": "机电测控专科毕业班年届三十七岁，持特种压力设备操作资质技师，负责水汽管压巡检。",
+   "age_range": [
+    37,
+    37
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_mechanic_han_tie_cheng",
+   "line": "卡死的是急停微动开关，用圆头剪背向下猛别！",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook",
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "name": "老范",
+   "role": "水疗舱机电设备技师"
+  },
+  {
+   "adult_context": "兽医外科硕士在读年届二十三岁成年男子，负责重型水疗仪器突发医疗照护。",
+   "age_range": [
+    23,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_clinical_director_lin",
+   "line": "水疗大厅保持无菌肃静，贵妇客户请在门前稍作留步听取皮毛分析报告！",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook",
+    "loc_spa_glass_door_entrance_step"
+   ],
+   "name": "阿树",
+   "role": "外科住院兽医"
+  },
+  {
+   "adult_context": "视觉传达本科四年级年满三十五岁成年摄影人，负责官方纪实抓拍。",
+   "age_range": [
+    35,
+    35
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_telephoto_pet_photographer",
+   "line": "爱犬出浴倒数归零了，摄影机位准备抓拍美女院长圣洁同框特写！",
+   "location_ids": [
+    "loc_pet_owner_lounge_observation_deck",
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "name": "阿哲",
+   "role": "特邀萌宠长焦摄影师"
+  },
+  {
+   "adult_context": "临床护理系毕业，年满二十六周岁成年护士，专职水疗舱消毒与吹风辅佐。",
+   "age_range": [
+    26,
+    26
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_spa_assistant_nurse",
+   "line": "烘干风道与恒温水泵已就绪，若溪随时为院长递送无菌吸水毛巾！",
+   "location_ids": [
+    "loc_pet_owner_lounge_observation_deck",
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "name": "护士若溪",
+   "role": "水疗中心协助护士"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "高冷外科副院长在门外的每一句沉稳汇报阻截，皆化作院长指尖剪刀背破拆的定海神针；院长前襟受拉紧绷的每一下起伏，皆牵动着副院长心头最深沉的守护涟漪。",
+   "id": "combo_director_and_surgeon_trust",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "vet_director_xu_an_ran",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "在水疗大厅密切注视院长剪刀背破拆进展并协同控制白雾掩护。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "clinical_director_lin_jing_xing",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "同为医院核心医疗骨干保持绝对的战术配合与信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "vet_director_xu_an_ran",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "clinical_director_lin_jing_xing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "诊所内外生死相托的顶尖搭档，眼神交汇便明进退。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "vet_director_xu_an_ran",
+    "clinical_director_lin_jing_xing"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保名贵纯种犬完好无损且美女院长完美从容破拆迎客。",
+    "limit_gap": "贵妇进门验收的严苛读秒与颈间白金项圈咬死剧痛的极限拉锯",
+    "meeting_reason": "出浴前十五秒，副院长在大厅另一头准备吹风台，提醒院长把机械臂先收回来。",
+    "resource_gap": "副院长对副院长对全院精密医疗设备总闸的支配权与液压臂夹缝两毫米微观物理自救空间的巨大反差"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_hydraulic_arm_collar_chain_snag",
+    "eng_mrs_song_fifteen_approach_rush"
+   ]
+  },
+  {
+   "chemistry": "前台小妹纯丝缎大披巾的灵动阻隔与院长沉着自救的侧颜交织，空气中充斥着绝处逢生的姐妹默契。",
+   "id": "combo_director_and_concierge_shield",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "vet_director_xu_an_ran",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "在极度危机中全力协助女院长维持体面视线死角。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "concierge_lead_an_xiao_nian",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "并肩守护诊所名誉与女院长清白形象。",
+     "stage": "familiar"
+    },
+    {
+     "a": "vet_director_xu_an_ran",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "concierge_lead_an_xiao_nian",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "生死相托的知心姐妹，无声默契坚如金石。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "vet_director_xu_an_ran",
+    "concierge_lead_an_xiao_nian"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在不惊动全透明窗前等候的众多名门贵妇前提下悄无声息消弭这场社死风暴。",
+    "limit_gap": "贵妇客户推门巡视的无情逼近与受困女院长绝境中的超常冷静应变",
+    "meeting_reason": "前台主管抱着出浴披巾冲过来，看见院长被机械臂勾住，把披巾拉高挡住窗外。",
+    "resource_gap": "丝缎大披巾的正面拦截调动与钝头医用剪刀的微观力学破拆自救"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_scrub_suit_collar_strain_tear_panic",
+    "eng_hydraulic_arm_collar_chain_snag"
+   ]
+  },
+  {
+   "chemistry": "苛刻名媛贵妇的上位者审视与成年美女院长的医德傲骨，在水疗舱门前碰撞出令人屏息的阶层心理张力。",
+   "id": "combo_client_vs_director_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 4
+     },
+     "b": "vet_director_xu_an_ran",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 4
+     },
+     "reason": "在贵妇推门逼视下见证女院长绝境自救。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "vip_client_mrs_song",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "承受来自挑剔贵宾名媛的冷傲挑剔威压。",
+     "stage": "stranger"
+    },
+    {
+     "a": "vet_director_xu_an_ran",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 3
+     },
+     "b": "vip_client_mrs_song",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 3
+     },
+     "reason": "医者仁心傲骨与挑剔资本特权的正面对决。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "vet_director_xu_an_ran",
+    "vip_client_mrs_song"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在贵妇进门脚步停驻前的最后一秒合规抱犬迎客。",
+    "limit_gap": "十五秒极速推门与刷手服领口受拉撕裂边缘的紧迫博弈",
+    "meeting_reason": "贵妇客户等得不耐烦，推开磨砂玻璃门要亲眼看自家爱犬。",
+    "resource_gap": "贵妇客户手握巨额撤资与名媛圈抵制特权与院长仅凭一把小剪刀自救的悬殊对比"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_mrs_song_fifteen_approach_rush",
+    "eng_telephoto_lenses_outside_dread"
+   ]
+  },
+  {
+   "chemistry": "挺拔高冷的外科副院长与傲慢阔太在玻璃门台阶前形成的如冰对峙，以专业流程硬生生截断了窥探脚步。",
+   "id": "combo_client_vs_surgeon_clash",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "vip_client_mrs_song",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "配合副院长果断对推门客户出示皮毛报告并周全阻隔。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "clinical_director_lin_jing_xing",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "坚决执行医疗防线指令构筑坚不可摧的团队屏障。",
+     "stage": "familiar"
+    },
+    {
+     "a": "vip_client_mrs_song",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "clinical_director_lin_jing_xing",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "傲慢阔太遭遇冷峻外科医者铁壁后的微弱忌惮。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "vip_client_mrs_song",
+    "clinical_director_lin_jing_xing"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "将贵妇客户阻拦在门前为院长筑牢最后三米绝对体面防线。",
+    "limit_gap": "维护无菌水疗神圣流程与抵御无关人员违规探视的严正博弈",
+    "meeting_reason": "副院长迎上去拦住贵妇客户，捧出一份皮毛检测报告，替院长争出十几秒。",
+    "resource_gap": "现场医疗总监绝对专业解释权与客户资本特权的正面交锋"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_telephoto_lenses_outside_dread",
+    "eng_mrs_song_fifteen_approach_rush"
+   ]
+  },
+  {
+   "chemistry": "休息区外长焦镜头的敏锐捕捉与水疗台前院长圣洁优雅的自救侧颜交相辉映，光影拉扯烘托极致高潮。",
+   "id": "combo_photographer_director_spotlight",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "vet_director_xu_an_ran",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "注视着青年女院长从危机阴影走向聚光灯的绝世风采。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "media_photographer_zhao_xiu_yuan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "认可摄影师恪守新闻伦理的专业品格。",
+     "stage": "familiar"
+    },
+    {
+     "a": "vet_director_xu_an_ran",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "media_photographer_zhao_xiu_yuan",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "治愈名医与专业视觉艺术家之间的隔空致敬。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "vet_director_xu_an_ran",
+    "media_photographer_zhao_xiu_yuan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在千万爱宠人士眼前定格美女院长温柔仁心的神级无瑕宣发画面。",
+    "limit_gap": "长焦镜头聚焦与女医者私密项圈濒临曝光的凶险博弈",
+    "meeting_reason": "摄影师举着长焦想抓拍出浴瞬间，被副院长一个眼神拦了回去。",
+    "resource_gap": "官方大片镜头语言掌控权与台前女院长方寸之间微观脱困的明暗反差"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_telephoto_lenses_outside_dread",
+    "eng_scrub_suit_collar_strain_tear_panic"
+   ]
+  },
+  {
+   "chemistry": "在全景水疗舱方寸极限空间内，院长呼吸清浅眼神若秋水，以超越常理的沉稳机智完成绝处逢生的破拆传奇。",
+   "id": "combo_director_and_player_breakout",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "vet_director_xu_an_ran",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "在极度危机中以无声默契结下的患难敬佩之约。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "vet_director_xu_an_ran"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在贵妇推门脚步抵达的刹那助院长重获自由从容抱犬成就绝世高光。",
+    "limit_gap": "落地玻璃窗外十多名名流注视下的绝对隐秘自救要求不得产生半丝突兀失态",
+    "meeting_reason": "打烊后的会馆里，副院长替院长揉着酸疼的后颈，两人一起看水疗舱里的灯慢慢暗下去。",
+    "resource_gap": "院长受制于液压死锁而周围具备微薄的医用工具杠杆自救支点"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_hydraulic_arm_collar_chain_snag",
+    "eng_scrub_suit_collar_strain_tear_panic"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_pet_spa_public_intercom_pa",
+   "reach": "全场数十名贵宾客户、导医台、水疗大厅与护理操作台",
+   "text": "名宠医疗水疗会所全景大厅公共广播系统"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_hospital_medical_encrypted_radio",
+   "reach": "院长操作台、副院长手术室与维保技师耳麦",
+   "text": "宠物医院医护内部专属加密降噪对讲网络"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_concierge_front_desk_whisper_line",
+   "reach": "前台主管前台总控、水疗室对讲端与技师机电技师对讲机",
+   "text": "前台接待专属静音耳麦联络频段"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "动物医学硕士毕业，执业兽医第七年，自己开了这家名宠水疗会馆，私下戴什么、跟谁亲近都由本人拿主意。",
+   "age_range": [
+    28,
+    31
+   ],
+   "appearance_options": [
+    "素颜清丽绝尘，眉目柔和清润若江南烟雨，唇瓣如初绽樱花娇嫩，两颊留存少许紧致微婴儿肥与水润胶原蛋白反差娇美，美眸若一泓秋水清澈治愈。",
+    "身着浅粉色医用速干修身无菌刷手服上衣配修身九分裤，内衬纯白透气棉质小背心，V领开领内侧隐秘佩戴白金小狗项圈细链，身姿曼妙纤细。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目撕拉导致薄衫领口彻底扯裂",
+     "在全景水疗大厅发出失态尖叫",
+     "被客户借此借口当众问责索赔"
+    ],
+    "contrast": "平时看似温柔似水的治愈系仙子，面对灭顶走光危机时指尖却展现出极其惊人的机械冷酷与微观杠杆魄力。",
+    "core_value": "誓死捍卫执业兽医师尊严与纯洁风骨，绝不向任何人呼救，纯靠冷静定力与微观机械智慧自救脱困。",
+    "goal_options": [
+     "在贵妇推门进来看进度前用圆头剪刀背顶开微动开关弹开机械臂并抚平刷手服",
+     "侧身前倾维持单手抚犬温柔姿态绝不让窗外长焦镜头察觉胸前死锁"
+    ],
+    "never": [
+     "因慌乱放弃执业医德风骨",
+     "让纯洁圣洁的名誉蒙受恶俗非议"
+    ],
+    "prefers": [
+     "绝对精密的微观物理自救",
+     "台前万众倾倒的从容仪态",
+     "克制深沉的无声守护"
+    ],
+    "pressure_responses": {
+     "breaking": "在气阀泄压瞬间反向推脱横臂抱箍并接应宋婉儿递来的磁吸扣迅速扣好前襟",
+     "high": "在导播推流读秒长鸣刹那同搭档一同垂直下压背夹克服八百牛顶力",
+     "low": "双手死死按在讲台木质边缘以极低气声下达排障破拆指令掩饰内心惊涛骇浪",
+     "mid": "忍受胸衣金属骨架勒紧压迫紧贴讲台内侧配合搭档调整翻页笔背夹插入角度"
+    },
+    "relationship_stance": "对每只狗都温柔得不像话，对副院长却会撒娇；领口里那条项圈的钥匙，只给过一个人看。",
+    "withdrawal": "左手温柔安抚躁动的名犬后背稳住身形，美眸柔和微垂，右手借取毛巾之势极自然地抽出钝头圆头医用剪刀。"
+   },
+   "gender": "female",
+   "gender_reason": "名宠水疗会馆的治愈系美女院长，执业兽医。",
+   "id": "vet_director_xu_an_ran",
+   "identity": {
+    "authority": "全院诊疗水疗项目终审支配权与突发意外特种设备处置决断权",
+    "exposure": "私下佩戴的隐秘白金项圈一旦在落地玻璃窗前撕裂曝光，神圣医德声誉将当场碎裂沦为恶俗话题。",
+    "hidden": "{npc.name}胸前工卡暗格藏有一柄弧背达三点五毫米的医美小钢剪，实为专别常闭卡簧的脱困秘钥。",
+    "limits": [
+     "不能在满厅客人和长焦镜头前让项圈细链扯开衬衫，也不能惊着池子里正在做水疗的狗"
+    ],
+    "obligations": [
+     "维系顶级治愈系宠物女院长的神圣专业形象",
+     "十五秒内化解死锁完成名犬洗护迎检"
+    ],
+    "resources": [
+     "随身特制加厚钝头外科剪",
+     "工卡夹层别针微型高亮检查笔"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在危难之际以宽阔肩背恰到好处挡住玻璃视线的沉稳男子气概",
+     "彼此心照不宣的眼神信任"
+    ],
+    "boundaries": [
+     "严禁外人触碰浅粉刷手服前襟与私密白金项圈"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "成为全国高端宠物医疗界无可撼动的无瑕第一青年美女院长。",
+    "dislikes": [
+     "借端茶之名居心叵测揩油的傲慢纨绔",
+     "恶俗无下限的猎奇偷拍",
+     "轻浮自大之辈"
+    ],
+    "expression": "秀美唇角勾起一抹若有若无的出尘微笑，眼神温润平视小狗，右手食指娴熟反握剪刀背探入舱隙精准下压顶开气动触点。",
+    "likes": [
+     "沉稳可靠的幕后默契相助",
+     "懂分寸知轻重的绅士举动",
+     "纯粹神圣的医者仁心共鸣"
+    ],
+    "preconditions": [
+     "液压死锁顺利化解且贵宾名犬惊艳出浴交付",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "名宠水疗会馆院长兼水疗护理首席兽医",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_pet_spa_glass_hall_center",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_hydrotherapy_tub_hydraulic_nook",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_pet_spa_glass_hall_center",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "颈侧白皙肌肤被金细链勒出浅浅压痕且单手别撬指根微麻。",
+      "option": "反握钝尾医美纯钢小剪以舱壁为支点施加三点八牛顿力矩下压触点弹开液压臂脱险。"
+     },
+     {
+      "cost": "临时开关雾化玻璃可能引来挑剔客户关于操作遮掩的当场质疑。",
+      "option": "向副院长投去眼神示意借启动玻璃雾化功能争取五秒缓冲时间。"
+     }
+    ],
+    "pressure": "贵妇客户推开磨砂门迈上水磨石台阶仅剩十五秒，浅粉刷手服受拉紧绷欲裂，落地窗外数双长焦大炮聚焦。",
+    "trigger": "俯身给名犬梳理腹部被毛时刷手服领口内侧白金项圈滑入自动液压机械臂下压死角挂住。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "白金项圈被液压臂挂钩咬死了，贵妇客户推开玻璃门了，剪刀背只要抵住急停触点用力下压就能弹开脱险！",
+    "surface": "贵妇客户请看爱犬毛发，经由微泡恒温水疗深层滋养，原本打结处已完全蓬松光泽。"
+   }
+  },
+  {
+   "adult_context": "小动物外科博士毕业，执业十年，会馆的副院长兼外科主任，具备完全民事行为能力。",
+   "age_range": [
+    31,
+    35
+   ],
+   "appearance_options": [
+    "身材修长挺拔，身穿极简深蓝无菌刷手服，佩戴金丝边无框防飞溅眼镜，下颌线条分明，眼神沉稳如冰潭般深邃。",
+    "手持水疗舱中控遥控平板，立于水疗大厅玻璃门侧翼，双眸深邃锐利注视着洗狗舱内细微压力波动，极具可靠气场。"
+   ],
+   "decision": {
+    "avoids": [
+     "任何失控粗暴的医疗事故",
+     "轻浮二世祖对女性医者的恶意刁难",
+     "推诿扯皮"
+    ],
+    "contrast": "平时看似不苟言笑的外科极客，在院长遭遇危机时展现出的掩护策略却极尽深沉果决。",
+    "core_value": "以极致硬核的医术掌控捍卫诊所尊严，誓死守护心中的治愈女院长不受半点侵害。",
+    "goal_options": [
+     "以汇报纯种犬皮毛酸碱度为由手持平板横跨在客户身前阻断贵妇客户逼近脚步",
+     "巧妙启动水疗舱侧翼洗狗舱侧向专用暖风烘干风道吹起水汽白雾遮挡侧向机位"
+    ],
+    "never": [
+     "坐视心爱之人陷于险境受辱",
+     "对违规擅闯水疗室的行径妥协退让"
+    ],
+    "prefers": [
+     "分毫不差的操作精度",
+     "临危不乱的机械解构",
+     "风雨同舟的隐忍照料"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷发声瞬间停住脚步退回侧幕维持同僚体面",
+     "high": "迈步登上红地毯台阶准备直接切入讲台中央核心演讲区",
+     "low": "在对讲机中平稳催促台前人员汇报讲台升降测试状态",
+     "mid": "迈步逼近侧翼台阶手持备用麦克风大声询问会长是否身体不适"
+    },
+    "relationship_stance": "陪院长把会馆从一间小诊所做到今天，手术台上冷静得吓人，只在院长面前笨手笨脚。",
+    "withdrawal": "单手插兜从容立于玻璃门侧翼，用极度冷峻威严的目光扫视窗外长焦镜头压制躁动。"
+   },
+   "gender": "male",
+   "gender_reason": "会馆的副院长兼外科主任，院长的合伙人。",
+   "id": "clinical_director_lin_jing_xing",
+   "identity": {
+    "authority": "全院大功率仪器设备动力总控切断权与突发急救干预权",
+    "exposure": "若因设备操作失控导致名贵动物受伤将面临行规严厉问责",
+    "hidden": "{npc.name}早已在后台压力传感器上察觉液压臂反常嵌顿，果断大步跨出以挺拔身躯挡在贵妇客户身侧阻断逼近视线。",
+    "limits": [
+     "严禁在贵宾水疗期间擅自全盘切断总电源导致水泵急停",
+     "非紧急抢救不得擅自推门闯入女院长水疗核心区"
+    ],
+    "obligations": [
+     "确保价值数百万高端医疗水疗设备绝对安全",
+     "捍卫顶级宠物诊疗中心全流程专业形象"
+    ],
+    "resources": [
+     "洗狗舱专用气动急停无线控制端",
+     "医用高分子吸附速干灭菌巾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "温柔外表下运用剪刀背微观挑开触点的极客反差魄力",
+     "坚毅清雅的目光"
+    ],
+    "boundaries": [
+     "严守执业兽医师职业操守边界，非危急关头绝不逾矩"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "成为院长身后最坚实可靠的硬核护航者。",
+    "dislikes": [
+     "缺乏修养在诊疗区喧哗的傲慢客户",
+     "恶俗无下限的狗仔偷拍",
+     "轻浮自大之辈"
+    ],
+    "expression": "在对讲机中沉稳下达泄压配合指令，同时向前迈出半步以高大身躯挡住石阶上方视线：“贵妇客户请稍候，微泡渗透已至关键吸收阶段。”",
+    "likes": [
+     "院长出尘脱俗的仙子风采",
+     "在危急时刻展现出的惊人自救智慧",
+     "心领神会的默契配合"
+    ],
+    "preconditions": [
+     "液压卡阻平稳排除且特展名犬水疗圆满收官",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "宠物医院副院长兼外科主任",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_pet_spa_glass_hall_center",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_spa_glass_door_entrance_step",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_pet_spa_glass_hall_center",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "可能被贵妇客户借题发挥抱怨阻挡探视爱犬。",
+      "option": "手持病历夹大步跨至门前以汇报毛囊数据为由阻断贵妇客户推门脚步。"
+     },
+     {
+      "cost": "水汽调整可能引来窗外宠主关于烘干流程改变的注意。",
+      "option": "通过智能控台开启水疗舱侧向暖风风道形成水汽屏障遮蔽侧向视线。"
+     }
+    ],
+    "pressure": "贵妇客户优雅迈上防雾门石阶仅剩两米，落地窗外多家长焦镜头对准水疗台近景。",
+    "trigger": "后台传感器敏锐测得洗狗机滑轨压力异常飙升，监视屏显示院长浅粉刷手服前襟受拉紧绷。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "院长项圈细链被液压臂勾死了，贵妇客户只差三步进门，{npc.name}得用皮毛检验单挡在入口，帮院长争取十五秒！",
+    "surface": "微泡水疗渗透率处于甲级区间，液压臂运转平稳，名犬体征状态优良。"
+   }
+  },
+  {
+   "adult_context": "机械电气控制学科本科应届达法定成年资格，持特种压力容器执照，专司水疗管压维护。",
+   "age_range": [
+    29,
+    32
+   ],
+   "appearance_options": [
+    "身穿深灰防静电工程连体工装，手持高精度内六角扳手与测电笔，面容刚毅皮肤略黝黑，眼神专注警惕。",
+    "半跪在水疗舱后部管路检修口，手戴绝缘手套，对水疗舱每一根油管与气动开关构造了如指掌。"
+   ],
+   "decision": {
+    "avoids": [
+     "粗暴盲动导致管路损坏",
+     "浮躁推诿",
+     "在客户面前造成混乱"
+    ],
+    "contrast": "平时不善言辞的朴实技师，在发生机械咬死危急关头却展现出极其过硬的结构感知力。",
+    "core_value": "以硬核工匠技术捍卫设备零故障，决不容许器械缺陷危及女院长安全。",
+    "goal_options": [
+     "隔着检修暗格用厚织毛巾托住液压臂外壁分担自救下压扭矩",
+     "用手势向院长示意剪刀背卡位下挑的最佳物理力矩支点"
+    ],
+    "never": [
+     "因违章操作加剧人身伤害",
+     "向不合理的蛮干妥协"
+    ],
+    "prefers": [
+     "毫厘不差的机械配合",
+     "沉着高效的物理自救",
+     "踏实可靠的幕后支持"
+    ],
+    "pressure_responses": {
+     "breaking": "看到顾冷霜完成暗扣闭合瞬间果断下推T杆完成神级切镜",
+     "high": "在团委催促推流指令下强行插入两秒礼堂全景空镜头过渡",
+     "low": "在耳麦中短促播报推流倒计时并督促台前清场",
+     "mid": "发现特写画面纽扣脱落异样时右手悬停在T型推杆上暂缓切镜"
+    },
+    "relationship_stance": "对院长的仁心医德由衷敬佩，对傲慢挑剔的客户保持纯粹工匠式的距离感。",
+    "withdrawal": "半隐在后部检修挡板阴影下，双手紧扣工具箱，屏息静气提供暗中技术支撑。"
+   },
+   "gender": "male",
+   "gender_reason": "宠物水疗舱机电工程维保技师由具备二十九岁成年执业资质男性出任",
+   "id": "facility_mechanic_han_tie_cheng",
+   "identity": {
+    "authority": "水疗舱气动与液压动力管路应急拆卸断阀权",
+    "exposure": "若因维保疏漏导致设备故障引发纠纷将遭受开除扣证",
+    "hidden": "{npc.name}深知水疗舱气动急停触点弹簧片存在微弱复位疲劳，早已准备好在暗处协助支应。",
+    "limits": [
+     "严禁在带压状态下强拆主油管防止高温液压油喷溅",
+     "不得擅离检修工位"
+    ],
+    "obligations": [
+     "排除液压升降臂微动卡滞故障，确保客户爱犬安全无虞"
+    ],
+    "resources": [
+     "进口多规格内六角机械扳手套组",
+     "便携式特种液压回路测压表针"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "院长纤细指尖运剪如风的刚强反差魅力",
+     "清澈坚定的眼神"
+    ],
+    "boundaries": [
+     "严守机电工程维保安全规范边界，绝不逾矩"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "成为宠物会所最值得信赖的首席机电设备后盾。",
+    "dislikes": [
+     "缺乏器械常识盲目蛮干之徒",
+     "违章操作特种设备之辈",
+     "推诿责任之人"
+    ],
+    "expression": "在检修口轻咳一声沉稳低语：“院长别慌，触点卡簧在右上角两毫米处，剪刀背向下压施力近四牛顿即可弹开！”",
+    "likes": [
+     "院长冷静沉着的破拆智慧",
+     "通情达理的包容态度",
+     "默默无闻的互相守护"
+    ],
+    "preconditions": [
+     "液压机械死锁彻底排除且设备安全复位"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "特种水疗机电设备工程师",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_hydrotherapy_tub_hydraulic_nook",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_hydrotherapy_tub_hydraulic_nook",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_pet_spa_glass_hall_center",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "需要技师承受未经报备靠近水疗内区的微弱违规风险。",
+      "option": "隔着检修窗用戴绝缘手套的手掌死死稳住液压臂外壳协助院长撬断锁止。"
+     },
+     {
+      "cost": "放气阀微弱排气嘶声可能引起门口贵妇的注意。",
+      "option": "手动拨动备用泄气阀释放机械臂液压负荷提供微米级解脱间隙。"
+     }
+    ],
+    "pressure": "贵妇客户已迈上门口台阶，十五秒内必须完成气动触点微观解扣。",
+    "trigger": "检修仪表捕捉到液压机械臂行程过载卡阻，目睹院长前胸项圈细链被挂钩卷死。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "院长细链被机械臂死死挂住了，贵妇马上推门了，得在暗处帮院长把住外壳受力点！",
+    "surface": "管路压力正常，负压微泡发生器运行平稳，无回流堵塞迹象。"
+   }
+  },
+  {
+   "adult_context": "公共关系与会展商务系毕业，年满四十周岁成年人，依法享有完全独立民事权利，负责VIP贵宾接引与隐私防护。",
+   "age_range": [
+    40,
+    43
+   ],
+   "appearance_options": [
+    "娇俏可爱鹅蛋圆脸，双眸水灵灵顾盼生姿，盘着温婉丸子头，身穿修身米白色前台管家套装，胸前佩戴金底工牌。",
+    "手持VIP贵宾接待平板电脑，微笑着快步走在贵妇客户身侧，身段轻盈灵动，举手投足极富商务礼仪教养。"
+   ],
+   "decision": {
+    "avoids": [
+     "任何外人窥见院长领口破绽",
+     "客户与医护发生摩擦",
+     "会所声誉受损"
+    ],
+    "contrast": "平时看似娇小甜美的元气前台，在院长遭遇窘境时展现出的迎宾遮掩魄力却极尽沉稳机警。",
+    "core_value": "全心全意维护院长的崇高形象，以超高情商化解一切场外突发尴尬危机。",
+    "goal_options": [
+     "迅速上前展开大尺寸高级丝缎出浴遮巾筑起视线防线",
+     "热情向贵妇客户呈递养宠手作甜品诱使其驻足沙龙区延缓推门步伐"
+    ],
+    "never": [
+     "在挑剔客户面前慌乱退缩",
+     "背离对院长的绝对忠诚"
+    ],
+    "prefers": [
+     "院长的神级从容高光",
+     "滴水不漏的公关周旋",
+     "患难与共的姐妹情谊"
+    ],
+    "pressure_responses": {
+     "breaking": "在讲台侧后方用红丝绒托盘斜立遮挡光线以极快手法递入暗扣",
+     "high": "迈开优雅端庄的礼仪步伐抢在陆晨舟之前从侧翼台阶移步登台",
+     "low": "在侧幕边缘端正托盘平稳呼吸密切注视讲台前襟状态",
+     "mid": "发现纽扣崩落瞬间悄悄从夹层扣出磁吸扣捏在掌心手汗中"
+    },
+    "relationship_stance": "对院长充满崇拜依赖，对挑剔傲慢的贵妇客户保持表面极其殷勤骨子里高度戒备。",
+    "withdrawal": "双手拉直大披巾两侧金流苏立于玻璃门内侧，神态自若展现无可挑剔的服务体态。"
+   },
+   "gender": "female",
+   "gender_reason": "名宠会所前台领班兼VIP联络官由四十岁成年人出任",
+   "id": "concierge_lead_an_xiao_nian",
+   "identity": {
+    "authority": "前台会客厅动线调度权与落地玻璃电控雾化遮蔽权",
+    "exposure": "若因接待失职导致客户与院长发生冲突将面临严重岗位处分",
+    "hidden": "{npc.name}深知院长极度反感走光露底，一见情势危急立刻巧妙借出浴披巾和身体构筑第一道视线屏障。",
+    "limits": [
+     "誓死维护院长形象与隐私尊严，杜绝一切非分窥视"
+    ],
+    "obligations": [
+     "周旋应对名流客户各类苛求并确保服务流程严丝合缝"
+    ],
+    "resources": [
+     "会所VIP客户接待电子档案簿",
+     "定制防抓咬亲肤透气迎宾披风"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "院长在绝境中单手运剪下压脱困的王者气度",
+     "处惊不变的眼神"
+    ],
+    "boundaries": [
+     "严守客户接待职业防线，绝不容许任何人突破隔离屏风"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "成为院长身边最机灵贴心的公关与生活管家。",
+    "dislikes": [
+     "故意挑剔刁难员工的无理取闹者",
+     "未经许可擅闯诊疗区的闲杂人员",
+     "虐待动物之人"
+    ],
+    "expression": "甜美柔声在耳麦中急切提醒：“院长别慌！{npc.name}把出浴大披巾横在门口了，贵妇客户被{npc.name}巧妙挡在身后两米！”",
+    "likes": [
+     "院长春风化雨的温柔气质",
+     "脱险后相视一笑的心照不宣",
+     "亲密融洽的姐妹羁绊"
+    ],
+    "preconditions": [
+     "院长完好脱困且贵妇客户心悦诚服赞赏"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "会所前台总管兼客户VIP专属接待",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_pet_owner_lounge_observation_deck",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_spa_glass_door_entrance_step",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_pet_spa_glass_hall_center",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "双臂肌肉因极度紧绷拉扯产生微弱酸胀。",
+      "option": "飞身上前展开大遮巾筑起两米人工视线遮蔽墙。"
+     },
+     {
+      "cost": "可能遭受贵妇客户关于服务过于黏人的微弱斥责。",
+      "option": "以双手递送名犬健康档案为由欠身挡在贵妇客户行进路线上缓冲五秒。"
+     }
+    ],
+    "pressure": "贵妇客户高跟鞋踩在台阶上仅差三步，十五秒倒计时正在流逝。",
+    "trigger": "隔着玻璃看到院长刷手服领口被液压臂死死扣住且贵妇客户已起身推门。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "项圈可千万别崩断呀！{npc.name}就算拼着被扣绩效，也一定要把贵妇客户拖在门外十五秒！",
+    "surface": "贵妇客户请慢步，水疗大厅恒温除菌间刚刚净化完毕，{npc.name}为您拿好了定制出浴披巾！"
+   }
+  },
+  {
+   "adult_context": "高端资本家族合伙人年满四十五周岁完全民事行为人，名门名媛，严谨挑剔，对纯种爱犬水疗护理品质要求极其苛刻。",
+   "age_range": [
+    45,
+    45
+   ],
+   "appearance_options": [
+    "身穿高定香槟色羊绒大衣，佩戴南洋珍珠项链与墨镜，保养极佳面容雍容华贵，眼神锐利挑剔。",
+    "手挽顶级品牌鳄鱼皮手袋，踩着精致细高跟皮鞋，步履轻缓优雅却带着不容置疑的上位者威压。"
+   ],
+   "decision": {
+    "avoids": [
+     "任何粗制滥造的敷衍",
+     "缺乏素养的失态惊叫",
+     "时间上的无端拖延"
+    ],
+    "contrast": "平时看似盛气凌人的豪门阔太，见到爱犬依偎在院长怀中安详恬静时内心亦会泛起由衷柔情。",
+    "core_value": "以极致严谨的高端品位审视一切服务细节，绝不容忍半点马虎敷衍。",
+    "goal_options": [
+     "在既定十五秒时间内推门走到水疗舱前亲眼检视爱犬毛发蓬松度",
+     "若发现医护人员失态或服务瑕疵当场提出严肃整改要求"
+    ],
+    "never": [
+     "为粗制滥造的服务买单",
+     "在公众场合失掉豪门体面"
+    ],
+    "prefers": [
+     "无瑕的专业服务",
+     "优雅体面的举止仪态",
+     "纯粹卓越的医疗成果"
+    ],
+    "pressure_responses": {
+     "breaking": "在听到气压释放嘶鸣声后迅速闭合地槽动力断路器完成排障",
+     "high": "在耳麦中大声指挥台前人员借激光笔淬火背夹下压挑卡簧",
+     "low": "在耳麦中短促通报电机短路电磁阀烧结警报并要求台前切勿强拔",
+     "mid": "快速查阅管路图纸找出立柱内侧两毫米应急泄压孔确切方位"
+    },
+    "relationship_stance": "对院长怀有居高临下的挑剔审视，时刻以最高审美标准检验主理人水疗技艺与从容定力。",
+    "withdrawal": "在玻璃门前稍作驻足，单手扶了扶墨镜，矜持打量水疗室内优雅的医护互动。"
+   },
+   "gender": "female",
+   "gender_reason": "名流贵妇客户名媛由年满四十五周岁成年女性出任",
+   "id": "vip_client_mrs_song",
+   "identity": {
+    "authority": "对水疗服务成果验收评定权与大额续费撤资决定权",
+    "exposure": "若因无理取闹导致名犬意外受惊咬人将面临家族声誉受损",
+    "hidden": "{npc.name}表面苛刻挑剔，实则对院长温柔纯正的医术深感敬重，此次专程带来百万名犬做示范。",
+    "limits": [
+     "不可逾越无菌操作防护红线擅自触碰未消毒器械"
+    ],
+    "obligations": [
+     "依照协议在指定迎客动线上进行宠物水疗成果核验"
+    ],
+    "resources": [
+     "家族投资基金无上限支票簿",
+     "名媛圈层庞大社交声誉网络"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "院长面对挑剔目光依然能从容抱犬微笑的超然风度",
+     "柔中带刚的眼神"
+    ],
+    "boundaries": [
+     "严守名媛身份社交边界，绝不轻易拉低身段"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "成为高端社交圈层中最尊崇受敬的时尚贵妇之首。",
+    "dislikes": [
+     "服务粗疏敷衍的低劣技师",
+     "缺乏名门教养的市井浮躁之徒",
+     "贪图暴利的无良商家"
+    ],
+    "expression": "高跟鞋停在门槛前，微微扬起下颌挑眉轻语：“院长，我们家宝贝的水疗微泡做好了么？”",
+    "likes": [
+     "院长出尘清丽的从容仪态",
+     "名犬脱胎换骨的惊艳水疗成果",
+     "得体知分寸的周到招待"
+    ],
+    "preconditions": [
+     "爱犬完好无损且毛发水疗达到国际赛级品质"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "会所黑金至尊VIP客户兼名媛沙龙理事",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_pet_owner_lounge_observation_deck",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_spa_glass_door_entrance_step",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_pet_spa_glass_hall_center",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "步伐逼近可能直接迎面撞破水疗舱突发窘态。",
+      "option": "踩着平稳步速推门走到水疗台前正面检视爱犬状态。"
+     },
+     {
+      "cost": "微作迟疑可能略微降低自身雷厉风行的名媛气场。",
+      "option": "在门前稍作驻足听取前台解说名犬毛囊数据缓行两步。"
+     }
+    ],
+    "pressure": "长焦镜头聚焦在身后，步履优雅前行每一步都在缩短视线距离。",
+    "trigger": "十五秒水疗提示音响起，{npc.name}优雅起身推开双开玻璃门走向水疗台。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "这年轻院长在水疗舱前倒是能沉得住气，且看待会儿小狗抱出来时毛发到底能不能过本夫人的法眼！",
+    "surface": "院长，听说这台进口微泡舱能深层活化毛囊，{npc.name}今天可是特意来看成果的。"
+   }
+  },
+  {
+   "adult_context": "影视摄制与数码媒体班年届二十七岁成年人，持有国家一级摄影师证书，专司宣传样片抓拍。",
+   "age_range": [
+    27,
+    30
+   ],
+   "appearance_options": [
+    "面容俊朗专注，身穿黑色摄影多口袋战术马甲，手持加装长焦红圈镜头的顶级数码单反相机，站姿沉稳专业。",
+    "脖挂双机身挂带，眼神敏锐如鹰隼隔着落地玻璃寻找最佳光影切角，神情克制严谨不喜浮夸。"
+   ],
+   "decision": {
+    "avoids": [
+     "任何低俗窥私的不雅镜头",
+     "破坏现场秩序",
+     "制造舆论风波"
+    ],
+    "contrast": "看似冷酷专注的摄影极客，在捕捉画面时却展现出极其高尚的绅士分寸感。",
+    "core_value": "以崇高纯净的视觉艺术定格真善美，严守专业摄影师新闻伦理底线。",
+    "goal_options": [
+     "在倒计时最后十五秒聚焦落地玻璃折射的唯美光影抓拍爱犬出浴特写",
+     "灵巧调整俯仰角避开领口尴尬区域全神贯注定格爱犬神采"
+    ],
+    "never": [
+     "为博眼球出卖良知拍摄私密窘态",
+     "背离视觉工作者职业道德"
+    ],
+    "prefers": [
+     "纯净神圣的光影构图",
+     "无可挑剔的医者风采",
+     "克制高雅的艺术表达"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷庄重开口发声后满意点头向校领导躬身汇报",
+     "high": "在耳麦中严厉提醒导播台按预定时间点准点切屏不得延误",
+     "low": "在贵宾席前平稳确认领导座次并用手势示意各单位倒计时开场",
+     "mid": "察觉讲台略有偏高时抬眼注视台前要求副主席做好应急准备"
+    },
+    "relationship_stance": "对院长的美丽仁心怀有发自内心的敬重，对无良狗仔的窥私行径深恶痛绝。",
+    "withdrawal": "端着长焦相机沉稳立于休息区玻璃窗后，以高尚职业素养把控镜头语言。"
+   },
+   "gender": "male",
+   "gender_reason": "官方长焦视觉记录师由\u0001的男青年出任",
+   "id": "media_photographer_zhao_xiu_yuan",
+   "identity": {
+    "authority": "官方宣传样片镜头捕捉权与成片角度筛选权",
+    "exposure": "若泄露未经授权的隐私素材将面临行业严厉封杀并承担法律追责",
+    "hidden": "{npc.name}对院长的救助仁心由衷崇敬，镜头始终自觉规避任何可能造成失态的低角度。",
+    "limits": [
+     "严禁私自偷拍或传播任何涉及客户及医护人员隐私的不雅画面"
+    ],
+    "obligations": [
+     "定格名贵宠物水疗顶级美感与美女院长温柔医德高光画面"
+    ],
+    "resources": [
+     "两千万像素全画幅高速连拍相机",
+     "高倍率无畸变专业长焦镜头"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "院长身上那种洗尽铅华的纯粹医者大爱",
+     "清澈坚定的眼神"
+    ],
+    "boundaries": [
+     "严守镜头伦理防线，非公开展现绝不聚焦私密"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "成为全国顶尖宠物与时尚视觉纪实摄影大师之列。",
+    "dislikes": [
+     "为博眼球无底线摆拍的伪爱心博主",
+     "扰乱赛级宠物拍摄的粗暴人员",
+     "虚假炒作之流"
+    ],
+    "expression": "轻按下快门，压低声音赞叹：“完美的光影角度……院长的专业神采简直无可替代。”",
+    "likes": [
+     "院长抱犬直身时圣洁清澈的微笑",
+     "柔美治愈的心灵震撼",
+     "专业同行的默契配合"
+    ],
+    "preconditions": [
+     "院长从容迎客且拍摄出惊艳全网的顶级宣发大片"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "特邀官方萌宠视觉纪实摄影师",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_pet_owner_lounge_observation_deck",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_pet_owner_lounge_observation_deck",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_pet_spa_glass_hall_center",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "高难度抓拍需要摄影师屏息运镜消耗大量腕力。",
+      "option": "微调镜头焦段转而抓拍小狗被水珠包裹的灵动神态掩护院长。"
+     },
+     {
+      "cost": "调整站位可能稍微错失一秒最佳正面角度。",
+      "option": "向后退开半步借休息区绿植虚化前景制造朦胧艺术光晕。"
+     }
+    ],
+    "pressure": "贵宾入场只有短短十五秒黄金抓拍时间窗口。",
+    "trigger": "取景框内看到大厅大门开启且贵妇客户已然迈步入场。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "院长似乎在水疗舱边缘专注收尾，镜头拉远微调俯角，只拍萌宠毛发与院长圣洁侧颜！",
+    "surface": "光影参数调试完毕，全景水疗舱自然光漫反射极佳，各机位准备捕捉出浴高光。"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "五月的一个周六",
+  "minute": 1140
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "crime",
+  "workplace"
+ ],
+ "custom": false,
+ "customs": [
+  "高端宠物会所在全景落地钢化玻璃大厅公开展示名贵犬恒温水疗微泡工序的规程",
+  "顶尖女兽医多随身插别一把加厚纯钢钝头医美小剪的风尚",
+  "名流贵妇客户在水疗吹风终结前十五秒推开防烟雾玻璃门当面核验宠物状态的惯例",
+  "全景落地窗外名流沙龙区长焦数码相机定点捕捉萌宠水疗生动神采的固定观摩动线"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "成年维保技师使用千分尺测量液压机械臂滑轨间隙",
+    "成年维保人员俯身调整气动微动开关减速自锁机构受力平整度"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_spa_tub_hydraulic_pre_check",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "start_minute": 120,
+   "tags": [],
+   "title": "恒温洗狗机液压升降机械臂千分尺校准"
+  },
+  {
+   "beats": [
+    "工程师在主控台测试微泡渗透水流并向林副院长汇报水温参数",
+    "顶棚柔光灯以完美角度展开确保治愈美女院长从容医者仙姿如画"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_pet_spa_microbubble_lighting_calib",
+   "location_ids": [
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "start_minute": 125,
+   "tags": [],
+   "title": "全景透明水疗大厅无影暖光与风道调试"
+  },
+  {
+   "beats": [
+    "前台管家在智能总控台精准校准会客沙龙广播时钟倒数频段",
+    "提示屏实时显示贵妇客户离座走向水疗室进入最后十五秒关口"
+   ],
+   "duration_minutes": 12,
+   "hook_ids": [],
+   "id": "act_countdown_fifteen_second_sync",
+   "location_ids": [
+    "loc_spa_glass_door_entrance_step"
+   ],
+   "start_minute": 128,
+   "tags": [],
+   "title": "水疗验收终场贵妇推门倒数十五秒时钟同步"
+  },
+  {
+   "beats": [
+    "院长优雅俯身单手托住名贵犬前胸微调最佳冲洗角度",
+    "浅粉刷手服领口白金小狗细链在身躯前倾间不慎滑入机械臂缝隙"
+   ],
+   "duration_minutes": 8,
+   "hook_ids": [],
+   "id": "act_director_crouch_grooming_incident",
+   "location_ids": [
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "start_minute": 130,
+   "tags": [],
+   "title": "女院长俯身按揉犬腹微调洗护身姿"
+  },
+  {
+   "beats": [
+    "开馆前，院长在水疗舱边调试机械臂，一遍遍试着升降和伸缩。",
+    "第一只来做水疗的是一只金毛，等不及地在门口摇着尾巴。",
+    "院长笑着蹲下来摸摸金毛的头：马上就好，今天给你用最舒服的水温。"
+   ],
+   "duration_minutes": 5,
+   "hook_ids": [
+    "hd_vet_director_xu_an_ran",
+    "hd_clinical_director_lin_jing_xing",
+    "hd_concierge_lead_an_xiao_nian",
+    "hd_vip_client_mrs_song",
+    "hd_media_photographer_zhao_xiu_yuan"
+   ],
+   "id": "act_hydraulic_arm_lock_incident",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "start_minute": 540,
+   "tags": [],
+   "title": "开馆前调试水疗舱"
+  },
+  {
+   "beats": [
+    "名媛客户贵妇客户踩着高跟鞋大步迈向水磨石门阶推开玻璃门",
+    "副院长高挑挺拔身形骤然跨出以皮毛检验报告沉稳阻断阔太逼近脚步"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_mrs_song_door_approach",
+   "location_ids": [
+    "loc_spa_glass_door_entrance_step"
+   ],
+   "start_minute": 133,
+   "tags": [],
+   "title": "贵妇客户手持手袋迈步推门视察"
+  },
+  {
+   "beats": [
+    "打烊后，院长窝在皮沙发上补病历，写着写着把笔一扔，靠到你身上说手腕酸。",
+    "你替院长揉着手腕，院长眯起眼睛像那只布偶猫一样，往你掌心里蹭了蹭。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vet_charts",
+   "location_ids": [
+    "loc_vet_director_office"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "intimate"
+   ],
+   "title": "陪院长写完病历"
+  },
+  {
+   "beats": [
+    "院长扯松衬衫领口，白金项圈还扣在颈上，细链垂在锁骨之间。",
+    "院长抬起下巴，把脖子送到你手边：扣子在后面。……摘之前，先在这里亲一下，我想要。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vet_collar",
+   "location_ids": [
+    "loc_vet_director_office"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "摘下那只白金项圈"
+  },
+  {
+   "beats": [
+    "院长磨了一把咖啡豆，手冲了一杯，自己尝了一口嫌烫，吹凉了才递给你。",
+    "院长看你喝下去，弯起眼睛笑：好喝的话，以后每天都给你冲。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vet_pour_over",
+   "location_ids": [
+    "loc_vet_director_office"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "intimate"
+   ],
+   "title": "一杯手冲咖啡"
+  },
+  {
+   "beats": [
+    "天亮时，布偶猫跳上沙发踩醒了你们两个，院长迷迷糊糊地把猫抱进怀里，又往你身上靠。",
+    "院长闭着眼睛小声说：今天上午没有预约。……再睡一会儿，你别动。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_vet_cat_dawn",
+   "location_ids": [
+    "loc_vet_director_office"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "被布偶猫踩醒的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代上海高奢名宠水疗会馆，贵宾犬出浴前十五秒",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "它们",
+  "旁人",
+  "她俩",
+  "他们",
+  "幼女",
+  "萝莉",
+  "初中生",
+  "高中生",
+  "未成年",
+  "幼态",
+  "肉便器",
+  "母狗",
+  "骚货",
+  "贱货",
+  "玩物",
+  "强奸",
+  "轮奸",
+  "迷奸",
+  "性奴",
+  "失禁"
+ ],
+ "hooks": [
+  {
+   "id": "hook_01_hydraulic_arm_groan_snag",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "slot": "vet_director_xu_an_ran",
+   "text": "耳麦里传来前台主管十五秒迎客提醒，{vet_director_xu_an_ran.name}俯身梳理犬毛时领口内侧却被一股冰冷拉力死死绊住，自动液压机械臂随之发出一声气压停滞轻颤！"
+  },
+  {
+   "id": "hook_02_scrub_suit_strain_jam",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "slot": "vet_director_xu_an_ran",
+   "text": "{vet_director_xu_an_ran.name}微微垂眸保持端庄温柔微笑，浅粉速干刷手服内侧白金项圈不知何时被液压快拆挂钩死死挂住，领口受拉紧绷外翻动弹不得！"
+  },
+  {
+   "id": "hook_03_scissors_lever_extract",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "slot": "vet_director_xu_an_ran",
+   "text": "{vet_director_xu_an_ran.name}单手抚狗稳如泰山维持端庄侧颜，右手极度自然优雅地顺势探向胸前工卡口袋，别在夹层间的特制加厚钝头医用剪刀瞬间反握在指尖！"
+  },
+  {
+   "id": "hook_04_director_lin_standoff",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "slot": "clinical_director_lin_jing_xing",
+   "text": "{clinical_director_lin_jing_xing.name}手持病历平板高大身形一步跨至双开玻璃门正前方，如冰山般横在门厅前冷声向大步迈来的贵妇客户汇报毛囊检测参数阻断逼近脚步！"
+  },
+  {
+   "id": "hook_05_concierge_towel_shield",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "slot": "concierge_lead_an_xiao_nian",
+   "text": "{concierge_lead_an_xiao_nian.name}站在水疗室门前敏锐察觉异样，干练迈步将两米宽加厚高级丝缎出浴防风巾高高举起，严严实实挡住外廊一切斜向窥探长焦视线！"
+  },
+  {
+   "id": "hook_06_scissors_spine_into_nook_gap",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "slot": "vet_director_xu_an_ran",
+   "text": "医用美容剪刀三点五毫米厚圆润脊背顺着狭窄机械臂滑轨精准探入气动触点下方，指尖清晰感知到微动开关弹簧片咬紧挂钩的极大刚性！"
+  },
+  {
+   "id": "hook_07_mrs_song_footsteps_stairs",
+   "kind": "approach",
+   "location_ids": [
+    "loc_spa_glass_door_entrance_step"
+   ],
+   "slot": "vip_client_mrs_song",
+   "text": "{vip_client_mrs_song.name}捏紧手拿包优雅逼近，细高跟踩在水磨石阶梯上发出清脆步声，距离受困水疗台仅剩最后三步！"
+  },
+  {
+   "id": "hook_08_mechanic_braces_arm_bracket",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "slot": "vet_director_xu_an_ran",
+   "text": "维保技师机电技师半掩在检修窗阴影处假装巡检，暗中借绝缘厚手套替{vet_director_xu_an_ran.name}托住液压悬臂外壳底座分担下压破拆负荷！"
+  },
+  {
+   "id": "hook_09_wrist_twist_scissors_pop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "slot": "vet_director_xu_an_ran",
+   "text": "{vet_director_xu_an_ran.name}美眸沉静粉唇微抿，单手抚犬柔和无声，右手腕借水疗舱内壁作为支点向斜下方施加三点八牛顿强劲微挑力矩！"
+  },
+  {
+   "id": "hook_10_collar_chain_snaps_free",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "slot": "vet_director_xu_an_ran",
+   "text": "一声极细微的气动排气自锁弹片弹开清脆轻响迸发，咬死的急停触点被精准顶开，挂死的项圈细链瞬间脱扣滑出，刷手服重获自由彻底解除死锁！"
+  },
+  {
+   "id": "hook_11_director_stands_tall_and_free",
+   "kind": "accident",
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "slot": "vet_director_xu_an_ran",
+   "text": "解脱瞬间{vet_director_xu_an_ran.name}优雅直身顺手抚平粉色刷手服领口掩正前襟，抱起毛发蓬松的小狗迎着推门的贵妇客户露出无可挑剔的温柔从容微笑！"
+  },
+  {
+   "id": "hook_12_flawless_director_poise_captured",
+   "kind": "observe",
+   "location_ids": [
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "slot": "clinical_director_lin_jing_xing",
+   "text": "柔光灯下的院长温柔圣洁仪态万千宛若治愈仙子，清绝出尘的医者气度引得门外十多位贵妇宠主爆发出由衷赞叹！"
+  },
+  {
+   "id": "hook_13_grand_spa_standing_ovation",
+   "kind": "observe",
+   "location_ids": [
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "slot": "vet_director_xu_an_ran",
+   "text": "名贵犬毛发蓬松宛若云朵定格下惊艳神采，交付瞬间全场掌声雷动，{vet_director_xu_an_ran.name}怀抱爱犬定格下宠物水疗神级高光！"
+  },
+  {
+   "id": "hook_14_mrs_song_retreats_in_awe",
+   "kind": "request",
+   "location_ids": [
+    "loc_spa_glass_door_entrance_step"
+   ],
+   "slot": "vip_client_mrs_song",
+   "text": "被副院长严谨检测数据折服且被女院长无瑕医德风采震撼的{vip_client_mrs_song.name}只得收敛挑剔，规规矩矩合起皮包站在门阶边微笑致谢！"
+  },
+  {
+   "id": "hook_15_scissors_tucked_whisper_smile",
+   "kind": "request",
+   "location_ids": [
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "slot": "vet_director_xu_an_ran",
+   "text": "欢声笑语掌声回荡间隙{vet_director_xu_an_ran.name}优雅将剪刀悄然插回口袋，隔着水疗台与副院长清冷相视一笑尽显顶级默契的守护柔情！"
+  },
+  {
+   "id": "hook_vet_office_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vet_director_office"
+   ],
+   "slot": "vet_director_xu_an_ran",
+   "text": "{npc.name}抱着布偶猫站在休息室门口：打烊了。……进来坐会儿？"
+  },
+  {
+   "id": "hd_vet_director_xu_an_ran",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "vet_director_xu_an_ran",
+   "text": "{vet_director_xu_an_ran.name}把一杯温水放在你手边，摘下手套：“今天预约少，坐下歇会儿。”"
+  },
+  {
+   "id": "hd_clinical_director_lin_jing_xing",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "clinical_director_lin_jing_xing",
+   "text": "{clinical_director_lin_jing_xing.name}拿着一份病历走过来：“这只猫的复诊，你帮我排个时间。”"
+  },
+  {
+   "id": "hd_concierge_lead_an_xiao_nian",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "concierge_lead_an_xiao_nian",
+   "text": "{concierge_lead_an_xiao_nian.name}捧着一束花走过来：“客户送的，放你桌上吧。”"
+  },
+  {
+   "id": "hd_vip_client_mrs_song",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "vip_client_mrs_song",
+   "text": "{vip_client_mrs_song.name}抱着贵宾犬冲你笑：“今天就是来坐坐，陪我聊聊天。”"
+  },
+  {
+   "id": "hd_media_photographer_zhao_xiu_yuan",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "media_photographer_zhao_xiu_yuan",
+   "text": "{media_photographer_zhao_xiu_yuan.name}举起相机：“光线正好，帮我抱一下这只小狗。”"
+  }
+ ],
+ "id": "vet_spa_salon_collar_chain_jam",
+ "locations": [
+  {
+   "affordances": [
+    "以温柔优雅姿态单手抚摸爱犬维持正面专业体态",
+    "借加厚不锈钢圆头医用剪刀背探入舱门触点实施破拆自救"
+   ],
+   "detail": "面向外廊休息区完全透明的全景钢化玻璃大厅，中央摆放着一台造价不菲的恒温微泡洗狗水疗舱，四周环绕着无影柔光灯与顶棚柔和微热干燥出风口。",
+   "exits": [
+    "loc_hydrotherapy_tub_hydraulic_nook",
+    "loc_spa_glass_door_entrance_step",
+    "loc_pet_owner_lounge_observation_deck"
+   ],
+   "id": "loc_pet_spa_glass_hall_center",
+   "name": "玻璃水疗大厅",
+   "pressure_modifiers": {
+    "press_scrub_suit_collar_tear_exposure": "液压机械臂咬死项圈细链加剧刷手服领口撕裂走光风险",
+    "press_vip_client_fifteen_second_approach": "名媛客户皮鞋踏上水磨石台阶加剧十五秒逼近绝境"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "玻璃窗外十多位贵宾名媛平视无盲区，无影柔光照射下，粉色衣服领口与微小水珠清晰毕现。",
+   "witnesses": [
+    "bg_vip_client_mrs_song",
+    "bg_concierge_an_xiao_nian"
+   ]
+  },
+  {
+   "affordances": [
+    "借水疗舱内胆不锈钢钢圈作为剪刀背撬动支点",
+    "在死角内借呼吸运力实施微观物理顶压断电自救"
+   ],
+   "detail": "水疗舱有机玻璃升降罩与不锈钢内壁侧壁夹缝，加粗镀铬液压旋转快拆钩正死死钩住粉色刷手服V领内侧白金项圈细链，链条紧绷嵌顿在滑轨气动触点边缘。",
+   "exits": [
+    "loc_pet_spa_glass_hall_center",
+    "loc_spa_glass_door_entrance_step",
+    "loc_pet_owner_lounge_observation_deck"
+   ],
+   "id": "loc_hydrotherapy_tub_hydraulic_nook",
+   "name": "机械臂关节死角",
+   "pressure_modifiers": {
+    "press_collar_chain_strangulation_panic": "细链持续受拉加剧锁骨受勒剧痛与窒息恐慌",
+    "press_golden_retriever_bark_struggle": "名贵犬因水流停滞焦躁挣扎加剧器械扭动风险"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "舱体外罩遮挡侧下方视线，但若从正门走近，领口受拉大开露出的雪白前胸与贴身白金项圈一览无遗。",
+   "witnesses": [
+    "bg_mechanic_han_tie_cheng",
+    "bg_clinical_director_lin"
+   ]
+  },
+  {
+   "affordances": [
+    "以温柔清澈微笑注视客户步伐迫使其脚步在礼节下微放缓",
+    "倾听高跟鞋踏地脆响精准计算自救秒数"
+   ],
+   "detail": "连接外圈贵宾等候沙龙与水疗操作区的防雾双开玻璃门前沿，贵妇客户此刻正手握真皮手包迈步推门走向水疗舱。",
+   "exits": [
+    "loc_pet_spa_glass_hall_center",
+    "loc_hydrotherapy_tub_hydraulic_nook",
+    "loc_pet_owner_lounge_observation_deck"
+   ],
+   "id": "loc_spa_glass_door_entrance_step",
+   "name": "大门踏步",
+   "pressure_modifiers": {
+    "press_telephoto_camera_outside_window": "玻璃门推开缝隙加剧外圈长焦镜头直射风险",
+    "press_vip_client_fifteen_second_approach": "客户推门进场加剧名誉事故危机"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "直面中央水疗操作台，推门迈入每一步皆将居高临下看清女院长胸前受困状态与衣着异常。",
+   "witnesses": [
+    "bg_vip_client_mrs_song",
+    "bg_concierge_an_xiao_nian"
+   ]
+  },
+  {
+   "affordances": [
+    "借抱起小狗躯体恰到好处挡住落地玻璃正对角度",
+    "在前台指引下借磨砂玻璃薄雾掩护自救收尾"
+   ],
+   "detail": "铺设厚实羊毛地毯的贵宾等候区，摆放着真皮沙发与高端咖啡机，数名宠主正手持长焦微单透过明净玻璃向水疗舱内聚焦拍摄。",
+   "exits": [
+    "loc_pet_spa_glass_hall_center",
+    "loc_hydrotherapy_tub_hydraulic_nook",
+    "loc_spa_glass_door_entrance_step",
+    "loc_vet_director_office"
+   ],
+   "id": "loc_pet_owner_lounge_observation_deck",
+   "name": "贵宾休息区",
+   "pressure_modifiers": {
+    "press_scrub_suit_collar_tear_exposure": "强光照射加剧领口开裂透光羞耻",
+    "press_telephoto_camera_outside_window": "长焦镜头连拍加剧私密项圈与内衬曝光恐慌"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "透过三米落地玻璃窗无障碍平视水疗舱，强光照明下微小动作与前胸反差一览无遗。",
+   "witnesses": [
+    "bg_telephoto_pet_photographer",
+    "bg_spa_assistant_nurse"
+   ]
+  },
+  {
+   "affordances": [
+    "陪院长写完今天的病历",
+    "替院长摘下那只白金项圈",
+    "关上休息室的门"
+   ],
+   "detail": "宠物会馆二楼的院长休息室，一张宽大的皮沙发、一只蜷在猫爬架上的布偶猫、桌上放着没写完的病历和一盒手冲咖啡豆。",
+   "exits": [
+    "loc_pet_owner_lounge_observation_deck"
+   ],
+   "id": "loc_vet_director_office",
+   "name": "会馆楼上的院长休息室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "门一关，楼下狗狗的叫声隔着地板只剩几声闷闷的呜咽。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "许",
+   "林",
+   "韩",
+   "宋",
+   "赵",
+   "沈",
+   "周",
+   "陆",
+   "顾",
+   "梁",
+   "唐",
+   "苏",
+   "安",
+   "温",
+   "姜",
+   "谢"
+  ],
+  "given_female": [
+   "安然",
+   "知微",
+   "小念",
+   "清漪",
+   "雨晴",
+   "浅雪",
+   "芷琳",
+   "萌萌",
+   "清婉",
+   "诗音",
+   "羽灵",
+   "静姝",
+   "灵萱",
+   "小禾",
+   "明月",
+   "晚柠"
+  ],
+  "given_male": [
+   "景行",
+   "铁成",
+   "修远",
+   "震霆",
+   "长青",
+   "天成",
+   "文瀚",
+   "天麟",
+   "博庸",
+   "少卿",
+   "承宇",
+   "霆威",
+   "廷锋",
+   "景深",
+   "临川",
+   "铁峰"
+  ],
+  "given_neutral": [
+   "晨曦",
+   "星芒",
+   "子墨",
+   "星澜",
+   "沐川",
+   "青霄",
+   "千寻",
+   "若水",
+   "素风",
+   "清欢",
+   "景澄",
+   "书禾",
+   "云帆",
+   "微澜",
+   "清和",
+   "安宁"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "female",
+    "pattern": "小{given}"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留高奢名宠水疗会馆的全景落地玻璃大厅、窗外静候的名媛宠主、治愈系美女院长操作微泡洗狗舱时液压机械臂勾住浅粉刷手服领口里私下戴着的白金项圈、低着头抬不起来、领口撕开露出雪白酥胸与锁骨链、贵妇客户推门只隔三米、拔出圆头医美钢剪别开液压挂钩的骨架与温柔色气的味道。原稿的时代、地点、开局时刻和基调是从学生会长模板复制的，已按宠物水疗会馆重写；玩家身份原稿照抄了几位主要角色，已改成会馆里的其他人；背景人物里与主要角色同名的几位改成了独立的人。女主年龄二十八到三十一岁，副院长三十一到三十五岁。用户已放开内容限制、色情尺度优先，只守红线；项圈被勾住只写成险情，脱困前不写任何性互动。新增会馆顶楼的院长休息室与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    28,
+    32
+   ],
+   "baseline": "资本运营出身，三年前投了这家会馆，占三成股份，每月来会馆看一次账和客户。",
+   "gender": "any",
+   "id": "pi_vet_hospital_director_xu_an_ran",
+   "reputation": "看人和看狗都很准的投资人",
+   "resources": [
+    "会馆三成股权与否决票",
+    "名媛客户圈子里的人脉"
+   ],
+   "risks": [
+    "会馆出了丑闻，三成股份会跟着大跌"
+   ],
+   "role": "名宠会馆的投资合伙人",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总"
+    },
+    {
+     "gender": "male",
+     "pattern": "{given}先生"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    32
+   ],
+   "baseline": "宠物医疗管理专业毕业，行业协会的星级评审，这次来给会馆做五星复评。",
+   "gender": "any",
+   "id": "pi_vet_clinical_director_lin_jing_xing",
+   "reputation": "出了名挑剔却公正的评审",
+   "resources": [
+    "五星评审的打分表",
+    "可以叫停任何一道服务流程的权限"
+   ],
+   "risks": [
+    "评审期间出事，会被协会追问为什么没叫停"
+   ],
+   "role": "宠物行业协会派来的服务评审",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}评审"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    30
+   ],
+   "baseline": "宠物美容专业毕业，在会馆剪了六年毛，水疗舱出浴后的造型都由此人负责。",
+   "gender": "any",
+   "id": "pi_spa_facility_mechanic_han_tie_cheng",
+   "reputation": "能让最凶的贵宾犬乖乖坐好的美容师",
+   "resources": [
+    "一整套造型剪和吹风机",
+    "就站在水疗舱旁边的位置"
+   ],
+   "risks": [
+    "客户的狗受了惊吓，美容师会第一个被投诉"
+   ],
+   "role": "会馆的宠物美容师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}美容师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    28
+   ],
+   "baseline": "动物医学专业毕业，刚来会馆实习三个月，管毛巾、消毒和给客户倒茶。",
+   "gender": "any",
+   "id": "pi_hospital_concierge_an_xiao_nian",
+   "reputation": "手脚勤快、谁都使唤得动的实习生",
+   "resources": [
+    "一摞烘得热乎乎的大浴巾",
+    "通往水疗大厅的侧门钥匙"
+   ],
+   "risks": [
+    "实习期出岔子就转不了正"
+   ],
+   "role": "会馆的实习助理",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}助理"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "上海的高奢名宠水疗会馆，治愈系的美女院长每天在全景玻璃大厅里给名媛们的爱犬洗澡、吹毛，投资合伙人、行业评审和美容师都是常客。院长浅粉刷手服领口里私下戴着一只白金项圈；微泡洗狗舱的伸缩机械臂是进口的，偶尔会卡一下。",
+ "pressures": [
+  {
+   "choice": "选择借剪刀背弧形硬脊杠杆下压解扣，抑或盲目硬扯导致刷手服崩脱当众露底走光。",
+   "exits": [
+    {
+     "cost": "白金项圈的细链在颈侧磨出一圈红，摸索搭扣的手指酸得发僵。",
+     "option": "借助特制加厚钝头纯钢剪刀背找准三点八牛顿力矩精准顶开触点自救脱扣。"
+    },
+    {
+     "cost": "承受未先行报备贴近水疗核心区的微弱违章风险。",
+     "option": "由维保技师在暗格用厚手套托住悬臂外壳分担下压破拆扭矩。"
+    }
+   ],
+   "far": {
+    "consequence": "造成灾难性名流诊所医德名誉事故，美女院长执业生涯彻底终结遭行业除名。",
+    "due_days": 1,
+    "trigger": "女院长在数十名贵妇客户与长焦微单前狼狈崩裳走光"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_01_hydraulic_arm_groan_snag",
+    "hook_02_scrub_suit_strain_jam",
+    "hook_03_scissors_lever_extract",
+    "hook_04_director_lin_standoff",
+    "hook_05_concierge_towel_shield",
+    "hook_06_scissors_spine_into_nook_gap",
+    "hook_07_mrs_song_footsteps_stairs",
+    "hook_08_mechanic_braces_arm_bracket",
+    "hook_09_wrist_twist_scissors_pop",
+    "hook_10_collar_chain_snaps_free",
+    "hook_11_director_stands_tall_and_free",
+    "hook_12_flawless_director_poise_captured",
+    "hook_13_grand_spa_standing_ovation",
+    "hook_14_mrs_song_retreats_in_awe",
+    "hook_15_scissors_tucked_whisper_smile",
+    "hook_vet_office_door"
+   ],
+   "id": "press_scrub_suit_collar_tear_exposure",
+   "immediate": {
+    "minutes": 1,
+    "text": "坚硬金属液压臂死死挂住细链，胸口被反向拽死在舱壁前，动弹不得。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若无法在十五秒内解除绞合，上身后仰将直接扯烂浅粉刷手服露出贴身春光引发全场轰动。"
+   },
+   "objective": "在浅粉衣服领口彻底扯烂前用圆头医用美容剪刀背下压微动触点自救脱险。",
+   "source": "accident",
+   "start_minute": 132,
+   "tags": [
+    "disaster"
+   ],
+   "title": "刷手服液压臂咬死项圈领口撕裂",
+   "trigger": "按揉犬腹动作导致锁骨白金项圈被液压悬臂挂钩死死卡在机械缝隙。"
+  },
+  {
+   "choice": "选择争分夺秒单手盲操剪刀自救，抑或在水疗室呼救引发名媛圈层大乱。",
+   "exits": [
+    {
+     "cost": "若最终仍未解脱将承担顶撞尊贵客户的当场问责处分。",
+     "option": "副院长以汇报毛囊酸碱度为由挺身横阻在贵妇客户身前争取时间。"
+    },
+    {
+     "cost": "承受超负荷心理紧绷与手部关节极度酸痛。",
+     "option": "院长指尖爆发极强稳定性在倒数第三秒挑落挂钩细链从容拉拢前襟。"
+    }
+   ],
+   "far": {
+    "consequence": "顶级会所VIP签约当场告吹，面临豪门家族巨额连带索赔追责。",
+    "due_days": 1,
+    "trigger": "名流圈层曝光女院长受困受辱窘态"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_01_hydraulic_arm_groan_snag",
+    "hook_02_scrub_suit_strain_jam",
+    "hook_03_scissors_lever_extract",
+    "hook_04_director_lin_standoff",
+    "hook_05_concierge_towel_shield",
+    "hook_06_scissors_spine_into_nook_gap",
+    "hook_07_mrs_song_footsteps_stairs",
+    "hook_08_mechanic_braces_arm_bracket",
+    "hook_09_wrist_twist_scissors_pop",
+    "hook_10_collar_chain_snaps_free",
+    "hook_11_director_stands_tall_and_free",
+    "hook_12_flawless_director_poise_captured",
+    "hook_13_grand_spa_standing_ovation",
+    "hook_14_mrs_song_retreats_in_awe",
+    "hook_15_scissors_tucked_whisper_smile",
+    "hook_vet_office_door"
+   ],
+   "id": "press_vip_client_fifteen_second_approach",
+   "immediate": {
+    "minutes": 1,
+    "text": "走廊里十五秒倒数清晰可闻，贵妇客户挑剔清冷的目光正隔着门帘扫视水疗台。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_spa_glass_door_entrance_step"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "倒数归零若女医师呈现身体受拽上装撕开姿态，推门而入的视线将把受困窘态暴露无遗。"
+   },
+   "objective": "在客户完全踏入水疗大厅前解除束缚并抚平刷手服从容抱犬了结危机。",
+   "source": "institution",
+   "start_minute": 133,
+   "tags": [],
+   "title": "贵妇客户推门进场十五秒倒数",
+   "trigger": "广播提示客户验收进入倒计时，贵妇客户高跟鞋踏在水磨石上的脆响正步步逼近。"
+  },
+  {
+   "choice": "选择由前台管家高举丝缎大披巾阻挡，抑或任由长焦镜头抓拍到死锁细节沦为头条丑闻。",
+   "exits": [
+    {
+     "cost": "可能遭受挑剔宠主关于接待动作突兀的微弱质疑。",
+     "option": "前台主管优雅大跨步挥展两米纯丝缎出浴大遮巾遮挡院长侧前方死锁盲区。"
+    },
+    {
+     "cost": "需要摄影师承担微弱镜头构图改变的沟通成本。",
+     "option": "摄影师敏锐将长焦镜头焦点上移至名犬双眸专注抓拍神态。"
+    }
+   ],
+   "far": {
+    "consequence": "治愈系第一美女院长形象瞬间粉碎，遭遇全网恶俗网络暴力声讨。",
+    "due_days": 1,
+    "trigger": "私密项圈细链受困细节被宠物媒体大肆散播"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_01_hydraulic_arm_groan_snag",
+    "hook_02_scrub_suit_strain_jam",
+    "hook_03_scissors_lever_extract",
+    "hook_04_director_lin_standoff",
+    "hook_05_concierge_towel_shield",
+    "hook_06_scissors_spine_into_nook_gap",
+    "hook_07_mrs_song_footsteps_stairs",
+    "hook_08_mechanic_braces_arm_bracket",
+    "hook_09_wrist_twist_scissors_pop",
+    "hook_10_collar_chain_snaps_free",
+    "hook_11_director_stands_tall_and_free",
+    "hook_12_flawless_director_poise_captured",
+    "hook_13_grand_spa_standing_ovation",
+    "hook_14_mrs_song_retreats_in_awe",
+    "hook_15_scissors_tucked_whisper_smile",
+    "hook_vet_office_door"
+   ],
+   "id": "press_telephoto_camera_outside_window",
+   "immediate": {
+    "minutes": 1,
+    "text": "数码微单快门声如雨点般传来，长焦镜头密集对准水疗舱，前襟微小细节无处遁形。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "摄影师镜头只要微调焦段即可看清院长项圈细链卡死在液压臂上的窘态并大声喧哗。"
+   },
+   "objective": "在长焦镜头捕捉到白金项圈与刷手服撕裂前构筑防线或完成自救脱钩。",
+   "source": "person",
+   "start_minute": 133,
+   "tags": [],
+   "title": "落地玻璃大窗外数位宠主名媛手持相机聚焦",
+   "trigger": "休息区外数名名媛宠主隔着透明玻璃连拍，长焦镜头死死锁定水疗舱近景细节。"
+  },
+  {
+   "choice": "选择调整呼吸沉稳微挑，抑或因剪刀打滑脱落彻底丧失唯一工具并划伤纯种犬皮毛。",
+   "exits": [
+    {
+     "cost": "消耗最后宝贵的两秒钟并加大指骨关节受压酸胀。",
+     "option": "手腕向内微旋用剪刀加厚弧形脊背死死咬稳触点弹片向下微挑。"
+    },
+    {
+     "cost": "需要技师极度隐蔽配合防止引来推门客户视线。",
+     "option": "韩技师在暗处用专用硅胶镊子协助固定滑轨防止剪刀滑动。"
+    }
+   ],
+   "far": {
+    "consequence": "只能任由窗外十多名名媛宠主与长焦微单全景围观惨烈社死。",
+    "due_days": 1,
+    "trigger": "剪刀脱落导致大面积走光"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_01_hydraulic_arm_groan_snag",
+    "hook_02_scrub_suit_strain_jam",
+    "hook_03_scissors_lever_extract",
+    "hook_04_director_lin_standoff",
+    "hook_05_concierge_towel_shield",
+    "hook_06_scissors_spine_into_nook_gap",
+    "hook_07_mrs_song_footsteps_stairs",
+    "hook_08_mechanic_braces_arm_bracket",
+    "hook_09_wrist_twist_scissors_pop",
+    "hook_10_collar_chain_snaps_free",
+    "hook_11_director_stands_tall_and_free",
+    "hook_12_flawless_director_poise_captured",
+    "hook_13_grand_spa_standing_ovation",
+    "hook_14_mrs_song_retreats_in_awe",
+    "hook_15_scissors_tucked_whisper_smile",
+    "hook_vet_office_door"
+   ],
+   "id": "press_scissors_blade_slip_risk",
+   "immediate": {
+    "minutes": 1,
+    "text": "不锈钢圆头剪刀在光滑塑料舱壁上发出极轻微滑动微响，心跳几乎停滞。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若剪刀滑脱落地，不仅无法顶开触点更会导致身体受惯性反弹扯烂整件刷手服。"
+   },
+   "objective": "稳住指尖发力以剪刀背圆润硬脊死死咬住微动开关常闭簧片精准下压。",
+   "source": "person",
+   "start_minute": 134,
+   "tags": [],
+   "title": "水疗舱有机玻璃曲面剪刀打滑风险",
+   "trigger": "泡沫湿滑与圆滑有机玻璃内壁导致圆头剪刀背在触点卡槽边缘产生微弱滑动。"
+  },
+  {
+   "choice": "选择忍受剧痛维持俯身抚犬体态，抑或动作变形导致刷手服撕开春光大泄。",
+   "exits": [
+    {
+     "cost": "抵着水疗舱边沿的那只手臂又酸又麻，袖子湿了半截。",
+     "option": "用左手按在水疗舱不锈钢钢圈为身体分担倾斜拉力。"
+    },
+    {
+     "cost": "双人贴身站位过紧可能略微引起门口客户注意。",
+     "option": "管家前台主管并肩侧立以自身工作服下摆恰到好处遮蔽院长侧翼盲区。"
+    }
+   ],
+   "far": {
+    "consequence": "国家级执业兽医院长称号当场蒙羞，身败名裂面临全球网络恶俗头条。",
+    "due_days": 1,
+    "trigger": "美女院长刷手服在众目睽睽下当场撕裂走光"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_01_hydraulic_arm_groan_snag",
+    "hook_02_scrub_suit_strain_jam",
+    "hook_03_scissors_lever_extract",
+    "hook_04_director_lin_standoff",
+    "hook_05_concierge_towel_shield",
+    "hook_06_scissors_spine_into_nook_gap",
+    "hook_07_mrs_song_footsteps_stairs",
+    "hook_08_mechanic_braces_arm_bracket",
+    "hook_09_wrist_twist_scissors_pop",
+    "hook_10_collar_chain_snaps_free",
+    "hook_11_director_stands_tall_and_free",
+    "hook_12_flawless_director_poise_captured",
+    "hook_13_grand_spa_standing_ovation",
+    "hook_14_mrs_song_retreats_in_awe",
+    "hook_15_scissors_tucked_whisper_smile",
+    "hook_vet_office_door"
+   ],
+   "id": "press_collar_chain_strangulation_panic",
+   "immediate": {
+    "minutes": 1,
+    "text": "浅粉修身刷手服V领极度紧绷，锁骨受勒，雪白肌肤泛起淡淡压痕危在旦夕。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hydrotherapy_tub_hydraulic_nook"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "缝线一旦彻底绷脱整件上装将直接向前扯开大面积暴露贴身雪腻。"
+   },
+   "objective": "在锁骨彻底勒伤或刷手服撕裂前完成脱扣并迅速拉拢前襟恢复端庄仪态。",
+   "source": "nature",
+   "start_minute": 134,
+   "tags": [
+    "disaster"
+   ],
+   "title": "颈间白金项圈持续受拉窒息恐慌",
+   "trigger": "细链被死死钩住而身体受机械臂下沉牵引导致白金项圈深陷颈部雪肌带来窒息感。"
+  },
+  {
+   "choice": "选择单手施展专业动物行为学安抚手法，抑或名犬狂吠挣扎导致机械臂撕烂衣服。",
+   "exits": [
+    {
+     "cost": "需要极强心理定力与动物沟通专业技巧。",
+     "option": "指尖轻柔按揉犬耳后穴位借条件反射迅速平复名犬狂躁情绪。"
+    },
+    {
+     "cost": "临时投喂零食需要承担微弱程序瑕疵责任。",
+     "option": "由护士若溪在舱外轻敲隔音玻璃投喂特制冻干零食吸引注意力。"
+    }
+   ],
+   "far": {
+    "consequence": "高端水疗演示彻底沦为闹剧，面临巨额名犬精神损伤索赔惩处。",
+    "due_days": 1,
+    "trigger": "大犬受惊暴起导致院长摔倒衣衫撕裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_01_hydraulic_arm_groan_snag",
+    "hook_02_scrub_suit_strain_jam",
+    "hook_03_scissors_lever_extract",
+    "hook_04_director_lin_standoff",
+    "hook_05_concierge_towel_shield",
+    "hook_06_scissors_spine_into_nook_gap",
+    "hook_07_mrs_song_footsteps_stairs",
+    "hook_08_mechanic_braces_arm_bracket",
+    "hook_09_wrist_twist_scissors_pop",
+    "hook_10_collar_chain_snaps_free",
+    "hook_11_director_stands_tall_and_free",
+    "hook_12_flawless_director_poise_captured",
+    "hook_13_grand_spa_standing_ovation",
+    "hook_14_mrs_song_retreats_in_awe",
+    "hook_15_scissors_tucked_whisper_smile",
+    "hook_vet_office_door"
+   ],
+   "id": "press_golden_retriever_bark_struggle",
+   "immediate": {
+    "minutes": 1,
+    "text": "金毛大犬发出不安低鸣，水花溅在透明玻璃上，爪子摩擦舱底嘎吱作响。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_pet_spa_glass_hall_center"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若大犬突然弹跳跃起，受拉细链将硬生生将院长拖翻在地引发致命走光事故。"
+   },
+   "objective": "以极温柔轻柔语调与抚摸稳住名犬情绪防止剧烈挣扎拉断白金细链。",
+   "source": "person",
+   "start_minute": 135,
+   "tags": [],
+   "title": "名贵犬因水流断续焦躁挣扎危局",
+   "trigger": "液压停滞导致微泡冲洗中断，巨型名犬焦躁踏水晃动身躯带动机壳剧烈摇晃。"
+  }
+ ],
+ "region": "名宠水疗会馆：全景玻璃水疗大厅、洗狗舱机械臂死角、磨砂玻璃大门与窗外贵宾休息区",
+ "rules": [
+  {
+   "id": "rule_vet_spa_modesty_and_decorum",
+   "text": "高端宠物水疗中心操作规程：主治医师在全景透明舱工作时必须保持浅粉刷手服端庄平整，严禁领口松脱、衣着不整或发生任何失态。"
+  },
+  {
+   "id": "rule_hydrotherapy_tub_hydraulic_safety",
+   "text": "微泡水疗舱自动液压悬臂构件严禁蛮力撕扯，防止导致高压管路破裂或电机过载伤及无辜动物。"
+  },
+  {
+   "id": "rule_vip_pet_owner_fifteen_inspection",
+   "text": "水疗验收期贵妇客户推门巡查为常规服务节点，医护人员必须在十五秒步速内齐整起立微笑着装迎客。"
+  },
+  {
+   "id": "rule_adult_veterinarian_legal_code",
+   "text": "宠物诊疗中心医护人员全员均为年满二十周岁完全民事责任人，损坏名贵纯种犬或公用特种器械依法承担经济连带赔偿。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "组织规约",
+  "committed": "金石同盟",
+  "familiar": "台容核检",
+  "flirting": "暗光对视",
+  "intimate": "俯仰共济",
+  "stranger": "初登讲台",
+  "testing": "执夹撬簧"
+ },
+ "status": "released",
+ "style_hint": "全景落地玻璃的暖光与窗外名媛的目光。写温柔院长婴儿肥两颊的潮红、撕开的浅粉刷手服下半露的雪白酥胸与被勾紧的白金项圈、低着头压住的喘息，动作落在圆头钢剪别液压挂钩上。",
+ "tension_engines": [
+  {
+   "id": "eng_hydraulic_arm_collar_chain_snag",
+   "text": "浅粉修身刷手服领口与白金项圈细链卡入自动洗狗舱液压伸缩臂死锁角，稍有后仰即引发领口崩裂大面积走光与名贵爱犬惊吓受挫之恐怖机械死锁威压。"
+  },
+  {
+   "id": "eng_mrs_song_fifteen_approach_rush",
+   "text": "贵妇客户迈步推门进场与水疗验收终场十五秒倒计时无情流逝，与治愈女院长反手持圆头医美小剪微观下挑自救形成的秒级时速对抗。"
+  },
+  {
+   "id": "eng_telephoto_lenses_outside_dread",
+   "text": "落地玻璃窗外多名名媛手持相机长焦端密集锁焦，与受困女院长贴身白金项圈体面濒临失守带来的极端职业医德社死心理拉锯。"
+  },
+  {
+   "id": "eng_scrub_suit_collar_strain_tear_panic",
+   "text": "浅粉医用速干刷手服前襟缝线断裂受拉紧绷，成年连锁会所最年轻美女院长以非凡坚韧与器械智慧捍卫尊严神格之绝境自救。"
+  }
+ ],
+ "title": "治愈系宠物院长·水疗舱机械臂勾死白金项圈",
+ "tone": [
+  "刷手服领口撕开",
+  "项圈被机械臂勾住",
+  "贵妇推门三米",
+  "圆头钢剪别挂钩"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_info_scissors_spine_lever_craft",
+   "requires": [
+    "vet_director_xu_an_ran"
+   ],
+   "text": "院长胸前别着的金属工作牌夹层藏有三点五毫米加厚钝尾医美剪，背部圆润且坚实，实为专破各类气动自锁触点的脱困秘钥。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_spatial_spa_tub_housing_shadow_blind",
+   "requires": [
+    "facility_mechanic_han_tie_cheng"
+   ],
+   "text": "全景水疗大厅洗狗舱不锈钢内胆与后部机罩形成一处天然光影遮蔽死角，为维保技师暗中托住悬臂与院长下肢站立提供了物理隐蔽屏障。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_client_exclusive_veto_ban",
+   "requires": [
+    "clinical_director_lin_jing_xing"
+   ],
+   "text": "贵妇客户企图借客户特权强闯无菌水疗操作区的行径被诊所公证管理系统当场记录，现场取消其直接干预诊疗动线的特权。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_pure_director_grit_burst",
+   "requires": [
+    "vet_director_xu_an_ran"
+   ],
+   "text": "看似温柔如水清丽柔弱的宠物女院长在死锁与贵妇逼近绝境中迸发出惊人冷静意志，单手运剪微观顶开触点展现出令人心折的极品坚韧。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_director_lin_airflow_curtain_buffer",
+   "requires": [
+    "clinical_director_lin_jing_xing"
+   ],
+   "text": "副院长在门前果断汇报毛囊数据并挺身阻截贵妇客户催逼步伐，为院长圆头剪刀背挑开急停卡簧争取到无价黄金时间窗。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_social_concierge_towel_barrier_brace",
+   "requires": [
+    "concierge_lead_an_xiao_nian"
+   ],
+   "text": "看似娇俏灵动的前台主管借迎客为由用出浴大披巾死死挡住外廊长焦单反拍摄，以硬核职业操守构筑最稳固操作后盾。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_anti_pinch_hydraulic_spring_yield",
+   "requires": [
+    "facility_mechanic_han_tie_cheng"
+   ],
+   "text": "液压机械臂自锁触点在圆头剪刀背三点八牛顿垂直杠杆力矩下顺畅弹起泄压，挂死的白金细链顺势脱扣滑出化解浅粉刷手服撕裂危局。"
+  }
+ ]
+}

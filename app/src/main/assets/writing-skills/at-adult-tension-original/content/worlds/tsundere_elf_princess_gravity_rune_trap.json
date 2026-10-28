@@ -1,0 +1,2241 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "跟着卫队长守了几年王宫的卫兵。",
+   "age_range": [
+    21,
+    28
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_palace_guard",
+   "line": "队长！配重链外面的卡子我们敲掉了！里面一扳就能动！",
+   "location_ids": [
+    "loc_moon_wheel_counterweight_lever",
+    "loc_palace_moon_garden"
+   ],
+   "name": "卫兵林恩",
+   "role": "王宫的年轻卫兵"
+  },
+  {
+   "adult_context": "在王宫吹了几年号角的号手。",
+   "age_range": [
+    21,
+    28
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_horn_page",
+   "line": "号角我一直吹着！殿下听得见就回一声！",
+   "location_ids": [
+    "loc_moon_wheel_counterweight_lever",
+    "loc_palace_moon_garden"
+   ],
+   "name": "号手艾拉",
+   "role": "王宫的号手"
+  },
+  {
+   "adult_context": "跟着首席大臣的管事。",
+   "age_range": [
+    35,
+    50
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_chancellor_steward",
+   "line": "大臣有令，机关没查清之前，谁也不许进大殿！那个人类得先交代清楚！",
+   "location_ids": [
+    "loc_moon_wheel_counterweight_lever"
+   ],
+   "name": "管事奥兰",
+   "role": "首席大臣的管事"
+  },
+  {
+   "adult_context": "在宫廷里弹了几年竖琴的乐师。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_harp_player",
+   "line": "殿下每回路过凉亭都要停一下，可听的不是琴，看的是长廊那头的大殿。",
+   "location_ids": [
+    "loc_palace_moon_garden"
+   ],
+   "name": "乐师菲娅",
+   "role": "凉亭里的竖琴乐师"
+  },
+  {
+   "adult_context": "在王宫点了几百年灯的老精灵。",
+   "age_range": [
+    55,
+    70
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_lamp_lighter",
+   "line": "那个人类学者每晚最后一个走，殿下就在大殿门口等到最后一盏灯点完。",
+   "location_ids": [
+    "loc_palace_moon_garden"
+   ],
+   "name": "掌灯人老托",
+   "role": "王宫的掌灯人"
+  },
+  {
+   "adult_context": "在寝宫当差的年轻侍女。",
+   "age_range": [
+    21,
+    26
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_young_maid",
+   "line": "殿下的梳妆台上多了一只木头小鸟，谁也不许碰。",
+   "location_ids": [
+    "loc_palace_moon_garden"
+   ],
+   "name": "小侍女",
+   "role": "寝宫的侍女"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "王女与学者在花瓣和祭台之间胸背相贴，四只手叠在弓身上，一个喊口令一个跟着往下压。",
+   "id": "cc_princess_mechanist_switch",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "elf_princess_elvira",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一起被困在合拢的花瓣下，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "human_mechanist",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "一个陪同一个修复，在大殿里待了一个月。",
+     "stage": "familiar"
+    },
+    {
+     "a": "elf_princess_elvira",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "human_mechanist",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个嘴硬一个嘴笨，一个月里斗了无数回嘴，谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "elf_princess_elvira",
+    "human_mechanist"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "撬开护背暗扣卸甲，再一起扳下配重手柄。",
+    "limit_gap": "王女被钉在花瓣边动弹不得，学者的工具挎包被花瓣砸塌了。",
+    "meeting_reason": "地脉震颤前，王女站在祭台上看学者修花瓣铰链。",
+    "resource_gap": "王女有那张秘银短弓和一身王族的胆气，学者有那本穹顶构造图和对铰链的了解。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_petals_closing",
+    "te_bow_chest_press"
+   ]
+  },
+  {
+   "chemistry": "王女与学者在配重手柄前四只手叠在一起，一边争该先停花瓣还是先保祭台，一边一下一下把锁扣别开。",
+   "id": "cc_princess_mechanist_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "elf_princess_elvira",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "为拆不拆铰链争了一下午，谁都不肯先认输。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "human_mechanist",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "一个月里在花园里并肩走过好多回。",
+     "stage": "familiar"
+    },
+    {
+     "a": "elf_princess_elvira",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "human_mechanist",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个骄傲一个木讷，谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "elf_princess_elvira",
+    "human_mechanist"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "先让花瓣停下来，再把穹顶修好。",
+    "limit_gap": "王女不懂机关，学者不懂精灵王宫的禁忌。",
+    "meeting_reason": "两人为月蚀庆典前该不该拆开花瓣铰链，在花园里争了一下午，争到夜里守殿都没分出胜负。",
+    "resource_gap": "王女知道这座大殿千年来的规矩，学者知道这座机关每一根链子。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_latch_bitten_deeper",
+    "te_altar_tilting"
+   ]
+  },
+  {
+   "chemistry": "首席大臣在殿门外等着消息，王女和学者一个压弓身一个抱着人，谁也不肯在大臣面前先喊疼。",
+   "id": "cc_princess_mechanist_chancellor",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "elf_princess_elvira",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "头一回在大臣面前把命交给一个人类。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "human_mechanist",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "奉女王之命来查看修复，早听说王女和那个人类。",
+     "stage": "familiar"
+    },
+    {
+     "a": "elf_princess_elvira",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "human_mechanist",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在大臣面前不敢多看一眼，可每一声口令都只喊给一个人听。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "elf_princess_elvira",
+    "human_mechanist"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让大臣亲眼看见，精灵王女和人类学者能一起把命捡回来。",
+    "limit_gap": "王女不肯在大臣面前失了王族的体面，学者不习惯被大人物盯着干活。",
+    "meeting_reason": "大臣要亲眼看看修复的进度，王女陪着进殿，学者在旁边讲花瓣铰链。",
+    "resource_gap": "王女手里有短弓和王族的身份，学者手里有构造图和锉刀。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_altar_tilting",
+    "te_latch_bitten_deeper"
+   ]
+  },
+  {
+   "chemistry": "王女一边别弓梢一边冲新来的随员喊着怎么贴紧祭台，学者抱着王女，把三个人的力气拧成一股。",
+   "id": "cc_princess_mechanist_attendant",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "elf_princess_elvira",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "王女嫌随员胆小，今晚却要把命交到这双手上。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "human_mechanist",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "第一次进王宫就遇上了穹顶合拢。",
+     "stage": "familiar"
+    },
+    {
+     "a": "elf_princess_elvira",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "human_mechanist",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "王女和学者一个眼神就知道对方要干什么，随员都看在眼里。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "elf_princess_elvira",
+    "human_mechanist"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "带着随员一起平安出去，月蚀庆典照常举行。",
+    "limit_gap": "新来的随员什么都不懂，王女得一边自救一边教。",
+    "meeting_reason": "随员第一次被带进月轮大殿，学者正在讲穹顶的来历。",
+    "resource_gap": "王女有短弓和守殿的经验，学者有构造图和锉刀。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_petals_closing",
+    "te_latch_bitten_deeper"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_petal_whisper",
+   "reach": "all",
+   "text": "花瓣缝隙里贴着耳朵的低语和急促的喘息"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_palace_horn",
+   "reach": "local",
+   "text": "王宫号角的声音，隔着合拢的花瓣一阵阵传进来"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "纯血精灵王族的第一王女，弓术、礼仪、治国样样拿得出手，这一回奉女王之命陪同人类学者修复穹顶，去留进退由本人拿主意。",
+   "age_range": [
+    24,
+    29
+   ],
+   "appearance_options": [
+    "一头如月华流光般璀璨的金白微卷长发，身着贴身精工雕花秘银王家轻甲，勾勒出青年王女柔韧紧致、曼妙修长的身姿，白皙绝美的瓜子脸线条精致，碧翠宝石般的眼眸中满是不甘服输的骄傲，傲娇娇贵中透着令人心折的反差纯情美感。",
+    "精工胸甲被花瓣挤得紧贴胸口，面颊因喘不上气而泛着诱人桃红，紧咬银牙，双手反扣紧握短弓，虽疼痛难忍仍毫无保留地将脊背靠入同伴怀中，高傲中流露出将性命全然相托的柔韧温存。"
+   ],
+   "decision": {
+    "avoids": [
+     "阿谀奉承的人",
+     "看不起精灵的人"
+    ],
+    "contrast": "在宫廷里骄傲得像一只白孔雀，对使节说话从不低头；可被钉在花瓣边时，却是王女第一个把短弓递过去，说一句：本殿下的命，交给你了。",
+    "core_value": "王族的骄傲，是站在所有人前面。",
+    "goal_options": [
+     "用短弓弓梢撬开护背暗扣，卸甲脱困",
+     "和学者一起扳下月轮配重手柄，让花瓣升回去"
+    ],
+    "never": [
+     "丢下同伴自己跑"
+    ],
+    "prefers": [
+     "敢顶撞自己、说到做到的人",
+     "手巧又不卖弄的人"
+    ],
+    "pressure_responses": {
+     "breaking": "疼得咬破嘴唇也不松手，清声喊着下撬的口令。",
+     "high": "让对方抱住自己，把全身重量压在弓身上。",
+     "low": "先伏低身子贴住祭台，看清花瓣往哪边合。",
+     "mid": "把短弓解下来，指给对方看暗扣被咬住的死角。"
+    },
+    "relationship_stance": "学者来王宫修穹顶这一个月，王女天天嫌人类笨手笨脚，却天天守在月轮大殿里；哪天学者去了别处，王女就满王宫地找。",
+    "withdrawal": "脱困后头一件事是冲到殿门口压住吵成一团的大臣，说清楚机关不是人类触发的，才肯靠着殿柱坐下。"
+   },
+   "gender": "female",
+   "gender_reason": "精灵王国的第一王女，按原稿写作女性。",
+   "id": "elf_princess_elvira",
+   "identity": {
+    "authority": "王宫里哪座殿能进、人类学者能碰什么，王女一句话就能定。",
+    "exposure": "被钉在花瓣边，轻甲挤得喘不上气，只能把后背整个靠进对方怀里借力。",
+    "hidden": "梳妆台的抽屉里收着一只人类的木雕小鸟，是学者修穹顶时随手削的，王女捡回来以后谁也没让看。",
+    "limits": [
+     "护背暗扣被花瓣铰链咬住，动弹不得",
+     "轻甲越挤越紧，喘不上气"
+    ],
+    "obligations": [
+     "在月蚀庆典前把穹顶修好",
+     "不在一个人类面前丢了王族的脸"
+    ],
+    "resources": [
+     "一张秘银短弓，两端弓梢镶淬火硬合金直角卡榫",
+     "一身精工秘银王家轻甲",
+     "女王的信任"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "花瓣压下来时用身体挡在自己头顶的那个人",
+     "每天爬在穹顶脚手架上的那道背影"
+    ],
+    "boundaries": [
+     "人前守着王女的骄傲，心意只给认定的人",
+     "每一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "露台上靠在对方怀里看月亮的近身位",
+    "dislikes": [
+     "被人当众议论",
+     "趁人之危的手"
+    ],
+    "expression": "把那只木雕小鸟放在对方手心，下巴抬得高高的，耳尖却红透了：本殿下准你今晚留在寝宫。……你要是不愿意，可以说不。",
+    "likes": [
+     "被人一片片卸下秘银轻甲",
+     "在露台上被人从身后抱着看月亮",
+     "被人用人类的方式笨拙地亲一下额头"
+    ],
+    "preconditions": [
+     "花瓣升回、两人都脱困之后",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "精灵王国第一王女",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_palace_moon_garden",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_princess_bedchamber",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "弓梢可能弯掉，肩背会被暗扣勒伤",
+      "option": "用短弓弓梢撬开护背暗扣，和学者合力卸甲"
+     },
+     {
+      "cost": "王女被钉在花瓣边，手柄扳下之前可能就被压住",
+      "option": "让学者先去扳配重手柄"
+     }
+    ],
+    "pressure": "花瓣一寸寸合拢，必须在被压在下面之前撬开暗扣、卸甲脱困。",
+    "trigger": "地脉震颤时，王女正站在月轮祭台上看学者修花瓣铰链，花瓣一合，护背暗扣就被咬住了。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "背甲勒得喘不上气……背后这个人类的心跳倒是稳。原来被人护着，是这种感觉。",
+    "surface": "别发呆！弓梢别进去——你抱紧本殿下，压着我的手，听我的口令，压！"
+   }
+  },
+  {
+   "adult_context": "五百岁的老精灵侍女，王女是这双手一点点带大的。",
+   "age_range": [
+    55,
+    70
+   ],
+   "appearance_options": [
+    "一身朴素的银灰长裙，银发挽成一个髻，腰间挂着一大串寝宫的钥匙。",
+    "站在寝宫回廊的拐角，一边吩咐小侍女一边往月轮大殿的方向看。"
+   ],
+   "decision": {
+    "avoids": [
+     "侍奉王女多年的老侍女最烦临阵推诿"
+    ],
+    "contrast": "在女王面前恭敬得一丝不苟，私下却会偷偷给王女多留一盘蜂蜜蛋糕。",
+    "core_value": "殿下平安，比什么都要紧。",
+    "goal_options": [
+     "先把人救出来",
+     "侍奉王女多年的老侍女再追究是谁的错"
+    ],
+    "never": [
+     "侍奉王女多年的老侍女不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "侍奉王女多年的老侍女看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "侍奉王女多年的老侍女嗓子喊哑了也不肯走",
+     "high": "侍奉王女多年的老侍女顶着危险往里递东西",
+     "low": "侍奉王女多年的老侍女先稳住身边的人",
+     "mid": "侍奉王女多年的老侍女四处找能用的工具"
+    },
+    "relationship_stance": "早看出王女和那个人类之间有事，每回都故意把学者的茶点送到月轮大殿。",
+    "withdrawal": "事情过去后，侍奉王女多年的老侍女一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是侍奉王女多年的老侍女；精灵寿命长，年龄取外表相当的人类岁数。",
+   "id": "old_chamber_matron",
+   "identity": {
+    "authority": "王女的寝宫里谁能进、王女今天穿什么，老侍女说了算。",
+    "exposure": "侍奉王女多年的老侍女忙起来顾不上衣着体面",
+    "hidden": "做侍奉王女多年的老侍女这些年，有件事没对旁人说过",
+    "limits": [
+     "侍奉王女多年的老侍女不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住侍奉王女多年的老侍女手上的那一摊事"
+    ],
+    "resources": [
+     "一串王宫各处的钥匙",
+     "侍奉王女多年的老侍女随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "侍奉王女多年的老侍女欣赏做事干脆利落的人",
+     "侍奉王女多年的老侍女记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，侍奉王女多年的老侍女就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和侍奉王女多年的老侍女并肩站着",
+    "dislikes": [
+     "侍奉王女多年的老侍女讨厌轻浮的手"
+    ],
+    "expression": "侍奉王女多年的老侍女话不多，递东西时指尖会多停一下",
+    "likes": [
+     "侍奉王女多年的老侍女收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "侍奉王女多年的老侍女要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "侍奉王女多年的老侍女",
+   "schedule": [
+    {
+     "from": 420,
+     "location_id": "loc_palace_moon_garden",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "侍奉王女多年的老侍女未必赶得上",
+      "option": "侍奉王女多年的老侍女在外面调度接应"
+     },
+     {
+      "cost": "可能把侍奉王女多年的老侍女自己也搭进去",
+      "option": "侍奉王女多年的老侍女硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，侍奉王女多年的老侍女进不去",
+    "trigger": "警报传到侍奉王女多年的老侍女那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "带了殿下这么多年……今晚要是出了事，老身没脸去见先王。",
+    "surface": "殿下！外面的大臣我拦着！你们只管把那机关停下来！"
+   }
+  },
+  {
+   "adult_context": "三百岁的精灵匠人，王女那身秘银轻甲和那张短弓都是这双手打的。",
+   "age_range": [
+    55,
+    72
+   ],
+   "appearance_options": [
+    "一身沾着银粉的皮围裙，银白的短须，手指上满是老茧和细小的烫疤。",
+    "坐在王宫工坊的炉子边，一边敲着一片秘银一边哼歌。"
+   ],
+   "decision": {
+    "avoids": [
+     "王宫的秘银匠最烦临阵推诿"
+    ],
+    "contrast": "在大臣面前一句话都不说，说起秘银来能讲一整夜。",
+    "core_value": "好东西，要用在要紧的地方。",
+    "goal_options": [
+     "先把人救出来",
+     "王宫的秘银匠再追究是谁的错"
+    ],
+    "never": [
+     "王宫的秘银匠不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "王宫的秘银匠看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "王宫的秘银匠嗓子喊哑了也不肯走",
+     "high": "王宫的秘银匠顶着危险往里递东西",
+     "low": "王宫的秘银匠先稳住身边的人",
+     "mid": "王宫的秘银匠四处找能用的工具"
+    },
+    "relationship_stance": "嘴上嫌人类学者乱碰千年的机关，私下却跟学者聊了好几个晚上的铰链构造。",
+    "withdrawal": "事情过去后，王宫的秘银匠一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是王宫的老秘银匠，年龄按外貌折算。",
+   "id": "royal_silversmith",
+   "identity": {
+    "authority": "王宫里的秘银器物怎么打、怎么修，秘银匠说了算。",
+    "exposure": "王宫的秘银匠忙起来顾不上衣着体面",
+    "hidden": "做王宫的秘银匠这些年，有件事没对旁人说过",
+    "limits": [
+     "王宫的秘银匠不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住王宫的秘银匠手上的那一摊事"
+    ],
+    "resources": [
+     "一座王宫工坊",
+     "王宫的秘银匠随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "王宫的秘银匠欣赏做事干脆利落的人",
+     "王宫的秘银匠记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，王宫的秘银匠就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和王宫的秘银匠并肩站着",
+    "dislikes": [
+     "王宫的秘银匠讨厌轻浮的手"
+    ],
+    "expression": "王宫的秘银匠话不多，递东西时指尖会多停一下",
+    "likes": [
+     "王宫的秘银匠收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "王宫的秘银匠要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "王宫的秘银匠",
+   "schedule": [
+    {
+     "from": 420,
+     "location_id": "loc_palace_moon_garden",
+     "to": 1200
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "王宫的秘银匠未必赶得上",
+      "option": "王宫的秘银匠在外面调度接应"
+     },
+     {
+      "cost": "可能把王宫的秘银匠自己也搭进去",
+      "option": "王宫的秘银匠硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，王宫的秘银匠进不去",
+    "trigger": "警报传到王宫的秘银匠那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "那身甲是我亲手打的……可千万别让这身甲把殿下困住。",
+    "surface": "殿下！那暗扣我打的时候留了个松口，在左下角！往那里别！"
+   }
+  },
+  {
+   "adult_context": "二十九岁，在人类王国的大学里研究古代机关十年，是第一个被请进精灵王宫修复月轮穹顶的人类，去留进退由本人拿主意。",
+   "age_range": [
+    27,
+    34
+   ],
+   "appearance_options": [
+    "一身朴素的深棕色学者外套，袖口沾着铜锈，腰上挂着一只装满小锉刀和卡尺的皮囊，耳朵上夹着一支炭笔。",
+    "外套被花瓣锯齿划开一道口子，胸口贴着王女的后背，双臂死死抱着王女。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿千年古物当玩具的人"
+    ],
+    "contrast": "在大学里能把一座机关讲一下午，被王女一句话呛回来时，却只会挠头。",
+    "core_value": "千年的机关也是人做的，人做的东西，就有人能拆。",
+    "goal_options": [
+     "抱住王女，给王女当发力的支点",
+     "把全身重量压在弓身上"
+    ],
+    "never": [
+     "让王女一个人困在花瓣边"
+    ],
+    "prefers": [
+     "说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "后背被锯齿刮破也不松，跟着王女的口令压到最后一下。",
+     "high": "胸口贴着王女的后背，双手压在王女的手上，和王女一起压。",
+     "low": "一把抱住王女，用后背挡住压下来的花瓣锯齿。",
+     "mid": "摸着暗扣的缝隙，报出锁舌咬死的角度。"
+    },
+    "relationship_stance": "每天爬在穹顶的脚手架上修铰链，修着修着，眼睛就总往祭台那边看。",
+    "withdrawal": "确认花瓣升回、殿外的人没吵起来，才靠在殿柱上，大口大口地喘气。"
+   },
+   "gender": "male",
+   "gender_reason": "人类王国派来的古代机关学者，按原稿写作男性。",
+   "id": "human_mechanist",
+   "identity": {
+    "authority": "穹顶的花瓣铰链怎么转、配重链怎么走，学者心里有数。",
+    "exposure": "胸口贴着王女的后背，两人在花瓣和祭台之间贴得严丝合缝。",
+    "hidden": "构造图的最后一页画着一个拉弓的精灵，是第一天在花园里看见王女练箭时画的，一直没敢给人看。",
+    "limits": [
+     "被花瓣逼得直不起身",
+     "工具挎包被合拢的花瓣砸塌了"
+    ],
+    "obligations": [
+     "护住王女不被花瓣锯齿刮到",
+     "撬开暗扣，两人一起扳下配重手柄"
+    ],
+    "resources": [
+     "一本月轮穹顶的构造图",
+     "一把小锉刀",
+     "一卷细铜丝"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "王女被钉在花瓣边还能喊得那么稳的那份骄傲",
+     "王女嘴硬时耳尖先红的那一下"
+    ],
+    "boundaries": [
+     "王女没开口就不越一步",
+     "人前不让王女难做"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "露台上让王女靠着怀里的近身位",
+    "dislikes": [
+     "当众起哄",
+     "背后嚼舌根"
+    ],
+    "expression": "握着那只木雕小鸟愣了很久，最后把构造图翻到最后一页递过去：你练箭的样子，我画了一个月。",
+    "likes": [
+     "王女难得叫一次自己的名字",
+     "被王女拽着袖子带进寝宫"
+    ],
+    "preconditions": [
+     "花瓣升回、两人都安全清醒之后",
+     "王女点了头，出于本心"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "修复月轮穹顶的人类机关学者",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_moon_wheel_altar",
+     "to": 1020
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_palace_moon_garden",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "后背会被花瓣锯齿刮伤，手臂可能脱力",
+      "option": "抱住王女，合力压下弓身"
+     },
+     {
+      "cost": "丢下王女一个人在花瓣边",
+      "option": "自己先去扳配重手柄"
+     }
+    ],
+    "pressure": "花瓣越合越低，再不撬开暗扣，王女会被压在花瓣下面。",
+    "trigger": "地脉震颤时，学者正爬在穹顶的脚手架上修花瓣铰链，看见花瓣合拢，一头扑下来护住了王女。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "王女整个人靠在我怀里，背甲勒得直喘……别分神。修了一个月的穹顶，今晚得撬准这一下。",
+    "surface": "我抱着你，别怕！弓梢别进去，我压着你的手——你喊口令，我跟。"
+   }
+  },
+  {
+   "adult_context": "两百岁的精灵卫队长，守了王宫一百年，王女的箭术最早就是这个人教的。",
+   "age_range": [
+    32,
+    45
+   ],
+   "appearance_options": [
+    "一身银绿色的王宫卫队甲胄，腰上挂着一柄长剑，脸上一道浅浅的旧疤。",
+    "站在月轮大殿的门口，手按着剑柄。"
+   ],
+   "decision": {
+    "avoids": [
+     "王宫卫队长最烦临阵推诿"
+    ],
+    "contrast": "对擅闯的人毫不留情，对王宫里的小侍女却总是和颜悦色。",
+    "core_value": "王宫守得住，殿下得平安出来。",
+    "goal_options": [
+     "先把人救出来",
+     "王宫卫队长再追究是谁的错"
+    ],
+    "never": [
+     "王宫卫队长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "王宫卫队长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "王宫卫队长嗓子喊哑了也不肯走",
+     "high": "王宫卫队长顶着危险往里递东西",
+     "low": "王宫卫队长先稳住身边的人",
+     "mid": "王宫卫队长四处找能用的工具"
+    },
+    "relationship_stance": "嘴上嫌人类学者碍事，可王女每回在大殿守夜，卫队长都在门口守着。",
+    "withdrawal": "事情过去后，王宫卫队长一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是王宫的卫队长，年龄取外表相当的人类岁数。",
+   "id": "royal_guard_captain",
+   "identity": {
+    "authority": "王宫里谁能进月轮大殿，卫队长说了算。",
+    "exposure": "王宫卫队长忙起来顾不上衣着体面",
+    "hidden": "做王宫卫队长这些年，有件事没对旁人说过",
+    "limits": [
+     "王宫卫队长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住王宫卫队长手上的那一摊事"
+    ],
+    "resources": [
+     "一队王宫卫兵",
+     "王宫卫队长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "王宫卫队长欣赏做事干脆利落的人",
+     "王宫卫队长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，王宫卫队长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和王宫卫队长并肩站着",
+    "dislikes": [
+     "王宫卫队长讨厌轻浮的手"
+    ],
+    "expression": "王宫卫队长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "王宫卫队长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "王宫卫队长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "王宫卫队长",
+   "schedule": [
+    {
+     "from": 1080,
+     "location_id": "loc_moon_wheel_counterweight_lever",
+     "to": 1439
+    },
+    {
+     "from": 0,
+     "location_id": "loc_moon_wheel_counterweight_lever",
+     "to": 420
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "王宫卫队长未必赶得上",
+      "option": "王宫卫队长在外面调度接应"
+     },
+     {
+      "cost": "可能把王宫卫队长自己也搭进去",
+      "option": "王宫卫队长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，王宫卫队长进不去",
+    "trigger": "警报传到王宫卫队长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "守了一百年王宫，从没见这座穹顶合拢过……殿下要是出不来，我这卫队长也别干了。",
+    "surface": "殿下！殿门我们守着！你们扳下手柄就喊，我第一个进去接人！"
+   }
+  },
+  {
+   "adult_context": "一百多岁的精灵甜点师，王宫里每一块蜂蜜蛋糕都出自这双手。",
+   "age_range": [
+    36,
+    50
+   ],
+   "appearance_options": [
+    "一身雪白的厨师服，金发编成一条辫子盘在头上，围裙上沾着面粉和蜂蜜。",
+    "站在王宫厨房的烤炉前，一边看火一边哼歌。"
+   ],
+   "decision": {
+    "avoids": [
+     "王宫的甜点师最烦临阵推诿"
+    ],
+    "contrast": "嘴上嫌人类不懂精灵的点心，私下却教学者怎么做蜂蜜蛋糕。",
+    "core_value": "甜的东西，能让人记住好日子。",
+    "goal_options": [
+     "先把人救出来",
+     "王宫的甜点师再追究是谁的错"
+    ],
+    "never": [
+     "王宫的甜点师不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "王宫的甜点师看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "王宫的甜点师嗓子喊哑了也不肯走",
+     "high": "王宫的甜点师顶着危险往里递东西",
+     "low": "王宫的甜点师先稳住身边的人",
+     "mid": "王宫的甜点师四处找能用的工具"
+    },
+    "relationship_stance": "每回给王女的甜点盘里多放一块，说是给那个人类学者的。",
+    "withdrawal": "事情过去后，王宫的甜点师一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是王宫的女甜点师，年龄按看上去的样子填。",
+   "id": "palace_pastry_chef",
+   "identity": {
+    "authority": "王宫的甜点做什么、谁多一块，甜点师说了算。",
+    "exposure": "王宫的甜点师忙起来顾不上衣着体面",
+    "hidden": "做王宫的甜点师这些年，有件事没对旁人说过",
+    "limits": [
+     "王宫的甜点师不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住王宫的甜点师手上的那一摊事"
+    ],
+    "resources": [
+     "一厨房的蜂蜜和面粉",
+     "王宫的甜点师随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "王宫的甜点师欣赏做事干脆利落的人",
+     "王宫的甜点师记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，王宫的甜点师就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和王宫的甜点师并肩站着",
+    "dislikes": [
+     "王宫的甜点师讨厌轻浮的手"
+    ],
+    "expression": "王宫的甜点师话不多，递东西时指尖会多停一下",
+    "likes": [
+     "王宫的甜点师收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "王宫的甜点师要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "王宫的甜点师",
+   "schedule": [
+    {
+     "from": 420,
+     "location_id": "loc_palace_moon_garden",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "王宫的甜点师未必赶得上",
+      "option": "王宫的甜点师在外面调度接应"
+     },
+     {
+      "cost": "可能把王宫的甜点师自己也搭进去",
+      "option": "王宫的甜点师硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，王宫的甜点师进不去",
+    "trigger": "警报传到王宫的甜点师那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "殿下今早还在我这儿偷吃了一块蛋糕……可千万得出来。",
+    "surface": "殿下！蜂蜜蛋糕我烤着呢！你们出来了就有得吃！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "月轮祭当日",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "crime",
+  "workplace",
+  "supernatural",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "精灵王家精工秘银轻甲采用脊背偏心双向自锁扣紧机构，一旦被外物卡住横向挤压，锁舌会陷入限位防脱盲槽深度咬死。",
+  "精灵王女随身配备的特制秘银短弓，两端弓梢镶嵌高硬度淬火合金直角卡榫，抗弯抗拉强度极高，常用于古代行军重障破拆。",
+  "月轮大殿的秘银花瓣穹顶是千年前的王宫防御机关，地脉一震就会自行合拢，十二片花瓣边缘带锯齿，合拢一圈要一刻钟。",
+  "祭台中央设有月轮配重手柄，只要撬开咬死的护甲恢复行动力，两人合力扳下手柄，花瓣就会停住，慢慢升回穹顶。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "傍晚的月光花园里，银叶树一棵棵亮起淡淡的光，王女提着裙摆走在白石小径上，下巴抬得高高的。",
+    "王女忽然停下来，头也不回：你们人类的花园，有这么好看吗？……不许说有。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_silverleaf_stroll",
+   "location_ids": [
+    "loc_palace_moon_garden"
+   ],
+   "start_minute": 1050,
+   "tags": [
+    "workplace"
+   ],
+   "title": "傍晚陪王女走白石小径"
+  },
+  {
+   "beats": [
+    "午后的凉亭里，宫廷乐师在练月蚀庆典的曲子，王女倚在栏杆上听着，手指跟着琴声轻轻敲。",
+    "曲子停了，王女侧过脸：这支曲子，庆典那夜要在大殿里弹。……穹顶要是修不好，你就等着被本殿下骂吧。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_harp_pavilion",
+   "location_ids": [
+    "loc_palace_moon_garden"
+   ],
+   "start_minute": 900,
+   "tags": [
+    "workplace"
+   ],
+   "title": "凉亭里陪王女听竖琴"
+  },
+  {
+   "beats": [
+    "王宫正殿里，王女坐在高高的椅子上接见人类使团，说话滴水不漏，使节们大气都不敢出。",
+    "接见完，王女从侧门溜出来，压低声音冲人说：你们人类的使节说话真绕。……以后你来翻译。"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "act_envoy_audience",
+   "location_ids": [
+    "loc_palace_moon_garden"
+   ],
+   "start_minute": 600,
+   "tags": [
+    "workplace"
+   ],
+   "title": "站在王座侧边替王女听使节说话"
+  },
+  {
+   "beats": [
+    "月轮大殿里，学者爬在穹顶的脚手架上，一点点锉着花瓣铰链上的铜锈，王女抱着手臂站在祭台上仰头看。",
+    "王女冲上面喊：你要是掉下来，本殿下可不接。……小心点，那根架子是歪的。"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "act_dome_repair_watch",
+   "location_ids": [
+    "loc_moon_wheel_altar"
+   ],
+   "start_minute": 780,
+   "tags": [
+    "workplace"
+   ],
+   "title": "王女在大殿里看学者修穹顶"
+  },
+  {
+   "beats": [
+    "清晨的花园空地上，王女拉开那张秘银短弓，一箭射穿了五十步外的银叶。",
+    "收弓时，王女把弓递过来，挑眉：试试。……手肘抬高，你们人类拉弓怎么跟抱木头似的。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_archery_lesson",
+   "location_ids": [
+    "loc_palace_moon_garden"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪王女练箭"
+  },
+  {
+   "beats": [
+    "深夜的王宫厨房，王女踮着脚溜进去，从烤炉边的架子上拿了两块还温着的蜂蜜蛋糕。",
+    "王女把一块塞进人手里，竖起手指：嘘。……甜点师问起来，就说是你偷的。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_honey_cake_theft",
+   "location_ids": [
+    "loc_palace_moon_garden"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪王女去厨房偷蜂蜜蛋糕"
+  },
+  {
+   "beats": [
+    "花瓣升回穹顶、殿外的大臣被压住、学者的清白当众说清之后，王女回到寝宫，秘银轻甲的护背被撬得变了形，肩上勒出一道道红痕。",
+    "壁炉边，王女背过身，让人一片片卸下变形的轻甲，再用温热的香膏轻轻揉开肩背的红痕，指尖揉过后颈时，王女轻轻吸了口气，往后靠了过来。",
+    "王女转过身，难得没抬下巴，声音很轻：今晚……本殿下不想一个人睡。你愿意留下吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bedchamber_armor_shed",
+   "location_ids": [
+    "loc_princess_bedchamber"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "寝宫里替王女卸下秘银轻甲"
+  },
+  {
+   "beats": [
+    "寝宫的露台上，月光洒满整座花园，王女只穿着一件月白的丝绸睡袍，赤脚坐在露台的软榻上，金白长发披了满背。",
+    "王女拍了拍身边的软榻：坐过来。……给本殿下讲讲你们人类的月亮，是不是也这么亮。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bedchamber_balcony_moon",
+   "location_ids": [
+    "loc_princess_bedchamber"
+   ],
+   "start_minute": 1250,
+   "tags": [
+    "intimate"
+   ],
+   "title": "露台上一起看月亮"
+  },
+  {
+   "beats": [
+    "月蚀庆典结束、穹顶在乐声里缓缓打开的那一夜，王女站在寝宫的露台上，看着月亮一点点从阴影里出来，手里握着那只木雕小鸟。",
+    "王女没回头：穹顶修好了，你就要回人类王国了。……今晚你要是留下，本殿下就去求女王，让你一直修下去。你说好，我才转身。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bedchamber_eclipse_eve",
+   "location_ids": [
+    "loc_princess_bedchamber"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "月蚀庆典的那一夜"
+  },
+  {
+   "beats": [
+    "天快亮的时候，露台外的银叶树渐渐暗下去，王女在月白的纱幔里醒来，金白长发铺了满枕，整个人缠在人怀里。",
+    "王女把脸埋进人颈窝，闷声说：早朝……晚一刻再去。这是王女的命令。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bedchamber_dawn_silverleaf",
+   "location_ids": [
+    "loc_princess_bedchamber"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "银叶沙沙声里醒来"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "古典奇幻精灵王宫与远古月轮机关时代",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_moon_wheel_altar"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{elf_princess_elvira.name}的秘银轻甲被花瓣铰链咬得咯吱作响，面颊绷得发红，还是一把将短弓塞进同伴手里：拿着，别愣着。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_moon_wheel_altar"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{elf_princess_elvira.name}侧身伏在祭台的凹槽里，金白长发散乱，把冰凉的双手缩进同伴掌心，咬着牙指出护背被咬住的地方。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "slot": "human_mechanist",
+   "text": "{human_mechanist.name}用身体挡在王女头顶和垂下的花瓣锯齿之间，用胸膛给王女撑出一块能喘气的地方。"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "slot": "human_mechanist",
+   "text": "{human_mechanist.name}握紧王女发颤的手指，两人一起把弓梢的直角卡榫送进暗扣缝隙最深处。"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{elf_princess_elvira.name}的脸贴在同伴颈侧，急促的吐息拂过皮肤，冷静数着花瓣每合拢一格的间隔。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{elf_princess_elvira.name}的双腿和同伴在倾斜的祭台上绞在一起互为依托，咬紧银牙稳住发力的支点。"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{elf_princess_elvira.name}拿出精灵王女的气魄，借着花瓣停顿的那一瞬，清声喊出合力下撬的口令。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "slot": "human_mechanist",
+   "text": "{human_mechanist.name}在花瓣又一次压下来的刹那按住王女的双肩，两人贴在祭台上严丝合缝。"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{elf_princess_elvira.name}把整个后背倚进同伴怀里，心跳贴着心跳，把全身的力气都压在短弓上。"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_moon_wheel_altar"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{elf_princess_elvira.name}细听背甲里锁销变形的脆响，在卡榫松动的一瞬催同伴压下最后一下。"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "slot": "human_mechanist",
+   "text": "{human_mechanist.name}和王女一起沉下身子，借着弓身的力臂把死卡的锁扣一举撬开，轻甲哗地松脱。"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{elf_princess_elvira.name}从轻甲里挣出来，扑进同伴怀里稳住身子，双臂环住同伴的脖颈大口喘气。"
+  },
+  {
+   "id": "hook_elvira_extra_cake",
+   "kind": "approach",
+   "location_ids": [
+    "loc_palace_moon_garden"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{npc.name}把一块蜂蜜蛋糕塞进人手里，别过脸：甜点师多做的。……本殿下才不爱吃甜的。"
+  },
+  {
+   "id": "hook_elvira_where_mechanist",
+   "kind": "approach",
+   "location_ids": [
+    "loc_palace_moon_garden"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{npc.name}在长廊口张望了一圈，下巴抬得高高的：那个人类呢？……本殿下只是问问穹顶。"
+  },
+  {
+   "id": "hook_elvira_bow_offer",
+   "kind": "approach",
+   "location_ids": [
+    "loc_palace_moon_garden",
+    "loc_princess_bedchamber"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{npc.name}把秘银短弓往人怀里一塞，挑眉：射中那片银叶，本殿下就准你明天休息。"
+  },
+  {
+   "id": "hook_elvira_chamber_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_princess_bedchamber"
+   ],
+   "slot": "elf_princess_elvira",
+   "text": "{npc.name}倚在寝宫的雕花门边，金白长发松松披着：壁炉生好了。……进来，本殿下准了。"
+  },
+  {
+   "id": "hook_mechanist_archer_sketch",
+   "kind": "approach",
+   "location_ids": [
+    "loc_palace_moon_garden",
+    "loc_princess_bedchamber"
+   ],
+   "slot": "human_mechanist",
+   "text": "{npc.name}把构造图翻到最后一页又慌忙合上：不是……是铰链的草图。"
+  },
+  {
+   "id": "hook_mechanist_lever_note",
+   "kind": "approach",
+   "location_ids": [
+    "loc_palace_moon_garden",
+    "loc_moon_wheel_altar"
+   ],
+   "slot": "human_mechanist",
+   "text": "{npc.name}在构造图上画了一道线：配重手柄在祭台中央。……万一花瓣合拢，你记住先扳这个。"
+  }
+ ],
+ "id": "tsundere_elf_princess_gravity_rune_trap",
+ "locations": [
+  {
+   "affordances": [
+    "贴着月轮祭台的石面伏低，躲开垂下的花瓣锯齿",
+    "用后背顶住祭台边缘，给同伴腾出发力的空间",
+    "侧身摸索护背暗扣被花瓣铰链咬住的位置"
+   ],
+   "detail": "王宫最深处的月轮大殿，十二片万斤秘银花瓣正从穹顶一寸寸向下合拢，花瓣边缘的锯齿已经垂到人头顶，月光从越来越窄的缝隙里漏进来。",
+   "exits": [
+    "loc_armor_latch_petal_hinge",
+    "loc_moon_wheel_counterweight_lever"
+   ],
+   "id": "loc_moon_wheel_altar",
+   "name": "花瓣穹顶下",
+   "pressure_modifiers": {
+    "p_altar_tilting": "祭台又歪了一点，脚下的石面滑得站不住。",
+    "p_petals_closing": "花瓣又合拢了一格，锯齿边缘擦着头顶过去。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "月光从越来越窄的花瓣缝隙里漏进来，看得清对方额头的汗，看不清花瓣外面的大殿。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "将秘银短弓两端加厚淬火合金弓梢直角卡榫死死别入暗扣缝隙",
+    "配合同伴呼吸节奏调整反向力臂撬动支点"
+   ],
+   "detail": "轻甲背部纵向龙骨与横向胸围连接的合金死锁槽，被合拢的花瓣铰链齿槽咬住，锁舌被挤得扭曲，花瓣越合拢咬得越紧。",
+   "exits": [
+    "loc_moon_wheel_altar"
+   ],
+   "id": "loc_armor_latch_petal_hinge",
+   "name": "花瓣铰链齿槽",
+   "pressure_modifiers": {
+    "p_bow_chest_press": "王女背贴在学者胸前，四只手叠在弓身上，秘银轻甲贴着对方的衬衫。",
+    "p_bow_tip_bending": "弓梢的直角卡榫被暗扣压出一道弧，再硬别可能整个弯掉。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "花瓣铰链的齿槽咬着轻甲的护背暗扣，弓梢别进去时，秘银摩擦出一串细碎的银光。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "卸甲脱困后两人合力扑向配重手柄",
+    "感受沉重的手柄扳下后花瓣停住、缓缓升起的震颤"
+   ],
+   "detail": "祭台中央的铜制配重手柄，连着穹顶十二片花瓣的总配重链，扳下去花瓣就会停住，慢慢升回原处。",
+   "exits": [
+    "loc_moon_wheel_altar",
+    "loc_palace_moon_garden"
+   ],
+   "id": "loc_moon_wheel_counterweight_lever",
+   "name": "月轮配重手柄",
+   "pressure_modifiers": {
+    "p_court_outside_doors": "殿门外的大臣们吵成一团，有人说是人类学者故意触发了机关。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "配重手柄的铜链通向穹顶，殿门外王宫卫队的号角和喊声隔着花瓣传进来，一阵比一阵急。",
+   "witnesses": [
+    "bg_palace_guard",
+    "bg_horn_page",
+    "bg_chancellor_steward"
+   ]
+  },
+  {
+   "affordances": [
+    "陪王女在银叶树下散步",
+    "在凉亭里听宫廷乐师弹竖琴",
+    "陪王女接见人类使团"
+   ],
+   "detail": "精灵王宫中庭的一座花园，银叶树沿着白石小径排开，夜里叶子会发出淡淡的光，花园尽头是一座弹竖琴的凉亭和通往月轮大殿的长廊。",
+   "exits": [
+    "loc_princess_bedchamber",
+    "loc_moon_wheel_counterweight_lever"
+   ],
+   "id": "loc_palace_moon_garden",
+   "name": "王宫月光花园",
+   "pressure_modifiers": {},
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "侍女、乐师、来觐见的使节都在花园里来往，王女跟谁多走一段路，第二天整座王宫都会议论。",
+   "witnesses": [
+    "bg_palace_guard",
+    "bg_horn_page",
+    "bg_harp_player",
+    "bg_chancellor_steward"
+   ]
+  },
+  {
+   "affordances": [
+    "坐在露台上陪王女看月亮",
+    "替王女卸下秘银轻甲",
+    "把寝宫的雕花木门关上"
+   ],
+   "detail": "王宫东翼一座圆顶寝宫，一张挂着月白纱幔的大床、一座雕着银叶的壁炉，梳妆台上摆满了精灵的香膏，那张秘银短弓挂在床头，露台外就是整座月光花园。",
+   "exits": [
+    "loc_palace_moon_garden"
+   ],
+   "id": "loc_princess_bedchamber",
+   "name": "王女的寝宫",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "雕花木门一合，回廊里侍女的脚步声就远了，只剩壁炉的噼啪声和露台外银叶的沙沙声。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "月华",
+   "银冠",
+   "星辉",
+   "晨露",
+   "白羽",
+   "翠叶",
+   "霜月",
+   "流光",
+   "金枝",
+   "风语",
+   "湖心",
+   "云杉",
+   "雪绒",
+   "琉璃"
+  ],
+  "given_female": [
+   "艾尔薇拉",
+   "阿莉安",
+   "塞勒涅",
+   "伊莉丝",
+   "菲奥娜",
+   "瑟琳",
+   "奥黛特",
+   "缇娜",
+   "露西安",
+   "梅莉",
+   "艾薇",
+   "诺薇",
+   "萝丝",
+   "伊芙琳"
+  ],
+  "given_male": [
+   "亚瑟",
+   "埃里克",
+   "西里尔",
+   "菲利克斯",
+   "雨果",
+   "朱尔斯",
+   "卢卡",
+   "马克",
+   "尼尔",
+   "奥托",
+   "罗宾",
+   "塞巴",
+   "特里",
+   "维克"
+  ],
+  "given_neutral": [
+   "月",
+   "辉",
+   "羽",
+   "露",
+   "霜",
+   "叶",
+   "铃",
+   "弦",
+   "晨",
+   "澜",
+   "汐",
+   "星",
+   "棠",
+   "瑶"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "{given}先生"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入。原稿除标题、简介、基调、王女外貌与秘银短弓、轻甲暗扣外，人物、压力、日常与钩子大多照抄了吸血鬼地宫那一篇；按查重时的建议，这一篇和同批的精灵游侠拉开（那一篇在森林树根里，这一篇在王宫里），并且和同批魔族女将军、19 号魔王皇女的重力陷阱错开，把机关从重力浮空石台换成了王宫月轮大殿的秘银花瓣穹顶：地脉一震，十二片花瓣向下合拢，花瓣铰链咬住王女的护背暗扣。标题、地域、规则、风俗、三处脱困地点、转折与钩子随之改写，弓梢撬扣、卸甲、扳下配重手柄的脱困路数保留。王女的搭档是人类王国派来修复穹顶的机关学者；新增王宫月光花园与王女寝宫两处日常地点；婴儿肥换成了其余外貌描写；亲密前提写明脱困之后、双方清醒自愿；新增寝宫里的四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    25
+   ],
+   "baseline": "跟着人类使团第一次来精灵王都的随员，第一次进王宫，连侍女都不敢多看一眼。",
+   "gender": "any",
+   "id": "pi_envoy_attendant",
+   "reputation": "使团里最年轻的随员。",
+   "resources": [
+    "一本精灵礼仪手册",
+    "一封使团的介绍信",
+    "一身借来的礼服"
+   ],
+   "risks": [
+    "在王宫里失了礼，就要被打发回人类王国。"
+   ],
+   "role": "人类使团里新来的随员",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    42
+   ],
+   "baseline": "在月光花园里种了几十年银叶树的园丁，王宫里哪条小径通哪里，闭着眼都能走。",
+   "gender": "any",
+   "id": "pi_palace_gardener",
+   "reputation": "王宫里消息最灵通的人之一。",
+   "resources": [
+    "一把修枝剪",
+    "一座花房",
+    "一肚子王宫里的闲话"
+   ],
+   "risks": [
+    "花园出了事，园丁头一个担责。"
+   ],
+   "role": "王宫的园丁",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    45
+   ],
+   "baseline": "在女王御前弹了二十年竖琴的首席乐师，月蚀庆典的仪程怎么排、整座王宫的乐师听谁调遣，都由这个人定。",
+   "gender": "any",
+   "id": "pi_court_harpist",
+   "reputation": "王宫里人人都要让这位首席乐师三分。",
+   "resources": [
+    "一架银弦竖琴",
+    "庆典仪程的定稿权",
+    "随时能面见女王的通行令"
+   ],
+   "risks": [
+    "庆典要是开不成，首席乐师在女王面前也难交代。"
+   ],
+   "role": "女王御前的首席乐师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    36,
+    55
+   ],
+   "baseline": "女王最信任的首席大臣，人类学者能不能留在王宫、月蚀庆典办不办，最后都落在这个人的一句话上。",
+   "gender": "any",
+   "id": "pi_queen_chancellor",
+   "reputation": "整座王宫都知道这位大臣的分量。",
+   "resources": [
+    "一枚首席大臣的银戒",
+    "一份与人类王国的盟约底稿",
+    "随时能把人类学者请出王宫的权限"
+   ],
+   "risks": [
+    "庆典前王女出了事，大臣在女王面前也难交代。"
+   ],
+   "role": "精灵女王的首席大臣",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "精灵王都的月蚀庆典前七天，人类王国派来一位古代机关学者，修复王宫深处月轮大殿那座千年秘银花瓣穹顶。第一王女奉命陪同，嘴上嫌人类笨手笨脚，却天天守在殿里。穹顶的防御机关和地脉相连，千年来没人敢碰那根月轮配重手柄。",
+ "pressures": [
+  {
+   "choice": "是趁花瓣停顿的间隙下撬，还是先伏低身子躲开锯齿？",
+   "exits": [
+    {
+     "cost": "撬到一半花瓣又压下来，可能前功尽弃",
+     "option": "趁花瓣停顿的间隙合力下撬"
+    },
+    {
+     "cost": "花瓣只会越压越低",
+     "option": "先伏低身子躲开锯齿"
+    }
+   ],
+   "far": {
+    "consequence": "两人被合拢的花瓣压在祭台上，再也出不来。",
+    "due_days": 1,
+    "trigger": "花瓣压到祭台"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_petals_closing",
+   "immediate": {
+    "minutes": 2,
+    "text": "花瓣又合拢了一格，锯齿擦着王女的发梢过去，王女整个人往后撞进学者怀里，短弓差点脱手。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_moon_wheel_altar",
+    "loc_armor_latch_petal_hinge"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "花瓣离头顶只剩一臂高，两人只能伏在祭台上喘气。"
+   },
+   "objective": "在花瓣压到祭台之前撬开暗扣、卸甲脱困。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "秘银花瓣向下合拢",
+   "trigger": "穹顶十二片万斤秘银花瓣一寸寸向下合拢，锯齿边缘离头顶越来越近，月光越来越窄。"
+  },
+  {
+   "choice": "是用弓梢硬别，还是先用锉刀把齿槽锉开一道口？",
+   "exits": [
+    {
+     "cost": "锉刀太小，要耗掉宝贵的时间",
+     "option": "先用锉刀锉开齿槽"
+    },
+    {
+     "cost": "弓梢可能先弯掉",
+     "option": "直接用弓梢硬别"
+    }
+   ],
+   "far": {
+    "consequence": "暗扣再也撬不开，王女被钉死在花瓣边。",
+    "due_days": 1,
+    "trigger": "锁舌陷死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_latch_bitten_deeper",
+   "immediate": {
+    "minutes": 2,
+    "text": "弓梢别进去，暗扣里传来一声闷响，锁舌只退了半分，王女疼得吸了口冷气。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "花瓣又合了一格，锁舌陷得更深，背甲勒得王女喘不上气。"
+   },
+   "objective": "在锁舌彻底陷死之前撬开。",
+   "source": "accident",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "花瓣铰链咬住护背暗扣",
+   "trigger": "花瓣铰链的齿槽咬住了轻甲护背的偏心暗扣，花瓣每合拢一格，锁舌就往防脱盲槽里陷深一分。"
+  },
+  {
+   "choice": "是贴进祭台的凹槽里稳住，还是趁还站得住赶紧下撬？",
+   "exits": [
+    {
+     "cost": "贴着就没法使出全力",
+     "option": "贴进祭台的凹槽里稳住"
+    },
+    {
+     "cost": "一滑就可能撞上锯齿",
+     "option": "趁还站得住赶紧下撬"
+    }
+   ],
+   "far": {
+    "consequence": "两人从倾翻的祭台上滑下去，撞上花瓣的锯齿。",
+    "due_days": 1,
+    "trigger": "祭台倾翻"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_altar_tilting",
+   "immediate": {
+    "minutes": 2,
+    "text": "祭台猛地一歪，王女的战靴一滑，学者一把把王女拉进怀里，两人一起滚进祭台的凹槽。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "石面越来越斜，凹槽的边缘开始龟裂。"
+   },
+   "objective": "在祭台倾翻之前稳住身子。",
+   "source": "person",
+   "start_minute": 10,
+   "tags": [
+    "workplace"
+   ],
+   "title": "月轮祭台倾斜打滑",
+   "trigger": "地脉还在震，月轮祭台的石面一点点倾斜，脚下滑得站不住，一滑就会撞上花瓣的锯齿。"
+  },
+  {
+   "choice": "是为了王族的体面拉开半寸距离，还是干脆贴紧了一起发力？",
+   "exits": [
+    {
+     "cost": "这一夜之后，王女再也不是只嫌弃地瞪着对方了",
+     "option": "放下体面贴紧对方，四只手一起压在弓身上"
+    },
+    {
+     "cost": "力气使不到一处，撬不开暗扣",
+     "option": "各自侧身单手发力"
+    }
+   ],
+   "far": {
+    "consequence": "弓梢从暗扣缝隙里滑出去，错过最后的脱扣窗口。",
+    "due_days": 1,
+    "trigger": "分心导致弓梢滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_bow_chest_press",
+   "immediate": {
+    "minutes": 2,
+    "text": "王女被背甲勒得娇喘吁吁，胸甲的银扣崩开两颗，里衣滑下半边肩头，酥胸半露着贴在对方手臂上，金白长发散在两人之间。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_moon_wheel_altar",
+    "loc_armor_latch_petal_hinge"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "两人的心跳撞在一起，王女的口令第一次喊乱了，谁都分不清是疼，还是别的什么。"
+   },
+   "objective": "贴得这么近的时候，还得把心思放在弓梢的角度和口令上。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "花瓣下胸背相贴",
+   "trigger": "花瓣和祭台之间窄得转不开身，王女只能背贴在学者胸前，四只手叠在弓身上一起往下压。"
+  },
+  {
+   "choice": "是继续加力赌一把，还是退出来换另一头的弓梢？",
+   "exits": [
+    {
+     "cost": "铜丝会被磨断",
+     "option": "用铜丝缠住弓梢再压"
+    },
+    {
+     "cost": "换头要重新找死角，花瓣可能等不及",
+     "option": "换另一头的弓梢"
+    }
+   ],
+   "far": {
+    "consequence": "弯折的弓梢再也别不进暗扣，两人失去唯一的撬具。",
+    "due_days": 1,
+    "trigger": "弓梢弯折"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_bow_tip_bending",
+   "immediate": {
+    "minutes": 2,
+    "text": "弓梢发出一声刺耳的刮响，握弓的指节被震得发麻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_armor_latch_petal_hinge"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "弧度越来越大，弓臂也开始微微变形。"
+   },
+   "objective": "得在弓梢弯掉之前找准最后一个受力点。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "秘银弓梢压出弯弧",
+   "trigger": "短弓的硬合金弓梢别在暗扣缝隙里，直角卡榫已经被压出一道弧，再硬别可能整个弯掉。"
+  },
+  {
+   "choice": "是先扳手柄，还是先冲殿门喊话压住外面的人？",
+   "exits": [
+    {
+     "cost": "喊话更耗力气",
+     "option": "先冲殿门喊话"
+    },
+    {
+     "cost": "外面的人可能先打起来",
+     "option": "先扳手柄"
+    }
+   ],
+   "far": {
+    "consequence": "外面的人冲进来，被合拢的花瓣挡住，乱中有人受伤，学者被押走。",
+    "due_days": 1,
+    "trigger": "殿门被撞开"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_court_outside_doors",
+   "immediate": {
+    "minutes": 2,
+    "text": "殿门外传来拔剑的声音，号角一下子吹急了。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_moon_wheel_altar",
+    "loc_armor_latch_petal_hinge"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "外面的人越吵越凶，有人开始撞殿门。"
+   },
+   "objective": "扳下手柄停住花瓣，让外面的人知道里面的人还活着，也知道不是学者的错。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "殿门外大臣问罪学者",
+   "trigger": "殿门外首席大臣的人和王宫卫队吵成一团，有人说是人类学者故意触发了机关，要把学者抓起来问罪，卫队长拦着不让进。"
+  },
+  {
+   "choice": "公开说学者是为了救王女才被困在花瓣下，还是请学者立刻离开王都",
+   "exits": [
+    {
+     "cost": "就得承认王女那一夜被人类抱在怀里",
+     "option": "公开说是为了救王女"
+    },
+    {
+     "cost": "月轮穹顶修到一半，再没人修得好",
+     "option": "请学者离开"
+    }
+   ],
+   "far": {
+    "consequence": "学者被赶出王都，月蚀庆典上王女要和精灵贵族订婚",
+    "due_days": 7,
+    "trigger": "女王听信私语"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_elvira_bow_offer",
+    "hook_elvira_chamber_door",
+    "hook_mechanist_archer_sketch"
+   ],
+   "id": "p_court_whispers_human",
+   "immediate": {
+    "minutes": 5,
+    "text": "老侍女替王女梳着头，说女王傍晚要召见"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_princess_bedchamber"
+   ],
+   "near": {
+    "deadline_minutes": 480,
+    "text": "傍晚，女王召见"
+   },
+   "objective": "在女王召见之前，让宫廷里的人闭嘴",
+   "source": "rumor",
+   "start_minute": 600,
+   "tags": [],
+   "title": "宫廷里的私语",
+   "trigger": "穹顶停下来的第二天，宫廷里传开了：第一王女和那个人类学者在合拢的花瓣下待了一整夜，人类使团是想借这件事把王女娶回人类王国"
+  }
+ ],
+ "region": "精灵王都王宫深处月轮大殿合拢中的秘银花瓣穹顶与月轮配重手柄",
+ "rules": [
+  {
+   "id": "r_palace_rules",
+   "text": "王宫的规矩：月轮大殿只有王族和王族召来的人能进，进去的人要守王宫的禁令。"
+  },
+  {
+   "id": "r_bow_tip_latch_release",
+   "text": "合拢的花瓣铰链咬住了轻甲护背的偏心暗扣，必须借秘银短弓硬合金弓梢的直角卡榫别进暗扣缝隙，合力撬开卸甲。"
+  },
+  {
+   "id": "r_eclipse_vigil",
+   "text": "月蚀庆典前七天，月轮大殿每夜都要有一位王族守着祭台。"
+  },
+  {
+   "id": "r_no_drawn_blades",
+   "text": "王宫里不许带出鞘的刀剑，王女那张秘银短弓是王族才有的例外。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "并肩守殿",
+  "committed": "花瓣重开",
+  "familiar": "宫灯夜话",
+  "flirting": "贴身卸甲",
+  "intimate": "同命下撬",
+  "stranger": "王室孤傲",
+  "testing": "共持弓梢"
+ },
+ "status": "released",
+ "style_hint": "精灵王宫的华美笔法：白天写月光花园里的银叶树、宫廷晚宴上的竖琴、王女接见使节时高高抬起的下巴；夜里写秘银花瓣一寸寸压下来时的嗡鸣、月光从越来越窄的缝隙里漏进来的冷。王女骄傲嘴硬，张力藏在被钉在花瓣边、把后背交给一个人类时咬住的嘴唇里。",
+ "tension_engines": [
+  {
+   "id": "te_petals_closing",
+   "text": "十二片秘银花瓣一寸寸向下合拢，锯齿边缘离头顶越来越近。"
+  },
+  {
+   "id": "te_latch_bitten_deeper",
+   "text": "花瓣铰链的齿槽咬住了护背暗扣，越合拢咬得越紧。"
+  },
+  {
+   "id": "te_bow_chest_press",
+   "text": "花瓣和祭台之间窄得转不开身，两人只能胸背相贴，一起压在弓身上。"
+  },
+  {
+   "id": "te_altar_tilting",
+   "text": "祭台的石面被震得倾斜，脚下一滑就会撞上花瓣的锯齿。"
+  }
+ ],
+ "title": "纯血精灵王女·王宫月轮大殿花瓣穹顶合拢",
+ "tone": [
+  "月轮大殿",
+  "秘银花瓣合拢",
+  "秘银轻甲咬死",
+  "硬合金弓梢撬扣"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_toolbag_crushed_by_petal",
+   "requires": [
+    "elf_princess_elvira"
+   ],
+   "text": "花瓣合拢时砸塌了学者腰间的工具挎包，王女随身的秘银短弓合金弓梢，成了解开咬死轻甲的唯一撬具。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_boot_slips_altar",
+   "requires": [
+    "elf_princess_elvira"
+   ],
+   "text": "祭台的石面被震得倾斜，王女的战靴一滑，险些被花瓣锯齿刮到，学者一把把王女拉进怀里，两人贴进祭台的凹槽。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_sweat_on_hand",
+   "requires": [
+    "human_mechanist"
+   ],
+   "text": "王女额头的汗顺着面颊滑落，滴在学者的手背上，花瓣一寸寸压下来，两人谁都没有松手。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_bodies_on_bow",
+   "requires": [
+    "elf_princess_elvira",
+    "human_mechanist"
+   ],
+   "text": "花瓣合拢挤得轻甲暗扣咬合极紧，单人撬不动，王女与学者必须胸背相贴，把两人的体重一起压在弓梢上。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_petal_arm_high",
+   "requires": [
+    "elf_princess_elvira"
+   ],
+   "text": "花瓣离祭台只剩一臂高，再合拢一圈就会把整座祭台压在下面，两人只剩最后一次合力下撬的机会。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_back_to_altar_hollow",
+   "requires": [
+    "elf_princess_elvira",
+    "human_mechanist"
+   ],
+   "text": "学者用后背顶住祭台的凹坑作支点，王女合抱弓身顺势下压，合金弓梢终于把死卡的锁扣别断。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_petals_rise_again",
+   "requires": [
+    "elf_princess_elvira"
+   ],
+   "text": "轻甲卸脱，王女挣出花瓣铰链，两人一起扑向祭台中央扳下配重手柄，十二片花瓣停住，缓缓升回穹顶。"
+  }
+ ]
+}

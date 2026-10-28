@@ -1,0 +1,2624 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "现年满二十八岁，国家展演中心舞台机电高级调度工程师，具备完全民事行为能力。",
+   "age_range": [
+    28,
+    28
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_stage_manager_laozhou",
+   "line": "展馆门禁图纸已确认，移门地槽偏心舌就在左下角四公分处，向上别压即可退牙！",
+   "location_ids": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "name": "老周",
+   "role": "主展厅舞台机电主管"
+  },
+  {
+   "adult_context": "现年满二十九岁，国家会展中心夜间清场特勤安防副大队长，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_expo_curfew_guard_captain_chen",
+   "line": "红外布防已手动延迟三分钟，这是最后窗口，大家听口令齐心协力把门撬开！",
+   "location_ids": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "name": "陈队长",
+   "role": "会展中心夜巡特勤队长"
+  },
+  {
+   "adult_context": "现年满二十一岁，美院雕塑系大二在读道具助理，具备完全民事行为能力。",
+   "age_range": [
+    21,
+    21
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_prop_assistant_xiaoqi",
+   "line": "声优老师不慌，合金战刀道具我都用软布护得好好的，咱们一起发力把门推开！",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "name": "小七",
+   "role": "特邀嘉宾随行道具助理"
+  },
+  {
+   "adult_context": "现年满二十六岁，一线二次元文化官方特聘特邀首席摄影师，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    26
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_photographer_ah_feng",
+   "line": "外头返图群都在催压轴大片，无论如何必须在红外锁门前脱身赶去官服签售通道！",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "name": "阿峰",
+   "role": "官方特约首席摄影师"
+  },
+  {
+   "adult_context": "现年满二十七岁，博览中心高压弱电自控系统特聘值班电工，具备完全民事行为能力。",
+   "age_range": [
+    27,
+    27
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_electrician_master_liu",
+   "line": "逆变备用电回路已搭接完毕，更衣室通风扇恢复低速送风，外侧随时接应！",
+   "location_ids": [
+    "loc_expo_security_monitoring_antechamber"
+   ],
+   "name": "刘师傅",
+   "role": "配电室应急值班电工"
+  },
+  {
+   "adult_context": "现年满二十九岁，漫展组委会特邀展商商务合作高级总监，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_commercial_coordinator_mrs_qian",
+   "line": "组委会专车已在地下VIP通道待命，只要移门一开，全员立即走绿色通道撤离！",
+   "location_ids": [
+    "loc_expo_security_monitoring_antechamber"
+   ],
+   "name": "钱女士",
+   "role": "组委会商务联络总监"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "冷艳名模与舞台执行总监的跨界技术合璧，演艺总监在通道校准红外读秒并喷注润滑剂，声优在室内合抱扳钳下压挑开自锁铜块与地销，前后呼应于分秒间化解闭馆封门危局。",
+   "id": "combo_situ_and_director_team",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "cool_cosplayer_situ_xue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在极度逼仄闭馆倒计时绝境中同握扳钳硬柄下压撬门的生死托付。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "stage_director_ling_yun_che",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "漫展大型主舞台演艺调度中的长期默契配合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cool_cosplayer_situ_xue",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "stage_director_ling_yun_che",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对演艺总监临危不乱精准争取时间窗口的由衷钦佩。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "cool_cosplayer_situ_xue",
+    "stage_director_ling_yun_che"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保二人技术协同在红外报警并网前撬开死锁安全出舱。",
+    "limit_gap": "红外微波安防探头通电倒计时分秒逼近，演艺总监受阻于防暴移门外无法直接物理接触战袍锁舌。",
+    "meeting_reason": "签售第三天，队伍排到了展厅门口，声优签到手腕发酸，演艺总监蹲在桌边递来一瓶温水，小声说：还有两百个。",
+    "resource_gap": "演艺总监掌控安防延时调度对讲与滑轨润滑膏，声优手握高硬度铬钒钢快拆扳钳内部破锁关键支点。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_curfew_infrared_lockdown_countdown",
+    "eng_chrome_vanadium_tool_bending_limit"
+   ]
+  },
+  {
+   "chemistry": "冷艳女神与高定工艺师的莫逆相守，铠甲工艺师以专业撬刀指引拉链偏心卡位并固定战袍，声优沉着施压以纯净静载挑起偏心锁块，默契捍卫生命与高定艺术尊严。",
+   "id": "combo_situ_and_tailor_guardians",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "cool_cosplayer_situ_xue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死危机面前并肩坚守高定艺术尊严的职业操守。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "armor_tailor_dantai_yue",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "二次元高端演艺服装量体裁衣中的长期信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cool_cosplayer_situ_xue",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "armor_tailor_dantai_yue",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "从大学合作至今在重大险境中铸就的过命姐妹深情。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "cool_cosplayer_situ_xue",
+    "armor_tailor_dantai_yue"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保全流程高定战袍毫发无损并安全撬开移门脱险。",
+    "limit_gap": "更衣室内空气闷热，战袍紧绷受阻极易引发人员中暑脱力。",
+    "meeting_reason": "铠甲工艺师跪在更衣间给声优调战袍的肩甲，说今天上台前得把拉链再上一遍蜡，不然要卡。",
+    "resource_gap": "铠甲工艺师精通非遗战袍结构并执掌脱胶喷剂，声优具备精湛动手定力与高强度铬钒钢扳钳。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_heavy_armor_costume_bond"
+   ]
+  },
+  {
+   "chemistry": "冷艳名模与道具结构名匠的硬核力学协同，道具设计师拆卸冷锻钢配重底板与更衣凳横梁构筑黄金支点，声优合力下压，二人合抱在微米级精度下攻克咬死地销。",
+   "id": "combo_situ_and_prop_mechanic_fulcrum",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "cool_cosplayer_situ_xue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "于千钧一发之际合抱扳钳撬开生路之交。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "prop_mechanic_murong_xiu_yuan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "动漫道具模具制作与金属机构研发中的长期默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cool_cosplayer_situ_xue",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "prop_mechanic_murong_xiu_yuan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对道具工程师冷静拆卸重物搭建支点的由衷敬佩。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "cool_cosplayer_situ_xue",
+    "prop_mechanic_murong_xiu_yuan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "精准构筑下压支点挑起移门地销确保全员生还。",
+    "limit_gap": "垫板一旦发生侧滑将导致扳钳偏心受弯崩断，更衣室内氧气储量分秒流失。",
+    "meeting_reason": "道具设计师抱着修好的道具剑跑进后台，说剑鞘的卡扣换了新的，声优拔了两下，说太紧。",
+    "resource_gap": "道具设计师精通金属机构空间力学与支点垫板搭设，声优手握高硬度铬钒钢快拆扳钳。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_chrome_vanadium_tool_bending_limit"
+   ]
+  },
+  {
+   "chemistry": "冷艳名模与特勤巡查队员的生命协同，巡查员在外侧用防暴撬杠向上预顶移门并以铿锵口令读秒，声优在内侧同步下压扳钳，前后合力彻底破开自锁地销迎候清凉脱困。",
+   "id": "combo_situ_and_security_officer_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "cool_cosplayer_situ_xue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死危机面前毫不慌乱通力自救的真挚敬意。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "security_patrol_officer_chu_tian_heng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "对特勤巡查队员临危不乱恪守职责的崇高信赖。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cool_cosplayer_situ_xue",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "security_patrol_officer_chu_tian_heng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "对特勤队员刚正铁血在外托起门梁的由衷敬重。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "cool_cosplayer_situ_xue",
+    "security_patrol_officer_chu_tian_heng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以内外精确协同节奏推开沉重门扉避免破坏移门框架。",
+    "limit_gap": "内外隔着钢化防暴移门无法目视，口令全凭对讲与门缝微孔毫秒级联动。",
+    "meeting_reason": "展馆巡查员敲开更衣间的门，说闭馆前半小时要清场，问声优还要多久。",
+    "resource_gap": "巡查员掌控战术防暴撬杠力量与通道通行权，声优掌控内侧地槽偏心舌解脱关键机关。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_dual_sided_coordinated_heave_pulse"
+   ]
+  },
+  {
+   "chemistry": "高贵名模姐姐与懂事礼仪学妹的暖心守望，随身礼仪快速分发纯净水降温湿巾并清理脚底障碍，声优护佑学妹在前从容持钳撬锁，展现大姐姐般冷静孤勇与清冷担当。",
+   "id": "combo_situ_and_maid_care_team",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "cool_cosplayer_situ_xue",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "VIP更衣室日常服务与展演配合中的深厚感情。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "vip_dressing_maid_shen_ruo_wei",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "对礼仪学妹勤快懂事后勤补位的由衷喜爱。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cool_cosplayer_situ_xue",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "vip_dressing_maid_shen_ruo_wei",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "在生死危机面前彼此相护超越普通雇佣的真挚相守之情。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "cool_cosplayer_situ_xue",
+    "vip_dressing_maid_shen_ruo_wei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保受困全员毫发无损安全脱出险境。",
+    "limit_gap": "学妹体质纤弱对闷热较为敏感，更衣间氧气与视线正在急剧流失。",
+    "meeting_reason": "随身礼仪给声优补妆，说台下有粉丝举着灯牌喊了一整天，声优对着镜子抿了抿唇。",
+    "resource_gap": "声优拥有冷静指挥权威与铬钒钢快拆扳钳，随身礼仪手握湿巾与提神喷雾物资。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_curfew_infrared_lockdown_countdown"
+   ]
+  },
+  {
+   "chemistry": "演艺总监与特勤巡查员的外侧通力合作，一人手台交涉延迟中控红外布防读秒，一人紧握防暴撬杠向上撬托门体减重，专业默契联动为内侧人员自救争取了最关键的生机。",
+   "id": "combo_director_and_security_officer_team",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "stage_director_ling_yun_che",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "展馆大型展演安全保障一线的长期搭档。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "security_patrol_officer_chu_tian_heng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "安防特勤一线的过命技术信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "stage_director_ling_yun_che",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "security_patrol_officer_chu_tian_heng",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "多次在特大漫展突发机电抢险中结成的钢铁战友盟约。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "stage_director_ling_yun_che",
+    "security_patrol_officer_chu_tian_heng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保外侧减重与延迟申请达到最佳窗口协助内侧脱困。",
+    "limit_gap": "红外布防倒计时分秒流逝，外侧抢险作业必须争分夺秒抢救人员。",
+    "meeting_reason": "演艺总监和展馆巡查员在后台走廊核对清场时间，对讲机里中控室说红外布防不能再推迟了。",
+    "resource_gap": "演艺总监掌控演艺总调度权限与润滑物资，巡查员掌控外侧战术破拆装备与警保联动权限。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "eng_curfew_infrared_lockdown_countdown",
+    "eng_dual_sided_coordinated_heave_pulse"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_dressing_intercom_wired_system",
+   "reach": "贯通独立更衣间、备演通道与配电控制前室全员调度专用频段",
+   "text": "展馆VIP后台有线防爆对讲通信网"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_dressing_door_seam_voice_channel",
+   "reach": "穿透移门密封缝隙实现内侧扳钳撬动与外侧特勤撬杠毫秒级口令实时联动",
+   "text": "防暴移门钢化门缝声波微孔呼应"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "传媒大学播音系毕业，配了五年游戏角色，嗓音清冷，签约声优工作室，这回以特邀嘉宾身份出Cos上台，接什么角色、出什么Cos由本人拿主意。",
+   "age_range": [
+    24,
+    27
+   ],
+   "appearance_options": [
+    "身穿高定重工刺绣金属铠甲原神风神里绫华战袍，背部收腰紧致，眼角点缀一抹冷艳泪痣，面容清丽出尘绝美，颊肉带着天然紧致的微婴儿肥与饱满剔透胶原蛋白，眼眸清冷凛然，气质高贵孤傲宛若踏雪凌霜的寒梅。",
+    "神情专注沉静，虽受困于紧绷战袍与封闭更衣间，秀美额角渗出细密晶莹香汗，微抿朱唇，依然维持着名模的尊贵矜持与遇险不乱的清冷动手定力。"
+   ],
+   "decision": {
+    "avoids": [
+     "惊慌大叫消耗宝贵氧气体能",
+     "盲目使用利刃胡乱划割破坏战袍"
+    ],
+    "contrast": "外表是清冷出尘且双靥微带水润紧致微婴儿肥的高贵女神，直面硬质五金机械死咬却展现出分毫不乱的硬核动手气魄。",
+    "core_value": "清冷不是软弱，在镜头前我是凌霜傲雪的角色，在绝境关头我也绝不会任人摆布，这柄快拆扳钳就是斩断锁链的钢刃！",
+    "goal_options": [
+     "以快拆扳钳斜口深入拉头锁舌间隙向下别压迫使偏心咬齿脱开",
+     "在战袍松脱后协同搭档以更衣凳为支点挑开更衣室移门地锁脱困"
+    ],
+    "never": [
+     "在危机平息前舍弃同伴或违背自身名誉独逃"
+    ],
+    "prefers": [
+     "符合材料力学咬合规律的高效解脱方案",
+     "沉稳严谨心领神会的无声精准默契配合"
+    ],
+    "pressure_responses": {
+     "breaking": "在拉链与移门脱扣瞬间从容理顺披肩长发大步迈向出口",
+     "high": "双手合抱扳钳硬柄借搭档背部支撑力道狠狠下压别开自锁滑块",
+     "low": "双手整理冰丝内衬冷声提醒身旁同伴停止无谓慌张推拉",
+     "mid": "侧过冰肌玉骨的单肩反手稳稳把持铬钒钢扳钳切入咬死铜齿中心"
+    },
+    "relationship_stance": "外表清冷孤高言语简洁，三天来嫌演艺总监把签售排得太满，却每场下台都先在人群里找那副降噪耳机。",
+    "withdrawal": "立于走廊清凉夜风中从容整理战袍衣领清冷平复呼吸。"
+   },
+   "gender": "female",
+   "gender_reason": "受邀出席漫展的游戏声优，冷艳的特邀嘉宾。",
+   "id": "cool_cosplayer_situ_xue",
+   "identity": {
+    "authority": "对高定演出战袍保全、现场随行团队调度及应急破拆方式享有最终决定权。",
+    "exposure": "为了极致还原角色身段曾连续三天严格控制盐水摄入以展现绝佳腰线",
+    "hidden": "战袍贴身暗袋珍藏着初入圈时亲手打磨的第一枚亚克力角色印章",
+    "limits": [
+     "战袍背部拉链被铠甲内衬绞紧，肢体大幅屈伸受限呼吸略带紧迫",
+     "必须护卫价值数十万元的高定孤品战袍在破拆中不被划破撕毁"
+    ],
+    "obligations": [
+     "在展馆红外报警启动清场封门前撬开拉链与移门脱险"
+    ],
+    "resources": [
+     "一柄长十八厘米由特种铬钒钢精锻而成的微型偏心螺栓快拆斜口扳钳（尾端带扁平淬火硬刃）",
+     "一盒随身携带的高密度特种金属刀鞘防撞固件"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在昏暗狭间中义无反顾同自己并肩发力撬锁的沉稳英挺侧颜",
+     "两人双手紧扣冰冷扳钳硬柄发力时掌心传来的滚烫支撑力"
+    ],
+    "boundaries": [
+     "严守清冷自尊的清白闺秀操守与名节底线",
+     "绝不允许以搭救为名提出任何逾矩不轨索求"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "同对方并肩立于后台明亮长廊下静看漫展华灯渐次熄落享受安宁。",
+    "dislikes": [
+     "遇事推卸责任的轻浮纨绔",
+     "借机言语轻浮不守规矩的浪荡看客"
+    ],
+    "expression": "耳尖悄然泛起一层不易察觉的淡淡微红，微微仰起带有微婴儿肥的下颌轻哼一声，主动将快拆扳钳递向对方掌心。",
+    "likes": [
+     "精通机械物理常识又懂得尊重专注才女的沉静目光",
+     "在险情平息后彼此心领神会的相视一笑"
+    ],
+    "preconditions": [
+     "战袍咬死金属拉链成功撬解且移门地销顺利抬升推开",
+     "展馆险情彻底化解高定战袍毫发无损归箱加封",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "漫展特邀嘉宾声优",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_vip_cosplayer_dressing_booth",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_vip_cosplayer_dressing_booth",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_stage_backstage_curfew_corridor",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "快拆扳钳硬柄端部产生微小金属受力挤压磨痕，{npc.name}手腕因对抗反震隐隐发酸。",
+      "option": "{npc.name}拔出铬钒钢快拆扳钳斜口硬端，两人合力深入拉链卡槽与地轨孔洞借横梁向下别压脱开锁块。"
+     },
+     {
+      "cost": "更衣室不锈钢密封移门滑道产生永久变形报废，需赔偿场馆数万元工料修缮费。",
+      "option": "由外侧巡查员动用重型液压扩张器强行从外门缝隙将防暴移门下沿整体顶起破拆。"
+     }
+    ],
+    "pressure": "距全馆红外微波安防报警启动仅剩十分钟，更衣间密闭升温且空气含氧量减少，若未能及时撬开拉链与移门将导致人员严重缺氧中暑与违约滞留。",
+    "trigger": "重工原神战袍合金咬齿拉链被内衬加厚织锦硬结卡死在锁体内，拉头偏心滑块死死锁闭，展馆闭馆清场导致移门断电下落自锁地销封死出口。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要这柄高硬度扳钳还在手里，我{npc.name}就绝不会在漫展更衣室里被死死憋住，绝不能在此倒下！",
+    "surface": "谁也别慌乱拉扯！这是四号重工重咬双向金属自锁齿，越猛扯咬齿卡得越深！拿我道具箱里这柄淬火铬钒钢快拆扳钳来，把斜口探入拉舌底槽，听我数到三，借更衣凳横梁一起下压！"
+   }
+  },
+  {
+   "adult_context": "戏剧影视导演专业毕业，做了六年漫展与演唱会的现场执行，漫展演艺部执行总监，具备完全民事行为能力。",
+   "age_range": [
+    27,
+    31
+   ],
+   "appearance_options": [
+    "身穿黑色演艺统筹战术风衣，佩戴专业领夹降噪耳机与激光指示笔，身材颀长挺拔目光沉着机敏。",
+    "面容清俊轮廓分明，双手戴着黑色薄款耐磨操作手套，充满现场调度导演特有的敏锐与果断魄力。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目暴躁撞门引发门轴变形咬死",
+     "临阵慌乱导致对讲联络失真延误战机"
+    ],
+    "contrast": "平日温润优雅谈吐从容，直面突发险情却雷厉风行处置迅疾如电。",
+    "core_value": "节拍有律调度有章，在我的舞台上，决不允许任何演职人员受困于意外机械锁闭！",
+    "goal_options": [
+     "以对讲机精准校准闭馆红外布防读秒为内侧破拆争取黄金时间",
+     "在外侧用便携润滑膏涂抹门槽配合内侧下压同向推开移门"
+    ],
+    "never": [
+     "在特邀嘉宾安全出舱前擅自离开指挥岗位"
+    ],
+    "prefers": [
+     "严守倒计时步调的毫秒级战术规范联动",
+     "分毫不差的精准对讲协同响应"
+    ],
+    "pressure_responses": {
+     "breaking": "在地销弹起脱扣瞬间号召全员同向发力一鼓作气推开大门",
+     "high": "单臂撑住门框用对讲高声指引内侧找准地锁偏心销轴杠杆支点",
+     "low": "手持手台沉着向更衣间内通报当前距离红外布防还剩八分钟充足窗口",
+     "mid": "双手紧握润滑棒迅速探入门缝胶条滑槽均匀涂抹降低摩擦阻力"
+    },
+    "relationship_stance": "三天来陪着声优跑签售、跑舞台，对讲机里喊得最多的是声优的名字，喊得最轻的也是。",
+    "withdrawal": "倚在通道安全立柱边摘下耳机深吸一口清凉空气宽慰展颜一笑。"
+   },
+   "gender": "male",
+   "gender_reason": "漫展主舞台演艺执行总监。",
+   "id": "stage_director_ling_yun_che",
+   "identity": {
+    "authority": "对主舞台更衣室人员进出、备演通道紧急疏散及闭馆应急延时享有全权交涉权。",
+    "exposure": "曾在一线万人级国际漫展突发强台风暴雨漏雨中临危调度全员有序撤离立功",
+    "hidden": "风衣内袋珍藏着大学独立执导舞台剧首演时全体演员签名的场记牌",
+    "limits": [
+     "展馆中控安防系统按照既定计算机程序自动倒计时布防，人工权限无法无限延期",
+     "更衣室移门为物理防暴重力自锁，外部无钥匙孔需内部机械破拆"
+    ],
+    "obligations": [
+     "在红外防线闭锁前护送声优与全员安全脱困"
+    ],
+    "resources": [
+     "一部直通展馆安保最高调度指挥室的无线对讲手台",
+     "一盒进口特种精密机械滑轨固体消音润滑膏"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在危急关头泰山崩于前而色不变的冷静调度风采",
+     "隔门联动毫无保留的生死信任与默契呼应"
+    ],
+    "boundaries": [
+     "恪守舞台演艺总监职业道德底线",
+     "绝不允许破坏安防机制的违规请求"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "伫立于舞台幕布旁守候艺术之光完美落幕与新程启航。",
+    "dislikes": [
+     "蛮干胡来的违章操作",
+     "只知推脱责任的软弱者"
+    ],
+    "expression": "露出如释重负的俊朗微笑，向脱困众人用力伸出大拇指致敬赞佩。",
+    "likes": [
+     "条理分明的专业对白",
+     "临危不乱彼此守望的过硬执行力"
+    ],
+    "preconditions": [
+     "战袍拉链解脱且移门地销顺利抬升全员平安出舱",
+     "全员在红外报警布防前顺利通过安防闸机",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "漫展演艺执行总监",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_stage_backstage_curfew_corridor",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_stage_backstage_curfew_corridor",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_vip_cosplayer_dressing_booth",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "特种绝缘螺丝刀手柄因超限力矩扭转产生微细塑性受力弯折痕迹。",
+      "option": "{npc.name}用长柄套筒螺丝刀配合润滑笔在外侧门缝快速撬偏自锁导轮消除侧向死咬卡位。"
+     },
+     {
+      "cost": "应急蓄电池连接线接头因大电流瞬时打火灼焦报废需重新压接。",
+      "option": "手动搭接配电箱应急蓄电池为门禁电磁阀提供三十秒弱电吸力脉冲冲开地锁。"
+     }
+    ],
+    "pressure": "若不能及时融通地销并推开移门，全员将被永久锁闭在无空调通风的更衣间内直至次日清晨开馆。",
+    "trigger": "更衣间外侧闭馆断电导致电动移门电磁铁吸力消失，配重下插自锁地销自动落入水泥地槽卡死。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "展馆清场广播已经播到第三遍，必须赶在红外报警警笛拉响前协助声优脱开战袍推开移门！",
+    "surface": "稳住！我已经用手台锁定了中控室倒计时，红外探头还有八分钟才会通电并网！外侧门缝我已经喷入了高流动性润滑剂，你那柄扳钳硬度极高，听我口令，冲着拉锁偏心槽向下发力！"
+   }
+  },
+  {
+   "adult_context": "现年满二十二岁，服装设计与工程工学学士毕业，二次元高定工作室首席工艺师，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    22
+   ],
+   "appearance_options": [
+    "身穿深灰色工装围裙与黑色贴身高领打底衫，长发盘在脑后插着一柄特种金属划线笔，面容清丽俊秀，颊肉带有细腻水润的胶原蛋白，神采干练敏锐。",
+    "手指灵巧修长长年缝制刺绣带有薄茧，随身携带着皮质缝纫剪刀套与高硬度拆线撬刀，行事严密细致。"
+   ],
+   "decision": {
+    "avoids": [
+     "粗暴野蛮拉扯导致拉齿崩裂永久锁死",
+     "大声哭喊扰乱操作者手部微米级稳定性"
+    ],
+    "contrast": "外表文静内敛充满匠人儒雅气，面对机械锁死却眼疾手快分毫不差精准制导。",
+    "core_value": "针线藏匠心金铁有章法，在危难关头人的生命重于千钧，手艺也绝不退让半分！",
+    "goal_options": [
+     "以无痕撬刀挑散卡入拉链内侧织锦线团消除咬死死结",
+     "在扳钳下压时指导搭档对准拉头倒钩偏心角施加精准下压力"
+    ],
+    "never": [
+     "在战袍成功脱扣前放弃对卡死构件的排险守护"
+    ],
+    "prefers": [
+     "符合纺织力学与金属力学的高效无损解脱方案",
+     "条理分明的精准无声技术协作"
+    ],
+    "pressure_responses": {
+     "breaking": "在拉链脱齿瞬间第一个伸手扶住战袍平稳卸下铠甲护胸",
+     "high": "用身体护在声优侧后方稳住其重心防止用力过猛向后仰倒",
+     "low": "在声优身后迅速用强光手电照亮卡死拉齿并喷注脱胶喷雾",
+     "mid": "双手紧握无痕撬刀小心探入织锦缝隙挑起被卷入的加厚内衬角"
+    },
+    "relationship_stance": "视声优如缪斯与莫逆知己，对其清冷孤勇深感敬佩，危急关头甘当最稳固的技术臂膀。",
+    "withdrawal": "坐在化妆转椅上擦去鼻尖细汗捧起水杯长长吐出一口气。"
+   },
+   "gender": "female",
+   "gender_reason": "高定演艺铠甲道具工艺二十二岁青年工匠服装设计学士。",
+   "id": "armor_tailor_dantai_yue",
+   "identity": {
+    "authority": "对高定战袍拉链五金配比、内衬丝织结构及铠甲受力暗扣拆解拥有最高专业发言权。",
+    "exposure": "曾连续七天七夜手工缝制出全球首套全金属重工原神风刺绣战袍惊艳海外",
+    "hidden": "工具袋底层珍藏着祖母亲手传下的一枚纯银古董顶针箍",
+    "limits": [
+     "体能相对纤弱，无法单独扛动沉重的不锈钢更衣长凳",
+     "必须力保战袍上价值连城的非遗金丝盘金绣毫无断线抽丝"
+    ],
+    "obligations": [
+     "准确指引拉链卡齿偏心受力点并协助固定发力支点"
+    ],
+    "resources": [
+     "一支特种高硬度铬钒钢微型偏心螺栓快拆斜口扳钳辅助撬杆",
+     "一瓶纯植物提取高浓度丝织润滑脱胶喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在狭窄更衣间中沉着下针精准撬开死锁铜齿的专注匠人风采",
+     "前后方精准联动毫无保留的生死托付与默契信任"
+    ],
+    "boundaries": [
+     "恪守工艺师尊严底线与闺秀礼数操守",
+     "绝不允许以施救为名提出逾矩非分诉求"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "同大家共同见证高定战袍在聚光灯下重绽传世华彩。",
+    "dislikes": [
+     "鲁莽蛮干的粗鄙破坏狂",
+     "遇难推脱责任的自私之辈"
+    ],
+    "expression": "温婉展颜一笑理平围裙褶皱，向并肩作战的同伴递上温热湿毛巾轻声致谢。",
+    "likes": [
+     "懂得尊重匠心工艺的沉稳同好",
+     "危难关头甘苦与共的沉稳默契担当"
+    ],
+    "preconditions": [
+     "战袍拉链金属咬齿无损脱开且更衣室大门顺畅推开",
+     "全员平安撤出展馆高定战袍完好回收加封"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "高定演艺铠甲首席工艺师",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_vip_cosplayer_dressing_booth",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_vip_cosplayer_dressing_booth",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_stage_backstage_curfew_corridor",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "特种撬刀刀尖因对抗金属硬结产生微细磨损弯曲钝化。",
+      "option": "{npc.name}使用高碳不锈钢无痕撬刀挑散内衬死结协助扳钳成功撬退咬死铜扣。"
+     },
+     {
+      "cost": "战袍内衬三处纯手工盘金固定绳扣受损需返厂重新排线刺绣。",
+      "option": "放弃保留战袍内侧辅助定位系带直接剪断暗层加固线脚脱身。"
+     }
+    ],
+    "pressure": "若不能及时挑出铜扣硬结，强行受力将导致拉链拉头崩裂造成战袍永久锁死在受困人员身上。",
+    "trigger": "战袍内衬特种金丝盘金织锦在拉合时卷入四号金属拉齿深处，与铠甲硬质铜扣咬结成死结，拉头滑块承受双向剪切力死锁。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要这枚锁舌被扳钳挑退，战袍的束缚就能瞬间解开，大家就能平安推门冲出去！",
+    "surface": "雪儿别硬扯！拉头滑块里面是咬进了一枚铜扣边缘！我已经喷上了丝织脱胶软化剂，扳钳斜口向下深入三毫米，对准那个偏心卡槽用力往下压！"
+   }
+  },
+  {
+   "adult_context": "现年满二十二岁，国家二级保安师，退役特勤士官，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    22
+   ],
+   "appearance_options": [
+    "身穿黑色防暴执勤作训服，头戴抢险救援头盔，佩戴战术防爆手电与手台，身材高挑矫健神情冷峻威严。",
+    "站姿如松目光敏锐，双手稳稳握持合金折叠战术防暴撬杠，散发着训练有素的铁血护卫军人英气。"
+   ],
+   "decision": {
+    "avoids": [
+     "野蛮使用大锤砸门引发门架整体塌落",
+     "临阵慌乱导致对讲联络信息失真延误战机"
+    ],
+    "contrast": "外表威严刚硬不苟言笑，内心对群众安危牵肠挂肚充满炽热的人民卫士担当。",
+    "core_value": "职责所系纪律如铁，在我的巡区内，决不允许任何演职人员被误锁窒息！",
+    "goal_options": [
+     "在外侧用战术撬杠深入门底缝隙向上预顶消除重力下坠剪力",
+     "在门开瞬间第一时间护送受困全员通过红外警报警戒区"
+    ],
+    "never": [
+     "在确认更衣间最后一人安全撤离前离开排险战位"
+    ],
+    "prefers": [
+     "严守防灾救援倒计时步调的毫秒级战术联动",
+     "服从现场安全大局的严密纪律协同"
+    ],
+    "pressure_responses": {
+     "breaking": "在门缝洞开瞬间单手推门大开果断接应人员迅速撤出",
+     "high": "隔着门缝以军旅铿锵口令读秒引导内侧合抱同步发力",
+     "low": "手握对讲手咪沉声通报外侧通道防暴警戒线已架设完毕",
+     "mid": "双手反握合金撬杠卡入移门外侧下沿施加两百公斤向上托力"
+    },
+    "relationship_stance": "极度钦佩声优与同伴临危不乱的工科自救魄力，视其为具备过硬自救素养的优秀公民。",
+    "withdrawal": "向协同破拆的演艺团队敬礼致意后靠在通道受力柱旁摘盔擦汗。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "security_patrol_officer_chu_tian_heng",
+   "identity": {
+    "authority": "对展馆后台通道警戒隔离、红外布防警报核实及应急外力协助享有第一执行权。",
+    "exposure": "曾多次在一线国际博览会大型安保任务中快速处置突发机械卡滞立功受奖",
+    "hidden": "战术背心暗袋珍藏着退役特战考核第一名获得的纯钢纪念铭牌",
+    "limits": [
+     "严禁在无火警确报时私自破坏更衣室防爆钢化玻璃",
+     "必须在清场红外探头通电并网前确保VIP通道无人员滞留"
+    ],
+    "obligations": [
+     "在外侧维持通道畅通并配合内侧人员依照科学力学破开地销"
+    ],
+    "resources": [
+     "一根特战加厚淬火合金双钩战术破拆撬棍",
+     "一台具备直通中控室权限的应急防爆对讲电台"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危急关头毫不退缩并肩救援的过硬默契与雷厉风行风采",
+     "彼此眼神交汇时流淌出的崇高敬意与人性温情"
+    ],
+    "boundaries": [
+     "严守特勤应急队员纪律操守红线",
+     "绝不允许违反现场安全管理条例的盲动"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "伫立于展馆防暴门前守卫全员平安归途。",
+    "dislikes": [
+     "遇难退缩的懦夫",
+     "不服从指令擅自盲动者"
+    ],
+    "expression": "端正敬礼致意，随后伸出有力双手与大家紧紧相握以示赞佩。",
+    "likes": [
+     "沉着果敢的战术协同者",
+     "严守安全纪律的专业人员"
+    ],
+    "preconditions": [
+     "更衣室移门在外托协助下完全滑开且全员毫发无损撤出",
+     "全员在红外安防布防前顺利完成安全登车撤离"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "展馆特勤通道巡查员",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_stage_backstage_curfew_corridor",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_stage_backstage_curfew_corridor",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_vip_cosplayer_dressing_booth",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "合金撬杠受力端防滑烤漆出现两道深划痕，{npc.name}双臂肌肉承受剧烈负荷微酸。",
+      "option": "{npc.name}双手下压合金防暴撬杠深入门底外槽将移门下沿强行托起一公分微隙。"
+     },
+     {
+      "cost": "消耗掉随身携带的一罐特种高压气瓶全部备用驱动气体配额。",
+      "option": "用手持便携式气压顶镐对准门框受力点施加连续气动脉冲震退自锁导向块。"
+     }
+    ],
+    "pressure": "若不从外侧配合向上撬动托起移门下沿，内侧单凭扳钳撬动地销将承受过载反向咬合剪力。",
+    "trigger": "移门外侧滑轨因地面温差冷凝水产生金属咬紧干摩擦，门底滑轮偏心销死死抱死在水泥定位槽内。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "展馆中控安防红外自锁正在倒计时，内侧那柄扳钳就是大家唯一的破局生路，必须分秒必争！",
+    "surface": "更衣室人员注意！外侧巡查特勤已就位！移门外沿已被我的合金撬杠托起微隙，内侧立刻下压挑起地销，听我外侧读秒，一起发力！"
+   }
+  },
+  {
+   "adult_context": "现年满二十二岁，机械工程及自动化本科在读，二次元金属道具结构设计师，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    22
+   ],
+   "appearance_options": [
+    "戴无框树脂防护平光镜，身穿深蓝色多口袋耐磨工装衬衫，腰佩精密游标卡尺与特种六角扳手组，面容清朗儒雅目光敏锐深邃。",
+    "双手修长指节分明擅长微观机构组装，面对更衣凳与移门地锁死槽，行事沉稳有条不紊充满工科严密气魄。"
+   ],
+   "decision": {
+    "avoids": [
+     "估算模糊凭感觉蛮干导致工具受剪崩断",
+     "大喊大叫破坏团队情绪的毛躁举止"
+    ],
+    "contrast": "外表文质彬彬充满工科书卷气，面对重物搬运与杠杆硬核实操却爆发力惊人毫不退避。",
+    "core_value": "造型是神韵的体现，机构是力学的延伸，只要支点稳如磐石，再沉重的机械死销也能撬起！",
+    "goal_options": [
+     "拆卸更衣凳实心不锈钢加固管稳妥垫入地槽下方充当黄金支点",
+     "严密监测快拆扳钳下压受力垂直度防止偏心受剪脆折"
+    ],
+    "never": [
+     "在杠杆撬动脱扣完成前让身下支点滑移半毫米"
+    ],
+    "prefers": [
+     "计算精确分毫不爽的几何支点构筑方案",
+     "保护贵重道具与演艺服装核心部件的妥善施救方案"
+    ],
+    "pressure_responses": {
+     "breaking": "在地销脱扣瞬间同声优一同按压扳钳完成最后冲刺",
+     "high": "用双膝抵紧钢垫侧向防止过载下压瞬间金属垫块发生滑脱",
+     "low": "迅速旋转螺丝刀三秒卸下长刀配重垫板搬运至移门地槽旁",
+     "mid": "双手紧扣垫板底部死死抵在地槽与凳梁之间构筑力学基座"
+    },
+    "relationship_stance": "视声优为艺术与审美的领航灯塔，甘愿作为最坚实的机械基石为脱困铺平道路。",
+    "withdrawal": "坐在化妆台脚踏板上揉捏发酸的双膝欣慰展颜微笑。"
+   },
+   "gender": "male",
+   "gender_reason": "等比例金属长刀道具机械结构工程师二十二岁机械工程青年名匠。",
+   "id": "prop_mechanic_murong_xiu_yuan",
+   "identity": {
+    "authority": "对道具合金部件力学强度、加固凳横梁承重刚度及杠杆支点搭设享有权威发言权。",
+    "exposure": "曾亲手为多届世界动漫博览会打造可折叠收缩精密机械长刀道具荣获创新设计奖",
+    "hidden": "工具包底层珍藏着亲手制作的第一枚微型合金齿轮袖扣",
+    "limits": [
+     "配重垫板一旦挪作支点，操作台上的限量合金长刀将面临失衡倾倒危险",
+     "体能有限需协同全员发力维持受力垫板平稳"
+    ],
+    "obligations": [
+     "为声优搭建最稳固的下压杠杆支点并校准快拆扳钳受力法向角"
+    ],
+    "resources": [
+     "一枚重达八公斤由实心冷锻合金钢制成的长刀刀鞘配重基座垫板（平头实心厚重）",
+     "一套专业光学工程高硬度内六角扳手组"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在昏暗微光中以毫米级精度互相配合构筑力学支点的严谨默契",
+     "彼此眼神中对科学严密性坚信不疑的真挚执着"
+    ],
+    "boundaries": [
+     "恪守青年学者的严谨礼数与道德边界",
+     "坚决杜绝任何逾矩冒犯之举"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "静立于道具工作台旁守护二次元造物工匠之火重燃。",
+    "dislikes": [
+     "粗心大意的破坏狂",
+     "轻视手工力学常识的狂妄者"
+    ],
+    "expression": "推了推护目镜腼腆一笑，温和向声优与同伴点头示意并肩胜利。",
+    "likes": [
+     "热爱精密工程与二次元艺术的同好",
+     "沉着应变的实干派伙伴"
+    ],
+    "preconditions": [
+     "加固凳支点成功挑脱移门地销并将大门完全打开",
+     "受困全员安全撤离且首发限量金属道具关键构件完好回收"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "金属道具机械结构设计师",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_vip_cosplayer_dressing_booth",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_vip_cosplayer_dressing_booth",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_stage_backstage_curfew_corridor",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "定制不锈钢更衣凳横梁表面拉丝耐磨层产生细微受力压痕。",
+      "option": "{npc.name}用内六角扳手迅速拆除倾斜凳脚并将其稳稳横置在门前充当垫刀支点。"
+     },
+     {
+      "cost": "{npc.name}后背肩胛处软组织受金属凳梁挤压产生大片深色淤痕。",
+      "option": "用后背死死顶住倾斜更衣凳直至同伴用扎带将其捆绑在衣帽架承重主立柱上。"
+     }
+    ],
+    "pressure": "若不迅速拆卸调整凳梁支撑角度，沉重的不锈钢凳将死死压在门缝上导致任何撬具无法深入地槽。",
+    "trigger": "更衣室内长条不锈钢更衣凳因受力倾斜导致固定脚垫断裂，凳梁受偏心力矩卡在门框侧面阻碍移门滑轨开启。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要能帮声优撑稳这个支点，移门的重力自锁地销就绝对逃不脱杠杆力矩的作用！",
+    "surface": "声优，刀鞘配重底座实心冷锻钢板我已经拆下来了！高硬度平头正好能垫在更衣凳横梁与地槽之间充当黄金支点，快把扳钳插上来！"
+   }
+  },
+  {
+   "adult_context": "现年满二十岁，空乘与会展礼仪专业大二在读，博览会特邀嘉宾VIP专职伴随礼仪，具备完全民事行为能力。",
+   "age_range": [
+    20,
+    20
+   ],
+   "appearance_options": [
+    "身穿黑色制服修身套裙与白衬衫，外披防静电针织开衫，扎着丸子头，面容娇柔甜美，颊肉饱满圆润带有未褪的婴儿肥与水润胶原蛋白，目光明净顺从。",
+    "神情温婉细致，双手戴着贴手白色防尘丝质礼仪手套，虽然面对突发断电与红外倒计时略显紧张，但在声优安抚下迅速沉着就位协助后勤清理。"
+   ],
+   "decision": {
+    "avoids": [
+     "只知慌张哭泣打转的软弱退缩",
+     "任性妄为乱动陌生机械设备"
+    ],
+    "contrast": "外表是娇软温婉的迎宾礼仪少女，面对突发闭锁危局却迅速收敛慌乱成长为可靠的后勤小助手。",
+    "core_value": "声优老师是大家的骄傲，越是危难关头，我越不能慌乱掉眼泪，我也要成为可靠的后盾！",
+    "goal_options": [
+     "迅速分发湿毛巾确保全员口鼻湿润严防吸入闷热浊气",
+     "协助清理门前杂物确保撬门发力时脚底绝不滑脱"
+    ],
+    "never": [
+     "在声优老师安全撤出前丢下工作岗位独跑"
+    ],
+    "prefers": [
+     "细致周到不添乱的后勤保障方案",
+     "大家紧紧抱团互帮互助的温暖自救氛围"
+    ],
+    "pressure_responses": {
+     "breaking": "在门推开瞬间第一个上前搀扶声优老师并呈递温热纯净水",
+     "high": "高举化妆台应急手电筒将明亮光线持续投射在快拆扳钳撬齿刃尖上",
+     "low": "飞快打开纯净水湿巾细致递到声优与同伴手心并喷洒提神香氛",
+     "mid": "双手用力将散落在门口的鞋盒纸袋踢开消除绊脚障碍"
+    },
+    "relationship_stance": "极度崇拜声优的高贵与清冷担当，视其为完美偶像，危急关头爆发出坚定的陪伴韧劲。",
+    "withdrawal": "坐在通道长椅上小口喝水平复剧烈心跳擦去眼角泪花欣慰微笑。"
+   },
+   "gender": "female",
+   "gender_reason": "漫展特邀嘉宾独立更衣室二十岁兼职女伴兼礼仪专员。",
+   "id": "vip_dressing_maid_shen_ruo_wei",
+   "identity": {
+    "authority": "对更衣室内应急湿巾准备、嘉宾补水照料及地面通道杂物清空享有优先协同权。",
+    "exposure": "曾多次在一线国际商业盛典中担任主嘉宾贴身引导礼仪获得好评",
+    "hidden": "礼仪围裙内侧口袋珍藏着声优亲笔签名的特邀嘉宾入场纪念工牌",
+    "limits": [
+     "初次遭遇展馆突发机械闭锁故障，缺乏重工业排故经验",
+     "体质较弱对封闭闷热环境较为敏感"
+    ],
+    "obligations": [
+     "确保受困全员体能补给与呼吸清爽并维持门前通道整洁"
+    ],
+    "resources": [
+     "一包医用加厚纯净水应急降温保湿洁面湿巾",
+     "一瓶随身携带的清凉提神柑橘香氛喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在险境中像大姐姐一样冷静沉着护佑身旁的伟岸担当",
+     "并肩克难脱险后获得温和鼓励时那一抹甜美安心感"
+    ],
+    "boundaries": [
+     "严守青年礼仪的纯真自尊与礼貌边界",
+     "坚决杜绝任何逾越身份的非分非礼行为"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "立于VIP接待台前笑靥如花迎候每一位踏入后台的贵宾。",
+    "dislikes": [
+     "大声斥责新人的暴躁之徒",
+     "冷血自私不顾同伴死活者"
+    ],
+    "expression": "两颊泛起微红，微微仰起带有微婴儿肥的俏脸甜甜一笑：声优老师，还有大家，你们方才下压扳钳撬门的样子真是太英气太可靠了！",
+    "likes": [
+     "温和宽厚有责任心的同袍",
+     "遇事沉着指引方向的长辈伙伴"
+    ],
+    "preconditions": [
+     "全员安全撤出更衣室且在红外布防前顺利离馆",
+     "展演任务圆满完成且同伴们均安然无恙"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "VIP更衣室专职伴随礼仪",
+   "schedule": [
+    {
+     "from": 1260,
+     "location_id": "loc_vip_cosplayer_dressing_booth",
+     "to": 1280
+    },
+    {
+     "from": 1281,
+     "location_id": "loc_vip_cosplayer_dressing_booth",
+     "to": 1300
+    },
+    {
+     "from": 1301,
+     "location_id": "loc_stage_backstage_curfew_corridor",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗掉用于垫放高定礼服的两张崭新纯羊毛防尘保护毯。",
+      "option": "{npc.name}迅速拔掉低位插座电线并用干燥棉毯彻底吸干地面积水消除滑脱隐患。"
+     },
+     {
+      "cost": "用掉整整一卷高等级防静电特种绝缘胶带。",
+      "option": "用防静电绝缘胶带将倒伏水壶死死固定在立柱旁防止水流进一步蔓延扩渗。"
+     }
+    ],
+    "pressure": "若不迅速拔掉插头吸干积水，地面湿滑将导致撬门发力人员脚底打滑失衡脱力。",
+    "trigger": "化妆台应急纯净水壶因震动滑落水流漫溢，险些浸湿更衣地毯下方的低压插座。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "我一定要帮声优老师照亮门槽，只要大家心往一处使，咱们就一定能在闭馆前把门撬开平安出去！",
+    "surface": "声优老师，湿毛巾我都备好了，大家快捂住口鼻！更衣凳旁边的杂物我都搬开了，你们用力踩稳地面，千万别滑倒！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "博览会最后一天，七月",
+  "minute": 1260
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace_power",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "顶流二次元特邀女模卸装前习惯闭目静立三秒抚平假发鬓角以脱离戏中孤傲角色",
+  "高级更衣助理每次拉合重工战袍金属拉链时必用指尖垫入内衬防止夹伤贴身丝织",
+  "冷艳名模面对意外险情习惯微扬尖翘下颌轻咬朱唇以严密技术逻辑下达自救口令",
+  "两人合力撬开机械死锁时须依照倒数节奏同向发力以防工具侧向受剪切力脆断"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "签售开始前一小时，声优在VIP更衣间里换上神里绫华的重工战袍。",
+    "背后的系带太多，声优隔着帘子喊执行总监进来帮忙。",
+    "系带一根根扎好，声优对着镜子转了一圈，问：像不像？"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hd_cool_cosplayer_situ_xue",
+    "hd_stage_director_ling_yun_che",
+    "hd_armor_tailor_dantai_yue",
+    "hd_prop_mechanic_murong_xiu_yuan",
+    "hd_security_patrol_officer_chu_tian_heng",
+    "hd_vip_dressing_maid_shen_ruo_wei"
+   ],
+   "id": "act_situ_xue_pries_zipper_lock",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "start_minute": 780,
+   "tags": [
+    "workplace"
+   ],
+   "title": "更衣间里换战袍"
+  },
+  {
+   "beats": [
+    "总监在走廊门缝连续涂抹高流动性固体润滑膏化解胶条干涩阻力",
+    "手持手台向中控室申请红外微波探头并网延迟三分钟应急窗口",
+    "通过门缝向更衣间内清晰通报地锁配重已卸荷的最佳撬动时机"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_ling_sprays_lubricant_and_calls",
+   "location_ids": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "start_minute": 1262,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "备演长廊涂抹滑轨润滑膏并对讲调度"
+  },
+  {
+   "beats": [
+    "工艺师细心将脱胶润滑喷雾对准卷入拉齿的加厚织锦硬结喷润",
+    "手持强光手电半蹲在声优身后将明亮光束聚焦在拉锁卡齿空隙",
+    "抽出浸润薄荷香氛的丝巾覆在声优额角轻声安抚全员情绪"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_dantai_softens_costume_fabric",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "start_minute": 1261,
+   "tags": [
+    "workplace"
+   ],
+   "title": "化妆镜前非遗刺绣战袍内衬软化脱胶"
+  },
+  {
+   "beats": [
+    "使用内六角扳手拆下长刀配重冷锻钢垫板严密卡入地槽死角",
+    "双手搬动不锈钢加固凳横梁深入门框下方充当刚性承重支点",
+    "双膝抵紧凳梁下沿防止强负荷下压瞬间金属支点发生偏斜脱位"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_murong_positions_bench_fulcrum",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "start_minute": 1263,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "更衣室地槽加固凳横梁黄金支点搭设"
+  },
+  {
+   "beats": [
+    "主舞台上主持人还在暖场，声优在隔音走廊里一遍遍念着待会儿要说的台词。",
+    "执行总监拿着流程单在旁边计时，说还有四分钟。",
+    "声优深吸一口气，把台本塞进总监手里：替我拿着，我上去了。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_chu_calibrates_bar_lift_run",
+    "hook_ling_sprays_lubricant_rail_call",
+    "hook_xue_hotel_window"
+   ],
+   "id": "act_chu_pries_door_bottom_with_bar",
+   "location_ids": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "start_minute": 840,
+   "tags": [
+    "workplace"
+   ],
+   "title": "候场走廊里背台词"
+  },
+  {
+   "beats": [
+    "礼仪学妹迅速分发加厚纯净水湿巾细致浸润并分发给撬门人员",
+    "双手用力将门前通道散落的鞋盒纸袋踢开消除脚下打滑障碍",
+    "在移门推开瞬间第一个上前迎候递上清凉温水协助同伴出舱"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_shen_prepares_wet_wipes_and_water",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "start_minute": 1261,
+   "tags": [
+    "workplace"
+   ],
+   "title": "更衣室后勤降温湿巾分发与通道清理"
+  },
+  {
+   "beats": [
+    "拉链撬开、移门推开、红外布防前所有人都撤出了展馆之后，声优回到酒店套房，铠甲战袍里的衬衣被汗浸透了，肩甲勒出一道红印。",
+    "声优背过身，让人一片片卸下肩甲，再用温热的毛巾擦去肩背上的汗，毛巾擦到腰窝时，声优咬着唇，往后靠了过来。",
+    "声优转过身，用角色的声线轻轻说了一句台词，又换回自己的声音：刚才那句是角色的。……这句是我的：你愿意，就留下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_hotel_armor_off",
+   "location_ids": [
+    "loc_expo_hotel_suite"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "套房里替声优卸下铠甲战袍"
+  },
+  {
+   "beats": [
+    "签售散场，声优坐在梳妆台前，摘下假发，长发被发网压得乱糟糟的，把一把小梳子递过来。",
+    "声优从镜子里看着人：帮我拆发网。……手轻些，别扯着头发，拆完了陪我坐会儿。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_hotel_wig_off",
+   "location_ids": [
+    "loc_expo_hotel_suite"
+   ],
+   "start_minute": 1300,
+   "tags": [
+    "intimate"
+   ],
+   "title": "拆假发"
+  },
+  {
+   "beats": [
+    "漫展最后一夜，声优裹着酒店浴袍站在落地窗前，看着对面漆黑的展馆，手里握着一张三天的工作证。",
+    "声优把工作证挂在人脖子上：明天就散场了。……今晚我想留你，你说好，我才转身。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_hotel_last_night",
+   "location_ids": [
+    "loc_expo_hotel_suite"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "漫展最后一夜"
+  },
+  {
+   "beats": [
+    "清晨套房的窗帘透进一线光，声优在大床上醒来，嗓子还哑着，脸贴在人的肩上。",
+    "声优把脸埋回人怀里，用气声说：嗓子要养……今天不说话了，再抱一会儿。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_hotel_morning_voice",
+   "location_ids": [
+    "loc_expo_hotel_suite"
+   ],
+   "start_minute": 480,
+   "tags": [
+    "intimate"
+   ],
+   "title": "清晨的第一句话"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代国际动漫游戏博览会压轴日闭馆清场与红外布防交接阶段",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "幼态",
+  "幼女",
+  "少女感",
+  "催情",
+  "迷乱",
+  "欲火"
+ ],
+ "hooks": [
+  {
+   "id": "hook_situ_takes_down_chrome_wrench",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "slot": "cool_cosplayer_situ_xue",
+   "text": "{cool_cosplayer_situ_xue.name}侧过冰肌玉骨的香肩，清冷抿起朱唇，稳稳拔出铬钒钢快拆扳钳，将加厚扁平斜口深深探入拉头卡槽间隙锁定咬死锁块底端。"
+  },
+  {
+   "id": "hook_ling_sprays_lubricant_rail_call",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "slot": "stage_director_ling_yun_che",
+   "text": "{stage_director_ling_yun_che.name}在长廊门缝处用长管将高流动性滑轨固体润滑膏均匀推入胶条滑槽，手持手台向门内高声通报红外布防读秒进度与地锁卸荷的最佳时机。"
+  },
+  {
+   "id": "hook_dantai_softens_zipper_knot",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "slot": "armor_tailor_dantai_yue",
+   "text": "{armor_tailor_dantai_yue.name}紧紧托住沉重的高定刺绣战袍铠甲护胸，半蹲在声优身后，高举强光电筒把雪白光束精准聚焦在拉头咬死的偏心齿槽受力点上。"
+  },
+  {
+   "id": "hook_murong_places_bench_fulcrum",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "slot": "prop_mechanic_murong_xiu_yuan",
+   "text": "{prop_mechanic_murong_xiu_yuan.name}单手稳住沉甸甸的八公斤实心冷锻配重钢垫，小心翼翼卡入更衣凳加固梁与地槽之间，为快拆扳钳下压撬动构建出黄金杠杆受力支点。"
+  },
+  {
+   "id": "hook_chu_calibrates_bar_lift_run",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "slot": "security_patrol_officer_chu_tian_heng",
+   "text": "{security_patrol_officer_chu_tian_heng.name}双手反握折叠合金防暴撬杠深入门底外槽将移门下沿强力预顶起微隙，贴紧耳机凝视门缝，口中以沉稳音调倒数读秒引导双侧同步发力。"
+  },
+  {
+   "id": "hook_shen_hands_wet_wipe_water",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "slot": "vip_dressing_maid_shen_ruo_wei",
+   "text": "{vip_dressing_maid_shen_ruo_wei.name}快步上前将浸透纯净水的医用降温湿巾稳稳递到声优手心，柔声低语：声优老师先降降温，门前的杂物鞋盒我都清理干净了！"
+  },
+  {
+   "id": "hook_situ_exhorts_partner_to_hold_steady",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "slot": "cool_cosplayer_situ_xue",
+   "text": "{cool_cosplayer_situ_xue.name}抬头清冷瞪出身旁同伴一眼，两颊微鼓泛着动人水润绯红：“笨蛋别手抖！两只手握紧扳钳柄身，听外侧读秒，数到一就立刻用尽全力往下压！”"
+  },
+  {
+   "id": "hook_ling_shouts_counter_torque_ready",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "slot": "stage_director_ling_yun_che",
+   "text": "{stage_director_ling_yun_che.name}通过对讲手台传来洪亮高吼：“中控室红外布防已成功争取最后三分钟！移门外侧阻力已彻底化解！地销挑起的瞬间全员一起向外推！”"
+  },
+  {
+   "id": "hook_dantai_wipes_sweat_situ_brow",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "slot": "armor_tailor_dantai_yue",
+   "text": "{armor_tailor_dantai_yue.name}轻轻抽出香氛纸巾，探身替声优拂去额角凝结的细密汗珠，柔声鼓励：“雪儿稳住气，战袍没有丝毫抽丝破损，大家齐心协力一定能撬开生路！”"
+  },
+  {
+   "id": "hook_murong_shores_up_bench_fulcrum",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "slot": "prop_mechanic_murong_xiu_yuan",
+   "text": "{prop_mechanic_murong_xiu_yuan.name}迅速用双膝死死顶紧垫板与凳梁接触面，双手按紧钢管防滑齿，防止强负荷下压瞬间金属垫块发生侧向滑动脱位。"
+  },
+  {
+   "id": "hook_situ_and_crew_thrust_downward",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "slot": "cool_cosplayer_situ_xue",
+   "text": "“三、二、一，下压！”{cool_cosplayer_situ_xue.name}与身侧同伴合抱快拆扳钳硬柄，全身重力化作惊人力矩向下猛别，咬死拉头与接地自锁销应声弹起脱扣！"
+  },
+  {
+   "id": "hook_observe_dressing_door_pops_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "slot": "cool_cosplayer_situ_xue",
+   "text": "厚重的不锈钢移门伴随着一声极清脆的金铁脱扣退销咬合声，紧紧咬死的地销被硬生生挑起退出地槽，大门伴随着咔哒一声脆响顺畅滑开一道宽阔生路线！"
+  },
+  {
+   "id": "hook_observe_ling_and_crew_haul_door",
+   "kind": "observe",
+   "location_ids": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "slot": "stage_director_ling_yun_che",
+   "text": "外侧特勤与演艺人员在地销弹起瞬间合力拉动外门把手同向外推，厚重如铁壁的防暴移门平稳滑移大开，通道清凉舒爽的冷风如甘泉般席卷而入。"
+  },
+  {
+   "id": "hook_observe_chu_restores_fresh_air",
+   "kind": "observe",
+   "location_ids": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "slot": "security_patrol_officer_chu_tian_heng",
+   "text": "备演通道清凉强劲的自然通风将更衣室内残存的闷热浊气彻底吹扫排散，红外微波报警警灯在最后一秒被中控人员平稳复位，系统全面转危为安。"
+  },
+  {
+   "id": "hook_observe_situ_embraces_triumph",
+   "kind": "observe",
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "slot": "cool_cosplayer_situ_xue",
+   "text": "{cool_cosplayer_situ_xue.name}脱力般倚靠在门框边揉着通红酸软的手腕，清冷别过泛着水润红晕的精致脸颊浅浅一嗤：“哼……看什么看，不过是最基础的材料力学罢了！”"
+  },
+  {
+   "id": "hook_xue_voice_line",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cool_cosplayer_situ_xue",
+   "text": "{npc.name}凑到人耳边，用角色的声线轻轻念了一句台词，又退开半步，冷着脸：……只念给你听的。"
+  },
+  {
+   "id": "hook_xue_wig_off",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cool_cosplayer_situ_xue",
+   "text": "{npc.name}摘下假发，长发散了一肩，把发网递给人：帮我拆。……轻一点，扯着头皮疼。"
+  },
+  {
+   "id": "hook_xue_hotel_window",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cool_cosplayer_situ_xue",
+   "text": "{npc.name}裹着酒店的浴袍站在落地窗前，看着楼下散场的展馆：三天了，终于安静了。……你也别走。"
+  },
+  {
+   "id": "hook_yunche_warm_water",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "stage_director_ling_yun_che",
+   "text": "{npc.name}把一瓶温水塞进人手里，耳机还挂在脖子上：嗓子要紧。……别的我来扛。"
+  },
+  {
+   "id": "hook_xue_hotel_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_expo_hotel_suite"
+   ],
+   "slot": "cool_cosplayer_situ_xue",
+   "text": "{npc.name}倚在套房门口，把一张房卡晃了晃：签售累死了。……进来陪我坐会儿。"
+  },
+  {
+   "id": "hd_cool_cosplayer_situ_xue",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cool_cosplayer_situ_xue",
+   "text": "{cool_cosplayer_situ_xue.name}把一份签名海报塞到你手里，语气冷淡：“多出来的，拿去。”"
+  },
+  {
+   "id": "hd_stage_director_ling_yun_che",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "stage_director_ling_yun_che",
+   "text": "{stage_director_ling_yun_che.name}翻着流程单冲你招手：“明天的彩排，你帮我对一下时间。”"
+  },
+  {
+   "id": "hd_armor_tailor_dantai_yue",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "armor_tailor_dantai_yue",
+   "text": "{armor_tailor_dantai_yue.name}拿着软尺走过来：“站好，新的一套要量一下尺寸。”"
+  },
+  {
+   "id": "hd_prop_mechanic_murong_xiu_yuan",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "prop_mechanic_murong_xiu_yuan",
+   "text": "{prop_mechanic_murong_xiu_yuan.name}把一把刚打磨好的道具弓递给你：“试试手感，轻了还是重了？”"
+  },
+  {
+   "id": "hd_security_patrol_officer_chu_tian_heng",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "security_patrol_officer_chu_tian_heng",
+   "text": "{security_patrol_officer_chu_tian_heng.name}巡完一圈，在你旁边停下：“今天人少，难得清闲。”"
+  },
+  {
+   "id": "hd_vip_dressing_maid_shen_ruo_wei",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "vip_dressing_maid_shen_ruo_wei",
+   "text": "{vip_dressing_maid_shen_ruo_wei.name}端来一杯温水，轻声说：“嘉宾休息时间，您也坐一会儿吧。”"
+  }
+ ],
+ "id": "cool_genshin_cosplayer_zipper_trap",
+ "locations": [
+  {
+   "affordances": [
+    "将铬钒钢快拆扳钳斜口端精准探入背部战袍拉链卡齿空隙反向撬开偏心锁块",
+    "二人合力搬动不锈钢加固凳深入门槛地槽借横梁杠杆向上挑脱门锁地销",
+    "使用高粘度金属固体润滑笔涂抹咬死铜齿消除干涩咬合摩擦力"
+   ],
+   "detail": "位于主展馆二层的独立隔音VIP更衣室，墙面装配大尺寸全身防爆无影穿衣镜与不锈钢衣帽挂架。中央放置一张重型加固不锈钢更衣凳与专业化妆转椅。此时展馆清场断电，冷白顶灯熄灭，防暴不锈钢移门接地自锁销因断电落下死死卡入地槽，更衣间内空调停转空气逐渐闷热，唯有化妆镜边框应急荧光微亮。",
+   "exits": [
+    "loc_stage_backstage_curfew_corridor",
+    "loc_expo_security_monitoring_antechamber"
+   ],
+   "id": "loc_vip_cosplayer_dressing_booth",
+   "name": "VIP更衣间",
+   "pressure_modifiers": {
+    "p_curfew_infrared_lockdown_countdown": "全馆红外微波布防倒计时步步逼近，警报声令室内气氛高度凝固。",
+    "p_heavy_armor_zipper_teeth_deadlock": "战袍金属齿轮与内衬织锦死死咬结，贴身紧缚限制受困者大幅肢体动作。"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_prop_assistant_xiaoqi",
+    "bg_photographer_ah_feng"
+   ]
+  },
+  {
+   "affordances": [
+    "手持战术撬杠在外侧移门接缝处顺势向上顶托分担门体下坠自锁死重",
+    "通过门缝单向排气微孔向更衣室内清晰通报红外探头布防读秒进度",
+    "启动便携式除湿送风机对准百叶窗往更衣间注入清新微冷气流"
+   ],
+   "detail": "紧邻独立更衣间的狭长不锈钢防暴检修通道，外侧通道大门为电动气密推拉门，地面铺设防滑钢板。此时主展厅强力排风停止，通道尽头的双向红外对射警报探头指示灯闪烁幽蓝冷光，安保特勤巡逻脚步声伴随对讲杂音在空旷长廊中隐约回荡。",
+   "exits": [
+    "loc_vip_cosplayer_dressing_booth",
+    "loc_expo_security_monitoring_antechamber",
+    "loc_expo_hotel_suite"
+   ],
+   "id": "loc_stage_backstage_curfew_corridor",
+   "name": "主舞台备演隔音走火通道",
+   "pressure_modifiers": {
+    "p_door_floor_deadbolt_gravity_jam": "移门沉重配重下压锁死地销，单凭外向拉力完全无法晃动门扇。"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_stage_manager_laozhou",
+    "bg_expo_curfew_guard_captain_chen"
+   ]
+  },
+  {
+   "affordances": [
+    "合上逆变器旁路空气开关为更衣间排风扇提供十分钟临时弱电驱动",
+    "利用有线电台直接向更衣室对讲分机下达机械避险与撬位技术指南",
+    "在门开瞬间迅速引导受困全员进入员工专用安全疏散梯道"
+   ],
+   "detail": "负责VIP区域局部照明与防暴移门弱电供给的配电前室，安装有双回路自投低压断路器与红外探头配电箱。此时主电跳闸指示灯红光常亮，机电工正在手动摇动应急逆变电源试图向更衣室门禁电磁铁强送十秒解锁脉冲。",
+   "exits": [
+    "loc_vip_cosplayer_dressing_booth",
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "id": "loc_expo_security_monitoring_antechamber",
+   "name": "展区后台机电应急配电室",
+   "pressure_modifiers": {
+    "p_backstage_ventilation_heat_buildup": "配电室备用风道气流回旋，若不排风更衣间温度将持续升高。"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_electrician_master_liu",
+    "bg_commercial_coordinator_mrs_qian"
+   ]
+  },
+  {
+   "affordances": [
+    "替声优拆下假发和发网",
+    "陪声优在落地窗前看展馆",
+    "关上套房的门"
+   ],
+   "detail": "会展中心对面酒店的一间套房，一张铺着白色床品的大床、一只摊开的道具箱、衣架上挂着那身神里绫华战袍，落地窗外是闭馆后漆黑的展馆。",
+   "exits": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "id": "loc_expo_hotel_suite",
+   "name": "会展酒店的声优套房",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "房门一关，走廊里粉丝的说话声就没了，只剩加湿器的轻响和一盏床头灯。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "司徒",
+   "凌",
+   "澹台",
+   "慕容",
+   "冷",
+   "楚",
+   "叶",
+   "沈",
+   "陆",
+   "顾",
+   "白",
+   "裴",
+   "谢",
+   "秦"
+  ],
+  "given_female": [
+   "雪见",
+   "霜华",
+   "清月",
+   "凝霜",
+   "语嫣",
+   "曼凝",
+   "若薇",
+   "书瑶",
+   "涵蕾",
+   "梦岚",
+   "采薇",
+   "宛晴",
+   "诗翠",
+   "听兰"
+  ],
+  "given_male": [
+   "景和",
+   "天衡",
+   "云澈",
+   "柏舟",
+   "修远",
+   "廷轩",
+   "辰逸",
+   "浩然",
+   "致远",
+   "瀚海",
+   "绍辉",
+   "明哲",
+   "子墨",
+   "星遥"
+  ],
+  "given_neutral": [
+   "青川",
+   "怀瑾",
+   "嘉木",
+   "霁林",
+   "少煊",
+   "逸凡",
+   "望舒",
+   "景明",
+   "亦安",
+   "予怀",
+   "知衡",
+   "若谷",
+   "楚寒",
+   "清岚"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留原神与神里绫华的真实游戏名（用户拍板保留），以及国际动漫游戏博览会压轴日、VIP更衣间、高定刺绣铠甲战袍金属拉链被内衬硬结卡死、防暴移门断电落锁、十分钟后全馆红外布防、用快拆扳钳硬柄撬拉链铜齿与门地销的骨架与漫展味道。为与已有的Coser世界拉开，用户拍板把女主身份改成受邀出席的游戏声优：配过几款手游角色，这回作为特邀嘉宾出自己最喜欢的角色。声优是虚构人物，不对应任何真实配音演员。用户已放开内容限制，只守红线；外貌描写照留，只改写死的人名、代词、年龄。新增声优在会展酒店的套房与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    22
+   ],
+   "baseline": "负责大型漫展压轴嘉宾红毯与更衣室后勤协调，随身佩戴闭馆调度全频对讲机与高精度演艺五金快拆工具组。",
+   "gender": "any",
+   "id": "pi_comic_con_vip_stage_director",
+   "reputation": "熟谙展馆后台每条逃生通道与联动门锁暗销，对演艺道具突发卡滞处置经验极其丰富。",
+   "resources": [
+    "一套特种高硬度铬钒钢微型偏心螺栓快拆斜口扳钳",
+    "一具剧场级防爆高流明强光检测电筒"
+   ],
+   "risks": [
+    "若误判更衣室地销卡扣方向可能导致门轴锁死无法复位",
+    "在闭馆全场断电前若未带出嘉宾将承担重大演艺违约责任"
+   ],
+   "role": "漫展主舞台VIP演艺执行总监",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总监"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}导演"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    21
+   ],
+   "baseline": "亲手为声优量身打造重工战袍的道具工程师，精通金属铠甲模块卡扣、高强合金拉链咬齿力学结构。",
+   "gender": "any",
+   "id": "pi_cosplay_costume_master_tailor",
+   "reputation": "在二次元高定圈享有极高声誉，其打造的战袍以结构严密与材料硬核著称。",
+   "resources": [
+    "一支特种微量快干型金属滑轨固体润滑笔",
+    "一柄高碳不锈钢扁平无痕模具修整撬刀"
+   ],
+   "risks": [
+    "若暴力破拆割裂战袍将损失数十万元高定刺绣孤品",
+    "时间紧迫需在昏暗光线下完成毫米级锁舌微操"
+   ],
+   "role": "高定动漫演艺铠甲道具工艺师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}匠人"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    22
+   ],
+   "baseline": "负责主展馆VIP通道清场巡查与红外报警探头联调，随身携带防暴破拆工具与应急照明电台。",
+   "gender": "any",
+   "id": "pi_expo_security_corridor_patrolman",
+   "reputation": "身体矫健受过严苛特勤破拆训练，对展馆防火防盗自锁门机械结构了如指掌。",
+   "resources": [
+    "一部直通展馆安防中控室的专用有线对讲分机",
+    "一柄折叠式高强度合金战术防暴撬杠"
+   ],
+   "risks": [
+    "外侧强行破拆可能触发全馆一级联动警报引发保安围堵",
+    "必须将特邀演出嘉宾人身安全置于首位"
+   ],
+   "role": "展馆后台特勤防暴通道巡查员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}特勤"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}巡官"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    20
+   ],
+   "baseline": "现年满二十岁具备完全民事行为能力，展馆物业工程部机电正式学徒工，负责更衣间移门滑轨清扫与门碰润滑，熟记地锁暗销位置。",
+   "gender": "any",
+   "id": "pi_expo_dressing_room_apprentice_maid",
+   "reputation": "勤快细致熟悉更衣室每个地轨凹槽死角，但面临大警报易慌乱不知所措。",
+   "resources": [
+    "一罐高压渗透型微量机械轴承防锈润滑喷剂",
+    "一盒防刮耐磨防滑高弹力丁腈手套"
+   ],
+   "risks": [
+    "身为底层运维人员面对展馆门锁损坏承担直接问责惩戒",
+    "操作撬具时需防范手指被滑移钢门挤压擦伤"
+   ],
+   "role": "展会更衣室保洁机电成年学徒工",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工友"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}小师傅"
+    }
+   ]
+  }
+ ],
+ "premise": "国际动漫游戏博览会的最后三天，一位配过好几款手游角色的声优作为特邀嘉宾，穿着自己最喜欢的神里绫华重工战袍上台念台词。台下的尖叫掀翻了屋顶，演艺执行总监陪着跑签售与舞台。VIP更衣间的防暴移门闭馆后会断电落锁，那身战袍的金属拉链有点不好拉。",
+ "pressures": [
+  {
+   "choice": "选择利用铬钒钢快拆扳钳硬柄撬退偏心齿，或等待次日安保晨检。",
+   "exits": [
+    {
+     "cost": "快拆扳钳硬柄表面产生受力压痕，声优手心被冷锻钢铁反震得轻微发麻。",
+     "option": "声优与搭档双手紧扣合抱铬钒钢扳钳向下施力，成功别开自锁滑块与地槽插销推门脱险。"
+    },
+    {
+     "cost": "更衣室单向防爆钢化玻璃观察百叶窗整体碎裂报废需赔偿万元修复金。",
+     "option": "开启更衣室应急消防安全破玻锤砸开更衣间上方备用百叶窗换气口呼吸新鲜空气。"
+    }
+   ],
+   "far": {
+    "consequence": "更衣室内全体人员陷入彻底断电封闭导致严重窒息中暑与商业违约丑闻。",
+    "due_days": 1,
+    "trigger": "红外安防系统全面启动并触发全馆夜间防盗锁死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_situ_takes_down_chrome_wrench",
+    "hook_ling_sprays_lubricant_rail_call",
+    "hook_dantai_softens_zipper_knot",
+    "hook_murong_places_bench_fulcrum",
+    "hook_chu_calibrates_bar_lift_run",
+    "hook_shen_hands_wet_wipe_water",
+    "hook_situ_exhorts_partner_to_hold_steady",
+    "hook_ling_shouts_counter_torque_ready",
+    "hook_dantai_wipes_sweat_situ_brow",
+    "hook_murong_shores_up_bench_fulcrum",
+    "hook_situ_and_crew_thrust_downward",
+    "hook_observe_dressing_door_pops_open",
+    "hook_observe_ling_and_crew_haul_door",
+    "hook_observe_chu_restores_fresh_air",
+    "hook_observe_situ_embraces_triumph",
+    "hook_xue_voice_line",
+    "hook_xue_wig_off",
+    "hook_xue_hotel_window",
+    "hook_yunche_warm_water",
+    "hook_xue_hotel_door"
+   ],
+   "id": "p_curfew_infrared_lockdown_countdown",
+   "immediate": {
+    "minutes": 3,
+    "text": "清场警报低沉回荡，更衣室内空调停摆升温至三十五度，声优额角沁汗，呼吸紧促。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "布防倒计时仅剩三分钟，若未能撬开移门，红外微波将自动封锁所有疏散闸机导致人员滞留。"
+   },
+   "objective": "在红外布防通电前撬开战袍拉链与移门地锁撤出展馆。",
+   "source": "institution",
+   "start_minute": 1260,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "展馆闭馆红外微波布防倒计时紧迫感",
+   "trigger": "主展馆闭馆清场广播鸣响，双鉴红外微波防盗探头即将在十分钟后通电并网，届时移门彻底封死且触动全馆报警。"
+  },
+  {
+   "choice": "选择利用铬钒钢扳钳斜口深入卡槽撬退咬齿，或用利刃强行割断战袍背甲。",
+   "exits": [
+    {
+     "cost": "快拆扳钳斜口端部出现细微金属咬合擦痕，两人手臂肌肉因对抗反震隐隐酸胀。",
+     "option": "二人双手重叠握稳快拆扳钳，对准拉链滑块下槽以三十度斜角下压脱开咬死铜齿。"
+    },
+    {
+     "cost": "高定演出战袍背部底托拉链构件整体受损报废需返厂重新开模定制。",
+     "option": "由工艺师使用特种剪线钳定点剪断战袍背部两处隐蔽固定拉链底托铜牙。"
+    }
+   ],
+   "far": {
+    "consequence": "价值连城的高定战袍沦为无法解脱的钢铁枷锁危及受困人员呼吸与肢体健康。",
+    "due_days": 1,
+    "trigger": "金属拉链滑块内部传动销受剪切撕裂彻底卡死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_situ_takes_down_chrome_wrench",
+    "hook_ling_sprays_lubricant_rail_call",
+    "hook_dantai_softens_zipper_knot",
+    "hook_murong_places_bench_fulcrum",
+    "hook_chu_calibrates_bar_lift_run",
+    "hook_shen_hands_wet_wipe_water",
+    "hook_situ_exhorts_partner_to_hold_steady",
+    "hook_ling_shouts_counter_torque_ready",
+    "hook_dantai_wipes_sweat_situ_brow",
+    "hook_murong_shores_up_bench_fulcrum",
+    "hook_situ_and_crew_thrust_downward",
+    "hook_observe_dressing_door_pops_open",
+    "hook_observe_ling_and_crew_haul_door",
+    "hook_observe_chu_restores_fresh_air",
+    "hook_observe_situ_embraces_triumph",
+    "hook_xue_voice_line",
+    "hook_xue_wig_off",
+    "hook_xue_hotel_window",
+    "hook_yunche_warm_water",
+    "hook_xue_hotel_door"
+   ],
+   "id": "p_heavy_armor_zipper_teeth_deadlock",
+   "immediate": {
+    "minutes": 3,
+    "text": "金属拉链发出金属咬死的尖锐涩响，拉头纹丝不动，背部铠甲紧紧束缚限制大幅肢体发力。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若两分钟内未能下压挑脱咬死卡槽，内衬织物将被合金咬齿彻底咬断形成死结焊死滑轨。"
+   },
+   "objective": "借快拆扳钳高硬度斜口反向撬开偏心锁块解脱战袍紧绷束缚。",
+   "source": "accident",
+   "start_minute": 1260,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "重工战袍合金拉链咬齿死咬束缚",
+   "trigger": "铠甲战袍特制四号重工金属拉链被内衬盘金织锦硬结卷入，滑块锁舌卡死在齿槽内无法上下滑动分毫。"
+  },
+  {
+   "choice": "选择利用更衣凳支点向上撬起地销，或等待外侧特勤使用重型液压破拆机。",
+   "exits": [
+    {
+     "cost": "实心不锈钢更衣凳横梁表面拉丝层产生微小挤压划痕，两人掌心被冷锻钢铁震得生疼。",
+     "option": "道具设计师与声优合抱快拆扳钳硬柄，以加固凳横梁为受力支点向上猛别抬升地销脱扣。"
+    },
+    {
+     "cost": "更衣室不锈钢密封移门底部特制防尘接地密封胶条整体扭曲撕裂报废。",
+     "option": "外侧特勤队员使用液压顶镐强行将移门下沿顶起三公分使其滑脱出槽地轨卡位。"
+    }
+   ],
+   "far": {
+    "consequence": "更衣室防暴门彻底沦为无法人工开启的绝望铁壁危及全员性命安全。",
+    "due_days": 1,
+    "trigger": "移门自锁地销发生永久性剪切扭曲塑性形变"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_situ_takes_down_chrome_wrench",
+    "hook_ling_sprays_lubricant_rail_call",
+    "hook_dantai_softens_zipper_knot",
+    "hook_murong_places_bench_fulcrum",
+    "hook_chu_calibrates_bar_lift_run",
+    "hook_shen_hands_wet_wipe_water",
+    "hook_situ_exhorts_partner_to_hold_steady",
+    "hook_ling_shouts_counter_torque_ready",
+    "hook_dantai_wipes_sweat_situ_brow",
+    "hook_murong_shores_up_bench_fulcrum",
+    "hook_situ_and_crew_thrust_downward",
+    "hook_observe_dressing_door_pops_open",
+    "hook_observe_ling_and_crew_haul_door",
+    "hook_observe_chu_restores_fresh_air",
+    "hook_observe_situ_embraces_triumph",
+    "hook_xue_voice_line",
+    "hook_xue_wig_off",
+    "hook_xue_hotel_window",
+    "hook_yunche_warm_water",
+    "hook_xue_hotel_door"
+   ],
+   "id": "p_door_floor_deadbolt_gravity_jam",
+   "immediate": {
+    "minutes": 3,
+    "text": "沉重不锈钢移门纹丝不动如同焊接死一般，地槽金属销轴承受数吨侧向剪切力发出沉闷震颤。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "地锁偏心套管受热卡阻加剧，若两分钟内未能顶起地销，移门导向滚轮将彻底卡死在轨道槽内。"
+   },
+   "objective": "借更衣凳加固梁为支点用快拆扳钳扁平硬柄深入地孔撬起地销。",
+   "source": "accident",
+   "start_minute": 1263,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "更衣室防暴移门断电重力地销卡槽死锁",
+   "trigger": "闭馆断电导致更衣室移门电磁铁失电，两百公斤不锈钢移门受自重下落，接地防暴锁舌咬死在水泥槽孔内。"
+  },
+  {
+   "choice": "选择利用快拆扳钳优先撬开移门通风，或全员使用降温湿巾与香氛喷雾坚守。",
+   "exits": [
+    {
+     "cost": "消耗完毕VIP更衣室常备的所有医用纯净水高密度降温湿巾与提神喷雾配额。",
+     "option": "随身礼仪迅速将纯净水湿巾敷在声优额角与颈侧降温，全员同心协力推开移门引入清风脱困。"
+    },
+    {
+     "cost": "备用手摇风机逆变器整流二极管承受过载瞬间发热烧蚀报废。",
+     "option": "开启配电室备用手摇风机逆变器向更衣室排气百叶窗强行鼓入微弱空气对流。"
+    }
+   ],
+   "far": {
+    "consequence": "受困人员陷入重度中暑虚脱甚至热痉挛昏迷危及生命安全。",
+    "due_days": 1,
+    "trigger": "更衣间极度高温闷热环境彻底消耗人体耐受极限"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_situ_takes_down_chrome_wrench",
+    "hook_ling_sprays_lubricant_rail_call",
+    "hook_dantai_softens_zipper_knot",
+    "hook_murong_places_bench_fulcrum",
+    "hook_chu_calibrates_bar_lift_run",
+    "hook_shen_hands_wet_wipe_water",
+    "hook_situ_exhorts_partner_to_hold_steady",
+    "hook_ling_shouts_counter_torque_ready",
+    "hook_dantai_wipes_sweat_situ_brow",
+    "hook_murong_shores_up_bench_fulcrum",
+    "hook_situ_and_crew_thrust_downward",
+    "hook_observe_dressing_door_pops_open",
+    "hook_observe_ling_and_crew_haul_door",
+    "hook_observe_chu_restores_fresh_air",
+    "hook_observe_situ_embraces_triumph",
+    "hook_xue_voice_line",
+    "hook_xue_wig_off",
+    "hook_xue_hotel_window",
+    "hook_yunche_warm_water",
+    "hook_xue_hotel_door"
+   ],
+   "id": "p_backstage_ventilation_heat_buildup",
+   "immediate": {
+    "minutes": 3,
+    "text": "室内空气干燥闷热，声优脸颊泛起水润潮红，秀发微湿贴在雪白颈项，呼吸声逐渐加重。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若五分钟内未能推开大门引入外侧清凉空气，厚重铠甲下的受困者将出现轻度脱水眩晕中暑反应。"
+   },
+   "objective": "在人员因急性热衰竭脱水中暑前挑开移门建立自然风通风走廊。",
+   "source": "accident",
+   "start_minute": 1261,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "密闭更衣室通风停摆体温升高中暑危险",
+   "trigger": "展馆中央空调在闭馆时切断，密闭独立更衣室内热量迅速积聚逼近三十八度，战袍贴身裹挟导致体能急剧耗竭。"
+  },
+  {
+   "choice": "选择利用加固凳搭建精准杠杆基座，或在扳钳柄身缠绕阻燃胶带缓冲局部应力。",
+   "exits": [
+    {
+     "cost": "精密不锈钢游标卡尺尺身因超限震动受到微小冲击导致零位微量失准需重新校核。",
+     "option": "道具设计师在下方严密测量水平基准角指引声优严格沿法线轴心垂直施加下压力度。"
+    },
+    {
+     "cost": "消耗整整两卷德国原装进口特种耐磨缓冲绝缘胶带。",
+     "option": "在快拆扳钳受力柄身缠绕多层加厚耐高温高强绝缘聚酰亚胺胶带缓冲接触点应力。"
+    }
+   ],
+   "far": {
+    "consequence": "室内人员彻底丧失物理自救破锁手段沦为任由高温锁闭的绝境受害者。",
+    "due_days": 1,
+    "trigger": "唯一的特种高硬度合金快拆扳钳在过载剪力下当场脆断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_situ_takes_down_chrome_wrench",
+    "hook_ling_sprays_lubricant_rail_call",
+    "hook_dantai_softens_zipper_knot",
+    "hook_murong_places_bench_fulcrum",
+    "hook_chu_calibrates_bar_lift_run",
+    "hook_shen_hands_wet_wipe_water",
+    "hook_situ_exhorts_partner_to_hold_steady",
+    "hook_ling_shouts_counter_torque_ready",
+    "hook_dantai_wipes_sweat_situ_brow",
+    "hook_murong_shores_up_bench_fulcrum",
+    "hook_situ_and_crew_thrust_downward",
+    "hook_observe_dressing_door_pops_open",
+    "hook_observe_ling_and_crew_haul_door",
+    "hook_observe_chu_restores_fresh_air",
+    "hook_observe_situ_embraces_triumph",
+    "hook_xue_voice_line",
+    "hook_xue_wig_off",
+    "hook_xue_hotel_window",
+    "hook_yunche_warm_water",
+    "hook_xue_hotel_door"
+   ],
+   "id": "p_chrome_vanadium_tool_shear_risk",
+   "immediate": {
+    "minutes": 3,
+    "text": "扳钳深入地槽承受数千牛顿咬合力时发出极清脆的金属抗阻哀鸣，稍有偏载便有微裂崩断凶险。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vip_cosplayer_dressing_booth"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "首次撬动若角度偏差超过五度，扳钳斜口刃尖将出现永久塑性卷边或微观微裂，丧失唯一撬门利器。"
+   },
+   "objective": "严格依托加固凳横梁黄金支点沿法向垂直施力确保扳钳安全抬起地销。",
+   "source": "accident",
+   "start_minute": 1260,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "快拆扳钳斜口撬柄承载过载抗剪极限风险",
+   "trigger": "铬钒合金钢快拆扳钳虽硬度超群但斜口尺寸微小，若在地槽撬动时下压角度偏离中心线将承受剪切突波。"
+  },
+  {
+   "choice": "选择严格遵循外侧特勤读秒慢推慢拉，或在外门把手上加装软质减震缓冲垫。",
+   "exits": [
+    {
+     "cost": "巡查员所戴特勤防护手套手心防滑皮层被外门把手剧烈摩擦拉扯开一道磨损细缝。",
+     "option": "巡查员通过对讲清晰倒数读秒指挥内外全员在最后一秒同步爆发全部力矩平稳推开移门。"
+    },
+    {
+     "cost": "一块高密度工程尼龙垫板被挤压力道压出深达一公分的永久变形凹痕废弃。",
+     "option": "在门缝卡位处垫入一块高强度耐磨实心尼龙隔板消除硬碰硬刚性挤压冲击。"
+    }
+   ],
+   "far": {
+    "consequence": "沉重的不锈钢防暴移门彻底卡死在滑轨中丧失一切人工开启可能性。",
+    "due_days": 1,
+    "trigger": "接地自锁销轴与水泥定位地槽在反向力矩下彻底咬死崩裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_situ_takes_down_chrome_wrench",
+    "hook_ling_sprays_lubricant_rail_call",
+    "hook_dantai_softens_zipper_knot",
+    "hook_murong_places_bench_fulcrum",
+    "hook_chu_calibrates_bar_lift_run",
+    "hook_shen_hands_wet_wipe_water",
+    "hook_situ_exhorts_partner_to_hold_steady",
+    "hook_ling_shouts_counter_torque_ready",
+    "hook_dantai_wipes_sweat_situ_brow",
+    "hook_murong_shores_up_bench_fulcrum",
+    "hook_situ_and_crew_thrust_downward",
+    "hook_observe_dressing_door_pops_open",
+    "hook_observe_ling_and_crew_haul_door",
+    "hook_observe_chu_restores_fresh_air",
+    "hook_observe_situ_embraces_triumph",
+    "hook_xue_voice_line",
+    "hook_xue_wig_off",
+    "hook_xue_hotel_window",
+    "hook_yunche_warm_water",
+    "hook_xue_hotel_door"
+   ],
+   "id": "p_door_cadence_mismatch_jam_risk",
+   "immediate": {
+    "minutes": 3,
+    "text": "门框受力发出令人牙酸的金属挤压沉闷声响，地销微动卡死，若不同步发力将彻底锁死门扇。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_stage_backstage_curfew_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "若内外发力节拍相差半秒以上，反向剪切力将把地锁偏心铜套反向别死在钢板内再也无法挑起。"
+   },
+   "objective": "内外人员依照手台三秒倒数实现毫秒级同步启闭确保移门平稳外移滑开。",
+   "source": "accident",
+   "start_minute": 1264,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "内外推拉力矩节奏偏差导致地销二次咬合危机",
+   "trigger": "若外侧特勤过早猛烈外拉移门而内侧地销未完全脱离地孔，反向剪力将把销轴死死别在槽沿倒齿内。"
+  },
+  {
+   "choice": "让声优出面发一段道谢视频，还是把责任推给展馆断电",
+   "exits": [
+    {
+     "cost": "评论区会开始猜那个人是谁",
+     "option": "拍一段道谢视频，提到陪着困在里面的那个人"
+    },
+    {
+     "cost": "组委会的钱女士就不会再请声优来下一届",
+     "option": "发声明怪展馆断电"
+    }
+   ],
+   "far": {
+    "consequence": "声优要赔违约金，下季度的两部新番配音也会换人",
+    "due_days": 5,
+    "trigger": "撤约函发出"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_xue_voice_line",
+    "hook_xue_wig_off",
+    "hook_xue_hotel_window",
+    "hook_yunche_warm_water",
+    "hook_xue_hotel_door"
+   ],
+   "id": "p_brand_pulls_endorsement",
+   "immediate": {
+    "minutes": 5,
+    "text": "程经理把平板电脑放在茶几上，热搜第三条就是声优的名字"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_expo_hotel_suite"
+   ],
+   "near": {
+    "deadline_minutes": 300,
+    "text": "下午三点，品牌方开会"
+   },
+   "objective": "在品牌方开会定下撤约之前，把这件事讲成一件好事",
+   "source": "money",
+   "start_minute": 600,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "代言要撤",
+   "trigger": "被困更衣间的事第二天上了热搜，经纪公司的程经理一早敲开套房的门：品牌方看到战袍拉链坏掉的照片，要撤掉下个月的代言"
+  }
+ ],
+ "region": "国家会展中心主展厅二层VIP特邀嘉宾独立更衣间与后台备演连廊",
+ "rules": [
+  {
+   "id": "rule_expo_center_curfew_security_code",
+   "text": "博览中心闭馆清场安全红线：每日闭馆广播鸣响十五分钟后，全馆启动双鉴红外微波入侵报警并切断所有非应急电源，逗留人员将被物理锁闭。"
+  },
+  {
+   "id": "rule_vip_booth_anti_panic_latch_rule",
+   "text": "独立更衣室平移门应急互锁规约：遇断电自锁时，禁止暴力撞击钢化单向透视玻璃，须使用特种撬具深入地轨槽孔向上顶起配重接地插销。"
+  },
+  {
+   "id": "rule_heavy_cosplay_costume_zipper_code",
+   "text": "高定金属铠甲演出服快拆规范：重工金属拉链发生齿槽咬死时，禁止用蛮力撕扯织物，须使用莫氏硬度七级以上扁平斜口工具反向撬开偏心锁舌。"
+  },
+  {
+   "id": "rule_exhibition_prop_weapon_custody_code",
+   "text": "展演等比例合金长刀道具监管戒律：在更衣室内调试金属刀鞘道具时，必须佩戴软质皮护套，严禁金属刃面直接划伤地面防静电胶板。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "试衣并肩",
+  "committed": "金石同盟",
+  "familiar": "化妆共处",
+  "flirting": "暗光凝视",
+  "intimate": "通道共渡",
+  "stranger": "后台初逢",
+  "testing": "扳钳撬锁"
+ },
+ "status": "released",
+ "style_hint": "漫展的喧嚣与散场后的静：签售台的长队、主舞台的追光、闭馆后空荡的展厅。写冷艳声优重工战袍下的身段、泪痣与喘息，动作落在快拆扳钳撬拉链铜齿上。",
+ "tension_engines": [
+  {
+   "id": "eng_curfew_infrared_lockdown_countdown",
+   "text": "全馆清场倒计时与双鉴红外微波布防启动引发人员绝境封锁紧迫感"
+  },
+  {
+   "id": "eng_chrome_vanadium_tool_bending_limit",
+   "text": "高硬度铬钒钢快拆扳钳硬柄深入金属锁舌下压撬动之抗弯抗剪极限"
+  },
+  {
+   "id": "eng_heavy_armor_costume_bond",
+   "text": "数十万元高定重工刺绣原神战袍在硬核破拆中毫发未损保全重大责任"
+  },
+  {
+   "id": "eng_dual_sided_coordinated_heave_pulse",
+   "text": "更衣室门内外两侧人员借助对讲倒数毫秒级同步发力克服沉重地销死咬"
+  }
+ ],
+ "title": "冷艳原神声优·漫展VIP更衣室金属拉链死锁",
+ "tone": [
+  "重工战袍卡死",
+  "闭馆红外倒计",
+  "合金扳钳撬齿",
+  "破除地销脱困"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_solid_chrome_wrench_hardness_limit",
+   "requires": [
+    "cool_cosplayer_situ_xue"
+   ],
+   "text": "{cool_cosplayer_situ_xue.name}手中这柄微型偏心螺栓快拆斜口扳钳由特种铬钒钢冷锻淬火精工制成，扁平斜口硬度超群，在狭窄齿槽与地槽内撬压数千牛顿力矩绝不折断。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_tailor_guides_zipper_notch",
+   "requires": [
+    "armor_tailor_dantai_yue"
+   ],
+   "text": "{armor_tailor_dantai_yue.name}凭借对四号重工拉链五金剖面装配图纸的深刻记忆，准确指出了滑块锁舌暗藏的退销偏心间隙卡点，指导扳钳以三十度斜角切入直抵核心卸载受力位。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_security_patrol_pull_coordination",
+   "requires": [
+    "security_patrol_officer_chu_tian_heng",
+    "stage_director_ling_yun_che"
+   ],
+   "text": "{security_patrol_officer_chu_tian_heng.name}与{stage_director_ling_yun_che.name}在内外两侧严密把控倒数发力节点并卡死强光照明指引，为受困人员合抱下压快拆扳钳自救赢得了最关键的平稳施救空间。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_expo_curfew_emergency_relief_code",
+   "requires": [
+    "stage_director_ling_yun_che"
+   ],
+   "text": "国家会展中心关于特邀演出嘉宾遭遇更衣间机械断电锁死特别应急规程被演艺总监果断启动，中控室红外布防依法延迟三分钟，彻底粉碎了提前布防锁死更衣间的危局。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_curfew_window_two_minutes_limit",
+   "requires": [
+    "cool_cosplayer_situ_xue",
+    "prop_mechanic_murong_xiu_yuan"
+   ],
+   "text": "展馆闭馆红外布防延迟仅能支撑最后一百八十秒安全窗口，声优冷静把握时机在此黄金时间内合力下压扳钳硬柄，一举将拉锁偏心舌与门地销平稳别脱。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_situ_xue_hand_overlap_prying",
+   "requires": [
+    "cool_cosplayer_situ_xue"
+   ],
+   "text": "在自锁舌弹脱的一瞬间，二人四手紧扣共同握住冰冷的铬钒钢扳钳拼尽全力向下按压，{cool_cosplayer_situ_xue.name}娇躯借力微倾依偎在搭档身旁，微婴儿肥俏脸泛起娇羞红晕，急促心跳交织却满是化险为夷的深沉信赖。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_heavy_armor_costume_triumph",
+   "requires": [
+    "cool_cosplayer_situ_xue",
+    "armor_tailor_dantai_yue"
+   ],
+   "text": "随着当啷一声清脆的金属脱扣回弹声，防暴移门与战袍拉链彻底脱开滑开，声优与同伴合力护送高定神里绫华刺绣战袍安全出舱，华丽铠甲在清凉夜幕下流光溢彩完好无损。"
+  }
+ ]
+}

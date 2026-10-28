@@ -1,0 +1,2092 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "跟随团长十年的成年亲卫",
+   "age_range": [
+    28,
+    50
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_iron_guard",
+   "line": "{npc.name}拄着重剑立在碑光外圈，只认团长的命令，谁靠近物资箱都会被拦下问一句。",
+   "location_ids": [
+    "sanctuary_obelisk_hall"
+   ],
+   "name": null,
+   "role": "按刀督战铁卫"
+  },
+  {
+   "adult_context": "闯荡迷宫三十年的成年老佣兵",
+   "age_range": [
+    40,
+    62
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_old_mercenary",
+   "line": "{npc.name}靠着石柱剔牙，什么都看在眼里，递上一口热汤，就会把昨夜谁下了温泉室说给你听。",
+   "location_ids": [
+    "sanctuary_obelisk_hall"
+   ],
+   "name": null,
+   "role": "嘴碎的老佣兵"
+  },
+  {
+   "adult_context": "第一次下深层的成年弓手",
+   "age_range": [
+    22,
+    32
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_gate_archer",
+   "line": "{npc.name}抱着短弓缩在门边，守夜时谁跟谁说了悄悄话，记得一清二楚。",
+   "location_ids": [
+    "sealed_granite_gate"
+   ],
+   "name": null,
+   "role": "守门弓手"
+  },
+  {
+   "adult_context": "随军多年的成年药房助手",
+   "age_range": [
+    24,
+    40
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_supply_attendant",
+   "line": "{npc.name}守着药箱和干毛毡，开口就多塞给你一卷绷带，再识趣地退到帘外。",
+   "location_ids": [
+    "collapsed_supply_cache"
+   ],
+   "name": null,
+   "role": "管毛毡的药侍"
+  },
+  {
+   "adult_context": "专跑深层的成年斥候",
+   "age_range": [
+    24,
+    38
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_guild_runner",
+   "line": "{npc.name}从升降井那头爬下来，带着公会和金主的口信，只交到收件人本人手上。",
+   "location_ids": [
+    "sanctuary_obelisk_hall",
+    "sealed_granite_gate"
+   ],
+   "name": null,
+   "role": "公会传令斥候"
+  },
+  {
+   "adult_context": "公会派驻的成年书记官",
+   "age_range": [
+    30,
+    55
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_guild_scribe",
+   "line": "{npc.name}抱着问询簿挨个记口供，笔尖停在谁的名字上，谁就得把溃退那夜重讲一遍。",
+   "location_ids": [
+    "sanctuary_obelisk_hall"
+   ],
+   "name": null,
+   "role": "公会问询书记"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "{cold_blooded_crusade_commander.name}当众从不看你一眼，排班表上却总把你和自己排在同一班；那夜暗渠里的体温，两人都记得。",
+   "id": "combo_commander_rearguard",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "cold_blooded_crusade_commander",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "溃退那夜你断后，{cold_blooded_crusade_commander.name}回头把你从碎石里拖出来，两人在暗渠里抱着取暖到天亮，回来后谁都没提",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "cold_blooded_crusade_commander"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让对方亲口说出那夜回头拖你出来，是命令还是私心。",
+    "limit_gap": "{cold_blooded_crusade_commander.name}不能在人前示弱，你不能在问询前改口。",
+    "meeting_reason": "今晚的守夜，排班表上只有你们两个名字。",
+    "resource_gap": "{cold_blooded_crusade_commander.name}握着功绩簿的签字权，你握着溃退那夜真正的撤退时刻。"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_rout_debt",
+    "te_night_watch"
+   ]
+  },
+  {
+   "chemistry": "你代表金主，{cold_blooded_crusade_commander.name}代表这支残队；白天在石案两头寸步不让，夜里在石门边对的是同一份口供。",
+   "id": "combo_commander_pact",
+   "identity_ids": [
+    "noble_commission_sponsor"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "cold_blooded_crusade_commander",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "下潜前你和{cold_blooded_crusade_commander.name}私下立约：你挡住金主家的追问，团长保你随军平安，只凭一句暗语作数",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "cold_blooded_crusade_commander"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在约定之外，确认对方肯为你破一次自己的规矩。",
+    "limit_gap": "你不能让家族亏本，{cold_blooded_crusade_commander.name}不能让队伍散掉。",
+    "meeting_reason": "续约的条款要在问询之前当面敲定。",
+    "resource_gap": "你握着续约的印信，{cold_blooded_crusade_commander.name}握着全队的口供和人心。"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_bounty_contract",
+    "te_rout_debt"
+   ]
+  },
+  {
+   "chemistry": "{arrogant_high_elf_arcanist.name}对谁都刻薄，唯独换药时只肯让你碰；你知道那道伤底下藏着的不只是魔毒。",
+   "id": "combo_arcanist_bandage",
+   "identity_ids": [],
+   "player_positions": [
+    "equal",
+    "low"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 1
+     },
+     "b": "arrogant_high_elf_arcanist",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "每晚替{arrogant_high_elf_arcanist.name}换药的是你，上回疼得抓住你的手腕不放，第二天却装作什么都不记得",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "arrogant_high_elf_arcanist"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "弄清那一爪是不是替你挡的。",
+    "limit_gap": "{arrogant_high_elf_arcanist.name}不能被人知道魔核的事，你不能对账本撒谎太久。",
+    "meeting_reason": "绷带又渗血了，{arrogant_high_elf_arcanist.name}拎着干净的一卷来找你。",
+    "resource_gap": "{arrogant_high_elf_arcanist.name}握着结界和那枚没上账的魔核，你握着每晚换药的那双手。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_core_secret",
+    "te_night_watch"
+   ]
+  },
+  {
+   "chemistry": "{cynical_dwarf_shieldbreaker.name}见了你就拌嘴，你也从不让着；可全队只有你们俩知道，那夜谁背着谁爬出了外廊。",
+   "id": "combo_dwarf_rivals",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 0
+     },
+     "b": "cynical_dwarf_shieldbreaker",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 1
+     },
+     "reason": "溃退前一晚你没收了{cynical_dwarf_shieldbreaker.name}的酒壶，从此见面就吵，可你昏迷时是对方背你爬了一夜",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "cynical_dwarf_shieldbreaker"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让这张嘴硬的家伙清醒着说一次谢谢。",
+    "limit_gap": "{cynical_dwarf_shieldbreaker.name}不能让族人知道喝酒误事，你不能让功绩簿记错人。",
+    "meeting_reason": "赏金分成单上，你们俩的名字挨在一起，只能留一个。",
+    "resource_gap": "{cynical_dwarf_shieldbreaker.name}握着岩层草图，你握着那夜的真相。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_rout_debt",
+    "te_bounty_contract"
+   ]
+  },
+  {
+   "chemistry": "{traumatized_holy_paladin.name}的证词能定你的档案，可每到守夜熄灯，先伸手的总是{traumatized_holy_paladin.name}。",
+   "id": "combo_paladin_watch",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "traumatized_holy_paladin",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "连着七夜和你同班守夜，{traumatized_holy_paladin.name}在黑暗里握过你的手，事后说只是为了确认你还活着",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "traumatized_holy_paladin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在王都那封回信寄出前，听{traumatized_holy_paladin.name}说一句真心话。",
+    "limit_gap": "{traumatized_holy_paladin.name}有婚约在身，你有自己不能说的溃退那夜。",
+    "meeting_reason": "排班表又一次把你们排进了同一班。",
+    "resource_gap": "{traumatized_holy_paladin.name}握着问询簿上最重的一票证词，你握着那盏守夜灯。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_night_watch",
+    "te_rout_debt"
+   ]
+  },
+  {
+   "chemistry": "人前{shadow_assassin_infiltrator.name}装作第一次见你，人后连你端杯子用哪只手都记得；装陌生的戏，两个人都快演不下去了。",
+   "id": "combo_assassin_old_flame",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "shadow_assassin_infiltrator",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "你们在王都有过半年地下情，分手那晚约好在任何地方都装作不认识，{shadow_assassin_infiltrator.name}却一直留着你的铜币",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "shadow_assassin_infiltrator"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "问清当年分手的那一晚，{shadow_assassin_infiltrator.name}为什么先走。",
+    "limit_gap": "{shadow_assassin_infiltrator.name}不许和队员有私交，你不能让旧事进问询簿。",
+    "meeting_reason": "一枚旧铜币，被人悄悄塞回你掌心。",
+    "resource_gap": "{shadow_assassin_infiltrator.name}握着暗部密令，你握着{shadow_assassin_infiltrator.name}的真实身份。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_core_secret",
+    "te_rout_debt"
+   ]
+  },
+  {
+   "chemistry": "{dungeon_cartographer.name}寸步不让地跟所有人谈价钱，唯独把那卷复制图交给了你保管。",
+   "id": "combo_cartographer_secret",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "dungeon_cartographer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你替{dungeon_cartographer.name}藏着那卷复制图，两人约好卖图的钱对半，谁想反悔只要说出暗语就作罢",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "dungeon_cartographer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让{dungeon_cartographer.name}明白，你藏图不是为了那份钱。",
+    "limit_gap": "{dungeon_cartographer.name}一旦被查出私图就会违约，你一旦被查出藏图就会被牵连。",
+    "meeting_reason": "随军贵胄要查全部草图，{dungeon_cartographer.name}来问图还在不在。",
+    "resource_gap": "你能决定那卷图交不交，{dungeon_cartographer.name}只剩脑子里的路。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_bounty_contract",
+    "te_core_secret"
+   ]
+  },
+  {
+   "chemistry": "{cold_blooded_crusade_commander.name}要你作证，{shadow_assassin_infiltrator.name}要你闭嘴；一个是石门边的新账，一个是王都的旧情，两人都盯着你今晚站在哪一边。",
+   "id": "combo_commander_assassin",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 1
+     },
+     "b": "cold_blooded_crusade_commander",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "守夜时{cold_blooded_crusade_commander.name}把自己的披风分了你一半，之后每次排班都把你排在身边，却从没开口说为什么",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "shadow_assassin_infiltrator",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "{shadow_assassin_infiltrator.name}是你在王都的旧情人，重逢后约好人前不相认，夜里却还是在岩缝下碰过一次面",
+     "stage": "intimate"
+    },
+    {
+     "a": "cold_blooded_crusade_commander",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 0
+     },
+     "b": "shadow_assassin_infiltrator",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 0
+     },
+     "reason": "团长疑心密探是来查自己的，密探也确实是",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "cold_blooded_crusade_commander",
+    "shadow_assassin_infiltrator"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "保住一个人，又不把另一个推下去。",
+    "limit_gap": "你只能给一个版本的口供，两个人谁也不肯先让。",
+    "meeting_reason": "问询前夜，两个人先后来找你单独谈。",
+    "resource_gap": "{cold_blooded_crusade_commander.name}握着功绩簿，{shadow_assassin_infiltrator.name}握着密令，你握着那夜的撤退时刻。"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_rout_debt",
+    "te_core_secret"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_obelisk_whispers",
+   "reach": "在中央石室方圆三丈之内借遗迹微光与符文低鸣隐秘传递",
+   "text": "方尖碑光晕低语"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_stone_pipe_knocking",
+   "reach": "顺着整座花岗岩安全区石壁与暗渠管道震颤，迅速响彻全部角落",
+   "text": "石门与岩壁敲击暗号"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "S级远征队兼帝国铁壁骑士团前任统领，身负重伤断指，行事极端现实残忍，一切以多数人生还与战术成果为唯一准绳",
+   "age_range": [
+    32,
+    54
+   ],
+   "appearance_options": [
+    "身披布满爪痕与凹陷的暗灰秘银重型板甲，右臂护手已被暴力撕裂露出染血绷带，鬓角灰白硬如钢针，眼神如万年冰川般毫无温度",
+    "面容如刀削斧凿般严峻，眉骨上一道狰狞旧创贯穿至耳垂，双手关节粗大布满厚茧，大剑带鞘横在膝头，散发着令人窒息的血战煞气"
+   ],
+   "decision": {
+    "avoids": [
+     "让人碰左侧铠甲缝里的伤"
+    ],
+    "contrast": "当众说话不留余地，独处时会对着阵亡副官的铭牌发很久的呆",
+    "core_value": "活着回去的人，要知道自己为什么活着",
+    "goal_options": [
+     "在问询之前，让知道撤退真相的人站到自己这边",
+     "把藏着的那剂圣水交出去，又不让对方看出是特意留的",
+     "争到金主续约，把剩下的人一个不少带回地表"
+    ],
+    "never": [
+     "拿功绩簿上的名字跟人做交易"
+    ],
+    "prefers": [
+     "在碑光正前方、所有人看得见的地方发号施令"
+    ],
+    "pressure_responses": {
+     "breaking": "咳得单膝跪地，仍用剑撑着不肯让人扶",
+     "high": "下令封住石门，谁也不许单独离开主厅",
+     "low": "把剑横在膝上，一条一条对功绩簿",
+     "mid": "当众点名，要对方把话说清楚"
+    },
+    "relationship_stance": "把人当成要带回去的数字，嘴上从不承认记挂谁",
+    "withdrawal": "独自坐在石门边的巨石上，闭眼握着剑柄调息"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "cold_blooded_crusade_commander",
+   "identity": {
+    "authority": "按公会规约统御远征队残部，签功绩簿、排守夜班次，决定谁跟下一次远征",
+    "exposure": "溃退那夜下令撤退的时刻比公会记录早了一刻，问询时一对就穿",
+    "hidden": "溃退那夜私下扣下一剂圣水，账上记成遗失，至今藏在胸甲夹层里，想留给断后的那个人",
+    "limits": [
+     "左肺旧伤，夜里咳得睡不着",
+     "没有金主盖印，签的字送不出这一层"
+    ],
+    "obligations": [
+     "把阵亡副官的名册和家书带回地表"
+    ],
+    "resources": [
+     "一柄双手破甲大剑",
+     "功绩簿与守夜排班的签字权"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对方顶着自己的命令仍不退半步",
+     "对方愿意陪自己一起背骂名"
+    ],
+    "boundaries": [
+     "不许旁人翻阵亡副官的家书"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "卸下指挥之后，被当成普通人的战友",
+    "dislikes": [
+     "遇事推诿的人"
+    ],
+    "expression": "把自己的战功铭牌塞进对方手心，第一次承认怕死",
+    "likes": [
+     "守夜时肩并肩，谁都不说话"
+    ],
+    "preconditions": [
+     "确定对方靠近不是为了功绩簿上的名字，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "远征军残部统御长官",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sanctuary_obelisk_hall",
+     "to": 420
+    },
+    {
+     "from": 421,
+     "location_id": "sealed_granite_gate",
+     "to": 780
+    },
+    {
+     "from": 781,
+     "location_id": "collapsed_supply_cache",
+     "to": 1200
+    },
+    {
+     "from": 1201,
+     "location_id": "sanctuary_obelisk_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "从此欠下一个说不清的人情",
+      "option": "请断后的那个人私下对一遍口供"
+     },
+     {
+      "cost": "统领资格被公会收回，续约落空",
+      "option": "当众认下提前撤退的命令"
+     }
+    ],
+    "pressure": "说实话会毁掉自己的统领资格，说假话就得有人替{npc.ta}作证",
+    "trigger": "公会问询书记要求团长当众复述溃退那夜的撤退时刻"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "“那剂圣水我一直留着。我不能说，是留给你的。”",
+    "surface": "“把眼泪收回去，深渊不认眼泪。有话，等换班时单独跟我说。”"
+   }
+  },
+  {
+   "adult_context": "至高魔导院的成年高阶施法者，体内残着深渊魔毒，每晚要人换药",
+   "age_range": [
+    40,
+    120
+   ],
+   "appearance_options": [
+    "银白长发用发绳胡乱束着，法袍领口扣到最上一颗，遮住锁骨下发黑的伤口",
+    "尖耳上挂着一枚褪色的学院耳饰，手指修长却一直在抖，说话时下巴抬得很高"
+   ],
+   "decision": {
+    "avoids": [
+     "在主厅当众露出伤口"
+    ],
+    "contrast": "白天倨傲刻薄，换药时安静得像在等一句夸奖",
+    "core_value": "体面比命重要，但只在别人面前",
+    "goal_options": [
+     "让每晚换药的那个人替自己守住魔核的秘密",
+     "在问询之前把魔核的账悄悄补平",
+     "等对方自己问出那一爪是替谁挡的"
+    ],
+    "never": [
+     "承认自己需要谁"
+    ],
+    "prefers": [
+     "隔着水汽说话，不必看对方的眼睛"
+    ],
+    "pressure_responses": {
+     "breaking": "伤口疼得站不住，终于开口请对方别走",
+     "high": "当众拂袖离开主厅，独自躲进温泉室",
+     "low": "抬着下巴挑剔对方手法太重",
+     "mid": "用学院腔一句句堵回去，手却攥紧了袖口"
+    },
+    "relationship_stance": "嘴上瞧不起所有人，只肯让一个人碰伤口",
+    "withdrawal": "裹着法袍坐在泉边，背对所有人"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "arrogant_high_elf_arcanist",
+   "identity": {
+    "authority": "全队只有{npc.ta}能重画结界符文，方尖碑还能撑几天由{npc.ta}说了算",
+    "exposure": "魔核账上少的那一枚，就缝在{npc.ta}法袍的衬里",
+    "hidden": "溃退那夜不是被魔物偷袭，是替一个队友挡下了团长没看见的那一爪",
+    "limits": [
+     "魔毒未清，施不了高阶法术",
+     "背后的伤口自己够不着，只能求人换药"
+    ],
+    "obligations": [
+     "欠魔导院一笔研究经费，回去就得还"
+    ],
+    "resources": [
+     "一枚没上账的纯净魔核",
+     "魔导院的推荐信"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对方换药时手稳、不多问",
+     "对方看穿了倨傲底下的害怕，却不说破"
+    ],
+    "boundaries": [
+     "魔毒发作时不做任何决定"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被人照顾，又不必开口求",
+    "dislikes": [
+     "被当成全队的工具"
+    ],
+    "expression": "把学院耳饰摘下来放进对方手心，说只是借的",
+    "likes": [
+     "水汽里有人替自己擦干头发"
+    ],
+    "preconditions": [
+     "伤口不疼、神志清楚的时候，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "远征队首席法师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sanctuary_obelisk_hall",
+     "to": 480
+    },
+    {
+     "from": 481,
+     "location_id": "drainage_hot_spring",
+     "to": 900
+    },
+    {
+     "from": 901,
+     "location_id": "sanctuary_obelisk_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "把一个人拖进自己的秘密里",
+      "option": "请最信任的人替自己把魔核悄悄放回锁箱"
+     },
+     {
+      "cost": "首席法师的体面全没了",
+      "option": "当众交出魔核，说出欠魔导院的债"
+     }
+    ],
+    "pressure": "法袍衬里一翻就露，{npc.ta}只剩一晚想办法",
+    "trigger": "典官对账时发现魔核少了一枚，要求所有人摊开行囊"
+   },
+   "tags": [
+    "supernatural"
+   ],
+   "voices": {
+    "inner": "“只有你的手碰到那道伤，我才不觉得自己是个累赘。”",
+    "surface": "“轻一点，你当这是剥兽皮吗？……算了，别停。”"
+   }
+  },
+  {
+   "adult_context": "黑铁山脉出身的成年矮人盾卫，左臂骨折吊着绷带",
+   "age_range": [
+    45,
+    120
+   ],
+   "appearance_options": [
+    "个子不高，肩膀宽得像一面盾，编成辫子的头发里夹着几颗铁珠",
+    "左臂吊在胸前，右手总摸着腰间的酒壶，笑起来露出一颗缺了角的牙"
+   ],
+   "decision": {
+    "avoids": [
+     "清醒地谈溃退那夜"
+    ],
+    "contrast": "嘴上最粗鲁，却记得每个人伤在哪儿",
+    "core_value": "欠的账要还，还不上就先记着",
+    "goal_options": [
+     "向那晚被自己连累的人当面认个错",
+     "分到足够的赏金还清族里的血债",
+     "岩层草图卖给出价最高的人，又舍不得卖"
+    ],
+    "never": [
+     "拿同胞的战斧换钱"
+    ],
+    "prefers": [
+     "用玩笑把难听的话说出口"
+    ],
+    "pressure_responses": {
+     "breaking": "背对众人蹲下，肩膀一抖一抖",
+     "high": "把酒壶往地上一摔，说这趟谁都别想好过",
+     "low": "拍着酒壶讲笑话，把话题岔开",
+     "mid": "嗓门变大，拿族规挡在前面"
+    },
+    "relationship_stance": "跟谁都称兄道弟，真心话一句不说",
+    "withdrawal": "躲进后室的箱缝里抱着战斧打盹"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "cynical_dwarf_shieldbreaker",
+   "identity": {
+    "authority": "全队最懂岩层的人，哪条路能走、哪面墙会塌，{npc.ta}一句话就能定",
+    "exposure": "溃退那夜{npc.ta}喝了酒，没能及时举盾",
+    "hidden": "那夜背出一个昏迷的队友，却对谁都说自己走散了，怕被追问为什么没举盾",
+    "limits": [
+     "左臂断了，举不起巨盾",
+     "喝多了第二天什么都不记得"
+    ],
+    "obligations": [
+     "把三位阵亡同胞的战斧带回山里"
+    ],
+    "resources": [
+     "半壶黑麦烈酒",
+     "一张自己画的岩层草图"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对方守着醉倒的自己一夜，第二天什么都没提",
+     "对方敢当面戳穿自己的玩笑"
+    ],
+    "boundaries": [
+     "喝过酒就不碰任何人"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "能一起扛事、一起喝茶的伴",
+    "dislikes": [
+     "被人可怜"
+    ],
+    "expression": "在岩层草图上最安全的那条路旁写上对方的名字",
+    "likes": [
+     "清醒的早上一起烤硬面包"
+    ],
+    "preconditions": [
+     "两人都清醒，酒壶放在够不着的地方"
+    ],
+    "self_control_range": [
+     1,
+     3
+    ]
+   },
+   "public_role": "远征队盾卫",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sealed_granite_gate",
+     "to": 360
+    },
+    {
+     "from": 361,
+     "location_id": "sanctuary_obelisk_hall",
+     "to": 1000
+    },
+    {
+     "from": 1001,
+     "location_id": "collapsed_supply_cache",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "从此欠对方一句真话",
+      "option": "请人作证说盾是被落石砸脱的"
+     },
+     {
+      "cost": "赏金被扣，同胞的战斧也带不回山里",
+      "option": "当众认下喝酒误事"
+     }
+    ],
+    "pressure": "说出喝酒的事，族里的血债就再也还不清",
+    "trigger": "问询书记点名，要{npc.ta}讲清溃退那夜为什么没举盾"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“那天我要是没喝那口酒，盾就举起来了。”",
+    "surface": "“哈！这点伤算什么，来，喝一口——不喝？那我替你喝。”"
+   }
+  },
+  {
+   "adult_context": "圣堂派来随军的成年圣骑士，身上有圣堂代订的婚约",
+   "age_range": [
+    26,
+    45
+   ],
+   "appearance_options": [
+    "白银胸甲擦得发亮，胸口的圣徽却裂了一道黑缝",
+    "眉眼温和，睡着了也握着半截断剑，一离开光就屏住呼吸"
+   ],
+   "decision": {
+    "avoids": [
+     "一个人走进暗处"
+    ],
+    "contrast": "人前最守规矩，独处时会问对方神是不是早就走了",
+    "core_value": "誓言要守，心不该骗人",
+    "goal_options": [
+     "在婚约和心意之间，先对自己说一句真话",
+     "找一个人陪自己走过没有光的暗渠",
+     "让问询簿上的证词既公道，又不伤到在意的人"
+    ],
+    "never": [
+     "拿圣堂的证词换任何好处"
+    ],
+    "prefers": [
+     "在光里说真话"
+    ],
+    "pressure_responses": {
+     "breaking": "在黑暗里抓住对方的袖子不肯放",
+     "high": "拔出断剑，说自己不需要任何人陪着守夜",
+     "low": "低头祈祷，把要说的话咽回去",
+     "mid": "用誓词一样的句子把对方挡开"
+    },
+    "relationship_stance": "对谁都温和，对自己最苛刻",
+    "withdrawal": "跪在方尖碑下，背对所有人一跪就是半夜"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "traumatized_holy_paladin",
+   "identity": {
+    "authority": "能以圣堂名义作证，问询簿上{npc.ta}的证词分量最重",
+    "exposure": "圣徽裂了之后，{npc.ta}再也没听见过神的回应",
+    "hidden": "王都有人等着完婚，{npc.ta}却在每次守夜时数着和另一个人换班的时辰",
+    "limits": [
+     "怕黑，离开光源就喘不上气",
+     "婚约是圣堂订的，不能自己退"
+    ],
+    "obligations": [
+     "把大主教的圣骨十字架送回王都"
+    ],
+    "resources": [
+     "半截祝福过的断剑",
+     "一卷驱散毒雾的卷轴"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对方在黑暗里先伸出手",
+     "对方不把自己当圣徒，只当一个会怕的人"
+    ],
+    "boundaries": [
+     "不在圣徽前越线"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "能同行的人，不是被供起来的人",
+    "dislikes": [
+     "被人拿信仰嘲弄"
+    ],
+    "expression": "把守夜的灯往对方那边推一点",
+    "likes": [
+     "守夜时听对方讲地面上的小事"
+    ],
+    "preconditions": [
+     "先给王都写一封说清心意的信，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "随军圣骑士",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sanctuary_obelisk_hall",
+     "to": 600
+    },
+    {
+     "from": 601,
+     "location_id": "sealed_granite_gate",
+     "to": 1100
+    },
+    {
+     "from": 1101,
+     "location_id": "sanctuary_obelisk_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "圣堂会收回{npc.ta}的骑士衔",
+      "option": "写信请求解除婚约"
+     },
+     {
+      "cost": "把守夜时说过的话全咽回去",
+      "option": "回信应下婚期"
+     }
+    ],
+    "pressure": "回信要交给下一趟传令斥候，{npc.ta}还没想好写什么",
+    "trigger": "王都来信，婚期提前，要{npc.ta}回地表后立刻完婚"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“我不怕黑。我怕的是黑里只剩我自己。”",
+    "surface": "“愿光照着你。……今晚的守夜，我和你一班，可以吗？”"
+   }
+  },
+  {
+   "adult_context": "公会暗部派来随军的成年密探，身份只有团长知道一半",
+   "age_range": [
+    25,
+    42
+   ],
+   "appearance_options": [
+    "一身哑光黑皮甲，走路没有声音，耳后有一道细长的旧疤",
+    "总坐在光照不到的地方，手里转着一枚铜币，笑起来只有嘴角动"
+   ],
+   "decision": {
+    "avoids": [
+     "被人看见和旧人单独说话"
+    ],
+    "contrast": "人前装作素不相识，独处时连对方的口头禅都记得",
+    "core_value": "命令是命令，心是自己的",
+    "goal_options": [
+     "在密令和旧情之间给自己留一条退路",
+     "查清溃退那夜，又不让旧情人被牵连",
+     "把那枚铜币还给当年的人，或者再要回来"
+    ],
+    "never": [
+     "拿查到的秘密换私情"
+    ],
+    "prefers": [
+     "在暗处说话，在亮处装陌生"
+    ],
+    "pressure_responses": {
+     "breaking": "把密令摊在对方面前，问要不要烧掉",
+     "high": "消失一整夜，回来时什么都不解释",
+     "low": "转着铜币开玩笑，什么都不承认",
+     "mid": "突然靠得很近，压低声音说出对方的秘密"
+    },
+    "relationship_stance": "跟谁都隔着一层，唯独对旧人装不像",
+    "withdrawal": "爬到石门上方的岩缝里，一个人待到换班"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "shadow_assassin_infiltrator",
+   "identity": {
+    "authority": "握着公会密令，问询结果送上去之前要过{npc.ta}的手",
+    "exposure": "密令里要查的人，正是这些天和{npc.ta}同吃同睡的队友",
+    "hidden": "和其中一个队员早在王都就有过一段，分手时说好互不相认",
+    "limits": [
+     "锁骨有裂，不能久攀",
+     "密令写明不许和任何队员有私交"
+    ],
+    "obligations": [
+     "溃退真相查清之前不许离队"
+    ],
+    "resources": [
+     "公会密令和暗部印记",
+     "一对能攀石壁的吸附手甲"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对方明知道自己是谁，还替自己保密",
+     "对方当年分手时没有回头"
+    ],
+    "boundaries": [
+     "密令没烧之前，不在主厅露出半点私情"
+    ],
+    "desire_range": [
+     3,
+     5
+    ],
+    "desired_position": "不必装陌生的那个人",
+    "dislikes": [
+     "被人当成一把刀"
+    ],
+    "expression": "把铜币弹给对方，说是旧账的利息",
+    "likes": [
+     "只有两个人懂的暗号"
+    ],
+    "preconditions": [
+     "先说好暗号，一说就停，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "随队斥候",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sealed_granite_gate",
+     "to": 300
+    },
+    {
+     "from": 301,
+     "location_id": "collapsed_supply_cache",
+     "to": 700
+    },
+    {
+     "from": 701,
+     "location_id": "sanctuary_obelisk_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "违抗暗部，从此回不了公会",
+      "option": "把密令给旧人看，两个人一起想办法"
+     },
+     {
+      "cost": "欠下整支队伍一条命",
+      "option": "写上团长的名字交差"
+     }
+    ],
+    "pressure": "最合适的那个名字，是{npc.ta}最不想写的",
+    "trigger": "传令斥候送来暗部新令：问询前交出一名溃退责任人"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“你还是用左手端杯子。我一眼就认出来了。”",
+    "surface": "“我们见过吗？……没有吧，我记性一向很好。”"
+   }
+  },
+  {
+   "adult_context": "公会登记的成年迷宫地图师，这一层往下的路只有这位地图师走过两遍",
+   "age_range": [
+    27,
+    48
+   ],
+   "appearance_options": [
+    "指尖总沾着墨，腰上挂一串铜制测距环，走一步响一下",
+    "头发剪得很短，眼下有熬夜的青影，看人时像在量对方的步幅"
+   ],
+   "decision": {
+    "avoids": [
+     "在金主的人面前提署名"
+    ],
+    "contrast": "谈价钱寸步不让，替人包扎膝盖时手很轻",
+    "core_value": "路是我走出来的，名字就该是我的",
+    "goal_options": [
+     "在续约前谈下一份署自己名字的合同",
+     "找一个肯替自己保守复制图的人",
+     "在卖图远走和留在队里之间做个了断"
+    ],
+    "never": [
+     "卖一条自己没走过的路"
+    ],
+    "prefers": [
+     "把条件写在纸上"
+    ],
+    "pressure_responses": {
+     "breaking": "把图摊开推给对方，说你来决定",
+     "high": "说要一个人走风道下去",
+     "low": "低头描图，答话只用数字",
+     "mid": "把图卷起来抱在怀里，先开条件"
+    },
+    "relationship_stance": "人和路一样，走过两遍才算认识",
+    "withdrawal": "蹲在暗渠口借着荧光石一遍遍描同一段路"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "dungeon_cartographer",
+   "identity": {
+    "authority": "通往下一层的风道图在{npc.ta}手里，下一次远征走哪条路由{npc.ta}标",
+    "exposure": "风道图是{npc.ta}私下复制的，原图该归金主所有",
+    "hidden": "想把风道图卖给另一家金主，换一份写着自己名字的合同",
+    "limits": [
+     "膝盖旧伤，走不了快路",
+     "金主合同把地图署名写给了出资人"
+    ],
+    "obligations": [
+     "把弟弟的指南针交给弟弟的遗孀"
+    ],
+    "resources": [
+     "一卷没交给公会的风道图",
+     "弟弟留下的旧指南针"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对方记得自己说过的每一个数字",
+     "对方肯陪自己再走一遍那段路"
+    ],
+    "boundaries": [
+     "谈价钱的同一晚不越线"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "并肩走路的同伴，不是带路的人",
+    "dislikes": [
+     "被当成会走路的地图"
+    ],
+    "expression": "在地图角落用小字标一个只有两个人知道的地名",
+    "likes": [
+     "泉边摊开地图，两个人头碰着头看"
+    ],
+    "preconditions": [
+     "生意上的事先说清，再谈别的，双方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "远征队地图师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "collapsed_supply_cache",
+     "to": 400
+    },
+    {
+     "from": 401,
+     "location_id": "drainage_hot_spring",
+     "to": 800
+    },
+    {
+     "from": 801,
+     "location_id": "sanctuary_obelisk_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "把对方也拖进违约里",
+      "option": "私下请人替自己藏起复制图"
+     },
+     {
+      "cost": "往后走过的路都不算自己的",
+      "option": "交出全部草图换一份续约"
+     }
+    ],
+    "pressure": "交出去，往后这条路的署名就永远是别人的",
+    "trigger": "随军贵胄要求地图师交出全部草图入账"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "“这张图上只有一个地名不是我起的，是你那天随口说的。”",
+    "surface": "“左边那条，三百二十步，有积水。别问我怎么知道。”"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "迷宫都市的远征季，霜月上旬",
+  "minute": 1335
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "violence",
+  "coercion_theme",
+  "bodily_harm",
+  "substance",
+  "death",
+  "workplace_power",
+  "workplace",
+  "supernatural",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "清点战利品之前，所有人解下右手护腕，摊开掌心示人。",
+  "分圣水时当面用银匙敲三下水壶，证明没有掺东西。",
+  "守夜换班的人要给下一班留一块热石头暖手，不留的人会被记一笔。",
+  "替同伴换药的人，按老规矩要替对方守住伤口底下的秘密。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "全队围着石案清点战利品，人人摊开掌心示人。",
+    "典官念到魔核那一行，有人低头喝汤，有人看向别处。"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "a_obelisk_tally",
+   "location_ids": [
+    "sanctuary_obelisk_hall"
+   ],
+   "start_minute": 1230,
+   "tags": [],
+   "title": "碑光下的清点夜"
+  },
+  {
+   "beats": [
+    "守夜两人一班，石凳只容并肩坐下。",
+    "门缝里透进红光，一块热石头在两人手里传来传去。"
+   ],
+   "duration_minutes": 90,
+   "hook_ids": [],
+   "id": "a_gate_watch",
+   "location_ids": [
+    "sealed_granite_gate"
+   ],
+   "start_minute": 1380,
+   "tags": [],
+   "title": "石门边的守夜"
+  },
+  {
+   "beats": [
+    "卸下重甲泡进热水，旧伤一点点松开。",
+    "水汽里只看得清对方肩上的疤。"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "a_spring_soak",
+   "location_ids": [
+    "drainage_hot_spring"
+   ],
+   "start_minute": 1320,
+   "tags": [],
+   "title": "温泉室卸甲"
+  },
+  {
+   "beats": [
+    "拉上兽皮帘，解开渗血的绷带。",
+    "药膏是凉的，手指是暖的，谁都没先开口。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "a_bandage_change",
+   "location_ids": [
+    "collapsed_supply_cache"
+   ],
+   "start_minute": 1290,
+   "tags": [],
+   "title": "帘后换药"
+  },
+  {
+   "beats": [
+    "有人喝多了倒在毛毡堆里，嘴里念着阵亡同胞的名字。",
+    "得有人守着喂水、翻身，一直等到酒醒。"
+   ],
+   "duration_minutes": 90,
+   "hook_ids": [],
+   "id": "a_drunk_care",
+   "location_ids": [
+    "collapsed_supply_cache"
+   ],
+   "start_minute": 1400,
+   "tags": [],
+   "title": "守着醉倒的同伴"
+  },
+  {
+   "beats": [
+    "热石上烤着硬面包，焦香盖过了血腥气。",
+    "有人把最软的那块推到你面前，假装是顺手。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_bread_morning",
+   "location_ids": [
+    "sanctuary_obelisk_hall"
+   ],
+   "start_minute": 400,
+   "tags": [],
+   "title": "热石烤面包"
+  },
+  {
+   "beats": [
+    "传令斥候下一趟就要走，人人借着灯光写信。",
+    "有人写了又划，最后把信纸递过来，问你一个字怎么写。"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [],
+   "id": "a_letter_home",
+   "location_ids": [
+    "sealed_granite_gate",
+    "sanctuary_obelisk_hall"
+   ],
+   "start_minute": 1200,
+   "tags": [],
+   "title": "给地表写信"
+  },
+  {
+   "beats": [
+    "荧光石下摊开风道图，两颗头凑在一起数步数。",
+    "水汽打湿了图角，有人用袖子去擦。"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "a_map_study",
+   "location_ids": [
+    "drainage_hot_spring"
+   ],
+   "start_minute": 1260,
+   "tags": [],
+   "title": "泉边摊开风道图"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "剑与魔法鼎盛纪元（迷宫都市深渊层）",
+ "extends": null,
+ "forbidden_terms": [
+  "手机",
+  "电话",
+  "微信",
+  "高铁",
+  "飞机",
+  "电脑",
+  "互联网",
+  "Wi-Fi",
+  "警官",
+  "手枪",
+  "香烟",
+  "出租车",
+  "身份证",
+  "电梯",
+  "空调",
+  "蓝牙"
+ ],
+ "hooks": [
+  {
+   "id": "h_commander_flask",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cold_blooded_crusade_commander",
+   "text": "{npc.name}把一只铁皮水壶放到你身边，壶身还烫着：“喝。别谢我，我只是不想再有人在我眼前倒下。”说完却没走，就站在你身侧。"
+  },
+  {
+   "id": "h_commander_roster",
+   "kind": "request",
+   "location_ids": [],
+   "slot": "cold_blooded_crusade_commander",
+   "text": "{npc.name}在功绩簿上停了笔，用笔杆点了点你的名字：“溃退那夜的事，你打算怎么讲？今晚守夜，你跟我一班。”"
+  },
+  {
+   "id": "h_arcanist_bandage",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "arrogant_high_elf_arcanist",
+   "text": "{npc.name}拎着一卷干净绷带站到你面前，下巴抬得老高：“今天你来。别人手太重。”袖口底下的手指在抖。"
+  },
+  {
+   "id": "h_dwarf_tea",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cynical_dwarf_shieldbreaker",
+   "text": "{npc.name}一屁股坐到你旁边，把酒壶往身后一推，换了一杯热茶递过来：“今天不喝。有件事，想跟清醒的你说。”"
+  },
+  {
+   "id": "h_paladin_lamp",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "traumatized_holy_paladin",
+   "text": "{npc.name}提着守夜的灯走到你面前，灯光晃了一下：“今晚我想和你一班。我……不想一个人待在暗处。”"
+  },
+  {
+   "id": "h_assassin_coin",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "shadow_assassin_infiltrator",
+   "text": "{npc.name}从你身后经过，一枚旧铜币落进你掌心，声音低得只有你听得见：“我们不认识。可这东西，你还记得吧？”"
+  },
+  {
+   "id": "h_cartographer_scroll",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "dungeon_cartographer",
+   "text": "{npc.name}挨着你坐下，膝盖上摊着那卷风道图，指尖停在一个小小的地名上：“这个名字，是你那天随口说的。我一直没改。”"
+  }
+ ],
+ "id": "abyss_collapsed_refuge",
+ "locations": [
+  {
+   "affordances": [
+    "当众清点战利品，摊开掌心示人",
+    "在石案上翻开功绩簿逐条对账",
+    "借擦拭武器打量围坐众人的眼神"
+   ],
+   "detail": "安全区的主厅，灰白巨石围成，中央方尖碑亮着湛蓝的光；全队的铺位、战利品堆和议事石案都在这里。",
+   "exits": [
+    "sealed_granite_gate",
+    "collapsed_supply_cache",
+    "drainage_hot_spring"
+   ],
+   "id": "sanctuary_obelisk_hall",
+   "name": "方尖碑石室",
+   "pressure_modifiers": {
+    "p_rout_order_page": "问询就在碑下开，交不交那页纸，所有人都看着"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "碑光照得到的地方人人看得见，谁跟谁坐近了一点，第二天全队都知道。",
+   "witnesses": [
+    "bg_iron_guard",
+    "bg_old_mercenary",
+    "bg_guild_scribe"
+   ]
+  },
+  {
+   "affordances": [
+    "两人并坐守夜，分一块暖手的热石",
+    "贴着石门低声说主厅里不能说的话",
+    "把披风分一半给冻僵的同伴"
+   ],
+   "detail": "通往外廊的厚重石门，外廊塌了一半，门内留着一条只容两人并坐的守夜石凳和一盏魔石灯。",
+   "exits": [
+    "sanctuary_obelisk_hall"
+   ],
+   "id": "sealed_granite_gate",
+   "name": "石门守夜哨",
+   "pressure_modifiers": {
+    "p_rout_order_page": "守夜哨只有火盆，一页纸烧掉也就一口气的事"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "只有守夜的两个人和门缝里透进来的红光，换班的脚步声老远就听得见。",
+   "witnesses": [
+    "bg_gate_archer"
+   ]
+  },
+  {
+   "affordances": [
+    "拉上兽皮帘，核对那枚没上账的魔核",
+    "听见脚步声时一起躲进箱缝屏住呼吸",
+    "翻出某人藏在毛毡里的旧信"
+   ],
+   "detail": "主厅后面凹进去的干燥石洞，物资铁箱和成捆毛毡堆到洞顶，箱子之间只留一条侧身才过得去的窄缝。",
+   "exits": [
+    "sanctuary_obelisk_hall",
+    "drainage_hot_spring"
+   ],
+   "id": "collapsed_supply_cache",
+   "name": "后室物资洞",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [],
+   "visibility": "一道兽皮帘挡住洞口，帘外只听得见声音；躲进箱缝里，两个人得贴着站。",
+   "witnesses": [
+    "bg_supply_attendant"
+   ]
+  },
+  {
+   "affordances": [
+    "卸下重甲泡进热水，让旧伤松开",
+    "替对方擦干湿发、换上干净绷带",
+    "裹着同一条毛毯守到碑光转暗"
+   ],
+   "detail": "顺着干涸暗渠往下走，尽头是一间地热泉室，泉水冒着白汽，岩台上铺着干毛毯，是全队唯一能卸甲过夜的地方。",
+   "exits": [
+    "sanctuary_obelisk_hall",
+    "collapsed_supply_cache"
+   ],
+   "id": "drainage_hot_spring",
+   "name": "暗渠尽头的温泉室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [],
+   "visibility": "水汽遮住大半视线，只有提着荧光石下来的人才知道里面有谁。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "晨星",
+   "苍银",
+   "铁壁",
+   "霜歌",
+   "灰烬",
+   "黑曜",
+   "裂风",
+   "渡鸦",
+   "赤岩",
+   "圣血",
+   "幽影",
+   "雷霆"
+  ],
+  "given_female": [
+   "塞拉",
+   "艾莉诺",
+   "米兰达",
+   "芙蕾雅",
+   "克洛伊",
+   "蕾欧娜",
+   "戴安娜",
+   "莉莉丝",
+   "奥菲莉娅",
+   "希尔",
+   "艾丝特",
+   "维尔玛"
+  ],
+  "given_male": [
+   "加雷斯",
+   "布兰德",
+   "罗德里克",
+   "卡斯帕",
+   "达里安",
+   "巴托洛",
+   "芬恩",
+   "埃里克",
+   "雷吉斯",
+   "阿诺德",
+   "莫里斯",
+   "索林"
+  ],
+  "given_neutral": [
+   "阿兰",
+   "西里尔",
+   "罗恩",
+   "达利尔",
+   "莫尔",
+   "泽尔",
+   "诺文",
+   "瓦伦",
+   "艾尔",
+   "凯兰",
+   "约尔",
+   "贝利"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "迷宫都市深层：坍塌安全区与溃灭的S级远征队完整纯正硬核异世界剑与魔法题材世界包。完全剥离现代都市与擦边媚俗套路，聚焦于残酷的地下城绝境求生、资源枯竭下的阶级倾轧、结界熄灭死线、高阶精灵法师魔毒逆流反噬，以及重剑团长冷酷的弃子放逐博弈。全维度严格遵循 DATA_CONTRACTS 与 CONTENT_BIBLE 规范：包含 4 个具备双向出入口的深渊地下城风格地点、6 位设定严密且无敏感词汇的成年角色模板、6 位背景人物、4 个核心绝境张力引擎、4 组全覆盖权力结构的组合配置、6 项日常互动与 6 项高压事件、10 个规范交互钩子与 7 类核心转折。内容标签全数遵循系统受控词表。2026-10-18 按写作规则 v2 改造：张力来源从结界熄灭、弃子放逐和抢修石门，换成溃退那夜的旧账、私藏魔核的秘密、赏金与续约的利益和守夜独处。",
+ "player_identities": [
+  {
+   "age_range": [
+    25,
+    46
+   ],
+   "baseline": "远征队的前锋。溃退那夜你断后，肋骨裂了两根，到现在也没人当面谢过你。",
+   "gender": "any",
+   "id": "veteran_vanguard_scout",
+   "reputation": "能打、嘴硬，被公会列进下一次远征的首选名单",
+   "resources": [
+    "一柄卷了刃的破甲战斧",
+    "脑子里记着通往下一层的风道"
+   ],
+   "risks": [
+    "问询时说出溃退真相，会得罪整支队伍的高层"
+   ],
+   "role": "断后的突击前锋",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "先锋{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "老{family}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    50
+   ],
+   "baseline": "全队的账本和物资锁箱归你管，每一枚魔核、每一支圣水都从你手上过。",
+   "gender": "any",
+   "id": "logistics_quartermaster",
+   "reputation": "手无缚鸡之力，却是全队最不能得罪的人",
+   "resources": [
+    "物资锁箱的钥匙",
+    "一本只有你看得懂的私账"
+   ],
+   "risks": [
+    "账面对不上时，第一个被怀疑的就是你"
+   ],
+   "role": "管账的后勤典官",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "管事{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "账房{family}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    48
+   ],
+   "baseline": "金主家派来的监事。续约还是解散，要看你写回王都的那封信。",
+   "gender": "any",
+   "id": "noble_commission_sponsor",
+   "reputation": "人人对你客气，没人对你说真话",
+   "resources": [
+    "金主家的印信",
+    "一封还没封口的家书"
+   ],
+   "risks": [
+    "信里写错一句，家族会把这笔亏损记在你头上"
+   ],
+   "role": "王都金主的随军监事",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}阁下"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}公使"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    52
+   ],
+   "baseline": "被圣堂除名的野战医者，全队的伤口都经过你的手，包括那些不能登记的伤。",
+   "gender": "any",
+   "id": "apostate_field_medic",
+   "reputation": "手稳嘴紧，救过半个队伍的命",
+   "resources": [
+    "一箱银针与药膏",
+    "每个人伤口底下的秘密"
+   ],
+   "risks": [
+    "圣堂的人若在队里认出你，你会被押回王都受审"
+   ],
+   "role": "被逐出圣堂的野战医者",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "医师{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}大夫"
+    }
+   ]
+  }
+ ],
+ "premise": "迷宫都市第二十三层，一处外廊塌了一半的古代安全区。S级远征队冲击深渊领主溃败，退回这里休整，等王都金主决定续约还是解散。白天清点战利品、照料伤员，夜里两人一班守着方尖碑的蓝光。溃退那夜谁丢下了谁、谁私藏了魔核、赏金怎么分，每个人心里都有一本账。",
+ "pressures": [
+  {
+   "choice": "保住团长，就得让密探违抗暗部；交出那页纸，团长的统领资格就没了。",
+   "exits": [
+    {
+     "cost": "密探从此背着欺瞒公会的罪名",
+     "option": "劝密探在密令上改一个时刻"
+    },
+    {
+     "cost": "团长失去统领资格，队伍可能就地解散",
+     "option": "让团长自己当众认下"
+    }
+   ],
+   "far": {
+    "consequence": "全队的档案按这份口供改写，续约名单随之定下。",
+    "due_days": 3,
+    "trigger": "问询簿送到公会"
+   },
+   "flags": [
+    "leverage"
+   ],
+   "hook_ids": [],
+   "id": "p_rout_order_page",
+   "immediate": {
+    "minutes": 30,
+    "text": "问询书记已经在石案前坐下，翻到了团长那一页。"
+   },
+   "leverage": {
+    "basis": "{shadow_assassin_infiltrator.name}的密令里记着{cold_blooded_crusade_commander.name}提前一刻下令撤退的实情",
+    "holder": "shadow_assassin_infiltrator",
+    "subject": "cold_blooded_crusade_commander"
+   },
+   "location_ids": [
+    "sanctuary_obelisk_hall",
+    "sealed_granite_gate"
+   ],
+   "near": {
+    "deadline_minutes": 300,
+    "text": "传令斥候一走，问询簿就跟着送上地表。"
+   },
+   "objective": "在问询簿合上之前，决定那页纸交出去还是烧掉。",
+   "source": "person",
+   "start_minute": 1290,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "撤退令那一页",
+   "trigger": "暗部密令要求问询前交出溃退责任人，记着撤退时刻的那页纸，只在密探手里。"
+  },
+  {
+   "choice": "说是去换药，就得解释伤口；不认，就得找人证明昨夜在哪儿。",
+   "exits": [
+    {
+     "cost": "伤口底下的秘密要摊给所有人看",
+     "option": "当众认下是去换药"
+    },
+    {
+     "cost": "欠下一个嘴碎的人情，下回闲话更难听",
+     "option": "请老佣兵喝一壶，让闲话换个说法"
+    }
+   ],
+   "far": {
+    "consequence": "闲话会跟着档案走，下一支队伍组队时人人都知道。",
+    "due_days": 4,
+    "trigger": "问询簿送上地表"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_spring_rumor",
+   "immediate": {
+    "minutes": 20,
+    "text": "围坐的人都停了筷子，目光在你和{player.title}身旁的空位之间来回。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "sanctuary_obelisk_hall",
+    "drainage_hot_spring"
+   ],
+   "near": {
+    "deadline_minutes": 240,
+    "text": "问询书记说，今晚收工前要把守夜记录对一遍。"
+   },
+   "objective": "在闲话传进问询簿之前，让它变回一句玩笑。",
+   "source": "rumor",
+   "start_minute": 450,
+   "tags": [],
+   "title": "温泉室的闲话",
+   "trigger": "老佣兵在主厅嚷嚷，说昨夜看见两个人一前一后进了温泉室，提的是同一盏荧光石。"
+  },
+  {
+   "choice": "一起躲进箱缝屏住呼吸，还是一个出去应付、把另一个留在暗处。",
+   "exits": [
+    {
+     "cost": "贴得太近，有些话再也装不回去",
+     "option": "一起躲进箱缝，等书记走"
+    },
+    {
+     "cost": "得当面撒一个谎，书记会记住你的脸",
+     "option": "一个人出去拦住书记"
+    }
+   ],
+   "far": {
+    "consequence": "那一行会被问到底，牵出谁在后室待过。",
+    "due_days": 2,
+    "trigger": "书记在账本里发现多出的一行"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_scribe_at_curtain",
+   "immediate": {
+    "minutes": 15,
+    "text": "兽皮帘被掀起一角，灯光照进来半尺，箱缝窄得只容两人贴着站。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "collapsed_supply_cache"
+   ],
+   "near": {
+    "deadline_minutes": 60,
+    "text": "书记说找不到账本就叫铁卫来搬箱子。"
+   },
+   "objective": "在书记翻完账本离开之前，不让人发现两人在一起。",
+   "source": "person",
+   "start_minute": 1350,
+   "tags": [],
+   "title": "帘外的书记",
+   "trigger": "两人正在后室说不能外传的话，帘外传来问询书记的声音：要进来找账本。"
+  },
+  {
+   "choice": "替对方争份额，就得让出自己的；保住自己，就得看着对方被划掉。",
+   "exits": [
+    {
+     "cost": "下一次远征的装备得自己借钱置办",
+     "option": "把自己的份额让给对方"
+    },
+    {
+     "cost": "谈崩了，两人的名字都会被记下来",
+     "option": "联手去跟金主的人重谈"
+    }
+   ],
+   "far": {
+    "consequence": "拿不到钱的人只能留在地下接零活，未必还能再见。",
+    "due_days": 5,
+    "trigger": "分成单送到金主手里"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_bounty_half",
+   "immediate": {
+    "minutes": 30,
+    "text": "功绩簿摊在石案上，每个名字后面都空着一格。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "sanctuary_obelisk_hall"
+   ],
+   "near": {
+    "deadline_minutes": 180,
+    "text": "传令斥候等着把签好的分成单带上去。"
+   },
+   "objective": "在石案上谈出分成，别让最需要钱的人被划掉。",
+   "source": "money",
+   "start_minute": 1260,
+   "tags": [],
+   "title": "赏金只发一半",
+   "trigger": "金主的口信到了：赏金先发一半，另一半等续约名单定下再说。"
+  },
+  {
+   "choice": "留给最能打的人，还是留给你在意、却可能拖累队伍的人。",
+   "exits": [
+    {
+     "cost": "欠团长一个人情，也让全队看见你偏心",
+     "option": "替对方去找团长争那个位置"
+    },
+    {
+     "cost": "从此和对方分开两地，约定只能靠书信",
+     "option": "把位置让出来，自己留在后方"
+    }
+   ],
+   "far": {
+    "consequence": "名单外的人就此离队，下一次再见要等一年。",
+    "due_days": 6,
+    "trigger": "名单送到公会"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_renewal_roster",
+   "immediate": {
+    "minutes": 25,
+    "text": "名单就压在团长的剑鞘底下，墨迹还没干。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "sanctuary_obelisk_hall",
+    "sealed_granite_gate"
+   ],
+   "near": {
+    "deadline_minutes": 360,
+    "text": "名单要在斥候出发前封存。"
+   },
+   "objective": "在名单封存之前，决定那个位置留给谁。",
+   "source": "institution",
+   "start_minute": 1200,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "续约名单",
+   "trigger": "公会规约：续约名单要团长签字、金主盖印，名单上只剩一个位置。"
+  },
+  {
+   "choice": "靠着泉水取暖，还是爬上岩台裹同一条毛毯，把干衣服让给伤更重的那个。",
+   "exits": [
+    {
+     "cost": "冻得发烧，第二天站不稳",
+     "option": "把干毛毯全给对方，自己守着泉眼"
+    },
+    {
+     "cost": "被困一夜说出的话，出来以后收不回去",
+     "option": "两人裹着同一条毛毯熬过去"
+    }
+   ],
+   "far": {
+    "consequence": "出来时谁和谁裹着同一条毛毯，全队都会看见。",
+    "due_days": 1,
+    "trigger": "暗渠被挖通"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_second_cavein",
+   "immediate": {
+    "minutes": 40,
+    "text": "荧光石暗了一半，泉水的热气被碎石缝里的冷风一阵阵吹散。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "drainage_hot_spring",
+    "collapsed_supply_cache"
+   ],
+   "near": {
+    "deadline_minutes": 420,
+    "text": "铁卫隔着碎石喊话，说要挖到碑光转暗才能通。"
+   },
+   "objective": "在外面的人挖通之前，让两个人都不失温。",
+   "source": "nature",
+   "start_minute": 1320,
+   "tags": [
+    "disaster"
+   ],
+   "title": "外廊二次坍塌",
+   "trigger": "外廊又塌了一段，碎石封住了暗渠口，温泉室里只剩两个人和一盏快灭的荧光石。"
+  }
+ ],
+ "region": "迷宫地下城第23层，外廊半塌的古代安全区",
+ "rules": [
+  {
+   "id": "r_sanctuary_peace",
+   "text": "安全区受古代庇护法则约束，同伴之间拔刃见血会引来遗迹雷击；再大的仇，在石室里也只能用嘴算。"
+  },
+  {
+   "id": "r_core_ledger",
+   "text": "方尖碑每天要填一枚魔核维持结界，魔核由团长登记、典官保管；私藏一枚，就是从全队手里偷走一天。"
+  },
+  {
+   "id": "r_bounty_split",
+   "text": "公会规约：赏金按出勤与功绩分成，功绩簿由团长签字、金主盖印，签字之前人人都能翻案。"
+  },
+  {
+   "id": "r_rout_inquiry",
+   "text": "溃败的远征队要过公会问询，溃退时谁先撤、谁断后，都会写进每个人的冒险者档案。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "盘点残资",
+  "committed": "共闯死关",
+  "familiar": "底线试探",
+  "flirting": "抱团依存",
+  "intimate": "托付后背",
+  "stranger": "冷眼提防",
+  "testing": "死生对赌"
+ },
+ "status": "released",
+ "style_hint": "写魔石灯的蓝光、铠甲扣环、湿毛毡和草药膏的气味；台词短，硬话在前，软话藏在递水、换药、守夜换班的动作里。",
+ "tension_engines": [
+  {
+   "id": "te_rout_debt",
+   "text": "溃退那夜谁断后、谁先跑，问询簿上只能写一个版本，每个人都想让自己的版本成立。"
+  },
+  {
+   "id": "te_core_secret",
+   "text": "魔核账上少了一枚，私藏的人和知道的人，每天在同一张石案上吃饭。"
+  },
+  {
+   "id": "te_bounty_contract",
+   "text": "金主只肯续约一半人，赏金和下一次远征的名额，要在石案上一个一个谈。"
+  },
+  {
+   "id": "te_night_watch",
+   "text": "守夜两人一班，温泉室一次只容两人，独处的机会是排出来的，也是抢出来的。"
+  }
+ ],
+ "title": "深渊第七层安全区",
+ "tone": [
+  "结界微光",
+  "血污重铠",
+  "旧账未清",
+  "深渊低语"
+ ],
+ "twists": [
+  {
+   "category": "关系",
+   "id": "t_commander_roster_rigged",
+   "requires": [
+    "cold_blooded_crusade_commander"
+   ],
+   "text": "守夜排班表上的笔迹改过两次：是{cold_blooded_crusade_commander.name}故意把自己和你排进同一班，连排三晚，只为有机会单独把那夜的事说完。"
+  },
+  {
+   "category": "人事",
+   "id": "t_assassin_covers",
+   "requires": [
+    "shadow_assassin_infiltrator"
+   ],
+   "text": "{shadow_assassin_infiltrator.name}当众说你的口供漏洞百出，背地里却在密令上替你改掉了一个时刻。"
+  },
+  {
+   "category": "信息",
+   "id": "t_arcanist_core_reason",
+   "requires": [
+    "arrogant_high_elf_arcanist"
+   ],
+   "text": "那枚没上账的魔核，{arrogant_high_elf_arcanist.name}一直没碰：那是留着给方尖碑撑最后一天的，好让全队都走得掉。"
+  },
+  {
+   "category": "资源",
+   "id": "t_cartographer_second_map",
+   "requires": [
+    "dungeon_cartographer"
+   ],
+   "text": "{dungeon_cartographer.name}早就画好了第二份风道图。交给你保管的那一卷，只是每晚来找你的借口。"
+  },
+  {
+   "category": "意外",
+   "id": "t_dwarf_rubble",
+   "requires": [
+    "cynical_dwarf_shieldbreaker"
+   ],
+   "text": "暗渠口那堆挡路的碎石，是{cynical_dwarf_shieldbreaker.name}故意推下来的：只想让你和自己困在同一边，把那晚没说完的话说完。"
+  },
+  {
+   "category": "制度",
+   "id": "t_paladin_letter",
+   "requires": [
+    "traumatized_holy_paladin"
+   ],
+   "text": "圣堂的回信写明：代订的婚约只要本人当面拒绝即可作废。这封信，{traumatized_holy_paladin.name}已经揣了三天。"
+  },
+  {
+   "category": "时限",
+   "id": "t_runner_delayed",
+   "requires": [
+    "pressure"
+   ],
+   "text": "传令斥候被落石拦在升降井口，口信要晚一天才走，所有人多出一夜，也多出一夜要熬。"
+  }
+ ]
+}

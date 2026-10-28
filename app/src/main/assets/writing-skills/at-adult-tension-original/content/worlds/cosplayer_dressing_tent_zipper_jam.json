@@ -1,0 +1,2238 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满四十二岁，资深演艺灯光技师，成年公民。",
+   "age_range": [
+    42,
+    48
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_lighting_director_zhang",
+   "line": "射灯还有九十秒全功率切过来了！马道上的人动作快点！",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "name": "老张",
+   "role": "舞台主控灯光总监张师傅"
+  },
+  {
+   "adult_context": "年满二十三岁，舞台机械的操作助手。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_winch_operator_xiao_chen",
+   "line": "绞盘刹车已经锁死在零位了！钢缆绝对不会再滑动二次受力！",
+   "location_ids": [
+    "loc_wire_rigging_control_catwalk"
+   ],
+   "name": "小陈",
+   "role": "威亚绞盘操作手小陈"
+  },
+  {
+   "adult_context": "年满三十五岁，安保值班长，成年公民。",
+   "age_range": [
+    35,
+    40
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_safety_supervisor_sun",
+   "line": "倒计时最后两分钟！拆不下来立刻按应急预案全员撤回梯井！",
+   "location_ids": [
+    "loc_backstage_vertical_ladder_well"
+   ],
+   "name": "孙主管",
+   "role": "梯井安全巡检员孙主管"
+  },
+  {
+   "adult_context": "年满二十八岁，大型晚会总导演，成年公民。",
+   "age_range": [
+    28,
+    32
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_stage_director_announcer",
+   "line": "全场十万观众正在呼喊大小姐名字！开场大屏幕三分钟倒计时已锁死无法暂停！",
+   "location_ids": [
+    "loc_backstage_vertical_ladder_well"
+   ],
+   "name": "林导",
+   "role": "漫展现场主舞台总导播"
+  },
+  {
+   "adult_context": "年满二十九岁，助理音响工程师，成年公民。",
+   "age_range": [
+    29,
+    34
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_sound_console_engineer_zhao",
+   "line": "高通滤波已经生效！主马道晃动振幅衰减超过七成，可以发力了！",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "name": "赵师傅",
+   "role": "调音台助理赵师傅"
+  },
+  {
+   "adult_context": "年满四十五岁，资深特种索工，成年公民。",
+   "age_range": [
+    45,
+    50
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_cable_splicing_rigger_wu",
+   "line": "副保险卸扣已经套死了！即便主缆脱扣也有备用钢丝绳兜底！",
+   "location_ids": [
+    "loc_wire_rigging_control_catwalk"
+   ],
+   "name": "老吴",
+   "role": "威亚钢缆防脱索工老吴"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "傲娇千金Coser与沉稳舞台机械师在十二米悬空马道上共历险境，两人前胸贴后背紧扣折叠工具刀，在万众呼啸倒计时中合力拧下四颗螺栓完成紧急脱壳自救。",
+   "id": "cc_cosplayer_and_mechanic_hex_rush",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "cosplayer_mu_yunli",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "高空悬空马道上共同核算螺栓公差，建立起性命相托的默契。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "mechanic_lu_yang",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "舞台机械班并肩作战的过硬同伴。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cosplayer_mu_yunli",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "mechanic_lu_yang",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "千金Coser与青年机械师在高空生死倒计时中达成生死同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "cosplayer_mu_yunli",
+    "mechanic_lu_yang"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在舞台巨幕倒计时归零前，合力用工具刀将四颗固定螺栓全部反向拧出实现安全脱壳。",
+    "limit_gap": "大小姐受坚硬胸甲卡紧胸闷缺氧体能不支，威亚机械师受限于单手抓扶栏杆的极限作业姿势。",
+    "meeting_reason": "开场前二十分钟，大小姐在马道上试机甲，嫌威亚机械师挂得慢，两人在十二米高空吵了半天。",
+    "resource_gap": "大小姐精通自身机甲受力弱点与螺母退让轨迹，威亚机械师具备顶尖的高空悬停操作技巧与强劲自锁力矩。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_armor_jam_countdown_vs_hex_tool",
+    "te_spotlight_heat_roast_vs_tight_hug"
+   ]
+  },
+  {
+   "chemistry": "惊慌失措的设计师在马道后方递送润滑喷雾并指点螺纹走向，千金大小姐强力控场指挥调度化解卡死危机。",
+   "id": "cc_cosplayer_and_designer_torque_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "cosplayer_mu_yunli",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "密切关注大小姐高空神态。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "designer_chu_zimo",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "催促工坊设计师迅速拿出解决方案。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cosplayer_mu_yunli",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "designer_chu_zimo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "客户与供应商之间的火线排故协作。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "cosplayer_mu_yunli",
+    "designer_chu_zimo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "喷入防卡润滑剂协助工具刀反拧冲开咬死螺母脱险。",
+    "limit_gap": "设计师严重恐高双腿发软无法靠近外侧马道，千金小姐独自承受胸甲压迫剧痛。",
+    "meeting_reason": "开展第一天的签售台前排了三百人，大小姐签到一半，把道具工坊的设计师叫到台后，指着胸甲的一道应力白纹发火。",
+    "resource_gap": "设计师掌握螺栓装配爆炸图与渗透润滑剂，千金小姐身在前线掌控工具刀下压发力点。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_armor_jam_countdown_vs_hex_tool"
+   ]
+  },
+  {
+   "chemistry": "安全总监强令中止节目切断电源，机械师据理力争以专业信誉担保最后两分钟抢险时间，展开针锋相对的意志较量。",
+   "id": "cc_mechanic_and_marshal_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "mechanic_lu_yang",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "支持机械师坚守一线救人的担当。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "marshal_sun_jian",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对教条叫停演出危害人员安全的行为极度排斥。",
+     "stage": "stranger"
+    },
+    {
+     "a": "mechanic_lu_yang",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "marshal_sun_jian",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "一线技术人员与安保管理层的高压冲突。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mechanic_lu_yang",
+    "marshal_sun_jian"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "为马道前线拆卸争取关键的一百二十秒黄金处置时间。",
+    "limit_gap": "总监恐慌群体性安全事故连带受罚，机械师受制于下级服从上级的现场安保纪律。",
+    "meeting_reason": "安全总监拿着巡检单上马道挑毛病，机械师一条条顶回去，两人在梯井口僵持到开场前。",
+    "resource_gap": "安全总监手握全场主电闸拉闸大权与安保调度令，机械师拥有高空一线作业排故实际控制权。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_safety_marshal_vs_cosplayer_pride"
+   ]
+  },
+  {
+   "chemistry": "随行助理冒着晃动在梯井口张开深色防光大斗篷，严防强光下走光危机，与马道上咬牙坚持脱壳的千金大小姐同呼吸共命运。",
+   "id": "cc_cosplayer_and_assistant_privacy_guard",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "cosplayer_mu_yunli",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "钦佩大小姐不甘退缩的舞台魄力。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "assistant_shen_ruoxuan",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "赞许女助理忠诚周到的护卫行动。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cosplayer_mu_yunli",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 4
+     },
+     "b": "assistant_shen_ruoxuan",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 4
+     },
+     "reason": "姐妹般深厚的贴身信赖与默契护持。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "cosplayer_mu_yunli",
+    "assistant_shen_ruoxuan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保机甲脱壳瞬间无死角遮挡严防媒体不良镜头偷拍。",
+    "limit_gap": "助理无法踩上悬空外马道，千金大小姐在高空剧烈心跳下急需心理支撑。",
+    "meeting_reason": "后台更衣帐篷里，随行助理替大小姐上最后一层妆，两人对着镜子讨论待会儿的谢幕动作。",
+    "resource_gap": "助理手握全遮光防走光大斗篷与抗眩晕喷雾，千金大小姐掌控自身机甲前沿拆卸指令。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_spotlight_heat_roast_vs_tight_hug"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_catwalk_rigging_intercom_headset",
+   "reach": "all",
+   "text": "高空马道演艺设备专用低延迟抗噪降噪无线对讲频道"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_mainstage_crowd_roar_resonator",
+   "reach": "local",
+   "text": "主舞台十万观众雷鸣欢呼声浪与低音炮震动共鸣"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "机械工程专业毕业两年的千金，家里给的钱全砸进了自己的道具工作室，整套机甲从建模到打印都是亲手做的，去留进退由本人拿主意。",
+   "age_range": [
+    23,
+    26
+   ],
+   "appearance_options": [
+    "一身高弹的玄色演出连体服，勾勒出玲珑曼妙的身段，容貌冷艳骄傲，两腮一点健康带着一点血色，被射灯烤得泛起酡红，额角细汗直淌，下颌咬得紧紧的，眼神满是不服输的执拗。",
+    "一头染成淡银紫色的长发高高束起，发梢沾着汗珠，双手扣着护栏钢管，连体服的拉链被胸甲压得往下崩开一截，锁骨上一层薄汗，神情又气又急，手上的分寸却一点不乱。"
+   ],
+   "decision": {
+    "avoids": [
+     "自作主张的野蛮乱拽",
+     "只顾看热闹的无能软蛋"
+    ],
+    "contrast": "嘴上是娇贵毒舌的财阀大小姐，签售台前对谁都爱答不理；可拆起自己的机甲来，比道具工坊的师傅还懂公差，十二米高空也敢松开一只手去摸螺栓。",
+    "core_value": "本小姐亲手设计的机甲绝不会成为舞台笑柄，只要拧掉这四颗该死的螺栓，我就能破茧登台！",
+    "goal_options": [
+     "利用折叠工具刀卸下四颗锁紧螺栓脱壳",
+     "调整身体重心借机械师之手拔出变形卡角"
+    ],
+    "never": [
+     "在全体观众注视下拉下求救帘幕狼狈弃演"
+    ],
+    "prefers": [
+     "分秒不差的机械对位",
+     "手稳心沉不慌不乱的实干搭档"
+    ],
+    "pressure_responses": {
+     "breaking": "额头抵在对方肩膀上急促娇喘并催促最后一颗螺栓发力",
+     "high": "双手反向拉紧马道扶手任由对方紧贴自己拆解前胸螺栓",
+     "low": "轻哼一声掩饰心慌并指挥对方取出对位刀头",
+     "mid": "咬牙屏住呼吸挺直腰杆为螺栓拆卸让出操作缝隙"
+    },
+    "relationship_stance": "连着三届漫展都是同一个威亚机械师给自己挂威亚，大小姐每回都嫌对方挂得慢，可换了别人来挂，大小姐就不肯上台。",
+    "withdrawal": "身体后缩紧贴马道护栏凹槽，双手交叉护在胸前冷眼怒视下方喧嚣观众。"
+   },
+   "gender": "female",
+   "gender_reason": "顶流千金Coser，机械工程专业出身，按原稿写作女性。",
+   "id": "cosplayer_mu_yunli",
+   "identity": {
+    "authority": "对自身定制机甲拆解顺序、登台出场决策及随行团队调配享有绝对决定权。",
+    "exposure": "为了参加此次顶级漫展曾背着严厉的家族长辈偷偷旷掉了跨国投行实习",
+    "hidden": "内连体服贴心胸袋里装着一张自己亲自绘制的机甲受力公差初始手稿",
+    "limits": [
+     "胸甲受压变形后严重卡在护栏凹槽内导致身体无法弯腰或后退",
+     "胸腔受坚硬甲片挤压导致深呼吸受阻面临缺氧胸闷"
+    ],
+    "obligations": [
+     "在主舞台六分钟倒计时归零前准时完成登台完成压轴演出"
+    ],
+    "resources": [
+     "一套便携式内六角多功能折叠工具刀（高硬度淬火铬钒钢材质，集成四至八毫米内六角头与棘轮力矩臂）",
+     "一罐高压紧凑型防花妆速冷清凉喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在十二米晃动马道上沉稳如山的臂弯依靠",
+     "拆解螺栓时指尖掠过连体服传来的温热专注与尊重"
+    ],
+    "boundaries": [
+     "严守个人身体私密界限与尊严",
+     "不以大小姐权势打压施救人员"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被对方从身后环抱稳固高空重心，手掌交叠握紧折叠工具刀一同向逆时针猛力旋拧螺栓。",
+    "dislikes": [
+     "轻佻无礼的窥视打量",
+     "自以为是的居高临下施舍"
+    ],
+    "expression": "脱险后红着脸把一张亲笔签名的限定贵宾卡塞进对方手里，扭过头说：散场后来后台帐篷找我，……不来就算了。",
+    "likes": [
+     "最后一颗螺栓崩开脱壳时两人相视一笑的痛快",
+     "对方递来纸巾时眼神中毫无轻慢的纯粹赞赏"
+    ],
+    "preconditions": [
+     "四颗固定螺栓全部安全拧出且机甲安全脱落",
+     "顺利登台完成预定表演返回地面安全区",
+     "两人都清醒，心意出于自己，不是高空绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "同人圈的顶流千金Coser",
+   "schedule": [
+    {
+     "from": 840,
+     "location_id": "loc_catwalk_above_mainstage",
+     "to": 855
+    },
+    {
+     "from": 855,
+     "location_id": "loc_catwalk_above_mainstage",
+     "to": 870
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "工具刀棘轮齿受强烈反扭发生微小滑移磨损，操作手虎口被护栏钢管挤压挫伤。",
+      "option": "用便携式内六角折叠工具刀精准拧脱胸甲正前方四颗固定螺栓实现紧急脱壳自救。"
+     },
+     {
+      "cost": "价值数十万的定制机甲侧板彻底报废，{npc.name}肩膀被断裂承重带擦出红肿勒痕。",
+      "option": "用大力破拆剪直接剪断机甲侧翼双重尼龙承重带强行挣脱脱险。"
+     }
+    ],
+    "pressure": "下方十万人大合唱震得马道晃动，追光灯即将转至头顶，若不能及时脱壳将面临高空坠落与全场走光事故。",
+    "trigger": "主舞台开场倒计时进入最后六分钟，钛铝合金胸甲受压变形死死别在镀锌护栏钢管凹槽中。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "还有四分钟就开场了……心跳得好快。被卡在这儿已经够丢人了，偏偏贴着本小姐的是这个人。快点拧开，别让我想别的。",
+    "surface": "喂！看清楚点，那是六毫米的沉头内六角，不是八毫米！别愣着，快把工具刀卡进去，顺时针先别动，逆时针拧！"
+   }
+  },
+  {
+   "adult_context": "年满二十三岁，持有国家特种演艺设备高级操作与高空安全认证的成年机械技术员，完全民事行为能力人。",
+   "age_range": [
+    23,
+    26
+   ],
+   "appearance_options": [
+    "身穿黑色耐磨工装马甲与多功能战术长裤，腰间系着双大挂钩防坠安全带，身材修长挺拔，眼神坚毅沉稳。",
+    "手臂线条利落结实，手指满是摆弄精密构件留下的细小茧子，面对高空晃动面不改色神情专注。"
+   ],
+   "decision": {
+    "avoids": [
+     "歇斯底里的盲目乱挣",
+     "置旁人安危于不顾的蛮干"
+    ],
+    "contrast": "看似不苟言笑的技术宅青年，在面对突发险情时决断迅猛、手上动作沉稳如手术刀。",
+    "core_value": "机械结构看的是力矩公差，高空无小事，只要人在马道上，我就必须稳稳把人救下来。",
+    "goal_options": [
+     "协助大小姐对位拧下四颗内六角螺栓",
+     "用身体稳住大小姐重心防坠落"
+    ],
+    "never": [
+     "在演职人员脱险前解开自己的主承重防坠绳"
+    ],
+    "prefers": [
+     "严谨利落的操作配合",
+     "临危不乱的果断胆魄"
+    ],
+    "pressure_responses": {
+     "breaking": "双手握住工具刀末端拼死施加最大额定扭矩",
+     "high": "单膝跪地用后背顶住护栏为拆卸腾出半尺发力空间",
+     "low": "在晃动马道上迅速扣紧双方双保险安全挂钩",
+     "mid": "探出手掌精准摸索胸甲卡槽螺栓盲区尺寸"
+    },
+    "relationship_stance": "连着三届漫展给大小姐挂威亚，每回被嫌慢也不还嘴；工具马甲的口袋里一直揣着大小姐出道那年的场刊，从没让人看见过。",
+    "withdrawal": "退守在马道宽阔的主柱拐角处，右手死死攥住安全绳随时拉回失足人员。"
+   },
+   "gender": "male",
+   "gender_reason": "主舞台特技威亚首席青年机械师",
+   "id": "mechanic_lu_yang",
+   "identity": {
+    "authority": "对马道人员驻留、威亚绞盘启闭及高空应急工具调用拥有现场一线处置权。",
+    "exposure": "为了抢时间曾违规允许未经空载试运行的改装道具登台",
+    "hidden": "工具马甲贴身口袋里珍藏着大小姐去年漫展出道作的官方首发场刊",
+    "limits": [
+     "在高空狭窄马道上极难施展全身发力姿态",
+     "受限于舞台总控倒计时的严苛时限"
+    ],
+    "obligations": [
+     "确保高空演职人员零坠落、设备零故障交差"
+    ],
+    "resources": [
+     "一盒特种铬钼钢双头棘轮改锥头",
+     "两副掌心带加厚牛皮衬垫的高空防滑手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在十二米高空依然不掩锋芒的耀眼自信",
+     "两具年轻身躯在生死倒计时下紧贴发力时传递的灼热体温与信任"
+    ],
+    "boundaries": [
+     "恪守职业道德不趁人之危",
+     "严守身体尊重底线"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "单膝半跪在格栅上，左臂紧紧护住大小姐纤细腰侧稳住重心，右手发力旋动工具刀。",
+    "dislikes": [
+     "轻佻嘲讽的心态",
+     "践踏职业尊严的居高临下"
+    ],
+    "expression": "脱险后默默替对方扶正歪斜的耳麦与头饰，轻声说一句“演出加油”。",
+    "likes": [
+     "成功脱壳瞬间两人如释重负的急促喘息",
+     "大小姐嘴硬却全心依赖的那一眼"
+    ],
+    "preconditions": [
+     "四颗螺栓全量拧出且胸甲安全移至备用平摊区",
+     "演职人员安全下梯或完成登台",
+     "大小姐点了头，出于本心"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "连着三届给大小姐挂威亚的舞台机械师",
+   "schedule": [
+    {
+     "from": 840,
+     "location_id": "loc_catwalk_above_mainstage",
+     "to": 870
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}手掌在粗糙钢柱上磨掉一层皮渗出血丝，工具刀刀头受轻度磨损。",
+      "option": "{npc.name}将内六角工具刀反向卡入棘轮力矩槽，借全身下压自重强行冲开卡死螺纹自救。"
+     },
+     {
+      "cost": "剧烈敲击声通过马道广播微弱回传引起台下导播警觉。",
+      "option": "用备用小冲子猛击螺帽外缘振松螺纹脱险。"
+     }
+    ],
+    "pressure": "距离开场仅剩最后两分钟，若不能在这狭窄缝隙内彻底卸掉最后锁扣，胸甲将连带护栏整体报废。",
+    "trigger": "舞台重低音导致马道发生微共振，第四颗底端螺栓在剪切力下发生反向微卡死。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "大小姐的心跳隔着连体服撞在我手背上……别慌，螺纹没咬死，手不抖，三分钟够拆完四颗。",
+    "surface": "大小姐，别乱动！你越挣扎护栏咬得越死！屏住呼吸三秒钟，把胸腔收缩一下，我卡进六毫米内六角刀头了，一起用力！"
+   }
+  },
+  {
+   "adult_context": "年满二十五岁，工坊全职成年设计师，完全民事行为能力人。",
+   "age_range": [
+    25,
+    28
+   ],
+   "appearance_options": [
+    "戴着一副黑框眼镜，身穿带有工坊刺绣标识的黑色防静电工装外套，神情极度慌张自责，额头冷汗直淌。",
+    "手里捏着一张皱巴巴的机甲装配爆炸图，双腿因高空晃动而微微颤抖。"
+   ],
+   "decision": {
+    "avoids": [
+     "高空极限抢险",
+     "客户当面雷霆暴怒"
+    ],
+    "contrast": "平日在电脑前指点江山的硬核建模大佬，置身十二米高空现场时吓得面如土色。",
+    "core_value": "千万别把整件机甲剪烂，那可是工坊半年的心血！",
+    "goal_options": [
+     "指导威亚机械师找准公差螺母退位方向",
+     "递送防卡润滑喷雾助螺栓松脱"
+    ],
+    "never": [
+     "承认道具受压变形是由自己减重设计失误所导致"
+    ],
+    "prefers": [
+     "按部就班的图纸装配",
+     "温暖安全的地面工作室"
+    ],
+    "pressure_responses": {
+     "breaking": "语无伦次地向大小姐连连鞠躬道歉",
+     "high": "抱紧马道主柱闭上眼睛不敢看下方人群",
+     "low": "在马道宽处大声报出四颗螺栓的内六角规格",
+     "mid": "冒着眩晕感递过精密防卡润滑喷雾"
+    },
+    "relationship_stance": "将大小姐视为不可得罪的豪门贵客，深恐此次机械失误砸掉工坊的金字招牌。",
+    "withdrawal": "退缩在垂直爬梯井平台上，双手死死抱住金属护栏不敢迈步。"
+   },
+   "gender": "male",
+   "gender_reason": "漫展重装道具工坊全职青年结构设计师",
+   "id": "designer_chu_zimo",
+   "identity": {
+    "authority": "对道具维保质保、螺母力矩标准及改装工艺享有技术解释权。",
+    "exposure": "为了减重在受力加强筋设计上违规减少了两个壁厚公差",
+    "hidden": "私下给该套机甲投保了高额的商业演艺事故财产险",
+    "limits": [
+     "极度恐高无法深入马道最窄盲区进行精细操作",
+     "体能孱弱难以施加数十公斤扳手扭矩"
+    ],
+    "obligations": [
+     "保全道具主体结构完整免受主办方与客户索赔追责"
+    ],
+    "resources": [
+     "一盒备用钛合金沉头内六角自锁螺母组",
+     "一瓶高渗透微型精密防卡润滑喷雾剂罐"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "能摆平灾难的专业魄力",
+     "包容过失的宽厚"
+    ],
+    "boundaries": [
+     "严守甲乙方商业合作边界",
+     "不介入私人恩怨"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在马道后方两米处趴在栏杆上，大声协助报出螺栓顺逆时针旋转方向。",
+    "dislikes": [
+     "现场撕破脸皮问责",
+     "野蛮暴力破坏工件"
+    ],
+    "expression": "战战兢兢地递上干净湿巾，连声道谢并主动承担后续全套维护费用。",
+    "likes": [
+     "完美无瑕的验收签字单",
+     "一杯温热的提神咖啡"
+    ],
+    "preconditions": [
+     "事故被安全平息且未造成道具不可逆报废",
+     "重返地面安全区"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "道具工坊结构总监",
+   "schedule": [
+    {
+     "from": 840,
+     "location_id": "loc_catwalk_above_mainstage",
+     "to": 870
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "润滑油雾喷溅在连体服前襟留下细小油渍污斑。",
+      "option": "{npc.name}递上微型防卡润滑喷雾精准喷入螺纹缝隙助工具顺利反转脱险。"
+     },
+     {
+      "cost": "破坏性操作彻底报废该处螺纹孔座。",
+      "option": "用手锯盲割螺帽边缘制造松退旷量自救。"
+     }
+    ],
+    "pressure": "若无高渗透润滑介质迅速化解干磨摩擦力，工具刀头面临滑丝甚至拧断风险。",
+    "trigger": "螺栓螺纹在强挤压下发生铝屑咬合卡顿死锁。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "千万别剪断外壳啊……要是被媒体拍到机甲崩碎，我们工坊明年一个单子都接不到了！",
+    "surface": "大小姐！先喷润滑剂！那四颗螺栓用的是航空铝防松涂层，反拧半圈之后要顿一下再卸！"
+   }
+  },
+  {
+   "adult_context": "年满三十五岁，大型群众性活动特级安全管理责任人，成年公民。",
+   "age_range": [
+    35,
+    42
+   ],
+   "appearance_options": [
+    "身穿带有高反光条的黄色安全总指挥马甲，头戴安全帽，手持强光手电与大功率扩音对讲机，面容严肃眼神凌厉。",
+    "神情焦躁不安，不停查看手表倒计时并向下属下达警戒指令。"
+   ],
+   "decision": {
+    "avoids": [
+     "节外生枝的冒险行为",
+     "承担任何安全事故连带责任"
+    ],
+    "contrast": "平日威严赫赫的大型活动安保老手，面对千金小姐的执拗与万众期待时显得左右为难。",
+    "core_value": "一切以现场安全零伤亡为铁律，倒计时一到谁没到位就立刻砍掉谁的节目！",
+    "goal_options": [
+     "勒令马道人员立刻放弃演出安全撤离",
+     "按下总闸切断马道上方一切威亚电机电源"
+    ],
+    "never": [
+     "在存在明确坠落隐患的前提下违规放行演出"
+    ],
+    "prefers": [
+     "绝对服从命令的规范流程",
+     "平稳无波的平安落幕"
+    ],
+    "pressure_responses": {
+     "breaking": "被现场观众狂热声浪震撼被迫同意延后一分钟",
+     "high": "手按紧急切断总按钮威胁立刻强行中止演出",
+     "low": "通过对讲机严厉质问马道异常情况原因",
+     "mid": "快步爬上梯井平台大声下达最后三分钟倒计时通牒"
+    },
+    "relationship_stance": "将年轻Coser的坚持视为不知天高地厚的任性胡闹，对现场潜在的安全风险极度戒备恐慌。",
+    "withdrawal": "退回主控室总电闸操作台前，双手死死按在红色急停按钮保护盖上方。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "marshal_sun_jian",
+   "identity": {
+    "authority": "对全场舞台声光电总闸、演出节目准入与紧急清场享有最高裁决权。",
+    "exposure": "为了追求开场震撼效果曾违规压缩了高空机械安全检查时长",
+    "hidden": "暗中做好了在倒计时归零瞬间立刻拉下大红电闸切断全场灯光的准备",
+    "limits": [
+     "完全不了解机械道具的精细力学拆解原理",
+     "极度害怕发生演职人员高空坠亡群体性安全事故"
+    ],
+    "obligations": [
+     "确保十万观众场面不发生踩踏、高空设施零坠物事故"
+    ],
+    "resources": [
+     "一部高功率加密数码防爆对讲电台",
+     "一套特级演艺活动熔断处置程序文书"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "力挽狂澜的绝对秩序感",
+     "临危不乱的过硬技术处置"
+    ],
+    "boundaries": [
+     "恪守公职与安全监管红线",
+     "不接受任何私下利益勾兑"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "站在梯井口上方举起大喇叭大声对马道二人进行安全读秒报时。",
+    "dislikes": [
+     "任性妄为的越轨行径",
+     "不可控的突发骚乱"
+    ],
+    "expression": "重重合上手中的安全日志夹子，严肃的面庞上难得露出一丝如释重负的松弛神情。",
+    "likes": [
+     "安保日志上全绿色的安全勾选标记",
+     "准时准点的完美收官"
+    ],
+    "preconditions": [
+     "险情彻底排除全员安全返回地面无任何伤亡报告",
+     "事故责任界定明确"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "漫展现场安全总监",
+   "schedule": [
+    {
+     "from": 840,
+     "location_id": "loc_backstage_vertical_ladder_well",
+     "to": 870
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "威亚机械师立下全权安全责任书承担违规延时考核扣罚。",
+      "option": "威亚机械师对讲机果断汇报螺栓拆卸已达最后一步请求最后六十秒放行自救。"
+     },
+     {
+      "cost": "青年设计师资质档案面临演艺特种作业违规登记通报。",
+      "option": "大小姐亮出特种机械证书资质大声自证具备自救能力迫使总监延时脱险。"
+     }
+    ],
+    "pressure": "若不能在时限内拆除受困胸甲恢复安全姿态，舞台大幕将强行降下并宣布压轴节目取消。",
+    "trigger": "安全总监启动事故熔断三分钟倒计时程序。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "十万人看着呢……要是摔下来一个，我这顶乌纱帽就彻底保不住了，必须按规章办事！",
+    "surface": "马道上的人听着！还有最后两分钟！如果无法脱开护栏，我将立刻拉下主电闸切断舞台演出并降下防火隔离幕！"
+   }
+  },
+  {
+   "adult_context": "年满二十六岁，资深演艺经纪团队服化总管，成年公民。",
+   "age_range": [
+    26,
+    29
+   ],
+   "appearance_options": [
+    "身穿黑色便携多口袋造型师背心，腰间挂着大号发夹与定妆喷雾包，面容姣好清秀，此时满脸焦急心疼。",
+    "双手紧抓着梯井护栏，手里死死攥着备用登台斗篷与吸汗海绵扑。"
+   ],
+   "decision": {
+    "avoids": [
+     "粗暴无礼的窥视打探",
+     "引发舆论非议的走光危机"
+    ],
+    "contrast": "外表温柔细致的随行姐姐，在护卫大小姐隐私形象时爆发力惊人寸步不让。",
+    "core_value": "大小姐的体面与平安高于一切，哪怕演出砸了也不能让大小姐受伤走光受辱！",
+    "goal_options": [
+     "协助递送擦汗纸巾维持神志清醒",
+     "在脱壳瞬间张开大斗篷遮挡隐私"
+    ],
+    "never": [
+     "让大小姐在衣衫不整的狼狈状态下暴露于公众镜头前"
+    ],
+    "prefers": [
+     "体贴周全的妥善安排",
+     "尊重女性隐私的绅士风度"
+    ],
+    "pressure_responses": {
+     "breaking": "双手合十眼含热泪默默祈祷平安无事",
+     "high": "将防走光深色大斗篷牢牢抛至马道内侧备用",
+     "low": "在梯井处焦急跺脚为马道二人加油鼓劲",
+     "mid": "隔空指导大小姐调整深呼吸放松紧绷肩胛骨"
+    },
+    "relationship_stance": "把大小姐当成亲妹妹般疼爱呵护，对任何可能损害大小姐名誉的行为极度警惕敏感。",
+    "withdrawal": "紧贴在梯井内侧拐角，用身体挡住闲杂人员探头窥视的视线。"
+   },
+   "gender": "female",
+   "gender_reason": "千金Coser专属随行资深服化女助理",
+   "id": "assistant_shen_ruoxuan",
+   "identity": {
+    "authority": "对大小姐登台仪容、贴身更衣防护及私人隐私维护享有第一监护权。",
+    "exposure": "为了掩护大小姐参展曾向沐家管家谎称其在学校封闭做毕业设计",
+    "hidden": "背包里偷偷备着一件极其低调的深色全遮光带帽长风衣以防最坏走光情况",
+    "limits": [
+     "身材单薄无法攀爬狭窄高空障碍",
+     "完全不懂五金机械拆装工具原理"
+    ],
+    "obligations": [
+     "誓死维护大小姐在外的一切形象声誉与人身安全"
+    ],
+    "resources": [
+     "一盒多功能吸汗抑油湿敷纸贴",
+     "一瓶便携高浓度薄荷清凉醒神喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危难关头不趁人之危的纯粹正直",
+     "舍身相护的可靠肩膀"
+    ],
+    "boundaries": [
+     "恪守助理职责本分",
+     "严格把控外界人员接触距离"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "站在梯井顶端展平宽大的深色防光斗篷，准备在脱壳刹那披在大小姐身上。",
+    "dislikes": [
+     "轻浮低俗的恶劣调侃",
+     "落井下石的势利小人"
+    ],
+    "expression": "快速用吸油湿巾替对方轻轻擦拭额角汗珠，柔声安慰平复其急促心跳。",
+    "likes": [
+     "大小姐破涕为笑的骄傲神采",
+     "演出圆满落幕后的庆功大餐"
+    ],
+    "preconditions": [
+     "大小姐安全脱困且仪表整洁完成登台",
+     "重回私密休息室"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "专属随行服化助理",
+   "schedule": [
+    {
+     "from": 840,
+     "location_id": "loc_backstage_vertical_ladder_well",
+     "to": 870
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "抛掷斗篷分神导致工具刀对位微延缓五秒钟。",
+      "option": "{npc.name}将备用深色斗篷精准抛给威亚机械师单手为大小姐后背遮蔽自救。"
+     },
+     {
+      "cost": "牺牲一件高档战术风衣作为绑扎耗材。",
+      "option": "用战术风衣快速打结系在护栏外侧充当临时防窥遮挡布脱险。"
+     }
+    ],
+    "pressure": "若脱壳瞬间未能妥善遮蔽，数万瓦特强光射灯照射下恐引发网络舆论恶意偷拍。",
+    "trigger": "剧烈挣扎导致贴身连体服内层拉链微受牵拉引发走光顾虑。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "只要能把胸甲拆下来，哪怕大小姐只穿常服登台也是最美的，一定要平安啊！",
+    "surface": "大小姐！别急！深吸一口气！威亚机械师，拜托您手上千万小心点，千万别划破内层连体服！斗篷我已经准备好了！"
+   }
+  },
+  {
+   "adult_context": "年满二十四岁，专业音频工程调音师，完全民事行为能力人。",
+   "age_range": [
+    24,
+    27
+   ],
+   "appearance_options": [
+    "头戴大耳罩专业监听耳机，身穿黑色连帽卫衣，神情冷静敏锐，双手在调音台数百个推子间飞快移动。",
+    "眼神专注盯住马道震颤幅度频谱仪，沉稳应对声波共振危机。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目追求轰头声压的蛮干",
+     "置人员安全于不顾的瞎指挥"
+    ],
+    "contrast": "看似沉浸在音乐律动里的潮酷青年，关键时刻对工程声学与人身安全有着极高原则性。",
+    "core_value": "声音是声波物理，绝不能让失控的低频共振把马道上的同伴震下去。",
+    "goal_options": [
+     "切断三十赫兹以下超低频削减马道晃动",
+     "用对讲机向威亚机械师通报共振低谷窗口"
+    ],
+    "never": [
+     "在马道剧烈共振时推起超低音增强滑块"
+    ],
+    "prefers": [
+     "精准干净的声学曲线",
+     "默契无间的团队配合"
+    ],
+    "pressure_responses": {
+     "breaking": "直接切入开场合成器延音为马道争取三十秒静默",
+     "high": "顶住总导演咆哮拒绝推起超低音总推子",
+     "low": "在监听耳机中敏锐捕捉马道金属微共振嗡鸣",
+     "mid": "果断按下调音台高通滤波按键削减重低音"
+    },
+    "relationship_stance": "敬佩威亚机械师高超的高空机械技术，愿意在幕后为其构筑最安全的声学屏障。",
+    "withdrawal": "坚守在主控调音台后方，双手稳稳按在紧急静音按键上方。"
+   },
+   "gender": "male",
+   "gender_reason": "舞台主控调音台首席青年音响工程师",
+   "id": "sound_engineer_he_yan",
+   "identity": {
+    "authority": "对主舞台全部线阵列超重低音扬声器分频截断与声压级享有绝对控制权。",
+    "exposure": "为了追求炸场效果曾私自调高了超低音声压限幅器两分贝",
+    "hidden": "暗自设定了一条在马道振动超标时自动触发高通滤波的应急脚本",
+    "limits": [
+     "身在地面调音台无法亲自登上马道作业",
+     "面临导演组严禁随意降低演出声压的规定"
+    ],
+    "obligations": [
+     "确保现场音效震撼的同时消除危险机械共振频率"
+    ],
+    "resources": [
+     "一台高精度手持式声压级与低频振幅测试仪",
+     "一套专业无线监听入耳式耳机收发腰包"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "高空绝境下毫不动摇的冷静专注",
+     "对舞台演艺的极致热忱"
+    ],
+    "boundaries": [
+     "恪守调音师岗位职责红线",
+     "不干涉舞台前沿表演"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在地面调音台按下高通滤波开关，通过降噪耳机向马道通报晃动停止。",
+    "dislikes": [
+     "外行指导内行的粗暴干预",
+     "破坏演出声场的噪音"
+    ],
+    "expression": "摘下监听耳机，隔着人群微笑着朝马道方向竖起大拇指。",
+    "likes": [
+     "完美共振消除后的平稳回音",
+     "演出结束后碰杯冰可乐的畅快"
+    ],
+    "preconditions": [
+     "险情彻底排除全员平安且音频系统安全交付",
+     "重返地面调音台"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "舞台主控音频工程师",
+   "schedule": [
+    {
+     "from": 840,
+     "location_id": "loc_catwalk_above_mainstage",
+     "to": 870
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "现场开场低音冲击力微减面临导播组扣分考核。",
+      "option": "贺炎果断按下调音台高通滤波抑制共振为马道提供稳定作业平台自救。"
+     },
+     {
+      "cost": "过度专注通讯导致漏听导演组一条灯光提示。",
+      "option": "用无线腰包向威亚机械师精准报出共振波谷让二人抓准平稳三秒发力脱险。"
+     }
+    ],
+    "pressure": "若不及时实施分频滤波抑制共振，剧烈晃动将导致工具滑脱人员跌落。",
+    "trigger": "超低音震动导致马道共振加剧威胁作业人员重心。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要我切掉这个频段，马道就不会晃，兄弟，剩下的螺栓全靠你手上了！",
+    "surface": "威亚机械师！听得到吗？我已经把四十赫兹以下的超低频全切掉了！马道晃动会在五秒内平息，抓紧时间下压！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "动漫盛会首日，八月",
+  "minute": 840
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "bodily_harm",
+  "workplace_power",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "每次踏上十二米悬空马道前习惯用力扯动双钩防坠器绳头听棘轮清脆咬合声以定心神。",
+  "顶级Coser登台走位前习惯用吸油面纸轻印下颌鼻尖，再抿紧双唇检查耳麦固定夹。",
+  "舞台机械师随身携带两卷哑光黑色防反光绝缘胶布，遇金属锐角随手贴牢防划伤戏服。",
+  "高空悬空检修时习惯用护膝轻抵马道立柱稳固下盘，双手悬空操作时屏住呼吸四秒对位。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用力拉扯防坠自锁器钢缆确认双向棘爪闭锁灵敏",
+    "擦拭马道防滑格栅表面附着的舞台干冰残留水渍",
+    "紧固悬空护栏两端镀锌防晃支架四颗膨胀螺栓"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_catwalk_safety_harness_check",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "start_minute": 840,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "十二米马道双钩防坠器与轨道巡检"
+  },
+  {
+   "beats": [
+    "使用塞尺测量电磁失电抱闸摩擦片厚度与间隙",
+    "擦拭导向滑轮轮缘堆积的高速摩擦细微金属粉末",
+    "在主舞台威亚特技运行记录本签署当值机械师工号"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_winch_cable_lubrication_routine",
+   "location_ids": [
+    "loc_wire_rigging_control_catwalk"
+   ],
+   "start_minute": 845,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "特技威亚伺服绞盘抱闸间隙测算"
+  },
+  {
+   "beats": [
+    "用红外点温仪量测马道正上方射灯外壳散热翅片温度",
+    "调整耐高温挡光叶片角度避开演职人员高空候场区",
+    "用测风仪测定大厅顶部大功率排风负压风速数据"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_catwalk_spotlight_heat_measure",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "start_minute": 850,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "两万瓦电脑摇头追光灯红外测温"
+  },
+  {
+   "beats": [
+    "推动垂直爬梯合金滑块模拟突发重力跌落急停闭锁",
+    "清理钢笼网外侧堆积的充气道具泡沫包装碎屑",
+    "核验梯井底层防火逃生通道平开门推闩开启状态"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_backstage_ladder_well_patrol",
+   "location_ids": [
+    "loc_backstage_vertical_ladder_well"
+   ],
+   "start_minute": 855,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "梯井防坠竖向自锁轨道滑块滑行测试"
+  },
+  {
+   "beats": [
+    "使用微型数显扭矩扳手抽测胸甲紧固螺栓预紧力",
+    "检查三维打印尼龙卡扣表面有无微小应力发白微纹",
+    "在道具交接单上加盖工坊质检员激光防伪合格印章"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_cosplay_prop_torque_recalibration",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "start_minute": 860,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "重型装甲道具钛合金螺栓扭矩复核"
+  },
+  {
+   "beats": [
+    "测试磁吸防风扣在强阵风对流下的自动吸合速度",
+    "检查阻燃暗色织物透光率确认在舞台射灯下无透影",
+    "演练助理单手三秒内将斗篷披覆在模特肩部标准流程"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_dressing_cape_privacy_drill",
+   "location_ids": [
+    "loc_backstage_vertical_ladder_well"
+   ],
+   "start_minute": 865,
+   "tags": [
+    "workplace"
+   ],
+   "title": "候场防走光全遮蔽斗篷应急展开演练"
+  },
+  {
+   "beats": [
+    "胸甲脱落、表演谢幕、十万人散场之后，大小姐回到后台帐篷，连体服被汗浸透贴在身上，拉链被胸甲压得卡住了。",
+    "大小姐背过身对着镜子，让人一点点拉开背后卡住的拉链，再用温热的毛巾擦去肩背上的汗，毛巾擦到腰窝时，大小姐咬着唇没出声，往后靠了过来。",
+    "大小姐从镜子里看着人，脸红到耳根：今晚的谢幕……是演给你一个人的。你要是愿意，就别走了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tent_bodysuit_zipper",
+   "location_ids": [
+    "loc_backstage_dressing_tent"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "帐篷里替大小姐拉开连体服的拉链"
+  },
+  {
+   "beats": [
+    "帐篷里只开着一盏化妆灯，大小姐换了件宽大的卫衣，光着腿盘在折叠沙发上，一张张用卸妆棉擦掉舞台妆。",
+    "大小姐把卸妆棉递过来，闭上眼睛：眼尾那一块我自己擦不干净。……轻一点，擦完了不许说我素颜难看。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tent_makeup_remover",
+   "location_ids": [
+    "loc_backstage_dressing_tent"
+   ],
+   "start_minute": 1300,
+   "tags": [
+    "intimate"
+   ],
+   "title": "卸妆棉与一盏化妆灯"
+  },
+  {
+   "beats": [
+    "漫展最后一夜，大小姐坐在帐篷里，把三天签售剩下的周边一件件装箱，忽然停下手，把那张限定贵宾卡又拿了出来。",
+    "大小姐把卡片按在人胸口：明天就散场了。……今晚我想留你，你说愿意，我才放手。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tent_last_day_eve",
+   "location_ids": [
+    "loc_backstage_dressing_tent"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "漫展最后一夜"
+  },
+  {
+   "beats": [
+    "清晨开展前，大小姐裹着毛毯在折叠沙发上醒来，头发乱糟糟地蹭着人的肩膀，伸手去够桌上的冰咖啡。",
+    "大小姐把脸埋回人怀里：签售九点开始……还有半小时。再抱一会儿，别让助理进来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tent_morning_coffee",
+   "location_ids": [
+    "loc_backstage_dressing_tent"
+   ],
+   "start_minute": 480,
+   "tags": [
+    "intimate"
+   ],
+   "title": "开展前的冰咖啡"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代大型国际动漫盛会与现代化演艺工程期",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_armor_creaks_jammed_railing",
+   "kind": "approach",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "slot": "cosplayer_mu_yunli",
+   "text": "{cosplayer_mu_yunli.name}双手死死扳住护栏镀锌钢管，面颊在强光下泛着诱人薄汗与娇羞怒色：别傻愣着！本小姐的胸甲卡进死角了，把折叠内六角刀掏出来，快点！"
+  },
+  {
+   "id": "hook_spotlight_blazes_heat_wave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "slot": "cosplayer_mu_yunli",
+   "text": "{cosplayer_mu_yunli.name}被两万瓦追光灯烤得急促喘息，额角汗珠顺着细腻的颈项滑入连体服领口：热死了……还有四分钟！看准那颗六毫米的沉头螺栓，逆时针转！"
+  },
+  {
+   "id": "hook_hex_bolt_groans_slipping",
+   "kind": "approach",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "slot": "cosplayer_mu_yunli",
+   "text": "{cosplayer_mu_yunli.name}整个人向后收紧小腹，下颌紧紧抵在对方肩头：最后这颗螺栓孔有点滑丝！手别抖，刀头压紧了再拧，本小姐跟你一起使劲！"
+  },
+  {
+   "id": "hook_bass_subwoofer_shakes_catwalk",
+   "kind": "approach",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "slot": "mechanic_lu_yang",
+   "text": "{mechanic_lu_yang.name}跨步上前，从身后一把揽住千金大小姐纤细的腰肢稳住重心：站稳了！低音炮在震，抓紧我！刀头咬进去了，听我数三二一一起下压！"
+  },
+  {
+   "id": "hook_mechanic_checks_harness_latches",
+   "kind": "approach",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "slot": "mechanic_lu_yang",
+   "text": "{mechanic_lu_yang.name}将内六角工具刀手柄扳开成九十度直角加力臂：第一颗螺栓松了！大小姐，把肩膀往后撤两公分，给第二颗螺栓留出退丝空间！"
+  },
+  {
+   "id": "hook_marshal_threatens_power_kill",
+   "kind": "approach",
+   "location_ids": [
+    "loc_backstage_vertical_ladder_well"
+   ],
+   "slot": "marshal_sun_jian",
+   "text": "{marshal_sun_jian.name}在梯井入口挥舞着对讲机大吼：马道上还有九十秒！拆不下来立刻按急停按钮，绝不能让高空事故暴露在全网直播镜头前！"
+  },
+  {
+   "id": "hook_loose_cable_whistles_air",
+   "kind": "approach",
+   "location_ids": [
+    "loc_wire_rigging_control_catwalk"
+   ],
+   "slot": "mechanic_lu_yang",
+   "text": "{mechanic_lu_yang.name}反手抽出绝缘胶布顺势将甩动的细钢缆缠死在身旁钢柱上：飞缆固定住了！集中注意力，第三颗螺栓出来了，只剩胸口最后一道卡锁！"
+  },
+  {
+   "id": "hook_winch_greases_pulley_groove",
+   "kind": "approach",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "slot": "designer_chu_zimo",
+   "text": "{designer_chu_zimo.name}趴在马道内侧把微型润滑喷雾递上前：往槽里喷！那颗钛合金螺母是反向自锁的，先喷润滑剂消除干磨，再用棘轮臂冲开！"
+  },
+  {
+   "id": "hook_designer_logs_prop_torque_sheet",
+   "kind": "request",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "slot": "cosplayer_mu_yunli",
+   "text": "{cosplayer_mu_yunli.name}咬紧樱唇，娇喘着瞪了设计师一眼：设计师！回去再找你算账！快把第四颗螺母的偏心公差图说清楚，逆时针还是顺时针！"
+  },
+  {
+   "id": "hook_assistant_readies_dark_cape",
+   "kind": "request",
+   "location_ids": [
+    "loc_backstage_vertical_ladder_well"
+   ],
+   "slot": "assistant_shen_ruoxuan",
+   "text": "{assistant_shen_ruoxuan.name}在梯井顶端高高展平深色全遮光大斗篷，眼眶泛红：大小姐坚持住！斗篷已经撑开了，只要甲片一脱，立刻披上斗篷登台！"
+  },
+  {
+   "id": "hook_spotlight_temp_monitoring_run",
+   "kind": "request",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "slot": "mechanic_lu_yang",
+   "text": "{mechanic_lu_yang.name}将全身力量沉下压在折叠刀柄上：随行助理，把防走光斗篷磁扣准备好！螺栓要脱扣了，三、二、一，给我开！"
+  },
+  {
+   "id": "hook_marshal_inspects_ladder_cages",
+   "kind": "observe",
+   "location_ids": [
+    "loc_backstage_vertical_ladder_well"
+   ],
+   "slot": "marshal_sun_jian",
+   "text": "安保总监手指悬在红色急停按钮上方，目光死死锁住马道上方两人紧贴发力的身影，额头冷汗顺着下巴滴落在操作台日志上。"
+  },
+  {
+   "id": "hook_observe_catwalk_armor_pop_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "slot": "cosplayer_mu_yunli",
+   "text": "{cosplayer_mu_yunli.name}亭亭玉立在十二米悬空马道中央，身着紧身连体服，面庞在烈火般的追光灯下光芒四射，眼神兼具傲娇与无畏锋芒。"
+  },
+  {
+   "id": "hook_observe_hex_tool_pops_fastener",
+   "kind": "observe",
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "slot": "cosplayer_mu_yunli",
+   "text": "伴随着一声清脆的金属脱扣轻响，第四颗受挤压内六角螺栓终于彻底旋出，沉重的钛铝合金机甲胸甲轰然向两侧弹开脱壳，{cosplayer_mu_yunli.name}轻盈脱困化险为夷。"
+  },
+  {
+   "id": "hook_yunli_signing_line",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cosplayer_mu_yunli",
+   "text": "{npc.name}在签售台前签得手腕发酸，见人排到跟前，笔尖顿了顿：你也来排队？……把本子给我，签个特别的。"
+  },
+  {
+   "id": "hook_yunli_tent_mirror",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cosplayer_mu_yunli",
+   "text": "{npc.name}在帐篷里背对着镜子，扭头叫人：背后的拉链够不着。……你过来，手放规矩点。"
+  },
+  {
+   "id": "hook_yunli_bbq_stall",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cosplayer_mu_yunli",
+   "text": "{npc.name}散场后卸了妆，裹着一件大号卫衣蹲在会展中心外的烧烤摊前：本小姐饿了。陪我吃，你请。"
+  },
+  {
+   "id": "hook_yang_program_book",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "mechanic_lu_yang",
+   "text": "{npc.name}从工具马甲口袋里摸出一本旧场刊，封面卷了边：大小姐出道那年的。……一直没好意思找你签。"
+  },
+  {
+   "id": "hook_yunli_tent_curtain",
+   "kind": "approach",
+   "location_ids": [
+    "loc_backstage_dressing_tent"
+   ],
+   "slot": "cosplayer_mu_yunli",
+   "text": "{npc.name}掀开帐篷帘子探出头，冲人勾了勾手指：进来。……帘子拉好。"
+  }
+ ],
+ "id": "cosplayer_dressing_tent_zipper_jam",
+ "locations": [
+  {
+   "affordances": [
+    "抓牢防坠双层镀锌护栏立柱稳固身形",
+    "掏出便携式内六角工具刀对位拧螺栓",
+    "侧身贴住马道内侧避开下方射灯强光直射"
+   ],
+   "detail": "挑高三十米的现代化钢桁架通顶大厅中央，悬挂在主舞台上方十二米处的镀锌镂空格栅通道，宽度仅八十公分，两侧是双层防坠金属护栏，下方是黑压压一片、呼声如潮的十万漫展观众席，头顶两万瓦舞台电脑追光灯正缓慢回转预热。",
+   "exits": [
+    "loc_wire_rigging_control_catwalk",
+    "loc_backstage_vertical_ladder_well"
+   ],
+   "id": "loc_catwalk_above_mainstage",
+   "name": "舞台上方马道",
+   "pressure_modifiers": {
+    "p_cosplay_armor_trapped_against_railing": "重型钛铝合金胸甲受压变形死死咬死在镀锌护栏钢柱死角，身体被强力箍紧无法前后挪移。",
+    "p_stage_spotlight_heat_and_dazzle": "数万瓦特电脑摇头追光灯聚焦马道散发滚烫灼热辐射，强光眩目汗水浸透全身。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_lighting_director_zhang",
+    "bg_sound_console_engineer_zhao"
+   ]
+  },
+  {
+   "affordances": [
+    "按下威亚伺服电机紧急刹车自锁手柄",
+    "理顺缠绕在滑轮侧翼的细钢缆",
+    "取出应急绝缘剪断钳切断多余承重带"
+   ],
+   "detail": "紧邻主马道尽头的独立钢构平台，四台大型伺服威亚绞盘正发出微弱变频嗡鸣，受损的钢缆斜挂在上方导向滑轮边沿，悬空平台因下方重低音音响震动而产生规律微颤。",
+   "exits": [
+    "loc_catwalk_above_mainstage",
+    "loc_backstage_vertical_ladder_well"
+   ],
+   "id": "loc_wire_rigging_control_catwalk",
+   "name": "威亚绞盘平台",
+   "pressure_modifiers": {
+    "p_winch_cable_loose_whip_risk": "脱槽的威亚细钢缆在主马道外侧如同狂鞭般随风微摆，极易刮擦或抽中格栅上人员。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_winch_operator_xiao_chen",
+    "bg_cable_splicing_rigger_wu"
+   ]
+  },
+  {
+   "affordances": [
+    "扣紧自锁滑块在垂直生命线上快速上下",
+    "用手电向上方晃动发出救援信号",
+    "依靠在笼网休息平台上平复剧烈心跳"
+   ],
+   "detail": "依附于巨型混凝土抗震主剪力墙边缘的垂直检修钢梯，四周由重型防坠钢丝笼网包裹，贯通从十二米马道至地表后台快速化妆间的安全通道，冷风从通风百叶窗中灌入。",
+   "exits": [
+    "loc_catwalk_above_mainstage",
+    "loc_wire_rigging_control_catwalk",
+    "loc_backstage_dressing_tent"
+   ],
+   "id": "loc_backstage_vertical_ladder_well",
+   "name": "侧翼爬梯井",
+   "pressure_modifiers": {
+    "p_expo_security_abort_curtain_threat": "现场安全主管已在梯井入口举起对讲机准备宣布演出事故叫停切电。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_safety_supervisor_sun",
+    "bg_stage_director_announcer"
+   ]
+  },
+  {
+   "affordances": [
+    "替大小姐拉开连体服背后的拉链",
+    "陪大小姐对着镜子卸妆",
+    "拉上帐篷的帘子"
+   ],
+   "detail": "主舞台后台搭的一顶私人更衣帐篷，一面插满化妆灯的大镜子、一排挂着备用战衣的衣架、一张铺着毛毯的折叠沙发，角落里堆着签售剩下的周边。",
+   "exits": [
+    "loc_backstage_vertical_ladder_well"
+   ],
+   "id": "loc_backstage_dressing_tent",
+   "name": "后台的私人更衣帐篷",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "帐篷帘子一拉，外面的音乐和人声就隔成了闷闷的一层，只剩化妆灯的暖光。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "沐",
+   "楚",
+   "凌",
+   "安",
+   "顾",
+   "洛",
+   "沈",
+   "唐",
+   "萧",
+   "叶",
+   "陆",
+   "钟"
+  ],
+  "given_female": [
+   "云璃",
+   "诗雨",
+   "梦华",
+   "语汐",
+   "若雪",
+   "芷晴",
+   "紫嫣",
+   "欣然",
+   "曼琳",
+   "晓彤",
+   "清漪",
+   "若萱"
+  ],
+  "given_male": [
+   "扬",
+   "天成",
+   "子墨",
+   "浩然",
+   "逸飞",
+   "俊熙",
+   "景云",
+   "正宇",
+   "博文",
+   "星辰",
+   "晨曦",
+   "凯瑞"
+  ],
+  "given_neutral": [
+   "羽",
+   "辰",
+   "诺",
+   "清",
+   "霖",
+   "川",
+   "夏",
+   "秋",
+   "越",
+   "遥",
+   "凡",
+   "宁"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留十万人漫展主舞台上空十二米马道、钛铝合金机甲胸甲卡死护栏与内六角折叠工具刀拆螺栓脱壳的骨架。与另一个在家里画同人本的同人圈世界拉开：这里写的是漫展现场——舞台、后台更衣帐篷、排长队的签售台、散场后会展中心外面的烧烤摊，女主角是机械专业出身、自己画图打印机甲的千金Coser。写死的人名改为身份称呼；婴儿肥只在一条外貌里保留；年龄放宽；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，加了几个不限地点的靠近型钩子；亲密前提写明脱困之后、双方清醒自愿；新增后台私人更衣帐篷与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    28
+   ],
+   "baseline": "负责十万人漫展主舞台威亚吊挂与特技机械安全的技术员，熟悉各类高空防坠装备与扣件拆装。",
+   "gender": "any",
+   "id": "pi_stage_rigging_technician",
+   "reputation": "手脚麻利沉着冷静，曾多次化解高空演艺设备偶发卡死险情。",
+   "resources": [
+    "一柄便携式内六角多功能折叠工具刀",
+    "两条高强度五点式高空防坠安全保护绳"
+   ],
+   "risks": [
+    "直接暴露在十二米悬空边缘极易因剧烈震颤踩空滑脱",
+    "承受舞台主控倒计时巨大心理重压"
+   ],
+   "role": "万人展演主舞台威亚特技机械师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}机械师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    30
+   ],
+   "baseline": "大小姐全套定制机甲的主创结构师，对胸甲内部四颗承重内六角锁栓的螺纹倾角了如指掌。",
+   "gender": "any",
+   "id": "pi_cosplay_prop_production_director",
+   "reputation": "设计精湛但对道具受压形变预估不足，急于在高空纠正失误保住展演。",
+   "resources": [
+    "一台装着全套机甲建模文件的笔记本电脑",
+    "一把自己改过扭矩档位的电动螺丝刀"
+   ],
+   "risks": [
+    "高空狭窄空间作业因动作幅度过大碰伤四肢",
+    "面临道具受损面临赔偿指责"
+   ],
+   "role": "重装道具工坊首席青年结构设计师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总监"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    40
+   ],
+   "baseline": "手握现场巡检叫停权限的安全官，随时准备按下总电闸中止存在高空坠落风险的节目。",
+   "gender": "any",
+   "id": "pi_anime_expo_safety_marshal",
+   "reputation": "严苛古板不通人情，视展会安全为第一底线。",
+   "resources": [
+    "一台高灵敏度防爆数码手持对讲机",
+    "一本加盖展会组委会钢印的紧急熔断处置手册"
+   ],
+   "risks": [
+    "粗暴指挥导致马道上方人员情绪失控诱发踩踏",
+    "盲目断电可能导致吊挂电机急停失稳"
+   ],
+   "role": "国际动漫展演组委会特派安全督导员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}专员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}主管"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    32
+   ],
+   "baseline": "照料大小姐舞台妆造与贴身穿戴的生活助理，深知大小姐骄傲外表下的倔强与敬业。",
+   "gender": "any",
+   "id": "pi_cosplay_lead_stage_assistant",
+   "reputation": "细致妥帖忠诚可靠，把大小姐的声誉与安危视作头等大事。",
+   "resources": [
+    "一包高效吸油舒缓湿巾纸",
+    "一罐清凉薄荷高空抗眩晕提神吸入气雾剂"
+   ],
+   "risks": [
+    "缺乏高空作业经验极易在晃动格栅上心慌腿软",
+    "无法协助繁重机械拆卸"
+   ],
+   "role": "千金Coser专属随行资深服化助理",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}助理"
+    },
+    {
+     "gender": "female",
+     "pattern": "{given}姐"
+    }
+   ]
+  }
+ ],
+ "premise": "十万人的国际漫展，压轴的是千金Coser自己画图、自己打印的整套钛铝合金机甲。开展前三天，千金每天穿着机甲在主舞台上空十二米的马道上走位，舞台威亚机械师、结构设计师和安全督导都陪着熬夜。威亚的滑轮组是临时租的，重型胸甲的固定螺栓也拧过好几回。",
+ "pressures": [
+  {
+   "choice": "等待地面消防剪断整具护栏，还是由威亚机械师冒着高空坠落危险在狭窄马道上对位拧螺栓自救。",
+   "exits": [
+    {
+     "cost": "工具刀棘轮齿发生局部磨损，操作手双手虎口被护栏边缘擦伤渗血。",
+     "option": "用便携式内六角多功能折叠工具刀在狭缝中精准拆卸四颗沉头螺栓脱壳自救。"
+    },
+    {
+     "cost": "昂贵定制机甲彻底结构性报废，肩膀被剧烈拉扯勒出严重紫红血痕。",
+     "option": "用破拆剪暴力剪断胸甲侧向受力尼龙承重织带强行拔出脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "两万瓦追光灯全量照射暴露事故现场，演职人员面临众目睽睽下的公众舆论嘲弄与严重声誉崩塌。",
+    "due_days": 1,
+    "trigger": "主舞台倒计时归零大幕拉开胸甲依然死锁在护栏上"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cosplay_armor_trapped_against_railing",
+   "immediate": {
+    "minutes": 6,
+    "text": "机甲金属外壳发出刺耳的形变脆响，护栏钢管微微受力震颤，大小姐胸腔受到剧烈压迫急促喘息。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "near": {
+    "deadline_minutes": 10,
+    "text": "主舞台巨幕倒计时已进入最后三分钟，下方万众欢呼震天动地，胸甲下沿金属卡槽越卡越紧难以挪动分毫。"
+   },
+   "objective": "在演出开场前用便携内六角折叠工具刀拧下四颗螺栓实现紧急脱壳。",
+   "source": "accident",
+   "start_minute": 840,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "钛铝合金胸甲受挤压抱死在马道护栏死角",
+   "trigger": "开场倒计时前夕威亚滑脱震击，导致大小姐的3D打印重型胸甲下沿凹槽受强力挤压变形，死死咬在马道护栏立柱死角，身体完全卡死无法动弹。"
+  },
+  {
+   "choice": "闭眼依靠手指触觉盲操拧螺栓，还是由威亚机械师用身躯挡住强光光源直射。",
+   "exits": [
+    {
+     "cost": "威亚机械师后背工装被射灯高温炙烤灼伤，两人贴身汗水彻底浸透衣衫。",
+     "option": "威亚机械师用挺拔身躯紧贴外侧遮挡强光大小姐借阴影看清螺母孔位合力拧转自救。"
+    },
+    {
+     "cost": "冰雾消耗殆尽导致后续登台无定妆降温耗材可用。",
+     "option": "使用便携冷感冰雾喷洒面部与螺栓降温强行维持视线脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "人员因眩晕脱力跌倒在马道边缘，引发不可逆高空滑脱坠落特大伤亡悲剧。",
+    "due_days": 1,
+    "trigger": "高空高温热辐射持续侵袭引发急性重度热射病昏厥"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_stage_spotlight_heat_and_dazzle",
+   "immediate": {
+    "minutes": 5,
+    "text": "灼热的红外辐射热浪如火烤般扑面而来，额头滚烫的汗珠不断滚落进睫毛，引起双眼剧烈酸涩刺痛。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "near": {
+    "deadline_minutes": 9,
+    "text": "马道金属格栅被烤得滚烫发热，吸入的空气充斥着焦糊热风，人员心率急剧上升伴有眩晕虚脱感。"
+   },
+   "objective": "克服强光眩晕与炽热大汗，看清仅六毫米微小的内六角螺纹孔口。",
+   "source": "nature",
+   "start_minute": 842,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "两万瓦电脑追光灯聚焦辐射炽热高温",
+   "trigger": "主舞台预热程序使得多组两万瓦电脑摇头追光灯提前聚焦照射马道，空气温度短时间内飙升至五十度以上，强光刺眼致盲，汗水如注浸透薄薄的内层连体服。"
+  },
+  {
+   "choice": "通过对讲机据理力争担保最后延时，还是拼死在倒计时读秒前完成螺栓拆解。",
+   "exits": [
+    {
+     "cost": "面临演出结束后被组委会纪律委员会记过严厉通报批评。",
+     "option": "威亚机械师以特种机械师身份向总控连线立下军令状争取最后九十秒黄金时间脱险。"
+    },
+    {
+     "cost": "现场展演考评得分面临轻度合规扣分处罚。",
+     "option": "千金小姐亮出特级机械师演艺资格徽章据理力争说服组委会延缓切电自救。"
+    }
+   ],
+   "far": {
+    "consequence": "主舞台陷入一片黑暗演出彻底流产，漫展现场爆发十万观众嘘声与大规模骚乱危机。",
+    "due_days": 1,
+    "trigger": "安保总监按下红色急停按钮全场切电落幕"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_expo_security_abort_curtain_threat",
+   "immediate": {
+    "minutes": 4,
+    "text": "梯井广播喇叭里传来安保总监冷酷的最后通牒读秒声，主控室红色故障指示灯开始疯狂闪烁。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_backstage_vertical_ladder_well"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "防火隔离幕电磁抱闸发出即将释放的刺耳排气嘶鸣，主舞台背景音乐音量被强制压低三成。"
+   },
+   "objective": "在安保总监切电并降下防火隔离幕前完成脱壳并向总控室亮出通行绿灯。",
+   "source": "institution",
+   "start_minute": 845,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "现场安保总监启动事故熔断切电程序",
+   "trigger": "安保总监在梯井下方通过监控判定高空马道存在严重安全失控风险，举起对讲机准备拉下拉闸电磁手柄并强行切断演出大幕。"
+  },
+  {
+   "choice": "分出一人去拉紧钢缆绳头，还是两人集中力量加速拧下胸甲螺栓。",
+   "exits": [
+    {
+     "cost": "小陈小臂被钢缆毛刺划出数道渗血血痕，手套磨损撕裂。",
+     "option": "小陈冒着震颤在绞盘侧用绝缘挂钩死死钩住飞缆端头缠紧锁死在钢梁上自救。"
+    },
+    {
+     "cost": "耗尽随身防反光胶布储备。",
+     "option": "威亚机械师顺手扯下外侧防反光胶布将钢缆固定在立柱外侧解除威胁脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "造成重度颅脑损伤或多处骨折大出血，人员当场昏迷失足坠落身亡。",
+    "due_days": 1,
+    "trigger": "合金万向卸扣直接抽中马道操作人员头部或躯干"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_winch_cable_loose_whip_risk",
+   "immediate": {
+    "minutes": 4,
+    "text": "细钢缆在空中划出凄厉的风啸声，重型金属挂钩险险擦过马道外护栏激起一串耀眼火星。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_wire_rigging_control_catwalk"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "钢缆摆幅扩大至两米，挂钩剧烈撞击马道格栅发出震耳欲聋的金属巨响，令人心惊肉跳。"
+   },
+   "objective": "迅速用备用安全带将摆动钢缆锁死在内侧结构梁上化解抽击风险。",
+   "source": "accident",
+   "start_minute": 844,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "脱槽威亚细钢缆高空乱摆抽击危险",
+   "trigger": "脱离滑轮导槽的航空细钢缆在十米高空气流与重低音震荡下大幅摆动，末端合金万向卸扣在马道外侧如同流星锤般乱晃，极易抽伤作业人员。"
+  },
+  {
+   "choice": "盲目加大蛮力赌一把，还是稍微回退半圈喷润滑剂重新咬紧垂直牙口。",
+   "exits": [
+    {
+     "cost": "工具刀头承受极限剪切力造成永久性轻度扭曲变形。",
+     "option": "设计师递上高渗透防卡润滑剂威亚机械师用工具刀反向棘轮力矩臂精准下压冲开自救。"
+    },
+    {
+     "cost": "大小姐大拇指指甲发生轻度折裂渗血疼痛难忍。",
+     "option": "大小姐用纤细指尖死死顶住刀头侧壁消除轴向旷量两人合力猛旋脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "工具完全打滑无法施力，必须动用电砂轮切割机，演艺登台彻底化为泡影。",
+    "due_days": 1,
+    "trigger": "内六角螺栓孔彻底滑丝磨圆丧失受力槽"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hex_tool_ratchet_strip_slip",
+   "immediate": {
+    "minutes": 3,
+    "text": "工具刀六角棱角处传来令人牙酸的金属微崩声，细小的银白色铝合金碎屑从螺纹孔中掉落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "孔口内壁已有两处内棱磨圆，若再出现一次打滑空转，螺栓将彻底滑丝变成死头无法旋出。"
+   },
+   "objective": "喷入微型高渗透润滑剂并校正扳手轴向垂直度一举发力拧出。",
+   "source": "accident",
+   "start_minute": 846,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "内六角螺栓沉头凹槽在超载下濒临滑丝",
+   "trigger": "最后一颗承重螺栓因机甲受挤压斜向变形，六角孔边缘在强烈扭矩作用下出现轻微倒角滑丝迹象，折叠工具刀头即将打滑空转。"
+  },
+  {
+   "choice": "趴倒在格栅上躲避共振，还是两人背靠背紧贴借体重互相锚定继续拧动工具。",
+   "exits": [
+    {
+     "cost": "双膝重重磕在粗糙铁格栅上留下大片青紫瘀斑。",
+     "option": "两人紧密贴合借体重下压互相稳住下盘双手合抱工具刀完成最后旋转脱险。"
+    },
+    {
+     "cost": "音响总控电脑产生微小电涌报错。",
+     "option": "小陈在操作台紧急微调音响低切滤波参数降低马道共振幅度自救。"
+    }
+   ],
+   "far": {
+    "consequence": "人员在十二米高空跌出马道外缘悬挂在半空，引发特级演艺重大安全险情。",
+    "due_days": 1,
+    "trigger": "超低频共振导致人员下盘彻底失稳踩空脱手"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_crowd_bass_subwoofer_vibration_fall",
+   "immediate": {
+    "minutes": 3,
+    "text": "胸腔仿佛被无形的大锤狠狠轰击，脚下的镀锌钢格板发出密集的蜂鸣颤动，站立重心严重失衡。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_catwalk_above_mainstage"
+   ],
+   "near": {
+    "deadline_minutes": 6,
+    "text": "马道起伏幅度达到数公分，双手抓握的护栏出现明显横向摆动，胃部泛起剧烈的眩晕翻江倒海感。"
+   },
+   "objective": "双腿锁死格栅立柱并相互紧密扣住安全绳防止眩晕踩空。",
+   "source": "nature",
+   "start_minute": 847,
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "title": "十万观众重低音超低频共振致马道剧晃",
+   "trigger": "万人主舞台开场前奏超大功率重低音线阵列音响全开，超低音频段声波引发挑高钢桁架产生强烈共振，十二米悬空马道如波浪般剧烈起伏晃动。"
+  },
+  {
+   "choice": "照价赔，还是穿着拆坏的机甲照常上台，替赞助商再做一次宣传",
+   "exits": [
+    {
+     "cost": "威亚得重新挂，机械师要陪着在马道上再试一遍",
+     "option": "穿拆坏的机甲上台"
+    },
+    {
+     "cost": "花絮里会有两个人在马道上贴在一起拧螺栓的镜头",
+     "option": "请林导把事故剪进官方视频当花絮"
+    }
+   ],
+   "far": {
+    "consequence": "千金只能动家里的钱，父亲就会知道女儿还在玩Cos，下一届不许再来",
+    "due_days": 7,
+    "trigger": "赔偿款结算"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_yunli_signing_line",
+    "hook_yunli_tent_mirror",
+    "hook_yunli_bbq_stall",
+    "hook_yang_program_book",
+    "hook_yunli_tent_curtain"
+   ],
+   "id": "p_sponsor_wants_paid",
+   "immediate": {
+    "minutes": 5,
+    "text": "周经理把合同翻到最后一页，用笔圈出赔偿那一条"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_backstage_dressing_tent"
+   ],
+   "near": {
+    "deadline_minutes": 240,
+    "text": "下午两点，主舞台下午场开演"
+   },
+   "objective": "在下午场开演之前，和赞助商谈好这套机甲怎么办",
+   "source": "money",
+   "start_minute": 600,
+   "tags": [],
+   "title": "样品机甲要赔",
+   "trigger": "漫展第二天上午，道具赞助商的周经理进了更衣帐篷：那套钛铝合金机甲是借给千金的样品，胸甲拆坏了，合同上写着按原价赔"
+  }
+ ],
+ "region": "万人会展中心主舞台上方十二米悬空马道与威亚检修台",
+ "rules": [
+  {
+   "id": "r_cosplay_armor_fastener_torque_limit",
+   "text": "钛铝合金3D打印胸甲快拆紧固螺栓拆卸时必须保持轴向对齐防止滑丝。"
+  },
+  {
+   "id": "r_catwalk_safety_harness_lock_code",
+   "text": "悬空马道高空作业时双钩安全带必须保持至少一侧扣死在主承重生命线上。"
+  },
+  {
+   "id": "r_stage_countdown_live_curtain_rule",
+   "text": "万人主舞台中央巨幕倒计时归零时两万瓦电脑摇头追光灯将全量照射马道。"
+  },
+  {
+   "id": "r_hex_multi_tool_antidrop_wrist_lanyard",
+   "text": "高空使用多功能折叠工具刀时防坠手绳必须牢固扣于操作手手腕以防掉落。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "螺栓定位",
+  "committed": "星光盟约",
+  "familiar": "马道同命",
+  "flirting": "薄汗耳热",
+  "intimate": "脱壳相拥",
+  "stranger": "防坠警惕",
+  "testing": "力矩协同"
+ },
+ "status": "released",
+ "style_hint": "漫展现场的热闹与高空的冷：舞台射灯、排长队的签售台、后台帐篷里的化妆灯。写傲娇千金滚烫的薄汗、贴身连体服下的喘息，动作落在螺栓公差与拆卸上。",
+ "tension_engines": [
+  {
+   "id": "te_armor_jam_countdown_vs_hex_tool",
+   "text": "变形机甲卡死马道护栏的致命登台倒计时与用便携折叠工具刀精准拆卸螺栓的硬核自救。"
+  },
+  {
+   "id": "te_safety_marshal_vs_cosplayer_pride",
+   "text": "现场安保总监企图强行断电叫停节目与千金Coser誓死守护登台荣誉的铁血抗争。"
+  },
+  {
+   "id": "te_tsundere_heiress_vs_calm_mechanic",
+   "text": "傲娇千金大小姐的毒舌羞恼与年轻机械师沉着稳健手上功夫的强烈反差共鸣。"
+  },
+  {
+   "id": "te_spotlight_heat_roast_vs_tight_hug",
+   "text": "数万瓦特强光射灯炽热烘烤与两人在十二米悬空晃动马道上紧贴拆卸脱壳的炽烈生命羁绊。"
+  }
+ ],
+ "title": "漫展Coser千金·十万人漫展主舞台后方猫道",
+ "tone": [
+  "十二米马道的金属微颤",
+  "射灯烤得人发烫",
+  "台下十万人喊着名字",
+  "连体服下又羞又恼的喘息"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_hex_multi_tool_hidden_reverse_lever",
+   "requires": [
+    "mechanic_lu_yang"
+   ],
+   "text": "{mechanic_lu_yang.name}翻转折叠工具刀把手，弹出了隐藏在刀身内侧的高强度反向加力棘轮杠杆臂，将施加扭矩瞬间提升三倍。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_cosplayer_recites_cad_offset_angle",
+   "requires": [
+    "cosplayer_mu_yunli"
+   ],
+   "text": "{cosplayer_mu_yunli.name}凭工科强悍记忆力精准背出了胸甲四颗螺栓的内倾三度公差角，指点工具刀斜向切入完美对位。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_designer_spray_eases_last_thread",
+   "requires": [
+    "designer_chu_zimo"
+   ],
+   "text": "{designer_chu_zimo.name}拼尽全力递上的高渗透航空润滑喷雾化解了金属干磨死结，让滑丝边缘的螺母重新顺畅转动。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_assistant_shields_light_with_cape",
+   "requires": [
+    "assistant_shen_ruoxuan"
+   ],
+   "text": "{assistant_shen_ruoxuan.name}冒死登上梯井外沿展平遮光斗篷，为马道二人挡下了致命的追光灯直射与台下长焦镜头窥探。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_mechanic_secures_final_thirty_seconds",
+   "requires": [
+    "mechanic_lu_yang"
+   ],
+   "text": "{mechanic_lu_yang.name}用对讲机专业代号直接接通总控音响师，借调整开场合成器延音的契机硬生生争取了宝贵的三十秒窗口。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_marshal_relents_seeing_armor_clear",
+   "requires": [
+    "marshal_sun_jian"
+   ],
+   "text": "{marshal_sun_jian.name}在监控中亲眼目睹螺栓顺利拆卸胸甲脱落，果断松开紧急急停电闸，挥手放行演出正式开场。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_armor_sheds_clean_stage_triumph",
+   "requires": [
+    "cosplayer_mu_yunli",
+    "mechanic_lu_yang"
+   ],
+   "text": "沉重胸甲脱落后大小姐披上华美斗篷翩然登台，伴随万千欢呼与绚烂焰火呈现惊艳压轴绝演，马道险情化作两人心中永恒的星光默契。"
+  }
+ ]
+}

@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/masonblog/Novel-studio-skills/project.schema.json",
+  "title": "Novel Studio project.yaml v2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "title",
+    "slug",
+    "type_tags",
+    "style_constraints",
+    "timeline_constraints",
+    "length_tier",
+    "total_chapters",
+    "words_per_chapter",
+    "batch_size",
+    "art_enabled",
+    "art_mode",
+    "art_scope",
+    "stage",
+    "progress",
+    "decisions",
+    "issues"
+  ],
+  "properties": {
+    "schema_version": { "const": 2 },
+    "title": { "type": "string" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$|^$" },
+    "genre": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "type_tags": { "type": "array", "items": { "type": "string" } },
+    "language": { "type": "string" },
+    "style": { "type": "string" },
+    "style_constraints": {
+      "type": "object",
+      "required": ["narrative_person", "diction", "tone", "register", "extra"],
+      "properties": {
+        "narrative_person": { "type": "string" },
+        "diction": { "type": "string" },
+        "tone": { "type": "string" },
+        "register": { "type": "string" },
+        "extra": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "timeline_constraints": {
+      "type": "object",
+      "required": ["calendar", "total_span", "structure", "notes"],
+      "properties": {
+        "calendar": { "type": "string" },
+        "total_span": { "type": "string" },
+        "structure": {
+          "enum": ["linear", "flashback", "multi-thread", "time-jump", "mixed"]
+        },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "length_tier": { "enum": ["", "短篇", "中篇", "长篇", "超长篇"] },
+    "total_chapters": { "type": "integer", "minimum": 0 },
+    "words_per_chapter": { "type": "integer", "minimum": 1 },
+    "batch_size": { "type": "integer", "minimum": 1 },
+    "art_enabled": { "type": "boolean" },
+    "art_mode": { "enum": ["final", "incremental"] },
+    "art_scope": {
+      "type": "object",
+      "required": ["cover", "portraits", "illustrations", "selected_plot_points"],
+      "properties": {
+        "cover": { "type": "boolean" },
+        "portraits": { "enum": ["none", "main_characters", "all_named"] },
+        "illustrations": { "enum": ["none", "selected", "all_key_plot_points"] },
+        "selected_plot_points": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "stage": {
+      "enum": ["init", "planning", "architecture", "lore", "drafting", "editing", "art", "acceptance", "delivered"]
+    },
+    "progress": {
+      "type": "object",
+      "required": ["current_batch", "art", "batches"],
+      "properties": {
+        "current_batch": { "type": "integer", "minimum": 0 },
+        "art": {
+          "type": "object",
+          "required": ["status", "completed_batches"],
+          "properties": {
+            "status": { "enum": ["pending", "in_progress", "complete", "skipped"] },
+            "completed_batches": {
+              "type": "array",
+              "items": { "type": "integer", "minimum": 1 },
+              "uniqueItems": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "batches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "chapters", "status"],
+            "properties": {
+              "id": { "type": "integer", "minimum": 1 },
+              "chapters": {
+                "type": "array",
+                "prefixItems": [
+                  { "type": "integer", "minimum": 1 },
+                  { "type": "integer", "minimum": 1 }
+                ],
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "status": { "enum": ["pending", "drafting", "editing", "reported", "approved"] },
+              "reported_at": { "type": "string" },
+              "approved_at": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "decisions": { "type": "array", "items": { "type": "object" } },
+    "issues": { "type": "array", "items": { "type": "object" } }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "art_enabled": { "const": false } },
+        "required": ["art_enabled"]
+      },
+      "then": {
+        "properties": {
+          "art_scope": {
+            "properties": {
+              "cover": { "const": false },
+              "portraits": { "const": "none" },
+              "illustrations": { "const": "none" }
+            }
+          },
+          "progress": {
+            "properties": {
+              "art": { "properties": { "status": { "const": "skipped" } } }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "progress": {
+            "properties": {
+              "art": { "properties": { "status": { "not": { "const": "skipped" } } } }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}

@@ -1,0 +1,2060 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "三甲医院二十年工龄老员工，依法承担洗消设备巡查勤务职责。",
+   "age_range": [
+    45,
+    49
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_orderly_wang",
+   "line": "报告主任，双向负压风淋缓冲门各项指标正常，随时可以开启外廊大门迎接考评。",
+   "location_ids": [
+    "loc_airlock_interlock_sliding_gate",
+    "loc_sterile_dispensing_hall"
+   ],
+   "name": "王姓洗消员",
+   "role": "负压配药大厅洗消巡视员"
+  },
+  {
+   "adult_context": "护理大专学历二十四岁职业护士，专责外勤巡视导诊工作。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_apprentice_nurse_zheng",
+   "line": "考评专家团已经在风淋室外整队完毕，请各位老师做好亮牌展示准备。",
+   "location_ids": [
+    "loc_sterile_dispensing_hall"
+   ],
+   "name": "郑姓护士",
+   "role": "中心药房值班巡视女护士"
+  },
+  {
+   "adult_context": "医院保卫科聘用十年的成年保安",
+   "age_range": [
+    40,
+    50
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_security_liu",
+   "line": "刘保安拿着手电在外廊来回走，按规定谁也不许在停电时靠近洁净区。",
+   "location_ids": [
+    "loc_hospital_rounds_corridor"
+   ],
+   "name": "刘保安",
+   "role": "夜班保安"
+  },
+  {
+   "adult_context": "医学院毕业、年满二十六岁的成年规培医生",
+   "age_range": [
+    25,
+    28
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_intern_xu",
+   "line": "小许抱着病历夹在护士站旁边打转，压低声音说配药厅里出了大事。",
+   "location_ids": [
+    "loc_hospital_rounds_corridor"
+   ],
+   "name": "小许",
+   "role": "规培医生"
+  },
+  {
+   "adult_context": "卫健委借调来的成年记录员",
+   "age_range": [
+    32,
+    40
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_clerk_fang",
+   "line": "方姐夹着评分表跟在考评专家身后，隔几分钟就小跑着去前面报一声进度。",
+   "location_ids": [
+    "loc_hospital_rounds_corridor"
+   ],
+   "name": "方姐",
+   "role": "考评组记录员"
+  },
+  {
+   "adult_context": "陪老伴住院的成年家属",
+   "age_range": [
+    50,
+    60
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_patient_family",
+   "line": "老周搬着折叠凳坐在走廊尽头，停电以后一直伸着脖子往配药厅那边看。",
+   "location_ids": [
+    "loc_hospital_rounds_corridor"
+   ],
+   "name": "老周",
+   "role": "陪床家属"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "掌握全院评审大权之副院长率团亲临严苛审查，女主任于绝境中展现惊人外科心理定力与微观巧技，以端方体面从容破除考评杀机。",
+   "id": "combo_qingyi_and_jingming",
+   "identity_ids": [
+    "identity_chief_medical_officer"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_lu_qingyi_officer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "洁净大厅中共同捍卫科室崇高荣誉之深厚战友盟友",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_gu_jingming_director",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "严苛管理考评大旗之下彼此审度对峙之后生与长者",
+     "stage": "testing"
+    },
+    {
+     "a": "char_lu_qingyi_officer",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "char_gu_jingming_director",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "院长深沉期待考核与年轻主任傲骨凛然不卑不亢之高尚交锋",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "char_lu_qingyi_officer",
+    "char_gu_jingming_director"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在门扉启开刹那以无懈可击之圣洁端庄仪容引导专家团入内圆满通过考评。",
+    "limit_gap": "院长受制于需遵循公开透明之评审纪律，女主任受限于不可在全院同行前流露走光失态破绽。",
+    "meeting_reason": "三甲复核年度国家级无菌洁净配药中心夜巡现场验收考评。",
+    "resource_gap": "院长手握科室评级与全院通报生杀大权，女主任仅凭一把骨科截骨锤于门缝死角孤身应对死线危机。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_director_inspection_approach",
+    "engine_airlock_door_jam"
+   ]
+  },
+  {
+   "chemistry": "首席女主任沉静发令指挥若定，护士长以纯白防化大氅与灵动机变筑起绝对视觉护盾，白衣双璧默契无间化解走光危厄。",
+   "id": "combo_qingyi_and_yuqin",
+   "identity_ids": [
+    "identity_head_nurse"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_lu_qingyi_officer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "经历无数生死急救淬炼之至高白衣同袍信赖",
+     "stage": "committed"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_he_yuqin_head_nurse",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "彼此后背相依绝不相负之忠诚守护臂膀",
+     "stage": "intimate"
+    },
+    {
+     "a": "char_lu_qingyi_officer",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_he_yuqin_head_nurse",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "相伴数载情深谊长坚如磐石之骨肉科室姐妹真情",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "char_lu_qingyi_officer",
+    "char_he_yuqin_head_nurse"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保女主任制服万全无损状态下从容抽身脱扣并迎接外客。",
+    "limit_gap": "女主任行动受死咬衣服所困，护士长则不能违规公然擅自离岗越权喧闹。",
+    "meeting_reason": "配药大厅风淋气闸夜巡质控与紧急应急演练执行。",
+    "resource_gap": "女主任执掌全科处方与抢险核心决断权，护士长备有应急防辐射大氅与贴身掩护手腕，无可替代相得益彰。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_modesty_tear_threat",
+    "engine_uv_sterilization_clock"
+   ]
+  },
+  {
+   "chemistry": "暖通总工深通气动压差自锁机械构造，女主任妙悟外科器械微观杠杆解剖，二人隔窗相视无声比划暗语默契解开工业死结。",
+   "id": "combo_qingyi_and_chengye",
+   "identity_ids": [
+    "identity_hvac_engineer"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_lu_qingyi_officer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "对女主任临危不乱过人胆识与慧根深感折服",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_lin_chengye_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "以硬核技术实力相互支持之机电技术伙伴",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_lu_qingyi_officer",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_lin_chengye_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "尊重工程技术科学之名医与敬佩临床大家之工程师默契",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_lu_qingyi_officer",
+    "char_lin_chengye_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在紫外灯高压放电前挑开联锁滑块使气动门自然回弹滑开。",
+    "limit_gap": "工程师不可擅闯无菌大厅内部席位，女主任身在舱内无法直接触及外侧控制箱。",
+    "meeting_reason": "负压大厅断电应急旁路启动与设备现场抢修保障。",
+    "resource_gap": "工程师掌握全院管线与外侧泄压控制阀，女主任手握截骨锤平柄与现场自救决策权。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_airlock_door_jam",
+    "engine_uv_sterilization_clock"
+   ]
+  },
+  {
+   "chemistry": "骨科霸王花住院总精通器械刃角刚力，女主任沉稳操持截骨锤以巧破千斤，当代青年医学才女同心协力以精湛器械手腕斩断一切陈规枷锁。",
+   "id": "combo_qingyi_and_sihan",
+   "identity_ids": [
+    "identity_chief_medical_officer"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_lu_qingyi_officer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "相知相惜之青年一代外科才女挚友同盟",
+     "stage": "intimate"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_song_sihan_fellow",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "同气连枝刀法凌厉之同行至交骨干",
+     "stage": "intimate"
+    },
+    {
+     "a": "char_lu_qingyi_officer",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "char_song_sihan_fellow",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "彼此笃定信赖对方外科手腕之同龄青年名医知己之交",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "char_lu_qingyi_officer",
+    "char_song_sihan_fellow"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "完好无损撬脱咬带并确保截骨锤与白袍毫发无伤。",
+    "limit_gap": "{char_song_sihan_fellow.given}需顾忌门外纪律不能喧哗，{char_lu_qingyi_officer.given}身在受困死角需全神贯注掌控力矩平衡。",
+    "meeting_reason": "急救特种手术器械紧急调配与夜巡质控会签现场。",
+    "resource_gap": "{char_song_sihan_fellow.given}身怀骨科特种剥离器与精悍外科手法，{char_lu_qingyi_officer.given}具备领军名医之从容气魄与主刀大度。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_modesty_tear_threat",
+    "engine_director_inspection_approach"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "chan_intercom_airlock_buzz",
+   "reach": "负压配药大厅与气闸门内外三米区域",
+   "text": "负压大厅无菌双向对讲系统在断电时发出极低频脉冲震颤，能清晰传导门槽金属形变与卡扣崩弹轻响。"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "chan_uv_countdown_horn",
+   "reach": "整栋住院楼，一个巡房的工夫就传遍，传到急诊科已经成了另一个故事",
+   "text": "夜班护士站里互相递的悄悄话"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "国家首批拔尖医学创新班全科培养年届桃李二十一周岁，依法享有完备独立民事与医疗执业权能，纯情处女。",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "修长清冷知性丽人身姿，白瓷面庞微带一点血色与清冷双眸反差绝美；黑发盘于无菌帽，身着高定雪白立领长褂，内衬粉白细绢衬衣配浅灰铅笔裙，佩带纯银听诊器，圣洁出尘。",
+    "素白修身医师长袍勾勒出曼妙窈窕之典雅腰线，双颊如初雪凝脂般泛着健康微红，神态沉稳干练透着名医大家风范。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱呼喊引来大批病患家属骚动聚集",
+     "蛮力强拽导致真丝铅笔裙侧拉链彻底崩坏"
+    ],
+    "contrast": "外表文静清冷之柔美名门女医，解构机械险情时手法如外科解剖般精准决绝",
+    "core_value": "医者仁心严谨自持，生死关头亦不损职业圣洁与高尚尊严",
+    "goal_options": [
+     "以骨科截骨锤平柄撬开联锁滑块抽身迎接评审团",
+     "在臭氧脉冲喷放前抚平白袍恢复端庄巡查仪态"
+    ],
+    "never": [
+     "在强权审视面前流露半分惊慌失措怯懦神情",
+     "抛弃无菌药剂配制原则造成医疗事故"
+    ],
+    "prefers": [
+     "利用纯钢外科法具施展微观解剖级精密撬拨技巧",
+     "用防化防辐射纯白大氅封堵外廊投射视线"
+    ],
+    "pressure_responses": {
+     "breaking": "在卡舌弹开瞬间轻盈收拢裙摆，以沉静威严之姿拉开门扉迎客",
+     "high": "贝齿紧咬下唇忍受金属毛刺刮擦痛楚，手腕猛然下压四点二牛顿偏转力矩",
+     "low": "单足轻点地面稳住身形，冷静注视气压表指针回落幅度",
+     "mid": "左手借药台遮挡前胸衣领变形，右手反执截骨锤探入金属死角"
+    },
+    "relationship_stance": "与护士长默契相照，对行政考评团不卑不亢从容自若",
+    "withdrawal": "在交班大厅从容签署无菌配药合格批件"
+   },
+   "gender": "female",
+   "gender_reason": "现代医学三甲医院清冷巡查首席女主任医官人设",
+   "id": "char_lu_qingyi_officer",
+   "identity": {
+    "authority": "对全院急诊配药无菌通道与夜巡应急事务拥有最高现场裁决权",
+    "exposure": "衣物撕裂将导致医德风评受损引来不良非议",
+    "hidden": "白大褂内侧暗袋配带一支高强度医用纯钛快速剪线钳",
+    "limits": [
+     "严禁在考评专家团面前失态喧哗或露出衣衫不整走光",
+     "灭菌臭氧喷放前必须安全撤出无菌舱段免遭呼吸道化学灼伤"
+    ],
+    "obligations": [
+     "确保全院夜间重症急救药品配制流程万无一失",
+     "在重大行政评审考评中捍卫医院示范无菌中心名誉"
+    ],
+    "resources": [
+     "德国特制高硬度平头骨凿与外科测距仪",
+     "省卫生厅特聘专家顾问身份金卡"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "惊涛骇浪中心如止水之超凡定力",
+     "圣洁仁爱且傲骨凛然之学者品格"
+    ],
+    "boundaries": [
+     "救险时的触碰只算救命，不算数",
+     "要等自己点头，衣扣才能解开"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "圣洁冷艳不可亵渎之现代医学女宗师",
+    "dislikes": [
+     "轻浮市侩之徒",
+     "敷衍塞责之伪劣操作",
+     "污浊混乱之杂乱环境"
+    ],
+    "expression": "脱下白大褂搭在椅背上，坐在值班室的床沿，声音很轻：门锁上吧……今晚这一身冷汗，不想一个人待着。",
+    "likes": [
+     "洁净如新之无菌器具",
+     "下夜班后有人陪着坐在值班室里，替自己把被钢槽咬歪的裙侧暗扣一枚枚扣好",
+     "淡雅消毒水与松木清香"
+    ],
+    "preconditions": [
+     "眼前的危局已经过去，双方都清醒、安全",
+     "出于本人的心意，不夹带报恩、交换或旁人的催促"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "三甲医院值班巡查首席主任医官",
+   "schedule": [
+    {
+     "from": 1370,
+     "location_id": "loc_sterile_dispensing_hall",
+     "to": 1400
+    },
+    {
+     "from": 1401,
+     "location_id": "loc_airlock_interlock_sliding_gate",
+     "to": 1430
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "白皙手腕被金属合页边缘刮蹭泛红生疼",
+      "option": "反持整骨器械硬把手对准间隙撬退卡扣，利用四点二牛顿力矩迫退簧片"
+     },
+     {
+      "cost": "大门开启略微延滞招致挑剔考评专家蹙眉打量",
+      "option": "示意护士长扬起防化披风阻挡外探目光协助后撤"
+     }
+    ],
+    "pressure": "脉冲消杀流程进入红区警报，走廊外评审专家皮鞋击地声仅余十步之遥",
+    "trigger": "内外压差骤升，重型双向气闭推拉门突发机械死锁，白大褂腰带与裙装扣件卡入缝隙"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "截骨锤柄端已楔入门轨凹槽，顺时针方向下压两毫米，系带便可脱离死扣。",
+    "surface": "负压配药大厅风淋压差已重新平衡，请考评专家各位长官移步进内视察。"
+   }
+  },
+  {
+   "adult_context": "公立医学院校科班出身年届二十二岁成年护理主管，行使重症监护巡视权柄。",
+   "age_range": [
+    22,
+    23
+   ],
+   "appearance_options": [
+    "身穿浅粉色抗菌护士服配雪白防滑厚底鞋，头戴燕尾帽，身姿灵巧利落，眉宇间带着临床百炼之沉稳机智。",
+    "深蓝防尘外勤工作服整洁干练，青丝盘于防静电发网中，目光灵动警觉时刻守护四方。"
+   ],
+   "decision": {
+    "avoids": [
+     "门外专家目光扫视到女主任狼狈处",
+     "惊慌失措碰落器械盒"
+    ],
+    "contrast": "外表温柔甜美之天使女护士，面对危机动作迅猛刚毅如特战队员",
+    "core_value": "女主任的体面与安全就是科室的生命线",
+    "goal_options": [
+     "展开纯白大氅严密遮蔽女主任裙袍受卡部位",
+     "以引导考评团按路线更衣为由拖延数秒生机"
+    ],
+    "never": [
+     "在盘诘面前背弃女主任主任",
+     "出卖科室名誉求荣"
+    ],
+    "prefers": [
+     "防化大氅遮蔽视线盲区",
+     "用临床专业手语无声传递指令"
+    ],
+    "pressure_responses": {
+     "breaking": "在长袍脱扣刹那麻利收拢披肩将主任周全护在身后",
+     "high": "单膝半蹲借递送换药弯盘掩护暗中伸手托扶受挤门沿",
+     "low": "在门旁端立手持护理日志，密切监控走廊外人员走向",
+     "mid": "机敏展开白色大氅假作遮风整理衣冠贴近玻璃门窗"
+    },
+    "relationship_stance": "心有灵犀情同姐妹之至信左膀右臂",
+    "withdrawal": "跟随女主任步入交班室协助其换上备用洁净制服"
+   },
+   "gender": "female",
+   "gender_reason": "贴身护卫同袍女护士长人设",
+   "id": "char_he_yuqin_head_nurse",
+   "identity": {
+    "authority": "对大厅物料调度与人员消毒隔离具有现场监督权",
+    "exposure": "护卫不力致使主任受辱走光将引来全院严惩",
+    "hidden": "熟知负压大厅应急通风旁路手动机械手拉索位置",
+    "limits": [
+     "未经主任允许不得擅自调整大厅核心气阀控制箱"
+    ],
+    "obligations": [
+     "誓死维护女主任主任之完美专业形象免遭半分损伤"
+    ],
+    "resources": [
+     "特制防尘抗静电双层防护长袍",
+     "随身备用加压氧气包与快速压脉带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女主任身上清冷卓越之医术风范",
+     "患难与共之深厚科室同袍情谊"
+    ],
+    "boundaries": [
+     "严守下级护士长对主任医官之崇高礼敬分寸"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "最信赖之贴身白衣守护者",
+    "dislikes": [
+     "官僚作风之挑剔考评官",
+     "粗制滥造之医疗耗材"
+    ],
+    "expression": "以坚定敏锐之点头致意向女主任传递安心防线信号",
+    "likes": [
+     "摆放井然之无菌托盘",
+     "主任赞许信任之温和目光"
+    ],
+    "preconditions": [
+     "建立在互托安危之临床并肩作战信任基石上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "配药中心兼职护士长",
+   "schedule": [
+    {
+     "from": 1375,
+     "location_id": "loc_sterile_dispensing_hall",
+     "to": 1405
+    },
+    {
+     "from": 1406,
+     "location_id": "loc_airlock_interlock_sliding_gate",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "自己侧臂被门缝残留气流喷溅稍感冰凉",
+      "option": "跨前一步手展宽幅纯白大氅以优雅身姿封死所有外探视线"
+     },
+     {
+      "cost": "事后恐被挑剔评委以操作失仪为由扣减科室细目分",
+      "option": "假装失手让推车上空托盘发出清脆撞击引开外廊注意三秒"
+     }
+    ],
+    "pressure": "必须在六步之内借大氅封堵视线并协助主任脱险",
+    "trigger": "门外考评专家逼近观察窗，女主任长袍卡死无法转身"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "大氅已拉成完整幕墙，专家脚步还剩六步，女主任快用力挑退簧片！",
+    "surface": "女主任，防尘大氅已拿取，请主任稍候片刻再启门迎接外客。"
+   }
+  },
+  {
+   "adult_context": "主管医疗业务之五十七岁副职院长，行使全院考评巡视大权。",
+   "age_range": [
+    55,
+    58
+   ],
+   "appearance_options": [
+    "身穿笔挺深灰中山装式行政制服，银发梳理得一丝不苟，戴金丝半框眼镜，神情威严肃穆，手持红头考评文件夹目光犀利。",
+    "外罩深色双排扣羊毛大衣，神态不怒自威，步履沉稳如钟，透着深厚医学泰斗风度。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌张混乱之失态举止",
+     "弄虚作假之应付行为"
+    ],
+    "contrast": "外表铁面无私不讲情面之冷面院长，危急时刻心如明镜护持青年栋梁",
+    "core_value": "制度严于生命安全大于天，唯有真正经得起极限考验方为国手",
+    "goal_options": [
+     "按严苛标准审查负压大厅在突发断电时之应急自救水准",
+     "在女主任从容开门后给予权威背书力排众议"
+    ],
+    "never": [
+     "公报私仇打压优秀苗子",
+     "对严重医疗违规网开一面"
+    ],
+    "prefers": [
+     "处变不惊之大家风范",
+     "合乎医疗力学规范之规范自救"
+    ],
+    "pressure_responses": {
+     "breaking": "在门启刹那凝视女主任威严端方之仪容暗暗点头嘉许",
+     "high": "抬手制止身后激进评审员强行推门免破坏无菌气闸防线",
+     "low": "手持打分夹沿走廊缓步前行，目光审视风淋室指示灯变幻",
+     "mid": "驻足观察窗前侧耳倾听滑门内微弱机械动静是否异常"
+    },
+    "relationship_stance": "严苛考校中蕴藏深厚器重期望之长辈师长",
+    "withdrawal": "落座示教室听取女主任作临床质控汇报"
+   },
+   "gender": "male",
+   "gender_reason": "行政副院长兼考评组组长男性长者身份",
+   "id": "char_gu_jingming_director",
+   "identity": {
+    "authority": "掌控医院年度示范科室评审生杀大权与人事推荐权",
+    "exposure": "科室重大事故未察将连带承担全院管理连带问责",
+    "hidden": "内心极为看好女主任并将女主任视为未来院长接班人选",
+    "limits": [
+     "在缺乏确凿违章证据前不得擅自破坏无菌大厅安全规程"
+    ],
+    "obligations": [
+     "严格按照国际标杆考核配药中心之无菌与应急防灾能力"
+    ],
+    "resources": [
+     "评审团一票定乾坤之打分表",
+     "全院行政保卫调遣令印信"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "年轻医官身上卓越不凡之技术定力",
+     "泰山压顶面不改色之凛然傲骨"
+    ],
+    "boundaries": [
+     "严守院领导对年轻女主任医官之端庄距离界限"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "医疗宗师之后盾长者与权威裁判",
+    "dislikes": [
+     "谄媚逢迎之辈",
+     "遇到突发事件六神无主之草包"
+    ],
+    "expression": "收起打分夹以深沉有力之肯定话语公开表扬科室应急能力",
+    "likes": [
+     "规范严谨之质控表格",
+     "有胆有识之后起之秀"
+    ],
+    "preconditions": [
+     "恪守医疗伦理与学者尊严之崇高前辈与后起之秀相互敬重"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "考评专家团首席组长",
+   "schedule": [
+    {
+     "from": 1385,
+     "location_id": "loc_airlock_interlock_sliding_gate",
+     "to": 1415
+    },
+    {
+     "from": 1416,
+     "location_id": "loc_sterile_dispensing_hall",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "引得身后急躁之同行专家低声窃窃非议",
+      "option": "以宣讲评审安全章程为由在门外停留十秒给予内席缓冲"
+     },
+     {
+      "cost": "彻底堵死女主任依靠自身力矩脱险之从容空间",
+      "option": "示意助理直接触碰应急电子开关强令开门"
+     }
+    ],
+    "pressure": "若滑门抱死延误开启将按程序判定联锁系统失灵扣罚全分",
+    "trigger": "率领专家团抵近风淋气闸门口准备推门检查"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "负压差引起的气动抱死难不住主任丫头，且看主任如何化解这最后十秒危局。",
+    "surface": "女主任，评审专家团已至洁净区门外，请汇报断电联锁自救测试结果。"
+   }
+  },
+  {
+   "adult_context": "供职于后勤保障部之四十四岁高级机电主管，专职排查医院气闭门机电隐患。",
+   "age_range": [
+    43,
+    46
+   ],
+   "appearance_options": [
+    "身穿耐磨深蓝工程作训连体服，头戴安全帽，手提红外热像测温仪与特制纯钢气阀调节扳手，眉宇沉稳精明。",
+    "深灰防静电工装夹克整洁干练，腰间挂着多功能测压数显表，目光如炬透着工程师之严谨笃定。"
+   ],
+   "decision": {
+    "avoids": [
+     "粗暴用大锤砸坏气密滑轨",
+     "盲目慌乱乱按控制面板"
+    ],
+    "contrast": "外表朴实无华之机电工程师，危难关头洞察秋毫手握破局密匙",
+    "core_value": "用机械逻辑排除一切技术隐患，确保白衣天使安全无虞",
+    "goal_options": [
+     "在门外暗中比划手势指示滑门联锁卡销受力支点",
+     "手动摇动外侧泄压排气阀强行拉平大厅内外压差"
+    ],
+    "never": [
+     "隐瞒设备严重结构隐患",
+     "坐视医护人员在负压事故中受创"
+    ],
+    "prefers": [
+     "机械原理巧劲破解",
+     "尊重工程规律之微观技术配合"
+    ],
+    "pressure_responses": {
+     "breaking": "在滑门脱扣刹那快速收好工具从容向院长汇报系统复位",
+     "high": "反手紧攥调节扳手随时准备扳动外侧泄压阀分担荷载",
+     "low": "凝神查看气压表红黑双针变动，快速计算压差阻力数值",
+     "mid": "隔着观察窗向女主任暗打三指上挑手语指示滑块受力死穴"
+    },
+    "relationship_stance": "佩服女主任过人胆识与机变，暗中以工匠巧技提供掩护",
+    "withdrawal": "返回机房监控发电机备用供电回路稳定"
+   },
+   "gender": "male",
+   "gender_reason": "医院机电暖通净化总工程师男性职能",
+   "id": "char_lin_chengye_engineer",
+   "identity": {
+    "authority": "对医院气体管道压差与自动气密门联动有现场排险技术处置权",
+    "exposure": "设备抱死致伤人命将面临工程质量追责",
+    "hidden": "深知门下联锁滑块只要以尖锐硬物向左上角斜推两毫米便可解除死扣",
+    "limits": [
+     "无菌大厅运作期间不得擅自开启排污旁路管"
+    ],
+    "obligations": [
+     "在雷暴断电时确保负压系统不发生反向污染"
+    ],
+    "resources": [
+     "全院洁净手术室气路图纸原本",
+     "加硬合金便携排气开槽起子"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "主任医官临危不乱且识得机械物性之高绝聪颖",
+     "从容不迫之高雅风采"
+    ],
+    "boundaries": [
+     "后勤与临床的分寸人前照旧",
+     "对方先开口，才往前一步"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "隐于幕后之医疗工程护航铁卫",
+    "dislikes": [
+     "狂妄自大乱指挥的外行",
+     "违章盲目操作"
+    ],
+    "expression": "摘下沾灰的手套，隔着门低声道：阀门修好了，往后主任夜班，这道门不会再咬人。",
+    "likes": [
+     "精密仪表自洽联动",
+     "检修完在机房门口并肩站一会儿，听对方讲暖通管道里的风声"
+    ],
+    "preconditions": [
+     "对方已经脱险、缓过神来",
+     "对方先开口，或清楚地回应了心意"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "医院机电暖通总工",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_airlock_interlock_sliding_gate",
+     "to": 1410
+    },
+    {
+     "from": 1411,
+     "location_id": "loc_sterile_dispensing_hall",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "动作过显引来副院长身侧秘书警觉注目",
+      "option": "隔空以手指比划四点二牛顿斜上挑手势指点女医官插撬方位"
+     },
+     {
+      "cost": "在众人注视下调整阀门需承担微量操作问责",
+      "option": "悄然旋松侧箱卸压螺栓协助减小门轨挤压力道"
+     }
+    ],
+    "pressure": "若不及时卸掉机械卡力，整扇玻璃门框将被两百帕压力焊死",
+    "trigger": "气动联锁滑门受内外压差硬性卡死在导轨中"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "女主任手中骨科锤的角度切得分毫不差，正好顶在滑块卸力卡榫上，神准！",
+    "surface": "报告院长，压差平衡阀已手动就位，两百帕负压已自然释放完毕！"
+   }
+  },
+  {
+   "adult_context": "国家特级主任药师年届五十五岁成年名宿，对剧毒与无菌药品配制负全面审核责任。",
+   "age_range": [
+    53,
+    56
+   ],
+   "appearance_options": [
+    "身穿整洁白大褂内套深灰针织衫，戴金丝老花镜，须发微白神态慈和，指节修长白净，透着老一辈药学家之渊博雅量。",
+    "纯白长袍整肃无褶皱，手捧药案记录册步履安详，目光慈祥中透着学术之威严谨重。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱打翻药剂瓶造成严重浪费",
+     "卷入无谓人事纠纷"
+    ],
+    "contrast": "看似只知埋首做学问之文弱老药师，临危关头沉着大度善解人意",
+    "core_value": "毫厘之间关乎性命，用精湛药理守护每一剂救命良药",
+    "goal_options": [
+     "以复核重症药剂配方为由吸引评审专家全场注意力",
+     "在台前悄然转动紫外线灭菌延时旋钮多争取十秒生机"
+    ],
+    "never": [
+     "放行有瑕疵药剂流入临床",
+     "在同行危难时袖手旁观"
+    ],
+    "prefers": [
+     "严谨精准之药品数据",
+     "用学术权威化解突发事态"
+    ],
+    "pressure_responses": {
+     "breaking": "在门启刹那朗声宣布全数药剂零污染合格打破全场死寂",
+     "high": "手扶药盘主动向门外专家展示刚配制完成之高难度药剂",
+     "low": "在超净工作台前专注核对药瓶标签，神情笃定安然",
+     "mid": "察觉滑门异常受卡却面不改色从容清点已配妥针剂"
+    },
+    "relationship_stance": "爱惜年轻医学天才之慈爱长者，全力以赴护持女主任",
+    "withdrawal": "在无菌室记录簿工整写下当班批号签名"
+   },
+   "gender": "male",
+   "gender_reason": "资深主任药剂师男性长者身份",
+   "id": "char_jiang_jianping_pharmacist",
+   "identity": {
+    "authority": "对全院特种药品无菌配制处方拥有最终药学审查权",
+    "exposure": "药剂受损将危及数十条垂危患者生命安全",
+    "hidden": "暗中准备了灭菌灯强制喷放手动超驰延时旋钮",
+    "limits": [
+     "不能违反无菌操作规范擅离配药隔离操作台"
+    ],
+    "obligations": [
+     "断电突发时刻严格把关抢救特药不受环境杂质侵染"
+    ],
+    "resources": [
+     "全套药品无菌操作留样封签",
+     "药学实验室高等级权限门禁卡"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女主任对临床用药安全之极度敏锐与严苛负责品格",
+     "冰雪聪明之大医气度"
+    ],
+    "boundaries": [
+     "严守清高学者与名门千金女医之高尚学术长幼礼节"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "照拂良玉之药学泰斗与定盘星",
+    "dislikes": [
+     "粗心大意之实习操作",
+     "弄虚作假之药品回扣"
+    ],
+    "expression": "以舒展释怀之赞许长笑肯定女主任处乱不惊之神采",
+    "likes": [
+     "纯净澄澈之药液",
+     "秉性高洁不染纤尘之年轻名医"
+    ],
+    "preconditions": [
+     "以严谨科学精神契合之长幼忘年相知相敬"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "配药中心主任药师",
+   "schedule": [
+    {
+     "from": 1370,
+     "location_id": "loc_sterile_dispensing_hall",
+     "to": 1400
+    },
+    {
+     "from": 1401,
+     "location_id": "loc_sterile_dispensing_hall",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "动作若被专家团摄像机录下需出具书面技术申辩",
+      "option": "冒操作违规风险探手拧动操作台下方紫外灯机械延时旋钮"
+     },
+     {
+      "cost": "高声报账稍损平时轻言细语之儒雅老药师作派",
+      "option": "大声向门外报出重症药剂配方数据转移全场目光聚焦"
+     }
+    ],
+    "pressure": "若不手动延时，强氧化臭氧将直接喷向女主任后背造成严重烧灼",
+    "trigger": "紫外灭菌灯即将强制喷放，女主任仍在门缝受制无法抽身"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "紫外线延时旋钮已向右回拨十五秒，主任只管稳住心神脱扣即可。",
+    "surface": "副院长诸位领导请看，今夜雷暴特制之二十瓶重症救命针剂全部按时保质配制完成！"
+   }
+  },
+  {
+   "adult_context": "三甲医院骨科优秀青年住院总医师年满二十二岁，具备完备执业医师资格与手术技能。",
+   "age_range": [
+    22,
+    23
+   ],
+   "appearance_options": [
+    "身穿挺括深墨绿分体式外科洗手衣外套短款轻便白大褂，身材高挑匀称，英姿飒爽，手戴医用乳胶手套，眉宇间带着外科刀客之果决凌厉。",
+    "纯白医师短装外套下着深黑洗手裤，双眸锐利明亮透着傲然风骨，随身手提精致无菌器械钢匣。"
+   ],
+   "decision": {
+    "avoids": [
+     "拖泥带水优柔寡断",
+     "当众宣扬突发丑事引来无妄之灾"
+    ],
+    "contrast": "看似雷厉风行豪迈不羁之外科霸王花，微观操作细腻如发丝般精准",
+    "core_value": "骨力千钧刀锋所向，外科医生的手永远沉着如山不可撼动",
+    "goal_options": [
+     "在侧廊暗中递送备用骨膜剥离器助女主任挑脱咬舌",
+     "在女主任脱身瞬间以身体和托盘协助遮挡视线盲区"
+    ],
+    "never": [
+     "在同行陷入绝境时落井下石",
+     "违背对主任之守护盟誓"
+    ],
+    "prefers": [
+     "高强度医用合金精密微观杠杆",
+     "以快打慢一击制胜之外科气魄"
+    ],
+    "pressure_responses": {
+     "breaking": "在卡簧弹开后熟练接过截骨锤放回器械盘不留丝毫痕迹",
+     "high": "反手将加硬骨科剥离器递入门缝协助女主任实施双点支撑撬拨",
+     "low": "手指把玩止血钳，凝神倾听门槽金属卡舌咬合之微观声响",
+     "mid": "借送还器械为名大步跨至滑门另一侧暗中卡住阻尼导轨"
+    },
+    "relationship_stance": "与女主任惺惺相惜志同道合之青年一代外科女帅盟友",
+    "withdrawal": "返回骨科急诊手术室主持急救手术"
+   },
+   "gender": "female",
+   "gender_reason": "同届青年骨科住院总女医师同行才女身份",
+   "id": "char_song_sihan_fellow",
+   "identity": {
+    "authority": "对骨科特种手术器械管理与急诊外科创伤救治有专业现场发言权",
+    "exposure": "器械在非手术场合折断受损将承担医疗设备违章责任",
+    "hidden": "亲手打磨过女主任手中截骨锤平柄末端之倒角角度",
+    "limits": [
+     "不能跨专业干涉内科与药学部内部质控规程"
+    ],
+    "obligations": [
+     "确保骨科特种器械在借调期间维持无菌功能无损"
+    ],
+    "resources": [
+     "随身医用纯钛骨膜起子与血管钳",
+     "骨科专用快速冷敷喷雾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女主任清冷绝尘之中流砥柱英姿",
+     "同样追求医学极致之傲然心气"
+    ],
+    "boundaries": [
+     "不在对方惊魂未定时越界",
+     "医院里照旧是同事，下了班才是自己人"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "并肩傲立杏林峰顶之至交外科女帅",
+    "dislikes": [
+     "婆婆妈妈优柔寡断之辈",
+     "官僚作威作福"
+    ],
+    "expression": "扯下手术帽甩了甩头发，挑眉笑着凑近：刚才那一锤算你欠我的……今晚请我吃宵夜，顺便陪我。",
+    "likes": [
+     "顶级冷轧不锈钢手术刀",
+     "下了手术台在更衣室并肩坐着，头靠着头一句话也不说"
+    ],
+    "preconditions": [
+     "夜里的事故已经平息，两人都缓过了神",
+     "彼此都明白说出口的是心里话，不是一时激动"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "骨科青年住院总医师",
+   "schedule": [
+    {
+     "from": 1375,
+     "location_id": "loc_airlock_interlock_sliding_gate",
+     "to": 1405
+    },
+    {
+     "from": 1406,
+     "location_id": "loc_airlock_interlock_sliding_gate",
+     "to": 1435
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "动作过大容易被门外副院长眼尖瞧出端倪",
+      "option": "将纯钛小起子探入缝隙当作第二支点"
+     },
+     {
+      "cost": "需在众位考评专家眼皮底下冒触电风险盲操",
+      "option": "在门框外角暗中以手肘猛按滑轨外侧自锁微动应急回弹触点"
+     }
+    ],
+    "pressure": "若五秒内不能完全挑开，滑门将在压力失衡下发生永久扭曲",
+    "trigger": "截骨锤单点受力略显生涩，滑门联锁咬舌死扣需第二支撑点辅助"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "那把截骨锤的柄口我亲手精磨过四毫米倒角，主任只管放心下压，簧片必退！",
+    "surface": "骨科急诊外伤清创手术器械已全数完成高温高压灭菌，请女主任过目！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "十二月的一个周四",
+  "minute": 1380
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "substance",
+  "workplace",
+  "disaster"
+ ],
+ "custom": true,
+ "customs": [
+  "夜巡医官进负压配药大厅前必须在净化风淋室静立吹淋三十秒，核对压差表读数并在交接大屏录入电子指纹。",
+  "突发跳闸应急状态下，值班护士长需第一时间开启备用移动蓄电池照明而不得擅自拉响刺耳全区火警免生恐慌。",
+  "巡查主任在遭遇突发意外卡阻时严禁大声呼救，须保持沉着威严以医疗术语暗号引导同袍协助排险遮蔽。",
+  "手术抢险组常备高等级双层加厚纯白防化防辐射阻燃战术大氅，用于紧急救护期间严密遮蔽伤患与医护衣着破损。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "手持微压差计核准气密门两端微观气流方向确保始终维持向内定向负压",
+    "用酒精棉球仔细清洁门缝磁吸防夹密封胶条消除积存微尘污渍"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_airlock_pressure_differential_check",
+   "location_ids": [
+    "loc_airlock_interlock_sliding_gate"
+   ],
+   "start_minute": 1350,
+   "tags": [],
+   "title": "负压大厅无菌净化风淋压差巡检"
+  },
+  {
+   "beats": [
+    "测试二级跳闸保护回路声光报警器二十秒倒数警报音量与频闪亮度",
+    "复核配药工作台下方臭氧发生器应急截止切断阀机械行程顺畅度"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_uv_ozone_timer_calibration",
+   "location_ids": [
+    "loc_sterile_dispensing_hall"
+   ],
+   "start_minute": 1365,
+   "tags": [],
+   "title": "高强度脉冲灭菌紫外系统倒数校核"
+  },
+  {
+   "beats": [
+    "在层流洁净台前借冷光源聚光灯逐一抽检静脉营养液澄明度与微粒指标",
+    "对危重症输液处方双人双签核实并在药房管理网络完成终审签批"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_sterile_dispensing_iv_inspection",
+   "location_ids": [
+    "loc_sterile_dispensing_hall"
+   ],
+   "start_minute": 1370,
+   "tags": [],
+   "title": "重症监护中心特殊针剂无菌复核"
+  },
+  {
+   "beats": [
+    "用外科无水润滑剂擦拭截骨锤平柄末端确保四毫米倒角硬棱无锈蚀生滞",
+    "以卡尺抽验手术器械托盘边缘抗扭曲平整度满足微观杠杆操作标准"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_surgical_tool_tray_sterilization",
+   "location_ids": [
+    "loc_airlock_interlock_sliding_gate"
+   ],
+   "start_minute": 1360,
+   "tags": [],
+   "title": "骨科截骨锤及外科法器消毒养护"
+  },
+  {
+   "beats": [
+    "演练两人配合于两秒内将加厚纯白大氅展开形成环形无缝遮蔽幕墙",
+    "确认大氅下摆防静电铅坠紧贴地面封堵外廊透视视线死角"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_radiation_cloak_rapid_shield_drill",
+   "location_ids": [
+    "loc_airlock_interlock_sliding_gate",
+    "loc_sterile_dispensing_hall"
+   ],
+   "start_minute": 1380,
+   "tags": [],
+   "title": "应急隔离白风衣战术展开演练"
+  },
+  {
+   "beats": [
+    "清理观察窗两侧备用更衣柜确保外廊通道无任何推车障碍物",
+    "由值班医护按考评名册就位站立维持肃穆整洁之专业工作状态"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_vip_rounds_reception_drill",
+   "location_ids": [
+    "loc_airlock_interlock_sliding_gate"
+   ],
+   "start_minute": 1385,
+   "tags": [],
+   "title": "三甲复核考评团夜巡路线整肃迎宾"
+  },
+  {
+   "beats": [
+    "下夜班后外廊尽头的值班室只剩一盏床头灯，女主任脱了白大褂坐在床沿，铅笔裙侧边的暗扣还歪着两枚。",
+    "女主任侧过身，请人替自己把裙侧的暗扣一枚枚扣好，指尖每碰到腰侧一下，呼吸就轻一分。",
+    "最后一枚扣好时，女主任没有起身，只伸手把床头灯调暗了一档。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_on_call_room_after_shift",
+   "location_ids": [
+    "loc_on_call_room"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "intimate"
+   ],
+   "title": "下夜班值班室扣好暗扣"
+  },
+  {
+   "beats": [
+    "凌晨三点，值班室里只有咖啡机的咕噜声，女主任脱了高跟鞋，把穿着丝袜的脚蜷在椅子上看病历。",
+    "女主任头也不抬：呼叫器二十分钟没响了。……你要是想坐过来，现在可以。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_on_call_3am_coffee",
+   "location_ids": [
+    "loc_on_call_room"
+   ],
+   "start_minute": 180,
+   "tags": [
+    "intimate"
+   ],
+   "title": "凌晨三点两次呼叫之间"
+  },
+  {
+   "beats": [
+    "值班室的门锁上了，女主任靠在铁柜上，白大褂下是熨得笔挺的衬衫和铅笔裙，听诊器还挂在脖子上。",
+    "女主任把听诊器摘下来挂到人脖子上：先听听我的心跳，再决定要不要解扣子。……你来决定。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_on_call_stethoscope",
+   "location_ids": [
+    "loc_on_call_room"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "intimate"
+   ],
+   "title": "先听心跳再解扣子"
+  },
+  {
+   "beats": [
+    "交班前，值班室的窄床上，女主任在人怀里醒来，头发散在枕头上，眼镜不知道丢到了哪里。",
+    "女主任摸到眼镜戴上，看了一眼表：还有十分钟交班。……够了，过来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_on_call_before_handover",
+   "location_ids": [
+    "loc_on_call_room"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "交班前的十分钟"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "现代都市",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "少男",
+  "少女",
+  "男童",
+  "女童",
+  "儿童",
+  "学徒",
+  "徒弟",
+  "师徒",
+  "学生",
+  "学员",
+  "校园",
+  "师生"
+ ],
+ "hooks": [
+  {
+   "id": "hook_jingming_director_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_interlock_sliding_gate"
+   ],
+   "slot": "char_gu_jingming_director",
+   "text": "{npc.name}踏响皮鞋迈至风淋门前，威严犀利之目光透过铅玻璃直视内室门框方向。"
+  },
+  {
+   "id": "hook_yuqin_cloak_shield",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_interlock_sliding_gate",
+    "loc_sterile_dispensing_hall"
+   ],
+   "slot": "char_he_yuqin_head_nurse",
+   "text": "{npc.name}双手展开宽幅纯白防辐射战术大氅，以优雅干练之姿严密挡死观察窗外探视线。"
+  },
+  {
+   "id": "hook_chengye_valve_signal",
+   "kind": "approach",
+   "location_ids": [
+    "loc_airlock_interlock_sliding_gate"
+   ],
+   "slot": "char_lin_chengye_engineer",
+   "text": "{npc.name}隔着门窗向内席女主任暗打四点二牛顿上挑手语，准确指出滑块自锁卡槽死穴。"
+  },
+  {
+   "id": "hook_sihan_hammer_nod",
+   "kind": "observe",
+   "location_ids": [
+    "loc_airlock_interlock_sliding_gate"
+   ],
+   "slot": "char_song_sihan_fellow",
+   "text": "{npc.name}注目器械盘内不锈钢截骨锤平柄末端，以笃定眼神示意钝头棱角无坚不摧可全力施为。"
+  },
+  {
+   "id": "hook_lu_on_call_coffee",
+   "kind": "approach",
+   "location_ids": [
+    "loc_on_call_room"
+   ],
+   "slot": "char_lu_qingyi_officer",
+   "text": "{npc.name}从值班室里探出头，压着嗓子：今晚病房很安静。进来，我请你喝杯咖啡。"
+  }
+ ],
+ "id": "night_clinic_blackout_prescription",
+ "locations": [
+  {
+   "affordances": [
+    "反握不锈钢骨科截骨锤探向滑槽机械联锁卡销",
+    "借配药工作台厚实不锈钢边缘为反作用力支撑点实施杠杆挑撬",
+    "示意护士长展开双层防辐射大氅阻断观察窗视线"
+   ],
+   "detail": "达到百级层流无菌洁净标准之配药大厅，两排大型超净工作台闪烁冷光，正中设有特殊药剂配制恒温转盘，空气中流动着冷冽负压抽吸气流。",
+   "exits": [
+    "loc_airlock_interlock_sliding_gate",
+    "loc_hvac_control_substation"
+   ],
+   "id": "loc_sterile_dispensing_hall",
+   "name": "无菌配药大厅",
+   "pressure_modifiers": {
+    "press_airlock_interlock_trap": "舱内压差急剧攀升致使联锁棘爪紧紧咬死衣带"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "双层铅玻璃透视窗阻隔声响，灭菌指示灯深红闪烁映照着女子端庄高挑之雪白背影。",
+   "witnesses": [
+    "bg_orderly_wang",
+    "bg_apprentice_nurse_zheng"
+   ]
+  },
+  {
+   "affordances": [
+    "观察外廊专家团步履踏响地砖之倒数节拍",
+    "由暖通工程师在门外指示联锁滑块之正确杠杆力矩方向",
+    "在门框角落暗处借大氅掩护迅速拉平制服下摆"
+   ],
+   "detail": "连接外廊走廊与内席大厅之气动联锁气密通道，地面铺设防静电地坪，两米宽重型气密钢滑门此刻正紧扣在卡槽中。",
+   "exits": [
+    "loc_sterile_dispensing_hall",
+    "loc_hospital_rounds_corridor"
+   ],
+   "id": "loc_airlock_interlock_sliding_gate",
+   "name": "风淋缓冲气闸滑门通道",
+   "pressure_modifiers": {
+    "press_airlock_interlock_trap": "考评组皮鞋声步步紧逼构成心理极限重压"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "外廊考评团脚步声由远及近，走廊应急白炽灯在不锈钢门框上映出晃动长影。",
+   "witnesses": [
+    "bg_orderly_wang",
+    "bg_apprentice_nurse_zheng"
+   ]
+  },
+  {
+   "affordances": [
+    "副院长驻足于通道指示牌前听取考评员汇报",
+    "主任药师以展示急救药品配方为由上前对话争取时间",
+    "巡视员递送备用白大褂与鞋套备作考评团进舱更衣"
+   ],
+   "detail": "连接行政主楼与无菌中心的明亮长廊，两侧挂满三甲质控规程图表，数十位身着正装之评审专家正缓步逼近门前。",
+   "exits": [
+    "loc_airlock_interlock_sliding_gate",
+    "loc_hvac_control_substation",
+    "loc_on_call_room"
+   ],
+   "id": "loc_hospital_rounds_corridor",
+   "name": "洁净区外廊考评通道",
+   "pressure_modifiers": {
+    "press_airlock_interlock_trap": "专家团手掌搭上门把手形成巨大礼法危机"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "打分文件夹翻动沙沙作响，专家们审视严苛之目光穿透玻璃紧锁内舱大门。",
+   "witnesses": [
+    "bg_orderly_wang",
+    "bg_apprentice_nurse_zheng"
+   ]
+  },
+  {
+   "affordances": [
+    "手动扳动旁路泄压气阀机械手柄加速平衡负压差",
+    "调谐备用应急发电机供电频率避免发生二次跳闸",
+    "通过机房玻璃传呼窗口向内席打出手势确认安全"
+   ],
+   "detail": "位于洁净区侧后方之机电保障机房，安装全套空气负压变频离心风机与应急旁通气阀，仪表盘显示压差正逐步拉平。",
+   "exits": [
+    "loc_sterile_dispensing_hall",
+    "loc_hospital_rounds_corridor"
+   ],
+   "id": "loc_hvac_control_substation",
+   "name": "负压机电暖通分控室",
+   "pressure_modifiers": {
+    "press_airlock_interlock_trap": "泄压阀一旦卡死将导致负压差瞬间激增"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "机房内只有监控仪表之绿光，巨型通风管道传来沉闷轰鸣。",
+   "witnesses": [
+    "bg_orderly_wang",
+    "bg_apprentice_nurse_zheng"
+   ]
+  },
+  {
+   "affordances": [
+    "陪女主任在值班室喝咖啡",
+    "替女主任把白大褂挂起来",
+    "把值班室的门锁上"
+   ],
+   "detail": "洁净区外廊尽头的一间值班室，一张窄床、一张堆满病历的桌子、一台咖啡机，门可以从里面锁上。",
+   "exits": [
+    "loc_hospital_rounds_corridor"
+   ],
+   "id": "loc_on_call_room",
+   "name": "外廊尽头的值班室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "只开一盏床头灯，呼叫器搁在枕边，走廊上的脚步声一近，屋里的人就屏住呼吸。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "陆",
+   "何",
+   "顾",
+   "林",
+   "江",
+   "宋",
+   "裴",
+   "唐",
+   "沈",
+   "韩",
+   "温",
+   "秦"
+  ],
+  "given_female": [
+   "清漪",
+   "玉琴",
+   "思涵",
+   "静初",
+   "雨微",
+   "芷晴",
+   "若云",
+   "敏仪",
+   "佳琪",
+   "慕青",
+   "书瑶",
+   "晚晴"
+  ],
+  "given_male": [
+   "景明",
+   "成业",
+   "建平",
+   "志远",
+   "振东",
+   "绍德",
+   "世杰",
+   "宏远",
+   "文博",
+   "子谦",
+   "嘉树",
+   "承泽"
+  ],
+  "given_neutral": [
+   "安",
+   "宁",
+   "平",
+   "青",
+   "言",
+   "诺",
+   "舟",
+   "凡",
+   "然",
+   "澈",
+   "一",
+   "禾"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "老{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留现代三甲医院夜班负压配药大厅的背景与人物设定。改动：四个玩家身份原本与人物模板是同一批人，改写为卫健委飞行检查员、医药公司驻院代表、夜班保安、麻醉科值班医生；第一个钩子写的是考评组长到门前，槽位从女主任改为考评组长；女主任、骨科住院总与暖通总工的倾向卡放宽到脱险后可心动，亲密前提写明危机解除、双方清醒自愿；新增一个下夜班后值班室的亲密日常；写死的人名改为身份称呼或占位。",
+ "player_identities": [
+  {
+   "age_range": [
+    32,
+    48
+   ],
+   "baseline": "不打招呼就来抽查夜班的检查员，正好赶上雷暴跳闸。",
+   "gender": "any",
+   "id": "identity_chief_medical_officer",
+   "reputation": "铁面无私，院长们听见这个名字都要出一身汗。",
+   "resources": [
+    "卫健委的检查令",
+    "一票否决的现场记录权"
+   ],
+   "risks": [
+    "检查中若出事故，检查员也要写说明"
+   ],
+   "role": "卫健委派来的成年飞行检查员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}检查员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "负责重症针剂供货的医药代表，夜里来送一批急用药，被困在了配药区外廊。",
+   "gender": "any",
+   "id": "identity_head_nurse",
+   "reputation": "八面玲珑，嘴严手快。",
+   "resources": [
+    "一箱急用的重症针剂",
+    "跟药剂科上上下下的交情"
+   ],
+   "risks": [
+    "被查到深夜出入洁净区，供货资格就悬了"
+   ],
+   "role": "医药公司的成年驻院代表",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}代表"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "守四楼洁净区门禁的夜班保安，手里有全层的备用门卡。",
+   "gender": "any",
+   "id": "identity_director_inspector",
+   "reputation": "老实肯干，护士们都愿意找这位帮忙。",
+   "resources": [
+    "四楼全部门禁的备用卡",
+    "一支强光手电和一部对讲机"
+   ],
+   "risks": [
+    "门禁出了岔子，保安是第一个背锅的"
+   ],
+   "role": "医院的成年夜班保安",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "今晚和女主任搭班的麻醉医生，刚下一台急诊手术，回来取药就撞上了停电。",
+   "gender": "any",
+   "id": "identity_hvac_engineer",
+   "reputation": "冷静可靠，手术室里人人都信这位的判断。",
+   "resources": [
+    "麻醉科药柜钥匙",
+    "一身还没换下的手术服"
+   ],
+   "risks": [
+    "擅离岗位太久，急诊那边会出事"
+   ],
+   "role": "麻醉科的成年值班医生",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}医生"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "三甲医院四层的负压无菌配药中心，值班女主任管着全院最难配的药，白天带教、查房，夜里守着配药大厅签字。卫健委的飞行检查组这周驻院，医药公司的驻院代表和夜班保安也总在外廊打转。配药大厅的气动滑门遇到压差会自锁，雷雨季的电闸跳过一回。",
+ "pressures": [
+  {
+   "choice": "是反握冷锻金属平柄施展四点二牛顿杠杆刚力挑开卡销，抑或呼唤护士长强拉门扇冒撕裂走光之险？",
+   "exits": [
+    {
+     "cost": "白皙皓腕被冰冷合金合页刮擦出道道红痕伴随刺骨钝痛",
+     "option": "反握冷轧整骨锤平把探入机械滑块以四点二牛顿刚力挑退自锁卡榫"
+    },
+    {
+     "cost": "开门动作延滞数秒引来门外评审团长时间驻足狐疑打量",
+     "option": "示意护士长迅速拉平白色防护披肩掩盖门框空隙暗中用力"
+    }
+   ],
+   "far": {
+    "consequence": "女主任首席名医之崇高声誉彻底毁弃，科室面临降级通报批评",
+    "due_days": 1,
+    "trigger": "紫外高压放电若正式喷发将灼伤女主任裸露肩颈，门外考评专家拉开门窗将直击走光破败丑态"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_airlock_interlock_trap",
+   "immediate": {
+    "minutes": 1,
+    "text": "滑门机械棘爪深嵌腰带丝带，真丝长袍紧绷勒紧香肩，紫外灭菌倒计时二十秒警报急促长鸣。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sterile_dispensing_hall",
+    "loc_airlock_interlock_sliding_gate"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "副院长严厉靴声已踏上外廊最后数步，配药大厅紫外线与臭氧发生器指示灯转为深红警示。"
+   },
+   "objective": "在紫外脉冲喷放前二十秒内反握截骨锤撬退联锁滑块抽身，抚平白袍恢复冷艳端庄姿态迎客",
+   "source": "accident",
+   "start_minute": 1395,
+   "tags": [
+    "disaster"
+   ],
+   "title": "气动联锁滑门受压咬带危机",
+   "trigger": "突发跳闸内外压差暴涨至二百帕，气动联锁滑门自锁死死咬住女主任真丝长袍后腰带与铅笔裙侧暗扣"
+  },
+  {
+   "choice": "是由老药师以呈报危重配方引开评审视线，还是由暖通总工以调试旁通阀拖延时间？",
+   "exits": [
+    {
+     "cost": "老药师需在众位挑剔考评官面前独自承受长达数分钟严肃问询",
+     "option": "主任药师老药师主动隔窗向专家团展示重症急救药品配方表格引开视线"
+    },
+    {
+     "cost": "轻微违章操作需在考评后提交书面申辩报告",
+     "option": "暖通工程师暖通总工在外侧机箱轻拧泄压旋钮以平衡舱门气压"
+    }
+   ],
+   "far": {
+    "consequence": "全院本年度重大国家级专项拨款被全额撤销追责",
+    "due_days": 2,
+    "trigger": "考评组若目睹内部机械卡滞与医护失态将当场取消无菌中心示范单位评定"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_hospital_rounds_inspection",
+   "immediate": {
+    "minutes": 2,
+    "text": "专家团手持打分夹已驻足风淋室外玻璃窗前，深沉议论之声清晰传过对讲器。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_airlock_interlock_sliding_gate"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "考评组助理手掌已搭在风淋门把手上，若内门未能按时开启将直接记录设备故障。"
+   },
+   "objective": "在专家团推开气闸门前完成自救与仪容整肃，确保洁净大厅质控万全无虞",
+   "source": "institution",
+   "start_minute": 1390,
+   "tags": [],
+   "title": "三甲专家考评突击夜巡大检",
+   "trigger": "考评专家团在副院长率领下大步流星抵临负压配药大厅外廊准备推门验收"
+  },
+  {
+   "choice": "是硬拽白大褂冒险脱身，还是赌机电总工能及时断电？",
+   "exits": [
+    {
+     "cost": "露在外面的手腕和小腿会被灼红",
+     "option": "用白大褂下摆蒙住头脸，硬撑过照射"
+    },
+    {
+     "cost": "拉闸会连带负压系统一起停掉，配药厅要重新消毒",
+     "option": "请机电总工手动拉闸切断灭菌回路"
+    }
+   ],
+   "far": {
+    "consequence": "考评组会在报告里记下配药厅安全管理失职。",
+    "due_days": 2,
+    "trigger": "若被紫外灯照伤，女主任的眼睛要休养好几周，手术排班全乱。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_uv_sterilizer_countdown",
+   "immediate": {
+    "minutes": 1,
+    "text": "灭菌灯管开始发出嗡嗡声，头顶亮起一圈淡紫色的光。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sterile_dispensing_hall"
+   ],
+   "near": {
+    "deadline_minutes": 3,
+    "text": "二十秒后紫外灯全功率照射，皮肤和眼睛都会灼伤。"
+   },
+   "objective": "在紫外灯亮起之前脱身，或者让机电总工手动切断灭菌回路。",
+   "source": "accident",
+   "start_minute": 1398,
+   "tags": [
+    "disaster"
+   ],
+   "title": "紫外灭菌倒计时",
+   "trigger": "断电后备用电源启动，配药厅的紫外灭菌灯进入倒计时，二十秒后就要全功率照射。"
+  },
+  {
+   "choice": "是先顾自己脱身，还是被卡着也要先把针剂从门缝递出去？",
+   "exits": [
+    {
+     "cost": "身子一扭，白大褂的腰带又被扯紧一截",
+     "option": "被卡着也要伸手从门缝把针剂递出去"
+    },
+    {
+     "cost": "传递窗也被断电锁死，要等机电总工去开",
+     "option": "让护士长从另一侧的传递窗取药"
+    }
+   ],
+   "far": {
+    "consequence": "医院要面对一场医疗纠纷，女主任作为当班负责人首当其冲。",
+    "due_days": 3,
+    "trigger": "若针剂送晚了，病人可能抢救不过来。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_emergency_prescription",
+   "immediate": {
+    "minutes": 1,
+    "text": "门外护士的哭腔隔着玻璃传进来。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_sterile_dispensing_hall",
+    "loc_hospital_rounds_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "急诊那边说病人的血压还在往下掉。"
+   },
+   "objective": "在病人撑不住之前把针剂递出去。",
+   "source": "person",
+   "start_minute": 1402,
+   "tags": [],
+   "title": "急诊急等的处方药",
+   "trigger": "急诊送来一个过敏性休克的病人，急需配药厅里的一支特殊针剂，护士在门外急得直拍玻璃。"
+  },
+  {
+   "choice": "是让护士长出去说明情况，还是让规培医生闭嘴？",
+   "exits": [
+    {
+     "cost": "护士长一走，门口就没人挡视线",
+     "option": "让护士长出去说明是断电卡门"
+    },
+    {
+     "cost": "越是严厉，越显得心虚",
+     "option": "把规培医生叫到一边严厉警告"
+    }
+   ],
+   "far": {
+    "consequence": "医院上下都会以为女主任和考评组结了梁子。",
+    "due_days": 4,
+    "trigger": "若流言写进考评报告，女主任的晋升就要往后推一年。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_nurse_station_gossip",
+   "immediate": {
+    "minutes": 2,
+    "text": "几个夜班护士凑在一起窃窃私语，看见人来就散开。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hospital_rounds_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "考评组的记录员已经在本子上记了一笔。"
+   },
+   "objective": "在流言传到考评组之前把风声压下去。",
+   "source": "rumor",
+   "start_minute": 1405,
+   "tags": [],
+   "title": "护士站的悄悄话",
+   "trigger": "护士站里有人说女主任被关在配药厅里，话传到急诊科已经成了女主任跟考评专家吵翻了。"
+  },
+  {
+   "choice": "是让机电总工先恢复负压，还是先救人再说？",
+   "exits": [
+    {
+     "cost": "机组一启动，滑门的气压会把门咬得更紧",
+     "option": "让机电总工先恢复负压机组"
+    },
+    {
+     "cost": "院感科的封闭令一下，就很难撤回",
+     "option": "先救人，负压的事等会再说"
+    }
+   ],
+   "far": {
+    "consequence": "几十个等着化疗的病人要推迟治疗，院长要亲自出面解释。",
+    "due_days": 2,
+    "trigger": "若洁净区被封，第二天的化疗配药要全部停掉。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_negative_pressure_alarm",
+   "immediate": {
+    "minutes": 2,
+    "text": "压差表的指针一路往零滑，报警灯闪成一片红。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hvac_control_substation",
+    "loc_sterile_dispensing_hall"
+   ],
+   "near": {
+    "deadline_minutes": 10,
+    "text": "十分钟一到，院感科就要下封闭令。"
+   },
+   "objective": "在院感规定的十分钟内恢复负压，免得整个洁净区被封。",
+   "source": "institution",
+   "start_minute": 1408,
+   "tags": [
+    "workplace"
+   ],
+   "title": "负压系统报警",
+   "trigger": "负压机组断电停转，配药厅的压差报警响个不停，按院感规定压差失衡超过十分钟就得封闭整个洁净区。"
+  }
+ ],
+ "region": "综合医疗大楼四层负压无菌中心外廊",
+ "rules": [
+  {
+   "id": "rule_airlock_interlock_protocol",
+   "text": "负压洁净大厅双向气密滑门具备防回流安全自锁，内外压差超标时机械联锁销钉将硬性卡死滑槽防止交叉感染。"
+  },
+  {
+   "id": "rule_uv_sterilization_countdown",
+   "text": "配药区一旦断电触发二级防护，高强度医用紫外灭菌与臭氧脉冲系统将在二十秒警报归零后全自动强制喷放。"
+  },
+  {
+   "id": "rule_surgical_hammer_handling",
+   "text": "骨科特种加厚冷轧不锈钢截骨锤属于一级消毒外科法器，平柄尾端倒角硬棱非主刀医官亲临严禁用于非标操作。"
+  },
+  {
+   "id": "rule_hospital_accreditation_rounds",
+   "text": "卫生评审专家团巡查期间全院维持特级静音与严格着装规范，衣冠不整或仪器失控将当场判定一票否决严重事故。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "接诊",
+  "committed": "共济",
+  "familiar": "默契",
+  "flirting": "会意",
+  "intimate": "信托",
+  "stranger": "初见",
+  "testing": "试探"
+ },
+ "status": "released",
+ "style_hint": "现代大型综合医院风淋洁净工程技术，无第三人称单数代词，全员成年合法自立",
+ "tension_engines": [
+  {
+   "id": "engine_airlock_door_jam",
+   "text": "二百帕内外压差使重型净化滑门形成巨大抽吸负压，联锁棘爪死死咬合真丝长袍腰带与铅笔裙侧拉链。"
+  },
+  {
+   "id": "engine_uv_sterilization_clock",
+   "text": "紫外高强度脉冲与高浓度臭氧喷放二十秒倒计时无情倒数，若不解脱将面临强氧化气体灼伤之灭顶灾难。"
+  },
+  {
+   "id": "engine_director_inspection_approach",
+   "text": "副院长率领三甲评审专家考评团正沿风淋室外廊步步逼近，皮鞋声与威严议论声唯余十五息便将抵临门前。"
+  },
+  {
+   "id": "engine_modesty_tear_threat",
+   "text": "真丝制服受双向机械拉力猛烈紧绷拉扯，稍有盲动整幅后腰带与衬衫前襟便将撕裂导致大面积走光失仪。"
+  }
+ ],
+ "title": "夜勤医务·暗黑诊疗·综合负压配药大厅机械气闸锁舌咬死真丝长袍",
+ "tone": [
+  "冷静",
+  "严谨",
+  "紧迫",
+  "典雅",
+  "纯粹",
+  "体面"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "twist_info_airlock_blueprint",
+   "requires": [
+    "char_lin_chengye_engineer"
+   ],
+   "text": "负压大厅气密滑门在门轨暗格内预留有一组单向泄压自锁滑块，只要用扁平硬柄向斜上方挑动两毫米即可让卡槽应声滑脱。"
+  },
+  {
+   "category": "人事",
+   "id": "twist_person_officer_surgical_mastery",
+   "requires": [
+    "char_lu_qingyi_officer"
+   ],
+   "text": "女主任早前曾主刀数百台高难度骨科截骨矫形手术，对手术器械之微观反作用力杠杆力矩具备举世无双之大师级精准掌控力。"
+  },
+  {
+   "category": "资源",
+   "id": "twist_resource_surgical_hammer_steel",
+   "requires": [
+    "char_song_sihan_fellow"
+   ],
+   "text": "女主任手持之冷轧高硬度外科整平锤乃特种钢材打造，平柄末端经过精密四毫米倒角淬火硬化坚韧不可摧折。"
+  },
+  {
+   "category": "制度",
+   "id": "twist_institution_inspection_protocol",
+   "requires": [
+    "char_gu_jingming_director"
+   ],
+   "text": "国家三甲评审规程明文载明风淋隔离气闸在未达到终末平衡前严禁推门，为女主任利用门遮蔽自救争取了神圣合法之法理屏障。"
+  },
+  {
+   "category": "时限",
+   "id": "twist_deadline_uv_timer_lag",
+   "requires": [
+    "press_airlock_interlock_trap"
+   ],
+   "text": "老药师在操作台下方悄然回拨了紫外线发生器机械延时旋钮十秒，为女主任扳退卡销赢得了千金难买之转瞬生机。"
+  },
+  {
+   "category": "关系",
+   "id": "twist_relation_nurse_shield_devotion",
+   "requires": [
+    "char_he_yuqin_head_nurse"
+   ],
+   "text": "护士长在门扉崩脱刹那以纤瘦身躯和纯白大氅化作铜墙铁壁，为女主任抚平衣摆从容仪态立下了汗马功劳。"
+  }
+ ]
+}

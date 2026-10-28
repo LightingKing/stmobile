@@ -1,0 +1,61 @@
+# 项目元信息与状态机（唯一事实来源）
+schema_version: 2    # 缺失时按 v1 兼容读取；仅总编可升级和写入本文件
+title: ""            # 书名
+slug: ""             # 工作区目录名
+genre: ""            # 题材（如：东方玄幻/都市异能/星际科幻）
+tags: []             # 卖点标签（如：[升级流, 团宠, 反套路]）
+# 类型硬约束（planning 阶段与用户敲定，全流程冻结；可多选组合）
+# 取值与说明见 novel-studio 技能的 references/constraints.md
+type_tags: []        # 如：[玄幻] / [科幻, 异世界] / [穿越, 言情]
+language: zh-CN
+style: ""            # 风格基调一句话概述（如：热血爽文/轻松日常/暗黑权谋；与 style_constraints 冲突时以后者为准）
+# 语言风格硬约束（planning 阶段逐维度敲定，写手/编辑必须逐章遵守）
+style_constraints:
+  narrative_person: ""  # 第一人称/第二人称/第三人称·限知/第三人称·全知（覆盖写手默认视角）
+  diction: ""           # 现代白话/古典（文白相间）/半文半白
+  tone: ""              # 严肃/幽默/热血/暗黑/轻松治愈/悬疑冷峻…
+  register: ""          # 口语化/书面化/半口语
+  extra: []             # 其他硬约束（如：多短句、禁网络流行语、方言点缀）
+# 时间线硬约束（planning 阶段确认；world/synopsis/outline 均由此向下展开）
+timeline_constraints:
+  calendar: ""          # 计时/纪年体系，如：现实公历/乾元历/开篇第 N 天
+  total_span: ""        # 故事总时间跨度，如：7 天/约 3 年
+  structure: linear     # linear/flashback/multi-thread/time-jump/mixed
+  notes: []             # 倒叙标注、多线对时等附加规则
+length_tier: ""      # 短篇/中篇/长篇/超长篇
+total_chapters: 0
+words_per_chapter: 3000
+batch_size: 5
+art_enabled: true    # 是否产出美术物料
+art_mode: final      # final=全文定稿后统一出图 / incremental=每批增量
+art_scope:
+  cover: true
+  portraits: main_characters       # none/main_characters/all_named
+  illustrations: selected          # none/selected/all_key_plot_points
+  selected_plot_points: []         # illustrations=selected 时填写情节卡路径或 ID
+
+stage: init          # init/planning/architecture/lore/drafting/editing/art/acceptance/delivered
+
+progress:
+  current_batch: 0
+  art:
+    status: pending                 # pending/in_progress/complete/skipped
+    completed_batches: []           # incremental 模式下已完成物料的批次号
+  batches: []
+    # - id: 1
+    #   chapters: [1, 5]        # 起止章号
+    #   status: pending         # pending/drafting/editing/reported/approved
+    #   reported_at: ""
+    #   approved_at: ""
+
+decisions: []
+  # - date: 2026-01-01
+  #   by: user
+  #   summary: "反派动机改为复仇，架构师已更新 synopsis 第3节"
+  #   affected: [02-architecture/synopsis.md]
+
+issues: []
+  # - date: 2026-01-01
+  #   from: editor
+  #   summary: "第12章主角剑名与道具卡不符"
+  #   status: open              # open/resolved

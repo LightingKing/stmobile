@@ -1,0 +1,2327 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "古书肆德高望重的老掌柜，在中庭焦急组织后勤搬运沙袋堵水。",
+   "age_range": [
+    65,
+    75
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_bookstore_elderly_owner_lu",
+   "line": "编目员还在二楼书架后头！快拿老木工加力撬棍上去救人！快啊！",
+   "location_ids": [
+    "loc_bookstore_central_atrium"
+   ],
+   "name": "老掌柜陆伯",
+   "role": "古书肆七旬老掌柜"
+  },
+  {
+   "adult_context": "古书肆值班青年店员，在天井边手足无措。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_apprentice_clerk_xiao_qian",
+   "line": "掌柜的！二楼大号橡木架把东侧回廊全砸死了，楼梯口全被堵死了上不去啊！",
+   "location_ids": [
+    "loc_bookstore_central_atrium"
+   ],
+   "name": "书肆店员小钱",
+   "role": "古书肆二十一岁成年店员"
+  },
+  {
+   "adult_context": "教条执法的防汛应急队长，暂时阻拦了外部人员强行冲楼的行动。",
+   "age_range": [
+    40,
+    50
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_heritage_inspector_captain_zheng",
+   "line": "河道水位倒灌临界，电闸已全拉断，二楼木结构可能失稳，严禁盲目冲上去！",
+   "location_ids": [
+    "loc_bookstore_central_atrium"
+   ],
+   "name": "文保郑队长",
+   "role": "老街历史街区防汛抢险队长"
+  },
+  {
+   "adult_context": "在安全楼梯口负责通报天气与水位险情的成年助手。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_apprentice_restorer_xiao_zhao",
+   "line": "修复员！编目员！采光玻璃又碎了一块，雨水全冲到回廊地板上了，抓紧时间啊！",
+   "location_ids": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "name": "助手小赵",
+   "role": "古籍修复坊二十一岁成年技术员"
+  },
+  {
+   "adult_context": "在回廊另一侧递送干绳索与防滑木楔的热心后勤老员工。",
+   "age_range": [
+    50,
+    60
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_street_patrol_guard_lao_ma",
+   "line": "修复员！用你们修房子的铁家伙把铁脚别死！千万别让大架子二度滑脱翻下天井！",
+   "location_ids": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "name": "老更夫马叔",
+   "role": "老街临河巡查值班员工"
+  },
+  {
+   "adult_context": "检查地基暗渠排涝并向现场报告地质沉降危险的仓储主管。",
+   "age_range": [
+    35,
+    45
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_resident_clerk_wu",
+   "line": "暴雨把临河排水分流阀顶开了，河水全灌进地基暗渠了，整栋楼都在轻微打颤！",
+   "location_ids": [
+    "loc_bookstore_central_atrium"
+   ],
+   "name": "驻店吴管事",
+   "role": "古书肆后勤仓储主管"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "编目员与木作修复员在四十公分的书架死角里手叠着手，把黄铜镇纸的直角卡进铁脚螺母，一寸一寸往回扳。",
+   "id": "cc_researcher_and_artisan_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "researcher_wen_zhixia",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死死线前紧密协作构建力矩反支点，彼此产生绝对性命相托。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_artisan_zhou_yue",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同为书肆木构修缮骨干，知晓彼此手上力道与工具用法。",
+     "stage": "familiar"
+    },
+    {
+     "a": "researcher_wen_zhixia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_artisan_zhou_yue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "知性女学者与厚重工匠在灾厄中成为生死不离的脱困搭档。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "researcher_wen_zhixia",
+    "apprentice_artisan_zhou_yue"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在回廊断裂坍塌前合力撬动铁脚调节螺母回退顶开死锁脱险。",
+    "limit_gap": "编目员长裙浸湿且体温燥热，工匠受困于死角狭缝后背承受巨大悬垂重压。",
+    "meeting_reason": "梅雨夜打烊后，编目员还在阁楼抄家谱，修复员上楼来提醒回廊的栏杆刚上了漆。",
+    "resource_gap": "编目员拥有加厚纯铜铸造直角长镇纸，技术员掌握木构受力重心与铁脚偏心牙纹卡死直觉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_floodwater_purge_rush",
+    "te_close_contact_body_heat"
+   ]
+  },
+  {
+   "chemistry": "文献主管与巡检技术员以精准机械原理拆解偏心螺栓咬合，严丝合缝操作工具突破阻滞。",
+   "id": "cc_archivist_and_inspector_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "researcher_wen_zhixia",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "多年协作维护书肆典籍，对彼此技术定力深具默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_artisan_zhou_yue",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "文保部门同事，熟悉书肆各处回廊机关结构。",
+     "stage": "familiar"
+    },
+    {
+     "a": "researcher_wen_zhixia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_artisan_zhou_yue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在沉重书架压迫下并肩伏卧发力，消除身份悬殊界限。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "researcher_wen_zhixia",
+    "apprentice_artisan_zhou_yue"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "利用镇纸三点五毫米厚边精准别住螺母卡槽并顺势扳动铁脚自救。",
+    "limit_gap": "外侧通道彻底砸断无法借助外援，必须在昏暗黄光下凭手感盲操机械脱扣。",
+    "meeting_reason": "老掌柜让编目员和修复员一起把二楼的善本挪到高处，免得河水涨上来。",
+    "resource_gap": "主管掌握古籍避水暗格位置，技术员拥有高精度金属卡尺与强光手电。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_oak_bookshelf_deadweight_pinch",
+    "te_rare_manuscript_water_ruin"
+   ]
+  },
+  {
+   "chemistry": "古建总营造师以绝对力学权威统摄全局，女学者遵从力学指挥，合力爆发千钧推力破死锁。",
+   "id": "cc_chief_engineer_and_scholar_high",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "researcher_wen_zhixia",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "总营造师指挥学者校准发力矢量，展现卓越技术领导力。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_artisan_zhou_yue",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "营造作坊上下级师徒，配合极为娴熟。",
+     "stage": "familiar"
+    },
+    {
+     "a": "researcher_wen_zhixia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_artisan_zhou_yue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "知性女学者与修造工匠共赴生死，结成无间同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "researcher_wen_zhixia",
+    "apprentice_artisan_zhou_yue"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以高刚性力矩反推破除偏心卡死完成无损自救脱困。",
+    "limit_gap": "二楼木构回廊处于临界断裂形变状态，任何蛮动都会引发全面塌陷。",
+    "meeting_reason": "有人来书肆收一批旧书，指名要看二楼回廊里的家谱，编目员不肯开柜。",
+    "resource_gap": "总营造师掌握整座书肆木梁三维受力图，女学者掌握全部珍本孤本安全保护要领。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_rare_manuscript_water_ruin",
+    "te_oak_bookshelf_deadweight_pinch"
+   ]
+  },
+  {
+   "chemistry": "编目员以文献首席身份发布决死抢救指令，巡检技术员严谨配合测算每道力矩数值。",
+   "id": "cc_inspector_and_scholar_command",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "researcher_wen_zhixia",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "同处绝境，上下级界限消融于贴身死斗协作中。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_artisan_zhou_yue",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在文保巡查组共事，彼此熟稔信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "researcher_wen_zhixia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_artisan_zhou_yue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "编目员放下端庄矜持全力依赖工匠臂膀发力破局。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "researcher_wen_zhixia",
+    "apprentice_artisan_zhou_yue"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保宋明善本免遭水浸损毁，全员安全破门撤离。",
+    "limit_gap": "楼梯通道彻底堵死导致外援断绝，必须完全服从编目员临危决断。",
+    "meeting_reason": "编目员抄到一处缺页，请修复员帮忙把顶层的书架挪开找夹页。",
+    "resource_gap": "编目员拥有全馆最高典藏决断威信，巡检员精通书肆应急旁通通道位置。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_floodwater_purge_rush",
+    "te_rare_manuscript_water_ruin"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_nook_whisper_breath",
+   "reach": "all",
+   "text": "四十公分书架死角两人肌肤紧贴急促滚烫的吐息与心跳共振"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_atrium_rainstorm_echo",
+   "reach": "local",
+   "text": "挑空中庭天井倾盆暴雨倾泻与楼下老掌柜隔空呼喊的沉闷回音"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已满二十一岁成年大学女青年，驻店整理善本文献，遇险展现出从容不迫的坚韧意志。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身着一袭素净淡雅的月白色棉麻修身汉元素长裙，乌黑长发松松挽在脑后，容颜清雅绝俗温婉如水，两腮带着健康的红润，在暴雨绝境剧烈喘息中双颊泛起娇艳酡红与细腻薄汗，下颌挂着晶莹水滴。",
+    "衣裙被雨水汗水打湿半贴在纤细曼妙的身躯上，面庞在昏暗手电光下泛出玉石般的温润光泽，双手全力按压加厚黄铜镇纸毫不退缩，柔弱外表下透着动人心魄的果决威严。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱哭喊的软弱作态",
+     "鲁莽盲动的粗暴蛮干"
+    ],
+    "contrast": "说话轻声细语，抄书时连翻页都怕吵醒书肆的猫；书架砸下来那一刻，却是编目员先钻进夹缝去摸铁脚螺母。",
+    "core_value": "古籍虽贵，性命更珍；在天地倾覆的死线前，世俗拘谨皆可抛却，唯有同心合力方见生天。",
+    "goal_options": [
+     "以实心黄铜镇纸直角厚边别入承重铁脚螺母咬合槽撬动螺栓回退",
+     "在走道完全垮塌前协同修复员顶正书架脱困自救"
+    ],
+    "never": [
+     "在同伴脱困前独自抽身离去"
+    ],
+    "prefers": [
+     "沉稳专注且臂力强健的担当男子",
+     "细致严谨的硬核工匠手段"
+    ],
+    "pressure_responses": {
+     "breaking": "哪怕双臂酸胀脱力、急促滚烫的吐息交织在修复员耳畔，亦咬紧贝齿全力抵住力矩绝不松懈分毫。",
+     "high": "在极限死角内将整个人伏在修复员胸膛前，双手紧紧叠压在修复员手背上合力向下猛按镇纸。",
+     "low": "在暴雨倾盆中冷静呼唤修复员，敏锐指出书架卡阻核心在于底盘偏心调节铁脚。",
+     "mid": "毫不犹豫脱下湿透的薄纱外裳，贴身挤入四十公分逼仄书架夹缝死角。"
+    },
+    "relationship_stance": "修复员来修回廊的这半个月，每天收工都会在阁楼楼梯口停一停，编目员就把当天抄错的字指给对方看，两人没说过几句闲话，却谁都没早走过。",
+    "withdrawal": "身体虚脱靠在修复员肩头微喘平复剧烈心跳，面颊微侧避开修复员目光掩饰羞怯。"
+   },
+   "gender": "female",
+   "gender_reason": "名门大学文学院二十一岁成年青年文科研究生，性格温婉清丽兼具非凡定力与勇气的女主。",
+   "id": "researcher_wen_zhixia",
+   "identity": {
+    "authority": "对古书肆二楼珍藏古籍典册拥有最高保护裁量与调配权限。",
+    "exposure": "平日温雅端庄恪守分寸的文系青年，因施力俯卧在修复员怀侧，湿透薄衫贴身急促起伏的柔弱姿态被修复员尽收眼底。",
+    "hidden": "长裙内袋贴身保存着一张书肆二楼老式木构榫卯结构受力点分布墨线图",
+    "limits": [
+     "在书架未被撬正回退前无法抽身逃离夹缝死角",
+     "暴雨持续侵蚀使木板承重在十分钟内达到断裂极限"
+    ],
+    "obligations": [
+     "确保宋版孤本医书与明清藏书完好无损",
+     "与技术员修复员同舟共济排除自重锁死逃生"
+    ],
+    "resources": [
+     "一枚随身携带的实心纯铸铜长条加厚直角折沿镇纸（长二十四公分，厚三点五毫米，高密度淬火锻造，直角折沿坚韧厚实）",
+     "一把防刮纯棉擦拭细绒锦布"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "修复员在巨型书架轰然倾倒瞬间毫不犹豫以宽阔脊背硬扛架身护住{npc.name}的勇毅担当",
+     "在逼仄死角内修复员稳如磐石的强健臂膀与专注沉着的眼神"
+    ],
+    "boundaries": [
+     "恪守正派女青年的端庄自尊底线",
+     "脱困自救纯靠机械物理力矩绝不涉性"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在书架死角紧贴修复员胸前，双手叠在修复员手背上共同握紧黄铜镇纸全力下扳。",
+    "dislikes": [
+     "轻浮不庄重的孟浪举止",
+     "临阵推诿的自私行径"
+    ],
+    "expression": "脱险后在回廊轻柔取出手帕替修复员擦拭额角汗水与木屑，温声细语关切修复员伤势，眼波流转满含感激深情。",
+    "likes": [
+     "在剧烈机械摇晃中被有力臂弯紧紧扣住腰肢维持重心的安稳踏实感",
+     "突破螺母咬死瞬间修复员贴在耳侧低沉温存的喘息安慰"
+    ],
+    "preconditions": [
+     "橡木书架承重铁脚螺母成功松动回退",
+     "两人安全撤离至坚固平整地面",
+     "两人都清醒，心意出于自己，不是书架死角里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "借住书肆阁楼的家谱编目员",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_second_floor_gallery_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_bookshelf_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "铜镇纸把手承受数百牛顿反力矩微弯，两人手臂与手掌被粗糙木刺与金属毛刺磨破红肿。",
+      "option": "借实心纯铜镇纸直角厚边插入螺母咬合槽，两人身体紧贴合力向下施压旋转螺母脱困。"
+     },
+     {
+      "cost": "书架自重远超人力极限，极易导致脊椎扭伤甚至诱发书架二度坍塌压覆。",
+      "option": "徒手尝试向前推举整座重达数百公斤的双面橡木书架。"
+     }
+    ],
+    "pressure": "书架重达数百公斤，偏心重力持续挤压走道木立柱，必须在地面青砖开裂前撬松调节螺母使其回退自救。",
+    "trigger": "暴雨击碎采光天棚雨水灌入回廊，重型实木双面橡木书架受潮失衡倾倒抱死，堵截走廊唯一通路。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "离得太近了……修复员身上有刨花和雨水的味道，心跳一下一下撞过来。别乱想，楼下还有一屋子的书。",
+    "surface": "别慌，书架是受潮偏心，卡在铁脚的螺纹上了。镇纸的直角够硬，我扶着，你往下扳。"
+   }
+  },
+  {
+   "adult_context": "已满二十一岁成年女青年，全面掌管书肆文献编目与防灾处置，遇险果决沉静。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "内穿浅竹青色棉麻交领短衫，外罩防尘耐磨窄袖褙子，两腮线条饱满紧致带着莹润的光泽，在沉重机械重压下咬紧红唇全力发力。",
+    "发髻因暴雨冲刷微散垂落于颈侧，面庞泛着激动的酡红，修长双腿半跪于潮湿走廊，双手青筋微现紧扣镇纸长身。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "怨天尤人"
+    ],
+    "contrast": "文弱雅致的文献主管，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "物理力矩胜于盲目蛮力，只要对准铁脚螺母锁死死点，千钧重架亦可动摇。",
+    "goal_options": [
+     "利用铜镇纸折沿构建旋转力矩拧动螺母",
+     "协同修复员抬起书架底梁脱困"
+    ],
+    "never": [
+     "背弃并肩战斗的伙伴"
+    ],
+    "prefers": [
+     "严谨沉稳的机械操作",
+     "毫无迟疑的协同执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "紧咬银牙将全身气力倾注于镇纸，以极度坚韧的耐力死磕到底。",
+     "high": "俯身死角以自身重力协助修复员压紧杠杆力臂末端。",
+     "low": "严令修复员保持呼吸平稳，仔细摸索铁脚卡死的受力牙纹。",
+     "mid": "果断将铜镇纸直角边卡入螺母外壁缺口建立支点。"
+    },
+    "relationship_stance": "视修复员为最可靠的硬核后盾，在灾厄中缔结生死不渝的深厚默契。",
+    "withdrawal": "在脱困后退至干燥区域深呼吸平复心绪。"
+   },
+   "gender": "female",
+   "gender_reason": "古书肆珍本文献典藏主管态，精通老式藏书阁防灾与木构防潮的文雅女性。",
+   "id": "archivist_wen_zhixia",
+   "identity": {
+    "authority": "掌控书肆全部善本装具保护与应急疏散通道决策权。",
+    "exposure": "温婉清雅的女主管被汗水与雨水湿透薄衫，起伏的体态在逼仄空间完全展露。",
+    "hidden": "熟知回廊立柱受力暗销确切坐标",
+    "limits": [
+     "受困于倾斜书柜下方狭缝缺乏大型撬棒",
+     "必须在十分钟内排除机械死锁"
+    ],
+    "obligations": [
+     "保护祖传宋明善本免遭雨水浸毁",
+     "与修复员安全撤离险境"
+    ],
+    "resources": [
+     "一柄高密度纯铸铜加厚镇纸",
+     "特制防潮加厚亚麻布袋"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "修复员在危难中展现出的木构工程专业判断力与勇猛担当",
+     "近距离贴身支撑时对方如山岳般可靠的臂弯温度"
+    ],
+    "boundaries": [
+     "严守文献主管端庄名誉",
+     "自救恪守硬核机械物理底线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在书架死角俯身相依，胸前紧贴修复员臂膀共同握持工具完成绝地逆转。",
+    "dislikes": [
+     "犹豫退缩",
+     "轻浮孟浪"
+    ],
+    "expression": "默默递上干净干毛巾为修复员擦拭脸上雨水，低声叮嘱修复员注意保暖防寒。",
+    "likes": [
+     "彼此心领神会的眼神对视",
+     "工具严丝合缝卡死螺母的机械咬合感"
+    ],
+    "preconditions": [
+     "铁脚螺母成功松动脱扣",
+     "人员全员脱险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "古书肆文献编目女主管",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_second_floor_gallery_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_bookshelf_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员小臂被粗糙木屑擦破皮肉，体力消耗达到临界生理极限。",
+      "option": "以实心铜镇纸直角厚边卡死螺母缺口，双手合力向下施压旋转松动铁脚。"
+     },
+     {
+      "cost": "耗时过长极易导致立柱突然断裂发生全面垮塌。",
+      "option": "盲目寻找外侧木工铁锯锯断立柱。"
+     }
+    ],
+    "pressure": "回廊地板承重在暴雨浸泡下急剧减弱，必须立即排解书架偏心咬合。",
+    "trigger": "采光天棚暴雨击碎导致雨水大肆灌入，橡木书架失重倾倒抱死走廊立柱。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "雨声太响了……但只要有修复员在身边，这沉重的铁脚螺母必能被我们攻克！",
+    "surface": "书架偏心吃紧在第三圈螺纹！修复员，按我说的角度，把铜镇纸插进去，反向扳动这颗螺母！"
+   }
+  },
+  {
+   "adult_context": "已满二十一岁成年女青年，具备古籍文保特级认证，遇险沉着理性调度有力。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "内着浅青色棉麻斜襟窄袖工装衫，外系深蓝防污围裙，两腮线条饱满紧致带着柔和的轮廓，在沉重木架重压下咬紧红唇全力施压。",
+    "乌黑秀发用纯铜发簪利落挽起，面颊在暴雨雷光下泛着清冷坚毅的酡红，修长双腿半跪于青砖，双手紧扣铜镇纸长身。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "怨天尤人"
+    ],
+    "contrast": "温雅沉静的文献修复学者，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "一切结构倾覆皆有重心规律可循，以精准力矩胜盲目蛮力。",
+    "goal_options": [
+     "借铜镇纸直角边反向撬动铁脚锁止卡齿",
+     "协同修复员顶正立柱平衡脱困自救"
+    ],
+    "never": [
+     "临阵弃械逃生"
+    ],
+    "prefers": [
+     "精准的受力点分析",
+     "果断默契的力矩配合"
+    ],
+    "pressure_responses": {
+     "breaking": "双手磨破出血亦死死抵住杠杆末端，直至牙纹产生松脱位移。",
+     "high": "以自身全部自重从侧方压紧镇纸力臂，消除杠杆滑脱位移。",
+     "low": "冷静扫视书架倾斜夹角，瞬间锁定底盘偏心卡死点。",
+     "mid": "果断将铜镇纸直角厚边别入螺母缺口建立坚固支点。"
+    },
+    "relationship_stance": "视修复员为最可靠的硬核工匠后盾，在灾厄中缔结生死不渝的深厚默契，在旧书堆里泡了整整一个梅雨季。",
+    "withdrawal": "在脱困后退至干燥区域深呼吸平复心绪并整理衣襟。"
+   },
+   "gender": "female",
+   "gender_reason": "善本古籍特级装裱修造女学者态，精通木构家具重心调平与纸绢修复的典雅女性。",
+   "id": "conservator_wen_zhixia",
+   "identity": {
+    "authority": "对书肆展陈古籍物理受力支点与防灾垫料拥有最高技术决定权。",
+    "exposure": "工装围裙被雨水汗水打湿贴合曼妙腰线，在逼仄空间完全展露知性女子罕见的柔韧体态。",
+    "hidden": "熟知回廊外侧备用安全悬挂点分布",
+    "limits": [
+     "受困于死角缺乏大型液压顶升工具",
+     "必须在十分钟内排除机械抱死"
+    ],
+    "obligations": [
+     "力保宋代孤本医书免遭水浸损毁",
+     "与技术员修复员紧密协作确保逃生成功"
+    ],
+    "resources": [
+     "一柄特种铸铜加厚折沿长镇纸",
+     "特制高韧性亚麻防滑扎带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "修复员在危急关头以肉身抗衡巨木的勇毅担当",
+     "狭小死角内对方宽阔臂弯传来的沉厚力量感"
+    ],
+    "boundaries": [
+     "严守自尊自爱底线",
+     "出路纯靠机械杠杆自救"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "伏在修复员臂侧死角，双手叠于修复员手背合力下按镇纸。",
+    "dislikes": [
+     "犹豫退缩",
+     "轻浮孟浪"
+    ],
+    "expression": "轻柔为修复员擦去肩头水渍与尘屑，温言抚慰并检查对方手腕伤痕。",
+    "likes": [
+     "彼此眼神交汇瞬间的定力",
+     "工具严密咬死螺母瞬间的紧实阻尼感"
+    ],
+    "preconditions": [
+     "书架重心恢复稳定",
+     "全员安然脱困出险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "古书肆善本文保修造工程师",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_second_floor_gallery_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_bookshelf_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员前臂与手掌承受强烈反力矩压迫造成肌肉酸麻淤青。",
+      "option": "以纯铜镇纸直角厚边别入螺栓受力缺口，双手合力向下施压旋转松脱铁脚螺纹。"
+     },
+     {
+      "cost": "锯割破坏结构平衡极易诱发大面积塌陷断送生路。",
+      "option": "强行寻找木锯切断受压支撑构件。"
+     }
+    ],
+    "pressure": "二楼木地板受潮承重逼近极限，必须在立柱断裂前手动扳松铁脚螺母。",
+    "trigger": "采光天棚玻璃破裂引起雨水倒灌，重型橡木书架受潮失重倾倒咬死走廊回廊立柱。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "雨势越发猛烈了……只要这根铜镇纸不折断，我们一定能把书架撬回去！",
+    "surface": "修复员，看准铁脚外侧缺口！镇纸厚度正好合适，顺着逆时针方向一起往下压！"
+   }
+  },
+  {
+   "adult_context": "已满二十二岁成年青年，精通木构建筑与重型家具力学重心，身体强健勇毅果敢。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿深灰纯棉工装短袖短打与加厚长裤，双臂肌肉结实紧绷，眼神坚毅沉稳，额前浸满用力迸发的汗珠与雨滴。",
+    "腰系多功能皮质工具包，双手佩戴防滑耐磨手套，在倾覆书架前宛若中流砥柱稳如磐石。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延",
+     "弃弱自保"
+    ],
+    "contrast": "平日沉稳寡言的厚重技术员，在生死一线时爆发出令人心折的刚毅与担当。",
+    "core_value": "木石虽重，其心有理；只要找准反力支点，千钧重架亦可动摇回退。",
+    "goal_options": [
+     "以剔凿钢刀护持铜镇纸防止打滑",
+     "全力下压杠杆扳转螺母松动铁脚"
+    ],
+    "never": [
+     "背叛编目员的信任"
+    ],
+    "prefers": [
+     "稳扎稳打的物理自救",
+     "毫无保留的绝对信赖"
+    ],
+    "pressure_responses": {
+     "breaking": "以肩膀死死顶住倾斜书柜侧梁，哪怕骨骼剧痛也要为编目员顶出撤离生路。",
+     "high": "双手包覆住编目员双手，毫无保留爆发全身背肌与核心力量下按。",
+     "low": "迅速跪地稳固书架下沿，为两人争取刚性防压逃生间隙。",
+     "mid": "伏身死角指引编目员调整握持角度，确保施力矢量切向垂直。"
+    },
+    "relationship_stance": "跟着老师傅修了十几年老房子，头一回在一座书肆里待这么久；阁楼上那盏台灯每晚亮到几点，修复员心里都有数。",
+    "withdrawal": "确认编目员安然无恙后方才脱力坐在走廊长凳边喘息微笑。"
+   },
+   "gender": "male",
+   "gender_reason": "古建筑木作修复青年匠人，肩负护卫书肆文献与受困人员之责。",
+   "id": "apprentice_artisan_zhou_yue",
+   "identity": {
+    "authority": "对现场木构构件受力安全与撬动反支点构筑拥有最高裁定权。",
+    "exposure": "工装短袖被雨水汗水湿透贴紧胸膛，在近身施力时男子汉纯阳气魄完全展现。",
+    "hidden": "随身携带一枚高硬度淬火纯钢销钉",
+    "limits": [
+     "身负护卫编目员重托绝不退后半分",
+     "夹缝逼仄难以施展全身力量"
+    ],
+    "obligations": [
+     "以身为盾护住编目员免受书架坠落碾压",
+     "合力破拆铁脚死锁"
+    ],
+    "resources": [
+     "纯钢平头剔凿钢刀",
+     "加厚橡胶防滑敲击锤",
+     "防滑生牛皮手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "编目员在千钧一发之际毫无娇贵做作、与自己并肩卧地拼命的坚韧气魄",
+     "紧贴近战时编目员面颊透出的温润娇红与急促滚烫的吐息"
+    ],
+    "boundaries": [
+     "恪守规矩分寸",
+     "绝无轻慢之意"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "后背抵住走廊立柱，双手紧紧扣住黄铜镇纸，由编目员伏于怀侧合力下压。",
+    "dislikes": [
+     "轻蔑工匠",
+     "言而无信"
+    ],
+    "expression": "脱险后默默将自身干燥外衣披在编目员微湿的长裙肩头，退后半步恭敬守卫。",
+    "likes": [
+     "彼此掌心交叠时的沉稳踏实",
+     "同声发力突破难关时的心意共鸣"
+    ],
+    "preconditions": [
+     "全员脱困安全无虞",
+     "古籍善本无损"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "来修回廊的木作修复员",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_second_floor_gallery_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_bookshelf_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌虎口在剧烈金属反冲下产生剧烈震颤与轻度淤血。",
+      "option": "借实心铜镇纸与剔凿钢刀组成复合撬杠，以全身重量向下猛压扳转螺母自救。"
+     },
+     {
+      "cost": "可能导致铁脚断裂引发书架全面倒塌断绝全部生路。",
+      "option": "用工具强行砸击铁脚外沿试图砸断螺栓。"
+     }
+    ],
+    "pressure": "重型书架自重持续压迫走廊立柱，必须在铁脚螺纹彻底咬死前施加百公斤反力矩破锁。",
+    "trigger": "橡木书架轰然倾倒卡死走道，四十公分死角为唯一逃生通道，雨水倒灌加剧。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "编目员整个人靠在我怀里，头发湿漉漉地贴在我下巴上……别分心，这架子再滑一寸，谁都出不去。",
+    "surface": "往后靠半分，我先把橡胶锤垫进去。镇纸咬住螺母槽，我数三下，一起压。"
+   }
+  },
+  {
+   "adult_context": "已满二十二岁成年青年工程师，具备全套高级建筑结构与应急抢险资质，冷静机敏。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿深蓝防静电防水连体工装，腰挂专业工具包，身形挺拔矫健，眼神沉静敏锐。",
+    "手持防爆探照灯，工装拉链微开露出结实锁骨，在急迫险情下有条不紊精准指挥。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目冒险",
+     "违规操作"
+    ],
+    "contrast": "现代工程专家与古典文学女学者在逼仄书架缝隙中的硬核化学反应。",
+    "core_value": "任何复杂的自重卡死，本质上都有力矩反支点可以攻克。",
+    "goal_options": [
+     "利用铜镇纸直角边反向拧动承重调节螺栓",
+     "协同顶起书架梁架安全出困"
+    ],
+    "never": [
+     "在风险未清前让编目员以身犯险"
+    ],
+    "prefers": [
+     "严谨精准的技术推演",
+     "临危不乱的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "毫不动摇保持发力姿势直至听见螺母牙纹脱卡的清脆声响。",
+     "high": "在极限逼仄死角内以身体替编目员挡住上方可能滑脱的书本，合力向下压杠杆。",
+     "low": "迅速判断出书架倾覆根源在于铁脚滑出防滑凹槽，指出螺母为唯一破解点。",
+     "mid": "用强光手电为编目员精准标定镇纸直角嵌入的角度与受力点。"
+    },
+    "relationship_stance": "恪尽职守又深怀体贴，在危险中给予编目员无可替代的坚实安全感。",
+    "withdrawal": "协助编目员撤离至安全回廊后立即设置警示隔离带。"
+   },
+   "gender": "male",
+   "gender_reason": "文保建筑驻场工程师，精通老式水乡建筑受力结构与应急防灾。",
+   "id": "civil_engineer_zhou_yue",
+   "identity": {
+    "authority": "掌控书肆木构抗风抗雨抢险现场最终处置指挥权。",
+    "exposure": "防水工装被汗水蒸透，近距离伏卧时散发着阳刚利落的气息。",
+    "hidden": "知晓书肆二楼备用重力吊装滑轮暗孔确切坐标",
+    "limits": [
+     "暴雨封门切断外侧大型机械救援可能",
+     "必须依靠手工便携器具反向破锁"
+    ],
+    "obligations": [
+     "排查消除书肆走廊结构性坍塌隐患",
+     "安全引导编目员脱离险境"
+    ],
+    "resources": [
+     "防爆工业强光手电",
+     "精密调缝防割卡尺",
+     "防水生丝固定带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "编目员在危机中对力学原理解释的敏锐领悟力与毫不犹豫的决断魄力",
+     "彼此贴身协作中文系女青年身上淡淡墨香与急促呼吸形成的反差冲击"
+    ],
+    "boundaries": [
+     "严守专业工程师职业操守",
+     "规矩分明"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "并肩俯卧于夹缝，单手撑地保持避险空隙，另一手与编目员紧握镇纸全力压制。",
+    "dislikes": [
+     "违章蛮干",
+     "盲目自大"
+    ],
+    "expression": "护送编目员至安全长凳后，微笑着递上干净纸巾，目光温和坚定。",
+    "likes": [
+     "默契的眼神确认",
+     "手把手校准器械时的体温传递"
+    ],
+    "preconditions": [
+     "完全排除书架二次坍塌隐患",
+     "人员无伤撤离"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "文保建筑驻场工程师",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_second_floor_gallery_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_bookshelf_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "工具把手产生微小弯曲变形，施力人员手臂承受剧烈肌肉酸胀。",
+      "option": "以铜镇纸直角厚边反撬螺母并借力矩压平变形卡爪，顺势回退书架底脚脱险。"
+     },
+     {
+      "cost": "外侧雨大风狂且下方水深不明，极易坠落重伤丧命。",
+      "option": "强行拆卸回廊雕花木栏杆试图从天井外侧翻越。"
+     }
+    ],
+    "pressure": "回廊将在几分钟内达到受力屈服极限，必须在结构断裂前手动扳松螺母脱困。",
+    "trigger": "强风暴雨致使重型双面书架滑移倾覆，走道彻底抱死，积水逐渐侵蚀底板。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要镇纸咬住螺母，这个力矩足够突破咬合阻力……编目员，跟紧我的节奏，三二一压！",
+    "surface": "编目员，铁脚调节螺母卡在死点！铜镇纸正好有三点五毫米厚，插进槽口反向扳，就能顶动牙纹！"
+   }
+  },
+  {
+   "adult_context": "已满二十二岁成年青年学者，体格魁梧神情沉毅，精通大跨度回廊支撑力学。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿黑色战术背心与耐磨工装长裤，双臂青筋虬结，神情沉静冷静，眼神深邃锐利。",
+    "腰系加厚多功能装备带，佩戴防割手套，在倾斜沉重的书架前稳如磐石从容自若。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿扯皮",
+     "投机取巧"
+    ],
+    "contrast": "深沉强悍的营造专家与温雅端庄的女研究生，在机械死线前形成的强烈反差张力。",
+    "core_value": "一切结构皆有力学破绽，只要找准力矩反支点，千钧重架亦可扳正。",
+    "goal_options": [
+     "利用铜镇纸组装复合杠杆",
+     "合力扳松偏心卡死的铁脚螺栓"
+    ],
+    "never": [
+     "在重门未开前抛下同伴"
+    ],
+    "prefers": [
+     "硬桥硬马的扎实手艺",
+     "毫无保留的生死协作"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将螺母扳动回退。",
+     "high": "双手死死握住杠杆最外端，以千钧背肌全力向下猛按到底。",
+     "low": "冷静扫视书架倾斜夹角，瞬间锁定受力最集中的底脚螺栓。",
+     "mid": "护住编目员身躯，指导其将铜镇纸卡入受力中心槽口。"
+    },
+    "relationship_stance": "视编目员为值得誓死守护的知性女子，危难中建立生死莫逆的赤诚信任。",
+    "withdrawal": "确认大架完全回正稳固后，单臂护送编目员安全撤至中庭。"
+   },
+   "gender": "male",
+   "gender_reason": "古建筑营造大匠，对木构重力分配与重型器具自重脱阻经验丰富。",
+   "id": "master_builder_zhou_yue",
+   "identity": {
+    "authority": "掌控书肆地基与立柱受力结构紧急破拆最终决断权。",
+    "exposure": "黑色背心被雨水汗水打湿勾勒出雄健背脊，散发着沉稳刚烈的阳刚气概。",
+    "hidden": "掌握二楼回廊地板承重副梁确切坐标",
+    "limits": [
+     "受困于死角缺乏重型液压顶升千斤顶",
+     "必须依靠现有便携器材完成力矩反推"
+    ],
+    "obligations": [
+     "保护文献主管编目员人身安全",
+     "确保书肆核心善本免遭全毁"
+    ],
+    "resources": [
+     "特种合金加力套杆",
+     "书肆木构三维受力图谱",
+     "高等级防割手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "编目员在狂风骤雨绝境中不失书香大度的坚韧沉静",
+     "贴身施力时编目员温润如玉的身段与柔韧坚毅的发力姿态"
+    ],
+    "boundaries": [
+     "严守专业分寸",
+     "严守自愿安全原则"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "单臂护在编目员身前构成安全空隙，另一手与编目员共同紧握镇纸全力下压。",
+    "dislikes": [
+     "轻浮傲慢",
+     "无端猜忌"
+    ],
+    "expression": "脱险后退后三步站定抱拳，沉声道一句‘编目员受惊了，匠人幸不辱命’。",
+    "likes": [
+     "彼此心照不宣的眼神对碰",
+     "合力突破死锁瞬间的畅快淋漓"
+    ],
+    "preconditions": [
+     "书架完全扳正人员脱险",
+     "古籍善本完好"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "古书肆总修造工程顾问",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_second_floor_gallery_hall",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_bookshelf_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手臂与手掌肌肉极度酸痛，工具把手产生微量金属疲劳应力。",
+      "option": "以实心铜镇纸组装复合支点，合力向下猛压旋转螺母脱扣自救。"
+     },
+     {
+      "cost": "重达数百公斤的自重极易造成肩关节脱臼骨折，成功率几乎为零。",
+      "option": "强行以身体肩膀向上托举整面倾斜橡木书柜。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开弹簧死锁，否则走廊断裂全员将坠楼遇难。",
+    "trigger": "书架自重失控倒伏，铁脚死死咬入地面青砖凹槽，暴雨倒灌险情迫在眉睫。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "姑娘的身子全靠着我……这股清冷墨香直往鼻尖里钻。拼了这条命，也绝不让书架伤姑娘分毫！",
+    "surface": "编目员莫慌！这书架吃的是偏心阻滞！铜镇纸咬准了槽口，我们合力管保把这东西顶松！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "六月，江南梅雨季",
+  "minute": 1395
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "古书肆研究生整理善本古籍前需净手焚香换软底布鞋以护木地板。",
+  "编目员平日温润文静端庄守礼，唯有生死死线压迫下方能放下矜持紧密贴身协作。",
+  "研究生研读古籍批注随身携带实心厚重仿古铸铜直角长条镇纸，兼具压纸与刚性工具功能。",
+  "古建筑修复员巡视木构回廊随身佩戴多功能测平水平仪与纯钢撬棍，器械按规程插挂于腰间工装袋。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "以鹿皮绒布擦拭楠木阅览长案表面微尘",
+    "在香炉中点燃一片安神沉香并记录回廊温湿度计示数",
+    "使用放大镜细致排查宋版善本纸叶边缘有无霉斑"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_rare_book_morning_airing",
+   "location_ids": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "晨间古籍通风翻阅例行检"
+  },
+  {
+   "beats": [
+    "用特制植物油与细软棉布打磨纯铜镇纸直角厚边",
+    "检查镇纸直角折沿淬火金属光泽与无划痕表面",
+    "将镇纸妥善安放于随身织锦缎面硬壳囊匣内"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_brass_paperweight_maintenance",
+   "location_ids": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace"
+   ],
+   "title": "传家加厚铜镇纸抛光养护"
+  },
+  {
+   "beats": [
+    "使用剔凿钢刀清理栏杆转角榫卯积存木屑",
+    "垫入加厚生牛皮垫片消除立柱晃动微小间隙",
+    "微调水平仪角度核验长廊承重平整度"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [],
+   "id": "act_timber_railing_stability_check",
+   "location_ids": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "start_minute": 1405,
+   "tags": [
+    "workplace"
+   ],
+   "title": "二楼雕花木栏杆榫卯加固"
+  },
+  {
+   "beats": [
+    "检查天棚菱形夹胶钢化玻璃接缝耐候胶老化程度",
+    "使用探照灯察看汇水天沟有无落叶堆积堵塞",
+    "手动测试抗台风紧急排风百叶窗开合行程"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_roof_glass_seal_inspection",
+   "location_ids": [
+    "loc_bookstore_central_atrium"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "中庭采光天棚玻璃气密巡查"
+  },
+  {
+   "beats": [
+    "梅雨天的下午，书肆的挑空中庭里没什么客人，研究生坐在长桌边给新收的旧书编目。",
+    "老板娘端来一杯桂花茶，翻着一本民国的诗集，说这本可以单独标个好价钱。",
+    "雨打在天窗上，两人就这样一个编目一个翻书，消磨了整个下午。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_zhixia_card_note",
+    "hook_zhixia_lamp_brush",
+    "hook_zhixia_shop_cat"
+   ],
+   "id": "act_flood_drainage_drill_simulation",
+   "location_ids": [
+    "loc_bookstore_central_atrium"
+   ],
+   "start_minute": 900,
+   "tags": [
+    "workplace"
+   ],
+   "title": "中庭里整理旧书"
+  },
+  {
+   "beats": [
+    "编目员亲自清点珍本宋版医书印鉴铅封",
+    "关闭长廊全部主照明切入低功耗夜间安防模式",
+    "确认外侧双层防雨防盗移门行程开关正常就位"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_dusk_bookstore_lockdown_seal",
+   "location_ids": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "日暮闭肆善本封匣核验"
+  },
+  {
+   "beats": [
+    "螺母扳回、书架回位、二楼的善本一箱箱搬上高处之后，编目员被人扶上阁楼，长裙从肩头湿到裙摆，脚上的布鞋早不知丢在了哪里。",
+    "阁楼的台灯还亮着，编目员坐在书桌边，让人拿干毛巾一点点擦干湿透的长发，又解开贴在背上的盘扣，编目员没有回头，只把手按在了那只手上。",
+    "窗外的雨小了，书肆的猫跳上窗台，编目员轻声说：家谱明天再抄……今晚，你留在阁楼上。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_attic_dry_hair",
+   "location_ids": [
+    "loc_bookshop_attic"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "阁楼上替编目员擦干湿透的长发"
+  },
+  {
+   "beats": [
+    "阁楼的台灯下，编目员趴在铁架床上，翻着一本民国的旧小说，棉布睡裙的裙摆缩到膝弯，小腿翘着晃。",
+    "编目员把书递过来：你念给我听，念到亲嘴那一段就停。……停下以后，换我们自己接着写。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_attic_reading_aloud",
+   "location_ids": [
+    "loc_bookshop_attic"
+   ],
+   "start_minute": 1240,
+   "tags": [
+    "intimate"
+   ],
+   "title": "灯下念一段旧书"
+  },
+  {
+   "beats": [
+    "半夜，编目员端上来一碗桂花酒酿圆子，盘腿坐在床沿，一勺一勺喂过来，自己的脸先被热气熏红了。",
+    "编目员舔掉勺子上的糖水：酒酿也算酒。……我有点醉了，你要是不想走，就关灯。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_attic_jiuniang_midnight",
+   "location_ids": [
+    "loc_bookshop_attic"
+   ],
+   "start_minute": 1360,
+   "tags": [
+    "intimate"
+   ],
+   "title": "半夜的一碗酒酿"
+  },
+  {
+   "beats": [
+    "清晨，书肆的老猫跳上铁架床，踩着两个人的被子走过去，编目员被弄醒，迷迷糊糊往人怀里钻。",
+    "编目员闭着眼嘟囔：老猫每天都来叫我起床。……今天不起了，你帮我把猫抱下去。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_attic_cat_morning",
+   "location_ids": [
+    "loc_bookshop_attic"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "老猫跳上床的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "江南水乡现代古风临河双层复古书店",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_rainstorm_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{researcher_wen_zhixia.name}按住胸口急促起伏的棉麻长裙，面颊在惊雷闪电下冷汗淋漓，毅然拔出随身实心加厚纯铜铸造直角长镇纸直指书架死角。"
+  },
+  {
+   "id": "hk_countdown_reading_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{researcher_wen_zhixia.name}听到天井雨幕凄厉倾泻，在滚烫急喘中咬紧银牙侧身挤入四十公分通道直面死锁的铁脚。"
+  },
+  {
+   "id": "hk_bookshelf_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "slot": "apprentice_artisan_zhou_yue",
+   "text": "{apprentice_artisan_zhou_yue.name}双膝跪地紧贴湿滑回廊，以坚实脊背硬生生扛住倾斜书柜晃动震颤，大声提醒身前姑娘对准铁脚螺母咬合槽！"
+  },
+  {
+   "id": "hk_rail_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "slot": "apprentice_artisan_zhou_yue",
+   "text": "{apprentice_artisan_zhou_yue.name}反手抽出剔凿钢刀垫入青砖缝隙底层，用粗糙手掌牢牢护住铜镇纸末端防止滑动，大声喝道就是这个螺母卡齿！"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{researcher_wen_zhixia.name}整个人伏在修复员怀前，面庞几乎贴上修复员颈项，滚烫娇喘混合着淡雅墨香在狭窄夹缝内猛烈交融。"
+  },
+  {
+   "id": "hk_dress_sweat_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{researcher_wen_zhixia.name}月白棉麻长裙被雨水汗水浸得半透紧贴背脊曲线，双手毅然越过修复员手臂重叠紧握铜镇纸把手，合力向下一寸寸猛压！"
+  },
+  {
+   "id": "hk_brass_paperweight_flange_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{researcher_wen_zhixia.name}以青年学者的绝对果决，将铜镇纸淬火锻打的三点五毫米坚厚直角折沿，精准别入铁脚螺母外壁凹槽的偏心咬合死点。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "slot": "apprentice_artisan_zhou_yue",
+   "text": "{apprentice_artisan_zhou_yue.name}将加厚橡胶锤头猛然卡入书架下底沿与地板之间，单臂如铜浇铁铸般抵住柜侧，大吼道安全支点已成，姑娘尽管下压！"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{researcher_wen_zhixia.name}亲手解下长裙腰间系着的素色丝织压裙绦带，紧紧缠绕在两人满是冷汗的手背与镇纸把手上，将两人的臂力彻底刚性绞合为一体！"
+  },
+  {
+   "id": "hk_atrium_rainstorm_roaring",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{researcher_wen_zhixia.name}凝视回廊深处楠木展柜内的宋代医书古本，面颊泛起不容动摇的绝决，誓死要在夹缝中为善本文脉杀出生路！"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{researcher_wen_zhixia.name}察觉楼板震颤发出微弱裂响，断然下令挑梁承受极限已近，立刻随我全员趴下进行杠杆最终突压！"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "slot": "apprentice_artisan_zhou_yue",
+   "text": "{apprentice_artisan_zhou_yue.name}与姑娘齐声发力，后背肌肉如山丘般隆起，将整整两百斤体重与臂力完全倾注于弯曲的实心铜镇纸末端！"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{researcher_wen_zhixia.name}手心感受到清脆至极的机簧巨震，偏心螺母硬生生被镇纸折沿扳动逆转，铁脚伴随轰鸣向上骤然回退释压！"
+  },
+  {
+   "id": "hk_vault_escape_roll_fresh_air",
+   "kind": "approach",
+   "location_ids": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{researcher_wen_zhixia.name}被修复员单臂揽住纤腰顺势反推书架底梁滚出死角，两人迎着中庭大堂的新鲜空气大口喘息，绝境脱困成功！"
+  },
+  {
+   "id": "hk_end_relief_praise",
+   "kind": "approach",
+   "location_ids": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{researcher_wen_zhixia.name}靠在回廊朱漆廊柱边微微喘息，面颊带着劫后余生的绯红，侧过脸轻声对身侧修复员道多亏有你。"
+  },
+  {
+   "id": "hook_zhixia_shop_cat",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "researcher_wen_zhixia",
+   "text": "{npc.name}把趴在铜镇纸上睡觉的书肆老猫轻轻抱开，冲人比了个嘘：别吵醒，这只猫在书肆里住得比我还久。"
+  },
+  {
+   "id": "hook_zhixia_lamp_brush",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "researcher_wen_zhixia",
+   "text": "{npc.name}在阁楼台灯下抄到一半，把毛笔搁上笔架，抬头问人：这个字是写错了，还是家谱里本来就这么写？你帮我看看。"
+  },
+  {
+   "id": "hook_zhixia_card_note",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "researcher_wen_zhixia",
+   "text": "{npc.name}从一本旧书里抽出一张泛黄的借书卡，背面有一行褪色的钢笔字，递过来：几十年前有人在这里给人留了话。你猜，后来见上了吗？"
+  },
+  {
+   "id": "hook_zhouyue_mortise",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_artisan_zhou_yue",
+   "text": "{npc.name}跪在回廊上给一根松动的栏杆重新打榫，抬头看见人，把木槌递过来：轻点敲，榫卯是哄进去的，不是砸进去的。"
+  },
+  {
+   "id": "hook_zhouyue_shaving_curl",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_artisan_zhou_yue",
+   "text": "{npc.name}把一卷薄得透光的刨花放进人手心：老楠木的，闻闻，比书肆的檀香还好闻。"
+  },
+  {
+   "id": "hook_zhixia_jiuniang",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "researcher_wen_zhixia",
+   "text": "{npc.name}端着两碗老掌柜做的桂花酒酿从楼梯上来，递一碗过去：梅雨天，喝点热的。今晚雨大，我怕回廊漏水，陪我守一会儿？"
+  },
+  {
+   "id": "hook_zhixia_attic_ladder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_bookshop_attic"
+   ],
+   "slot": "researcher_wen_zhixia",
+   "text": "{npc.name}从阁楼口探下半个身子，手里端着一碗酒酿：楼上暖和。……要不要上来？"
+  }
+ ],
+ "id": "bookstore_atrium_paperweight_rescue",
+ "locations": [
+  {
+   "affordances": [
+    "查验天井排水暗沟溢流情况",
+    "搬运备用加厚防雨苫布遮盖古画",
+    "隔空向二楼受困走道呼喊通报汛情"
+   ],
+   "detail": "古书肆正中央开阔的八米通高中庭大厅，顶部为复古菱形采光天棚，此刻暴雨击碎局部夹胶玻璃，天井如水帘洞般雨水倾泻，下层水流漫过青石板地面，狂风夹杂雨丝呼啸盘旋。",
+   "exits": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "id": "loc_bookstore_central_atrium",
+   "name": "挑空天井",
+   "pressure_modifiers": {
+    "p_floodwater_level_rising_rush": "暴雨导致天井地面水位以每分钟两公分速度激增，水流冲击书架底座引发微小位移。",
+    "p_timber_creaking_structural_groan": "狂风撕扯受损天棚玻璃边框，细密碎玻璃与雨水在强风中扫荡大厅造成梁柱震颤。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "天棚上方乌云密布雷光闪烁，中庭应急黄光灯在倾盆水幕中投射出斑驳晃荡的倒影。",
+   "witnesses": [
+    "bg_bookstore_elderly_owner_lu",
+    "bg_heritage_inspector_captain_zheng",
+    "bg_apprentice_clerk_xiao_qian"
+   ]
+  },
+  {
+   "affordances": [
+    "检查二楼木构地板承重受力形变",
+    "寻找可用于垫高的实心硬杂木块",
+    "确认回廊侧向疏散逃生木梯坐标"
+   ],
+   "detail": "环绕挑空中庭二层的木质雕花开阔回廊，摆放着数十组实木双面书架与楠木阅览长案。走道因倾覆的书架阻断，红木栏杆外侧即是深达五米的挑空天井，雨水随风泼洒进长廊。",
+   "exits": [
+    "loc_bookstore_central_atrium",
+    "loc_collapsed_bookshelf_nook",
+    "loc_bookshop_attic"
+   ],
+   "id": "loc_second_floor_gallery_hall",
+   "name": "二楼回廊",
+   "pressure_modifiers": {
+    "p_bookshelf_deadweight_collapse_pinch": "数百公斤重型橡木书架向外侧回廊倾倒四十五度，自重压迫木立柱发出不堪重负的嘎吱声。",
+    "p_floodwater_level_rising_rush": "雨水漫入二楼走道地板，木质青砖表面极度湿滑增加了作业脱扣难度。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "回廊两侧古风仿古灯笼光线昏暗，狂风吹拂白纱窗幔如波浪般狂乱翻滚。",
+   "witnesses": [
+    "bg_apprentice_restorer_xiao_zhao",
+    "bg_street_patrol_guard_lao_ma"
+   ]
+  },
+  {
+   "affordances": [
+    "近身挤入死角察看铁脚卡死螺纹咬合面",
+    "将黄铜镇纸直角厚边插入螺母锁止凹槽充当高硬度撬杠",
+    "双手重叠合力向前向下猛扳突破锈蚀阻滞脱扣自救"
+   ],
+   "detail": "双面两米八高、重达数百公斤的实木双面橡木书架滑脱咬死在走廊立柱之间，仅留出不足四十公分的极限死角夹缝。书架底部承重铁脚螺母卡死在青砖缝隙，两人被迫完全贴紧伏卧在此处合力施压。",
+   "exits": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "id": "loc_collapsed_bookshelf_nook",
+   "name": "书架夹角",
+   "pressure_modifiers": {
+    "p_bookshelf_deadweight_collapse_pinch": "数百公斤书柜重心持续偏向走廊外侧，反向力矩若有丝毫偏斜便可能导致整个书架轰然砸坍。",
+    "p_close_contact_body_heat_tension": "在四十公分极限死角内编目员与修复员肌肤完全贴伏，湿透衣裙与体温激烈对冲，滚烫急促的吐息拂过颈侧锁骨。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "仅靠强光手电窄光束照明，近距离能看清彼此面颊上滑落的细腻汗珠、湿透长裙轮廓与铁脚螺纹。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "陪编目员抄一页家谱",
+    "替编目员擦干长发",
+    "把阁楼的木梯收上来"
+   ],
+   "detail": "书肆顶上的小阁楼，一张铁架床、一张堆满家谱抄本的书桌、窗台上卧着书肆的老猫，推开窗就是河埠头。",
+   "exits": [
+    "loc_second_floor_gallery_hall"
+   ],
+   "id": "loc_bookshop_attic",
+   "name": "编目员借住的书肆阁楼",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "台灯罩着一块旧丝巾，河上的橹声一阵一阵，木梯一收，楼下就没人上得来。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "温",
+   "周",
+   "沈",
+   "陆",
+   "顾",
+   "林",
+   "苏",
+   "叶",
+   "萧",
+   "方",
+   "宋",
+   "薛",
+   "秦",
+   "韩"
+  ],
+  "given_female": [
+   "知夏",
+   "宛清",
+   "若涵",
+   "映雪",
+   "清歌",
+   "冰澜",
+   "羽彤",
+   "慕雪",
+   "凝霜",
+   "芷晴",
+   "雨薇",
+   "楚楚",
+   "静姝",
+   "婉儿"
+  ],
+  "given_male": [
+   "越",
+   "承安",
+   "天舟",
+   "烈",
+   "海岚",
+   "修远",
+   "廷玉",
+   "博文",
+   "靖安",
+   "子轩",
+   "明远",
+   "云深",
+   "浩然",
+   "景明"
+  ],
+  "given_neutral": [
+   "澈",
+   "夜",
+   "寒",
+   "尘",
+   "非",
+   "微",
+   "遥",
+   "岚",
+   "清",
+   "羽",
+   "辰",
+   "渊",
+   "舟",
+   "灵"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留江南临河古书肆暴雨倒灌、天棚碎裂、橡木书架倾滑卡死与女主用黄铜镇纸撬转铁脚螺母的骨架。同一批里有五个同模板的世界，与同样在江南水乡的评弹书场拉开：这里写成梅雨季的安静夜晚——借住阁楼替书肆编家谱目录的研究生、台灯下的毛笔小楷、趴在镇纸上睡觉的书肆老猫、旧书里夹着的借书卡、老掌柜的桂花酒酿，搭档写成来修回廊的木作修复员。写死的人名改为身份称呼；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；编目员亲密前提写明脱困之后、双方清醒自愿；新增一个阁楼上替编目员擦干长发的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁成年青年古建工程技术员，负责老街木构书肆抗汛检修与木架承重力学加固，身体强健沉稳干练。",
+   "gender": "male",
+   "id": "pi_building_restorer_zhou_yue",
+   "reputation": "精通老式榫卯自锁与重型家具力学重心测算，多次化解老宅梁柱滑脱险情。",
+   "resources": [
+    "一把特制高硬度纯钢平头剔凿钢刀",
+    "一柄加厚耐磨橡胶包头防滑敲击锤",
+    "高强度耐磨防滑生牛皮工装手套"
+   ],
+   "risks": [
+    "若无法在书架彻底压垮前卸下铁脚螺母，将被数百公斤橡木重压重创胸背。"
+   ],
+   "role": "古建筑木作结构成年兼职修复技术员",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}机工"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁成年文献学专业青年助理，熟悉老字号书肆全部通道走向与防潮排水旁通暗井位置。",
+   "gender": "male",
+   "id": "pi_antique_book_archivist_zhou",
+   "reputation": "做事周密严谨，临危不惧，深得书肆老掌柜与编目员信赖。",
+   "resources": [
+    "一柄防爆工业LED高流明强光手电",
+    "一套精密不锈钢调缝防割卡尺",
+    "两卷高抗拉防水生丝固定带"
+   ],
+   "risks": [
+    "天井暴雨水位持续上涨，可能导致地面湿滑引起反向力臂打滑脱轨。"
+   ],
+   "role": "古书肆文献编目青年馆员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}馆员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}典籍员"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁成年文保巡查人员，专司江南水乡历史建筑极端天气应急抢险与力矩支撑。",
+   "gender": "male",
+   "id": "pi_cultural_heritage_inspector_zhou",
+   "reputation": "熟知木质构件潮湿膨胀系数，能精准找到卡死结构的最脆弱脱扣点。",
+   "resources": [
+    "一台三防工业加固测压手持仪",
+    "一柄特种高碳钢折叠多用螺母扳钳",
+    "防爆高等级阻燃橡胶防滑护膝"
+   ],
+   "risks": [
+    "回廊地面承重有限，书架偏心挤压可能引发二层木板断裂。"
+   ],
+   "role": "文保重点建筑应急巡检员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}巡检"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}主管"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁青年古建营造学者，统揽临河古书肆结构安全与防风防汛总调度大权。",
+   "gender": "male",
+   "id": "pi_chief_civil_engineer_zhou",
+   "reputation": "行业年轻权威，对重型书架倾覆重力线与反向撬杠力矩有着绝对掌控力。",
+   "resources": [
+    "一套特制加厚反向旋转力矩加力套杆",
+    "全套书肆木构梁架力学承重三维蓝图",
+    "高等级防割耐压特种战术手套"
+   ],
+   "risks": [
+    "若发生不可逆塌陷损毁珍本孤本古籍，将承担重大文化资产损失责任。"
+   ],
+   "role": "水乡木构建筑总营造师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}大师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}总营造"
+    }
+   ]
+  }
+ ],
+ "premise": "江南临河的百年旧书肆，梅雨下了整整一个月，书页都潮得发软。借住在阁楼上替书肆编家谱目录的研究生，每晚都抄到打烊以后；来修回廊的木作修复员一修就是半个月。二楼的橡木书架年头太久，河水每年这时候都会涨到门槛。",
+ "pressures": [
+  {
+   "choice": "是冒险利用加厚黄铜镇纸强行下扳螺母，还是在夹缝内等待外侧抢险队架梯？",
+   "exits": [
+    {
+     "cost": "镇纸受力微弯，两人肌肉酸痛擦伤。",
+     "option": "两人合力以黄铜镇纸下扳螺母偏心卡槽旋转铁脚回退自救。"
+    },
+    {
+     "cost": "极其被动，若楼板断裂将直接坠落受创死亡。",
+     "option": "伏于地面用麻袋被动阻挡雨水等待救援。"
+    }
+   ],
+   "far": {
+    "consequence": "二楼走廊整体垮塌，重型书架翻滚坠入天井，受困人员在重物碾压与溺水中殉难。",
+    "due_days": 1,
+    "trigger": "地基暗渠被洪峰冲垮导致木楼倾斜"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_floodwater_level_rising_rush",
+   "immediate": {
+    "minutes": 2,
+    "text": "天井天棚碎裂处狂风卷集暴雨倾泻而入，大厅水流形成激流漩涡。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bookstore_central_atrium",
+    "loc_second_floor_gallery_hall",
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "暴雨漫延至二楼走道地板，青砖木板极度湿滑，逃生时间被急剧压缩。"
+   },
+   "objective": "必须在底层积水完全破坏木构立柱前，撬松铁脚螺母推开书架脱困撤离。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "临河暴雨倒灌水位攀升危急",
+   "trigger": "特大暴雨致使临河街区倒灌，中庭天井水帘倾泻，地面水位持续攀升侵蚀地基。"
+  },
+  {
+   "choice": "是单人使用剔凿刀试探拨动，还是两人身体紧密相贴合力下压黄铜镇纸？",
+   "exits": [
+    {
+     "cost": "工具把手产生微小塑性形变，施力人员手臂酸麻。",
+     "option": "以橡胶锤头护垫构成刚性防滑支点，叠合双手全力压紧镇纸把手。"
+    },
+    {
+     "cost": "金属敲击极易打烂螺纹导致永久卡死。",
+     "option": "用工具盲目敲击螺栓外沿试图振松卡槽。"
+    }
+   ],
+   "far": {
+    "consequence": "书架彻底失去机械调平余地，直接压断立柱连带走廊全毁坍塌。",
+    "due_days": 1,
+    "trigger": "铁脚螺母螺纹彻底冷焊滑丝锁死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_bookshelf_deadweight_collapse_pinch",
+   "immediate": {
+    "minutes": 2,
+    "text": "书架偏心向走廊外侧倾斜，立柱接缝处发出不堪重负的嘎吱牙酸声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "重力导致螺栓螺纹深陷金属凹槽，摩擦咬合力倍增，撬动难度成倍上升。"
+   },
+   "objective": "在木构走廊彻底被自重压垮之前，以坚硬黄铜镇纸直角厚边撬动螺母牙纹使其旋转回退。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "重型橡木书架偏心倒伏抱死",
+   "trigger": "数百公斤重型实木双面橡木书架受潮失重倒伏，底盘金属铁脚螺母死死咬入地面青砖槽。"
+  },
+  {
+   "choice": "是因礼法矜持保持距离导致施力分散，还是坦然贴身相拥爆发出最大协同扭矩？",
+   "exits": [
+    {
+     "cost": "矜持心理防线被彻底打破，两人心灵产生不可磨灭的依恋印记。",
+     "option": "抛弃一切世俗杂念，编目员伏于修复员胸前双手重叠压紧把手一鼓作气突破。"
+    },
+    {
+     "cost": "力矩不足无法撼动螺母，导致自救彻底失败。",
+     "option": "刻意拉开距离单手侧向发力。"
+    }
+   ],
+   "far": {
+    "consequence": "铜镇纸折沿滑脱脱手，错过最后撬动脱扣时间窗导致回廊坍塌压覆。",
+    "due_days": 1,
+    "trigger": "羞怯分心导致发力失衡工具脱落"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_close_contact_body_heat_tension",
+   "immediate": {
+    "minutes": 2,
+    "text": "棉麻长裙丝滑微凉的触感隔着单薄衣衫传来，随后被急促滚烫的体温迅速烘热。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "编目员的脸颊贴在耳侧，娇喘带着旧书的霉味和微汗，湿透的棉麻长裙下，心跳一下下撞过来。"
+   },
+   "objective": "在极度贴近的肢体接触与异性荷尔蒙冲击下，克制心神专注机械对位发力。",
+   "source": "person",
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "夹缝极限死角贴身呼吸滚烫",
+   "trigger": "两人被迫同时挤在四十公分书架死角夹缝，湿透衣裙与工装紧密相贴，体温与急促喘息交织。"
+  },
+  {
+   "choice": "是先冒走廊坍塌风险抢搬善本，还是全力以赴先撬开通道逃生？",
+   "exits": [
+    {
+     "cost": "全力投入撬门无暇顾及自身擦伤，承受巨大心理压力。",
+     "option": "争分夺秒扳动镇纸顶松铁脚推开通道完成人书双全自救。"
+    },
+    {
+     "cost": "耗尽最后逃生时间，双双受困于垮塌木构之下。",
+     "option": "折返深处用身体护住展匣。"
+    }
+   ],
+   "far": {
+    "consequence": "国宝级传世孤本文献彻底化为纸浆，家族与文化界百年文脉毁于一旦。",
+    "due_days": 1,
+    "trigger": "雨水直接冲毁善本展柜"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_rare_book_water_damage_ruin",
+   "immediate": {
+    "minutes": 2,
+    "text": "展柜边缘开始渗出清冽水滴，百年古宣纸发出受潮收缩声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_second_floor_gallery_hall",
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "暴雨水汽彻底浸润展匣，孤本文献墨迹面临洇散化浆风险。"
+   },
+   "objective": "必须在雨水渗透防护有机木匣前撬开书架建立安全隔离。",
+   "source": "accident",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "宋元善本孤本暴雨水浸全毁",
+   "trigger": "采光天棚暴雨飞溅漫入回廊，金丝楠木展柜内价值连城的宋代医书古本面临水浸全毁绝境。"
+  },
+  {
+   "choice": "是忍痛咬牙紧扣工具，还是分神活动肢体调整重心？",
+   "exits": [
+    {
+     "cost": "身体摩擦加剧，肌肤泛起大片淤青擦痕。",
+     "option": "编目员与修复员互相用双腿死死卡住彼此脚踝稳固重心合力下压。"
+    },
+    {
+     "cost": "螺母在自重下再度深陷变形咬死。",
+     "option": "暂停按压后撤舒展肢体。"
+    }
+   ],
+   "far": {
+    "consequence": "镇纸被书架偏心反弹力强行震飞，彻底失去最后开启机会。",
+    "due_days": 1,
+    "trigger": "双腿打滑彻底失去反向支撑力矩"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_wet_floorboard_slip_hazard",
+   "immediate": {
+    "minutes": 2,
+    "text": "冰凉积水透过裙裤浸透膝盖手肘，刺骨酸麻侵袭关节。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_collapsed_bookshelf_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "持续静力承重使前臂与小腿肌肉发生微小震颤，下踩支撑力濒临极限。"
+   },
+   "objective": "克服双腿打滑与膝盖剧烈酸痛，保持稳定反向杠杆平衡发力姿态。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "青砖回廊雨水浸泡打滑脱力",
+   "trigger": "雨水漫过二楼走廊导致青砖木地板极其湿滑，两人半跪施力下肢支撑点极易打滑失稳。"
+  },
+  {
+   "choice": "是立即加大下压力度一鼓作气扳松螺母，还是等待木梁应力重新分布？",
+   "exits": [
+    {
+     "cost": "身心极度疲惫，手臂肌肉严重拉伤酸痛。",
+     "option": "两人贴面眼神交汇瞬间爆发全身重量峰值力矩震松螺母。"
+    },
+    {
+     "cost": "挑梁彻底崩断丧失全部物理逃生可能。",
+     "option": "被动等待外力减退。"
+    }
+   ],
+   "far": {
+    "consequence": "二楼东侧走廊整段坍塌坠入中庭天井，受困人员全员遇难殉职。",
+    "due_days": 1,
+    "trigger": "回廊承重挑梁彻底断裂折断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_timber_creaking_structural_groan",
+   "immediate": {
+    "minutes": 2,
+    "text": "脚下木地板传来沉闷的纤维拉断声，走廊栏杆向天井倾斜了两公分。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_second_floor_gallery_hall",
+    "loc_bookstore_central_atrium"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "挑梁木纹发出刺耳撕裂声，裂纹顺着梁头飞速蔓延。"
+   },
+   "objective": "在受力挑梁彻底折断前完成螺母退扣，将书架重心推回内侧柱网。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "木构走廊受压超载骨架断裂",
+   "trigger": "倾斜书架巨大的偏心弯矩持续挤压外侧回廊挑梁，木梁榫卯节点发出令人心惊的开裂脆响。"
+  },
+  {
+   "choice": "卖掉阁楼里那套泡过水的家谱底本，还是让陆伯去求房东",
+   "exits": [
+    {
+     "cost": "编目员两年的抄录就没了对照的原本",
+     "option": "卖掉那套家谱底本"
+    },
+    {
+     "cost": "地契上写着这间铺子是陆伯当年赌输给房东祖父的",
+     "option": "请陆伯拿老地契跟房东争"
+    }
+   ],
+   "far": {
+    "consequence": "百年书肆关门，编目员搬出阁楼，编了一半的家谱目录只能装箱",
+    "due_days": 3,
+    "trigger": "约一签下"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_zhixia_shop_cat",
+    "hook_zhixia_lamp_brush",
+    "hook_zhixia_card_note",
+    "hook_zhouyue_mortise",
+    "hook_zhouyue_shaving_curl",
+    "hook_zhixia_attic_ladder"
+   ],
+   "id": "p_landlord_takes_back",
+   "immediate": {
+    "minutes": 10,
+    "text": "估价师已经在阁楼楼梯口量尺寸"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_bookshop_attic"
+   ],
+   "near": {
+    "deadline_minutes": 1680,
+    "text": "明天中午，房东和茶楼老板在河对岸吃饭定约"
+   },
+   "objective": "在房东跟茶楼老板定约之前，把这间书肆保下来",
+   "source": "money",
+   "start_minute": 480,
+   "tags": [],
+   "title": "房东收铺",
+   "trigger": "河水退下去的第二天早上，书肆的房东带着估价师上了门：一楼泡了水，正好收回铺面改成茶楼，除非三天里补齐拖欠的半年房租"
+  }
+ ],
+ "region": "古书肆双层挑空中庭回廊天井与重型橡木书架死角走道",
+ "rules": [
+  {
+   "id": "r_bookstore_flood_evac_code",
+   "text": "暴雨内涝倒灌期间严禁盲目涉水触碰底楼配电箱以防高压漏电。"
+  },
+  {
+   "id": "r_oak_bookshelf_tilt_lock_rule",
+   "text": "重型橡木书架自重倾滑抱死后只能通过调节螺栓回退释放地面摩擦支点。"
+  },
+  {
+   "id": "r_heritage_book_preservation_code",
+   "text": "古书肆回廊内严禁使用明火或产生强烈火花的切割机械抢险。"
+  },
+  {
+   "id": "r_adult_mechanical_escape_standard",
+   "text": "绝境脱困依靠纯物理力矩反推自救，一切互动严守成年自愿与安全防护原则。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "共御死线",
+  "committed": "死生相守",
+  "familiar": "身心交托",
+  "flirting": "贴身喘息",
+  "intimate": "患难同行",
+  "stranger": "初次协同",
+  "testing": "生死信赖"
+ },
+ "status": "released",
+ "style_hint": "人文雅致与现代抗灾工程硬核工笔，刻画古书肆双层天井内骤雨暴灌的窒息压迫、实心黄铜镇纸在生锈调节铁脚螺母卡死凹槽中的剧烈杠杆咬合、棉麻长裙被雨水汗水浸透贴合起伏身躯的视觉张力，台词充满严密力学支点测算与生死相依的深沉信任。",
+ "tension_engines": [
+  {
+   "id": "te_floodwater_purge_rush",
+   "text": "临河暴雨倒灌水位步步逼近二楼地板，老旧木构回廊面临承重崩解死线。"
+  },
+  {
+   "id": "te_oak_bookshelf_deadweight_pinch",
+   "text": "数百公斤重型实木双面书架持续倾滑咬死立柱，调节铁脚偏心锁死卡槽不断形变。"
+  },
+  {
+   "id": "te_close_contact_body_heat",
+   "text": "在四十公分狭窄死角内两人紧密相贴，湿透长裙薄汗与青年工匠体温催生极度异性张力。"
+  },
+  {
+   "id": "te_rare_manuscript_water_ruin",
+   "text": "宋元善本孤本古籍面临暴雨浸泡全毁厄运，编目员背负文脉传承重大责任爆发惊人毅力。"
+  }
+ ],
+ "title": "文系研究生·临河古书肆挑空中庭",
+ "tone": [
+  "梅雨季泛潮的旧书页",
+  "阁楼台灯下的毛笔小楷",
+  "河水倒灌与天棚碎裂",
+  "书架死角里湿透的长裙"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_bookshelf_iron_foot_groove_located",
+   "requires": [
+    "researcher_wen_zhixia"
+   ],
+   "text": "{researcher_wen_zhixia.name}借便携强光手电光束，在青砖缝隙底层准确定位出卡死调节螺栓凹槽的微小金属咬合死点。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_rainstorm_atrium_warning_groan",
+   "requires": [
+    "researcher_wen_zhixia"
+   ],
+   "text": "{researcher_wen_zhixia.name}听到中庭采光天棚发出刺耳的二次碎裂声，楼板剧烈晃动，面庞上映出冷峻决意。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_rubber_hammer_inserted_safety",
+   "requires": [
+    "apprentice_artisan_zhou_yue"
+   ],
+   "text": "{apprentice_artisan_zhou_yue.name}从工具袋抽出加厚橡胶锤头，死死垫在书架底梁导轨下方，彻底构筑起刚性防下坠安全作业间隙。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_satin_ribbon_bind_tight",
+   "requires": [
+    "researcher_wen_zhixia",
+    "apprentice_artisan_zhou_yue"
+   ],
+   "text": "{researcher_wen_zhixia.name}解下长裙丝织绦带，由{apprentice_artisan_zhou_yue.name}迅速将铜镇纸与剔凿钢刀紧密捆扎，消除了手汗打滑隐患。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_timber_creak_final_minute_rush",
+   "requires": [
+    "researcher_wen_zhixia"
+   ],
+   "text": "二楼走廊挑梁受压发出最后的连续撕裂声，地面青砖开始龟裂，生死死线已逼近绝对生理极限。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_close_body_tight_bind_leverage",
+   "requires": [
+    "researcher_wen_zhixia",
+    "apprentice_artisan_zhou_yue"
+   ],
+   "text": "{apprentice_artisan_zhou_yue.name}在狭窄死角紧紧护住{researcher_wen_zhixia.name}，两人滚烫手指紧握铜镇纸，急促滚烫的吐息与心跳在幽暗中彻底交叠。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_brass_paperweight_release_success",
+   "requires": [
+    "researcher_wen_zhixia"
+   ],
+   "text": "伴随一声清脆金属断扣声，实心加厚黄铜镇纸成功扳动咬死螺母，书架重心地脚瞬间回退释压，两人合力反推书柜顺利脱险自救。"
+  }
+ ]
+}

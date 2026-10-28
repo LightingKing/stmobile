@@ -1,0 +1,2242 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满五十二岁，大木营造老手艺人，成年老工匠。",
+   "age_range": [
+    52,
+    58
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_woodcarver_master_lu",
+   "line": "退小竹钉！绣娘，用剪刀尖把那枚竹钉拨飞，主销就活了！",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "name": "陆师傅",
+   "role": "名宿老木匠陆师傅"
+  },
+  {
+   "adult_context": "年满三十岁，水警现役大队长，成年特警。",
+   "age_range": [
+    30,
+    36
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_water_police_captain_wu",
+   "line": "冲锋舟顶住飞廊柱位了！门推开立刻跳下来，我用肩膀接住你们！",
+   "location_ids": [
+    "loc_riverfront_carved_veranda"
+   ],
+   "name": "吴队长",
+   "role": "水警搜救大队的吴队长"
+  },
+  {
+   "adult_context": "年满四十二岁，文保高级专员，成年主管。",
+   "age_range": [
+    42,
+    48
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_heritage_director_shen",
+   "line": "探照灯打在东侧榫眼上了！顺着木纹借力，还有两分钟洪峰到顶！",
+   "location_ids": [
+    "loc_riverfront_carved_veranda"
+   ],
+   "name": "沈专员",
+   "role": "文保特派的沈专员"
+  },
+  {
+   "adult_context": "年满二十二岁，苏绣青年见习，成年见习工。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_apprentice_embroiderer_xiao_he",
+   "line": "桐油布垫上了！师姐、陆工，三二一一起用力，大门动了！",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "name": "小荷",
+   "role": "绣坊见习女工小荷"
+  },
+  {
+   "adult_context": "年满五十五岁，宗祠留守更夫，成年老人。",
+   "age_range": [
+    55,
+    60
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_flood_control_guard_lao_zhou",
+   "line": "太湖水把天井石梯淹没了！出不去了！老天爷要绝沈家香火啊！",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "name": "老周头",
+   "role": "宗祠值班看护老周头"
+  },
+  {
+   "adult_context": "年满四十八岁，水乡老渔民，成年公民。",
+   "age_range": [
+    48,
+    54
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_village_boatman_ah_fa",
+   "line": "太湖龙王发水了！飞廊挑梁撑不住了，年轻人快跳水逃生啊！",
+   "location_ids": [
+    "loc_riverfront_carved_veranda"
+   ],
+   "name": "阿发",
+   "role": "临河乌篷船老船夫阿发"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "温婉柔美的苏绣青年女掌门与沉稳刚烈的大木作营造师在摇摇欲坠的危楼中相依为命，两人在漫水门槛前十指紧扣，借家传高碳钢折合剪刀反向挑脱咬死的乌木销推门脱困。",
+   "id": "cc_embroiderer_and_carpenter_lever",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "embroiderer_wen_ruolan",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "风雨同舟中共同紧握钢剪，结成托付性命的坚实同盟。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "carpenter_lu_cheng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "古建修缮并肩作战的过硬同门。",
+     "stage": "familiar"
+    },
+    {
+     "a": "embroiderer_wen_ruolan",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "carpenter_lu_cheng",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "江南绣娘与营造青年在天地洪荒绝境中的炽烈共鸣。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "embroiderer_wen_ruolan",
+    "carpenter_lu_cheng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在危楼整体滑入湖底前挑出燕尾榫定位销推开大门撤至搜救艇。",
+    "limit_gap": "绣娘身娇体弱在冰冷浑水中面临体力虚脱，营造师受困于缺乏大型起重液压设备且必须以身体顶住横梁。",
+    "meeting_reason": "梅雨季的午后，绣娘在绣轩里赶一幅双面绣，营造师蹲在一旁刨梁，刨花又落进了丝线筐，两人为这个拌了半天嘴。",
+    "resource_gap": "绣娘拥有古法锻打加厚高碳钢剪刀与国宝处置权，营造师具备高超的榫卯应力拆解技术与雄厚下盘臂力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_loft_collapse_vs_scissors_lever",
+    "te_cold_rain_spasm_vs_loft_tight_hug"
+   ]
+  },
+  {
+   "chemistry": "焦急的文保主管在对岸调度强光探照灯穿透雨幕照亮榫眼，温婉女绣娘临危不乱精准定准暗销死角。",
+   "id": "cc_embroiderer_and_director_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "embroiderer_wen_ruolan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "密切关注绣娘人身安全与国宝绣品。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "director_shen_guoliang",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "赞许文保专员临危不乱的强光调度。",
+     "stage": "familiar"
+    },
+    {
+     "a": "embroiderer_wen_ruolan",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 4
+     },
+     "b": "director_shen_guoliang",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 4
+     },
+     "reason": "文保专员与刺绣传人风雨守望的深厚公私默契。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "embroiderer_wen_ruolan",
+    "director_shen_guoliang"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "探照灯聚光照亮榫眼缝隙协助剪刀一举挑出销钉脱险。",
+    "limit_gap": "沈专员隔在对岸无法亲临危楼，女绣娘独自在风雨雷电中承受失温痛苦。",
+    "meeting_reason": "文保专员来验收绣轩的修缮，绣娘陪着上楼，指着棚架下一道新裂的榫缝说这活还没完。",
+    "resource_gap": "沈专员掌握大功率探照灯与防汛搜救联动特权，女绣娘身在险楼一线掌控剪刀插入精度。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_water_police_rescue_vs_flood_crest"
+   ]
+  },
+  {
+   "chemistry": "水警队长要求放弃古建大门直接破窗跳水，营造工程师据理力争以保护绣娘免遭漩涡卷入为由坚守门锁自救，展开时间与方案的意志碰撞。",
+   "id": "cc_carpenter_and_police_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "carpenter_lu_cheng",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "支持营造师守护绣娘的沉稳担当。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "captain_wu_zhiming_police",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对盲目要求跳入狂暴漩涡的粗暴方案极度警惕。",
+     "stage": "stranger"
+    },
+    {
+     "a": "carpenter_lu_cheng",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "captain_wu_zhiming_police",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "工程技术坚守与激流一线抢险的激烈碰撞。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "carpenter_lu_cheng",
+    "captain_wu_zhiming_police"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "为危楼内部撬销开门争取最后一百二十秒窗口。",
+    "limit_gap": "水警队长面临冲锋舟燃油耗尽与被乱石撞翻危机，营造师受制于危楼滑移倒计时。",
+    "meeting_reason": "汛期预警发下来，营造师和水警队长在临河飞廊上争该先加固柱脚还是先撤人。",
+    "resource_gap": "水警队长手握大马力冲锋舟与绳索救援权，营造师拥有现场大木结构拆解裁量权。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_water_police_rescue_vs_flood_crest"
+   ]
+  },
+  {
+   "chemistry": "老木匠口授暗藏防退竹钉祖传绝技，温婉绣娘奉上折合剪刀反插木缝，里应外合击碎咬死硬木锁。",
+   "id": "cc_embroiderer_and_woodcarver_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "embroiderer_wen_ruolan",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "信任绣娘心明眼亮指尖定力。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "woodcarver_master_lu_elder",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "老木匠的经验指引令人豁然开朗。",
+     "stage": "familiar"
+    },
+    {
+     "a": "embroiderer_wen_ruolan",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "woodcarver_master_lu_elder",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "两代江南非遗工匠之间的默契互救。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "embroiderer_wen_ruolan",
+    "woodcarver_master_lu_elder"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "精准挑飞防退小竹钉让主乌木销顺畅退出脱险。",
+    "limit_gap": "老匠人年迈腰病在晃动楼板上难以涉险，女绣娘独自在暴雨漫水中承受反向猛烈剪切扭力。",
+    "meeting_reason": "老掌墨师来给绣轩的雕花窗换一根木销，绣娘端着茶在一旁看，非要学怎么认榫卯的脾气。",
+    "resource_gap": "老匠人掌握五十年榫卯机关经验与暗钉死角，女绣娘身在激流前线掌控高硬度厚剪顺纹剔挑。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_loft_collapse_vs_scissors_lever"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_taihu_storm_wind_howl",
+   "reach": "all",
+   "text": "太湖狂暴风雨呼啸与大木架构呻吟震响"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_veranda_water_police_loudspeaker",
+   "reach": "local",
+   "text": "水警冲锋舟高音扩音器与岸上防汛警报"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "苏绣世家的当代传人，十二岁起跟着祖母学针，二十岁出头接下了宗祠里的绣轩，持有高级工艺美术师资格，去留进退由本人拿主意。",
+   "age_range": [
+    24,
+    28
+   ],
+   "appearance_options": [
+    "身穿水绿色真丝长衫，长发挽起，两腮带水乡成年青年女性特有的健康紧致微婴儿肥与水润胶原蛋白，清丽脱俗宛如出水芙蓉，在风雨扑打与大梁倾倒险境下，双颊泛起微红，眼神带着刺绣大家特有的极度专注与坚忍。",
+    "真丝衣襟被潲雨浸湿贴在纤细双肩，双手死死攥着百年折合钢剪，两腮微婴儿肥的面颊在雨幕雷光映照下晶莹柔美，柔弱温婉外表下展现出挽救国宝大木的沉静大魄力。"
+   ],
+   "decision": {
+    "avoids": [
+     "粗暴野蛮的乱砍乱砸",
+     "遇到险情就丢弃祖产逃跑的懦夫"
+    ],
+    "contrast": "外表温柔如水弱不禁风且两腮带着娇憨微婴儿肥，在千斤木构崩塌大险前纤手定如磐石、杀伐果决。",
+    "core_value": "绣花要心静，破局要找准眼，只要这柄祖传钢剪还在，断没有让百年老宅压死传人的道理！",
+    "goal_options": [
+     "利用折合钢剪双刃反插榫卯挑脱硬木销自救",
+     "协助营造师托举黄杨木大梁防止门扇崩坏"
+    ],
+    "never": [
+     "在身旁同伴脱离倒塌大殿前独自钻出窗棂逃命"
+    ],
+    "prefers": [
+     "丝丝入扣的精巧借力",
+     "重信守诺的君子脊梁"
+    ],
+    "pressure_responses": {
+     "breaking": "整个人紧贴营造师后背将全身自重压在剪柄上拼死挑撬",
+     "high": "将折合剪刀展开成一百八十度以剪刃对准销孔深处",
+     "low": "在狂风呼啸中迅速用油纸裹紧双面绣片放入高处防潮樟木盒",
+     "mid": "敏捷甩掉软鞋赤足踏水快步奔向雕花大门"
+    },
+    "relationship_stance": "营造师在绣轩里修了一个梅雨季，绣娘嘴上嫌刨花落进丝线里，却每天午后都多泡一杯碧螺春，放在营造师的工具箱旁边。",
+    "withdrawal": "退守在大堂地势最高的楠木神案条几上方，单手护住绣品冷面静立。"
+   },
+   "gender": "female",
+   "gender_reason": "当代国家级非遗苏绣新生代掌门传人",
+   "id": "embroiderer_wen_ruolan",
+   "identity": {
+    "authority": "对宗祠珍藏的明代双面刺绣巨幅屏风、古法黄杨木绣架拥有现场第一保全处置决策权。",
+    "exposure": "为了筹措绣坊修缮款曾私下答应过外资画廊预订尚未完工的传世样稿",
+    "hidden": "真丝荷包内暗藏着营造师三年前亲手为姑娘雕刻的一枚小巧红豆楠木平安扣",
+    "limits": [
+     "身娇体弱缺乏重体力负重力气难以徒手搬动千斤大木",
+     "所穿丝缎软底绣花鞋在漫水泥地极易打滑跌倒"
+    ],
+    "obligations": [
+     "誓死保全先祖留传三百年的《姑苏繁华图》双面巨幅绝品绣片不被浊水污损"
+    ],
+    "resources": [
+     "一柄家传百年苏绣专用特制高碳钢折合剪刀（张小泉古法锻打夹钢极硬淬火厚背短刃）",
+     "一包防水油纸密封的特级天然桑蚕劈丝银针"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在狂风暴雨地动山摇中犹如参天巨木般的沉稳庇护",
+     "两人十指相扣紧握钢剪撬动千斤横梁时肌肤滚烫贴合的生命战栗"
+    ],
+    "boundaries": [
+     "恪守水乡礼教闺秀分寸",
+     "不以私情废公门大义"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被从身后抱住腰身稳固在门槛上，四手相叠握住折合剪刀长柄一同猛烈下压。",
+    "dislikes": [
+     "官僚作风的敷衍推诿",
+     "见利忘义的奸商嘴脸"
+    ],
+    "expression": "脱险后用温热柔荑轻轻拉住营造师沾满木屑与血迹的大手，眼圈泛红柔声宽慰。",
+    "likes": [
+     "木销咔哒一声跳出榫眼时对方眼中绽放的光芒",
+     "被强健臂弯一把从漫水中横抱而起的踏实安全感"
+    ],
+    "preconditions": [
+     "黄杨木大棚架被成功撬脱移位推开大门脱困",
+     "国宝绣片完好无损登上搜救艇",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "苏绣非遗青年传人",
+   "schedule": [
+    {
+     "from": 900,
+     "location_id": "loc_ancestral_embroidery_loft",
+     "to": 915
+    },
+    {
+     "from": 915,
+     "location_id": "loc_ancestral_embroidery_loft",
+     "to": 930
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "剪刀厚刃出现两毫米受力微弯扭曲，{npc.name}娇嫩掌心被剪柄压出深红勒痕渗血。",
+      "option": "用高碳钢折合剪刀双刃反向咬入木榫卡槽借双人重力向下猛压挑脱木销推门自救。"
+     },
+     {
+      "cost": "角尺折断飞溅划伤营造师手背流血。",
+      "option": "营造师用角尺硬砸榫卯边缘强震震断木销脱险。"
+     }
+    ],
+    "pressure": "太湖倒灌浑水正以每分钟五公分漫上楼板，挑空石牛腿濒临滑脱，若不能在四分钟内挑脱木销推开大门，全员将随绣楼坠入激流。",
+    "trigger": "千斤黄杨木绣花大棚架倾覆，斜顶在大门门斗上，燕尾榫定位木销受侧向压力彻底抱死在楠木门框内。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "太湖水涨得太快了……不怕，营造师在，这楠木门一定能开，先祖的绣片我也一定要护住。",
+    "surface": "营造师！莫慌！祖传的苏绣折合剪是古法高碳淬火硬钢！刀背足有四毫米厚！别直着撬，插进榫头斜缝反向挑木销！"
+   }
+  },
+  {
+   "adult_context": "年满二十五岁，同济古建筑工程硕士，当代非遗营造社成年主理工程师，具备完全民事行为能力与战时抢险指挥权。",
+   "age_range": [
+    25,
+    28
+   ],
+   "appearance_options": [
+    "身穿深蓝色耐磨帆布工装马甲与多功能工装长裤，挽着袖口，手臂肌肉结实筋骨分明，面容硬朗剑眉星目，被雨水湿透的碎发贴在额前。",
+    "浑身散发着纯正大木作匠人的沉静稳重，眼神死死锁定燕尾榫受力变形的细微开裂纹理。"
+   ],
+   "decision": {
+    "avoids": [
+     "投机取巧的粗制滥造",
+     "临阵脱逃的胆小懦夫"
+    ],
+    "contrast": "平日温文尔雅的学术型青年学者，置身楼塌灭顶洪灾时爆发出抗衡千钧巨木的凶悍力量。",
+    "core_value": "木头有经纬，榫卯有生门，只要找准了锁紧的阴阳槽，一片厚剪刀就能破千斤闸！",
+    "goal_options": [
+     "接下绣娘剪刀找准燕尾榫受力盲区反向挑撬",
+     "用宽阔肩膀顶住倾斜大横梁卸除下压重力"
+    ],
+    "never": [
+     "在绣娘平安上艇前独自后退半步"
+    ],
+    "prefers": [
+     "严丝合缝的力学规律",
+     "生死同心的患难担当"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂发力青筋暴起抱住绣娘借双人体重大力下压",
+     "high": "接过折合剪刀精准插进仅容一线的榫木空隙",
+     "low": "迅速测量大梁倾斜夹角计算榫头受剪极限",
+     "mid": "踩水奔至门前用肩膀死死扛住横梁下坠端"
+    },
+    "relationship_stance": "将绣娘视作心尖上的江南白月光，敬佩其非凡绣艺与坚韧骨气，危难时刻愿化身遮风挡雨的人体栋梁。",
+    "withdrawal": "退守在迎水面两根老楠木主金柱夹角内，双手扣住横枋稳固下盘。"
+   },
+   "gender": "male",
+   "gender_reason": "江南营造学社大木作营造首席工程师",
+   "id": "carpenter_lu_cheng",
+   "identity": {
+    "authority": "对宗祠挑空楼阁整体结构安全评估、紧急大木拆解与梁架卸荷方案拥有第一技术决策权。",
+    "exposure": "为了留住宗祠木构曾私下拒绝过拆除危房改建商业仿古街的规划方案",
+    "hidden": "工具袋的隐秘夹层里藏着一页绣娘亲手绣的竹节纹样，一直没舍得用。",
+    "limits": [
+     "体能受持续狂风暴雨低温冲刷大幅透支",
+     "赤手空拳无大型油压千斤顶与液压剪"
+    ],
+    "obligations": [
+     "誓死保全绣娘人身安全与江南水乡明代珍稀木构古建筑"
+    ],
+    "resources": [
+     "一把加厚淬硬多功能木构开槽游标卡尺",
+     "一册手工线装太湖古镇营造全景木作样谱"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "绣娘温婉外表下惊人的冷静定力与工匠血性",
+     "两具身躯在摇摇欲坠危楼中抵死相依的心跳共振"
+    ],
+    "boundaries": [
+     "恪守正人君子分寸与同门之礼",
+     "不以救命功绩挟恩自重"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "将绣娘拥入胸膛固定在门槛前，大手包覆姑娘柔荑，以全身重量将剪柄压到底。",
+    "dislikes": [
+     "官僚的草率爆破指令",
+     "破坏古建文物的野蛮施工"
+    ],
+    "expression": "脱险后迅速解下自己干燥的防风工装马甲裹在绣娘瑟瑟发抖的肩头，轻声宽慰。",
+    "likes": [
+     "木销砰然脱开时绣娘惊喜仰头的一抹温软眼波",
+     "将绣娘横抱怀中时发丝散发的幽幽蚕丝清香"
+    ],
+    "preconditions": [
+     "大门开启全员平安登上防汛搜救冲锋舟",
+     "国宝绣片完好无损入库保存",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "古建修缮总工程师",
+   "schedule": [
+    {
+     "from": 900,
+     "location_id": "loc_ancestral_embroidery_loft",
+     "to": 930
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}右臂肌肉严重拉伤酸痛。",
+      "option": "{npc.name}指导绣娘将剪刀厚刃贴紧木纹反向深插两人合力下压挑飞木销自救。"
+     },
+     {
+      "cost": "纯铜拔销锥弯曲报废。",
+      "option": "用拔销锥强行硬敲震裂木销边缘脱险。"
+     }
+    ],
+    "pressure": "若不能在三分钟内借剪刀将木销挑退脱扣，整座绣轩将被大梁拉扯着整体倾覆滑入太湖洪流。",
+    "trigger": "黄杨木棚架重达千斤的倾覆扭矩将乌木定位销死死咬死在榫眼死点内。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "就算这宗祠真塌了，我也绝不让绣娘受半点伤。……给我开！",
+    "surface": "绣娘！抓稳了！这具棚架是燕尾双穿带榫，受力点全在左侧这枚八角乌木销上！剪刀刃插进去了，跟我一起使劲，三二一，挑！"
+   }
+  },
+  {
+   "adult_context": "年满四十二岁，文保工程资深正高工程师，成年公职人员，具备完全民事行为能力与现场文保避险处置权。",
+   "age_range": [
+    42,
+    48
+   ],
+   "appearance_options": [
+    "身穿带有反光条的黄色文保应急抢险冲锋衣，头戴安全帽，面容焦黑满是水痕，手握高功率对讲机在岸边急促呼喊。",
+    "神情高度紧张，手里紧紧护着图纸测绘包，隔着暴雨大声指引搜救舟靠泊方向。"
+   ],
+   "decision": {
+    "avoids": [
+     "粗暴破坏性的野蛮施工",
+     "推诿卸责的官僚主义"
+    ],
+    "contrast": "平日严谨保守的学者型体制官员，面对生死水患时展现出分秒必争的血性执着。",
+    "core_value": "人命关天文物连心，只要楼里的人还能动，我们全队就死守在岸边接应到底！",
+    "goal_options": [
+     "指挥冲锋舟顶住急流寻找飞廊最佳登楼点",
+     "用探照灯为绣轩内部提供强光穿透照明"
+    ],
+    "never": [
+     "在被困人员脱险前撤离防汛指挥哨位"
+    ],
+    "prefers": [
+     "科学严谨的力学施救",
+     "对文化遗产的崇高敬畏"
+    ],
+    "pressure_responses": {
+     "breaking": "脱下救生衣准备亲自涉水登舟接应",
+     "high": "驳回消防部门动用重型水炮冲刷门窗的危险提议",
+     "low": "在对讲机里连续确认绣轩内部两人生命体征",
+     "mid": "果断调集大功率探照灯锁定大门雕花格扇位置"
+    },
+    "relationship_stance": "视绣娘为国宝级刺绣明珠，深知营造师的过硬木构学养，在后方提供最坚实的信息与调度支撑。",
+    "withdrawal": "站在对岸水泥防汛大堤最高处的观测台上，手按测绘图纸凝神指挥。"
+   },
+   "gender": "male",
+   "gender_reason": "文保局特派太湖流域抢险勘察总工程师",
+   "id": "director_shen_guoliang",
+   "identity": {
+    "authority": "对宗祠险情等级评定、是否动用破拆机械及文物紧急调拨拥有现场终审决策权。",
+    "exposure": "此前曾因文保资金短缺延误过戏台立柱防潮加固工程立项",
+    "hidden": "提前备好了两张特种柔性文物吊装防撞气垫以防绣片坠落",
+    "limits": [
+     "受制于对岸洪峰断路无法亲自攀爬危楼作业",
+     "极度恐慌古建整体塌入太湖造成不可逆特大事故"
+    ],
+    "obligations": [
+     "在确保人命安全前提下最大程度保全宗祠国宝级建筑结构完整"
+    ],
+    "resources": [
+     "一部带防水防爆外壳的北斗双向特情手持机",
+     "一套装在密封筒内的沈氏宗祠大木立面勘察测绘蓝图"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危难时刻对文化根脉的誓死坚守",
+     "临危不乱的精湛专业指挥"
+    ],
+    "boundaries": [
+     "恪守公职人员清正廉洁底线",
+     "严守行政法规"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "手持大喇叭站在堤岸边缘，向大楼门窗方向大声报出太湖洪峰退潮秒数。",
+    "dislikes": [
+     "天灾对古迹文物的无情摧残",
+     "安全隐患未除的麻痹大意"
+    ],
+    "expression": "快步迎上前双手握住营造师与绣娘的手，激动得连连点头眼中泛起热泪。",
+    "likes": [
+     "搜救艇雷达屏幕上平安归来的绿点",
+     "完好无损的非遗档案签收单"
+    ],
+    "preconditions": [
+     "全员平安脱困上岸",
+     "宗祠主体现状评估险情稳定"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "文保特派指挥长",
+   "schedule": [
+    {
+     "from": 900,
+     "location_id": "loc_riverfront_carved_veranda",
+     "to": 930
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "探照灯高压线路在雨水中发生短路过载烧毁一具变压器。",
+      "option": "沈专员调动千瓦氙气探照灯光束穿透雨幕照亮燕尾榫自救。"
+     },
+     {
+      "cost": "对讲机进水受潮损坏。",
+      "option": "用对讲机高频报出结构应力平衡点指引盲操脱险。"
+     }
+    ],
+    "pressure": "若无强光指引，剪刀尖将在光滑木质表面盲目打滑错过最佳时机。",
+    "trigger": "夜幕与暴雨导致挑空大厅内部昏暗无法看清榫卯销孔缝隙。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这两个孩子要是折在太湖里，不仅是文保界的耻辱，我{npc.name}一辈子都良心难安！",
+    "surface": "绣娘！营造师！探照灯给你们打在东侧榫眼上了！冲锋舟还有两分钟靠帮，千万挺住！别硬推大门，挑开木销顺着推！"
+   }
+  },
+  {
+   "adult_context": "年满三十岁，水警现役少校大队长，成年特警警官，具备完全民事行为能力与水上紧急避险战术指挥权。",
+   "age_range": [
+    30,
+    36
+   ],
+   "appearance_options": [
+    "身穿黑色潜水抗磨搜救战服与橙色专业激流救援救生衣，身材魁梧皮肤黝黑，双手沉稳握住冲锋舟操舵手柄。",
+    "浑身滴淌着雨水与湖浪浊水，眼神如鹰隼般锐利凝视着坍塌飞廊下方的漩涡暗流。"
+   ],
+   "decision": {
+    "avoids": [
+     "自乱阵脚的惊慌盲动",
+     "畏缩不前的懦夫退却"
+    ],
+    "contrast": "平日风风火火的粗犷特警队长，在细微的水流操舵与救援衔接中细腻沉稳如穿针引线。",
+    "core_value": "人在水上漂，命在浪里抢，冲锋舟就是流动的阵地，一个活人都不能落下！",
+    "goal_options": [
+     "顶住激流将冲锋舟机头死死卡在飞廊廊柱死角",
+     "发射抛投索枪为楼内传递高强度牵引绳"
+    ],
+    "never": [
+     "在确认无人幸存前收油门返航"
+    ],
+    "prefers": [
+     "军令如山的果断决绝",
+     "不惧风浪的铁血豪情"
+    ],
+    "pressure_responses": {
+     "breaking": "纵身跃上飞廊栏杆用双手死死稳住舟首",
+     "high": "大声呼令副手用撑篙顶开漂浮横木确保逃生通道",
+     "low": "在激流中精准微调油门保持冲锋舟悬停抗流",
+     "mid": "举起抛投枪对准飞廊花窗准备射出缆绳"
+    },
+    "relationship_stance": "钦佩绣娘与营造师临危不乱的工匠硬骨头，愿用自己的血肉之躯在狂涛中开辟逃生坦途。",
+    "withdrawal": "操纵冲锋舟回旋至戏台背风缓流回水湾，发动机保持怠速待命。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "captain_wu_zhiming_police",
+   "identity": {
+    "authority": "对太湖水域救援冲锋舟航线切入、抛投避险锚缆拥有绝对水上航行指挥权。",
+    "exposure": "为了营救渔民曾擅自越过警戒浮标冲入暗礁区造成冲锋舟破损",
+    "hidden": "舱底固定栓上系着两根特高强度防割芳纶纤维拖拽牵引绳",
+    "limits": [
+     "受制于挑空大楼下方乱木水草密集冲锋舟难以贴近飞廊底座",
+     "洪峰流速超过每秒四米操控极易侧翻"
+    ],
+    "obligations": [
+     "在危楼彻底坍塌滑入湖底前将受困人员全部接应上舟"
+    ],
+    "resources": [
+     "一具气瓶驱动的强力远距救生引渡发射具",
+     "两套带安全锁扣的高强度浮力救援背心"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "同生共死的水上硬汉气魄",
+     "在滔天浊浪中破浪而来的钢铁安全感"
+    ],
+    "boundaries": [
+     "严守人民警察救灾纪律规章",
+     "不越界干预百姓家事"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "半蹲在舟头抓牢美人靠栏杆，为跳楼逃生人员搭建安全的人体受力桥梁。",
+    "dislikes": [
+     "违规涉险的自私游乐",
+     "无视防汛警告的麻木无知"
+    ],
+    "expression": "伸出粗糙有力的大手一把将浑身湿透的营造师和绣娘稳稳拉入舟舱，重重拍下安全扣。",
+    "likes": [
+     "发动机马达澎湃有力的轰鸣",
+     "落水者被拉上救生舟时的安全大口喘息"
+    ],
+    "preconditions": [
+     "全员平安登舟系牢安全带冲破漩涡",
+     "冲锋舟平稳靠泊陆地码头"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "水上搜救大队长",
+   "schedule": [
+    {
+     "from": 900,
+     "location_id": "loc_riverfront_carved_veranda",
+     "to": 930
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "高压气瓶反冲震伤吴队长手腕韧带。",
+      "option": "吴队长用气动枪将芳纶牵引绳射入大厅挂在门枋上协力外拉自救。"
+     },
+     {
+      "cost": "冲锋舟橡胶护舷被礁石割裂破损。",
+      "option": "操艇硬撞水下乱石强行贴近飞廊廊下脱险。"
+     }
+    ],
+    "pressure": "若大门不能在冲锋舟燃料耗尽前打开，搜救艇将被打入暗涵全员生机断绝。",
+    "trigger": "太湖主洪峰倒灌形成逆向回水回旋狂涌。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "水流太急了，发动机水温在报警，但我绝不能后退，必须给年轻人把生路顶住！",
+    "surface": "楼里的人听着！冲锋舟在飞廊正下方咬住桩位了！还有最后九十秒！把门推开立刻跳下来，我{npc.name}用肩膀接着你们！"
+   }
+  },
+  {
+   "adult_context": "年满五十二岁，江南木雕非遗传承老匠人，成年老师傅，具备完全民事行为能力。",
+   "age_range": [
+    52,
+    58
+   ],
+   "appearance_options": [
+    "身穿油黑发亮的棉麻对襟褂子，腰系宽皮带，头发花白面颊沧桑，双手满是老茧与刀疤，眼神精明笃定。",
+    "手里握着一把磨得雪亮的平头雕花凿，站在晃动的大梁旁沉稳辨识木纹走向。"
+   ],
+   "decision": {
+    "avoids": [
+     "急功近利的粗制滥造",
+     "目无尊长的狂妄无知"
+    ],
+    "contrast": "看似土气佝偻的水乡老木匠，置身天地洪荒大险中展现出鬼斧神工的大师宗匠气度。",
+    "core_value": "找准了榫卯的脾气，一根钢剪子就能降服这副榫卯！",
+    "goal_options": [
+     "口授绣娘与营造师挑除防退竹钉的顺纹手法",
+     "用随身雕刀协助剔除榫口油灰阻力"
+    ],
+    "never": [
+     "在关键工差指引上向晚辈撒谎"
+    ],
+    "prefers": [
+     "严丝合缝的规矩法度",
+     "尊师重道的后生骨气"
+    ],
+    "pressure_responses": {
+     "breaking": "用身体倚住侧翼门枋防止大门突然回弹夹伤年轻人",
+     "high": "冒着横梁砸落危险涉水上前递送桐油胶泥充当润滑",
+     "low": "在狂风呼啸中用凿子轻敲木梁辨别空心实心传力节点",
+     "mid": "大声向两人喊出先挑竹钉再拔木销的核心秘诀"
+    },
+    "relationship_stance": "将营造师与绣娘视为传承江南大木与苏绣绝活的掌中宝，愿倾其毕生所学助年轻人脱离苦海。",
+    "withdrawal": "坐在大堂最内侧楠木供桌干燥横档上，大口喘气平复心悸。"
+   },
+   "gender": "male",
+   "gender_reason": "太湖水乡明清木雕大木营造名宿老掌墨师",
+   "id": "woodcarver_master_lu_elder",
+   "identity": {
+    "authority": "对宗祠黄杨木大绣架内部隐蔽榫卯结构、阴阳暗销位置拥有五十年手艺辨识直觉。",
+    "exposure": "早年为了糊口曾私下仿制过明清江南古董黄花梨绣架流落海外",
+    "hidden": "深知只要用剪刀尖先挑断乌木销表面的防退竹钉就能顺畅拔出主销",
+    "limits": [
+     "严重腰椎间盘突出与风湿腿疾在冷水中行动吃力",
+     "体力不济无法单独对抗千斤横梁重力"
+    ],
+    "obligations": [
+     "将江南祖传穿斗大木与榫卯机关绝学完整传授后生晚辈"
+    ],
+    "resources": [
+     "一套用油布层层包裹的古法淬火平头修榫扁凿",
+     "一听特制防潮生桐油防腐胶泥小铁罐"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对江南传统营造精湛绝学的崇高敬畏",
+     "在天崩地裂灾祸中不分师徒尊卑的患难真情"
+    ],
+    "boundaries": [
+     "恪守师徒礼数长幼尊卑规矩",
+     "不掺和年轻男女私情"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "半跪在倾倒大梁根部，用枯瘦但稳健的手指紧紧抵住榫眼外缘，为剪刀插入导向方位。",
+    "dislikes": [
+     "洋垃圾工业品的粗鄙塑料",
+     "败家子变卖祖产的无耻行径"
+    ],
+    "expression": "用沾满木屑粗糙开裂的大手重重按在营造师肩头，布满皱纹的眼角露出欣慰踏实的笑容。",
+    "likes": [
+     "榫卯严丝合缝跳开时的清脆声响",
+     "后辈年轻人青出于蓝的过硬本领"
+    ],
+    "preconditions": [
+     "险情化解全员平安登舟上岸",
+     "祖传工具包完好无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "营造名宿老木匠",
+   "schedule": [
+    {
+     "from": 900,
+     "location_id": "loc_ancestral_embroidery_loft",
+     "to": 930
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "剪刀尖端磨损微小豁口。",
+      "option": "听从老木匠指点先用剪刀尖挑飞防退竹钉再合力撬出主销自救。"
+     },
+     {
+      "cost": "凿子受震动崩断刀尖。",
+      "option": "用雕花凿子强行凿碎竹钉脱险。"
+     }
+    ],
+    "pressure": "若不知晓竹钉存在盲目施力，剪刀刃将被强横剪应力当场别断。",
+    "trigger": "燕尾榫内暗藏微小防退倒刺竹钉死死卡住主销滑出路线。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好俊秀的一对金童玉女……老天爷开开眼，可不能让咱们江南两样顶尖的老手艺淹死在这太湖里！",
+    "surface": "绣娘丫头！营造师后生！听老木匠一句！那个八角乌木销后面暗藏了一根两分长的防退小竹钉！先用剪刀尖把竹钉挑飞，乌木大销才能挑得动！"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁，工艺美院刺绣系成年毕业生，苏绣传习所见习工匠，具备完全民事行为能力。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "身穿浅粉色斜襟棉麻短衫与藏青色长裤，身形单薄神情惶急，怀中死死抱着装有历代绣谱古籍的防水牛皮箱。",
+    "长发被雨水浇透湿漉漉搭在肩头，因极度寒冷和恐惧双唇泛白牙齿打颤。"
+   ],
+   "decision": {
+    "avoids": [
+     "天灾暴洪的无情肆虐",
+     "盛气凌人的斥责打骂"
+    ],
+    "contrast": "平日胆小怯懦的小职员，在灭顶之灾面前能用身体为师姐挡风遮雨。",
+    "core_value": "誓死守护温掌门与师门绣谱，掌门师姐在我就在！",
+    "goal_options": [
+     "用桐油防雨布包裹大梁接触面防止滑脱",
+     "协助师姐扶稳身体保持重心平衡"
+    ],
+    "never": [
+     "在绣娘脱困前自顾自逃生"
+    ],
+    "prefers": [
+     "温润细腻的手工技艺",
+     "温婉如玉的师姐笑容"
+    ],
+    "pressure_responses": {
+     "breaking": "哭着抱住绣娘双腿协助稳固下盘",
+     "high": "用单薄身躯替师姐挡住天花板落下的碎瓦石灰",
+     "low": "在后堂死死护住古籍箱瑟瑟发抖",
+     "mid": "鼓起勇气踏水上前递过桐油布包垫防滑"
+    },
+    "relationship_stance": "视绣娘如长姐如神明，在大难面前爆发出难以置信的忠诚护主本能。",
+    "withdrawal": "缩在楠木门斗内侧干燥壁龛台阶上方，紧抱牛皮箱抽泣。"
+   },
+   "gender": "female",
+   "gender_reason": "苏绣传习所见习青年女绣娘助理工匠",
+   "id": "apprentice_embroiderer_xiao_he_heir",
+   "identity": {
+    "authority": "对绣坊日常丝线库房钥匙、古法天然矿植物染料配方册拥有看管权。",
+    "exposure": "曾因分线失误不慎弄脏过一小块大师姐的练习绸面",
+    "hidden": "暗自将绣娘视作生命中唯一的精神偶像与艺术灯塔",
+    "limits": [
+     "性格柔弱胆小易慌在漫水泥水中几乎寸步难行",
+     "体力微薄无法参与大木撬动"
+    ],
+    "obligations": [
+     "誓死守护师门祖传宋元绣谱善本不被雨水浸湿损毁"
+    ],
+    "resources": [
+     "一卷高强度防水涂层加厚桐油防雨布",
+     "一把精巧便携式小号单刃苏绣理线剪"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危难时刻师姐犹如定海神针般的从容风范",
+     "同门姐妹相依为命的炽热羁绊"
+    ],
+    "boundaries": [
+     "严守工坊本分规矩长幼秩序",
+     "不逾矩干涉师姐私事"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "半蹲在大门门槛内侧，双手用力按住防雨布垫角，大声为师姐与陆工加油鼓劲。",
+    "dislikes": [
+     "无情洪水的淹没摧毁",
+     "师门传承的断绝"
+    ],
+    "expression": "眼含热泪扑入绣娘怀中，小脸紧紧贴在师姐湿透的真丝衣襟上喜极而泣。",
+    "likes": [
+     "大门冲开时涌入的温暖天光",
+     "师姐温柔抚摸头顶发丝的宽慰"
+    ],
+    "preconditions": [
+     "全员平安登舟绣谱善本完好无损",
+     "脱离太湖险区安全复温"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "绣坊见习助理员",
+   "schedule": [
+    {
+     "from": 900,
+     "location_id": "loc_ancestral_embroidery_loft",
+     "to": 930
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "桐油布被锋利剪刃撕裂报废。",
+      "option": "小荷递上加厚桐油布包裹剪刃咬合点消除打滑顺利施力自救。"
+     },
+     {
+      "cost": "消耗珍稀特级天然古法蚕丝线。",
+      "option": "用绣线团垫在缝隙防滑顺势撬开木销脱险。"
+     }
+    ],
+    "pressure": "若不及时垫入防滑介质，每一次打滑都将消耗宝贵的时间并磨损木质支撑点。",
+    "trigger": "黄杨木棚架表面因暴雨湿滑导致剪刀刃受力点反复打滑移位。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "师姐千万别出事，只要师姐能活着，我小荷以后天天给师姐洗线劈丝都心甘情愿！",
+    "surface": "绣娘师姐！陆工！我把桐油布垫在剪刀底下了，这样不会打滑！绣谱善本我包好了，你们千万小心啊！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "七月，太湖汛期",
+  "minute": 900
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "bodily_harm",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "苏绣绣娘在开针前习惯用温润真丝软帕擦净高碳钢剪刀刃口的油污微尘。",
+  "水乡木构营造师傅登高检修前习惯以木槌轻敲立柱听音辨析柱心受潮糟朽程度。",
+  "临水古宅逢大汛闭门前习惯在迎水面门槛后夯实两道加厚青砖防水护墙。",
+  "刺绣传人遇大灾避险习惯将最珍稀的古法天然蚕丝绣线与劈丝针紧贴心口收藏。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "使用钛合金激光铅垂仪校验老楠木立柱倾斜角",
+    "使用木槌敲击柱脚抱箍石生铁搭扣确认松紧度",
+    "核准挑空歇山顶主脊瓦件在大风中的摆动幅度"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_loft_timber_load_bearing_audit",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "start_minute": 900,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "二层挑空大绣轩穿斗金柱垂直度巡检"
+  },
+  {
+   "beats": [
+    "清理飞廊雕花栏杆排水暗沟内堆积的落叶青苔",
+    "用木楔子楔紧松动的花鸟挂落透雕转角花牙",
+    "在防汛台账上记录太湖水位距离美人靠底高差"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_waterfront_veranda_railing_check",
+   "location_ids": [
+    "loc_riverfront_carved_veranda"
+   ],
+   "start_minute": 905,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "临河美人靠雕花飞廊挂落榫卯加固"
+  },
+  {
+   "beats": [
+    "微调绣架双侧乌木滚轴的棘轮定位锁紧手轮",
+    "用丝绢软帕擦去真丝绣面周遭浮尘与微细棉絮",
+    "检查底座燕尾穿带榫防退竹钉的受潮干燥状况"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_boxwood_embroidery_frame_tuning",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "start_minute": 910,
+   "tags": [
+    "workplace"
+   ],
+   "title": "明代黄杨木双面绣花大棚架张力校准"
+  },
+  {
+   "beats": [
+    "使用高纯度天然山茶油擦拭夹钢淬火剪刀双刃",
+    "测试折叠铰链在展开成平角时的硬度闭锁卡位",
+    "使用极细金刚石研磨膏微调剪刃前端挑针锐角"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_suzhou_scissors_edge_oiling",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "start_minute": 915,
+   "tags": [
+    "workplace"
+   ],
+   "title": "家传百年苏绣高碳钢折合剪刀保养"
+  },
+  {
+   "beats": [
+    "梅雨难得停了半天，绣娘把受潮的丝线挂在后堂青石天井里晾。",
+    "营造师从梁上下来，看着满天井五颜六色的丝线，说像挂了一院子的彩虹。",
+    "绣娘把一束最好看的胭脂红递给营造师：拿去，给你家里人。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "hook_cheng_bamboo_pattern",
+    "hook_ruolan_biluochun",
+    "hook_ruolan_needle_hand"
+   ],
+   "id": "act_flooded_stairwell_water_gauging",
+   "location_ids": [
+    "loc_flooded_stone_stairwell"
+   ],
+   "start_minute": 840,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "天井里晾绣线"
+  },
+  {
+   "beats": [
+    "傍晚，绣娘和营造师坐在临河飞廊上吃茶，河上摇过几只乌篷船。",
+    "营造师说起飞廊的木料是清朝的老杉木，比宗祠里任何一件东西都老。",
+    "绣娘听着，给营造师续了一杯碧螺春。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_cheng_bamboo_pattern",
+    "hook_ruolan_biluochun",
+    "hook_ruolan_needle_hand"
+   ],
+   "id": "act_heritage_rescue_radio_log",
+   "location_ids": [
+    "loc_riverfront_carved_veranda"
+   ],
+   "start_minute": 1050,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "临河飞廊上吃茶"
+  },
+  {
+   "beats": [
+    "洪水退下、楠木门挑开、先祖的绣片都抢上了阁楼之后，绣娘回到后头的卧房，真丝长衫湿透了贴在身上，盘扣泡得发紧。",
+    "绣娘背过身，让人一颗颗解开领口的盘扣，再用温水绞过的帕子擦去颈后的泥水，帕子擦到腰间时，绣娘轻轻吸了口气，没有躲开。",
+    "绣娘转过身，攥住对方的手腕，脸红到耳根：今晚……别回营造社了。你点头，我才放手。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bedroom_wet_silk",
+   "location_ids": [
+    "loc_embroidery_back_bedroom"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "卧房里替绣娘解开湿透的长衫"
+  },
+  {
+   "beats": [
+    "梅雨下了一整天，绣娘换了身月白的家常衫子，靠在卧房的木窗边，膝上搁着绣了一半的帕子，手里的针半天没落下去。",
+    "绣娘把绣绷往人怀里一推：这一角你替我绣。……绣坏了不怪你，坐近点，我看着。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bedroom_rain_window",
+   "location_ids": [
+    "loc_embroidery_back_bedroom"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "听一夜梅雨"
+  },
+  {
+   "beats": [
+    "绣娘从樟木箱底翻出一方帕子，上头绣着一枝竹，针脚密得看不出起落，说是绣了一整个梅雨季。",
+    "绣娘把帕子塞进人手里，低着头：竹子是照着你刨的那根梁绣的。……收下了，今晚就别走。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bedroom_new_embroidery",
+   "location_ids": [
+    "loc_embroidery_back_bedroom"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "绣给一个人的帕子"
+  },
+  {
+   "beats": [
+    "天刚亮，河上的乌篷船还没起橹，绣娘在素纱帐里醒来，长发散在枕上，指尖还勾着对方的衣袖。",
+    "绣娘把脸埋进人肩窝：茶我待会儿泡……再躺一刻钟，营造社的人不会这么早来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_bedroom_morning_tea",
+   "location_ids": [
+    "loc_embroidery_back_bedroom"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "清晨的头一杯碧螺春"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代江南太湖流域非物质文化遗产活态保护与古建修缮期",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_flood_roars_up_the_stairwell",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "{embroiderer_wen_ruolan.name}双手死死扶住楠木大门门框，水绿长衫被浊水浸湿，两腮微婴儿肥的面庞泛着水汽红晕，眼神温婉却极度镇定：营造师！太湖水淹过二层门槛了！别慌，看我手里的祖传折合剪，跟我一起把剪刀反插进去！"
+  },
+  {
+   "id": "hook_cantilever_loft_creaks_in_wind",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "{embroiderer_wen_ruolan.name}抹去脸颊上的冰冷雨水，两腮微婴儿肥的面颊紧绷，美眸如星光般明亮决然：楼身在往河里倾斜！千斤棚架压死门扇了，营造师，帮我顶住大梁，剪刀刃对准燕尾榫了，用力挑！"
+  },
+  {
+   "id": "hook_boxwood_mortise_locks_tight",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "{embroiderer_wen_ruolan.name}赤足踩在冰冷漫水中，双手紧紧叠握在营造师粗糙宽阔的大手上，青丝在狂风中飞扬：乌木销松动了！听老木匠的口诀，顺着木纹朝左下猛挫，三、二、一，给我开！"
+  },
+  {
+   "id": "hook_carpenter_checks_level_gauge",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "carpenter_lu_cheng",
+   "text": "{carpenter_lu_cheng.name}阔步踏入漫水大堂，强壮的身躯从身后一把将绣娘护在怀里：绣娘师妹站稳！大梁下坠的千钧重力全交给我，剪刀刃卡进销孔了，听我口令一起下压！"
+  },
+  {
+   "id": "hook_master_lu_checks_chisel_pocket",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "woodcarver_master_lu_elder",
+   "text": "{woodcarver_master_lu_elder.name}抹了把脸上的冷雨，大声指引：好姑娘手真稳！别直着撬，先用剪尖挑掉暗藏的防退小竹钉，把全身分量压下去，老汉保你一挑就开！"
+  },
+  {
+   "id": "hook_director_aims_xenon_spotlight",
+   "kind": "approach",
+   "location_ids": [
+    "loc_riverfront_carved_veranda"
+   ],
+   "slot": "director_shen_guoliang",
+   "text": "{director_shen_guoliang.name}在对岸大声举着对讲机呼喊：绣娘！营造师！千瓦探照灯给你们锁死在燕尾榫上了！看准那个发亮的乌木销，顺着木纹挑，冲锋舟在廊下等着你们！"
+  },
+  {
+   "id": "hook_wu_shouts_from_patrol_boat",
+   "kind": "approach",
+   "location_ids": [
+    "loc_riverfront_carved_veranda"
+   ],
+   "slot": "captain_wu_zhiming_police",
+   "text": "{captain_wu_zhiming_police.name}在冲锋舟首用力握住飞廊立柱大吼：楼里的人抓紧！马达油料只剩最后两分钟！大门推开立刻跳下来，我用后背接着你们！"
+  },
+  {
+   "id": "hook_police_boat_engine_sputters",
+   "kind": "approach",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "carpenter_lu_cheng",
+   "text": "{carpenter_lu_cheng.name}胸膛紧贴着绣娘湿透单薄的后背，双臂宛如铁钳般环紧姑娘柔荑：绣娘，别怕！听冲锋舟马达声就在廊下！咬紧牙关，我们把全身分量压下去！"
+  },
+  {
+   "id": "hook_storm_gust_rips_roof_tiles",
+   "kind": "request",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "{embroiderer_wen_ruolan.name}深吸一口气，真丝衣袖浸满湖水，两腮微婴儿肥的面容毫无惧色：营造师！屋瓦塌下来了，用工装护住头，把你的力气全压在剪柄上，绝不能让宗祠沉入湖底！"
+  },
+  {
+   "id": "hook_scissors_blade_screams_under_load",
+   "kind": "request",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "carpenter_lu_cheng",
+   "text": "{carpenter_lu_cheng.name}浑身肌肉紧绷青筋暴起，右臂青筋如虬龙般鼓起：绣娘，剪刀受力到极限了，最后一次机会！跟我数三二一，拼尽全力往下一挫！"
+  },
+  {
+   "id": "hook_ruolan_cleans_steel_scissors",
+   "kind": "request",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "{embroiderer_wen_ruolan.name}反手死死扣紧营造师满是木屑的大手，温婉眼眸中绽放出夺目光芒：营造师，有你在{embroiderer_wen_ruolan.name}什么都不怕！先祖保佑，给我开！"
+  },
+  {
+   "id": "hook_xiao_he_hugs_ancient_patterns",
+   "kind": "observe",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "见习女工小荷紧紧抱着牛皮箱缩在门边，泪眼朦胧地看着漫水门槛上两人紧密相依、十指交扣合力撬动千斤大木的决死身姿，被大家同生共死的气魄感动得热泪长流。"
+  },
+  {
+   "id": "hook_observe_embroiderer_graceful_stance",
+   "kind": "observe",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "{embroiderer_wen_ruolan.name}湿透的长衫勾勒出江南女子绝美柔韧的身段，两腮微婴儿肥的面颊在雨幕雷光映衬下晶莹如玉，微婴儿肥的面庞与手中寒光森森的高碳钢剪刀形成极度温婉又果决的反差张力。"
+  },
+  {
+   "id": "hook_observe_ancestral_door_bursts_open",
+   "kind": "observe",
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "伴随着一声震耳欲聋的木质断裂脆响，咬死的乌木销被高碳钢折合剪硬生生挑飞脱槽，千斤重梁顺势滑脱偏移，厚重的雕花大门在两人合力猛推下轰然洞开，迎向飞廊外的生机曙光。"
+  },
+  {
+   "id": "hook_ruolan_biluochun",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "{npc.name}把一杯碧螺春放在人手边，低头穿着针：今年的新茶。……刨花别再掉进我的丝线里了。"
+  },
+  {
+   "id": "hook_ruolan_wupeng",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "{npc.name}站在宗祠后门的石埠头上，冲河里的乌篷船招手，回头看人：去镇上买丝线，一起？"
+  },
+  {
+   "id": "hook_ruolan_needle_hand",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "{npc.name}把人的手拉过来，按在绣绷上：这一针你来落。……手别抖，我握着。"
+  },
+  {
+   "id": "hook_cheng_bamboo_pattern",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "carpenter_lu_cheng",
+   "text": "{npc.name}从工具袋里摸出一页绣着竹节的纹样，又塞了回去：没什么……刨梁的时候当尺子用。"
+  },
+  {
+   "id": "hook_ruolan_bedroom_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_embroidery_back_bedroom"
+   ],
+   "slot": "embroiderer_wen_ruolan",
+   "text": "{npc.name}站在卧房门口，手里端着一盏油灯：雨大了，河上过不了船。……进来坐坐吧。"
+  }
+ ],
+ "id": "suzhou_embroidery_cellar_flood",
+ "locations": [
+  {
+   "affordances": [
+    "抓牢楠木金柱稳住下盘抗衡楼身晃动",
+    "掏出随身古法折合剪刀反插榫眼",
+    "合力托举黄杨木大梁卸除咬死压力"
+   ],
+   "detail": "高悬于河道之上的二层明代大跨度歇山顶挑空敞轩，十二根老红楠木立柱撑起开阔大堂，正中央原本立着重达千斤的明代黄杨木双面绣花大棚架，此时大架轰然侧翻，长达三米的大横梁斜砸在楠木雕花厚门上，木榫锁死，外侧太湖浊流撞击下层石基发出山崩般的轰鸣。",
+   "exits": [
+    "loc_riverfront_carved_veranda",
+    "loc_flooded_stone_stairwell",
+    "loc_embroidery_back_bedroom"
+   ],
+   "id": "loc_ancestral_embroidery_loft",
+   "name": "二层大绣轩",
+   "pressure_modifiers": {
+    "p_flood_water_surging_stairwell": "倒灌太湖水顺着楼梯迅猛上涨漫过二层门槛，浑水深度已达二十公分。",
+    "p_timber_frame_cantilever_creak": "下层悬挑石牛腿在洪峰冲刷下松动倾斜，绣轩整体发生三度危险侧倾。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_woodcarver_master_lu"
+   ]
+  },
+  {
+   "affordances": [
+    "抓取挂落上的备用麻绳固定大架",
+    "向对岸冲锋舟挥动红绢呼救",
+    "观察挑空下部木榫变形角度"
+   ],
+   "detail": "悬空突出河岸三米的美人靠通长飞廊，精雕细刻的吴地花鸟挂落被狂风暴雨猛烈撕扯，外侧原有的木栈道已被暴涨的洪流冲成碎木卷走，激流卷起白沫直接拍打飞廊挂落。",
+   "exits": [
+    "loc_ancestral_embroidery_loft",
+    "loc_flooded_stone_stairwell"
+   ],
+   "id": "loc_riverfront_carved_veranda",
+   "name": "临河飞廊",
+   "pressure_modifiers": {
+    "p_storm_gust_tearing_veranda_roof": "十级太湖阵风掀开飞廊青瓦，大片瓦当砸落水中并威胁木结构整体稳定性。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_water_police_captain_wu",
+    "bg_heritage_director_shen"
+   ]
+  },
+  {
+   "affordances": [
+    "扳动天井排水石暗闸启闭龙头",
+    "用长竹竿试探水下台阶淹没深度",
+    "搜寻被水流冲落的备用木楔"
+   ],
+   "detail": "原为宗祠后进连通水道的下沉式青石石阶，此时已被暴涨的太湖黄水彻底倒灌灌满，水面上漂浮着残破的油布、落叶与被冲塌的木构横枋，通往一楼地面的陆路退路完全被浑水截断。",
+   "exits": [
+    "loc_ancestral_embroidery_loft",
+    "loc_riverfront_carved_veranda"
+   ],
+   "id": "loc_flooded_stone_stairwell",
+   "name": "后堂青石天井",
+   "pressure_modifiers": {
+    "p_flood_water_surging_stairwell": "回旋急流在天井形成危险漩涡，倒灌浑水正以每分钟五公分疯狂淹没台阶。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace_power",
+    "disaster"
+   ],
+   "visibility": "dark",
+   "witnesses": [
+    "bg_apprentice_embroiderer_xiao_he"
+   ]
+  },
+  {
+   "affordances": [
+    "替绣娘解开湿透的真丝长衫",
+    "陪绣娘在窗边听雨",
+    "闩上卧房的木门"
+   ],
+   "detail": "绣轩后头隔出的一间小卧房，一张挂着素纱帐的雕花木床、一只樟木衣箱、一张摆着绣绷和碧螺春的小几，推开木窗就是宗祠后门的石埠头和河。",
+   "exits": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "id": "loc_embroidery_back_bedroom",
+   "name": "绣轩后面的绣娘卧房",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "木门一掩，前头绣轩的刨木声和河上的橹声都远了，只剩梅雨打在瓦上的声音。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "温",
+   "陆",
+   "沈",
+   "顾",
+   "苏",
+   "叶",
+   "钱",
+   "周",
+   "徐",
+   "朱",
+   "韩",
+   "潘"
+  ],
+  "given_female": [
+   "若兰",
+   "婉儿",
+   "曼凝",
+   "佩云",
+   "芷晴",
+   "采薇",
+   "梦竹",
+   "静姝",
+   "玉蝉",
+   "慧心",
+   "素娥",
+   "雨桐"
+  ],
+  "given_male": [
+   "澄",
+   "云舟",
+   "绍祖",
+   "庭坚",
+   "子安",
+   "伯庸",
+   "明远",
+   "景行",
+   "文瀚",
+   "彦博",
+   "承德",
+   "清和"
+  ],
+  "given_neutral": [
+   "澜",
+   "舟",
+   "禾",
+   "川",
+   "霖",
+   "润",
+   "言",
+   "谦",
+   "涵",
+   "澈",
+   "清",
+   "筠"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留姑苏古镇临水宗祠、太湖汛期洪峰倒灌、千斤黄杨木绣花棚架别死雕花大门、绣娘用祖传折合钢剪反插榫卯销孔的骨架与水乡味道。用户已放开内容限制，只守红线（全员成年、双方清醒明确同意、危险束缚窒息昏迷期间没有性互动）；原稿的外貌与性感描写照留，只改写死的人名、代词、年龄分布与权力结构分布这类技术项。开局写绣娘与营造师在宗祠里修了一个梅雨季的绣轩；新增绣轩后面的绣娘卧房与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    24,
+    30
+   ],
+   "baseline": "负责江南名刹与太湖流域古祠堂穿斗式大木作修缮复原的青年古建工程师。",
+   "gender": "any",
+   "id": "pi_ancient_architecture_timber_carpenter",
+   "reputation": "精通江南各类传统榫卯传力机制，对黄杨木大木架的拆解逻辑了如指掌。",
+   "resources": [
+    "一把特制折叠钛合金古建墨斗与角尺",
+    "一根特制加长纯黄铜平头偏心拔销锥"
+   ],
+   "risks": [
+    "直接暴露在暴雨狂风中手脚冰凉发滑失手",
+    "重梁下坠砸伤脚踝骨折"
+   ],
+   "role": "古建大木作结构修缮青年营造师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}营造"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    34,
+    45
+   ],
+   "baseline": "手握太湖古镇抢险防汛物资调拨权的高级文保主管，对非遗珍贵文物损毁极度痛心焦虑。",
+   "gender": "any",
+   "id": "pi_suzhou_heritage_bureau_director",
+   "reputation": "作风严谨原则性极强，把宗祠国宝双面绣视为不可再生的江南文脉。",
+   "resources": [
+    "一台高防水数码集群救援对讲手台",
+    "一份沈氏宗祠特级文保木构测绘档案红图"
+   ],
+   "risks": [
+    "隔在对岸被倒灌洪峰阻断无法直接涉水救援",
+    "受制于文保避险规章行动迟疑"
+   ],
+   "role": "姑苏文保特派抢险勘察指导专员",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}专员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}科长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    38
+   ],
+   "baseline": "驾驶大马力橡皮冲锋舟在洪流中搜救转移被困群众的水上救援硬汉。",
+   "gender": "any",
+   "id": "pi_taihu_water_police_rescue_captain",
+   "reputation": "水性精熟雷厉风行，曾多次在太湖台风洪峰中挽救遇险渔民宗族。",
+   "resources": [
+    "一具便携式高压气动抛投救生索枪",
+    "两件专业大浮力特种抗撞击救生衣"
+   ],
+   "risks": [
+    "冲锋舟被河底乱石螺旋桨绞缠熄火",
+    "水流湍急难以平稳靠泊坍塌飞廊"
+   ],
+   "role": "太湖水警防汛冲锋舟搜救分队长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}队长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}警官"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    50,
+    58
+   ],
+   "baseline": "亲手参与过上世纪宗祠翻修的老手艺人，清楚黄杨木绣花棚架每个燕尾榫的下销朝向。",
+   "gender": "any",
+   "id": "pi_traditional_woodcarver_veteran",
+   "reputation": "眼光毒辣经验纯熟，一眼就能看出黄杨木大梁的暗暗受力支点。",
+   "resources": [
+    "一套随身牛皮雕花凿刀袋",
+    "一听特制防潮生桐油防腐胶泥盒"
+   ],
+   "risks": [
+    "年迈骨质疏松在摇晃楼层上极易失衡跌伤",
+    "高度近视在昏暗雨幕中视物模糊"
+   ],
+   "role": "水乡木雕流派名宿老掌墨师",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老木匠"
+    }
+   ]
+  }
+ ],
+ "premise": "姑苏古镇的临水宗祠里，苏绣非遗传人守着一座挑空绣轩。这个梅雨季，营造社派来的大木作营造师天天在绣轩里修梁补柱，两人一个绣花一个刨木，一墙之隔待了三个月。太湖到了汛期，那架千斤重的明代黄杨木双面绣大棚架一直没固定。",
+ "pressures": [
+  {
+   "choice": "等待对岸消防搭建绳桥，还是绣娘与营造师合力用剪刀反向挑撬大木自救。",
+   "exits": [
+    {
+     "cost": "剪刀厚刃出现两毫米轻度扭曲受损，两人掌心被生硬剪柄压出红肿血痕。",
+     "option": "两人将高碳钢折合剪刀双刃反向插入木槽借双人重力下压挑飞木销推门脱险。"
+    },
+    {
+     "cost": "反震巨力导致营造师右臂虎口撕裂流血。",
+     "option": "营造师抡起铜锤砸向立柱底部销槽借震动反弹松解榫头自救。"
+    }
+   ],
+   "far": {
+    "consequence": "百年宗祠挑空绣轩轰然坍塌落入洪流，绣娘与营造师全员被卷入太湖泥沼溺毙。",
+    "due_days": 1,
+    "trigger": "太湖洪峰彻底淹没二层大厅并将楼阁冲塌"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_flood_water_surging_stairwell",
+   "immediate": {
+    "minutes": 6,
+    "text": "黄色泥汤如怒吼黄龙顺着楼梯疯狂灌入大厅，水花拍打在楠木柱脚上轰鸣震耳，地板缝隙不断往上喷溅浑水。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "near": {
+    "deadline_minutes": 9,
+    "text": "水深已经漫过膝盖逼近大腿，冰冷泥水夹杂着碎木枝打在腿上刺痛无比，空气中弥漫着腥臭湖泥气味。"
+   },
+   "objective": "在洪水彻底冲垮挑空楼阁前借折合钢剪挑出木销推门脱险。",
+   "source": "nature",
+   "start_minute": 900,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "太湖倒灌浊流漫灌石梯淹没二层楼板",
+   "trigger": "太湖主洪峰破堤倒灌，暴涨的浑水每分钟上涨五公分，天井青石马道被彻底淹没，浊水已漫过二层雕花大门门槛涌入大堂，距离漫过主梁支点仅剩最后四分钟。"
+  },
+  {
+   "choice": "留在原地等待水警抛投缆绳，还是两人拼死发力撬开大门。",
+   "exits": [
+    {
+     "cost": "营造师肩头被粗糙木刺扎破大片皮肉鲜血染透衣衫。",
+     "option": "营造师以肩膀死死抗住倾斜大横梁绣娘趁隙将剪刃咬入榫眼挑开木销自救。"
+    },
+    {
+     "cost": "老木杠受强力弯矩崩裂折断。",
+     "option": "老周头用长木杠从侧方支顶横梁延缓倾覆脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "数吨重明代木构轰然解体砸入太湖，困在屋内的所有人瞬间被巨木压碎沉底。",
+    "due_days": 1,
+    "trigger": "挑空石牛腿彻底断裂绣轩整体坠河"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_timber_frame_cantilever_creak",
+   "immediate": {
+    "minutes": 5,
+    "text": "头顶巨木梁架发出令人毛骨悚然的嘎吱断裂前兆声，挑空轩梁肉眼可见地向河心倾斜，案上瓷瓶轰然滑落摔得粉碎。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "倾斜角度扩大到五度，重达千斤的黄杨木棚架正在顺着倾角加速向大门挤压，门框缝隙正在被彻底压碎变形。"
+   },
+   "objective": "在绣轩发生不可逆解体前撬开大门逃出危险区域。",
+   "source": "accident",
+   "start_minute": 902,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "悬挑歇山顶大跨度大木构发生危险侧倾",
+   "trigger": "下层悬挑石牛腿在激流撞击下发生剪切错位，整座二层绣轩向河道方向发生三度危险侧倾，承重楠木柱剧烈扭曲呻吟，屋顶碎瓦不断坠落。"
+  },
+  {
+   "choice": "盲目加大蛮力赌一把，还是先由绣娘用剪尖挑除防退暗钉再顺纹借力。",
+   "exits": [
+    {
+     "cost": "剪刀双刃咬合铰链发生微度变形松旷。",
+     "option": "两人十指相扣将高碳钢折合剪双刃顺纹反向大力向下扳压挑出乌木销脱险。"
+    },
+    {
+     "cost": "凿子报废且破坏部分明代珍贵黄杨木雕花纹饰。",
+     "option": "老木匠用雕花凿侧向切入榫口劈开局部木肉脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "大门与棚架焊死为一体彻底丧失开启可能，全员被困绝境水牢溺亡。",
+    "due_days": 1,
+    "trigger": "燕尾榫发生彻底粉碎性咬死与变形锁闭"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_boxwood_frame_mortise_deadlock",
+   "immediate": {
+    "minutes": 4,
+    "text": "乌木销周围木料发出被极度挤压的沉闷微响，木质纤维正在被暴力压扁形成自锁咬死死角。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "燕尾榫缝隙仅剩不到两毫米公差，若再不能插入坚硬楔具，缝隙将被挤死彻底丧失受力可能。"
+   },
+   "objective": "在木纹发生纤维压溃前将钢剪厚刃插到底部反挑。",
+   "source": "accident",
+   "start_minute": 904,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "黄杨木重梁燕尾榫受横向剪切绝对死锁",
+   "trigger": "倒塌棚架的千斤重力顺着斜坡直接作用在燕尾穿带榫上，横向剪应力达到数千牛顿，坚硬的乌木定位销被木纹死死咬死，徒手推拉分毫无动。"
+  },
+  {
+   "choice": "命令冲锋舟撤回深水区保全自身，还是两人加速撬锁赶在熄火前登舟。",
+   "exits": [
+    {
+     "cost": "绣娘真丝裙裾被木刺刮破，营造师脚踝轻度扭伤挫伤。",
+     "option": "大门挑开后营造师抱紧绣娘飞身翻过美人靠稳稳落入冲锋舟舱自救。"
+    },
+    {
+     "cost": "牵引绳受剧烈拉力崩断两股纤维。",
+     "option": "吴队长用备用拖绳绑在立柱上强行拉拽冲锋舟维持悬停脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "失去唯一外部接应载具，被困危楼人员彻底孤立无援坠入湖心溺亡。",
+    "due_days": 1,
+    "trigger": "冲锋舟发动机燃油耗尽熄火被激流冲走"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_water_police_boat_fuel_threshold",
+   "immediate": {
+    "minutes": 3,
+    "text": "飞廊下方传来冲锋舟大马力舷外机沙哑沉重的轰鸣声，发动机排气口冒出浓重白烟，机首在水浪扑打下剧烈颠簸震动。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_riverfront_carved_veranda"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "舷外机发出缺油的喘息顿挫声，搜救队长已在甲板大声下达最后三十秒撤离倒计时口令。"
+   },
+   "objective": "在大门推开后全员在九十秒内翻过飞廊栏杆跳入搜救舟。",
+   "source": "institution",
+   "start_minute": 906,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "搜救冲锋舟逆流顶桩油料逼近枯竭极限",
+   "trigger": "水警冲锋舟在每秒四米的狂暴急流中持续大油门顶桩悬停抗流，水温报警红灯疯狂闪烁，舷外机油箱油料仅剩最后三分钟续航，即将失去顶桩动力被冲走。"
+  },
+  {
+   "choice": "退入内进夹壁躲避瓦片，还是冒着风雨在门前死死稳住剪刀。",
+   "exits": [
+    {
+     "cost": "营造师后背被尖锐瓦片划出一道血口染红背心。",
+     "option": "营造师用后背挡住坠落瓦块绣娘全神贯注反手发力一击挑飞木销脱险。"
+    },
+    {
+     "cost": "地毯受雨水浸泡重达数十斤极度消耗体力。",
+     "option": "用湿透的厚地毯遮挡头部抗衡风雨强行完成对位自救。"
+    }
+   ],
+   "far": {
+    "consequence": "承重瓦石横梁整体塌陷将屋内人员尽数砸伤拍入水中溺亡。",
+    "due_days": 1,
+    "trigger": "狂暴阵风将整座歇山顶连根掀翻吹毁"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_storm_gust_tearing_veranda_roof",
+   "immediate": {
+    "minutes": 4,
+    "text": "漫天狂风裹挟着冰冷暴雨如钢鞭般抽打进大厅，无数碎瓦砸落在青砖地板上炸裂飞溅，狂风吹得人几乎无法呼吸睁眼。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_riverfront_carved_veranda"
+   ],
+   "near": {
+    "deadline_minutes": 7,
+    "text": "东侧歇山顶被狂风掀掉三分之一，暴雨直接从天花板倾盆倒下，绣娘发簪被风刮落，三千青丝在狂暴雨幕中乱舞。"
+   },
+   "objective": "躲避坠落瓦石并在风暴核心过境前完成破门。",
+   "source": "nature",
+   "start_minute": 908,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "十级太湖狂暴阵风撕裂挑空敞轩屋顶",
+   "trigger": "台风中心穿过太湖水域，十级狂风从开阔湖面呼啸袭来，将挑空大绣轩的雕花挂落大片吹落，屋面数以百计的滴水瓦当被大面积掀飞，横梁受风面积剧增。"
+  },
+  {
+   "choice": "继续加大蛮力赌一把，还是收回半寸微调受力轴向巧力碎钉。",
+   "exits": [
+    {
+     "cost": "剪刀刀背留下不可逆轻度弧形弯曲伤痕。",
+     "option": "绣娘与营造师依顺纹口诀朝左下方猛挫一记震出乌木销推门脱困。"
+    },
+    {
+     "cost": "角尺边缘被崩裂缺口。",
+     "option": "垫入钛合金角尺分担剪刀弯矩完成撬动自救。"
+    }
+   ],
+   "far": {
+    "consequence": "唯一救命高硬度挑具化为乌有，硬木死锁生路断绝全员葬身湖底。",
+    "due_days": 1,
+    "trigger": "高碳钢折合剪刀双刃彻底脆性折断碎裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_carbon_steel_scissors_shear_limit",
+   "immediate": {
+    "minutes": 3,
+    "text": "剪刀厚背处传来金属细微的紧绷嘶鸣声，刀身在两人重压下出现一毫米肉眼可见的受力弧度弯曲，火星从木缝中溅出。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_ancestral_embroidery_loft"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "刀背出现一道极其细微的白亮金属疲劳痕迹，若再发生一次盲目硬掰，这柄家传神剪将断成两段彻底报废。"
+   },
+   "objective": "依老木匠指点先剔除小竹钉再顺纹下压一鼓作气脱困。",
+   "source": "accident",
+   "start_minute": 910,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "高碳钢折合剪在剧烈反别中濒临脆断",
+   "trigger": "黄杨木坚硬如铁，两人施加的全身反向力矩让这柄百年古法夹钢剪刀承受了极限抗弯剪切力，厚达四毫米的刀背发出尖锐微鸣，金属晶格濒临达到塑性脆断临界点。"
+  },
+  {
+   "choice": "卖掉祖传的双面绣修绣轩，还是自己一针一针补",
+   "exits": [
+    {
+     "cost": "绣娘家传了四百年的东西，从此挂在别人的展柜里",
+     "option": "卖掉双面绣"
+    },
+    {
+     "cost": "补完要两年，营造师得陪着在漏雨的绣轩里再待一个冬天",
+     "option": "自己一针一针补"
+    }
+   ],
+   "far": {
+    "consequence": "宗祠收回绣轩改作茶室，非遗工坊只能搬去镇外的厂房",
+    "due_days": 14,
+    "trigger": "绣轩修不起"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_ruolan_biluochun",
+    "hook_ruolan_wupeng",
+    "hook_ruolan_needle_hand",
+    "hook_cheng_bamboo_pattern",
+    "hook_ruolan_bedroom_door"
+   ],
+   "id": "p_auction_house_offer",
+   "immediate": {
+    "minutes": 5,
+    "text": "老周头送来一壶碧螺春，说拍卖行的人在前厅等着"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_embroidery_back_bedroom"
+   ],
+   "near": {
+    "deadline_minutes": 480,
+    "text": "傍晚，拍卖行的经理回上海"
+   },
+   "objective": "在拍卖行的经理傍晚回上海之前，决定那幅绣品卖不卖",
+   "source": "money",
+   "start_minute": 600,
+   "tags": [],
+   "title": "拍卖行的报价",
+   "trigger": "洪水退下去的第二天，上海拍卖行的经理坐着乌篷船来了：泡过水的那幅明代双面绣，拍卖行愿意出八十万收走，钱当场就付，正好够修绣轩"
+  }
+ ],
+ "region": "姑苏古镇临水百年沈氏宗祠二层挑空大绣轩与临河雕花飞廊",
+ "rules": [
+  {
+   "id": "r_waterfront_veranda_structural_limit",
+   "text": "临河悬挑绣轩下层水浸超过立柱抱箍前必须在八分钟内撤出主轩。"
+  },
+  {
+   "id": "r_boxwood_embroidery_frame_mortise_rule",
+   "text": "黄杨木棚架燕尾榫销受压偏角超过五度时撬动必须顺着木纹走势。"
+  },
+  {
+   "id": "r_carbon_steel_scissors_shear_threshold",
+   "text": "苏绣折合剪刀双刃充当撬楔时施加弯矩不得超过刀背厚度极限。"
+  },
+  {
+   "id": "r_taihu_flood_crest_retrograde_warning",
+   "text": "太湖防汛警报鸣响三长声即代表临水建筑基础发生剪切滑移险情。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "飞剪验钢",
+  "committed": "苏韵誓约",
+  "familiar": "风雨同廊",
+  "flirting": "丝缕相依",
+  "intimate": "破门相拥",
+  "stranger": "绣轩避险",
+  "testing": "借刃挑销"
+ },
+ "status": "released",
+ "style_hint": "江南水乡的古典工笔：梅雨、乌篷船、绣绷上的丝线、宗祠的雕花木窗。写温婉绣娘水润的面容、湿透真丝长衫下的曲线与喘息，动作落在剪刀双刃反插榫卯的巧劲上。",
+ "tension_engines": [
+  {
+   "id": "te_loft_collapse_vs_scissors_lever",
+   "text": "太湖倒灌危楼坍塌倒计时与借苏绣高碳钢折合剪刀双刃反挑榫卯木销的硬核自救。"
+  },
+  {
+   "id": "te_water_police_rescue_vs_flood_crest",
+   "text": "水警冲锋舟激流顶桩抗流救援时限与太湖特大洪峰吞没飞廊的生死赛跑。"
+  },
+  {
+   "id": "te_embroiderer_vs_timber_carpenter",
+   "text": "温婉苏绣传人清丽秀美与古建大木营造师沉稳刚烈在灾难风暴中的反差共鸣。"
+  },
+  {
+   "id": "te_cold_rain_spasm_vs_loft_tight_hug",
+   "text": "暴雨浑水刺骨湿透致肌体失温与两人在摇晃门槛前十指紧扣合力下压剪刀的深情羁绊。"
+  }
+ ],
+ "title": "苏绣非遗传人·临水宗祠挑空绣楼敞轩",
+ "tone": [
+  "临河挑空绣楼风雨摇曳",
+  "太湖倒灌浊流拍击柱脚",
+  "黄杨木重梁嘎吱倾覆挤压",
+  "淬火剪刃撬木裂响"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "tw_suzhou_scissors_ancient_clad_steel",
+   "requires": [
+    "embroiderer_wen_ruolan"
+   ],
+   "text": "{embroiderer_wen_ruolan.name}随身佩带的这柄百年高碳钢折合剪系张小泉祖传古法乌金夹钢锻造，刀背厚达四毫米且淬火硬度高达六十度，足以充当重型硬木撬楔。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_master_lu_bamboo_pin_reveal",
+   "requires": [
+    "woodcarver_master_lu_elder"
+   ],
+   "text": "{woodcarver_master_lu_elder.name}指出了该棚架燕尾穿带榫内部暗藏一根两分长的防退小竹钉，指导先用剪刀尖挑飞竹钉彻底解除了主销死锁。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_apprentice_oilcloth_slip_prevent",
+   "requires": [
+    "apprentice_embroiderer_xiao_he_heir"
+   ],
+   "text": "{apprentice_embroiderer_xiao_he_heir.name}递送的加厚桐油布垫在剪刃与黄杨木接触面之间，彻底消除了暴雨湿滑空转并成倍增强了咬合摩擦力。"
+  },
+  {
+   "category": "信息",
+   "id": "tw_heritage_director_xenon_spotlight",
+   "requires": [
+    "director_shen_guoliang"
+   ],
+   "text": "{director_shen_guoliang.name}调集的千瓦级探照灯强光穿透暴风雨幕，精准锁定了燕尾榫阴阳槽受力中心，使两人在昏暗水雾中实现毫厘不差的准确定位。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_water_police_boat_bow_bumper_bridge",
+   "requires": [
+    "captain_wu_zhiming_police"
+   ],
+   "text": "{captain_wu_zhiming_police.name}驾驶冲锋舟在熄火前最后一秒将高弹力橡胶舟首死死楔入飞廊美人靠凹槽，为两人破门逃生搭建起零落差转移生命跳板。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_carpenter_shields_ruolan_ridge",
+   "requires": [
+    "embroiderer_wen_ruolan",
+    "carpenter_lu_cheng"
+   ],
+   "text": "{carpenter_lu_cheng.name}在大门洞开的刹那挺身将{embroiderer_wen_ruolan.name}紧紧护在怀中，用宽厚结实的后背替姑娘硬生生抗下了头顶坠落的一截断裂雕花檐枋。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_taihu_ancestral_loft_triumph",
+   "requires": [
+    "embroiderer_wen_ruolan",
+    "carpenter_lu_cheng"
+   ],
+   "text": "大门推开后全员在三十秒内顺利跃入冲锋舟脱离险境，身后挑空绣轩随之轰然卸荷保全未塌，冲锋舟破浪驶向朝霞映照的水乡码头，绝美绣艺与营造硬骨在太湖风浪中结成永恒传奇。"
+  }
+ ]
+}

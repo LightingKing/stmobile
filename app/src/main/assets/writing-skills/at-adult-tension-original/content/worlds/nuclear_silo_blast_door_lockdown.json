@@ -1,0 +1,2255 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满四十八岁，核井工程资深老班长，成年公民。",
+   "age_range": [
+    48,
+    52
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_silo_rigger_old_zhao",
+   "line": "大门下沉过了两米红线了！抱死离合器连杆卡死在死角拉不动啊！",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "name": "老褚",
+   "role": "核发射井机械老班长老褚"
+  },
+  {
+   "adult_context": "年满三十岁，持有核辐射防护急救资质的卫生员，成年公民。",
+   "age_range": [
+    26,
+    28
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_silo_medical_officer_bai",
+   "line": "洗消淋浴和碘片都备好了，门一开先冲水，再上担架！",
+   "location_ids": [
+    "loc_silo_command_bunker_corridor"
+   ],
+   "name": "梅姐",
+   "role": "防化卫生员梅姐"
+  },
+  {
+   "adult_context": "年满五十岁，大修老工匠，成年老工人。",
+   "age_range": [
+    50,
+    54
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_silo_locksmith_smith",
+   "line": "偏心槽往左下偏了两度！女指挥官，用把手别，垫上老汉的固体石墨！",
+   "location_ids": [
+    "loc_silo_command_bunker_corridor"
+   ],
+   "name": "老卜",
+   "role": "老焊工老卜"
+  },
+  {
+   "adult_context": "年满二十二岁，深井竖井检修工，成年公民。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_cooling_rigger_xiao_liu",
+   "line": "报告！水冷竖井温度突破九十度红线，还有最后两分钟就要汽化干烧了！",
+   "location_ids": [
+    "loc_silo_cooling_well_catwalk"
+   ],
+   "name": "小覃",
+   "role": "水冷竖井巡检员小覃"
+  },
+  {
+   "adult_context": "年满二十六岁，防卫司令部近卫军官，成年军人。",
+   "age_range": [
+    26,
+    29
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_inspector_deputy_guard_qian",
+   "line": "监察官有令！倒计时还有两分钟，准备切断大厅自沉电磁锁自保！",
+   "location_ids": [
+    "loc_silo_command_bunker_corridor"
+   ],
+   "name": "蒯少尉",
+   "role": "监察长副官蒯少尉"
+  },
+  {
+   "adult_context": "年满四十八岁，核井阵地指挥长，成年高级指挥官。",
+   "age_range": [
+    48,
+    52
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_nuclear_defense_station_commander",
+   "line": "上尉！地面备用柴油机还在抢修，无论如何先把减压阀摇开！",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "name": "杭大校",
+   "role": "核发射井阵地长杭大校"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "冷艳孤高的首席女指挥官与沉稳雄悍的机动防化老士官长在百米油雾绝境中相依为命，两人背靠背、手扣手将镀铬合金重型把手压向死角强摇减压阀自救。",
+   "id": "cc_commander_and_sergeant_lever_rush",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "commander_su_qingyao",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "百米深井绝境中共同核算力矩与偏角，建立起生死相托的技术共鸣。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "sergeant_han_tianxiong",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在深井绝境中摸爬滚打的生死战友，深知对方过硬的担当。",
+     "stage": "familiar"
+    },
+    {
+     "a": "commander_su_qingyao",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "sergeant_han_tianxiong",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "深井冰山女军官与重装老兵在暴风大门前达成生死同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "commander_su_qingyao",
+    "sergeant_han_tianxiong"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在大门坠地闭死前，合力用镀铬把手将偏心释压槽顺力摇动下压脱扣脱险。",
+    "limit_gap": "女军官体能在极度高热与缺氧低压下逼近昏厥极限，老士官长受限于双掌二度烫伤脱皮剧痛难忍。",
+    "meeting_reason": "核发射井遭遇电磁脉冲误触引发百吨防爆大门失控下沉事故。",
+    "resource_gap": "女军官深谙液压站偏心力矩与断离控制核心，老士官长拥有惊人的下沉蛮力与千斤坠爆发力。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_blast_door_load_drift_vs_manual_lever",
+    "te_oil_mist_fumes_burn_vs_tight_hug"
+   ]
+  },
+  {
+   "chemistry": "传奇女军官的严厉军令稳住第一次下井就吓破胆的新手助理，新手助理冒死送达加长钢管与安全绳，师徒合力化解覆灭死局。",
+   "id": "cc_commander_and_cadet_pipe_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "commander_su_qingyao",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "紧盯女指挥官的每一个破拆手势。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "cadet_technician_xiao_yuan",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "带着第一次下井的新手助理压住恐惧，扛起该扛的那一份。",
+     "stage": "familiar"
+    },
+    {
+     "a": "commander_su_qingyao",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "cadet_technician_xiao_yuan",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "师徒传承与长官庇护。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "commander_su_qingyao",
+    "cadet_technician_xiao_yuan"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "迅速接驳加长镀锌力臂协助镀铬把手一举撬动卡死偏心槽。",
+    "limit_gap": "成年的年轻助理面对深井绝境心理防线脆弱，女军官在大门下沉中无法脱身捡拾工装。",
+    "meeting_reason": "核井工程机动班日常驻站维保突遇伪警报灾难。",
+    "resource_gap": "女军官拥有核心军用镀铬把手与绝对决断力，已成年的正式青年助理掌握加长镀锌管与减压图纸手册。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_blast_door_load_drift_vs_manual_lever"
+   ]
+  },
+  {
+   "chemistry": "特派监察官尖叫要求引爆炸药抛弃大厅逃生，老士官长怒拔重锤横在其咽喉据理力争寸步不让。",
+   "id": "cc_sergeant_and_inspector_standoff",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "sergeant_han_tianxiong",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "赞许士官长抗命护持全站同胞的雷霆担当。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "inspector_major_pei_guodong",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "对视一线人命如草芥的逃兵军官深恶痛绝。",
+     "stage": "stranger"
+    },
+    {
+     "a": "sergeant_han_tianxiong",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 0
+     },
+     "b": "inspector_major_pei_guodong",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 0
+     },
+     "reason": "一线战士与上层自私官僚之间的枪口对峙。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "sergeant_han_tianxiong",
+    "inspector_major_pei_guodong"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "压制官僚逃亡行径为大厅离合脱扣抢修争取至关重要的三分钟时间。",
+    "limit_gap": "监察官极度恐慌百米深渊坠毁，老士官长受限于下克上袭击长官的军事法庭死罪威慑。",
+    "meeting_reason": "在承压指挥室大门前爆发的生死主导权对决。",
+    "resource_gap": "监察官手握司令部最高自沉炸毁电子密匙，老士官长拥有全井重装工程兵的绝对武力拥护。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_silo_command_jettison_vs_human_rescue"
+   ]
+  },
+  {
+   "chemistry": "深井老工长隔着狂风指点偏角递上固体石墨，与大厅内死磕把手的年轻女军官里应外合，协同化解活埋险情。",
+   "id": "cc_commander_and_master_smith_lever",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "commander_su_qingyao",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "深信女指挥官神级破拆硬手腕。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 3
+     },
+     "b": "senior_silo_locksmith_smith",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 3
+     },
+     "reason": "老工长的经验指引令人精神大振。",
+     "stage": "familiar"
+    },
+    {
+     "a": "commander_su_qingyao",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "senior_silo_locksmith_smith",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "两代深井工程人之间的默契互救。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "commander_su_qingyao",
+    "senior_silo_locksmith_smith"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "精准将石墨滑片塞入左下两度咬合缝撬平离合脱险。",
+    "limit_gap": "老工长身无防化装甲无法亲自上大厅施力，女军官在漫天油雾中双眼难辨微米级偏角。",
+    "meeting_reason": "深井大失衡生死关头老手艺人与军官的联手求生。",
+    "resource_gap": "老工长握有液压阀偏心两度口诀与合成石墨滑片，女军官掌握核心镀铬合金重型把手与绝对军令威严。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_blast_door_load_drift_vs_manual_lever",
+    "te_silo_command_jettison_vs_human_rescue"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_nuclear_silo_intercom_wired_speaker",
+   "reach": "all",
+   "text": "地下核发射井抗干扰高频有线防爆对讲广播网"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_catwalk_air_howl_echoes",
+   "reach": "local",
+   "text": "大厅格栅空腔气浪回响与监察官恐慌咆哮"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已成年的战略核导弹地下发射特种工程高级工程师，年满二十一岁，持有国家核导弹深井现场突发封存事故最高处置指挥执照，完全具备民事与战时处置权。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "褪下笨重的核防化防护斗篷后，仅着修身深蓝棉质战略发射工装背心，露出一张冷艳绝美的面容，两腮带着莹润的光泽，在百米井底刺鼻臭氧与极限制动把手的剧烈喘息中，白皙双颊被高温焦糊气浪熏得满是酡红与晶莹热汗。",
+    "乌黑短发利落扎在耳后，纤细睫毛沾满蒸馏水珠，双手紧扣七十公分长的镀铬合金重型把手死死别入暗孔，下颌线条在猩红警报灯照耀下透出深井指挥官的绝对冷峻与霸决。"
+   ],
+   "decision": {
+    "avoids": [
+     "优柔寡断的推脱软弱",
+     "打着自保旗号背弃同袍的官僚"
+    ],
+    "contrast": "外表冷艳端庄，面对百吨重门下沉死局时手劲爆发力与统帅气魄胜过全场壮汉。",
+    "core_value": "物理规程只认力矩与公差，百吨大门再重，只要把手还在手里，本指挥官就能把这扇门别停在死线上。",
+    "goal_options": [
+     "利用镀铬复位把手摇动减压阀阻卡大门",
+     "在混凝土注浆前切断自毁程序脱险"
+    ],
+    "never": [
+     "在大门彻底安全停稳前独自退回指挥掩体"
+    ],
+    "prefers": [
+     "分秒不差的机械执行",
+     "行动果决不畏牺牲的军人搭档"
+    ],
+    "pressure_responses": {
+     "breaking": "用牙齿咬开防毒喷雾狠狠喷在双手血泡上继续合力下压",
+     "high": "整个人扑在把手末端借全身下沉力道咬牙向下猛按",
+     "low": "在警报狂响中冷静测算大门下沉速度与液压管路残压",
+     "mid": "果断抽出重型镀铬把手并在释压孔找准自锁棘爪支点"
+    },
+    "relationship_stance": "平日神情冰冷威严容不得半点纪律松懈，但在直面活埋的深井险境中展现出托付生死的无畏担当。",
+    "withdrawal": "退守至防爆大厅碳化钨门框抗爆主立柱内侧，单手扣紧导轨冷眼观察大门位移。"
+   },
+   "gender": "female",
+   "gender_reason": "退役战略核导弹发射指挥女上尉",
+   "id": "commander_su_qingyao",
+   "identity": {
+    "authority": "对核发射井全套机械控制、碳化钨大门自锁强行阻断、自毁装置解除及现场全部军政人员享有绝对战时临机否决权。",
+    "exposure": "为了抢救被困工兵曾在演习中私自越级切断过自毁反应堆回路",
+    "hidden": "工装背心贴胸口袋内装着一枚印有核工程发射阵地坐标图案的纯银怀表",
+    "limits": [
+     "在大门彻底阻止下沉前无法离开充满高温高压喷油雾气的操作死角",
+     "长时间吸入高浓度臭氧与矿物油雾面临急性化学性肺水肿"
+    ],
+    "obligations": [
+     "确保百吨防爆大门不发生粉碎性下沉闭死保全井底冷却系统"
+    ],
+    "resources": [
+     "一把发射台镀铬高强度合金重型手动复位把手（长七十公分，实心铬钒钢整体锻造，端部带四角自锁防脱棘爪）",
+     "一瓶军工级浓缩解毒神经镇痛喷雾剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在百米深渊地狱面前依然稳如铜铸的魁梧身躯",
+     "绝境生死关头毫不犹豫递过来的带血双手"
+    ],
+    "boundaries": [
+     "严守部队战时军律与阶级界限",
+     "不以救命功绩索取私人情感屈从"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "被从身后紧紧环抱稳住下盘重心，双手叠合在镀铬合金把手上一同向死角猛力下压。",
+    "dislikes": [
+     "贪生怕死的懦夫出卖",
+     "自恃官威的蛮横乱命"
+    ],
+    "expression": "脱险进入安全区后，默默撕下自己里衣最干净的棉布替对方包扎手掌，眼神温柔而坚毅。",
+    "likes": [
+     "两人发力压死把手时胸膛紧贴传来的粗重滚烫心跳",
+     "险情排除后抹去对方额头油污时的豪迈一瞥"
+    ],
+    "preconditions": [
+     "防爆门彻底停止下沉且液压系统完全恢复受控",
+     "全员安全返回常压生活舱完成复温清洗",
+     "两人都清醒，心意出于自己，不是活埋关头的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "战略核工程发射指挥上尉",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_blast_door_hydraulic_hall",
+     "to": 1410
+    },
+    {
+     "from": 1410,
+     "location_id": "loc_blast_door_hydraulic_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "高强度镀铬把手发生塑性微弯，操作人员双手掌心被粗暴防滑纹磨出大面积血泡。",
+      "option": "用发射台镀铬高强度合金重型手动复位把手反向插入释压孔摇动减压阀自救。"
+     },
+     {
+      "cost": "撬杠受数十吨剪力折断崩飞划伤在场操作人员小臂与肩膀。",
+      "option": "用重型合金撬杠直接卡在斜轨滑块导槽之间强行阻滞大门下沉脱险。"
+     }
+    ],
+    "pressure": "大门距离地面仅剩最后四十公分，一旦彻底落槽将永久自锁引发全井窒息活埋。",
+    "trigger": "百吨碳化钨防爆门失去电力控制沿斜轨下滑，液压电磁阀抱死导致气缸丧失阻尼。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "还有最后二十公分就要落底封死了……只要把手不崩断，本指挥官绝不会让深井变成大家的铁棺材，给我停！",
+    "surface": "别管那些喷射的油雾！那是高压液压管！把这根七十公分的镀铬把手插进释压孔，跟我数三二一一起往下压！"
+   }
+  },
+  {
+   "adult_context": "年满三十岁，核工程防化特级一级军士长，具备完全民事行为能力，十年百米深井机械管网维保老将。",
+   "age_range": [
+    30,
+    35
+   ],
+   "appearance_options": [
+    "身材魁梧雄壮肩背宽阔，身穿带有防辐射铅衬的深蓝防化工程背心，手臂肌肉刚劲如钢铁，面容粗犷目光冷峻。",
+    "短发硬如铁丝挂满汗水，眼神沉稳如巨岩，在剧烈震颤的油污底板上双脚如生根生铁般巍然挺立。"
+   ],
+   "decision": {
+    "avoids": [
+     "前怕狼后怕虎的逃兵",
+     "关键时刻掉链子的软骨头"
+    ],
+    "contrast": "看似粗野鲁莽的北方硬汉，在配合女指挥官下压把手时的力道控制精妙绝伦分毫不差。",
+    "core_value": "战位就是军人的阵地，只要女指挥官还在前头，{npc.name}这条命就钉死在这百米井底。",
+    "goal_options": [
+     "协助女指挥官下压镀铬把手摇动减压阀",
+     "用撬杠死死别住滑动滑块阻滞下沉"
+    ],
+    "never": [
+     "在指挥官还在死拼时松开手中工具独自逃跑"
+    ],
+    "prefers": [
+     "干净利落的军令执行",
+     "靠真本事硬碰硬的铁血硬汉"
+    ],
+    "pressure_responses": {
+     "breaking": "用宽阔身躯死死挡住阀体爆飞的高温螺栓为女指挥官遮风挡雨",
+     "high": "双手覆在女指挥官手背外侧倾注全身数百公斤蛮力协同下压",
+     "low": "在大门下沉瞬间沉着甩出长筒防化手套递给女指挥官",
+     "mid": "用雄厚胸膛一把拉住因喷油失足滑向深井的年轻技术员"
+    },
+    "relationship_stance": "对女指挥官神级破拆身手与巾帼不让须眉的铁血魄力由衷敬佩，愿在生死绝境为其充当最坚实的人形盾牌。",
+    "withdrawal": "退守至碳化钨大门主承重滑轮凹槽处，右手握紧大扳手戒备任何机械崩飞。"
+   },
+   "gender": "male",
+   "gender_reason": "核发射井当值机动防化首席士官长",
+   "id": "sergeant_han_tianxiong",
+   "identity": {
+    "authority": "对地下机房工程机甲调度、外挂配重应急释放及特种破障重型工具调用拥有绝对一线指挥权。",
+    "exposure": "为了抢时间曾违规徒手拆卸过高温冷却水管法兰螺栓",
+    "hidden": "防化背心贴身内袋里珍藏着女指挥官当年晋升上尉时亲手赠予的一枚纪念徽章",
+    "limits": [
+     "体能在抗衡百米高温低氧与剧烈震动中迅速逼近体力极限制点",
+     "不懂深奥核物理算法"
+    ],
+    "obligations": [
+     "誓死协助队长女指挥官稳住机械主轴保全深井与全班弟兄性命"
+    ],
+    "resources": [
+     "一柄大号高强度合金长柄活动扳手",
+     "两副双层特制气凝胶耐高温防化特种手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在百米极寒绝境面前横刀立马的非凡霸气",
+     "两具滚烫身躯在失速震颤中紧密相依的生命羁绊"
+    ],
+    "boundaries": [
+     "恪守士官职责从属规矩不越礼数",
+     "不以救命功绩索取私人情感"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在晃动格栅上从后方箍紧女指挥官的腰身稳住重心，双手全力握紧把手合力向下猛压。",
+    "dislikes": [
+     "官僚逃兵的自私出卖",
+     "背弃战友的下作行径"
+    ],
+    "expression": "撕下自己干燥的保暖内衬，轻柔却有力地缠在女指挥官被把手磨破的双手虎口上。",
+    "likes": [
+     "战胜死神后痛快大嚼高能战备肉干的痛快",
+     "减压阀咔哒脱扣卡死瞬间两人粗重滚烫的鼻息共鸣"
+    ],
+    "preconditions": [
+     "碳化钨防爆门完全停止下沉且液压系统完全恢复受控",
+     "全员安全返回常压生活区"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "机动防化班首席士官长",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_blast_door_hydraulic_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}整条右臂被反弹的把手震得发麻脱力，防化手套被烫穿，掌心燎起一串水泡。",
+      "option": "{npc.name}将全身自重压在把手末端借杠杆力矩强行带动抱死阀芯反转脱险。"
+     },
+     {
+      "cost": "大扳手受强烈反震折断崩飞划破{npc.name}面颊。",
+      "option": "用破拆大扳手卡死滑轮转轴强行制造三公分机械旷量自救。"
+     }
+    ],
+    "pressure": "若不能在两分钟内合力摇动把手卸掉气缸闭锁压力，大门将切断全井最后一条空气通路。",
+    "trigger": "大门下沉位移仅剩最后三十公分，主风压管路在超温中濒临彻底爆裂。"
+   },
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "voices": {
+    "inner": "女指挥官是天生的统帅。只要我{npc.name}还有一口气在，百吨大门休想伤着女指挥官一根毫毛。",
+    "surface": "女指挥官！找准那个偏心死角！把手有老子给你托着，你报顺逆，老子就算把双臂骨头压碎也给你压到底！"
+   }
+  },
+  {
+   "adult_context": "年满三十八岁，后勤防卫特派监察武官，具备完全民事行为能力，掌控地下核工程自沉最高密匙。",
+   "age_range": [
+    38,
+    42
+   ],
+   "appearance_options": [
+    "身穿带有深红领章的高级防风呢绒军官常服，头戴大沿帽，面容白皙微胖，此时被浓烟熏得黑白斑驳冷汗直淌。",
+    "手里死死攥着挂在胸前的不锈钢自毁密匙链条，眼神在保全自身性命与维护军人尊严间剧烈挣扎。"
+   ],
+   "decision": {
+    "avoids": [
+     "百米深井的喷油地狱",
+     "与浑身油污的一线工程兵同生共死"
+    ],
+    "contrast": "平日在发布会上趾高气扬宣讲防卫铁律，大难临头时比谁都丑态毕露、歇斯底里。",
+    "core_value": "保全性命与自身军职前途高于一切，底层工兵不过是战略消耗数字。",
+    "goal_options": [
+     "强行开启自毁注浆系统切断大厅单独撤离",
+     "勒令女指挥官立刻放弃抢修撤回主舱"
+    ],
+    "never": [
+     "为了挽救机库人员而延迟自己进入救生囊的时间"
+    ],
+    "prefers": [
+     "绝对的阶级顺从",
+     "温暖安全的地面防空司令部地堡"
+    ],
+    "pressure_responses": {
+     "breaking": "瘫坐在地板上交出纯金自毁密匙换取优先救援权",
+     "high": "被士官长夺枪拧断手腕后吓得倒退瑟缩在密封门后",
+     "low": "在指挥通廊大声宣读战备防御条例推卸责任",
+     "mid": "发现大门下沉后歇斯底里试图暴力扳动自毁电闸"
+    },
+    "relationship_stance": "将女指挥官视为恃才傲物不服管教的刺头女军官，对其既畏惧其铁腕又嫉妒其高超军功威望。",
+    "withdrawal": "退缩在承压指挥室后排逃生密封舱内，双手死死抱住公文箱与救生呼吸器。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "inspector_major_pei_guodong",
+   "identity": {
+    "authority": "代表后勤部行使战时戒严法权、判定是否自毁深井单独逃生的终决权。",
+    "exposure": "为了掩盖检查失职曾在日常维保单据上对密封闸板微裂纹违规签字放行",
+    "hidden": "暗中启动了呼叫地面防暴装甲车前来单人接应的私密特权信号信标",
+    "limits": [
+     "完全不懂液压释压孔在超载偏心下的机械受力机理",
+     "面对百米活埋极度恐慌企图强行启动注浆逃生"
+    ],
+    "obligations": [
+     "保全公文箱内地下核工程防御核心绝密图纸档案"
+    ],
+    "resources": [
+     "一套便携式微型高压氧气救生防化呼吸器",
+     "一枚防卫委员会特批的最高自沉注浆电磁钥匙卡"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "能让其保全性命的压倒性武力",
+     "顺从其权势的阿谀逢迎"
+    ],
+    "boundaries": [
+     "严禁任何下等兵触碰其高级军服",
+     "不承担任何同舟共济义务"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在指挥室外手握对讲机，命令卫队在倒计时归零时立刻斩断吊索封死大门。",
+    "dislikes": [
+     "粗鲁的抗命顶撞",
+     "被枪口铁拳指着咽喉的屈辱恐惧"
+    ],
+    "expression": "战战兢兢地从口袋里摸出一盒昂贵的高空特效营养剂扔在地上换取工兵拼命阻击险情。",
+    "likes": [
+     "被护卫在最安全的中心包厢",
+     "特供的昂贵军官雪茄与红酒"
+    ],
+    "preconditions": [
+     "彻底脱离深井坠毁危险置身于重兵护卫的地面防空基地",
+     "保全既得军阶"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "战略后勤督导监察少校",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_silo_command_bunker_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "涉嫌公然袭击特派高级军官面临战后被送上军事法庭审判。",
+      "option": "士官长夺下手枪与自毁控制器并用安全带将其捆死在指挥室立柱上自救。"
+     },
+     {
+      "cost": "分心操作导致把手咬入暗槽角度偏离两度增加发力难度。",
+      "option": "女指挥官用合金把手强行挑断自毁继电器控制线阻断注浆自沉程序脱险。"
+     }
+    ],
+    "pressure": "若五分钟内不能闭锁离合，特派监察官手中的终端将直接触发自毁引信彻底灌注混凝土封死后路。",
+    "trigger": "大厅滑脱警报触发司令部自沉协议最高戒严条目。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这帮疯子……要是大门卡死了，整座深井都得被水泥浇筑，我必须自己活下去！立刻封门！",
+    "surface": "女指挥官！士官长！大门已下沉超过警戒线！立刻放弃大厅撤退！我以少校身份命令你们立刻封门！"
+   }
+  },
+  {
+   "adult_context": "年满五十岁，地下核工程特级老铆工，成年工匠宗师，具备完全民事行为能力。",
+   "age_range": [
+    50,
+    54
+   ],
+   "appearance_options": [
+    "身穿带有高反光条的破旧加厚工程防风棉袍，满脸刀刻般的冻疮与油污伤痕，胡须花白凝结着细小汗珠。",
+    "手里握着一把被盘得发亮的合金卡簧钳，眼神在百米深井中如深空巨岩般沉静冷峻。"
+   ],
+   "decision": {
+    "avoids": [
+     "不知变通的教条官僚",
+     "遇到危险就自毁逃命的懦夫"
+    ],
+    "contrast": "平日沉默寡言甚至被年轻士兵当成木讷老人的老工长，在面对机械大绝境时指挥沉稳如山岳统帅。",
+    "core_value": "机械结构不骗人，只要给对力道没有撬不动的死阀门。",
+    "goal_options": [
+     "指点女指挥官找准两度偏角摇动把手",
+     "垫入石墨滑片缓解齿槽干磨咬死"
+    ],
+    "never": [
+     "在机械受力关键时刻误报公差参数"
+    ],
+    "prefers": [
+     "严丝合缝的工匠本色",
+     "一诺千金的军人信义"
+    ],
+    "pressure_responses": {
+     "breaking": "用身躯抵住脱脱滑动的配重支架为年轻人争取发力时间",
+     "high": "用沙哑嗓音高呼左下两度偏角切入的最佳起步方位",
+     "low": "在大厅角落用铜凿敲击钢管凭回音辨识液压站形变",
+     "mid": "冒着呼啸油雾递上石墨垫片垫入咬合盲区"
+    },
+    "relationship_stance": "将女指挥官视为深井中少有的巾帼英雄，由衷佩服年轻女军官的傲岸气魄与过硬军威。",
+    "withdrawal": "躲在钛合金承重立柱背风凹槽内，用厚棉袍死死护住卡簧钳与图纸手册。"
+   },
+   "gender": "male",
+   "gender_reason": "深井防爆设施在编首席老检修焊工",
+   "id": "senior_silo_locksmith_smith",
+   "identity": {
+    "authority": "对碳化钨防爆门局部微观应力分布、偏心释压槽自锁销弹簧退让间隙拥有绝对直觉。",
+    "exposure": "曾在日常检修中为了补贴家用私下截留过废旧钛合金螺栓配件",
+    "hidden": "深知这座液压站在受到重载冲击时偏心槽会向左下偏斜两度的装配死结缺陷",
+    "limits": [
+     "年老体衰患有严重的慢性低氧肺气肿无法承受剧烈运动",
+     "在极热油雾中呼吸艰难"
+    ],
+    "obligations": [
+     "将深井重型机械抢修绝活经验传承给年轻一代军人"
+    ],
+    "resources": [
+     "两匣特制深井超高温耐磨合成固体润滑石墨片",
+     "一把特制重型纯铜平头偏心防滑敲击凿"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对深空重型工业力学的崇高敬畏与共鸣",
+     "在死亡深渊面前毫无贵族做派的坚毅果敢"
+    ],
+    "boundaries": [
+     "恪守老长辈规矩不越礼数",
+     "不介入年轻后辈的私人情感波澜"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在立柱后敲击钢管指点释压孔偏心角度，将石墨垫片精准抛向女指挥官掌心。",
+    "dislikes": [
+     "轻视老工匠经验的傲慢偏见",
+     "粗暴毁坏昂贵主缆的蛮干行径"
+    ],
+    "expression": "用沾满机油开裂的大手重重擦去额头汗水，咧开缺门牙的嘴角露出欣慰踏实的笑容。",
+    "likes": [
+     "重型离合器严丝合缝脱扣时的清脆回音",
+     "干完大活后一口滚烫浓茶的通体舒坦"
+    ],
+    "preconditions": [
+     "彻底排除大门下沉活埋险情液压回归平稳",
+     "保全全部精密量具完整无损"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "防爆闸门锚定首席机械工长",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_blast_door_hydraulic_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "用光了冷战年代留下的最后一盒库存石墨，老锁匠左手掌被飞溅的金属碎屑割破流血。",
+      "option": "用老工长私藏的合成石墨固体垫片塞入咬合缝隙协助把手顺利深插脱险。"
+     },
+     {
+      "cost": "猛烈敲击造成铸钢箱体产生微小应力裂纹降低防爆等级。",
+      "option": "指挥士官长用大活动扳手反向敲击释压槽偏心凸耳震松咬死锁销自救。"
+     }
+    ],
+    "pressure": "若无耐高温润滑介质介入并纠偏角度，把手将在极限剪切扭矩下折弯滑脱。",
+    "trigger": "释压孔在高温与干磨下发生严密咬死，把手面临打滑崩脱。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "voices": {
+    "inner": "好姑娘，手够硬！这手艺要是跟着老头子埋在这百米深井下，那才是天理难容！",
+    "surface": "女指挥官！听{npc.name}的！那个释压孔受力往左下偏了两度！别死往下怼，往左顺着牙口敲一下再压！"
+   }
+  },
+  {
+   "adult_context": "年满二十一岁，核工程防化学院成年见习毕业生，初级深井机械维护员，具备完全民事行为能力。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身材单薄，身着带有黄色反光条的防化连体服，面容清秀神情极度慌恐，防尘风镜歪斜挂在脖颈上。",
+    "腰间工具袋胡乱挂着绝缘测电笔与备用扳手，双手因缺氧与极热而剧烈颤抖、脸色惨白。"
+   ],
+   "decision": {
+    "avoids": [
+     "凶神恶煞的督察威吓",
+     "百米深渊极热油雾"
+    ],
+    "contrast": "平日胆小怯弱常被老士官长呵斥的年轻学徒，在女指挥官生死关头能爆发出一股拼死递送工具的血性勇气。",
+    "core_value": "保命第一，崇拜并绝对服从女指挥官的每一道抢修指令。",
+    "goal_options": [
+     "协助女指挥官寻找备用加长力臂镀锌钢管",
+     "在大厅稳固石棉安全绳"
+    ],
+    "never": [
+     "背叛女指挥官擅自逃跑逃生"
+    ],
+    "prefers": [
+     "清晰明了的步骤指引",
+     "平稳安全的地表指挥室"
+    ],
+    "pressure_responses": {
+     "breaking": "跪倒在格栅上死死拉紧石棉安全带协助分担下沉重力",
+     "high": "鼓起勇气冒着热浪油雾爬过通道递送加长套管",
+     "low": "在工具箱内慌乱翻找可以套在把手末端的加长套管",
+     "mid": "大声向大厅通报压力表读数与大门滑脱距离读秒"
+    },
+    "relationship_stance": "将女指挥官视为至高无上的精神支柱，愿为协助脱险拼死相助。",
+    "withdrawal": "缩在大厅钛合金承重支柱阴影处，紧紧抱住加长钢管瑟瑟发抖。"
+   },
+   "gender": "male",
+   "gender_reason": "核发射井在编初级助理机械员",
+   "id": "cadet_technician_xiao_yuan",
+   "identity": {
+    "authority": "核井减压机房应急排压气琴拉索与副加热回路接触器的手动闭合权。",
+    "exposure": "因操作生疏曾导致辅助注水火箭加注过量引发微小摆动",
+    "hidden": "暗自崇拜英姿飒爽的女队长女指挥官将其视为心目中最神圣的英雄偶像",
+    "limits": [
+     "缺乏一线大事故实战心理防线脆弱",
+     "身材单薄力气严重不足难以单独对抗反弹力矩"
+    ],
+    "obligations": [
+     "按规程记录液压站压力表读数并向指挥官报告公差偏差"
+    ],
+    "resources": [
+     "一根厚壁加长高强度特种镀锌钢管套管",
+     "一卷高抗拉耐温石棉加固安全带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "豪迈刚烈的女中豪杰气魄",
+     "在死亡深渊前给予同伴的坚毅安全感"
+    ],
+    "boundaries": [
+     "恪守学徒本分不作非分之想",
+     "严守下属规矩"
+    ],
+    "desire_range": [
+     1,
+     1
+    ],
+    "desired_position": "在大厅安全扶手上方死死拉紧安全绳，大声为女指挥官下压把手报出三十秒读数。",
+    "dislikes": [
+     "残酷暴力的威吓践踏",
+     "被当作累赘抛弃"
+    ],
+    "expression": "手忙脚乱地将加长钢管双手递过，紧张得语无伦次连连向女指挥官道歉并立正敬礼。",
+    "likes": [
+     "被肯定业务能力时的温和颔首",
+     "分到的一枚甘甜高能提神葡萄糖糖块"
+    ],
+    "preconditions": [
+     "彻底排除大门下沉坠落险情天梯稳稳锁死受控",
+     "确保自身生命安全得到保障"
+    ],
+    "self_control_range": [
+     4,
+     4
+    ]
+   },
+   "public_role": "核井机动工程助理技术员",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_blast_door_hydraulic_hall",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}面部被掉落的灼热金属碎屑轻度烫伤留下外伤。",
+      "option": "{npc.name}用加长钢管砸碎排烟拉索阻断明火为舱内排烟自救。"
+     },
+     {
+      "cost": "双手掌心被明火灼伤起泡脱皮。",
+      "option": "用防化外套浸透冷却水死死捂住着火电路强行阻断火势蔓延。"
+     }
+    ],
+    "pressure": "若不及时手动开启顶部强制通风拉板，全员将在两分钟内被毒烟熏厥窒息倒地。",
+    "trigger": "机房内部电弧短路起火，浓烈焦糊绝缘烟气阻碍视线呼吸。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要指挥官还在前面拼命，我就不能当缩头乌龟，我必须帮着把这道死阀门压开！",
+    "surface": "女指挥官！加长钢管我找到了！能套在合金把手柄端当加力杠杆！还有这捆石棉加固安全带！"
+   }
+  },
+  {
+   "adult_context": "年满二十六岁，持有国家核医学专科执业证书的成年女医官，具备完全民事行为能力。",
+   "age_range": [
+    26,
+    28
+   ],
+   "appearance_options": [
+    "身穿带有红十字标识的白色加温抗压医官常服，面容清秀神情紧绷，戴着医用无菌防寒手套，双手握着便携式高压注氧仪。",
+    "神情专注果决，额前垂下几缕碎发，脖子上挂着高敏数字心率血氧监测仪。"
+   ],
+   "decision": {
+    "avoids": [
+     "情绪失控的剧烈挣扎",
+     "隐瞒伤情的硬撑蛮干"
+    ],
+    "contrast": "外表温柔纤弱的文职女医生，在遭遇大事故急救时下针稳准狠如冷面判官。",
+    "core_value": "生命体征就是最高法典，绝不放弃任何一个尚有微弱心跳的同袍。",
+    "goal_options": [
+     "指导机库二人通过呼吸节律对抗急性减压病",
+     "在气闸门开启瞬间实施高压复温抢救"
+    ],
+    "never": [
+     "在战士尚有呼吸时签署放弃抢救文书书面声明"
+    ],
+    "prefers": [
+     "严谨平稳的心率曲线",
+     "遵从医嘱的冷静配合"
+    ],
+    "pressure_responses": {
+     "breaking": "顶着被极寒风暴喷溅的危险冲到门缝前递送应急呼吸面罩",
+     "high": "将体温复苏水毯推至隔离门前准备承接休克伤员",
+     "low": "在观察窗外举起电子写字板提示减压深呼吸频次",
+     "mid": "隔窗指点士官长如何用按压穴位缓解女指挥官肌肉抽搐"
+    },
+    "relationship_stance": "将女指挥官视为亲密的姐妹与敬重的手足，对突击队员安危高度关切。",
+    "withdrawal": "退守至复温治疗台前，迅速核对加压舱氧分压配比阀门。"
+   },
+   "gender": "female",
+   "gender_reason": "深井工程防化核医学主治女医官",
+   "id": "silo_medic_officer_bai",
+   "identity": {
+    "authority": "对深井减压病抢救方案、抗休克急救针剂及加压舱启闭享有最高医疗裁决权。",
+    "exposure": "曾私自调用高压加压舱为患有减压骨坏死的老工兵进行非定点保守治疗",
+    "hidden": "随身急救包里封存着几板冷战时期配发、至今仍在有效期内的碘化钾片",
+    "limits": [
+     "在地下低压环境下无法实施侵入性外科手术",
+     "体能有限无法搬运重型破拆工装"
+    ],
+    "obligations": [
+     "保障全体驻站突击队员零瘫痪、零气栓存活"
+    ],
+    "resources": [
+     "两支浓缩神经保护抗惊厥针剂",
+     "一台便携式微型经皮血氧红外连续监测仪"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在极端生理剧痛下依然保持的神智清明",
+     "彼此舍命相护的崇高人性光辉"
+    ],
+    "boundaries": [
+     "严守医患职业伦理",
+     "不以医疗资源调配进行利益交换"
+    ],
+    "desire_range": [
+     0,
+     0
+    ],
+    "desired_position": "在观察窗前隔着玻璃双手按在女指挥官对应的掌印位置，大声引导其进行深腹式吸气。",
+    "dislikes": [
+     "漠视生命的官僚冷血",
+     "因恐惧造成的踩踏抢夺"
+    ],
+    "expression": "用温热的手掌轻柔按揉对方冻僵的眉心，柔声安抚其紧绷的神经脉搏。",
+    "likes": [
+     "平稳有力的窦性心律",
+     "脱险后第一口温热电解质水的吞咽声"
+    ],
+    "preconditions": [
+     "大门停止下沉且伤员体温回升至三十六度",
+     "全员脱离急性气栓危险期"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "核发射井随军主治医官",
+   "schedule": [
+    {
+     "from": 1380,
+     "location_id": "loc_silo_command_bunker_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "分担部分破拆精力导致撬动力矩节拍轻微延缓。",
+      "option": "通过声学广播引导大厅二人同频深呼吸并相互按压合谷穴解痉自救。"
+     },
+     {
+      "cost": "投料口微启导致少量冷凝水喷溅损坏医用显示屏。",
+      "option": "从投料窗口塞进两板碘化钾片和一沓浸湿的防毒口罩，让大厅里的人先挡住放射性水汽。"
+     }
+    ],
+    "pressure": "放射性水汽和臭氧一旦灼伤肺泡，人会在半小时内憋出急性肺水肿。",
+    "trigger": "机房内人员血氧饱和度跌破百分之八十警戒红线。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要两人把阀门摇开，哪怕被油雾烫得脱一层皮，我也一定把人从阎王爷手里抢回来。",
+    "surface": "女指挥官！捂住口鼻！臭氧里别大口喘——湿毛巾捂紧，短吸长呼，跟着我敲窗的节拍！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "1989 年，深秋",
+  "minute": 1380
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "bodily_harm",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "进入百米核发射井前习惯用手指狠弹盖革计数器探头三次，凭清脆回音确认感应晶体未受潮结块。",
+  "战略火箭军发射操作手出乘前习惯将发射钥匙纯铜防滑绳系在左腕，寓意人在枪在钥匙在。",
+  "女军官习惯将多功能战术激光测厚仪卡在工装靴外侧硬壳，方便随时拔出量测装甲板形变。",
+  "在百吨防爆门下沉轰鸣中喊话习惯低头顶住对方耳廓大声吼出液压千帕参数。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用精密标准水银砝码校验主波登管表盘零位误差",
+    "擦拭双色石英重力水位计玻璃表面积聚的煤烟油垢",
+    "轻扣主截止阀螺纹填料压盖螺栓确认无异常冷凝水微渗"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_silo_bourdon_gauge_tally",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "晨光未至碳化钨重门水银压力表巡检"
+  },
+  {
+   "beats": [
+    "用铜刮刀清理高压蒸汽管道法兰端面碳化旧石棉垫圈",
+    "均匀涂抹耐四百度特制石墨石棉高温密封油膏",
+    "使用全铜棘轮扳手按十字对称法紧固八颗大号钛钢螺栓"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_hydraulic_oil_gasket_grease",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "start_minute": 1390,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "高压主液压法兰石墨密封注脂保养"
+  },
+  {
+   "beats": [
+    "转动主液压防火门重锤锁紧机械棘爪确认自由行程",
+    "检查配重铅块悬挂钢丝绳端部马鞍形卡扣夹紧力",
+    "在战略后勤军战备行车日志加盖当值少校电子图章"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_command_corridor_blast_door_drill",
+   "location_ids": [
+    "loc_silo_command_bunker_corridor"
+   ],
+   "start_minute": 1385,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "深井通廊覆铜装甲气密隔离门测试"
+  },
+  {
+   "beats": [
+    "用防爆欧姆表测量紧急抛载爆炸螺栓电雷管阻抗",
+    "清理滑轨锁死卡齿表面堆积的微细金属冰晶霜花",
+    "在防卫军战备行车日志加盖当值监察少校电子印"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_cooling_catwalk_jettison_bolt_check",
+   "location_ids": [
+    "loc_silo_cooling_well_catwalk"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "水冷悬臂外挂爆炸螺栓电回路抽检"
+  },
+  {
+   "beats": [
+    "测量高压氧气储罐汇流排输出减压阀动态风压",
+    "检查机库外露救生索端部钛合金自动锁扣夹紧力",
+    "交接挂在驾驶室门后的特种实心钛钽加长长撬杠"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_underground_oxygen_supply_test",
+   "location_ids": [
+    "loc_silo_command_bunker_corridor"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "百米深井战备增压供氧系统点验"
+  },
+  {
+   "beats": [
+    "测量重力平衡悬臂前后位移差并校对水平基准",
+    "清理平衡配重液压缓冲油缸表面焦糊附着物",
+    "紧固配重防摇摆牵引索支架四颗高强度螺栓"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_catwalk_counterweight_cable_test",
+   "location_ids": [
+    "loc_silo_cooling_well_catwalk"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "title": "深井悬臂防风阻尼牵引钢索巡检"
+  },
+  {
+   "beats": [
+    "防爆门刹死、全员撤进指挥掩体后，女指挥官被卫生员推进洗消间，深蓝工装背心浸满了油污与放射性水汽，剂量笔的读数还没降下来。",
+    "淋浴喷头哗地打开，女指挥官背过身解开背心，让人拿着软刷从后颈一路刷到腰窝，热水冲过磨破的掌心时，咬着唇轻轻吸了一口气。",
+    "剂量笔终于跳回绿区，女指挥官裹着浴巾回头，湿发贴在颈侧：洗消间的门……先别开，再陪我待一会儿。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_decon_shower_rinse",
+   "location_ids": [
+    "loc_commander_duty_cabin"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "洗消间里陪女指挥官冲洗"
+  },
+  {
+   "beats": [
+    "值班舱里，女指挥官穿着军绿背心盘腿坐在钢架床上，拧着收音机的旋钮，杂音里漏出一支很老的情歌。",
+    "女指挥官把音量调小，拍了拍身边的床：坐过来。……这首歌我听过一百遍，今晚想换个人陪着听。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_duty_cabin_radio",
+   "location_ids": [
+    "loc_commander_duty_cabin"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "intimate"
+   ],
+   "title": "收音机里的老歌"
+  },
+  {
+   "beats": [
+    "女指挥官刚从洗消间出来，湿发贴在颈后，只裹着一条军用浴巾坐在床沿，把毛巾递给人。",
+    "女指挥官闭着眼任人擦着头发，忽然握住那只手：擦干了就别急着走。……我想要你，你呢？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_duty_cabin_towel_hair",
+   "location_ids": [
+    "loc_commander_duty_cabin"
+   ],
+   "start_minute": 1330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "洗消之后的湿发"
+  },
+  {
+   "beats": [
+    "深井里不分昼夜，女指挥官醒来时裹着人的作训服，用刺刀撬开一盒午餐肉罐头，切成两半。",
+    "女指挥官把一半递过来：地面上的人这会儿在吃豆浆油条。……我们吃这个，也不坏。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_duty_cabin_ration_breakfast",
+   "location_ids": [
+    "loc_commander_duty_cabin"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "一盒罐头当早饭"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "冷战末期地下战略核工程与废弃核井封存期",
+ "extends": null,
+ "forbidden_terms": [
+  "仙法",
+  "御剑",
+  "银两",
+  "捕快",
+  "镖局",
+  "客栈",
+  "真气",
+  "法宝"
+ ],
+ "hooks": [
+  {
+   "id": "hook_blast_door_nosedives_screeching",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "commander_su_qingyao",
+   "text": "{commander_su_qingyao.name}单手按住剧烈颤抖的防化钛合金立柱，甩开额前热汗：大门下沉了！液压阀烧成了废铁，把这根七十公分的镀铬把手插进暗孔，跟我下压！"
+  },
+  {
+   "id": "hook_commander_chalks_air_gauges",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "commander_su_qingyao",
+   "text": "{commander_su_qingyao.name}单膝跪在滑腻发烫的机房底板上，合金把手咔哒一声咬死偏心槽：看准左下角，顺着偏两度，听我口令一起往死里压！"
+  },
+  {
+   "id": "hook_hot_oil_mist_burns_hangar",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "commander_su_qingyao",
+   "text": "{commander_su_qingyao.name}在两百度的滚烫油雾里咬紧银牙，面颊在火光映照下泛出剧烈绯红与汗珠：别怕烫！抓紧把手，把全身重量压上来！"
+  },
+  {
+   "id": "hook_handle_groans_bending_limit",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "commander_su_qingyao",
+   "text": "{commander_su_qingyao.name}整个人扑在合金把手末端，双手虎口鲜血淋漓：减压阀在退位了！士官长，把你那身力气全压上来，顺时针压到底脱扣！"
+  },
+  {
+   "id": "hook_han_grips_handle_firmly",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "sergeant_han_tianxiong",
+   "text": "{sergeant_han_tianxiong.name}跨步上前，粗壮的大手一把覆在女指挥官手背外侧：女指挥官，稳住轴心！剩下的千斤下沉重量交给我，谁也别想松手！"
+  },
+  {
+   "id": "hook_concrete_valves_groan_descending",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "commander_su_qingyao",
+   "text": "{commander_su_qingyao.name}猛然抬头凝视门外缓缓下落的注浆闸门，眼神高傲冷冽如刀：少校要注浆了！还有最后三圈，哪怕把手柄压烂也得给我摇开！"
+  },
+  {
+   "id": "hook_water_cables_groan_under_strain",
+   "kind": "approach",
+   "location_ids": [
+    "loc_silo_cooling_well_catwalk"
+   ],
+   "slot": "sergeant_han_tianxiong",
+   "text": "{sergeant_han_tianxiong.name}反手抽出破拆扳手死死卡在水箱导槽之间，低沉怒吼：水箱在晃又怎样！就靠这根实心把手了，跟我一起下压，卸掉液压！"
+  },
+  {
+   "id": "hook_ozone_burns_throat_coughing",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "sergeant_han_tianxiong",
+   "text": "{sergeant_han_tianxiong.name}用宽阔的后背死死挡在破损风口前，替身旁众人挡下臭氧冲流：吸慢点！毒烟呛不死人，大门还没落底，指挥官还在拼命，谁敢乱动老子把闹事者扔下去！"
+  },
+  {
+   "id": "hook_inspector_audits_airlock_drill",
+   "kind": "approach",
+   "location_ids": [
+    "loc_silo_command_bunker_corridor"
+   ],
+   "slot": "inspector_major_pei_guodong",
+   "text": "{inspector_major_pei_guodong.name}惨白着脸握紧纯金密匙，尖叫连连：大门要合死了！卫队，立刻斩断主控线路放下注浆门，绝不能让整座阵地泄密！"
+  },
+  {
+   "id": "hook_smith_greases_winch_slot",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "senior_silo_locksmith_smith",
+   "text": "{senior_silo_locksmith_smith.name}将半块合成石墨固体垫片狠狠拍在减压槽里：往孔里抹！左下偏两度的死角找到了，垫上我的石墨垫片，顺着力道压！"
+  },
+  {
+   "id": "hook_cadet_tests_ballast_bolts",
+   "kind": "request",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "commander_su_qingyao",
+   "text": "{commander_su_qingyao.name}抹去脸上的热汗与油污，急促喘息着看向助理技术员：去机房把备用加长特种钢管取来套上，我们需要更长的一米力臂！"
+  },
+  {
+   "id": "hook_shang_greases_cable_coating",
+   "kind": "request",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "cadet_technician_xiao_yuan",
+   "text": "{cadet_technician_xiao_yuan.name}双手抱着一根厚壁加长套管滚入大厅格栅，眼眶通红：女指挥官！钢管拿来了！还有一捆石棉加固安全带！"
+  },
+  {
+   "id": "hook_medic_audits_oxygen_tanks",
+   "kind": "request",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "sergeant_han_tianxiong",
+   "text": "{sergeant_han_tianxiong.name}接过套管狠狠套在把手柄端，按住女指挥官的玉手咆哮：套管接上了！力臂延长了！女指挥官，我们数三二一，一起把全身重量砸下去！"
+  },
+  {
+   "id": "hook_observe_silo_inferno_door_slip",
+   "kind": "observe",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "commander_su_qingyao",
+   "text": "{commander_su_qingyao.name}挺立在呼啸倒灌的百米井底油雾正中，工装背心下侧颜在猩红警报灯映照下明艳决绝，眼神如出鞘冰刃般不可动摇。"
+  },
+  {
+   "id": "hook_observe_handle_locks_pressure_valve",
+   "kind": "observe",
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "slot": "commander_su_qingyao",
+   "text": "特制镀铬高强度合金重型复位把手深深咬死偏心释压孔，伴随着一声洪钟般的重型机械脱扣合模巨响，百吨级碳化钨防爆门骤然停止下沉稳稳卡死在最后十公分基准线上脱险。"
+  },
+  {
+   "id": "hook_qingyao_pocket_watch",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "commander_su_qingyao",
+   "text": "{npc.name}从工装背心里摸出一枚纯银怀表，弹开表盖递过来：冷战那年头的老东西，井下就这块表不怕电磁脉冲。帮我对一下时间。"
+  },
+  {
+   "id": "hook_tianxiong_canteen",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "sergeant_han_tianxiong",
+   "text": "{npc.name}拧开军用水壶灌了一大口，抹抹嘴把壶塞过来：井底四十度，不喝水撑不过一个班。喝，别客气。"
+  },
+  {
+   "id": "hook_smith_tube_console",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "senior_silo_locksmith_smith",
+   "text": "{npc.name}拍了拍一台落满灰的电子管控制台，冲人招手：过来看看，这台老家伙比你年纪都大，开机要先预热三分钟。"
+  },
+  {
+   "id": "hook_xiaoyuan_dosimeter",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "cadet_technician_xiao_yuan",
+   "text": "{npc.name}举着剂量笔凑过来，对着灯眯眼看刻度：你的读数多少？我这支好像走快了，跟你的对一对。"
+  },
+  {
+   "id": "hook_pei_archive_box",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "inspector_major_pei_guodong",
+   "text": "{npc.name}抱着一只贴满封条的档案箱走过来，往人面前一搁：冷战时期的发射日志，帮我搬到指挥掩体去，别打开看。"
+  },
+  {
+   "id": "hook_qingyao_duty_cabin",
+   "kind": "approach",
+   "location_ids": [
+    "loc_commander_duty_cabin"
+   ],
+   "slot": "commander_su_qingyao",
+   "text": "{npc.name}靠在值班舱门边，手里拎着一台收音机：信号只有这屋里收得到。……进来听？"
+  }
+ ],
+ "id": "nuclear_silo_blast_door_lockdown",
+ "locations": [
+  {
+   "affordances": [
+    "抓牢抗爆钛合金龙骨扶手稳固身形",
+    "将镀铬合金复位把手插进应急释压孔",
+    "查看墙壁上大型双针重力水银液压表"
+   ],
+   "detail": "挑高十五米、完全由重晶石高标号防核爆混凝土整体浇筑的地下巨型转换大厅，正前方是厚达两米、重达百吨的碳化钨滑动防爆门，门体在重力斜轨上发出金属呻吟缓慢下沉，高压液压管路爆裂喷出的雾化矿物油如暴雨般洒落。",
+   "exits": [
+    "loc_silo_command_bunker_corridor",
+    "loc_silo_cooling_well_catwalk"
+   ],
+   "id": "loc_blast_door_hydraulic_hall",
+   "name": "防爆门大厅",
+   "pressure_modifiers": {
+    "p_blast_door_gravity_nosedive_seal": "百吨碳化钨重型大门沿三十度斜轨疯狂下沉，距离彻底切死地面仅剩最后四十公分。",
+    "p_hydraulic_oil_line_burst_mist": "高压液压管路爆裂喷出雾化阻燃矿物油充斥大厅，浓烟弥漫视线不足一米呼吸困难。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_silo_rigger_old_zhao"
+   ]
+  },
+  {
+   "affordances": [
+    "按下主控台应急气动吹洗按钮",
+    "启动外置备用电加热保温套管",
+    "拿起挂在走廊墙上的防化隔绝呼吸器"
+   ],
+   "detail": "位于防爆大厅内侧的密封观察长廊，厚达五十厘米的双层防弹防辐射石英玻璃将喷油大厅隔绝在外，控制台自毁红色旋转警报灯将四周染成一片猩红血色。",
+   "exits": [
+    "loc_blast_door_hydraulic_hall",
+    "loc_silo_cooling_well_catwalk",
+    "loc_commander_duty_cabin"
+   ],
+   "id": "loc_silo_command_bunker_corridor",
+   "name": "指挥掩体通廊",
+   "pressure_modifiers": {
+    "p_concrete_quarantine_hopper_deadlock": "穹顶快凝重晶石混凝土料斗启动了五分钟自沉倒计时，重型注浆阀门开始在气缸驱动下缓缓开启。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "clear",
+   "witnesses": [
+    "bg_silo_medical_officer_bai",
+    "bg_silo_locksmith_smith"
+   ]
+  },
+  {
+   "affordances": [
+    "用合金手锤敲击旁通循环阀门消除汽蚀",
+    "手动扳动应急消防冷水喷淋旋塞",
+    "扣紧双重钛合金安全绳索在栈桥钢梁上"
+   ],
+   "detail": "悬挂在百米深渊发射井内部核心的镂空格栅走道，下方是幽暗深邃的核导弹发射筒，水泵停摆导致冷却水箱温度急剧飙升，刺鼻的放射性水汽在冷热交锋中升腾。",
+   "exits": [
+    "loc_blast_door_hydraulic_hall",
+    "loc_silo_command_bunker_corridor"
+   ],
+   "id": "loc_silo_cooling_well_catwalk",
+   "name": "冷却竖井栈桥",
+   "pressure_modifiers": {
+    "p_radiation_leak_ozone_asphyxiation": "井底循环水温度逼近沸点溢出高浓度臭氧与放射性气溶胶，环境本底读数持续飙升。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_cooling_rigger_xiao_liu"
+   ]
+  },
+  {
+   "affordances": [
+    "陪女指挥官听一段收音机",
+    "替女指挥官擦干头发",
+    "把值班舱的承压门锁上"
+   ],
+   "detail": "指挥掩体尽头的一间值班舱，一张钢架床、一只军绿铁皮柜、一台老式电子管收音机，隔壁就是洗消间。",
+   "exits": [
+    "loc_silo_command_bunker_corridor"
+   ],
+   "id": "loc_commander_duty_cabin",
+   "name": "指挥官值班舱",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "舱顶只亮一盏防爆灯，承压门一关，整座深井的轰鸣都闷成了很远的心跳。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "苏",
+   "韩",
+   "邵",
+   "裴",
+   "陆",
+   "纪",
+   "雷",
+   "段",
+   "封",
+   "崔",
+   "魏",
+   "石"
+  ],
+  "given_female": [
+   "青瑶",
+   "宛",
+   "凌",
+   "羽",
+   "彤",
+   "岚",
+   "微",
+   "澄",
+   "澈",
+   "若兰",
+   "素心",
+   "雪雁"
+  ],
+  "given_male": [
+   "长风",
+   "刚",
+   "猛",
+   "彪",
+   "勇",
+   "柱",
+   "磊",
+   "超",
+   "强",
+   "胜",
+   "岩",
+   "天枢"
+  ],
+  "given_neutral": [
+   "风",
+   "云",
+   "川",
+   "原",
+   "野",
+   "舟",
+   "衡",
+   "坚",
+   "阔",
+   "诚",
+   "朗",
+   "毅"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留冷战废弃核发射井、百吨碳化钨防爆门下沉与女指挥官用镀铬把手摇开减压阀的骨架。和轨道电梯世界原稿同源，这里往地下深井、核冷却、冷战遗物的方向拉开：误触自毁的是封存多年的电子管告警机，医官改为防辐射与臭氧急救，老锁匠的石墨换成冷战年代的最后一盒库存，几处与轨道电梯同形的台词改写。写死的人名改为身份称呼，背景人物里与模板重名的老赵、白医生、史密斯、小刘改名；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；女指挥官亲密前提写明出井洗消、双方清醒自愿；新增一个洗消间里陪女指挥官冲洗的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    26,
+    38
+   ],
+   "baseline": "负责百米核井重型液压站与防爆闸门机械维保的资深士官，练就了一副力大无穷的钢筋铁骨。",
+   "gender": "any",
+   "id": "pi_nuclear_chassis_operator",
+   "reputation": "沉稳凶悍手艺过硬，在基地以能徒手转动生锈液压盘车而闻名。",
+   "resources": [
+    "一柄重达八公斤的双头加长合金活动扳手",
+    "两副双层特制防酸防辐射高密牛皮手套"
+   ],
+   "risks": [
+    "直接暴露在高压喷油死角极易遭受重度机械喷射性损伤",
+    "剧烈缺氧易诱发心肌缺血"
+   ],
+   "role": "核发射井当值防化工程机动士官",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "士官长{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}班长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    48
+   ],
+   "baseline": "代表总部核安全委员会视察废弃深井的军官，掌控核井自毁与永久混凝土浇筑最高令符。",
+   "gender": "any",
+   "id": "pi_strategic_defense_superintendent",
+   "reputation": "教条冰冷视规章为第一生命线，极度恐慌核泄漏时奉行弃车保帅铁律。",
+   "resources": [
+    "一套纳米全密封军官个人正压防化面罩",
+    "一枚核井自毁系统一级授权纯金电子密匙芯片"
+   ],
+   "risks": [
+    "完全不懂液压释压孔物理力学公差容易盲目下达封门指令",
+    "面对黑暗极度恐慌"
+   ],
+   "role": "战略后勤防卫军特派督导监察官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}监察员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}少校"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "刚分配进地下核工程的大学优秀毕业生，熟悉全井重型液压阀门公差图纸。",
+   "gender": "any",
+   "id": "pi_nuclear_silo_cadet_technician",
+   "reputation": "理论扎实但缺乏一线生死抢险历练，面对失控下沉心理防线脆弱。",
+   "resources": [
+    "一瓶特种耐高压合成阻燃液压油清洗喷剂",
+    "一本厚重的地下核工程机械公差速查手册"
+   ],
+   "risks": [
+    "强震颤下跌入深井检修缝隙容易骨折粉碎",
+    "体能单薄难以承受重载下压"
+   ],
+   "role": "核工程控制系统青年见习技术员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}助理"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    48,
+    55
+   ],
+   "baseline": "驻守百米深井三十年的老铆工，闭着眼睛都能摸出每一道导轨滑块的承压死点。",
+   "gender": "any",
+   "id": "pi_decommissioned_silo_locksmith",
+   "reputation": "沉默寡言老成持重，视深井防爆设施为有生命的钢铁巨兽。",
+   "resources": [
+    "一把大号高强度淬火防爆卡簧拆卸钳",
+    "一盒特制耐高压合成固体润滑石墨垫片"
+   ],
+   "risks": [
+    "常年地下低氧患有严重肺心病在浓烟中喘息艰难",
+    "腿脚关节严重风湿行动迟缓"
+   ],
+   "role": "地下战略核工程特级老铆焊工长",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老将"
+    }
+   ]
+  }
+ ],
+ "premise": "冷战年代封存至今的废弃核导弹发射深井，退役的发射指挥女军官被请回来带队做封存评估，核防化士官长、督导监察官和见习技术员跟着下井。白天清点设备、拍照存档，夜里住在井口的营房。井下那台老式电子管告警机还连着自毁密封程序，没人敢断电。",
+ "pressures": [
+  {
+   "choice": "等待后方启动自沉炸药切除机房，还是由女指挥官带队用合金把手暴力下压脱扣。",
+   "exits": [
+    {
+     "cost": "高强度合金把手发生微弯，操作人员双手掌心隔着手套被磨出大面积血泡鲜血浸透。",
+     "option": "用发射台镀铬高强度合金重型复位把手插入偏心释压孔合力摇动下压三圈脱险。"
+    },
+    {
+     "cost": "大扳手受强烈反震折断崩飞划破在场操作人员面颊与肩膀。",
+     "option": "用破拆大扳手反向砸碎电磁溢流阀抱死锁销强行制造机械阻尼自救。"
+    }
+   ],
+   "far": {
+    "consequence": "整座深井大厅被彻底物理切断，全员在深井活埋窒息与水泵爆炸中殉难。",
+    "due_days": 1,
+    "trigger": "百吨碳化钨防爆门彻底下沉锁死落槽"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_blast_door_gravity_nosedive_seal",
+   "immediate": {
+    "minutes": 8,
+    "text": "大门下沉滑块在装甲钢轨上发出尖叫，大厅地面以震颤剧烈摇晃，矿物油雾如暴雨般横飞。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "near": {
+    "deadline_minutes": 18,
+    "text": "大门下落位移仅剩最后二十公分，下方百米深渊风道已一览无余，狂暴气流撕扯着每一名人员。"
+   },
+   "objective": "在重门彻底落槽切断通道前插紧复位把手反转卸压自救。",
+   "source": "accident",
+   "start_minute": 1380,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "百吨碳化钨重型大门沿斜轨下滑濒落",
+   "trigger": "电磁脉冲误触引爆地下断电联锁，百吨碳化钨滑动装甲大门沿三十度重力斜轨失控下沉，距离落槽死锁仅剩最后四十公分。"
+  },
+  {
+   "choice": "退入后方承压指挥室暂避风芒，还是冒着重度烫伤危险顶在喷口前合力下压。",
+   "exits": [
+    {
+     "cost": "贴身战斗服被汗水浸透并被油雾灼伤，双臂遭受轻度二度烫伤。",
+     "option": "两人紧密贴合借彼此身体遮挡油雾喷流双手死扣把手以自重猛压脱险。"
+    },
+    {
+     "cost": "除雾电热丝短路烧毁战术目镜内部微型电池包。",
+     "option": "用战术风镜电加热除霜功能配合手电强行破雾看清孔口脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "引发急性重度吸入性肺水肿与大面积烫伤休克，全员在油雾中窒息倒地殉难。",
+    "due_days": 1,
+    "trigger": "人体承受极限两百度矿物油雾持续侵袭"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hydraulic_oil_line_burst_mist",
+   "immediate": {
+    "minutes": 6,
+    "text": "滚烫的高压油雾疯狂撕扯着大厅内的帆布帘，呼出的空气仿佛带着火星灼烧喉咙气管。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "near": {
+    "deadline_minutes": 14,
+    "text": "舱内气温骤升至一百二十度以上，人员手指末梢被油雾烫伤剧痛难忍，视线因白雾严重受阻。"
+   },
+   "objective": "在极度高温与被烫伤致盲前找准偏心孔死角完成把手咬合。",
+   "source": "accident",
+   "start_minute": 1385,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "高压管路爆裂喷射两百度雾化矿物油",
+   "trigger": "重载斜压导致主液压钢管接头爆开，两百度高压阻燃矿物油化为浓烈白雾喷射全舱，大厅内瞬间沦为滚烫蒸笼，视线不足一米呼吸困难。"
+  },
+  {
+   "choice": "由士官长在门外拔枪控制少校，还是在机房内抢先摇动把手化解危机。",
+   "exits": [
+    {
+     "cost": "士官长面临违抗联合安全条例文书的军法严惩。",
+     "option": "士官长夺枪砸碎少校手电终端强行拔掉自毁熔断保险丝争取自救时间。"
+    },
+    {
+     "cost": "与督察卫队爆发小规模肢体冲突造成人员轻伤。",
+     "option": "女指挥官大声喊话以特级指挥官身份动员全站接管控制电箱强行停注脱险。"
+    }
+   ],
+   "far": {
+    "consequence": "深井大厅彻底化为万吨水泥石坟，内部全员被活活浇筑封死在死地。",
+    "due_days": 1,
+    "trigger": "快凝重晶石混凝土全量灌满防爆大厅"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_concrete_quarantine_hopper_deadlock",
+   "immediate": {
+    "minutes": 5,
+    "text": "通廊穹顶响起急促尖叫的红色自沉警报，注浆管道电磁阀门发出刺耳嘶鸣缓缓开启。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_silo_command_bunker_corridor"
+   ],
+   "near": {
+    "deadline_minutes": 10,
+    "text": "重型注浆阀门距离全开仅剩最后三十秒，浓烈的生石灰与水泥粉尘开始在走道内弥漫。"
+   },
+   "objective": "在水泥彻底灌入大厅前完成把手反转卸压并迫使少校升门。",
+   "source": "institution",
+   "start_minute": 1395,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "指挥室自沉注浆系统启动倒计时",
+   "trigger": "特派监察官认定大厅已经不可逆封死，在指挥室内拉下自毁电掣，重达千吨的重晶石快凝混凝土注浆斗启动了五分钟自毁封死倒计时。"
+  },
+  {
+   "choice": "退入增压舱吸氧，还是咬紧牙关憋住一口气将把手压向死点。",
+   "exits": [
+    {
+     "cost": "全员呼吸系统受轻度灼伤喉部声带严重嘶哑数日。",
+     "option": "白医生隔窗引导深腹式呼吸女指挥官含服解毒喷剂坚持完成把手旋转发力脱险。"
+    },
+    {
+     "cost": "士官长自身因分心护持承受更大单侧扭转剪切痛。",
+     "option": "士官长用双臂死死抱住女指挥官躯干分担受力缓解其胸部剧痛自救。"
+    }
+   ],
+   "far": {
+    "consequence": "发生不可逆急性肺水肿与呼吸衰竭骤停，人员在极热中当场牺牲殉难。",
+    "due_days": 1,
+    "trigger": "吸入致死剂量放射性臭氧引发急性窒息衰竭"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_radiation_leak_ozone_asphyxiation",
+   "immediate": {
+    "minutes": 5,
+    "text": "女指挥官双肩与喉管泛起如同刀割般的剧烈刺痛，呼吸声因臭氧刺激而粗重短促如拉风箱。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_silo_cooling_well_catwalk"
+   ],
+   "near": {
+    "deadline_minutes": 11,
+    "text": "神经性中毒痛蔓延至胸腔，视线边缘泛起大面积黑色闪光，抓握手指出现痉挛抽搐。"
+   },
+   "objective": "佩戴防化面罩并含服清灵解毒喷雾维持最后神志发力。",
+   "source": "nature",
+   "start_minute": 1400,
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "title": "井底水冷循环停摆致高放射性臭氧泄漏",
+   "trigger": "核弹头水冷循环水泵断电停摆，水箱水温突破沸点溢出高浓度放射性水汽与臭氧，气味刺鼻至极，人员血氧饱和度骤降逼近昏厥。"
+  },
+  {
+   "choice": "孤注一掷加大肉身重量强压，还是稍微回退半寸套入助理技术员的加长钢管。",
+   "exits": [
+    {
+     "cost": "钢管在高压下咬死变形彻底无法从把手上拔下。",
+     "option": "助理技术员冒死送达加长特种钢管套在把手末端分担应力合力下压撬平脱险。"
+    },
+    {
+     "cost": "两臂肘关节承受数十吨极度反震导致骨膜严重挫伤渗血。",
+     "option": "女指挥官与士官长调整站位将发力点向把手根部收缩十公分以肉体爆发力强行压死轴承。"
+    }
+   ],
+   "far": {
+    "consequence": "断裂的合金重管高速击穿操作人员胸膛，丧失唯一杠杆工具彻底断绝生机。",
+    "due_days": 1,
+    "trigger": "重型复位把手彻底折断崩飞"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_reset_handle_shear_stress_yield",
+   "immediate": {
+    "minutes": 4,
+    "text": "长把手中心受力处传出一声令人毛骨悚然的金属微裂脆响，表层防锈镀铬层爆裂剥落。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_blast_door_hydraulic_hall"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "把手发生超过十五度的明显弯曲，操作手握持的末端即将滑脱孔口中心死锁。"
+   },
+   "objective": "垫入固体石墨垫片纠正两度偏角并调整施力力矩防止把手折断。",
+   "source": "accident",
+   "start_minute": 1402,
+   "tags": [
+    "disaster",
+    "workplace"
+   ],
+   "title": "合金把手承受数十吨剪应力濒断",
+   "trigger": "减压阀偏心孔因高温咬死极深，两人合力下压使得七十公分长的镀铬把手承受了极限剪切扭矩，高强度合金表面出现微细疲劳晶格裂纹发出刺耳金属惨叫。"
+  },
+  {
+   "choice": "分出一人去顶紧滑轨，还是全员集中在把手前争分夺秒完成下压。",
+   "exits": [
+    {
+     "cost": "失去关键检修套筒工具，手掌在高温中被钢缆毛刺扎伤。",
+     "option": "迅速将随身备用重型合金套筒卡在滑轨制动孔阻止配重继续滑移脱险。"
+    },
+    {
+     "cost": "右肩承受强烈反冲震伤脱臼。",
+     "option": "士官长用肩膀死死抵住水箱防撞梁为女指挥官争取最后三秒撬动窗口。"
+    }
+   ],
+   "far": {
+    "consequence": "数千吨重物瞬间砸穿机房底板将操作人员齐齐打落百米深渊。",
+    "due_days": 1,
+    "trigger": "配重钢缆全面断裂巨大水箱甩脱解体"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_cooling_catwalk_cable_snap_rebound",
+   "immediate": {
+    "minutes": 4,
+    "text": "主钢缆的外层合成纤维护套已经在剧烈拉扯中爆开，数十股高碳钢丝根根紧绷颤鸣。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_silo_cooling_well_catwalk"
+   ],
+   "near": {
+    "deadline_minutes": 8,
+    "text": "第一根辅助钢缆发生脆断崩飞，重型水箱重重砸在机库左侧导轨上激起漫天火花。"
+   },
+   "objective": "迅速将备用液压插销卡死在滑轨制动孔阻止水箱滑移甩脱。",
+   "source": "accident",
+   "start_minute": 1398,
+   "tags": [
+    "disaster",
+    "crime"
+   ],
+   "title": "悬挂水冷栈桥固定钢索即将断裂飞旋",
+   "trigger": "水冷竖井晃动导致数吨重的水箱在滑轨上发生侧倾，紧绷的四道重型承载钢缆发出即将绷断的凄厉尖啸，一旦断裂将横扫机房大厅。"
+  },
+  {
+   "choice": "带镇长下井亲眼看，还是请阵地长出一份保密的说明",
+   "exits": [
+    {
+     "cost": "要打开那扇刚撬开的防爆门，镇长会看到井里的一切",
+     "option": "带镇长下井"
+    },
+    {
+     "cost": "杭大校要女军官签一份永不对外谈论此事的保证",
+     "option": "请杭大校出保密说明"
+    }
+   ],
+   "far": {
+    "consequence": "核井被永久填埋，女军官守了十年的这座井连同那些档案一起封进水泥",
+    "due_days": 7,
+    "trigger": "居民大会决定上访"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_qingyao_pocket_watch",
+    "hook_tianxiong_canteen",
+    "hook_smith_tube_console",
+    "hook_xiaoyuan_dosimeter",
+    "hook_pei_archive_box",
+    "hook_qingyao_duty_cabin"
+   ],
+   "id": "p_town_warhead_rumor",
+   "immediate": {
+    "minutes": 5,
+    "text": "梅姐敲开值班舱，说镇上的人把井口的铁丝网围住了"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_commander_duty_cabin"
+   ],
+   "near": {
+    "deadline_minutes": 660,
+    "text": "晚上七点，镇上开居民大会"
+   },
+   "objective": "在镇上开居民大会之前，让镇上的人相信井里是空的",
+   "source": "rumor",
+   "start_minute": 480,
+   "tags": [],
+   "title": "镇上的传言",
+   "trigger": "自毁程序关停后的第二天，附近镇上传开了：废弃核井昨夜差点炸了，井里还藏着没拆的弹头，镇民要求连夜搬迁"
+  }
+ ],
+ "region": "地下百米核发射井超重型碳化钨防爆闸门大厅",
+ "rules": [
+  {
+   "id": "r_nuclear_silo_hydraulic_lockout_code",
+   "text": "发射井碳化钨防爆门液压管路在失电时必须在四分钟内完成手动卸压反转。"
+  },
+  {
+   "id": "r_strategic_silo_quarantine_drop_rule",
+   "text": "井底放射性剂量率突破警戒阈值时外围防爆密封闸门实施不可逆电磁断离。"
+  },
+  {
+   "id": "r_reset_handle_military_protocol",
+   "text": "镀铬高强度合金重型复位把手属A级应急战略构件使用前须确认偏心定位销咬合。"
+  },
+  {
+   "id": "r_silo_blast_concrete_seal_line",
+   "text": "自毁程序倒计时归零时上方储料仓将向大厅全量灌注含硼快凝重晶石混凝土。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "看表核压",
+  "committed": "深井誓约",
+  "familiar": "井底相依",
+  "flirting": "冷汗汽雾",
+  "intimate": "解甲相拥",
+  "stranger": "口令戒备",
+  "testing": "把手同命"
+ },
+ "status": "released",
+ "style_hint": "冷酷森严的冷战硬核工笔，刻画重达百吨的碳化钨防爆门下沉轰鸣、特种铬钒钢把手卡紧时的极限扭矩形变、防化背心下剧烈起伏的身躯与滚烫汗珠，台词充斥着严苛的核战略术语与绝对威严。",
+ "tension_engines": [
+  {
+   "id": "te_blast_door_load_drift_vs_manual_lever",
+   "text": "百吨防爆重门滑脱下沉绝命倒计时与利用镀铬合金重型把手摇动减压阀的机械自救。"
+  },
+  {
+   "id": "te_silo_command_jettison_vs_human_rescue",
+   "text": "特派监察官企图炸断大厅自沉逃生与突击队誓死保全全站人员同胞的人道死斗。"
+  },
+  {
+   "id": "te_ice_commander_vs_sergeant_muscle",
+   "text": "冰山英气冷艳女军官的森严气魄与重装老士官长托付性命的肉体爆发力反差共鸣。"
+  },
+  {
+   "id": "te_oil_mist_fumes_burn_vs_tight_hug",
+   "text": "高温高压雾化矿物油倒灌灼伤与两人在剧烈失速摇坠中紧贴发力合拧把手的炽烈生命羁绊。"
+  }
+ ],
+ "title": "废弃核井·防爆闸门死锁",
+ "tone": [
+  "百吨防爆重门金属呻吟",
+  "高压液压管路刺耳喷啸",
+  "自毁倒计时刺目红光",
+  "电子管告警机嘀嗒作响"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_silo_valve_eccentric_pin_found",
+   "requires": [
+    "commander_su_qingyao"
+   ],
+   "text": "{commander_su_qingyao.name}在液压站底座铭牌下摸出了当年核工程老工匠私设的手动机械强制卸压偏心暗孔销栓。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_sergeant_disarms_corrupt_inspector",
+   "requires": [
+    "sergeant_han_tianxiong"
+   ],
+   "text": "{sergeant_han_tianxiong.name}反手夺下特派监察官的手枪与自毁密匙卡，全面接管全井防爆战时最高指挥权。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_anti_shock_neural_spray_shared",
+   "requires": [
+    "commander_su_qingyao"
+   ],
+   "text": "{commander_su_qingyao.name}掰开随身工装暗袋，将整整四罐高压浓缩解毒神经镇痛喷雾剂分发给现场力竭同伴对抗急性臭氧窒息。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_hopper_gate_bypassed_pressure_drops",
+   "requires": [
+    "senior_silo_locksmith_smith"
+   ],
+   "text": "{senior_silo_locksmith_smith.name}用铜凿撬开机房外壁备用泄压自流阀门，依法平衡内外舱压缓解了防爆大门液压缸受压形变。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_emergency_bypass_clicks_valve_safe",
+   "requires": [
+    "commander_su_qingyao"
+   ],
+   "text": "{commander_su_qingyao.name}利用把手柄部挑开了备用旁通水冷管路，强行为减压阀压制住最后三十秒超温抱死窗口。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_sergeant_shields_captain_falling_iron",
+   "requires": [
+    "commander_su_qingyao",
+    "sergeant_han_tianxiong"
+   ],
+   "text": "{sergeant_han_tianxiong.name}在防爆门护板大面积崩脱瞬间挺身扑在{commander_su_qingyao.name}上方，用防化背心与胸膛死死挡下飞溅金属碎片。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_silo_door_locks_true_hangar_saved",
+   "requires": [
+    "commander_su_qingyao"
+   ],
+   "text": "旋转卸压的重型减压阀在镀铬合金把手与石墨垫片的强力合模下轰然卡平自锁，失控下沉的百吨碳化钨防爆门稳稳刹死在减速基准线上，全井安然脱险平息生还。"
+  }
+ ]
+}

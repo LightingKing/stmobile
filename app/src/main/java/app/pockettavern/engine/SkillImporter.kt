@@ -103,7 +103,7 @@ object SkillImporter {
     }
 
     private fun parseFrontMatter(raw: String): FrontMatter {
-        val normalized = raw.replace("\r\n", "\n")
+        val normalized = raw.removePrefix("\uFEFF").replace("\r\n", "\n")
         if (!normalized.startsWith("---\n")) throw IllegalArgumentException("SKILL.md 必须以 YAML frontmatter 开始")
         val end = normalized.indexOf("\n---", startIndex = 4)
         if (end < 0) throw IllegalArgumentException("SKILL.md 缺少 YAML frontmatter 结束标记")

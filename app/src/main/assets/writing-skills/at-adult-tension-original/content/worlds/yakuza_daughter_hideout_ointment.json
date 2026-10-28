@@ -1,0 +1,2546 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满二十一周岁受雇于叛变堂口正规在编打手青年。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_patrol_hound_handler",
+   "line": "{npc.name}：队长！柴堆后面有倒掉的酒瓶，这屋子得再查一遍！",
+   "location_ids": [
+    "narrow_snowy_porch_entry"
+   ],
+   "name": null,
+   "role": "叛党雪地搜山斥候"
+  },
+  {
+   "adult_context": "年满二十二周岁、追随老堂主的直系护卫。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_wounded_loyal_retainer",
+   "line": "{npc.name}：少主，炉子我看着，您安心歇着。",
+   "location_ids": [
+    "hunter_cabin_hearth_room"
+   ],
+   "name": null,
+   "role": "守在门边的老部下"
+  },
+  {
+   "adult_context": "年满二十周岁、在温泉茶屋帮工的年轻人。",
+   "age_range": [
+    20,
+    22
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_informant_tea_girl",
+   "line": "{npc.name}：山下的桥头已经有车灯闪了，大家收拾快一点！",
+   "location_ids": [
+    "narrow_snowy_porch_entry"
+   ],
+   "name": null,
+   "role": "送药同伴随行见习舞女"
+  },
+  {
+   "adult_context": "年满二十二周岁、受雇于叛党守山道的年轻人。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_cliff_sentry_sniper",
+   "line": "{npc.name}：吊桥那头有灯光，记下来，天亮报给若头。",
+   "location_ids": [
+    "attic_drying_loft_hideaway"
+   ],
+   "name": null,
+   "role": "对面山脊上的叛党瞭望哨"
+  },
+  {
+   "adult_context": "年满二十周岁医学院战地救护志愿年轻实习员。",
+   "age_range": [
+    20,
+    22
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_medic_assistant_runner",
+   "line": "{npc.name}：干净纱布和蛇油膏带来了，少主的伤今天消肿了不少。",
+   "location_ids": [
+    "cliffside_abandoned_rope_bridge"
+   ],
+   "name": null,
+   "role": "送药上山的医务帮工"
+  },
+  {
+   "adult_context": "年满二十一周岁箱根地方林场正规在籍年轻巡道工。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_wandering_woodcutter",
+   "line": "{npc.name}：这座吊桥十年没过人了，中间有三根主绳是锈烂的，慢点走！",
+   "location_ids": [
+    "cliffside_abandoned_rope_bridge"
+   ],
+   "name": null,
+   "role": "绝壁索道废弃伐木工友"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "地炉暗炭映红了熊皮毯，{tsundere_yakuza_princess_akane.name}神志清明地褪下外衫，露出后背怒放的鬼百合刺青，咬着唇把温热的蛇油药罐推到你手里。",
+   "id": "combo_akane_hearth_ointment",
+   "identity_ids": [
+    "sworn_shadow_bodyguard",
+    "emergency_paramedic_defector"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "tsundere_yakuza_princess_akane",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月东京总堂突围夜你在酒窖里替少主挡下碎玻璃，脱险后对方亲手把村正短剑的剑穗系在你腕间",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "tsundere_yakuza_princess_akane"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "包扎好{tsundere_yakuza_princess_akane.name}的左肩，在炉火旁定下杀回东京的并肩盟约。",
+    "limit_gap": "{tsundere_yakuza_princess_akane.name}嘴上端着少主的骄矜架子，药膏化开时却往你掌心靠。",
+    "meeting_reason": "你趁夜深炭火最旺时插上木栓，单独替{tsundere_yakuza_princess_akane.name}解开旧绷带换药。",
+    "resource_gap": "天亮过桥前得揉散{tsundere_yakuza_princess_akane.name}左肩的旧伤淤血；对方怀里揣着总堂的防水黑金底片，只在你面前卸下防备。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_flesh_bullet_surgery_vs_iron_silence",
+    "te_yakuza_pride_vs_servant_vulnerability"
+   ]
+  },
+  {
+   "chemistry": "二层阁楼飘着干草药香，{tsundere_yakuza_princess_akane.name}与你并肩贴在小窗后看雪道，把贴身收着的防水底片按进你掌心。",
+   "id": "combo_akane_scion_attic_film",
+   "identity_ids": [
+    "rogue_drifter_bounty_hunter",
+    "disgraced_underboss_scion"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "tsundere_yakuza_princess_akane",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "去年浅草酉之市夜宴后你在后庭替少主解了叔父逼婚的围，对方临别把一枚描金熊手护身符塞进你内袋",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "tsundere_yakuza_princess_akane"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "接过底片，让{tsundere_yakuza_princess_akane.name}亲手为你戴上并肩执掌总堂的金纹家徽戒。",
+    "limit_gap": "{tsundere_yakuza_princess_akane.name}不肯用哀求的姿态留你，只拿那双倔强发亮的眼睛等你的选择。",
+    "meeting_reason": "你上阁楼观察后山雪情，招手让{tsundere_yakuza_princess_akane.name}上来核对破晓的路线。",
+    "resource_gap": "你握着调动山下旧部、打通兽道的实权；{tsundere_yakuza_princess_akane.name}孤身避难深山，要靠你才保得住正统。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_yakuza_pride_vs_servant_vulnerability",
+    "te_broken_bridge_chasm_vs_dawn_survival"
+   ]
+  },
+  {
+   "chemistry": "铁锅里的鹿肉野菇汤咕嘟冒着热气，{mountain_hermit_hunter_goro.name}把烘暖的鹿皮坎肩披在你肩上，低头陪你在地炉边烘手。",
+   "id": "combo_goro_hearth_venison",
+   "identity_ids": [
+    "sworn_shadow_bodyguard",
+    "emergency_paramedic_defector"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "mountain_hermit_hunter_goro",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三日前初雪封路你帮猎人从山涧拉回受惊的猎犬并包扎伤口，对方当晚把祖传的狼牙骨坠系在了你刀柄上",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "mountain_hermit_hunter_goro"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "与{mountain_hermit_hunter_goro.name}敲定明日过桥断索的信号，在寒夜里分担彼此的疲惫。",
+    "limit_gap": "{mountain_hermit_hunter_goro.name}嘴上说只是守山神的规矩，却把最厚的熊皮褥子都铺在了你身下。",
+    "meeting_reason": "你守夜换班时留在地炉添炭，与刚巡完木廊的{mountain_hermit_hunter_goro.name}围炉夜话。",
+    "resource_gap": "没有{mountain_hermit_hunter_goro.name}的蛇油膏和兽道向导，你们走不出这场暴雪；对方地窖里还藏着没申报的捕兽夹。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_blizzard_hypothermia_vs_lead_fever",
+    "te_broken_bridge_chasm_vs_dawn_survival"
+   ]
+  },
+  {
+   "chemistry": "{undercover_special_investigator_kuroki.name}翻进阁楼摘下结霜的护目镜，把警官证与红外信标一并交到你手里，呼吸微促地等你定夺。",
+   "id": "combo_kuroki_attic_beacon",
+   "identity_ids": [
+    "rogue_drifter_bounty_hunter",
+    "disgraced_underboss_scion"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "undercover_special_investigator_kuroki",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "半年前横滨码头查缉走私时你替被困货仓的刑警引开了打手，两人在避雨安全屋里彻夜相拥，交换了呼机号",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "undercover_special_investigator_kuroki"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "拿住{undercover_special_investigator_kuroki.name}的撤离信标，让对方在结案报告里隐去你们的行踪。",
+    "limit_gap": "{undercover_special_investigator_kuroki.name}想用公事接头掩饰对你的关切，替你系紧衣领时却露了破绽。",
+    "meeting_reason": "你在阁楼小窗打出三长两短的暗号，召{undercover_special_investigator_kuroki.name}进来核对直升机坐标。",
+    "resource_gap": "交不交底片副本由你说了算；{undercover_special_investigator_kuroki.name}脱离搜山队潜进来，拿不到罪证回去要被内部追责。"
+   },
+   "tags": [
+    "intimate",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_broken_bridge_chasm_vs_dawn_survival",
+    "te_yakuza_pride_vs_servant_vulnerability"
+   ]
+  },
+  {
+   "chemistry": "{loyal_apprentice_geisha_informant_chiyo.name}跪坐在熊皮毯边，解下发间银簪取出茶屋的接应密信，捧着热姜汤递到你唇边。",
+   "id": "combo_chiyo_hearth_sachet",
+   "identity_ids": [
+    "sworn_shadow_bodyguard",
+    "emergency_paramedic_defector"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "loyal_apprentice_geisha_informant_chiyo",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "入冬前茶屋遭叛党搜查那夜，你在屏风后护住茶屋同伴直到人走，对方把一枚绣着鬼百合的香囊系在你腰间",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "loyal_apprentice_geisha_informant_chiyo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "用温药酒替{loyal_apprentice_geisha_informant_chiyo.name}揉散脚踝淤肿，核对好桥头车队的接应信号。",
+    "limit_gap": "{loyal_apprentice_geisha_informant_chiyo.name}怕给你添乱一直瞒着脚伤，你伸手碰到时却红了眼眶。",
+    "meeting_reason": "你在外廊接应冒雪赶到的{loyal_apprentice_geisha_informant_chiyo.name}进屋，在地炉旁替对方烘干羽织、看脚伤。",
+    "resource_gap": "山下车队的暗号全在{loyal_apprentice_geisha_informant_chiyo.name}脑子里；对方冒雪送药扭了脚踝，又怕茶屋的暗桩流水被翻出。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_blizzard_hypothermia_vs_lead_fever",
+    "te_flesh_bullet_surgery_vs_iron_silence"
+   ]
+  },
+  {
+   "chemistry": "{rebel_traitor_lieutenant_ryuji.name}把双管猎枪折开搭在木廊柴堆上，吐出一口雪茄白烟，盯着你手里的山道地图开出反水让路的价码。",
+   "id": "combo_ryuji_porch_parley",
+   "identity_ids": [
+    "mountain_scout_courier"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "rebel_traitor_lieutenant_ryuji",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "上月箱根山道押运物资时你在塌方处拉过若头一把，对方扔给你一只纯金打火机，说日后必还这个人情",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "rebel_traitor_lieutenant_ryuji"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "拿住{rebel_traitor_lieutenant_ryuji.name}私吞定金的软肋，让对方把搜山主力调往东坡。",
+    "limit_gap": "{rebel_traitor_lieutenant_ryuji.name}惯用居高临下的狠话试探底线，却被你一句话点破了后院起火的死穴。",
+    "meeting_reason": "你借查看柴堆之名走到木廊，与独自上前探路的{rebel_traitor_lieutenant_ryuji.name}正面对话。",
+    "resource_gap": "{rebel_traitor_lieutenant_ryuji.name}管着外围搜山队，谈不拢你就带不了人过隘口；对方私吞赏金定金的事正被斥候咬着不放。"
+   },
+   "tags": [
+    "crime",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_broken_bridge_chasm_vs_dawn_survival",
+    "te_flesh_bullet_surgery_vs_iron_silence"
+   ]
+  },
+  {
+   "chemistry": "吊桥桥头的背风岩石后，{traitor_bloodhound_tracker_tetsuo.name}勒住三头杜宾猎犬的皮带，把那张被克扣的赏金转账单亮在你眼前。",
+   "id": "combo_tetsuo_bridge_whistle",
+   "identity_ids": [
+    "mountain_scout_courier"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "traitor_bloodhound_tracker_tetsuo",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "入冬在山麓猎场遇暴雪时你分给斥候半壶蛇胆烈酒与干肉，对方临走把一枚备用训犬骨哨留给了你",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "traitor_bloodhound_tracker_tetsuo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "替头犬包扎好伤爪，许以总堂双倍赏金信物，请{traitor_bloodhound_tracker_tetsuo.name}带猎犬替你们封住后路。",
+    "limit_gap": "{traitor_bloodhound_tracker_tetsuo.name}嘴上只谈现钱，你蹲下替头犬包扎前爪时却放下了戒心。",
+    "meeting_reason": "你在吊桥隘口查雪鞋印时，用山里的哨音单独引出走在最前头的{traitor_bloodhound_tracker_tetsuo.name}。",
+    "resource_gap": "{traitor_bloodhound_tracker_tetsuo.name}一松手，整条吊桥就暴露在搜山队眼里；对方的头犬划伤了前爪，若头又赖着账不给。"
+   },
+   "tags": [
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_broken_bridge_chasm_vs_dawn_survival",
+    "te_blizzard_hypothermia_vs_lead_fever"
+   ]
+  },
+  {
+   "chemistry": "深谷上的铁索吊桥在寒风中摇晃，{mountain_hermit_hunter_goro.name}提着开山斧立在地锚桩旁，另一只温热的手稳稳握住你的手腕。",
+   "id": "combo_goro_scout_bridge_anchor",
+   "identity_ids": [
+    "sworn_shadow_bodyguard",
+    "emergency_paramedic_defector",
+    "rogue_drifter_bounty_hunter",
+    "disgraced_underboss_scion",
+    "mountain_scout_courier"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "mountain_hermit_hunter_goro",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三年前箱根山火时你与猎人合力劈开防火带保住了守林站，事后两人在山神祠前喝过结义血酒",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "mountain_hermit_hunter_goro"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在桥头设好延迟断索的机关，带着{mountain_hermit_hunter_goro.name}一起过桥。",
+    "limit_gap": "{mountain_hermit_hunter_goro.name}打算独自留在桥这边断后，你执意拉着对方一起踏上桥板。",
+    "meeting_reason": "破晓前，你与{mountain_hermit_hunter_goro.name}先到隘口检查吊桥主索与地锚桩。",
+    "resource_gap": "你要在山风间隙带人过桥，决定何时斩断钢缆；{mountain_hermit_hunter_goro.name}一斧下去，木屋和半生基业都要暴露在叛党眼里。"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_broken_bridge_chasm_vs_dawn_survival",
+    "te_blizzard_hypothermia_vs_lead_fever"
+   ]
+  },
+  {
+   "chemistry": "你先听了{undercover_special_investigator_kuroki.name}在后窗的传讯，再把人请进地炉石室与{tsundere_yakuza_princess_akane.name}当面摊牌；桌上摆着防水底片与老组长救人的泛黄旧照。",
+   "id": "combo_hearth_film_and_police_badge",
+   "identity_ids": [
+    "sworn_shadow_bodyguard",
+    "emergency_paramedic_defector",
+    "rogue_drifter_bounty_hunter",
+    "disgraced_underboss_scion"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "tsundere_yakuza_princess_akane",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "总堂内乱当晚你在老组长灵前立誓护送少主出东京，对方把底片的副件缝进了你的衣领",
+     "stage": "committed"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "undercover_special_investigator_kuroki",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月在汤本暗中接头时你替刑警挡过叛党眼线的搜查，对方在巷口把一枚警用袖扣塞进你掌心",
+     "stage": "flirting"
+    },
+    {
+     "a": "tsundere_yakuza_princess_akane",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "undercover_special_investigator_kuroki",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "少主握着潜伏刑警早年受老组长恩惠的旧档却没向叛党泄露，借此试探对方在公务与旧恩之间的取舍",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "tsundere_yakuza_princess_akane",
+    "undercover_special_investigator_kuroki"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "促成双方拆分底片，只交叛党黑金罪证、隐去老组长旧账，一起锁定破晓的直升机。",
+    "limit_gap": "{tsundere_yakuza_princess_akane.name}不容老组长的名声在警界案卷里受辱，{undercover_special_investigator_kuroki.name}必须带回叛党洗钱的定罪铁证。",
+    "meeting_reason": "{undercover_special_investigator_kuroki.name}先托你递话求见，你随即在地炉旁让两人把底片与旧照同时摆上桌面。",
+    "resource_gap": "少主握着刑警早年受老组长资助的旧档，刑警握着破晓直升机的撤离通道。"
+   },
+   "tags": [
+    "crime",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_yakuza_pride_vs_servant_vulnerability",
+    "te_broken_bridge_chasm_vs_dawn_survival"
+   ]
+  },
+  {
+   "chemistry": "你先拿到了{traitor_bloodhound_tracker_tetsuo.name}递来的克扣账单，此刻在木廊下把{rebel_traitor_lieutenant_ryuji.name}与斥候同时拦住，当面挑破这笔三千万的黑账。",
+   "id": "combo_porch_bounty_and_hound_mutiny",
+   "identity_ids": [
+    "sworn_shadow_bodyguard",
+    "rogue_drifter_bounty_hunter",
+    "disgraced_underboss_scion",
+    "mountain_scout_courier"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "traitor_bloodhound_tracker_tetsuo",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "昨夜山腰雪林里你替斥候的头犬解开了缠住后腿的捕兽夹，对方当即把搜山队引往了反方向",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "rebel_traitor_lieutenant_ryuji",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "早年在总堂道场练刀时你与若头同列青年骨干，彼此的刀路与野心都知根知底",
+     "stage": "familiar"
+    },
+    {
+     "a": "traitor_bloodhound_tracker_tetsuo",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "rebel_traitor_lieutenant_ryuji",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "追踪斥候查出若头私吞了金主拨下的三千万赏金定金，正捏着转账单逼对方给个交代",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "rebel_traitor_lieutenant_ryuji",
+    "traitor_bloodhound_tracker_tetsuo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "逼{rebel_traitor_lieutenant_ryuji.name}吐出定金、撤走东坡岗哨，同时收服{traitor_bloodhound_tracker_tetsuo.name}带猎犬为你开道。",
+    "limit_gap": "{rebel_traitor_lieutenant_ryuji.name}怕账单传回总部被金主清算，{traitor_bloodhound_tracker_tetsuo.name}只认当场兑现的真金白银。",
+    "meeting_reason": "{traitor_bloodhound_tracker_tetsuo.name}事先用哨音向你透了底，你在柴堆旁设局让两人当面对质。",
+    "resource_gap": "{traitor_bloodhound_tracker_tetsuo.name}握着{rebel_traitor_lieutenant_ryuji.name}私吞定金的凭条，两人随时会在木廊外闹翻；你握着总堂的兑付印鉴。"
+   },
+   "tags": [
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_broken_bridge_chasm_vs_dawn_survival",
+    "te_flesh_bullet_surgery_vs_iron_silence"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_wood_creak_fever_gasp",
+   "reach": "药膏化开时咬住衣料忍着灼痛的微弱喘息，和心跳贴得很近。",
+   "text": "地炉旁换药的喘息"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_snowstorm_hound_bark",
+   "reach": "风雪呼啸中，顺风传来猎犬的低吠与爪子踩雪的闷响。",
+   "text": "暴风雪林杜宾犬吠"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_shotgun_iron_lever_clack",
+   "reach": "巡山的人在木廊外来回走动，皮靴踩雪的声音隔着门板清晰可闻。",
+   "text": "木廊外的踩雪声"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "年满二十一周岁具有完全独立民事行为能力的关东总堂独生继承人。",
+   "age_range": [
+    20,
+    22
+   ],
+   "appearance_options": [
+    "纯黑防风长外套沾着风雪，内衬白衬衫领口微敞，眉宇骄矜凌厉，眼神清亮倔强",
+    "褪下外套半倚在熊皮毯上，后背纹着整幅鬼百合，左肩旧伤刚敷上药膏，眼尾被炉火烘出薄红"
+   ],
+   "decision": {
+    "avoids": [
+     "见利忘义的墙头草",
+     "阿谀奉承之徒"
+    ],
+    "contrast": "发号施令时锋芒毕露；炉火旁敷完药后却会主动把微凉的手塞进你掌心取暖。",
+    "core_value": "宁可站着把总堂的旗扛到底，也绝不向背主叛徒低一寸头。",
+    "goal_options": [
+     "在地炉旁敷妥蛇油药膏恢复左肩行动力",
+     "借防水底片分化门外追兵并稳住潜伏警官",
+     "在破晓前越过绝壁吊桥与山下忠义车队汇合"
+    ],
+    "never": [
+     "拿手下心腹的性命去换自己的退路"
+    ],
+    "prefers": [
+     "寡言可靠、在风浪里始终站在自己身侧的生死搭档"
+    ],
+    "pressure_responses": {
+     "breaking": "在寒夜独处中卸下防备，拉住你的袖口低声要求你不准离开半步。",
+     "high": "门外传来动静时果断握住短剑，将装有底片的内袋贴身交给你保管。",
+     "low": "微抬下巴轻哼，用命令口吻叮嘱你上药时手脚麻利些。",
+     "mid": "药膏发烫时攥紧身下的熊皮毯，咬住下唇一声不吭。"
+    },
+    "relationship_stance": "人前是威严冷冽的总堂少主；只在你面前嘴硬心软，独占欲很强。",
+    "withdrawal": "拢好白衬衫领口坐直身子，偏过视线掩去脸颊上的红晕。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "tsundere_yakuza_princess_akane",
+   "identity": {
+    "authority": "执掌关东总堂直系正统名分与金纹家徽令牌，可号令各路忠义旧部",
+    "exposure": "底片中有一页涉及老组长早年为保茶屋暗桩而私下划拨的隐秘账目。",
+    "hidden": "平日用冷傲嘴硬掩饰孤高心事，早已将生死相随的你视作此生唯一能交付后背的人。",
+    "limits": [
+     "左肩突围旧伤尚未彻底愈合，不便长时间挥刀搏杀",
+     "背负总堂复兴重任，人前绝不肯流露半分软弱"
+    ],
+    "obligations": [
+     "保全防水黑金底片，活着返回东京重掌关东总堂大权。"
+    ],
+    "resources": [
+     "老组长亲传的铭刀村正折叠短剑",
+     "记录叛乱堂口洗钱假账与黑金网络的防水微型底片"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "地炉火光下你专注替自己敷药包扎时的温热掌心",
+     "无论局势多险都稳稳挡在门前的宽阔背影"
+    ],
+    "boundaries": [
+     "疗伤期间严守分寸",
+     "绝不违背彼此尊严"
+    ],
+    "desire_range": [
+     3,
+     5
+    ],
+    "desired_position": "杀回东京后与你并肩执掌总堂的唯一伴侣",
+    "dislikes": [
+     "居高临下的怜悯",
+     "敷衍塞责的客套"
+    ],
+    "expression": "伸手勾住你的衣领拉近，低声下令：“药上完了，现在轮到你给我暖手——这是少主的命令，不准躲。”",
+    "likes": [
+     "换药后共披一张熊皮厚毯听窗外风雪",
+     "用指腹轻轻摩挲你虎口与脸颊上的旧茧"
+    ],
+    "preconditions": [
+     "肩伤已包扎妥当、双方神志完全清醒且危机受控",
+     "出于自愿与对等心意，绝无任何胁迫或交换"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "关东极道总堂年轻冷傲少主",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "cliffside_abandoned_rope_bridge",
+     "to": 1334
+    },
+    {
+     "from": 1335,
+     "location_id": "hunter_cabin_hearth_room",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "attic_drying_loft_hideaway",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "cliffside_abandoned_rope_bridge",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "在昏暗火光下肌肤相贴，主仆界限彻底动摇",
+      "option": "闭门在地炉熊皮毯上由你亲手敷药揉散淤肿"
+     },
+     {
+      "cost": "必须在回东京后配合清理堂口内的黑金旧账",
+      "option": "与潜伏警官坦诚交换底片副本，换取警方直升机接应"
+     }
+    ],
+    "pressure": "既要在天亮渡桥前让左肩恢复灵活，又要防范潜伏警官对底片中老组长旧账的盘问。",
+    "trigger": "后背刺青处的旧伤被山风吹得发紧，需要褪下外衫在地炉旁用温热的蛇油膏揉散淤血。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "这人的手怎么这么暖……只要有这人在身边守着，哪怕外头漫山遍野都是风雪，心里也踏实得很。",
+    "surface": "“少大惊小怪的，这点旧伤算什么！把蛇油膏烘热了敷上来，天亮前我们还得过桥下山！”"
+   }
+  },
+  {
+   "adult_context": "年满二十三岁担任先锋突击头目的青年极道骨干。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "纯黑皮夹克与高帮皮靴，颈侧露出一角夜叉刺青，眼神精悍阴鸷",
+    "握着强光手电踏雪立在柴堆外，呼出一团团白汽"
+   ],
+   "decision": {
+    "avoids": [
+     "过河拆桥的幕后老狐狸",
+     "不讲规矩的疯狗"
+    ],
+    "contrast": "人前是凶悍跋扈的少壮派头目；私下谈判时却极懂审时度势，肯向强者低头服软。",
+    "core_value": "道上混的只看筹码不看虚名，谁给我实权和活路，我手下的人就替谁开道。",
+    "goal_options": [
+     "在木廊外施压谈判换取底片或合作协议",
+     "压住追踪斥候对赏金定金的质问",
+     "在天亮前为自己谋得全身而退的筹码"
+    ],
+    "never": [
+     "替必败的雇主白白陪葬"
+    ],
+    "prefers": [
+     "手腕硬朗、敢当面谈条件的狠角色"
+    ],
+    "pressure_responses": {
+     "breaking": "得知幕后金主已派督战队封锁下山路后，当场与你达成反水密约。",
+     "high": "当私吞赏金的把柄被斥候翻出时脸色骤冷，主动向屋内递话寻求暗中交易。",
+     "low": "倚在柴堆旁点起雪茄，隔门抛出利益交换条件试探屋内虚实。",
+     "mid": "隔门报出叛党开出的价码，催屋里给句准话。"
+    },
+    "relationship_stance": "起初是兵戎相见的对手；被你拿住赏金把柄后，对你又忌惮又着迷。",
+    "withdrawal": "退到避雪木廊外侧阴影里，弹落烟灰冷冷戒备。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "rebel_traitor_lieutenant_ryuji",
+   "identity": {
+    "authority": "统领外围搜山小队，掌握封锁盘山道与木廊的武装指挥权",
+    "exposure": "私自克扣了本该分给追踪斥候的三千万日元赏金定金，账单就揣在怀里。",
+    "hidden": "早已看出幕后金主兔死狗烹的打算，若有更稳妥的退路与筹码，随时准备反水自保。",
+    "limits": [
+     "受幕后金主严令必须拿到完好底片，投鼠忌器不敢毁屋",
+     "私吞悬赏定金之事已被猎犬斥候察觉，后院随时起火"
+    ],
+    "obligations": [
+     "在破晓前拿到防水底片或资产让渡签字，回东京交差。"
+    ],
+    "resources": [
+     "强光手电",
+     "直通山下叛党本部的加密电台"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "面对威压依然面不改色跟自己谈价码的胆魄",
+     "看穿自己退路窘境却留出一线生机的手腕"
+    ],
+    "boundaries": [
+     "绝不强迫伤员",
+     "认赌服输"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "反戈一击后成为与你分庭抗礼的实权盟友",
+    "dislikes": [
+     "拿旧派辈分说教",
+     "言而无信"
+    ],
+    "expression": "把猎枪折开卸下子弹拍在木栏上，低笑道：“算你狠……今晚外头的人听你的，陪我喝完这壶酒。”",
+    "likes": [
+     "在木廊避风处共抽一支烟敲定密约",
+     "卸下防备后的贴身试探"
+    ],
+    "preconditions": [
+     "双方已达成停火密约、神志完全清醒且地位对等"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "叛变堂口突击少壮派若头",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "hunter_cabin_hearth_room",
+     "to": 1334
+    },
+    {
+     "from": 1335,
+     "location_id": "narrow_snowy_porch_entry",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "cliffside_abandoned_rope_bridge",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "hunter_cabin_hearth_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "向你交出叛党在东京各堂口的布防名单",
+      "option": "接受你的调停与反水条件，分出一半定金安抚斥候并让开山道"
+     },
+     {
+      "cost": "独自进入木屋受你制衡",
+      "option": "与你演一出假交火戏码骗过外围眼线，转入阁楼密谈"
+     }
+    ],
+    "pressure": "一旦外廊内讧走火，不仅拿不到底片，还会引来后方督战队清洗。",
+    "trigger": "追踪斥候在外廊质问三千万赏金定金的去向，而屋内又迟迟未交出底片。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "督战队天亮就到，那个养狗的又盯上了我的账单……得尽快跟屋里这人谈成一笔买卖。",
+    "surface": "“屋里的人听着，外头零下十五度，硬耗下去对谁都没好处。只要肯出来谈谈底片的价码，我保证让开吊桥！”"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁继承深山护林站正式取得狩猎执照的年轻守林猎人。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "厚实的鹿皮风雪坎肩，脚踩毡靴，腰悬剥皮猎刀与短斧，面容坚毅沉稳",
+    "提着马灯立在地炉旁添白炭，身上带着松脂与风雪的气息"
+   ],
+   "decision": {
+    "avoids": [
+     "仗势欺人的恶徒",
+     "背信弃义之辈"
+    ],
+    "contrast": "外表粗犷冷硬；私下却会细心替你烘干湿靴、炖上一锅滚烫的鹿肉野菇汤。",
+    "core_value": "大雪封山，进了这扇门就是山神的客人，谁也别想在我的地炉前动粗。",
+    "goal_options": [
+     "提供无烟白炭与蛇油膏助屋内之人调养",
+     "用烈酒与陈醋抹去木廊气味引开猎犬",
+     "带路走后山兽道并控制绝壁吊桥"
+    ],
+    "never": [
+     "出卖借宿在自己屋檐下的客人"
+    ],
+    "prefers": [
+     "重情重义、不端城里人架子的实在人"
+    ],
+    "pressure_responses": {
+     "breaking": "在吊桥吃紧时挥动开山斧斩断副索，迫使外围追兵止步。",
+     "high": "登上阁楼观望孔精准威慑外围靠近的恶犬。",
+     "low": "默不作声往地炉添炭，把温好的蛇油药膏与烧酒推到你手边。",
+     "mid": "守在木廊内侧，在柴堆旁洒下陈醋与烈酒。"
+    },
+    "relationship_stance": "平日是沉默质朴的山野猎人；在与你并肩守夜后，生出毫无保留的信赖与炽热情意。",
+    "withdrawal": "退到地窖入口擦拭猎具，低头拨弄炭火。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "mountain_hermit_hunter_goro",
+   "identity": {
+    "authority": "掌控整座守林木屋暗格、地窖无烟白炭储备与后山险峻兽道向导权",
+    "exposure": "地窖深处藏着昔年修路遗留的未申报捕兽夹，一旦被查将吊销执照。",
+    "hidden": "父辈曾受老组长恩惠保住山林，早已认出你们的家徽并打定主意护送到底。",
+    "limits": [
+     "护林执照年底面临林务署复核，不便公开卷入帮派火并",
+     "重诺守信，绝不肯违背山野待客之道"
+    ],
+    "obligations": [
+     "守住守林木屋的规矩，护送借宿之人平安渡过绝壁吊桥。"
+    ],
+    "resources": [
+     "老山参、三七与蛇油秘制的祖传止血生肌膏",
+     "可斩断吊桥锈缆的加厚重型伐木开山斧"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "风雪夜里与自己一起守门劈柴的默契",
+     "毫无嫌弃地接过自己粗陶碗喝汤的坦率"
+    ],
+    "boundaries": [
+     "恪守山民淳朴本分",
+     "绝不趁人之危"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "守望相助、随时为你留着一盏炉火的伴侣",
+    "dislikes": [
+     "拿钱砸人的傲慢",
+     "虚伪算计"
+    ],
+    "expression": "把烘暖的鹿皮坎肩裹在你身上，握住你的手低声道：“山下的路我送你走，要是累了……这间木屋随时留着你的火盆。”",
+    "likes": [
+     "地炉边分盖一张熊皮毯听松涛声",
+     "在阁楼小窗前并肩看雪停后的日出"
+    ],
+    "preconditions": [
+     "木屋防务稳妥、双方完全清醒且真心相待"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "深山废弃守林木屋年轻猎人",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "hunter_cabin_hearth_room",
+     "to": 1364
+    },
+    {
+     "from": 1365,
+     "location_id": "narrow_snowy_porch_entry",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "cliffside_abandoned_rope_bridge",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "hunter_cabin_hearth_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "向你交出守林木屋地窖暗道的全部机关钥匙",
+      "option": "与你合力在阁楼立起备用松木顶柱并转移捕兽夹箱"
+     },
+     {
+      "cost": "回屋后浑身冰透，需在地炉旁与你贴身烤火回暖",
+      "option": "冒雪到木廊外侧清理檐角积雪并布设猎套"
+     }
+    ],
+    "pressure": "既要加固木屋横梁维持地炉供暖，又要确保后山兽道不被追兵封锁。",
+    "trigger": "屋顶积雪加厚压得阁楼横梁作响，而地窖里未申报的捕兽夹又需防备外人误触。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "这人眼神干净又有胆色……等把人平安送到桥对岸，倒真舍不得这间屋子再冷清下来。",
+    "surface": "“门栓已经加固了，炉子里烧的是无烟白炭。你只管安心换药，外头的风雪和野狗交给我应付。”"
+   }
+  },
+  {
+   "adult_context": "年满二十四周岁警视厅组织犯罪对策部潜伏于极道内部的年轻警部补。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深黑防风滑雪服与战术背心，戴着防风护目镜，眼神冷峻干练",
+    "在阁楼暗窗边摘下护目镜，指间夹着警官证与红外信标"
+   ],
+   "decision": {
+    "avoids": [
+     "滥杀无辜的亡命徒",
+     "政商黑金内鬼"
+    ],
+    "contrast": "混在叛党中时冷漠狠辣；私下摘下面罩对视时，眼神却比谁都清澈炽热。",
+    "core_value": "警徽代表法纪，但良知代表底线——当年欠下的恩情与眼前的公义，我都要亲手护住。",
+    "goal_options": [
+     "在后窗暗中传递追兵换岗间隙与撤离路线",
+     "用证人保护豁免权换取黑金底片副本",
+     "在吊桥对岸引导警用直升机接应"
+    ],
+    "never": [
+     "出卖信任自己的接头伙伴"
+    ],
+    "prefers": [
+     "有情有义、在乱局中守得住底线的聪明人"
+    ],
+    "pressure_responses": {
+     "breaking": "当故人之后的身世被少主点破时不再隐瞒，将警官证与信标一并交给你。",
+     "high": "在外廊出现争执时出面周旋，吸引突击队长的注意力。",
+     "low": "借搜山之名故意带偏巡逻路线，为木屋留出缓冲时间。",
+     "mid": "在阁楼窗外轻叩摩斯暗号，递入无菌绷带与电台频段。"
+    },
+    "relationship_stance": "游走黑白之间的孤傲卧底；只有和你接头时才卸下伪装。",
+    "withdrawal": "重新戴好防风护目镜退入雪松林阴影，按住耳麦保持警戒。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "undercover_special_investigator_kuroki",
+   "identity": {
+    "authority": "掌握警视厅搜救直升机联络暗号、外围警力引导权与证人保护豁免建议权",
+    "exposure": "实为昔年受老组长暗中资助才读完警校的故人之后，此事未向警视厅报备。",
+    "hidden": "护身符里藏着老组长救下自己家人的旧照，不忍拿恩人之后当办案筹码。",
+    "limits": [
+     "潜伏身份一旦在追兵面前败露将腹背受敌",
+     "受警视厅办案程序约束，必须拿回黑金底片复命"
+    ],
+    "obligations": [
+     "拿到叛党洗钱黑金底片，并确保关键证人平安撤离箱根。"
+    ],
+    "resources": [
+     "警用便携急救包与无菌绷带",
+     "可在暴风雪中发射坐标的红外遇险信标"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "隔着暗窗交接信标时你稳稳握住自己冰凉手指的温度",
+     "明明知道自己警官身份却依然以后背相托的信任"
+    ],
+    "boundaries": [
+     "不以司法豁免权作私情交易",
+     "彼此尊重"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "黑白风浪平息后与你在阳光下并肩同行的伴侣",
+    "dislikes": [
+     "拿家人旧事作威胁",
+     "背信弃义"
+    ],
+    "expression": "摘下战术手套贴在你脸侧，声音沙哑而笃定：“信标已经发出去，这桩案子结了以后，我以私人的名义留在你身边。”",
+    "likes": [
+     "在狭窄阁楼里并肩监听电台频道",
+     "风雪停歇时共喝一口温水互道平安"
+    ],
+    "preconditions": [
+     "撤离通道已锁定、双方清醒自愿且无公务胁迫"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "极道追兵队伍内部潜伏青年刑警",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "hunter_cabin_hearth_room",
+     "to": 1334
+    },
+    {
+     "from": 1335,
+     "location_id": "narrow_snowy_porch_entry",
+     "to": 1364
+    },
+    {
+     "from": 1365,
+     "location_id": "attic_drying_loft_hideaway",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "cliffside_abandoned_rope_bridge",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "hunter_cabin_hearth_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "将自己的卧底身家性命完全绑在你的承诺上",
+      "option": "与你在阁楼达成私下协议，只上交叛党罪证、抹去总堂旧账"
+     },
+     {
+      "cost": "潜伏身份提前结束，需留在木屋与你并肩突围",
+      "option": "提前开启红外信标引来搜救机震慑外围叛党"
+     }
+    ],
+    "pressure": "既要向上级交出黑金罪证，又要隐瞒自己与总堂的渊源不被撤换。",
+    "trigger": "警视厅本部来电催促上报底片下落，而少主手中恰好握有潜伏警官早年受老组长资助的旧档。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "总算见到本人了……只要能帮这人平安度过今晚，就算回警视厅写检讨也值了。",
+    "surface": "“东坡的巡逻哨被我引开了。我要底片里的洗钱账目副本，破晓的直升机算你们一个舱位。”"
+   }
+  },
+  {
+   "adult_context": "年满二十周岁在箱根汤本名门温泉茶屋执业的年轻红牌艺者兼忠义暗桩。",
+   "age_range": [
+    20,
+    22
+   ],
+   "appearance_options": [
+    "朱红碎花和服外罩深灰厚羽织，木屐绑着防滑麻绳，怀里护着装药材与密信的紫绸包袱",
+    "跪坐在地炉旁温酒煎茶，发间别着一枚藏信的银簪"
+   ],
+   "decision": {
+    "avoids": [
+     "仗势欺人的酒客",
+     "背叛师门之徒"
+    ],
+    "contrast": "端茶待客时柔弱似水；穿越风雪封锁线送药时却比谁都果敢坚韧。",
+    "core_value": "茶屋的琴弦可以断，但受过的恩情与认定的人，就算漫山风雪也绝不辜负。",
+    "goal_options": [
+     "在地炉旁替伤者换上金疮散并熬煮热姜汤",
+     "传达山下忠义旧部在吊桥对岸的接应时刻",
+     "保住汤本茶屋的暗桩名单不外泄"
+    ],
+    "never": [
+     "在威胁面前吐露半个字的暗桩坐标"
+    ],
+    "prefers": [
+     "沉稳内敛、懂得怜惜人且言出必行的伴侣"
+    ],
+    "pressure_responses": {
+     "breaking": "脚踝因雪路滑倒微扭时轻咬唇瓣，靠在你怀里小声请求先别声张。",
+     "high": "脱下干燥羽织垫在伤者身下，冷静协助你完成包扎。",
+     "low": "轻叩门板三长两短入屋，拂去雪花后先为你倒上一杯温茶。",
+     "mid": "旋开银簪取出密信，条理分明地报出山道岗哨分布。"
+    },
+    "relationship_stance": "人前是八面玲珑、温婉知礼的茶屋红牌；独处时却对你有着毫无保留的依赖与似水柔情。",
+    "withdrawal": "退到地炉侧方安静拨弄炭火，垂下眼帘双手叠放在膝前。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "loyal_apprentice_geisha_informant_chiyo",
+   "identity": {
+    "authority": "掌握箱根温泉街地下联络网、总堂旧部接应暗号与茶屋密道通行权",
+    "exposure": "茶屋账房里留有替总堂暗中转移资金的流水单，最怕被叛党查抄。",
+    "hidden": "早年受老组长收养，肩胛处藏着半枚鬼百合朱砂印记，对一直护着自己的你倾慕多年。",
+    "limits": [
+     "不擅正面枪械搏杀，依赖情报与暗线周旋",
+     "冒雪上山双足受寒，需在地炉旁回暖"
+    ],
+    "obligations": [
+     "将金疮药与接应暗号送抵木屋，协助众人平安下山。"
+    ],
+    "resources": [
+     "上等金疮散、高纯度冰片与驱寒姜茶包",
+     "藏在银簪内的山下三十辆接应车队联络频段"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "你蹲下身替自己解开冻僵木屐绑绳时的温柔",
+     "在乱世风雪里把自己护在身后的笃定"
+    ],
+    "boundaries": [
+     "恪守自尊底线",
+     "绝不作利益交换"
+    ],
+    "desire_range": [
+     3,
+     4
+    ],
+    "desired_position": "风波平息后与你在箱根或东京安稳相守的知心伴侣",
+    "dislikes": [
+     "粗鲁轻薄的言语",
+     "拿茶屋出身说事"
+    ],
+    "expression": "用双手捧着温热的茶盏贴在你手心，抬头轻声道：“药和暗号都送到了……今晚剩下的时间，我想只为你一个人弹一曲。”",
+    "likes": [
+     "地炉边并肩烘手时闻着你身上的松木香",
+     "为你轻轻按揉紧绷的太阳穴与肩背"
+    ],
+    "preconditions": [
+     "室内温暖安全、双方完全清醒且心意相通"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "箱根温泉名门茶屋年轻艺伎",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "hunter_cabin_hearth_room",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "cliffside_abandoned_rope_bridge",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "hunter_cabin_hearth_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人在炉火旁近距离独处，暗藏多年的情愫再难遮掩",
+      "option": "在地炉熊皮毯上由你用温热药酒替其揉按脚踝回暖"
+     },
+     {
+      "cost": "过桥时需由你全程牵引护持",
+      "option": "将接应密信交由你贴身保管，提前安排过桥次序"
+     }
+    ],
+    "pressure": "若不在天亮前恢复脚力，过绝壁吊桥时将拖慢全队速度。",
+    "trigger": "冒雪翻越山道送药时脚踝微扭、木屐湿透，需要在地炉旁烘火揉散淤青。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "翻过雪坡时只怕来晚了……看到这人平安站在门后，一路的冷都散了。",
+    "surface": "“金疮药和山下车队的接应频段都在这支银簪里了。地炉的姜汤刚滚开，先喝一碗驱驱寒吧。”"
+   }
+  },
+  {
+   "adult_context": "年满二十三岁受聘于堂口负责山林追踪的年轻猎犬训导手。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "灰白雪地伪装服，腰挂水壶与登山钢钩，牵着三头杜宾猎犬，眼神敏锐如山狼",
+    "蹲在柴堆外捻起一撮雪细嗅，指间夹着一张未兑现的赏金欠条"
+   ],
+   "decision": {
+    "avoids": [
+     "克扣赏金的伪君子",
+     "虐待动物之徒"
+    ],
+    "contrast": "牵犬追踪时冷酷凌厉；私下收下你递来的热肉汤与伤药时，却会露出罕见的驯服与真诚。",
+    "core_value": "气味不会骗人，但人心会——谁按规矩兑现筹码，我的猎犬就替谁看门。",
+    "goal_options": [
+     "拿着转账单逼突击队长吐出克扣的赏金",
+     "与木屋中人私下交易卖个人情放开雪道",
+     "在天亮前带着猎犬安全撤出火并圈"
+    ],
+    "never": [
+     "替欠钱不给的雇主卖命"
+    ],
+    "prefers": [
+     "说话算话、出手干脆且不拿雇佣兵当炮灰的人"
+    ],
+    "pressure_responses": {
+     "breaking": "收到你允诺的总堂赏金信物后，吹响骨哨带走全部猎犬反锁外围。",
+     "high": "亮出突击队长私吞定金的账单，当面拆穿对方的画饼。",
+     "low": "收紧猎犬牵引绳停在木廊外，敲击木栏示意单独谈价。",
+     "mid": "故意把猎犬引向洒了烈酒的西侧空地，替屋内拖延时间。"
+    },
+    "relationship_stance": "起初是认钱不认人的冷面斥候；见识到你的爽快与信义后，甘愿为你调转方向守住后山。",
+    "withdrawal": "牵着猎犬退到雪松林边，压低帽檐隐入风雪。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "traitor_bloodhound_tracker_tetsuo",
+   "identity": {
+    "authority": "掌控三头受训猎犬的追踪方向与外围雪道警戒哨",
+    "exposure": "手里攥着突击队长私吞赏金定金的秘密转账单，正准备找下家出价。",
+    "hidden": "厌倦了替帮派当弃子的日子，若有人肯给足体面与实利，随时愿意把猎犬带往反方向。",
+    "limits": [
+     "只为赏金受雇，与叛党突击队长并无死忠交情",
+     "猎犬受烈酒与陈醋气味干扰时难以锁定精确位置"
+    ],
+    "obligations": [
+     "拿回属于自己的三千万日元追踪赏金，保住自己与猎犬全身而退。"
+    ],
+    "resources": [
+     "红外夜视风镜与一套追踪绳具",
+     "熟悉箱根雪山风向与气味遮蔽法门"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "不惧猎犬低吼、坦然走出来跟自己平视谈判的胆量",
+     "守信兑现诺言且顺手替头犬包扎爪伤的善意"
+    ],
+    "boundaries": [
+     "绝不恃强迫人",
+     "一诺千金"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "脱离叛党后专属于你的雪山暗哨与贴身护卫",
+    "dislikes": [
+     "居高临下的喝斥",
+     "画饼赖账"
+    ],
+    "expression": "把训犬骨哨挂在你指间，摘下皮手套握住你的手腕：“从现在起，这三头犬和我，都只听你一个人的哨声。”",
+    "likes": [
+     "在避风木廊下分饮一壶烈酒",
+     "把训犬骨哨交到唯一信任的人手里"
+    ],
+    "preconditions": [
+     "雇佣契约已明算、双方清醒对等且互不设防"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "叛党精锐猎犬追踪斥候",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "hunter_cabin_hearth_room",
+     "to": 1334
+    },
+    {
+     "from": 1335,
+     "location_id": "narrow_snowy_porch_entry",
+     "to": 1394
+    },
+    {
+     "from": 1395,
+     "location_id": "cliffside_abandoned_rope_bridge",
+     "to": 1424
+    },
+    {
+     "from": 1425,
+     "location_id": "hunter_cabin_hearth_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "彻底与叛党决裂，随你们一同撤回东京",
+      "option": "收下你提供的金纹信物与伤药，带猎犬替木屋封锁外围山道"
+     },
+     {
+      "cost": "外围包围圈当场瓦解，为你争取到从容渡桥的空档",
+      "option": "在木廊外与突击队长当面对质追讨定金"
+     }
+    ],
+    "pressure": "继续替叛党卖命只会沦为弃子，亟需在木屋一方找到可靠的买主与退路。",
+    "trigger": "头犬在雪地被碎冰划伤前爪，而突击队长又拒绝兑现此前承诺的三千万赏金定金。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "这人比那个只会画大饼的若头爽快多了……跟着这样讲规矩的主顾，才不怕被人背后捅刀子。",
+    "surface": "“木廊下的陈醋味瞒不过我的鼻子，但我没打算喊人——若头欠我三千万定金，你们要是肯接这笔账，我立刻带狗转头。”"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "1998 年 12 月",
+  "minute": 1335
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "bodily_harm",
+  "substance",
+  "death",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "总堂少主接受心腹清理后背刺青旧伤前，彼此要共饮半碗烧酒，以示性命相托。",
+  "为忍住蛇油药膏渗进伤口的灼痛，受治者常把心腹的一只厚牛皮手套握在掌心。",
+  "木屋生火不用冒烟的湿柴，只挑地窖里干燥的无烟白炭，免得雪夜里引来巡山的人。",
+  "有人叩外门时，屋里先压暗地炉、噤声，等对上暗号再应门。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "无烟白炭烧得通红，铁锅里的山泉水翻滚着老姜与红糖的暖香",
+    "你盛一碗吹凉递过去，坐在熊皮毯上的人嘴上挑剔两句，还是双手捧着喝了个干净",
+    "额角渗出细汗，原本冷傲的眉眼在火光下柔和了下来"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "h_akane_whisper_cheek_touch_vow",
+    "h_goro_hearth_charcoal_pour",
+    "h_akane_back_tattoo_flame_glow"
+   ],
+   "id": "a_hearth_ginger_water",
+   "location_ids": [
+    "hunter_cabin_hearth_room"
+   ],
+   "start_minute": 1335,
+   "tags": [
+    "intimate"
+   ],
+   "title": "地炉旁熬热姜汤"
+  },
+  {
+   "beats": [
+    "你把青瓷药罐放在地炉边烘温，蛇油膏渐渐化开，散出清苦的药香",
+    "对方解开衬衫纽扣伏在熊皮毯上，后背的鬼百合刺青在炭火下栩栩如生",
+    "你放轻力道揉散肩胛的淤血、换上干净纱布，对方轻轻握住你的手腕，问起回东京后的打算"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "h_akane_strip_bloody_coat_tremble",
+    "h_akane_bite_shoulder_silent_cry",
+    "h_akane_back_tattoo_flame_glow"
+   ],
+   "id": "a_hearth_ointment_dressing",
+   "location_ids": [
+    "hunter_cabin_hearth_room"
+   ],
+   "start_minute": 1350,
+   "tags": [
+    "intimate"
+   ],
+   "title": "兽皮毯上温药换敷"
+  },
+  {
+   "beats": [
+    "风雪暂歇的间隙，你在木廊下把干黑松柴码高，顺手加固挡风帘",
+    "同伴提着一壶温过的烧酒出来，与你靠在柴堆避风处小酌两口",
+    "雪松林一片寂静，两人对完今夜的值守暗号才一前一后回屋"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "h_goro_hunter_gun_cock_whisper",
+    "h_ryuji_cigar_smoke_snow_track",
+    "h_tetsuo_hound_scratch_door_growl"
+   ],
+   "id": "a_porch_firewood_and_vinegar",
+   "location_ids": [
+    "narrow_snowy_porch_entry"
+   ],
+   "start_minute": 1365,
+   "tags": [
+    "workplace"
+   ],
+   "title": "木廊码柴温酒"
+  },
+  {
+   "beats": [
+    "顺着木梯爬上堆满干药草的阁楼，低矮的空间里是艾草与松木香",
+    "你与对方并排坐在观望孔旁，一边听山下的短波频段，一边看漫山大雪",
+    "阁楼有些凉，对方很自然地把半边外套搭在你肩上"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "h_kuroki_window_tap_code",
+    "h_akane_ledger_film_deliver",
+    "h_kuroki_signal_beacon_flash"
+   ],
+   "id": "a_attic_window_snow_watch",
+   "location_ids": [
+    "attic_drying_loft_hideaway"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "阁楼小窗看雪调频"
+  },
+  {
+   "beats": [
+    "风雪渐小，你们穿好防滑雪鞋走到隘口，检查桥头的两根生铁地锚桩",
+    "对岸山脊后透出一点微光，深谷里的云海泛起淡淡的金色",
+    "迎着山风，身旁的人转头看你，约好等尘埃落定再回这座山住几天"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "h_akane_bridge_look_back_smile",
+    "h_kuroki_signal_beacon_flash",
+    "h_chiyo_geisha_sachet_pass"
+   ],
+   "id": "a_bridge_anchor_inspection",
+   "location_ids": [
+    "cliffside_abandoned_rope_bridge"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "吊桥巡检地锚"
+  },
+  {
+   "beats": [
+    "从阁楼取下风干的鹿肉与山野香菇，切块下进地炉铁锅慢火煨着",
+    "肉汤香气填满了整间木屋，你撇去浮沫，先盛一碗递给身旁的人",
+    "两人围着火盆促膝而坐，聊起各自早年没对外人提过的往事"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "h_goro_hearth_charcoal_pour",
+    "h_chiyo_geisha_sachet_pass",
+    "h_akane_whisper_cheek_touch_vow"
+   ],
+   "id": "a_hearth_venison_mushroom_stew",
+   "location_ids": [
+    "hunter_cabin_hearth_room",
+    "attic_drying_loft_hideaway"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "intimate"
+   ],
+   "title": "火盆旁慢炖鹿肉汤"
+  },
+  {
+   "beats": [
+    "你在门槛边的矮凳上铺开油布，用蜂蜡与桐油涂抹雪鞋的牛皮绑带",
+    "对方坐在你身侧擦拭随身短刃，偶尔伸手替你按住打滑的绳结",
+    "收拾妥当，对方用温热的掌心贴了贴你被风吹凉的耳廓"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [
+    "h_ryuji_shotgun_rack_porch_shout",
+    "h_goro_hunter_gun_cock_whisper",
+    "h_tetsuo_hound_scratch_door_growl"
+   ],
+   "id": "a_porch_snowshoe_and_blade_care",
+   "location_ids": [
+    "narrow_snowy_porch_entry",
+    "hunter_cabin_hearth_room"
+   ],
+   "start_minute": 1425,
+   "tags": [
+    "workplace"
+   ],
+   "title": "檐下给雪鞋上油"
+  },
+  {
+   "beats": [
+    "在桥头巨石背风处，你们取出底片盒、银簪密信与红外信标逐一核验",
+    "确认对岸接应路线无误后，对方把一枚贴身的护身香囊系在你衣扣上",
+    "风雪里两人的手在皮手套下紧紧交握"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "h_chiyo_geisha_sachet_pass",
+    "h_akane_bridge_look_back_smile",
+    "h_ryuji_door_kick_timber_crack"
+   ],
+   "id": "a_bridge_beacon_and_sachet_check",
+   "location_ids": [
+    "cliffside_abandoned_rope_bridge",
+    "narrow_snowy_porch_entry"
+   ],
+   "start_minute": 10,
+   "tags": [
+    "intimate"
+   ],
+   "title": "桥头核对暗线信物"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.45,
+  "nonbinary": 0.05
+ },
+ "default_person": "second",
+ "era": "1990年代末关东箱根险峰暴风雪夜（极道内讧避难的第三个月）",
+ "extends": null,
+ "forbidden_terms": [
+  "智能手机",
+  "微信定位",
+  "卫星导航",
+  "高清微孔探头",
+  "无人机热成像",
+  "平板电脑",
+  "移动支付",
+  "防弹复合芳纶"
+ ],
+ "hooks": [
+  {
+   "id": "h_akane_strip_bloody_coat_tremble",
+   "kind": "approach",
+   "location_ids": [
+    "hunter_cabin_hearth_room",
+    "attic_drying_loft_hideaway"
+   ],
+   "slot": "tsundere_yakuza_princess_akane",
+   "text": "{tsundere_yakuza_princess_akane.name}反手插上木栓，在地炉火光下褪下沾雪的黑风衣露出后背鬼百合刺青，咬唇昂首道：“看什么看……把蛇油膏热一热替我换药！要是敢手重，回东京再跟你算账！”"
+  },
+  {
+   "id": "h_akane_bite_shoulder_silent_cry",
+   "kind": "approach",
+   "location_ids": [
+    "hunter_cabin_hearth_room"
+   ],
+   "slot": "tsundere_yakuza_princess_akane",
+   "text": "温热的蛇油药膏覆上肩胛旧伤的瞬间，{tsundere_yakuza_princess_akane.name}后背肌肉骤然绷紧，一把攥住你的袖口将额头抵在你肩窝，硬是忍着灼痛没有发出一丝声音。"
+  },
+  {
+   "id": "h_akane_whisper_cheek_touch_vow",
+   "kind": "approach",
+   "location_ids": [
+    "hunter_cabin_hearth_room",
+    "attic_drying_loft_hideaway"
+   ],
+   "slot": "tsundere_yakuza_princess_akane",
+   "text": "{tsundere_yakuza_princess_akane.name}拢好干净衬衫靠在熊皮毯内侧，拉住你的手腕低声道：“活着陪我回东京……总堂的江山，我要你站在我身边一起坐。这是少主的命令，听清了吗？”"
+  },
+  {
+   "id": "h_akane_ledger_film_deliver",
+   "kind": "request",
+   "location_ids": [
+    "attic_drying_loft_hideaway",
+    "hunter_cabin_hearth_room"
+   ],
+   "slot": "tsundere_yakuza_princess_akane",
+   "text": "{tsundere_yakuza_princess_akane.name}从贴身内衬取出一卷蜡封的防水微型底片塞进你掌心，眼神清亮而决绝：“这是叛党勾结黑金的铁证，除了你我谁也不信。”"
+  },
+  {
+   "id": "h_akane_bridge_look_back_smile",
+   "kind": "approach",
+   "location_ids": [
+    "cliffside_abandoned_rope_bridge",
+    "narrow_snowy_porch_entry"
+   ],
+   "slot": "tsundere_yakuza_princess_akane",
+   "text": "立在绝壁吊桥桥头迎着风雪回望时，{tsundere_yakuza_princess_akane.name}反手握紧你的手掌，眼底映着破晓微光：“干得漂亮……这一局，是我们赢了。”"
+  },
+  {
+   "id": "h_ryuji_shotgun_rack_porch_shout",
+   "kind": "approach",
+   "location_ids": [
+    "narrow_snowy_porch_entry",
+    "hunter_cabin_hearth_room"
+   ],
+   "slot": "rebel_traitor_lieutenant_ryuji",
+   "text": "{rebel_traitor_lieutenant_ryuji.name}在木廊外隔着门缝喊话：“把防水底片交出来，我立刻带队撤往东坡放你们过桥——否则谁也别想下山！”"
+  },
+  {
+   "id": "h_ryuji_door_kick_timber_crack",
+   "kind": "approach",
+   "location_ids": [
+    "narrow_snowy_porch_entry",
+    "hunter_cabin_hearth_room",
+    "attic_drying_loft_hideaway"
+   ],
+   "slot": "rebel_traitor_lieutenant_ryuji",
+   "text": "{rebel_traitor_lieutenant_ryuji.name}踩着积雪走到柴堆旁，指节叩了叩廊柱：“少主，外头零下十五度，只要你在资产让渡书上签个字，今夜的恩怨一笔勾销！”"
+  },
+  {
+   "id": "h_goro_hearth_charcoal_pour",
+   "kind": "approach",
+   "location_ids": [
+    "hunter_cabin_hearth_room",
+    "attic_drying_loft_hideaway"
+   ],
+   "slot": "mountain_hermit_hunter_goro",
+   "text": "{mountain_hermit_hunter_goro.name}抱来一篓干燥无烟白炭添进地炉，把陶罐药膏递给你沉声道：“炭火够旺，安心上药。进了这间屋就是山神的客人，门外有我守着。”"
+  },
+  {
+   "id": "h_goro_hunter_gun_cock_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "hunter_cabin_hearth_room",
+    "narrow_snowy_porch_entry",
+    "cliffside_abandoned_rope_bridge"
+   ],
+   "slot": "mountain_hermit_hunter_goro",
+   "text": "{mountain_hermit_hunter_goro.name}提着马灯守在木廊阴影里，低声向你示意：“雪地上撒了烈酒和陈醋，猎犬嗅不出方向，跟我来检查后山吊桥的锚桩。”"
+  },
+  {
+   "id": "h_kuroki_window_tap_code",
+   "kind": "approach",
+   "location_ids": [
+    "attic_drying_loft_hideaway",
+    "hunter_cabin_hearth_room",
+    "cliffside_abandoned_rope_bridge"
+   ],
+   "slot": "undercover_special_investigator_kuroki",
+   "text": "{undercover_special_investigator_kuroki.name}在阁楼暗窗外以三长两短的暗号轻叩木框，摘下护目镜递入急救包低语：“我是警视厅潜伏组的人，来跟你们核对破晓撤离路线。”"
+  },
+  {
+   "id": "h_chiyo_geisha_sachet_pass",
+   "kind": "approach",
+   "location_ids": [
+    "hunter_cabin_hearth_room",
+    "narrow_snowy_porch_entry",
+    "cliffside_abandoned_rope_bridge"
+   ],
+   "slot": "loyal_apprentice_geisha_informant_chiyo",
+   "text": "{loyal_apprentice_geisha_informant_chiyo.name}拂去羽织上的雪花闪入屋内，从紫绸包袱里取出金疮散与密信递给你：“汤本茶屋的暗线已经打通，吊桥对岸备好了接应的暖车！”"
+  },
+  {
+   "id": "h_tetsuo_hound_scratch_door_growl",
+   "kind": "approach",
+   "location_ids": [
+    "narrow_snowy_porch_entry",
+    "cliffside_abandoned_rope_bridge",
+    "hunter_cabin_hearth_room"
+   ],
+   "slot": "traitor_bloodhound_tracker_tetsuo",
+   "text": "{traitor_bloodhound_tracker_tetsuo.name}拽紧三头杜宾猎犬的皮带停在柴堆旁，眯眼看向你：“若头答应我的三千万赏金到现在没兑现——只要你们出得起价，我可以把搜山队引向绝壁盲区。”"
+  },
+  {
+   "id": "h_akane_back_tattoo_flame_glow",
+   "kind": "observe",
+   "location_ids": [
+    "hunter_cabin_hearth_room"
+   ],
+   "slot": "tsundere_yakuza_princess_akane",
+   "text": "地炉跳跃的暗红炭火映照着熊皮毯，{tsundere_yakuza_princess_akane.name}后背那幅怒放的血红鬼百合刺青在药膏润泽下分外鲜艳，本人在火光旁呼吸渐趋平稳。"
+  },
+  {
+   "id": "h_ryuji_cigar_smoke_snow_track",
+   "kind": "observe",
+   "location_ids": [
+    "narrow_snowy_porch_entry"
+   ],
+   "slot": "rebel_traitor_lieutenant_ryuji",
+   "text": "{rebel_traitor_lieutenant_ryuji.name}站在风雪呼啸的柴堆掩体后，嘴角雪茄火星明灭不定，一边警惕着身后追踪斥候的动向，一边紧盯着木屋门廊。"
+  },
+  {
+   "id": "h_kuroki_signal_beacon_flash",
+   "kind": "observe",
+   "location_ids": [
+    "cliffside_abandoned_rope_bridge",
+    "attic_drying_loft_hideaway"
+   ],
+   "slot": "undercover_special_investigator_kuroki",
+   "text": "{undercover_special_investigator_kuroki.name}半蹲在绝壁岩石掩体后调试微型红外信标，向夜空发出与山下警用直升机联络的加密频段。"
+  }
+ ],
+ "id": "yakuza_daughter_hideout_ointment",
+ "locations": [
+  {
+   "affordances": [
+    "把蛇油药膏烘温，替伤者揉散旧伤淤血、换上干净纱布",
+    "共披熊皮厚毯围炉驱寒",
+    "在地炉旁低声商量破晓下山的路线"
+   ],
+   "detail": "黑松原木搭的单间，中央石头地炉燃着无烟暗炭，靠墙铺着熊皮兽毯，风雪从木缝里渗进来。",
+   "exits": [
+    "attic_drying_loft_hideaway",
+    "narrow_snowy_porch_entry"
+   ],
+   "id": "hunter_cabin_hearth_room",
+   "name": "猎人木屋中央地炉石室",
+   "pressure_modifiers": {
+    "p_blizzard_roof_collapse_crisis": "山风裹着厚雪压得头顶主梁吱呀作响。",
+    "p_hound_scent_porch_stalk": "门缝下渗进寒气，外廊的喘息与踩雪声逼得屋里不敢出声。",
+    "p_hypothermia_hearth_warmth": "全屋只有地炉还烧着，换药换衣的人只能紧挨着火盆与兽皮毯。",
+    "p_old_benefactor_dossier_leverage": "地炉火光映着底片与旧照，旧恩与罪证摆在一张桌上。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "地炉暗炭投出摇曳的红光，把伏在兽皮毯上的后背与鲜红刺青映得分外清楚。",
+   "witnesses": [
+    "bg_wounded_loyal_retainer"
+   ]
+  },
+  {
+   "affordances": [
+    "避开底层的盘查",
+    "从观望孔数清山道上的手电光",
+    "在挨得很近的阁楼里侧耳听楼下动静"
+   ],
+   "detail": "木梯上去的低矮阁楼，堆满干药草与风干鹿肉，屋顶压着厚雪，有个对着山道的观望孔。",
+   "exits": [
+    "hunter_cabin_hearth_room"
+   ],
+   "id": "attic_drying_loft_hideaway",
+   "name": "木屋二层狭窄吊顶阁楼",
+   "pressure_modifiers": {
+    "p_blizzard_roof_collapse_crisis": "斜顶压着厚雪，松木横梁的裂纹就在头顶半尺处。",
+    "p_hypothermia_hearth_warmth": "地炉余温顺着木梯缝往上飘，低矮阁楼里只有肩背相贴才暖。",
+    "p_old_benefactor_dossier_leverage": "阁楼暗窗边摆着信标与底片匣，刑警的软肋就在你一念之间。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "阴暗逼仄，只容两人并排躺下；从观望孔能俯瞰整条雪覆的盘山小径。",
+   "witnesses": [
+    "bg_cliff_sentry_sniper"
+   ]
+  },
+  {
+   "affordances": [
+    "沿廊下泼洒烈酒与陈醋混淆猎犬嗅觉",
+    "借柴堆挡风，隔门和外头的人谈条件",
+    "查看雪地上的脚印与来去方向"
+   ],
+   "detail": "正门外一米宽的避雪木廊，堆着半人高的柴堆，四周积雪齐腰，挂着厚麻布挡风帘。",
+   "exits": [
+    "hunter_cabin_hearth_room",
+    "cliffside_abandoned_rope_bridge"
+   ],
+   "id": "narrow_snowy_porch_entry",
+   "name": "外门避雪木廊与柴堆掩体",
+   "pressure_modifiers": {
+    "p_bounty_skimming_leverage": "那张转账单一亮出来，搜山队里人心就浮动了。",
+    "p_hound_scent_porch_stalk": "积雪上的烈酒与陈醋气味浓烈，猎犬围着柴堆焦躁打转。",
+    "p_rope_bridge_sever_deadline": "木廊外的山道直通吊桥，得在督战队合围前打通。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "几米外就是漆黑的雪松林，手电光在雪幕里穿梭。",
+   "witnesses": [
+    "bg_patrol_hound_handler",
+    "bg_informant_tea_girl"
+   ]
+  },
+  {
+   "affordances": [
+    "系好麻绳一步步护送同伴过桥",
+    "全员过桥后用开山斧斩断铁索",
+    "在桥头岩石背风处核对接应信号"
+   ],
+   "detail": "横跨深谷的老铁索吊桥，木板多已朽烂，桥头拴在两根生锈的地锚桩上。",
+   "exits": [
+    "narrow_snowy_porch_entry"
+   ],
+   "id": "cliffside_abandoned_rope_bridge",
+   "name": "绝壁废弃吊桥与断崖隘口",
+   "pressure_modifiers": {
+    "p_bounty_skimming_leverage": "桥头隘口，被克扣赏金的斥候牵着猎犬等你出价。",
+    "p_rope_bridge_sever_deadline": "铁索吊桥在风雪中摆荡，对岸的接应时限越来越近。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "violence"
+   ],
+   "visibility": "脚下是黑沉沉的雪谷，对岸是唯一通往山下的路，风大得人站不稳。",
+   "witnesses": [
+    "bg_medic_assistant_runner",
+    "bg_wandering_woodcutter"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "赤羽",
+   "风间",
+   "白石",
+   "桐生",
+   "黑川",
+   "九条",
+   "堂岛",
+   "泽村",
+   "真岛",
+   "一条",
+   "橘川",
+   "涉谷"
+  ],
+  "given_female": [
+   "茜",
+   "静香",
+   "薰",
+   "真央",
+   "千代",
+   "诗织",
+   "绘里奈",
+   "由美",
+   "美纪",
+   "小春",
+   "结衣",
+   "雪乃"
+  ],
+  "given_male": [
+   "龙司",
+   "刚",
+   "铁男",
+   "黑木",
+   "健太",
+   "达也",
+   "一树",
+   "浩平",
+   "拓哉",
+   "慎吾",
+   "直树",
+   "大辅"
+  ],
+  "given_neutral": [
+   "千寻",
+   "遥",
+   "熏",
+   "葵",
+   "真琴",
+   "光",
+   "凉",
+   "晴",
+   "步",
+   "司",
+   "翼",
+   "优"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，改动见提交说明。\n2026-10-18 按写作规则 v2 改造：人物组合改为 8 单人 + 2 多人；少主握潜伏刑警的资助旧档、斥候握若头的赏金黑账两条把柄；取弹、铅毒高热、枪战、炸药与雪崩活埋改为旧伤换药、搜山盘查与封山；删去枪械、雷管与弩；删 hd_* 钩子；日常补到八条。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十二周岁、早年受老组长恩养收留的孤儿，习练居合古流刀术，誓死护卫总堂继承人周全。",
+   "gender": "any",
+   "id": "sworn_shadow_bodyguard",
+   "reputation": "沉默寡言，刀法凌厉，对少主近乎执念的忠诚在堂口内外出了名。",
+   "resources": [
+    "一柄削铁如泥的折叠锻造玉钢胁差短刃",
+    "一整包由战地随身配发的高纯度医用粗盐与脱脂棉纱布"
+   ],
+   "risks": [
+    "总堂继承人遇险或账册遗失，便要面临帮规严惩与江湖追索。"
+   ],
+   "role": "极道组长佩刀近卫死士",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "贴身近卫"
+    },
+    {
+     "gender": "any",
+     "pattern": "死士心腹"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "年满二十三周岁、从自卫队卫生队退役后受雇于极道医所的外科医学研究生，擅长野战外科。",
+   "gender": "any",
+   "id": "emergency_paramedic_defector",
+   "reputation": "医术精湛冷静沉着，厌恶黑道火并，却对落难负伤的同龄人怀有医者仁心。",
+   "resources": [
+    "一套消毒好的不锈钢缝合针与银探针",
+    "两支未拆封的破伤风针剂"
+   ],
+   "risks": [
+    "私藏极道高层的事一旦败露，便再难在医界立足，也会被叛党记恨。"
+   ],
+   "role": "弃暗投明战地军医学研究生",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "外科医士"
+    },
+    {
+     "gender": "any",
+     "pattern": "急救学员"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "年满二十四周岁游走于关东黑白两道的赏金独行客，因风雪受阻偶然栖身避难木屋。",
+   "gender": "any",
+   "id": "rogue_drifter_bounty_hunter",
+   "reputation": "唯利是图却极重江湖道义，信奉拿人钱财替人消灾的冷酷古风信条。",
+   "resources": [
+    "一杆用了多年的旧猎枪",
+    "对箱根深山每条险峻兽道了如指掌"
+   ],
+   "risks": [
+    "卷进关东堂口的夺权之争，便会被列进极道的悬赏名单。"
+   ],
+   "role": "孤峰避雪流浪刀客",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "流浪刀客"
+    },
+    {
+     "gender": "any",
+     "pattern": "赏金野武士"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "年满二十三周岁，老组长麾下战死若头的独苗，与总堂继承人一同长大，情同手足。",
+   "gender": "any",
+   "id": "disgraced_underboss_scion",
+   "reputation": "重情重义英气逼人，在残存忠义旧部中拥有极高声望与振臂一呼的号召力。",
+   "resources": [
+    "一枚老组长亲授调兵权的金质家纹戒指",
+    "一封老组长亲笔写给忠义旧部的调兵令"
+   ],
+   "risks": [
+    "若在此地被叛党截住，老组长一脉的忠义旧部就散了。"
+   ],
+   "role": "忠义派结义遗孤",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "年轻少主"
+    },
+    {
+     "gender": "any",
+     "pattern": "结义同门"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    22
+   ],
+   "baseline": "年满二十一周岁常年在箱根山野伐木打猎的年轻护林向导，熟悉每一处避难山洞与绳桥机关。",
+   "gender": "any",
+   "id": "mountain_scout_courier",
+   "reputation": "朴实勇猛身手矫健，对深山暴风雪的脾性有着近乎本能的敏锐预测直觉。",
+   "resources": [
+    "两副防滑耐磨的纯手工浸油木质雪鞋",
+    "一壶能御奇寒且可入药的百年山地老蛇胆烈酒"
+   ],
+   "risks": [
+    "吊桥机关一旦被搜山队识破，退路就断了，只能困在雪峰上等救援。"
+   ],
+   "role": "深山密道雪地猎户向导",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "雪地向导"
+    },
+    {
+     "gender": "any",
+     "pattern": "山野猎户"
+    }
+   ]
+  }
+ ],
+ "premise": "关东最大的极道组织内讧已经三个月，组长的独生女被送到箱根深山的一间旧猎人木屋避风头。贴身心腹死士寸步不离，弃医从道的军医学研究生隔几天上山换一次药，偶尔还有避雪的流浪刀客借宿。后背那幅鬼百合刺青下的旧伤还没好透；叛乱的堂口一直在打听木屋的位置。",
+ "pressures": [
+  {
+   "choice": "把底片里叛党洗钱的部分单独裁出交给刑警，还是请刑警以证人保护名义护送回京？",
+   "exits": [
+    {
+     "cost": "那半卷涉及总堂旧部的底片要你亲自护送过桥",
+     "option": "居中见证双方拆分底片，替刑警守住身世秘密，换直升机接应"
+    },
+    {
+     "cost": "最后一层戒心没了，三方从此绑在一起",
+     "option": "请少主当场烧掉资助汇款单以示信任，换刑警在结案报告里回护"
+    }
+   ],
+   "far": {
+    "consequence": "刑警只能按程序封存整卷底片，总堂旧部面临全面清查。",
+    "due_days": 1,
+    "trigger": "双方没谈拢底片怎么拆分"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_akane_ledger_film_deliver",
+    "h_kuroki_window_tap_code"
+   ],
+   "id": "p_old_benefactor_dossier_leverage",
+   "immediate": {
+    "minutes": 10,
+    "text": "泛黄旧照与防水底片并排放在木箱上，刑警握着信标的手指微微收紧。"
+   },
+   "leverage": {
+    "basis": "少主握着潜伏刑警早年受老组长资助读完警校的旧照与汇款记录",
+    "holder": "tsundere_yakuza_princess_akane",
+    "subject": "undercover_special_investigator_kuroki"
+   },
+   "location_ids": [
+    "hunter_cabin_hearth_room",
+    "attic_drying_loft_hideaway"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "警视厅本部在耳麦里催促，要求即刻汇报底片内容。"
+   },
+   "objective": "在搜救直升机抵达前促成警匪密约，保住总堂根基与撤离通道。",
+   "source": "person",
+   "start_minute": 1340,
+   "tags": [
+    "crime"
+   ],
+   "title": "资助旧档与黑金底片",
+   "trigger": "少主在阁楼向潜伏刑警亮出当年的资助旧照，要求警方只查办叛党黑金、不得牵连总堂旧部。"
+  },
+  {
+   "choice": "用总堂金纹信物向斥候开出双倍赏金，还是逼若头交出东坡布防图换保密？",
+   "exits": [
+    {
+     "cost": "回东京后要从总堂账上兑现六千万安家赏金",
+     "option": "把总堂兑付信物与犬伤药交给斥候，请其带猎犬封住东坡山道"
+    },
+    {
+     "cost": "允许若头带亲信从西侧小路先走",
+     "option": "拿转账凭条逼若头让开吊桥隘口、假报搜山方向"
+    }
+   ],
+   "far": {
+    "consequence": "搜山队恢复统一指挥，吊桥入口被看死。",
+    "due_days": 1,
+    "trigger": "错过时机，若头重新压服了斥候"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_tetsuo_hound_scratch_door_growl",
+    "h_ryuji_shotgun_rack_porch_shout"
+   ],
+   "id": "p_bounty_skimming_leverage",
+   "immediate": {
+    "minutes": 10,
+    "text": "柴堆外传来压低的争吵，三头杜宾犬冲着若头低吼。"
+   },
+   "leverage": {
+    "basis": "斥候握着若头私自截留金主三千万追踪定金的转账凭条",
+    "holder": "traitor_bloodhound_tracker_tetsuo",
+    "subject": "rebel_traitor_lieutenant_ryuji"
+   },
+   "location_ids": [
+    "narrow_snowy_porch_entry",
+    "cliffside_abandoned_rope_bridge"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "后方督战队正在联络电台，若头急着在黑账曝光前摆平斥候。"
+   },
+   "objective": "借这笔黑账让外围两人翻脸，不动手就拆掉木屋外的封锁。",
+   "source": "person",
+   "start_minute": 1355,
+   "tags": [
+    "crime"
+   ],
+   "title": "三千万赏金黑账",
+   "trigger": "追踪斥候在木廊柴堆旁拦住若头，讨要被截留的定金，不给就不再放犬搜山。"
+  },
+  {
+   "choice": "在门槛下泼烈酒与陈醋扰乱嗅觉，还是在地炉旁把对方揽进怀里屏息等待？",
+   "exits": [
+    {
+     "cost": "在黑暗里贴着坐了很久，心跳声分不清是谁的",
+     "option": "请猎人在外廊泼洒烈酒陈醋，你在炉边用熊皮毯把同伴护在怀里"
+    },
+    {
+     "cost": "两人只能挤在低矮的阁楼木板下待到后半夜",
+     "option": "借阁楼暗道把药罐与换下的纱布转上去，消掉底层的气味"
+    }
+   ],
+   "far": {
+    "consequence": "藏身处暴露，搜山队守住木屋所有出口，天亮前走不了了。",
+    "due_days": 1,
+    "trigger": "屋里出声或药味外泄"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_ryuji_door_kick_timber_crack",
+    "h_akane_bite_shoulder_silent_cry",
+    "h_goro_hunter_gun_cock_whisper",
+    "h_tetsuo_hound_scratch_door_growl"
+   ],
+   "id": "p_hound_scent_porch_stalk",
+   "immediate": {
+    "minutes": 5,
+    "text": "门外传来爪子刨雪与嗅探声，敷药的人攥紧了你的衣袖。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "narrow_snowy_porch_entry",
+    "hunter_cabin_hearth_room"
+   ],
+   "near": {
+    "deadline_minutes": 20,
+    "text": "手电光扫过窗纸缝，外头的人停在柴堆旁侧耳细听。"
+   },
+   "objective": "在巡哨退开前盖住药味，稳住屋里人的呼吸。",
+   "source": "person",
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "木廊外的猎犬",
+   "trigger": "猎犬顺着风雪气味凑近木廊柴堆，原木墙板隔音极薄，屋里换药与说话都不能出声。"
+  },
+  {
+   "choice": "迎着山风牵着同伴先过桥，还是先在桥头地锚桩设好断索机关？",
+   "exits": [
+    {
+     "cost": "掌心被冰冷铁索磨得发烫，上车后两人紧挨着不愿松手",
+     "option": "把浸油麻绳系在两人腰间，顶着风雪一步步护送对方过桥"
+    },
+    {
+     "cost": "木屋的退路断了，要带猎人一同去东京安置",
+     "option": "与猎人用开山斧在全员过桥后斩断主索"
+    }
+   ],
+   "far": {
+    "consequence": "车队撤走，众人被困在断粮断炭的雪峰上。",
+    "due_days": 1,
+    "trigger": "错过接应窗口"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_akane_bridge_look_back_smile",
+    "h_chiyo_geisha_sachet_pass",
+    "h_goro_hunter_gun_cock_whisper",
+    "h_kuroki_signal_beacon_flash"
+   ],
+   "id": "p_rope_bridge_sever_deadline",
+   "immediate": {
+    "minutes": 15,
+    "text": "对岸峡谷亮起三长两短的车灯，铁索吊桥在风雪里吱呀摇晃。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "cliffside_abandoned_rope_bridge",
+    "narrow_snowy_porch_entry"
+   ],
+   "near": {
+    "deadline_minutes": 40,
+    "text": "风越来越大，桥中段的旧木板随时会被掀起。"
+   },
+   "objective": "在接应窗口关闭前护送屋里的人过桥，再斩断铁索。",
+   "source": "institution",
+   "start_minute": 1385,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "吊桥接应时限",
+   "trigger": "山下忠义旧部的接应车队与搜救直升机定在破晓前到吊桥对岸，过了时辰山道就被大雪封死。"
+  },
+  {
+   "choice": "把仅存的熊皮厚毯裹在两人身上围炉取暖，还是用烧热的鹅卵石包布贴身温熨？",
+   "exits": [
+    {
+     "cost": "松木香里呼吸交缠，谁也没睡",
+     "option": "拨旺白炭，两人共裹一张熊皮厚毯依偎取暖"
+    },
+    {
+     "cost": "用掉了最后一壶药酒",
+     "option": "熬蛇胆烈酒配热姜汤分着喝，用温帕替对方擦暖手脚"
+    }
+   ],
+   "far": {
+    "consequence": "清晨浑身僵冷酸痛，赶不上过桥的时辰。",
+    "due_days": 1,
+    "trigger": "夜里受寒，肩伤与脚伤加重"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_goro_hearth_charcoal_pour",
+    "h_akane_whisper_cheek_touch_vow",
+    "h_chiyo_geisha_sachet_pass",
+    "h_akane_back_tattoo_flame_glow"
+   ],
+   "id": "p_hypothermia_hearth_warmth",
+   "immediate": {
+    "minutes": 10,
+    "text": "窗缝结起白霜，地炉暗炭只剩微弱红光，身旁人的指尖冰凉。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "hunter_cabin_hearth_room",
+    "attic_drying_loft_hideaway"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "后半夜山风更冷，衬衫与和服挡不住寒意。"
+   },
+   "objective": "在寒气让伤情反复前添炭、喝下热姜汤、借体温驱寒。",
+   "source": "nature",
+   "start_minute": 1400,
+   "tags": [
+    "intimate"
+   ],
+   "title": "寒潮与地炉共毯",
+   "trigger": "午夜气温骤降到零下十五度，寒风顺着墙缝钻进来，刚换完药和冒雪上山的人手脚冰凉。"
+  },
+  {
+   "choice": "与同伴上阁楼合力支起备用顶柱，还是从外廊用长杆推落积雪？",
+   "exits": [
+    {
+     "cost": "汗湿了内衫，只好下楼围炉烘衣",
+     "option": "两人在阁楼里合力架起黑松顶柱，撑稳斜顶"
+    },
+    {
+     "cost": "溅了一身雪水，回屋后由对方替你擦干头发",
+     "option": "趁风势稍歇在外廊用长竹竿扫落檐角积雪"
+    }
+   ],
+   "far": {
+    "consequence": "后窗那条路用不了，全员只能走正门。",
+    "due_days": 1,
+    "trigger": "阁楼主梁弯曲封死后窗"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_kuroki_window_tap_code",
+    "h_goro_hearth_charcoal_pour",
+    "h_akane_strip_bloody_coat_tremble"
+   ],
+   "id": "p_blizzard_roof_collapse_crisis",
+   "immediate": {
+    "minutes": 15,
+    "text": "头顶落下细碎木屑与干草末，阁楼斜顶微微下沉。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "attic_drying_loft_hideaway",
+    "hunter_cabin_hearth_room"
+   ],
+   "near": {
+    "deadline_minutes": 40,
+    "text": "雪越积越厚，再不减负就要堵死阁楼通往后窗的出口。"
+   },
+   "objective": "在积雪压坏梁木前推落屋顶的雪，用备用松木立柱撑住阁楼。",
+   "source": "accident",
+   "start_minute": 1415,
+   "tags": [
+    "workplace"
+   ],
+   "title": "屋顶积雪压梁",
+   "trigger": "连日暴雪在木屋斜顶越积越厚，阁楼的黑松主梁咯吱作响，得清雪加固。"
+  }
+ ],
+ "region": "关东箱根深山密林悬崖废弃猎人守林木屋与断壁旧伐木吊桥",
+ "rules": [
+  {
+   "id": "r_blizzard_mountain_isolation",
+   "text": "暴风雪将通往山下唯一公路彻底掩埋，唯有一座年久失修的摇晃铁索吊桥可通向悬崖绝壁彼岸。"
+  },
+  {
+   "id": "r_bullet_wound_lead_poisoning",
+   "text": "后背鬼百合刺青处的旧伤受风雪寒气侵袭极易淤肿，须在地炉温热处以蛇油膏揉散淤血、重新包扎。"
+  },
+  {
+   "id": "r_hound_scent_blood_trace",
+   "text": "搜山队带着杜宾猎犬，木屋周边要时常泼洒烈酒与陈醋，盖住药味与人气。"
+  },
+  {
+   "id": "r_iron_curtain_silence_protocol",
+   "text": "木屋原木缝隙隔音极差，深夜说话要压低声音，免得被巡山的人听见。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "结伴死生",
+  "committed": "并肩修罗",
+  "familiar": "卸甲敷药",
+  "flirting": "炉边试探",
+  "intimate": "刺青共鸣",
+  "stranger": "尊卑主仆",
+  "testing": "性命相托"
+ },
+ "status": "released",
+ "style_hint": "短句写风雪、炭火与药膏气味，对白粗粝简短，少写心理独白。",
+ "tension_engines": [
+  {
+   "id": "te_flesh_bullet_surgery_vs_iron_silence",
+   "text": "后背旧伤换药的灼痛，与木墙隔音太差、深夜不能出声的拘束。"
+  },
+  {
+   "id": "te_yakuza_pride_vs_servant_vulnerability",
+   "text": "总堂少主平日骄矜不可侵犯的面具，与卸下外衣伏在熊皮毯上任人换药时的脆弱。"
+  },
+  {
+   "id": "te_blizzard_hypothermia_vs_lead_fever",
+   "text": "零下十五度的风雪寒夜，与地炉边唯一一处暖意。"
+  },
+  {
+   "id": "te_broken_bridge_chasm_vs_dawn_survival",
+   "text": "破晓的接应车队与吊桥窗口，与叛党搜山队一寸寸收紧的盘查。"
+  }
+ ],
+ "title": "箱根雪山避难所",
+ "tone": [
+  "风雪封山",
+  "地炉暗炭",
+  "换药敷膏",
+  "隔墙屏息"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "t_yakuza_1",
+   "requires": [],
+   "text": "潜伏刑警在后窗亮出一张泛黄旧照，是老组长从火场救出警官遗孤的合影；刑警当场答应护送少主下山。"
+  },
+  {
+   "category": "人事",
+   "id": "t_yakuza_2",
+   "requires": [],
+   "text": "突击队长想私吞全部账册悬赏金，与追踪斥候在木廊外为赏金吵翻，包围圈露出一大块空当。"
+  },
+  {
+   "category": "资源",
+   "id": "t_yakuza_3",
+   "requires": [],
+   "text": "猎户在地窖里翻出昔年修桥留下的检修工具，过桥后能从对岸收起桥板。"
+  },
+  {
+   "category": "制度",
+   "id": "t_yakuza_4",
+   "requires": [],
+   "text": "少主换完药，把金纹家徽令牌按在近卫手背，依古礼立其为并列副手。"
+  },
+  {
+   "category": "时限",
+   "id": "t_yakuza_5",
+   "requires": [],
+   "text": "箱根山谷风雪渐歇，警视厅搜救直升机的旋翼声提前在峡谷对岸响起，撤离窗口骤然提前。"
+  },
+  {
+   "category": "关系",
+   "id": "t_yakuza_6",
+   "requires": [],
+   "text": "茶屋同伴解开羽织时，肩胛处露出半截并蒂鬼百合朱砂印记：两人是老组长早年分散寄养的同胞手足。"
+  },
+  {
+   "category": "意外",
+   "id": "t_yakuza_7",
+   "requires": [],
+   "text": "破晓前山风转向，峭壁积雪滑落盖住了上山的旧道，搜山队被隔在山谷另一头。"
+  }
+ ]
+}

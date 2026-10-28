@@ -1,0 +1,2298 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满二十七岁，音乐学院青年礼仪接待员毕业兼职，依法具备完全民事责任资格。",
+   "age_range": [
+    27,
+    27
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_auditorium_usher_xiao_he",
+   "line": "贵宾席观众已经全员落座，请大小姐准备登场剪彩演出。",
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "name": "小贺",
+   "role": "音乐厅贵宾引导员"
+  },
+  {
+   "adult_context": "年满三十二岁，大剧院青年舞美灯光控台技师，系完全民事行为责任成年人。",
+   "age_range": [
+    32,
+    32
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_stage_lighting_engineer_ah_fei",
+   "line": "主琴区一号面光与八号侧追光已经全部编组锁定，随时听候总监指令起光。",
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "name": "阿飞",
+   "role": "大剧院主控追光师"
+  },
+  {
+   "adult_context": "年满二十五岁，文化中心退伍特勤安保队员，具备合法完全民事权利能力。",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_security_officer_zhao_tie",
+   "line": "后台走廊闲杂人员请立即清场，开演前十五分钟严禁未经登记人员滞留走道。",
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "name": "赵铁",
+   "role": "琴房外围特勤护卫队员"
+  },
+  {
+   "adult_context": "年满二十三岁，乐器同城特快加急专送员，具有完全独立民事行为资格。",
+   "age_range": [
+    23,
+    23
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_music_store_courier_xiao_chen",
+   "line": "德国空运过来的特种纯钢调音弹簧谱夹与减摩精油到了，请调律师签收！",
+   "location_ids": [
+    "loc_tuning_maintenance_chamber"
+   ],
+   "name": "小陈",
+   "role": "施坦威备件加急专送员"
+  },
+  {
+   "adult_context": "年满三十五岁，剧院琴房专职机电维保工，享有完全民事主体法律地位。",
+   "age_range": [
+    35,
+    35
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_piano_tuner_master_lao_qian",
+   "line": "九尺施坦威的踏板传动轴承刚刚上好阻尼油，受力千万不能超八十公斤！",
+   "location_ids": [
+    "loc_tuning_maintenance_chamber"
+   ],
+   "name": "老钱师傅",
+   "role": "剧院钢琴调律维保师"
+  },
+  {
+   "adult_context": "年满二十九岁，音乐报青年记者毕业兼职，具备完全独立法律行为责任。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "rumor_source",
+   "gender": "female",
+   "id": "bg_conservatory_reporter_lin_ling",
+   "line": "听说千金今晚准备了打破传统的惊世曲目，各大媒体都在外厅架好长焦镜头了！",
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "name": "林玲",
+   "role": "古典音乐专栏青年特派记者"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "傲慢恶役千金与青年总管家的门禁攻防竞速，管家在外手持礼服按铃报号，千金在琴底合抱纯钢谱夹弹簧片下压撬栓，抢在总卡推门瞬间拔出项圈化险为夷。",
+   "id": "combo_heiress_and_tuner_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "tsundere_heiress_huangfu_yue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在极度屈辱贴地死锁绝境中并肩执夹撬栓守卫千金尊严的生死托付。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "family_butler_zhong_bo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "财阀家族演艺专场后勤调度中的长期业务搭档。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tsundere_heiress_huangfu_yue",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "family_butler_zhong_bo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "主仆之间历经数年磨砺的深沉忠诚与严格规矩约束。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "tsundere_heiress_huangfu_yue",
+    "family_butler_zhong_bo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保在管家刷开大门踏入前厅前完成机械自救并端坐琴凳恢复千金傲岸仪态。",
+    "limit_gap": "门外按铃倒计时仅剩最后三分钟，颈间项圈受五十公斤铸铁踏板弹簧死死咬合无法仰头。",
+    "meeting_reason": "专场开演前四十分钟，管家抱着礼服盒站在琴房门外，按了第三次门铃。",
+    "resource_gap": "管家掌握防暴门禁电子总卡与演出盛装，千金受困琴底掌控家族生杀大权却动弹不得。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_choker_d_ring_piano_lever_jam",
+    "eng_butler_doorbell_curfew_countdown"
+   ]
+  },
+  {
+   "chemistry": "高傲大小姐与成年调律学妹的工具力学合璧，调律助手递送纯钢大乐谱夹并托举铸铁曲柄，千金沉着下压弹簧片挑开卡榫排脱项圈。",
+   "id": "combo_heiress_and_apprentice_tuner",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "tsundere_heiress_huangfu_yue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "维修库特种高碳钢谱夹与减摩特种合成润滑脂毫秒级递送的破拆默契。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_tuner_lin_xiao_die",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "琴房调律五金器械与音板声学维护中的互相信赖。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tsundere_heiress_huangfu_yue",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 5
+     },
+     "b": "apprentice_tuner_lin_xiao_die",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 5
+     },
+     "reason": "誓死为偶像千金保守反差嗜好秘密的绝对崇拜与忠诚护航。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "tsundere_heiress_huangfu_yue",
+    "apprentice_tuner_lin_xiao_die"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以零失误的极高默契运用纯钢乐谱夹挑开卡榫解脱束缚恢复人身自由。",
+    "limit_gap": "维修库与施坦威钢琴相隔走廊，工具递送若有磕碰将错失黄金破拆时机。",
+    "meeting_reason": "调律助手推着工具车进琴房做最后一次校音，千金嫌慢，抱着手臂站在钢琴边催。",
+    "resource_gap": "调律助手掌控维修室加长纯钢谱夹与减摩特种合成润滑脂，千金具备琴底主控发力点。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_high_carbon_clip_leverage_limit"
+   ]
+  },
+  {
+   "chemistry": "钢琴系双壁顶流宿敌的锋芒对峙，协奏嘉宾携双钢琴乐谱在前厅催促对音，千金在破脱项圈后以不可一世的骄横琴姿傲然回击震撼全场。",
+   "id": "combo_heiress_and_rival_pianist",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "tsundere_heiress_huangfu_yue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在宿敌协奏嘉宾逼近审视前共同掩护千金反差嗜好的知音同盟。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "rival_pianist_chu_tian_lin",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "音院青年乐团巡演排练中的业务接触。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tsundere_heiress_huangfu_yue",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "rival_pianist_chu_tian_lin",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "顶级钢琴宿敌之间棋逢对手针锋相对的骄傲羁绊。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "tsundere_heiress_huangfu_yue",
+    "rival_pianist_chu_tian_lin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保恶役千金在宿敌面前不可一世的无瑕尊严与至高神格屹立不倒。",
+    "limit_gap": "古典乐界顶级对手的敏锐洞察力，稍有异样即会被其看穿破绽引爆终极嘲讽。",
+    "meeting_reason": "协奏嘉宾来琴房对第二乐章的踏板切分点，千金坐在琴凳上，一个音一个音地挑毛病。",
+    "resource_gap": "协奏嘉宾掌控协奏华彩乐段踏板话语权，千金以断层第一的超凡钢琴技术确立绝对主宰。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_rival_heiress_pride_collapse_risk"
+   ]
+  },
+  {
+   "chemistry": "大牌独奏家与铁血舞台监督的时序攻防，舞台监督按秒紧盯开演倒计时，千金化险为夷踩点步入备场区，以完美演出化解剧场危机。",
+   "id": "combo_heiress_and_director_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "tsundere_heiress_huangfu_yue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "大剧院开演倒计时军令重压下合力撬栓脱困的时序托付。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 4
+     },
+     "b": "concert_director_qiao_jing_chen",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 4
+     },
+     "reason": "剧院演艺舞台机械与时序协调的业务信赖。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tsundere_heiress_huangfu_yue",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 4
+     },
+     "b": "concert_director_qiao_jing_chen",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 4
+     },
+     "reason": "剧场舞台总监对顶级艺术巨星才华的全力护航。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "tsundere_heiress_huangfu_yue",
+    "concert_director_qiao_jing_chen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在剧院开演钟声敲响前完成全套盛装换装从容登上舞台中心。",
+    "limit_gap": "剧院开演钟声无法延后的硬性军令与被困琴底无法动弹的时差博弈。",
+    "meeting_reason": "管家在会客前厅摆好晚餐，千金只吃了两口，叫人把甜点留到演出之后。",
+    "resource_gap": "舞台监督掌握全场舞台大幕与灯光控台倒数，千金掌握全院爆满的绝对核心票房号召力。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_butler_doorbell_curfew_countdown"
+   ]
+  },
+  {
+   "chemistry": "恶役千金与施坦威官方工程师的硬核力学联动，钢琴技师隔门指引踏板偏心卡榫几何坐标，千金借力下压弹簧片顺利脱困并保全名琴无瑕。",
+   "id": "combo_heiress_and_piano_engineer",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "tsundere_heiress_huangfu_yue",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "施坦威九尺钢琴精密机械卡榫几何力学破拆中的技术信赖。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "piano_technician_han_shao_feng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "钢琴机械结构检修与工程维保的技术交流。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "tsundere_heiress_huangfu_yue",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "piano_technician_han_shao_feng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "官方工程师对世家千金专属钢琴声学性能的长期跟踪调校。",
+     "stage": "acquainted"
+    }
+   ],
+   "slots": [
+    "tsundere_heiress_huangfu_yue",
+    "piano_technician_han_shao_feng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保在零损伤名琴前提下以最快力学方案挑脱卡榫恢复人身自由。",
+    "limit_gap": "铸铁构件抗剪极限与五十公斤阻尼预紧弹簧的物理对抗。",
+    "meeting_reason": "舞台监督来琴房确认开演流程，管家站在千金身后一步，替千金一一应下。",
+    "resource_gap": "钢琴技师精通九尺大三角钢琴全部踏板传动图纸，千金身处琴底执行微观撬锁操作。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_high_carbon_clip_leverage_limit"
+   ]
+  },
+  {
+   "chemistry": "家族管家与剧场总监的前厅协同搭档，管家严格把控敲门节奏，舞台监督调配前厅人员分流，共同为内室自救筑牢安全缓冲墙。",
+   "id": "combo_butler_and_director_synergy",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "family_butler_zhong_bo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "门外总管家与现场技术人员之间关于音乐会候场进度的商务配合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "concert_director_qiao_jing_chen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "剧院舞台演艺监督与现场技术统筹的业务结识。",
+     "stage": "acquainted"
+    },
+    {
+     "a": "family_butler_zhong_bo",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "concert_director_qiao_jing_chen",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "豪门演艺活动与大剧院管理层长期规范的业务对接合作。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "family_butler_zhong_bo",
+    "concert_director_qiao_jing_chen"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保演出准点无误开场并严密封锁一切场内意外风声。",
+    "limit_gap": "演出纪律严苛要求与千金个人隐私声誉绝对保全的协调平衡。",
+    "meeting_reason": "施坦威的技师来检查踏板，说今晚的延音踏板有点紧，千金挥挥手，让人别多事。",
+    "resource_gap": "管家手握豪门安保与礼服交接权限，舞台监督掌控剧院播控与舞台开闸主权。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_butler_doorbell_curfew_countdown"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_piano_studio_intercom_link",
+   "reach": "贯通九尺钢琴区、门禁走廊与调律器械维修库全员保密信道",
+   "text": "琴房内室与维修库调度有线对讲系统"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_stage_doorbell_audio_link",
+   "reach": "穿透琴房双层隔音密封门缝实现门外报号与琴底自救毫秒级指令呼应",
+   "text": "隔音防暴大门门缝声波微孔透传信道"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "音乐学院钢琴表演硕士刚毕业，财阀家族第一顺位继承人，今晚开第一场个人独奏专场，弹什么、跟谁合作由本人拿主意。",
+   "age_range": [
+    24,
+    27
+   ],
+   "appearance_options": [
+    "高挽着璀璨钻石发冠，面容明艳骄矜冷傲，凤眼微挑透着摄人心魄的凌厉气魄，两靥带着天然紧致微婴儿肥与饱满水润胶原蛋白反差，身穿一袭未系完全的宝蓝色高定重工刺绣礼服内衬长裙。",
+    "此时修长天鹅颈上紧扣着一圈带加厚铬钼钢D型环的黑曜石纹真皮项圈，被迫以俯身贴地的姿态困在施坦威钢琴延音踏板铸铁曲柄下，俏脸因极度羞耻与愤懑飞起动人桃红红霞，银牙咬得咯咯作响。"
+   ],
+   "decision": {
+    "avoids": [
+     "带有玩味戏谑打量自己受困姿态的轻浮目光",
+     "拖泥带水迟疑不决错失开门窗口的低效配合"
+    ],
+    "contrast": "平日不可一世傲慢跋扈将众人视作下臣，被锁琴底时泪光潋滟娇喘求助却展现出令人骨软筋麻的极致反差萌态。",
+    "core_value": "恶役千金的骄傲神圣不可侵犯，哪怕身陷琴底屈辱绝境，也绝不向任何嘲弄目光低头！",
+    "goal_options": [
+     "协同搭档用纯钢谱夹弹簧片撬脱曲柄螺栓卡榫拔出项圈脱身",
+     "在管家推门进屋的最后一秒端坐琴凳恢复唯我独尊的高冷千金仪态"
+    ],
+    "never": [
+     "在门外家臣与媒体面前承认自己有佩戴项圈的特殊嗜好"
+    ],
+    "prefers": [
+     "手疾眼快动作精准分毫不差的硬核机械解救操作",
+     "守口如瓶绝不探究私密喜好的忠诚伙伴"
+    ],
+    "pressure_responses": {
+     "breaking": "在曲柄弹开瞬间抽离项圈扔进暗格并迅速抚平裙摆",
+     "high": "在门铃长鸣刹那同搭档一同拼尽全力下压谱夹克服五十公斤阻尼",
+     "low": "微扬雪白下颌轻哼下达撬锁指令掩饰内心剧烈惊慌",
+     "mid": "忍受颈部压迫紧扣琴腿配合搭档调整谱夹弹簧片插入角度"
+    },
+    "relationship_stance": "当着人把管家呼来喝去，私下却只肯让管家给自己系礼服背后那排扣子。",
+    "withdrawal": "端坐在琴凳上冷漠抚平衣褶，微扬下颌轻蔑睥睨全场展现至高威仪。"
+   },
+   "gender": "female",
+   "gender_reason": "财阀家族的恶役千金，青年钢琴家。",
+   "id": "tsundere_heiress_huangfu_yue",
+   "identity": {
+    "authority": "对琴房内一切演奏调度、家族安保权限及专属器材拥有专属主导最高支配权。",
+    "exposure": "曾以完美无瑕的超高技巧在国际肖邦大赛上傲视群雄夺得桂冠",
+    "hidden": "私下极度渴望卸下千金重担体验被严厉管束与绝对征服的重度反差快感",
+    "limits": [
+     "颈部受沉重踏板连杆死锁无法抬头挺胸，身体失去重心无法自主站立",
+     "严禁让门外总管家与任何外人目睹自己佩戴项圈被锁琴底的屈辱丑态"
+    ],
+    "obligations": [
+     "在管家破门前成功脱出项圈并换好大礼服以无可挑剔的高傲姿态登台"
+    ],
+    "resources": [
+     "一个长十五厘米由特种加厚冷轧淬火高碳纯钢精制而成的高抗弯大谱夹",
+     "一部镶嵌钻石的私人特权门禁权限重置掌上终端"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在至高屈辱与社死深渊边缘被对方冷静拯救的灵魂战栗感",
+     "四目相对近距离触碰时彼此急促呼吸与体温交织的隐秘悸动"
+    ],
+    "boundaries": [
+     "严格恪守豪门千金与随行人员的身份尊卑界限",
+     "严禁任何未经允许的非礼放肆举动"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "伫立于聚光灯下俯视台下如潮掌声享受万众臣服。",
+    "dislikes": [
+     "见风使舵奴颜婢膝之辈",
+     "四处宣扬八卦的庸碌小人"
+    ],
+    "expression": "耳根通红含泪轻啐，将纯钢谱夹重重塞给对方后转过身去傲慢扬起下巴。",
+    "likes": [
+     "处变不惊掌控力超群的硬派伙伴",
+     "深知自己软肋却坚定护航的知己"
+    ],
+    "preconditions": [
+     "踏板螺栓成功撬开且项圈安全解脱隐匿",
+     "门外管家被合理应对支开且登台盛装整肃完毕",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "音乐学院傲慢恶役千金",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_solo_piano_central_stage",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_solo_piano_central_stage",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_piano_salon_waiting_foyer",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "高碳纯钢乐谱夹弹簧片承受超额弯曲应力产生微细塑性变形微弯损坏。",
+      "option": "用淬火高碳纯钢乐谱夹加厚扁弹簧片借踏板木托为支点下压挑脱曲柄螺栓卡榫脱出项圈。"
+     },
+     {
+      "cost": "项圈内层加厚纯手工小羊皮衬垫断裂撕扯导致千金颈项留下明显红肿擦痕。",
+      "option": "强行向后死扯真皮项圈金属固定皮带换取头部脱困空间。"
+     }
+    ],
+    "pressure": "距音乐会开场送衣仅剩最后三分钟倒计时，门外管家门铃连续长鸣即将刷卡推门入室。",
+    "trigger": "私戴金属扣真皮项圈摆拍时D型环卡入钢琴踏板铸铁传动曲柄螺栓死角被五十公斤预紧弹簧咬死。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "若是让管家和协奏嘉宾看到我像条小狗一样被锁在琴底下，家族的声誉和我这辈子的骄傲就全完了，求求你快把这个该死的螺栓撬开！",
+    "surface": "不准看！把眼睛给本小姐闭上！听到外面的门铃没有？管家马上要刷卡了！把那个加厚纯钢谱夹拿过来，对准曲柄内侧螺栓，听我口令一起下压！"
+   }
+  },
+  {
+   "adult_context": "国际管家学院毕业，在财阀家族做了九年管家，千金的执行总管家，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    33
+   ],
+   "appearance_options": [
+    "身穿笔挺修身的黑色英式燕尾服，戴纯白真丝操作手套与金丝单片眼镜，身姿挺拔如松，神情不怒自威刻板严谨。",
+    "左手托着装有全球限量高定晚礼服的防尘恒温手提箱，右手悬停在门禁读卡器上方，举手投足散发着顶级世家总管家的沉稳威严。"
+   ],
+   "decision": {
+    "avoids": [
+     "因私废公导致演艺重大违约停演事故",
+     "有损家族名誉的流言蜚语外泄"
+    ],
+    "contrast": "平日行事古板冷酷不苟言笑，面对大小姐的突发安危却爆发出惊人的决断力与忠诚护航。",
+    "core_value": "规矩是世家的脊梁，时间是舞台的生命，在开场钟声敲响前一切阻碍必须准时清空！",
+    "goal_options": [
+     "按时将音乐会高定礼服当面呈递千金并协助检查琴房安全",
+     "在规定倒计时耗尽后依法启动备用总卡推门确认人员状态"
+    ],
+    "never": [
+     "在未经家主与大小姐允许前擅自将无关外人引入内室独奏区"
+    ],
+    "prefers": [
+     "分秒不差严格按时间表运转的流程规范",
+     "千金艳惊四座荣耀满载的完美演出"
+    ],
+    "pressure_responses": {
+     "breaking": "在门锁咔嗒解除瞬间推门迈步进入前厅走廊",
+     "high": "按响第三声门铃将应急总卡贴向门禁面板准备旋动把手",
+     "low": "在门外平稳按响第一声门铃并低沉通报送衣来意",
+     "mid": "门铃无人应答时按响第二声门铃并抬腕核对倒计时秒表"
+    },
+    "relationship_stance": "把千金从十几岁的任性一路照看到今晚的专场，规矩守得一丝不差，只有系扣子时手会慢半拍。",
+    "withdrawal": "立在前厅门边躬身施礼，将礼服箱平稳放置在丝绒桌台上安静退后半步。"
+   },
+   "gender": "male",
+   "gender_reason": "财阀家族的执行总管家。",
+   "id": "family_butler_zhong_bo",
+   "identity": {
+    "authority": "掌控琴房紧急进出总卡配额、独奏会全套流程调度与家族风控最高处置权。",
+    "exposure": "曾在一线大型跨国艺术盛典中临危处置多起演职人员突发状况荣获家族勋章",
+    "hidden": "私下对千金任性骄纵背后的孤独脆弱心知肚明却只能恪守主仆边界",
+    "limits": [
+     "受管家条例约束在门铃未获回应前需按规定报号三次方可刷卡进屋",
+     "必须保证千金准时准点登上国际独奏会舞台"
+    ],
+    "obligations": [
+     "护卫大小姐人身安全与豪门声誉绝对无瑕"
+    ],
+    "resources": [
+     "一张全权限最高优先级电子应急总卡",
+     "一部直连财阀家族核心董事会的加密对讲机"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "恪守主仆誓约数十载形成的绝对忠诚与精神托付",
+     "对豪门千金卓越艺术才华的由衷崇敬与护航使命"
+    ],
+    "boundaries": [
+     "始终恪守管家与主君的森严阶级礼法",
+     "目光绝不僭越冒犯千金私密起居空间"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "静立于前厅大门外侧五步之处垂首恭迎千金移步主舞台。",
+    "dislikes": [
+     "轻浮狂妄不知敬畏之徒",
+     "拖泥带水延误时机的怠惰者"
+    ],
+    "expression": "优雅地深深躬身九十度致意，双手奉上白手套托举的贵宾茶汤与演出名册。",
+    "likes": [
+     "做事沉稳严谨的实干派伙伴",
+     "恪守尊卑礼节的规矩之人"
+    ],
+    "preconditions": [
+     "琴房大门正常开放且内室氛围肃穆端庄",
+     "大小姐礼服齐整顺利交接完成",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "财阀家族执行总管家",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_piano_salon_waiting_foyer",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_piano_salon_waiting_foyer",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_solo_piano_central_stage",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗掉总管家预留给舞台候场的最后两分钟冗余弹性时间。",
+      "option": "在外侧严格按规矩倒数读秒报号三次为内室争取额外的自救反应时间。"
+     },
+     {
+      "cost": "礼服恒温保温箱内部温度略有下降需重新激活电热恒温模块。",
+      "option": "在外侧被协奏嘉宾搭话驻足沟通开场乐章声学细节暂缓推门。"
+     }
+    ],
+    "pressure": "开场倒计时分秒流逝，内室迟迟无人应答触发应急总卡破门开门程序。",
+    "trigger": "手提演出礼服准时抵达成门禁前厅按响门铃等待开门交接。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "为何门内迟迟未有声息？大小姐向来守时如金，难道旧疾复发受困案前？再过一分钟{npc.name}必须刷卡了！",
+    "surface": "大小姐，{npc.name}依约送达今晚独奏专场高定盛装。距开场尚余最后十分钟，请大小姐启门交接。"
+   }
+  },
+  {
+   "adult_context": "现年满三十二岁，钢琴表演系毕业已签约国际顶级爱乐乐团，学生会文体部长，系完全民事行为能力之成年青年。",
+   "age_range": [
+    32,
+    35
+   ],
+   "appearance_options": [
+    "身材修长挺拔，身穿定制黑白双色双排扣演奏礼服，内搭深灰真丝马甲，面容俊雅冷峻，剑眉星目神采奕奕。",
+    "指节修长白皙极具爆发力，手持双钢琴协奏曲第二乐章特辑总谱，散发着学院派顶级钢琴家的孤高与锐气。"
+   ],
+   "decision": {
+    "avoids": [
+     "因对手场外失误而胜之不武的尴尬胜利",
+     "破坏同台演奏默契的低级社交龃龉"
+    ],
+    "contrast": "外表文质彬彬充满贵公子风度，在音乐较量中却寸步不让锋芒毕露极具压迫感。",
+    "core_value": "黑白键上唯有实力称王，傲慢需要登峰造极的技艺来支撑，我渴望在琴键上将你彻底击败！",
+    "goal_options": [
+     "尽快进屋与千金就协奏曲华彩段落踏板切分音展开最后一次对音核验",
+     "向管家打探千金今晚是否准备了未公开的秘密安可曲目"
+    ],
+    "never": [
+     "在竞争对手遭遇意外事故时落井下石卑劣构陷"
+    ],
+    "prefers": [
+     "纯粹基于乐理与演奏技巧的高规格音乐较量",
+     "千金展现出无可挑剔的最强竞技状态"
+    ],
+    "pressure_responses": {
+     "breaking": "若察觉异常主动提出协助管家查看内室情况",
+     "high": "在管家准备刷卡时自告奋勇在门外高声呼唤千金名字",
+     "low": "在前厅翻阅乐谱并轻哼旋律热身手指",
+     "mid": "听到门铃连续鸣响合上乐谱迈步上前询问原由"
+    },
+    "relationship_stance": "视千金为毕生最强宿敌与最耀眼的音乐对手，一心要在舞台上与之平分秋色。",
+    "withdrawal": "倚靠在走廊立柱边抱臂自傲颔首，嘴角挂着棋逢对手的挑衅从容微笑。"
+   },
+   "gender": "male",
+   "gender_reason": "音院钢琴系天之骄子兼协奏嘉宾三十二岁成年男子。",
+   "id": "rival_pianist_chu_tian_lin",
+   "identity": {
+    "authority": "对下半场双钢琴协奏乐章声部配合与踏板踏点享有对等艺术话语权。",
+    "exposure": "在国际柴可夫斯基青年钢琴比赛中夺得银奖名震古典乐坛",
+    "hidden": "一直试图在艺术造诣上压制千金的傲慢气焰却又暗自被其炽烈琴音深深折服",
+    "limits": [
+     "注重个人青年艺术名家声誉不能行为失当",
+     "在千金未正式开门前不便擅闯内室"
+    ],
+    "obligations": [
+     "代表学院与千金同台完成震撼乐界的世纪合作演出"
+    ],
+    "resources": [
+     "一本德国原版加厚硬壳布面协奏曲总谱",
+     "一组特种抗震纯钢弹簧调音谱夹"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "琴逢敌手高山流水般的灵魂碰撞与精神竞争快感",
+     "目睹高傲恶役千金狼狈失态时内心深处难以言喻的强烈征服冲动"
+    ],
+    "boundaries": [
+     "恪守音乐同行与同台首席的良性竞争界限",
+     "不随意窥探豪门家族的私密内幕"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "端坐于第二架九尺大三角钢琴前以凌厉琶音向千金发起对奏挑战。",
+    "dislikes": [
+     "恃财傲物凭背景压人的庸才",
+     "怯懦退缩缺乏斗志之辈"
+    ],
+    "expression": "扬起嘴角挑眉轻笑，将手中乐谱轻轻抵在掌心向千金投去充满挑衅意味的灼热目光。",
+    "likes": [
+     "琴艺超凡孤傲倔强的强劲对手",
+     "遇事冷静迎难而上的刚烈性格"
+    ],
+    "preconditions": [
+     "独奏与协奏专场圆满谢幕且艺术发挥登峰造极",
+     "双方在同台竞技中达成平等的艺术惺惺相惜"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "钢琴系骄子兼协奏嘉宾",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_piano_salon_waiting_foyer",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_piano_salon_waiting_foyer",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_solo_piano_central_stage",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗掉{npc.name}上台前最后十分钟极其关键的手指机能热身时间。",
+      "option": "在前厅主动就第二乐章和弦编配问题向管家求证家族基金会艺术指导意见。"
+     },
+     {
+      "cost": "随身携带的高级纯羊毛乐谱保护套受翻页磨损产生轻微折痕。",
+      "option": "被前厅乐谱展示架上的罕见古版手稿吸引驻足翻阅暂缓催促进门。"
+     }
+    ],
+    "pressure": "察觉琴房闭门异常，若产生怀疑推门查看将撞破千金绝境引爆舆论冲突。",
+    "trigger": "手持协奏乐谱来到琴房前厅准备进行开场前最后一次合乐。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "这女人平时连进门都要别人铺红地毯，此刻却反常闭门不应，琴房里究竟发生了什么？",
+    "surface": "千金！{npc.name}过来了。第二乐章华彩段的延音踏板切分点我们还需要再确认一次，大小姐不会在这个时候怯场了吧？"
+   }
+  },
+  {
+   "adult_context": "现年满二十四岁，乐器修造与音律工程专业毕业生，琴房签约成年调律助手，拥有完全民事权利与行为责任能力。",
+   "age_range": [
+    24,
+    27
+   ],
+   "appearance_options": [
+    "扎着蓬松的丸子头，身穿深卡其色多口袋工装围裙，面容清秀甜美，两腮带着婴儿肥，鼻梁上架着副防反光树脂平光镜。",
+    "腰间挂着机械调音扳手皮套与微型强光手电，动作敏捷轻巧，对施坦威钢琴每一个音板肋木与踏板联动杠杆了然于胸。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目使用蛮力暴力掰扯导致踏板铸铁断裂",
+     "向外人透露琴房内发生的任何意外隐私"
+    ],
+    "contrast": "年纪虽轻看似邻家后辈，面对精密机械险情却手疾眼快心细如发沉稳可靠。",
+    "core_value": "琴键是心灵的声波，机械是艺术的骨骼，绝不能让任何金属咬死损坏名琴与大小姐！",
+    "goal_options": [
+     "飞速奔赴维修库取来高碳钢纯钢乐谱夹并配合滴注减摩润滑脂",
+     "在踏板曲柄挑开瞬间用羊毛毡垫垫入咬死受力点防止铸铁撞击"
+    ],
+    "never": [
+     "向任何人吐露大小姐被项圈锁在琴底的绝密真相"
+    ],
+    "prefers": [
+     "干脆利落严格符合声学五金规范的精密破拆方案",
+     "保护世界级九尺钢琴漆面与内部构件毫发无损"
+    ],
+    "pressure_responses": {
+     "breaking": "在卡榫脱扣瞬间用手掌迅速接住弹落的金属销钉塞入围裙口袋",
+     "high": "双膝跪地死死托住踏板下沿铸铁杠杆协助主攻手构建杠杆支点",
+     "low": "在维修库整理谱夹工具并核对润滑脂型号",
+     "mid": "听到琴底异响抄起长柄谱夹小跑穿越走廊冲向施坦威钢琴"
+    },
+    "relationship_stance": "将千金视为不可亵渎的古典艺术偶像，誓死守卫大小姐的秘密与人身尊严。",
+    "withdrawal": "倚靠在钢琴琴腿旁摘下平光镜大口喘气，如释重负向千金连连点头示意安全。"
+   },
+   "gender": "female",
+   "gender_reason": "音律工程系毕业成年随行调律助手二十四岁成年女子。",
+   "id": "apprentice_tuner_lin_xiao_die",
+   "identity": {
+    "authority": "掌控维修库全套精密调修五金工具、备用阻尼垫圈与减摩润滑油剂。",
+    "exposure": "在全国乐器修造青年技能大赛中荣获钢琴调修三等奖",
+    "hidden": "私下经常在琴房暗暗临摹千金的华丽触键指法视其为心中神女",
+    "limits": [
+     "需听从主调律师与千金的机械处置指令",
+     "体格纤小无法单凭双手掰开五十公斤阻尼硬弹簧"
+    ],
+    "obligations": [
+     "在险情爆发时以极快速度递送匹配规格的破拆撬具并托扶踏板"
+    ],
+    "resources": [
+     "一瓶两百毫升专业级施坦威踏板连杆精密减摩特种合成润滑脂",
+     "一把硬质不锈钢长柄微型杠杆挑刀"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在幽暗琴底生死时速抢救高高在上恶役千金的极致心跳刺激",
+     "近距离见证神级偶像卸下伪装后脆弱无助的反差萌态与患难托付"
+    ],
+    "boundaries": [
+     "恪守技术助手与雇主千金的阶级本分",
+     "不随意探听豪门世家的未公开私务"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "退至钢琴右后侧阴影处迅速收纳工具箱恢复低调站姿。",
+    "dislikes": [
+     "轻浮狂妄的破坏狂",
+     "笨手笨脚弄伤乐器的莽夫"
+    ],
+    "expression": "俏皮地抿嘴一笑，竖起大拇指压低嗓音称赞搭档撬锁手法神乎其技。",
+    "likes": [
+     "手艺过硬处事果决的机械高手",
+     "富有责任心敢作敢当的搭档"
+    ],
+    "preconditions": [
+     "踏板螺栓完全撬偏且项圈安全脱离千金天鹅颈",
+     "千金身体毫发无损且现场机械复位完毕"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "施坦威音律工程技术助理",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_tuning_maintenance_chamber",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_solo_piano_central_stage",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_tuning_maintenance_chamber",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗掉整整半瓶德国进口高纯度精密机械减摩特种合成润滑脂储备。",
+      "option": "飞奔穿过维修库走道将长十五厘米高碳钢谱夹与润滑脂双手递入琴底。"
+     },
+     {
+      "cost": "一块高密度原装进口羊毛防震隔音阻尼毡垫被挤压开裂损坏废弃。",
+      "option": "用纯羊毛隔音毡迅速包裹住踏板连杆箱消除撬动时发出的金属撞击回声。"
+     }
+    ],
+    "pressure": "必须在数秒内取齐特种高碳钢纯钢乐谱夹与润滑剂穿行过道支援解脱。",
+    "trigger": "在维修库听到主琴区传来金属碰撞爆鸣与千金急促求助呼声。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "天哪大小姐脖子上居然戴着带D型环的真皮项圈！好香好涩反差太大了！但现在必须马上撬开，不然管家进门就惨了！",
+    "surface": "大小姐别怕！{npc.name}把高抗弯纯钢大乐谱夹和减摩润滑脂送过来了！{npc.name}帮您托住铸铁踏板底托，您对准偏心销卡槽下压！"
+   }
+  },
+  {
+   "adult_context": "现年满三十八岁，剧场演艺工程与导演系毕业生，知名大剧院特邀青年舞台总监，具备成年法定完全民事行为责任能力。",
+   "age_range": [
+    38,
+    41
+   ],
+   "appearance_options": [
+    "头戴专业导演降噪对讲耳麦，身穿黑色轻便多口袋导演战术背心与工装长裤，手持带荧光标尺的舞台演出执行台本。",
+    "面容硬朗雷厉风行，对全场灯光编组、大幕升降时序与演员候场点名执行军事化严格管理。"
+   ],
+   "decision": {
+    "avoids": [
+     "因个人私务导致舞台空台超过三十秒的恶性事故",
+     "无组织无纪律的慌乱拖沓举动"
+    ],
+    "contrast": "平日风风火火雷厉风行，面对突发延误险情却沉着冷静调度有方展现大将风度。",
+    "core_value": "舞台就是战场，时序就是军令，钟声敲响之际必须确保主角光芒万丈立于台心！",
+    "goal_options": [
+     "督促千金准时完成服饰交接并在五分钟内进入备场侧幕候场区",
+     "协调灯光控台根据千金入场时序微调追光灯渐亮渐暗曲线"
+    ],
+    "never": [
+     "在未得演出团队确认前擅自单方面拉响紧急火警报警器"
+    ],
+    "prefers": [
+     "分秒不爽严格执行的剧场工业化演出标准流程",
+     "突发状况下全员高效协同化险为夷的过硬执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "若有延误倾向果断要求管家立即使用总卡开门确认人员",
+     "high": "通过对讲机向消控室与舞台主控通报开演最后三分钟预警",
+     "low": "在走廊向对讲机确认全场观众入席率与门票检票进度",
+     "mid": "发现琴房迟迟未出人快步走到管家身侧询问交接情况"
+    },
+    "relationship_stance": "将千金视作全场的核心票房号召力与灵魂主角，一心保驾护航演出顺利进行。",
+    "withdrawal": "站在后台侧幕监视器旁按住耳麦长舒一口气，向对讲机发出开演倒数指令。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "concert_director_qiao_jing_chen",
+   "identity": {
+    "authority": "掌控大剧院独奏专场全场演出时间表、主舞台机械调度及前后台紧急联络。",
+    "exposure": "曾指挥多场国家级新年交响音乐会与国际芭蕾舞剧巡演大获成功",
+    "hidden": "深知豪门千金脾气骄横难伺候因而对千金的候场状态加倍紧绷关注",
+    "limits": [
+     "受剧场演出播出纪律约束不能擅自推迟开演时间",
+     "隔着琴房隔音大门无法直接观测内室演员准备细节"
+    ],
+    "obligations": [
+     "确保整场独奏会按照毫秒级精确时序平稳推进"
+    ],
+    "resources": [
+     "一部直连总控室与灯光控制台的高等级对讲机",
+     "一张剧院舞台后台全域快速通行主控权限卡"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在剧场极限时序高压下力挽狂澜化险为夷的硬汉担当与团队默契",
+     "对真正具备统治级舞台表现力者的由衷敬佩与艺术神往"
+    ],
+    "boundaries": [
+     "恪守舞台总指挥与受邀演奏嘉宾的职业界限",
+     "不随意介入豪门内部私人纠葛"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "退至主舞台侧幕总控监视屏前紧盯全场灯光与音响推子动作。",
+    "dislikes": [
+     "推诿塞责临阵脱逃的懦夫",
+     "自以为是破坏规矩的狂妄者"
+    ],
+    "expression": "按住耳机神色严谨地点了点头，向千金比出一个一切就绪的干练大拇指手势。",
+    "likes": [
+     "遇事沉着刚毅执行力顶级的实干伙伴",
+     "才华横溢敢于担当的艺术家"
+    ],
+    "preconditions": [
+     "千金安全脱困且大礼服整肃完毕准时出舱步入备场区",
+     "专场演出开场钟声准时敲响大幕顺利拉开"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "大剧院青年舞台监督总监",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_piano_salon_waiting_foyer",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_piano_salon_waiting_foyer",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_solo_piano_central_stage",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "大剧院前厅检票系统记录下一笔因人流拥堵导致延迟开闸的微小运营通报。",
+      "option": "通过对讲机通知前厅检票口略微放慢最后十排观众进场检票节奏争取三分钟。"
+     },
+     {
+      "cost": "消耗掉整整一罐进口特种舞台低沉干冰原料气体储备。",
+      "option": "调配侧幕干冰机进行预热烟雾喷洒掩护舞台背景吸引前厅人员注意力。"
+     }
+    ],
+    "pressure": "全院观众与媒体已经就座，若再拖延将直接引发开演推迟特大剧场事故。",
+    "trigger": "手持演出执行台本在琴房前厅走廊高声核对开场倒计时催促进场。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "这千金大小姐平时架子大也就罢了，今天可是全网直播的专场独奏，要是开演空台我这个总监就要被问责了！",
+    "surface": "管家！千金换好衣服了吗？距开场钟声还剩最后三分钟，追光灯已经校准，必须马上请大小姐移步侧幕了！"
+   }
+  },
+  {
+   "adult_context": "现年满三十二岁，机械电子工程与精密仪器制造毕业生，施坦威大中华区官方认证特派机械结构工程师，享有完全民事主体法律地位能力。",
+   "age_range": [
+    32,
+    35
+   ],
+   "appearance_options": [
+    "身穿深灰色专业工程制服衬衫，手腕佩戴高精度防磁数显游标卡尺，身材高大匀称目光机敏沉着。",
+    "随身携带专用施坦威踏板机构快拆特种工具箱与高硬度力矩测试仪，对九尺大三角钢琴底层传动连杆抗弯极限了然于胸。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目使用蛮力野蛮掰撬导致螺栓滑丝断裂",
+     "在大是大非面前惊慌失措胡乱破坏琴体"
+    ],
+    "contrast": "外表沉稳寡言充满工科技术宅气质，面对突发机械死锁却思路清晰调度如神迅疾如电。",
+    "core_value": "机械结构有定数，力学杠杆无私心，只要找准螺栓咬死死角，加长高碳弹簧片亦可挑脱万斤铁锁！",
+    "goal_options": [
+     "隔门向内室技术人员精准指示施坦威踏板曲柄偏心防脱卡榫的精确几何解脱方位",
+     "协助千金校准解除自锁后延音踏板的动态回弹行程阻尼参数"
+    ],
+    "never": [
+     "在未完成力学受力校核前盲目野蛮下压造成零件崩飞"
+    ],
+    "prefers": [
+     "计算精确分毫不爽的几何力学破拆支点搭设方案",
+     "保护昂贵实木琴托与精密铸铁构件毫发无损"
+    ],
+    "pressure_responses": {
+     "breaking": "在门锁打开瞬间迅速冲入琴底排查铸铁曲柄螺牙受剪受损状态",
+     "high": "隔着隔音门缝大声喊出纯钢乐谱夹扁弹簧片受力支点的黄金力矩比配",
+     "low": "在维修暗室擦拭专用快拆扳手并记录踏板行程数据",
+     "mid": "隔门听到门内传来沉重金属卡死声立即调出踏板结构剖面图"
+    },
+    "relationship_stance": "将千金视作极具悟性但需要硬核工程守护的顶级青年大师，誓死保全名琴与演奏者安康。",
+    "withdrawal": "坐在工具箱上擦去额头汗迹，微笑着向千金比出机械结构完好无损手势。"
+   },
+   "gender": "male",
+   "gender_reason": "施坦威官方认证高级机电结构工程师三十二岁成年男子。",
+   "id": "piano_technician_han_shao_feng",
+   "identity": {
+    "authority": "对施坦威九尺钢琴底层铸铁机械结构、抗扭极限与踏板传动曲柄享有最高工程仲裁权。",
+    "exposure": "曾主持多台国家大剧院典藏级九尺大三角钢琴的核心踏板机械大修",
+    "hidden": "私下经常研发改良基于杠杆力矩的微型快拆防卡死机构专利",
+    "limits": [
+     "目前正位于琴房外侧维修室检修备用钢琴音槌",
+     "隔着闭锁的隔音防盗门无法直接对钢琴底座施力"
+    ],
+    "obligations": [
+     "确保钢琴底层踏板联动系统在超负荷受力后零形变安全复位"
+    ],
+    "resources": [
+     "一套专用长达二十厘米施坦威传动连杆快拆扳手",
+     "一罐高压除锈防咬死渗透润滑喷剂"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "用冷静理性的精密机械力学为傲慢豪门千金化解屈辱死局的硬核成就感",
+     "在分秒必争的机械自救中建立起的超越阶级的深层技术互信羁绊"
+    ],
+    "boundaries": [
+     "严格恪守官方认证机械工程师的职业道德界限",
+     "不随意打探雇主豪门内部隐私"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "退至琴房靠墙一侧的工具台旁安静收拾五金改锥与测试仪表。",
+    "dislikes": [
+     "轻视手工力学常识的狂妄莽夫",
+     "遇难推诿塞责的自私庸人"
+    ],
+    "expression": "推了推工作平光镜腼腆一笑，温和向千金竖起大拇指赞赏千金临危不乱的机械悟性。",
+    "likes": [
+     "热爱精密工程懂机械常识的伙伴",
+     "遇事沉着刚毅执行力超群者"
+    ],
+    "preconditions": [
+     "踏板螺栓成功挑脱且曲柄防脱卡榫平稳复位",
+     "施坦威九尺钢琴经声学与机械测试确认零硬伤损伤"
+    ],
+    "self_control_range": [
+     5,
+     5
+    ]
+   },
+   "public_role": "施坦威官方特派高级机械工程师",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_tuning_maintenance_chamber",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_piano_salon_waiting_foyer",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_solo_piano_central_stage",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗掉随身携带的一整套施坦威原厂踏板机构三维工程剖面线图纸。",
+      "option": "隔门清晰传授高碳纯钢谱夹弹簧片插入卸载卡槽的三点受力操作法。"
+     },
+     {
+      "cost": "备用踏板总成拆封后防氧化惰性保护气袋破损需重新抽真空封存。",
+      "option": "在外侧迅速调取备用脚踏板机械总成做好最坏情况整机快换准备。"
+     }
+    ],
+    "pressure": "若不能及时指引解除偏心咬死，五十公斤弹簧持续侧向剪切可能导致曲柄永久断裂。",
+    "trigger": "在维修室通过声波震颤察觉主琴区踏板传动轴突发死锁卡死。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "那套传动轴承可是冷锻淬火精钢，一旦硬别断裂整副踏板总成都要报废，必须严格按杠杆几何角度下压！",
+    "surface": "千金！施坦威D-274的踏板曲柄在右侧第二颗偏心螺母后方有两毫米卸载卡槽！把纯钢乐谱夹扁柄插进去，借木托下压，卡榫一挑就开！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "独奏专场当天，十二月",
+  "minute": 1140
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace_power"
+ ],
+ "custom": false,
+ "customs": [
+  "傲慢恶役千金受迫窘迫时习惯昂起尖翘下颌轻哼以微挑凤眸揉按两颊微婴儿肥掩饰羞耻",
+  "施坦威认证调律师每次拆卸传动螺栓前必先用绒布垫实踏板木托防止实木开裂",
+  "财阀青年管家进门递送礼服前必先连续轻按门铃两声并低沉报号作为礼貌预警",
+  "两人合力撬动琴底传动机构时须按呼吸频次同步下压以防弹簧片侧向滑脱崩伤颈部"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "千金端坐在施坦威琴凳上微挑凤眸以极高触键速度运指热身八度双音",
+    "调律师在钢琴侧翼细心聆听泛音震颤记录踏板回弹动态阻尼参数"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_morning_scale_practice",
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "start_minute": 1100,
+   "tags": [],
+   "title": "清晨挑高琴房肖邦练习曲热身"
+  },
+  {
+   "beats": [
+    "调律助手用软布为特种加长淬火高碳纯钢大乐谱夹擦拭防锈薄油",
+    "将精密减摩特种合成润滑脂与微型杠杆挑刀整齐摆放待命"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_midday_tuning_chamber_maintenance",
+   "location_ids": [
+    "loc_tuning_maintenance_chamber"
+   ],
+   "start_minute": 1110,
+   "tags": [],
+   "title": "正午恒温维修暗房纯钢谱夹整理"
+  },
+  {
+   "beats": [
+    "协奏嘉宾手持德版硬壳布面总谱在休息沙发区核对踏板切分音记号",
+    "总管家立在门前为大小姐提前准备好防尘天鹅绒礼服衣架"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_afternoon_duet_score_reading",
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "start_minute": 1120,
+   "tags": [],
+   "title": "午后前厅走廊协奏曲第二乐章合谱"
+  },
+  {
+   "beats": [
+    "舞台监督按住耳麦指挥灯光技师阿飞测试施坦威九尺钢琴面光聚焦点",
+    "特勤安保赵铁巡查走廊消防通道确认防暴刷卡门禁系统稳定运行"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_sunset_stage_lighting_check",
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "start_minute": 1130,
+   "tags": [],
+   "title": "傍晚前厅大屏舞台灯光时序联调"
+  },
+  {
+   "beats": [
+    "千金开启柔和落地暗光对镜扣上加厚金属D型环黑曜石真皮项圈",
+    "俯身探查琴底时D型环意外滑入延音踏板铸铁传动曲柄被强力弹簧咬死"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_night_secret_choker_tryout",
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "start_minute": 1140,
+   "tags": [],
+   "title": "深夜独奏区私戴皮质项圈反差摆拍"
+  },
+  {
+   "beats": [
+    "钢琴技师使用数显游标卡尺复核踏板偏心螺栓与卡榫几何间隙",
+    "调律助手将受力微弯的高碳钢谱夹放回避震皮套锁入器械柜"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_night_pedal_restoration",
+   "location_ids": [
+    "loc_tuning_maintenance_chamber"
+   ],
+   "start_minute": 1155,
+   "tags": [],
+   "title": "脱险后琴底铸铁传动曲柄校准归位"
+  },
+  {
+   "beats": [
+    "钢琴的传动杆撬开、首场独奏会的安可也弹完之后，千金回到休息室，礼服背后的系带勒了一整晚，喘口气都费劲。",
+    "千金背对着镜墙，命令似的说替我解开，系带一松，千金的肩膀却软了下来，在镜子里不肯看人的眼睛。",
+    "千金转过身，傲慢的口气没撑到最后：今晚……我允许你留下。你要是不愿意，现在就可以走。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_green_room_gown",
+   "location_ids": [
+    "loc_pianist_green_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "休息室里替千金解开礼服系带"
+  },
+  {
+   "beats": [
+    "千金在练习琴前坐下，往旁边让出半张琴凳，说独奏会弹累了，想弹点不用给任何人听的东西。",
+    "两只手在低音区碰到一起，千金没有挪开：……弹错了也不许停，跟着我。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_green_room_four_hands",
+   "location_ids": [
+    "loc_pianist_green_room"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "练习琴上的四手联弹"
+  },
+  {
+   "beats": [
+    "千金在一屋子花篮里挑了很久，最后只抽出一枝白玫瑰，说别人送的再多，也比不上这一枝。",
+    "千金把玫瑰别在对方胸前，指尖停了一会儿：这一枝是我自己买的……别多问，收着。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_green_room_bouquet",
+   "location_ids": [
+    "loc_pianist_green_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "从花篮里挑一枝白玫瑰"
+  },
+  {
+   "beats": [
+    "天亮时，千金在贵妃榻上醒来，礼服换成了宽大的衬衫，枕着对方的手臂，睫毛还没睁开就皱起了眉。",
+    "千金把脸往对方怀里埋得更深：管家知道我在哪……再睡一会儿，这是命令。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_green_room_morning",
+   "location_ids": [
+    "loc_pianist_green_room"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "贵妃榻上醒来的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代顶级音乐学院，千金第一场个人独奏专场开演前的深夜候场",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "幼态",
+  "幼女",
+  "少女感",
+  "催情",
+  "迷乱",
+  "欲火"
+ ],
+ "hooks": [
+  {
+   "id": "hook_01_choker_lever_clamp_crisis",
+   "kind": "approach",
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "slot": "tsundere_heiress_huangfu_yue",
+   "text": "{tsundere_heiress_huangfu_yue.name}微挑凤眸轻咬红唇，两颊天然紧致微婴儿肥泛起羞愤红霞，被迫俯身贴地死死扣住卡死项圈的钢琴踏板曲柄。"
+  },
+  {
+   "id": "hook_02_choker_d_ring_floor_trap",
+   "kind": "approach",
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "slot": "tsundere_heiress_huangfu_yue",
+   "text": "{tsundere_heiress_huangfu_yue.name}眼角含泪听着外侧门铃长鸣，修长雪白玉指紧扣琴腿，娇喘声带着不甘与催促命令搭档立刻找出破拆器械。"
+  },
+  {
+   "id": "hook_03_steel_clip_leverage_pry",
+   "kind": "approach",
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "slot": "tsundere_heiress_huangfu_yue",
+   "text": "{tsundere_heiress_huangfu_yue.name}接过纯钢乐谱夹扁弹簧片，以踏板实木底托为支点借力下压，刀锋般平顺的钢片硬柄瞬间撬脱卡榫释放项圈。"
+  },
+  {
+   "id": "hook_04_butler_doorbell_chime",
+   "kind": "approach",
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "slot": "family_butler_zhong_bo",
+   "text": "{family_butler_zhong_bo.name}手持盛装礼服箱立于门外按响门铃，神情刻板威严地抬腕核对倒计时秒表并准备刷动应急总卡。"
+  },
+  {
+   "id": "hook_05_rival_pianist_inquiry",
+   "kind": "approach",
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "slot": "rival_pianist_chu_tian_lin",
+   "text": "{rival_pianist_chu_tian_lin.name}手持双钢琴协奏总谱大步走向前厅大门，目光冷峻锐利地询问开场对音安排试图探查内室反常声响。"
+  },
+  {
+   "id": "hook_06_apprentice_tools_sprint",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tuning_maintenance_chamber"
+   ],
+   "slot": "apprentice_tuner_lin_xiao_die",
+   "text": "{apprentice_tuner_lin_xiao_die.name}抄起长达十五厘米淬火加厚纯钢乐谱夹与精密润滑脂飞奔穿过走道，双膝跪地为琴底破拆提供支点托举。"
+  },
+  {
+   "id": "hook_07_director_curfew_call",
+   "kind": "approach",
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "slot": "concert_director_qiao_jing_chen",
+   "text": "{concert_director_qiao_jing_chen.name}按住耳麦对讲机在前厅走廊雷厉风行下达最后三分钟开演倒数指令并督促门外人员立即完成交接。"
+  },
+  {
+   "id": "hook_08_piano_engineer_guidance",
+   "kind": "approach",
+   "location_ids": [
+    "loc_tuning_maintenance_chamber"
+   ],
+   "slot": "piano_technician_han_shao_feng",
+   "text": "{piano_technician_han_shao_feng.name}隔着门缝清晰喊出施坦威踏板偏心卡榫的三点受力黄金方位，指导内室人员以高碳钢片精准施力。"
+  },
+  {
+   "id": "hook_09_heiress_tsundere_gratitude",
+   "kind": "approach",
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "slot": "tsundere_heiress_huangfu_yue",
+   "text": "{tsundere_heiress_huangfu_yue.name}脱困后迅速将项圈藏入暗格，端坐琴凳两颊娇润微婴儿肥晕染红霞，将纯钢谱夹塞回搭档掌心含羞低语致谢。"
+  },
+  {
+   "id": "hook_10_piano_stool_intimate_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "slot": "tsundere_heiress_huangfu_yue",
+   "text": "{tsundere_heiress_huangfu_yue.name}借着琴盖遮掩挽住搭档衣袖，近距离凝视对方眼眸，心跳交织在琴声微澜中确立生死相托的绝密契约。"
+  },
+  {
+   "id": "hook_11_courier_arrival_distraction",
+   "kind": "accident",
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "slot": "family_butler_zhong_bo",
+   "text": "{family_butler_zhong_bo.name}在门外被送达加急航运钢琴谱夹的快递小哥礼貌打断签收单据，为内室争取到了最后三十秒宝贵脱身时机。"
+  },
+  {
+   "id": "hook_12_spotlight_focus_diversion",
+   "kind": "observe",
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "slot": "concert_director_qiao_jing_chen",
+   "text": "{concert_director_qiao_jing_chen.name}示意主控灯光技师将追光灯焦点完全聚拢在门厅奖杯展示架上，用局部强光成功转移众人视线焦点。"
+  },
+  {
+   "id": "hook_13_pedal_spring_tension_reset",
+   "kind": "request",
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "slot": "piano_technician_han_shao_feng",
+   "text": "{piano_technician_han_shao_feng.name}手持数显力矩扳手迅速俯身排查延音踏板回弹力矩，确保机械传动系统在受压后恢复原厂毫秒级回弹。"
+  },
+  {
+   "id": "hook_14_score_review_challenge",
+   "kind": "observe",
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "slot": "rival_pianist_chu_tian_lin",
+   "text": "{rival_pianist_chu_tian_lin.name}步入琴房凝视端坐琴凳的千金，将协奏总谱重重拍在谱架上扬起下巴发起舞台竞技终极挑战。"
+  },
+  {
+   "id": "hook_15_standing_ovation_triumph",
+   "kind": "request",
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "slot": "tsundere_heiress_huangfu_yue",
+   "text": "{tsundere_heiress_huangfu_yue.name}在独奏音乐会压轴曲目结束后携搭档优雅起身谢幕，全场观众雷鸣掌声中唯独向身侧伙伴投去会心傲岸一笑。"
+  },
+  {
+   "id": "hook_heiress_green_room_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_pianist_green_room"
+   ],
+   "slot": "tsundere_heiress_huangfu_yue",
+   "text": "{npc.name}倚在休息室门口，手里拿着一枝白玫瑰：前厅太吵了。……进来，我只问一次。"
+  }
+ ],
+ "id": "heiress_piano_choker_lever_jam",
+ "locations": [
+  {
+   "affordances": [
+    "手持加长高碳纯钢乐谱夹扁弹簧片插入踏板曲柄偏心螺栓死咬卡槽下压挑卡榫",
+    "伸手探入琴底踏板连杆箱沿死死握住阻尼摇臂分担五十公斤预紧回弹力矩",
+    "用纯羊毛擦拭布包裹住D型环接触面消除金属与铸铁之间的生硬卡涩摩擦"
+   ],
+   "detail": "挑高八米的独立声学演奏厅核心区，胡桃木拼花地板正中摆放着一架价值数百万的黑色施坦威九尺D-274大三角钢琴。琴腹下方悬挂着沉重的铸铁传动踏板连杆箱，此时千金正因颈间金属扣真皮项圈的加厚D型环死死卡进延音踏板曲柄偏心螺栓死角而被迫俯身贴地。四周散落着金色高跟鞋与凌乱的高定乐谱，聚光灯微弱倾泻，气氛紧绷窒息。",
+   "exits": [
+    "loc_piano_salon_waiting_foyer",
+    "loc_tuning_maintenance_chamber"
+   ],
+   "id": "loc_solo_piano_central_stage",
+   "name": "独奏琴房",
+   "pressure_modifiers": {
+    "p_butler_doorbell_curfew_countdown": "门外管家门铃连续长鸣，距总卡刷开门锁仅剩最后三分钟紧急倒计时。",
+    "p_choker_d_ring_piano_lever_jam": "项圈D型环死死卡入踏板曲柄，五十公斤阻尼预紧弹簧咬死无法仰头。"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_auditorium_usher_xiao_he"
+   ]
+  },
+  {
+   "affordances": [
+    "快步走向门禁面板隔着双层隔音玻璃高声通报更衣进度拖延开门时间",
+    "利用走廊贵宾茶歇推车横在门道前构筑临时物理减速隔离障碍",
+    "在门卡刷开瞬间以身形遮挡内室视线引导外侧人员停留于前厅"
+   ],
+   "detail": "琴房外侧铺设厚重天鹅绒地毯的奢华走廊与会客门厅，正对大门安装有高安全防暴电子双向刷卡门禁。总管家手提锁闭的演出高定礼服防尘箱正立在门外，手指连续按动门铃蜂鸣器。展示墙上挂满千金斩获国际肖邦钢琴大赛金奖的巨幅照片，骄傲绝伦的世家千金光环与门内屈辱死锁形成鲜明对比。",
+   "exits": [
+    "loc_solo_piano_central_stage",
+    "loc_tuning_maintenance_chamber",
+    "loc_pianist_green_room"
+   ],
+   "id": "loc_piano_salon_waiting_foyer",
+   "name": "琴房前厅",
+   "pressure_modifiers": {
+    "p_butler_doorbell_curfew_countdown": "总管家率领后勤随从登门送衣，一旦撞破真相将引爆豪门社会性死亡风暴。",
+    "p_rival_pianist_duet_inquiry": "双人协奏嘉宾步入前厅催场，骄横千金的人设面临粉碎性危机。"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_stage_lighting_engineer_ah_fei",
+    "bg_security_officer_zhao_tie"
+   ]
+  },
+  {
+   "affordances": [
+    "从工具架上迅速取下长达十五厘米淬火加厚高抗弯纯钢大乐谱夹送往琴底",
+    "抄起高纯度特种精密机械润滑脂飞奔进入主琴区对准卡槽精准点注",
+    "在案头快速调试乐谱夹弹簧片抗弯弯曲弧度使其精准契合曲柄螺栓尺寸"
+   ],
+   "detail": "紧邻独奏琴房内侧的精密乐器保养暗室，常年保持恒温恒湿。三米长实木工作台上整齐码放着纯钢乐谱夹、调音扳手、特种减磨润滑脂与备用羊毛音槌。货架底层存放有整套施坦威机械配件箱与应急破拆工具包，是获取硬质撬具与润滑补给的核心阵地。",
+   "exits": [
+    "loc_solo_piano_central_stage",
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "id": "loc_tuning_maintenance_chamber",
+   "name": "调律维修库",
+   "pressure_modifiers": {
+    "p_lubricant_wood_spill_hazard": "琴底润滑作业若滴落名贵实木音板将面临损毁传世名琴的严峻风险。",
+    "p_tuning_tools_access_sprint": "折返维修库取用淬火乐谱夹分秒必争，任何迟疑都将葬送脱困窗口。"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_music_store_courier_xiao_chen",
+    "bg_piano_tuner_master_lao_qian"
+   ]
+  },
+  {
+   "affordances": [
+    "替千金解开礼服背后的系带",
+    "陪千金在练习琴上弹一段",
+    "锁上休息室的门"
+   ],
+   "detail": "音乐厅后台尽头的一间独奏家休息室，一架立式练习琴、一张丝绒贵妃榻、一面挂满演出海报的镜墙，花架上堆着首场独奏会的花篮。",
+   "exits": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "id": "loc_pianist_green_room",
+   "name": "独奏家休息室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "厚重的门一合，前厅的掌声和寒暄都被关在外面，只剩花香和一盏落地灯。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "皇甫",
+   "楚",
+   "钟",
+   "林",
+   "乔",
+   "韩",
+   "沈",
+   "顾",
+   "叶",
+   "苏",
+   "白",
+   "陆",
+   "裴",
+   "唐"
+  ],
+  "given_female": [
+   "玥",
+   "晓蝶",
+   "思涵",
+   "宛凝",
+   "雨萱",
+   "素馨",
+   "梦琪",
+   "韵宁",
+   "芷晴",
+   "诗翠",
+   "采薇",
+   "映月",
+   "凝霜",
+   "曼凝"
+  ],
+  "given_male": [
+   "天霖",
+   "景琛",
+   "绍峰",
+   "伯",
+   "修远",
+   "廷轩",
+   "辰逸",
+   "浩然",
+   "致远",
+   "瀚海",
+   "绍辉",
+   "明哲",
+   "子墨",
+   "星阑"
+  ],
+  "given_neutral": [
+   "怀瑾",
+   "嘉木",
+   "霁林",
+   "少煊",
+   "逸凡",
+   "望舒",
+   "景明",
+   "亦安",
+   "予怀",
+   "知衡",
+   "若谷",
+   "清源",
+   "凌霜",
+   "青川"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留音乐学院挑高独奏琴房、施坦威九尺钢琴、恶役千金独处时私试真皮项圈摆拍、D型环滑进延音踏板传动曲柄被阻尼弹簧咬死、俯身贴地的屈辱受困、管家按门铃送演出礼服、高碳钢谱夹弹簧片撬卡榫的骨架与反差味道。开局在今晚个人独奏专场开演前四十分钟。为与已有的两个恶役千金世界拉开，保留现代音乐学院琴房场景。女主从大三学生改成刚读完硕士、第一次开个人专场的青年钢琴家，年龄二十四到二十七岁；管家拉到二十九到三十三岁。用户已放开内容限制，只守红线；危险与拘束期间不写性互动。外貌描写照留，只改写死的人名、代词、年龄。新增琴房楼上的千金休息室与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    38,
+    42
+   ],
+   "baseline": "受雇于财阀家族常驻琴房的青年声学与机械工程专家，精通施坦威九尺钢琴全部机械联动构造。",
+   "gender": "any",
+   "id": "pi_heiress_exclusive_piano_tuner",
+   "reputation": "对钢琴机械传动死咬故障判断分毫不爽，曾多次在大型交响乐巡演前排除踏板自锁危机。",
+   "resources": [
+    "一套高硬度淬火加厚不锈钢调律扳手组",
+    "一瓶特种冷锻精密机械轴承减磨特种润滑油"
+   ],
+   "risks": [
+    "若未能协助千金脱困将承担损坏世界级九尺钢琴与延误音乐会的连带责任",
+    "在施压撬动中若划伤千金雪白颈项将面临财阀家族严厉追责"
+   ],
+   "role": "恶役千金专属随行钢琴调律大师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}大师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}调律师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    29
+   ],
+   "baseline": "与千金同台协奏的青年大提琴演奏家，享有自由出入琴房内室进行声学合练的特权。",
+   "gender": "any",
+   "id": "pi_concert_chamber_duet_partner",
+   "reputation": "技艺精湛傲骨铮铮，对千金的骄横气焰从不盲从逢迎，深受乐界瞩目。",
+   "resources": [
+    "两个长十五厘米高抗弯加厚淬火纯钢大谱夹",
+    "一把加厚硬质象牙大提琴调音弦轴起子"
+   ],
+   "risks": [
+    "若现场撞破千金反差丑态可能导致豪门联合巡演协议彻底破裂",
+    "在狭窄琴底发力若失控可能损坏价值数百万的名贵大提琴琴弓"
+   ],
+   "role": "音乐会特邀大提琴独奏青年同侪",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}首席"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}同侪"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    38,
+    42
+   ],
+   "baseline": "负责千金个人安防的青年保镖主管，掌管琴房外部安防门禁与应急对讲通信。",
+   "gender": "any",
+   "id": "pi_heiress_security_bodyguard",
+   "reputation": "身手矫健恪尽职守，能在十秒内判断各种突发机械卡阻并构筑外围防线。",
+   "resources": [
+    "一部直通剧院中控室的防爆保密电台",
+    "一柄特种战术高碳钢防滑折叠多用钳"
+   ],
+   "risks": [
+    "若强行破门失误将直接引爆千金私密反差曝光的家族丑闻",
+    "未能妥善阻拦外侧管家将被视为严重失职撤职查办"
+   ],
+   "role": "千金随行特勤青年安保队长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}队长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}护卫"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    27,
+    31
+   ],
+   "baseline": "负责琴房日常耗材搬运与琴盖擦拭的年满二十七岁签约成年勤杂工，身份卑微但动作敏捷。",
+   "gender": "any",
+   "id": "pi_piano_salon_errand_cleaner",
+   "reputation": "熟悉琴房每一个死角螺栓与地毯走线，擅长在极度逼仄缝隙递送微型撬具。",
+   "resources": [
+    "一块防静电高密度纯羊毛钢琴擦拭布",
+    "一把用于清理键盘缝隙的长柄高硬度竹镊子"
+   ],
+   "risks": [
+    "若在递送工具时不慎碰翻谱架将面临被立即开除并扣罚工资处罚",
+    "因身份低微极易被盛怒之下的豪门权贵迁怒问责"
+   ],
+   "role": "琴房底层签约成年保洁助理",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}助手"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "财阀千金读完钢琴硕士，第一场个人独奏专场下周开演，每天在挑高独奏琴房里练到深夜，调律师、大提琴同侪和安保队长进进出出。向来傲慢的千金锁上琴房时，会偷偷戴上一只金属扣真皮项圈对着镜子摆拍；那架施坦威九尺钢琴的延音踏板最近有点涩。",
+ "pressures": [
+  {
+   "choice": "选择利用高碳纯钢谱夹加长扁柄实施微观杠杆破拆，或强行向后死扯真皮项圈皮带。",
+   "exits": [
+    {
+     "cost": "踏板铸铁底座木托受硬力杠杆挤压在漆面底层留下两道微米级暗纹压痕。",
+     "option": "由搭档协助双手合抱高碳钢谱夹扁柄深入踏板偏心槽垂直下压挑脱止逆卡榫。"
+    },
+    {
+     "cost": "施坦威原厂定制高精度螺纹套筒被外力扭曲变形需返厂重新攻丝校准。",
+     "option": "用调音扳手反向卸下踏板联动箱外侧两颗固定螺钉使曲柄整体侧移释压。"
+    }
+   ],
+   "far": {
+    "consequence": "项圈彻底无法取出且价值数百万的名贵大三角钢琴踏板机构宣告损坏停演。",
+    "due_days": 1,
+    "trigger": "踏板曲柄偏心螺栓因持续侧向扭矩发生永久剪切变形咬死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_choker_d_ring_piano_lever_jam",
+   "immediate": {
+    "minutes": 3,
+    "text": "千金被迫以俯身贴地的屈辱姿势被死锁在施坦威钢琴延音踏板下，娇躯紧绷，两颊泛起羞耻艳红。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "若五分钟内未能挑脱卡榫，门外管家按完三声门铃后将依法刷开大门目睹大小姐琴底丑态。"
+   },
+   "objective": "在门外总管家刷卡进屋前用高碳纯钢乐谱夹扁弹簧片下压挑脱曲柄螺栓卡榫抽出项圈。",
+   "source": "accident",
+   "start_minute": 1140,
+   "tags": [
+    "disaster"
+   ],
+   "title": "项圈D型环死卡踏板传动轴绝境",
+   "trigger": "黑曜石纹真皮项圈加厚铬钼钢D型环意外滑入施坦威九尺钢琴延音踏板曲柄偏心螺栓死角，五十公斤阻尼预紧弹簧瞬间咬死无法仰头脱身。"
+  },
+  {
+   "choice": "选择隔门高声斥责命令管家在门外原地等候，或集中全力在门开瞬间完成破拆。",
+   "exits": [
+    {
+     "cost": "引起门外总管家与同行人员对琴房反常动静的极度疑虑与暗中戒备。",
+     "option": "琴内高声怒斥让管家在外守候并借故声称正在进行闭关最后触键热身。"
+    },
+    {
+     "cost": "千金心爱的德国进口百年古董实木机械节拍器发条齿轮受震脱扣损坏。",
+     "option": "故意蹬倒踏板旁的实木节拍器制造清脆撞击声吸引门外注意力暂缓刷卡。"
+    }
+   ],
+   "far": {
+    "consequence": "傲慢恶役千金神格当场粉碎，私密反差曝光引发豪门家族继承权剧烈动荡。",
+    "due_days": 1,
+    "trigger": "总管家推门踏入琴区目睹千金佩戴奴隶项圈贴地受困"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_butler_doorbell_curfew_countdown",
+   "immediate": {
+    "minutes": 2,
+    "text": "门禁蜂鸣器发出刺耳长鸣，隔音门外传来管家沉稳而刻板的报号声，应急总卡已悬停在感应区。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer",
+    "loc_solo_piano_central_stage"
+   ],
+   "near": {
+    "deadline_minutes": 3,
+    "text": "若三分钟内未能应声开门，总管家将认定室内突发重大人身险情直接刷卡破门而入。"
+   },
+   "objective": "在防盗门被应急总卡刷开前彻底解脱项圈并整肃衣容恢复端庄高傲仪态。",
+   "source": "person",
+   "start_minute": 1141,
+   "tags": [],
+   "title": "总管家门铃连续鸣响进门倒计时",
+   "trigger": "家族总管家手提音乐会高定晚礼服箱立于门禁前，手指连续按响门铃蜂鸣器并启动应急报号程序即将刷总卡入室。"
+  },
+  {
+   "choice": "选择隔门冷言嘲讽协奏嘉宾琴艺不精，或以优雅姿态步出大厅当面展卷对音。",
+   "exits": [
+    {
+     "cost": "两人同台协奏的默契值受言语冲突影响在首个乐章产生微弱张力波动。",
+     "option": "隔门以不可一世的高傲语气严厉驳斥协奏嘉宾的质疑让其在候场区闭嘴等待。"
+    },
+    {
+     "cost": "协奏嘉宾对千金的大牌做派心生不悦在协奏华彩段蓄意加大演奏力度竞争。",
+     "option": "指派门外安保队员以千金独奏换装为由礼貌请协奏嘉宾退回贵宾会客室休息。"
+    }
+   ],
+   "far": {
+    "consequence": "恶役千金在宿敌面前尊严扫地彻底丧失协奏乐章的话语主导权沦为笑柄。",
+    "due_days": 1,
+    "trigger": "协奏嘉宾亲眼目睹千金项圈锁琴底的狼狈屈辱反差丑态"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_rival_pianist_duet_inquiry",
+   "immediate": {
+    "minutes": 2,
+    "text": "协奏嘉宾皮鞋踏在地毯上的沉稳脚步声逼近门前，充满探究意味的嗓音穿透门缝传来。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "若门内迟迟未有傲慢回应，敏锐的宿敌将察觉千金受困异样甚至推门探视。"
+   },
+   "objective": "以高傲凌厉的千金气场回击宿敌的试探并维持艺术同侪间的心理主导权。",
+   "source": "person",
+   "start_minute": 1142,
+   "tags": [],
+   "title": "钢琴系骄子协奏嘉宾前厅逼近审视",
+   "trigger": "双钢琴协奏搭档协奏嘉宾手持第二乐章总谱步入前厅，向管家询问千金闭门不出原由并迈步走向琴房大门。"
+  },
+  {
+   "choice": "选择申请开场推迟三分钟，或在门内爆发全力下压谱夹完成闪电破拆。",
+   "exits": [
+    {
+     "cost": "大剧院电脑灯控台全场灯光编程自动化流水线被手动打断留下操作警报日志。",
+     "option": "由舞台监督协调现场灯光控台将舞台开幕追光延长一分钟渐亮时间平滑过渡。"
+    },
+    {
+     "cost": "消耗掉专场赞助商专属协议约定的贵宾加插口播特别额度。",
+     "option": "协调前厅广播紧急加播一分钟剧院礼仪与赞助商鸣谢词填补空白时间窗口。"
+    }
+   ],
+   "far": {
+    "consequence": "演艺界通报重大演出播出事故且千金个人职业演奏声誉遭受毁灭性重创。",
+    "due_days": 1,
+    "trigger": "千金未能准时现身导致大剧院开演空台超过三十秒"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_director_curfew_stage_call",
+   "immediate": {
+    "minutes": 3,
+    "text": "对讲机里传来大剧院前厅观众如潮掌声与开场铃音，舞台追光灯正预热渐亮。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_piano_salon_waiting_foyer",
+    "loc_solo_piano_central_stage"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "若未能踩准时序节点入场，剧院总控室将不得不启动开场推迟预案引发全院媒体哗然。"
+   },
+   "objective": "以分秒不爽的最高效率在开场前完成自救并从容登上侧幕备场区。",
+   "source": "institution",
+   "start_minute": 1143,
+   "tags": [],
+   "title": "大剧院舞台监督开场红线催场风暴",
+   "trigger": "大剧院青年舞台监督按住对讲机向全场通报开演前五分钟终极警报，剧场开场钟声敲响在即。"
+  },
+  {
+   "choice": "选择小跑穿过走廊飞速递送，或在滑行地板上精准投送器械包。",
+   "exits": [
+    {
+     "cost": "工装裤膝盖部位在胡桃木硬木地板上剧烈摩擦磨损出一道褪色痕迹。",
+     "option": "双手捧着纯钢乐谱夹与润滑脂飞身滑步跪地冲入琴底送交主攻手。"
+    },
+    {
+     "cost": "高碳纯钢乐谱夹边缘抛光镀层在滑行中受地板微尘磕碰划出一道细微暗痕。",
+     "option": "将纯钢乐谱夹顺着光滑地板贴地精准滑行至钢琴延音踏板正下方。"
+    }
+   ],
+   "far": {
+    "consequence": "千金在贴地受锁姿态下被推门而入的众人撞破社死不可逆转。",
+    "due_days": 1,
+    "trigger": "工具未能及时送达导致机械自救窗口彻底关闭"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_tuning_tools_access_sprint",
+   "immediate": {
+    "minutes": 1,
+    "text": "走廊天鹅绒地毯吸纳脚步声，琴房门锁正在发出最后的转动弹鸣，分秒必争。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_tuning_maintenance_chamber",
+    "loc_solo_piano_central_stage"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "延误五秒将直接导致谱夹未能卡入曲柄门锁便已完全打开推门入室。"
+   },
+   "objective": "以极快速度将高碳钢纯钢谱夹与减摩润滑脂送达千金手边实施自救破拆。",
+   "source": "accident",
+   "start_minute": 1141,
+   "tags": [
+    "disaster"
+   ],
+   "title": "暗房至琴底高碳钢谱夹折返竞速",
+   "trigger": "解脱曲柄死锁所必需的长十五厘米加厚高碳纯钢大谱夹存放在调律暗房底层，需在十秒内取回并送达琴底受卡点。"
+  },
+  {
+   "choice": "选择用手掌直接拦截飞溅油珠，或用羊毛擦拭布包裹住曲柄全域操作。",
+   "exits": [
+    {
+     "cost": "操作人员手心被高压喷剂低温冷凝气体冻出轻微红肿泛白印记。",
+     "option": "用手掌手心硬生生接住下坠的润滑油珠并用脱脂棉迅速抹净。"
+    },
+    {
+     "cost": "一块价值不菲的施坦威原厂定制高密度纯羊毛键盘擦拭绒布彻底报废。",
+     "option": "用羊毛擦拭布紧紧包覆住整个踏板传动曲柄构筑柔性防油防溅舱室。"
+    }
+   ],
+   "far": {
+    "consequence": "国际顶尖名琴声学品质报废且面临官方技术认证吊销特大损失。",
+    "due_days": 1,
+    "trigger": "价值数百万的施坦威九尺钢琴音板发生永久性不可修复油脂浸润损坏"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_lubricant_wood_spill_hazard",
+   "immediate": {
+    "minutes": 2,
+    "text": "润滑油气味在琴底空气中弥漫，悬垂的油滴距离音板木纹仅剩两公分空隙。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_solo_piano_central_stage"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "若未能防住油渍，渗透进音板的矿物油脂将永久损坏钢琴共鸣频率与百年声学价值。"
+   },
+   "objective": "在润滑油触及名琴木质纤维前用纯羊毛脱脂棉彻底吸附隔离确保琴体无损。",
+   "source": "accident",
+   "start_minute": 1142,
+   "tags": [
+    "disaster"
+   ],
+   "title": "施坦威实木音板润滑油滴落污染险情",
+   "trigger": "在逼仄琴底向曲柄螺栓喷注减摩润滑脂时，微量油珠险些飞溅至名贵施坦威实木共鸣音板下表面。"
+  }
+ ],
+ "region": "挑高独奏琴房施坦威九尺钢琴区与门禁会客前厅连通区域",
+ "rules": [
+  {
+   "id": "rule_steinway_pedal_mechanism_code",
+   "text": "施坦威九尺三角钢琴踏板五金刚性规范：延音踏板铸铁传动曲柄内部设五十公斤阻尼预紧弹簧，外力下压未达临界力矩前偏心防脱卡榫处于永久自锁状态。"
+  },
+  {
+   "id": "rule_high_carbon_music_clip_limit",
+   "text": "加长淬火高碳纯钢乐谱夹力学准则：加厚弹簧片抗弯极限载荷为六十五公斤，充当撬具时支点必须紧贴踏板铸铁底座以防金属疲劳脆断。"
+  },
+  {
+   "id": "rule_concert_curfew_security_code",
+   "text": "独立大剧院独奏专场候场守则：开场钟声敲响前十五分钟必须完成全套演出盛装换装，总管家持备用电子总卡享有应急开门确认权。"
+  },
+  {
+   "id": "rule_vip_piano_salon_privacy_code",
+   "text": "千金专属独奏沙龙礼仪：非经千金当面明确指令，随行侍从与调音人员严禁擅自触碰钢琴底部踏板机械联动装置。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "尊卑有别",
+  "committed": "金石同盟",
+  "familiar": "调琴试音",
+  "flirting": "暗光对视",
+  "intimate": "俯仰共济",
+  "stranger": "初入琴房",
+  "testing": "执夹撬栓"
+ },
+ "status": "released",
+ "style_hint": "挑高琴房的幽暗聚光与九尺施坦威的黑漆反光。写恶役千金婴儿肥两靥的羞耻红霞、贴地俯身的屈辱与喘息，动作落在高碳钢谱夹撬曲柄卡榫上。",
+ "tension_engines": [
+  {
+   "id": "eng_choker_d_ring_piano_lever_jam",
+   "text": "项圈D型环死死卡入踏板曲柄偏心螺栓引发俯身贴地屈辱死锁"
+  },
+  {
+   "id": "eng_butler_doorbell_curfew_countdown",
+   "text": "总管家持演出礼服按响门铃倒计时刷卡推门入室之极限心理压迫"
+  },
+  {
+   "id": "eng_high_carbon_clip_leverage_limit",
+   "text": "加长淬火高碳纯钢谱夹弹簧片撬脱铸铁曲柄螺栓卡榫之物理破拆"
+  },
+  {
+   "id": "eng_rival_heiress_pride_collapse_risk",
+   "text": "协奏宿敌与全院媒体守候门外傲慢恶役千金人设面临毁灭性曝光"
+  }
+ ],
+ "title": "傲慢恶役千金·施坦威踏板咬死皮项圈",
+ "tone": [
+  "项圈D型环死咬曲柄",
+  "管家按门铃即将破门",
+  "高碳纯钢谱夹弹簧片",
+  "克服阻尼撬脱卡榫"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_visitor_matriarch_shadow",
+   "requires": [
+    "family_butler_zhong_bo",
+    "rival_pianist_chu_tian_lin"
+   ],
+   "text": "门外来客除管家与宿敌外竟还随行了财阀家族德高望重的当代老太君突击视察，若琴底异状暴露将惊动家族最高统治层引发继承权罢黜风暴！"
+  },
+  {
+   "category": "时限",
+   "id": "tw_doorbell_beeper_interval_surge",
+   "requires": [
+    "family_butler_zhong_bo"
+   ],
+   "text": "防暴门禁设定了三声门铃后三十秒未开门自动触发火警总卡强制推门程序，留给琴底微观破拆的实际安全窗口被压缩至极限一百秒！"
+  },
+  {
+   "category": "意外",
+   "id": "tw_piano_mirror_reflection_peril",
+   "requires": [
+    "tsundere_heiress_huangfu_yue"
+   ],
+   "text": "施坦威九尺钢琴琴腹高抛光黑色烤漆犹如一面澄澈水银明镜，恰好以四十五度反光角将琴底千金受困姿态倒映至门缝微孔处极易被外人窥见！"
+  },
+  {
+   "category": "关系",
+   "id": "tw_rival_secret_doujin_funder",
+   "requires": [
+    "rival_pianist_chu_tian_lin",
+    "tsundere_heiress_huangfu_yue"
+   ],
+   "text": "宿敌协奏嘉宾暗中竟是出资赞助千金专属独奏专场的幕后匿名大藏家，高傲外表下早已对恶役千金的强硬琴风倾心已久！"
+  },
+  {
+   "category": "制度",
+   "id": "tw_theatre_fire_curfew_override",
+   "requires": [
+    "concert_director_qiao_jing_chen"
+   ],
+   "text": "大剧院消防应急安全条例明确规定开场前十分钟若演员房反锁且有异响，剧院安保队长有权越过家族随从强行使用液压破拆剪剪开门轴！"
+  },
+  {
+   "category": "资源",
+   "id": "tw_high_carbon_clip_unique_lever",
+   "requires": [
+    "apprentice_tuner_lin_xiao_die",
+    "tsundere_heiress_huangfu_yue"
+   ],
+   "text": "施坦威踏板偏心卡槽口径极其狭小且带有精密止逆倒刺，全琴房唯有这把加厚淬火高碳纯钢大乐谱夹的扁平弹簧柄能深入间隙承受六十公斤抗弯力矩！"
+  },
+  {
+   "category": "人事",
+   "id": "tw_butler_dress_revelation_awe",
+   "requires": [
+    "family_butler_zhong_bo"
+   ],
+   "text": "总管家送来的高定演出礼服领口恰好配有一圈真丝天鹅绒项圈式立领，一旦千金脱困换装即可将受压颈痕完美伪装成前卫舞台造型成就神级公关！"
+  }
+ ]
+}

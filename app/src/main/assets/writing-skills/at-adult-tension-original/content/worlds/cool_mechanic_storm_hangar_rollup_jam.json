@@ -1,0 +1,2243 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "在工坊干了两年的年轻帮工，已成年。",
+   "age_range": [
+    21,
+    26
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_young_mechanic",
+   "line": "门底梁我们拽着呢！里面一压断销就能抬起来！",
+   "location_ids": [
+    "loc_hangar_loading_dock",
+    "loc_workshop_front_lot"
+   ],
+   "name": "帮工阿翔",
+   "role": "工坊的年轻帮工"
+  },
+  {
+   "adult_context": "车友会里跑得最快的骑手之一。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_rider_club_member",
+   "line": "消防车被树堵住了！我们自己拽！你们听得见就敲一敲门！",
+   "location_ids": [
+    "loc_hangar_loading_dock",
+    "loc_workshop_front_lot"
+   ],
+   "name": "车友小茜",
+   "role": "车友会的骑手"
+  },
+  {
+   "adult_context": "跟着车队老板来的经理。",
+   "age_range": [
+    35,
+    50
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_sponsor_driver",
+   "line": "老板有令，那台赛车先推出来！人的事等消防来！",
+   "location_ids": [
+    "loc_hangar_loading_dock"
+   ],
+   "name": "车队经理",
+   "role": "赞助车队的经理"
+  },
+  {
+   "adult_context": "在隔壁轮胎店干了几年的伙计。",
+   "age_range": [
+    25,
+    38
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_tire_shop_hand",
+   "line": "试车手每回出去试车，师傅就在停车坪上一直等，车灯不回来不进屋。",
+   "location_ids": [
+    "loc_workshop_front_lot"
+   ],
+   "name": "轮胎店的阿大",
+   "role": "隔壁轮胎店的伙计"
+  },
+  {
+   "adult_context": "每个周末都来工坊喝咖啡的老车友。",
+   "age_range": [
+    40,
+    55
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_weekend_rider",
+   "line": "那两个人吵得最凶的时候，都是在讨论对方的安全。",
+   "location_ids": [
+    "loc_workshop_front_lot"
+   ],
+   "name": "周末车友",
+   "role": "常来工坊的老车友"
+  },
+  {
+   "adult_context": "在海边便利店上夜班的店员。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_konbini_clerk",
+   "line": "师傅半夜来买咖啡，总是买两罐，一罐黑的，一罐加奶的。",
+   "location_ids": [
+    "loc_workshop_front_lot"
+   ],
+   "name": "便利店店员",
+   "role": "便利店的夜班店员"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "女机械师与试车手在门缝底下叠着趴在泥水里，四只手叠在扳手长柄上，一个喊号子一个跟着往下压。",
+   "id": "cc_mechanic_rider_switch",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "mechanic_haruka",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一起被困在门底下，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "test_rider_partner",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "合伙开店三年，一个改车一个跑车。",
+     "stage": "familiar"
+    },
+    {
+     "a": "mechanic_haruka",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "test_rider_partner",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个冷一个闷，吵了一整个夏天，谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mechanic_haruka",
+    "test_rider_partner"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "压断偏心销，抬起卷帘门，两人一起爬出去。",
+    "limit_gap": "女机械师趴在泥水里使不上全力，备用卷扬机的开关被雷击烧熔了。",
+    "meeting_reason": "雷击断电前，女机械师在调赛车，试车手刚把车推回工坊。",
+    "resource_gap": "女机械师有那把长柄棘轮扳手和对工坊每一颗螺丝的熟悉，试车手有一身赛道上练出来的手感和那本调校本子。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_fire_toward_tank",
+    "te_wrench_chest_press"
+   ]
+  },
+  {
+   "chemistry": "女机械师与试车手在装卸平台前四只手叠在一起，一边争该先抬门还是先推赛车，一边一下一下把门梁顶起来。",
+   "id": "cc_mechanic_rider_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "mechanic_haruka",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "为悬挂的数据吵了一下午，谁都不肯先认输。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "test_rider_partner",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "三年里在停车坪上一起喝过无数罐咖啡。",
+     "stage": "familiar"
+    },
+    {
+     "a": "mechanic_haruka",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "test_rider_partner",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个嘴硬一个嘴笨，谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mechanic_haruka",
+    "test_rider_partner"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "先把人弄出去，再回来救车。",
+    "limit_gap": "女机械师不肯丢下那台赛车，试车手只想先把人弄出去。",
+    "meeting_reason": "两人为赛车的悬挂该调软还是调硬，在工坊里吵了一下午，吵到风暴来都没分出胜负。",
+    "resource_gap": "女机械师知道这座老机库每一根油管在哪，试车手知道门梁还能撑多久。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_door_pin_jammed",
+    "te_live_water_floor"
+   ]
+  },
+  {
+   "chemistry": "车队老板在外面等着消息，女机械师和试车手一个压扳手一个垫在下面，谁也不肯在老板面前先喊疼。",
+   "id": "cc_mechanic_rider_sponsor",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "mechanic_haruka",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "头一回在赞助老板面前把命交出去。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "test_rider_partner",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "来看自己出钱的赛车，早听说这两个合伙人吵了一个夏天。",
+     "stage": "familiar"
+    },
+    {
+     "a": "mechanic_haruka",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "test_rider_partner",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在老板面前不敢多看一眼，可每一声号子都只喊给一个人听。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mechanic_haruka",
+    "test_rider_partner"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让老板亲眼看见，改车的人和跑车的人能一起把命捡回来。",
+    "limit_gap": "女机械师不肯在老板面前失了工坊的面子，试车手不习惯被大人物盯着干活。",
+    "meeting_reason": "老板风暴前来看赛车的调校进度，女机械师在讲改装，试车手在讲手感。",
+    "resource_gap": "女机械师手里有扳手和整面墙的工具，试车手手里有调校本子和手电。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_live_water_floor",
+    "te_door_pin_jammed"
+   ]
+  },
+  {
+   "chemistry": "女机械师一边压扳手一边冲新人吼着怎么趴低，试车手垫在下面，把三个人的力气拧成一股。",
+   "id": "cc_mechanic_rider_newhand",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "mechanic_haruka",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "女机械师嫌新人毛手毛脚，今晚却要把命交到这双手上。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "test_rider_partner",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "第一次留下来值夜就遇上了风暴。",
+     "stage": "familiar"
+    },
+    {
+     "a": "mechanic_haruka",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "test_rider_partner",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "女机械师和试车手一个眼神就知道对方要干什么，新人都看在眼里。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "mechanic_haruka",
+    "test_rider_partner"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "带着新人一起平安出去，明天照常开门。",
+    "limit_gap": "新人什么都不懂，女机械师得一边自救一边教。",
+    "meeting_reason": "新人第一次在风暴夜留在工坊帮忙，试车手正在讲这台赛车的来历。",
+    "resource_gap": "女机械师有扳手和修车的经验，试车手有手电和一身胆子。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_fire_toward_tank",
+    "te_door_pin_jammed"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_floor_whisper",
+   "reach": "all",
+   "text": "门缝底下贴着耳朵喊的话和泥水里的喘息"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_harbor_siren",
+   "reach": "local",
+   "text": "港区的防灾广播和远处消防车的警笛"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "十几岁就跟着老机修师傅学修车，二十五岁把海边的老机库盘下来开了工坊，和试车手合伙三年，去留进退由本人拿主意。",
+   "age_range": [
+    26,
+    30
+   ],
+   "appearance_options": [
+    "齐耳利落短碎黑发，冷冽明澈的凤眼与挺翘鼻梁，两腮线条利落；身穿高腰黑色重机连体工装裤，领口拉链半敞露出深灰紧身背心与优美锁骨线条，纤细有力的腰肢与紧绷修长的双腿在湿透布料下勾勒无遗。",
+    "雨水打湿的利落发丝贴在白皙颊侧，冷艳的面庞透出一抹诱人的倔强，湿透的黑色工装裤与薄款背心勾勒出极具柔韧张力的紧致身段。"
+   ],
+   "decision": {
+    "avoids": [
+     "糟蹋车的人",
+     "嘴上说得好听手上没活的人"
+    ],
+    "contrast": "在工坊里冷得像一块钢，骂起客人来能把人骂哭；可趴在门缝底下时，却是女机械师第一个把扳手递过去，说一句：你压，我信你的手感。",
+    "core_value": "车不会骗人，骗人的只有嘴。",
+    "goal_options": [
+     "把扳手长柄插进导轨死角，压断偏心销",
+     "抬起卷帘门，和试车手一起爬出去"
+    ],
+    "never": [
+     "丢下搭档自己爬出去"
+    ],
+    "prefers": [
+     "手稳、说到做到的人",
+     "敢把命交给自己调的车的人"
+    ],
+    "pressure_responses": {
+     "breaking": "被泥水呛得直咳也不松手，咬着牙喊着号子往下压。",
+     "high": "整个人趴在对方身上，把两人的体重都压在扳手长柄上。",
+     "low": "先摸黑找到那把长柄扳手，看清导轨往哪边歪。",
+     "mid": "把扳手长柄插进剪切缝隙，指给对方看偏心销的位置。"
+    },
+    "relationship_stance": "两人合伙开店三年，为了那台赛车的调校数据吵了一整个夏天；可试车手每回出去试车，女机械师都在停车坪上一直等到车灯转回来。",
+    "withdrawal": "脱困后头一件事是冲去拉消防喷淋，确认火没烧到油罐，才肯瘫坐在装卸平台上，把湿透的短发往后一捋。"
+   },
+   "gender": "female",
+   "gender_reason": "改装工坊的女机械师，按原稿写作女性。",
+   "id": "mechanic_haruka",
+   "identity": {
+    "authority": "工坊里车怎么改、零件用哪家的，女机械师一句话就能定。",
+    "exposure": "趴在冰冷的泥水里，湿透的工装贴在身上，只能整个人压在对方身上一起使劲。",
+    "hidden": "阁楼工作台的抽屉里收着一张试车手写满批注的调校单，女机械师嘴上说那些数据全是错的，却一张都没扔。",
+    "limits": [
+     "趴在泥水里使不上全力",
+     "湿透的连体工装沉得拖人"
+    ],
+    "obligations": [
+     "在开幕赛前把那台赛车调好",
+     "把困在工坊里的人都带出去"
+    ],
+    "resources": [
+     "一把八十公分长柄的特制铬钒钢双向棘轮扳手，手柄是实心工字钢锻造",
+     "一整面墙的工具",
+     "车友会上下的信任"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "泥水里垫在自己身下、一只手护着自己腰的那个人",
+     "每天骑着车从海边公路转回来的那道车灯"
+    ],
+    "boundaries": [
+     "人前守着女机械师的冷，心意只给认定的人",
+     "每一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "天窗下靠在对方肩上听海的近身位",
+    "dislikes": [
+     "被人当众起哄",
+     "趁人之危的手"
+    ],
+    "expression": "从老冰箱里拿出两罐啤酒，扔一罐过去，别过脸说：那些调校单，我一张都没扔。……今晚别走了，行吗？",
+    "likes": [
+     "被人用热毛巾擦去脸上的泥和机油",
+     "在天窗下被人从身后抱着听海",
+     "夜里被人握着满是茧子的手"
+    ],
+    "preconditions": [
+     "卷帘门抬起、两人都脱困之后",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "湾岸机车改装工坊的女机械师",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_workshop_front_lot",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_workshop_loft",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "扳手可能崩开，手腕会被震伤",
+      "option": "把扳手长柄插进导轨死角，和试车手合力压断偏心销"
+     },
+     {
+      "cost": "四十公分的门缝，门梁随时可能再往下掉",
+      "option": "从门缝底下硬挤出去"
+     }
+    ],
+    "pressure": "火势一路烧向油罐，必须在爆燃之前压断偏心销，抬门爬出去。",
+    "trigger": "雷击断电时，女机械师正在工坊里调那台赛车，卷帘门被风压一摧，卡死在四十公分高处。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "泥水冷得刺骨……身下这个人倒是暖的。吵了一个夏天，原来把命交给这个人，是这种感觉。",
+    "surface": "趴低，别抬头！扳手插进去——你垫着我，压着我的手，听我的号子，压！"
+   }
+  },
+  {
+   "adult_context": "六十五岁，修了一辈子车，女机械师手上的本事一半是这个人教的。",
+   "age_range": [
+    58,
+    72
+   ],
+   "appearance_options": [
+    "一身褪了色的蓝色连体工装，花白的寸头，一双手上全是洗不掉的机油印。",
+    "坐在前店门口的折叠椅上，一边抽烟斗一边听发动机的声音。"
+   ],
+   "decision": {
+    "avoids": [
+     "带女机械师入行的老机修师傅最烦临阵推诿"
+    ],
+    "contrast": "在车队老板面前一句软话不说，私下却给工坊的新人偷偷塞零花钱。",
+    "core_value": "车修得好，人才活得长。",
+    "goal_options": [
+     "先把人救出来",
+     "带女机械师入行的老机修师傅再追究是谁的错"
+    ],
+    "never": [
+     "带女机械师入行的老机修师傅不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "带女机械师入行的老机修师傅看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "带女机械师入行的老机修师傅嗓子喊哑了也不肯走",
+     "high": "带女机械师入行的老机修师傅顶着危险往里递东西",
+     "low": "带女机械师入行的老机修师傅先稳住身边的人",
+     "mid": "带女机械师入行的老机修师傅四处找能用的工具"
+    },
+    "relationship_stance": "早看出女机械师和那个试车手之间有事，每回都故意让两人一起去送车。",
+    "withdrawal": "事情过去后，带女机械师入行的老机修师傅一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是带女机械师入行的老师傅。",
+   "id": "old_master_mechanic",
+   "identity": {
+    "authority": "车圈里谁的手艺能信，老机修师傅一句话就能定。",
+    "exposure": "带女机械师入行的老机修师傅忙起来顾不上衣着体面",
+    "hidden": "做带女机械师入行的老机修师傅这些年，有件事没对旁人说过",
+    "limits": [
+     "带女机械师入行的老机修师傅不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住带女机械师入行的老机修师傅手上的那一摊事"
+    ],
+    "resources": [
+     "一箱用了四十年的老工具",
+     "带女机械师入行的老机修师傅随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "带女机械师入行的老机修师傅欣赏做事干脆利落的人",
+     "带女机械师入行的老机修师傅记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，带女机械师入行的老机修师傅就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和带女机械师入行的老机修师傅并肩站着",
+    "dislikes": [
+     "带女机械师入行的老机修师傅讨厌轻浮的手"
+    ],
+    "expression": "带女机械师入行的老机修师傅话不多，递东西时指尖会多停一下",
+    "likes": [
+     "带女机械师入行的老机修师傅收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "带女机械师入行的老机修师傅要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "带女机械师入行的老机修师傅",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_workshop_front_lot",
+     "to": 1200
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "带女机械师入行的老机修师傅未必赶得上",
+      "option": "带女机械师入行的老机修师傅在外面调度接应"
+     },
+     {
+      "cost": "可能把带女机械师入行的老机修师傅自己也搭进去",
+      "option": "带女机械师入行的老机修师傅硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，带女机械师入行的老机修师傅进不去",
+    "trigger": "警报传到带女机械师入行的老机修师傅那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "教了这丫头十年……今晚要是折在工坊里，我这把老骨头没脸再碰扳手。",
+    "surface": "丫头！门外的人在拽了！你们只管把那根销压断！"
+   }
+  },
+  {
+   "adult_context": "四十岁，湾岸车友会的会长，每个周末都领着几十台车在海边公路上跑。",
+   "age_range": [
+    34,
+    48
+   ],
+   "appearance_options": [
+    "一身黑色的皮衣，栗色长发扎成马尾，耳朵上一排银耳钉，脖子上挂着一副墨镜。",
+    "靠在自己的机车上，一边喝罐装咖啡一边看停车坪上的车。"
+   ],
+   "decision": {
+    "avoids": [
+     "湾岸车友会的女会长最烦临阵推诿"
+    ],
+    "contrast": "在车友面前大大咧咧，对女机械师却细心得像个姐姐。",
+    "core_value": "车友就是一家人。",
+    "goal_options": [
+     "先把人救出来",
+     "湾岸车友会的女会长再追究是谁的错"
+    ],
+    "never": [
+     "湾岸车友会的女会长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "湾岸车友会的女会长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "湾岸车友会的女会长嗓子喊哑了也不肯走",
+     "high": "湾岸车友会的女会长顶着危险往里递东西",
+     "low": "湾岸车友会的女会长先稳住身边的人",
+     "mid": "湾岸车友会的女会长四处找能用的工具"
+    },
+    "relationship_stance": "跟女机械师是多年的老朋友，私下里总问那个试车手到底怎么样。",
+    "withdrawal": "事情过去后，湾岸车友会的女会长一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是湾岸车友会的女会长。",
+   "id": "rider_club_president",
+   "identity": {
+    "authority": "车友会里谁跑什么线、谁的车该去哪家改，女会长说了算。",
+    "exposure": "湾岸车友会的女会长忙起来顾不上衣着体面",
+    "hidden": "做湾岸车友会的女会长这些年，有件事没对旁人说过",
+    "limits": [
+     "湾岸车友会的女会长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住湾岸车友会的女会长手上的那一摊事"
+    ],
+    "resources": [
+     "几十个随叫随到的车友",
+     "湾岸车友会的女会长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "湾岸车友会的女会长欣赏做事干脆利落的人",
+     "湾岸车友会的女会长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，湾岸车友会的女会长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和湾岸车友会的女会长并肩站着",
+    "dislikes": [
+     "湾岸车友会的女会长讨厌轻浮的手"
+    ],
+    "expression": "湾岸车友会的女会长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "湾岸车友会的女会长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "湾岸车友会的女会长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "湾岸车友会的女会长",
+   "schedule": [
+    {
+     "from": 600,
+     "location_id": "loc_workshop_front_lot",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "湾岸车友会的女会长未必赶得上",
+      "option": "湾岸车友会的女会长在外面调度接应"
+     },
+     {
+      "cost": "可能把湾岸车友会的女会长自己也搭进去",
+      "option": "湾岸车友会的女会长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，湾岸车友会的女会长进不去",
+    "trigger": "警报传到湾岸车友会的女会长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "这丫头……嘴上吵了一个夏天，心里早就……今晚可千万要出来。",
+    "surface": "阿遥！车友们都来了！门底梁我们拽着，你们压！"
+   }
+  },
+  {
+   "adult_context": "三十岁，在赛道上跑了十年，摔断过两次腿还是要跑，三年前和女机械师合伙开了这家工坊，去留进退由本人拿主意。",
+   "age_range": [
+    28,
+    33
+   ],
+   "appearance_options": [
+    "一身黑红相间的骑行服，拉链拉到一半，手上戴着一副磨破了的骑行手套，头发被头盔压得乱糟糟的。",
+    "骑行服湿透了贴在身上，整个人趴在泥水里垫在女机械师身下，一只手护着女机械师的腰。"
+   ],
+   "decision": {
+    "avoids": [
+     "糟蹋车的人"
+    ],
+    "contrast": "在赛道上什么弯都敢压，被女机械师瞪一眼，就不知道手往哪放。",
+    "core_value": "车会告诉你哪里疼，人也一样。",
+    "goal_options": [
+     "趴在泥水里给女机械师当垫子和支点",
+     "把两人的体重都压在扳手长柄上"
+    ],
+    "never": [
+     "让女机械师一个人困在门底下"
+    ],
+    "prefers": [
+     "说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "被泥水呛得直咳也不松，跟着女机械师的号子压到最后一下。",
+     "high": "垫在女机械师身下，双手压在女机械师的手上，和女机械师一起压。",
+     "low": "一把将女机械师拉到自己身上，用后背垫住冰冷的泥水。",
+     "mid": "摸着导轨的形变，报出偏心销卡死的角度。"
+    },
+    "relationship_stance": "每天骑着车在海边公路上试车，跑着跑着，跑回来的理由就不只是车了。",
+    "withdrawal": "确认两人都爬出来、火没烧到油罐，才瘫在装卸平台上，望着雨夜的天大口喘气。"
+   },
+   "gender": "male",
+   "gender_reason": "和女机械师合伙的试车手，按原稿写作男性。",
+   "id": "test_rider_partner",
+   "identity": {
+    "authority": "车跑起来哪里不对、门梁还能撑多久，试车手心里有数。",
+    "exposure": "湿透的骑行服贴着女机械师的后背，两人在门缝底下贴得严丝合缝。",
+    "hidden": "调校本子的最后一页写着一行字，是第一年合伙时写下的，写的不是数据，一直没给人看。",
+    "limits": [
+     "趴在泥水里施展不开",
+     "备用卷扬机的开关被雷击烧熔了"
+    ],
+    "obligations": [
+     "护住女机械师不被门梁压到",
+     "压断偏心销，两人一起爬出去"
+    ],
+    "resources": [
+     "一副骑行手套",
+     "一本写满调校数据的本子",
+     "一支防水手电"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女机械师趴在泥水里还能喊得那么稳的那份狠劲",
+     "女机械师调好一台车时嘴角那一下"
+    ],
+    "boundaries": [
+     "女机械师没开口就不越一步",
+     "人前不让女机械师难做"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "天窗下让女机械师靠着肩膀的近身位",
+    "dislikes": [
+     "当众起哄",
+     "背后嚼舌根"
+    ],
+    "expression": "接住那罐啤酒愣了很久，最后把调校本子翻到最后一页递过去：这一行，我写了三年。",
+    "likes": [
+     "女机械师难得叫一次自己的名字",
+     "被女机械师揪着领子拉上阁楼"
+    ],
+    "preconditions": [
+     "卷帘门抬起、两人都安全清醒之后",
+     "女机械师点了头，出于本心"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "改装工坊的合伙试车手",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_workshop_front_lot",
+     "to": 1020
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_hangar_rollup_door",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "后背会被泥水里的碎铁划伤，手臂可能脱力",
+      "option": "垫在女机械师身下，合力压下扳手"
+     },
+     {
+      "cost": "工坊后墙紧挨着油罐",
+      "option": "去后面找别的出口"
+     }
+    ],
+    "pressure": "火越烧越近，再不压断偏心销，两人都会被困在门底下。",
+    "trigger": "雷击断电时，试车手刚把赛车推回工坊，回头就看见卷帘门砸了下来。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "女机械师整个人压在我身上，泥水呛得直咳……别分神。跑了十年赛道，今晚得压准这一下。",
+    "surface": "压在我身上，别怕泥！扳手插进去，我压着你的手——你喊号子，我跟。"
+   }
+  },
+  {
+   "adult_context": "四十四岁，在港区当了二十年消防员，海边每一座老仓库的油管都在这个脑子里。",
+   "age_range": [
+    38,
+    50
+   ],
+   "appearance_options": [
+    "一身厚重的消防服，头盔上满是划痕，脸被熏得乌黑。",
+    "站在装卸平台下面，手里攥着一根水带。"
+   ],
+   "decision": {
+    "avoids": [
+     "港区消防分队的队长最烦临阵推诿"
+    ],
+    "contrast": "对不听劝的人凶得很，对工坊里的新人却总是多叮嘱几句。",
+    "core_value": "火可以烧，人一个都不能少。",
+    "goal_options": [
+     "先把人救出来",
+     "港区消防分队的队长再追究是谁的错"
+    ],
+    "never": [
+     "港区消防分队的队长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "港区消防分队的队长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "港区消防分队的队长嗓子喊哑了也不肯走",
+     "high": "港区消防分队的队长顶着危险往里递东西",
+     "low": "港区消防分队的队长先稳住身边的人",
+     "mid": "港区消防分队的队长四处找能用的工具"
+    },
+    "relationship_stance": "嘴上嫌这座老机库是个火药桶早该拆，可每回工坊有事，队长都是第一个到的。",
+    "withdrawal": "事情过去后，港区消防分队的队长一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "按设定是港区消防分队的队长。",
+   "id": "harbor_fire_captain",
+   "identity": {
+    "authority": "火场里谁能进、先救哪里，消防队长说了算。",
+    "exposure": "港区消防分队的队长忙起来顾不上衣着体面",
+    "hidden": "做港区消防分队的队长这些年，有件事没对旁人说过",
+    "limits": [
+     "港区消防分队的队长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住港区消防分队的队长手上的那一摊事"
+    ],
+    "resources": [
+     "一支港区消防分队",
+     "港区消防分队的队长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "港区消防分队的队长欣赏做事干脆利落的人",
+     "港区消防分队的队长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，港区消防分队的队长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和港区消防分队的队长并肩站着",
+    "dislikes": [
+     "港区消防分队的队长讨厌轻浮的手"
+    ],
+    "expression": "港区消防分队的队长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "港区消防分队的队长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "港区消防分队的队长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "港区消防分队的队长",
+   "schedule": [
+    {
+     "from": 1080,
+     "location_id": "loc_hangar_loading_dock",
+     "to": 1439
+    },
+    {
+     "from": 0,
+     "location_id": "loc_hangar_loading_dock",
+     "to": 480
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "港区消防分队的队长未必赶得上",
+      "option": "港区消防分队的队长在外面调度接应"
+     },
+     {
+      "cost": "可能把港区消防分队的队长自己也搭进去",
+      "option": "港区消防分队的队长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，港区消防分队的队长进不去",
+    "trigger": "警报传到港区消防分队的队长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "当了二十年消防员，从没见风暴这么大……那两个人要是出不来，我这队长也别干了。",
+    "surface": "水带拉过来了！你们抬起门就往外滚，我们罩着！"
+   }
+  },
+  {
+   "adult_context": "四十八岁，在工坊对面开了十五年便利店，工坊里的人半夜饿了都去那儿。",
+   "age_range": [
+    42,
+    56
+   ],
+   "appearance_options": [
+    "一身便利店的条纹制服，短发烫成小卷，胸前别着一枚店长的名牌。",
+    "站在便利店的收银台后面，一边理货一边看对面的工坊。"
+   ],
+   "decision": {
+    "avoids": [
+     "海边便利店的女店长最烦临阵推诿"
+    ],
+    "contrast": "嘴上骂车友们半夜吵，私下却给熬夜修车的人留着热咖啡。",
+    "core_value": "吃饱了，才有力气干活。",
+    "goal_options": [
+     "先把人救出来",
+     "海边便利店的女店长再追究是谁的错"
+    ],
+    "never": [
+     "海边便利店的女店长不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "海边便利店的女店长看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "海边便利店的女店长嗓子喊哑了也不肯走",
+     "high": "海边便利店的女店长顶着危险往里递东西",
+     "low": "海边便利店的女店长先稳住身边的人",
+     "mid": "海边便利店的女店长四处找能用的工具"
+    },
+    "relationship_stance": "每回给女机械师的便当里多塞一个饭团，说这孩子总是忘了吃饭。",
+    "withdrawal": "事情过去后，海边便利店的女店长一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "按设定是便利店的女店长。",
+   "id": "konbini_manager",
+   "identity": {
+    "authority": "便利店里谁能赊账、谁的便当多一个饭团，女店长说了算。",
+    "exposure": "海边便利店的女店长忙起来顾不上衣着体面",
+    "hidden": "做海边便利店的女店长这些年，有件事没对旁人说过",
+    "limits": [
+     "海边便利店的女店长不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住海边便利店的女店长手上的那一摊事"
+    ],
+    "resources": [
+     "一店的热便当和罐装咖啡",
+     "海边便利店的女店长随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "海边便利店的女店长欣赏做事干脆利落的人",
+     "海边便利店的女店长记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，海边便利店的女店长就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和海边便利店的女店长并肩站着",
+    "dislikes": [
+     "海边便利店的女店长讨厌轻浮的手"
+    ],
+    "expression": "海边便利店的女店长话不多，递东西时指尖会多停一下",
+    "likes": [
+     "海边便利店的女店长收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "海边便利店的女店长要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "海边便利店的女店长",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_workshop_front_lot",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "海边便利店的女店长未必赶得上",
+      "option": "海边便利店的女店长在外面调度接应"
+     },
+     {
+      "cost": "可能把海边便利店的女店长自己也搭进去",
+      "option": "海边便利店的女店长硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，海边便利店的女店长进不去",
+    "trigger": "警报传到海边便利店的女店长那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "那孩子今晚还在我这儿买了两罐咖啡……可千万得出来。",
+    "surface": "热便当我留着呢！你们出来了就过来吃！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "八月，雷雨季",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "老式机库防风卷帘门采用高强度双边槽钢导轨与重力配重链条结构，强风压下发生偏心形变后滚轮与卡槽会形成咬死自锁。",
+  "重型机车后轮调校专用特制超长柄高硬度铬钒钢双向棘轮扳手，手柄长达八十公分且截面为实心工字钢锻造，具备极强抗剪切抗扭力学性能。",
+  "雷击引发断电与外围起火后，浓烟与冰冷雨水从门缝同时灌入，车间地坪积水导电风险极高，两人必须在五分钟内排除机械阻滞脱身。",
+  "卷帘门底部设有离地手动防风插销，只要撬断导轨变形挤死的偏心销轴，两人即可合力顶推卷帘门底梁完成下部穿行脱困。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "傍晚的停车坪上，女机械师靠着一台拆了一半的机车，手里拿着一罐冰咖啡，眼睛一直盯着海边公路的尽头。",
+    "车灯终于从弯道上转回来，女机械师把咖啡往人怀里一扔，冷着脸说：慢了三秒。……下车，我看看悬挂。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_test_lap_wait",
+   "location_ids": [
+    "loc_workshop_front_lot"
+   ],
+   "start_minute": 1050,
+   "tags": [
+    "workplace"
+   ],
+   "title": "傍晚在停车坪上等试车回来"
+  },
+  {
+   "beats": [
+    "午后的前店里，收音机放着老摇滚，女机械师坐在柜台上晃着腿，手里一罐冰咖啡。",
+    "女机械师把另一罐推过来：便利店买一送一。……加奶的那罐是你的。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_counter_coffee",
+   "location_ids": [
+    "loc_workshop_front_lot"
+   ],
+   "start_minute": 840,
+   "tags": [
+    "workplace"
+   ],
+   "title": "前店柜台边喝一罐冰咖啡"
+  },
+  {
+   "beats": [
+    "上午停车坪上来了一台老机车，客人絮絮叨叨地说着要怎么改，女机械师蹲在车边，一言不发地拧开了排气管。",
+    "客人走后，女机械师站起来擦了擦手：那台车改不了，再改就要散架。……下回这种客人你来接。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_customer_intake",
+   "location_ids": [
+    "loc_workshop_front_lot"
+   ],
+   "start_minute": 660,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪女机械师接待改车的客人"
+  },
+  {
+   "beats": [
+    "工坊里，女机械师把那台赛车的发动机拆得满地零件，一颗颗螺丝按顺序摆在油布上，手上全是机油。",
+    "女机械师头也不抬：递十二号套筒。……不是那个，是旁边那个。你跑车的时候手那么准，递个工具怎么这么笨。"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "act_engine_rebuild",
+   "location_ids": [
+    "loc_hangar_rollup_door"
+   ],
+   "start_minute": 600,
+   "tags": [
+    "workplace"
+   ],
+   "title": "陪女机械师拆发动机"
+  },
+  {
+   "beats": [
+    "天刚亮，女机械师推出自己那台改了三年的老机车，拍了拍后座：上来。……今天我来跑，你在后面听听哪里不对。",
+    "海风刮在脸上，女机械师在弯道里压得很低，过了弯才回头喊：听出来了吗？……我就知道你听得出来。"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "act_coastal_ride",
+   "location_ids": [
+    "loc_workshop_front_lot"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "workplace"
+   ],
+   "title": "清晨跟女机械师去海边公路跑一圈"
+  },
+  {
+   "beats": [
+    "阁楼的工作台上摊满了赛车的改装图纸，女机械师咬着铅笔，一笔笔改着悬挂的参数。",
+    "女机械师把图纸推过来：你那天说的那个数据……我试了，你说对了。不许笑。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_loft_blueprint",
+   "location_ids": [
+    "loc_workshop_loft"
+   ],
+   "start_minute": 1140,
+   "tags": [
+    "workplace"
+   ],
+   "title": "阁楼里陪女机械师改图纸"
+  },
+  {
+   "beats": [
+    "卷帘门抬起、火被扑灭、油罐保住、车友们一个个散去之后，女机械师爬上阁楼，连体工装上全是泥水和机油，短发还在滴水。",
+    "天窗下，女机械师背过身，让人拉开湿透的连体工装的拉链，再用热毛巾一点点擦去肩背上的泥，毛巾擦过后颈时，女机械师轻轻吸了口气，往后靠了过来。",
+    "女机械师转过身，难得没冷着脸，声音很轻：今晚……我不想一个人听雨。你愿意留下吗？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_coverall_zipper",
+   "location_ids": [
+    "loc_workshop_loft"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "阁楼里替女机械师拉开连体工装的拉链"
+  },
+  {
+   "beats": [
+    "阁楼的天窗开着一条缝，海风吹进来，女机械师只穿着一件宽松的旧T恤，盘腿坐在铁架床上，手里一罐冰啤酒。",
+    "女机械师拍了拍身边的毛毯：坐过来。……今晚不吵数据，说说你第一次摔车是什么时候。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_beer_skylight",
+   "location_ids": [
+    "loc_workshop_loft"
+   ],
+   "start_minute": 1290,
+   "tags": [
+    "intimate"
+   ],
+   "title": "天窗下一起喝啤酒"
+  },
+  {
+   "beats": [
+    "开幕赛的前一夜，女机械师站在阁楼的天窗下，看着楼下停车坪上那台调好的赛车，手里攥着那叠写满批注的调校单。",
+    "女机械师没回头：明天你上赛道，我在维修区等你。……今晚你要是留下，以后每一场，我都给你调车。你说好，我才转身。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_race_eve",
+   "location_ids": [
+    "loc_workshop_loft"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "开幕赛前夜"
+  },
+  {
+   "beats": [
+    "天快亮的时候，天窗外的海泛起一层白光，女机械师在军绿毛毯里醒来，短发蹭着人的下巴，整个人缠在人身上。",
+    "女机械师把脸埋进人颈窝，闷声说：开门……晚一刻再开。客人不会跑的。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_loft_dawn_waves",
+   "location_ids": [
+    "loc_workshop_loft"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "海浪声里醒来"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "现代重型机车改装与工坊时代",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hangar_rollup_door"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{mechanic_haruka.name}黑色连体工装裤被泥水泡透，紧绷在修长身段上，两腮带着莹润的光泽的俏脸冻得发白却透着果决，递出八十公分长柄棘轮扳手。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hangar_rollup_door"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{mechanic_haruka.name}在刺鼻电火花中拉住合伙人的手，清冷眸光穿透暴雨，精准指向门底缝隙下偏心卡死的槽钢死点。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "slot": "test_rider_partner",
+   "text": "{test_rider_partner.name}用结实胸膛从后方护住女机械师，抵挡门缝呼啸刮入的碎石与雨水，双手沉稳覆上女机械师冰凉的手背。"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "slot": "test_rider_partner",
+   "text": "{test_rider_partner.name}握紧女机械师的手掌，将八十公分实心工字钢扳手前端狠狠楔入咬死的偏心销缝隙，锁定下压杠杆。"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{mechanic_haruka.name}两腮侧脸紧贴在合伙人颈侧，急促滚烫的呼吸扑在肌肤上，在绝境中清声下达双人合力下压指令。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{mechanic_haruka.name}整个后背严丝合缝嵌入合伙人怀中，在四十公分地槽泥水里借着双人体温抵御刺骨寒意，全力踩踏扳手尾端。"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{mechanic_haruka.name}展现出机车首席机械师的硬核决断，借着风压微弱减缓的瞬间，轻喝倒数完成全身重力的下压暴击。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "slot": "test_rider_partner",
+   "text": "{test_rider_partner.name}在偏心销崩裂的巨震瞬间双臂猛然收紧护住女机械师，任凭飞溅的金属碎屑擦过骑行服肩头。"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{mechanic_haruka.name}在极度逼仄地缝中感受到合伙人沉稳有力的心跳，平日傲娇筑起的心防在生死相依的托付下寸寸消融。"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_hangar_rollup_door"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{mechanic_haruka.name}紧咬下唇承受着杠杆剧烈反冲，在骨节生疼的重压下与合伙人同时发出决绝的低呼，硬生生压断死卡销轴。"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "slot": "test_rider_partner",
+   "text": "{test_rider_partner.name}与女机械师齐心协力用肩膀顶起卷帘门底梁，在火浪顺着地面机油席卷而来的刹那护持女机械师翻滚冲出门洞。"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{mechanic_haruka.name}在翻滚脱险的瞬间紧紧搂住合伙人的脖颈，将头埋在合伙人肩头急促喘息，任凭劫后余生的雨水冲刷身躯。"
+  },
+  {
+   "id": "hook_haruka_two_coffees",
+   "kind": "approach",
+   "location_ids": [
+    "loc_workshop_front_lot"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{npc.name}把一罐加奶的咖啡放在人手边，头也不抬：买一送一。……我不喝加奶的。"
+  },
+  {
+   "id": "hook_haruka_where_rider",
+   "kind": "approach",
+   "location_ids": [
+    "loc_workshop_front_lot"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{npc.name}站在停车坪上张望了一圈，冷着脸问：车还没回来？……没什么，问问悬挂。"
+  },
+  {
+   "id": "hook_haruka_ride_offer",
+   "kind": "approach",
+   "location_ids": [
+    "loc_workshop_front_lot",
+    "loc_workshop_loft"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{npc.name}把头盔往人怀里一扔：上车。……今天带你去海边公路听听发动机。"
+  },
+  {
+   "id": "hook_haruka_loft_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_workshop_loft"
+   ],
+   "slot": "mechanic_haruka",
+   "text": "{npc.name}倚在阁楼的铁门边，短发还湿着：冰箱里有啤酒。……上来吧。"
+  },
+  {
+   "id": "hook_rider_last_page",
+   "kind": "approach",
+   "location_ids": [
+    "loc_workshop_front_lot",
+    "loc_workshop_loft"
+   ],
+   "slot": "test_rider_partner",
+   "text": "{npc.name}把调校本子翻到最后一页又合上：没写什么……是数据。"
+  },
+  {
+   "id": "hook_rider_dock_note",
+   "kind": "approach",
+   "location_ids": [
+    "loc_workshop_front_lot",
+    "loc_hangar_rollup_door"
+   ],
+   "slot": "test_rider_partner",
+   "text": "{npc.name}指了指卷帘门外：装卸平台那边有消防栓。……万一出事，你记住往那里滚。"
+  }
+ ],
+ "id": "cool_mechanic_storm_hangar_rollup_jam",
+ "locations": [
+  {
+   "affordances": [
+    "在冰冷浑浊的泥水中寻找散落的重型维修工具",
+    "用后背和肩膀顶住卷帘门底梁以防其进一步下坠",
+    "观察导轨受压形变角度与外侧高压电弧引燃火势"
+   ],
+   "detail": "数百平米的机车改装大厅，雷击导致配电箱爆燃全场陷入黑暗，暴雨顺着排水渠倒灌至脚踝，重达一吨的防风卷帘门在十级穿堂风压下偏心扭曲咬死在四十公分高度。",
+   "exits": [
+    "loc_rollup_floor_gap",
+    "loc_hangar_loading_dock"
+   ],
+   "id": "loc_hangar_rollup_door",
+   "name": "卷帘门前",
+   "pressure_modifiers": {
+    "p_fire_toward_tank": "火光又近了一截，焦糊味顺着门缝灌进来。",
+    "p_live_water_floor": "门边的积水里噼啪闪了一下，两人一起缩了缩手。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "门缝外的火光一跳一跳，照得见对方脸上的泥水，照不见工坊深处倒了一地的工具。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "将八十公分实心工字钢棘轮长柄硬插进偏心剪切缝隙",
+    "双人身躯完全叠压趴伏以提供超过八百牛米的杠杆力矩"
+   ],
+   "detail": "卷帘门底梁与环氧积水地坪之间的极度逼仄空隙，刺鼻浓烟与冰冷雨水在此交汇，右侧双边槽钢导轨被横向风压硬生生顶成死角，防坠偏心圆柱销紧紧卡死在剪切槽内。",
+   "exits": [
+    "loc_hangar_rollup_door"
+   ],
+   "id": "loc_rollup_floor_gap",
+   "name": "门底地槽",
+   "pressure_modifiers": {
+    "p_wrench_chest_press": "女机械师趴在试车手身上，后背贴着对方胸口，四只手叠在扳手长柄上，湿透的背心贴着对方的骑行服。",
+    "p_wrench_handle_bend": "扳手的棘轮头被偏心销压出一道裂纹，再硬压可能整个崩开。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "右侧槽钢导轨被风压顶成死角，防坠偏心销卡在剪切槽里，扳手长柄插进去时溅起一片泥水。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "合力推开卷帘门底梁后顺着排水缓坡翻滚逃生",
+    "在安全连廊处脱力瘫坐并启动室外消防喷淋"
+   ],
+   "detail": "翻滚冲出门洞后的安全避险区域，设有防雨顶棚与应急防火栓，远离了内部航煤引燃的火场爆燃核心区。",
+   "exits": [
+    "loc_hangar_rollup_door",
+    "loc_workshop_front_lot"
+   ],
+   "id": "loc_hangar_loading_dock",
+   "name": "装卸平台",
+   "pressure_modifiers": {
+    "p_crew_outside_gate": "车友们在外面扯着门底梁往上拽，消防车被倒下的树堵在半路上。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "卷帘门外就是装卸平台和防雨连廊，消防车的警笛和车友们的喊声从外面传进来，一阵比一阵急。",
+   "witnesses": [
+    "bg_young_mechanic",
+    "bg_rider_club_member",
+    "bg_sponsor_driver"
+   ]
+  },
+  {
+   "affordances": [
+    "陪女机械师在停车坪上试一台车",
+    "在前店柜台边喝一罐冰咖啡",
+    "陪女机械师接待来改车的客人"
+   ],
+   "detail": "老机库前面隔出来的一间前店，玻璃柜台里摆着零件和头盔，墙上贴满了赛车海报，门外的停车坪上停着一排等着改装的机车，收音机里永远放着老摇滚。",
+   "exits": [
+    "loc_workshop_loft",
+    "loc_hangar_loading_dock"
+   ],
+   "id": "loc_workshop_front_lot",
+   "name": "工坊前店与停车坪",
+   "pressure_modifiers": {},
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "车友、客人、隔壁轮胎店的人都在停车坪上转悠，女机械师跟谁多说几句话，第二天整个车友会都知道。",
+   "witnesses": [
+    "bg_young_mechanic",
+    "bg_rider_club_member",
+    "bg_tire_shop_hand",
+    "bg_sponsor_driver"
+   ]
+  },
+  {
+   "affordances": [
+    "坐在天窗下陪女机械师喝啤酒",
+    "替女机械师拉开连体工装的拉链",
+    "把阁楼的铁门闩上"
+   ],
+   "detail": "老机库二楼隔出来的一间阁楼，铁梯上去，一张铺着军绿毛毯的铁架床、一台老冰箱、一张堆满图纸的工作台，墙上挂着女机械师的头盔和一件旧皮夹克，天窗外就是海。",
+   "exits": [
+    "loc_workshop_front_lot"
+   ],
+   "id": "loc_workshop_loft",
+   "name": "工坊二楼的阁楼",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "铁梯口的门一关，楼下工坊的声音就远了，只剩天窗外的海浪声和老冰箱的嗡嗡声。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "羽生",
+   "工藤",
+   "神崎",
+   "黑木",
+   "鹰野",
+   "相马",
+   "冬月",
+   "桐生",
+   "真岛",
+   "久我",
+   "三岛",
+   "柴田",
+   "鬼塚",
+   "风间"
+  ],
+  "given_female": [
+   "遥",
+   "响",
+   "凛",
+   "薰",
+   "茜",
+   "纱希",
+   "千夏",
+   "明日香",
+   "瞳",
+   "玲奈",
+   "真琴",
+   "沙耶",
+   "早苗",
+   "梓"
+  ],
+  "given_male": [
+   "隼",
+   "刚",
+   "龙司",
+   "健太郎",
+   "一辉",
+   "阵",
+   "洸",
+   "雅人",
+   "宏树",
+   "烈",
+   "昂",
+   "大和",
+   "拓真",
+   "仁"
+  ],
+  "given_neutral": [
+   "岬",
+   "钢",
+   "焰",
+   "雷",
+   "湾",
+   "锚",
+   "轮",
+   "油",
+   "铁",
+   "汐",
+   "风",
+   "岚",
+   "鸥",
+   "港"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "{family}君"
+   },
+   {
+    "gender": "any",
+    "pattern": "阿{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留湾岸老机库改装工坊的场景与日式人名。原稿除标题、简介、基调、女机械师外貌、世界规则风俗、三处脱困地点与转折外，人物、压力、日常与钩子大多照抄了吸血鬼地宫那一篇，这里按机车改装工坊的题材整篇重写：女机械师把海边一座废弃的老机库改成了机车改装工坊，和试车手合伙开店三年，两人为一台赛车的调校数据吵了一个夏天；白天是工坊前店、停车坪和二楼阁楼，夜里是强热带风暴雷击断电、电缆起火逼近老机库遗留的油罐、一吨重的卷帘门卡死在四十公分高处。新增工坊前店与女机械师住的阁楼两处日常地点；年龄放宽；婴儿肥与少女感的描写换成了其余外貌描写；亲密前提写明脱困之后、双方清醒自愿；新增阁楼里的四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    25
+   ],
+   "baseline": "刚进工坊打杂的年轻人，洗车、递扳手、扫地都干，第一次见识强热带风暴，吓得不轻。",
+   "gender": "any",
+   "id": "pi_shop_newcomer",
+   "reputation": "工坊里最年轻的帮手。",
+   "resources": [
+    "一套沾满机油的工装",
+    "一把扫帚",
+    "一本记零件编号的小本子"
+   ],
+   "risks": [
+    "干不好，就要被女机械师赶回家。"
+   ],
+   "role": "刚来工坊打杂的新人",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    45
+   ],
+   "baseline": "在工坊隔壁开了十年轮胎店的老板，两家店的客人一半是重的。",
+   "gender": "any",
+   "id": "pi_tire_shop_owner",
+   "reputation": "车圈里消息最灵通的人之一。",
+   "resources": [
+    "一家轮胎店",
+    "一屋子轮胎",
+    "一肚子湾岸车圈的闲话"
+   ],
+   "risks": [
+    "工坊要是烧了，轮胎店也保不住。"
+   ],
+   "role": "隔壁轮胎店的老板",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    40
+   ],
+   "baseline": "一本机车杂志的编辑，这一年一直在跟拍这台赛车怎么改出来。",
+   "gender": "any",
+   "id": "pi_moto_magazine_editor",
+   "reputation": "车圈里以眼光毒出名的编辑。",
+   "resources": [
+    "一台相机",
+    "一本采访本",
+    "一张杂志社的记者证"
+   ],
+   "risks": [
+    "赛车出了岔子，这一年的跟拍就白费了。"
+   ],
+   "role": "机车杂志的编辑",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    36,
+    52
+   ],
+   "baseline": "给这台赛车出钱的车队老板，赛季开幕赛参不参加、赞助撤不撤，最后都落在这个人的一句话上。",
+   "gender": "any",
+   "id": "pi_team_sponsor",
+   "reputation": "整个车圈都知道这位老板的分量。",
+   "resources": [
+    "一份赞助合同",
+    "一支车队",
+    "随时能撤掉赞助的权限"
+   ],
+   "risks": [
+    "开幕赛前工坊出了事，老板在车队里也难交代。"
+   ],
+   "role": "赞助车队的老板",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "海边一座废弃的老机库，被女机械师改成了机车改装工坊，和试车手合伙开店三年，为一台要参加赛季开幕赛的赛车调校数据吵了一整个夏天。机库外还留着一只航煤油罐没清走，一吨重的防风卷帘门在台风季总是卡。",
+ "pressures": [
+  {
+   "choice": "是趁火势被暴雨压下去的间隙下压，还是先往门缝外泼水挡一挡？",
+   "exits": [
+    {
+     "cost": "压到一半火又窜起来，可能前功尽弃",
+     "option": "趁火势被雨压下去合力下压"
+    },
+    {
+     "cost": "泼水就没法去压扳手",
+     "option": "先往门缝外泼水"
+    }
+   ],
+   "far": {
+    "consequence": "油罐爆燃，整座老机库被火吞没。",
+    "due_days": 1,
+    "trigger": "火烧到油罐"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_fire_toward_tank",
+   "immediate": {
+    "minutes": 2,
+    "text": "一阵火光窜起来，焦糊味灌进门缝，女机械师被呛得整个人伏到试车手身上，扳手差点脱手。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hangar_rollup_door",
+    "loc_rollup_floor_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "火又近了一截，油罐的防爆阀开始发出嘶嘶的声音。"
+   },
+   "objective": "在火烧到油罐之前抬门爬出去。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "电缆起火烧向油罐",
+   "trigger": "雷击打断的高压电缆在门外起火，火势顺着地上的机油一路烧向老机库遗留的航煤油罐，红光一跳一跳地映在门缝里。"
+  },
+  {
+   "choice": "是用扳手长柄硬压，还是先找东西把门梁垫住？",
+   "exits": [
+    {
+     "cost": "找东西要耗掉宝贵的时间",
+     "option": "先找东西垫住门梁"
+    },
+    {
+     "cost": "扳手的棘轮头可能先崩开",
+     "option": "直接用扳手硬压"
+    }
+   ],
+   "far": {
+    "consequence": "卷帘门彻底砸下来，两人被困在工坊里。",
+    "due_days": 1,
+    "trigger": "门梁塌落"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_door_pin_jammed",
+   "immediate": {
+    "minutes": 2,
+    "text": "扳手插进去，导轨里传来一声闷响，偏心销只松了半分。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "门梁又往下沉了一指，门缝只剩三十多公分。"
+   },
+   "objective": "在门梁再往下掉之前压断偏心销。",
+   "source": "accident",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "卷帘门偏心销卡死",
+   "trigger": "一吨重的防风卷帘门被风压摧折，右侧槽钢导轨被顶成死角，防坠偏心销死死卡在剪切槽里，门梁抬不起也落不下。"
+  },
+  {
+   "choice": "是先把那根电线挑开，还是趴在干一点的地方赶紧下压？",
+   "exits": [
+    {
+     "cost": "挑电线可能先被电到",
+     "option": "先把电线挑开"
+    },
+    {
+     "cost": "积水可能先漫过来",
+     "option": "趴在干地方赶紧下压"
+    }
+   ],
+   "far": {
+    "consequence": "两人被积水里的电击中，再也使不上力气。",
+    "due_days": 1,
+    "trigger": "积水漏电"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_live_water_floor",
+   "immediate": {
+    "minutes": 2,
+    "text": "门边的积水里噼啪闪了一下，女机械师猛地缩回手，整个人撞进试车手怀里。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "积水越来越深，能趴的干地方越来越少。"
+   },
+   "objective": "在被电到之前离开积水。",
+   "source": "person",
+   "start_minute": 10,
+   "tags": [
+    "workplace"
+   ],
+   "title": "积水漫地随时漏电",
+   "trigger": "暴雨倒灌，工坊地坪的积水漫过脚踝，断掉的电线就泡在门边，积水里时不时闪一下火花。"
+  },
+  {
+   "choice": "是为了面子撑起半寸距离，还是干脆贴紧了一起发力？",
+   "exits": [
+    {
+     "cost": "这一夜之后，女机械师再也不是只在停车坪上等车灯了",
+     "option": "放下面子贴紧对方，四只手一起压在扳手上"
+    },
+    {
+     "cost": "力气使不到一处，压不断偏心销",
+     "option": "各自侧身单手发力"
+    }
+   ],
+   "far": {
+    "consequence": "扳手从剪切缝隙里滑出去，错过最后的压断窗口。",
+    "due_days": 1,
+    "trigger": "分心导致扳手滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_wrench_chest_press",
+   "immediate": {
+    "minutes": 2,
+    "text": "女机械师被泥水呛得娇喘吁吁，连体工装的拉链崩开到腰际，湿透的深灰背心贴在身上，酥胸半露着压在对方手臂上，短发贴在两人之间。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hangar_rollup_door",
+    "loc_rollup_floor_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "两人的心跳撞在一起，女机械师的号子第一次喊乱了，谁都分不清是冷，还是别的什么。"
+   },
+   "objective": "贴得这么近的时候，还得把心思放在扳手的角度和号子上。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "门缝底下叠身相贴",
+   "trigger": "门底下只有四十公分高，女机械师只能趴在试车手身上，后背贴着对方胸口，四只手叠在扳手长柄上一起往下压。"
+  },
+  {
+   "choice": "是继续加力赌一把，还是退出来换个角度重新插？",
+   "exits": [
+    {
+     "cost": "手套会被磨烂",
+     "option": "用骑行手套垫住棘轮头再压"
+    },
+    {
+     "cost": "换角度要重新找死角，火可能等不及",
+     "option": "退出来换个角度"
+    }
+   ],
+   "far": {
+    "consequence": "崩开的扳手再也插不进剪切缝隙，两人失去唯一的撬具。",
+    "due_days": 1,
+    "trigger": "扳手崩开"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_wrench_handle_bend",
+   "immediate": {
+    "minutes": 2,
+    "text": "扳手发出一声刺耳的崩响，握扳手的虎口被震得发麻。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_rollup_floor_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "裂纹越来越长，扳手的长柄也开始微微发弯。"
+   },
+   "objective": "得在棘轮头崩开之前找准最后一个受力点。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "长柄扳手棘轮裂纹",
+   "trigger": "长柄扳手的棘轮头卡在剪切缝隙里，已经被偏心销压出一道裂纹，再硬压可能整个崩开。"
+  },
+  {
+   "choice": "是先压扳手，还是先冲门缝喊话让外面的人别乱拽？",
+   "exits": [
+    {
+     "cost": "喊话更耗力气",
+     "option": "先冲门缝喊话"
+    },
+    {
+     "cost": "外面的人可能拽歪门梁",
+     "option": "先压扳手自救"
+    }
+   ],
+   "far": {
+    "consequence": "门梁被外面的人拽歪，彻底卡死在导轨里。",
+    "due_days": 1,
+    "trigger": "门梁被拽歪"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_crew_outside_gate",
+   "immediate": {
+    "minutes": 2,
+    "text": "门外传来一阵乱喊，有人拽得太猛，门梁猛地一晃。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hangar_rollup_door",
+    "loc_rollup_floor_gap"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "外面的人越拽越乱，门梁晃得越来越厉害。"
+   },
+   "objective": "压断偏心销抬起门，让外面的人知道里面的人还活着。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "门外车友乱拽门梁",
+   "trigger": "消防车被倒下的树堵在半路上，车友们在门外扯着门底梁往上拽，车队经理却在喊先把赛车推出来。"
+  },
+  {
+   "choice": "认下违规，还是说出油罐是机库原主人留下的、从没人告诉过工坊",
+   "exits": [
+    {
+     "cost": "轮胎店的阿大会把这件事讲给整条街听",
+     "option": "连夜把赛车推进隔壁轮胎店藏起来"
+    },
+    {
+     "cost": "消防队要女机械师给队里的老车免费修一年",
+     "option": "请港区消防分队出一份情况说明"
+    }
+   ],
+   "far": {
+    "consequence": "赛车错过开幕赛，合伙三年的工坊只能散伙",
+    "due_days": 14,
+    "trigger": "工坊被查封"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_haruka_two_coffees",
+    "hook_haruka_where_rider",
+    "hook_haruka_ride_offer",
+    "hook_rider_last_page",
+    "hook_rider_dock_note"
+   ],
+   "id": "p_port_office_seal",
+   "immediate": {
+    "minutes": 10,
+    "text": "管理处的科长已经在停车坪上拍照"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_workshop_front_lot"
+   ],
+   "near": {
+    "deadline_minutes": 180,
+    "text": "中午十二点，管理处正式贴封条"
+   },
+   "objective": "在封条贴上卷帘门之前，把开幕赛要用的那台赛车弄出来",
+   "source": "institution",
+   "start_minute": 540,
+   "tags": [],
+   "title": "港区的封条",
+   "trigger": "风暴过去第二天上午，港区管理处的人来贴封条：老机库里还存着航煤油罐，算违规仓储，工坊要停业整改"
+  }
+ ],
+ "region": "老式机库改装车间主升降卷帘门与狭窄泄洪地槽",
+ "rules": [
+  {
+   "id": "r_workshop_rules",
+   "text": "工坊的规矩：车怎么改女机械师说了算，车怎么跑试车手说了算，两人吵归吵，签字要两个人都点头。"
+  },
+  {
+   "id": "r_ratchet_wrench_release",
+   "text": "硬核机械脱困逻辑：防风卷帘门偏心咬死必须依赖超长柄铬钒钢棘轮扳手插进偏心剪切槽，借双人体重的极限杠杆下压力别断销轴。"
+  },
+  {
+   "id": "r_season_opener_deadline",
+   "text": "赛季开幕赛还有两周，那台赛车两周之内调不好，赞助就要撤。"
+  },
+  {
+   "id": "r_no_smoking_in_shop",
+   "text": "工坊里不许抽烟，老机库的地底下还埋着当年的油管。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "初步了解",
+  "committed": "死里逃生",
+  "familiar": "技术默契",
+  "flirting": "试探相吸",
+  "intimate": "生死托付",
+  "stranger": "工坊搭档",
+  "testing": "合力压撬"
+ },
+ "status": "released",
+ "style_hint": "湾岸改装工坊的硬朗笔法：白天写停车坪上的改装车、拆开的发动机、老摇滚和机油味；夜里写暴雨砸铁皮屋顶、电缆火花逼近油罐的红光。女机械师冷艳嘴硬，张力藏在趴在泥水里、整个人压在对方身上一起使劲时那一声没压住的喘息里。",
+ "tension_engines": [
+  {
+   "id": "te_fire_toward_tank",
+   "text": "门外的电缆火花一路烧向油罐，红光一跳一跳地映在门缝里。"
+  },
+  {
+   "id": "te_door_pin_jammed",
+   "text": "卷帘门的偏心销死死卡在剪切槽里，单人压不动分毫。"
+  },
+  {
+   "id": "te_wrench_chest_press",
+   "text": "门底下只有四十公分高，两人只能叠着趴在泥水里一起往下压。"
+  },
+  {
+   "id": "te_live_water_floor",
+   "text": "积水漫过脚踝，断掉的电线就泡在门边，随时可能漏电。"
+  }
+ ],
+ "title": "机车女机械师·暴风雨机库卷帘门导轨偏心卡死",
+ "tone": [
+  "强热带风暴",
+  "高压电缆引燃",
+  "一吨卷帘门卡死",
+  "铬钒钢扳手撬销"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_winch_switch_melted",
+   "requires": [
+    "mechanic_haruka"
+   ],
+   "text": "备用电动卷扬机的应急开关已被雷击电涌烧熔，女机械师手中八十公分的重机加长棘轮扳手成为唯一的救命破局之物。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_hand_under_waist",
+   "requires": [
+    "mechanic_haruka"
+   ],
+   "text": "浑浊泥水浸湿的地面极度湿滑，试车手单手垫在女机械师腰侧防滑，两人的身躯在狭窄门缝间毫无间隙地紧密贴合。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_zipper_bursts",
+   "requires": [
+    "test_rider_partner"
+   ],
+   "text": "女机械师湿透的连体工装裤拉链崩开露出深灰运动背心，在跳动火光映照下，冷艳面孔愈发让人心悸。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_counterweight_snaps_up",
+   "requires": [
+    "mechanic_haruka",
+    "test_rider_partner"
+   ],
+   "text": "卷帘门重力配重链条在销轴别断的一刻猛然回弹，向上带起半米高度，瞬间为两人抢出宝贵的逃生净空。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_tank_valve_shrieks",
+   "requires": [
+    "mechanic_haruka"
+   ],
+   "text": "航煤油罐防爆阀在最后十秒发出尖锐啸鸣，两人凭借极限体能默契配合，在爆炸冲击波涌出前最后一刻滑出死角。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_tumble_onto_dock",
+   "requires": [
+    "mechanic_haruka",
+    "test_rider_partner"
+   ],
+   "text": "外侧暴雨连廊的水泥地坪让翻滚冲出的两人重重摔在一起，女机械师整个人跌在试车手怀中却忘了起身。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_tuning_feud_ends",
+   "requires": [
+    "mechanic_haruka"
+   ],
+   "text": "平日在改装工坊里争执不休的试车调校数据，在这一场生死与共的泥水逃亡后彻底化为不可动摇的深情羁绊。"
+  }
+ ]
+}

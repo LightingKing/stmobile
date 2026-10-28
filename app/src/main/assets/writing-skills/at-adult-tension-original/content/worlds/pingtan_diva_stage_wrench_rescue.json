@@ -1,0 +1,2328 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "评弹剧团德高望重的老琴师，在大厅焦急组织人员找寻工具。",
+   "age_range": [
+    65,
+    75
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_troupe_elderly_master_qin",
+   "line": "女先生还在台口大挂落后头！快拿老木工撬杠上去救人！快啊！",
+   "location_ids": [
+    "loc_theater_main_auditorium"
+   ],
+   "name": "老琴师秦老先生",
+   "role": "评弹剧团七旬老琴师"
+  },
+  {
+   "adult_context": "古戏楼值班青年剧务，在乐池边手足无措。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_stage_clerk_xiao_he",
+   "line": "秦老！台口金丝柚木大挂落整面砸下来了，出将入相通道全被封死了！",
+   "location_ids": [
+    "loc_theater_main_auditorium"
+   ],
+   "name": "剧务小何",
+   "role": "古戏楼二十一岁成年剧务助理"
+  },
+  {
+   "adult_context": "教条执法的防汛应急队长，暂时阻拦了外部人员强行冲台的行动，开书的板眼从没乱过一回。",
+   "age_range": [
+    40,
+    50
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_heritage_inspector_captain_wei",
+   "line": "山墙承重柱发生了两公分偏斜，主梁随时可能失稳，严禁盲目冲上戏台！",
+   "location_ids": [
+    "loc_theater_main_auditorium"
+   ],
+   "name": "文保魏队长",
+   "role": "历史文化街区防汛抢险队长"
+  },
+  {
+   "adult_context": "在后台安全出入口负责通报天气与险情的成年青年职员。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_troupe_junior_clerk_xiao_fang",
+   "line": "陆师兄！女先生姐！屋檐瓦片又掉下来一片，乐池积水涨上来了，抓紧时间脱困啊！",
+   "location_ids": [
+    "loc_stage_proscenium_apron"
+   ],
+   "name": "剧团小方",
+   "role": "剧团二十一岁成年青年职员"
+  },
+  {
+   "adult_context": "在戏台外侧递送干绳索与防滑木楔的热心后勤老员工。",
+   "age_range": [
+    50,
+    60
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_watchman_lao_song",
+   "line": "小陆！用你们修房子的钢家伙把底边别住！千万别让大木架滑下来砸穿台板！",
+   "location_ids": [
+    "loc_stage_proscenium_apron"
+   ],
+   "name": "更夫宋大叔",
+   "role": "老街临河值班巡逻员"
+  },
+  {
+   "adult_context": "检查后台仓储并向现场报告台基渗水危险的仓储管事。",
+   "age_range": [
+    45,
+    55
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_troupe_property_master_zhao",
+   "line": "暴雨把下水道顶开了，大厅水流倒灌进乐池了，整座台基都在轻微发晃！",
+   "location_ids": [
+    "loc_theater_main_auditorium"
+   ],
+   "name": "管箱赵师傅",
+   "role": "戏班衣箱与器物主管"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "评弹女先生与木作师傅在台口夹缝里背靠着台基、手叠着手，踩着女先生的板眼，把调音扳手一下一下压进木销暗槽。",
+   "id": "cc_diva_and_carpenter_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "diva_su_yunqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在生死死线前紧密协作构建力矩反支点，彼此产生绝对性命相托。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_carpenter_lu_tingyu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同为老戏台木构修缮骨干，知晓彼此手上力道与工具用法。",
+     "stage": "familiar"
+    },
+    {
+     "a": "diva_su_yunqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_carpenter_lu_tingyu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "评弹女名伶与厚重工匠在灾厄中成为生死不离的脱困搭档。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "diva_su_yunqing",
+    "apprentice_carpenter_lu_tingyu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在台面彻底垮塌前合力撬动硬木卡销回退顶开死锁脱险。",
+    "limit_gap": "女先生旗袍浸湿且体温燥热，工匠受困于死角狭缝后背承受巨大悬垂重压。",
+    "meeting_reason": "开书前一小时，女先生在台口吊嗓，木作师傅蹲在一旁给挂落补最后一颗木销。",
+    "resource_gap": "女先生拥有高硬度合金加长调音扳手，修缮师掌握木构受力重心与硬木卡销偏心牙纹卡死直觉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_floodwater_purge_rush",
+    "te_close_contact_body_heat"
+   ]
+  },
+  {
+   "chemistry": "剧团领班与巡查技术员以精准机械原理拆解偏心榫卯咬合，严丝合缝操作工具突破阻滞。",
+   "id": "cc_troupe_leader_and_inspector_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "diva_su_yunqing",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "多年协作维护戏楼演出安全，对彼此技术定力深具默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_carpenter_lu_tingyu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "文保工程部门同事，熟悉戏楼各处梁架结构。",
+     "stage": "familiar"
+    },
+    {
+     "a": "diva_su_yunqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_carpenter_lu_tingyu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在沉重大木压迫下并肩伏卧发力，消除身份悬殊界限。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "diva_su_yunqing",
+    "apprentice_carpenter_lu_tingyu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "利用调音扳手直角插头精准卡死销孔缺口并顺势撬动木销自救。",
+    "limit_gap": "台口通道彻底砸死无法借助外援，必须在昏暗灯光下凭手感盲操机械脱扣。",
+    "meeting_reason": "女先生拉着木作师傅去后台，说琵琶的琴轴松了，想找个懂木头的人看看。",
+    "resource_gap": "领班掌握戏台台底暗道位置，技术员拥有高精度金属卡尺与强光探照笔。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_frieze_deadweight_pinch",
+    "te_heritage_stage_wood_ruin"
+   ]
+  },
+  {
+   "chemistry": "大木总营造专家以绝对力学权威统摄全局，名伶遵从力学指挥，合力爆发千钧推力破死锁。",
+   "id": "cc_chief_architect_and_diva_high",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "diva_su_yunqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "总营造师指挥名伶校准发力矢量，展现卓越技术领导力。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_carpenter_lu_tingyu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "营造作坊上下级师徒，配合极为娴熟。",
+     "stage": "familiar"
+    },
+    {
+     "a": "diva_su_yunqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_carpenter_lu_tingyu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "典雅名伶与修造工匠共赴生死，结成无间同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "diva_su_yunqing",
+    "apprentice_carpenter_lu_tingyu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以高刚性力矩反推破除偏心卡死完成无损自救脱困。",
+    "limit_gap": "戏台挑梁处于临界断裂形变状态，任何蛮动都会引发全面塌陷。",
+    "meeting_reason": "文保那边派人来验收台口的修缮，女先生陪着上台，木作师傅捧着图纸跟在后头。",
+    "resource_gap": "总营造师掌握整座戏楼木架构件受力图，名伶掌握全部传统乐器特制五金构件。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_heritage_stage_wood_ruin",
+    "te_frieze_deadweight_pinch"
+   ]
+  },
+  {
+   "chemistry": "女先生以首席台柱身份发布决死抢救指令，舞台协理严谨配合测算每道力矩数值。",
+   "id": "cc_manager_and_diva_command",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "diva_su_yunqing",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "同处绝境，台上台下界限消融于贴身死斗协作中。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "apprentice_carpenter_lu_tingyu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在剧团舞台组共事，彼此熟稔信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "diva_su_yunqing",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "apprentice_carpenter_lu_tingyu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "女先生放下名伶矜持全力依赖工匠臂膀发力破局。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "diva_su_yunqing",
+    "apprentice_carpenter_lu_tingyu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保老戏台梁柱免遭撕裂损毁，全员安全破门撤离。",
+    "limit_gap": "台前通路彻底堵死导致外援断绝，必须完全服从女先生临危决断。",
+    "meeting_reason": "昨晚卖下的关子惹得听客吵了一夜，今晚开书前女先生把人叫到后台，要先商量这一回怎么接。",
+    "resource_gap": "女先生拥有全团最高艺术决断威信，协理精通戏台机械吊杆应急旁路位置。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_floodwater_purge_rush",
+    "te_heritage_stage_wood_ruin"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_nook_whisper_breath",
+   "reach": "all",
+   "text": "三十五公分台口死角两人肌肤紧贴急促滚烫的吐息与心跳共振"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_auditorium_rainstorm_echo",
+   "reach": "local",
+   "text": "挑空观众大厅暴雨倾盆与乐池老琴师隔空呼喊的沉闷回音"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "已满二十一岁成年青年女性，评弹界新生代台柱头牌，遇险展现出从容不迫的坚韧意志。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身着一袭水绿色高定织锦真丝提花旗袍，领口缀珍珠盘扣，乌黑长发盘成端庄典雅的苏式发髻，两腮带着健康的红润，在暴雨绝境剧烈喘息中双颊泛起娇艳酡红与细腻薄汗，下颌滑落晶莹汗滴。",
+    "旗袍被雨水汗水打湿半贴在玲珑起伏的身躯上，面庞在昏暗电筒光下透出凝脂般的温润光泽，双手全力按压特制合金调音扳手毫不退缩，柔婉神态中透着令人动容的铿锵威严。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱啼哭的软弱作态",
+     "鲁莽盲动的粗暴蛮干"
+    ],
+    "contrast": "台上吴侬软语、一个眼风就能让满场听客屏住气，下了台却会蹲在台口跟木作师傅争榫头该怎么打；挂落砸下来，第一个去摸木销暗槽的也是女先生。",
+    "core_value": "曲艺有骨，人亦有骨；在天灾倾覆面前，世俗繁文皆可退让，同心协力方见朗朗乾坤。",
+    "goal_options": [
+     "以合金调音扳手插头别入硬木挂落卡销暗槽撬脱木销",
+     "在台面彻底垮塌前协同木作师傅顶开挂落脱困自救"
+    ],
+    "never": [
+     "在同伴脱困前独自抽身离去"
+    ],
+    "prefers": [
+     "沉稳专注且臂力强健的担当男子",
+     "细致严谨的硬核工匠手段"
+    ],
+    "pressure_responses": {
+     "breaking": "哪怕双臂酸胀脱力、急促滚烫的吐息交织在木作师傅耳畔，亦咬紧贝齿全力抵住力矩绝不松懈分毫。",
+     "high": "在极限死角内整个人伏在木作师傅怀前，双手紧紧叠压在木作师傅手背上合力向下猛按扳手。",
+     "low": "在惊雷暴雨中镇定呼唤木作师傅，敏锐指出砸落挂落的受力死点在左侧连接榫卯。",
+     "mid": "毫不犹豫脱去薄纱披肩，贴身挤入三十五公分逼仄台口死角狭缝。"
+    },
+    "relationship_stance": "木作师傅修台口这些日子，女先生每天吊嗓都选在台口边，唱错一个字就回头看一眼，师傅从来不笑，只会停下刨子等女先生唱完。",
+    "withdrawal": "身体虚脱靠在木作师傅肩头微喘平复剧烈心跳，面颊微侧避开木作师傅目光掩饰羞怯。"
+   },
+   "gender": "female",
+   "gender_reason": "传统评弹名门正派二十一岁成年青年女名伶，端庄典雅温婉高华的女主。",
+   "id": "diva_su_yunqing",
+   "identity": {
+    "authority": "对老戏台演出器具与珍藏传世红木琵琶拥有最高调配保护权限。",
+    "exposure": "平日仪态万方端庄矜持的女先生，因施力俯卧在木作师傅怀前，湿透旗袍贴身急促起伏的娇柔姿态被木作师傅尽收眼底。",
+    "hidden": "旗袍暗袋贴身收藏着一张百年古戏台地下乐池暗道的隐秘机关墨线图",
+    "limits": [
+     "在挂落木销未被撬脱回退前无法抽身离开台口死角",
+     "暴雨持续侵蚀使戏台木板承重在十分钟内达到断裂极限"
+    ],
+    "obligations": [
+     "确保传世老红木琵琶免遭砸击损毁",
+     "与技术员木作师傅同舟共济排除自重卡死逃生"
+    ],
+    "resources": [
+     "一枚随身携带的特制加厚高硬度航空合金琵琶调音棘轮扳手（长二十公分，淬火特种高硬度合金铸造，直角插头坚韧抗扭）",
+     "一块擦琴专用防刮织锦真丝手帕"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "木作师傅在巨型挂落轰然砸落瞬间毫不犹豫以身躯硬扛大木护住{npc.name}的勇毅担当",
+     "在逼仄死角内木作师傅稳如磐石的强健臂膀与专注沉着的眼神"
+    ],
+    "boundaries": [
+     "恪守正派女先生的端庄自尊底线",
+     "脱困自救纯靠机械物理力矩绝不涉性"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在挂落死角紧贴木作师傅胸前，双手叠在木作师傅手背上共同握紧合金调音扳手全力下扳。",
+    "dislikes": [
+     "轻浮不庄重的孟浪举止",
+     "临阵推诿的自私行径"
+    ],
+    "expression": "脱险后在走廊轻柔取出手帕替木作师傅擦拭额角汗水与木屑，温声细语关切木作师傅伤势，眼波流转满含感激深情。",
+    "likes": [
+     "在剧烈机械摇晃中被有力臂弯紧紧扣住腰肢维持重心的安稳踏实感",
+     "突破木销咬死瞬间木作师傅贴在耳侧低沉温存的喘息安慰"
+    ],
+    "preconditions": [
+     "硬木挂落偏心木销成功撬脱松动",
+     "两人安全撤离至坚固平整地面",
+     "两人都清醒，心意出于自己，不是台口夹缝里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "老书场驻场的评弹女先生",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_stage_proscenium_apron",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_frieze_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "扳手承受数百牛顿反力矩微弯，两人手臂与手掌被粗糙木屑与金属毛刺磨破红肿。",
+      "option": "借特制合金琵琶调音扳手别入木销暗槽，两人身体紧贴合力向下施压撬动木销脱扣自救。"
+     },
+     {
+      "cost": "挂落自重远超人力极限，极易导致脊椎扭伤甚至诱发二次坍塌压覆。",
+      "option": "徒手尝试向前推举整面重达数百公斤的雕花挂落。"
+     }
+    ],
+    "pressure": "挂落重达数百公斤，偏心重力持续压迫戏台立柱，必须在台板开裂前撬松连接木销脱困自救。",
+    "trigger": "暴雨导致戏楼山墙承重柱微错位，悬空精雕重型挂落砸落死扣台口，堵截台前唯一逃生通路。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "贴得这样近，连木作师傅的心跳都踩在我的板眼上……别乱，今晚那个关子还没唱完呢。",
+    "surface": "莫慌，挂落是偏心咬在木销里了。调音扳手硬得很，你托着底，我往下压——听我的板眼，一、二、三。"
+   }
+  },
+  {
+   "adult_context": "已满二十一岁成年青年女性，全面统揽剧团日常事务与应急防灾，遇险沉着理性调度有力。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "内穿浅藕荷色修身真丝衬裙，外罩深青暗花对襟短褂，两腮线条饱满紧致带着柔和的轮廓，在沉重木构重压下咬紧红唇全力发力。",
+    "发髻因暴雨冲刷微散垂落于颈侧，面庞泛着激动的酡红，修长双腿半跪于潮湿氍毹，双手青筋微现紧扣扳手长身。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "怨天尤人"
+    ],
+    "contrast": "文弱雅致的名角领班，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "物理力矩胜于盲目蛮力，只要对准硬木挂落卡死死点，千钧大木亦可撬动。",
+    "goal_options": [
+     "利用调音扳手构建旋转力矩顶起木销",
+     "协同木作师傅抬起挂落底梁脱困"
+    ],
+    "never": [
+     "背弃并肩战斗的伙伴"
+    ],
+    "prefers": [
+     "严谨沉稳的机械操作",
+     "毫无迟疑的协同执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "紧咬银牙将全身气力倾注于扳手，以极度坚韧的耐力死磕到底。",
+     "high": "俯身死角以自身重力协助木作师傅压紧杠杆力臂末端。",
+     "low": "严令木作师傅保持呼吸平稳，仔细摸索木销卡死的受力榫槽。",
+     "mid": "果断将扳手直角插头卡入销孔外壁缺口建立坚固支点。"
+    },
+    "relationship_stance": "视木作师傅为最可靠的硬核后盾，在灾厄中缔结生死不渝的深厚默契。",
+    "withdrawal": "在脱困后退至干燥区域深呼吸平复心绪。"
+   },
+   "gender": "female",
+   "gender_reason": "评弹剧团青年掌事女名角态，精通戏班器械调度与老戏台构造的果决女性。",
+   "id": "troupe_leader_su_yunqing",
+   "identity": {
+    "authority": "对老戏台演出道具与台面机关拥有最高现场处置指挥权。",
+    "exposure": "温雅清丽的女掌班被汗水与雨水湿透薄衫，起伏的体态在逼仄空间完全展露。",
+    "hidden": "熟知戏台台底备用支点千斤顶存放暗室",
+    "limits": [
+     "受困于倾倒挂落下方狭缝缺乏大型撬杠",
+     "必须在十分钟内排除机械死锁"
+    ],
+    "obligations": [
+     "保护祖传名贵琵琶免遭砸击损毁",
+     "与修缮师木作师傅安全撤离险境"
+    ],
+    "resources": [
+     "一柄特种高硬度合金加长调音扳手",
+     "特制高韧性防雨生丝扎带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "木作师傅在危难中展现出的木构工程专业判断力与勇猛担当",
+     "近距离贴身支撑时对方如山岳般可靠的臂弯温度"
+    ],
+    "boundaries": [
+     "严守戏班掌班端庄名誉",
+     "自救恪守硬核机械物理底线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在挂落死角俯身相依，胸前紧贴木作师傅臂膀共同握持工具完成绝地逆转。",
+    "dislikes": [
+     "犹豫退缩",
+     "轻浮孟浪"
+    ],
+    "expression": "默默递上干净干手帕为木作师傅擦拭脸上雨水，低声叮嘱木作师傅注意保暖防寒。",
+    "likes": [
+     "彼此心领神会的眼神对视",
+     "工具严丝合缝卡死木销的机械咬合感"
+    ],
+    "preconditions": [
+     "挂落木销成功松动脱扣",
+     "人员全员脱险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "评弹剧团青年掌班女领班",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_stage_proscenium_apron",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_frieze_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "台下的听客们还捧着茶壶没散，施力人员小臂被粗糙木刺擦破皮肉，体力消耗达到临界生理极限。",
+      "option": "以合金调音扳手卡死木销缺口，双手合力向下施压旋转顶出榫眼自救。"
+     },
+     {
+      "cost": "耗时过长极易导致立柱突然失稳发生全面塌落。",
+      "option": "盲目寻找外侧木锯锯断挂落构件。"
+     }
+    ],
+    "pressure": "戏台台板在暴雨冲刷下急剧减弱承重，必须立即排解挂落偏心咬合。",
+    "trigger": "狂风撕裂山墙导致承重微倾，精雕落地挂落失重砸落咬死台口立柱。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "风雨太猛了……但只要有木作师傅在身边，这沉重的木销必能被我们攻克！",
+    "surface": "挂落偏心吃紧在第三个榫眼！木作师傅，按我说的角度，把调音扳手插进去，反向扳动这颗螺母！"
+   }
+  },
+  {
+   "adult_context": "已满二十一岁成年女青年，具备非遗乐器修造特级认证，遇险理性从容。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "内穿浅水蓝立领窄袖短衫，外系深黑耐磨围裙，两腮线条饱满紧致带着柔和的轮廓，在沉重挂落重压下咬紧红唇全力施压。",
+    "乌黑长发用沉木发簪利落固定，面颊在暴雨闪电下泛着清冷坚毅的酡红，修长双腿半跪于台面，双手紧握调音扳手末端。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "怨天尤人"
+    ],
+    "contrast": "温雅沉静的乐器学者，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "木构形变皆有物理反力点可破，以精准力矩胜盲目蛮干。",
+    "goal_options": [
+     "利用调音扳手反向撬动木销卡槽脱扣",
+     "协同木作师傅顶正挂落脱险自救"
+    ],
+    "never": [
+     "临阵弃械逃生"
+    ],
+    "prefers": [
+     "精准的受力点分析",
+     "果断默契的力矩配合"
+    ],
+    "pressure_responses": {
+     "breaking": "双手磨破出血亦死死抵住力臂末端，直至木销产生松动位移。",
+     "high": "以自身全部自重从侧方压紧扳手力臂，消除杠杆滑脱位移。",
+     "low": "冷静扫视挂落倾斜夹角，瞬间锁定偏心卡死点。",
+     "mid": "果断将调音扳手直角插头别入木销暗槽建立坚固支点。"
+    },
+    "relationship_stance": "视木作师傅为最可靠的硬核工匠后盾，在灾厄中缔结生死不渝的深厚默契，在这座书场里唱了好几年开篇。",
+    "withdrawal": "在脱困后退至干燥区域深呼吸平复心绪并整理衣襟。"
+   },
+   "gender": "female",
+   "gender_reason": "非遗传统乐器修造女学者态，精通木构共鸣与硬木榫卯受力的知性女性。",
+   "id": "instrument_conservator_su",
+   "identity": {
+    "authority": "对老戏台音响反响板与硬木木构物理受力支点拥有专业鉴定权。",
+    "exposure": "围裙被雨水汗水打湿贴合曼妙腰身，在逼仄空间完全展露知性女子罕见的柔韧体态，在这座书场里唱了好几年开篇。",
+    "hidden": "熟知老戏台台面防震加固暗梁确切坐标",
+    "limits": [
+     "受困于死角缺乏重型千斤顶",
+     "必须在十分钟内排除机械抱死"
+    ],
+    "obligations": [
+     "力保百年古戏台木雕免遭毁灭破坏",
+     "与技术员木作师傅紧密协作逃生"
+    ],
+    "resources": [
+     "一柄特种航空合金琵琶调音扳手",
+     "特制高强度防滑生丝巾"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "木作师傅在危急关头以肉身抗衡巨木的勇毅担当",
+     "狭小死角内对方宽阔臂弯传来的沉厚力量感"
+    ],
+    "boundaries": [
+     "严守学者自尊自爱底线",
+     "出路纯靠机械杠杆自救"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "伏在木作师傅臂侧死角，双手叠于木作师傅手背合力下按扳手。",
+    "dislikes": [
+     "犹豫退缩",
+     "轻浮孟浪"
+    ],
+    "expression": "轻柔为木作师傅擦去肩头水渍与尘屑，温言抚慰并检查对方手腕伤痕。",
+    "likes": [
+     "彼此眼神交汇瞬间的定力",
+     "工具严密咬死木销瞬间的紧实阻尼感"
+    ],
+    "preconditions": [
+     "硬木卡销完全脱出卡槽",
+     "全员安然脱困出险"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "非遗木构乐器修造青年学者",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_stage_proscenium_apron",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_frieze_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员前臂与手掌承受强烈反力矩压迫造成肌肉酸麻淤青。",
+      "option": "以特制调音扳手别入销槽，双手合力向下施压旋转顶出榫眼脱扣自救。"
+     },
+     {
+      "cost": "锯割破坏结构平衡极易诱发大面积塌落断送生路。",
+      "option": "强行寻找木锯切断受压支撑构件。"
+     }
+    ],
+    "pressure": "台板受潮承重逼近极限，必须在立柱断裂前手动扳脱木销。",
+    "trigger": "屋檐受狂风撕扯雨水倒灌，精雕金丝柚木挂落失重倾倒砸死走廊立柱。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "暴雨越发凶猛了……只要这根扳手不崩断，我们一定能把挂落顶脱卡槽！",
+    "surface": "木作师傅，看准木销受力咬合面！调音扳手刚性极强，顺着逆时针方向一起往下压！"
+   }
+  },
+  {
+   "adult_context": "已满二十二岁成年青年，精通传统木构营造与榫卯受力平衡，身体雄健勇毅果敢。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿深灰纯棉工装短袖短打与加厚长裤，双臂肌肉结实紧绷，眼神坚毅沉稳，额前浸满用力迸发的汗珠与雨滴。",
+    "腰系多功能皮质工具包，双手佩戴防滑耐磨手套，在倾覆挂落前宛若中流砥柱稳如磐石，旗袍领口的盘扣扣得一丝不苟。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延",
+     "弃弱自保"
+    ],
+    "contrast": "平日沉稳寡言的厚重技术员，在生死一线时爆发出令人心折的刚毅与担当。",
+    "core_value": "木石虽重，其心有理；只要找准反力支点，千钧重架亦可动摇回退。",
+    "goal_options": [
+     "以剔凿钢刀护持调音扳手防止打滑",
+     "全力下压杠杆扳脱木销脱扣"
+    ],
+    "never": [
+     "背叛女先生的信任"
+    ],
+    "prefers": [
+     "稳扎稳打的物理自救",
+     "毫无保留的绝对信赖"
+    ],
+    "pressure_responses": {
+     "breaking": "以肩膀死死顶住倾斜木梁，哪怕骨骼剧痛也要为女先生顶出撤离生路。",
+     "high": "双手包覆住女先生双手，毫无保留爆发全身背肌与核心力量下按。",
+     "low": "迅速跪地稳固挂落底边，为两人争取刚性防压逃生间隙。",
+     "mid": "伏身死角指引女先生调整握持角度，确保施力矢量切向垂直。"
+    },
+    "relationship_stance": "原本只是接了书场修台口的活，修着修着，每天傍晚开书都会在后排站一回，听完女先生那段开篇才收工具。",
+    "withdrawal": "确认女先生安然无恙后方才脱力坐在台沿边喘息微笑。"
+   },
+   "gender": "male",
+   "gender_reason": "古建筑大木作修造青年工匠，承担护卫古戏楼与受困人员之责。",
+   "id": "apprentice_carpenter_lu_tingyu",
+   "identity": {
+    "authority": "对现场木构构件受力安全与撬动反支点构筑拥有最高裁定权。",
+    "exposure": "工装短袖被雨水汗水湿透贴紧胸膛，在近身施力时男子汉纯阳气魄完全展现。",
+    "hidden": "随身携带一枚高硬度淬火纯钢销钉",
+    "limits": [
+     "身负护卫女先生重托绝不退后半分",
+     "死角逼仄难以施展全身力量"
+    ],
+    "obligations": [
+     "以身为盾护住女先生免受挂落坠落碾压",
+     "合力破拆木销死锁"
+    ],
+    "resources": [
+     "纯钢平头剔凿钢刀",
+     "加厚橡胶防滑敲击锤",
+     "防滑生牛皮手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女先生在千钧一发之际毫无名角娇态、与自己并肩卧地拼命的坚韧气魄",
+     "紧贴近战时女先生面颊透出的温润娇红与急促滚烫的吐息"
+    ],
+    "boundaries": [
+     "恪守规矩分寸",
+     "绝无轻慢之意"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "后背抵住戏台立柱，双手紧紧扣住合金调音扳手，由女先生伏于怀侧合力下压。",
+    "dislikes": [
+     "轻蔑工匠",
+     "言而无信"
+    ],
+    "expression": "脱险后默默将自身干燥外衣披在女先生微湿的旗袍肩头，退后半步恭敬守卫。",
+    "likes": [
+     "彼此掌心交叠时的沉稳踏实",
+     "同声发力突破难关时的心意共鸣"
+    ],
+    "preconditions": [
+     "全员脱困安全无虞",
+     "传世名琴无损"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "修缮书场台口的木作师傅",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_stage_proscenium_apron",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_frieze_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌虎口在剧烈金属反冲下产生剧烈震颤与轻度淤血。",
+      "option": "借合金调音扳手与剔凿钢刀组成复合撬杠，以全身重量向下猛压扳脱木销自救。"
+     },
+     {
+      "cost": "可能导致木销劈裂引发挂落全面坍塌断绝全部生路。",
+      "option": "用工具强行砸击木销外沿试图砸断木料。"
+     }
+    ],
+    "pressure": "重型挂落自重持续压迫台口立柱，必须在木销彻底咬死前施加百公斤反力矩破锁。",
+    "trigger": "雕花挂落轰然砸落卡死台口，三十五公分死角为唯一逃生通道，雨水倒灌加剧。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "女先生身上的脂粉香混着雨水……手要稳。这台口是我修的，砸下来的东西，我得亲手撬起来。",
+    "surface": "女先生往后靠半分，我先垫上橡胶锤！扳手咬住木销孔，跟着你的板眼一起压。"
+   }
+  },
+  {
+   "adult_context": "已满二十二岁成年青年工程师，具备全套高级古建营造与应急抢险资质，冷静机敏。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿深蓝防静电防水连体工装，腰挂专业工具包，身形挺拔矫健，眼神沉静敏锐。",
+    "手持防爆探照灯，工装拉链微开露出结实锁骨，在急迫险情下有条不紊精准指挥。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目冒险",
+     "违规操作"
+    ],
+    "contrast": "现代工程专家与传统评弹女名伶在逼仄木梁狭缝中的硬核化学反应。",
+    "core_value": "任何复杂的自重卡死，本质上都有力矩反支点可以攻克。",
+    "goal_options": [
+     "利用合金扳手反向撬动木销",
+     "协同顶起挂落底梁安全出困"
+    ],
+    "never": [
+     "在风险未清前让女先生以身犯险"
+    ],
+    "prefers": [
+     "严谨精准的技术推演",
+     "临危不乱的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "毫不动摇保持发力姿势直至听见木销脱槽的清脆声响。",
+     "high": "在极限逼仄死角内以身体替女先生挡住上方滑脱的木雕碎屑，合力向下压杠杆。",
+     "low": "迅速判断出挂落受力卡死根源在于左端受潮微胀，指出木销为唯一破解点。",
+     "mid": "用强光探照笔为女先生精准标定扳手插头嵌入的角度与受力点。"
+    },
+    "relationship_stance": "恪尽职守又深怀体贴，在危险中给予女先生无可替代的坚实安全感。",
+    "withdrawal": "协助女先生撤离至安全区域后立即设置警戒隔离。"
+   },
+   "gender": "male",
+   "gender_reason": "文保建筑驻场工程师，精通古戏楼大木构受力结构与应急防灾。",
+   "id": "civil_inspector_lu_tingyu",
+   "identity": {
+    "authority": "掌控戏楼木构抗风抗雨抢险现场最终处置指挥权。",
+    "exposure": "防水工装被汗水蒸透，近距离伏卧时散发着阳刚利落的气息。",
+    "hidden": "知晓戏台台板下方备用支撑暗柱确切坐标",
+    "limits": [
+     "暴雨封锁切断外侧大型机械施救途径",
+     "必须依靠手工便携工具反向破死锁"
+    ],
+    "obligations": [
+     "排查消除戏台走道结构性坍塌隐患",
+     "安全引导女先生脱离险境"
+    ],
+    "resources": [
+     "防爆工业强光探照笔",
+     "精密调缝防割卡尺",
+     "防水生丝固定带"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女先生在危机中对力学原理解释的敏锐领悟力与毫不犹豫的决断魄力",
+     "彼此贴身协作中评弹名伶身上淡淡冷香与急促呼吸形成的反差冲击"
+    ],
+    "boundaries": [
+     "严守专业工程师职业操守",
+     "规矩分明"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "并肩俯卧于夹缝，单手撑地保持避险空隙，另一手与女先生紧握扳手全力压制。",
+    "dislikes": [
+     "违章蛮干",
+     "盲目自大"
+    ],
+    "expression": "护送女先生至安全区域后，微笑着递上干净纸巾，目光温和坚定。",
+    "likes": [
+     "默契的眼神确认",
+     "手把手校准器械时的体温传递"
+    ],
+    "preconditions": [
+     "完全排除戏台二次坍塌隐患",
+     "人员无伤撤离"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "文保建筑驻场工程师",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_stage_proscenium_apron",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_frieze_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "工具把手产生微小弯曲变形，施力人员手臂承受剧烈肌肉酸胀。",
+      "option": "以调音扳手反撬木销并借力矩压平变形卡爪，顺势顶退挂落底木脱险。"
+     },
+     {
+      "cost": "外侧雨大风狂且下方水深不明，极易坠落重伤丧命。",
+      "option": "强行拆卸戏台侧向雕花木栏杆试图从乐池外侧翻越。"
+     }
+    ],
+    "pressure": "戏台将在几分钟内达到受力屈服极限，必须在结构断裂前手动扳脱木销脱困。",
+    "trigger": "强风暴雨致使重型雕花大木挂落滑脱砸落，台口彻底抱死，积水逐渐侵蚀台基。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要扳手咬住木销，这个力矩足够突破咬合阻力……女先生，跟紧我的节奏，三二一压！",
+    "surface": "女先生，卡销卡在死点！调音扳手刚性足够，插进暗槽反向扳，就能顶动咬合！"
+   }
+  },
+  {
+   "adult_context": "已满二十二岁成年青年学者，体格魁梧神情沉毅，精通戏台大木梁架支撑力学。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "身穿黑色战术背心与耐磨工装长裤，双臂青筋虬结，神情沉静冷静，眼神深邃锐利。",
+    "腰系加厚多功能装备带，佩戴防割手套，在倾斜沉重的金丝柚木大架前稳如磐石从容自若。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿扯皮",
+     "投机取巧"
+    ],
+    "contrast": "深沉强悍的营造专家与温雅端庄的评弹名伶，在机械死线前形成的强烈反差张力。",
+    "core_value": "一切结构皆有力学破绽，只要找准力矩反支点，千钧大木亦可扳正。",
+    "goal_options": [
+     "利用合金扳手组装复合杠杆",
+     "合力扳动卡死的硬木连接销"
+    ],
+    "never": [
+     "在重门未开前抛下同伴"
+    ],
+    "prefers": [
+     "硬桥硬马的扎实手艺",
+     "毫无保留的生死协作"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将木销顶脱卡槽。",
+     "high": "双手死死握住杠杆最外端，以千钧背肌全力向下猛按到底。",
+     "low": "冷静扫视挂落倾斜夹角，瞬间锁定受力最集中的连接榫眼。",
+     "mid": "护住女先生身躯，指导其将调音扳手卡入受力中心暗槽。"
+    },
+    "relationship_stance": "视女先生为值得誓死守护的知性名伶，危难中建立生死莫逆的赤诚信任。",
+    "withdrawal": "确认大梁完全回正稳固后，单臂护送女先生安全撤至后台。"
+   },
+   "gender": "male",
+   "gender_reason": "古建筑营造大匠，对老戏台大跨度木构重力分配与重型挂落脱阻经验丰富。",
+   "id": "master_carpenter_lu_tingyu",
+   "identity": {
+    "authority": "掌控戏楼地基与立柱受力结构紧急破拆最终决断权。",
+    "exposure": "黑色背心被雨水汗水打湿勾勒出雄健背脊，散发着沉稳刚烈的阳刚气概。",
+    "hidden": "掌握戏台台基受力暗梁确切坐标",
+    "limits": [
+     "受困于死角缺乏重型液压千斤顶",
+     "必须依靠现有便携器材完成力矩反推"
+    ],
+    "obligations": [
+     "保护名伶女先生人身安全",
+     "确保古戏楼核心非遗大木免遭全毁"
+    ],
+    "resources": [
+     "特种合金加力套杆",
+     "戏楼木构三维受力图谱",
+     "高等级防割手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "女先生在狂风骤雨绝境中不失名家大度的坚韧沉静",
+     "贴身施力时女先生温润如玉的身段与柔韧坚毅的发力姿态"
+    ],
+    "boundaries": [
+     "严守专业分寸",
+     "严守自愿安全原则"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "单臂护在女先生身前构成安全空隙，另一手与女先生共同紧握扳手全力下压。",
+    "dislikes": [
+     "轻浮傲慢",
+     "无端猜忌"
+    ],
+    "expression": "脱险后退后三步站定抱拳，沉声道一句‘女先生受惊了，匠人幸不辱命’。",
+    "likes": [
+     "彼此心照不宣的眼神对碰",
+     "合力突破死锁瞬间的畅快淋漓"
+    ],
+    "preconditions": [
+     "挂落完全顶脱人员脱险",
+     "名贵琵琶完好"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "古戏楼总修造工程顾问",
+   "schedule": [
+    {
+     "from": 1395,
+     "location_id": "loc_stage_proscenium_apron",
+     "to": 1400
+    },
+    {
+     "from": 1400,
+     "location_id": "loc_collapsed_frieze_nook",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手臂与手掌肌肉极度酸痛，工具把手产生微量金属疲劳应力。",
+      "option": "以合金调音扳手组装复合支点，合力向下猛压撬出木销脱扣自救。"
+     },
+     {
+      "cost": "重达数百公斤的自重极易造成肩关节脱臼骨折，成功率几乎为零。",
+      "option": "强行以身体肩膀向上托举整面倾斜大木挂落。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬开暗槽死锁，否则台基断裂全员将坠坑遇难。",
+    "trigger": "挂落自重失控砸落，木销死死咬入地面青砖榫槽，暴雨倒灌险情迫在眉睫。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "姑娘的身子全靠着我……这股清冷发香直往鼻尖里钻。拼了这条命，也绝不让大木伤姑娘分毫！",
+    "surface": "女先生莫慌！这木构吃的是偏心阻滞！调音扳手咬准了榫眼，我们合力管保把这东西顶松！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "六月，入梅",
+  "minute": 1395
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "评弹名伶登台开锣前需着修身真丝旗袍净手调弦以显传统曲艺严谨庄重礼数。",
+  "名伶平日在梨园清雅从容端庄自持，唯有暴雨惊变生死死线压制下方能放下拘谨贴身协作。",
+  "名伶随身锦囊配备加厚高硬度特种合金琵琶调音棘轮扳手，兼具校音与刚性杠杆功能。",
+  "古建筑修缮师巡检老戏楼随身佩戴多功能调平水平卡尺与实心纯钢冲子，插挂于工装皮袋。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "以丝绒锦布细致擦拭红木琵琶琴腹与琴轸尘屑",
+    "使用特制合金调音扳手微调老缠弦张力与泛音纯度",
+    "在香炉中点燃一片安神沉香并记录戏台温湿度计示数"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_pipa_tuning_routine_check",
+   "location_ids": [
+    "loc_stage_proscenium_apron"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "晨间传世红木琵琶校准试音"
+  },
+  {
+   "beats": [
+    "用软毛羊毫笔清理透雕龙凤眼窝积尘",
+    "察看悬挂硬木卡销榫槽木料有无受潮发胀松动",
+    "检查防风拉索花篮螺栓锁死张力刻度"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_frieze_carving_dusting_log",
+   "location_ids": [
+    "loc_stage_proscenium_apron"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "workplace"
+   ],
+   "title": "台口金丝柚木挂落除尘检视"
+  },
+  {
+   "beats": [
+    "使用剔凿钢刀清理柱脚榫眼积存木屑",
+    "垫入加厚生牛皮垫片消除立柱微小晃动旷量",
+    "微调水平仪角度核验戏台台面水平承重参数"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [],
+   "id": "act_stage_timber_railing_stability",
+   "location_ids": [
+    "loc_stage_proscenium_apron"
+   ],
+   "start_minute": 1405,
+   "tags": [
+    "workplace"
+   ],
+   "title": "戏台立柱承重榫眼紧固保养"
+  },
+  {
+   "beats": [
+    "检查重檐歇山顶琉璃瓦接缝灰浆风化程度",
+    "使用探照灯察看汇水铜天沟有无树枝杂物阻塞",
+    "手动测试抗台风紧急排水分流闸阀开合行程"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_roof_cornice_drainage_patrol",
+   "location_ids": [
+    "loc_theater_main_auditorium"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "飞檐翘角排水天沟抗台风巡检"
+  },
+  {
+   "beats": [
+    "傍晚六点，书场的伙计在观众大厅里摆好茶碗和瓜子碟。",
+    "老听客们陆续进来，熟门熟路地坐到自己的老位子上，跟伙计寒暄几句。",
+    "后台传来三弦调音的声音，大厅里渐渐安静下来。"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [
+    "hook_tingyu_back_row",
+    "hook_tingyu_wood_pin",
+    "hook_yunqing_guanzi"
+   ],
+   "id": "act_troupe_flood_evac_drill",
+   "location_ids": [
+    "loc_theater_main_auditorium"
+   ],
+   "start_minute": 1080,
+   "tags": [
+    "workplace"
+   ],
+   "title": "开书前的大厅"
+  },
+  {
+   "beats": [
+    "女先生亲自清点红木琵琶铜锁印鉴铅封",
+    "关闭长廊全部主照明切入低功耗夜间安防模式",
+    "确认出将入相双向防盗木移门插销正常就位"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_dusk_theater_lockdown_seal",
+   "location_ids": [
+    "loc_stage_proscenium_apron"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "日暮闭台非遗乐器入柜封缄"
+  },
+  {
+   "beats": [
+    "挂落撬起、台口撑住、那把老琵琶从乐池里捞出来之后，女先生被人扶进后台，旗袍湿透贴在身上，鬓边的珠花掉了一朵。",
+    "后台只开着一盏妆镜灯，女先生坐在镜前，让人替自己一颗颗解开领口的盘扣，拿干毛巾擦去颈后的雨水，镜子里两人的目光碰在一起，女先生没有躲。",
+    "女先生回过身，指尖点了点对方的胸口：今晚的关子是没法唱了……那就唱给你一个人听。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_backstage_qipao_buttons",
+   "location_ids": [
+    "loc_backstage_mirror_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "后台妆镜前替女先生解开旗袍盘扣"
+  },
+  {
+   "beats": [
+    "散场后的妆镜间里，女先生抱着琵琶坐在梳妆台前，旗袍的开衩里露出一截白腿，轻拨两下弦试音。",
+    "女先生抬眼一笑：今朝唱一段私房的开篇，不收书钱。……听完了，要拿别的东西来抵。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_mirror_room_private_kaipian",
+   "location_ids": [
+    "loc_backstage_mirror_room"
+   ],
+   "start_minute": 1250,
+   "tags": [
+    "intimate"
+   ],
+   "title": "只唱给一个人的开篇"
+  },
+  {
+   "beats": [
+    "女先生从老街口端回两碗小馄饨，旗袍外披了一件开衫，坐在梳妆台边，一只只吹凉了喂过来。",
+    "女先生用吴语软软地说：吃了我的馄饨，就是我的人了。……侬肯不肯？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_mirror_room_wonton_night",
+   "location_ids": [
+    "loc_backstage_mirror_room"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "宵夜的一碗小馄饨"
+  },
+  {
+   "beats": [
+    "清晨，女先生站在妆镜间的窗前吊嗓子，素着脸，长发随便挽着，只穿一件月白色的睡衣。",
+    "吊完嗓子，女先生回头看人：嗓子开了。……今朝第一句，想唱给你听，侬要听哪段？"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_mirror_room_morning_voice",
+   "location_ids": [
+    "loc_backstage_mirror_room"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "清晨吊嗓子"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "江南水乡现代古风百年传统戏楼",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_rainstorm_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_proscenium_apron"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{diva_su_yunqing.name}按住胸口急促起伏的织锦真丝旗袍，面颊在惊雷闪电下冷汗淋漓，毅然拔出随身实心加厚高硬度合金琵琶调音扳手直指台口死角。"
+  },
+  {
+   "id": "hk_countdown_reading_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_proscenium_apron"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{diva_su_yunqing.name}听到观众大厅雨幕凄厉倾泻，在滚烫急喘中咬紧银牙侧身挤入三十五公分通道直面死锁的木销。"
+  },
+  {
+   "id": "hk_bookshelf_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "slot": "apprentice_carpenter_lu_tingyu",
+   "text": "{apprentice_carpenter_lu_tingyu.name}双膝跪地紧贴湿滑戏台，以坚实脊背硬生生扛住倾斜挂落晃动震颤，大声提醒身前姑娘对准榫眼木销咬合槽！"
+  },
+  {
+   "id": "hk_rail_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "slot": "apprentice_carpenter_lu_tingyu",
+   "text": "{apprentice_carpenter_lu_tingyu.name}反手抽出剔凿钢刀垫入青砖缝隙底层，用粗糙手掌牢牢护住调音扳手末端防止滑动，大声喝道就是这个榫头卡齿！"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{diva_su_yunqing.name}整个人伏在木作师傅怀前，面庞几乎贴上木作师傅颈项，滚烫娇喘混合着淡雅发香在狭窄狭缝内猛烈交融。"
+  },
+  {
+   "id": "hk_dress_sweat_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{diva_su_yunqing.name}水绿真丝旗袍被雨水汗水浸得半透紧贴背脊曲线，双手毅然越过木作师傅手臂重叠紧握合金调音扳手把手，合力向下一寸寸猛压！"
+  },
+  {
+   "id": "hk_brass_paperweight_flange_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{diva_su_yunqing.name}以名门领班的绝对果决，将调音扳手淬火锻打的高硬度特种直角插头，精准别入木销外壁凹槽的偏心咬合死点。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "slot": "apprentice_carpenter_lu_tingyu",
+   "text": "{apprentice_carpenter_lu_tingyu.name}将加厚橡胶锤头猛然卡入挂落底梁与台板之间，单臂如铜浇铁铸般抵住木架，大吼道安全支点已成，姑娘尽管下压！"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{diva_su_yunqing.name}亲手解下随身真丝手帕，紧紧缠绕在两人满是冷汗的手背与调音扳手柄端上，将两人的臂力彻底刚性绞合为一体！"
+  },
+  {
+   "id": "hk_auditorium_rainstorm_roaring",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{diva_su_yunqing.name}凝视乐池深处木匣内的传世老红木名琴，面颊泛起不容动摇的绝决，誓死要在死角中为非遗古乐杀出生路！"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_proscenium_apron"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{diva_su_yunqing.name}察觉台板震颤发出微弱裂响，断然下令挑梁承受极限已近，立刻随我全员趴下进行杠杆最终突压！"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "slot": "apprentice_carpenter_lu_tingyu",
+   "text": "{apprentice_carpenter_lu_tingyu.name}与姑娘齐声发力，后背肌肉如山丘般隆起，将整整两百斤体重与臂力完全倾注于弯曲的合金扳手末端！"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{diva_su_yunqing.name}手心感受到清脆至极的机簧巨震，偏心木销硬生生被扳手撬出榫槽，整面沉重挂落伴随轰鸣向上骤然回退释压！"
+  },
+  {
+   "id": "hk_vault_escape_roll_fresh_air",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_proscenium_apron"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{diva_su_yunqing.name}被木作师傅单臂揽住纤腰顺势反推挂落底梁滚出死角，两人迎着戏台后台的新鲜空气大口喘息，绝境脱困成功！"
+  },
+  {
+   "id": "hk_end_relief_praise",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_proscenium_apron"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{diva_su_yunqing.name}靠在后台雕花朱漆门框边微微喘息，面颊带着劫后余生的绯红，侧过脸轻声对身侧木作师傅道多谢木作师傅哥哥。"
+  },
+  {
+   "id": "hook_yunqing_kaipian",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "diva_su_yunqing",
+   "text": "{npc.name}抱着琵琶坐在空荡荡的书场里，冲台下唯一的人笑了笑：开书还早，先唱段开篇给你听。唱得不好，可不许走。"
+  },
+  {
+   "id": "hook_yunqing_guanzi",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "diva_su_yunqing",
+   "text": "{npc.name}在后台卸着发簪，从镜子里看人：昨天那个关子卖得太狠，听客们骂了一晚上。你说，今天该不该让那两个人见上一面？"
+  },
+  {
+   "id": "hook_yunqing_wonton",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "diva_su_yunqing",
+   "text": "{npc.name}散了场披着外衫从后门出来，在巷口的馄饨摊前坐下，拍拍身边的凳子：唱了三个钟头，饿坏了。一起吃一碗？"
+  },
+  {
+   "id": "hook_tingyu_wood_pin",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_carpenter_lu_tingyu",
+   "text": "{npc.name}把一枚刚削好的木销放在人手心：台口的挂落全靠这么一颗小东西吃劲，跟你们唱书的板眼一个道理。"
+  },
+  {
+   "id": "hook_tingyu_back_row",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "apprentice_carpenter_lu_tingyu",
+   "text": "{npc.name}站在书场最后一排的柱子后头，手里还拎着工具包，见人回头，有点不好意思：收工晚了，正好赶上开篇。"
+  },
+  {
+   "id": "hook_yunqing_pipa_peg",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "diva_su_yunqing",
+   "text": "{npc.name}把琵琶递过来，指着一根松动的琴轴：天一潮就松，换了几个师傅都修不好。你懂木头，帮我看看？"
+  },
+  {
+   "id": "hook_yunqing_mirror_room",
+   "kind": "approach",
+   "location_ids": [
+    "loc_backstage_mirror_room"
+   ],
+   "slot": "diva_su_yunqing",
+   "text": "{npc.name}抱着琵琶倚在妆镜间门口：前台散了。……进来，唱一段给你一个人听。"
+  }
+ ],
+ "id": "pingtan_diva_stage_wrench_rescue",
+ "locations": [
+  {
+   "affordances": [
+    "查验乐池底部汇水排涝暗管通畅度",
+    "搬运备用加厚防雨毡布遮盖乐器箱",
+    "隔空向台口死角大声呼叫确认人员安危"
+   ],
+   "detail": "古戏楼下层开阔的数百平米挑空看戏大厅，正前方为两米高的伸出式主戏台与下方凹陷乐池。狂风撕扯穿堂窗棂，暴雨从受损屋檐缝隙倾泻而下，地面青砖泛起大片积水。",
+   "exits": [
+    "loc_stage_proscenium_apron"
+   ],
+   "id": "loc_theater_main_auditorium",
+   "name": "观众大厅",
+   "pressure_modifiers": {
+    "p_floodwater_level_rising_rush": "暴雨导致戏楼大厅积水以每分钟两公分速度激增，水流冲击戏台台基引发微小震颤。",
+    "p_timber_creaking_structural_groan": "狂风撕扯古戏楼屋脊琉璃瓦，梁架承重节点在阵风中发出沉闷悲鸣。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "戏楼飞檐悬挂的仿古八角宫灯在狂风中疯狂摇曳，投下大片晃动暗影，雷光闪烁通明。",
+   "witnesses": [
+    "bg_troupe_elderly_master_qin",
+    "bg_heritage_inspector_captain_wei",
+    "bg_stage_clerk_xiao_he"
+   ]
+  },
+  {
+   "affordances": [
+    "检查台口金丝柚木大梁倾斜夹角",
+    "寻找可用于垫高的实心硬木枕木",
+    "确认戏台下侧避险检修小木门方位"
+   ],
+   "detail": "伸入观众席中央的悬空木质古戏台前沿，上方挂落已被震落倾覆，整副长达六米、重达数百公斤的金丝柚木雕花挂落斜砸在台口边缘，死扣住出将入相上下场门通道。",
+   "exits": [
+    "loc_theater_main_auditorium",
+    "loc_collapsed_frieze_nook",
+    "loc_backstage_mirror_room"
+   ],
+   "id": "loc_stage_proscenium_apron",
+   "name": "戏台台口",
+   "pressure_modifiers": {
+    "p_floodwater_level_rising_rush": "雨水漫入戏台氍毹地毯，木质台面极度湿滑增加了自救支撑难度。",
+    "p_frieze_deadweight_collapse_pinch": "数百公斤重型雕花大挂落偏心倾压台口立柱，自重咬死榫眼凹槽无法撼动。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "台口上方应急地灯投射出刺目暖黄光束，雨雾随穿堂风弥漫在红色氍毹地毯上。",
+   "witnesses": [
+    "bg_troupe_junior_clerk_xiao_fang",
+    "bg_watchman_lao_song"
+   ]
+  },
+  {
+   "affordances": [
+    "近身挤入死角察看硬木卡销受力咬合面",
+    "将特制合金琵琶调音扳手卡入销孔充当高强度反撬杠",
+    "双手重叠合力向前向下猛扳突破咬合脱扣自救"
+   ],
+   "detail": "倾覆砸落的金丝柚木挂落底边与戏台台面仅存不足三十五公分的极限逼仄死角，落地精雕龙凤透雕咬死台基。两人被迫完全贴紧伏卧在此处，在体温与急促喘息交叠中对准木销暗槽。",
+   "exits": [
+    "loc_stage_proscenium_apron"
+   ],
+   "id": "loc_collapsed_frieze_nook",
+   "name": "挂落下的狭缝",
+   "pressure_modifiers": {
+    "p_close_contact_body_heat_tension": "在三十五公分极限死角内名伶与木作师傅肌肤完全贴伏，旗袍薄汗与工装体温激烈对冲，滚烫急促的吐息拂过颈侧锁骨。",
+    "p_frieze_deadweight_collapse_pinch": "数百公斤挂落重心持续偏向台口外侧，反向力矩若有丝毫偏斜便可能导致整个大挂落彻底拍碎台板。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "仅靠强光探照笔窄光束照明，近距离能看清彼此面颊上滑落的细腻汗珠、水绿旗袍起伏轮廓与榫卯木销。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "听女先生唱一段开篇",
+    "替女先生解开领口的盘扣",
+    "掩上妆镜间的门"
+   ],
+   "detail": "戏台后面的一间小妆镜间，一面老镜子、一张红木梳妆台、墙上挂着女先生的几件旗袍和那把老琵琶。",
+   "exits": [
+    "loc_stage_proscenium_apron"
+   ],
+   "id": "loc_backstage_mirror_room",
+   "name": "书场后台的妆镜间",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "只开一盏妆镜灯，前台听客散尽，门一掩，屋里只剩琵琶弦偶尔被风碰响的一声。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "苏",
+   "陆",
+   "沈",
+   "顾",
+   "林",
+   "叶",
+   "萧",
+   "方",
+   "宋",
+   "薛",
+   "秦",
+   "韩",
+   "裴",
+   "柳"
+  ],
+  "given_female": [
+   "韵卿",
+   "宛清",
+   "知夏",
+   "若涵",
+   "映雪",
+   "清歌",
+   "冰澜",
+   "羽彤",
+   "慕雪",
+   "凝霜",
+   "芷晴",
+   "雨薇",
+   "楚楚",
+   "静姝"
+  ],
+  "given_male": [
+   "廷玉",
+   "承安",
+   "天舟",
+   "烈",
+   "海岚",
+   "修远",
+   "博文",
+   "靖安",
+   "子轩",
+   "明远",
+   "云深",
+   "浩然",
+   "景明",
+   "思源"
+  ],
+  "given_neutral": [
+   "澈",
+   "夜",
+   "寒",
+   "尘",
+   "非",
+   "微",
+   "遥",
+   "岚",
+   "清",
+   "羽",
+   "辰",
+   "渊",
+   "舟",
+   "灵"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "female",
+    "pattern": "{family}先生"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留江南百年戏楼暴雨中山墙柱错位、雕花挂落砸落台口与评弹女先生用调音扳手撬起木销的骨架。同一批里有五个同模板的世界，与同样在江南水乡的旧书肆拉开：这里写成热闹的开书夜——晚上七点开书、听客泡茶嗑瓜子等着女先生接上昨天卖下的关子、空场里唱给一个人听的开篇、散场后巷口的小馄饨、松了的琵琶琴轴，搭档写成修缮台口的木作师傅。写死的人名改为身份称呼，评弹艺人沿用“先生”的称呼；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；女先生亲密前提写明脱困之后、双方清醒自愿；新增一个后台妆镜前替女先生解开旗袍盘扣的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁成年青年古建工程技术员，负责老戏楼台口大跨度梁架抗风加固与榫卯维护，身体强健沉稳果敢。",
+   "gender": "male",
+   "id": "pi_stage_carpentry_restorer_lu",
+   "reputation": "精通古戏台飞檐斗拱受力与大型木雕挂落自锁机关，手稳力沉深受戏班上下信任。",
+   "resources": [
+    "一把特制高硬度纯钢平头剔凿钢刀",
+    "一柄加厚耐磨橡胶包头防滑敲击锤",
+    "高强度耐磨防滑生牛皮工装手套"
+   ],
+   "risks": [
+    "若无法在挂落彻底压塌前顶脱木销，将被重达数百公斤的金丝柚木雕花大板重创。"
+   ],
+   "role": "古戏楼木构营造兼职青年修缮技术员",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}机工"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁成年文保巡查人员，专司老戏台极端天气下山墙倾角测量与台口通道疏散。",
+   "gender": "male",
+   "id": "pi_theater_safety_inspector_lu",
+   "reputation": "熟知戏楼全部暗道与出将入相地下乐池逃生夹层位置，临危不乱决断如流。",
+   "resources": [
+    "一柄防爆工业LED高流明强光探照笔",
+    "一套精密不锈钢调缝防割卡尺",
+    "两卷高抗拉防水生丝固定带"
+   ],
+   "risks": [
+    "山墙持续沉降导致木柱微倾，可能使台口死角间隙进一步压缩收窄。"
+   ],
+   "role": "文保重点古戏楼驻场安全巡查员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}巡查"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}主管"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁成年舞台调度工程师，统筹老戏台布景装置、帷幕吊杆与演员上下场通道安防。",
+   "gender": "male",
+   "id": "pi_opera_troupe_stage_manager_lu",
+   "reputation": "多次处置舞台重型吊杆卡阻险情，应变极为迅速，与女先生搭档默契。",
+   "resources": [
+    "一台三防工业加固测压手持仪",
+    "一柄特种高碳钢折叠多用螺母扳钳",
+    "防爆高等级阻燃橡胶防滑护膝"
+   ],
+   "risks": [
+    "台口狭小空间受力极其受限，稍有脱手便会导致调音扳手脱位。"
+   ],
+   "role": "评弹剧团舞台机械青年协理",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}协理"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}剧务"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "二十二岁青年古建营造学者，统揽百年古戏楼结构抢险总指挥权，精通木构反力矩支点运算。",
+   "gender": "male",
+   "id": "pi_chief_heritage_architect_lu",
+   "reputation": "行业年轻权威，对重型硬木挂落倾覆重力线与反向撬杠力矩拥有绝对把控力。",
+   "resources": [
+    "一套特制加厚反向旋转力矩加力套杆",
+    "全套戏楼梁架结构力学受力三维蓝图",
+    "高等级防割耐压特种战术手套"
+   ],
+   "risks": [
+    "若发生不可逆塌陷损毁国家级非遗戏台，将承担重大文化资产损失责任。"
+   ],
+   "role": "江南古建大木营造总营造专家",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总工"
+    },
+    {
+     "gender": "any",
+     "pattern": "总营造{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}大师"
+    }
+   ]
+  }
+ ],
+ "premise": "江南老街上的百年书场，晚上七点开书，听客们泡一壶茶、抓一把瓜子，等女先生把昨天卖下的关子接着唱下去。木作师傅这个月在修台口，剧团的舞台机械协理和古戏楼的巡查员也常来。梅雨压城，山墙的承重柱有点错位，台口上方的雕花挂落松了。",
+ "pressures": [
+  {
+   "choice": "是冒险利用合金调音扳手强行下扳木销，还是在死角内等待外侧抢险队施救？",
+   "exits": [
+    {
+     "cost": "扳手受力微弯，两人肌肉酸痛擦伤。",
+     "option": "两人合力以调音扳手下扳木销偏心卡槽旋转脱扣自救。"
+    },
+    {
+     "cost": "极其被动，若台板断裂将直接坠落受创死亡。",
+     "option": "伏于地面用戏服被动阻挡雨水等待救援。"
+    }
+   ],
+   "far": {
+    "consequence": "二楼挑梁断裂，重型硬木挂落整体砸塌，受困人员在重物碾压与溺水中殉难。",
+    "due_days": 1,
+    "trigger": "台基暗渠被洪峰冲垮导致戏台微倾"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_floodwater_level_rising_rush",
+   "immediate": {
+    "minutes": 2,
+    "text": "大厅屋檐破裂处狂风卷集暴雨倾泻而入，乐池积水开始漫上台阶。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_theater_main_auditorium",
+    "loc_stage_proscenium_apron",
+    "loc_collapsed_frieze_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "暴雨漫延至戏台氍毹地毯，台板表面极度湿滑，逃生时间被急剧压缩。"
+   },
+   "objective": "必须在底层积水完全破坏木构台基前，撬松硬木卡销推开挂落脱困撤离。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "暴雨倒灌戏楼下层水位攀升",
+   "trigger": "特大暴雨致使临河街区内涝，看戏大厅水流倒灌，乐池积水急剧上涨侵蚀台基。"
+  },
+  {
+   "choice": "是单人使用工装工具试探拨动，还是两人身体紧密相贴合力下压调音扳手？",
+   "exits": [
+    {
+     "cost": "工具把手产生微小塑性形变，施力人员手臂酸麻。",
+     "option": "以橡胶锤头护垫构成刚性防滑支点，叠合双手全力压紧扳手把手。"
+    },
+    {
+     "cost": "金属敲击极易打劈木料导致永久卡死。",
+     "option": "用工具盲目敲击木销外沿试图砸松卡槽。"
+    }
+   ],
+   "far": {
+    "consequence": "挂落彻底失去机械解脱余地，直接砸断台板引发全面塌塌断绝全部生路。",
+    "due_days": 1,
+    "trigger": "木销在重压下彻底劈裂锁死在暗槽中"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_frieze_deadweight_collapse_pinch",
+   "immediate": {
+    "minutes": 2,
+    "text": "大挂落偏心向台前倾斜，立柱接缝处发出不堪重负的嘎吱牙酸声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "重力导致硬木卡销深陷榫槽，摩擦咬合力倍增，撬动难度成倍上升。"
+   },
+   "objective": "在戏台木构彻底被自重压垮之前，以高硬度调音扳手插头撬动木销使其脱出卡槽。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "重型柚木雕花挂落倒伏抱死",
+   "trigger": "数百公斤重型金丝柚木大挂落受潮砸落，硬木卡销死死咬入地面青砖榫槽。"
+  },
+  {
+   "choice": "是因礼法矜持保持距离导致施力分散，还是坦然贴身相拥爆发出最大协同扭矩？",
+   "exits": [
+    {
+     "cost": "矜持心理防线被彻底打破，两人心灵产生不可磨灭的依恋印记。",
+     "option": "抛弃一切世俗杂念，女先生伏于木作师傅胸前双手重叠压紧把手一鼓作气突破。"
+    },
+    {
+     "cost": "力矩不足无法撼动木销，导致自救彻底失败。",
+     "option": "刻意拉开距离单手侧向发力。"
+    }
+   ],
+   "far": {
+    "consequence": "调音扳手脱出销孔，错过最后撬动脱扣时间窗导致大木坍塌压覆。",
+    "due_days": 1,
+    "trigger": "羞怯分心导致发力失衡工具脱落"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_close_contact_body_heat_tension",
+   "immediate": {
+    "minutes": 2,
+    "text": "真丝旗袍丝滑微凉的触感隔着单薄衣衫传来，随后被急促滚烫的体温迅速烘热。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "女先生贴在耳边娇喘细细，湿透的旗袍勾出起伏的胸线，唱了半辈子的嗓子，这会儿连一句整话都说不全。"
+   },
+   "objective": "在极度贴近的肢体接触与异性荷尔蒙冲击下，克制心神专注机械对位发力。",
+   "source": "person",
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "台口极限死角贴身呼吸滚烫",
+   "trigger": "两人被迫同时挤在三十五公分台口狭缝，湿透旗袍与工装紧密相贴，体温与急促喘息交织。"
+  },
+  {
+   "choice": "是先冒台板坍塌风险转移琴箱，还是全力以赴先撬开通道脱险？",
+   "exits": [
+    {
+     "cost": "全力投入撬门无暇顾及自身擦伤，承受巨大心理压力。",
+     "option": "争分夺秒扳动扳手顶松木销推开通道完成人琴双全自救。"
+    },
+    {
+     "cost": "耗尽最后逃生时间，双双受困于垮塌木构之下。",
+     "option": "折返深处用身体护住琴匣。"
+    }
+   ],
+   "far": {
+    "consequence": "国宝级传世名琴彻底粉碎毁坏，百年非遗曲艺传承遭受惨痛重创。",
+    "due_days": 1,
+    "trigger": "雨水与坠落木雕直接砸碎名琴"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_heritage_instrument_water_ruin",
+   "immediate": {
+    "minutes": 2,
+    "text": "琴箱边缘开始渗入雨水，百年老木发出受潮收缩的细微闷响。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_stage_proscenium_apron",
+    "loc_collapsed_frieze_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "水汽彻底浸润琴身，老红木面板面临开裂脱胶与失音风险。"
+   },
+   "objective": "必须在雨水渗透琴箱前撬开挂落建立安全通道抱琴撤离。",
+   "source": "accident",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "传世老红木琵琶水浸砸损全毁",
+   "trigger": "屋顶瓦片飞落雨水飞溅，琴箱内价值连城的传世老红木名琴面临水浸砸损全毁绝境。"
+  },
+  {
+   "choice": "是忍痛咬牙紧扣工具，还是分神活动肢体调整重心？",
+   "exits": [
+    {
+     "cost": "身体摩擦加剧，肌肤泛起大片淤青擦痕。",
+     "option": "女先生与木作师傅互相用双腿死死卡住彼此脚踝稳固重心合力下压。"
+    },
+    {
+     "cost": "木销在自重下再度深陷变形咬死。",
+     "option": "暂停按压后撤舒展肢体。"
+    }
+   ],
+   "far": {
+    "consequence": "扳手被大木偏心反弹力强行震飞，彻底失去最后开启机会。",
+    "due_days": 1,
+    "trigger": "双腿打滑彻底失去反向支撑力矩"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_wet_carpet_slip_hazard",
+   "immediate": {
+    "minutes": 2,
+    "text": "冰凉积水透过衣料浸透膝盖手肘，刺骨酸麻侵袭关节。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_collapsed_frieze_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "持续静力承重使前臂与小腿肌肉发生微小震颤，下踩支撑力濒临极限。"
+   },
+   "objective": "克服双腿打滑与膝盖剧烈酸痛，保持稳定反向杠杆平衡发力姿态。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "湿滑氍毹地毯支撑打滑脱力",
+   "trigger": "雨水漫透戏台红色氍毹地毯导致地面极度滑腻，两人半跪施力下肢支撑极易打滑失稳。"
+  },
+  {
+   "choice": "是立即加大下压力度一鼓作气扳松木销，还是等待梁架应力重新平衡？",
+   "exits": [
+    {
+     "cost": "身心极度疲惫，手臂肌肉严重拉伤酸痛。",
+     "option": "两人贴面眼神交汇瞬间爆发全身重量峰值力矩震松木销。"
+    },
+    {
+     "cost": "挑梁彻底崩断丧失全部物理逃生可能。",
+     "option": "被动等待外力减退。"
+    }
+   ],
+   "far": {
+    "consequence": "戏台前沿整体塌陷坠入乐池，受困人员全员遇难殉职。",
+    "due_days": 1,
+    "trigger": "台口承重挑梁彻底断裂折断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_timber_creaking_structural_groan",
+   "immediate": {
+    "minutes": 2,
+    "text": "台板下方传来沉闷的木料纤维撕裂声，台口边缘向下沉降了半公分。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_stage_proscenium_apron",
+    "loc_theater_main_auditorium"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "挑梁木纹发出刺耳撕裂声，裂纹顺着梁头飞速蔓延。"
+   },
+   "objective": "在受力挑梁彻底折断前完成木销脱扣，撤离危险投影区域。",
+   "source": "nature",
+   "start_minute": 1395,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "戏台山墙错位梁架失稳开裂",
+   "trigger": "山墙承重柱微错位导致戏台挑檐大梁承受额外扭剪力，大木榫卯节点发出尖锐开裂脆响。"
+  },
+  {
+   "choice": "挪到茶馆的小台子上接着唱，还是等木作师傅把台口修好",
+   "exits": [
+    {
+     "cost": "茶馆嘈杂，压不住琵琶，秦老先生不肯去",
+     "option": "挪去茶馆唱"
+    },
+    {
+     "cost": "木作师傅要女先生每晚散场后陪着在台口掌灯",
+     "option": "让木作师傅连夜赶工"
+    }
+   ],
+   "far": {
+    "consequence": "卖了一半的长篇断了关子，老听客散了，女先生的场子让给别家",
+    "due_days": 14,
+    "trigger": "停书半个月"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_yunqing_kaipian",
+    "hook_yunqing_guanzi",
+    "hook_yunqing_wonton",
+    "hook_tingyu_wood_pin",
+    "hook_tingyu_back_row",
+    "hook_yunqing_pipa_peg",
+    "hook_yunqing_mirror_room"
+   ],
+   "id": "p_owner_stops_shows",
+   "immediate": {
+    "minutes": 5,
+    "text": "剧务小何捧着一摞退票，站在妆镜间门口"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_backstage_mirror_room"
+   ],
+   "near": {
+    "deadline_minutes": 180,
+    "text": "中午，东家要贴停书告示"
+   },
+   "objective": "在东家贴出停书告示之前，想个法子让书照开",
+   "source": "money",
+   "start_minute": 600,
+   "tags": [],
+   "title": "停书告示",
+   "trigger": "暴雨过去第二天上午，书场的东家来到后台：台口挂落砸坏了，修台要停半个月，女先生这半个月的包银停发，听客的书票也要一张张退"
+  }
+ ],
+ "region": "古戏楼挑空主戏台与乐池台口落地木质挂落死角",
+ "rules": [
+  {
+   "id": "r_heritage_stage_evac_code",
+   "text": "暴雨导致古戏楼山墙承重微错位期间严禁盲目摇晃台口立柱。"
+  },
+  {
+   "id": "r_carved_frieze_drop_lock_rule",
+   "text": "精雕落地重型木质挂落砸落死扣后只能通过手动撬起偏心连接木销脱扣。"
+  },
+  {
+   "id": "r_traditional_theater_safety_code",
+   "text": "戏楼舞台台口作业严禁使用明火或产生强烈火花的电动破拆器具。"
+  },
+  {
+   "id": "r_adult_mechanical_escape_standard",
+   "text": "绝境脱困依靠纯物理力矩反推自救，一切互动严守成年自愿与安全防护原则。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "共御死线",
+  "committed": "死生相守",
+  "familiar": "身心交托",
+  "flirting": "贴身喘息",
+  "intimate": "患难同行",
+  "stranger": "初次协同",
+  "testing": "生死信赖"
+ },
+ "status": "released",
+ "style_hint": "吴侬软语典雅与古建筑木作力学硬核工笔，刻画百年戏台昏暗死角内倒伏木雕重压的致命阻绝、实心合金调音扳手在受力木销卡槽中的微细杠杆挤压咬合、水绿真丝提花旗袍被薄汗雨水浸透贴合起伏身躯的视觉张力，台词沉稳克制而情愫暗涌。",
+ "tension_engines": [
+  {
+   "id": "te_floodwater_purge_rush",
+   "text": "临河暴雨倒灌水位步步逼近乐池台基，百年古戏楼梁架面临承重失衡崩解死线。"
+  },
+  {
+   "id": "te_frieze_deadweight_pinch",
+   "text": "数百公斤重型雕花大挂落持续倾滑咬死台口立柱，硬木卡销偏心锁死卡槽不断形变。"
+  },
+  {
+   "id": "te_close_contact_body_heat",
+   "text": "在三十五公分狭窄死角内两人紧密相贴，湿透旗袍薄汗与青年工匠体温催生极度异性张力。"
+  },
+  {
+   "id": "te_heritage_stage_wood_ruin",
+   "text": "百年非遗戏台与传世琵琶面临暴雨砸击全毁厄运，女先生背负曲艺传承重大责任爆发惊人毅力。"
+  }
+ ],
+ "title": "典雅评弹名伶·古戏楼百年老戏台",
+ "tone": [
+  "开书前的三弦与茶香",
+  "听客们等着的那个关子",
+  "暴雨里挂落砸落的巨响",
+  "台口夹缝里湿透的旗袍"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_stage_iron_pin_groove_located",
+   "requires": [
+    "diva_su_yunqing"
+   ],
+   "text": "{diva_su_yunqing.name}借便携强光手电光束，在台基青砖缝隙底层准确定位出卡死连接木销暗槽的微小受力孔洞。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_rainstorm_atrium_warning_groan",
+   "requires": [
+    "diva_su_yunqing"
+   ],
+   "text": "{diva_su_yunqing.name}听到屋顶飞檐瓦片发出刺耳的二次碎裂滑坠声，戏台剧烈晃动，面庞上映出冷峻决意。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_rubber_hammer_inserted_safety",
+   "requires": [
+    "apprentice_carpenter_lu_tingyu"
+   ],
+   "text": "{apprentice_carpenter_lu_tingyu.name}从工具袋抽出加厚橡胶锤头，死死垫在挂落底梁台面下方，彻底构筑起刚性防下坠安全作业间隙。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_satin_ribbon_bind_tight",
+   "requires": [
+    "diva_su_yunqing",
+    "apprentice_carpenter_lu_tingyu"
+   ],
+   "text": "{diva_su_yunqing.name}解下手腕真丝手帕，由{apprentice_carpenter_lu_tingyu.name}迅速将合金调音扳手与剔凿钢刀紧密捆扎，消除了手汗打滑隐患。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_timber_creak_final_minute_rush",
+   "requires": [
+    "diva_su_yunqing"
+   ],
+   "text": "戏台山墙受力挑梁发出最后的连续撕裂声，台面青砖开始龟裂，生死死线已逼近绝对生理极限。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_close_body_tight_bind_leverage",
+   "requires": [
+    "diva_su_yunqing",
+    "apprentice_carpenter_lu_tingyu"
+   ],
+   "text": "{apprentice_carpenter_lu_tingyu.name}在狭窄死角紧紧护住{diva_su_yunqing.name}，两人滚烫手指紧握合金扳手，急促滚烫的吐息与心跳在幽暗中彻底交叠。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_pipa_wrench_release_success",
+   "requires": [
+    "diva_su_yunqing"
+   ],
+   "text": "伴随一声清脆金属断扣声，特制合金琵琶调音扳手成功扳动卡死木销，挂落自重受力瞬间回退释压，两人合力反推大架顺利脱险自救。"
+  }
+ ]
+}

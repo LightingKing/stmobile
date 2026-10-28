@@ -1,0 +1,2518 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "美食指南高级理事年逾五十八岁外籍资深评审，统领本场全案米其林评星生杀大权。",
+   "age_range": [
+    58,
+    58
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_critic_pierre_dupuis",
+   "line": "舒芙蕾塌陷倒数已进入最后阶段，全场评委备好叉匙准备品鉴！",
+   "location_ids": [
+    "loc_marble_tasting_counter_front",
+    "loc_open_pastry_kitchen_island"
+   ],
+   "name": "杜邦先生",
+   "role": "米其林副评委"
+  },
+  {
+   "adult_context": "研一在籍满二十四岁西餐烹调专业成年男生，精熟前台掩体摆设与出餐视线遮挡。",
+   "age_range": [
+    24,
+    24
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_sous_chef_lu_chen_feng",
+   "line": "隔热操作巾已挡住评委视线，主厨请速用抹刀硬尖撬退铰链限位销！",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "name": "阿森",
+   "role": "热厨领班"
+  },
+  {
+   "adult_context": "商用热工机械系毕业满二十六岁成年维保工，具有操作资质，主理进口重型烘烤箱检修。",
+   "age_range": [
+    26,
+    26
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_engineer_song_bo_han",
+   "line": "铰链卡片唯有沿倾角施加剪切力方能顺势松脱，千万莫生拉硬拽！",
+   "location_ids": [
+    "loc_facility_mep_control_room",
+    "loc_cold_prep_pastry_kitchen"
+   ],
+   "name": "老符",
+   "role": "厨具设备工程师"
+  },
+  {
+   "adult_context": "烘焙工艺专业应届年届二十五岁成年女生，具有独立责任担当，负责随身行头备餐护持。",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_pastry_assistant_jiang_cai_wei",
+   "line": "备用真丝主厨围裙已备妥，冷加工间随时待命为主厨接应！",
+   "location_ids": [
+    "loc_cold_prep_pastry_kitchen"
+   ],
+   "name": "小苔",
+   "role": "贴身助理闺蜜"
+  },
+  {
+   "adult_context": "国际酒店管理本科毕业年届二十三岁成年总督导，专职把控全场品鉴时序与外场礼宾。",
+   "age_range": [
+    23,
+    23
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_manager_wen_xiao_die",
+   "line": "贵宾评审专属品鉴流程准点推进，各机位严阵以待！",
+   "location_ids": [
+    "loc_marble_tasting_counter_front",
+    "loc_open_pastry_kitchen_island"
+   ],
+   "name": "阿黎",
+   "role": "外场大堂总督导"
+  },
+  {
+   "adult_context": "视觉摄影专业成年男摄影师满二十三周岁，持高级执业证书，专职星级大典微距定格。",
+   "age_range": [
+    23,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_photographer_chen_zi_mo",
+   "line": "微距光圈死死锁在焦糖酥皮与主厨神韵上，誓死捍卫三星名厨体面！",
+   "location_ids": [
+    "loc_marble_tasting_counter_front"
+   ],
+   "name": "阿岩",
+   "role": "杂志首席摄影师"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "副主厨借展开宽幅防热巾及沉毅身位构起厚重人障视界遮蔽，女厨神依此掩体于电光石火间持钛调刀硬棱撬退锁舌自解，同僚心照不宣。",
+   "id": "combo_chef_and_sous_chef_trust",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "chef_pei_luo_shen",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "全通透玻璃料理台当面共克突发锁死危机并沉着展开物理破除",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "sous_chef_lu_chen_feng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "同为守护后厨规矩与三星至高声誉的得力核心骨干搭档",
+     "stage": "familiar"
+    },
+    {
+     "a": "chef_pei_luo_shen",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "sous_chef_lu_chen_feng",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "吧台之上方寸之间的眼神交汇与时间倒数默契托付",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chef_pei_luo_shen",
+    "sous_chef_lu_chen_feng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保舒芙蕾在最佳赏味期内完美呈递且女主厨神圣形象无可挑剔",
+    "limit_gap": "评委按下快门前舒芙蕾秒级塌陷时限与机械门轴卡片解除阻力之间的极度紧绷压迫",
+    "meeting_reason": "米其林三星餐厅年度最高规格名流品鉴主厨专场",
+    "resource_gap": "厚实隔热巾形成的巨大阴影掩护与门缝内狭小卡死暗带之间的狭隘自救空间反差"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_oven_hinge_corset_deadlock",
+    "eng_souffle_twenty_five_countdown"
+   ]
+  },
+  {
+   "chemistry": "闺蜜助理赌出来的祸，换来满心自责和全力策应；女主厨冷艳从容地自解，两人在冷加工间门边的默契更深了一层。",
+   "id": "combo_chef_and_assistant_secret",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "chef_pei_luo_shen",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "在私密危境中见证女主厨惊人的心理定力与绝美仪态",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "assistant_jiang_cai_wei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "共同保守更衣室的私密隐秘并协助其将功补过",
+     "stage": "familiar"
+    },
+    {
+     "a": "chef_pei_luo_shen",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "assistant_jiang_cai_wei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "从又羞又恼升华至患难与共的莫逆姊妹同盟",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chef_pei_luo_shen",
+    "assistant_jiang_cai_wei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "于全场名家评审聚焦之时化险为夷并将甜品毫发无损呈送案前",
+    "limit_gap": "打赌穿上的束身衣一旦曝光就丢了主厨之位，与三星声誉的背水一战",
+    "meeting_reason": "焦糖舒芙蕾出炉前的紧急行头自救保障",
+    "resource_gap": "冷加工间备用围裙掩护与真丝主厨服前襟撕裂危机之间的悬殊博弈"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_silk_uniform_strain_tear_panic",
+    "eng_oven_hinge_corset_deadlock"
+   ]
+  },
+  {
+   "chemistry": "米其林主评委手握秒表与相机的威严审视气场，逼压着年轻女主厨在倒数归零瞬间完成器械解脱与惊艳出品，震撼人心。",
+   "id": "combo_chef_and_critic_deadline",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 4
+     },
+     "b": "chef_pei_luo_shen",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 4
+     },
+     "reason": "在评审泰斗严苛审视的高压逼视下竭力为主厨争取宝贵的破拆时间",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "critic_pierre_dupuis",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "面对餐饮界泰斗长辈的铁血品鉴法则保持敬畏并谨慎周旋",
+     "stage": "familiar"
+    },
+    {
+     "a": "chef_pei_luo_shen",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 3
+     },
+     "b": "critic_pierre_dupuis",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 3
+     },
+     "reason": "青年天才女主厨面对殿堂权威的无声较量与实力正名",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chef_pei_luo_shen",
+    "critic_pierre_dupuis"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在舒芙蕾蓬松金黄顶峰状态下准点呈盘受赏",
+    "limit_gap": "法式甜点泡沫收缩二十五秒极值期限同裴主厨运刀挑拨门锁的紧要追逐",
+    "meeting_reason": "米其林三星殿堂级复评终极压轴品鉴",
+    "resource_gap": "评委元老执掌三星降星生杀大权与女主厨娇躯贴门被困之间的悬殊鸿沟"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_souffle_twenty_five_countdown",
+    "eng_telephoto_lenses_island_threat"
+   ]
+  },
+  {
+   "chemistry": "主评委手举镜头严厉逼视，青年副主厨挺立台前以隔热巾身姿沉稳构筑阴影护栏。",
+   "id": "combo_critic_vs_sous_chef_clash",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "critic_pierre_dupuis",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "面对主评委如炬目光谨慎周旋维系操作台前方安全",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "sous_chef_lu_chen_feng",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "并肩守护米其林三星厨房神圣秩序的得力同门才俊",
+     "stage": "familiar"
+    },
+    {
+     "a": "critic_pierre_dupuis",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "sous_chef_lu_chen_feng",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "主评委对副主厨微移操作巾遮挡举动投来审视探究目光",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "critic_pierre_dupuis",
+    "sous_chef_lu_chen_feng"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保加宽隔热巾在不失仪前提下完美遮挡吧台名流视线",
+    "limit_gap": "维系三星品鉴庄严礼制与掩护女主厨自救微动作之间的极限博弈",
+    "meeting_reason": "出炉倒数阶段评委目光锐利扫视烤箱操作口引发无声交锋",
+    "resource_gap": "美食泰斗至高行业评判权威与副手现场隔热巾遮挡角度权衡"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_telephoto_lenses_island_threat",
+    "eng_souffle_twenty_five_countdown"
+   ]
+  },
+  {
+   "chemistry": "三星女名厨与重型厨电维保师在器械物理架构认知上的激烈交融，纯机械脱钩奇效之灵动展现。",
+   "id": "combo_chef_and_engineer_mechanics",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "chef_pei_luo_shen",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "在生死交关之际领悟并施展严密抹刀硬尖破拆奇迹",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "engineer_song_bo_han",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "恪守理性实事求是排查烤箱机械症结的专业同僚",
+     "stage": "familiar"
+    },
+    {
+     "a": "chef_pei_luo_shen",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "engineer_song_bo_han",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "以大师级的敏锐悟性践行工程师的微观物理破拆方案",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "chef_pei_luo_shen",
+    "engineer_song_bo_han"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "零损伤解脱主厨服暗带并确保动作完全契合名厨从容风范",
+    "limit_gap": "真丝主厨服前襟纽扣抗拉极限与单手别撬自锁销动作幅度之间的精微把控",
+    "meeting_reason": "商用重型烤箱突发铰链卡死险情的紧急自救协同处置",
+    "resource_gap": "拉糖调色纯钛抹刀微翘尖角尺寸与沉重烤箱自闭门轴咬合力之间的力学博弈"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_oven_hinge_corset_deadlock",
+    "eng_silk_uniform_strain_tear_panic"
+   ]
+  },
+  {
+   "chemistry": "主评委威严掌控的品鉴节奏与首席摄影师操控的微距光影相互交织，构筑起名流审视镜头下的极致典雅宏大威压。",
+   "id": "combo_critic_and_blogger_focus",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "critic_pierre_dupuis",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在主评委统御下严密把控盛典全流程各时间节点",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "blogger_chen_zi_mo",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "默契协同通过景深光影构图维系主厨吧台神圣体面",
+     "stage": "familiar"
+    },
+    {
+     "a": "critic_pierre_dupuis",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "blogger_chen_zi_mo",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "餐饮界泰斗与影像记录工匠之间的专业协作链条",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "critic_pierre_dupuis",
+    "blogger_chen_zi_mo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "呈现完美无瑕的巅峰名厨画卷并杜绝任何不雅走光事故",
+    "limit_gap": "评委按下秒表倒数指令与摄影师快门按动指令同步逼近的极限压迫",
+    "meeting_reason": "米其林三星年度压轴复评全球图集拍摄全流程执行",
+    "resource_gap": "全球美食年鉴封面特写传播与吧台中央毫厘之间私密危机的情报信息差"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_telephoto_lenses_island_threat",
+    "eng_souffle_twenty_five_countdown"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_intercom_kitchen_direct",
+   "reach": "大堂督导与后厨工程师及操作台主副厨监听终端",
+   "text": "星级餐厅后厨加密无线降噪耳麦对讲频道"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_cues_visual_island",
+   "reach": "主厨与副主厨及冷餐助理视线范围",
+   "text": "全景吧台托盘与隔热巾视觉暗号协同系统"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_broadcast_feed_monitor",
+   "reach": "评委席长焦镜头与主控导播间百寸监视大屏",
+   "text": "国际美食年鉴实况微距转播超清监控链路"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "巴黎蓝带甜点文凭毕业，在法餐厅做了八年甜点，米其林三星餐厅最年轻的甜品主厨，私下穿什么、跟谁亲近都由本人拿主意。",
+   "age_range": [
+    27,
+    30
+   ],
+   "appearance_options": [
+    "墨发挽在主厨高帽内，雪肤清冷，定制纯白真丝主厨服勾勒纤细蛮腰，双颊天然微带婴儿肥与高贵神韵反差惊艳动人。",
+    "身姿傲立如雪岭寒梅，双手戴无菌料理手套，雪白围裙内隐秘勾勒出法式蕾丝鱼骨束身衣玲珑线条，清冷威仪令人屏息。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目硬扯拉裂真丝主厨服前襟",
+     "惊惶失措呼救中断品鉴流程",
+     "向无关食客暴露裙底束身衣秘密"
+    ],
+    "contrast": "端盘时冷得像一块没回温的黄油，被逼到绝处时下手比糖艺调刀还准。",
+    "core_value": "誓死捍卫米其林最高评星荣誉与主厨高傲尊严，临危绝断运用器械原理端庄解围。",
+    "goal_options": [
+     "在评委按下快门前借钛合金小调刀微翘刀尖拨退合页卡紧限位销",
+     "维持端庄站姿以左手托盘遮挡前襟崩脱暗角"
+    ],
+    "never": [
+     "在名流评审面前失声尖叫破功",
+     "容忍出品超时导致舒芙蕾塌陷降星"
+    ],
+    "prefers": [
+     "冷静优雅的微观自救方式",
+     "吧台视觉死角构筑掩护",
+     "烹饪物理学精确脱困策略"
+    ],
+    "pressure_responses": {
+     "breaking": "在气阀泄压瞬间反向推脱横臂抱箍并接应宋婉儿递来的磁吸扣迅速扣好前襟",
+     "high": "在导播推流读秒长鸣刹那同搭档一同垂直下压背夹克服八百牛顶力",
+     "low": "双手死死按在讲台木质边缘以极低气声下达排障破拆指令掩饰内心惊涛骇浪",
+     "mid": "忍受胸衣金属骨架勒紧压迫紧贴讲台内侧配合搭档调整翻页笔背夹插入角度"
+    },
+    "relationship_stance": "对评委和名流冷着一张脸，只在副主厨面前会偷吃一口没出品的马卡龙，然后命令对方不许说出去。",
+    "withdrawal": "借低头核验舒芙蕾成色之姿微倾上身掩盖前襟暗缝，沉着反手将纯钛抹刀插入门缝反别销钉。"
+   },
+   "gender": "female",
+   "gender_reason": "三星法餐厅最年轻的冷艳甜品女主厨。",
+   "id": "chef_pei_luo_shen",
+   "identity": {
+    "authority": "三星餐厅甜品菜单出品终极裁决权与烘焙设备自主处置权",
+    "exposure": "主厨服崩脱露出的蕾丝束身衣与被烤箱门咬死丑态在名流镜头前曝光将彻底断送职业生涯",
+    "hidden": "右手主厨口袋常备拉糖工艺纯钛调色抹刀，刃长八公分且前端带有微翘硬质倒角，实为高强度微观力学撬棒。",
+    "limits": [
+     "围腰抽带与紧身衣金属撑骨遭门合页死死咬紧使得躯体难离灼热箱体",
+     "众多鉴赏行家眼底严禁发生服饰脱扣或甜点坍落失相"
+    ],
+    "obligations": [
+     "维系米其林三星最年轻女主厨无懈可击的巅峰尊严",
+     "在二十五秒出炉时限内将完美膨胀的焦糖舒芙蕾端上吧台"
+    ],
+    "resources": [
+     "糖艺大赛特制加硬纯钛多功能抹刀",
+     "巴黎工坊定制双排扣真丝透气主厨套裙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在千钧一发危难之际给予关键视线掩护与物理协助的默契同伴",
+     "波澜不惊的沉稳心智"
+    ],
+    "boundaries": [
+     "严禁任何外人触碰主厨服内部私密蕾丝束身衣骨架"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "成为全球甜品界无可动摇的最年轻三星终身荣耀女主厨。",
+    "dislikes": [
+     "轻浮失礼的窥探目光",
+     "机械隐患带来的粗暴威胁",
+     "助理化妆间轻率任性的恶作剧打赌"
+    ],
+    "expression": "耳根与雪白修颈泛起绯红，美眸流转却死守高贵仪态，暗中借力配合微观机械破拆。",
+    "likes": [
+     "心有灵犀的眼神掩护配合",
+     "严谨沉稳的学者型绅士风度",
+     "追求极致完美的烘焙殿堂"
+    ],
+    "preconditions": [
+     "恪守艺术家尊严与完全成年民事自立底线",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "米其林三星法餐厅的甜品主厨",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_open_pastry_kitchen_island",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_cold_prep_pastry_kitchen",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_open_pastry_kitchen_island",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "指关节承受剧烈反震压痛且需极度精准控制手腕动作幅度",
+      "option": "反持纯钛小调刀以刀尖硬棱插抵门铰滑槽施加倾角剪切巧劲挑开限位弹片"
+     },
+     {
+      "cost": "操作巾角度微调可能引起吧台前挑剔评委记录出品动作瑕疵",
+      "option": "向副主厨投去暗号示意移动隔热操作巾构筑屏障争取缓冲余地"
+     }
+    ],
+    "pressure": "首席评委举镜倒数计时唯余二十五秒，真丝工装前排扣带崩落香肌半敞，全席视线汇聚",
+    "trigger": "开箱呈盘刹那阻尼门铰链发生顿挫反咬，死死卡死工服后带及蕾丝束身硬撑合金扣"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "铰链限位销咬死暗带分毫难动，唯有借纯钛抹刀尖端微翘倒角别开卡片方能自救……",
+    "surface": "舒芙蕾糖壳焦化度达标，请主评委准备赏味，本席定不负评审期待。"
+   }
+  },
+  {
+   "adult_context": "法国斐朗迪厨艺学院毕业，在三星餐厅做了九年，甜品部的副主厨，具备完全民事行为能力。",
+   "age_range": [
+    29,
+    33
+   ],
+   "appearance_options": [
+    "身着笔挺墨黑修身厨师服，系暗金条纹围裙，举止严谨沉稳，身材挺拔如松。",
+    "神情专注机敏，双手佩戴专业防烫操作手套，立于烤箱斜前方半步随时提供视线遮蔽掩护。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱张皇的显眼大动作",
+     "引起评委席瞩目的过激反应",
+     "品鉴流程发生中断事故"
+    ],
+    "contrast": "平时温文尔雅的青年西点学者，在突发事故面前展现出钢铁般的沉着定力与周全掩护手段。",
+    "core_value": "以极高专业素养守护主厨尊严与餐厅三星声誉，全力策应主厨脱离险境。",
+    "goal_options": [
+     "借整理隔热操作巾之机将身位外展十五度构筑阴影屏障",
+     "低声默诵出炉倒数秒数为主厨提供精准解套时间基准"
+    ],
+    "never": [
+     "抛下陷入危机的女主厨搭档",
+     "在舒芙蕾塌陷前发出干扰杂音"
+    ],
+    "prefers": [
+     "无声而高效的厨房协同",
+     "严丝合缝的秩序守护",
+     "沉着敏锐的细节掩饰"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷发声瞬间停住脚步退回侧幕维持同僚体面",
+     "high": "迈步登上红地毯台阶准备直接切入讲台中央核心演讲区",
+     "low": "在对讲机中平稳催促台前人员汇报讲台升降测试状态",
+     "mid": "迈步逼近侧翼台阶手持备用麦克风大声询问会长是否身体不适"
+    },
+    "relationship_stance": "替主厨备了九年的料，主厨每一道新甜点的第一口都是此人尝的，从没说过别的。",
+    "withdrawal": "半侧身立于甜品岛台斜前方，双手平抚保温桶边缘形成沉稳人墙屏障。"
+   },
+   "gender": "male",
+   "gender_reason": "甜品部的副主厨，守在女主厨身侧的副操作台。",
+   "id": "sous_chef_lu_chen_feng",
+   "identity": {
+    "authority": "副操作台出品节奏掌控权与摆盘工具调度支配权",
+    "exposure": "若因擅自挪动操作台用具导致出品事故将承担联带职业惩处",
+    "hidden": "已从主厨微僵的身形弧度洞悉铰链咬死险情，借托举隔热巾之机以身形与不锈钢保温桶构筑绝对视觉死角。",
+    "limits": [
+     "出品紧要当口严禁盲目跑位干扰吧台作业序列",
+     "绝不可大声喧嚷惊扰在席尊客雅兴损毁餐厅评星成绩"
+    ],
+    "obligations": [
+     "维系法式开放厨房行云流水的严谨出品秩序",
+     "协助女主厨化解一切前襟走光视线威胁"
+    ],
+    "resources": [
+     "加厚防烫双层面料法式操作阻隔巾",
+     "双耳全钢调温喷枪专用恒温桶"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "主厨在极限压迫下坚韧自拔的绝美神韵",
+     "同舟共济的生死默契"
+    ],
+    "boundaries": [
+     "恪守副手职业礼节与学者修养"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "荣升享誉欧陆的顶级甜点技术总监及先锋料理研发掌舵人。",
+    "dislikes": [
+     "轻慢西点艺术的恶俗行径",
+     "后台无端生事的恶作剧打赌",
+     "缺乏职业素养的混乱"
+    ],
+    "expression": "以身体斜向侧立形成死角，沉声低语报读评委按键倒计时，眼神坚定沉稳。",
+    "likes": [
+     "主厨专注圣洁的艺术造诣",
+     "高难度危机下的绝对信任",
+     "烘焙乐章奏响瞬间的心灵震颤"
+    ],
+    "preconditions": [
+     "顺利破除危机并成就米其林三星卫冕神话",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "法式甜品工坊副理成年西点师",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_open_pastry_kitchen_island",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_open_pastry_kitchen_island",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_open_pastry_kitchen_island",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "需承担动作微调可能被评委记录微小仪态瑕疵的责任风险",
+      "option": "果断外展隔热巾半米构筑视觉阴影并以唇语通报剩余秒数"
+     },
+     {
+      "cost": "身体姿态需保持高度紧绷且极度考验临场仪态控制力",
+      "option": "侧身跨前半步以高大背影遮挡吧台主评委长焦微距相机焦点"
+     }
+    ],
+    "pressure": "吧台二十位名流举起高倍镜头，舒芙蕾二十五秒塌陷死线飞逝，稍有不慎将身败名裂",
+    "trigger": "望见主厨开箱之际后腰绑带遭门扇合页死死夹困且前胸珍珠排扣尽数滑脱"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "隔热厚布已挡牢食客长焦目光，主厨当心，快用抹刀利角挑拨限位暗销！",
+    "surface": "银质餐盘温度已达标，保温罩已就位，请主厨放心呈盘。"
+   }
+  },
+  {
+   "adult_context": "商用厨房热工机械专业毕业届满二十六岁成年工程师，获特种检修上岗牌照，执掌大型烤炉结构受力排查。",
+   "age_range": [
+    26,
+    26
+   ],
+   "appearance_options": [
+    "身穿黑色修身暗纹工装马甲，腰挎皮质工具套袋，眼神锐利内敛，动作干练。",
+    "指节布满精密器械微茧，立于后勤机电室监控监视屏前密切注视烤箱机械门锁各项负荷参数。"
+   ],
+   "decision": {
+    "avoids": [
+     "蛮力拉扯损坏珍贵进口烤箱门轴",
+     "在公众前暴露餐厅厨房安全维护隐患",
+     "无序慌乱的处置流程"
+    ],
+    "contrast": "看似沉默寡言的冷面技术员，在器械危机来临之际却能精准洞察微观力学破局关键。",
+    "core_value": "机械物理结构决定一切，唯有找准受力支点方能以最小代价解除死锁。",
+    "goal_options": [
+     "在通道暗处比划特定手势指引主厨用调刀翘角施以剪切力撬解死锁",
+     "备妥冷备用便携烤箱以防第一批甜品塌陷时进行紧急烘烤"
+    ],
+    "never": [
+     "允许任何外力直接破坏烤箱微晶玻璃面板"
+    ],
+    "prefers": [
+     "基于严密物理力学的解法",
+     "最小化结构损伤的精巧破拆",
+     "冷静克制的危机处置"
+    ],
+    "pressure_responses": {
+     "breaking": "看到顾冷霜完成暗扣闭合瞬间果断下推T杆完成神级切镜",
+     "high": "在团委催促推流指令下强行插入两秒礼堂全景空镜头过渡",
+     "low": "在耳麦中短促播报推流倒计时并督促台前清场",
+     "mid": "发现特写画面纽扣脱落异样时右手悬停在T型推杆上暂缓切镜"
+    },
+    "relationship_stance": "对主厨的高超厨艺怀有敬佩，对器械故障抱有工程师的职业救赎心理。",
+    "withdrawal": "在总控室快速检视烤箱铰链受力分解图，确保解套方案万无一失。"
+   },
+   "gender": "male",
+   "gender_reason": "热工机电专业本科修毕年满二十六岁之成年现场工程技术员",
+   "id": "engineer_song_bo_han",
+   "identity": {
+    "authority": "后厨重型设备安全检修认定权与突发器械卡死处置权",
+    "exposure": "若烤箱铰链事故造成外场名流受伤或走光将面临行业资质吊销处分",
+    "hidden": "早已看出烤箱重力自闭铰链带有对角倾角卡片特性，暗中通过对讲耳麦提示抹刀最佳撬动偏转角。",
+    "limits": [
+     "品鉴关键时刻严禁擅自冲入开放式吧台干预出品",
+     "严禁破坏涉案价值昂贵的高精度商用烤箱主体结构"
+    ],
+    "obligations": [
+     "保障全场进口智能烹饪设备处于最佳机械状态",
+     "迅速排查铰链自锁症结并提供物理破拆指引"
+    ],
+    "resources": [
+     "高精度红外线非接触式测温仪与扳手",
+     "防爆照明多角度内窥检视反光镜探杆"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "主厨在生死关头沉着施展抹刀杠杆的绝美决断力",
+     "冰雪聪颖的心智"
+    ],
+    "boundaries": [
+     "恪守设备工程师与主厨大师之间的职业界限"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "跻身跨国连锁餐饮财团重型厨电技术总师与安全管理首席权威。",
+    "dislikes": [
+     "私自改装设备关键承重部件",
+     "在名贵设备上搞恶俗装置",
+     "粗暴蛮横的强行拉拽"
+    ],
+    "expression": "站在侧门暗角微打手势，示意抹刀硬角为最佳破拆支点，眼神沉静笃定。",
+    "likes": [
+     "精妙耐用的厨房机械构造",
+     "女主厨精准利落的器械操作悟性",
+     "米其林三星极致品鉴"
+    ],
+    "preconditions": [
+     "成功保护烤箱与主厨平安解脱"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "商用厨房重型设备维保工程师",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_facility_mep_control_room",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_cold_prep_pastry_kitchen",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_facility_mep_control_room",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手势传递需极度隐蔽且主厨必须瞬间领悟力学角度",
+      "option": "通过玻璃磨砂移门向吧台打出斜角四十五度微撬手势"
+     },
+     {
+      "cost": "需承担泄压声响可能被前排挑剔评委敏锐察觉的风险",
+      "option": "在总控室微调旁通阀瞬间卸除门轴液压回路阻尼减弱卡死拉力"
+     }
+    ],
+    "pressure": "舒芙蕾倒数仅剩十余秒且无法登台操作，主厨服真丝经纬受拉负荷濒临极限",
+    "trigger": "自监控回传画面察知烤箱门锁死死咬咬女厨衣物后系带与束带骨托"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "铰链导槽带有倾角卡片，唯有沿对角线施加剪切力才能顺畅撬脱自锁限位销！",
+    "surface": "商用烤箱铰链气压与温度平衡良好，门轴处于安全咬合阈值。"
+   }
+  },
+  {
+   "adult_context": "烘焙料理研发方向四年级成年女学子满二十四岁，具备完全民事权责担当，担任女主厨贴身助手兼挚友。",
+   "age_range": [
+    24,
+    27
+   ],
+   "appearance_options": [
+    "身穿嫩粉条纹修身西点围裙配齐耳短发，眉眼灵动秀美，手捧备用金箔装饰盘候在冷加工间门边。",
+    "眼角带有一抹俏丽灵动，此刻却因从出餐窗口瞥见主厨后背死锁险情而花容失色紧咬下唇。"
+   ],
+   "decision": {
+    "avoids": [
+     "事情闹大导致全行业通报",
+     "主厨在名流评委前当众受辱",
+     "米其林三星评审毁于一旦"
+    ],
+    "contrast": "平日活泼娇俏爱开玩笑的富家才女，在闯下大祸关头展现出真诚悔过与舍身护友的决绝。",
+    "core_value": "哪怕拼尽全力也要保住主厨的声誉和这次三星评审，绝不能让一场打赌毁了姐姐。",
+    "goal_options": [
+     "在出餐口以抹刀反光暗号向主厨提示铰链受力松动状态",
+     "备妥加厚真丝围裙随时准备在灯光微转瞬间冲上吧台遮护"
+    ],
+    "never": [
+     "推卸打赌闯祸的责任",
+     "眼睁睁看着女主厨前襟崩开而无动于衷"
+    ],
+    "prefers": [
+     "幕后道具暗中策应手段",
+     "真丝织物快速应急遮掩",
+     "私下承担所有过失处罚"
+    ],
+    "pressure_responses": {
+     "breaking": "在讲台侧后方用红丝绒托盘斜立遮挡光线以极快手法递入暗扣",
+     "high": "迈开优雅端庄的礼仪步伐抢在陆晨舟之前从侧翼台阶移步登台",
+     "low": "在侧幕边缘端正托盘平稳呼吸密切注视讲台前襟状态",
+     "mid": "发现纽扣崩落瞬间悄悄从夹层扣出磁吸扣捏在掌心手汗中"
+    },
+    "relationship_stance": "对主厨又愧疚又心疼，暗暗发誓再也不跟主厨赌这种东西。",
+    "withdrawal": "深吸一口气退入冷加工间门后，双手死死攥紧备用围裙压制内心极度自责与慌乱。"
+   },
+   "gender": "female",
+   "gender_reason": "同班同窗之二十四岁西点烘焙方向成年女助理",
+   "id": "assistant_jiang_cai_wei",
+   "identity": {
+    "authority": "冷加工间食材调配权与主厨随身小工具出入核对权",
+    "exposure": "若姐妹之间打赌的事被餐厅知道，两人都会被行政总厨骂得抬不起头。",
+    "hidden": "几小时前在更衣室和主厨打赌，主厨输了，冷着脸自己系上了那件蕾丝束身衣——谁也没想到弯腰开箱时骨扣会卡进铰链死槽。",
+    "limits": [
+     "评鉴环节正式开启后严禁贸然闯入全透视吧台扰乱动线",
+     "不可贸然惊叫导致现场高雅肃穆氛围破灭毁坏大局"
+    ],
+    "obligations": [
+     "维系甜品主厨随身行头一丝不苟的完美形象",
+     "全力掩护同窗好友主厨平安出品"
+    ],
+    "resources": [
+     "备用纯白高定主厨备用真丝挂脖围裙",
+     "随身带刻度微型纯钛裱花剪刀"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "主厨冰山般坚定高尚的名厨人格魅力",
+     "劫后重生的相拥宽恕"
+    ],
+    "boundaries": [
+     "坚决守住主厨私密束身衣尊严绝不让第三人察觉真相"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "成为与主厨并肩闪耀世界餐饮界的顶级甜品研发主理人。",
+    "dislikes": [
+     "自己轻率任性闯下的滔天大祸",
+     "米其林评委冰冷严酷的挑剔审判",
+     "丑闻曝光"
+    ],
+    "expression": "眼眶泛红嘴唇轻颤，以双手紧握备用围裙紧贴门缝，随时准备冲出为挚友遮护。",
+    "likes": [
+     "与主厨亲密无间的同窗闺蜜情谊",
+     "吧台上珠联璧合的甜品研发",
+     "法式浪漫西点殿堂"
+    ],
+    "preconditions": [
+     "主厨平安解脱并震撼全场评审"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "主厨研发助理西点师兼同窗密友",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_cold_prep_pastry_kitchen",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_cold_prep_pastry_kitchen",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_cold_prep_pastry_kitchen",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "需承担可能被外场总管眼神严厉警告破坏动线的纪律风险",
+      "option": "在出餐窗口假借呈递糖粉筛为主厨遮挡侧方视线争取数秒"
+     },
+     {
+      "cost": "需在极其隐蔽动作下精细把控泄压力度避免发出机械杂音",
+      "option": "用尽全身力气轻拍烤箱外侧旁通泄压阀减弱铰链咬合压力"
+     }
+    ],
+    "pressure": "自责内疚与三星评审毁灭恐慌双重煎熬，舒芙蕾二十五秒倒数如死神催命符",
+    "trigger": "看清主厨后腰束身衣合金扣死死卡入自己亲手推合的烤箱阻尼铰链缝隙"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "主厨求你一定要挑开卡榫……我发誓回去一定立刻帮你解开束身衣，千万不能出事啊！",
+    "surface": "金箔舒芙蕾辅料准备完毕，随时听候主厨出盘指令。"
+   }
+  },
+  {
+   "adult_context": "欧陆顶级烹饪品鉴泰斗年届五十八岁，身居知名餐饮评审会首席且代表米其林行使评审裁夺大权。",
+   "age_range": [
+    58,
+    58
+   ],
+   "appearance_options": [
+    "银发修剪得一丝不苟，身着定制修身深蓝法式正装，手握纯银品鉴叉与秒表平板，目光威严如炬，气场慑人。",
+    "身姿端庄端坐于大理石吧台中央正席，目光透过金丝单片眼镜，紧锁开放式烤箱出炉口。"
+   ],
+   "decision": {
+    "avoids": [
+     "任何破坏品鉴神圣感的意外混乱",
+     "业余低级的出品失误",
+     "无节制的拖沓延时"
+    ],
+    "contrast": "平日不苟言笑威震全球餐饮界的铁血美食暴君，在真正尝到撼动灵魂的完美舒芙蕾时眼角亦会泛起由衷动容。",
+    "core_value": "美食是至高无上的严谨法则，分秒时限不可逾越，对出品瑕疵零容忍。",
+    "goal_options": [
+     "在二十五秒泡沫下陷临界终点果断按表落笔裁定星级评级",
+     "以严峻威严的目光逼视烤箱台促使女主厨立即出盘呈递"
+    ],
+    "never": [
+     "为了个人私交降低米其林三星评审门槛",
+     "在品鉴席上表现出任何妥协姑息"
+    ],
+    "prefers": [
+     "分秒不差的精准温控",
+     "无懈可击的大师气场",
+     "纯正法式极致浪漫甜品"
+    ],
+    "pressure_responses": {
+     "breaking": "在听到气压释放嘶鸣声后迅速闭合地槽动力断路器完成排障",
+     "high": "在耳麦中大声指挥台前人员借激光笔淬火背夹下压挑卡簧",
+     "low": "在耳麦中短促通报电机短路电磁阀烧结警报并要求台前切勿强拔",
+     "mid": "快速查阅管路图纸找出立柱内侧两毫米应急泄压孔确切方位"
+    },
+    "relationship_stance": "对年轻女主厨持有泰山北斗式的严酷审视与恨铁不成钢的高标期待。",
+    "withdrawal": "在评审席稍作凝滞，以犀利目光环视全场令二十位名流评审重归绝对肃静。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "critic_pierre_dupuis",
+   "identity": {
+    "authority": "米其林三星终极评星一票否决权与甜品出品时效裁量大权",
+    "exposure": "若评选出弄虚作假的餐厅将严重折损主评委半生积累的至高行业声誉",
+    "hidden": "虽表面严酷如铁，内心实则对主厨惊人的拉糖与烘焙天赋赞赏有加，迫切期待品尝这道传世杰作。",
+    "limits": [
+     "严禁无正当品鉴理由任意违背米其林严苛评审纪律准则",
+     "严禁容忍任何非专业的出品松懈与卫生失误"
+    ],
+    "obligations": [
+     "确保本场年度压轴三星复评达到无可挑剔的极致艺术巅峰",
+     "把控二十位名流评审精确到秒级的品鉴流程"
+    ],
+    "resources": [
+     "米其林红色指南全球三星令印",
+     "国际美食家学会终身会长金质徽章"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "主厨在极限关头展现出的王者般从容沉静气度",
+     "绝境中烘焙出的天籁口感"
+    ],
+    "boundaries": [
+     "严守美食泰斗尊严与成年行业前后辈规矩"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "作为世界美食殿堂无可争议的终身权威图腾名垂青史。",
+    "dislikes": [
+     "吧台上任何漫不经心的小动作",
+     "出品迟滞犹豫导致塌陷",
+     "浮躁媚俗的商业炒作"
+    ],
+    "expression": "金丝眼镜后目光威严，右手手指轻敲大理石台面，双目如电射向烤箱门把手。",
+    "likes": [
+     "主厨纯粹专注的甜品名厨气象",
+     "烘焙工艺的神圣严谨",
+     "名流屏息的纯净品鉴"
+    ],
+    "preconditions": [
+     "焦糖舒芙蕾出炉二十五秒内完美呈盘且温控无可挑剔"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "米其林三星指南终身评审元勋",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_marble_tasting_counter_front",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_marble_tasting_counter_front",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_marble_tasting_counter_front",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "若主厨因机械事故受挫将直接酿成震惊世界餐饮界的降星悲剧",
+      "option": "依规在倒数归零瞬间坚决按下秒表判定超时扣除星级"
+     },
+     {
+      "cost": "需承担被随行严苛副评委记录计时微小宽松的原则折损风险",
+      "option": "以极其微小的品鉴巾擦拭动作将读秒稍微放宽三秒"
+     }
+    ],
+    "pressure": "二十位评委目光与镜头全部聚焦烤箱门前，秒表读数飞逝，稍有延迟整桌出品即刻作废",
+    "trigger": "计时二十五秒下榻死线走起，端起高清单反机位平视烤箱出炉口捕取焦糖金光"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "主厨为何开箱迟滞了三秒？米其林三星绝不允许一秒钟犹豫！",
+    "surface": "舒芙蕾膨胀高度完美，但在二十五秒内若无法呈盘，三星荣誉便将当场化为泡影！"
+   }
+  },
+  {
+   "adult_context": "商业视觉摄影专业毕业年满二十三岁成年青年，持有国家颁发摄影证书，主打名家大厨肖像及大作掌镜。",
+   "age_range": [
+    23,
+    23
+   ],
+   "appearance_options": [
+    "身着深黑专业摄影工装，胸前挂着两台加装微距人像红圈镜头的顶级全画幅单反相机，眼神敏锐如鹰。",
+    "双手稳如磐石托举长焦镜头，紧盯吧台前主厨出箱动作，对焦红点牢牢锁定烤箱把手。"
+   ],
+   "decision": {
+    "avoids": [
+     "低俗猎奇的走光特写",
+     "主编追责的重大出版事故",
+     "破坏品鉴神圣秩序"
+    ],
+    "contrast": "手握全场最具放大效应的顶级微距镜头，却在名利诱惑面前坚守最崇高纯净的职业敬畏底线。",
+    "core_value": "镜头是呈现高尚美食艺术的画笔，坚守职业操守，绝不沦为低级猎奇的推波助澜者。",
+    "goal_options": [
+     "把镜头视觉中心牢实定在主厨凌霜傲雪之神情及热气腾腾金黄甜点上",
+     "暂缓摇下镜头推全景以掩护女主厨前襟崩扣私密脱困危局"
+    ],
+    "never": [
+     "恶意放大拍摄女性主厨的突发私密窘境并公之于众"
+    ],
+    "prefers": [
+     "唯美圣洁的光影构图",
+     "优雅端庄的特写捕捉",
+     "对名厨大师的人文体恤"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷庄重开口发声后满意点头向校领导躬身汇报",
+     "high": "在耳麦中严厉提醒导播台按预定时间点准点切屏不得延误",
+     "low": "在贵宾席前平稳确认领导座次并用手势示意各单位倒计时开场",
+     "mid": "察觉讲台略有偏高时抬眼注视台前要求副主席做好应急准备"
+    },
+    "relationship_stance": "对主厨的绝世风华怀有由衷敬慕，以镜头语言筑起一道体面尊严防线。",
+    "withdrawal": "微摇云台将构图中心抬升至主厨高帽与雪白修颈，规避门前受拉死锁部位。"
+   },
+   "gender": "male",
+   "gender_reason": "商业影视摄影专业修习圆满二十三岁之成年男摄影师",
+   "id": "blogger_chen_zi_mo",
+   "identity": {
+    "authority": "米其林全球年鉴官方封面特写抓取权与杂志图集精选裁量权",
+    "exposure": "若因镜头构图失误破坏女主厨神圣形象将面临杂志社严肃解聘问责",
+    "hidden": "在单反超清取景器内敏锐窥见主厨前领纽绊散脱且后腰被咬，于职业规约与守护名厨尊严间笃定抉择。",
+    "limits": [
+     "严格服从杂志社出版纪律，严禁私摄外泄非艺术性隐秘私照",
+     "严禁闪光灯直射主厨眼睛干扰出品"
+    ],
+    "obligations": [
+     "捕捉主厨三星女主厨圣洁高贵神态与舒芙蕾极致焦化细节",
+     "确保向全球读者呈现殿堂级视觉大片"
+    ],
+    "resources": [
+     "大光圈定焦微距超清镜头组",
+     "双机身高速连拍无线图传系统"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "主厨在长焦镜头中展露出的孤勇清傲美感",
+     "名厨风骨"
+    ],
+    "boundaries": [
+     "恪守摄影师与被拍摄大师之间的距离美"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "成为国际顶级美食与时尚艺术纪录片终身金牌掌镜大师。",
+    "dislikes": [
+     "恶俗狗仔式的窥私欲",
+     "厨房事故引发的低俗狂欢",
+     "虚伪矫揉的表演"
+    ],
+    "expression": "双手极轻柔地旋动变焦环，将画面牢牢锁定在主厨惊心动魄的美目与托盘指尖。",
+    "likes": [
+     "主厨镜头下无可挑剔的骨相神韵",
+     "纯粹神圣的烘焙艺术",
+     "坚守职业道德的同道中人"
+    ],
+    "preconditions": [
+     "成功录制传世级米其林封面特写大片"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "国际美食杂志首席摄影师",
+   "schedule": [
+    {
+     "from": 120,
+     "location_id": "loc_marble_tasting_counter_front",
+     "to": 130
+    },
+    {
+     "from": 130,
+     "location_id": "loc_marble_tasting_counter_front",
+     "to": 135
+    },
+    {
+     "from": 135,
+     "location_id": "loc_marble_tasting_counter_front",
+     "to": 140
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "需承担主编在耳机中严厉催促全景抓拍的极度紧张心理压力",
+      "option": "以高温蒸汽弥漫为由将特写镜头景深压缩在舒芙蕾酥皮与主厨专注眼眸上"
+     },
+     {
+      "cost": "极度考验摄影师阻尼操控微操手法与平滑运镜功底",
+      "option": "微切虚焦两秒让镜头平滑横移至主评委纯银刀叉再平稳切回"
+     }
+    ],
+    "pressure": "长焦取景距主厨前襟松解边缘差之毫厘，若稍作下偏便会尽显内穿蕾丝紧身胸衣",
+    "trigger": "主编在对讲耳机中传来要求将镜头推向全身以展现主厨服干练身姿的倒数指令"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "镜头绝不往下拉，只要守住这上半身的名厨神韵，便无人能看破围裙后部险情！",
+    "surface": "微距一号机就位，景深锁定主厨面容与舒芙蕾焦糖层，光圈数值完美！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "米其林评审日，三月",
+  "minute": 1140
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "humiliation",
+  "workplace_power",
+  "gambling"
+ ],
+ "custom": false,
+ "customs": [
+  "米其林三星甜品主厨出炉呈盘时须向吧台环坐的首席评委微微颔首致意并介绍糖度配比",
+  "主厨开工前须使用专业细磨石核验随身携带之糖艺纯钛微型调色刀刃口平整度",
+  "开放式吧台出品前由副主厨启动低照度聚光灯聚焦大理石料理操作台中央",
+  "国际美食杂志摄影师在舒芙蕾出炉瞬间使用长焦微距镜头捕捉糖壳金黄光泽"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "成年助理西点助理核验纯钛调色抹刀微翘尖角刚度平整度",
+    "主厨在更衣室整理纯白真丝主厨服前襟双排珍珠扣"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_daily_spatula_edge_pre_check",
+   "location_ids": [
+    "loc_cold_prep_pastry_kitchen"
+   ],
+   "start_minute": 120,
+   "tags": [],
+   "title": "后厨无菌间拉糖抹刀硬尖校验"
+  },
+  {
+   "beats": [
+    "技师设备技师使用测温仪排查二号重型烤箱门轴阻尼滑块工作行程",
+    "大堂总督导阿黎核对品鉴吧台二十套银制餐具定位精度"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_daily_oven_hinge_calibration",
+   "location_ids": [
+    "loc_facility_mep_control_room"
+   ],
+   "start_minute": 125,
+   "tags": [],
+   "title": "商用烤箱自闭门轴伺服排查"
+  },
+  {
+   "beats": [
+    "主厨深呼吸调匀气息压抑内衬蕾丝束身衣传来的紧绷不适感",
+    "副主厨在旁端正主厨巾低语为搭档确认舒芙蕾配方"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_daily_kitchen_standby_entry",
+   "location_ids": [
+    "loc_cold_prep_pastry_kitchen"
+   ],
+   "start_minute": 130,
+   "tags": [],
+   "title": "全景吧台前女主厨定神候场"
+  },
+  {
+   "beats": [
+    "主厨神采傲立在雪花白大理石吧台中央优雅完成起刀调糖演示",
+    "微距超清镜头精准锁定女主厨雪白修颈与金黄焦糖薄脆层"
+   ],
+   "duration_minutes": 5,
+   "hook_ids": [],
+   "id": "act_daily_pastry_show_applause",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "start_minute": 135,
+   "tags": [],
+   "title": "主厨甜品秀引全场名流雷动掌声"
+  },
+  {
+   "beats": [
+    "下午四点，女主厨在甜品岛台前试烤今晚的舒芙蕾，烤箱的灯亮着暖黄的光。",
+    "第一炉出来塌了一点，主厨皱着眉看了几秒，把它推到一边。",
+    "第二炉完美地鼓起来，主厨终于露出一点笑意，切了一小块给帮厨尝。"
+   ],
+   "duration_minutes": 5,
+   "hook_ids": [
+    "hook_cameraman_ethical_choice",
+    "hook_oven_heat_thrill",
+    "hook_sous_chef_silent_vow"
+   ],
+   "id": "act_daily_hinge_corset_deadlock",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "start_minute": 960,
+   "tags": [],
+   "title": "开餐前试烤舒芙蕾"
+  },
+  {
+   "beats": [
+    "开餐前，服务生在大理石品鉴席上摆好二十套银器，主厨亲自过来检查。",
+    "主厨挪了挪一只甜品勺的位置，说差了半厘米也看得出来。",
+    "摆台完成，主厨看了一眼手表：还有一小时，大家去吃点东西。"
+   ],
+   "duration_minutes": 5,
+   "hook_ids": [
+    "hd_chef_pei_luo_shen",
+    "hd_sous_chef_lu_chen_feng",
+    "hd_assistant_jiang_cai_wei",
+    "hd_critic_pierre_dupuis",
+    "hd_engineer_song_bo_han",
+    "hd_blogger_chen_zi_mo"
+   ],
+   "id": "act_daily_critic_countdown_advance",
+   "location_ids": [
+    "loc_marble_tasting_counter_front"
+   ],
+   "start_minute": 1020,
+   "tags": [],
+   "title": "品鉴席的摆台"
+  },
+  {
+   "beats": [
+    "收工后，主厨端上来一小碟还没定名的甜点，用小勺挖了一口，直接喂进你嘴里。",
+    "主厨盯着你的表情，等你咽下去才开口：好吃吗？……说实话，我只信你的舌头。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_chef_tasting",
+   "location_ids": [
+    "loc_chef_rest_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "尝一道还没出品的新甜点"
+  },
+  {
+   "beats": [
+    "主厨背对你解开厨师服，蕾丝束身衣的系带从腰后一路交叉上去，勒得腰肢细得一握。",
+    "主厨回头看你，冷着的脸慢慢红了：赌输穿上的，勒了一晚上……你来解。我想让你解。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_chef_corset",
+   "location_ids": [
+    "loc_chef_rest_room"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "intimate"
+   ],
+   "title": "解开那件蕾丝束身衣"
+  },
+  {
+   "beats": [
+    "主厨用咖啡机萃了两杯浓缩，自己的那杯加了一勺糖，搅了搅，换给了你。",
+    "主厨端着你那杯苦的抿了一口：你怕苦，我知道。……这种事，我都记着。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_chef_espresso",
+   "location_ids": [
+    "loc_chef_rest_room"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "一杯意式浓缩"
+  },
+  {
+   "beats": [
+    "天亮前，外滩的灯一盏盏熄了，主厨窝在沙发上，脑袋枕着你的腿。",
+    "主厨闭着眼睛握住你的手：今天店休。……你哪儿都别去。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_chef_dawn_bund",
+   "location_ids": [
+    "loc_chef_rest_room"
+   ],
+   "start_minute": 330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "看外滩的灯一盏盏熄"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代上海外滩米其林三星法餐厅，评审品鉴前二十五秒",
+ "extends": null,
+ "forbidden_terms": [
+  "幼女",
+  "萝莉",
+  "幼态",
+  "未成年",
+  "初中",
+  "高中生",
+  "女童",
+  "男童",
+  "儿童",
+  "少女",
+  "少男",
+  "幼小",
+  "稚嫩",
+  "初潮",
+  "变态"
+ ],
+ "hooks": [
+  {
+   "id": "hook_pastry_chef_corset_trap_start",
+   "kind": "approach",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "chef_pei_luo_shen",
+   "text": "主评委按动秒表仅剩二十五秒，烤箱重力铰链咬死内层蕾丝束身衣，{chef_pei_luo_shen.name}如何借纯钛抹刀从容脱险？"
+  },
+  {
+   "id": "hook_towel_stand_blindspot_aid",
+   "kind": "approach",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "sous_chef_lu_chen_feng",
+   "text": "吧台二十位名流目光灼灼，副主厨能否机警移动加宽隔热操作巾构筑死角，协助女主厨完成无声破拆？"
+  },
+  {
+   "id": "hook_broadcast_zoom_in_crisis",
+   "kind": "approach",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "blogger_chen_zi_mo",
+   "text": "超清单反微距镜头步步逼近，真丝主厨服前襟崩纽之下，三星女主厨的高贵清誉面临严峻审判。"
+  },
+  {
+   "id": "hook_spatula_titanium_lever_mechanics",
+   "kind": "approach",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "chef_pei_luo_shen",
+   "text": "法式拉糖纯钛小抹刀微翘硬尖充当微观机械撬棒能否顶退限位销？四点二牛顿斜向力矩决定全场盛典成败。"
+  },
+  {
+   "id": "hook_tray_sway_camouflage",
+   "kind": "approach",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "chef_pei_luo_shen",
+   "text": "纯银托盘托举遮挡的行云流水身段能否完美掩蔽金属卡簧脱扣的清脆脆响？古典厨艺与机械自救的精妙融合。"
+  },
+  {
+   "id": "hook_souffle_finale_cadenza",
+   "kind": "request",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "chef_pei_luo_shen",
+   "text": "在首席评委按快门之刹那，解开拘束的当红女主厨能否稳稳呈送热气腾腾的极品点心，成就不朽之夜？"
+  },
+  {
+   "id": "hook_secret_goddess_blush_relief",
+   "kind": "approach",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "chef_pei_luo_shen",
+   "text": "化险为夷之后雪白玉颈泛起的温热与劫后余生的剧烈心跳，将如何转化为风华绝代的主厨从容致谢？"
+  },
+  {
+   "id": "hook_backstage_prank_secret_guilt",
+   "kind": "approach",
+   "location_ids": [
+    "loc_cold_prep_pastry_kitchen"
+   ],
+   "slot": "assistant_jiang_cai_wei",
+   "text": "更衣室里一场打赌酿成危局，西点助理要如何在冷加工间门边拼尽全力为主厨接应？"
+  },
+  {
+   "id": "hook_engineer_gesture_cipher",
+   "kind": "approach",
+   "location_ids": [
+    "loc_facility_mep_control_room"
+   ],
+   "slot": "engineer_song_bo_han",
+   "text": "后勤监控传出的手势暗号，能否将四十五度斜向剪切力破拆法则及时指引送达吧台中央？"
+  },
+  {
+   "id": "hook_cameraman_ethical_choice",
+   "kind": "approach",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "blogger_chen_zi_mo",
+   "text": "直面足令网络沸腾的超清近距抓拍，执镜才俊如何在行规操守与捍卫名厨尊荣间守牢正义底线？"
+  },
+  {
+   "id": "hook_critic_iron_protocol_test",
+   "kind": "request",
+   "location_ids": [
+    "loc_marble_tasting_counter_front"
+   ],
+   "slot": "critic_pierre_dupuis",
+   "text": "主评委手握秒表的冰冷目光下，容不得半秒迟延的严酷时限正在无情丈量着生死时速。"
+  },
+  {
+   "id": "hook_silk_costume_tension_limit",
+   "kind": "approach",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "chef_pei_luo_shen",
+   "text": "高定纯白真丝主厨服在强光下泛起紧绷微光，纤细腰肢与门轴间崩紧的暗绳何时会彻底告破？"
+  },
+  {
+   "id": "hook_oven_heat_thrill",
+   "kind": "approach",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "chef_pei_luo_shen",
+   "text": "全景吧台二十位名流屏息的静穆中，唯有一滴晶莹香汗顺着雪白细腻的锁骨滑入真丝前襟深处。"
+  },
+  {
+   "id": "hook_michelin_standing_ovation_triumph",
+   "kind": "approach",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "chef_pei_luo_shen",
+   "text": "从突发死锁到从容呈盘的惊险破茧，全景玻璃吧台满场起立雷动欢呼的三星最高荣耀最终归于何人？"
+  },
+  {
+   "id": "hook_sous_chef_silent_vow",
+   "kind": "approach",
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "slot": "sous_chef_lu_chen_feng",
+   "text": "同台副主厨在死生契阔的舞台惊涛中立下的无声守护誓言，能否成为陪伴女主厨登顶烹饪巅峰的坚固依靠？"
+  },
+  {
+   "id": "hook_chef_rest_room_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_chef_rest_room"
+   ],
+   "slot": "chef_pei_luo_shen",
+   "text": "{npc.name}倚在休息室门口，厨师服的扣子松了两颗：收工了。……进来尝样东西？"
+  },
+  {
+   "id": "hd_chef_pei_luo_shen",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "chef_pei_luo_shen",
+   "text": "{chef_pei_luo_shen.name}把一小块新做的挞递到你嘴边，语气平淡：“尝尝。甜度合不合适，直说。”"
+  },
+  {
+   "id": "hd_sous_chef_lu_chen_feng",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "sous_chef_lu_chen_feng",
+   "text": "{sous_chef_lu_chen_feng.name}擦着台面冲你点头：“今天收工早，一起去喝一杯？”"
+  },
+  {
+   "id": "hd_assistant_jiang_cai_wei",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "assistant_jiang_cai_wei",
+   "text": "{assistant_jiang_cai_wei.name}抱着一本配方本凑过来：“这个新配方，你帮我看看比例。”"
+  },
+  {
+   "id": "hd_critic_pierre_dupuis",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "critic_pierre_dupuis",
+   "text": "{critic_pierre_dupuis.name}在吧台边坐下，冲你微笑：“今天只是私人拜访，来一杯咖啡就好。”"
+  },
+  {
+   "id": "hd_engineer_song_bo_han",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "engineer_song_bo_han",
+   "text": "{engineer_song_bo_han.name}拿着检修单走过来：“例行保养做完了，签个字就行。”"
+  },
+  {
+   "id": "hd_blogger_chen_zi_mo",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "blogger_chen_zi_mo",
+   "text": "{blogger_chen_zi_mo.name}举起相机冲你晃了晃：“给这道甜品拍张照，你帮我打一下光。”"
+  }
+ ],
+ "id": "pastry_chef_oven_hinge_corset_jam",
+ "locations": [
+  {
+   "affordances": [
+    "以冷艳主厨王者从容身姿单手托盘稳定大局",
+    "借右手调刀微翘坚硬倒角探入铰链缝隙实施破拆"
+   ],
+   "detail": "由整块天然雪花白大理石打造的中心料理岛台，环形陈列着二十把高定皮质高脚椅，台内嵌入德国重型蒸汽烤箱与急冻锁鲜柜。",
+   "exits": [
+    "loc_cold_prep_pastry_kitchen",
+    "loc_marble_tasting_counter_front",
+    "loc_facility_mep_control_room"
+   ],
+   "id": "loc_open_pastry_kitchen_island",
+   "name": "甜品岛台",
+   "pressure_modifiers": {
+    "press_oven_hinge_corset_deadlock": "重力铰链死死咬住蕾丝暗带加剧主厨服前襟撕裂走光风险",
+    "press_souffle_collapse_twenty_five": "舒芙蕾秒级塌陷与评委拍照加剧时间催命压迫"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "环坐的二十位米其林评审与名流高举手机近距离俯瞰，无影射灯聚焦在主厨身前，主厨服轮廓一览无余。",
+   "witnesses": [
+    "bg_critic_pierre_dupuis",
+    "bg_sous_chef_lu_chen_feng"
+   ]
+  },
+  {
+   "affordances": [
+    "隔窗以专业手势提示烤箱铰链泄力破拆角度",
+    "准备备用真丝纯白主厨围裙随时接应"
+   ],
+   "detail": "连通主吧台后区的超净间，摆放着多层巧克力调温大理石台面与法式糖艺恒温灯箱，透光磨砂移门阻隔视线。",
+   "exits": [
+    "loc_open_pastry_kitchen_island",
+    "loc_marble_tasting_counter_front",
+    "loc_facility_mep_control_room",
+    "loc_chef_rest_room"
+   ],
+   "id": "loc_cold_prep_pastry_kitchen",
+   "name": "冷加工间",
+   "pressure_modifiers": {
+    "press_oven_hinge_corset_deadlock": "背光遮蔽便于传递微观力学破拆图解"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "磨砂玻璃内仅受柔和漫射光线照射，外场喧嚣被双层真空玻璃大幅削弱。",
+   "witnesses": [
+    "bg_pastry_assistant_jiang_cai_wei"
+   ]
+  },
+  {
+   "affordances": [
+    "高举高清拍摄设备对准出炉瞬间施加极致视线聚焦",
+    "翻看秒表与评分平板核验出品时序"
+   ],
+   "detail": "紧贴开放式吧台前沿的半弧形尊享用餐区，二十套纯银高定刀叉整齐陈列，名流评审正饶有兴致等待甜品呈递。",
+   "exits": [
+    "loc_open_pastry_kitchen_island",
+    "loc_cold_prep_pastry_kitchen",
+    "loc_facility_mep_control_room"
+   ],
+   "id": "loc_marble_tasting_counter_front",
+   "name": "品鉴席",
+   "pressure_modifiers": {
+    "press_souffle_collapse_twenty_five": "评委屏幕倒数光亮让秒数流逝感成倍放大"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "主评委正对烤箱出炉口仅隔一点五米距离，长焦微距手机镜头已提前对焦。",
+   "witnesses": [
+    "bg_critic_pierre_dupuis"
+   ]
+  },
+  {
+   "affordances": [
+    "查验重型商用烤箱液压回弹铰链受力截面三维装配图",
+    "调取多功能纯钛起销微调工具"
+   ],
+   "detail": "配置精密电气检测仪表与进口厨具零部件货架的技术核心区，四联防爆温控断路器正在运转。",
+   "exits": [
+    "loc_open_pastry_kitchen_island",
+    "loc_cold_prep_pastry_kitchen",
+    "loc_marble_tasting_counter_front"
+   ],
+   "id": "loc_facility_mep_control_room",
+   "name": "配电总控室",
+   "pressure_modifiers": {
+    "press_oven_hinge_corset_deadlock": "远离喧嚣能够极度冷静推导阻尼别退力学公式"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "完全密闭防火隔音重型防盗门，仅限持有检修芯片的专业工程师进入查验。",
+   "witnesses": [
+    "bg_engineer_song_bo_han"
+   ]
+  },
+  {
+   "affordances": [
+    "陪主厨尝一道新甜点",
+    "替主厨解开那件蕾丝束身衣",
+    "锁上休息室的门"
+   ],
+   "detail": "法餐厅楼上的主厨休息室，一张皮质长沙发、一台意式咖啡机、架子上摆满手写的配方本，窗外是外滩的江景。",
+   "exits": [
+    "loc_cold_prep_pastry_kitchen"
+   ],
+   "id": "loc_chef_rest_room",
+   "name": "餐厅楼上的主厨休息室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "门一锁，楼下后厨的锅碗声和抽油烟机的轰鸣都被隔在地板下面。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "裴",
+   "陆",
+   "宋",
+   "温",
+   "江",
+   "皮",
+   "陈",
+   "苏",
+   "柳",
+   "潘",
+   "赵",
+   "贺",
+   "沈",
+   "顾",
+   "白",
+   "姜"
+  ],
+  "given_female": [
+   "洛神",
+   "采薇",
+   "若岚",
+   "宛卿",
+   "翠娘",
+   "知微",
+   "安然",
+   "倾城",
+   "灵萱",
+   "羽灵",
+   "浅雪",
+   "萌萌",
+   "清婉",
+   "晚柠",
+   "诗音",
+   "雪见"
+  ],
+  "given_male": [
+   "晨风",
+   "博瀚",
+   "子谦",
+   "梦生",
+   "海川",
+   "云舟",
+   "伯川",
+   "景琛",
+   "修远",
+   "廷锋",
+   "景川",
+   "震霆",
+   "天成",
+   "逸轩",
+   "承宇",
+   "埃尔"
+  ],
+  "given_neutral": [
+   "书禾",
+   "书意",
+   "景行",
+   "玄同",
+   "若水",
+   "青川",
+   "怀瑾",
+   "望舒",
+   "沐风",
+   "鸣谦",
+   "秋白",
+   "丹青",
+   "天音",
+   "和鸣",
+   "连城",
+   "秋水"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "male",
+    "pattern": "{family}先生"
+   },
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留全景落地玻璃的开放式甜品台、二十位名流美食家环坐大理石吧台、冷艳女主厨开箱端盘时烤箱回弹门轴咬住围裙抽绳和里层蕾丝束身衣的骨扣、双排扣厨师服崩开香肩酥胸半露、米其林主评委举着秒表二十五秒倒数、用糖艺钛调刀的薄翘硬角插进门缝撬退卡榫的骨架与冷艳色气的味道。束身衣改成主厨和助理打赌输了、自己答应穿上的。原稿的时代、地点、开局时刻和基调是从学生会长模板复制的，已按外滩法餐甜品台重写；玩家身份原稿照抄了几位主要角色，已改成餐厅里的其他人；背景人物里与主要角色同名的几位改成了独立的人。女主从在读学生改成三星餐厅的甜品主厨，年龄二十七到三十岁，副主厨二十九到三十三岁。用户已放开内容限制、色情尺度优先，只守红线；卡住的险情期间不写性互动。新增餐厅楼上的主厨休息室与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    37,
+    41
+   ],
+   "baseline": "酒店管理出身，十年前在外滩开了这家法餐厅，一手把这东西做到米其林三星。",
+   "gender": "any",
+   "id": "pi_pastry_chef_pei_luo_shen",
+   "reputation": "把一家小馆子做成三星的老板",
+   "resources": [
+    "餐厅的全部经营决定权",
+    "米其林评审圈子里的老交情"
+   ],
+   "risks": [
+    "评审当天出了丑闻，三星可能保不住"
+   ],
+   "role": "法餐厅的老板",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}老板"
+    },
+    {
+     "gender": "male",
+     "pattern": "{given}先生"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    33,
+    37
+   ],
+   "baseline": "法国厨艺学院毕业，主理热厨十二年，餐厅里唯一能对甜品部指手画脚的人。",
+   "gender": "any",
+   "id": "pi_sous_chef_lu_chen_feng",
+   "reputation": "脾气火爆、手艺顶尖的行政总厨",
+   "resources": [
+    "整个后厨的出品调度权",
+    "可以让舒芙蕾晚上桌半分钟的权限"
+   ],
+   "risks": [
+    "评审出了事故，总厨要和主厨一起担责"
+   ],
+   "role": "餐厅的行政总厨",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总厨"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}师傅"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    27,
+    31
+   ],
+   "baseline": "侍酒师专业认证，在三星餐厅做了六年侍酒，每一道甜品的配酒都由此人挑。",
+   "gender": "any",
+   "id": "pi_kitchen_engineer_song_bo_han",
+   "reputation": "开一瓶酒就能让全桌安静下来的侍酒师",
+   "resources": [
+    "酒窖钥匙和一整车餐后甜酒",
+    "就站在品鉴吧台边上的位置"
+   ],
+   "risks": [
+    "配酒出错，评委会把账算到侍酒师头上"
+   ],
+   "role": "餐厅的侍酒师",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}侍酒"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    29,
+    33
+   ],
+   "baseline": "烹饪专业毕业，在甜品部帮厨一年，管打蛋白、筛面粉和洗烤盘。",
+   "gender": "any",
+   "id": "pi_floor_manager_wen_xiao_die",
+   "reputation": "手快嘴甜、谁都喊得动的帮厨",
+   "resources": [
+    "一摞烤盘和打蛋器",
+    "冷加工间的门禁卡"
+   ],
+   "risks": [
+    "评审当天出错就转不了正"
+   ],
+   "role": "甜品台的帮厨",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}帮厨"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "外滩的米其林三星法餐厅，冷艳的女主厨管着开放式甜品台，双排扣厨师服里面穿着一件蕾丝束身衣，每晚的现烤舒芙蕾是招牌。老板、行政总厨和侍酒师都在等下个月的米其林复评；甜品台那台烤箱的回弹门轴越来越紧，修了两次还是会突然一合。",
+ "pressures": [
+  {
+   "choice": "选择利用抹刀硬尖实施微观机械杠杆自救，还是慌乱后撤扯裂真丝主厨服当众走光露体。",
+   "exits": [
+    {
+     "cost": "手指关节需抗住剧烈反震钝痛且必须完全融入端盘优雅姿态中不露破绽。",
+     "option": "右手倒握抹刀以微翘硬尖探入铰链狭隙施加偏转剪切力挑退自锁销钉"
+    },
+    {
+     "cost": "隔热巾微展幅度稍过恐遭前排资深名宿挑剔厨房动线失范。",
+     "option": "暗会副厨持拿防烫厚布围筑视觉暗盲带为徒手脱扣争取瞬息时间"
+    }
+   ],
+   "far": {
+    "consequence": "三星传奇女掌门之名誉当场崩解，恐遭全球美食圈放逐且背负终生悔恨。",
+    "due_days": 1,
+    "trigger": "内穿花纹束身短衣与破损工服在满堂高朋及长焦镜头前大白于天下"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_pastry_chef_corset_trap_start",
+    "hook_towel_stand_blindspot_aid",
+    "hook_broadcast_zoom_in_crisis",
+    "hook_spatula_titanium_lever_mechanics",
+    "hook_tray_sway_camouflage",
+    "hook_souffle_finale_cadenza",
+    "hook_secret_goddess_blush_relief",
+    "hook_backstage_prank_secret_guilt",
+    "hook_engineer_gesture_cipher",
+    "hook_cameraman_ethical_choice",
+    "hook_critic_iron_protocol_test",
+    "hook_silk_costume_tension_limit",
+    "hook_oven_heat_thrill",
+    "hook_michelin_standing_ovation_triumph",
+    "hook_sous_chef_silent_vow",
+    "hook_chef_rest_room_door"
+   ],
+   "id": "press_oven_hinge_corset_deadlock",
+   "immediate": {
+    "minutes": 1,
+    "text": "冰硬门转轴死咬暗身布绳，厨衣前侧珍珠纽散开，身躯紧贴滚烫机盖难以脱身。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若无法在二十五秒内解除暗带死锁，舒芙蕾彻底塌陷且主厨服脱落将直接酿成星级除名灾难。"
+   },
+   "objective": "在全席食客按下手机快门前借手中拉糖抹刀微翘尖角别开门轴卡片，解除咬合脱离灼热烤箱门扇。",
+   "source": "accident",
+   "start_minute": 136,
+   "tags": [
+    "disaster"
+   ],
+   "title": "烤箱铰链咬死围裙束身衣",
+   "trigger": "俯身启封取热盘瞬间重力弹簧转轴滑块回抽，牢实咬咬工作服细腰带与贴里鱼骨胸衣暗扣。"
+  },
+  {
+   "choice": "选择在严苛倒数下以极高技艺完成解扣，还是慌乱失态导致甜品塌陷招致三星降级。",
+   "exits": [
+    {
+     "cost": "动作衔接要求达到登峰造极，稍有迟滞即会导致托盘倾斜热甜品滑落。",
+     "option": "在倒数最后五秒凭借抹刀硬尖挑开卡销并顺势单手托盘平稳呈递"
+    },
+    {
+     "cost": "需承担副手擦盘动作微调被老派评委记录细微失范的风险。",
+     "option": "借副主厨提前擦拭吧台餐盘为主厨争取额外三秒转圈摆盘缓冲"
+    }
+   ],
+   "far": {
+    "consequence": "评审团现场出具降星黄牌通告，餐厅多年心血与国际声望毁于一旦。",
+    "due_days": 1,
+    "trigger": "米其林三星压轴大菜因出炉超时严重塌陷变质"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_pastry_chef_corset_trap_start",
+    "hook_towel_stand_blindspot_aid",
+    "hook_broadcast_zoom_in_crisis",
+    "hook_spatula_titanium_lever_mechanics",
+    "hook_tray_sway_camouflage",
+    "hook_souffle_finale_cadenza",
+    "hook_secret_goddess_blush_relief",
+    "hook_backstage_prank_secret_guilt",
+    "hook_engineer_gesture_cipher",
+    "hook_cameraman_ethical_choice",
+    "hook_critic_iron_protocol_test",
+    "hook_silk_costume_tension_limit",
+    "hook_oven_heat_thrill",
+    "hook_michelin_standing_ovation_triumph",
+    "hook_sous_chef_silent_vow",
+    "hook_chef_rest_room_door"
+   ],
+   "id": "press_souffle_collapse_twenty_five",
+   "immediate": {
+    "minutes": 1,
+    "text": "吧台高脚椅上名流屏息以待，微距相机快门蓄势待发，全景厨房空气凝固如铅。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_marble_tasting_counter_front"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "长官立于台前刹那若女主厨仍遭拉扯，将当场迎见前襟抽带滑落酥胸毕露之狼狈。"
+   },
+   "objective": "在秒表读数归零前毫厘不差完成解脱，单手平稳端起金黄舒芙蕾呈递至吧台正席。",
+   "source": "person",
+   "start_minute": 138,
+   "tags": [],
+   "title": "名点二十五秒坍陷倒计时",
+   "trigger": "主评委手握纯银秒表，目光如炬注视烤箱口，二十五秒现烤舒芙蕾塌陷死线正式开启。"
+  },
+  {
+   "choice": "选择以大师级冷艳仪态吸引摄影师收缩特写景深，还是任由镜头推全景暴露前襟崩纽险情。",
+   "exits": [
+    {
+     "cost": "需在后背受缚剧痛中完美维持面部神圣高贵与从容浅笑。",
+     "option": "主厨微扬雪白下颌展露绝世冷艳侧颜以摄人心魄的目光掌控镜头焦点"
+    },
+    {
+     "cost": "摄影师需顶住对讲频道内主编责令推近大景别镜头的严厉催促。",
+     "option": "摄影师恪守职业操守主动将镜头焦距定格在舒芙蕾糖霜微观结晶上"
+    }
+   ],
+   "far": {
+    "consequence": "引发滔天网络恶俗狂欢与非议炒作，彻底抹黑米其林殿堂神圣纯净形象。",
+    "due_days": 1,
+    "trigger": "私密鱼骨束身衣特写画面被全球数十家美食杂志与网络媒体抓拍曝光"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_pastry_chef_corset_trap_start",
+    "hook_towel_stand_blindspot_aid",
+    "hook_broadcast_zoom_in_crisis",
+    "hook_spatula_titanium_lever_mechanics",
+    "hook_tray_sway_camouflage",
+    "hook_souffle_finale_cadenza",
+    "hook_secret_goddess_blush_relief",
+    "hook_backstage_prank_secret_guilt",
+    "hook_engineer_gesture_cipher",
+    "hook_cameraman_ethical_choice",
+    "hook_critic_iron_protocol_test",
+    "hook_silk_costume_tension_limit",
+    "hook_oven_heat_thrill",
+    "hook_michelin_standing_ovation_triumph",
+    "hook_sous_chef_silent_vow",
+    "hook_chef_rest_room_door"
+   ],
+   "id": "press_telephoto_lenses_island_threat",
+   "immediate": {
+    "minutes": 1,
+    "text": "取景屏距离主厨服前襟撕开的雪白缝隙仅差半寸，下半身微弱受缚震颤分毫毕现。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若镜头继续下移五公分，腰间被门轴死死咬住的蕾丝束身衣骨架反光将直接投屏全球大刊。"
+   },
+   "objective": "引导镜头焦点牢牢锁定在金黄焦糖酥皮与高贵冷艳美目上，严防镜头扫过受力绷开的主厨服下摆。",
+   "source": "person",
+   "start_minute": 136,
+   "tags": [],
+   "title": "吧台环形长焦微距镜头推近",
+   "trigger": "国际美食杂志官方单反相机缓缓对焦，全画幅微距红圈镜头逐步逼近烤箱门把手边缘。"
+  },
+  {
+   "choice": "选择以沉稳仪态克制慌乱后撤，还是因灼热本能挣扎导致整件主厨服当场崩开脱落。",
+   "exits": [
+    {
+     "cost": "单臂需承受持续高强度静力紧绷且极易产生隐蔽酸麻感。",
+     "option": "左手轻托银盘巧妙横档在胸前形成自锁掩护暗帘抵消拉扯应力"
+    },
+    {
+     "cost": "搭档遮挡面积有限且极度依赖副手毫厘不差的站位把控。",
+     "option": "借副主厨靠近摆盘身姿将受力崩纽边缘完全掩入其黑色厨师服阴影中"
+    }
+   ],
+   "far": {
+    "consequence": "陷入不可挽回的精神重创与公开羞辱，彻底退出餐饮界隐退江湖。",
+    "due_days": 1,
+    "trigger": "工作衣裳彻底崩解致使名厨在座中众位显贵跟前衣不蔽体受辱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_pastry_chef_corset_trap_start",
+    "hook_towel_stand_blindspot_aid",
+    "hook_broadcast_zoom_in_crisis",
+    "hook_spatula_titanium_lever_mechanics",
+    "hook_tray_sway_camouflage",
+    "hook_souffle_finale_cadenza",
+    "hook_secret_goddess_blush_relief",
+    "hook_backstage_prank_secret_guilt",
+    "hook_engineer_gesture_cipher",
+    "hook_cameraman_ethical_choice",
+    "hook_critic_iron_protocol_test",
+    "hook_silk_costume_tension_limit",
+    "hook_oven_heat_thrill",
+    "hook_michelin_standing_ovation_triumph",
+    "hook_sous_chef_silent_vow",
+    "hook_chef_rest_room_door"
+   ],
+   "id": "press_silk_uniform_strain_tear_panic",
+   "immediate": {
+    "minutes": 1,
+    "text": "真丝薄料受力紧绷透光，冷风穿过前襟崩脱暗缝直触雪白酥胸带来剧烈战栗感。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若再有五毫米位移，下侧暗扣将彻底崩脱，雪白抹胸与黑色蕾丝束身衣将完全失去遮蔽。"
+   },
+   "objective": "维持稳定身姿避免横向剪切应力拉断布料经纬，借抹刀硬尖精准破拆释放上身拉扯张力。",
+   "source": "accident",
+   "start_minute": 137,
+   "tags": [
+    "disaster"
+   ],
+   "title": "高定真丝主厨工服撕裂风险",
+   "trigger": "烤箱铰链持续拖拽围裙暗带，导致真丝双排扣主厨工服前襟纽扣孔承受超出设计的强拉撕扯力。"
+  },
+  {
+   "choice": "选择将破拆动作精妙化为主厨开箱测温专业手势，还是任由动作变形被判定失态。",
+   "exits": [
+    {
+     "cost": "需展现出登峰造极的表演伪装功底与沉静如水的强大心理防线。",
+     "option": "将右手下探破拆动作精妙伪装为主厨核验烤箱密封胶条弹性的专业科范"
+    },
+    {
+     "cost": "旋盘动作受严格规程限制，至多只能旋转一次以示庄重。",
+     "option": "以左手优雅轻旋纯银托盘行大师收式打破凝滞气氛向全场展现从容风度"
+    }
+   ],
+   "far": {
+    "consequence": "丧失后续欧美巡回主厨挂帅资格并被米其林指南除名。",
+    "due_days": 1,
+    "trigger": "米其林评审团发布权威乐评直指主厨临场心理素质存在重大缺陷"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_pastry_chef_corset_trap_start",
+    "hook_towel_stand_blindspot_aid",
+    "hook_broadcast_zoom_in_crisis",
+    "hook_spatula_titanium_lever_mechanics",
+    "hook_tray_sway_camouflage",
+    "hook_souffle_finale_cadenza",
+    "hook_secret_goddess_blush_relief",
+    "hook_backstage_prank_secret_guilt",
+    "hook_engineer_gesture_cipher",
+    "hook_cameraman_ethical_choice",
+    "hook_critic_iron_protocol_test",
+    "hook_silk_costume_tension_limit",
+    "hook_oven_heat_thrill",
+    "hook_michelin_standing_ovation_triumph",
+    "hook_sous_chef_silent_vow",
+    "hook_chef_rest_room_door"
+   ],
+   "id": "press_peer_expert_scrutiny_panic",
+   "immediate": {
+    "minutes": 1,
+    "text": "数十道挑剔而锐利的目光如芒在背，吧台前轻微的刀叉碰击声在死寂大厅中格外刺耳。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "一旦被美食家认定为开箱动作变形受挫，无论舒芙蕾口感如何都将在评分表中遭受严苛扣分。"
+   },
+   "objective": "以无可挑剔的主厨仪态化解一切外界狐疑，杜绝任何肢体破绽外露。",
+   "source": "person",
+   "start_minute": 138,
+   "tags": [],
+   "title": "品鉴名流长焦镜头挑剔审视",
+   "trigger": "吧台二十位名流饕客纷纷举起最新款微距手机，对准主厨出盘动作审视烘焙细节。"
+  },
+  {
+   "choice": "是咬着牙把束身衣的羞耻压下去、冷着脸自救，还是当着二十位名流崩溃认输。",
+   "exits": [
+    {
+     "cost": "下唇几乎咬破且需承受极度隐忍带来的身心透支负荷。",
+     "option": "深吸一口气咬紧贝齿以剧痛唤醒绝对理性沉着执行四点二牛顿斜角破拆"
+    },
+    {
+     "cost": "在彼此灵魂深处种下永生难忘的生死羁绊与不可言说的同门深情。",
+     "option": "凝视搭档副主厨坚定沉稳的目光汲取心灵支撑重筑坚不可摧的高傲防线"
+    }
+   ],
+   "far": {
+    "consequence": "成为全球餐饮界的荒诞笑柄，从神坛跌落深渊抱憾终身。",
+    "due_days": 1,
+    "trigger": "心理防线彻底崩溃在全场名流面前失态哭泣暴露出腰间荒唐秘密"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_pastry_chef_corset_trap_start",
+    "hook_towel_stand_blindspot_aid",
+    "hook_broadcast_zoom_in_crisis",
+    "hook_spatula_titanium_lever_mechanics",
+    "hook_tray_sway_camouflage",
+    "hook_souffle_finale_cadenza",
+    "hook_secret_goddess_blush_relief",
+    "hook_backstage_prank_secret_guilt",
+    "hook_engineer_gesture_cipher",
+    "hook_cameraman_ethical_choice",
+    "hook_critic_iron_protocol_test",
+    "hook_silk_costume_tension_limit",
+    "hook_oven_heat_thrill",
+    "hook_michelin_standing_ovation_triumph",
+    "hook_sous_chef_silent_vow",
+    "hook_chef_rest_room_door"
+   ],
+   "id": "press_chef_shame_collapse",
+   "immediate": {
+    "minutes": 1,
+    "text": "雪白修颈与粉颊泛起羞恼绯红，心跳失控如擂鼓，受制感带来极度心理凌迟。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_open_pastry_kitchen_island"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若无法在倒数结束前平复心绪，指尖微颤将直接导致抹刀硬尖滑脱失去唯一解脱契机。"
+   },
+   "objective": "死守高岭名厨般的圣洁心防，在极度羞恼战栗中保持绝对清醒坚毅的机械破拆意志。",
+   "source": "accident",
+   "start_minute": 137,
+   "tags": [
+    "disaster"
+   ],
+   "title": "打赌穿上的束身衣咬死私密羞耻",
+   "trigger": "贴身蕾丝束胸受沉重合页死死吊拽并传导冷硬挫痛，禁锢受制之感瞬间传遍周身。"
+  }
+ ],
+ "region": "三星法餐厅：开放式甜品台、冷加工间、大理石品鉴吧台与后勤机电室",
+ "rules": [
+  {
+   "id": "rule_open_kitchen_decorum_safety",
+   "text": "全开放式主厨吧台作业必须保持绝对严整仪容，严禁在名流品鉴期间发生慌乱失态或衣衫不整事故。"
+  },
+  {
+   "id": "rule_heavy_oven_hinge_safety_protocol",
+   "text": "商用高温焗炉自动回弹合页处于承重咬合状态时严禁蛮力拉拽，以免损坏微动感应开关引发蒸汽烫伤。"
+  },
+  {
+   "id": "rule_souffle_collapse_twenty_five_limit",
+   "text": "极品现烤焦糖舒芙蕾出炉后二十五秒内必须呈递上桌，逾期蛋白泡沫塌陷将直接被评委判定出品失败。"
+  },
+  {
+   "id": "rule_adult_chef_civil_liability_duty",
+   "text": "登台献艺女主厨与后厨团队全员均为年满二十周岁完全民事责任成年人，严格恪守米其林主厨职业规程。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "组织规约",
+  "committed": "金石同盟",
+  "familiar": "台容核检",
+  "flirting": "暗光对视",
+  "intimate": "俯仰共济",
+  "stranger": "初登讲台",
+  "testing": "执夹撬簧"
+ },
+ "status": "released",
+ "style_hint": "开放厨房的暖黄灯光与二十位名流的审视。写冷艳女主厨婴儿肥两颊的潮红、崩开的双排扣厨师服下半露的酥胸与勒紧腰肢的蕾丝束身衣、咬牙压住的喘息，动作落在糖艺钛调刀撬卡榫上。",
+ "tension_engines": [
+  {
+   "id": "eng_oven_hinge_corset_deadlock",
+   "text": "重型进口焗炉回转轴合页发生偏位咬死，牢牢卡紧围裙穿绳与束身塑型合金扣，娇躯贴死箱前且厨装有大敞危机。"
+  },
+  {
+   "id": "eng_souffle_twenty_five_countdown",
+   "text": "评委会长按下计时秒表并端举机位直逼出盘二十五秒临界时限，满场尊客视线灼灼紧盯中心操作台面。"
+  },
+  {
+   "id": "eng_telephoto_lenses_island_threat",
+   "text": "环形大理石吧台各角度长焦微距镜头与美食界元老近距离凝视，女主厨任何动作变形都将引发全场哗然与降星惨剧。"
+  },
+  {
+   "id": "eng_silk_uniform_strain_tear_panic",
+   "text": "双排扣高级主厨装领下纽扣崩裂松落显露内衬黑色蕾丝束胸，年方成年傲雪女主厨在透光吧台坚守名家尊贵。"
+  }
+ ],
+ "title": "冷艳甜品女主厨·烤箱门轴咬死蕾丝束身衣",
+ "tone": [
+  "厨师服崩开酥胸",
+  "束身衣骨扣被咬",
+  "主评委秒表倒数",
+  "糖艺调刀撬卡榫"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "twist_spatula_tip_shear_unlocked",
+   "requires": [
+    "chef_pei_luo_shen"
+   ],
+   "text": "调色抹刀锋锐钛翘尖端分毫不差扎入合页咬缝施加剪切力，门转轴卡笋伴随托盘微动声松脱弹开！"
+  },
+  {
+   "category": "人事",
+   "id": "twist_towel_extended_shadow",
+   "requires": [
+    "sous_chef_lu_chen_feng"
+   ],
+   "text": "副主厨果断展动加宽厚实隔热操作巾侧移两寸，彻底阻断评委镜头视线构筑绝密安全空间。"
+  },
+  {
+   "category": "资源",
+   "id": "twist_assistant_apron_ready",
+   "requires": [
+    "assistant_jiang_cai_wei"
+   ],
+   "text": "西点助理在冷加工间门后备妥纯白双层挂脖备餐工服围裙，形成万全接应底牌稳住全场阵脚。"
+  },
+  {
+   "category": "制度",
+   "id": "twist_photographer_rack_focus_eyes",
+   "requires": [
+    "blogger_chen_zi_mo"
+   ],
+   "text": "摄影摄影师断然将光学虚化焦点死锁在裴掌柜冰山般无瑕玉容及焦糖金壳上，向世人尽呈名厨傲骨！"
+  },
+  {
+   "category": "时限",
+   "id": "twist_engineer_pneumatic_relief",
+   "requires": [
+    "engineer_song_bo_han"
+   ],
+   "text": "设备技师迅速经旁路泄放烤箱门轴液压回路残留阻尼，使得铰链夹持力矩大减促成主厨轻巧脱身。"
+  },
+  {
+   "category": "关系",
+   "id": "twist_critic_sublime_presentation",
+   "requires": [
+    "critic_pierre_dupuis"
+   ],
+   "text": "主评委秒表读数归零刹那，主厨脱困托盘优雅欠身端出完美焦糖舒芙蕾，全场掌声如雷动！"
+  },
+  {
+   "category": "意外",
+   "id": "twist_goddess_curtsey_triumph",
+   "requires": [
+    "chef_pei_luo_shen"
+   ],
+   "text": "主厨服重归平整从容，主厨微红着粉颊从容介绍甜品糖度，在劫后余生中铸就米其林三星世纪传奇。"
+  }
+ ]
+}

@@ -1,0 +1,2250 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "守了十五年城墙的老军士长。",
+   "age_range": [
+    35,
+    50
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_wall_sergeant",
+   "line": "排烟百叶从外面撬不动，你们只能自己先把钢闸撬起来！",
+   "location_ids": [
+    "loc_vent_crank_niche",
+    "loc_fortress_parade_ground"
+   ],
+   "name": "城墙军士长布洛克",
+   "role": "城墙守军的军士长"
+  },
+  {
+   "adult_context": "在军械库看了二十年火药的老看守。",
+   "age_range": [
+    50,
+    65
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_powder_keeper",
+   "line": "引信烧到第三根柱子了！还剩不到半刻钟！",
+   "location_ids": [
+    "loc_vent_crank_niche"
+   ],
+   "name": "火药库看守老汤姆",
+   "role": "军械库的老看守"
+  },
+  {
+   "adult_context": "要塞里跑得最快的斥候，二十四岁。",
+   "age_range": [
+    22,
+    30
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_scout",
+   "line": "敌军的投石机又在装填，下一轮还要砸这边！",
+   "location_ids": [
+    "loc_vent_crank_niche",
+    "loc_fortress_parade_ground"
+   ],
+   "name": "斥候艾薇",
+   "role": "要塞的斥候"
+  },
+  {
+   "adult_context": "管着要塞伙房的伙夫长，嗓门比号角还大。",
+   "age_range": [
+    40,
+    55
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_field_cook",
+   "line": "骑士长又没吃早饭就去校场了，这样下去谁扛得住。",
+   "location_ids": [
+    "loc_fortress_parade_ground"
+   ],
+   "name": "伙夫长马格",
+   "role": "要塞的伙夫长"
+  },
+  {
+   "adult_context": "腿上中了一箭的年轻士兵，二十一岁。",
+   "age_range": [
+    21,
+    25
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_wounded_soldier",
+   "line": "骑士长，让我回城墙上去！我还能拉弓！",
+   "location_ids": [
+    "loc_fortress_parade_ground"
+   ],
+   "name": "伤兵小杰克",
+   "role": "伤兵营里的年轻士兵"
+  },
+  {
+   "adult_context": "在城墙和营房之间跑腿的传令兵。",
+   "age_range": [
+    21,
+    28
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_herald",
+   "line": "城外敌军派来了使者，说要见骑士长！",
+   "location_ids": [
+    "loc_fortress_parade_ground"
+   ],
+   "name": "传令兵罗宾",
+   "role": "要塞的传令兵"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "圣殿女骑士长与军械工学官在钢闸下身甲相贴、手叠着手，把重剑的十字护手别进偏心棘爪，一齿一齿往下压。",
+   "id": "cc_paladin_engineer_switch",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "knight_commander_christina",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一起被困在坑道里，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "armory_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "骑士长嘴上训斥，却知道整座要塞只有工学官的手艺靠得住。",
+     "stage": "familiar"
+    },
+    {
+     "a": "knight_commander_christina",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "armory_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "军械库门口那盏每夜都留着的提灯，两个人谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "knight_commander_christina",
+    "armory_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在引信烧到火药堆之前撬起钢闸，保住整座要塞的军械。",
+    "limit_gap": "骑士长的铠甲在坑道里施展不开，工学官力气不够、手里没有撬具。",
+    "meeting_reason": "被围的第四十天夜里，骑士长下到坑道清点火药，工学官正跪在排烟百叶旁检修摇柄。",
+    "resource_gap": "骑士长有重剑和一身骑士的力气，工学官有对这道钢闸每一颗铆钉的熟悉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_fuse_fire_creep",
+    "te_tunnel_armor_heat"
+   ]
+  },
+  {
+   "chemistry": "骑士长与工学官在排烟摇柄前四只手叠在铜柄上，一边争一边一圈一圈把热胀的摇柄扳回去。",
+   "id": "cc_paladin_engineer_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "knight_commander_christina",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "为一桶火药吵了一晚，吵到最后谁都不肯先走。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "armory_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "在城防图上互相批注过对方的错。",
+     "stage": "familiar"
+    },
+    {
+     "a": "knight_commander_christina",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "armory_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个寡言一个嘴硬，说过的话里一半是吵架，另一半都记得。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "knight_commander_christina",
+    "armory_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "把排烟百叶打开，让坑道里的人能喘上一口气。",
+    "limit_gap": "骑士长放不下骑士长的架子，工学官不懂骑士的规矩。",
+    "meeting_reason": "两人为了一桶火药该给城墙还是留在库里，在军械库里吵了一下午，吵到号角吹响都没分出胜负。",
+    "resource_gap": "骑士长懂打仗，工学官懂机关。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_blast_gate_deadlock",
+    "te_sulfur_smoke"
+   ]
+  },
+  {
+   "chemistry": "元帅特使的灯照着钢闸，骑士长和工学官一个压剑一个顶闸，谁也不肯在上头的人面前先喊累。",
+   "id": "cc_paladin_engineer_envoy",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "knight_commander_christina",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "头一回被上头的人盯着守城，也头一回在上头的人面前把命交出去。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "armory_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "奉命查看军械，早听说这个工学官敢顶撞骑士长。",
+     "stage": "familiar"
+    },
+    {
+     "a": "knight_commander_christina",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "armory_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在上头的人面前不敢多看一眼，可每一句口令都只喊给一个人听。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "knight_commander_christina",
+    "armory_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让上头的人亲眼看见，这座要塞还守得住。",
+    "limit_gap": "骑士长不敢在特使面前出错，工学官不习惯被人盯着干活。",
+    "meeting_reason": "元帅特使冒死送来密令，要骑士长带着去看军械库还剩多少火药，工学官被叫来打灯。",
+    "resource_gap": "骑士长手里有重剑和要塞的兵，工学官手里有这道钢闸的图纸。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_sulfur_smoke",
+    "te_blast_gate_deadlock"
+   ]
+  },
+  {
+   "chemistry": "骑士长一边压剑柄一边给新兵发号施令，工学官顶着钢闸，把三个人的力气拧成一股。",
+   "id": "cc_paladin_engineer_recruit",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "knight_commander_christina",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "骑士长点名时新兵的名字总是最后一个，今晚却要把命交到这双生手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "armory_engineer",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "第一次见面就一起被困在坑道里。",
+     "stage": "familiar"
+    },
+    {
+     "a": "knight_commander_christina",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "armory_engineer",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "骑士长和工学官默契得像练过一样，新兵都看在眼里。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "knight_commander_christina",
+    "armory_engineer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "带着新兵一起活着出去，明早的晨练一个都不能少。",
+    "limit_gap": "新兵什么都不懂，骑士长得一边救人一边教。",
+    "meeting_reason": "新兵被分到军械库当搬运工，第一夜骑士长下坑道点名，工学官正在检修排烟百叶。",
+    "resource_gap": "骑士长有重剑和指挥的经验，工学官有力气和钢闸的图。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_fuse_fire_creep",
+    "te_blast_gate_deadlock"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_tunnel_whisper",
+   "reach": "all",
+   "text": "坑道里两人贴着耳朵的低语和铠甲的摩擦声"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_signal_horn",
+   "reach": "local",
+   "text": "城墙上传下来的号角声，一长两短是集合，三短是求援"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁受封圣殿骑士长，被围前三个月奉命接管边境要塞，去留进退由本人拿主意。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "身披锃亮银白精钢半身胸甲与锁子甲裙，内衬深蓝天鹅绒武弁服，长发高束，白皙面容带着青年女性特有带着莹润的光泽，眼神如寒潭秋水般清冽坚定，在昏暗火光下泛着沉静无畏的光芒。",
+    "胸甲被硝烟与高温熏染上斑驳焦痕，面颊渗出细密汗珠，沾染着微许碳灰，两唇紧抿，双手紧握重剑十字护手，英气飒爽中尽显令人心折的凛然美态。"
+   ],
+   "decision": {
+    "avoids": [
+     "临阵脱逃的人",
+     "拿誓约当笑话的人"
+    ],
+    "contrast": "在校场上冷得像一块冰，士兵们连大气都不敢出；钢闸砸下来时，却是骑士长第一个倒转重剑，把工学官推到了闸板外侧。",
+    "core_value": "剑可以折，誓不能破，同袍一个都不能丢。",
+    "goal_options": [
+     "把重剑的十字护手别进偏心棘爪，压断限位销",
+     "和工学官一起撬起钢闸，抢在引信烧到火药堆之前脱出"
+    ],
+    "never": [
+     "为了脱身丢下同袍"
+    ],
+    "prefers": [
+     "说到做到、不怕死的人",
+     "敢当面顶撞、却从不背后议论的人"
+    ],
+    "pressure_responses": {
+     "breaking": "手掌被剑柄磨出血也不松手，咬着牙数完拍子。",
+     "high": "斩断挂住的披风系带，把全身重量压在剑柄上。",
+     "low": "钢闸一落就拔剑，先让工学官把提灯举高。",
+     "mid": "倒转重剑，把十字护手递过去，指出棘爪的位置。"
+    },
+    "relationship_stance": "工学官是整座要塞唯一敢当面顶撞骑士长的人，骑士长嘴上训斥，却每夜巡城时都会在军械库门口停一停。",
+    "withdrawal": "脱险后拄着剑站直，先登上城墙点了一遍名，才肯让人看见自己在发抖。"
+   },
+   "gender": "female",
+   "gender_reason": "圣殿派来的女骑士长，按原稿写作女性。",
+   "id": "knight_commander_christina",
+   "identity": {
+    "authority": "要塞里的每一个兵、每一桶火药、每一口粮，都要骑士长签字才能动用。",
+    "exposure": "坑道里的热浪把天鹅绒武弁服浸得透湿，贴在胸甲里，挤在闸板下时整个人都贴在了对方身上。",
+    "hidden": "营房的枕头下压着一封写给圣殿的信，请求解除自己的誓约，一直没有寄出去。",
+    "limits": [
+     "胸甲和锁子甲裙在坑道里施展不开",
+     "被围四十天，体力已经透支"
+    ],
+    "obligations": [
+     "守住要塞，等到王国的援军",
+     "不让任何一个同袍死在自己前面"
+    ],
+    "resources": [
+     "一柄精钢重剑，十字护手的折沿厚实，能当撬棍使",
+     "一把随身的短匕",
+     "一份要塞的城防图"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "坑道里替自己挡住火舌的那片后背",
+     "军械库门口那盏每夜都留着的提灯"
+    ],
+    "boundaries": [
+     "人前守住骑士长的威严，私下的心意只给认定的人",
+     "每一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "营房里由人替自己卸下胸甲的近身位",
+    "dislikes": [
+     "被当成需要保护的人",
+     "趁人之危的手"
+    ],
+    "expression": "嘴上还在说明早的晨练不许迟到，手却已经把营房的门闩落下了。",
+    "likes": [
+     "胸甲的系带被一根根解开时屏住的那口气",
+     "被人擦去脸上的烟灰",
+     "被叫名字，而不是“骑士长”"
+    ],
+    "preconditions": [
+     "钢闸撬起、两人都脱险之后",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "圣殿派驻边境的女骑士长",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_fortress_parade_ground",
+     "to": 480
+    },
+    {
+     "from": 480,
+     "location_id": "loc_fortress_parade_ground",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_commander_quarters",
+     "to": 1380
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "剑身可能折断，手掌会被震裂",
+      "option": "用重剑十字护手别进棘爪，和工学官合力压断限位销"
+     },
+     {
+      "cost": "引信烧到火药堆之前，外面的人砸不开",
+      "option": "退到坑道深处等外面的人砸开钢闸"
+     }
+    ],
+    "pressure": "钢闸咬死，引信的火光一寸寸逼近，必须在烧到火药堆之前撬开钢闸。",
+    "trigger": "敌军的火油弹砸进军械库，导火索走火，骑士长正下到坑道清点火药。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "火光好近……工学官的心跳就贴在胸甲上。立誓那天我以为这辈子只会握剑，原来还会想握住一个人的手。",
+    "surface": "别慌，看着我。十字护手别进棘爪的咬合槽，我压剑柄，你顶住闸板——引信还有半寸，够了。"
+   }
+  },
+  {
+   "adult_context": "二十六岁，跟着骑士长从圣殿一路来到边境，骑士长的每一道命令都由副官传下去。",
+   "age_range": [
+    23,
+    30
+   ],
+   "appearance_options": [
+    "一身擦得锃亮的轻甲，腰间挂着传令用的号角，头盔夹在臂弯里。",
+    "站在骑士长身后半步，手里永远捧着一卷名册。"
+   ],
+   "decision": {
+    "avoids": [
+     "骑士长的副官最烦临阵推诿"
+    ],
+    "contrast": "在士兵面前一板一眼地传令，私下却会偷偷往骑士长的水囊里兑一点蜂蜜。",
+    "core_value": "骑士长去哪里，副官就跟到哪里。",
+    "goal_options": [
+     "先把人救出来",
+     "骑士长的副官再追究是谁的错"
+    ],
+    "never": [
+     "骑士长的副官不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "骑士长的副官看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "骑士长的副官嗓子喊哑了也不肯走",
+     "high": "骑士长的副官顶着危险往里递东西",
+     "low": "骑士长的副官先稳住身边的人",
+     "mid": "骑士长的副官四处找能用的工具"
+    },
+    "relationship_stance": "全要塞只有副官知道骑士长枕头下那封信，副官替骑士长瞒着，也替骑士长心疼。",
+    "withdrawal": "事情过去后，骑士长的副官一个人躲开抽根烟"
+   },
+   "gender": "any",
+   "gender_reason": "骑士长的副官这个位置不限性别。",
+   "id": "knight_adjutant",
+   "identity": {
+    "authority": "骑士长不在时，城墙上的兵归副官调度。",
+    "exposure": "骑士长的副官忙起来顾不上衣着体面",
+    "hidden": "做骑士长的副官这些年，有件事没对旁人说过",
+    "limits": [
+     "骑士长的副官不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住骑士长的副官手上的那一摊事"
+    ],
+    "resources": [
+     "一卷要塞全员的名册",
+     "骑士长的副官随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "骑士长的副官欣赏做事干脆利落的人",
+     "骑士长的副官记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，骑士长的副官就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和骑士长的副官并肩站着",
+    "dislikes": [
+     "骑士长的副官讨厌轻浮的手"
+    ],
+    "expression": "骑士长的副官话不多，递东西时指尖会多停一下",
+    "likes": [
+     "骑士长的副官收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "骑士长的副官要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "骑士长的副官",
+   "schedule": [
+    {
+     "from": 360,
+     "location_id": "loc_fortress_parade_ground",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "骑士长的副官未必赶得上",
+      "option": "骑士长的副官在外面调度接应"
+     },
+     {
+      "cost": "可能把骑士长的副官自己也搭进去",
+      "option": "骑士长的副官硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，骑士长的副官进不去",
+    "trigger": "警报传到骑士长的副官那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "骑士长从来不让人替骑士长挡刀……今晚，骑士长一定又把工学官推到外侧去了。",
+    "surface": "骑士长！号角三短，我听见了！排烟百叶我们从外面撬，你们撑住！"
+   }
+  },
+  {
+   "adult_context": "二十五岁，从圣殿的修道院自愿来到边境，伤兵营里的每一卷绷带都是修女亲手缠的。",
+   "age_range": [
+    22,
+    30
+   ],
+   "appearance_options": [
+    "一身沾着血迹的灰色修女袍，袖子卷到手肘，胸前的木十字架用皮绳挂着。",
+    "跪在伤兵营的草垫上，一边念祷词一边缝伤口。"
+   ],
+   "decision": {
+    "avoids": [
+     "随军修女最烦临阵推诿"
+    ],
+    "contrast": "在伤兵面前温柔得像春天，可谁敢在伤兵营里抢药，修女会抄起烧红的烙铁。",
+    "core_value": "神不会丢下任何一个人，修女也不会。",
+    "goal_options": [
+     "先把人救出来",
+     "随军修女再追究是谁的错"
+    ],
+    "never": [
+     "随军修女不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "随军修女看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "随军修女嗓子喊哑了也不肯走",
+     "high": "随军修女顶着危险往里递东西",
+     "low": "随军修女先稳住身边的人",
+     "mid": "随军修女四处找能用的工具"
+    },
+    "relationship_stance": "看着骑士长一夜一夜不睡，修女总会在晨祷后把一碗热汤放在营房门口。",
+    "withdrawal": "事情过去后，随军修女一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "圣殿的修女会只收女性，按设定写作女性。",
+   "id": "field_nun",
+   "identity": {
+    "authority": "伤兵营里谁先治、谁的伤没救了，修女说了算。",
+    "exposure": "随军修女忙起来顾不上衣着体面",
+    "hidden": "做随军修女这些年，有件事没对旁人说过",
+    "limits": [
+     "随军修女不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住随军修女手上的那一摊事"
+    ],
+    "resources": [
+     "一包缝合用的针线和草药",
+     "随军修女随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "随军修女欣赏做事干脆利落的人",
+     "随军修女记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，随军修女就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和随军修女并肩站着",
+    "dislikes": [
+     "随军修女讨厌轻浮的手"
+    ],
+    "expression": "随军修女话不多，递东西时指尖会多停一下",
+    "likes": [
+     "随军修女收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "随军修女要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "随军修女",
+   "schedule": [
+    {
+     "from": 420,
+     "location_id": "loc_fortress_parade_ground",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "随军修女未必赶得上",
+      "option": "随军修女在外面调度接应"
+     },
+     {
+      "cost": "可能把随军修女自己也搭进去",
+      "option": "随军修女硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，随军修女进不去",
+    "trigger": "警报传到随军修女那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "骑士长每次受了伤都不肯来伤兵营……今晚出来，我一定要亲手给骑士长包扎。",
+    "surface": "骑士长！工学官！神与你们同在……修女在外面，绷带和热水都备好了！"
+   }
+  },
+  {
+   "adult_context": "二十七岁，王都工学院出身，被派到边境管军械库，被围前刚改完要塞的防爆钢闸，去留进退由本人拿主意。",
+   "age_range": [
+    24,
+    30
+   ],
+   "appearance_options": [
+    "一身沾满火药灰的皮围裙，袖子挽到手肘，小臂上全是被火星烫出的小疤，腰间挂着一串黄铜钥匙。",
+    "皮围裙早就扯掉了，亚麻衬衫被汗湿透，贴在背上，在坑道里弓着身子，用后背死死抵住岩壁。"
+   ],
+   "decision": {
+    "avoids": [
+     "瞎指挥的外行"
+    ],
+    "contrast": "在骑士长面前从不低头，城防的事一句不让；可骑士长一受伤，工学官就会一声不吭地去伤兵营讨药。",
+    "core_value": "机器不会骗人，只要找对受力点，再死的闸也能撬开。",
+    "goal_options": [
+     "用后背抵住岩壁，给骑士长腾出发力的支点",
+     "把全身重量压在剑柄上"
+    ],
+    "never": [
+     "让骑士长一个人留在坑道里"
+    ],
+    "prefers": [
+     "说话算话的人"
+    ],
+    "pressure_responses": {
+     "breaking": "手臂青筋暴起，吼着数完最后一个三。",
+     "high": "后背抵住岩壁，双手压在骑士长的手上，和骑士长一起压。",
+     "low": "一把将骑士长拉到闸板内侧，先看清引信烧到了哪里。",
+     "mid": "扯下耐热麻布缠住剑柄，免得骑士长的手被震伤。"
+    },
+    "relationship_stance": "全要塞唯一敢当面顶撞骑士长的人，每夜都把军械库门口那盏提灯留到骑士长巡城回来。",
+    "withdrawal": "确认钢闸撬起后才瘫坐在坑道口，摸了摸被燎焦的头发，长长吐出一口气。"
+   },
+   "gender": "male",
+   "gender_reason": "要塞的军械工学官，按原稿写作男性。",
+   "id": "armory_engineer",
+   "identity": {
+    "authority": "军械库里哪桶火药能动、哪道闸怎么开，工学官说了算。",
+    "exposure": "亚麻衬衫被汗浸透，挤在闸板下时，后背整片贴着骑士长的胸甲。",
+    "hidden": "那道防爆钢闸是工学官亲手改的，偏心棘爪的设计也是，工学官比谁都清楚这道闸有多难撬。",
+    "limits": [
+     "不是骑士，力气比不上骑士长",
+     "手边没有能撬动钢闸的工具"
+    ],
+    "obligations": [
+     "护住骑士长不被火舌燎到",
+     "撬起钢闸，抢在引信烧到火药堆之前脱出"
+    ],
+    "resources": [
+     "一卷耐热的麻布",
+     "一把黄铜扳手",
+     "一盏罩着铜网的提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "骑士长在火光里还记得给人报数的那份镇定",
+     "城墙上那个一夜不睡、把每个人的名字都点一遍的人"
+    ],
+    "boundaries": [
+     "骑士长没开口就不越一步",
+     "人前不让骑士长难做"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "营房里替骑士长卸甲的近身位",
+    "dislikes": [
+     "拿誓约压人",
+     "背后嚼舌根"
+    ],
+    "expression": "替骑士长解开胸甲最后一根系带时手停了很久，最后只说了一句：这副甲太重了，今晚卸下来吧。",
+    "likes": [
+     "骑士长难得叫一次自己的名字",
+     "被骑士长用剑鞘轻轻敲一下额头"
+    ],
+    "preconditions": [
+     "钢闸撬起、两人都安全清醒之后",
+     "骑士长点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "要塞的军械工学官",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_munitions_tunnel",
+     "to": 1080
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_fortress_parade_ground",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "后背会被岩壁磨破，手臂可能脱力",
+      "option": "用后背抵住岩壁，和骑士长合力压下剑柄"
+     },
+     {
+      "cost": "摇柄热胀卡死，一个人扳不动",
+      "option": "独自去扳排烟百叶的摇柄"
+     }
+    ],
+    "pressure": "钢闸咬死，引信越烧越近，必须赶在火药堆被点燃前撬开。",
+    "trigger": "火油弹砸进军械库时工学官正在坑道里检修排烟百叶，被钢闸堵在了里面。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "骑士长整个人都贴在我身上，胸甲烫得吓人……别分神。这道闸是我改的，今晚绝不能让钢闸把骑士长埋在这里。",
+    "surface": "骑士长往里靠，别碰左边的岩壁！护手咬住棘爪的倒角，我顶住闸板，你往下压——我数三下。"
+   }
+  },
+  {
+   "adult_context": "三十岁，敌军的一名工兵军官，被围第一周时被骑士长亲手擒获。",
+   "age_range": [
+    26,
+    36
+   ],
+   "appearance_options": [
+    "一身破了的敌军制服，手腕上拴着铁链，脸上带着一道刚结痂的刀疤。",
+    "靠在地牢的铁栏上，听着头顶的炮声，嘴角挂着冷笑。"
+   ],
+   "decision": {
+    "avoids": [
+     "关在要塞地牢里的敌军俘虏最烦临阵推诿"
+    ],
+    "contrast": "在守军面前一句话不肯说，私下却会悄悄告诉修女，下一轮火油弹会落在哪里。",
+    "core_value": "战场上各为其主，可俘虏也是人。",
+    "goal_options": [
+     "先把人救出来",
+     "关在要塞地牢里的敌军俘虏再追究是谁的错"
+    ],
+    "never": [
+     "关在要塞地牢里的敌军俘虏不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "关在要塞地牢里的敌军俘虏看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "关在要塞地牢里的敌军俘虏嗓子喊哑了也不肯走",
+     "high": "关在要塞地牢里的敌军俘虏顶着危险往里递东西",
+     "low": "关在要塞地牢里的敌军俘虏先稳住身边的人",
+     "mid": "关在要塞地牢里的敌军俘虏四处找能用的工具"
+    },
+    "relationship_stance": "被骑士长擒住时以为必死，骑士长却让修女给俘虏包扎了伤口，从那以后俘虏看骑士长的眼神就变了。",
+    "withdrawal": "事情过去后，关在要塞地牢里的敌军俘虏一个人躲开抽根烟"
+   },
+   "gender": "any",
+   "gender_reason": "关在要塞地牢里的敌军俘虏这个位置不限性别。",
+   "id": "enemy_prisoner",
+   "identity": {
+    "authority": "知道敌军投石机的射程和下一轮攻城的时辰。",
+    "exposure": "关在要塞地牢里的敌军俘虏忙起来顾不上衣着体面",
+    "hidden": "做关在要塞地牢里的敌军俘虏这些年，有件事没对旁人说过",
+    "limits": [
+     "关在要塞地牢里的敌军俘虏不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住关在要塞地牢里的敌军俘虏手上的那一摊事"
+    ],
+    "resources": [
+     "一张画在衬衣里的敌军营地草图",
+     "关在要塞地牢里的敌军俘虏随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "关在要塞地牢里的敌军俘虏欣赏做事干脆利落的人",
+     "关在要塞地牢里的敌军俘虏记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，关在要塞地牢里的敌军俘虏就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和关在要塞地牢里的敌军俘虏并肩站着",
+    "dislikes": [
+     "关在要塞地牢里的敌军俘虏讨厌轻浮的手"
+    ],
+    "expression": "关在要塞地牢里的敌军俘虏话不多，递东西时指尖会多停一下",
+    "likes": [
+     "关在要塞地牢里的敌军俘虏收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "关在要塞地牢里的敌军俘虏要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "关在要塞地牢里的敌军俘虏",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "loc_fortress_parade_ground",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "关在要塞地牢里的敌军俘虏未必赶得上",
+      "option": "关在要塞地牢里的敌军俘虏在外面调度接应"
+     },
+     {
+      "cost": "可能把关在要塞地牢里的敌军俘虏自己也搭进去",
+      "option": "关在要塞地牢里的敌军俘虏硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，关在要塞地牢里的敌军俘虏进不去",
+    "trigger": "警报传到关在要塞地牢里的敌军俘虏那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "那个女骑士要是死在里面……这座要塞就没人能挡住我们的人了。我该高兴才对。",
+    "surface": "放我出去！我知道那种钢闸怎么撬，我们的工兵学过！"
+   }
+  },
+  {
+   "adult_context": "六十多岁，在这座要塞守了三十年，圣殿派骑士长来接管时，老将军第一个单膝跪下交了兵符。",
+   "age_range": [
+    60,
+    70
+   ],
+   "appearance_options": [
+    "一身旧得发黑的锁子甲，一只眼睛蒙着黑布，拄着一根包铁的木杖。",
+    "坐在城墙垛口边，一眼就能看清整片校场和城外的敌营。"
+   ],
+   "decision": {
+    "avoids": [
+     "守了三十年要塞的老将军最烦临阵推诿"
+    ],
+    "contrast": "在士兵面前威严得说一不二，夜里却会一个人坐在城墙上，给阵亡的士兵念名字。",
+    "core_value": "要塞就是家，守城的人都是家里人。",
+    "goal_options": [
+     "先把人救出来",
+     "守了三十年要塞的老将军再追究是谁的错"
+    ],
+    "never": [
+     "守了三十年要塞的老将军不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "守了三十年要塞的老将军看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "守了三十年要塞的老将军嗓子喊哑了也不肯走",
+     "high": "守了三十年要塞的老将军顶着危险往里递东西",
+     "low": "守了三十年要塞的老将军先稳住身边的人",
+     "mid": "守了三十年要塞的老将军四处找能用的工具"
+    },
+    "relationship_stance": "把骑士长当成自己的孩子看，嘴上从不夸，城防的事却每一件都先问过骑士长。",
+    "withdrawal": "事情过去后，守了三十年要塞的老将军一个人躲开抽根烟"
+   },
+   "gender": "any",
+   "gender_reason": "守了三十年要塞的老将军这个位置不限性别。",
+   "id": "old_general",
+   "identity": {
+    "authority": "要塞的每一块砖、每一条暗道，老将军都记得。",
+    "exposure": "守了三十年要塞的老将军忙起来顾不上衣着体面",
+    "hidden": "做守了三十年要塞的老将军这些年，有件事没对旁人说过",
+    "limits": [
+     "守了三十年要塞的老将军不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住守了三十年要塞的老将军手上的那一摊事"
+    ],
+    "resources": [
+     "一张只有老将军知道的要塞暗道图",
+     "守了三十年要塞的老将军随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "守了三十年要塞的老将军欣赏做事干脆利落的人",
+     "守了三十年要塞的老将军记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，守了三十年要塞的老将军就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和守了三十年要塞的老将军并肩站着",
+    "dislikes": [
+     "守了三十年要塞的老将军讨厌轻浮的手"
+    ],
+    "expression": "守了三十年要塞的老将军话不多，递东西时指尖会多停一下",
+    "likes": [
+     "守了三十年要塞的老将军收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "守了三十年要塞的老将军要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "守了三十年要塞的老将军",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_fortress_parade_ground",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "守了三十年要塞的老将军未必赶得上",
+      "option": "守了三十年要塞的老将军在外面调度接应"
+     },
+     {
+      "cost": "可能把守了三十年要塞的老将军自己也搭进去",
+      "option": "守了三十年要塞的老将军硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，守了三十年要塞的老将军进不去",
+    "trigger": "警报传到守了三十年要塞的老将军那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "三十年了，这座要塞死过太多年轻人……今晚可不能再加上那个丫头的名字。",
+    "surface": "军械库的东侧有一条老暗道！把我这把老骨头抬过去，我知道怎么打开！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "王国历五〇二年，秋",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "coercion_theme",
+  "bodily_harm",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "圣殿骑士团女骑士长随身佩带精金淬火双刃圣剑，十字护手厚达三公分，足以承受数吨重压杠杆撬力。",
+  "地下军械密库闸门采用纯重力单向偏心防坠死锁齿，震动触发后需要精准撬开锁舌方能解除自锁。",
+  "转运坑道两壁嵌有铜制应急泄爆百叶窗，高温受阻时需利用工具敲击机械微动连杆排烟。",
+  "骑士板甲在狭窄空间内极易与石壁发生刮擦碰撞，排障时需两人密切配合调整发力夹角。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "天还没亮，号角声把士兵们赶上校场，骑士长披着银甲站在最前面，一剑一剑劈开晨雾。",
+    "骑士长把一柄木剑扔过来：握剑的手太松了。过来，我教你。"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "act_dawn_sword_drill",
+   "location_ids": [
+    "loc_fortress_parade_ground"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "workplace"
+   ],
+   "title": "校场上的晨练剑术"
+  },
+  {
+   "beats": [
+    "伤兵营的帐篷里一股血腥味和草药味，修女跪在草垫上缝伤口，骑士长蹲在一旁按住伤兵的肩膀。",
+    "骑士长把一卷绷带递过来：你按着，我来缠。别看伤口，看我的手。"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "act_infirmary_bandage",
+   "location_ids": [
+    "loc_fortress_parade_ground"
+   ],
+   "start_minute": 600,
+   "tags": [
+    "workplace"
+   ],
+   "title": "伤兵营里帮修女换绷带"
+  },
+  {
+   "beats": [
+    "提灯的铜网罩里火苗跳着，骑士长一桶一桶数着火药，工学官在旁边一笔一笔记账。",
+    "骑士长数到最后，停下来说：还够守二十天。二十天后，援军要是还不来……"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_armory_inventory",
+   "location_ids": [
+    "loc_munitions_tunnel"
+   ],
+   "start_minute": 840,
+   "tags": [
+    "workplace"
+   ],
+   "title": "军械库里清点火药"
+  },
+  {
+   "beats": [
+    "城墙上的火把一盏接一盏，骑士长一个垛口一个垛口地走，把每个守军的名字都念一遍。",
+    "走到最后一个垛口，骑士长望着城外的敌营火光，轻声说：每少一个名字，我都记得。"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "act_wall_night_watch",
+   "location_ids": [
+    "loc_fortress_parade_ground"
+   ],
+   "start_minute": 1200,
+   "tags": [
+    "workplace"
+   ],
+   "title": "城墙上的夜间点名"
+  },
+  {
+   "beats": [
+    "提灯下，骑士长把那柄重剑横在膝上，剑身上全是缺口和火药灰。",
+    "骑士长把油布递过来：这柄剑跟了我五年，从没让旁人碰过。你来擦。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_quarters_sword_polish",
+   "location_ids": [
+    "loc_commander_quarters"
+   ],
+   "start_minute": 1290,
+   "tags": [
+    "workplace"
+   ],
+   "title": "营房里替骑士长擦拭重剑"
+  },
+  {
+   "beats": [
+    "城防图摊在桌上，骑士长用匕首尖点着每一处缺口，眉头越皱越紧。",
+    "骑士长忽然抬头：你觉得，我们守得住吗？说实话。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_quarters_map",
+   "location_ids": [
+    "loc_commander_quarters"
+   ],
+   "start_minute": 1350,
+   "tags": [
+    "workplace"
+   ],
+   "title": "提灯下陪骑士长看城防图"
+  },
+  {
+   "beats": [
+    "钢闸撬起、两人滚出坑道、军械库在身后闭锁之后，骑士长登上城墙点完了名，才回到营房，胸甲上全是焦痕，脸上糊满了烟灰。",
+    "提灯下，骑士长背过身，让人一根根解开胸甲的皮系带，把烫手的铁甲卸下来挂上木架，再解开汗湿的武弁服，骑士长没有回头，往后靠了过来。",
+    "骑士长转过身，手指按在对方的胸口：立誓那天，我以为这辈子只会握剑……今晚，叫我的名字。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_unbuckle_armor",
+   "location_ids": [
+    "loc_commander_quarters"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "营房里替骑士长卸下胸甲"
+  },
+  {
+   "beats": [
+    "营房里烧了一桶热水，骑士长只穿着亚麻衬衣跪坐在木桶边，把一头银发浸进水里，回头看人。",
+    "骑士长说：城墙上四十天，头发里全是烟灰。……你来洗，洗干净了，我有话要对你说。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_hair_wash",
+   "location_ids": [
+    "loc_commander_quarters"
+   ],
+   "start_minute": 1220,
+   "tags": [
+    "intimate"
+   ],
+   "title": "木桶边替骑士长洗头发"
+  },
+  {
+   "beats": [
+    "骑士长解开银色发带，长发披下来，背对着人跪在床上祈祷，祷词念到一半，忽然停住了。",
+    "骑士长回过头：誓言里说，此身只献给圣殿。……我想改一个字，改成什么，要你点头才算。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_oath_whisper",
+   "location_ids": [
+    "loc_commander_quarters"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "低声改一句誓言"
+  },
+  {
+   "beats": [
+    "天还没亮，城头的号角还没吹，骑士长在窄床上醒来，伸手摸到枕边的人，才确定昨晚不是梦。",
+    "骑士长低声说：再过一刻钟，我要上城头点名。……第一个名字，我想先在这里念给你听。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_quarters_roll_call_dawn",
+   "location_ids": [
+    "loc_commander_quarters"
+   ],
+   "start_minute": 330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "点名之前"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "中世纪冷兵器要塞防御与魔导火药战争时代",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_munitions_tunnel"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{knight_commander_christina.name}按住胸甲急促喘息，面颊因坑道燥热泛起潮红，果断倒转佩剑递出十字护手硬端。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_munitions_tunnel"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{knight_commander_christina.name}半跪在岩石地面，借着引信火光摸索出卡死闸门的偏心防坠销，冷静发出合力破障口令。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "slot": "armory_engineer",
+   "text": "{armory_engineer.name}双臂紧紧稳住骑士长肩甲，以脊背死死抵住后方岩壁，为骑士长支棱起发力三角形支点。"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "slot": "armory_engineer",
+   "text": "{armory_engineer.name}扯下耐热麻布紧紧裹住重剑握柄，防止反冲剧烈回弹震伤骑士长握剑的掌心。"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{knight_commander_christina.name}侧头为同伴擦去被浓烟熏黑的眉宇汗迹，面容近在咫尺，微热的气息透着生死信赖。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{knight_commander_christina.name}银白板甲在狭窄通道内与岩壁激烈刮擦，紧抿红唇，低声提醒同伴注意引信燃烧的细微滋滋声。"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{knight_commander_christina.name}展现出女骑士长的临危决断，精确把握闸板受力重心，示意在引信最后半寸时倾尽全力下压。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "slot": "armory_engineer",
+   "text": "{armory_engineer.name}在火星四溅的硝烟倒灌中，将全身重量毫无保留地覆在骑士长手背上，与骑士长心跳共振。"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{knight_commander_christina.name}双手交叠握紧同伴小臂，两副年轻身躯在不足三平米的岩缝中紧密无间地焊在一起形成发力合力。"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_munitions_tunnel"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{knight_commander_christina.name}细辨排烟百叶铜轴形变声响，预判偏心锁扣松脱的瞬息，沉声命令稳住马步。"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "slot": "armory_engineer",
+   "text": "{armory_engineer.name}与骑士长并肩卡在闸门下沿，四手紧扣剑柄，在浓烟笼罩的刹那爆发出极限下压合力。"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{knight_commander_christina.name}在闸板巨力反弹中重心微晃，顺势倒入军械官怀中，反手紧扣保险销完成最后一道别撬。"
+  },
+  {
+   "id": "hook_christina_wooden_sword",
+   "kind": "approach",
+   "location_ids": [
+    "loc_fortress_parade_ground"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{npc.name}把一柄木剑扔过来，自己也握着一柄：握剑的手太松了，在战场上会丢命。来，攻过来，让我看看你的底子。"
+  },
+  {
+   "id": "hook_christina_wall_names",
+   "kind": "approach",
+   "location_ids": [
+    "loc_fortress_parade_ground"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{npc.name}站在城墙垛口边，回头看人：每夜我都要把所有人的名字念一遍。今晚，陪我念完？"
+  },
+  {
+   "id": "hook_christina_buckle",
+   "kind": "approach",
+   "location_ids": [
+    "loc_commander_quarters"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{npc.name}背过身，抬手指了指肩甲后面的系带：卡住了，副官不在。你来帮我解开。"
+  },
+  {
+   "id": "hook_christina_unsent_letter",
+   "kind": "approach",
+   "location_ids": [
+    "loc_commander_quarters",
+    "loc_fortress_parade_ground"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{npc.name}从枕头下抽出一封信，又塞了回去：一封寄不出去的信。等这场仗打完……我再告诉你上面写了什么。"
+  },
+  {
+   "id": "hook_engineer_lantern",
+   "kind": "approach",
+   "location_ids": [
+    "loc_fortress_parade_ground",
+    "loc_munitions_tunnel"
+   ],
+   "slot": "armory_engineer",
+   "text": "{npc.name}提着一盏罩着铜网的提灯站在军械库门口：骑士长还没巡完城。灯我留着，你要是也睡不着，就进来坐坐。"
+  },
+  {
+   "id": "hook_engineer_blueprint",
+   "kind": "approach",
+   "location_ids": [
+    "loc_munitions_tunnel",
+    "loc_fortress_parade_ground"
+   ],
+   "slot": "armory_engineer",
+   "text": "{npc.name}把一张画满了齿轮的图纸摊开：这道钢闸是我改的。想知道这道闸怎么救命、又怎么要命吗？"
+  },
+  {
+   "id": "hook_christina_quarters_lamp",
+   "kind": "approach",
+   "location_ids": [
+    "loc_commander_quarters"
+   ],
+   "slot": "knight_commander_christina",
+   "text": "{npc.name}在营房门口提起一盏灯：城墙上点完名了。……进来，替我把这身铠甲卸了。"
+  }
+ ],
+ "id": "silver_paladin_armory_fuse_race",
+ "locations": [
+  {
+   "affordances": [
+    "背部顶靠玄武岩坚硬岩壁充当发力杠杆支点",
+    "将重剑十字护手坚硬横档塞进闸板下沿防坠缝隙",
+    "辨听外侧引信滋滋燃烧接近火药桶的危急声响"
+   ],
+   "detail": "位于地下五十米玄武岩深处的狭窄通道，净宽不足一米，上方悬着数吨重的厚重合金防爆闸板，缝隙外烈焰噼啪作响，空气中弥漫着刺鼻的硫磺硝烟。",
+   "exits": [
+    "loc_blast_gate_pawl",
+    "loc_vent_crank_niche"
+   ],
+   "id": "loc_munitions_tunnel",
+   "name": "弹药转运检修逼仄坑道",
+   "pressure_modifiers": {
+    "p_fuse_fire_creep": "火光每近一寸，坑道里的温度就高一分，岩壁烫得不能靠。",
+    "p_oxygen_stamina_drain": "坑道里的空气越来越稀，喘一口气都要用尽全力。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "引信的火光从闸缝里透进来，在银白胸甲上一跳一跳，能看清对方被烟熏黑的眉梢。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "用手指摸清死锁销轴的倾斜咬死方位",
+    "双人合力握持重剑剑柄形成长力臂向下猛顿"
+   ],
+   "detail": "重型铸钢材质的防坠限位器，两枚三角形淬火锁舌深深卡在竖向导轨的偏心齿孔中，承受着闸门下坠的巨大剪力。",
+   "exits": [
+    "loc_munitions_tunnel"
+   ],
+   "id": "loc_blast_gate_pawl",
+   "name": "防爆闸板偏心防坠卡槽",
+   "pressure_modifiers": {
+    "p_sword_bend_snap": "剑身每受一次力就弯一分，剑脊上的符文被压得发白。",
+    "p_tunnel_armor_heat": "两人挤在闸板下，骑士长的胸甲贴着对方的后背，铁甲被烤得发烫。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "两枚淬火锁舌深深卡在导轨的偏心齿孔里，十字护手别进去时发出刺耳的刮擦声。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "两人手掌重叠发力扳动卡阻的手动旋钮",
+    "倾听排烟百叶打开后冷风倒灌减压的清脆回音"
+   ],
+   "detail": "坑道拐角处安装的应急排烟连杆，铜制摇柄因高温烘烤产生局部热膨胀变形咬死。",
+   "exits": [
+    "loc_munitions_tunnel",
+    "loc_fortress_parade_ground"
+   ],
+   "id": "loc_vent_crank_niche",
+   "name": "摇柄凹壁",
+   "pressure_modifiers": {
+    "p_sulfur_smoke": "外面的人想打开排烟百叶，可摇柄卡死了，烟只能往坑道里灌。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "凹壁口透进城墙上的火把光，号角声和守军的喊声一阵阵传下来。",
+   "witnesses": [
+    "bg_wall_sergeant",
+    "bg_powder_keeper",
+    "bg_scout"
+   ]
+  },
+  {
+   "affordances": [
+    "在校场上陪骑士长练一轮剑",
+    "在伤兵营里帮修女换绷带",
+    "跟着骑士长登上城墙巡夜"
+   ],
+   "detail": "城墙内侧的一片夯土校场，一头是兵器架和箭靶，一头是伤兵营的帐篷，晨练的号角每天天不亮就吹响，城墙上的守军一低头就能看见整片校场。",
+   "exits": [
+    "loc_commander_quarters",
+    "loc_vent_crank_niche"
+   ],
+   "id": "loc_fortress_parade_ground",
+   "name": "要塞校场",
+   "pressure_modifiers": {},
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "校场上人来人往，士兵、修女、伤兵都在，骑士长对谁多看一眼，傍晚整座要塞都会知道。",
+   "witnesses": [
+    "bg_wall_sergeant",
+    "bg_field_cook",
+    "bg_scout",
+    "bg_wounded_soldier"
+   ]
+  },
+  {
+   "affordances": [
+    "在提灯下陪骑士长看城防图",
+    "替骑士长擦拭那柄重剑",
+    "替对方卸下胸甲、解开武弁服的系带"
+   ],
+   "detail": "城墙下一间石砌的小营房，一张窄窄的行军床、一个挂铠甲的木架、一张摊着城防图的桌子，墙上挂着圣殿的旗。",
+   "exits": [
+    "loc_fortress_parade_ground"
+   ],
+   "id": "loc_commander_quarters",
+   "name": "骑士长的营房",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "只点一盏铜网罩着的提灯，屋外是守军的脚步声，屋里的人能看清彼此脸上的每一道烟灰。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "阿什福德",
+   "布莱克",
+   "卡斯特",
+   "德拉蒙德",
+   "埃克塞特",
+   "费尔法",
+   "格伦维尔",
+   "黑斯廷斯",
+   "英格拉姆",
+   "肯特",
+   "兰开斯特",
+   "蒙塔古",
+   "内维尔",
+   "珀西"
+  ],
+  "given_female": [
+   "克莉丝",
+   "艾琳",
+   "贝娅",
+   "塞西莉亚",
+   "埃莉诺",
+   "格温",
+   "海伦",
+   "伊索尔德",
+   "琼",
+   "凯瑟琳",
+   "莫德",
+   "罗温娜",
+   "希尔达",
+   "薇奥拉"
+  ],
+  "given_male": [
+   "亚瑟",
+   "鲍德温",
+   "卡拉多克",
+   "邓肯",
+   "埃德蒙",
+   "加雷斯",
+   "亨利",
+   "伊沃",
+   "杰弗里",
+   "兰斯",
+   "奥斯温",
+   "珀西瓦尔",
+   "罗兰",
+   "托马斯"
+  ],
+  "given_neutral": [
+   "艾弗里",
+   "布莱斯",
+   "凯里",
+   "达尔",
+   "埃利斯",
+   "弗洛林",
+   "盖尔",
+   "哈珀",
+   "艾泽尔",
+   "乔丹",
+   "基兰",
+   "林恩",
+   "梅里克",
+   "奎因"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入。原稿除标题、简介、基调、骑士长外貌、世界规则与三处脱困地点外，人物、压力与钩子大多照抄了吸血鬼地宫那一篇，这里按边境要塞的题材整篇重写：被围的第四十天、城墙上每夜点一遍的名、校场上的晨练、伤兵营里的绷带，骑士长发过誓只为圣殿与王国执剑；搭档写成满手火药灰、敢当面顶撞骑士长的要塞军械工学官，其余人物换成副官、随军修女、敌军俘虏和守了这座要塞三十年的老将军。新增要塞校场与骑士长营房两处日常地点。原稿里“肢体接触只服务于发力、不得偏离自救”的规则改成了世界内的规则；骑士长亲密前提写明脱困之后、双方清醒自愿；新增一个营房里替骑士长卸下胸甲的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    25
+   ],
+   "baseline": "被围前最后一批补进要塞的新兵，剑还握不稳，被分到军械库当搬运工。",
+   "gender": "any",
+   "id": "pi_new_recruit",
+   "reputation": "骑士长每夜点名时，新兵的名字总是最后一个。",
+   "resources": [
+    "一把发下来的旧长剑",
+    "一副不合身的皮甲",
+    "一枚刻着名字的新兵铭牌"
+   ],
+   "risks": [
+    "再握不稳剑，就会被调去城墙最危险的垛口。"
+   ],
+   "role": "刚到要塞的新兵",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    36
+   ],
+   "baseline": "带着一队佣兵被王国花钱雇来守城，合同上写着守到第六十天，多一天都要加钱。",
+   "gender": "any",
+   "id": "pi_mercenary_captain",
+   "reputation": "佣兵们只认队长，连骑士长的命令都要队长点头才听。",
+   "resources": [
+    "一队二十人的佣兵",
+    "一份王国的雇佣合同",
+    "一把用了十年的战斧"
+   ],
+   "risks": [
+    "粮食断了，佣兵们会第一个倒戈。"
+   ],
+   "role": "受雇守城的佣兵队长",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    35
+   ],
+   "baseline": "跟着王国军团走过三场战役，伤兵营里那张血迹斑斑的手术台，是医官一个人撑着的。",
+   "gender": "any",
+   "id": "pi_field_surgeon",
+   "reputation": "要塞里的伤兵都把医官当成救命恩人。",
+   "resources": [
+    "一套随军的外科器械",
+    "伤兵营仅剩的一箱草药",
+    "能调动修女们的医官令"
+   ],
+   "risks": [
+    "草药用完了，就只能看着伤兵死去。"
+   ],
+   "role": "随军的外科医官",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    42
+   ],
+   "baseline": "冒死穿过敌军防线送来元帅的密令，手里那份命令能决定要塞是死守还是弃城。",
+   "gender": "any",
+   "id": "pi_marshal_envoy",
+   "reputation": "要塞里人人都想知道密令上写着什么。",
+   "resources": [
+    "一份元帅亲笔的密令",
+    "一枚王国元帅的印信",
+    "一匹跑死了两匹的快马"
+   ],
+   "risks": [
+    "密令要是落到敌军手里，整条边境都会失守。"
+   ],
+   "role": "王国元帅的特使",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "边境要塞被围的第四十天，圣殿派来的女骑士长守着最后一道城墙，每夜亲自登上城头点一遍名，白天和军械工学官清点地下军械库的火药。新兵、佣兵队长和外科医官都住在城里。敌军的投石机一天比一天近，军械库的防爆钢闸是老式的。",
+ "pressures": [
+  {
+   "choice": "是趁火光还远冒险下撬，还是先想办法掐断引信？",
+   "exits": [
+    {
+     "cost": "剑身受力过猛可能折断，手掌会被震裂",
+     "option": "两人合力下压剑柄压断限位销"
+    },
+    {
+     "cost": "胳膊伸出去会被火舌燎伤，还不一定够得着",
+     "option": "用短匕从闸缝里去够引信"
+    }
+   ],
+   "far": {
+    "consequence": "军械库被点燃，整段坑道连同钢闸一起被炸塌。",
+    "due_days": 1,
+    "trigger": "引信烧到火药堆"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_fuse_fire_creep",
+   "immediate": {
+    "minutes": 2,
+    "text": "火光从闸缝里透进来，坑道里亮了一下，两人都屏住了呼吸。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_munitions_tunnel",
+    "loc_blast_gate_pawl"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "引信又烧过一根柱子，火光已经照亮了第一排火药桶。"
+   },
+   "objective": "在引信烧到火药堆之前，用十字护手压断限位销，撬起钢闸。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "军械库外部导火索急燃逼近",
+   "trigger": "导火索的火光沿着坑道外侧一寸寸烧向火药堆，噼啪声越来越近。"
+  },
+  {
+   "choice": "是先压断限位销再撬闸，还是两件事同时来？",
+   "exits": [
+    {
+     "cost": "胸甲会被闸板边缘压变形",
+     "option": "两人身甲相贴压住剑柄一起撬"
+    },
+    {
+     "cost": "可能把棘爪敲死，再也松不开",
+     "option": "用黄铜扳手硬敲棘爪"
+    }
+   ],
+   "far": {
+    "consequence": "闸板落到底，再也撬不开。",
+    "due_days": 1,
+    "trigger": "钢闸彻底落死"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_blast_gate_deadlock",
+   "immediate": {
+    "minutes": 2,
+    "text": "闸板上传来一下一下的闷响，是外面的人在砸。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "棘爪又咬深一齿，闸板往下沉了半寸。"
+   },
+   "objective": "压断限位销之后，还得把钢闸撬起一道能钻出去的缝。",
+   "source": "accident",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "万斤防爆钢闸卡死千钧重压",
+   "trigger": "万斤防爆钢闸被偏心棘爪死死咬住，闸板纹丝不动。"
+  },
+  {
+   "choice": "是用湿布捂住口鼻慢慢来，还是屏住气一鼓作气？",
+   "exits": [
+    {
+     "cost": "衣服少了一层，铠甲会烫到皮肤",
+     "option": "撕下武弁服的衬里浸水捂住口鼻"
+    },
+    {
+     "cost": "摇柄热胀卡死，扳不动就白费力气",
+     "option": "两人合力扳排烟摇柄"
+    }
+   ],
+   "far": {
+    "consequence": "两人在坑道里失去意识，等不到外面的人砸开钢闸。",
+    "due_days": 1,
+    "trigger": "两人被浓烟呛晕"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_sulfur_smoke",
+   "immediate": {
+    "minutes": 2,
+    "text": "浓烟辣得眼泪直流，咳嗽声在坑道里回荡。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "眼前开始发黑，手指发麻，数拍子的声音越来越轻。"
+   },
+   "objective": "在被浓烟呛晕之前打开排烟百叶，或者撬开钢闸。",
+   "source": "person",
+   "start_minute": 10,
+   "tags": [
+    "workplace"
+   ],
+   "title": "硫磺浓烟密闭倒灌窒息威胁",
+   "trigger": "硫磺浓烟从闸缝里倒灌进来，坑道里呛得人睁不开眼，喉咙火辣辣地疼。"
+  },
+  {
+   "choice": "是为了骑士长的威严拉开半寸，还是干脆贴紧了一起发力？",
+   "exits": [
+    {
+     "cost": "这一夜之后，军械库门口那盏提灯再也不只是一盏提灯了",
+     "option": "放下顾虑贴紧对方，四只手一起压在剑柄上"
+    },
+    {
+     "cost": "力气使不到一处，撬不动棘爪",
+     "option": "各自侧身单手发力"
+    }
+   ],
+   "far": {
+    "consequence": "十字护手从棘爪里滑出去，错过最后的脱扣窗口。",
+    "due_days": 1,
+    "trigger": "分心导致护手滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_tunnel_armor_heat",
+   "immediate": {
+    "minutes": 2,
+    "text": "骑士长急促的呼吸拂在耳边，滚烫的胸甲隔着一层衬衫传来体温。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_munitions_tunnel",
+    "loc_blast_gate_pawl"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "胸甲下的心跳隔着铁撞过来，分不清是火烤的，还是别的什么。"
+   },
+   "objective": "贴得这么近的时候，还得把心思放在护手的角度和数拍子上。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "逼仄坑道身躯相贴甲胄升温",
+   "trigger": "坑道不足一米宽，骑士长的胸甲贴着工学官的后背，铁甲被火光烤得发烫。"
+  },
+  {
+   "choice": "是继续加力赌一把，还是退出来换个角度重新别？",
+   "exits": [
+    {
+     "cost": "麻布会被棘爪绞烂",
+     "option": "用耐热麻布缠住剑身再压"
+    },
+    {
+     "cost": "扳手太短，力臂不够",
+     "option": "退出来改用黄铜扳手"
+    }
+   ],
+   "far": {
+    "consequence": "断剑弹飞，两人失去唯一的撬具。",
+    "due_days": 1,
+    "trigger": "重剑折断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_sword_bend_snap",
+   "immediate": {
+    "minutes": 2,
+    "text": "剑身发出细微的金属呻吟，握剑的指节被震得发白。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_blast_gate_pawl"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "剑身弯出一道肉眼可见的弧，再压一下可能就会折。"
+   },
+   "objective": "得在剑身折断之前找准最后一个受力点。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "精钢剑身承受极限抗弯折断风险",
+   "trigger": "精钢重剑别在棘爪里承受着万斤的压力，剑身开始弯曲。"
+  },
+  {
+   "choice": "是放慢动作省着力气，还是一鼓作气拼到底？",
+   "exits": [
+    {
+     "cost": "歇的那一下钢闸可能又沉",
+     "option": "轮流发力，一个人歇一口气"
+    },
+    {
+     "cost": "压不开就再也没有力气了",
+     "option": "把最后的力气全压在一下上"
+    }
+   ],
+   "far": {
+    "consequence": "再也压不动剑柄，只能等外面的人砸开钢闸。",
+    "due_days": 1,
+    "trigger": "两人体力耗尽"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_oxygen_stamina_drain",
+   "immediate": {
+    "minutes": 2,
+    "text": "手臂开始发抖，每喘一口气都要用尽全力。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_munitions_tunnel",
+    "loc_blast_gate_pawl"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "膝盖发软，握剑的手一阵阵发麻。"
+   },
+   "objective": "在体力耗尽之前完成脱困。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "缺氧环境下体力迅速流失透支",
+   "trigger": "坑道里的空气越来越稀，被围四十天的身体本来就透支了，每用一次力都眼前发黑。"
+  },
+  {
+   "choice": "卖掉圣殿赐给骑士长的那柄重剑，还是写信向王都借钱",
+   "exits": [
+    {
+     "cost": "骑士长从此只能拿一柄普通的剑登上城头点名",
+     "option": "卖掉重剑"
+    },
+    {
+     "cost": "信要送到王都，得有人穿过敌营",
+     "option": "写信向王都借钱"
+    }
+   ],
+   "far": {
+    "consequence": "城墙上少了一半守军，要塞撑不过下一次攻城",
+    "due_days": 3,
+    "trigger": "佣兵出城"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_christina_unsent_letter",
+    "hook_christina_quarters_lamp"
+   ],
+   "id": "p_mercenary_back_pay",
+   "immediate": {
+    "minutes": 5,
+    "text": "军士长布洛克在门口低声说，佣兵队长已经把行囊收拾好了"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_commander_quarters"
+   ],
+   "near": {
+    "deadline_minutes": 480,
+    "text": "天黑，佣兵们要开城门"
+   },
+   "objective": "在佣兵们天黑开城门之前，凑出一部分饷银",
+   "source": "money",
+   "start_minute": 600,
+   "tags": [],
+   "title": "三个月的饷银",
+   "trigger": "军械库保住后的第二天，佣兵们在营房外排成一排：三个月的饷银一个铜板都没见到，军械库差点炸了，再不发饷，今晚就开城门出去另找雇主"
+  }
+ ],
+ "region": "要塞地下五十米玄武岩军械密库狭窄弹药转运检修坑道",
+ "rules": [
+  {
+   "id": "r_paladin_oath",
+   "text": "圣殿誓约：骑士长只为圣殿与王国执剑，剑可以折，誓不能破，可誓约里从没写过要丢下同袍。"
+  },
+  {
+   "id": "r_gate_release_by_guard",
+   "text": "防爆钢闸受自重与冲击死死卡死，只可通过精钢圣剑十字护手坚实折沿卡入偏心棘爪咬合槽合力下撬脱险。"
+  },
+  {
+   "id": "r_siege_rationing",
+   "text": "被围期间要塞实行配给，火药、粮食和灯油都要骑士长签字才能动用。"
+  },
+  {
+   "id": "r_armory_lantern_law",
+   "text": "军械库里严禁明火，提灯必须罩着铜网，违者军法处置。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "并肩勘查",
+  "committed": "冲破闸门",
+  "familiar": "卸甲协力",
+  "flirting": "甲胄相擦",
+  "intimate": "同心破锁",
+  "stranger": "肃穆严整",
+  "testing": "共承剑柄"
+ },
+ "status": "released",
+ "style_hint": "中世纪边境要塞的工笔：白天写校场上的晨练、城墙上的点名、伤兵营里的血与绷带；夜里写军械坑道里的硫磺、火光与贴身发力。骑士长清冷寡言，张力藏在铠甲之下、只对一个人松开的那一道系带里。",
+ "tension_engines": [
+  {
+   "id": "te_fuse_fire_creep",
+   "text": "导火索的火光一寸寸烧向火药堆，留给两人的时间越来越少。"
+  },
+  {
+   "id": "te_blast_gate_deadlock",
+   "text": "防爆钢闸被偏心棘爪死死咬住，护手别进去就再难退出。"
+  },
+  {
+   "id": "te_tunnel_armor_heat",
+   "text": "不足一米宽的坑道里两人身甲相贴，胸甲被烤得发烫。"
+  },
+  {
+   "id": "te_sulfur_smoke",
+   "text": "硫磺浓烟从闸缝里倒灌进来，呛得人睁不开眼。"
+  }
+ ],
+ "title": "清冷银铠女骑士·要塞地下军械密库引信赛跑",
+ "tone": [
+  "军械库引信火光",
+  "千钧钢闸下坠",
+  "硫磺浓烟呛鼻",
+  "十字剑柄别销"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_guard_bitten",
+   "requires": [
+    "knight_commander_christina"
+   ],
+   "text": "火油弹爆炸震波轰击闸门，钢闸下沉半寸，将插入缝隙的十字护手死死咬死，必须依靠两人体重反向猛蹬方能解脱杠杆。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_cape_snagged",
+   "requires": [
+    "knight_commander_christina"
+   ],
+   "text": "骑士长战裙披风在挪动中挂死在轨道尖刺上，骑士长果断拔出短匕斩断系带，毫不迟疑维系发力重心。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_sweat_on_knuckles",
+   "requires": [
+    "armory_engineer"
+   ],
+   "text": "骑士长额角热汗沿着饱满面颊滑落，滴在同伴指节上，在近在咫尺的逼仄烟尘中激起剧烈的心跳共振。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_crank_four_hands",
+   "requires": [
+    "knight_commander_christina",
+    "armory_engineer"
+   ],
+   "text": "排烟百叶摇柄受高温热胀彻底卡阻，单人无论如何无法撼动，骑士长自侧方贴身压上，四手重叠施加回旋扭矩。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_flame_tongue",
+   "requires": [
+    "knight_commander_christina"
+   ],
+   "text": "闸板缝隙喷射灼热浓烟火舌，狭窄坑道内两人被迫进一步紧贴俯身，以银白胸甲与后背为彼此遮挡飞溅火星。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_pin_snaps_on_three",
+   "requires": [
+    "knight_commander_christina",
+    "armory_engineer"
+   ],
+   "text": "军械官以骑士长肩背为依托形成极限反向力臂，两人同频数到三将全身体重压上剑柄，清脆的自锁销折断声骤然回荡。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_gate_lifts",
+   "requires": [
+    "knight_commander_christina"
+   ],
+   "text": "偏心防坠卡槽豁然弹开，千斤防爆钢闸被两人合力掀起安全空隙，两人迅速贴地翻滚脱出，火药库在身后轰然闭锁隔绝爆炸，成功脱困自救。"
+  }
+ ]
+}

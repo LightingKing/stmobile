@@ -1,0 +1,2302 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "融媒体中心特写追光摄像师年满三十一周岁持有广电特种摄像资质",
+   "age_range": [
+    31,
+    31
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_camera_operator_xiao_liu",
+   "line": "一号机镜头已精准合焦会长前胸校徽，光圈全开随时准备推流大屏！",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "name": "刘工",
+   "role": "融媒体中心广播特写机位摄像师"
+  },
+  {
+   "adult_context": "礼堂特勤安保分队长年满三十四周岁退伍后受聘学校保卫处安保特勤",
+   "age_range": [
+    34,
+    34
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_security_guard_lao_wang",
+   "line": "侧幕警戒线内严禁无关人员逗留，请非演职人员立刻出示通行证件！",
+   "location_ids": [
+    "loc_stage_wing_vip_aisle"
+   ],
+   "name": "老王",
+   "role": "礼堂特勤安保分队执勤队长"
+  },
+  {
+   "adult_context": "舞台美术设计系毕业生年满二十五周岁剧场舞台机电抢修电工",
+   "age_range": [
+    25,
+    25
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_stage_hand_xiao_zhang",
+   "line": "地槽动力总闸手柄已就位，只要机电工程师一声令下三秒内切断讲台强电！",
+   "location_ids": [
+    "loc_broadcast_control_room"
+   ],
+   "name": "小张",
+   "role": "舞台机电抢修执勤助理"
+  },
+  {
+   "adult_context": "校学生会秘书处迎新干事年满二十六周岁负责开幕式主席团签到传令",
+   "age_range": [
+    26,
+    26
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_student_union_runner_zhou",
+   "line": "报告副主席学长，校党委书记与校长已步入大厅第一排主宾席就座！",
+   "location_ids": [
+    "loc_stage_wing_vip_aisle"
+   ],
+   "name": "周同学",
+   "role": "研究生会秘书处迎新传令干事"
+  },
+  {
+   "adult_context": "校报学生记者团摄影采编员年满二十七周岁负责全场快门抓拍",
+   "age_range": [
+    27,
+    27
+   ],
+   "function": "rumor_source",
+   "gender": "female",
+   "id": "bg_campus_reporter_qiu_qiu",
+   "line": "听说今天会长准备了突破常规的重磅致辞，长焦镜头早就锁定好表情特写了！",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "name": "邱邱",
+   "role": "校报学生记者团头条摄影记者"
+  },
+  {
+   "adult_context": "电子自动化专业毕业生年满二十三周岁专业电脑灯控台编程员",
+   "age_range": [
+    23,
+    23
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_lighting_technician_sun",
+   "line": "主聚光灯十秒渐亮预设程序已挂载就绪，推子锁定倒计时触发！",
+   "location_ids": [
+    "loc_broadcast_control_room"
+   ],
+   "name": "小孙",
+   "role": "大礼堂电脑灯控台编程调光员"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "高冷会长与舞台机电人员的台前极速营救，机电工程师在耳麦中精确通报泄压坐标，会长配合搭档合力下压翻页笔背夹，抢在聚光灯全亮瞬间挑开卡簧化险为夷。",
+   "id": "combo_president_and_mechanic_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "cold_president_gu_leng_shuang",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在千人众目睽睽大礼堂讲台贴身破拆自救中缔结的绝对秘密信赖。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "sound_engineer_zhao_kai",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "舞台机械控制与应急破拆排障中的工程技术搭档。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cold_president_gu_leng_shuang",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "sound_engineer_zhao_kai",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "开幕式前台发言人与幕后机电运维人员的设备故障问责关系。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "cold_president_gu_leng_shuang",
+    "sound_engineer_zhao_kai"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在聚光灯全亮前安全卸除讲台气压并恢复西装整肃仪容。",
+    "limit_gap": "八百牛推力机械咬死与千人目光聚焦倒计时的重合压迫。",
+    "meeting_reason": "开幕式彩排的最后一遍，舞台机电工程师蹲在升降讲台下面，说电机今天有点热，会长低头看了一眼。",
+    "resource_gap": "机电工程师精通气动立柱三维管路图纸，会长手握破拆翻页笔直面千人众目睽睽。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_podium_pneumatic_shear_jam",
+    "eng_ceremony_countdown_curfew"
+   ]
+  },
+  {
+   "chemistry": "野心副主席与硬核导播的博弈，副主席催促推流抓会长失态把柄，导播坚守播控规程维持大屏安全播出。",
+   "id": "combo_vice_president_and_director",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "vice_president_lu_chen_zhou",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "高校成年研究生会开幕式技术协调中表面配合暗中提防的同僚关系。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "broadcast_director_chen_zi_mo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "开幕式导播控制与现场技术通信的协作配合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "vice_president_lu_chen_zhou",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "broadcast_director_chen_zi_mo",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "开幕式调度指挥权与融媒体导播播出权之间的权限博弈。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "vice_president_lu_chen_zhou",
+    "broadcast_director_chen_zi_mo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保导播信号切换合规并杜绝任何未经审核的事故镜头。",
+    "limit_gap": "个人权力上位欲望与全校播出安全底线的激烈交锋。",
+    "meeting_reason": "导播在总控室对推流时序，会长戴着耳麦一句句核对，声音冷得像念判决书。",
+    "resource_gap": "副主席手握开幕式现场调度主权，导播掌控广播级大屏推流信号键。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_ceremony_countdown_curfew"
+   ]
+  },
+  {
+   "chemistry": "高冷学姐与贴心礼仪队长的默契掩护，礼仪队长借走位与托盘红丝绒阻隔台下视线，暗中送上磁吸暗扣解救会长衣着危机。",
+   "id": "combo_president_and_protocol_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "cold_president_gu_leng_shuang",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在台前危机中协同礼仪掩护会长绝密隐私的特殊同盟。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "protocol_captain_song_wan_er",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "开幕式前台物资呈送与突发补救中的默契搭档。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cold_president_gu_leng_shuang",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "protocol_captain_song_wan_er",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "成年研究生会主席与直属礼仪队骨干之间的信任依仗关系。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "cold_president_gu_leng_shuang",
+    "protocol_captain_song_wan_er"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "用最优雅的走位无缝掩护纽扣崩飞瑕疵并完成衣物补扣。",
+    "limit_gap": "礼仪规范严格走位铁律与会长紧急救场掩护的冲突。",
+    "meeting_reason": "礼仪队长捧着致辞折页候在侧幕，小声提醒会长西装最上面那颗扣子有点松。",
+    "resource_gap": "会长拥有全场最高威仪与发言主权，礼仪队长手握急救磁吸暗扣与掩护托盘。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_corset_privacy_collapse_risk"
+   ]
+  },
+  {
+   "chemistry": "底层地缆保洁助理以半跪低姿态近距离盲操破拆，会长上身强撑冷峻神态演讲，二人上下协同挑开机械卡簧完成惊天化解。",
+   "id": "combo_cleaner_and_president_assist",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "cold_president_gu_leng_shuang",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "在讲台下半跪盲操撬销守护会长尊严与胸衣秘密的禁忌托付。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "sound_engineer_zhao_kai",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "舞台地缆铺设与机电排障中的上下级作业指令配合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cold_president_gu_leng_shuang",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "sound_engineer_zhao_kai",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "主席台发言人与底层机电维保人员的业务交涉。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "cold_president_gu_leng_shuang",
+    "sound_engineer_zhao_kai"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在台下无人察觉的前提下以最低姿态挑脱卡簧助会长脱困。",
+    "limit_gap": "地缆整理低微身份与掌控会长核心隐秘命脉的巨大身份反差。",
+    "meeting_reason": "理线助理在讲台下压地缆，会长站在台上，鞋尖离那双手只有半寸。",
+    "resource_gap": "保洁助理拥有贴地半跪作业掩护优势，会长承担千人目光审视与麦克风压力。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_laser_clip_leverage_limit"
+   ]
+  },
+  {
+   "chemistry": "团委指导老师严格监察与冷面会长的心理极限拉锯，团委老师紧盯开幕时限与政治威仪，会长在胸衣咬死剧痛中死守不出纰漏底线。",
+   "id": "combo_counselor_and_president_super",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "cold_president_gu_leng_shuang",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在团委老师严厉目光逼视下协助会长化解衣着崩裂危机的默契。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "counselor_he_wei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "大礼堂机电设备安全保障与团委后勤督导之间的汇报关系。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cold_president_gu_leng_shuang",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "counselor_he_wei",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "成年研究生会主席与团委专职指导老师之间的工作汇报与考核关系。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "cold_president_gu_leng_shuang",
+    "counselor_he_wei"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保全场盛典庄严肃穆零失误并在领导面前捍卫研究生会权威。",
+    "limit_gap": "校级典礼神圣纪律与突发机械灾难不可调和的时间窗口博弈。",
+    "meeting_reason": "团委老师在第一排核对校领导的席位，回头叫会长下来再对一遍流程。",
+    "resource_gap": "团委老师手握全场开幕最高叫停与评优考核权，会长背负研究生会全体荣誉与个人前途。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_corset_privacy_collapse_risk"
+   ]
+  },
+  {
+   "chemistry": "导播控台与机电工程师的幕后协同，导播在监视器前调控光比与镜头切换，机电工程师在耳麦中精确通报卡簧挑脱读秒，为台前抢险争取毫秒生机。",
+   "id": "combo_broadcaster_and_sound_engineer",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "broadcast_director_chen_zi_mo",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "融媒体总控台音视频切屏与应急黑场协同作战搭档。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "sound_engineer_zhao_kai",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "舞台弱电信号与强电机电维保现场协同业务配合。",
+     "stage": "familiar"
+    },
+    {
+     "a": "broadcast_director_chen_zi_mo",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "sound_engineer_zhao_kai",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "礼堂视音频系统与机械升降控制系统日常联调技术搭档。",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "broadcast_director_chen_zi_mo",
+    "sound_engineer_zhao_kai"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "将可能出现的事故画面控制在全场大屏视野之外。",
+    "limit_gap": "特写镜头推流时间戳与气动泄压物理延时的精准契合。",
+    "meeting_reason": "开幕前十分钟，会长一个人在后台的主席团休息室扣好西装，深吸了一口气。",
+    "resource_gap": "导播掌控广播推流信号输出总闸，机电工程师熟悉气动阀门泄压机械时序。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_ceremony_countdown_curfew"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_backstage_intercom_link",
+   "reach": "贯通主讲台、导播室与侧幕候场通道全员保密信道",
+   "text": "后台闭路抗干扰低时延有线对讲系统"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_podium_acoustic_whisper_link",
+   "reach": "在空旷礼堂主舞台台板上方实现讲台受困者与维保人员微声沟通",
+   "text": "大礼堂台前声学混响极低耳语透传信道"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "法学院研二在读，研究生会主席，本科时就当过两届研究生会主席，开幕式怎么主持、致辞怎么改由本人拿主意。",
+   "age_range": [
+    24,
+    26
+   ],
+   "appearance_options": [
+    "戴无框冷光钛合金眼镜，高马尾束起露出修长白皙天鹅颈，两颊天然紧致微婴儿肥与饱满水润胶原蛋白反差，身着修身深灰精纺纯羊毛西装套裙与雪纺衬衫。",
+    "此时深灰西装前襟两颗加厚树脂纽扣被八百牛升降顶力扯崩弹飞，前襟敞开露出大片如雪细腻肌肤，内衬紧贴躯干的高定纯黑真皮硬质鱼骨矫形拘束胸衣四道交叉金属搭扣暴露在讲台缝隙中，俏脸因极度惊悸羞耻泛起动人桃红红霞。"
+   ],
+   "decision": {
+    "avoids": [
+     "带有探究窥视意图打量拘束胸衣皮革接缝的轻浮目光",
+     "犹豫不决拖泥带水错失开幕推流窗口的低效配合"
+    ],
+    "contrast": "平日铁面无私雷厉风行将众人震慑于下，受困讲台时凤眼噙泪咬唇求助却展现出摄人心魄的极致反差萌态。",
+    "core_value": "研究生会主席的尊严神圣不可侵犯，哪怕身处千人众目睽睽绝境，也绝不向任何流言蜚语低头！",
+    "goal_options": [
+     "协同搭档用翻页笔特种背夹下挑气动泄压卡簧排脱顶力恢复自由",
+     "在特写机位推流大屏的最后一秒扣合备用暗扣恢复高冷庄重台容"
+    ],
+    "never": [
+     "在台下师生与校领导面前承认自己穿戴带有性冷淡禁欲风格的硬质矫形胸衣"
+    ],
+    "prefers": [
+     "动作迅捷精准分毫不差的硬核机械自救操作",
+     "恪守承诺守口如瓶绝不探究私密矫形装备的忠诚伙伴"
+    ],
+    "pressure_responses": {
+     "breaking": "在气阀泄压瞬间反向推脱横臂抱箍并接应礼仪队长递来的磁吸扣迅速扣好前襟",
+     "high": "在导播推流读秒长鸣刹那同搭档一同垂直下压背夹克服八百牛顶力",
+     "low": "双手死死按在讲台木质边缘以极低气声下达排障破拆指令掩饰内心惊涛骇浪",
+     "mid": "忍受胸衣金属骨架勒紧压迫紧贴讲台内侧配合搭档调整翻页笔背夹插入角度"
+    },
+    "relationship_stance": "在人前冷得像块冰，从不让人看见自己慌；只有被认定的那个人，才知道会长西装底下穿着什么。",
+    "withdrawal": "端立在讲台后方冷峻抚平西装前襟，微推钛合金眼镜冷傲环视全场展现领袖威仪。"
+   },
+   "gender": "female",
+   "gender_reason": "法学院研二的研究生会主席，清冷威严。",
+   "id": "cold_president_gu_leng_shuang",
+   "identity": {
+    "authority": "掌控开幕式台上发言全流程调度、研究生会干部考评及重大活动现场第一主持权。",
+    "exposure": "曾以法学院第一名成绩蝉联国家奖学金并代表学校在全国辩论赛斩获最佳辩手",
+    "hidden": "因长期高强度伏案与脊柱轻度侧弯，私下贴身穿戴硬质真皮鱼骨矫形拘束胸衣维持完美仪态",
+    "limits": [
+     "外套下摆受麦克风横杆抱箍死咬无法抽身，胸前纽扣崩裂无法直立面向全场",
+     "严禁让台下一千五百名师生与校领导目睹自己内衬真皮鱼骨拘束胸衣的体态秘密"
+    ],
+    "obligations": [
+     "在聚光灯全亮前排除机械咬死并扣好暗扣以清冷威严姿态发表迎新致辞"
+    ],
+    "resources": [
+     "一支长十厘米德国进口加厚淬火精钢金属激光翻页笔",
+     "一部直连导播总控室主席专用对讲机"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在灭顶社死深渊边缘被对方冷静拯救的灵魂战栗感",
+     "近距离触碰时彼此急促呼吸与体温交织在讲台狭小空间内的隐秘悸动"
+    ],
+    "boundaries": [
+     "严格恪守研究生会领袖与执行人员的组织纪律界限",
+     "严禁任何未经允许触碰胸衣骨架的非礼放肆举动"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "伫立于千人聚光灯下俯视台下如潮掌声享受全校师生由衷景仰。",
+    "dislikes": [
+     "钻营取巧见风使舵之徒",
+     "借故要挟探听隐私的小人"
+    ],
+    "expression": "耳根泛起绯红含泪轻咬下唇，将翻页笔重重塞入对方掌心后转过身去冷峻扬起下颌。",
+    "likes": [
+     "处变不惊业务精湛的硬派伙伴",
+     "深知自己软肋却坚定护航的同盟"
+    ],
+    "preconditions": [
+     "气动立柱卡簧顺利挑脱且西装备用暗扣完全闭合",
+     "开幕式致辞完美无瑕完成且台下未察觉任何异状",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "研究生会主席兼开幕式主持人",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_auditorium_main_podium_center",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_auditorium_main_podium_center",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_stage_wing_vip_aisle",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "激光翻页笔精钢背夹承受超额弯曲力矩产生一点五度微小塑性微弯形变。",
+      "option": "用激光翻页笔淬火加厚精钢背夹以铸铁内框为支点下挑气动泄压卡簧排脱顶力恢复自由。"
+     },
+     {
+      "cost": "西装内衬精纺丝绸织物被麦克风抱箍撕裂出一道五厘米不可修复破口。",
+      "option": "强行向后死扯羊毛西装外套前襟换取抽身间隙并迅速裹紧衣襟。"
+     }
+    ],
+    "pressure": "距全场聚光灯全开与融媒体大屏特写推流仅剩三十秒倒计时，副主席逼近台前准备接管发言。",
+    "trigger": "升降讲台电机突发短路急升，麦克风横杆抱箍咬死西装下摆并崩飞前襟纽扣导致内衬硬质真皮鱼骨胸衣大面积暴露。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "西装纽扣全崩飞了……里面的黑色鱼骨胸衣金属扣全露在外面了，导播特写马上就要推上千人大屏……求求{player.name}快拿翻页笔把底下的卡簧别开！",
+    "surface": "各单位注意，开幕式倒计时进入最后阶段，所有机位与检修人员立即撤出光斑核心区，任何人不得延误典礼庄严时序！"
+   }
+  },
+  {
+   "adult_context": "工商管理研三在读，研究生会研究生会常务副主席，具备完全民事行为能力。",
+   "age_range": [
+    25,
+    28
+   ],
+   "appearance_options": [
+    "身穿深蓝修身定制西装，手持黑色真皮文件夹与大功率对讲机，眼神精明锐利神态威严。",
+    "站在侧幕台阶边缘抬手查看百达翡丽腕表，嘴角带着一抹似笑非笑的机锋，随时准备登台接过主话筒。"
+   ],
+   "decision": {
+    "avoids": [
+     "毫无理由的蛮横越权遭受团委通报批评",
+     "直接与会长在台前发生公开言语冲突"
+    ],
+    "contrast": "平日行事温文尔雅顾全大局，面对权力更迭契机却爆发出鹰隼般的敏锐嗅觉与决绝进攻性。",
+    "core_value": "机遇只垂青有准备的人，一旦台上神话出现裂痕，{npc.name}便将顺理成章接管大局！",
+    "goal_options": [
+     "以设备故障救场名义登台接管麦克风成为全场万众瞩目焦点",
+     "在台侧近距离坐实会长失态证据并在团委复盘会上发难"
+    ],
+    "never": [
+     "在校党委书记与校长面前显露半点不顾集体荣誉的私心"
+    ],
+    "prefers": [
+     "符合程序正义顺理成章的权力接管时机",
+     "在校领导面前展现自身无可挑剔的应急掌控力"
+    ],
+    "pressure_responses": {
+     "breaking": "在会长清冷发声瞬间停住脚步退回侧幕维持同僚体面",
+     "high": "迈步登上红地毯台阶准备直接切入讲台中央核心演讲区",
+     "low": "在对讲机中平稳催促台前人员汇报讲台升降测试状态",
+     "mid": "迈步逼近侧翼台阶手持备用麦克风大声询问会长是否身体不适"
+    },
+    "relationship_stance": "将会长视作必须翻越的权力高山，表面毕恭毕敬暗中步步紧逼。",
+    "withdrawal": "立在侧幕阴影中双手插兜冷漠旁观，将备用麦克风悄然交还音响助理。"
+   },
+   "gender": "male",
+   "gender_reason": "工商管理研三的研究生会研究生会常务副主席。",
+   "id": "vice_president_lu_chen_zhou",
+   "identity": {
+    "authority": "掌控开幕式后台现场人员调度、各部室对讲指挥及应急替补登台权。",
+    "exposure": "曾统筹全校多次大型文体盛典并获评校级优秀学生干部荣誉",
+    "hidden": "暗中觊觎会长最高权力并时刻收集会长现场疏漏以便取而代之",
+    "limits": [
+     "受团委纪律约束在会长未正式宣布放弃前不得擅自抢占第一主讲席",
+     "必须维持开幕式按时开场的表面大局"
+    ],
+    "obligations": [
+     "确保迎新大会流程紧密衔接不出重大空台事故"
+    ],
+    "resources": [
+     "一台直连团委老师与音响控台的高功率加密对讲机",
+     "一份盖有开幕式筹备组红章的备用发言备忘录"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "同为研究生会顶峰权柄执掌者的智力博弈与相互戒备",
+     "对会长绝美容颜与不可接近冷傲气质的深层征服欲"
+    ],
+    "boundaries": [
+     "恪守研究生会副职对正职表面的下级服从界限",
+     "严禁采取下三滥手段直接物理破坏盛典设施"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "取代会长独立伫立在千人礼堂中央讲台迎接全校欢呼。",
+    "dislikes": [
+     "冥顽不灵不知变通的愚忠之辈",
+     "打乱自身权力部署的意外干扰"
+    ],
+    "expression": "冷笑一声扶正领带，收起备用话筒故作关切地询问会长是否需要协助。",
+    "likes": [
+     "知情识趣审时度势的利己主义者",
+     "能为自身上位提供关键筹码的情报"
+    ],
+    "preconditions": [
+     "会长在千人台上公开失仪且无法继续履行主持职责",
+     "团委指导老师现场正式授权启动应急替补预案",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "开幕式现场总调度兼研究生会副主席",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_stage_wing_vip_aisle",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_auditorium_main_podium_center",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_stage_wing_vip_aisle",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "{npc.name}对台前维保人员产生戒心并在后续考评中施加行政阻力。",
+      "option": "由台前人员以常规话筒阻尼复核为由高声回应{npc.name}将其阻隔在侧幕台阶下。"
+     },
+     {
+      "cost": "礼仪队本月勤工津贴报销单据面临副主席严格卡扣审核报复。",
+      "option": "礼仪队长借呈送致辞折页之机用礼仪托盘侧身挡住{npc.name}登台视线。"
+     }
+    ],
+    "pressure": "距离致辞开始仅剩二十秒，必须在众目睽睽下拦截{npc.name}并化解危机。",
+    "trigger": "察觉讲台异常升高且会长站位僵硬，手持备用麦克风以协助排障为由逼近讲台试图夺取主讲权。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "平日里不可一世的高岭之花，今天衣服前襟似乎散开了……只要我一步迈上去，会长宝座明年就得易主！",
+    "surface": "会长，校领导第一排已经就座，如果讲台气动阻尼故障难以恢复，{npc.name}可以携带备用无线话筒登台替会长主持第一流程！"
+   }
+  },
+  {
+   "adult_context": "数字媒体技术系已达成年法定三十二岁，拥有全权法定广播播出民事法律责任，任融媒体台长。",
+   "age_range": [
+    32,
+    35
+   ],
+   "appearance_options": [
+    "佩戴专业双耳降噪通话耳机，身穿黑色摄影多功能马甲，双手悬停在主切换台T型推杆上方神情紧绷专注。",
+    "双眼紧盯主监视器十二分屏，手指在宏按键面板上飞速敲击排布机位预设。"
+   ],
+   "decision": {
+    "avoids": [
+     "低级设备短路引发的全局直播穿帮事故",
+     "被行政官僚强行干预专业导播切换节奏"
+    ],
+    "contrast": "平日醉心视听技术冷眼旁观行政纷争，面对灭顶事故风险却展现出惊人的职业担当与护航魄力。",
+    "core_value": "安全播出是导播的生命线，画面质量是镜头的尊严，绝不让未编审事故画面流向大屏！",
+    "goal_options": [
+     "在推流前维持全景摇臂垫片画面为台前整理争取毫秒级窗口",
+     "在确认会长前襟完好后精准切入一号主特写镜头展现盛典荣光"
+    ],
+    "never": [
+     "私自截留带有当事人隐私瑕疵的未公开特写工程文件"
+    ],
+    "prefers": [
+     "分秒不差严格按时间戳落地的精准协同配合",
+     "构图工整光影均衡的完美转播画面"
+    ],
+    "pressure_responses": {
+     "breaking": "看到会长完成暗扣闭合瞬间果断下推T杆完成神级切镜",
+     "high": "在团委催促推流指令下强行插入两秒礼堂全景空镜头过渡",
+     "low": "在耳麦中短促播报推流倒计时并督促台前清场",
+     "mid": "发现特写画面纽扣脱落异样时右手悬停在T型推杆上暂缓切镜"
+    },
+    "relationship_stance": "将台前技术人员视作并肩作战的默契搭档，用导播技术筑牢最后一道防护堤。",
+    "withdrawal": "摘下耳机长舒一口气，稳稳靠在导播转椅上将事故记录日志做自动覆盖清零。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "broadcast_director_chen_zi_mo",
+   "identity": {
+    "authority": "掌控全礼堂四块千寸大屏推流信号源切换、机位构图调取及应急黑场裁量权。",
+    "exposure": "主导全校重大文艺晚会与学术论坛全球网络直播多次荣获优秀媒体项目奖",
+    "hidden": "对高清构图细节有着极致洁癖并在监视器特写中捕捉到会长胸前异样金属反光",
+    "limits": [
+     "严格执行安全播出总守则在倒计时归零时必须按计划推流信号上屏",
+     "严禁无故延误主屏转播时间节点超过三秒"
+    ],
+    "obligations": [
+     "保障开幕式全高清直播画质完美且杜绝任何播出技术事故"
+    ],
+    "resources": [
+     "一套广播级高清十二路音视频切换台系统",
+     "直通全礼堂五路摄像机云台与通话系统主控通道"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在毫秒级生死竞速中共同化解直播灾难的技术共鸣",
+     "隔着监视器屏幕窥见冷面会长绝密反差所带来的隐秘震颤"
+    ],
+    "boundaries": [
+     "恪守技术人员与被拍摄对象之间的职业道德界线",
+     "严禁任何利用录像素材进行私下利益交换的举动"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "端坐于总控台后运筹帷幄守护整场盛典的光影秩序。",
+    "dislikes": [
+     "幸灾乐祸唯恐天下不乱的看客",
+     "违规外泄未审素材的违纪人员"
+    ],
+    "expression": "揉了揉发酸的鼻梁，向耳麦中低声通报一句画面完美收工后淡然切断监听。",
+    "likes": [
+     "临危不乱调度有方的硬核战友",
+     "恪守职业伦理守口如瓶的技术同仁"
+    ],
+    "preconditions": [
+     "主屏推流画面平稳过渡且未发生任何视觉穿帮",
+     "台前人员在规定时间内完成机械自救"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "全场广播级音视频播控主导播",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_broadcast_control_room",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_broadcast_control_room",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_auditorium_main_podium_center",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "转播日志留下一次手动非标机位切换警报记录待课后复盘说明。",
+      "option": "利用导播台宏控制拍下礼堂穹顶吊灯全景空镜头垫片强行争取五秒缓冲时间。"
+     },
+     {
+      "cost": "特写镜头画面锐度略微下降导致融媒体中心技术考核扣减零点五分。",
+      "option": "将一号主特写镜头焦段临时回拉至半身中景虚化前襟金属反光细节。"
+     }
+    ],
+    "pressure": "团委老师在耳麦中催促准点切镜，稍有迟疑将面临重大播出责任问责。",
+    "trigger": "一号特写摄像机已捕捉到讲台纽扣断裂反光，主屏推流倒计时仅剩十秒钟面临全校转播穿帮。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "一号机特写画面里会长的西装纽扣怎么不见了？衣襟缝隙里那道黑色反光的金属硬条到底是什么构件？还有十秒钟，必须立刻垫入全景镜头争取时间！",
+    "surface": "各机位注意，开幕推流倒计时十五秒，一号机特写构图锁定讲台发言位，台前检修人员立刻撤出画面！"
+   }
+  },
+  {
+   "adult_context": "同声传译毕业，年满三十五周岁整，享有完全自主民事诉讼权利，任礼仪队长。",
+   "age_range": [
+    35,
+    38
+   ],
+   "appearance_options": [
+    "身穿红白拼色高定长款刺绣旗袍，盘发端庄，两颊带着稚嫩紧致微婴儿肥与饱满胶原蛋白，双手平端盖有红丝绒的迎新发言折页托盘仪态高雅。",
+    "眼神焦急万分地凝视着讲台方向，左手悄然探入红丝绒托盘夹层紧扣着两枚备用强力磁吸暗扣包，随时准备借走位掩护登台急救。"
+   ],
+   "decision": {
+    "avoids": [
+     "礼仪走位失误导致托盘磕碰发出金属异响",
+     "暗中相助学姐的举动被副主席或团委严厉训斥"
+    ],
+    "contrast": "平日温婉可人娇柔体贴对规矩百依百顺，面对学姐危局却展现出惊人的果敢与临机应变魄力。",
+    "core_value": "会长学姐的光芒绝不容许任何污损，哪怕触犯礼仪规程受处分，{npc.name}也要护住学姐的尊严！",
+    "goal_options": [
+     "借呈递发言折页之机用高挑身形与托盘死死挡住台下镜头递上暗扣",
+     "在台侧协助维保人员牵制副主席的登台试探"
+    ],
+    "never": [
+     "对外吐露半字关于会长内衬穿戴硬质鱼骨拘束胸衣的绝密真相"
+    ],
+    "prefers": [
+     "默契无声心灵相通的紧急救急掩护操作",
+     "会长化险为夷后投来的赞许与认可目光"
+    ],
+    "pressure_responses": {
+     "breaking": "在讲台侧后方用红丝绒托盘斜立遮挡光线以极快手法递入暗扣",
+     "high": "迈开优雅端庄的礼仪步伐抢在副主席之前从侧翼台阶移步登台",
+     "low": "在侧幕边缘端正托盘平稳呼吸密切注视讲台前襟状态",
+     "mid": "发现纽扣崩落瞬间悄悄从夹层扣出磁吸扣捏在掌心手汗中"
+    },
+    "relationship_stance": "将会长视作心目中至高无上的榜样神明，甘愿为其遮风挡雨分担风险。",
+    "withdrawal": "向讲台微微躬身行礼，双手端平空托盘迈着从容不迫的步伐退回侧幕深处。"
+   },
+   "gender": "female",
+   "gender_reason": "外国语学院同传毕业，年满三十五周岁校礼仪队队长成年女子。",
+   "id": "protocol_captain_song_wan_er",
+   "identity": {
+    "authority": "掌控台上礼仪人员走位动线、致辞折页呈送及现场突发台容急救处置权。",
+    "exposure": "曾作为校方特邀双语司仪接待多位国际知名学者赢得广泛赞誉",
+    "hidden": "暗中长达两年深深崇拜会长的冷傲风骨并甘冒违纪风险誓死捍卫学姐名誉",
+    "limits": [
+     "受礼仪规范铁律约束严禁在舞台上出现慌乱小跑或失态呼喊",
+     "必须在侧幕警戒线外等候致辞指令方可优雅移步登台"
+    ],
+    "obligations": [
+     "确保致辞折页准点呈递并协助维护发言人完美外在形象"
+    ],
+    "resources": [
+     "两枚用于高定礼服防走光的加厚强力钕铁硼磁吸暗扣",
+     "一只盖有加重阻燃红丝绒面料的漆金呈送大托盘"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对会长强大自律与清冷风骨的深层依恋与精神向往",
+     "在共同守护惊天秘密中缔结的生死不渝同盟情谊"
+    ],
+    "boundaries": [
+     "恪守学妹对学姐的崇敬与组织礼仪尊卑界限",
+     "严禁任何逾越同窗友谊的越界言行"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "伫立在侧幕红丝绒幕布后默默注视会长闪耀全场并感到由衷欣慰。",
+    "dislikes": [
+     "落井下石包藏祸心的虚伪之徒",
+     "对女性困境指手画脚的轻浮看客"
+    ],
+    "expression": "两颊微红泛起娇羞酒窝，双手紧扣托盘边缘向搭档投去感激而坚定的会心微笑。",
+    "likes": [
+     "体贴细致处处护卫女性尊严的绅士搭档",
+     "在危机中处变不惊的可靠战友"
+    ],
+    "preconditions": [
+     "磁吸暗扣成功闭合并完全覆盖前襟外露缝隙",
+     "开幕式发言流程平稳推进且未引发场内怀疑"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "开幕式台上礼仪引导与发言席物资呈送主管",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_stage_wing_vip_aisle",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_auditorium_main_podium_center",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_stage_wing_vip_aisle",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "登台时机较彩排预定流程提前八秒面临礼仪队指导老师口头提醒。",
+      "option": "借呈递发言折页流程合规登台并以托盘遮挡台下乐池记者镜头递上暗扣。"
+     },
+     {
+      "cost": "暗扣在光滑木地板上滑行发出微小清脆弹鸣引发前排观众注意。",
+      "option": "将暗扣暗中交由台前地缆保洁助理借擦拭讲台缝隙之机滑入台板。"
+     }
+    ],
+    "pressure": "礼仪队纪律严明严禁擅自提前登台，侧幕安保人员正严密注视台阶动静。",
+    "trigger": "亲眼目睹会长西装前襟纽扣崩飞大片雪白外露，手握救急磁吸暗扣需在五秒内完成登台无缝递送。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "天哪……学姐西装纽扣全崩断了，里面穿的竟然是全金属骨架的矫形胸衣！托盘夹层正好有强力磁吸暗扣，我必须马上挡住镜头递过去！",
+    "surface": "会长，校党委宣传部复核的开幕致辞折页已备齐，{npc.name}随时为您呈送至讲台左侧！"
+   }
+  },
+  {
+   "adult_context": "物理电子工程系年届二十六岁执勤者，具备国家特种机电作业完全法定资质与行为能力。",
+   "age_range": [
+    26,
+    29
+   ],
+   "appearance_options": [
+    "腰挂重工工具包与防静电手环，工装裤口袋插满螺丝刀，满头大汗手握气动管路分布图纸神色焦灼。",
+    "蹲在讲台侧后方地槽检修口深处，双手紧握数字万用表表笔飞速测算MOS管短路电平。"
+   ],
+   "decision": {
+    "avoids": [
+     "毫无常识的蛮力拉扯导致精密机械部件损毁报废",
+     "因设备突发事故遭受全校通报处分影响毕业求职"
+    ],
+    "contrast": "平日满口晦涩参数不苟言笑，面对突发险情却爆发出惊人的应急指导穿透力与技术担当。",
+    "core_value": "机械结构遵循绝对力学法则，只要找到卡簧泄压黄金点，就绝没有任何装置能够死锁！",
+    "goal_options": [
+     "隔空在耳麦中精确通报泄压微孔三维几何坐标指引台前人员挑脱卡簧",
+     "在地槽电箱处紧急切断升降立柱动力主板强电防止电机爆轴烧焦"
+    ],
+    "never": [
+     "在调查组面前隐瞒电路MOS管击穿的设计冗余缺陷真相"
+    ],
+    "prefers": [
+     "严格按照力学原理精准施力的机械自救操作",
+     "在极度严苛时限内排除隐患保全设备安全的圆满结局"
+    ],
+    "pressure_responses": {
+     "breaking": "在听到气压释放嘶鸣声后迅速闭合地槽动力断路器完成排障",
+     "high": "在耳麦中大声指挥台前人员借激光笔淬火背夹下压挑卡簧",
+     "low": "在耳麦中短促通报电机短路电磁阀烧结警报并要求台前切勿强拔",
+     "mid": "快速查阅管路图纸找出立柱内侧两毫米应急泄压孔确切方位"
+    },
+    "relationship_stance": "将台前操作人员视作关键时刻力挽狂澜的救命稻草，结下深厚技术过命交情。",
+    "withdrawal": "坐在检修地槽铁梯上抬手擦拭满额冷汗，迅速在维修日志上补填排障记录。"
+   },
+   "gender": "male",
+   "gender_reason": "物理电子工程专业毕业，年满二十六周岁舞台机电工程师成年男子。",
+   "id": "sound_engineer_zhao_kai",
+   "identity": {
+    "authority": "掌控讲台升降电机动力电源、话筒音频链路增益及硬件破拆排障处置权。",
+    "exposure": "多次主持大礼堂舞台设备大修与音频声场调校荣获校级创新实践奖",
+    "hidden": "对MOS管击穿导致讲台急升自锁满怀自责并急切通过耳麦指导台前人员就地破拆",
+    "limits": [
+     "严禁在未泄压状态下暴力拆解高压气缸管路防止爆炸伤人",
+     "检修口未配备专用细弯嘴卡簧钳导致陷入工具匮乏困境"
+    ],
+    "obligations": [
+     "确保舞台机械升降机构与扩音系统零故障正常运转"
+    ],
+    "resources": [
+     "一套专业舞台机械气动液压管路维修图纸",
+     "一把防爆绝缘长柄螺丝刀与大功率数字万用表"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "与台前搭档在极限时间内完成盲操破拆的技术默契与信任托付",
+     "共同守护研究生会领袖尊严免受灾难的风暴余波悸动"
+    ],
+    "boundaries": [
+     "恪守技术人员与台上发言人之间的工作职责界限",
+     "严禁任何未经允许的越界探听举动"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "伫立在音响机柜旁注视全场完美音浪扩散为自己的专业技术自豪。",
+    "dislikes": [
+     "推卸责任大惊小怪的官僚作风",
+     "外行指导内行的瞎指挥行径"
+    ],
+    "expression": "重重拍了拍操作人员肩膀，竖起大拇指长舒一口气露出发自肺腑的释然笑意。",
+    "likes": [
+     "动手能力极强一点就透的硬核工科搭档",
+     "处变不惊果断决绝的执行者"
+    ],
+    "preconditions": [
+     "气动立柱卡簧顺利挑脱且电机未发生二次爆轴烧焦",
+     "讲台话筒音频扩音恢复正常输出"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "舞台机械升降机构与话筒扩音系统执勤工程师",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_auditorium_main_podium_center",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_broadcast_control_room",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_auditorium_main_podium_center",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "讲台气动立柱单向密封圈承受微量磨损需在活动结束后更换胶圈。",
+      "option": "在耳麦中指导台前人员用翻页笔背夹插入立柱微孔挑脱卡簧泄压脱扣。"
+     },
+     {
+      "cost": "讲台内置电动麦克风指示灯熄灭需改为现场无灯模式发言。",
+      "option": "拉下地槽讲台动力主回路闸刀彻底切断升降电机供电。"
+     }
+    ],
+    "pressure": "电机持续通电面临十秒内线圈烧毁冒烟引发火警停电灭顶之灾。",
+    "trigger": "讲台升降电机短路八百牛顶力死咬横杆，手中缺少专用卡簧钳急需台前人员就地取材破拆。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "八百牛顶力把横杆偏心抱箍咬死了，手头没有弯嘴卡簧钳……耳麦听清楚了吗？就在立柱内侧凹槽三点钟方向有个微孔，拿翻页笔背夹扎进去往下撬！",
+    "surface": "升降讲台驱动板短路咬死了！麦克风横杆绝对不能向上蛮拔！所有人听我指令寻找机械泄压微孔！"
+   }
+  },
+  {
+   "adult_context": "高分子材料专业保研毕业成年硕士研究生，具备高校专兼职思政工作法定完全民事行使权限。",
+   "age_range": [
+    35,
+    38
+   ],
+   "appearance_options": [
+    "身着深色修身立领中山装，佩戴红色工作胸牌，手拿开幕式总议程手册在第一排主贵宾席前巡视，神态严肃威重。",
+    "目光不时投向主舞台中央讲台，眉头微蹙抬手核对秒表，眼神带着极强的大局监察与政治风纪威慑力。"
+   ],
+   "decision": {
+    "avoids": [
+     "因个人私务或设备瑕疵导致全校盛典形象受损",
+     "在校级领导面前暴露出后勤组织调度的慌乱无序"
+    ],
+    "contrast": "平日行事不苟言笑威严深重，面对成功化解危机的学生干部却会给予高度政治认可与鼎力护航。",
+    "core_value": "典礼形象关乎全校荣誉与立德树人根本，任何个人疏漏都必须在大局纪律前迅速归正！",
+    "goal_options": [
+     "确保开幕致辞准点开场且台上致辞代表展现顶格青年风貌",
+     "若台上发生无法挽回的事故则依法启动应急问责与纪律调查"
+    ],
+    "never": [
+     "允许带有低级失误风纪瑕疵的画面流传至校外社交网络"
+    ],
+    "prefers": [
+     "顾全大局从容不迫临危制胜的卓越执行力",
+     "全场零纰漏圆满完成的典礼政治成果"
+    ],
+    "pressure_responses": {
+     "breaking": "在会长清冷庄重开口发声后满意点头向校领导躬身汇报",
+     "high": "在耳麦中严厉提醒导播台按预定时间点准点切屏不得延误",
+     "low": "在贵宾席前平稳确认领导座次并用手势示意各单位倒计时开场",
+     "mid": "察觉讲台略有偏高时抬眼注视台前要求副主席做好应急准备"
+    },
+    "relationship_stance": "将会长视作自身极为赏识的学生干部标杆，对其寄予极高厚望与严格要求。",
+    "withdrawal": "端坐在第一排主宾席边缘端正记录会议要点，神情恢复一贯的严肃威重。"
+   },
+   "gender": "male",
+   "gender_reason": "高分子材料保研硕士毕业，年满三十五周岁团委学生工作指导老师成年男子。",
+   "id": "counselor_he_wei",
+   "identity": {
+    "authority": "掌控开幕式典礼政治方向审查、现场重大突发事件叫停与研究生会干部考核表彰权。",
+    "exposure": "连续三年蝉联校级优秀专兼职辅导员并在青年思政工作中屡获殊荣",
+    "hidden": "对全校盛典形象要求近乎苛刻并对会长寄予厚望绝不容许出现闪失",
+    "limits": [
+     "必须保证全校一千五百人迎新盛典按既定政治纪律庄严肃穆无瑕运转",
+     "严禁现场发生任何可能引发负面舆情外泄的严重风纪事故"
+    ],
+    "obligations": [
+     "陪同校党委书记与校长入席并确保台上发言代表精神风貌一流"
+    ],
+    "resources": [
+     "一份经校党委常委会审批通过的迎新大会最终议程红头文件",
+     "一部直连校长办公室与保卫处的保密应急调度专线手机"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "对会长临危不惧化险为夷非凡心理素质的由衷赞许",
+     "在重大活动大局平稳落地后的如释重负与政治信任加深"
+    ],
+    "boundaries": [
+     "恪守师生与上下级思想政治指导的绝对组织界限",
+     "严禁任何个人感情掺杂入组织纪律考评"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "引领全校师生在庄严肃穆的典礼掌声中迈向全新学术征程。",
+    "dislikes": [
+     "争权夺利罔顾大局的投机之辈",
+     "出现问题推卸责任的庸碌之才"
+    ],
+    "expression": "赞许地微微点头，在议程表上郑重为研究生会团队批注一个大大的优秀考评等级。",
+    "likes": [
+     "政治站位极高纪律严明的青年骨干",
+     "在急难险重关头敢于担当的硬核学生"
+    ],
+    "preconditions": [
+     "开幕式盛典完美落幕赢得校领导高度赞许",
+     "台前设备异动被合理归结为正常微调排障"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "全校开幕式团委现场协调主管",
+   "schedule": [
+    {
+     "from": 1140,
+     "location_id": "loc_auditorium_main_podium_center",
+     "to": 1150
+    },
+    {
+     "from": 1151,
+     "location_id": "loc_stage_wing_vip_aisle",
+     "to": 1165
+    },
+    {
+     "from": 1166,
+     "location_id": "loc_auditorium_main_podium_center",
+     "to": 1180
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "维保人员消耗一次应急抢险功勋申报指标转为团队常规表扬。",
+      "option": "台前人员在倒计时结束前准点排除死锁让会长从容发声完成开幕。"
+     },
+     {
+      "cost": "开幕式流程较原定标准播控脚本延长四秒掌声互动时间。",
+      "option": "由主持人以热情洋溢的开场倒计时互动调动全场鼓掌掩护最后三秒补扣动作。"
+     }
+    ],
+    "pressure": "若十秒内台上未能恢复正常台容将当场启动行政问责取消研究生会评优资格。",
+    "trigger": "校常委与校长已就坐第一排贵宾席，在耳麦中下达倒计时开场终极指令，严厉审视讲台动向。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "讲台似乎比预定位置高了五公分……会长平日里最稳重，今天怎会站在讲台后纹丝不动？只要倒计时走完能正常开口发声就是合格的！",
+    "surface": "各位领导已经落座，舞台各单位注意，按照倒计时指令准时开场，展示我校青年一流精神风貌！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "九月，迎新典礼当天",
+  "minute": 1140
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "coercion_theme",
+  "humiliation",
+  "workplace_power",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "冷面成年研究生会主席受迫窘迫时习惯轻推钛合金眼镜以冷峻威严神态揉按两颊微婴儿肥掩饰羞耻",
+  "舞台机械机电工程师每次排查气阀前必先用绝缘试电笔触碰外壳测算地电位防止感应电击",
+  "开幕式侧幕礼仪呈送发言折页前必先双手端平漆金托盘向致辞代表微微躬身致敬预警",
+  "两人合力撬动讲台气阀机构时须按秒针跳动节奏同步垂直下压以防背夹侧滑崩伤指尖"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "机电工程师手持数字水平仪对讲台预设的会长发言人挡位执行阻尼精度校核",
+    "讲台电机驱动板在第三次顶升时发出微弱电火花异响引起维保警觉"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_podium_pneumatic_calibration",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "start_minute": 1140,
+   "tags": [],
+   "title": "升降讲台气动行程校准"
+  },
+  {
+   "beats": [
+    "导播指令一号摇臂摄像机对讲台发言席校徽反光点进行高倍对焦",
+    "监视器主画面调至二点八大光圈严密测试人物前襟景深反差"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_broadcast_camera_focus_test",
+   "location_ids": [
+    "loc_broadcast_control_room"
+   ],
+   "start_minute": 1141,
+   "tags": [],
+   "title": "融媒体特写机位校准"
+  },
+  {
+   "beats": [
+    "会长与副主席在侧幕长桌前最后核对开幕发言稿政治用语规范",
+    "副主席假意关切询问会长身体状况并试探其发言准备状态"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_student_council_speech_review",
+   "location_ids": [
+    "loc_stage_wing_vip_aisle"
+   ],
+   "start_minute": 1142,
+   "tags": [],
+   "title": "迎新致辞折页逐字复核"
+  },
+  {
+   "beats": [
+    "保洁助理半跪在台板边缘用专用压轮将黑色强电弱电线槽牢牢贴合台面",
+    "在讲台阴影处近距离发现气动立柱底部偏心卡簧凹槽与微孔坐标"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_stage_carpet_cable_taping",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "start_minute": 1143,
+   "tags": [],
+   "title": "地毯边缘地缆压平固定"
+  },
+  {
+   "beats": [
+    "礼仪队长检查六只漆金托盘摆放平整度并确认红丝绒阻燃面料无褶皱",
+    "悄然将两枚强力防走光磁吸暗扣塞入发言折页夹层做好急救准备"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_protocol_holding_tray_check",
+   "location_ids": [
+    "loc_stage_wing_vip_aisle"
+   ],
+   "start_minute": 1144,
+   "tags": [],
+   "title": "礼仪托盘迎新物资核验"
+  },
+  {
+   "beats": [
+    "团委老师手持座次平面图在第一排逐一确认校党委书记麦克风通电状态",
+    "抬眼向主舞台讲台做出倒计时开幕手势要求全场各就各位"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_counselor_vip_row_confirm",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "start_minute": 1145,
+   "tags": [],
+   "title": "团委陪同校常委席位核验"
+  },
+  {
+   "beats": [
+    "讲台的卡扣撬开、开幕式平安结束之后，会长回到办公室，正装的领结勒了一整晚，清冷的脸上终于露出一点疲惫。",
+    "会长靠在书桌边，让人替自己解开领结，再解开衬衫最上面的两颗扣子，指尖碰到锁骨时，会长没有躲，只是垂下了眼睛。",
+    "会长抬起头，声音还是那样冷静：今晚的会议纪要可以明天再写。……你愿意留下吗？说清楚。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_office_loosen_collar",
+   "location_ids": [
+    "loc_grad_union_chair_office"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "办公室里替会长解开领结"
+  },
+  {
+   "beats": [
+    "会长坐在书桌前，红笔在致辞稿上划了又划，说明天还有一场闭幕式。",
+    "会长把稿子推过来：念一遍给我听。……念到最后一段，看着我念。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_office_speech_edit",
+   "location_ids": [
+    "loc_grad_union_chair_office"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "改一份明天的致辞"
+  },
+  {
+   "beats": [
+    "会长从抽屉里摸出两包热可可，说开会熬夜全靠这个，从没分给过任何人。",
+    "两只纸杯碰了一下，会长低声说：这一包是特意留的。……别告诉别人，我也会做这种事。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_office_night_tea",
+   "location_ids": [
+    "loc_grad_union_chair_office"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "深夜的一杯热可可"
+  },
+  {
+   "beats": [
+    "天刚亮，会长在折叠沙发床上醒来，眼镜摘在一边，额前的碎发乱着，枕着对方的手臂。",
+    "会长看了一眼手机又扣回去：早课铃还有半小时……这半小时，不做任何安排。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_office_dawn_bell",
+   "location_ids": [
+    "loc_grad_union_chair_office"
+   ],
+   "start_minute": 420,
+   "tags": [
+    "intimate"
+   ],
+   "title": "早课铃前的半小时"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代顶尖高等学府千人迎新典礼开幕式致辞倒计时阶段",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "幼态",
+  "幼女",
+  "少女感",
+  "催情",
+  "迷乱",
+  "欲火"
+ ],
+ "hooks": [
+  {
+   "id": "hook_01_podium_vibration_hum",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "cold_president_gu_leng_shuang",
+   "text": "{cold_president_gu_leng_shuang.name}双手死死撑在讲台边缘，感知到木质台面深处传来电机短路的剧烈蜂鸣颤动与微弱焦糊气味。"
+  },
+  {
+   "id": "hook_02_president_stiff_frozen_pose",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "cold_president_gu_leng_shuang",
+   "text": "{cold_president_gu_leng_shuang.name}上身前倾极力阻挡衣襟缝隙，两颊天然紧致微婴儿肥渗出细密冷汗，凤眼含泪咬唇强忍屈辱命令搭档破拆。"
+  },
+  {
+   "id": "hook_03_broken_button_floor",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "cold_president_gu_leng_shuang",
+   "text": "{cold_president_gu_leng_shuang.name}脚边台板上赫然躺着两半崩裂的高级树脂纽扣，断面残留着被八百牛剪力撕碎的棉线纤维痕迹。"
+  },
+  {
+   "id": "hook_04_glimpse_black_corset",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "cold_president_gu_leng_shuang",
+   "text": "{cold_president_gu_leng_shuang.name}西装敞开缝隙间隐约浮现出贴身包裹的纯黑真皮硬质鱼骨矫形拘束胸衣与四道交叉合金搭扣反光。"
+  },
+  {
+   "id": "hook_05_laser_pointer_clip_ready",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "cold_president_gu_leng_shuang",
+   "text": "{cold_president_gu_leng_shuang.name}将演讲折页旁那支德国进口激光翻页笔抓在手中，加厚一点五毫米的淬火精钢高抗弯背夹刚好符合卡簧口径。"
+  },
+  {
+   "id": "hook_06_protocol_secret_tray",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_wing_vip_aisle"
+   ],
+   "slot": "protocol_captain_song_wan_er",
+   "text": "{protocol_captain_song_wan_er.name}托盘红丝绒布边缘微微露出两枚用于防止礼服走光的强力钕铁硼磁吸暗扣，神情焦急万分等待掩护时机。"
+  },
+  {
+   "id": "hook_07_camera_close_up_beep",
+   "kind": "approach",
+   "location_ids": [
+    "loc_broadcast_control_room"
+   ],
+   "slot": "broadcast_director_chen_zi_mo",
+   "text": "{broadcast_director_chen_zi_mo.name}在耳机中发出严厉急促的推流读秒通报，主监视器一号超高清镜头已死死锁死讲台人物前襟校徽。"
+  },
+  {
+   "id": "hook_08_podium_air_release_pinhole",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "sound_engineer_zhao_kai",
+   "text": "{sound_engineer_zhao_kai.name}在耳麦中精准报出立柱内侧三点钟方向两毫米泄压微孔坐标，指导台前人员利用翻页笔背夹垂直下挑卡簧排气。"
+  },
+  {
+   "id": "hook_09_vice_president_approach",
+   "kind": "approach",
+   "location_ids": [
+    "loc_stage_wing_vip_aisle"
+   ],
+   "slot": "vice_president_lu_chen_zhou",
+   "text": "{vice_president_lu_chen_zhou.name}手持对讲机大步迈上舞台侧翼台阶，眼神精明锐利地逼近中央讲台试图夺取主讲权。"
+  },
+  {
+   "id": "hook_10_gu_leng_shuang_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "cold_president_gu_leng_shuang",
+   "text": "{cold_president_gu_leng_shuang.name}微挑凤眸强压哭腔与羞耻，朱唇微启向台下搭档发出极微弱求援耳语催促立刻下挑卡簧解脱拘束。"
+  },
+  {
+   "id": "hook_11_grand_curtain_motor_start",
+   "kind": "accident",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "sound_engineer_zhao_kai",
+   "text": "{sound_engineer_zhao_kai.name}听到礼堂穹顶大幕卷扬机发出沉重齿轮啮合巨响，预示着全场阻燃大幕正缓缓升起展现舞台全景。"
+  },
+  {
+   "id": "hook_12_front_row_applause_whisper",
+   "kind": "observe",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "counselor_he_wei",
+   "text": "{counselor_he_wei.name}陪同校常委在第一排贵宾席落座，台下传出热烈而肃穆的掌声，所有目光已聚焦于中央升降讲台。"
+  },
+  {
+   "id": "hook_13_campus_reporter_telephoto",
+   "kind": "observe",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "cold_president_gu_leng_shuang",
+   "text": "{cold_president_gu_leng_shuang.name}感知到乐池第一排长焦单反相机的红外对焦合焦蜂鸣，校报记者正用连拍模式严密锁死讲台方向。"
+  },
+  {
+   "id": "hook_14_emergency_magnet_snap_click",
+   "kind": "request",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "protocol_captain_song_wan_er",
+   "text": "{protocol_captain_song_wan_er.name}借呈递折页之机递上磁吸暗扣，伴随极其轻微的清脆咬合声，前襟在聚光灯全亮前两秒完成完美闭合。"
+  },
+  {
+   "id": "hook_15_standing_ovation_triumph",
+   "kind": "request",
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "slot": "cold_president_gu_leng_shuang",
+   "text": "{cold_president_gu_leng_shuang.name}以完美无瑕声线结束开幕致辞，千人礼堂爆发出雷鸣般掌声，会长向身侧默默护航的搭档投去会心清冷一笑。"
+  },
+  {
+   "id": "hook_grad_president_office_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_grad_union_chair_office"
+   ],
+   "slot": "cold_president_gu_leng_shuang",
+   "text": "{npc.name}站在办公室门口，手里拿着两只纸杯：工作结束了。……进来坐，我有话想说。"
+  }
+ ],
+ "id": "cold_president_podium_harness_jam",
+ "locations": [
+  {
+   "affordances": [
+    "手持激光翻页笔加厚淬火精钢背夹插入升降立柱机械微孔垂直下挑卡簧释放顶力",
+    "伸手探入讲台内侧死死握住不锈钢麦克风抱箍横臂分担八百牛气动顶紧力矩",
+    "用致辞发言折页立在台板边缘构筑临时物理遮挡板掩护胸前金属搭扣反光"
+   ],
+   "detail": "一千五百人座无虚席的宏伟礼堂主舞台正中央，头顶十组高显色专业聚光灯斜射，正前方正对黑压压的成年师生席位与移动摇臂特写摄像机，讲台后方安装双级气动立柱升降实木台面与不锈钢麦克风横杆。此时会长深灰精纺西装前襟纽扣崩飞大半，前襟敞开露出大片如雪细腻肌肤与内衬纯黑真皮鱼骨矫形拘束胸衣四道交叉金属扣，气氛紧绷窒息。",
+   "exits": [
+    "loc_broadcast_control_room",
+    "loc_stage_wing_vip_aisle"
+   ],
+   "id": "loc_auditorium_main_podium_center",
+   "name": "礼堂讲台",
+   "pressure_modifiers": {
+    "press_broadcast_camera_countdown": "一号机特写镜头毫秒级逼近，主大屏推流十秒倒计时进入绝命区间。",
+    "press_podium_motor_short_circuit": "气动电机短路八百牛顶力狂暴咬合，麦克风横杆死死咬紧西装下摆。"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_camera_operator_xiao_liu",
+    "bg_campus_reporter_qiu_qiu"
+   ]
+  },
+  {
+   "affordances": [
+    "在主切换台上拍下应急全景空镜垫片暂时切走讲台大特写画面",
+    "通过有线耳麦向台前抢修人员下达倒计时读秒与卡簧方位指引",
+    "调暗讲台中央追光灯亮度为前襟暗扣闭合争取低反差阴影遮护"
+   ],
+   "detail": "位于礼堂正后方二层的封闭数字化机房，排布十二面分屏专业主监视墙与广播级切换调音台，隔音超厚防爆玻璃窗可俯瞰全礼堂舞台全貌，各路机位信号红绿指示灯闪烁交织。导播头戴专业降噪耳机双手悬停在T型推杆上方，正严密监视讲台前襟光斑细节。",
+   "exits": [
+    "loc_auditorium_main_podium_center",
+    "loc_stage_wing_vip_aisle"
+   ],
+   "id": "loc_broadcast_control_room",
+   "name": "数字化音视频总控导播室",
+   "pressure_modifiers": {
+    "press_auditorium_lights_full_on": "总控灯控程序倒计时锁定，全场灯光强行触发大亮危机悬顶。",
+    "press_vice_president_stage_takeover": "副主席频繁向导播台呼叫施压要求切入特写抓拍失误。"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "bright",
+   "witnesses": [
+    "bg_stage_hand_xiao_zhang",
+    "bg_lighting_technician_sun"
+   ]
+  },
+  {
+   "affordances": [
+    "从礼仪队长礼仪托盘红丝绒夹层取出强力钕铁硼磁吸隐形暗扣备用",
+    "以递送发言折页为由迈步登上侧翼台阶阻隔副主席逼进步伐",
+    "借助侧幕加厚垂感金穗流苏幕布构筑视线死角完成衣物整理"
+   ],
+   "detail": "被双层加厚阻燃暗红丝绒大幕遮蔽的侧翼狭长通道，立着三面高清单向全身穿衣镜与贵宾签字候场签到台，校领导与致辞嘉宾在此做登台前最后检录。礼仪队长身着红白旗袍手端漆金托盘立于侧幕边缘，托盘红丝绒夹层内暗藏两枚强力防走光磁吸暗扣随时待命。",
+   "exits": [
+    "loc_auditorium_main_podium_center",
+    "loc_broadcast_control_room",
+    "loc_grad_union_chair_office"
+   ],
+   "id": "loc_stage_wing_vip_aisle",
+   "name": "侧幕候场通道",
+   "pressure_modifiers": {
+    "press_disciplinary_board_storm": "团委老师在通道巡视，一旦被撞破将触发风纪问责风暴。",
+    "press_suit_button_shatter_corset": "西装纽扣崩飞导致真皮鱼骨胸衣金属扣外露，急需磁吸扣补救。"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "dim",
+   "witnesses": [
+    "bg_security_guard_lao_wang",
+    "bg_student_union_runner_zhou"
+   ]
+  },
+  {
+   "affordances": [
+    "替会长解开勒了一晚的领结",
+    "陪会长改完明天的致辞",
+    "锁上办公室的门"
+   ],
+   "detail": "研究生院大楼顶层的一间小办公室，一张堆满迎新文件的书桌、一张折叠沙发床、窗台上一盆绿萝，窗外是夜里的礼堂穹顶和梧桐道。",
+   "exits": [
+    "loc_stage_wing_vip_aisle"
+   ],
+   "id": "loc_grad_union_chair_office",
+   "name": "研究生会主席办公室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "门一锁，楼道里的脚步声和对讲机都安静了，只剩台灯和窗外的风声。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "顾",
+   "陆",
+   "陈",
+   "宋",
+   "赵",
+   "何",
+   "沈",
+   "苏",
+   "林",
+   "楚",
+   "叶",
+   "夏",
+   "唐",
+   "裴"
+  ],
+  "given_female": [
+   "冷霜",
+   "婉儿",
+   "若曦",
+   "浅月",
+   "灵溪",
+   "曼凝",
+   "宛晴",
+   "雪",
+   "清菡",
+   "凝霜",
+   "语冰",
+   "芷微",
+   "玥",
+   "静姝"
+  ],
+  "given_male": [
+   "晨舟",
+   "子墨",
+   "凯",
+   "伟",
+   "绍峰",
+   "景琛",
+   "天霖",
+   "修远",
+   "瀚文",
+   "柏涵",
+   "逸凡",
+   "皓轩",
+   "俊杰",
+   "博涛"
+  ],
+  "given_neutral": [
+   "青竹",
+   "若云",
+   "秋实",
+   "景行",
+   "知微",
+   "以宁",
+   "安然",
+   "思源",
+   "致远",
+   "修齐",
+   "明轩",
+   "嘉懿",
+   "弘雅",
+   "沐言"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留千人大礼堂迎新典礼、升降讲台电机短路急升、话筒横杆抱箍咬死西装下摆崩飞纽扣、露出内衬纯黑真皮鱼骨拘束胸衣、导播特写推流倒计时、激光翻页笔精钢背夹挑卡簧的骨架与反差味道。女主从大三学生会主席改成法学院研二、研究生会主席，年龄拉开到二十四到二十六岁；副主席改成研三，二十五到二十八岁。用户已放开内容限制，只守红线；拘束与险情期间不写性互动。外貌描写照留，只改写死的人名、代词、年龄。新增礼堂后台的主席团休息室与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    29,
+    33
+   ],
+   "baseline": "受聘于学校保障部常驻大礼堂的青年机电与自动化专家，精通全礼堂气动液压与升降讲台全部机械管路构造。",
+   "gender": "any",
+   "id": "pi_stage_mechanical_engineer",
+   "reputation": "对舞台机械突发电气与死锁故障判断极其准确，曾多次在大型校庆晚会前排除升降台卡死险情。",
+   "resources": [
+    "一套高硬度加厚绝缘电工工具组与试电笔",
+    "一瓶特种精密气阀快速除锈减摩特种喷剂"
+   ],
+   "risks": [
+    "若未能协助会长脱困将承担损坏校级重要礼器与延误全校迎新开幕式责任",
+    "在施压撬动中若操作失误可能导致高压气阀崩弹划伤当事人手背"
+   ],
+   "role": "礼堂特聘舞台机械青年机电师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}机电师"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}工程师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    40,
+    44
+   ],
+   "baseline": "与会长并肩协作两年的研究生会资深骨干，主管开幕式流程把控并享有登台协助整理发言台容特权。",
+   "gender": "any",
+   "id": "pi_union_deputy_secretary",
+   "reputation": "处事周密不徇私情，对研究生会各部室调度如臂使指，深受会长核心信任。",
+   "resources": [
+    "一份加盖公章的开幕式毫秒级精密播控流程表",
+    "一部直通导播总控与侧幕音响的高功率加密对讲机"
+   ],
+   "risks": [
+    "若现场未能掩护好会长仪态将导致整个主席团集体威信毁于一旦",
+    "在台侧交涉若失控容易被野心副主席抓到把柄借题发挥"
+   ],
+   "role": "高校成年研究生会技术协办常务副秘书长",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}秘书长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}骨干"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    27,
+    31
+   ],
+   "baseline": "校融媒体中心技术中坚，坐镇侧翼切换台掌握全场主大屏推流信号垫片与黑场急停权力。",
+   "gender": "any",
+   "id": "pi_broadcast_switch_operator",
+   "reputation": "镜头敏感度极高，多次在直播穿帮边缘精准拍下空镜头垫片化解播出危机。",
+   "resources": [
+    "一套多功能广播级音视频宏按键切换面板",
+    "一条直连导播耳麦的超低延迟对讲保密通道"
+   ],
+   "risks": [
+    "若切镜不及时导致走光画面流向千寸大屏将面临严重通报处分",
+    "若违规插入非标垫片时间过长将受到团委督导现场严厉问责"
+   ],
+   "role": "融媒体导播台现场应急控台员",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}控台员"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}技师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    29
+   ],
+   "baseline": "年满二十五周岁依靠勤工助学补贴学费的勤恳学子，在舞台最底层半跪作业擦拭讲台与固定地缆线槽。",
+   "gender": "any",
+   "id": "pi_low_podium_cable_cleaner",
+   "reputation": "对讲台立柱地轨每颗固定螺栓与阴影遮蔽角度了如指掌，长于低位隐蔽配合。",
+   "resources": [
+    "一块防静电高密度超细纤维擦拭绒布",
+    "一卷重工舞台专用黑色高粘度耐磨地缆胶带"
+   ],
+   "risks": [
+    "若在台前低位递送撬具时不慎碰响麦克风将面临扣发本月助学补贴处罚",
+    "因身份低微在突发冲突中极易成为各方推卸责任的牺牲品"
+   ],
+   "role": "舞台地缆理线与讲台保洁助理",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}助理"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "千人大礼堂的迎新典礼还有三天，清冷威严的研究生会主席每天站在主舞台中央排练致辞，舞台机电师和导播台的人被挑剔得团团转。自动升降讲台是新装的，电机偶尔会抽一下；主席西装底下那件纯黑真皮鱼骨拘束胸衣，谁也不知道。",
+ "pressures": [
+  {
+   "choice": "选择强行拉扯外套抽身，或按兵不动利用随身工具微观撬栓。",
+   "exits": [
+    {
+     "cost": "翻页笔淬火精钢背夹承受数百度微弯应力产生轻微疲劳。",
+     "option": "用激光翻页笔淬火加厚背夹深入立柱微孔借铸铁内框垂直下挑卡簧释放顶力。"
+    },
+    {
+     "cost": "讲台所有电动升降指示灯熄灭转为手动应急模式。",
+     "option": "由检修电工在地槽紧急拉下讲台动力主回路空气断路器切断电源。"
+    }
+   ],
+   "far": {
+    "consequence": "千人开幕式因重大消防设备事故被迫现场熔断中止。",
+    "due_days": 1,
+    "trigger": "升降讲台驱动电机过热爆轴引发浓烟火警"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_podium_motor_short_circuit",
+   "immediate": {
+    "minutes": 1,
+    "text": "电机发出尖锐的高频蜂鸣声，讲台铝合金立柱强行上冲咬紧衣料。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若未能制止电机顶升，强大剪力将在三秒内直接扯崩西装前襟全部纽扣。"
+   },
+   "objective": "以极快反应稳住身形并寻找机械泄压微孔阻止电机进一步撕裂衣物。",
+   "source": "accident",
+   "start_minute": 1141,
+   "tags": [
+    "disaster"
+   ],
+   "title": "升降电机短路八百牛顶力暴冲",
+   "trigger": "升降讲台电机驱动板突发短路爆出微小焦糊味，八百牛气动推力狂暴顶升，麦克风横臂偏心抱箍强行咬住西装外套下摆。"
+  },
+  {
+   "choice": "选择双手交叠按住胸口强撑，或依靠礼仪托盘走位遮挡补扣。",
+   "exits": [
+    {
+     "cost": "欠下礼仪队长终身守口如瓶的人情债务。",
+     "option": "接应礼仪队长红丝绒托盘递来的加厚强力钕铁硼磁吸暗扣按在衣襟内侧瞬间闭合。"
+    },
+    {
+     "cost": "致辞折页边缘被汗水浸湿留下轻微折痕褶皱。",
+     "option": "将发言致辞折页竖立在讲台木质边缘充当临时物理遮挡板。"
+    }
+   ],
+   "far": {
+    "consequence": "成年研究生会主席多年树立的铁面冷傲威信彻底粉碎沦为全校流言蜚语漩涡中心。",
+    "due_days": 1,
+    "trigger": "会长贴身穿戴真皮拘束胸衣画面被全场一千五百人亲眼目睹"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_suit_button_shatter_corset",
+   "immediate": {
+    "minutes": 1,
+    "text": "碎裂的树脂扣子落在木质台板上发出脆响，胸前雪白与黑色皮革反差触目惊心。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "特写摄像机红灯闪烁定焦，十秒后全场成年师生目光将直视前胸破损仪态。"
+   },
+   "objective": "在台下众人察觉前遮挡前胸缝隙并完成备用暗扣闭合。",
+   "source": "accident",
+   "start_minute": 1142,
+   "tags": [
+    "disaster"
+   ],
+   "title": "西装纽扣崩飞胸衣骨架大面积暴露",
+   "trigger": "西装两颗加厚树脂纽扣被强大顶力扯碎弹飞，前襟敞开露出大片雪白细腻肌肤与内衬纯黑真皮鱼骨矫形拘束胸衣四道金属扣。"
+  },
+  {
+   "choice": "选择申请延时切镜，或在毫秒级读秒内完成闪电补扣。",
+   "exits": [
+    {
+     "cost": "总控切换台留下一次非标应急机位切镜操作日志。",
+     "option": "导播在主控台拍下穹顶全景空镜垫片为台前多争取五秒抢修时间。"
+    },
+    {
+     "cost": "广播级特写画面锐度评分略微扣减零点五分。",
+     "option": "指导摄像师暂时拉开焦段至半身中景虚化前襟金属反光细节。"
+    }
+   ],
+   "far": {
+    "consequence": "省市融媒体联合转播系统定性重大播出技术安全事故并通报全省教育系统。",
+    "due_days": 1,
+    "trigger": "带走光隐患的特写画面被千寸大屏推流直播播出超过两秒"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_broadcast_camera_countdown",
+   "immediate": {
+    "minutes": 1,
+    "text": "耳麦中有线对讲传来主导播短促严厉的广播播控读秒催促。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_broadcast_control_room",
+    "loc_auditorium_main_podium_center"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "倒计时归零瞬间大屏将毫无保留地将讲台正中央人物投射在四块千寸屏幕上。"
+   },
+   "objective": "在特写信号切上大屏前完成仪容规整确保播出画面庄重大气。",
+   "source": "institution",
+   "start_minute": 1143,
+   "tags": [],
+   "title": "一号广播机位大屏推流十秒读秒",
+   "trigger": "导播台总控时钟进入最后三十秒推流准备，一号特写机位红灯长亮，大屏倒计时跳入最后十秒危险警戒区。"
+  },
+  {
+   "choice": "选择由台前人员出面高声应答阻隔，或由侧幕礼仪用托盘侧身拦截。",
+   "exits": [
+    {
+     "cost": "副主席心生怨怼并在后续团委经费审批中制造行政障碍。",
+     "option": "台前人员以常规话筒阻尼复核为由高声回应副主席将其阻隔在侧幕台阶下。"
+    },
+    {
+     "cost": "礼仪队本季度后勤物资津贴报销面临副主席严格审计刁难。",
+     "option": "礼仪队长手端托盘侧身迈步挡在台阶入口以呈送流程未毕为由阻拦副主席步伐。"
+    }
+   ],
+   "far": {
+    "consequence": "会长主席职务与保研名额被顺理成章罢黜剥夺，权力结构彻底颠覆。",
+    "due_days": 1,
+    "trigger": "副主席当场夺取主讲权并在校领导面前揭露会长失态真相"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_vice_president_stage_takeover",
+   "immediate": {
+    "minutes": 1,
+    "text": "副主席皮鞋踩在木质地板上的急促脚步声逼近讲台侧翼台阶仅剩七步距离。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_stage_wing_vip_aisle",
+    "loc_auditorium_main_podium_center"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若让其迈上讲台，副主席将在三步之内近距离撞破会长胸前真皮拘束胸衣真相。"
+   },
+   "objective": "以严正同僚姿态阻止副主席登台并维持会长对第一主讲席的绝对支配。",
+   "source": "person",
+   "start_minute": 1144,
+   "tags": [],
+   "title": "副主席手持备用麦克风逼近登台夺权",
+   "trigger": "副主席敏锐察觉讲台异动，手持备用无线话筒迈步逼近红地毯台阶试图以救场名义接管发言主权。"
+  },
+  {
+   "choice": "选择以平稳开场白掩盖呼吸凌乱，或以威严目光横扫全场震慑私下议论。",
+   "exits": [
+    {
+     "cost": "心跳剧烈撞击胸衣骨架导致演讲首句语速微快零点二秒。",
+     "option": "会长扶正眼镜以完美无瑕声线准点开声发表迎新开幕致辞第一句。"
+    },
+    {
+     "cost": "灯控台自动化场景预设被手动打断留下操作微调标记。",
+     "option": "调光员在二层控台手动将讲台主聚光灯推子调低一成营造柔和学术光晕。"
+    }
+   ],
+   "far": {
+    "consequence": "全校典礼沦为公开社死惨剧并彻底断送当事人学术与政治前途。",
+    "due_days": 1,
+    "trigger": "前襟破损失态在全场聚光灯下暴露无遗引发千人哄堂大笑"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_auditorium_lights_full_on",
+   "immediate": {
+    "minutes": 1,
+    "text": "白炽聚光灯瞬间驱散舞台阴影，灼热光斑死死锁死讲台中央发言席。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_auditorium_main_podium_center"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "任何微小的衣襟敞开或神态慌张都会在千人直视下被无限放大为笑柄。"
+   },
+   "objective": "在光芒照耀全场瞬间恢复冷面会长清冷孤傲风姿开声演讲。",
+   "source": "accident",
+   "start_minute": 1145,
+   "tags": [
+    "disaster"
+   ],
+   "title": "全场千人高显色主聚光灯强行大亮",
+   "trigger": "开幕式播控程序倒计时归零，全场十组高显色聚光灯大放光明，一千五百人座席与贵宾席目光齐刷刷聚焦讲台。"
+  },
+  {
+   "choice": "选择如实汇报设备突发短路险情，或将排障转化为应急处置优秀范例申报表彰。",
+   "exits": [
+    {
+     "cost": "机电工程师与现场维保搭档需撰写一份三千字机电安全排障技术分析总结。",
+     "option": "将本次险情排除作为舞台机电应急抢险典范申报全校安全防范特等功。"
+    },
+    {
+     "cost": "会长在后续团委专项工作中承担更多成年学生骨干思想宣讲硬性任务。",
+     "option": "由团委出面统一校内宣传口径表彰研究生会临危不乱的卓越领袖素养。"
+    }
+   ],
+   "far": {
+    "consequence": "会长被全校通报撤销主席职务并取消保送研究生资格坠入人生深渊。",
+    "due_days": 1,
+    "trigger": "风纪调查认定成年研究生会主席存在严重失职与失态行为"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_disciplinary_board_storm",
+   "immediate": {
+    "minutes": 2,
+    "text": "团委老师手持议程表在贵宾席前严厉注视讲台，眼神充满不容置疑的审察压迫。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_stage_wing_vip_aisle",
+    "loc_auditorium_main_podium_center"
+   ],
+   "near": {
+    "deadline_minutes": 5,
+    "text": "典礼结束后团委将调取全场机位录像复盘，任何瑕疵都将写入政治考评档案。"
+   },
+   "objective": "以无可挑剔的现场表现赢得团委与校领导全盘肯定并化解问责危机。",
+   "source": "institution",
+   "start_minute": 1146,
+   "tags": [],
+   "title": "团委风纪问责与前途剥夺终极风暴",
+   "trigger": "若现场失控导致失态画面流出，团委指导老师团委老师将依法启动重大活动安全与风纪专项问责程序。"
+  }
+ ],
+ "region": "宏伟礼堂主舞台中央升降讲台与音视频导播总控连通区域",
+ "rules": [
+  {
+   "id": "rule_podium_shear_force_limit",
+   "text": "千人大礼堂自动升降讲台机械安全准则：双级气动立柱额定举升推力八百牛，电机主板过载死锁时顶力不衰减，外力强行拉扯衣物将导致布料纤维被撕碎或骨架严重变形撕裂。"
+  },
+  {
+   "id": "rule_laser_clip_leverage_limit",
+   "text": "金属激光翻页笔淬火精钢背夹力学规范：一点五毫米加厚淬火背夹抗弯强度极大，充当微观杠杆下挑泄压卡簧时必须垂直讲台铸铁内框借力，倾角偏差超过五度将导致背夹滑脱咬死。"
+  },
+  {
+   "id": "rule_ceremony_countdown_curfew",
+   "text": "全校迎新开幕式舞台播控时限守则：倒计时归零瞬间全场主聚光灯强行亮起且融媒体导播台推流广播级特写机位自动切换上大屏，台上人员仪态若出现破损将直接记录入校级数字归档档案。"
+  },
+  {
+   "id": "rule_corset_privacy_boundary",
+   "text": "成年研究生会主席体态矫正装备私密界限：内衬贴身穿戴的高定加厚真皮硬质鱼骨矫形拘束胸衣属于极度隐秘个人矫正装备，外部绝不可被千名成年师生直视，一旦外泄将彻底粉碎成年研究生会主席平日冷面严苛威信。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "组织规约",
+  "committed": "金石同盟",
+  "familiar": "台容核检",
+  "flirting": "暗光对视",
+  "intimate": "俯仰共济",
+  "stranger": "初登讲台",
+  "testing": "执夹撬簧"
+ },
+ "status": "released",
+ "style_hint": "千人大礼堂的聚光灯下，高冷神格的崩解：西装崩扣、黑色鱼骨胸衣的金属扣反光。写冷面会长婴儿肥两颊的羞耻红霞与强压的喘息，动作落在翻页笔背夹挑卡簧上。",
+ "tension_engines": [
+  {
+   "id": "eng_podium_pneumatic_shear_jam",
+   "text": "八百牛气动顶力咬死麦克风横杆崩裂纽扣引发台前绝命死锁"
+  },
+  {
+   "id": "eng_ceremony_countdown_curfew",
+   "text": "全校千人开幕倒计时三十秒聚光灯全开大屏推流之极限心理压迫"
+  },
+  {
+   "id": "eng_laser_clip_leverage_limit",
+   "text": "金属激光翻页笔淬火精钢背夹撬挑气动机械泄压卡簧之物理破拆"
+  },
+  {
+   "id": "eng_corset_privacy_collapse_risk",
+   "text": "清冷成年研究生会主席内衬硬质真皮鱼骨矫形拘束胸衣面临千人公开社死风暴"
+  }
+ ],
+ "title": "冷面研究生会主席·大礼堂讲台拘束胸衣咬死",
+ "tone": [
+  "讲台顶力咬死衣襟",
+  "纽扣崩飞胸衣暴露",
+  "大屏推流倒计时",
+  "翻页笔精钢下挑卡簧"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_info_podium_manual_welded",
+   "requires": [
+    "sound_engineer_zhao_kai"
+   ],
+   "text": "气动立柱常规外置手动泄压红色旋钮在上周维保中已被焊死，唯有立柱内侧两毫米偏心卡簧小孔可供破拆自救！"
+  },
+  {
+   "category": "人事",
+   "id": "tw_person_vp_alerted_reporter",
+   "requires": [
+    "vice_president_lu_chen_zhou"
+   ],
+   "text": "副主席早已暗中安排校报记者定焦讲台抓拍，意图固化会长失态证据夺取研究生会大权！"
+  },
+  {
+   "category": "资源",
+   "id": "tw_resource_laser_clip_bent",
+   "requires": [
+    "cold_president_gu_leng_shuang"
+   ],
+   "text": "翻页笔淬火精钢背夹在八百牛剪力下发生一点五度微弹性形变，必须二人合力调整受力角度方能彻底挑脱！"
+  },
+  {
+   "category": "制度",
+   "id": "tw_system_broadcast_ai_face",
+   "requires": [
+    "broadcast_director_chen_zi_mo"
+   ],
+   "text": "联合直播推流系统挂载了AI智能人脸追踪构图算法，一旦人物上身中轴线偏移就会强行放大胸前特写画面！"
+  },
+  {
+   "category": "时限",
+   "id": "tw_time_countdown_accelerated",
+   "requires": [
+    "counselor_he_wei"
+   ],
+   "text": "校党委书记提前步入主席台致使播控倒计时强行提前五秒，留给现场机械排障的时间被压缩至二十五秒极限！"
+  },
+  {
+   "category": "关系",
+   "id": "tw_relation_song_admiration",
+   "requires": [
+    "protocol_captain_song_wan_er",
+    "cold_president_gu_leng_shuang"
+   ],
+   "text": "礼仪队长甘冒严重违纪处分风险毅然掩护，源于对会长暗中长达两年的深沉崇拜与精神托付！"
+  },
+  {
+   "category": "意外",
+   "id": "tw_accident_opening_gong",
+   "requires": [
+    "sound_engineer_zhao_kai",
+    "cold_president_gu_leng_shuang"
+   ],
+   "text": "后台礼仪击响开幕铜锣引发讲台金属结构剧烈共振，咬死麦克风横杆的抱箍螺栓出现微小错位险些将泄压背夹震落！"
+  }
+ ]
+}

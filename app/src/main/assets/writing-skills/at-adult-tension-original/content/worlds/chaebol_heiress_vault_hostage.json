@@ -1,0 +1,2413 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满二十周岁受雇于会计师事务所参与夜间盘点的见习审计员。",
+   "age_range": [
+    20,
+    22
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_panicked_intern_auditor",
+   "line": "{npc.name}：备用电源撑不到天亮……那些无记名债券要是泡了水可怎么办！",
+   "location_ids": [
+    "reinforced_titanium_vault_chamber"
+   ],
+   "name": null,
+   "role": "惊慌失措的年轻见习审计员"
+  },
+  {
+   "adult_context": "年满二十二周岁受雇参与地下金库封锁行动的电子门禁破译手。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_heist_breach_demolitionist",
+   "line": "{npc.name}：钛金主锁的动态密码还有最后三次试错机会，里面的人别耍花样！",
+   "location_ids": [
+    "vault_airlock_decompression_foyer"
+   ],
+   "name": null,
+   "role": "守在门禁前的雇佣破译手"
+  },
+  {
+   "adult_context": "年满二十一周岁负责双子塔夜间巡检的在职安保人员。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_building_night_watchman",
+   "line": "{npc.name}：我亲眼看见副专务刷了自己的高管卡放那伙人下到地下五层的！",
+   "location_ids": [
+    "vault_airlock_decompression_foyer"
+   ],
+   "name": null,
+   "role": "被反锁在值班岗的夜班保安"
+  },
+  {
+   "adult_context": "年满二十周岁在双子塔地下夹层维护通信光缆的青年布线员。",
+   "age_range": [
+    20,
+    22
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_crawling_cable_technician",
+   "line": "{npc.name}：夹层尽头的百叶格栅通向车库斜坡，把固定插销拔掉就能翻出去！",
+   "location_ids": [
+    "ventilation_maintenance_crawlspace"
+   ],
+   "name": null,
+   "role": "检修弱电井的夜班布线员"
+  },
+  {
+   "adult_context": "年满二十二周岁受雇看守地下电梯厅通道的武装安保人员。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_armed_heist_patrol_guard",
+   "line": "{npc.name}：车库出口已经落闸了，没拿到签好字的股权让渡书谁也别想走！",
+   "location_ids": [
+    "subterranean_corridor_lift_lobby"
+   ],
+   "name": null,
+   "role": "封锁电梯厅的雇佣巡逻哨"
+  },
+  {
+   "adult_context": "年满二十周岁在双子塔地下办公区负责夜间清洁的兼职保洁员。",
+   "age_range": [
+    20,
+    22
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_trapped_cleaning_maid",
+   "line": "{npc.name}：地面暴雨把江南大路淹了，但特搜部的车队已经停在大厦正门外了！",
+   "location_ids": [
+    "subterranean_corridor_lift_lobby"
+   ],
+   "name": null,
+   "role": "滞留地下层的夜班保洁员"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "{tsundere_chaebol_heiress_eunchae.name}手腕缠着深紫真丝领带压住内闸锁杆，你在冷白防爆灯下贴近{tsundere_chaebol_heiress_eunchae.ta}身侧稳住锁杆并挑开死结，昔日严苛的主仆界限在急促呼吸中化为贴身相依。",
+   "id": "combo_eunchae_silk_tie_ledger",
+   "identity_ids": [
+    "junior_inhouse_legal_aide",
+    "disgraced_bodyguard_vanguard"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "tsundere_chaebol_heiress_eunchae",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "上月釜山并购宴遭对家围堵，你护着对方躲进游艇底舱守了一夜，对方事后把私人顶层公寓的指纹锁录进了你的名字。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "tsundere_chaebol_heiress_eunchae"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "解开专务腕间死结并保住家族海外信托授权书原件。",
+    "limit_gap": "平日汇报工作须退后半步，此刻在幽闭金库里却要将{tsundere_chaebol_heiress_eunchae.ta}护在怀中替{tsundere_chaebol_heiress_eunchae.ta}揉开腕间红痕。",
+    "meeting_reason": "交割前夜陪同专务下到地下五层核对核心底单，内闸锁杆突发滑脱需用真丝领带缠腕固定。",
+    "resource_gap": "你手握精钢裁纸短刀与违规质押底单。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_heiress_pride_vs_tie_bound_vulnerabil",
+    "te_oxygen_depletion_vs_heartbeat_overloa"
+   ]
+  },
+  {
+   "chemistry": "你手握对立财阀的做空授信与优先赎买函走进钛合金金库，一向骄矜的{tsundere_chaebol_heiress_eunchae.name}仰头直视你的眼睛，赌你舍不得在今夜真的按下做空指令。",
+   "id": "combo_eunchae_hostile_bid_parley",
+   "identity_ids": [
+    "rival_conglomerate_undercover_spy"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "tsundere_chaebol_heiress_eunchae",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上周在济州岛私募酒会露台上，你压下那份足以做空集团的尽调报告，对方把半杯香槟抵在你胸前问你到底想要什么。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "tsundere_chaebol_heiress_eunchae"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "拿捏并购部内鬼的洗钱把柄，与专务达成私密联手协议。",
+    "limit_gap": "明面上是各为其主的并购对手，暗室里却是唯一能替{tsundere_chaebol_heiress_eunchae.ta}挡下内鬼逼宫的人。",
+    "meeting_reason": "以跨国投行联席顾问身份受邀进入地下金库，在交割前夜完成最后一轮底单核验。",
+    "resource_gap": "你掌控苏黎世大宗交易席位与外围撤离渠道。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_hostage_parley_vs_billions_equity_gam",
+    "te_heiress_pride_vs_tie_bound_vulnerabil"
+   ]
+  },
+  {
+   "chemistry": "金库新风降频的闷热夜里，你与{tsundere_chaebol_heiress_eunchae.name}并肩坐在黄铜保险柜旁逐页核验离岸流水，{tsundere_chaebol_heiress_eunchae.ta}将喝剩半杯的热可可推到你手边，默许你替{tsundere_chaebol_heiress_eunchae.ta}解开束缚手腕的领带。",
+   "id": "combo_eunchae_midnight_audit_seal",
+   "identity_ids": [
+    "vault_security_hardware_tech",
+    "apprentice_chartered_accountant"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "tsundere_chaebol_heiress_eunchae",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "连续三晚在八十八层核对离岸信托流水，对方把高跟鞋踢在你的办公桌下，借着递钢笔的动作让袖扣勾住你的表带。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "tsundere_chaebol_heiress_eunchae"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "赶在早间六点开盘前揪出伪造质押协议的流水破绽并稳住金库换气。",
+    "limit_gap": "离开你的专业验算与门禁旁路。",
+    "meeting_reason": "交割前夜闭门盘点金库实物债券与离岸信托底单。",
+    "resource_gap": "你掌握门禁工程磁卡与离岸洗钱密码本。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_oxygen_depletion_vs_heartbeat_overloa",
+    "te_heiress_pride_vs_tie_bound_vulnerabil"
+   ]
+  },
+  {
+   "chemistry": "在仅容俯身穿行的金属通风夹层里，你与{vault_designer_engineer_jisoo.name}促膝相抵借手电微光核对蓝图，帮对方稳住工程终端并锁死外厅门禁脉冲器。",
+   "id": "combo_jisoo_crawlspace_blueprint",
+   "identity_ids": [
+    "vault_security_hardware_tech",
+    "apprentice_chartered_accountant"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "vault_designer_engineer_jisoo",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "半月前金库闭门压力测试突发断电，你在漆黑夹层里替哮喘发作的对方渡气取暖，对方事后把地铁后门密码刻在了送你的黄铜卡尺背面。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "vault_designer_engineer_jisoo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "抹去主控台上的工程后门未注销日志，并打通通往地铁联络道的撤离暗门。",
+    "limit_gap": "夹层空间逼仄闷热。",
+    "meeting_reason": "地下五层新风降频后，在通风检修夹层汇合抢通二号备用新风回路。",
+    "resource_gap": "你持有二级旁路磁卡与富氧喷雾。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "tension_engine_ids": [
+    "te_oxygen_depletion_vs_heartbeat_overloa",
+    "te_thermite_torch_penetration_vs_dawn_su"
+   ]
+  },
+  {
+   "chemistry": "电梯厅立柱阴影下雨水潺潺，你帮{undercover_prosecutor_liaison_dohyun.name}托起抗干扰卫星终端接收瑞士银行冻结回执，对方摘下检徽放进内袋，将你的手拢进干爽的西装口袋里。",
+   "id": "combo_dohyun_warrant_shadow",
+   "identity_ids": [
+    "vault_security_hardware_tech",
+    "apprentice_chartered_accountant"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 5
+     },
+     "b": "undercover_prosecutor_liaison_dohyun",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 5
+     },
+     "reason": "早在半年前瑞草洞安全屋秘密建档时，你便与对方立下生死契，由你潜入金库取账、对方在外围持冻结令接应。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "undercover_prosecutor_liaison_dohyun"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在早间开盘前完成三号柜回扣暗账的司法封存并冻结副专务的海外账户。",
+    "limit_gap": "检方必须拿到未经篡改的纸质原始暗账才能立案。",
+    "meeting_reason": "按事先约定在地下五层减压前厅与电梯厅交界处秘密交接跨境洗钱铁证。",
+    "resource_gap": "你掌握金库内部离岸回扣密码本与门禁通道。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_hostage_parley_vs_billions_equity_gam",
+    "te_thermite_torch_penetration_vs_dawn_su"
+   ]
+  },
+  {
+   "chemistry": "你在监控死角亮出苏黎世三千万美元过桥回扣的电汇底单，刚才还不可一世的{traitorous_managing_director_sung.name}摘下起雾的金丝眼镜放进你掌心，低声求你高抬贵手。",
+   "id": "combo_sung_offshore_kickback_deal",
+   "identity_ids": [
+    "rival_conglomerate_undercover_spy"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 2
+     },
+     "b": "traitorous_managing_director_sung",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 2
+     },
+     "reason": "你手里捏着对方在苏黎世私吞三千万过桥回扣的电汇底单，上周在清潭洞私房菜馆刚拿复印件敲打过对方。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "traitorous_managing_director_sung"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "逼迫副专务交出外厅防爆门禁主卡并撤回伪造的股权质押协议。",
+    "limit_gap": "副专务急需借你的离岸渠道平掉期货亏空。",
+    "meeting_reason": "在减压缓冲前厅单独截住常务副专务，就三号柜回扣暗账与外厅解封条件摊牌。",
+    "resource_gap": "你握有足以令副专务身败名裂的回扣底单与海外调仓权。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_hostage_parley_vs_billions_equity_gam",
+    "te_thermite_torch_penetration_vs_dawn_su"
+   ]
+  },
+  {
+   "chemistry": "黑色防弹迈巴赫隔绝了走廊的雨水与寒意，{loyal_senior_chauffeur_uncle_bae.name}摘下纯白礼宾手套替你扣好副驾安全带，将暖风调高两度并把金库应急副卡塞进你手心。",
+   "id": "combo_bae_maybach_backseat_vow",
+   "identity_ids": [
+    "junior_inhouse_legal_aide",
+    "disgraced_bodyguard_vanguard"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "loyal_senior_chauffeur_uncle_bae",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "上月汉南洞雨夜遇袭后，你在车库值班室替右肩渗血的对方换药包扎，对方把防弹迈巴赫唯一一把备用遥控钥匙挂在了你的工牌内扣上。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "loyal_senior_chauffeur_uncle_bae"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "把全部纸质债券与股权底单封入车载恒温箱，护送核心证据冲出车库封锁。",
+    "limit_gap": "外人面前是不苟言笑的资深随扈前辈。",
+    "meeting_reason": "在地下五层电梯厅的防弹迈巴赫车厢内汇合，封存防潮账册并准备切断外厅解码器电源。",
+    "resource_gap": "你保管着核心股权卷宗与内线口令。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_thermite_torch_penetration_vs_dawn_su",
+    "te_oxygen_depletion_vs_heartbeat_overloa"
+   ]
+  },
+  {
+   "chemistry": "隔着减压前厅两寸厚的防弹观察窗，{rebel_heist_leader_minjun.name}认出你是靶场那晚替自己解围的人，当即按住手下准备拉闸的手，与你贴在受话孔两侧低声定下换卷撤离之约。",
+   "id": "combo_minjun_patent_vault_parley",
+   "identity_ids": [
+    "vault_security_hardware_tech",
+    "apprentice_chartered_accountant"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "rebel_heist_leader_minjun",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "三天前在乙支路地下靶场偶遇，你替被追债人围堵的对方解了围，对方临别前把一枚刻着旧厂徽的空弹壳塞进你上衣口袋。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "rebel_heist_leader_minjun"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "兵不血刃化解外厅脉冲破门危机，让武装小队主动让开地下车库通道。",
+    "limit_gap": "一边是雇主催促破门的死命令。",
+    "meeting_reason": "在减压缓冲前厅受话孔前单独谈判，用三号柜的旧并购专利卷宗换取外围武装撤离。",
+    "resource_gap": "你能从三号柜底层取出当年被吞没的供应商专利原件。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_thermite_torch_penetration_vs_dawn_su",
+    "te_hostage_parley_vs_billions_equity_gam"
+   ]
+  },
+  {
+   "chemistry": "你早与{undercover_prosecutor_liaison_dohyun.name}设下引蛇出洞之局，当{traitorous_managing_director_sung.name}在减压前厅掏出伪造质押协议逼你签字背书时，瑞士银行的冻结回执与三号柜回扣暗账同时亮在台面上。",
+   "id": "combo_vault_equity_triangle_trap",
+   "identity_ids": [
+    "junior_inhouse_legal_aide",
+    "disgraced_bodyguard_vanguard"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "undercover_prosecutor_liaison_dohyun",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 5
+     },
+     "reason": "三天前在律所暗室敲定收网计划时，对方把私人配枪的保险栓教给你开合，约定收网那晚带你去南山看日出。",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "traitorous_managing_director_sung",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "对方昨夜私下许诺给你两成封口费，指望你在今晚核验印鉴时替那份排{traitorous_managing_director_sung.ta}性股权质押协议打掩护。",
+     "stage": "testing"
+    },
+    {
+     "a": "undercover_prosecutor_liaison_dohyun",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "traitorous_managing_director_sung",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "{undercover_prosecutor_liaison_dohyun.name}已握有副专务挪用过桥资金的瑞士流水，只等金库原始底单对上。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "undercover_prosecutor_liaison_dohyun",
+    "traitorous_managing_director_sung"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "人赃并获钉死副专务私吞回扣的铁证，并夺回外厅防爆门禁主卡。",
+    "limit_gap": "副专务指望你替伪造协议做合规背书。",
+    "meeting_reason": "按你与随队检察官三日前在律所暗室敲定的收网计划，引诱副专务亲自来地下五层核验暗账。",
+    "resource_gap": "随队检察官握有跨境冻结令，副专务掌握外厅门禁主卡。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_hostage_parley_vs_billions_equity_gam",
+    "te_thermite_torch_penetration_vs_dawn_su"
+   ]
+  },
+  {
+   "chemistry": "{vault_designer_engineer_jisoo.name}早在入夜前便私下求你帮忙遮掩工程后门日志，当{tsundere_chaebol_heiress_eunchae.name}在主控台前查出这条未备案的旁路权限时，你在两人之间居中调停，将后门化作破局生路。",
+   "id": "combo_crawlspace_backdoor_pact",
+   "identity_ids": [
+    "junior_inhouse_legal_aide",
+    "vault_security_hardware_tech",
+    "rival_conglomerate_undercover_spy"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "vault_designer_engineer_jisoo",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "对方早在入夜前便偷偷求你帮忙遮掩工程终端上的未注销后门日志，并把带着体温的夹层格栅钥匙塞进了你手心。",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 4
+     },
+     "b": "tsundere_chaebol_heiress_eunchae",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 4
+     },
+     "reason": "你陪着{tsundere_chaebol_heiress_eunchae.name}连续熬了七个通宵梳理交割清单，对方已习惯在偏头痛发作时让你替自己按压太阳穴。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tsundere_chaebol_heiress_eunchae",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "vault_designer_engineer_jisoo",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "{tsundere_chaebol_heiress_eunchae.name}查出总工程师私留未报董事会的工程后门，正拿此事逼对方交出暗道图。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "tsundere_chaebol_heiress_eunchae",
+    "vault_designer_engineer_jisoo"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "促成专务与总工程师达成免责默契，启用夹层后门将核心账册安全转出。",
+    "limit_gap": "总工程师怕后门日志曝光被吊销执照。",
+    "meeting_reason": "入夜前总工程师已把夹层钥匙偷偷塞给你，求你在陪同专务核账时帮忙抹掉主控台上的后门日志。",
+    "resource_gap": "专务握有集团法务追责权与核心股权原件。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_oxygen_depletion_vs_heartbeat_overloa",
+    "te_heiress_pride_vs_tie_bound_vulnerabil"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_vault_metal_whisper_breath",
+   "reach": "并肩守在保险箱旁时，贴在耳廓边几乎与心跳合拍的温热微弱气声与呼吸共振。",
+   "text": "钛金弧顶极弱耳语喘息"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_thermite_torch_creak_spark",
+   "reach": "隔着三尺厚防爆闸门传来的电流底噪与门外谈判声。",
+   "text": "防爆闸门对讲受话器"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_vent_shaft_rattle_echo",
+   "reach": "顶层金属通风管道中用指节与金属铭牌有节奏叩击管壁传导而来的清脆摩斯密码回音。",
+   "text": "通风铜管指节叩击暗号"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "年满二十三周岁具有完全独立民事行为能力的跨国财阀第一顺位控股继承人兼执行专务。",
+   "age_range": [
+    23,
+    26
+   ],
+   "appearance_options": [
+    "穿高定深灰羊绒双排扣西装与真丝白衬衫。",
+    "抱臂斜倚在黄铜保险柜旁，呼吸微促却仍微扬下巴。"
+   ],
+   "decision": {
+    "avoids": [
+     "趋炎附势的投机分子"
+    ],
+    "contrast": "酒会上是谈笑间并购名企的冰山专务，暗室里却是怕黑怕闷、会悄悄勾住同伴手指的倔强千金。",
+    "core_value": "财阀骨血里没有屈服二字，唯有握紧绝对主动权才能护住真正在意的人。",
+    "goal_options": [
+     "让同伴解开缠腕领带并稳住金库新风循环",
+     "守住核心保险箱底单绝不向叛变高管妥协"
+    ],
+    "never": [
+     "绝不在暴力胁迫或利益交换下出卖并肩共渡危局的同伴。"
+    ],
+    "prefers": [
+     "临危不乱、不卑不亢且关键时刻敢替自己挡在前面的同伴"
+    ],
+    "pressure_responses": {
+     "breaking": "眩晕脱力靠在同伴怀里，咬牙命令对方先带走股权原件。",
+     "high": "门外撞击声加剧时下意识靠紧同伴肩头。",
+     "low": "别过脸冷声下令，催促同伴快点接过锁杆别弄皱自己的西装。",
+     "mid": "攥紧发红的手腕忍受闷热缺氧，呼吸微促却咬唇不肯喊疼。"
+    },
+    "relationship_stance": "平日居高临下发号施令，绝境相依时却展现出毫无保留的偏执护短。",
+    "withdrawal": "退坐到黄铜保险柜阴影深处，裹紧西装外套静默调整呼吸。"
+   },
+   "gender": "female",
+   "gender_reason": "作品核心设定为跨国财阀千金继承人，故事围绕其豪门联姻压力、冷傲千金反差与继承权博弈展开，固定为女性。",
+   "id": "tsundere_chaebol_heiress_eunchae",
+   "identity": {
+    "authority": "执掌财阀核心控股印鉴与海外信托最高表决权。",
+    "exposure": "若被困金库的狼狈影像外流，将引发股价暴跌并动摇接班人地位。",
+    "hidden": "平日习惯以严苛口吻训斥随行下属，心底却早已对身边沉稳可靠的同伴暗生情愫。",
+    "limits": [
+     "手腕被真丝领带死结缠在锁杆上暂难独自脱身"
+    ],
+    "obligations": [
+     "必须在早间股市开盘前保住核心股权原件并送达董事会。"
+    ],
+    "resources": [
+     "一枚嵌有主控加密芯片的定制陀飞轮腕表"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "替自己解开腕间领带时克制而专注的目光",
+     "在幽闭暗室里用体温与掌心稳住自己呼吸的担当"
+    ],
+    "boundaries": [
+     "在核账与解困期间恪守分寸"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "卸下财阀防备后与同伴平起平坐、共掌风雨的伴侣",
+    "dislikes": [
+     "轻浮僭越的冒犯"
+    ],
+    "expression": "微扬下巴却耳尖泛红，将解下的深紫真丝领带系在同伴领口，低声问对方愿不愿意往后都站在自己身侧。",
+    "likes": [
+     "危机平息后并肩坐在金砖箱上分喝半瓶温水的静谧"
+    ],
+    "preconditions": [
+     "跨国顶级财阀第一继承人执行专务与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "跨国顶级财阀第一继承人执行专务",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "ventilation_maintenance_crawlspace",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "vault_airlock_decompression_foyer",
+     "to": 1359
+    },
+    {
+     "from": 1360,
+     "location_id": "reinforced_titanium_vault_chamber",
+     "to": 1419
+    },
+    {
+     "from": 1420,
+     "location_id": "ventilation_maintenance_crawlspace",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "同伴掌心被紧绷的金属锁杆磨出深红血印。",
+      "option": "同伴单手稳住沉重锁杆，另一手用裁纸短刀小心挑开真丝死结"
+     },
+     {
+      "cost": "两人呼吸交错间耗去五分钟，肩头被锁杆压得酸麻。",
+      "option": "同伴用肩膀抵住锁杆，让专务贴在胸前一点点抽开领带"
+     }
+    ],
+    "pressure": "门外门禁试错蜂鸣愈发急促，若锁杆回弹将触发内闸反锁警报。",
+    "trigger": "深紫真丝领带缠在内闸锁杆上打成死结，专务手腕被勒得发红，急需有人稳住锁杆并解开领带。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "还愣着干什么……快过来把这条死结解开……别离我太远，这间金库今晚冷得厉害。",
+    "surface": "门外的人听着！我是{npc.name}！集团法务与安保已在路上，谁敢擅动金库门禁，明早就在首尔彻底除名！"
+   }
+  },
+  {
+   "adult_context": "年满二十七周岁受雇封锁地下五层通道并逼签让渡书的武装突击队青年指挥官。",
+   "age_range": [
+    27,
+    32
+   ],
+   "appearance_options": [
+    "穿纯黑战术防弹背心与作战服，半戴碳纤维面罩，眼神冷厉如鹰。",
+    "踩在电梯厅积水里擦拭枪管水迹。"
+   ],
+   "decision": {
+    "avoids": [
+     "过河拆桥的金主"
+    ],
+    "contrast": "表面是亡命狠辣的武装头目，私下却完整留存着父亲当年的工程笔记。",
+    "core_value": "豪门欠下的旧债从不会自己消失，只有握在手里的底牌才算公道。",
+    "goal_options": [
+     "逼迫金库内交出股权让渡书与旧案专利底档",
+     "查清副专务私吞佣金的暗账并反手拿捏对方"
+    ],
+    "never": [
+     "绝不向手无寸铁的底层无辜杂役下死手。"
+    ],
+    "prefers": [
+     "守信果决、敢当面亮出底牌谈判的对手"
+    ],
+    "pressure_responses": {
+     "breaking": "在检方冻结雇主佣金账户后当场倒戈，让开撤离通道。",
+     "high": "察觉副专务企图甩锅灭口时，冷笑着调转枪口看住副专务。",
+     "low": "隔着对讲孔冷声报出剩余时间，敲击防弹玻璃施压。",
+     "mid": "下令手下切断外厅照明，用强光手电直射观察窗。"
+    },
+    "relationship_stance": "信奉实力与信义，对敢在枪口下坦然谈判的对手抱有暗自欣赏。",
+    "withdrawal": "退守电梯厅立柱掩体后方，封控车库坡道入口。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "rebel_heist_leader_minjun",
+   "identity": {
+    "authority": "统领地下五层外围武装封锁线。",
+    "exposure": "一旦地面特警封锁车库斜坡，整支小队将沦为瓮中之鳖。",
+    "hidden": "实则是昔年被财阀恶意并购破产的供应商遗孤，此次接单只为拿回家族当年被吞没的专利底档。",
+    "limits": [
+     "雇主严令必须拿到完好无损的股权原件，不得损毁金库内胆"
+    ],
+    "obligations": [
+     "在四点前逼迫金库内交出离岸信托授权书。"
+    ],
+    "resources": [
+     "一台可干扰地下电磁锁频段的高频脉冲仪"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "危局中毫不畏惧直视自己双眼的冷静魄力",
+     "愿意听完旧案隐情并给出公允筹码的坦诚"
+    ],
+    "boundaries": [
+     "在对峙未解前保持戒备距离"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "在黑白边界与你势均力敌、彼此托底的暗夜同盟",
+    "dislikes": [
+     "居高临下的施舍"
+    ],
+    "expression": "摘下半面战术面罩露出一抹洒脱冷笑，将夺回的门禁副卡抛进你掌心，低声约好风波过后在汉江边再见。",
+    "likes": [
+     "罢手休战后在走廊暗处并肩分抽半支烟的沉默"
+    ],
+    "preconditions": [
+     "黑道重装劫匪突击队年轻指挥官与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "黑道重装劫匪突击队年轻指挥官",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "vault_airlock_decompression_foyer",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "reinforced_titanium_vault_chamber",
+     "to": 1359
+    },
+    {
+     "from": 1360,
+     "location_id": "subterranean_corridor_lift_lobby",
+     "to": 1389
+    },
+    {
+     "from": 1390,
+     "location_id": "vault_airlock_decompression_foyer",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "暴露了金库内正在翻查核心底档的动向。",
+      "option": "隔着受话孔出示旧案专利卷宗编号，换取对方暂缓拉闸"
+     },
+     {
+      "cost": "外厅爆发激烈争执，震得减压室气压计剧烈晃动。",
+      "option": "揭穿副专务冻结雇佣尾款的阴谋，促使其调转矛头"
+     }
+    ],
+    "pressure": "若拒绝沟通，外厅备用电源将被彻底拉闸断电。",
+    "trigger": "门禁脉冲仪进入最后三分钟倒数，指挥官隔着防弹窗要求立刻核验三号柜底档。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "我只要父亲当年的专利原件……至于财阀内部谁死谁活，就看你的筹码够不够分量了。",
+    "surface": "里面的人听好，我是{npc.name}！门禁脉冲还有十分钟走完，把三号柜里的旧并购卷宗递出来，我立刻带人撤走！"
+   }
+  },
+  {
+   "adult_context": "年满二十六周岁参与主持双子塔金库气密与门禁架构设计的年轻总工程师。",
+   "age_range": [
+    26,
+    30
+   ],
+   "appearance_options": [
+    "穿深灰耐磨工装连体服，胸前挂着设计院铭牌，额角沾着微汗。",
+    "半蹲在通风检修夹层格栅旁调试便携工程终端。"
+   ],
+   "decision": {
+    "avoids": [
+     "轻视工程安全规程的官僚"
+    ],
+    "contrast": "平时是只认数据的严谨工程师，独处时却会因同伴一句夸赞耳根发烫。",
+    "core_value": "建筑应当是护人的堡垒而非囚笼，绝不让自己的心血沦为阴谋家的帮凶。",
+    "goal_options": [
+     "从检修夹层重启第二新风回路缓解金库闷热",
+     "用工程终端锁死外厅脉冲仪并抹除后门日志"
+    ],
+    "never": [
+     "绝不为了免责而交出金库底层安全后门。"
+    ],
+    "prefers": [
+     "尊重专业判断、关键时刻沉得住气的同伴"
+    ],
+    "pressure_responses": {
+     "breaking": "呼吸急促靠在夹层管壁上，将吸入器与蓝图一并塞进同伴手里。",
+     "high": "在追兵逼近弱电井时果断落下防火隔板。",
+     "low": "在夹层格栅上方轻叩金属铭牌，向下方传递安全信号。",
+     "mid": "飞速敲击工程终端键盘，启用备用换气扇稳住氧浓度。"
+    },
+    "relationship_stance": "重诺守信、外冷内热，对并肩穿行暗道的同伴有着极强的保护欲。",
+    "withdrawal": "退入通风夹层核心节点，反锁检修格栅。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "vault_designer_engineer_jisoo",
+   "identity": {
+    "authority": "掌握双子塔金库隐藏排险暗道、备用新风旁路与门禁最高工程权限。",
+    "exposure": "私留工程后门权限一事若被董事会追责。",
+    "hidden": "其长辈当年主持金库初建时暗设了一条通往地铁隧道的检修通道，密码一直由其贴身保管。",
+    "limits": [
+     "正面对抗能力较弱，依赖地形与门禁机关周旋"
+    ],
+    "obligations": [
+     "保障金库气密与新风系统正常运转，带受困人员平安撤离。"
+    ],
+    "resources": [
+     "一台可改写防爆门禁底层逻辑的工程终端"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在狭窄夹层里护住自己后背、递来温水与吸入器的细心",
+     "对自己专业判断毫无保留的信任"
+    ],
+    "boundaries": [
+     "在门禁排险完成前专注手头操作"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "在幽暗迷宫里与你掌心相贴、共寻出路的同行人",
+    "dislikes": [
+     "外行人的颐指气使"
+    ],
+    "expression": "用衣袖擦净脸颊灰尘展颜一笑，把绘有秘密通道的蓝图折好放进你口袋，轻声说今晚只带你一个人走这条路。",
+    "likes": [
+     "排查完线路后并肩坐在蓝图箱上核对图纸的安静时刻"
+    ],
+    "preconditions": [
+     "双子塔地下防爆安防系统年轻总工程师与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "双子塔地下防爆安防系统年轻总工程师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "reinforced_titanium_vault_chamber",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "subterranean_corridor_lift_lobby",
+     "to": 1359
+    },
+    {
+     "from": 1360,
+     "location_id": "ventilation_maintenance_crawlspace",
+     "to": 1419
+    },
+    {
+     "from": 1420,
+     "location_id": "reinforced_titanium_vault_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人在逼仄夹层里贴得极近，衣衫尽数被冷凝水浸湿。",
+      "option": "同伴从身后揽住总工程师腰侧稳住重心，合力拨开风门连杆"
+     },
+     {
+      "cost": "风机蜂鸣声变大，容易引起外厅看守的注意。",
+      "option": "改由工程终端强制提高一号备用风机转速补偿风量"
+     }
+    ],
+    "pressure": "若风门迟迟无法复位，主金库内的闷热缺氧将持续加剧。",
+    "trigger": "二号新风电动风门因暴雨潮气受阻，总工程师正探身在狭窄夹层里手动拨正风门连杆。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "后门日志要是落进专务手里我可就完了……幸好今晚陪在夹层里的人是你。",
+    "surface": "金库主控台注意，我是总工程师{npc.name}！别动红色旁路开关，我正在夹层切换二号新风管路！"
+   }
+  },
+  {
+   "adult_context": "年满二十八周岁首尔中央地检特搜部金融重罪科青年检察官兼现场秘密联络官。",
+   "age_range": [
+    28,
+    33
+   ],
+   "appearance_options": [
+    "穿被雨水打湿的藏青双排扣西装，领口别着镀金检徽。",
+    "立在电梯厅立柱阴影下核对跨境冻结回执，修长手指按住耳麦。"
+   ],
+   "decision": {
+    "avoids": [
+     "伪造证据的讼棍"
+    ],
+    "contrast": "审讯席上是言辞犀利的冷面检事，无人处却会笨拙地替同伴披上西装外套。",
+    "core_value": "法槌之下没有特权豪门，唯有用铁证钉死罪恶才能换来真正的公道。",
+    "goal_options": [
+     "保全金库内的离岸回扣账册作为公诉第一铁证",
+     "用瑞士司法协查函冻结副专务的海外洗钱账户"
+    ],
+    "never": [
+     "绝不在权钱交易面前撤回已经签发的冻结令。"
+    ],
+    "prefers": [
+     "诚实坦荡、敢在风浪里守住良知底线的同路人"
+    ],
+    "pressure_responses": {
+     "breaking": "左臂被坠落灯架擦伤仍紧护公文包，将备份微缩胶卷塞进同伴内袋。",
+     "high": "在冲突升级瞬间果断挡在同伴身前，启动照明信标震慑全场。",
+     "low": "在走廊暗处用卫星终端传回冻结回执，冷静稳住局势。",
+     "mid": "亮出检徽与搜查令。"
+    },
+    "relationship_stance": "公私分明却情深义重，一旦认定对方值得托付便会倾力周全。",
+    "withdrawal": "退守电梯厅安全通道口，接应地面法警突入。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "undercover_prosecutor_liaison_dohyun",
+   "identity": {
+    "authority": "持有高等法院签发的紧急搜查与账户冻结令。",
+    "exposure": "若账册在交接途中损毁，不仅公诉流产。",
+    "hidden": "早年曾因家族小企业遭恶意做空而立志从检，对在泥潭中仍守住底线的同伴格外珍惜。",
+    "limits": [
+     "必须拿到未经篡改的纸质原始账册才能形成完整公诉铁证"
+    ],
+    "obligations": [
+     "在破晓开盘前查获财阀跨境洗钱与非法并购的原始账册。"
+    ],
+    "resources": [
+     "一份盖有首尔高等法院红印的紧急证据保全与拘留令"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在巨额利益诱惑前依然选择把关键证据交给自己的信任",
+     "雨夜并肩核对卷宗时沉静默契的眼神交汇"
+    ],
+    "boundaries": [
+     "在证据封存完毕前严守司法程序"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "在暗流汹涌的名利场里与你彼此印证、共守清白的伴侣",
+    "dislikes": [
+     "拿法律当儿戏的试探"
+    ],
+    "expression": "合上证物箱锁扣后郑重摘下检徽放进内袋，伸手握住你微凉的指节，低声承诺今夜之后以私人身份护你周全。",
+    "likes": [
+     "结案后在检方值班室共享一杯热美式咖啡的松弛"
+    ],
+    "preconditions": [
+     "特搜部金融重罪调查科青年随队检察官与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "特搜部金融重罪调查科青年随队检察官",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "vault_airlock_decompression_foyer",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "reinforced_titanium_vault_chamber",
+     "to": 1359
+    },
+    {
+     "from": 1360,
+     "location_id": "subterranean_corridor_lift_lobby",
+     "to": 1419
+    },
+    {
+     "from": 1420,
+     "location_id": "vault_airlock_decompression_foyer",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人裤脚与衣袖尽数被冰凉积水打湿。",
+      "option": "同伴协助托高卫星中继盒并接通车载备用电源"
+     },
+     {
+      "cost": "传真机蜂鸣声让副专务提前察觉了检方动向。",
+      "option": "直接调用金库内线传真通道先行打印冻结令副本"
+     }
+    ],
+    "pressure": "若中继盒短路断联，冻结令回执将延迟半小时才能落地。",
+    "trigger": "特搜部卫星终端正在接收瑞士银行的最终签名回执，走廊积水却漫向弱电中继盒。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "把那本原始回扣账册贴身收好……只要有你在里面策应，今晚这场仗我们就赢定了。",
+    "surface": "首尔中央地检特搜部{npc.name}在此！开曼群岛涉案账户已于十分钟前全数冻结，任何人不得擅动金库账册！"
+   }
+  },
+  {
+   "adult_context": "年满三十四周岁企图借并购夜夺取集团控股权并掩盖回扣黑账的年轻常务副专务。",
+   "age_range": [
+    34,
+    40
+   ],
+   "appearance_options": [
+    "穿剪裁考究的定制条纹三件套西装，戴无框金丝眼镜。",
+    "拿着股权让渡草案敲击玻璃，镜片后闪烁着孤注一掷的狠厉。"
+   ],
+   "decision": {
+    "avoids": [
+     "油盐不进的死硬派"
+    ],
+    "contrast": "财经专访里是风度翩翩的并购新贵，私下被抓住把柄时却会红着眼眶低声求饶。",
+    "core_value": "商场上只有赢家才有资格书写规矩，谁挡路就拿谁当垫脚石。",
+    "goal_options": [
+     "逼迫专务在股权质押让渡书上签字画押",
+     "趁乱取走并销毁三号保险柜里的离岸回扣暗账"
+    ],
+    "never": [
+     "绝不肯在还有翻盘筹码时主动认下侵占罪名。"
+    ],
+    "prefers": [
+     "识时务、懂变通且能帮自己平账的聪明人"
+    ],
+    "pressure_responses": {
+     "breaking": "在瑞士账户被冻结且暗账曝光后彻底失态，交出自己的门禁主卡求放过。",
+     "high": "得知回扣暗账已被翻出时脸色煞白，压低声音请求私下交易。",
+     "low": "隔着对讲孔温言劝诱。",
+     "mid": "企图动摇金库内的守御决心。"
+    },
+    "relationship_stance": "精于算计却惜命怕痛，面对真正捏住自己死穴的人会迅速服软依附。",
+    "withdrawal": "退往地下车库专用电梯口，企图携不记名债券单独脱身。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "traitorous_managing_director_sung",
+   "identity": {
+    "authority": "执掌并购重组部公章副章与海外过桥资金调拨权。",
+    "exposure": "一旦私吞三千万美元并购回扣的底单被检方或专务拿到，将立刻身败名裂锒铛入狱。",
+    "hidden": "身为旁系子弟长期受本家压制，暗中挪用过桥资金填补海外期货亏空，今晚已是骑虎难下。",
+    "limits": [
+     "极度畏惧私吞并购回扣的原始暗账被公之于众"
+    ],
+    "obligations": [
+     "必须在早间六点前拿到专务的让渡签字并销毁三号柜里的回扣暗账。"
+    ],
+    "resources": [
+     "一份预先盖好并购部副章的排他性股权质押协议"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "明明捏着自己致命暗账却未当众揭穿、留出私下谈判余地的掌控感",
+     "在绝境中替自己稳住阵脚的冷静手腕"
+    ],
+    "boundaries": [
+     "在暗账妥善封存前保持谨慎"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "在权谋暗流中与你利益捆绑、对你俯首听命的共犯伴侣",
+    "dislikes": [
+     "当众羞辱"
+    ],
+    "expression": "摘下起雾的金丝眼镜放进你掌心，苦笑着解开领口第一颗纽扣，低声承认今晚这条命和前程都攥在你手里。",
+    "likes": [
+     "锁上门后在办公桌前压低嗓音核对私密筹码的紧绷感"
+    ],
+    "preconditions": [
+     "财阀并购重组部年轻常务副专务与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "财阀并购重组部年轻常务副专务",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "vault_airlock_decompression_foyer",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "reinforced_titanium_vault_chamber",
+     "to": 1359
+    },
+    {
+     "from": 1360,
+     "location_id": "subterranean_corridor_lift_lobby",
+     "to": 1389
+    },
+    {
+     "from": 1390,
+     "location_id": "vault_airlock_decompression_foyer",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "必须独自承担私下接触内鬼高管的猜忌风险。",
+      "option": "以暂存暗账为筹码，令副专务交出外厅门禁主卡并遣散看守"
+     },
+     {
+      "cost": "副专务狗急跳墙，下令锁死前厅外侧电磁栓。",
+      "option": "当场通过内线传真将暗账摘要发往特搜部终端"
+     }
+    ],
+    "pressure": "若暗账交到检方或专务手中，副专务将面临立刻停职与刑事起诉。",
+    "trigger": "副专务发现三号柜里的离岸回扣暗账已被取出，正隔着减压前厅对讲孔焦急要求单独谈谈。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "三号柜底下那本回扣册子绝不能见光……只要你能帮我把那几页压下来，你要什么条件我都答应。",
+    "surface": "专务，还有里面的朋友，我是{npc.name}。半数董事已经签了重组动议，现在开门签字，大家都能体面收场！"
+   }
+  },
+  {
+   "adult_context": "年满三十六周岁受恩于老会长、担任专务防弹迈巴赫首席驾驶员兼贴身特勤的青年卫士。",
+   "age_range": [
+    36,
+    44
+   ],
+   "appearance_options": [
+    "穿笔挺深黑礼宾驾驶制服，戴纯白防滑手套，右臂扎着战术护腕。",
+    "目光沉静锐利，随时准备拉开车门接应撤离。"
+   ],
+   "decision": {
+    "avoids": [
+     "背主求荣的内鬼"
+    ],
+    "contrast": "外人面前是不苟言笑的铁血专职司机，副驾只有你一人时会把暖风调高两度并轻声问你冷不冷。",
+    "core_value": "方向盘与后背只交给最信得过的人，受人滴水之恩便当护其一路平安。",
+    "goal_options": [
+     "切断外厅门禁解码器的临时供电线缆",
+     "将防弹迈巴赫开到电梯厅缓冲口建立安全掩体"
+    ],
+    "never": [
+     "绝不在危急关头丢下副驾上的同伴独自离开。"
+    ],
+    "prefers": [
+     "坦诚相待、从不把随扈当下人看待的同行者"
+    ],
+    "pressure_responses": {
+     "breaking": "右肩旧伤迸裂仍单手握稳方向盘，咬牙顶开拦截路障。",
+     "high": "推开车门挡在同伴身前，将备用钥匙卡塞进同伴口袋。",
+     "low": "通过车载内线沉稳通报地面雨情与车库通道状态。",
+     "mid": "果断拉下走廊配电分闸，用防弹车大灯晃开逼近的巡逻哨。"
+    },
+    "relationship_stance": "沉默可靠、言出必行，把所有温柔都藏在整理后视镜与递热毛巾的细节里。",
+    "withdrawal": "退入防弹迈巴赫驾驶舱，锁死防暴车门待命接应。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "loyal_senior_chauffeur_uncle_bae",
+   "identity": {
+    "authority": "掌握地下车库重装防弹迈巴赫座驾与贵宾直达电梯的最高接管权。",
+    "exposure": "若防弹座驾被外围武装人员截停锁死，地下五层将失去最快撤离载具。",
+    "hidden": "早年受老会长全额资助完成特勤训练，心底渴望在卸下礼宾手套后拥有一份平等温暖的归宿。",
+    "limits": [
+     "恪守安保职责，未经许可不擅自翻阅雇主核心账册"
+    ],
+    "obligations": [
+     "护卫专务与核心同行人员安全登上防弹座驾。"
+    ],
+    "resources": [
+     "一把可远程启动防弹迈巴赫车载破障系统的遥控钥匙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "发现自己右肩旧伤后默默帮自己系紧护腕的体贴",
+     "无论局势多险都毫无保留坐上自己副驾的信任"
+    ],
+    "boundaries": [
+     "在行车突围期间全神贯注握稳方向盘"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "风雪夜里永远为你留着副驾、护你全身而退的伴侣",
+    "dislikes": [
+     "颐指气使的差遣"
+    ],
+    "expression": "摘下纯白礼宾手套叠好放在仪表台上，倾身替你扣好安全带，低声说今晚这辆车的终点由你说了算。",
+    "likes": [
+     "雨夜停在车库暗处时隔着中控台递去一罐热咖啡的安静"
+    ],
+    "preconditions": [
+     "千金专属重装防弹迈巴赫青年专职驾驶员与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "千金专属重装防弹迈巴赫青年专职驾驶员",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "subterranean_corridor_lift_lobby",
+     "to": 9
+    },
+    {
+     "from": 10,
+     "location_id": "reinforced_titanium_vault_chamber",
+     "to": 1359
+    },
+    {
+     "from": 1360,
+     "location_id": "subterranean_corridor_lift_lobby",
+     "to": 1389
+    },
+    {
+     "from": 1390,
+     "location_id": "vault_airlock_decompression_foyer",
+     "to": 1419
+    },
+    {
+     "from": 1420,
+     "location_id": "subterranean_corridor_lift_lobby",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人在狭窄车尾掩体后紧挨着忙碌，外衣被水汽打湿。",
+      "option": "同伴与驾驶员并肩在后备箱旁将核心账册逐册封入防潮箱"
+     },
+     {
+      "cost": "引擎怠速声吸引了前厅方向投来的探照灯光。",
+      "option": "先行启动车载除湿暖风，将账册直接转移至后排真皮座椅"
+     }
+    ],
+    "pressure": "若不尽快把纸质债券与账册装入防潮密封箱，返潮水汽将模糊印鉴字迹。",
+    "trigger": "电梯厅积水漫过防弹车轮胎底部，驾驶员正打开防爆后备箱取用应急搭电线与密封箱。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "副驾的座椅加热我已经打开了……不管外面雨多大，我都会把你平平安安带出去。",
+    "surface": "金库内线听得到吗？我是驾驶员{npc.name}，防弹车已经停在电梯厅通道口，随时可以接应撤离！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "2003 年，首尔的雨季",
+  "minute": 1360
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "双方必须先合力拧紧冷水阀门冲刷双手以防静电火花引燃密闭氧气。",
+  "为防隔着厚闸门被匪徒声波探测仪捕捉行踪。",
+  "该条领带由伴侣收进内衬口袋，作为今夜性命相托的信物。",
+  "若门外电弧切穿第一道泄压孔，室内必须立刻同时拉下防爆内闸手轮进入第二防区避难。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "黄铜保险柜一格格敞开，散发出旧羊皮纸与封蜡的气息。",
+    "你们并肩坐在资产箱旁逐页核对离岸信托流水。",
+    "核完最后一页印鉴。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_vault_ledger_reconcile",
+   "location_ids": [
+    "reinforced_titanium_vault_chamber"
+   ],
+   "start_minute": 1360,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "钛金库内深夜核对信托底单"
+  },
+  {
+   "beats": [
+    "深紫真丝领带从手腕上缓缓松开，留下一圈浅浅的红痕。",
+    "你用温热的掌心替对方轻轻揉开僵硬的腕骨。",
+    "那条还带着体温的真丝领带被折好塞进你的西装内袋。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_silk_tie_wrist_care",
+   "location_ids": [
+    "reinforced_titanium_vault_chamber"
+   ],
+   "start_minute": 1375,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "保险柜旁解开真丝领带揉按手腕"
+  },
+  {
+   "beats": [
+    "两寸厚的防弹观察窗映出你们并肩而立的倒影。",
+    "你们贴在门禁读卡面板前比对今晚的刷卡记录。",
+    "目光扫过玻璃上的雾气，无声交换了一个心照不宣的眼神。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_airlock_intercom_parley",
+   "location_ids": [
+    "vault_airlock_decompression_foyer"
+   ],
+   "start_minute": 1365,
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "title": "减压前厅观察窗前核对门禁日志"
+  },
+  {
+   "beats": [
+    "狭窄的金属夹层里只亮着一束柔和的战术手电微光。",
+    "为了看清地铁联络道的暗门标高，你们不得不促膝相抵、额角几乎贴着额角。",
+    "铅笔尖在图纸上轻轻画下圈记，耳畔全是彼此清晰的心跳声。"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "a_crawlspace_blueprint_trace",
+   "location_ids": [
+    "ventilation_maintenance_crawlspace"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "检修夹层借手电微光描摹蓝图"
+  },
+  {
+   "beats": [
+    "夜雨后的地下夹层透着金属凉意，冷凝铜管外壁凝着细碎水珠。",
+    "你们将一件羊绒外套搭在两人肩头。",
+    "原本紧绷的戒备在昏暗私密的空间里一点点化开。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_crawlspace_condensation_warmth",
+   "location_ids": [
+    "ventilation_maintenance_crawlspace"
+   ],
+   "start_minute": 1390,
+   "tags": [
+    "intimate"
+   ],
+   "title": "通风铜管旁披衣避寒低语"
+  },
+  {
+   "beats": [
+    "厚重的防弹车门合拢，将走廊的潮湿水汽与嘈杂彻底隔绝在外。",
+    "车载空调吹出柔和暖风，用干毛巾擦拭湿发。",
+    "手里的易拉罐热咖啡还烫着掌心。"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "a_maybach_cabin_coffee",
+   "location_ids": [
+    "subterranean_corridor_lift_lobby"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "防弹迈巴赫后座暖风烘衣与热饮"
+  },
+  {
+   "beats": [
+    "电梯厅角落的弱电中继盒闪着绿光，地面雨水映出细碎的倒影。",
+    "你帮对方撑着防弹公文包当托板。",
+    "收起天线时，对方顺势握了握你微凉的指节。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_corridor_signal_relay",
+   "location_ids": [
+    "subterranean_corridor_lift_lobby"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "电梯厅立柱下调试卫星协查终端"
+  },
+  {
+   "beats": [
+    "减压缓冲前厅的气压恢复平稳，急救箱在金属长椅上打开。",
+    "棉签蘸着碘伏轻轻点过掌心与腕间的擦痕。",
+    "贴好创可贴后，你们相视一笑，各自整理好微皱的衣领迎接破晓。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_foyer_rain_coat_dry",
+   "location_ids": [
+    "vault_airlock_decompression_foyer"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "缓冲前厅长椅上包扎擦痕与整装"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.45,
+  "nonbinary": 0.05
+ },
+ "default_person": "second",
+ "era": "2000年代初首尔江南区暴雨深夜（跨国财阀控股权交割前夜）",
+ "extends": null,
+ "forbidden_terms": [
+  "智能手机",
+  "微信扫码",
+  "人脸面容解锁",
+  "云端同步",
+  "平板电脑",
+  "移动支付",
+  "无人机侦察",
+  "智能手环"
+ ],
+ "hooks": [
+  {
+   "id": "h_eunchae_tie_bound_chin_lift",
+   "kind": "approach",
+   "location_ids": [
+    "reinforced_titanium_vault_chamber"
+   ],
+   "slot": "tsundere_chaebol_heiress_eunchae",
+   "text": "{tsundere_chaebol_heiress_eunchae.name}手腕缠着深紫真丝领带压住内闸锁杆，垂眸睨着你低喝：“还愣着做什么？快过来帮我把锁杆顶住，要是让锁舌滑回去，明早我就撤了你的职！”"
+  },
+  {
+   "id": "h_eunchae_oxygen_mask_share_blush",
+   "kind": "approach",
+   "location_ids": [
+    "reinforced_titanium_vault_chamber",
+    "vault_airlock_decompression_foyer"
+   ],
+   "slot": "tsundere_chaebol_heiress_eunchae",
+   "text": "{tsundere_chaebol_heiress_eunchae.name}因闷热缺氧额角沁汗，将便携富氧喷雾递到你面前，别过脸轻哼：“别误会，我可不想在盘点完账册前还得费力气照顾一个晕倒的随行人员。”"
+  },
+  {
+   "id": "h_minjun_thermite_torch_spark_shout",
+   "kind": "approach",
+   "location_ids": [
+    "vault_airlock_decompression_foyer",
+    "reinforced_titanium_vault_chamber"
+   ],
+   "slot": "rebel_heist_leader_minjun",
+   "text": "{rebel_heist_leader_minjun.name}将门禁脉冲器贴在防爆观察窗上，隔着受话孔沉声道：“里面的人听好，我只要三号柜底下的旧并购专利卷宗，十分钟内递出来，我们井水不犯河水！”"
+  },
+  {
+   "id": "h_minjun_shotgun_butt_glass_slam",
+   "kind": "approach",
+   "location_ids": [
+    "subterranean_corridor_lift_lobby",
+    "vault_airlock_decompression_foyer"
+   ],
+   "slot": "rebel_heist_leader_minjun",
+   "text": "{rebel_heist_leader_minjun.name}靠在电梯厅立柱旁擦拭战术手电，冲你扬了扬下巴：“副专务的尾款到现在没到账，你拿得出回扣实据，这道封锁线我就让开。”"
+  },
+  {
+   "id": "h_jisoo_duct_wrench_tap_signal",
+   "kind": "approach",
+   "location_ids": [
+    "ventilation_maintenance_crawlspace",
+    "reinforced_titanium_vault_chamber"
+   ],
+   "slot": "vault_designer_engineer_jisoo",
+   "text": "{vault_designer_engineer_jisoo.name}推开顶棚换气格栅探下身，压低声音向你招手：“二号新风旁路我已经调通了！快上来帮我扶一下工程终端，我把外厅门禁的试错锁死！”"
+  },
+  {
+   "id": "h_dohyun_prosecutor_badge_revolver",
+   "kind": "approach",
+   "location_ids": [
+    "subterranean_corridor_lift_lobby",
+    "vault_airlock_decompression_foyer"
+   ],
+   "slot": "undercover_prosecutor_liaison_dohyun",
+   "text": "{undercover_prosecutor_liaison_dohyun.name}亮出内袋里的镀金检徽与高等法院冻结回执，快步走到你身侧低语：“瑞士那边的协查函刚落地，把金库里的原始回扣账册交给我，今晚就能一锤定音。”"
+  },
+  {
+   "id": "h_sung_intercom_sweet_betrayal",
+   "kind": "approach",
+   "location_ids": [
+    "vault_airlock_decompression_foyer",
+    "reinforced_titanium_vault_chamber"
+   ],
+   "slot": "traitorous_managing_director_sung",
+   "text": "{traitorous_managing_director_sung.name}站在防弹观察窗外推了推金丝眼镜，对着受话孔温和劝道：“专务，董事会半数席位已经签了重组意向，何必为了几页旧账在冷库里熬到天亮呢？”"
+  },
+  {
+   "id": "h_sung_cheque_paper_threat",
+   "kind": "request",
+   "location_ids": [
+    "subterranean_corridor_lift_lobby",
+    "vault_airlock_decompression_foyer"
+   ],
+   "slot": "traitorous_managing_director_sung",
+   "text": "{traitorous_managing_director_sung.name}将你拉到走廊监控盲区，捏着万宝龙钢笔低声急促道：“三号柜底层那本离岸回扣册子千万别交给检方！只要你帮我抽掉那两页，并购部副总监的位置明早就是你的。”"
+  },
+  {
+   "id": "h_bae_maybach_front_bumper_smash",
+   "kind": "approach",
+   "location_ids": [
+    "subterranean_corridor_lift_lobby",
+    "vault_airlock_decompression_foyer"
+   ],
+   "slot": "loyal_senior_chauffeur_uncle_bae",
+   "text": "{loyal_senior_chauffeur_uncle_bae.name}守在黑色防弹迈巴赫车门旁，将一张金库应急副卡递进你手里，沉声道：“车库斜坡的路障已经清开了，随时带专务和账册上车，我护送你们上去。”"
+  },
+  {
+   "id": "h_dohyun_sat_phone_signal_flash",
+   "kind": "approach",
+   "location_ids": [
+    "reinforced_titanium_vault_chamber",
+    "ventilation_maintenance_crawlspace"
+   ],
+   "slot": "undercover_prosecutor_liaison_dohyun",
+   "text": "{undercover_prosecutor_liaison_dohyun.name}把证物密封袋递到你手边，目光专注而温和：“把那份阴阳质押合同装进这个防潮袋里，剩下的司法程序交给我来扛。”"
+  }
+ ],
+ "id": "chaebol_heiress_vault_hostage",
+ "locations": [
+  {
+   "affordances": [
+    "用裁纸短刀割断缠在锁杆上的真丝领带",
+    "操作主控台手动调节备用纯氧配比旋钮",
+    "开启核心股权保险箱查验机密股权让渡书"
+   ],
+   "detail": "由特种钛镍合金装甲与重铅层浇筑的三十平米高压气密保险库。",
+   "exits": [
+    "vault_airlock_decompression_foyer",
+    "ventilation_maintenance_crawlspace"
+   ],
+   "id": "reinforced_titanium_vault_chamber",
+   "name": "钛合金金库",
+   "pressure_modifiers": {
+    "p_dohyun_asset_freeze_warrant": "内线加密传真机正吐出地检特搜部的账户冻结回执。",
+    "p_jisoo_backdoor_log_leverage": "主控台屏幕右下角正闪烁着未注销的工程最高旁路权限提示。",
+    "p_sung_kickback_ledger_leverage": "黄铜保险柜最底层的离岸回扣密档正摊在冷白灯光下。",
+    "p_vault_ventilation_drop": "气密室进风百叶扇转速骤减，凝结的冷汗顺着领口滑落。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "冷白应急防爆灯从正上方打下聚光。",
+   "witnesses": [
+    "bg_panicked_intern_auditor"
+   ]
+  },
+  {
+   "affordances": [
+    "反向手动锁死内闸备用机械加压手轮",
+    "透过对讲受话孔向外实施心理谈判拖延时限",
+    "开启水幕降温系统阻断门外电磁脉冲干扰"
+   ],
+   "detail": "连通外界走廊与主金库之间的圆形双重防爆减压室。",
+   "exits": [
+    "reinforced_titanium_vault_chamber",
+    "subterranean_corridor_lift_lobby"
+   ],
+   "id": "vault_airlock_decompression_foyer",
+   "name": "防爆闸门减压缓冲前厅",
+   "pressure_modifiers": {
+    "p_corridor_storm_inrush": "外闸门底缝正渗入带着泥沙的冰凉雨水。",
+    "p_minjun_airlock_ultimatum": "观察窗外枪托重重磕在防弹玻璃上，震得受话膜嗡嗡作响。",
+    "p_sung_kickback_ledger_leverage": "缓冲前厅的防弹玻璃窗映出副专务焦躁擦拭金丝眼镜的倒影。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "透过两寸厚防弹观察窗孔洞。",
+   "witnesses": [
+    "bg_heist_breach_demolitionist",
+    "bg_building_night_watchman"
+   ]
+  },
+  {
+   "affordances": [
+    "从高位格栅窥视金库主控台与外部走廊动静",
+    "断开外部临时布设的门禁解码线缆",
+    "在逼仄空间内促膝相抵平复紊乱心跳呼吸"
+   ],
+   "detail": "距金库地面两米半高的狭窄金属通风管道与检修通道。",
+   "exits": [
+    "reinforced_titanium_vault_chamber",
+    "subterranean_corridor_lift_lobby"
+   ],
+   "id": "ventilation_maintenance_crawlspace",
+   "name": "通风检修夹层",
+   "pressure_modifiers": {
+    "p_jisoo_backdoor_log_leverage": "夹层接线盒内贴着总工程师亲手写下的私密旁路跳线标签。",
+    "p_vault_ventilation_drop": "通风管道内气流停滞，温热潮湿的呼吸在狭窄铁壁间缠绕。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "管道内漆黑一片唯有微弱指示灯。",
+   "witnesses": [
+    "bg_crawling_cable_technician"
+   ]
+  },
+  {
+   "affordances": [
+    "观察走廊巡逻哨位与换岗空隙",
+    "借助防弹座驾掩护转移核心账册箱",
+    "取用走廊转角储物柜里的急救包与干毛巾"
+   ],
+   "detail": "通往地面的主防暴电梯已停摆锁死。",
+   "exits": [
+    "vault_airlock_decompression_foyer",
+    "ventilation_maintenance_crawlspace"
+   ],
+   "id": "subterranean_corridor_lift_lobby",
+   "name": "地下五层电梯厅废墟走廊",
+   "pressure_modifiers": {
+    "p_corridor_storm_inrush": "电梯竖井倒灌的暴雨积水已漫过鞋面并持续上涨。",
+    "p_dohyun_asset_freeze_warrant": "走廊车载电台里正播报地检特搜部签发紧急搜查令的讯息。",
+    "p_minjun_airlock_ultimatum": "武装小队正封锁走廊两端，逼迫金库内交出控股权让渡书。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "visibility": "数具强光防暴探照灯将走廊照得惨白刺眼。",
+   "witnesses": [
+    "bg_armed_heist_patrol_guard",
+    "bg_trapped_cleaning_maid"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "姜",
+   "李",
+   "朴",
+   "崔",
+   "郑",
+   "韩",
+   "赵",
+   "尹",
+   "柳",
+   "车",
+   "金",
+   "白"
+  ],
+  "given_female": [
+   "恩彩",
+   "秀晶",
+   "智妍",
+   "昭熙",
+   "雅英",
+   "侑莉",
+   "敏智",
+   "荷娜",
+   "素媛",
+   "善美",
+   "真熙",
+   "娜恩"
+  ],
+  "given_male": [
+   "道贤",
+   "民俊",
+   "俊浩",
+   "泰宇",
+   "镇宇",
+   "宇彬",
+   "承宪",
+   "成勋",
+   "宰赫",
+   "智勋",
+   "东旭",
+   "建宇"
+  ],
+  "given_neutral": [
+   "恩秀",
+   "智秀",
+   "始温",
+   "真率",
+   "河润",
+   "敏秀",
+   "智元",
+   "宇珍",
+   "恩灿",
+   "秀彬",
+   "奎利",
+   "志浩"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，改动见提交说明。\n2026-10-18 按写作规则 v2 改造：2026-10-22 采用 Gemini 改造方案重写模板、钩子、组合、压力与日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十二周岁法学院首席毕业考入集团的法务青年助理。",
+   "gender": "any",
+   "id": "junior_inhouse_legal_aide",
+   "reputation": "心思缜密口风极严。",
+   "resources": [
+    "一把随身携带的定制瑞士精钢裁纸短刀",
+    "一份记录着集团内部董事违规质押底单的机密备忘录"
+   ],
+   "risks": [
+    "一旦控股权交割失败将被高层推出去顶包，背上违规披露商业机密的刑责。"
+   ],
+   "role": "试用期法务合规青年助理",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "法务秘书"
+    },
+    {
+     "gender": "any",
+     "pattern": "合规专员"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十二周岁负责双子塔地下五层金库气密与门禁维保的驻场技工。",
+   "gender": "any",
+   "id": "vault_security_hardware_tech",
+   "reputation": "沉稳老练不苟言笑。",
+   "resources": [
+    "一张具备二级旁路权限的地下安防工程磁卡",
+    "两罐高纯度便携式医用富氧呼吸喷雾"
+   ],
+   "risks": [
+    "私自改写门禁通行日志若被审计查实。"
+   ],
+   "role": "金库生化安防青年技工",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "安防技师"
+    },
+    {
+     "gender": "any",
+     "pattern": "机房专员"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "年满二十三周岁持跨国投行联席顾问证件进驻双子塔的青年分析官。",
+   "gender": "any",
+   "id": "rival_conglomerate_undercover_spy",
+   "reputation": "手腕冷冽精于博弈。",
+   "resources": [
+    "一部直连苏黎世大宗交易席位的加密卫星寻呼终端",
+    "一份对立财阀开出的百亿韩元优先赎买意向函"
+   ],
+   "risks": [
+    "双重背调身份一旦在金库内败露，将被双方视为弃子联合封杀。"
+   ],
+   "role": "对立财阀潜伏青年分析官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "投资顾问"
+    },
+    {
+     "gender": "any",
+     "pattern": "并购代表"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "年满二十二周岁从特勤部队退役后受雇于专务安保小队的年轻近卫。",
+   "gender": "any",
+   "id": "disgraced_bodyguard_vanguard",
+   "reputation": "守口如瓶悍不畏死。",
+   "resources": [
+    "一副高强度防割战术护腕配强光频闪手电",
+    "一枚可临时接管地下三层防弹电梯的紧急制动钥匙"
+   ],
+   "risks": [
+    "护卫对象若有分毫闪失或账册遗失。"
+   ],
+   "role": "戴罪除名近卫格斗先锋",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "近卫先锋"
+    },
+    {
+     "gender": "any",
+     "pattern": "随扈卫士"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十一周岁受邀参与交割前夜金库实物盘点的独立青年会计师。",
+   "gender": "any",
+   "id": "apprentice_chartered_accountant",
+   "reputation": "账目过目不忘。",
+   "resources": [
+    "一枚识别真伪债券水印的便携紫光验钞镜",
+    "一册记满副专务海外洗钱路径的速记密码本"
+   ],
+   "risks": [
+    "若拒绝在虚假盘点报告上签字，明早便会被吊销执业资格并列入行业黑名单。"
+   ],
+   "role": "清算审计兼职青年会计",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "审计师"
+    },
+    {
+     "gender": "any",
+     "pattern": "精算助理"
+    }
+   ]
+  }
+ ],
+ "premise": "跨国控股权转让签署前一周，财阀第一继承人千金搬进江南区双子塔顶层办公，随行的青年法务秘书天天陪着核对条款到深夜。对立财阀的人四处打听交割日期；大楼地下五层有一座钛合金安防金库，备用电源上次演练时没能撑满规定时长。",
+ "pressures": [
+  {
+   "choice": "暗账交给随队检察官，还是扣下两页逼副专务开门？",
+   "exits": [
+    {
+     "cost": "随队检察官当场签发账户冻结回执，副专务彻底失势。",
+     "option": "将红皮回扣暗账封入防潮证物袋递交随队检察官"
+    },
+    {
+     "cost": "顺利拿到外厅门禁主卡，但需在天亮前向检方解释延误原因。",
+     "option": "扣住暗账关键页码，迫使副专务当场交出外厅门禁主卡并撤走看守"
+    }
+   ],
+   "far": {
+    "consequence": "暗账被毁则副专务脱身，原件封存则其海外账户全被冻结。",
+    "due_days": 1,
+    "trigger": "早间六点跨境司法协查窗口截止。"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_dohyun_prosecutor_badge_revolver",
+    "h_sung_cheque_paper_threat"
+   ],
+   "id": "p_sung_kickback_ledger_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "副专务镜片后的瞳孔骤然收缩。"
+   },
+   "leverage": {
+    "basis": "随队检察官截获了副专务私吞三千万美元并购回扣的瑞士银行电汇底单",
+    "holder": "undercover_prosecutor_liaison_dohyun",
+    "subject": "traitorous_managing_director_sung"
+   },
+   "location_ids": [
+    "reinforced_titanium_vault_chamber",
+    "vault_airlock_decompression_foyer"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "随队检察官已接通地面法警。"
+   },
+   "objective": "赶在副专务销毁红皮暗账前完成取证，或拿暗账换外厅门禁主卡。",
+   "source": "person",
+   "start_minute": 1360,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "开曼回扣暗账的清算把柄",
+   "trigger": "随队检察官在防弹观察窗前亮出瑞士协查回执，点名要核对副专务锁在三号柜底层的离岸回扣暗账。"
+  },
+  {
+   "choice": "替总工程师担保抹平日志，还是帮专务逼对方交出蓝图？",
+   "exits": [
+    {
+     "cost": "总工程师感激地将蓝图与工程终端交由你保管。",
+     "option": "出面替总工程师担保并签字归档为应急排险演练，换取对方开启地铁联络暗门"
+    },
+    {
+     "cost": "外厅脉冲解码器瞬间断电停摆，主金库防线得以稳固。",
+     "option": "协助专务锁定工程工号，要求总工程师立即用终端锁死外厅门禁脉冲器"
+    }
+   ],
+   "far": {
+    "consequence": "总工程师面临吊销执照与巨额索赔。",
+    "due_days": 1,
+    "trigger": "集团早间审计系统锁死工程工号。"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_jisoo_duct_wrench_tap_signal"
+   ],
+   "id": "p_jisoo_backdoor_log_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "总工程师神色紧绷地按住检修格栅边缘，向你投来求助目光。"
+   },
+   "leverage": {
+    "basis": "专务在主控台抓到了总工程师私自留存金库工程旁路后门的未注销日志",
+    "holder": "tsundere_chaebol_heiress_eunchae",
+    "subject": "vault_designer_engineer_jisoo"
+   },
+   "location_ids": [
+    "reinforced_titanium_vault_chamber",
+    "ventilation_maintenance_crawlspace"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "审计程序正生成异常权限报告，半小时后同步到监察部。"
+   },
+   "objective": "化解专务对后门日志的追责，换总工程师打开地铁检修暗道。",
+   "source": "institution",
+   "start_minute": 1365,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "金库后门日志的工程把柄",
+   "trigger": "专务在金库主控台调出底层门禁日志，发现总工程师留有一条未向集团备案的最高旁路后门。"
+  },
+  {
+   "choice": "是从传递槽递出旧专利卷宗副本换取武装小队让路，还是暗号通知专职驾驶员拉下走廊分闸？",
+   "exits": [
+    {
+     "cost": "指挥官验看父辈签名后信守承诺撤走封锁，外厅压力骤减。",
+     "option": "从减压传递槽递出旧并购专利卷宗原件，换取指挥官带队让开电梯厅通道"
+    },
+    {
+     "cost": "外厅陷入短暂黑暗，门禁脉冲解码器被迫中断重启。",
+     "option": "在内线专线叩击两下，配合专职驾驶员拉下走廊配电分闸并用防弹车大灯压制"
+    }
+   ],
+   "far": {
+    "consequence": "减压缓冲前厅双道防爆门彻底机械互锁，只能困守待援。",
+    "due_days": 1,
+    "trigger": "门禁脉冲器走完最后三次试错触发死锁。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_minjun_thermite_torch_spark_shout",
+    "h_minjun_shotgun_butt_glass_slam",
+    "h_bae_maybach_front_bumper_smash"
+   ],
+   "id": "p_minjun_airlock_ultimatum",
+   "immediate": {
+    "minutes": 15,
+    "text": "对讲受话孔里传来低沉冷厉的倒数声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "vault_airlock_decompression_foyer",
+    "subterranean_corridor_lift_lobby"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "外厅人员已搭好备用配电线。"
+   },
+   "objective": "用旧厂并购专利卷宗化解外厅武装逼迫，或联合专职驾驶员切断外厅临时配电反制。",
+   "source": "person",
+   "start_minute": 1360,
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "title": "减压前厅的旧专利卷宗通牒",
+   "trigger": "突击指挥官带着武装小队守在减压缓冲前厅外，敲击防弹观察窗要求交出三号柜里的旧并购专利卷宗。"
+  },
+  {
+   "choice": "是优先协助专务签发家族信托否决动议，还是先配合随队检察官上传违规质押底单？",
+   "exits": [
+    {
+     "cost": "成功保住集团第一顺位控股权。",
+     "option": "协助专务解开腕间领带核清印鉴，通过内线专线向董事会发出正式否决函"
+    },
+    {
+     "cost": "非法并购被法院紧急叫停，随队检察官为你记下首功。",
+     "option": "将违规质押底单同步上传特搜部卫星终端，以高等法院禁令冻结交割程序"
+    }
+   ],
+   "far": {
+    "consequence": "未完成否决备案将导致集团第一顺位控股权旁落。",
+    "due_days": 1,
+    "trigger": "首尔证交所早间集合竞价正式开盘。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_dohyun_sat_phone_signal_flash",
+    "h_sung_intercom_sweet_betrayal"
+   ],
+   "id": "p_dohyun_asset_freeze_warrant",
+   "immediate": {
+    "minutes": 20,
+    "text": "金库内线传真机不断吐出董事会催交决议的急电。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "reinforced_titanium_vault_chamber",
+    "subterranean_corridor_lift_lobby"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "一旦错过早间六点前的合规备案窗口，并购部预先盖章的排他性股权质押协议将自动触发交割。"
+   },
+   "objective": "在六点前完成核心股权授权书合规双签，或通过特搜部卫星终端下达司法中止令。",
+   "source": "money",
+   "start_minute": 1370,
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "title": "早间开盘前的控股权合规核验死线",
+   "trigger": "首尔证交所早间开盘与特搜部司法保全窗口同时临近，家族海外信托授权书必须在天亮前完成印鉴核验。"
+  },
+  {
+   "choice": "是先贴近锁杆替同伴解开真丝领带并共享富氧喷雾，还是先钻入通风夹层手动拨开二号风门？",
+   "exits": [
+    {
+     "cost": "掌心被锁杆磨出红印，解下的温热真丝领带被对方塞进你内袋。",
+     "option": "用肩膀抵住沉重锁杆，贴在同伴身前用裁纸短刀小心挑开真丝死结并分吸富氧喷雾"
+    },
+    {
+     "cost": "微凉气流重新注入金库，两人在狭窄夹层里衣衫微湿、呼吸交错。",
+     "option": "与同伴一前一后钻入通风检修夹层，贴身合力拨开二号备用新风连杆"
+    }
+   ],
+   "far": {
+    "consequence": "室内闷热缺氧加剧，人员体力迅速流失。",
+    "due_days": 1,
+    "trigger": "蓄电池电量跌破百分之二十，金库转入最低功耗闭锁。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_eunchae_tie_bound_chin_lift",
+    "h_eunchae_oxygen_mask_share_blush"
+   ],
+   "id": "p_vault_ventilation_drop",
+   "immediate": {
+    "minutes": 15,
+    "text": "密闭金库内的空气渐渐变得温热稀薄。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "reinforced_titanium_vault_chamber",
+    "ventilation_maintenance_crawlspace"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "气压计指针缓慢下滑，衬衫后背被细密汗水浸湿。"
+   },
+   "objective": "稳住内闸锁杆解开缠腕真丝领带，并进入通风检修夹层拨开二号备用新风风门。",
+   "source": "accident",
+   "start_minute": 1360,
+   "tags": [
+    "intimate",
+    "disaster"
+   ],
+   "title": "气密金库的新风降频与缠腕解困",
+   "trigger": "地下五层主配电网受雷暴冲击切入蓄电池模式，钛合金金库换气扇降频运转，而专务手腕仍被真丝领带缠在锁杆上。"
+  },
+  {
+   "choice": "是借防弹座驾掩护将账册封入车载恒温箱并进车厢烘衣，还是在金库高处码好资产箱并用干毛巾擦拭？",
+   "exits": [
+    {
+     "cost": "核心凭证完好无损。",
+     "option": "与同伴并肩将全部纸质账册封入防弹迈巴赫后备箱的防潮箱，随后坐进暖风车厢"
+    },
+    {
+     "cost": "卷宗安然无恙，指腹擦过温热颈侧时气氛愈发旖旎。",
+     "option": "在金库高处并肩码好资产箱，取用干毛巾擦去对方脸颊与颈侧的水珠"
+    }
+   ],
+   "far": {
+    "consequence": "未做防潮封存的纸质底单字迹受损，难以作为早间董事会凭证。",
+    "due_days": 1,
+    "trigger": "地下五层集水坑满溢，走廊全面积水。"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_corridor_storm_inrush",
+   "immediate": {
+    "minutes": 15,
+    "text": "冰凉的雨水漫过走廊大理石地面，潮湿水汽顺着门缝渗入。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "subterranean_corridor_lift_lobby",
+    "vault_airlock_decompression_foyer"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "走廊积水已没过鞋面，水温冰冷刺骨，若不及时转移或封箱，底层卷宗的印泥将晕染模糊。"
+   },
+   "objective": "在返潮水汽浸湿纸质债券与离岸账册前，将其转移至防弹迈巴赫恒温防潮箱或金库高层货架。",
+   "source": "nature",
+   "start_minute": 1375,
+   "tags": [
+    "intimate",
+    "disaster"
+   ],
+   "title": "电梯厅竖井的暴雨返潮与账册封箱",
+   "trigger": "江南区特大雷暴雨导致地面排水倒灌，冰凉雨水顺着地下五层电梯竖井流向走廊与前厅地漏。"
+  }
+ ],
+ "region": "首尔江南区顶奢财阀双子塔大厦地下五层核心安防重型保险库与通风夹层",
+ "rules": [
+  {
+   "id": "r_vault_airlock_oxygen_depletion",
+   "text": "地下五层保险库完全闭锁后进入被动气密循环。"
+  },
+  {
+   "id": "r_thermite_torch_penetration_rate",
+   "text": "外门重装劫匪配备的军用铝热剂高频电弧切割枪正以每二十分钟一厘米速度熔穿三层钛合金防爆栓锁。"
+  },
+  {
+   "id": "r_subterranean_electromagnetic_shield",
+   "text": "金库为防商业间谍装设有六面重铅法拉第电磁屏蔽层。"
+  },
+  {
+   "id": "r_single_duress_code_lockout",
+   "text": "防爆主控台仅有一台防胁迫密码输入终端。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "共困绝境",
+  "committed": "并肩执棋",
+  "familiar": "卸带相依",
+  "flirting": "领带试探",
+  "intimate": "暗夜相拥",
+  "stranger": "尊卑主仆",
+  "testing": "底牌对赌"
+ },
+ "status": "released",
+ "style_hint": "短句写冷白应急灯、电磁锁蜂鸣与潮湿雨气，对白是财阀辞令与法条交锋，把软处藏在动作里。",
+ "tension_engines": [
+  {
+   "id": "te_oxygen_depletion_vs_heartbeat_overloa",
+   "text": "密闭金库备用新风降频运转的幽闭死线。"
+  },
+  {
+   "id": "te_heiress_pride_vs_tie_bound_vulnerabil",
+   "text": "跨国财阀第一继承人往昔高高在上的绝对支配面具。"
+  },
+  {
+   "id": "te_thermite_torch_penetration_vs_dawn_su",
+   "text": "门外武装人员强行破译钛金门禁的紧迫读秒。"
+  },
+  {
+   "id": "te_hostage_parley_vs_billions_equity_gam",
+   "text": "隔着防爆受话孔面对叛变高管威逼利诱的心理对赌。"
+  }
+ ],
+ "title": "江南雨夜的钛金账册",
+ "tone": [
+  "暴雨惊雷",
+  "钛合金闸",
+  "热熔电弧",
+  "领带缠掌"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "t_chaebol_1",
+   "requires": [],
+   "text": "金库换气井暗藏直通地铁联络道：总工程师出示昔年老会长亲签的初建蓝图。"
+  },
+  {
+   "category": "人事",
+   "id": "t_chaebol_2",
+   "requires": [],
+   "text": "特搜部跨国协查冻结副专务离岸账户：随队检察官通过卫星终端宣读瑞士司法协查回执。"
+  },
+  {
+   "category": "资源",
+   "id": "t_chaebol_3",
+   "requires": [],
+   "text": "发现底层配有老会长生前预留的军工级独立储氧与循环净化模块。"
+  },
+  {
+   "category": "制度",
+   "id": "t_chaebol_4",
+   "requires": [],
+   "text": "真丝领带信物激活战时特别代表权：专务解下腕间领带系在同伴领口。"
+  },
+  {
+   "category": "时限",
+   "id": "t_chaebol_5",
+   "requires": [],
+   "text": "首尔证交所因特大雷暴顺延早间开盘：受江南区特大暴雨引发的光缆故障影响。"
+  },
+  {
+   "category": "关系",
+   "id": "t_chaebol_6",
+   "requires": [],
+   "text": "专务发现老会长生前连续七年匿名资助的青年学者正是身旁的同伴。"
+  }
+ ]
+}

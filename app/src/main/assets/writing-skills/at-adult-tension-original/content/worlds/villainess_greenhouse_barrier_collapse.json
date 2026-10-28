@@ -1,0 +1,2251 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "在皇家植栽园干了三十年的园丁长。",
+   "age_range": [
+    45,
+    60
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_head_gardener",
+   "line": "东侧的总阀我们关不上，你们只能自己先把旁通阀扳过来！",
+   "location_ids": [
+    "loc_steam_valve_niche",
+    "loc_rose_tea_terrace"
+   ],
+   "name": "园丁长奥古斯特",
+   "role": "皇家植栽园的园丁长"
+  },
+  {
+   "adult_context": "王宫卫队的队长，守了十年宫门。",
+   "age_range": [
+    30,
+    45
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_palace_guard",
+   "line": "卫队在挖了，里面的人别乱动，等我们的信号！",
+   "location_ids": [
+    "loc_steam_valve_niche",
+    "loc_rose_tea_terrace"
+   ],
+   "name": "卫兵队长马塞尔",
+   "role": "王宫卫队的队长"
+  },
+  {
+   "adult_context": "玫瑰露台上最爱说闲话的伯爵家小姐，二十三岁。",
+   "age_range": [
+    21,
+    28
+   ],
+   "function": "obstacle",
+   "gender": "female",
+   "id": "bg_gossip_lady",
+   "line": "被退婚的人还有脸天天来温室？我看下毒的事八成是真的。",
+   "location_ids": [
+    "loc_rose_tea_terrace",
+    "loc_steam_valve_niche"
+   ],
+   "name": "伯爵小姐克洛艾",
+   "role": "爱说闲话的伯爵小姐"
+  },
+  {
+   "adult_context": "在宫廷舞会上拉了十年小提琴的首席乐师。",
+   "age_range": [
+    28,
+    40
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_court_musician",
+   "line": "今晚的舞会还开不开？公爵千金的开场舞，曲子我都备好了。",
+   "location_ids": [
+    "loc_rose_tea_terrace"
+   ],
+   "name": "宫廷乐师艾蒂安",
+   "role": "宫廷舞会的首席乐师"
+  },
+  {
+   "adult_context": "在温室打杂的女仆，二十岁，眼睛最尖。",
+   "age_range": [
+    20,
+    24
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_young_maid",
+   "line": "我看见了，每天天不亮，公爵千金都一个人进温室浇水！",
+   "location_ids": [
+    "loc_rose_tea_terrace"
+   ],
+   "name": "小女仆妮可",
+   "role": "温室里打杂的女仆"
+  },
+  {
+   "adult_context": "给王室看了二十年病的老御医。",
+   "age_range": [
+    50,
+    65
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_court_physician",
+   "line": "圣女候补喝下的那副解药，配方我看过，药草只有这座温室才种得出来。",
+   "location_ids": [
+    "loc_rose_tea_terrace"
+   ],
+   "name": "御医博纳尔",
+   "role": "王宫的御医"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "公爵千金与宫廷药剂师在倒塌的花架下胸背相贴、手叠着手，把合金修枝重剪卡进梁销暗槽，一寸一寸往上撬。",
+   "id": "cc_lady_apothecary_switch",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "villainess_seraphina",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一起被困在夹道里，彼此的命都攥在对方手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "court_apothecary",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "千金嘴上嫌弃，却知道整座王宫只有这个平民的药配得最准。",
+     "stage": "familiar"
+    },
+    {
+     "a": "villainess_seraphina",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "court_apothecary",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "清晨蒸馏室门口那束不留名字的药草，两个人谁都没说破。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "villainess_seraphina",
+    "court_apothecary"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "撬起横梁，抽出礼裙，关掉泄汽阀，连同那几株药草一起保住。",
+    "limit_gap": "千金的礼裙被压住、挪不开身，药剂师手里没有撬具。",
+    "meeting_reason": "天还没亮，千金照常溜进温室照看药草，正撞见药剂师在底层采夜间开花的药草。",
+    "resource_gap": "千金有修枝重剪和整座温室的培植手记，药剂师有一身力气和对每一根蒸汽管的熟悉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_dome_aftershock",
+    "te_trench_body_heat"
+   ]
+  },
+  {
+   "chemistry": "千金与药剂师在旁通蝶阀前四只手叠在手柄上，一边拌嘴一边一圈一圈把咬死的阀杆扭回去。",
+   "id": "cc_lady_apothecary_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "villainess_seraphina",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "对着同一株药草吵了一晚，吵到最后谁都不肯先走。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "court_apothecary",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "在药典上互相批注过对方的错。",
+     "stage": "familiar"
+    },
+    {
+     "a": "villainess_seraphina",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "court_apothecary",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "一个嘴硬一个嘴笨，说过的话里一半是吵架，另一半都记得。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "villainess_seraphina",
+    "court_apothecary"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "把旁通阀扭回原位，让温室里的药草活过这一夜。",
+    "limit_gap": "千金放不下公爵家的架子，药剂师不懂贵族的规矩。",
+    "meeting_reason": "两人为了一株药草该不该采，在温室里吵了一下午，吵到天黑都没分出胜负。",
+    "resource_gap": "千金认得每一株药草的习性，药剂师认得每一味药的配法。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_beam_pin_deadlock",
+    "te_steam_valve_seize"
+   ]
+  },
+  {
+   "chemistry": "女官长的灯照着倒塌的花架，千金和药剂师一个撬一个顶，谁也不肯在上头的人面前先喊疼。",
+   "id": "cc_lady_apothecary_matron",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "villainess_seraphina",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "头一回被上头的人盯着查流言，也头一回在上头的人面前把命交出去。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "court_apothecary",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "奉命查案，早听说这个平民药剂师替千金说过话。",
+     "stage": "familiar"
+    },
+    {
+     "a": "villainess_seraphina",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "court_apothecary",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在上头的人面前不敢多看一眼，可每一句口令都只喊给一个人听。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "villainess_seraphina",
+    "court_apothecary"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让上头的人亲眼看见，那副解药到底是从哪里来的。",
+    "limit_gap": "千金不肯在女官长面前辩白，药剂师说的话没人肯信。",
+    "meeting_reason": "女官长奉王太后之命查下毒的流言，要千金带路去温室看那几株药草，药剂师被叫来作证。",
+    "resource_gap": "千金手里有修枝重剪和那本培植手记，药剂师手里有那副解药的配方。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_steam_valve_seize",
+    "te_beam_pin_deadlock"
+   ]
+  },
+  {
+   "chemistry": "千金一边撬梁销一边冷着脸给新园丁发号施令，药剂师顶着横梁，把三个人的力气拧成一股。",
+   "id": "cc_lady_apothecary_gardener",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "villainess_seraphina",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "千金拿新园丁当个守秘密的哑巴，今晚却要把命交到这双生手里。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "court_apothecary",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "第一次见面就一起被困在夹道里。",
+     "stage": "familiar"
+    },
+    {
+     "a": "villainess_seraphina",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "court_apothecary",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "千金和药剂师默契得像练过一样，新园丁都看在眼里。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "villainess_seraphina",
+    "court_apothecary"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "带着新园丁一起活着出去，守住清晨那个秘密。",
+    "limit_gap": "新园丁什么都不懂，千金得一边救人一边教。",
+    "meeting_reason": "新园丁撞见千金清晨浇水，被千金拎去温室底层封口，药剂师正好在下面采药。",
+    "resource_gap": "千金有修枝重剪和整座温室的门道，药剂师有力气和蒸汽管的图。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_dome_aftershock",
+    "te_beam_pin_deadlock"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_trench_whisper",
+   "reach": "all",
+   "text": "夹道里两人贴着耳朵的低语和压碎药草的苦香"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_steam_pipe_hiss",
+   "reach": "local",
+   "text": "铜管里一阵阵嘶鸣的蒸汽，盖住了外面的呼喊"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁的公爵家长女，在王宫长大，被王太子当众退婚后仍留在宫里，去留进退由本人拿主意。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "身着繁复典雅的暗紫丝缎宫廷修身长裙与刺绣紧身胸衣，金发盘起并饰以宝石发网，白皙面颊带着青年女性特有带着一点血色，眼神带着傲娇不逊的倔强神采，在蒸汽雾气中格外动人。",
+    "华美礼裙下摆虽被倒塌花架压住，额头与两颊渗出晶莹细汗，唇角微抿，双手死死握住淬火合金修枝重剪手柄，展现出骄傲千金绝不认输的英气与反差柔美。"
+   ],
+   "decision": {
+    "avoids": [
+     "当面讨好、背后嚼舌根的人",
+     "拿退婚当笑话讲的人"
+    ],
+    "contrast": "在玫瑰露台上用扇子挡着嘴冷笑，刻薄得满宫小姐都不敢接话；穹顶塌下来时，却是千金第一个拔出修枝重剪，把药剂师推到了横梁的另一边。",
+    "core_value": "公爵家的骄傲不能丢，可答应过要救的人，一个也不能丢。",
+    "goal_options": [
+     "把修枝重剪卡进梁销暗槽，撬起横梁抽出礼裙",
+     "和药剂师一起关掉旁通泄汽阀"
+    ],
+    "never": [
+     "为了脱身丢下同伴"
+    ],
+    "prefers": [
+     "不看出身、只看本事的人",
+     "知道真相却不说破的人"
+    ],
+    "pressure_responses": {
+     "breaking": "手掌被剪柄磨出血也不松手，咬着牙数完拍子。",
+     "high": "毫不犹豫地割断被压住的拖尾，把全身重量压在剪柄上。",
+     "low": "冷着脸让药剂师先护住头，自己摸准梁销的位置。",
+     "mid": "拔出腰间的修枝重剪，指给对方看暗槽的角度。"
+    },
+    "relationship_stance": "嘴上一口一个“平民”叫着宫廷药剂师，却每天清晨都把采好的药草摆在蒸馏室门口，从来不留名字。",
+    "withdrawal": "脱险后先把散乱的金发拢好、扬起下巴，才肯让人扶一把。"
+   },
+   "gender": "female",
+   "gender_reason": "被退婚的公爵千金，按原稿写作女性。",
+   "id": "villainess_seraphina",
+   "identity": {
+    "authority": "公爵家的长女，贵族小姐们的茶会坐哪个位置、宫廷舞会谁先开舞，向来是千金一句话的事。",
+    "exposure": "热蒸汽把暗紫丝缎礼裙浸得透湿，贴在背上，刺绣胸衣勒得喘不过气。",
+    "hidden": "那几株救命药草是千金天不亮就来亲手照看的，圣女候补喝下的解药，也是从这里采的。",
+    "limits": [
+     "拖尾礼裙被花架压住，挪不开身",
+     "被退婚后满宫的人都在看笑话，没人肯伸手"
+    ],
+    "obligations": [
+     "护住温室里那几株救命的药草",
+     "不在任何人面前示弱"
+    ],
+    "resources": [
+     "一把名匠锻造的高硬度双刃合金修枝重剪，刀刃厚重，能承受数吨剪切负荷",
+     "温室侧门的一把私钥",
+     "一本亲手记的药草培植手记"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "药剂师在流言里唯一没躲开的那双眼睛",
+     "夹道里替自己挡住滚烫蒸汽的那片后背"
+    ],
+    "boundaries": [
+     "人前绝不失公爵家的体面，私下的心软只给认定的人",
+     "每一步都要先问过，对方迟疑就停"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "蒸馏室里背过身让人解开礼裙后背的近身位",
+    "dislikes": [
+     "被当成可怜人来同情",
+     "趁人之危的手"
+    ],
+    "expression": "嘴上骂着“平民，手脚轻一点”，人却背过身去，把礼裙后背的珍珠扣露了出来。",
+    "likes": [
+     "被人一颗颗解开礼裙后背的珍珠扣",
+     "冰凉的药膏抹上烫伤时屏住的那口气",
+     "被叫名字而不是“公爵千金”"
+    ],
+    "preconditions": [
+     "横梁撬起、两人都脱险之后",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "被退婚的公爵千金",
+   "schedule": [
+    {
+     "from": 420,
+     "location_id": "loc_drain_trench",
+     "to": 540
+    },
+    {
+     "from": 840,
+     "location_id": "loc_rose_tea_terrace",
+     "to": 1020
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_rose_tea_terrace",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "剪柄会把手掌磨出血，礼裙要被割断",
+      "option": "用修枝重剪卡进梁销暗槽，和药剂师合力撬起横梁"
+     },
+     {
+      "cost": "余震不断，横梁随时可能再沉，等不到天亮",
+      "option": "留在原地等卫兵挖开坍塌区"
+     }
+    ],
+    "pressure": "倒下的花架压住了礼裙拖尾，滚烫的蒸汽越积越多，必须撬起横梁、关掉泄汽阀。",
+    "trigger": "地脉晶石过载，穹顶坍塌，千金正在温室底层照看那几株药草。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "蒸汽好烫……药剂师的心跳就贴在背上。退婚那天满宫的人都在笑，只有这个人，从来没躲开过我的眼睛。",
+    "surface": "平民，发什么呆？剪刃卡进暗槽，本小姐压剪柄，你顶住横梁——慢了一拍，两个人都得埋在这里。"
+   }
+  },
+  {
+   "adult_context": "二十二岁，从修道院被选进王宫的圣女候补，王太子退婚后要娶的人。",
+   "age_range": [
+    21,
+    26
+   ],
+   "appearance_options": [
+    "一身素白的修道女长袍，银十字架挂在胸前，眼睛总是湿漉漉的。",
+    "坐在玫瑰露台最边上的位置，被贵族小姐们围着嘘寒问暖。"
+   ],
+   "decision": {
+    "avoids": [
+     "教会推举的圣女候补最烦临阵推诿"
+    ],
+    "contrast": "在众人面前柔弱得像一朵小白花，夜里却独自去温室外站了很久，看着那几株药草。",
+    "core_value": "神会看见每个人心里的真相。",
+    "goal_options": [
+     "先把人救出来",
+     "教会推举的圣女候补再追究是谁的错"
+    ],
+    "never": [
+     "教会推举的圣女候补不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "教会推举的圣女候补看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "教会推举的圣女候补嗓子喊哑了也不肯走",
+     "high": "教会推举的圣女候补顶着危险往里递东西",
+     "low": "教会推举的圣女候补先稳住身边的人",
+     "mid": "教会推举的圣女候补四处找能用的工具"
+    },
+    "relationship_stance": "大病一场后满宫都说是公爵千金下的毒，圣女候补却一直没有开口指认，只是每次见到千金都欲言又止。",
+    "withdrawal": "事情过去后，教会推举的圣女候补一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "教会的圣女候补只从修道女里选，按设定写作女性。",
+   "id": "saintess_candidate",
+   "identity": {
+    "authority": "教会和王太子都站在圣女候补身后，一句“身体不适”就能让一场茶会散席。",
+    "exposure": "教会推举的圣女候补忙起来顾不上衣着体面",
+    "hidden": "做教会推举的圣女候补这些年，有件事没对旁人说过",
+    "limits": [
+     "教会推举的圣女候补不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住教会推举的圣女候补手上的那一摊事"
+    ],
+    "resources": [
+     "一瓶教会赐下的圣水",
+     "教会推举的圣女候补随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "教会推举的圣女候补欣赏做事干脆利落的人",
+     "教会推举的圣女候补记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，教会推举的圣女候补就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和教会推举的圣女候补并肩站着",
+    "dislikes": [
+     "教会推举的圣女候补讨厌轻浮的手"
+    ],
+    "expression": "教会推举的圣女候补话不多，递东西时指尖会多停一下",
+    "likes": [
+     "教会推举的圣女候补收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "教会推举的圣女候补要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "教会推举的圣女候补",
+   "schedule": [
+    {
+     "from": 600,
+     "location_id": "loc_rose_tea_terrace",
+     "to": 1080
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "教会推举的圣女候补未必赶得上",
+      "option": "教会推举的圣女候补在外面调度接应"
+     },
+     {
+      "cost": "可能把教会推举的圣女候补自己也搭进去",
+      "option": "教会推举的圣女候补硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，教会推举的圣女候补进不去",
+    "trigger": "警报传到教会推举的圣女候补那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "那天喝下的解药是谁配的，我心里清楚……可我要是说出来，殿下会怎么看我？",
+    "surface": "千金还在里面！求求你们……先救千金，不要先救药草！"
+   }
+  },
+  {
+   "adult_context": "二十四岁，从小跟在千金身边，千金每一件礼裙的扣子都是侍女亲手扣上的。",
+   "age_range": [
+    22,
+    30
+   ],
+   "appearance_options": [
+    "一身熨得笔挺的黑白侍女裙，围裙口袋里装着针线包和嗅盐。",
+    "站在千金身后半步，替千金挡住旁人的目光。"
+   ],
+   "decision": {
+    "avoids": [
+     "公爵千金的贴身侍女最烦临阵推诿"
+    ],
+    "contrast": "在外人面前对千金恭恭敬敬，私下却会板着脸逼千金把药喝完。",
+    "core_value": "小姐说什么就是什么，可小姐受了委屈，侍女要记一辈子。",
+    "goal_options": [
+     "先把人救出来",
+     "公爵千金的贴身侍女再追究是谁的错"
+    ],
+    "never": [
+     "公爵千金的贴身侍女不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "公爵千金的贴身侍女看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "公爵千金的贴身侍女嗓子喊哑了也不肯走",
+     "high": "公爵千金的贴身侍女顶着危险往里递东西",
+     "low": "公爵千金的贴身侍女先稳住身边的人",
+     "mid": "公爵千金的贴身侍女四处找能用的工具"
+    },
+    "relationship_stance": "全宫只有侍女知道千金每天清晨去温室，也只有侍女敢在千金哭过之后递上一杯热可可。",
+    "withdrawal": "事情过去后，公爵千金的贴身侍女一个人躲开抽根烟"
+   },
+   "gender": "female",
+   "gender_reason": "公爵府的贴身侍女按宫廷惯例是女性。",
+   "id": "lady_in_waiting",
+   "identity": {
+    "authority": "千金的衣食起居、谁能进千金的门，侍女说了算。",
+    "exposure": "公爵千金的贴身侍女忙起来顾不上衣着体面",
+    "hidden": "做公爵千金的贴身侍女这些年，有件事没对旁人说过",
+    "limits": [
+     "公爵千金的贴身侍女不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住公爵千金的贴身侍女手上的那一摊事"
+    ],
+    "resources": [
+     "一个装着针线和嗅盐的围裙口袋",
+     "公爵千金的贴身侍女随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "公爵千金的贴身侍女欣赏做事干脆利落的人",
+     "公爵千金的贴身侍女记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，公爵千金的贴身侍女就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和公爵千金的贴身侍女并肩站着",
+    "dislikes": [
+     "公爵千金的贴身侍女讨厌轻浮的手"
+    ],
+    "expression": "公爵千金的贴身侍女话不多，递东西时指尖会多停一下",
+    "likes": [
+     "公爵千金的贴身侍女收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "公爵千金的贴身侍女要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "公爵千金的贴身侍女",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_rose_tea_terrace",
+     "to": 1260
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "公爵千金的贴身侍女未必赶得上",
+      "option": "公爵千金的贴身侍女在外面调度接应"
+     },
+     {
+      "cost": "可能把公爵千金的贴身侍女自己也搭进去",
+      "option": "公爵千金的贴身侍女硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，公爵千金的贴身侍女进不去",
+    "trigger": "警报传到公爵千金的贴身侍女那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "退婚那天小姐一滴眼泪都没掉，回了房间却抱着侍女哭到天亮……今晚，千万不能再让小姐受伤了。",
+    "surface": "小姐！您听得见吗？侍女在外面，侍女哪儿也不去！"
+   }
+  },
+  {
+   "adult_context": "二十六岁，靠奖学金读完药剂学院，被破格招进王宫，去留进退由本人拿主意。",
+   "age_range": [
+    24,
+    30
+   ],
+   "appearance_options": [
+    "洗得发白的亚麻衬衫外罩着药剂师的深绿长袍，袖口沾着药渍，指尖有被药草染出的淡黄。",
+    "长袍被蒸汽打湿，衬衫贴在肩背上，单膝跪在排水槽里，用肩膀顶住下坠的横梁。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿出身压人的贵族"
+    ],
+    "contrast": "在宫廷里低眉顺眼，对贵族们的刁难从不还嘴；可谁要是当着面污蔑千金下毒，药剂师会把药典拍在桌上。",
+    "core_value": "药草不问出身，能救人的就是好药。",
+    "goal_options": [
+     "用肩膀顶住下坠的铸铁横梁，给剪柄腾出角度",
+     "把全身重量压在剪柄末端"
+    ],
+    "never": [
+     "让千金一个人留在夹道里"
+    ],
+    "prefers": [
+     "说话算话的人"
+    ],
+    "pressure_responses": {
+     "breaking": "手臂青筋暴起，吼着数完最后一个三。",
+     "high": "单膝跪进排水槽，肩膀顶住横梁，和千金一起压。",
+     "low": "把千金拉到身后，先看清横梁下沉的方向。",
+     "mid": "撕下帆布护腕缠住剪柄中段，免得千金的手指被震伤。"
+    },
+    "relationship_stance": "被千金一口一个“平民”叫着，却是满宫唯一敢当面说“那副解药是千金的药草配的”的人。",
+    "withdrawal": "确认横梁撬起后才瘫坐在石槽边，从长袍口袋里摸出那瓶烫伤药膏。"
+   },
+   "gender": "male",
+   "gender_reason": "平民出身的宫廷药剂师，按原稿写作男性。",
+   "id": "court_apothecary",
+   "identity": {
+    "authority": "温室里哪株药草能采、哪副药能配，药剂师说了算。",
+    "exposure": "衬衫被热蒸汽浸透，跪在排水槽里时，后背整片贴着千金的胸口。",
+    "hidden": "早就知道清晨摆在门口的药草是谁送的，却一次也没有说破。",
+    "limits": [
+     "平民出身，在宫里没人撑腰",
+     "手上没有趁手的撬具"
+    ],
+    "obligations": [
+     "护住公爵千金不被蒸汽烫伤",
+     "撬起横梁，保住温室里的药草"
+    ],
+    "resources": [
+     "一副帆布护腕",
+     "一瓶自配的烫伤药膏",
+     "一把黄铜研钵杵"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "千金在蒸汽里割断拖尾时那份不带犹豫的狠劲",
+     "清晨蒸馏室门口那一束不留名字的药草"
+    ],
+    "boundaries": [
+     "千金没开口就不越一步",
+     "人前不让千金难做"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "蒸馏室里替千金解开礼裙后背的近身位",
+    "dislikes": [
+     "当众被叫“平民”时千金身后的冷笑",
+     "背后嚼舌根"
+    ],
+    "expression": "把药膏抹在千金烫红的肩上，手停了很久，才低声说：清晨的药草，谢谢。",
+    "likes": [
+     "千金难得叫一次自己的名字",
+     "被千金用扇子轻轻敲一下额头"
+    ],
+    "preconditions": [
+     "横梁撬起、两人都安全清醒之后",
+     "千金点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "平民出身的宫廷药剂师",
+   "schedule": [
+    {
+     "from": 480,
+     "location_id": "loc_apothecary_still_room",
+     "to": 1020
+    },
+    {
+     "from": 1080,
+     "location_id": "loc_apothecary_still_room",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "肩膀会被铸铁边缘压伤，手臂可能脱力",
+      "option": "用肩膀顶住横梁，和千金合力压下剪柄"
+     },
+     {
+      "cost": "来回至少十分钟，夹道里的蒸汽撑不到那时候",
+      "option": "独自爬出去找撬棍"
+     }
+    ],
+    "pressure": "横梁越沉越深，蒸汽越积越多，必须赶在梁销被压断前撬开。",
+    "trigger": "穹顶坍塌时药剂师正在温室底层采夜间开花的药草，被倒下的花架堵在了夹道里。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "千金整个人都贴在我胸口……别分神。满宫的人都说千金下毒，可我知道那副解药里的每一味药是谁种的。",
+    "surface": "大小姐别动，往我这边靠！剪刃咬住梁销的倒角，我顶横梁，你往下压——我数三下。"
+   }
+  },
+  {
+   "adult_context": "二十五岁的王国储君，在新年舞会上当着满宫贵族的面撕了婚约。",
+   "age_range": [
+    24,
+    30
+   ],
+   "appearance_options": [
+    "一身金线滚边的白色礼服，佩剑上镶着王室纹章，笑起来让满宫小姐脸红。",
+    "站在露台中央，身边永远围着一圈献殷勤的贵族。"
+   ],
+   "decision": {
+    "avoids": [
+     "当众退婚的王太子最烦临阵推诿"
+    ],
+    "contrast": "当着满宫人的面对千金冷若冰霜，独自一人时却会盯着那份撕碎的婚约发呆。",
+    "core_value": "储君要娶的是能站在身边的人，不是只会冷笑的人。",
+    "goal_options": [
+     "先把人救出来",
+     "当众退婚的王太子再追究是谁的错"
+    ],
+    "never": [
+     "当众退婚的王太子不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "当众退婚的王太子看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "当众退婚的王太子嗓子喊哑了也不肯走",
+     "high": "当众退婚的王太子顶着危险往里递东西",
+     "low": "当众退婚的王太子先稳住身边的人",
+     "mid": "当众退婚的王太子四处找能用的工具"
+    },
+    "relationship_stance": "退婚那天说千金心肠恶毒，可这几天总忍不住派人去打听，温室里清晨的人影是谁。",
+    "withdrawal": "事情过去后，当众退婚的王太子一个人躲开抽根烟"
+   },
+   "gender": "male",
+   "gender_reason": "王国的储君按设定是男性王太子。",
+   "id": "crown_prince",
+   "identity": {
+    "authority": "王太子一句话，就能让一位贵族千金在宫里抬不起头。",
+    "exposure": "当众退婚的王太子忙起来顾不上衣着体面",
+    "hidden": "做当众退婚的王太子这些年，有件事没对旁人说过",
+    "limits": [
+     "当众退婚的王太子不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住当众退婚的王太子手上的那一摊事"
+    ],
+    "resources": [
+     "一枚能调动王宫卫队的储君令牌",
+     "当众退婚的王太子随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "当众退婚的王太子欣赏做事干脆利落的人",
+     "当众退婚的王太子记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，当众退婚的王太子就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和当众退婚的王太子并肩站着",
+    "dislikes": [
+     "当众退婚的王太子讨厌轻浮的手"
+    ],
+    "expression": "当众退婚的王太子话不多，递东西时指尖会多停一下",
+    "likes": [
+     "当众退婚的王太子收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "当众退婚的王太子要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "当众退婚的王太子",
+   "schedule": [
+    {
+     "from": 720,
+     "location_id": "loc_rose_tea_terrace",
+     "to": 1200
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "当众退婚的王太子未必赶得上",
+      "option": "当众退婚的王太子在外面调度接应"
+     },
+     {
+      "cost": "可能把当众退婚的王太子自己也搭进去",
+      "option": "当众退婚的王太子硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，当众退婚的王太子进不去",
+    "trigger": "警报传到当众退婚的王太子那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "那天在舞会上……是不是太快下结论了？",
+    "surface": "卫队听令，从温室东侧挖进去！公爵家的千金要是有个三长两短，你们谁都担不起！"
+   }
+  },
+  {
+   "adult_context": "六十岁上下，伺候过三代公爵，千金是执事看着长大的。",
+   "age_range": [
+    55,
+    68
+   ],
+   "appearance_options": [
+    "一身一丝不苟的黑色燕尾服，白手套从不摘下，银怀表挂在马甲口袋里。",
+    "站在玫瑰露台的台阶下，替千金挡掉不该递上来的帖子。"
+   ],
+   "decision": {
+    "avoids": [
+     "公爵府的老执事最烦临阵推诿"
+    ],
+    "contrast": "在外人面前一板一眼、滴水不漏，背过身却会偷偷往千金的茶里多放一块方糖。",
+    "core_value": "公爵家的体面要守，可小姐比体面要紧。",
+    "goal_options": [
+     "先把人救出来",
+     "公爵府的老执事再追究是谁的错"
+    ],
+    "never": [
+     "公爵府的老执事不会丢下困在里面的人"
+    ],
+    "prefers": [
+     "公爵府的老执事看重说到做到的人"
+    ],
+    "pressure_responses": {
+     "breaking": "公爵府的老执事嗓子喊哑了也不肯走",
+     "high": "公爵府的老执事顶着危险往里递东西",
+     "low": "公爵府的老执事先稳住身边的人",
+     "mid": "公爵府的老执事四处找能用的工具"
+    },
+    "relationship_stance": "千金被退婚后，老执事悄悄把城里所有说千金坏话的报纸都买了回来，一张一张烧掉。",
+    "withdrawal": "事情过去后，公爵府的老执事一个人躲开抽根烟"
+   },
+   "gender": "any",
+   "gender_reason": "公爵府的老执事这个位置不限性别。",
+   "id": "ducal_butler",
+   "identity": {
+    "authority": "公爵府的账目、仆役和对外的每一张帖子，都由老执事经手。",
+    "exposure": "公爵府的老执事忙起来顾不上衣着体面",
+    "hidden": "做公爵府的老执事这些年，有件事没对旁人说过",
+    "limits": [
+     "公爵府的老执事不在死角里，只能在外面使劲"
+    ],
+    "obligations": [
+     "守住公爵府的老执事手上的那一摊事"
+    ],
+    "resources": [
+     "一块走了四十年的银怀表",
+     "公爵府的老执事随身的一盏提灯"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "公爵府的老执事欣赏做事干脆利落的人",
+     "公爵府的老执事记得危急时回头搭把手的人"
+    ],
+    "boundaries": [
+     "对方迟疑，公爵府的老执事就停"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "和公爵府的老执事并肩站着",
+    "dislikes": [
+     "公爵府的老执事讨厌轻浮的手"
+    ],
+    "expression": "公爵府的老执事话不多，递东西时指尖会多停一下",
+    "likes": [
+     "公爵府的老执事收工后的一杯热饮"
+    ],
+    "preconditions": [
+     "公爵府的老执事要等危局过去、双方清醒自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "公爵府的老执事",
+   "schedule": [
+    {
+     "from": 540,
+     "location_id": "loc_rose_tea_terrace",
+     "to": 1320
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "公爵府的老执事未必赶得上",
+      "option": "公爵府的老执事在外面调度接应"
+     },
+     {
+      "cost": "可能把公爵府的老执事自己也搭进去",
+      "option": "公爵府的老执事硬闯进去"
+     }
+    ],
+    "pressure": "里面的人出不来，公爵府的老执事进不去",
+    "trigger": "警报传到公爵府的老执事那里"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "小姐小时候在这座温室里摔过一跤，哭着要我背……今晚，老执事说什么也要把小姐背出来。",
+    "surface": "温室的总阀在东边！把我这把老骨头扶过去，我知道怎么关！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "王宫社交季，初夏",
+  "minute": 10
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "公爵千金随身佩戴名匠锻造的高硬度双刃合金修枝重剪，刀刃厚重足以承受数吨剪切负荷。",
+  "皇家温室遮阳铸铁穹顶装有防坠落重力自锁棘爪，受外部震击会咬死检修滑道。",
+  "地热蒸汽管道设有旁通手动平衡螺栓，遇过热卡死需利用工具加力反向旋转平压。",
+  "排水检修夹道设有防倒灌石质单向闸门，外侧受压闭锁后只能通过内部手动泄荷脱困。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "天还没亮，千金提着裙摆溜进温室底层，蹲在那几株药草前，一片叶子一片叶子地看。",
+    "听见脚步声，千金立刻站起来，扬着下巴说：本小姐是来散步的，不许乱说。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_dawn_herb_watering",
+   "location_ids": [
+    "loc_drain_trench"
+   ],
+   "start_minute": 360,
+   "tags": [
+    "workplace"
+   ],
+   "title": "天不亮在温室里照看药草"
+  },
+  {
+   "beats": [
+    "贵族小姐们围坐在玫瑰架下，扇子后面全是退婚和下毒的流言，千金端着骨瓷杯，一口一口喝着红茶。",
+    "有人故意把茶泼在千金的裙角上，千金放下杯子，笑得比玫瑰还冷：手抖成这样，该找药剂师看看。"
+   ],
+   "duration_minutes": 60,
+   "hook_ids": [],
+   "id": "act_rose_terrace_tea",
+   "location_ids": [
+    "loc_rose_tea_terrace"
+   ],
+   "start_minute": 900,
+   "tags": [
+    "workplace"
+   ],
+   "title": "玫瑰露台上的下午茶"
+  },
+  {
+   "beats": [
+    "宫廷乐师在露台一角试着琴，千金独自转了一圈，裙摆在灯笼下散开，却没有舞伴。",
+    "千金停下来，看着来人，伸出一只手：既然路过，就陪本小姐跳完这一支。踩到我的脚，就把你赶出王宫。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_ballroom_practice",
+   "location_ids": [
+    "loc_rose_tea_terrace"
+   ],
+   "start_minute": 1080,
+   "tags": [
+    "workplace"
+   ],
+   "title": "舞会前在露台上练开场舞"
+  },
+  {
+   "beats": [
+    "蒸馏器咕嘟作响，药剂师把一筐药草倒在桌上，千金嫌弃地捏着鼻子，却还是坐下来一株一株挑。",
+    "千金把挑好的药草推过去，头也不抬：这几株是本小姐种的，配坏了，你赔不起。"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [],
+   "id": "act_herb_sorting",
+   "location_ids": [
+    "loc_apothecary_still_room"
+   ],
+   "start_minute": 1140,
+   "tags": [
+    "workplace"
+   ],
+   "title": "蒸馏室里一起分拣药草"
+  },
+  {
+   "beats": [
+    "酒精灯的蓝火苗跳着，研钵杵一下一下碾着药草，屋里苦香浓得化不开。",
+    "千金托着下巴看了很久，忽然问：圣女候补喝下的那副解药……是你配的吧。"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [],
+   "id": "act_salve_grinding",
+   "location_ids": [
+    "loc_apothecary_still_room"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "workplace"
+   ],
+   "title": "酒精灯下研磨药膏"
+  },
+  {
+   "beats": [
+    "温室的晶石穹顶在夜里透着淡淡的光，像一盏巨大的灯笼，露台上只剩两个人。",
+    "千金抱着膝盖坐在台阶上，轻声说：退婚那天，满宫的人都在笑。只有你，没有低头。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_terrace_lantern_night",
+   "location_ids": [
+    "loc_rose_tea_terrace"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "workplace"
+   ],
+   "title": "夜里在露台台阶上看温室的灯"
+  },
+  {
+   "beats": [
+    "横梁撬起、蒸汽关停、卫兵挖通了坍塌区之后，千金没有回寝宫，跟着药剂师进了蒸馏室，礼裙拖尾被割断了，肩上烫红了一片。",
+    "酒精灯下，千金背过身说了句“手脚轻一点”，让人一颗颗解开礼裙后背的珍珠扣，冰凉的药膏抹上烫伤，千金咬着下唇，往后靠了过来。",
+    "千金转过身，用指尖勾起对方的下巴：平民，本小姐允许你……今晚叫我的名字。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_still_room_gown_buttons",
+   "location_ids": [
+    "loc_apothecary_still_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "蒸馏室里替千金解开礼裙后背上药"
+  },
+  {
+   "beats": [
+    "蒸馏室的酒精灯下，千金挽起礼裙的袖子，笨手笨脚地切着药草，被药剂师握住手腕纠正刀法。",
+    "千金涨红了脸：本小姐只是想学，不是想让你握着手。……不过，你要是还想握，也不是不行。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_still_room_herb_lesson",
+   "location_ids": [
+    "loc_apothecary_still_room"
+   ],
+   "start_minute": 1220,
+   "tags": [
+    "intimate"
+   ],
+   "title": "蒸馏室里的草药课"
+  },
+  {
+   "beats": [
+    "蒸馏器滴下第一滴玫瑰精油，千金用指尖蘸了一点，抹在人的手腕上，又抹在自己的颈侧。",
+    "千金扬着下巴说：这样我们就是一个味道了。……平民，凑近闻闻，你想的话，本小姐准了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_still_room_rose_oil",
+   "location_ids": [
+    "loc_apothecary_still_room"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate"
+   ],
+   "title": "玫瑰精油的第一滴"
+  },
+  {
+   "beats": [
+    "天还没亮，千金就披着斗篷推开蒸馏室的门，回头朝床上的人伸出手，要拉人一起去温室。",
+    "千金小声说：那几株药草，以前都是我一个人照看。……以后，你陪我一起来。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_still_room_dawn_herbs",
+   "location_ids": [
+    "loc_apothecary_still_room"
+   ],
+   "start_minute": 330,
+   "tags": [
+    "intimate"
+   ],
+   "title": "天不亮去照看药草"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "奇幻宫廷魔导工学与草药炼金时代",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_trench"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{villainess_seraphina.name}咬住嘴唇按住胸口急促喘息，面颊泛着热汗蒸腾的红晕，果断拔出腰间合金修枝重剪递向身前药剂师。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_trench"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{villainess_seraphina.name}伏在倾斜花架梁下，在弥漫蒸汽中摸准咬死梁销的薄弱点，冷静给出协同发力口令。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "slot": "court_apothecary",
+   "text": "{court_apothecary.name}单膝跪入温室排水浅水槽，以肩膀死死顶住下坠的铸铁遮阳百叶，为千金架设剪柄腾出操作夹角。"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "slot": "court_apothecary",
+   "text": "{court_apothecary.name}撕下帆布护腕缠紧修枝剪柄中段，防止反冲剧震划伤千金紧握的手指。"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{villainess_seraphina.name}低头为药剂师拭去滴落眼角的汗水，面容近在咫尺，微喘的气息扫过对方耳廓。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{villainess_seraphina.name}宫廷礼裙后背被热蒸汽完全打湿，紧贴在发烫的花岗岩石壁上，沉着提醒同伴注意蒸汽管温。"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{villainess_seraphina.name}展现出公爵千金的凌厉决断，精确判定铸铁梁应力释放间隙，示意在蒸汽喷发间歇全力下压。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "slot": "court_apothecary",
+   "text": "{court_apothecary.name}在穹顶瓦砾细碎坠落的震动中，将全身重量压在剪柄末端，与千金紧贴的背部产生强烈共鸣。"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{villainess_seraphina.name}双手交叠握紧同伴小臂，两副年轻身躯在狭小石槽内紧密无间地卡住杠杆发力支点。"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_trench"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{villainess_seraphina.name}细听铜管蒸汽嘶鸣节律，预判蝶阀密封弹跳的刹那，沉声提醒同伴稳住重心。"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "slot": "court_apothecary",
+   "text": "{court_apothecary.name}与千金并肩伏在旁通阀前，胸背相贴，四手重叠强行扭动卡阻的手柄第一道回程。"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{villainess_seraphina.name}在石槽微震中重心微晃，顺势靠入药剂师臂弯，另一手死死按紧卡销确保横梁不再回落。"
+  },
+  {
+   "id": "hook_seraphina_fan",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rose_tea_terrace"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{npc.name}用扇子挡住半张脸，只露出一双眼睛：那些流言你也听说了吧？怎么，不怕被本小姐毒死，还敢坐过来？"
+  },
+  {
+   "id": "hook_seraphina_dawn_secret",
+   "kind": "approach",
+   "location_ids": [
+    "loc_drain_trench",
+    "loc_rose_tea_terrace"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{npc.name}蹲在药草前，听见脚步声也没回头：看见了就看见了。敢说出去一个字，本小姐就让你在王宫待不下去……过来，帮我扶着这根枝条。"
+  },
+  {
+   "id": "hook_seraphina_first_dance",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rose_tea_terrace"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{npc.name}把一只戴着长手套的手伸过来，下巴扬得高高的：舞会上没人敢请被退婚的千金跳舞。你，陪本小姐练一支。"
+  },
+  {
+   "id": "hook_seraphina_cocoa",
+   "kind": "approach",
+   "location_ids": [
+    "loc_rose_tea_terrace",
+    "loc_apothecary_still_room"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{npc.name}把一杯热可可推到人面前，别过脸去：侍女多做了一杯，倒了可惜。喝完就走，别以为本小姐是特意留给你的。"
+  },
+  {
+   "id": "hook_apothecary_herb_thanks",
+   "kind": "approach",
+   "location_ids": [
+    "loc_apothecary_still_room"
+   ],
+   "slot": "court_apothecary",
+   "text": "{npc.name}把一束晒干的药草放在桌上：这些天清晨，蒸馏室门口总有人放这个。不留名字……你知道是谁吗？"
+  },
+  {
+   "id": "hook_apothecary_salve",
+   "kind": "approach",
+   "location_ids": [
+    "loc_apothecary_still_room",
+    "loc_rose_tea_terrace"
+   ],
+   "slot": "court_apothecary",
+   "text": "{npc.name}拉过人的手，看了看指尖被花刺扎出的小口子，拧开一瓶药膏：别动。王宫里的玫瑰刺都带着毒，涂了就不疼了。"
+  },
+  {
+   "id": "hook_seraphina_still_room",
+   "kind": "approach",
+   "location_ids": [
+    "loc_apothecary_still_room"
+   ],
+   "slot": "villainess_seraphina",
+   "text": "{npc.name}站在蒸馏室门口，提着裙摆咳了一声：本小姐路过而已。……你要是请我进去，我也不是不能进。"
+  }
+ ],
+ "id": "villainess_greenhouse_barrier_collapse",
+ "locations": [
+  {
+   "affordances": [
+    "背部顶靠花岗岩基座侧壁借力稳固支撑点",
+    "将合金修枝重剪刀背精准插进变形销钉死角",
+    "观察上方残存拱梁在余震中的微小位移偏转"
+   ],
+   "detail": "位于皇家植栽园地表下方的狭长石槽，上方压着断裂的铸铁遮阳横梁与破碎晶石，四周弥漫着滚烫的地热蒸汽与压碎药草的浓郁苦香。",
+   "exits": [
+    "loc_collapsed_trellis",
+    "loc_steam_valve_niche"
+   ],
+   "id": "loc_drain_trench",
+   "name": "温室底层排水检修狭道",
+   "pressure_modifiers": {
+    "p_dome_aftershock": "每一次余震，碎晶石就簌簌落进夹道，横梁跟着往下一沉。",
+    "p_herb_fog_air": "压碎的药草在热气里蒸出浓雾，苦得人喉咙发紧。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "头顶是破碎晶石漏下的月光，蒸汽里能看清对方被汗打湿的睫毛和抿紧的嘴唇。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "用手掌试探钢梁扭转应力释放的最佳解脱位点",
+    "两人合力抓住修枝剪手柄当做加长撬杆向下施力"
+   ],
+   "detail": "铸铁材质的重型组合桁架，两根承重梁在冲击下扭曲交错，死死咬合住下方的裙摆丝缎与导轨安全卡槽。",
+   "exits": [
+    "loc_drain_trench"
+   ],
+   "id": "loc_collapsed_trellis",
+   "name": "变形花架倒塌卡阻节点",
+   "pressure_modifiers": {
+    "p_train_pinned": "拖尾被压得死死的，千金每挪半寸，丝缎就撕开一道口子。",
+    "p_trench_body_heat": "两人挤在花架下，千金的后背贴着对方的胸口，湿透的丝缎下体温一阵阵透过来。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "扭曲的桁架咬着千金的礼裙拖尾，剪刃插进梁销暗槽时，铸铁发出刺耳的摩擦声。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "两人手叠在一起扳动发烫的蝶阀手柄",
+    "聆听高压蒸汽分流后管线振动减弱的清脆卸载声"
+   ],
+   "detail": "夹道末端的一处逼仄石壁凹坑，裸露着发烫的旁通铜制蝶阀，阀杆因热膨胀咬死在阀体法兰内部。",
+   "exits": [
+    "loc_drain_trench",
+    "loc_rose_tea_terrace"
+   ],
+   "id": "loc_steam_valve_niche",
+   "name": "旁通阀凹壁",
+   "pressure_modifiers": {
+    "p_steam_scald": "外面的人想关总阀，可总阀在坍塌区另一头，过不去。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "凹壁口透进温室外的灯笼光，传来侍女和卫兵焦急的呼喊。",
+   "witnesses": [
+    "bg_head_gardener",
+    "bg_palace_guard",
+    "bg_gossip_lady"
+   ]
+  },
+  {
+   "affordances": [
+    "在玫瑰架下陪公爵千金喝一杯红茶",
+    "听扇子后面的流言",
+    "在露台的台阶上并肩站着看温室的灯"
+   ],
+   "detail": "皇家植栽园外的白石露台，攀着整面墙的玫瑰，铁艺桌上永远摆着骨瓷茶具，贵族小姐们在这里喝下午茶，也在这里交换流言。",
+   "exits": [
+    "loc_apothecary_still_room",
+    "loc_steam_valve_niche"
+   ],
+   "id": "loc_rose_tea_terrace",
+   "name": "温室外的玫瑰露台",
+   "pressure_modifiers": {},
+   "privacy": "public",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "露台上坐满了扇子后面窃窃私语的贵族小姐，谁跟公爵千金多说一句话，傍晚就会传遍整座王宫。",
+   "witnesses": [
+    "bg_gossip_lady",
+    "bg_head_gardener",
+    "bg_palace_guard",
+    "bg_court_musician"
+   ]
+  },
+  {
+   "affordances": [
+    "坐在蒸馏器旁一起分拣药草",
+    "在酒精灯下研磨药膏",
+    "替对方解开礼裙后背、给烫伤上药"
+   ],
+   "detail": "温室角落一间砖砌的小屋，铜蒸馏器咕嘟作响，墙上挂满晒干的药草，窄窄的行军床上堆着没读完的药典。",
+   "exits": [
+    "loc_rose_tea_terrace"
+   ],
+   "id": "loc_apothecary_still_room",
+   "name": "药剂师的蒸馏室",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "只点一盏酒精灯，药草香浓得化不开，屋里的人能看清彼此脸上每一点红。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "阿尔贝",
+   "贝尔蒙",
+   "克莱蒙",
+   "杜瓦尔",
+   "埃斯特",
+   "弗洛朗",
+   "吉拉尔",
+   "霍尔丹",
+   "伊瑟尔",
+   "朗格",
+   "莫雷尔",
+   "诺瓦",
+   "佩兰",
+   "罗什"
+  ],
+  "given_female": [
+   "塞拉菲娜",
+   "伊莎贝拉",
+   "阿黛尔",
+   "玛格丽特",
+   "瑟琳",
+   "艾莉诺",
+   "朱莉安",
+   "柯莱特",
+   "露易丝",
+   "薇薇安",
+   "奥黛特",
+   "芙洛拉",
+   "罗莎琳",
+   "安娜贝尔"
+  ],
+  "given_male": [
+   "朱利安",
+   "塞勒斯",
+   "阿德里安",
+   "吕西安",
+   "马克西姆",
+   "加斯东",
+   "雷米",
+   "泰奥",
+   "巴斯蒂安",
+   "埃蒂安",
+   "克洛维",
+   "弗朗索瓦",
+   "让",
+   "路易"
+  ],
+  "given_neutral": [
+   "卡米耶",
+   "多米尼克",
+   "克劳德",
+   "米歇尔",
+   "萨沙",
+   "让娜",
+   "洛朗",
+   "阿莉克斯",
+   "诺埃尔",
+   "帕斯卡",
+   "西蒙",
+   "瓦伦",
+   "伊维斯",
+   "莫里斯"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入。原稿除标题、简介、基调、千金外貌、世界规则与三处脱困地点外，人物、压力与钩子大多照抄了吸血鬼地宫那一篇，这里按恶役千金的题材整篇重写：被王太子当众退婚、满宫都在传千金给圣女候补下过毒，其实温室里那些救命的药草是千金天不亮就来亲手照看的；搭档写成靠奖学金进宫、被千金一口一个“平民”叫着的宫廷药剂师，其余人物换成圣女候补、贴身侍女、退婚的王太子和公爵府的老执事。新增温室外的玫瑰露台与药剂师的蒸馏室两处日常地点。原稿里“肢体接触只服务于发力、不得偏离自救”的规则改成了世界内的规则；千金亲密前提写明脱困之后、双方清醒自愿；新增一个蒸馏室里替千金解开礼裙后背、给烫伤上药的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    26
+   ],
+   "baseline": "刚从乡下被招进王宫，每天天不亮就要给温室的药草浇水，撞见过公爵千金好几回。",
+   "gender": "any",
+   "id": "pi_court_gardener",
+   "reputation": "满宫只有园丁知道，那几株药草是谁在照看。",
+   "resources": [
+    "一把磨得发亮的花剪",
+    "一串温室侧门的钥匙",
+    "一双沾满泥的靴子"
+   ],
+   "risks": [
+    "说错一句话，就会被赶出王宫。"
+   ],
+   "role": "皇家植栽园的新园丁",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    23,
+    30
+   ],
+   "baseline": "和宫廷药剂师同年从药剂学院毕业，如今在城里开了一家小药铺，时常进宫送药材。",
+   "gender": "any",
+   "id": "pi_academy_classmate",
+   "reputation": "学院里出了名的好人缘，跟谁都说得上话。",
+   "resources": [
+    "一家城里的小药铺",
+    "一本学院时代的笔记",
+    "进宫送药材的通行牌"
+   ],
+   "risks": [
+    "替公爵千金说话，药铺的生意就会被贵族们抵制。"
+   ],
+   "role": "药剂学院的同窗",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    34
+   ],
+   "baseline": "随邻国使团来访王宫，名义上是谈药草贸易，其实在替本国物色联姻对象。",
+   "gender": "any",
+   "id": "pi_foreign_count",
+   "reputation": "舞会上人人都想认识这位远道而来的伯爵。",
+   "resources": [
+    "一封邻国国王的亲笔信",
+    "一队随行的侍从",
+    "使团的外交豁免"
+   ],
+   "risks": [
+    "跟被退婚的千金走得太近，会搅乱两国的联姻。"
+   ],
+   "role": "来访的邻国伯爵",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    30,
+    42
+   ],
+   "baseline": "掌管后宫礼仪与贵族小姐们的品行考评，一纸评语就能决定一位千金还嫁不嫁得出去。",
+   "gender": "any",
+   "id": "pi_queen_matron",
+   "reputation": "贵族小姐们见了总管都要行屈膝礼。",
+   "resources": [
+    "一枚王太后亲赐的总管徽章",
+    "贵族小姐们的品行档案",
+    "出入王宫任何地方的权限"
+   ],
+   "risks": [
+    "下毒的流言要是查不清，总管也要被王太后问责。"
+   ],
+   "role": "王太后身边的宫廷总管",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "被王太子当众退婚的第七天，满宫都在传公爵千金给圣女候补下过毒。没人知道，皇家植栽园里那几株救命的药草，是千金天不亮就来亲手照看的；平民出身的宫廷药剂师常在排水夹道里撞见千金。植栽园的晶石穹顶靠地脉供能，最近一直过载。",
+ "pressures": [
+  {
+   "choice": "是趁两次余震的间隙冒险下撬，还是等震动停了再动手？",
+   "exits": [
+    {
+     "cost": "剪刃受力过猛可能崩口，手掌会被震裂",
+     "option": "趁余震间隙两人合力压下剪柄"
+    },
+    {
+     "cost": "余震不会停，横梁撑不到天亮",
+     "option": "缩进凹壁等卫兵挖进来"
+    }
+   ],
+   "far": {
+    "consequence": "剩下的半边穹顶整个砸下来，把夹道彻底埋住。",
+    "due_days": 1,
+    "trigger": "穹顶二次坍塌"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_dome_aftershock",
+   "immediate": {
+    "minutes": 2,
+    "text": "夹道猛地一晃，两人撞在一起，碎晶石砸在药剂师的肩上。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_drain_trench",
+    "loc_collapsed_trellis"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "横梁又沉了半寸，剪刃被咬得更深，梁销开始变形。"
+   },
+   "objective": "在横梁再次下沉之前，用修枝重剪撬开梁销，抽出被压住的礼裙。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "晶石穹顶余震二次塌方威胁",
+   "trigger": "穹顶余震一阵接一阵，碎晶石簌簌落下，压在头顶的铸铁横梁每晃一下就往下沉一点。"
+  },
+  {
+   "choice": "是先关阀再撬横梁，还是先撬横梁再赌一把阀门？",
+   "exits": [
+    {
+     "cost": "掌心会被烫出水泡",
+     "option": "两人胸背相贴握住蝶阀手柄一起扭"
+    },
+    {
+     "cost": "可能把阀杆砸断，蒸汽再也关不住",
+     "option": "用剪柄硬砸阀杆"
+    }
+   ],
+   "far": {
+    "consequence": "滚烫的白汽灌满石槽，两人被逼到唯一的死角里动弹不得。",
+    "due_days": 1,
+    "trigger": "蒸汽把夹道灌满"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_steam_scald",
+   "immediate": {
+    "minutes": 2,
+    "text": "一股白汽擦着千金的手臂喷过去，皮肤立刻红了一片。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "夹道里的温度越来越高，丝缎礼裙烫得贴在身上。"
+   },
+   "objective": "在被蒸汽烫伤之前，关掉旁通泄汽阀。",
+   "source": "accident",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "地热蒸汽持续泄漏高温炙烤",
+   "trigger": "断裂的铜管嘶嘶喷着地热蒸汽，夹道里热得像蒸笼，石壁烫得不能碰。"
+  },
+  {
+   "choice": "是为了公爵家的体面拉开半寸，还是干脆贴紧了一起发力？",
+   "exits": [
+    {
+     "cost": "这一夜之后，千金再也没法在露台上冲药剂师冷笑了",
+     "option": "放下架子贴紧对方，四只手一起压在剪柄上"
+    },
+    {
+     "cost": "力气使不到一处，横梁纹丝不动",
+     "option": "各自侧身单手发力"
+    }
+   ],
+   "far": {
+    "consequence": "剪刃从暗槽里滑出去，错过横梁抬起的那一瞬。",
+    "due_days": 1,
+    "trigger": "分心导致剪刃滑脱"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_trench_body_heat",
+   "immediate": {
+    "minutes": 2,
+    "text": "千金急促的呼吸拂在耳边，湿透的丝缎隔着一层衬衫传来体温。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "千金的心跳隔着湿透的丝缎撞在背上，一下比一下乱。"
+   },
+   "objective": "贴得这么近的时候，还得把心思放在剪刃的角度和数拍子上。",
+   "source": "person",
+   "start_minute": 10,
+   "tags": [
+    "workplace"
+   ],
+   "title": "逼仄石槽身躯紧贴体温升腾",
+   "trigger": "花架下只容两个人侧身挤着，千金的后背贴着药剂师的胸口，礼裙被汗浸得透湿。"
+  },
+  {
+   "choice": "是用湿布捂住口鼻慢慢来，还是屏住气一鼓作气？",
+   "exits": [
+    {
+     "cost": "礼裙又要再少一截",
+     "option": "撕下礼裙衬里浸水捂住口鼻"
+    },
+    {
+     "cost": "冷风一灌，蒸汽会往人身上扑",
+     "option": "砸开排水口放冷风进来"
+    }
+   ],
+   "far": {
+    "consequence": "两人在夹道里失去意识，等不到卫兵挖进来。",
+    "due_days": 1,
+    "trigger": "两人被药雾熏晕"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_herb_fog_air",
+   "immediate": {
+    "minutes": 2,
+    "text": "药雾辣得眼睛睁不开，喉咙像被砂纸磨过。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_drain_trench",
+    "loc_collapsed_trellis"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "眼前开始发花，手指发麻，数拍子的声音越来越轻。"
+   },
+   "objective": "在被药雾熏晕之前完成脱困。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "浓烈药草雾气导致空气混浊",
+   "trigger": "压碎的药草在热气里蒸出浓雾，苦味越来越重，吸一口就呛得眼泪直流。"
+  },
+  {
+   "choice": "是继续加力赌一把，还是退出来换个角度重新卡？",
+   "exits": [
+    {
+     "cost": "护腕会被梁销绞烂",
+     "option": "用帆布护腕缠住剪柄再压"
+    },
+    {
+     "cost": "研钵杵太短，力臂不够",
+     "option": "退出来改用研钵杵垫在支点下"
+    }
+   ],
+   "far": {
+    "consequence": "断掉的剪刃弹飞，两人失去唯一的撬具。",
+    "due_days": 1,
+    "trigger": "修枝重剪折断"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_shear_handle_strain",
+   "immediate": {
+    "minutes": 2,
+    "text": "剪柄发出细微的金属呻吟，握剪的指节被震得发白。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_collapsed_trellis"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "剪柄弯出一道肉眼可见的弧，再压一下可能就会断。"
+   },
+   "objective": "得在剪柄折断之前找准最后一个受力点。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "修枝剪柄承受极限剪切抗弯负荷",
+   "trigger": "修枝重剪卡在梁销里承受着数吨的压力，剪柄开始轻微弯曲。"
+  },
+  {
+   "choice": "是割断拖尾，还是赌一把横梁能撬起来？",
+   "exits": [
+    {
+     "cost": "那是公爵家传了三代的礼裙",
+     "option": "用剪刃割断拖尾"
+    },
+    {
+     "cost": "当着药剂师的面，只剩一层衬裙",
+     "option": "解开胸衣系带从礼裙里退出来"
+    }
+   ],
+   "far": {
+    "consequence": "横梁一沉，千金被礼裙拖住，再也躲不开。",
+    "due_days": 1,
+    "trigger": "千金被困在原地"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_train_pinned",
+   "immediate": {
+    "minutes": 2,
+    "text": "丝缎被扯得吱吱作响，千金每挪半寸都疼得咬牙。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_drain_trench",
+    "loc_collapsed_trellis"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "拖尾越压越紧，连带着胸衣的系带都被扯住了。"
+   },
+   "objective": "在横梁沉下来之前，把千金从礼裙里解出来。",
+   "source": "nature",
+   "start_minute": 10,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "被困长裙限制行动范围脱困紧迫",
+   "trigger": "千金的拖尾礼裙被倒下的花架死死压住，人只能半跪着，挪不开半步。"
+  },
+  {
+   "choice": "让药剂师当众说出千金天天来照看药草，还是由千金自己在舞会上澄清",
+   "exits": [
+    {
+     "cost": "药剂师就得承认那一夜也在温室里",
+     "option": "药剂师当众说出"
+    },
+    {
+     "cost": "傲气的千金得在退婚的王太子面前低头解释",
+     "option": "千金自己澄清"
+    }
+   ],
+   "far": {
+    "consequence": "千金被逐出王都，药草园交到圣女候补手里",
+    "due_days": 7,
+    "trigger": "闲话传到王太后耳中"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_seraphina_cocoa",
+    "hook_apothecary_herb_thanks",
+    "hook_seraphina_still_room"
+   ],
+   "id": "p_countess_daughter_gossip",
+   "immediate": {
+    "minutes": 5,
+    "text": "小女仆妮可躲在蒸馏室门口，说满宫的人都在议论"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_apothecary_still_room"
+   ],
+   "near": {
+    "deadline_minutes": 600,
+    "text": "今晚八点，宫廷舞会"
+   },
+   "objective": "在今晚的宫廷舞会之前，让大家知道千金那一夜在温室里做什么",
+   "source": "rumor",
+   "start_minute": 600,
+   "tags": [],
+   "title": "伯爵小姐的闲话",
+   "trigger": "穹顶塌下来的第二天，伯爵小姐克洛艾在茶会上说开了：是公爵千金弄坏了地脉晶石，想毁掉圣女候补的救命药草"
+  }
+ ],
+ "region": "皇家魔导晶石穹顶植栽园底层狭窄排水检修廊道",
+ "rules": [
+  {
+   "id": "r_ducal_etiquette",
+   "text": "宫廷礼法：公爵家的千金不得与平民同席，可温室塌下来的那一刻，礼法救不了人。"
+  },
+  {
+   "id": "r_beam_release_by_shears",
+   "text": "坍塌横梁由双重锁销死死卡死，只可通过特种淬火合金园艺修枝重剪卡入导轨缝隙合力下压撬脱。"
+  },
+  {
+   "id": "r_ley_crystal_season",
+   "text": "每年春天地脉晶石最躁动，透光穹顶要靠晶石供暖，也最容易在过载时开裂。"
+  },
+  {
+   "id": "r_greenhouse_royal_charter",
+   "text": "皇家植栽园的药草只供王室与救人之用，私自取用者要上宫廷法庭。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "并肩勘察",
+  "committed": "生死破局",
+  "familiar": "携手排障",
+  "flirting": "气息相交",
+  "intimate": "默契发力",
+  "stranger": "初见矜持",
+  "testing": "共承重压"
+ },
+ "status": "released",
+ "style_hint": "宫廷恶役千金的工笔：白天写玫瑰露台的下午茶、扇子后的冷笑、满宫的流言与舞会；夜里写坍塌温室下的热蒸汽、药草苦香与贴身发力。千金嘴上越刻薄，手上的事越温柔，张力藏在反差里。",
+ "tension_engines": [
+  {
+   "id": "te_dome_aftershock",
+   "text": "穹顶余震不断，倒下的铸铁横梁随时可能再沉两寸。"
+  },
+  {
+   "id": "te_beam_pin_deadlock",
+   "text": "偏心梁销死死咬住导轨，剪刃卡进去就再难退出。"
+  },
+  {
+   "id": "te_trench_body_heat",
+   "text": "不足三平米的石槽里两人胸背相贴，湿透的丝缎礼裙紧贴着对方的衬衫。"
+  },
+  {
+   "id": "te_steam_valve_seize",
+   "text": "旁通蝶阀热胀咬死，滚烫的蒸汽越积越多。"
+  }
+ ],
+ "title": "傲娇恶役千金·皇家晶石穹顶植栽园坍塌",
+ "tone": [
+  "晶石穹顶崩塌",
+  "重梁死锁下压",
+  "滚烫药草白雾",
+  "合金修剪别销"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_beam_sinks_bite",
+   "requires": [
+    "villainess_seraphina"
+   ],
+   "text": "穹顶瓦砾忽然剧烈震动，倒塌横梁下沉两寸，将插入缝隙的修枝重剪死死咬死，必须依靠两人体重反向猛顿方能解脱剪身。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_train_cut_free",
+   "requires": [
+    "villainess_seraphina"
+   ],
+   "text": "千金礼裙拖尾在挪动中被齿轮锐角刮住，千金毫不犹豫握住剪刃割断多余丝缎，果断护住发力核心支点。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_sweat_on_hand",
+   "requires": [
+    "court_apothecary"
+   ],
+   "text": "千金额前细汗顺着饱满带着面颊滑下，滴落在同伴握剪的手背上，在近在咫尺的狭小空间内激起急促的心跳。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_valve_embrace",
+   "requires": [
+    "villainess_seraphina",
+    "court_apothecary"
+   ],
+   "text": "旁通截止手柄因管道高热紧紧卡阻，单人无论如何无法转动，千金自后方合身贴近，两臂环绕交叠在手柄轮缘合力施加扭矩。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_steam_jet",
+   "requires": [
+    "villainess_seraphina"
+   ],
+   "text": "侧壁裂隙突喷灼热白汽，逼仄槽内两人被迫进一步紧贴俯身，以脊背为彼此遮挡飞溅的沸水残滴。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_pin_pops_on_three",
+   "requires": [
+    "villainess_seraphina",
+    "court_apothecary"
+   ],
+   "text": "药剂师借千金肩背为依托形成合力力矩，伴随倒数齐心将剪柄压至极限，清脆的金属销轴脱位脆响在石槽中迸发。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_beam_springs_free",
+   "requires": [
+    "villainess_seraphina"
+   ],
+   "text": "偏心梁卡扣轰然弹开，蒸汽旁通阀顺畅关停，倒塌横梁被撬开安全间隙，长裙顺利脱出，两人成功脱困自救。"
+  }
+ ]
+}

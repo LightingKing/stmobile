@@ -1,0 +1,2018 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "二十五周岁成年军官，具备完全独立值守警备民事行为能力。",
+   "age_range": [
+    24,
+    28
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_erik_officer",
+   "line": "回禀统领，回廊第二道阻击防线已全部架设铁盾长矛！",
+   "location_ids": [
+    "loc_corridor_cliff_ramp"
+   ],
+   "name": "莫格",
+   "role": "近卫骑士士官莫格"
+  },
+  {
+   "adult_context": "二十二周岁成年文职职员，具备完全法律文书校印权能。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_clara_scribe",
+   "line": "报告大人，撤退机要图纸原本已全部装入封灵铁箱。",
+   "location_ids": [
+    "loc_altar_secret_sanctum"
+   ],
+   "name": "莉瑟",
+   "role": "随军记录女官莉瑟"
+  },
+  {
+   "adult_context": "四十二周岁成年武装指挥官，依教区法案行使防暴管制权。",
+   "age_range": [
+    40,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_august_vanguard",
+   "line": "奉圣堂统帅令进占神殿，胆敢抵抗者一律按战犯惩办！",
+   "location_ids": [
+    "loc_corridor_cliff_ramp"
+   ],
+   "name": "戈德温",
+   "role": "联军前锋督战戈德温"
+  },
+  {
+   "adult_context": "二十八周岁成年医师，享有完全独立处方与伤患急救民事权柄。",
+   "age_range": [
+    27,
+    30
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_grete_medic",
+   "line": "避难敷料已整备就绪，随时可协助大人处理落石挫伤。",
+   "location_ids": [
+    "loc_altar_secret_sanctum"
+   ],
+   "name": "茉菈",
+   "role": "随军急救女医茉菈"
+  },
+  {
+   "adult_context": "四十八周岁成年专业管道技师，负责涵洞防汛维护法定责任。",
+   "age_range": [
+    45,
+    50
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_bastian_plumber",
+   "line": "熔炉地气压力过载，必须马上强开备用翻板排气！",
+   "location_ids": [
+    "loc_furnace_underground_core"
+   ],
+   "name": "杜格",
+   "role": "地脉检修管工杜格"
+  },
+  {
+   "adult_context": "二十四周岁成年独立档案管理员，依法对公证册页享有保管公信权。",
+   "age_range": [
+    23,
+    26
+   ],
+   "function": "witness",
+   "gender": "female",
+   "id": "bg_elena_archivist",
+   "line": "历代大典案卷原件皆已入柜锁死，绝无外泄风险。",
+   "location_ids": [
+    "loc_altar_secret_sanctum"
+   ],
+   "name": "奥黛",
+   "role": "法典档案女史奥黛"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "皇女与魅魔近卫誓约相托生死羁绊",
+   "id": "combo_violette_and_sophia",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_empress_iris",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "这些日子在神殿里打过多次交道，皇女肯把后背交出来",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_guard_camilla",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "同在王座边护着皇女的两个人，一个眼神就能分好工",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_empress_iris",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_guard_camilla",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "主仆二人默契配合以斗篷构筑绝对战术盲区",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "char_empress_iris",
+    "char_guard_camilla"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在敌国骑士撞门搜捕前解脱卡滞裙幅并在大氅掩护下踏入传送门。",
+    "limit_gap": "皇女受制于王座形变物理锁死而近卫必须以斗篷遮挡优先保全体面。",
+    "meeting_reason": "废墟王座夹死裙摆与敌军破门合围绝命危机协同破拆处置。",
+    "resource_gap": "皇女执掌王权法统而近卫统领拥有单兵贴身刺客绝顶武技。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_inquisition_gear_trap",
+    "engine_sacred_robe_damage_risk"
+   ]
+  },
+  {
+   "chemistry": "败北皇女与胜势圣殿骑士长之间宿命对峙交锋",
+   "id": "combo_violette_and_reynold",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_empress_iris",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "败北之夜仍站在皇女这一边的人",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_paladin_roland",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "代表联军长驱直入逼降之劲敌骑士指挥官",
+     "stage": "stranger"
+    },
+    {
+     "a": "char_empress_iris",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_paladin_roland",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "阵营决死敌对却彼此暗存风骨相惜之宿命对手",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "char_empress_iris",
+    "char_paladin_roland"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "赶在重甲骑士包围俘获前恢复自由并以孤高背影反杀退场。",
+    "limit_gap": "骑士长受军纪誓约限制而皇女身受精金夹槽物理咬死束缚。",
+    "meeting_reason": "联军主力突破防线杀入神殿迫降末代魔王千金。",
+    "resource_gap": "骑士长统帅重装军团大军而败北皇女独守残破王座深渊气运。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_bishop_breach_countdown"
+   ]
+  },
+  {
+   "chemistry": "皇室主君与宫廷营造学者力学参数指引搭档",
+   "id": "combo_violette_and_julian",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_empress_iris",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "为加固神殿一起熬过几个通宵",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_scholar_baal",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "精研古代机关建筑力学之老练营造技师",
+     "stage": "familiar"
+    },
+    {
+     "a": "char_empress_iris",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "char_scholar_baal",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "废墟王座前生死攸关之精确物理破拆传讯",
+     "stage": "familiar"
+    }
+   ],
+   "slots": [
+    "char_empress_iris",
+    "char_scholar_baal"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "按学者算出的撬点让王冠钢角一次撬开夹块，不给石台第二次震动的机会。",
+    "limit_gap": "学者缺乏武力防御而皇女受困于倾斜王座死点。",
+    "meeting_reason": "精金王座扶手夹槽应力计算与脱困力矩参数分析。",
+    "resource_gap": "学者掌握精金力学形变数据而皇女拥有王冠钢角与沉着自救心智。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_lever_unlatch_mechanics"
+   ]
+  },
+  {
+   "chemistry": "贴身魅魔影卫与圣堂骑士团长门廊激烈交锋",
+   "id": "combo_sophia_and_reynold",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 5
+     },
+     "b": "char_guard_camilla",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 5
+     },
+     "reason": "在门廊并肩守过几夜的近卫统领",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_paladin_roland",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "步步紧逼誓夺全功之敌国军团长",
+     "stage": "stranger"
+    },
+    {
+     "a": "char_guard_camilla",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "char_paladin_roland",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "门洞两侧短兵相接杀机四伏之阵营死斗",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "char_guard_camilla",
+    "char_paladin_roland"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "拖住骑士团二十息，直到皇女以血立约、契约之力镇住门廊。",
+    "limit_gap": "近卫誓死拖延时间而骑士长受命限期肃清神殿。",
+    "meeting_reason": "破损石廊大门前武装阻击与通牒劝降之正面交锋。",
+    "resource_gap": "近卫统领占据狭窄残垣地利而骑士团长拥有人数与重甲绝对优势。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "engine_bishop_breach_countdown"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "channel_throne_echo",
+   "reach": "王座大厅全员与门廊骑士",
+   "text": "残破神殿穹顶高空回音呼啸"
+  },
+  {
+   "fidelity": "exact",
+   "id": "channel_guard_telepathy",
+   "reach": "近卫统领与皇女",
+   "text": "魅魔近卫近距耳语急报"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "channel_scholar_warning",
+   "reach": "学者与撤退卫队",
+   "text": "宫廷学者地脉塌方震波通告"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一周岁纯血皇女，享有完备法定主权决断与民事独立行事权。",
+   "age_range": [
+    21,
+    22
+   ],
+   "appearance_options": [
+    "墨黑长发如瀑微卷垂腰，白瓷小脸微显淡淡的红晕与绯红深邃眼眸形成傲娇反差；头戴纯金荆棘王冠，身着暗红高定真丝开叉礼服配真丝束身衬裙，身形优美端庄。",
+    "单足后撤于精金扶手旁微屈卸力，暗红裙摆被死死咬入两毫米金属裂隙，真丝薄纱紧绷隐现修长雪白美腿与腰肢曼妙轮廓。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目使用蛮力扯坏高定礼服长裙造成失仪走光",
+     "向神圣联军骑士团屈膝求饶沦为俘虏奴役"
+    ],
+    "contrast": "平日高高在上孤傲严苛，绝境危局中展现惊人机敏胆魄与傲娇反差。",
+    "core_value": "誓死捍卫纯血魔王尊严与自身清白高傲体面",
+    "goal_options": [
+     "反手摘下王冠以硬角探入精金夹槽施展逆向力矩物理脱扣",
+     "脱身后咬破指尖，在王座扶手立下停战血契，让契约反噬破门之人"
+    ],
+    "never": [
+     "向敌国骑士乞怜屈从交出王室传承印信"
+    ],
+    "prefers": [
+     "依据精密力学原理实施微观工具破拆物理脱险",
+     "要求近卫展开宽幅斗篷形成绝对视线盲区"
+    ],
+    "pressure_responses": {
+     "breaking": "若长裙撕裂受困，宁可舍弃裙摆亦要紧握法权符印从容反唇讥讽敌将。",
+     "high": "强忍悬崖烈风呼啸侵袭，手腕暗运劲道施展微观剪切杠杆挑退金属卡块。",
+     "low": "单手抚平抹胸领口保持冷傲呼吸，审视精金扶手形变凹槽。",
+     "mid": "绯红双眸寒芒微凝，反手卸下王冠以坚硬侧角精准切入咬合死穴。"
+    },
+    "relationship_stance": "对近卫统领寄予生死重托，对骑士团长冷眼相对，对学者信赖参数。",
+    "withdrawal": "立约之后单手收拢裙幅，在近卫大氅的遮蔽下从容迈入传送秘门。"
+   },
+   "gender": "female",
+   "gender_reason": "孤高冷傲败北纯血魔王皇女傲娇人设",
+   "id": "char_empress_iris",
+   "identity": {
+    "authority": "深渊皇族最高决断令与密库调动圣裁权",
+    "exposure": "暗红礼服撕裂将使绝美身段暴露于敌军前，皇室体面尽毁沦为阶下囚。",
+    "hidden": "头顶纯金王冠右侧折角实为冷锻高硬度破拆钢核，可作强力撬棒。",
+    "limits": [
+     "礼服裙摆被三吨精金王座扶手夹凹锁死寸步难移"
+    ],
+    "obligations": [
+     "在圣骑士破门前脱离物理束缚并掩护王室传承自尊"
+    ],
+    "resources": [
+     "纯金荆棘王冠暗藏四毫米直角淬火纯钢硬角",
+     "暗红真丝防割暗纹高定皇室抹胸礼服长裙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "败局里仍肯站在自己这边、不图回报的人",
+     "敢直视皇女的眼睛说真话的胆量"
+    ],
+    "boundaries": [
+     "人前是皇女，私下的心软只给认定的人",
+     "每一步都要本皇女亲口应允"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "偏殿暗室里由人替自己卸下王冠与礼服的近身位",
+    "dislikes": [
+     "伪善的劝降辞令",
+     "趁人之危的眼神"
+    ],
+    "expression": "扬着下巴说命令的话，耳尖却红得像礼服的颜色",
+    "likes": [
+     "冰镇的深渊血莓酒",
+     "被人一缕缕梳顺的长发"
+    ],
+    "preconditions": [
+     "血契生效、追兵退尽、自己体面脱身之后",
+     "两人都清醒，心意出于自己，不是败北之夜的慌乱依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "纯血魔王千金",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_hall_throne_ruin",
+     "to": 320
+    },
+    {
+     "from": 321,
+     "location_id": "loc_corridor_cliff_ramp",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "雪白掌心受王冠纯金棱线强力反冲挤压泛起浅红生疼勒痕",
+      "option": "倒持黄金荆棘法冠以四毫米加厚纯钢边棱插入夹槽深处，腕部发力挑退卡滞锁块"
+     },
+     {
+      "cost": "消耗一次核心近卫贴身防护调派权能",
+      "option": "示意近卫展开加厚纯黑耐磨斗篷遮挡身姿避入悬崖走廊"
+     }
+    ],
+    "pressure": "穹顶落石倾泻倒数二十秒，圣堂骑士长率重装前锋十五步逼近门廊",
+    "trigger": "悬空王座遭冲击倾斜十五度，精金扶手机械形变死死夹住暗红礼服裙摆"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "精金夹槽两毫米间隙正在收缩，落石死线倒数二十秒，断不能在敌将面前露出半点狼狈之态。",
+    "surface": "区区联军伪善骑士也配在本皇女面前狂吠？此残破王座本皇女赏赐予尔等便是！"
+   }
+  },
+  {
+   "adult_context": "二十三岁上下的成年魅魔近卫，以血誓侍奉皇族，进退去留由本人担当。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "紫黑长发束成利落高马尾，紧身暗黑皮甲勾勒健美线条，腰悬双柄精钢破拆短刀，神情沉毅果敢。",
+    "反手按住腰间防暴短刀握柄，宽幅纯黑战术大氅微扬，锐利目光紧盯神殿正门廊道任何声响。"
+   ],
+   "decision": {
+    "avoids": [
+     "在殿下发力的一瞬碰撞王座",
+     "被骑士挑衅激得先动手，打乱立约的时机"
+    ],
+    "contrast": "平日懒洋洋地调笑撩人，护驾时却冷得像一柄出鞘的刀。",
+    "core_value": "近卫的命是殿下的，殿下的体面比近卫的命更贵。",
+    "goal_options": [
+     "扬起黑金大氅，挡住门廊外所有圣光与目光",
+     "以魅魔耳语把骑士的方位与步数一一报给殿下"
+    ],
+    "never": [
+     "绝不让敌军看见殿下衣衫不整的一瞬"
+    ],
+    "prefers": [
+     "以身形和大氅构筑视线盲区",
+     "用只有殿下听得见的魅魔耳语传递暗号"
+    ],
+    "pressure_responses": {
+     "breaking": "若大门被撞开，便张开大氅扑向最前排的骑士，用身子封死门洞。",
+     "high": "短刀出鞘半寸，用后背顶住被撞得震颤的石门，替殿下拖住每一息。",
+     "low": "侧耳听着门廊外铁靴的节拍，悄无声息地挪到王座与大门之间。",
+     "mid": "紫黑马尾一甩，扬起大氅，冷笑着喝令门外骑士再进一步就见血。"
+    },
+    "relationship_stance": "对殿下忠诚到近乎执念，对圣堂骑士团长又恨又忍不住多看两眼。",
+    "withdrawal": "危机排除后单膝跪地，把备用披风搭上殿下肩头，护送步入传送秘门。"
+   },
+   "gender": "female",
+   "gender_reason": "忠诚英气贴身影卫统领人设",
+   "id": "char_guard_camilla",
+   "identity": {
+    "authority": "皇室近卫队应急护卫全权指挥权",
+    "exposure": "若撤离失败将被圣殿骑士联军合围生擒。",
+    "hidden": "暗藏单向传送阵紧急引信激发水晶。",
+    "limits": [
+     "不得擅离皇女周身半步"
+    ],
+    "obligations": [
+     "以身躯为护障捍卫皇女威仪清白"
+    ],
+    "resources": [
+     "随身备用加厚隔热纯黑大氅斗篷",
+     "防卫短刀配合金解扣破拆锁环"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "殿下败而不折的那股傲气",
+     "刀光里仍从容不迫的人"
+    ],
+    "boundaries": [
+     "当值时只护驾不调情",
+     "对方迟疑就停，魅魔也守这条规矩"
+    ],
+    "desire_range": [
+     2,
+     3
+    ],
+    "desired_position": "卸下皮甲后伏在人肩头低语的贴身位",
+    "dislikes": [
+     "满口仁义的伪君子",
+     "畏首畏尾的懦夫"
+    ],
+    "expression": "指尖勾着人的衣领轻声调笑，眼神却认真得吓人",
+    "likes": [
+     "月下擦拭短刀",
+     "被人从背后环住腰"
+    ],
+    "preconditions": [
+     "殿下平安脱身、追兵尽退之后",
+     "彼此清醒，心意出于自己，不靠魅惑之术"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "近卫魅魔统领",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_hall_throne_ruin",
+     "to": 320
+    },
+    {
+     "from": 321,
+     "location_id": "loc_corridor_cliff_ramp",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "斗篷下摆沾染微量石阶飞溅之灰浆污迹",
+      "option": "挥臂扬起加厚纯黑斗篷严密遮蔽王座主位侧影"
+     },
+     {
+      "cost": "加剧近卫小队与先锋重甲骑士队擦枪走火风险",
+      "option": "短刃出鞘半寸横挡回廊大门严令敌军骑士止步"
+     }
+    ],
+    "pressure": "长靴逼近倒计时，必须用大氅构筑视线屏障",
+    "trigger": "联军破门铁靴逼近，皇女身受精金王座夹滞"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "哪怕粉身碎骨，也绝不容许敌兵看轻殿下一分一毫。",
+    "surface": "近卫队全员结阵掩护，任何人不得逼近殿下法驾前沿！"
+   }
+  },
+  {
+   "adult_context": "二十八周岁成年圣堂骑士团长，依法享有全权受降与军事临战处置权。",
+   "age_range": [
+    26,
+    30
+   ],
+   "appearance_options": [
+    "金发寸头目光如炬，身穿纯白镀金全身重甲披雪白丝绒战袍，手扶双刃阔剑威风凛凛。",
+    "沉重战靴踏响残破石阶，剑眉紧锁目光如电，紧扣腰间阔剑警惕防范殿内潜藏陷阱。"
+   ],
+   "decision": {
+    "avoids": [
+     "在皇女衣衫受困时趁人之危",
+     "让骑士团在神魔旧约面前背上毁约之名"
+    ],
+    "contrast": "人前是铁面无私的圣堂骑士，独处时却会对着宿敌的背影出神。",
+    "core_value": "骑士的剑只斩不义；胜者也要守住受降的规矩。",
+    "goal_options": [
+     "率军踏入王座大厅，以骑士礼节劝降魔王皇女",
+     "约束突击副将，不许任何人趁乱羞辱败北的皇女"
+    ],
+    "never": [
+     "绝不对手无寸铁的败者落井下石"
+    ],
+    "prefers": [
+     "按骑士礼节先劝降再动武",
+     "亲自上前，不让手下沾染不必要的血"
+    ],
+    "pressure_responses": {
+     "breaking": "若皇女以血立约，便当众收剑入鞘，宁可空手而归也不让骑士团背上毁约之名。",
+     "high": "副将抡锤砸门时一把攥住锤柄，喝令全军不得逾越受降规矩。",
+     "low": "按剑立于门廊，隔着烟尘高声宣读受降通牒。",
+     "mid": "抬手止住身后骑士，独自踏前三步，直视王座上的皇女。"
+    },
+    "relationship_stance": "视皇女为可敬的宿敌，对贪功的副将处处设防。",
+    "withdrawal": "目送皇女踏入传送光幕，久久没有收回目光。"
+   },
+   "gender": "male",
+   "gender_reason": "刚毅英武圣堂骑士团长对手人设",
+   "id": "char_paladin_roland",
+   "identity": {
+    "authority": "教廷先锋军团临战管制裁决权",
+    "exposure": "若被皇女当面脱逃将使先锋军团蒙羞受责。",
+    "hidden": "暗中钦佩皇女孤高决绝之胆识风骨。",
+    "limits": [
+     "受制于教廷骑士誓约不可滥杀弃兵"
+    ],
+    "obligations": [
+     "生俘魔王千金带回王都公审示众"
+    ],
+    "resources": [
+     "圣光加护重型双手破阵重剑",
+     "教廷枢机省盖印通牒诏书原本"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "宿敌在绝境里也不肯低头的骄傲",
+     "那双在烟尘里仍亮得逼人的绯红眼眸"
+    ],
+    "boundaries": [
+     "战场上只论胜负，不谈私情",
+     "对方说不，就到此为止"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "停战之后隔着长桌对饮的宿敌位",
+    "dislikes": [
+     "趁乱抢功的小人",
+     "背后放冷箭"
+    ],
+    "expression": "收剑入鞘时多看了一眼，声音比宣读通牒时低了半分",
+    "likes": [
+     "擦得发亮的白银甲胄",
+     "对手堂堂正正的一剑"
+    ],
+    "preconditions": [
+     "战事落定、两族停战之后",
+     "双方清醒，各自点头才算数，不拿胜负作交换"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "圣堂骑士团长",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_corridor_cliff_ramp",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "直面皇女决绝反击与近卫近战短刃突刺",
+      "option": "大步踏前横剑劝降勒令对方放弃抵抗"
+     },
+     {
+      "cost": "错失最佳抓捕窗口放任对方步入传送盲区",
+      "option": "示意后排重甲卫兵缓步推进封死悬崖退路"
+     }
+    ],
+    "pressure": "神殿地脉即将彻底塌陷，必须在十秒内实施围捕",
+    "trigger": "率军破门杀入悬空神殿，逼近残破王座主台"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "不愧是魔王千金，面对覆灭死线竟仍能保持如此孤高傲骨。",
+    "surface": "皇女，神殿已然倾塌在即，请放下武装体面随在下受降！"
+   }
+  },
+  {
+   "adult_context": "四十八周岁成年工程学者，具备完全民事行为能力与图纸调阅权。",
+   "age_range": [
+    45,
+    50
+   ],
+   "appearance_options": [
+    "灰白短发戴青铜护目镜，身穿墨绿防尘长袍配牛皮工具腰带，手持测绘黄铜圆规。",
+    "指尖沾满石膏石粉，焦急核算石台形变应力曲线，神色严峻争分夺秒。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿未经验算的方案去赌殿下的安危",
+     "在地脉震波里乱动应力最集中的石梁"
+    ],
+    "contrast": "平日唠唠叨叨像个老学究，算到生死关头却一个多余的字也没有。",
+    "core_value": "神殿的每一块石头都有寿命，算准了，就能抢在石头死之前把人带出去。",
+    "goal_options": [
+     "报出精金扶手的应力集中点与王冠该下压的角度",
+     "扳动应急法阵手轮，提前替传送秘门充能"
+    ],
+    "never": [
+     "绝不为保自己性命谎报一个数字"
+    ],
+    "prefers": [
+     "用精确的数字指引殿下自救",
+     "先算清石台寿命再定撤退路线"
+    ],
+    "pressure_responses": {
+     "breaking": "若王冠钢角将折，立刻喝停，改报从扶手底部挑卡块的方案。",
+     "high": "冲到法阵手轮旁，双掌按住烫手的符文铜管拼命扭动。",
+     "low": "护目镜推到额头，铜尺在羊皮册上飞快量出形变角度。",
+     "mid": "压低嗓音报出右侧凹槽三十度下压的读数，一遍又一遍。"
+    },
+    "relationship_stance": "对殿下忠心耿耿，报出的数字从不掺水；只把联军当成会走路的落石。",
+    "withdrawal": "传送光幕亮起后，抱着羊皮册瘫坐在石阶上，长出一口气。"
+   },
+   "gender": "male",
+   "gender_reason": "博学沉稳宫廷地质学者知性人设",
+   "id": "char_scholar_baal",
+   "identity": {
+    "authority": "神殿地宫防灾与传送阵启动技术权",
+    "exposure": "数据计算偏差或致王冠钢角断裂卡死。",
+    "hidden": "掌握神殿绝壁自毁落石延时机关闸盒。",
+    "limits": [
+     "文弱学者无武力正面对抗重装骑士"
+    ],
+    "obligations": [
+     "向皇女提供精金扶手撬点精确力矩参数"
+    ],
+    "resources": [
+     "古代悬空神殿地质应力图纸羊皮册",
+     "王座精金机械咬合间隙测量铜尺"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "殿下一点就透、一撬就准的那份聪慧",
+     "败局里还记得给老臣留一条退路的仁厚"
+    ],
+    "boundaries": [
+     "殿下脱困期间只盯着夹槽",
+     "任何靠近都先开口问过"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "图纸长桌旁为人掌灯的老臣位",
+    "dislikes": [
+     "乱敲石梁的蠢货",
+     "不听数据的莽夫"
+    ],
+    "expression": "摘下护目镜擦了又擦，好半天才把话说出口",
+    "likes": [
+     "完整无缺的古神殿图纸",
+     "炉边一杯热苦艾"
+    ],
+    "preconditions": [
+     "撤离成功、众人脱险之后",
+     "撤离之后两边都清醒，各自情愿，不算君臣之恩"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "宫廷地质学者",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_hall_throne_ruin",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "暴露自身掩护位置引来敌兵弓弩手注视",
+      "option": "高声指导王冠受力支点与临界回弹力矩角度"
+     },
+     {
+      "cost": "双掌被过热符文铜管烫出浅红灼伤水泡",
+      "option": "奋力扭动应急法阵手轮提前充能传送光斑"
+     }
+    ],
+    "pressure": "地脉裂隙以每秒十厘米撕裂，必须十秒内脱扣",
+    "trigger": "精金王座受光矛重压严重变形夹死礼服裙幅"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "岩层断裂带仅余二十秒寿命，必须立刻脱扣踏入传送阵！",
+    "surface": "殿下！扶手夹槽应力集中在右侧凹槽！请以王冠侧角三十度下压！"
+   }
+  },
+  {
+   "adult_context": "三十八周岁成年军官，依军法行使突击抓捕指挥职责。",
+   "age_range": [
+    35,
+    40
+   ],
+   "appearance_options": [
+    "面带刀疤短髯浓密，身披重鳞铁甲外罩狮鹫纹战袍，手提精钢破门长锤粗暴刚烈。",
+    "凶光毕露高举破门重锤，大声喝骂催促进攻，迫切渴望生俘魔王抢夺首功。"
+   ],
+   "decision": {
+    "avoids": [
+     "在团长面前留下违抗军令的把柄",
+     "让旁人分走首功"
+    ],
+    "contrast": "人前满口教廷大义，私下惦记的全是魔王宫殿里的金银珠宝。",
+    "core_value": "功劳是抢来的，魔王皇女活捉回去，就是一座总督府。",
+    "goal_options": [
+     "抡起破门锤抢在团长受降前砸开大门",
+     "把联军锁魔手铐亲手扣在皇女腕上，独占首功"
+    ],
+    "never": [
+     "绝不在到手的功劳面前收手"
+    ],
+    "prefers": [
+     "以蛮力和人数碾压",
+     "抢在所有人之前动手"
+    ],
+    "pressure_responses": {
+     "breaking": "若皇女以血立约仍红着眼扑上去，结果被契约反噬，锁魔手铐反扣在自己腕上。",
+     "high": "不顾团长喝止，带着亲兵撞向半塌的石门。",
+     "low": "攥着破门锤在门外来回踱步，不停催促盾兵结阵。",
+     "mid": "抡锤狠砸回廊铁栓，骂骂咧咧催着手下往前挤。"
+    },
+    "relationship_stance": "表面服从团长，背地里只想抢功，把皇女当成一件会走路的战利品。",
+    "withdrawal": "被契约之力钉在原地，眼睁睁看着皇女从容离去。"
+   },
+   "gender": "male",
+   "gender_reason": "功利严苛联军突击副指挥官人设",
+   "id": "char_officer_bruno",
+   "identity": {
+    "authority": "突击前锋破门部队临场战术指挥权",
+    "exposure": "若急功近利引发误伤将受教廷军律惩处。",
+    "hidden": "暗藏私扣魔王宫殿珍宝之贪婪企图。",
+    "limits": [
+     "必须听从骑士团长临战法纪节制"
+    ],
+    "obligations": [
+     "以最快速度破除神殿大门攻占王座"
+    ],
+    "resources": [
+     "攻城级加重精钢破门铁锤",
+     "联军锁魔精金重锁手铐"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "高高在上的人跌下来的那一刻",
+     "能拿来炫耀的战利品"
+    ],
+    "boundaries": [
+     "人前要摆足副将的威风",
+     "对方说不就收手"
+    ],
+    "desire_range": [
+     0,
+     1
+    ],
+    "desired_position": "营帐里大口喝酒吹嘘战功的主位",
+    "dislikes": [
+     "被人当众训斥",
+     "到嘴的肥肉飞了"
+    ],
+    "expression": "咧嘴一笑，刀疤跟着扯动，说话粗声大气",
+    "likes": [
+     "满箱的金币",
+     "手下的吹捧"
+    ],
+    "preconditions": [
+     "双方清醒、出于自愿",
+     "不拿俘虏身份作要挟"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "联军突击副将",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_corridor_cliff_ramp",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "长锤反冲震裂虎口皮肉血迹斑斑",
+      "option": "挥锤狂暴砸击回廊防御铁栓强行砸出门洞"
+     },
+     {
+      "cost": "遭神殿高空坠落断柱砸散侧翼攻击阵型",
+      "option": "喝令两排精锐盾兵持重盾结成撞角强推入内"
+     }
+    ],
+    "pressure": "必须抢在团长仁慈受降前冲入王座生擒目标",
+    "trigger": "先锋重兵逼近神殿内廊大门，准备强攻破门"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "只要把皇女捆上铁链游街，本副将便能一跃晋升为教区总督！",
+    "surface": "砸开大门！抓到魔王重重有赏！别让那傲慢娘们溜了！"
+   }
+  },
+  {
+   "adult_context": "二十二周岁成年王室内廷侍女，依法行使起居随扈独立民事权。",
+   "age_range": [
+    21,
+    23
+   ],
+   "appearance_options": [
+    "茶褐齐耳短发戴白蕾丝发带，身穿黑白分明长款高领真丝侍女长裙配软底鞋，清秀温顺。",
+    "紧抱皇室避难锦囊与备用披肩，秀眉紧蹙神色慌急，紧随皇女身侧忠心耿耿。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱中把锦盒遗落在王座大厅",
+     "在殿下发力时碰到王冠"
+    ],
+    "contrast": "平日胆小怕事、说话细声细气，护着殿下时却一步也不肯退。",
+    "core_value": "侍女的本分，是让殿下无论何时走出去，都和登基那天一样体面。",
+    "goal_options": [
+     "脱扣瞬间展开羊毛披肩，护住殿下撕开的裙幅",
+     "抱紧紫金玺印锦盒，率先踏入传送阵接应引路"
+    ],
+    "never": [
+     "绝不让殿下的贴身之物落进敌军手里"
+    ],
+    "prefers": [
+     "先遮住殿下的身子再说别的",
+     "备齐殿下的衣物与印玺"
+    ],
+    "pressure_responses": {
+     "breaking": "若裙幅撕裂，便把整条披肩裹在殿下身上，自己只穿一件单衣也不退。",
+     "high": "顶着飞溅的石屑扑到王座旁，用身子挡住倾斜那一侧的视线。",
+     "low": "抱紧锦盒贴在殿下身侧，小声报着裙摆被夹住的位置。",
+     "mid": "抖开备用披肩，双手举着挡在殿下侧腰与门廊之间。"
+    },
+    "relationship_stance": "对殿下忠心到骨子里，对联军骑士又怕又恨。",
+    "withdrawal": "传送之后跪坐在殿下脚边，一针一线缝补撕开的裙边。"
+   },
+   "gender": "female",
+   "gender_reason": "忠谨柔顺皇室贴身侍女知性人设",
+   "id": "char_maid_filia",
+   "identity": {
+    "authority": "内廷备用衣物与印玺箱匣保管权",
+    "exposure": "若行李遗落将泄露皇室隐秘撤离路线。",
+    "hidden": "贴身藏着先王后留给皇女的一枚玉佩，是皇女最珍视的旧物。",
+    "limits": [
+     "柔弱无力不具正面武力防卫能力"
+    ],
+    "obligations": [
+     "协助皇女迅速理顺受损衣装确保仪容"
+    ],
+    "resources": [
+     "深渊皇室传承紫金玺印锦盒",
+     "加厚纯羊毛防尘御寒备用长披肩"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "殿下私下里偶尔流露的柔软",
+     "殿下记得每一个侍从名字的那份心"
+    ],
+    "boundaries": [
+     "服侍时只尽本分",
+     "每一步都先问过"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "梳妆镜前替人梳头更衣的近侧位",
+    "dislikes": [
+     "粗手粗脚的骑士",
+     "弄脏殿下礼服的人"
+    ],
+    "expression": "低头替人整理衣角，耳根悄悄红透",
+    "likes": [
+     "熨得平整的蕾丝发带",
+     "深夜替殿下梳头的时光"
+    ],
+    "preconditions": [
+     "殿下平安、印玺安放之后",
+     "双方神志清明，各自点头才算数"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "皇室随身侍女",
+   "schedule": [
+    {
+     "from": 300,
+     "location_id": "loc_hall_throne_ruin",
+     "to": 340
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "裙角被飞溅石屑割开一道寸许裂口",
+      "option": "双手展平羊毛披肩飞身护住皇女侧腰露白"
+     },
+     {
+      "cost": "心跳剧烈双腿发软几乎跪伏于法阵前",
+      "option": "紧抱印玺锦盒率先踏入传送阵接应引路"
+     }
+    ],
+    "pressure": "必须在脱扣瞬间递上披肩遮挡撕裂裙幅",
+    "trigger": "王座落石崩塌，殿下礼服受卡急需遮掩"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "绝不能让殿下的纯洁身段被那些野蛮骑士瞧见！",
+    "surface": "殿下小心脚下！传送阵灵流已经稳固，请随奴婢撤离！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "神魔旧纪元最后一年，深秋",
+  "minute": 300
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "violence",
+  "coercion_theme",
+  "humiliation",
+  "bodily_harm",
+  "supernatural",
+  "disaster"
+ ],
+ "custom": true,
+ "customs": [
+  "皇女升座之时全殿侍从必须屈膝抚胸致敬之古老血脉仪轨。",
+  "魔王战败撤退必须由近卫以黑金斗篷掩蔽皇室身姿之尊严法统。",
+  "圣堂骑士团破门抓捕首要目标必须宣读教廷降书受降公文规制。",
+  "魔族君主以血立约时，在场之人无论敌我都须停下兵刃，静待契约符文燃尽。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "以丝绒软布擦拭纯金荆棘王冠右侧冷锻淬火钢角刃口",
+    "检查暗红真丝刺绣礼服后腰双层防割纯丝系绳挂接状态",
+    "侍女核验内廷备用披风防尘锦盒封蜡完好程度"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_robe_buckle_inspection",
+   "location_ids": [
+    "loc_altar_secret_sanctum"
+   ],
+   "start_minute": 60,
+   "tags": [],
+   "title": "皇室礼服暗扣与王冠钢角牢固度例行整备"
+  },
+  {
+   "beats": [
+    "近卫军佩刀肃穆立正护卫皇女缓步登临精金王座",
+    "皇女理顺礼服侧摆端坐于三吨重回转主台正中",
+    "侍从执礼敲响青铜钟磬宣告军机会议正式开启"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_tribunal_entry_ritual",
+   "location_ids": [
+    "loc_hall_throne_ruin"
+   ],
+   "start_minute": 120,
+   "tags": [],
+   "title": "悬空神殿王座大殿皇女升座例行仪轨"
+  },
+  {
+   "beats": [
+    "游标卡尺测定精金扶手齿槽两毫米安全间隙",
+    "向王座回转阻尼导轨注滴精炼耐酸特种润滑油脂",
+    "检查自锁单向卡爪复位弹簧抗疲劳弹性衰减指标"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_gear_damper_tuning",
+   "location_ids": [
+    "loc_hall_throne_ruin"
+   ],
+   "start_minute": 240,
+   "tags": [],
+   "title": "精金王座扶手回转凹槽机械阻尼例行校核"
+  },
+  {
+   "beats": [
+    "手持试纸检测地热岩浆蒸气挥发压力指标",
+    "摇动生铁翻板阀手轮排查水压排污管道通畅状况",
+    "核查工坊储备之冷却水压备用储罐密封压力指示表"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [],
+   "id": "act_drain_conduit_patrol",
+   "location_ids": [
+    "loc_furnace_underground_core"
+   ],
+   "start_minute": 360,
+   "tags": [],
+   "title": "地下地脉秘法核心耐压管道闭环巡检"
+  },
+  {
+   "beats": [
+    "近卫双手甩展宽幅双层防风黑斗篷构筑无死角屏障",
+    "演练十步之内精准封锁回廊拱门投射光线之身位配合",
+    "检查长斗篷纯铜搭扣在紧急拉扯下瞬间脱扣性能"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_cloak_drill_practice",
+   "location_ids": [
+    "loc_corridor_cliff_ramp"
+   ],
+   "start_minute": 480,
+   "tags": [],
+   "title": "近卫队突发视线遮蔽与大氅展开战术合练"
+  },
+  {
+   "beats": [
+    "皇女亲手为重大撤退密令盖下紫金王室大印",
+    "侍女将加厚羊皮纸战术原本装入双锁纯钢防潮暗箱",
+    "二人核对明日应对联军强攻之最终退避路线"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_night_vault_record_seal",
+   "location_ids": [
+    "loc_altar_secret_sanctum"
+   ],
+   "start_minute": 600,
+   "tags": [],
+   "title": "祭坛暗室机密玉玺印信交接夜间清点"
+  },
+  {
+   "beats": [
+    "停战血契的符文燃尽、联军退出神殿之后，皇女回到偏殿祭坛暗室，荆棘王冠的发针缠进了乱发，暗红礼服背后的系带也被精金扶手扯成了死结。",
+    "皇女坐在祭坛前的黑曜石矮榻上，背过身让人先取下王冠、一缕缕理顺长发，再去解那团死结；系带松开一寸，雪白的后背便多露出一寸。",
+    "最后一根系带滑落，皇女按住胸前的礼服没有回头，声音低得只够两个人听见：本皇女今晚不想一个人……你，留下。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_sanctum_crown_unpin",
+   "location_ids": [
+    "loc_altar_secret_sanctum"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "偏殿暗室里替皇女卸下王冠与礼服"
+  },
+  {
+   "beats": [
+    "暗室里，皇女用指尖蘸着暗红的契墨，在人锁骨上画一道蜿蜒的契纹，自己的礼服领口也松着。",
+    "皇女先说清楚：契纹只是好看，没有约束，你想擦随时擦。……你若不擦，今晚本皇女就当你是我的人。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_sanctum_pact_ink",
+   "location_ids": [
+    "loc_altar_secret_sanctum"
+   ],
+   "start_minute": 1300,
+   "tags": [
+    "intimate"
+   ],
+   "title": "用契墨在锁骨上画契纹"
+  },
+  {
+   "beats": [
+    "皇女摘下荆棘王冠，踮脚戴到人头上，退后一步打量，红眸里带着坏笑，长发散在雪白的肩头。",
+    "皇女说：今晚你是王，我是败军之将。……你若肯，就命令我，但只说我也想听的那种。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_sanctum_crown_swap",
+   "location_ids": [
+    "loc_altar_secret_sanctum"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "把王冠戴到人头上"
+  },
+  {
+   "beats": [
+    "地脉熔炉的余温透进暗室，皇女在黑曜石矮榻上醒来，礼服皱成一团，整个人缠在人身上。",
+    "皇女把脸埋进人怀里闷声说：联军今天不会来。……本皇女命令你，再陪我躺一个时辰。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_sanctum_ember_morning",
+   "location_ids": [
+    "loc_altar_secret_sanctum"
+   ],
+   "start_minute": 450,
+   "tags": [
+    "intimate"
+   ],
+   "title": "熔炉余温里的早晨"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "神魔旧纪元末期",
+ "extends": null,
+ "forbidden_terms": [],
+ "hooks": [
+  {
+   "id": "hook_intro_blackout_flood",
+   "kind": "accident",
+   "location_ids": [],
+   "slot": "char_empress_iris",
+   "text": "悬空八十米绝壁神殿遭光矛重击石梁崩折，落石瓦砾伴随地脉轰鸣漫过台阶逼近王座。"
+  },
+  {
+   "id": "hook_gear_bite_dress",
+   "kind": "accident",
+   "location_ids": [],
+   "slot": "char_empress_iris",
+   "text": "防爆精金王座扶手因冲击偏位暴跌形变，两毫米冰冷夹槽死死卡住{npc.name}暗红礼服裙摆，金丝经纬线剧烈拉扯无法动弹。"
+  },
+  {
+   "id": "hook_bishop_boots_approach",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_paladin_roland",
+   "text": "门廊外，圣堂骑士团长按剑而立，朗声宣读受降通牒，身后数十名重装骑士的铁靴一齐踏响石阶。"
+  },
+  {
+   "id": "hook_cloak_wall_deploy",
+   "kind": "request",
+   "location_ids": [],
+   "slot": "char_guard_camilla",
+   "text": "{npc.name}一甩紫黑马尾，扬起黑金大氅挡在王座前，回头冲人眨了眨眼：别看殿下，看门。"
+  },
+  {
+   "id": "hook_badge_lever_unlatch",
+   "kind": "observe",
+   "location_ids": [],
+   "slot": "char_empress_iris",
+   "text": "{npc.name}以纯金王冠侧边淬火钢角卡入咬合缝隙，手腕顺势施展偏转巧劲别开金属夹块。"
+  },
+  {
+   "id": "hook_escape_verdict_reverse",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_empress_iris",
+   "text": "精金卡块应声弹开，{npc.name}咬破指尖按上扶手的旧约刻纹，血色符文顺着门洞蔓延开去，破门的副将被自带的锁魔手铐扣个正着；皇女挽起裙摆，昂首步入传送秘门，神级反转控场！"
+  },
+  {
+   "id": "hook_iris_straighten_crown",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_empress_iris",
+   "text": "{npc.name}斜倚在倾斜的王座上，绯红眼眸居高临下扫过来：站那么远做什么？过来，替本皇女把王冠扶正。"
+  },
+  {
+   "id": "hook_iris_witness_glove",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_empress_iris",
+   "text": "{npc.name}把一只沾了灰的丝绒手套扔进人怀里，下巴一扬：拿着。待会儿本皇女立约，总得有个见证。"
+  },
+  {
+   "id": "hook_camilla_shoulder_tap",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_guard_camilla",
+   "text": "{npc.name}不知何时贴到人身后，指尖在肩头轻轻一点，压低嗓音笑道：殿下看中的人？让我瞧瞧……嗯，还不坏。"
+  },
+  {
+   "id": "hook_roland_sheath_offer",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_paladin_roland",
+   "text": "{npc.name}收剑半寸，隔着烟尘打量过来：你不像魔族。站到这边来，骑士团不伤无辜。"
+  },
+  {
+   "id": "hook_baal_hold_chart",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "char_scholar_baal",
+   "text": "{npc.name}从羊皮册后探出头，护目镜滑到鼻尖：当心脚下那块石板，只剩十二息的寿命了。来，帮忙扶住图纸。"
+  },
+  {
+   "id": "hook_iris_sanctum_contract",
+   "kind": "approach",
+   "location_ids": [
+    "loc_altar_secret_sanctum"
+   ],
+   "slot": "char_empress_iris",
+   "text": "{npc.name}站在暗室的门内，用指尖勾了勾：进来。本皇女有一份契约，要你亲自签。"
+  }
+ ],
+ "id": "fallen_demon_empress_throne_pact",
+ "locations": [
+  {
+   "affordances": [
+    "反持王冠以坚硬纯钢边角探入咬合裂缝施行微观物理杠杆自救",
+    "挥展加厚纯黑天鹅绒战术斗篷完全切断外围视线探查",
+    "单足后撤半屈重心贴紧精金扶手内壁抵消倾覆拉扯"
+   ],
+   "detail": "悬空八十米绝壁之古代神殿中央，三吨精金铸造之魔王王座高踞主台。光矛轰击震断四根汉白玉主柱导致石台倾斜十五度；王座扶手受冲击凹陷变形，两毫米金属齿缝死死咬死皇女暗红礼服裙摆。",
+   "exits": [
+    "loc_corridor_cliff_ramp",
+    "loc_altar_secret_sanctum",
+    "loc_furnace_underground_core"
+   ],
+   "id": "loc_hall_throne_ruin",
+   "name": "残破神殿悬空王座",
+   "pressure_modifiers": {
+    "press_mercury_rising_hazard": "残破神殿悬空石台在余震中接连发生边缘滑坡"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "穹顶破洞倾泻刺目日光与烟尘白雾，正门铁廊急促靴声如闷雷震荡，全场视线死死锁定悬空王座卡滞死点。",
+   "witnesses": [
+    "bg_erik_officer",
+    "bg_clara_scribe"
+   ]
+  },
+  {
+   "affordances": [
+    "近卫短刀横阻门洞严令敌军擅入抢占缓冲时间",
+    "隔门冷冽喝斥敌将拖延破门进程保全体面"
+   ],
+   "detail": "连通主殿与外围绝壁天桥之双向防御石廊，两米宽厚重花岗岩防暴门已崩断半边插销，门外已集结全副武装圣堂骑士团先锋骑兵。",
+   "exits": [
+    "loc_hall_throne_ruin",
+    "loc_altar_secret_sanctum"
+   ],
+   "id": "loc_corridor_cliff_ramp",
+   "name": "绝壁回廊破损重门",
+   "pressure_modifiers": {
+    "press_bishop_breach_hazard": "大门外重锤轰击金属轰鸣剧烈震颤"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "回廊战火熊熊，数十柄森冷斩马阔剑与破门长锤在门洞投下交错肃杀阴影，骑士团长沉重脚步声步步逼近。",
+   "witnesses": [
+    "bg_august_vanguard",
+    "bg_erik_officer"
+   ]
+  },
+  {
+   "affordances": [
+    "开启传送阵法盘直接撤向后方秘密避难要塞",
+    "更换备用长披肩掩护受损撕裂之礼服裙幅"
+   ],
+   "detail": "位于王座正后方石壁内之远古隐秘祭坛，四壁雕刻深渊符文，单向传送阵光斑已然激活流转，厚重石门可有效阻断追兵视线。",
+   "exits": [
+    "loc_hall_throne_ruin",
+    "loc_corridor_cliff_ramp"
+   ],
+   "id": "loc_altar_secret_sanctum",
+   "name": "后方偏殿祭坛暗室",
+   "pressure_modifiers": {
+    "press_conspiracy_verdict_deadline": "暗室门外传来追兵巡逻搜查铁靴声响"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "室内仅有点点幽蓝符文冷光浮动，地面干燥平整，备有整齐换洗皇室常服披风与急救药剂盒。",
+   "witnesses": [
+    "bg_clara_scribe",
+    "bg_elena_archivist"
+   ]
+  },
+  {
+   "affordances": [
+    "扳动泄压手轮缓解地脉高压延缓悬崖坍塌速度",
+    "切断能量导管阻止灼热地气向主殿王座蔓延"
+   ],
+   "detail": "王座正下方悬空基座内部岩层，破裂地脉灵流正狂暴喷吐灼热地气，冷却水压翻板阀在震荡中发生严重卡死。",
+   "exits": [
+    "loc_hall_throne_ruin"
+   ],
+   "id": "loc_furnace_underground_core",
+   "name": "地下深渊地脉熔炉",
+   "pressure_modifiers": {
+    "press_drain_flood_backflow_hazard": "地脉高压反冲迫使灼热熔岩蒸气弥漫倒灌"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "灼热蒸气弥漫能见度极低，地脉岩浆泛着暗红死寂火光，需攀附铁梯方能靠近泄压轮盘。",
+   "witnesses": [
+    "bg_bastian_plumber",
+    "bg_grete_medic"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "菲尼",
+   "克劳",
+   "瓦尔",
+   "赫尔",
+   "卡特",
+   "莫尔",
+   "修斯",
+   "莱恩",
+   "阿斯",
+   "德拉",
+   "黑森",
+   "维克"
+  ],
+  "given_female": [
+   "莉妲",
+   "妲拉",
+   "薇薇",
+   "蕾娜",
+   "赛拉",
+   "索菲",
+   "希尔",
+   "克洛",
+   "茜拉",
+   "缇娅",
+   "诺拉",
+   "伊薇"
+  ],
+  "given_male": [
+   "赛恩",
+   "埃德",
+   "修尔",
+   "加尔",
+   "尤里",
+   "卢卡",
+   "雷蒙",
+   "阿诺",
+   "凯恩",
+   "达里",
+   "泽维",
+   "奥斯"
+  ],
+  "given_neutral": [
+   "斯",
+   "尔",
+   "特",
+   "克",
+   "恩",
+   "亚",
+   "安",
+   "拉",
+   "琳",
+   "瑟",
+   "芙",
+   "伊"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留神魔旧纪元末期、光矛轰塌悬空神殿、精金王座扶手形变咬死暗红礼服、败北魔王皇女反持荆棘王冠撬开夹块的骨架与名节张力。原稿与审判庭、豪门千金两个世界同一骨架，这里把结局拉向契约与魔法：神殿结界压制一切魔力，唯有以本人鲜血立下的契约不受约束；皇女脱身后以指尖之血按进王座扶手的旧约刻纹，立下停战血契，抢功破门的副将被契约反噬、自带的锁魔手铐反扣在自己腕上。原稿的玩家身份就是剧中人本人，改成深渊盟约见证使、修补结界的人族炼金术士、合约今晚到期的佣兵剑士、神殿杂役四个旁人；补齐规则、风俗与名字池，名字池里与角色重名的条目换掉；近卫统领、骑士团长、学者、副将、侍女身上串进来的画师、车厢、医护、工兵等别处文字全部改回神殿；与审判庭世界同形的压力、反转、张力文字逐条改写；写死的人名改为身份称呼，背景人物改名；幼时改写；皇女亲密前提写明立约脱身之后、双方清醒自愿，新增几个不限地点的靠近型钩子和一个偏殿暗室里替皇女卸下王冠与礼服的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    32,
+    55
+   ],
+   "baseline": "神魔两族公认的中立见证使，旧约每一次签订与撕毁都要过手，今夜奉命前来见证受降。",
+   "gender": "any",
+   "id": "pi_pact_witness",
+   "reputation": "不偏不倚，连教廷与魔王都要敬三分。",
+   "resources": [
+    "一枚刻着神魔旧约的黑曜石见证戒",
+    "一卷可当场验证血契真伪的空白契纸"
+   ],
+   "risks": [
+    "见证失当，被两族同时追责"
+   ],
+   "role": "深渊盟约见证使",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}见证使"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}阁下"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    45
+   ],
+   "baseline": "战前被魔王宫廷请来修补神殿结界的人族炼金术士，两边都把你当成对方的人。",
+   "gender": "any",
+   "id": "pi_human_alchemist",
+   "reputation": "手艺好、嘴巴紧，只认报酬不认阵营。",
+   "resources": [
+    "一瓶能让精金软化三息的炼金溶剂",
+    "神殿结界符文的修补笔记"
+   ],
+   "risks": [
+    "被联军当作魔族同党就地处决"
+   ],
+   "role": "修补结界的人族炼金术士",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}术士"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    40
+   ],
+   "baseline": "魔王宫廷花重金雇来守神殿侧门的人族佣兵，合约恰好在今夜子时到期。",
+   "gender": "any",
+   "id": "pi_hired_blade",
+   "reputation": "拿钱办事，合约期内从不临阵倒戈。",
+   "resources": [
+    "一柄缺了口的长剑",
+    "一份子时到期的雇佣契约"
+   ],
+   "risks": [
+    "合约到期前战死，酬金一个子儿也拿不到"
+   ],
+   "role": "合约今晚到期的佣兵剑士",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    50
+   ],
+   "baseline": "在悬空神殿打杂多年的魔族杂役，扫过王座大厅的每一级台阶，也认得每一条暗道。",
+   "gender": "any",
+   "id": "pi_temple_drudge",
+   "reputation": "不起眼、手脚勤快，谁都使唤得动。",
+   "resources": [
+    "一串神殿暗道的铜钥匙",
+    "一桶给王座精金上油的鲸脂"
+   ],
+   "risks": [
+    "神殿一塌，就再无容身之处"
+   ],
+   "role": "神殿杂役",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "小{given}"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "神魔旧纪元的末期，纯血魔王的千金皇女住在一座悬空的石砌神殿里。坐在精金王座上接见各方来使：深渊盟约的见证使、修补结界的人族炼金术士、合约就快到期的佣兵剑士。白天议事，夜里在王座大厅独自饮酒。人族联军的圣骑士团已经在边境集结，神殿的拱顶年久失修。",
+ "pressures": [
+  {
+   "choice": "是否以王冠硬角施加角向力矩挑击卡爪，抑或强扯裙摆承受撕裂走光风险？",
+   "exits": [
+    {
+     "cost": "白皙指节被精金扶手棱角刮出一道红痕",
+     "option": "单足踩住倾斜王座的黑曜石底座，把裙摆受力点向上提起三寸"
+    },
+    {
+     "cost": "王冠上的荆棘金叶被崩落一片",
+     "option": "以王冠钢角抵住夹槽底部，借王座倾斜之势反向撬开"
+    }
+   ],
+   "far": {
+    "consequence": "深渊皇族唯一正统血脉断绝，王国彻底覆灭沦亡。",
+    "due_days": 1,
+    "trigger": "王座倾覆连同整座石台坠入万丈深渊"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_mercury_rising_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "王座下方石基以每秒数寸剥落，深渊烈风倒数急速逼近面门。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hall_throne_ruin"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "烟尘瓦砾翻滚砸向主台地砖，刺目日光透入王座令人窒息。"
+   },
+   "objective": "皇女在石台彻底粉碎前借助王冠钢角撬开精金夹槽脱身。",
+   "source": "nature",
+   "start_minute": 305,
+   "tags": [
+    "disaster"
+   ],
+   "title": "残破神殿石台边缘滑坡悬崖坍塌威胁",
+   "trigger": "悬空石殿基底爆裂坍塌，落石断柱向王座滑落仅余二十秒。"
+  },
+  {
+   "choice": "让近卫统领以身封门，还是皇女隔门亮出神魔旧约，先把骑士团长镇住？",
+   "exits": [
+    {
+     "cost": "暴露了自己仍困在王座上的事实",
+     "option": "皇女隔门冷声宣告神魔旧约之名，令门外骑士不得擅动"
+    },
+    {
+     "cost": "结界反噬，近卫统领唇角渗出一缕血丝",
+     "option": "近卫统领顶着结界压制，以魅魔耳语惑乱门缝外最前排的骑士"
+    }
+   ],
+   "far": {
+    "consequence": "皇女受辱沦为阶下囚俘虏，全城公开游街示众。",
+    "due_days": 1,
+    "trigger": "大门撞塌骑士长驱直入撞见受困窘态"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_bishop_breach_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "破门重锤轰击大门爆出刺耳金属轰鸣，防御铁栓剧烈震颤欲裂。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_corridor_cliff_ramp"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "受降通牒只剩最后几句，铁靴声已到门廊拐角。"
+   },
+   "objective": "在大门撞塌前完成脱身并从容整束仪态步入后殿传送门。",
+   "source": "person",
+   "start_minute": 308,
+   "tags": [],
+   "title": "圣堂骑士团先锋持长锤破门入内突袭危机",
+   "trigger": "骑士长率精锐重骑兵持阔剑长锤逼近，铁靴踏阶逼近廊道门洞。"
+  },
+  {
+   "choice": "顺着扶手形变的方向侧身卸力，还是赌王冠钢角一撬到底？",
+   "exits": [
+    {
+     "cost": "肩头雪白肌肤贴上冰冷精金，激起一阵战栗",
+     "option": "顺着扶手形变的方向侧身倚上王座，让裙摆自己松出半寸"
+    },
+    {
+     "cost": "手腕被反冲震得一阵酸麻",
+     "option": "以王冠钢角挑起扶手内侧的精金卡块"
+    }
+   ],
+   "far": {
+    "consequence": "高傲皇女圣洁威仪扫地，沦为敌国谈资笑柄。",
+    "due_days": 1,
+    "trigger": "礼服撕裂于众目睽睽下失去蔽体之物"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_robe_tear_exposure_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "开叉侧幅的金线一根根绷断，裙摆被扶手咬得越来越紧。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hall_throne_ruin"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "开叉侧幅轻微开裂美腿半露香肩毕现，处于走光绝壁边缘。"
+   },
+   "objective": "保住暗红礼服的每一道金线，不让深渊皇女在敌军面前露出半分狼狈。",
+   "source": "accident",
+   "start_minute": 312,
+   "tags": [
+    "disaster"
+   ],
+   "title": "蛮力挣脱导致长裙撕裂大面积走光失仪困局",
+   "trigger": "暗红真丝礼服受金属形变咬死，稍有蛮力撕扯整条裙摆必将崩解。"
+  },
+  {
+   "choice": "听学者的读数慢慢加力，还是借石台下一次震动猛地一撬？",
+   "exits": [
+    {
+     "cost": "额角沁出细汗，黑发黏在颈侧",
+     "option": "照学者报出的读数，一分一分地加力"
+    },
+    {
+     "cost": "脚下一滑，险些踏出石台边缘",
+     "option": "卡块松动刹那，借王座倾斜之势旋身抽出裙摆"
+    }
+   ],
+   "far": {
+    "consequence": "长裙焊死于扶手深槽彻底陷入万劫不复死锁。",
+    "due_days": 1,
+    "trigger": "王冠钢角崩断失去唯一自救破拆工具"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_badge_bending_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "钢角在精金暗裂里吱吱作响，每撬一分，王冠便跟着发颤。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_hall_throne_ruin"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "钢角根部已弯出一道细痕，再用力就要齐根折断。"
+   },
+   "objective": "让王冠钢角只吃七分力，在折断之前把卡块顶出凹槽。",
+   "source": "accident",
+   "start_minute": 314,
+   "tags": [
+    "disaster"
+   ],
+   "title": "王冠钢角在微观撬动下承受高负荷弯折风险",
+   "trigger": "王冠淬火钢角承受三吨精金反冲扭矩，稍有倾角偏差便会崩断。"
+  },
+  {
+   "choice": "斩开穹顶残窗让烈风灌入，还是用浸湿的披肩替皇女挡住热雾？",
+   "exits": [
+    {
+     "cost": "烈风卷起碎石，扑灭了半数魔火灯",
+     "option": "近卫统领一刀斩断穹顶残窗的锁链，让悬崖烈风灌进大殿"
+    },
+    {
+     "cost": "皇女只剩一只手能撬王冠",
+     "option": "侍女把浸湿的羊毛披肩覆在皇女口鼻前"
+    }
+   ],
+   "far": {
+    "consequence": "王室近卫体系全线崩溃，撤退路线遭彻底封死。",
+    "due_days": 1,
+    "trigger": "全员高热灼气中毒昏厥任由敌兵摆布"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_drain_flood_backflow_hazard",
+   "immediate": {
+    "minutes": 1,
+    "text": "暗红浓重灼雾迅速吞没下层石阶，空气中充满灼烧硫化异味。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_furnace_underground_core"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "随扈侍女与学者剧烈咳嗽双目刺痛，呼吸维艰。"
+   },
+   "objective": "在硫磺热雾吞没王座之前，替皇女撑出一片能呼吸的空间。",
+   "source": "nature",
+   "start_minute": 316,
+   "tags": [
+    "disaster"
+   ],
+   "title": "地脉管网反冲高压迫使灼热蒸气弥漫倒灌",
+   "trigger": "地脉受损反冲导致高热硫磺蒸汽自缝隙倒灌进入神殿主厅。"
+  },
+  {
+   "choice": "先以血立约让契约生效，还是放弃立约、直接踏入传送秘门？",
+   "exits": [
+    {
+     "cost": "失血让指尖发白，王冠压得额角生疼",
+     "option": "脱困瞬间咬破指尖，把鲜血按进王座扶手的旧约刻纹"
+    },
+    {
+     "cost": "神殿遗址彻底沦为敌军的战利品",
+     "option": "放弃立约，在近卫掩护下直接踏入传送秘门"
+    }
+   ],
+   "far": {
+    "consequence": "皇女遭生擒活捉，深渊帝国最后抵抗希望破灭。",
+    "due_days": 1,
+    "trigger": "传送法阵未及激发即遭敌军阔剑破坏"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_conspiracy_verdict_deadline",
+   "immediate": {
+    "minutes": 1,
+    "text": "门洞已被砸开一道缝，副将的锁魔手铐在火光下晃动。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_altar_secret_sanctum"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "王座扶手上的旧约刻纹幽幽发亮，只等一滴皇族之血。"
+   },
+   "objective": "皇女脱身后第一时间以指尖鲜血按上王座扶手立下停战血契，让契约之力反噬破门之人。",
+   "source": "institution",
+   "start_minute": 318,
+   "tags": [],
+   "title": "停战血契须在敌军破门之前以血立下之死线",
+   "trigger": "若不能赶在联军破门前以皇族之血立下停战血契，神殿与皇女都将落入敌手。"
+  }
+ ],
+ "region": "悬空神殿残破王座大厅",
+ "rules": [
+  {
+   "id": "rule_temple_adults",
+   "text": "神殿里的魔族、人族与圣职者都已成年，血契、去留与亲密之事只由本人亲口应允。"
+  },
+  {
+   "id": "rule_barrier_blood_only",
+   "text": "精金王座的机关只认物理杠杆：神殿结界压制着一切魔力，唯有以本人鲜血立下的契约不受结界约束。"
+  },
+  {
+   "id": "rule_gown_is_crown",
+   "text": "皇女的体面就是深渊王权的体面：礼服若在敌军面前撕裂失仪，各魔族领主便有理由另立新主。"
+  },
+  {
+   "id": "rule_old_pact_backlash",
+   "text": "神魔旧约规定：一方君主以血立约之时，另一方若再动兵刃，契约之力即刻反噬动手之人。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "试探",
+  "committed": "臣服",
+  "familiar": "博弈",
+  "flirting": "交锋",
+  "intimate": "倾轧",
+  "stranger": "敌对",
+  "testing": "角力"
+ },
+ "status": "released",
+ "style_hint": "古典废墟、精金力学、皇室威仪、逆风反转",
+ "tension_engines": [
+  {
+   "id": "engine_inquisition_gear_trap",
+   "text": "光矛轰击震断神殿梁柱，悬空石台倾斜十五度滑坡；精金王座扶手机械形变咬死暗红礼服裙摆，真丝经纬线紧绷欲裂，距悬崖塌陷与骑士团破门仅余二十秒死线！"
+  },
+  {
+   "id": "engine_bishop_breach_countdown",
+   "text": "圣堂骑士团长立在门廊念着受降通牒，突击副将却已抡起破门锤一下下砸向石门；只要门洞一开，满殿骑士便会撞见皇女被王座夹住裙摆的狼狈。"
+  },
+  {
+   "id": "engine_sacred_robe_damage_risk",
+   "text": "暗红礼服是深渊皇族登基时的正装，金线一断，裙摆便会从腰侧整幅裂开；皇女若在敌军面前失仪，各领主明早就会另立新主。"
+  },
+  {
+   "id": "engine_lever_unlatch_mechanics",
+   "text": "皇女反手摘下荆棘王冠，以右侧淬火钢角探进扶手暗裂，顺着学者报出的三十度下压，把精金卡块一点点顶出凹槽。"
+  }
+ ],
+ "title": "败北魔王·契约倒错·残破神殿精金王座扶手形变夹死暗红礼服裙摆",
+ "tone": [
+  "废墟高压",
+  "机械咬合",
+  "皇女傲娇",
+  "硬核自救"
+ ],
+ "twists": [
+  {
+   "category": "人事",
+   "id": "twist_water_valve_sabotage",
+   "requires": [],
+   "text": "光矛轰击竟系联军内应精准标记坐标，意图趁神殿塌陷生俘王室千金。"
+  },
+  {
+   "category": "资源",
+   "id": "twist_badge_axis_dual_purpose",
+   "requires": [],
+   "text": "荆棘王冠右侧那枚硬角是初代魔王亲手淬火的钢核，传了九代，今夜第一次派上用场。"
+  },
+  {
+   "category": "时限",
+   "id": "twist_gear_flaw_known",
+   "requires": [],
+   "text": "王座扶手是九百年前的旧物，学者早发现精金在右侧凹槽有一道暗裂，正好当作撬点。"
+  },
+  {
+   "category": "关系",
+   "id": "twist_guard_unshakable_loyalty",
+   "requires": [],
+   "text": "魅魔近卫统领顶着结界压制，以耳语惑乱前排骑士，硬是拖出了二十息。"
+  },
+  {
+   "category": "信息",
+   "id": "twist_toxic_rising_halted",
+   "requires": [],
+   "text": "宫廷学者扳动地脉泄压手轮，硫磺蒸气在吞没王座一尺前改道冲向悬崖。"
+  },
+  {
+   "category": "制度",
+   "id": "twist_verdict_seal_completed",
+   "requires": [],
+   "text": "大门撞开刹那，皇女以指尖之血立下停战血契，契约符文顺着铁靴爬上破门者的手腕，副将自带的锁魔手铐反扣在了自己身上。"
+  }
+ ]
+}

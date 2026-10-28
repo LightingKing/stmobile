@@ -1,0 +1,2328 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "国际网联成年助理裁判长年满三十一周岁，依法独立承担记时复核职责。",
+   "age_range": [
+    31,
+    31
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_chair_umpire_liang",
+   "line": "校花，发球倒计时正在倒数，请迅速回到发球线就位！",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "name": "老钱",
+   "role": "主裁判椅当值巡查副主裁"
+  },
+  {
+   "adult_context": "运动康复专业毕业志愿者年满二十四周岁整，享有完全民事行为能力。",
+   "age_range": [
+    24,
+    24
+   ],
+   "function": "helper",
+   "gender": "female",
+   "id": "bg_ball_girl_captain_xia_xiao_tao",
+   "line": "学姐，纯白加厚大浴巾已经准备好了，千万别慌！",
+   "location_ids": [
+    "loc_player_rest_bench_canopy"
+   ],
+   "name": "阿雯",
+   "role": "场边毛巾与用球管理球童"
+  },
+  {
+   "adult_context": "体育馆机电维护工程毕业，年满二十九岁成年工长，具备特种设备作业资质。",
+   "age_range": [
+    29,
+    29
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_stadium_electrician_niu",
+   "line": "倒钩缝隙只有一毫米，用手胶别针锋利薄齿对准绳结向下顶！",
+   "location_ids": [
+    "loc_umpire_ladder_back_shadow"
+   ],
+   "name": "阿牛",
+   "role": "主裁判椅液压基座巡检工"
+  },
+  {
+   "adult_context": "网球中心执勤成年特勤安保人员年满三十四岁，具备大型赛事安保执勤资质。",
+   "age_range": [
+    34,
+    34
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_security_guard_lao_ma",
+   "line": "非比赛人员请退到挡板后方，严禁擅自跨入比赛场地！",
+   "location_ids": [
+    "loc_court_side_tunnel_entrance"
+   ],
+   "name": "老马",
+   "role": "中央球场内场警戒特勤"
+  },
+  {
+   "adult_context": "国家健将级网球运动员年满二十六周岁，依法独立承担竞技参赛法律责任。",
+   "age_range": [
+    26,
+    26
+   ],
+   "function": "messenger",
+   "gender": "male",
+   "id": "bg_pro_player_gu_tian_yu",
+   "line": "裁判长，选手需要技术暂停更换球拍，请确认！",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "name": "阿杰",
+   "role": "男双冠军搭档候场选手"
+  },
+  {
+   "adult_context": "体育用品集团商业法务成年派遣代表年届三十三岁，依法履行商务跟从职责。",
+   "age_range": [
+    33,
+    33
+   ],
+   "function": "rumor_source",
+   "gender": "male",
+   "id": "bg_sponsor_rep_shen_yi_ming",
+   "line": "少东家，长焦单筒已经对准遮阳伞后方了，只要短裙一扯，立刻抓拍！",
+   "location_ids": [
+    "loc_court_side_tunnel_entrance"
+   ],
+   "name": "大东",
+   "role": "资方随行长焦高清跟拍"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "椅底深处校花强忍短裙上扯的极致羞耻俯身求救，搭档学长以挺拔身躯封死转播镜头、协助别针下挑脱钩的深沉默契。",
+   "id": "combo_idol_and_stringer_rescue",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "tennis_idol_lin_shi_yin",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在狭窄横梁阴影内近距托住校花发颤大腿引导别针扁齿精准挑下。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "tennis_partner_gu_tian_yu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "球场保障人员与主力选手之间心照不宣的技术默契。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tennis_idol_lin_shi_yin",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "tennis_partner_gu_tian_yu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "网球搭档之间多年并肩征战铸就的生死互信与克制倾慕。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "tennis_idol_lin_shi_yin",
+    "tennis_partner_gu_tian_yu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在倒数归零前挑断绳结解脱束缚让校花从容走向底线发球夺冠。",
+    "limit_gap": "发球钟蜂鸣读秒逼近零秒与不锈钢别针微观挑断高密度尼龙绳结的生死时速。",
+    "meeting_reason": "决胜盘开打前，搭档学长蹲在休息椅边给校花缠手胶，最后一圈用别针扣好：别松。",
+    "resource_gap": "搭档学长手握换拍申诉权与身形屏障掩护，校花深陷挂死受制危及偶像校花清誉。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_skirt_snap_hook_jam_strain",
+    "eng_shot_clock_forty_five_countdown"
+   ]
+  },
+  {
+   "chemistry": "网球姐妹花联手，场边领队怀抱大浴巾以身躯封死长焦取景框，掩护校花微观挑绳自救。",
+   "id": "combo_idol_and_ballgirl_shield",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "tennis_idol_lin_shi_yin",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在场边领队浴巾遮掩下协助校花稳住颤抖手腕垂直下挑切断绳结。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "ball_girl_xia_xiao_tao",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "赛场幕后服务团队在长期巡回赛中建立的过硬互信。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tennis_idol_lin_shi_yin",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "ball_girl_xia_xiao_tao",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "同门姐妹毫无保留的名节托付与战友深情。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "tennis_idol_lin_shi_yin",
+    "ball_girl_xia_xiao_tao"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保万人瞩目大运会决赛圆满收官并彻底粉碎走光社死阴谋。",
+    "limit_gap": "主裁判哨音逼近与割断受拉绳结的最后十五秒倒计时。",
+    "meeting_reason": "场边领队抱着冰毛巾跑到场边，看见学姐弯着腰一动不动。",
+    "resource_gap": "场边领队掌控场边毛巾与遮蔽屏风，校花手持不锈钢别针分秒必争。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_skirt_sheer_tight_exposure_panic",
+    "eng_skirt_snap_hook_jam_strain"
+   ]
+  },
+  {
+   "chemistry": "机电工长在横梁外侧用撬片反别横杠间隙，校花在内侧借别针坚硬扁头精准挑断受力死结的绝妙微观力学配合。",
+   "id": "combo_electrician_and_idol_breakout",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "tennis_idol_lin_shi_yin",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "合力反向抵住裁判椅底座减轻尼龙绳受力张力完成挑断脱钩。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "stadium_electrician_niu_tie_zhu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "同为体育场馆一线维护工种的技术语言共鸣。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tennis_idol_lin_shi_yin",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "stadium_electrician_niu_tie_zhu",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 2
+     },
+     "reason": "清纯校花对质朴工匠舍身相助排险的由衷感激与信赖。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "tennis_idol_lin_shi_yin",
+    "stadium_electrician_niu_tie_zhu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在彻底撕破百褶裙前安全解脱挂钩保全校花冰清玉洁名誉。",
+    "limit_gap": "横梁变形应力释放与别针挑断绳结的精密时间差。",
+    "meeting_reason": "机电工长在裁判椅底座巡检，听见横杠发出一声不对劲的金属响。",
+    "resource_gap": "机电工长持有特种工装撬片与扳手，校花受制于短裙撕裂与身体拘束。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_skirt_snap_hook_jam_strain",
+    "eng_campus_idol_chastity_dignity_peril"
+   ]
+  },
+  {
+   "chemistry": "主裁判高踞椅顶含哨欲鸣，校花在椅底强忍羞耻屏息挑绳自救、捍卫法度尊严的极度窒息对峙。",
+   "id": "combo_idol_and_umpire_scrutiny",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "tennis_idol_lin_shi_yin",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 3
+     },
+     "reason": "在主裁判严厉哨音逼近声中并肩屏息完成最后挑断脱钩。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "umpire_chief_liang_bo_yong",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "场地保障人员对铁面无私主裁判的规范周旋与执纪敬畏。",
+     "stage": "familiar"
+    },
+    {
+     "a": "tennis_idol_lin_shi_yin",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 2
+     },
+     "b": "umpire_chief_liang_bo_yong",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 2
+     },
+     "reason": "青年选手面对裁判长审视时的坚毅傲骨与尊严守线。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "tennis_idol_lin_shi_yin",
+    "umpire_chief_liang_bo_yong"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在哨声响起前瞬间脱困并从容起身走向底线拍球发球。",
+    "limit_gap": "主裁判鸣哨踏出步阶与最后三毫米尼龙绳被别针挑断的绝对读秒生死线。",
+    "meeting_reason": "发球钟进入最后十五秒，主裁判依规准备鸣哨，提醒选手就位。",
+    "resource_gap": "主裁判手握发球超时判罚与赛场纪律处分最高裁决权，校花面临名声扫地之灾。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_shot_clock_forty_five_countdown",
+    "eng_skirt_sheer_tight_exposure_panic"
+   ]
+  },
+  {
+   "chemistry": "少东家妄图持长焦单筒强闯赛道偷拍校花走光，穿线师与搭档学长冷面如铁以赛场纪律与体育尊严正面喝阻驱逐。",
+   "id": "combo_sponsor_vs_director_clash",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "sponsor_rep_shen_yi_ming",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "面对侵犯偶像校花清白的卑劣金主毫不妥协的刚毅对峙。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "tennis_partner_gu_tian_yu",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 4
+     },
+     "reason": "协同主力选手共同构筑人墙驱逐违规窥探者。",
+     "stage": "familiar"
+    },
+    {
+     "a": "sponsor_rep_shen_yi_ming",
+     "a_to_b": {
+      "tension": 5,
+      "trust": 1
+     },
+     "b": "tennis_partner_gu_tian_yu",
+     "b_to_a": {
+      "tension": 5,
+      "trust": 1
+     },
+     "reason": "傲慢资本金主与恪守武德的网球健儿之间水火不容的博弈交锋。",
+     "stage": "stranger"
+    }
+   ],
+   "slots": [
+    "sponsor_rep_shen_yi_ming",
+    "tennis_partner_gu_tian_yu"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "将心怀叵测的登徒子资方彻底阻绝在赛场警戒线外捍卫女性隐私底线。",
+    "limit_gap": "资本买办的下作窥探与青年健儿刚烈风骨的正面激烈撞击。",
+    "meeting_reason": "赞助商少东家带着人往场边闯，说要关心关心，搭档学长提着球拍站到了通道口。",
+    "resource_gap": "少东家手握数千万赞助款与炒作媒体，穿线师与搭档学长掌控内场出入红线。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "eng_campus_idol_chastity_dignity_peril",
+    "eng_skirt_sheer_tight_exposure_panic"
+   ]
+  },
+  {
+   "chemistry": "在裁判椅下沿狭窄阴影地槽内，校花与{player.name}近在咫尺呼吸相闻，合力在万人瞩目中完成不锈钢别针挑断绳结自救的绝密救赎。",
+   "id": "combo_idol_and_player_intimacy",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "tennis_idol_lin_shi_yin",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "在肌肤相近心跳共振与万人欢呼中结下的至深密约。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "tennis_idol_lin_shi_yin"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在清白与校花声名毫发无损前提下彻底完成硬核物理自救脱困。",
+    "limit_gap": "哨声响起最后五秒与别针挑爆绳结的绝对极限同步。",
+    "meeting_reason": "局间休息，校花坐在遮阳伞下喝水，搭档学长从对面场地走过来，隔着球网点了点头。",
+    "resource_gap": "校花身躯受制无法起身，{player.name}提供坚强刚性的支点支持。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "eng_skirt_snap_hook_jam_strain",
+    "eng_skirt_sheer_tight_exposure_panic"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_tennis_court_radio_dispatch",
+   "reach": "覆盖主裁判耳机、边线裁判手台、成年球童对讲与总转播台",
+   "text": "中央球场裁判组与机电安保无线对讲公频"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_umpire_chair_base_whisper",
+   "reach": "仅限于高脚椅背阴狭缝深处校花与施救者近在咫尺的急促耳语",
+   "text": "裁判椅底座横梁两尺内急促压抑低语"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "体育学院运动训练专业研究生在读，全国大学生网球女单头号种子，打哪站比赛、穿什么裙子上场由本人拿主意。",
+   "age_range": [
+    23,
+    25
+   ],
+   "appearance_options": [
+    "身穿纯白透气百褶网球短裙与粉白速干修身体操服短袖，高马尾扎着纯白天鹅绒发圈甩动生姿，肌肤白皙晶莹透亮，两颊天然紧致微婴儿肥与饱满水润胶原蛋白反差，洋溢着青春明丽绝代初恋校花神采。",
+    "百褶裙腰际暗扣与康复带死死咬入裁判椅防滑倒钩，短裙被拉扯斜向掀起，紧身速干安全裤包裹的雪白大腿大片暴露，半跪在硬地胶上动弹不得，两颊泛起极度羞耻绯红，眼尾含泪贝齿紧咬球拍吸汗带强撑尊严。"
+   ],
+   "decision": {
+    "avoids": [
+     "下流长焦镜头的偷拍",
+     "万人看台嘘声失控",
+     "被判发球超时罚分失冠"
+    ],
+    "contrast": "平时球场上凌厉截击意气风发，受困挂死在椅底时娇躯微颤眼泛水光软语求援。",
+    "core_value": "国民初恋网球偶像不容亵渎的纯真少女尊严与竞技荣誉。",
+    "goal_options": [
+     "在鸣哨开球前用不锈钢手胶别针挑断尼龙挂绳解脱裙摆从容起步发球",
+     "拼死遮掩短裙上扯露出紧身护具窘态保全校花纯真声名"
+    ],
+    "never": [
+     "绝向品行不端的纨绔资方低头认输",
+     "绝在万人赛场自毁清誉"
+    ],
+    "prefers": [
+     "利落刚猛的机械撬挑动作",
+     "沉着果断的护卫身姿",
+     "决不趁人之危的正派目光"
+    ],
+    "pressure_responses": {
+     "breaking": "在气阀泄压瞬间反向推脱横臂抱箍并接应宋婉儿递来的磁吸扣迅速扣好前襟",
+     "high": "在导播推流读秒长鸣刹那同搭档一同垂直下压背夹克服八百牛顶力",
+     "low": "双手死死按在讲台木质边缘以极低气声下达排障破拆指令掩饰内心惊涛骇浪",
+     "mid": "忍受胸衣金属骨架勒紧压迫紧贴讲台内侧配合搭档调整翻页笔背夹插入角度"
+    },
+    "relationship_stance": "球场上一句话都不肯多说，换边时却总往搭档学长那边看一眼，确认人还在。",
+    "withdrawal": "双手死死按住百褶裙下摆将面颊埋在冰毛巾内急促喘息低头颤抖。"
+   },
+   "gender": "female",
+   "gender_reason": "大运会网球女单头号种子，人称初恋校花。",
+   "id": "tennis_idol_lin_shi_yin",
+   "identity": {
+    "authority": "大运会网球女单决赛发球节拍决定权与鹰眼挑战发起权。",
+    "exposure": "外表阳光清纯宛若国民初恋，私下里因矫正骨盆旋转而穿戴极紧绷隐秘骨盆加压紧固带。",
+    "hidden": "球拍拍柄底盖内暗藏着一张与{player.name}大一初次搭档夺冠时的双人合影大头贴。",
+    "limits": [
+     "受制于倒钩死咬短裙暗扣无法直立走上发球线",
+     "严禁在全场一万观众与特写镜头前露出内衬紧固护具"
+    ],
+    "obligations": [
+     "维系高校初恋网球偶像纯洁无瑕不染纤尘之绝美声名",
+     "在四十五秒发球钟内完成站位发球"
+    ],
+    "resources": [
+     "球拍手胶封口专用加厚不锈钢高硬度扁平卡扣别针",
+     "国家一级网球运动员认证徽章"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在万人瞩目窒息危机下依然能沉着利落替自己化解走光危厄的硬汉担当气魄",
+     "沉稳有力的手腕指劲"
+    ],
+    "boundaries": [
+     "严禁直接触碰裙底未设防的白皙大腿肌肤",
+     "脱困后严禁对外宣扬今日挂死椅底始末"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "作为网球场上唯一的骄傲初恋女神，只在私密时刻将脆弱全然交付于心仪之人。",
+    "dislikes": [
+     "轻佻冒犯的下流窥探",
+     "跋扈阔少的铜臭施压",
+     "粗暴蛮横的生拉硬扯"
+    ],
+    "expression": "偏过头轻咬粉唇，滚烫微婴儿肥两颊却顺势轻贴在施救者手背上寻求安心依赖。",
+    "likes": [
+     "阳光下挥汗如雨的纯粹默契",
+     "危难关头挺身而出的坚实臂膀",
+     "纯粹器械的解脱快慰"
+    ],
+    "preconditions": [
+     "彻底化解百褶裙卡死走光危机并并肩夺取冠军奖杯",
+     "两人都清醒，心意出于自己，不是绝境里的依赖"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "全国大运会网球女单头号种子成年校花",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_centre_court_umpire_chair_base",
+     "to": 1335
+    },
+    {
+     "from": 1335,
+     "location_id": "loc_centre_court_umpire_chair_base",
+     "to": 1355
+    },
+    {
+     "from": 1355,
+     "location_id": "loc_player_rest_bench_canopy",
+     "to": 1370
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "高硬度不锈钢别针齿尖承受极大剪切力产生微观弯曲。",
+      "option": "用球拍手胶加厚不锈钢扁平别扣硬齿挑入绳结下压割断尼龙绳解脱百褶裙自然垂落自救。"
+     },
+     {
+      "cost": "裁判椅横梁产生拆卸金属杂音引来边线裁判严厉质询。",
+      "option": "由外侧球童队长迅速送上加厚纯白大浴巾遮挡并由电工卸下倒钩横梁固定螺母。"
+     }
+    ],
+    "pressure": "短裙被上扯外露，主裁判准备吹哨开球倒数进入最后四十五秒，万人看台瞩目一旦起身将当场大走光。",
+    "trigger": "弯腰拿取冰毛巾时百褶裙腰际暗扣与康复带死死卡入裁判椅防滑横梁冲压倒钩。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "voices": {
+    "inner": "万人看台全在喊{npc.name}的名字……要是被裁判和电视镜头拍到短裙卡在横杠上……{npc.name}真的连想死的心都有了！快挑开绳结啊！",
+    "surface": "别……不要盯着{npc.name}的大腿看！动作再快一点……别针扁头挑住尼龙结往下别……发球钟只剩二十秒了！"
+   }
+  },
+  {
+   "adult_context": "体育学院研究生在读，大运会网球男队主力，也是校花混双的固定搭档，具备完全民事行为能力。",
+   "age_range": [
+    24,
+    25
+   ],
+   "appearance_options": [
+    "身穿黑白撞色专业网球速干T恤与运动短裤，肌肉线条刚健优美，手持专业硬线网球拍，眼神坚毅沉稳英武逼人。",
+    "半跪在裁判椅侧面硬地胶上，单手死死撑住长椅遮阳伞支架，以宽阔后背死死封挡转播摇臂视线，面容冷峻如山。"
+   ],
+   "decision": {
+    "avoids": [
+     "下流狗仔的偷窥抓拍",
+     "校花学妹在万人面前受辱",
+     "懦弱推诿的逃避"
+    ],
+    "contrast": "平日球风狂暴扣杀狠厉，在校花受窘时眼神瞬间转为极致的细腻与温柔。",
+    "core_value": "运动健儿的刚毅担当与誓死捍卫校花纯真名誉的男儿血性。",
+    "goal_options": [
+     "以高大身躯和球拍在裁判椅旁筑起铁壁人墙为校花争取脱钩时间",
+     "向主裁判提出球拍断线换拍复核合法拖延发球倒计时"
+    ],
+    "never": [
+     "绝让任何外客看到校花裙底走光半寸",
+     "绝背弃网球选手武德"
+    ],
+    "prefers": [
+     "果决强悍的破拆执行",
+     "无声胜有声的默契掩护",
+     "恪守原则的正气作风"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷发声瞬间停住脚步退回侧幕维持同僚体面",
+     "high": "迈步登上红地毯台阶准备直接切入讲台中央核心演讲区",
+     "low": "在对讲机中平稳催促台前人员汇报讲台升降测试状态",
+     "mid": "迈步逼近侧翼台阶手持备用麦克风大声询问会长是否身体不适"
+    },
+    "relationship_stance": "陪校花练了四年球，球拍的线都是亲手穿的，磅数比校花自己记得还清楚。",
+    "withdrawal": "在选手休息通道长椅上猛灌冰水默默平复剧烈起伏的心潮。"
+   },
+   "gender": "male",
+   "gender_reason": "大运会网球男队主力，校花的混双搭档学长。",
+   "id": "tennis_partner_gu_tian_yu",
+   "identity": {
+    "authority": "场上战术指导与申请主裁设备技术检视复核权。",
+    "exposure": "表面上是不苟言笑的铁血队长，私底下对这位单纯可爱的学妹校花暗生炽热护卫情愫。",
+    "hidden": "运动包夹层里常年备着校花最喜欢的进口电解质粉与清凉防中暑凝胶。",
+    "limits": [
+     "受制于国际网联执纪条例不可擅闯主裁高脚台梯",
+     "严禁触碰女选手私密部位"
+    ],
+    "obligations": [
+     "保障混双搭档与女单王牌校花人身尊严安全",
+     "力保大运会网球金牌荣誉"
+    ],
+    "resources": [
+     "备用球拍防滑手胶金属卡扣别针",
+     "运动员随身冰桶与毛巾物资配额"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "清纯外表下为了求胜永不言弃的倔强拼搏风骨",
+     "受窘时微婴儿肥脸颊泛红的惹人怜惜娇态"
+    ],
+    "boundaries": [
+     "严守男女社交分寸与同门规矩，非紧急救护绝不逾矩越界"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "成为校花职业生涯与人生道路上最值得托付后背的永恒守护磐石。",
+    "dislikes": [
+     "冒犯女生的轻浮油腻之徒",
+     "无事生非的恶意媒体",
+     "趁人之危的小人"
+    ],
+    "expression": "迅速解下自身干燥吸汗大毛巾从侧翼轻柔披在校花腰侧，以挺拔身姿挡死万人看台视角。",
+    "likes": [
+     "校花灿烂明媚的初恋笑颜",
+     "并肩战胜强敌的欢呼荣耀",
+     "被全然信赖的兄长安全感"
+    ],
+    "preconditions": [
+     "万人赛场挂死危局彻底化解并共同斩获全国冠军",
+     "对方点了头，出于本心"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "大运会网球主力成年选手兼搭档学长",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_centre_court_umpire_chair_base",
+     "to": 1340
+    },
+    {
+     "from": 1340,
+     "location_id": "loc_player_rest_bench_canopy",
+     "to": 1355
+    },
+    {
+     "from": 1355,
+     "location_id": "loc_court_side_tunnel_entrance",
+     "to": 1370
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "消耗一次球拍技术检视配额面临裁判严苛审视。",
+      "option": "走向网前手持断线球拍向主裁判提出球拍拍线磅数异常申请更换球拍争取四十五秒。"
+     },
+     {
+      "cost": "阻碍边线裁判跑动面临口头警告。",
+      "option": "在裁判椅下沿横跨一步借系鞋带为由蹲伏筑起第二道人肉视线屏障掩护脱钩。"
+     }
+    ],
+    "pressure": "发球钟红字疯狂倒数，二十秒内若不上场将面临发球超时警告并可能当场撕烂短裙。",
+    "trigger": "局间休息结束主裁手搭哨子准备鸣哨，校花被卡在椅底无法走向发球区。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "主裁判已经把哨子叼在嘴边了……{npc.name}绝不让任何人看到校花裙子扯开的样子，哪怕被罚黄牌也要挡住！",
+    "surface": "校花别慌，{npc.name}正用后背和球拍挡住一号转播机位！别针扁头卡进绳结死扣，用力往下挑！"
+   }
+  },
+  {
+   "adult_context": "体育竞赛国际裁判法专业年满三十七岁成年持证主裁，具备执行世界级巡回赛终审判决与现场执纪独家民事法定权限。",
+   "age_range": [
+    37,
+    40
+   ],
+   "appearance_options": [
+    "身着国际网联官方认证深米色短袖执裁服，佩戴金质裁判徽章，胸前挂着高分贝银哨，高踞于三米高铝合金裁判椅顶端，目光冷峻深邃严查全场。",
+    "扶住裁判椅扶手正准备按动发球倒计时按钮，眉头微蹙低头俯视椅底阴影，右手缓缓举起哨子神色威严。"
+   ],
+   "decision": {
+    "avoids": [
+     "资本后台操纵赛果",
+     "赛场失态引起万人喧哗",
+     "损毁国际大赛声誉"
+    ],
+    "contrast": "口吻严厉如霜令人望而生畏，察觉椅底有突发险情时反会机警调试麦克风转移观众注意。",
+    "core_value": "规则纪律的至高权威与对顶尖运动员人身尊严的刚直维护。",
+    "goal_options": [
+     "按章倒数鸣哨判定发球或在确认设施咬合故障时启动设备技术排查保护",
+     "在转播镜头失控前压制场边闲杂围观人员确保比赛神圣性"
+    ],
+    "never": [
+     "绝向飞扬跋扈的赞助商买办低头",
+     "绝让真正的纯洁少女蒙受不白之冤"
+    ],
+    "prefers": [
+     "分秒不差的流程纪律",
+     "恪守武德的职业素养",
+     "真实过硬的硬地实力"
+    ],
+    "pressure_responses": {
+     "breaking": "看到顾冷霜完成暗扣闭合瞬间果断下推T杆完成神级切镜",
+     "high": "在团委催促推流指令下强行插入两秒礼堂全景空镜头过渡",
+     "low": "在耳麦中短促播报推流倒计时并督促台前清场",
+     "mid": "发现特写画面纽扣脱落异样时右手悬停在T型推杆上暂缓切镜"
+    },
+    "relationship_stance": "以严格公正的法官姿态审视全场，但在关键原则前恪守正义绝不偏私。",
+    "withdrawal": "在裁判休息室静静擦拭金质徽章默诵执纪规则。"
+   },
+   "gender": "male",
+   "gender_reason": "国际网球联合会成年特聘青年资深主裁判年满三十七周岁。",
+   "id": "umpire_chief_liang_bo_yong",
+   "identity": {
+    "authority": "中央球场发球计时器启闭权与违规罚分最高下达权。",
+    "exposure": "表面刻板铁面六亲不认，实则对纯粹的竞技体育精神怀有至高无上的学者敬畏。",
+    "hidden": "极其赞赏校花教科书般纯正精湛的正手进攻技法，深知其为不可多得的国家网球瑰宝。",
+    "limits": [
+     "严格恪守国际网球联合会绝对中立与严苛执裁法典",
+     "严禁无故拖延法定比赛节拍"
+    ],
+    "obligations": [
+     "维系大运会女单巅峰对决的公平公正与赛场神圣秩序",
+     "杜绝任何赛场失仪违规"
+    ],
+    "resources": [
+     "三米高椅顶麦克风全场广播总控手柄",
+     "直通赛事裁判长仲裁耳机"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在极端逆境绝境中依然能挺直身躯捍卫荣誉的清纯坚韧风骨",
+     "不屈不挠的竞技风采"
+    ],
+    "boundaries": [
+     "恪守主裁判中立公义与男女尊严界限，绝无半分私心偏颇"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "作为赛场法度的公正执掌者，见证校花以堂堂正正的实力问鼎世界巅峰。",
+    "dislikes": [
+     "喧宾夺主的商业炒作",
+     "搬弄是非的无良狗仔",
+     "投机取巧的小人"
+    ],
+    "expression": "轻按椅顶话筒调音旋钮，以威严洪亮嗓音通报现场观众保持静肃以压制全场倒数声浪。",
+    "likes": [
+     "行云流水的纯正网球击球艺术",
+     "临危不乱的大将风度",
+     "守正刚毅的体育精神"
+    ],
+    "preconditions": [
+     "建立在规则互信与崇高体育道德共鸣基础之上"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "中央球场决赛青年成年主裁判长",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_centre_court_umpire_chair_base",
+     "to": 1335
+    },
+    {
+     "from": 1335,
+     "location_id": "loc_centre_court_umpire_chair_base",
+     "to": 1355
+    },
+    {
+     "from": 1355,
+     "location_id": "loc_centre_court_umpire_chair_base",
+     "to": 1370
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "改变既定执裁节奏需在赛后裁判报告中作特别陈述。",
+      "option": "借重新校准椅顶电子发球钟网络信号为由宣布技术复核争取十五秒宽限时间。"
+     },
+     {
+      "cost": "引发跟拍商业记者轻微抱怨与短时争议。",
+      "option": "严厉喝令边线长焦摄影师后退两米确保发球缓冲区绝对净空。"
+     }
+    ],
+    "pressure": "手握全场唯一判罚大权，若探身直视椅底将撞破校花短裙掀起受困走光惨状将被迫依规判罚。",
+    "trigger": "局间休息结束发球钟跳秒进入最后十五秒，{npc.name}含哨在唇准备鸣哨催促。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "高脚椅底座防滑横杠有异样拉扯震颤……校花短裙下摆似乎被倒钩卡死了，{npc.name}得在麦克风里替校花把倒数节奏压一压！",
+    "surface": "校花选手，局间休息时间已到。发球计时钟正在倒数，请立即持球走向底线准备发球！"
+   }
+  },
+  {
+   "adult_context": "运动康复专业毕业，年满二十五周岁整，具备完整法定民事侵权诉讼抗辩能力，大运会网球决赛成年官方球童领队。",
+   "age_range": [
+    25,
+    28
+   ],
+   "appearance_options": [
+    "身着亮黄色速干球童网球短裙套装，戴遮阳空顶帽，腰挎三个网球收纳袋，容貌娇俏活泼，两颊天然紧致微婴儿肥与饱满水润胶原蛋白，动作敏捷灵巧如同矫健小鹿。",
+    "反手跪伏在裁判椅背板后方阴影地胶上，怀中紧抱两条加厚纯白大浴巾，神情焦急万分，眼神机敏向校花递送手势暗号。"
+   ],
+   "decision": {
+    "avoids": [
+     "校花在镜头前受辱走光",
+     "球童违纪被开除",
+     "虚伪小人的算计"
+    ],
+    "contrast": "平时蹦蹦跳跳天真烂漫，关键时刻敢抱着浴巾死死顶在全场摄像机最前沿。",
+    "core_value": "对学姐知遇恩情的纯真赤诚守护与运动女孩并肩战斗的赤子之心。",
+    "goal_options": [
+     "在主裁哨响前展开大浴巾死死遮护住校花腰下走光春色",
+     "故意在底线掉球引起换球小插曲引开万人看台注意力"
+    ],
+    "never": [
+     "绝让外界脏水泼在学姐身上半点",
+     "绝出卖学姐的私密尴尬"
+    ],
+    "prefers": [
+     "干脆硬朗的自救动作",
+     "真心护短的担当",
+     "默契无声的掩护配合"
+    ],
+    "pressure_responses": {
+     "breaking": "在讲台侧后方用红丝绒托盘斜立遮挡光线以极快手法递入暗扣",
+     "high": "迈开优雅端庄的礼仪步伐抢在陆晨舟之前从侧翼台阶移步登台",
+     "low": "在侧幕边缘端正托盘平稳呼吸密切注视讲台前襟状态",
+     "mid": "发现纽扣崩落瞬间悄悄从夹层扣出磁吸扣捏在掌心手汗中"
+    },
+    "relationship_stance": "将校花视作世界上最圣洁温柔的亲姐姐，誓做校花最坚实的羽翼盾牌。",
+    "withdrawal": "在底线遮阳棚下急得直抹汗，小手死死攥着备用球拍手胶带不放。"
+   },
+   "gender": "female",
+   "gender_reason": "运动康复专业毕业，年满二十五周岁整成年女球童领队兼后辈。",
+   "id": "ball_girl_xia_xiao_tao",
+   "identity": {
+    "authority": "场内比赛用球配额发放与底线毛巾快速呈递权。",
+    "exposure": "平日大大咧咧充满元气的小跟班，实则对运动损伤护具结构与尼龙锁扣受力极为精通。",
+    "hidden": "曾发誓一定要保护好全校最温柔的校花，决不让任何坏人欺负学姐半分。",
+    "limits": [
+     "必须恪守球童无声迅速退避的赛场铁律",
+     "不可擅自在死球期间踏入网前大声喧哗"
+    ],
+    "obligations": [
+     "保障场地用球毫无瑕疵准时供应",
+     "在校花遭遇突发窘境时誓死掩护"
+    ],
+    "resources": [
+     "加厚不透光纯棉运动大浴巾两合",
+     "随身微型球童对讲耳麦与护腕别针"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在万人目光风暴中心敢于为女孩子遮风挡雨的盖世英雄气魄",
+     "临危不乱的机械解厄手腕"
+    ],
+    "boundaries": [
+     "严守少女纯真防线与球童底线，决不容许外客轻浮亵渎"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "成为校花身边最忠诚机敏的小卫士，共同分享夺冠喜悦。",
+    "dislikes": [
+     "故意推搡占便宜的轻薄浪荡之徒",
+     "蛮横无礼的资本大少",
+     "落井下石的伪君子"
+    ],
+    "expression": "眼眶通红地把大浴巾递给{player.name}，小声抽噎着比了个全力以赴拜托的手势。",
+    "likes": [
+     "学姐赛后递给自己的清凉运动饮料",
+     "并肩化解危机的绝地胜利",
+     "靠谱同伴的硬核依靠"
+    ],
+    "preconditions": [
+     "高压赛场危局化险为夷且全力护住校花清誉"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "中央球场官方成年球童领队兼后辈",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_player_rest_bench_canopy",
+     "to": 1335
+    },
+    {
+     "from": 1335,
+     "location_id": "loc_centre_court_umpire_chair_base",
+     "to": 1355
+    },
+    {
+     "from": 1355,
+     "location_id": "loc_player_rest_bench_canopy",
+     "to": 1370
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "浴巾角刮到硬地地胶产生微小磨损需赛后更换。",
+      "option": "飞身跃起张开加厚纯白大浴巾死死挡住长焦镜头正面取景角度。"
+     },
+     {
+      "cost": "承担球童工作微小失误口头提醒。",
+      "option": "在底线故意掉落两颗比赛用球引发检查球压小插曲引开看台视线十秒。"
+     }
+    ],
+    "pressure": "最后十秒倒数，学姐短裙完全受拉掀起，一旦特写推到腰际将酿成全网毁灭性社死灾难。",
+    "trigger": "校花被防滑横梁卡死无法直立，转播机位正顺着球员长椅推近特写。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "少东家那个纨绔正举着长焦望远镜往这边瞄……{npc.name}得把全场镜头视线死死挡在浴巾外面，学姐快挑开啊！",
+    "surface": "校花别怕！{npc.name}已经把两条大浴巾抱在怀里了，搭档学长正在外面拦着，别针用力往下挑啊！"
+   }
+  },
+  {
+   "adult_context": "大型体育场馆特种机械与电气工程维保年满三十九岁成年持证工长，具备赛场设施抢险完全民事责任能力。",
+   "age_range": [
+    39,
+    42
+   ],
+   "appearance_options": [
+    "身材精壮结实，皮肤晒成健康小麦色，身穿深灰防静电多功能工装马甲，腰挎重型航空合金工具袋与不锈钢多用撬杆，神态沉稳干练眼神专注。",
+    "半跪在裁判椅背板下方地胶凹槽处，右手紧握一把特种不锈钢薄刃撬片，神情严峻专注紧盯倒钩咬合死点。"
+   ],
+   "decision": {
+    "avoids": [
+     "蛮干硬拽扯烂衣物",
+     "外行盲目指挥乱拔螺栓",
+     "推诿卸责的小人"
+    ],
+    "contrast": "平时笨嘴拙舌不善言辞，处置起精密器械卡阻动作快如闪电判断极其精准。",
+    "core_value": "工程力学实事求是的物理法则与工匠绝不伤及无辜的人道底线。",
+    "goal_options": [
+     "指导内侧利用球拍手胶别针高硬度扁平齿微观割挑尼龙暗带受拉结",
+     "在横梁侧面旋松固定螺栓释放冲压倒钩内应力"
+    ],
+    "never": [
+     "绝让受困女选手娇嫩大腿遭受机械撕裂伤害",
+     "绝在险情面前擅离职守"
+    ],
+    "prefers": [
+     "遵循材料力学硬度规律的操作",
+     "果断冷静的配合",
+     "经久耐用的硬核器械"
+    ],
+    "pressure_responses": {
+     "breaking": "在听到气压释放嘶鸣声后迅速闭合地槽动力断路器完成排障",
+     "high": "在耳麦中大声指挥台前人员借激光笔淬火背夹下压挑卡簧",
+     "low": "在耳麦中短促通报电机短路电磁阀烧结警报并要求台前切勿强拔",
+     "mid": "快速查阅管路图纸找出立柱内侧两毫米应急泄压孔确切方位"
+    },
+    "relationship_stance": "把校花和{player.name}视作需要紧急救助的战友，毫无杂念全力排险。",
+    "withdrawal": "在场边机修地沟旁大口灌着凉水，默默用棉纱擦拭扳手上的汗水。"
+   },
+   "gender": "male",
+   "gender_reason": "特种场馆机电设备工程毕业，年满三十九周岁成年技术工长。",
+   "id": "stadium_electrician_niu_tie_zhu",
+   "identity": {
+    "authority": "中央球场主裁判椅升降机构与液压固定卡锁紧急检修制动权。",
+    "exposure": "长相五大三粗外表粗犷，但对航空铝冲压倒钩微米级应力集中分布了如指掌。",
+    "hidden": "暗自崇敬运动健儿奋勇争先的高尚风采，打心底里想护住这位阳光清纯的校花后辈。",
+    "limits": [
+     "严禁违规拆卸承重结构导致主裁坠落",
+     "必须服从赛场调度指令"
+    ],
+    "obligations": [
+     "保障中央球场特种设施运转绝对平稳安全",
+     "杜绝尖锐毛刺撕扯运动员装备事故"
+    ],
+    "resources": [
+     "全套高耐磨硬化不锈钢薄撬片与微型开口扳手",
+     "熟悉裁判椅每一根铝管焊接极限"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在千钧一发之际敢拿球拍别针当微型撬齿挑断合金倒钩绳结的惊天胆识与力学直觉",
+     "生死过硬的默契"
+    ],
+    "boundaries": [
+     "恪守机电作业安全红线与男女有别规矩，操作时必须背对裙摆由同侪接应"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "守牢赛场设施地基，护卫聚光灯下的网球偶像平安摘得桂冠。",
+    "dislikes": [
+     "看不起技术工人的傲慢阔少",
+     "胡乱指挥的外行领导",
+     "虚浮做作的作派"
+    ],
+    "expression": "抹了一把额头上的热汗憨厚点头，把高分子绝缘垫片递过横梁缝隙示意垫在倒钩内侧保护肌肤。",
+    "likes": [
+     "懂材料硬度力学的硬汉战友",
+     "过硬的工匠互信",
+     "质朴坦荡的谢意"
+    ],
+    "preconditions": [
+     "重大赛场机电排险中联手化解灾难结成生死过硬技术互信"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "露天网球中心特种设施成年机电工长",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_umpire_ladder_back_shadow",
+     "to": 1340
+    },
+    {
+     "from": 1340,
+     "location_id": "loc_umpire_ladder_back_shadow",
+     "to": 1355
+    },
+    {
+     "from": 1355,
+     "location_id": "loc_centre_court_umpire_chair_base",
+     "to": 1370
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "裁判椅方管表面留下微小工具撬痕需事后补漆。",
+      "option": "从外侧暗角以特种不锈钢撬片强力别开铝合金横杠两毫米间隙释放咬合拉力。"
+     },
+     {
+      "cost": "裁判椅蹬梯防滑等级轻微下降引起主裁赛后设备检视。",
+      "option": "手动旋松横梁侧翼快速紧固偏心螺母使冲压倒钩整体后缩退位两毫米。"
+     }
+    ],
+    "pressure": "若十秒内不排解导钩卡阻，剧烈拖拽将直接扯断尼龙绳造成百褶裙撕裂大走光。",
+    "trigger": "裁判椅横梁冲压倒钩死死卡住百褶裙暗扣与尼龙绳，横杠受拉剧烈发烫震颤。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "冲压倒钩铝合金咬合只有一毫米间隙……必须靠别针这硬扁头把受力尼龙结挑爆，校花才能站起来！",
+    "surface": "听{npc.name}口令！手胶别针是淬火不锈钢硬度极高！{npc.name}在后面用扳手反别横杠，别针挑进绳结中心向下撬！"
+   }
+  },
+  {
+   "adult_context": "体育用品产业集团成年派遣常务董事年届三十一岁，依法独立签署数千万级品牌代言赞助合同并承担完全民事责任。",
+   "age_range": [
+    31,
+    34
+   ],
+   "appearance_options": [
+    "身着定制纯白高弹运动西装外套，内衬荧光绿速干T恤，戴名贵碳纤维运动腕表，手持高倍率专业数码观赛长焦单筒，眼神玩味轻佻，嘴角噙着居高临下的狂妄冷笑。",
+    "正手握长焦单筒带领随行助理试图强行跨越出入通道口警戒软绳，脚步试探逼近裁判椅侧翼，眼底闪烁着刺探绝美校花走光黑料的无耻贪婪。"
+   ],
+   "decision": {
+    "avoids": [
+     "当众出丑威严扫地",
+     "长焦设备被安保当场依法收缴",
+     "弄脏定制球鞋"
+    ],
+    "contrast": "人前高谈阔论现代资本赋能中国网球，背地里满脑子都是逼良为娼的龌龊算计与威逼利诱。",
+    "core_value": "金钱资本主宰一切与将高傲校花彻底拉入泥淖肆意支配的病态占有欲。",
+    "goal_options": [
+     "借亲自送水为名强行冲入场内拍下校花百褶裙扯开受困底片逼其签下十年依附代言长约",
+     "在主裁判面前立威展示资本对传统赛事的绝对支配力"
+    ],
+    "never": [
+     "绝向穷酸运动员和底层工匠认错",
+     "绝放弃即将到手的极品猎物"
+    ],
+    "prefers": [
+     "被奉承逢迎的特权快感",
+     "掌控对手命门弱点",
+     "高傲校花在自己脚下屈服哀求"
+    ],
+    "pressure_responses": {
+     "breaking": "在顾冷霜清冷庄重开口发声后满意点头向校领导躬身汇报",
+     "high": "在耳麦中严厉提醒导播台按预定时间点准点切屏不得延误",
+     "low": "在贵宾席前平稳确认领导座次并用手势示意各单位倒计时开场",
+     "mid": "察觉讲台略有偏高时抬眼注视台前要求副主席做好应急准备"
+    },
+    "relationship_stance": "将校花视作待价而沽的禁脔猎物，对后勤球童与工匠极尽傲慢蔑视。",
+    "withdrawal": "在贵宾观赛包厢冷笑着晃动冰咖啡对下属严厉训斥办事拖沓。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "sponsor_rep_shen_yi_ming",
+   "identity": {
+    "authority": "年度千万级运动品牌独家代言合约一票签署权与形象解约权。",
+    "exposure": "表面吹嘘自己是网球运动忠实拥趸与校花守护天使，实则是企图通过抓取桃色走光把柄逼迫校花沦为私家玩物的纨绔。",
+    "hidden": "早就对校花清纯脱俗的初恋仙姿垂涎三尺，企图利用挂死受窘拍下裙底把柄彻底逼其就范签约。",
+    "limits": [
+     "受制于大运会组委会竞赛反骚扰与赛场秩序公约红线",
+     "必须在媒体前维持阳光青年企业家皮囊"
+    ],
+    "obligations": [
+     "为旗下运动品牌签下校花未来五年独家代言形象长约",
+     "最大化商业炒作曝光率"
+    ],
+    "resources": [
+     "全网体育娱乐头部媒体推流矩阵",
+     "随行顶尖法务商业公关团队"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "如同不染凡尘的初恋仙子即将跌落神坛的破碎绝美香艳感",
+     "无法抗拒的雪白大腿冲击"
+    ],
+    "boundaries": [
+     "在公众媒体镜头前维持斯文败类人设，绝不敢公然暴力触犯刑律"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "以资本帝王姿态将校花彻底圈禁为自身私人豪宅内的私家名媛玩物。",
+    "dislikes": [
+     "刚烈不屈的当面打脸",
+     "工匠机油的恶臭气味",
+     "权威受到公然挑衅挑战"
+    ],
+    "expression": "把玩着手中高倍单筒相机缓步逼近场边，嘴角挂着志在必得的轻佻冷笑。",
+    "likes": [
+     "摧毁国民初恋女神骄傲带来的病态征服欲",
+     "金钱买断人生的绝对特权",
+     "独占至宝"
+    ],
+    "preconditions": [
+     "对方在身败名裂灭顶走光危机威胁下被迫签下依附契约"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "大运会顶级运动品牌赞助商成年少东家",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_court_side_tunnel_entrance",
+     "to": 1335
+    },
+    {
+     "from": 1335,
+     "location_id": "loc_court_side_tunnel_entrance",
+     "to": 1350
+    },
+    {
+     "from": 1350,
+     "location_id": "loc_centre_court_umpire_chair_base",
+     "to": 1370
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "公然得罪最大商业资方面临后续撤资施压与舆论造势。",
+      "option": "以大运会赛场纪律红线由安保出示禁令严令{npc.name}退回贵宾包厢。"
+     },
+     {
+      "cost": "消耗宝贵主裁人情需在后续赛事发布会中给予资方特别鸣谢。",
+      "option": "由主裁判出面将{npc.name}引向裁判休息室鉴赏典藏签名网球分散其注意力。"
+     }
+    ],
+    "pressure": "手握三千万赞助款霸权，皮鞋尖已经踏入场内地胶，伸手便可掀开毛巾直击校花走光春色。",
+    "trigger": "{npc.name}率领随从扛着高倍单筒相机借关心选手为名强行跨过边线警戒区逼近裁判椅。"
+   },
+   "tags": [],
+   "voices": {
+    "inner": "听说那个平日连正眼都不看{npc.name}一眼的清纯校花百褶裙被倒钩扯开了？天赐良机！{npc.name}现在推近拍几张，看校花还怎么装清纯玉女！",
+    "surface": "校花，{npc.name}可是注资了三千万！听说裁判椅出了点小状况，作为冠名商，{npc.name}亲自带人进场关心关照难道不合理？"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "大运会网球女单决赛日，八月",
+  "minute": 1140
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "coercion_theme",
+  "humiliation",
+  "workplace_power",
+  "crime"
+ ],
+ "custom": false,
+ "customs": [
+  "清纯成年网球偶像心慌失措时习惯单手轻按球拍网线以低头整理遮阳帽掩饰两颊微婴儿肥泛起的极度羞红",
+  "中央球场局间换边时全场一万名成年球迷随着啦啦队节拍整齐拍击充气充气棒为偶像校花呐喊助威的固定声浪",
+  "发球前以球拍拍框轻击硬质球场地胶三次倾听弹性清脆反馈并平稳呼吸的职业选手习惯动作",
+  "主裁判在椅顶麦克风前敲响两次发球倒计时电子提示音代表全场肃静且十五秒后必须发球的执裁指令"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "成年侍童跪坐于草席地胶上细致擦拭金属横梁表面污垢",
+    "银白铝合金管件在烈日暴晒下折射出刺眼金属反光"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_umpire_chair_ladder_inspection",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "start_minute": 1325,
+   "tags": [],
+   "title": "裁判椅航空铝合金登梯防滑横梁检视"
+  },
+  {
+   "beats": [
+    "穿线师用软布细致擦拭开瓶器式扁平不锈钢卡扣别针金属表面",
+    "淬火扁平别针硬齿在阳光下闪烁着冷冽刚性寒芒"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_racket_overgrip_stainless_clip_prep",
+   "location_ids": [
+    "loc_player_rest_bench_canopy"
+   ],
+   "start_minute": 1330,
+   "tags": [],
+   "title": "网球拍加厚吸汗带不锈钢卡扣别针清点"
+  },
+  {
+   "beats": [
+    "助理裁判按动测试开关校准红字数码管跳秒与蜂鸣器分贝",
+    "高分贝提示音在万人看台硬地上空产生清脆回弹震鸣"
+   ],
+   "duration_minutes": 12,
+   "hook_ids": [],
+   "id": "act_shot_clock_electronic_system_sync",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "start_minute": 1335,
+   "tags": [],
+   "title": "球场发球计时器四十五秒倒计时系统同步"
+  },
+  {
+   "beats": [
+    "成年球童把浸透薄荷冰水的纯白大浴巾叠放整齐置于休息长椅背上",
+    "丝丝冰冷白雾从冰桶中散逸为燥热赛场带来片刻清凉"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_player_ice_towel_cooling_prep",
+   "location_ids": [
+    "loc_player_rest_bench_canopy"
+   ],
+   "start_minute": 1340,
+   "tags": [],
+   "title": "选手局间休息冰水桶与纯棉大毛巾备置"
+  },
+  {
+   "beats": [
+    "特勤安保人员拉紧软绳引导摄影师退后至黄色警戒线外",
+    "通道阴凉处的穿堂微风吹散硬地球场的燥热翻腾气浪"
+   ],
+   "duration_minutes": 10,
+   "hook_ids": [],
+   "id": "act_tunnel_media_cordon_patrol",
+   "location_ids": [
+    "loc_court_side_tunnel_entrance"
+   ],
+   "start_minute": 1345,
+   "tags": [],
+   "title": "球员通道出口长焦媒体记者动线疏导"
+  },
+  {
+   "beats": [
+    "随从簇拥少东家步入场边专属软座包厢奉上定制冰茶",
+    "名贵运动碳纤维腕表晃动声伴随傲慢轻笑在遮阳棚下回荡"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_sponsor_court_side_box_tea_reception",
+   "location_ids": [
+    "loc_court_side_tunnel_entrance"
+   ],
+   "start_minute": 1350,
+   "tags": [],
+   "title": "运动品牌资方场边包厢迎候冷萃茶歇"
+  },
+  {
+   "beats": [
+    "裁判椅的挂钩撬开、女单比赛打完之后，校花回到公寓，右肩发球发得又酸又烫，网球裙上还沾着红土的印子。",
+    "校花趴在床上，让人一手按着冰袋，一手揉开肩胛，揉到第三圈，校花把脸埋进枕头里，小声说再往下一点。",
+    "校花翻过身，脸红得像刚打完抢七：今晚……你别回自己房间了。你要是愿意，就点头。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_village_ice_shoulder",
+   "location_ids": [
+    "loc_athlete_village_room"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "公寓里替校花冰敷肩膀"
+  },
+  {
+   "beats": [
+    "校花抱着平板坐在床上，把今天的比赛录像拖到第三盘，说那一个反手直线到现在还在后悔。",
+    "看到最后一分，校花把脑袋靠过来：赢了也好，输了也好……你在场边，我就够了。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_village_match_replay",
+   "location_ids": [
+    "loc_athlete_village_room"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "intimate"
+   ],
+   "title": "一起看一遍比赛录像"
+  },
+  {
+   "beats": [
+    "校花打完比赛还得赶论文，书桌上的台灯开到半夜，草稿上画满了红圈。",
+    "校花把笔一扔，转身抱住对方的腰：写不下去了……充五分钟电，就五分钟。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_village_thesis_night",
+   "location_ids": [
+    "loc_athlete_village_room"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "陪校花熬论文"
+  },
+  {
+   "beats": [
+    "天刚亮，训练场的灯还没灭，校花在床上醒来，膝盖蹭着对方的腿，手机闹钟已经响了第二遍。",
+    "校花伸手把闹钟按掉：晨练推迟十分钟……教练问起来，就说是你的错。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_village_morning_jog",
+   "location_ids": [
+    "loc_athlete_village_room"
+   ],
+   "start_minute": 400,
+   "tags": [
+    "intimate"
+   ],
+   "title": "晨练前的赖床"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "当代大运会网球女单决赛，万人露天中央球场的决胜盘局间休息",
+ "extends": null,
+ "forbidden_terms": [
+  "他",
+  "她",
+  "他们的",
+  "她们的",
+  "幼态",
+  "幼女",
+  "少女感",
+  "催情",
+  "迷乱",
+  "欲火"
+ ],
+ "hooks": [
+  {
+   "id": "hook_01_umpire_chair_hook_jam_groan",
+   "kind": "approach",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "slot": "tennis_idol_lin_shi_yin",
+   "text": "主裁判椅防滑横梁传来沉闷的金属刮擦声，铝合金冲压倒钩死死挂住百褶裙暗扣与尼龙带！"
+  },
+  {
+   "id": "hook_02_partner_racket_delay_signal",
+   "kind": "approach",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "slot": "tennis_partner_gu_tian_yu",
+   "text": "{tennis_partner_gu_tian_yu.name}在网前以球拍手柄轻击地面向校花打出手势暗号，暗中替学妹阻挡转播镜头视线。"
+  },
+  {
+   "id": "hook_03_lin_master_extracts_pin",
+   "kind": "approach",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "slot": "tennis_idol_lin_shi_yin",
+   "text": "{tennis_idol_lin_shi_yin.name}眼角微红轻咬贝齿，修长玉指紧紧捏住一枚加厚不锈钢高硬度扁平手胶别针探向椅底！"
+  },
+  {
+   "id": "hook_04_umpire_footsteps_hallway",
+   "kind": "approach",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "slot": "umpire_chief_liang_bo_yong",
+   "text": "{umpire_chief_liang_bo_yong.name}手搭银哨俯视椅底，威严平稳的催促声隔着话筒在万人看台上空回荡逼近。"
+  },
+  {
+   "id": "hook_05_ballgirl_towel_cover",
+   "kind": "approach",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "slot": "ball_girl_xia_xiao_tao",
+   "text": "成年球童{ball_girl_xia_xiao_tao.name}怀抱纯白加厚大浴巾疾步冲向裁判椅侧翼，死死遮挡住转播镜头的窥探角度。"
+  },
+  {
+   "id": "hook_06_steel_pin_notches_slice",
+   "kind": "approach",
+   "location_ids": [
+    "loc_umpire_ladder_back_shadow"
+   ],
+   "slot": "tennis_idol_lin_shi_yin",
+   "text": "不锈钢别针坚硬扁平齿端精准抵住受拉尼龙绳结，合力猛烈向下撬挑挑破受拉编织纤维！"
+  },
+  {
+   "id": "hook_07_sponsor_barge_tunnel_cordon",
+   "kind": "approach",
+   "location_ids": [
+    "loc_court_side_tunnel_entrance"
+   ],
+   "slot": "sponsor_rep_shen_yi_ming",
+   "text": "{sponsor_rep_shen_yi_ming.name}轻佻的嗤笑声伴随昂贵球鞋逼近通道口，手中的高倍单筒镜头几乎越过警戒挡板。"
+  },
+  {
+   "id": "hook_08_mechanic_pries_base_gap",
+   "kind": "approach",
+   "location_ids": [
+    "loc_umpire_ladder_back_shadow"
+   ],
+   "slot": "stadium_electrician_niu_tie_zhu",
+   "text": "{stadium_electrician_niu_tie_zhu.name}半跪在阴影地槽用不锈钢撬片卡入横梁反向发力，生生别出两毫米微观释放间隙！"
+  },
+  {
+   "id": "hook_09_blushing_cheeks_close_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "slot": "tennis_idol_lin_shi_yin",
+   "text": "{tennis_idol_lin_shi_yin.name}近在咫尺的滚烫喘息扑在手背上，两颊天然紧致微婴儿肥红得宛若初春桃花盛放般娇艳。"
+  },
+  {
+   "id": "hook_10_nylon_cord_pops_retreat",
+   "kind": "approach",
+   "location_ids": [
+    "loc_umpire_ladder_back_shadow"
+   ],
+   "slot": "tennis_idol_lin_shi_yin",
+   "text": "伴随一声清脆的纤维爆开微响，受压尼龙绳结应声断开，暗扣脱出倒钩，百褶短裙瞬间自然垂落！"
+  },
+  {
+   "id": "hook_11_champion_serve_ace_strike",
+   "kind": "accident",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "slot": "tennis_idol_lin_shi_yin",
+   "text": "脱困瞬间{tennis_idol_lin_shi_yin.name}敏捷抚平裙摆走向底线，高高抛球凌空暴扣轰出一记压线ACE球直接绝杀夺冠！"
+  },
+  {
+   "id": "hook_12_flawless_idol_grace_restored",
+   "kind": "observe",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "slot": "tennis_partner_gu_tian_yu",
+   "text": "全场一万人轰然起立欢呼，站在冠军领奖台上的校花短裙飞扬风姿绝代，两颊微红神态圣洁高傲。"
+  },
+  {
+   "id": "hook_13_grandmaster_applause_erupts",
+   "kind": "observe",
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "slot": "tennis_idol_lin_shi_yin",
+   "text": "金牌挂在胸前熠熠生辉，万人露天球场掌声雷动，主裁判微笑致敬宣布新一代网球女神诞生！"
+  },
+  {
+   "id": "hook_14_sponsor_expulsion_shame",
+   "kind": "request",
+   "location_ids": [
+    "loc_court_side_tunnel_entrance"
+   ],
+   "slot": "sponsor_rep_shen_yi_ming",
+   "text": "特勤安保人员以扰乱赛场秩序为由严厉喝退{sponsor_rep_shen_yi_ming.name}，当着全场媒体的面将其驱逐出中央球场通道。"
+  },
+  {
+   "id": "hook_15_steel_pin_token_whisper",
+   "kind": "request",
+   "location_ids": [
+    "loc_player_rest_bench_canopy"
+   ],
+   "slot": "tennis_idol_lin_shi_yin",
+   "text": "夺冠更衣通道转角处，{tennis_idol_lin_shi_yin.name}悄悄将带有自身温热体香的不锈钢别针轻轻塞入施救者掌心。"
+  },
+  {
+   "id": "hook_athlete_village_door",
+   "kind": "approach",
+   "location_ids": [
+    "loc_athlete_village_room"
+   ],
+   "slot": "tennis_idol_lin_shi_yin",
+   "text": "{npc.name}扶着公寓门，头发还湿着：比赛打完了。……进来吧，帮我冰敷一下。"
+  }
+ ],
+ "id": "pure_tennis_idol_umpire_hook_trap",
+ "locations": [
+  {
+   "affordances": [
+    "以裁判椅铝合金横梁冲压边缘为受力反支点",
+    "拿起球拍手胶扁平金属卡扣别针挑撬尼龙编织绳结"
+   ],
+   "detail": "位于硬地球网正侧方的三米高铝合金裁判椅底部，由粗壮的银白航空铝方管焊接而成，带有带齿防滑蹬梯横梁与冲压倒钩。刺眼的正午烈日将地胶烤得滚烫，正前方是一万名观众沸腾的阶梯看台与盘旋俯瞰的转播摇臂。",
+   "exits": [
+    "loc_player_rest_bench_canopy",
+    "loc_court_side_tunnel_entrance",
+    "loc_umpire_ladder_back_shadow"
+   ],
+   "id": "loc_centre_court_umpire_chair_base",
+   "name": "裁判椅底座",
+   "pressure_modifiers": {
+    "press_shot_clock_forty_five_countdown": "发球钟红字急促跳秒进入最后倒数每秒蜂鸣加剧窒息压力",
+    "press_skirt_snap_hook_jam_strain": "冲压倒钩死死咬住百褶裙暗扣受颠簸拉扯向上剧烈形变"
+   },
+   "privacy": "public",
+   "tags": [],
+   "visibility": "全场一万名观众与高清转播镜头无死角覆盖，唯有裁判椅座椅正下方遮阳伞阴影形成片刻局部视线盲区",
+   "witnesses": [
+    "bg_chair_umpire_liang",
+    "bg_pro_player_gu_tian_yu"
+   ]
+  },
+  {
+   "affordances": [
+    "取用椅背上加厚纯白大浴巾进行视线遮挡",
+    "抓取备用球拍上的不锈钢手胶卡扣别针递送支援"
+   ],
+   "detail": "紧邻主裁判椅两米远的选手红色软垫折叠椅，头顶撑着两米直径防紫外线遮阳大伞。长椅上整齐码放着冰桶、运动功能饮料与两柄更换了新手胶的定制球拍。",
+   "exits": [
+    "loc_centre_court_umpire_chair_base",
+    "loc_umpire_ladder_back_shadow"
+   ],
+   "id": "loc_player_rest_bench_canopy",
+   "name": "选手休息椅",
+   "pressure_modifiers": {
+    "press_skirt_sheer_tight_exposure_panic": "百褶裙被倒钩扯起露出贴身安全裤雪白大腿加剧校花极致社死负荷",
+    "press_umpire_whistle_imminent": "主裁判起身手搭口哨威严下望带来执裁重压"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "遮阳大伞边缘与搭在椅背上的加厚浴巾提供半遮蔽角度，阻隔边线看台直射目光",
+   "witnesses": [
+    "bg_ball_girl_captain_xia_xiao_tao",
+    "bg_stadium_electrician_niu"
+   ]
+  },
+  {
+   "affordances": [
+    "以赛事技术暂停为由拉起警戒软绳阻挡无关人员入场",
+    "取用通道内医务箱消毒棉纱与防滑滑石粉"
+   ],
+   "detail": "直通地下更衣室的下沉式防滑橡胶通道入口，两侧立着赛事主赞助商巨幅广告展板与电视转播采访背景墙。通道内冷风倒灌与地面热浪交汇。",
+   "exits": [
+    "loc_centre_court_umpire_chair_base",
+    "loc_umpire_ladder_back_shadow",
+    "loc_athlete_village_room"
+   ],
+   "id": "loc_court_side_tunnel_entrance",
+   "name": "球员通道口",
+   "pressure_modifiers": {
+    "press_shot_clock_forty_five_countdown": "全场一万名观众的倒数助威声在通道拱顶形成轰鸣共振",
+    "press_sponsor_vip_court_side_intrusion": "赞助商贵宾皮鞋踩过地胶逼近场边广告牌探头窥探"
+   },
+   "privacy": "semi",
+   "tags": [],
+   "visibility": "选手退场动线与候场贵宾出入要道，赞助商代表与随行媒体长焦镜头在此聚焦",
+   "witnesses": [
+    "bg_sponsor_rep_shen_yi_ming",
+    "bg_security_guard_lao_ma"
+   ]
+  },
+  {
+   "affordances": [
+    "用球拍别针坚硬扁平撬齿挑断死咬尼龙编织结",
+    "反向抵住铝合金方管减轻裙摆受拉撕裂载荷"
+   ],
+   "detail": "由裁判椅垂直爬梯、电子计分总线管槽与广告背板隔出的半平米狭窄死角，地面铺有绝缘胶垫。校花受困的半边娇躯深陷在此处阴影与横杠缝隙之间。",
+   "exits": [
+    "loc_centre_court_umpire_chair_base",
+    "loc_player_rest_bench_canopy",
+    "loc_court_side_tunnel_entrance"
+   ],
+   "id": "loc_umpire_ladder_back_shadow",
+   "name": "蹬梯后夹缝",
+   "pressure_modifiers": {
+    "press_fingertip_sweat_pin_slippage": "手心细汗与极度紧张导致不锈钢别针抓握受力打滑险情",
+    "press_skirt_snap_hook_jam_strain": "冲压倒钩微观毛刺死死卡入尼龙暗带受拉濒临撕裂极限"
+   },
+   "privacy": "private",
+   "tags": [],
+   "visibility": "裁判椅实木座椅底板阻挡上方垂直俯视，前侧横梁与广告牌遮挡看台直视",
+   "witnesses": [
+    "bg_ball_girl_captain_xia_xiao_tao",
+    "bg_stadium_electrician_niu"
+   ]
+  },
+  {
+   "affordances": [
+    "替校花冰敷打了三盘的肩膀",
+    "陪校花看一遍比赛录像",
+    "反锁公寓的房门"
+   ],
+   "detail": "大运村选手公寓的一间双人房，阳台上晾着网球裙和护腕，书桌上摆着研究生论文的草稿和一管冰敷喷雾，窗外是夜里的训练场灯光。",
+   "exits": [
+    "loc_court_side_tunnel_entrance"
+   ],
+   "id": "loc_athlete_village_room",
+   "name": "大运村的选手公寓",
+   "pressure_modifiers": {},
+   "privacy": "private",
+   "tags": [
+    "intimate"
+   ],
+   "visibility": "房门一关，楼道里各国选手的说笑声都远了，只剩空调和冰箱的低鸣。",
+   "witnesses": []
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "林",
+   "顾",
+   "梁",
+   "夏",
+   "牛",
+   "沈",
+   "陆",
+   "苏",
+   "叶",
+   "唐",
+   "萧",
+   "裴",
+   "霍",
+   "楚",
+   "白",
+   "周"
+  ],
+  "given_female": [
+   "诗音",
+   "小桃",
+   "若雪",
+   "思瑶",
+   "清菡",
+   "梦涵",
+   "诗曼",
+   "雅淳",
+   "灵均",
+   "芷蕾",
+   "宛晴",
+   "宛容",
+   "晨熙",
+   "梓涵",
+   "佩仪",
+   "佳怡"
+  ],
+  "given_male": [
+   "天宇",
+   "伯庸",
+   "铁柱",
+   "奕铭",
+   "云舟",
+   "崇礼",
+   "逸飞",
+   "景深",
+   "修远",
+   "致远",
+   "正浩",
+   "博容",
+   "星渊",
+   "立诚",
+   "敬之",
+   "瀚海"
+  ],
+  "given_neutral": [
+   "青羽",
+   "星辰",
+   "子墨",
+   "嘉言",
+   "天瑞",
+   "海逸",
+   "允哲",
+   "明煦",
+   "怀安",
+   "若水",
+   "元化",
+   "乐成",
+   "安然",
+   "景天",
+   "希文",
+   "之诺"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留万人露天网球中心的大运会女单决赛、决胜盘局间休息、弯腰拿冰毛巾时纯白百褶裙腰扣连同骨盆康复限位绳挂进主裁判高脚椅防滑横杠的冲压倒钩、短裙被扯起、四十五秒发球钟、万人看台与转播特写、手胶不锈钢扁别针挑断绳结的骨架与初恋校花味道。原稿的时代、地点、开局时刻和基调是从学生会长世界复制的，已按网球决赛重写；背景人物里与主要角色同名的几位改成了独立的人。大运会限二十五岁以下在校生，女主改成体育学院研究生，年龄二十三到二十五岁；搭档学长二十四到二十五岁。用户已放开内容限制，只守红线；险情期间不写性互动。外貌描写照留，只改写死的人名、代词、年龄。新增运动员村公寓与四个亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    25,
+    29
+   ],
+   "baseline": "运动器材工程专业毕业，年满二十五周岁成年技术人员，掌握校花球拍磅数微调与手胶金属配件更换权限。",
+   "gender": "any",
+   "id": "pi_court_standby_racket_stringer",
+   "reputation": "对球拍握把每一毫米配重平衡了如指掌的可靠技术搭档",
+   "resources": [
+    "航空硬化不锈钢加厚扁平卡扣别针组",
+    "专业穿线剪与手胶缠绕固定器"
+   ],
+   "risks": [
+    "若违规延误球拍递送面临赛事组委会黄牌警告"
+   ],
+   "role": "中央球场成年专属穿线师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}线师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    25,
+    29
+   ],
+   "baseline": "体育裁判专业毕业，年满二十五周岁成年副裁判，负责记录发球钟跳秒与裁判椅边线防滑横梁安全。",
+   "gender": "any",
+   "id": "pi_assistant_chair_umpire_official",
+   "reputation": "执法严谨一丝不苟的青年骨干裁判员",
+   "resources": [
+    "国际网联官方认可发球钟暂停申请手柄",
+    "巡查球场设施特许胸卡"
+   ],
+   "risks": [
+    "若误判发球超时面临全场观众喝倒彩质疑"
+   ],
+   "role": "边线主裁成年当值助理裁判",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}裁判"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}老师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    39,
+    43
+   ],
+   "baseline": "广播电视工程专业毕业，年满三十九周岁成年镜头主管，负责掌管正对裁判椅的摇臂高清特写推流机位。",
+   "gender": "any",
+   "id": "pi_stadium_av_broadcast_director",
+   "reputation": "洞察万人看台焦点与光影盲区的主控高手",
+   "resources": [
+    "摇臂镜头自由避让切换遥控手柄",
+    "中央大屏幕实时推流全景切断键"
+   ],
+   "risks": [
+    "错失关键冠军发球特写面临赛事赞助方扣罚奖金"
+   ],
+   "role": "万人球场中央转播镜头总监",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}总监"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}导"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    28
+   ],
+   "baseline": "体育学院毕业，年满二十四周岁整成年勤工助学低位侍工，负责局间跪地擦拭裁判椅旁硬地汗渍与递送毛巾，极易隐匿于横梁阴影中。",
+   "gender": "any",
+   "id": "pi_low_court_sweeper_ball_boy",
+   "reputation": "身穿明黄速干短袖默默跪地擦汗的成年低调球童",
+   "resources": [
+    "超细纤维加厚吸水纯棉运动大毛巾",
+    "球场死角备用小件工具盒"
+   ],
+   "risks": [
+    "地位低微若在局间阻碍选手起步极易遭受纪律除名"
+   ],
+   "role": "中央硬地球场成年清扫球童侍从",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}助理"
+    },
+    {
+     "gender": "any",
+     "pattern": "小{given}"
+    }
+   ]
+  }
+ ],
+ "premise": "大运会的网球女单进入最后几轮，人称初恋校花的头号种子每天在万人中央球场上打球，穿线师、助理裁判和转播镜头总监都认得这位选手。校花纯白百褶裙里系着一根骨盆康复限位绳，是伤愈后的习惯；主裁判座椅的防滑横杠刚换过，冲压倒钩有点利。",
+ "pressures": [
+  {
+   "choice": "选择利用不锈钢别扣扁齿微观挑断绳结或是硬拽引发短裙崩线大走光。",
+   "exits": [
+    {
+     "cost": "特制不锈钢别扣齿尖受到微观磨损产生极细微弯折痕迹。",
+     "option": "用球拍手胶加厚不锈钢扁平别扣硬齿探入倒钩缝隙挑断紧绷尼龙绳排脱拉力脱钩。"
+    },
+    {
+     "cost": "横梁铝管表面留下工具拆卸擦痕需事后补漆维护。",
+     "option": "由机电工长从后侧卸下防滑横梁固定螺母释放应力。"
+    }
+   ],
+   "far": {
+    "consequence": "裁判椅整体晃动引发主裁判坠落特大安全事故受全网严厉谴责。",
+    "due_days": 1,
+    "trigger": "拉扯引发防滑蹬梯横梁焊点开裂"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_skirt_snap_hook_jam_strain",
+   "immediate": {
+    "minutes": 1,
+    "text": "冲压倒钩咬合拉力达二十公斤，将校花半边娇躯死死拖拽在冰冷铝管横梁上。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若无法在两分钟内脱困，紧绷暗带将因反向拉力勒破侧胯软肉造成严重拉伤创口。"
+   },
+   "objective": "在百褶裙被彻底扯烂前用球拍手胶扁平别扣硬齿挑断紧绷尼龙绳结自救脱钩。",
+   "source": "accident",
+   "start_minute": 1326,
+   "tags": [
+    "disaster"
+   ],
+   "title": "防滑横梁冲压倒钩死咬短裙暗扣",
+   "trigger": "铝合金方管冲压毛刺死死勾住百褶裙暗扣与尼龙康复带，受拉扯上拽卡入导钩死角咬死。"
+  },
+  {
+   "choice": "选择在椅底压哨挑绳脱钩或是由搭档在网前申请技术换拍拖延时间。",
+   "exits": [
+    {
+     "cost": "校花白皙指尖因极度用力握持不锈钢别扣留下通红压痕。",
+     "option": "在读秒最后五秒挑断尼龙绳解脱裙摆从容步入发球区拍球完成ACE球得分。"
+    },
+    {
+     "cost": "搭档学长消耗选手技术申诉权面临裁判长合议警告。",
+     "option": "由搭档学长手持断线球拍申请技术换拍争取四十五秒宽限时间。"
+    }
+   ],
+   "far": {
+    "consequence": "连丢关键分痛失全国金牌并面临全网舆论口诛笔伐彻底跌落偶像神坛。",
+    "due_days": 1,
+    "trigger": "决胜局发球超时判罚丢分"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_shot_clock_forty_five_countdown",
+   "immediate": {
+    "minutes": 1,
+    "text": "场馆发球钟蜂鸣声在耳际尖锐震响，万人观众屏息心跳带来窒息压迫感。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "最后三秒若选手右手仍未触碰球拍持球就位，主裁将当场判罚发球超时违规。"
+   },
+   "objective": "必须在四十五秒倒计时归零前脱困抚平百褶短裙从容走向底线发球。",
+   "source": "institution",
+   "start_minute": 1327,
+   "tags": [],
+   "title": "大运会发球计时器四十五秒跳秒逼近",
+   "trigger": "主裁判鸣哨结束休息，红字发球钟跳秒进入最后十五秒，每秒蜂鸣一次。"
+  },
+  {
+   "choice": "选择由场边领队以浴巾筑成人墙封挡或是由搭档学长以健壮身姿阻挡视线。",
+   "exits": [
+    {
+     "cost": "面对主裁判威严目光承受极大心理震慑。",
+     "option": "由场边领队展开加厚纯白大浴巾死死遮护住选手长椅侧翼声称正在递送冰水。"
+    },
+    {
+     "cost": "消耗主裁判人情需在赛后执裁报告中作特别陈述。",
+     "option": "由主裁判在椅顶借重新核对发球计时器信号主动放缓吹哨争取十秒。"
+    }
+   ],
+   "far": {
+    "consequence": "校花被判定衣衫不整着装违规直接取消金牌争夺资格。",
+    "due_days": 1,
+    "trigger": "受窘惨状被主裁当场撞破"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_umpire_whistle_imminent",
+   "immediate": {
+    "minutes": 1,
+    "text": "主裁判严厉的督促口令穿透麦克风，高高在上的目光仅隔数米。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "两步之内若无起身，主裁判将直接吹响警报哨正面撞破短裙受扯底裤外露惨状。"
+   },
+   "objective": "在主裁判探身俯瞰前彻底封闭春色并消除所有别扣金属挑动杂音。",
+   "source": "person",
+   "start_minute": 1328,
+   "tags": [],
+   "title": "主裁判手搭口哨居高临下注视",
+   "trigger": "主裁判探身扶住裁判椅扶手，含哨在唇居高临下俯视椅底阴影，倒数最后十秒。"
+  },
+  {
+   "choice": "由玩家直接握紧校花冰凉发颤的柔荑合力垂直下挑或是由其独自咬牙坚持。",
+   "exits": [
+    {
+     "cost": "彼此贴身呼吸相闻两颊滚烫心跳彻底失序。",
+     "option": "用双手手掌紧紧包裹校花冰凉手指以绝对刚性下压力引导齿尖精准挑入绳结。"
+    },
+    {
+     "cost": "耗费宝贵的十秒黄金时间导致读秒进入最后极值。",
+     "option": "用干纯棉护腕迅速擦拭别针表面重新构建防滑摩擦力矩。"
+    }
+   ],
+   "far": {
+    "consequence": "只能任由横梁撕裂百褶裙当众暴露造成无可挽回的公开社死。",
+    "due_days": 1,
+    "trigger": "唯一撬针脱手丢失无法脱困"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_fingertip_sweat_pin_slippage",
+   "immediate": {
+    "minutes": 1,
+    "text": "不锈钢别针在铝合金横梁边缘滑脱两次，险些划伤大腿凝脂般雪白肌肤。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_umpire_ladder_back_shadow"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "若别针脱手跌落进裁判椅底座深缝，将失去唯一可用于挑绳解脱的硬工具。"
+   },
+   "objective": "稳住心跳与指尖捏力消除微观剧烈颤抖确保别扣硬齿死死咬入受拉尼龙绳结中心。",
+   "source": "person",
+   "start_minute": 1329,
+   "tags": [],
+   "title": "心慌手颤与指尖香汗导致别针打滑",
+   "trigger": "极度羞耻与倒数急迫感导致校花心慌意乱，手指浸出细汗在光滑不锈钢别针上打滑。"
+  },
+  {
+   "choice": "选择利用裁判椅背板阴影遮蔽或是由同伴以身体阻挡烈日强光直射。",
+   "exits": [
+    {
+     "cost": "浴巾下摆扫落一只网球产生微小响动。",
+     "option": "在挑断绳结瞬间接应场边领队递上的纯白大浴巾披上完全封闭春色。"
+    },
+    {
+     "cost": "男女选手亲密互动引来现场看台阵阵尖叫猜测。",
+     "option": "由搭档学长横拉运动遮阳伞以宽阔球拍和身姿遮蔽正面机位视线。"
+    }
+   ],
+   "far": {
+    "consequence": "全网疯传走光视频导致国民初恋形象崩塌面临赞助违约与退役。",
+    "due_days": 1,
+    "trigger": "走光特写画面被长焦抓拍外泄"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_skirt_sheer_tight_exposure_panic",
+   "immediate": {
+    "minutes": 1,
+    "text": "烈日直射下雪白肌肤与粉白短裙反差惊人，校花面颊红透几乎快要羞哭出声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_centre_court_umpire_chair_base"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "最后十秒若镜头扫过半寸，高清特写将一秒抓拍全网推流彻底摧毁纯情校花清白。"
+   },
+   "objective": "在任何转播摇臂特写镜头扫过前挑断绳结并披上加厚纯棉大浴巾。",
+   "source": "nature",
+   "start_minute": 1330,
+   "tags": [
+    "disaster"
+   ],
+   "title": "百褶短裙上扯内衬安全裤大片暴露走光危机",
+   "trigger": "倒钩强力上拽导致纯白百褶短裙斜向卷缩撕扯，紧身速干安全裤包裹的雪白大腿大片暴露无遗。"
+  },
+  {
+   "choice": "选择出示安全禁令驱逐或是由搭档迎上前阻挡其前行视线。",
+   "exits": [
+    {
+     "cost": "公然得罪大赛顶级赞助商面临后期撤资舆论施压。",
+     "option": "由现场特勤安保依法出示赛场纪律红线当场没收其未经授权的长焦镜头驱逐出场。"
+    },
+    {
+     "cost": "搭档学长因与资方言语冲突面临赛事监督口头提醒。",
+     "option": "由搭档学长持球拍冷面横在少东家面前声称比赛进行中非参赛者严禁靠前。"
+    }
+   ],
+   "far": {
+    "consequence": "被少东家以此为把柄进行长达数年的商业逼迫与人身控制。",
+    "due_days": 1,
+    "trigger": "高清原图落入无良资方之手"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "press_sponsor_vip_court_side_intrusion",
+   "immediate": {
+    "minutes": 1,
+    "text": "少东家轻浮的冷笑声伴随快门喀嚓声逼近仅隔数米，镜头正对准椅底阴影。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_court_side_tunnel_entrance"
+   ],
+   "near": {
+    "deadline_minutes": 2,
+    "text": "五秒内若不制止，长焦镜头将直接拍下校花短裙受扯雪白大腿的高清原图。"
+   },
+   "objective": "在镜头捕捉到裙摆卡死真相前由安保与搭档强力驱离捍卫赛场尊严。",
+   "source": "person",
+   "start_minute": 1331,
+   "tags": [],
+   "title": "资方少东家持长焦相机擅闯场边线",
+   "trigger": "少东家率领随从越过场边广告挡板借加油名义接近裁判椅底座，长焦镜头几乎贴在椅脚外侧。"
+  }
+ ],
+ "region": "万人网球中心中央球场：裁判高脚椅底座、休息伞、球员通道与蹬梯阴影",
+ "rules": [
+  {
+   "id": "rule_shot_clock_forty_five_second_code",
+   "text": "局间发球倒计时执裁准则：局间休息结束主裁鸣哨后，发球方必须在四十五秒发球钟归零前就位发球，超时未就位将被处以违规警告罚分。"
+  },
+  {
+   "id": "rule_player_tennis_skirt_decorum_code",
+   "text": "大运会网球女单着装法度：正式比赛期间运动百褶短裙必须自然平整覆体，严禁裙摆撕裂卷缩或露出内衬安全拘束装置造成赛场失仪。"
+  },
+  {
+   "id": "rule_umpire_chair_safety_stand_clear",
+   "text": "高脚裁判椅底座安全禁区守则：主裁判椅下方液压稳定支架与防滑横杠属于特种高空设施，非年满二十周岁成年清理球童与成年维修人员严禁擅自攀附牵拉。"
+  },
+  {
+   "id": "rule_rehab_brace_privacy_code",
+   "text": "网球偶像体态康复护具私密红线：校花为治疗骨盆倾斜隐秘穿戴的加压骨盆带属于个人医疗私隐，在万人公众镜头前绝不可暴露分毫。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "组织规约",
+  "committed": "金石同盟",
+  "familiar": "台容核检",
+  "flirting": "暗光对视",
+  "intimate": "俯仰共济",
+  "stranger": "初登讲台",
+  "testing": "执夹撬簧"
+ },
+ "status": "released",
+ "style_hint": "烈日下的万人看台与转播特写。写初恋校花婴儿肥两颊的羞耻红晕、被扯起的纯白百褶裙与汗湿的喘息，动作落在不锈钢扁别针挑绳结上。",
+ "tension_engines": [
+  {
+   "id": "eng_skirt_snap_hook_jam_strain",
+   "text": "高脚裁判椅防滑横梁冲压倒钩死死卡死百褶裙暗扣与尼龙康复绳，受拉上扯无法起身，必须用手胶扁平不锈钢别针挑断绳结方能脱钩。"
+  },
+  {
+   "id": "eng_skirt_sheer_tight_exposure_panic",
+   "text": "短裙被倒钩暴力上扯露出贴身安全裤与雪白大腿，一旦转播镜头扫过将引发绝世偶像校花声名尽毁灭顶社死灾难。"
+  },
+  {
+   "id": "eng_shot_clock_forty_five_countdown",
+   "text": "发球钟红字与主裁鸣哨进入最后四十五秒倒计时，倒数归零若未就位发球将直接判定发球超时罚分痛失大运会金牌。"
+  },
+  {
+   "id": "eng_campus_idol_chastity_dignity_peril",
+   "text": "国民初恋网球偶像崇高圣洁名誉与走光受辱被纨绔资方霸凌的灭顶危机，逼迫主创必须在瞬间完成自救与登台发球。"
+  }
+ ],
+ "title": "初恋网球校花·决赛裁判椅倒钩挂裙",
+ "tone": [
+  "决胜盘局间休息",
+  "百褶裙挂上倒钩",
+  "四十五秒发球钟",
+  "别针挑绳结"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_info_idol_ancestral_racket_pin_code",
+   "requires": [
+    "tennis_idol_lin_shi_yin"
+   ],
+   "text": "校花随身球拍手胶内的不锈钢别扣其实刻有母亲当年的冠军签名，绝杀脱钩瞬间解开家族传承密码。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_spatial_court_secret_maintenance_duct",
+   "requires": [
+    "stadium_electrician_niu_tie_zhu"
+   ],
+   "text": "主裁判椅下方地槽暗道直通球场内侧医疗急救室，为突发医疗处置提供了隐秘快速撤离路线。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_resource_sponsor_funds_frozen_ban",
+   "requires": [
+    "umpire_chief_liang_bo_yong"
+   ],
+   "text": "少东家企图持相机偷拍的丑行被转播高倍机位全程录下，组委会直接依据道德一票否决权取消其冠名资格。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_psychological_pure_idol_tears_yield",
+   "requires": [
+    "tennis_idol_lin_shi_yin"
+   ],
+   "text": "平日阳光清纯从不服输的网球校花，在暗带挑断脱困瞬间却主动将滚烫微婴儿肥面颊深埋入施救者肩头轻泣。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_temporal_partner_racket_pause",
+   "requires": [
+    "tennis_partner_gu_tian_yu"
+   ],
+   "text": "搭档搭档学长在网前借球拍断线申诉规则刻意拖延了四十五秒，使椅底挑绳自救在最后三秒压哨圆满完成。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_social_umpire_covert_guardian_justice",
+   "requires": [
+    "umpire_chief_liang_bo_yong"
+   ],
+   "text": "看似铁面刻板的主裁判早已察觉椅底险情，暗中以调音为由压住全场倒数节奏全力护佑女球手清白。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_mechanics_chair_hook_burr_tampered",
+   "requires": [
+    "stadium_electrician_niu_tie_zhu"
+   ],
+   "text": "裁判椅横梁冲压倒钩死咬并非自然卡死，而是遭人暗中用细挫反向挫出倒刺钩槽诱发的突发性挂死陷阱。"
+  }
+ ]
+}

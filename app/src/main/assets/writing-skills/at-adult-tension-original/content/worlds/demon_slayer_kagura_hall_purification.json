@@ -1,0 +1,2413 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满二十一周岁在古社跟随修行侍奉神案的年轻神职门人。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_panicked_apprentice_miko",
+   "line": "{npc.name}：神火……神火快灭了！外面的妖群已经爬上栏杆了！",
+   "location_ids": [
+    "kagura_main_hall_veranda"
+   ],
+   "name": null,
+   "role": "神乐殿回廊惊慌失措巡守年轻小祝人"
+  },
+  {
+   "adult_context": "年满二十二周岁受雇于山岳神社负责日常洒扫殿堂的年轻杂役。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_elderly_caretaker_monk",
+   "line": "{npc.name}：这是老宫司留下的避水油布……快拿去遮住长明灯，莫让雨浇熄了！",
+   "location_ids": [
+    "inner_sanctuary_lattice_room"
+   ],
+   "name": null,
+   "role": "守护内殿神案颤颤巍巍持帚老役僧"
+  },
+  {
+   "adult_context": "年满二十一周岁常年在高山狩猎受雇充当向导的年轻猎人。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_patrolling_border_ranger",
+   "line": "{npc.name}：山道全塌了！到处都是妖狼的爪印，谁敢踏出鸟居半步就是送死！",
+   "location_ids": [
+    "sacred_cedar_boundary_gate"
+   ],
+   "name": null,
+   "role": "鸟居石阶下巡哨山林年轻猎户"
+  },
+  {
+   "adult_context": "年满二十周岁在钟楼负责按时鸣钟司晨的年轻行者。",
+   "age_range": [
+    20,
+    22
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_bell_ringer_layman_watcher",
+   "line": "{npc.name}：山下的妖王动了！那团黑云里有八条尾巴……破晓前就会冲上山顶！",
+   "location_ids": [
+    "bell_tower_stone_staircase"
+   ],
+   "name": null,
+   "role": "钟楼顶层冒死敲钟示警年轻杂役"
+  },
+  {
+   "adult_context": "年满二十一周岁擅长在山野悬崖使用强弓狙击妖物的年轻射手。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_wandering_hunter_marksman",
+   "line": "{npc.name}：官军的铁炮队在山脚被泥石流挡住了！天亮前这里全靠我们自己死守！",
+   "location_ids": [
+    "bell_tower_stone_staircase"
+   ],
+   "name": null,
+   "role": "手持重弓攀附绝壁接应年轻神射手"
+  },
+  {
+   "adult_context": "年满二十二周岁隶属于京都御按使衙门受过严格操练的年轻武士。",
+   "age_range": [
+    22,
+    24
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_escort_armored_samurai",
+   "line": "{npc.name}：御史大人有令，任何人不准擅离内殿！擅动者按通妖罪就地正法！",
+   "location_ids": [
+    "kagura_main_hall_veranda"
+   ],
+   "name": null,
+   "role": "持盾护卫内殿门廊年轻带刀侍卫"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "身为退魔名门首席的{demon_slayer_kanna.ta}对外人冷若冰霜，却在宽袖遮掩下自然地将微凉的手腕递进你掌心，任由你替{demon_slayer_kanna.ta}敷药并核对断刀裂纹。",
+   "id": "combo_kanna_veranda_cinnabar",
+   "identity_ids": [
+    "apprentice_shrine_ritualist_youth",
+    "blacksmith_lineage_swordsmith_youth"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "demon_slayer_kanna",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三日前山谷伏击战后山雨封洞，你背着受创的{demon_slayer_kanna.name}退入废弃山神庙避险，危机解除后两人在篝火旁褪去湿透外衫彼此依偎取暖。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "demon_slayer_kanna"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "必须在下一波山雾瘴气涌上回廊前压住{demon_slayer_kanna.ta}肩头的旧伤寒意，并赶在巡按使察觉前藏好断折的御神刀。",
+    "limit_gap": "人前你只是随行杂役。",
+    "meeting_reason": "子夜山风骤急，{demon_slayer_kanna.name}在神乐殿朱漆回廊屏退随行侍卫，单独唤你带着朱砂药匣与砥石坐到{demon_slayer_kanna.ta}身侧的廊柱阴影里。",
+    "resource_gap": "你带着朱砂药匣与砥石。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_miasma_invasion_vs_pure_vitality_teth",
+    "te_proud_swordswoman_pride_vs_vulnerable"
+   ]
+  },
+  {
+   "chemistry": "你手中握着裁定司徒流功过存废的朝廷金印，素来傲骨铮铮的首席女剑士在神龛烛火下与你近身对视，克制的礼数下尽是滚烫的默契。",
+   "id": "combo_kanna_inspector_edict",
+   "identity_ids": [
+    "noble_court_shinto_investigator"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "demon_slayer_kanna",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "入山前夜京都神祇官饯行宴上，你借赐酒之机将一张标有山岳妖巢暗道的密图塞进{demon_slayer_kanna.name}刀锷夹缝，对方回赠你一截素白剑穗。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "demon_slayer_kanna"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "若不能在破晓前配合{demon_slayer_kanna.ta}稳住内殿结界并重铸断刀，京都政敌将借断刀之罪把你们两人一并问罪。",
+    "limit_gap": "公事上你裁定司徒流功过。",
+    "meeting_reason": "你以京都监督御史核验神殿结界之名屏退随从进入内殿，{demon_slayer_kanna.name}按着断刀起身迎向你手中的考功金册。",
+    "resource_gap": "你手握京都考功金印。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_proud_swordswoman_pride_vs_vulnerable",
+    "te_broken_divine_blade_vs_demon_pack_sie"
+   ]
+  },
+  {
+   "chemistry": "论门第{demon_slayer_kanna.ta}是名门正宗统帅，论险境破局与伤势照料{demon_slayer_kanna.ta}却全然倚重于你，廊下狂风中两人肩背相贴，强弱主导在呼吸间悄然流转。",
+   "id": "combo_kanna_ronin_backtoback",
+   "identity_ids": [
+    "disgraced_ronin_swordsman_wanderer",
+    "mountain_ascetic_herbal_monk",
+    "apprentice_shrine_ritualist_youth"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "demon_slayer_kanna",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月鞍马山夜猎大妖时悬崖栈道崩塌，你拉住{demon_slayer_kanna.name}跃入古树藤网脱险，当晚两人在山涧石室烘烤湿衣、共饮烈酒定下生死私约。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "demon_slayer_kanna"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "四角宫灯的松脂油已所剩无几，必须在子夜狂风吹熄东侧铜灯前完成结界加固。",
+    "limit_gap": "论门第女剑士是统帅，到了生死关头却要倚仗你。",
+    "meeting_reason": "鸟居石阶下传来泥石流轰鸣，你按事先约定的剑鞘叩柱暗号走上朱漆回廊，与{demon_slayer_kanna.name}并肩立在八角铜灯下查看外围防线。",
+    "resource_gap": "你懂险境破局与伤势照料。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_broken_divine_blade_vs_demon_pack_sie",
+    "te_mountain_collapse_curfew_vs_dawn_refo"
+   ]
+  },
+  {
+   "chemistry": "漫天暴雨与雷鸣声中，两个在刀口舔血的江湖同路人共披一件厚蓑衣分饮烈酒，粗砺滚烫的呼吸里全是不言自明的默契。",
+   "id": "combo_sojiro_gate_flask",
+   "identity_ids": [
+    "disgraced_ronin_swordsman_wanderer",
+    "mountain_ascetic_herbal_monk"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "veteran_ronin_sojiro",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "去年冬夜丹波山道遭群妖夜袭，你与{veteran_ronin_sojiro.name}背靠背斩退狼群后退入猎户木屋，在火塘边包扎完彼此刀伤后彻夜相拥。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "veteran_ronin_sojiro"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "鸟居东侧的两座护山石灯笼已被泥石流冲歪，必须在妖群趁隙扑上台阶前重新钉好辟邪符绳。",
+    "limit_gap": "两人都没有官身，出了事没人替你们担保。",
+    "meeting_reason": "你在换防间隙提着温好的烧刀子烈酒来到鸟居阶前，{veteran_ronin_sojiro.name}收起厚背打刀，拍了拍老杉树下避雨的干燥青石邀你同坐。",
+    "resource_gap": "你带着热酒和朱砂符绳。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_broken_divine_blade_vs_demon_pack_sie",
+    "te_mountain_collapse_curfew_vs_dawn_refo"
+   ]
+  },
+  {
+   "chemistry": "古老樟木香与温暖油灯光晕里，{apprentice_miko_shiori.ta}借着递交符纸与热姜汤的动作一次次靠近你，澄澈眼眸里映着只对你一人流露的羞怯与信赖。",
+   "id": "combo_shiori_sanctuary_bell",
+   "identity_ids": [
+    "mountain_ascetic_herbal_monk",
+    "disgraced_ronin_swordsman_wanderer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "apprentice_miko_shiori",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "五日前你冒雨上山送来雷击干松脂时，{apprentice_miko_shiori.name}在神龛灯下替你烘干湿袖，还把一枚亲手编织的五色避邪结系在你刀柄内侧。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "apprentice_miko_shiori"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "神龛夹层里除了松脂油还藏着上代宫司留下的违禁神道古卷，绝不能在开启时被巡按使察觉。",
+    "limit_gap": "暗格里藏着违禁古卷。",
+    "meeting_reason": "{apprentice_miko_shiori.name}捧着白瓷神水盆与朱砂匣在内殿格子门内等候你，请你协助开启神龛下方封存百年松脂油的暗格。",
+    "resource_gap": "你送来雷击松脂。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_miasma_invasion_vs_pure_vitality_teth",
+    "te_mountain_collapse_curfew_vs_dawn_refo"
+   ]
+  },
+  {
+   "chemistry": "跃动的纯青炭火将两人的影子叠在绘马木墙上，执掌重铸大任的铸剑师手把手教你稳住砥石角度，掌心滚烫的薄茧贴着你的手背。",
+   "id": "combo_ren_sanctuary_forge",
+   "identity_ids": [
+    "blacksmith_lineage_swordsmith_youth",
+    "apprentice_shrine_ritualist_youth"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "swordsmith_prodigy_ren",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月在名门锻坊彻夜看炉时，{swordsmith_prodigy_ren.name}用一块留存的百年玉钢替你打了一枚护心镜片，还借着试戴替你系紧了内衬衣带。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "swordsmith_prodigy_ren"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "必须在五更阴阳换气那一刻将雷击神木芯熔入断刃，一旦炉温跌落，重铸便会功亏一篑。",
+    "limit_gap": "淬火关头铸剑师双手离不开炉。",
+    "meeting_reason": "{swordsmith_prodigy_ren.name}在内殿角落架起便携锻冶风箱，唤你过来帮忙控火并一起研磨接续断刀所用的纯银导灵丝。",
+    "resource_gap": "你能看火拉风箱。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_broken_divine_blade_vs_demon_pack_sie",
+    "te_mountain_collapse_curfew_vs_dawn_refo"
+   ]
+  },
+  {
+   "chemistry": "苦冽回甘的松脂药香中，相识多年的两人无需客套，一个眼神便能接过对方手里的药杵，在风雨孤殿里有着磐石般的默契。",
+   "id": "combo_shinya_sanctuary_cauldron",
+   "identity_ids": [
+    "mountain_ascetic_herbal_monk",
+    "disgraced_ronin_swordsman_wanderer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "ascetic_herbalist_shinya",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三年前北陆山洪疫病爆发时，你与{ascetic_herbalist_shinya.name}在绝壁草庐同吃同住半月熬药救人，临别时互换了贴身药囊约定有难必赴。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "ascetic_herbalist_shinya"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "药炉里的辟瘴汤还差最后一味高纯度贡品辰砂，必须在子夜寒潮最重前从巡按使手里把药材拿过来。",
+    "limit_gap": "药炉离不了人，两人只能一个守火、一个去讨药。",
+    "meeting_reason": "{ascetic_herbalist_shinya.name}在内殿支起铜药炉熬制九转辟瘴汤，见你进殿便递来蒲团与铜药匙，请你并肩守炉并商议后山退路。",
+    "resource_gap": "你熟悉山中退路。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_miasma_invasion_vs_pure_vitality_teth",
+    "te_mountain_collapse_curfew_vs_dawn_refo"
+   ]
+  },
+  {
+   "chemistry": "大权在握的京都巡按使试图用朝廷律令压服你，却因山下援军断绝不得不仰赖你熟知古社地形的本事，威压之下藏着色厉内荏的试探。",
+   "id": "combo_toshiki_bell_inspection",
+   "identity_ids": [
+    "apprentice_shrine_ritualist_youth",
+    "blacksmith_lineage_swordsmith_youth"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "court_inspector_toshiki",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你在整理古社供品清册时无意间见过对方私扣京都贡品辰砂的批条，对方也察觉你并非普通末席杂役，正试探你的口风。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "court_inspector_toshiki"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "若不能用贡品辰砂批条与守殿利害稳住巡按使，对方将在考功簿上直接写下废黜古社与问罪刀匠的判词。",
+    "limit_gap": "巡按使能一笔废黜古社，却离不开你带路守殿。",
+    "meeting_reason": "{court_inspector_toshiki.name}在古钟楼转角石阶避风处拦住巡夜的你，手按考功笏板，盘问内殿御神刀受损的实情与古社暗道走向。",
+    "resource_gap": "你熟知古社地形与贡品批条。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_broken_divine_blade_vs_demon_pack_sie",
+    "te_mountain_collapse_curfew_vs_dawn_refo"
+   ]
+  },
+  {
+   "chemistry": "内殿油灯下，采药居士按着药铺交割单寸步不让，巡按使额角见汗频频看向手握纯金牙牌的你，全凭你一句话定夺这桩公案的走向。",
+   "id": "combo_sanctuary_inspector_herbalist",
+   "identity_ids": [
+    "noble_court_shinto_investigator"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "ascetic_herbalist_shinya",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "入山途中过溪时你主动伸手拉了背着重药篓的对方一把，当晚宿营时对方特意塞给你一盒亲手调制、带体温的沉香安神膏。",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "court_inspector_toshiki",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你奉京都上官密令监察同行官员操守，{court_inspector_toshiki.name}深知你手中的纯金牙牌可随时参奏其渎职，对你既敬畏又极力逢迎。",
+     "stage": "testing"
+    },
+    {
+     "a": "ascetic_herbalist_shinya",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "court_inspector_toshiki",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "{ascetic_herbalist_shinya.name}握着巡按使倒卖贡品辰砂的亲笔交割单，正逼对方交出截留的药材。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "court_inspector_toshiki",
+    "ascetic_herbalist_shinya"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "必须赶在子夜瘴气反扑前迫使巡按使交出截留的贡品辰砂，并让其在特赦战功文书上先行用印。",
+    "limit_gap": "公案怎么判全在你一句话，偏袒哪边都会留下隐患。",
+    "meeting_reason": "{ascetic_herbalist_shinya.name}已先私下向你呈报了贡品辰砂被截留的实情，你主动设局将{court_inspector_toshiki.name}召入内殿药炉旁当面对质。",
+    "resource_gap": "你持监察金牌，居士握着药单。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_miasma_invasion_vs_pure_vitality_teth",
+    "te_mountain_collapse_curfew_vs_dawn_refo"
+   ]
+  },
+  {
+   "chemistry": "狂风暴雨拍打着朱漆回廊，老练浪人点破年轻铸剑师私藏玉钢的秘密，铸剑师涨红了脸看向你求援，三人围绕那块关键玉钢展开拉锯。",
+   "id": "combo_veranda_ronin_swordsmith",
+   "identity_ids": [
+    "disgraced_ronin_swordsman_wanderer",
+    "blacksmith_lineage_swordsmith_youth",
+    "noble_court_shinto_investigator"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "swordsmith_prodigy_ren",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "半年前名门试剑大会上锻炉意外炸裂，你扑上前用湿皮甲护住{swordsmith_prodigy_ren.name}，此后两人便立下同守名剑、绝不相负的誓言。",
+     "stage": "committed"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "veteran_ronin_sojiro",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你自入山以来连日与断后剑客{veteran_ronin_sojiro.name}一同巡查鸟居与钟楼防线，熟知对方看似粗豪实则护短的刀客脾性。",
+     "stage": "familiar"
+    },
+    {
+     "a": "veteran_ronin_sojiro",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "swordsmith_prodigy_ren",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "{veteran_ronin_sojiro.name}从刀纹认出铸剑师私留宗门御用玉钢，正拿此事敲打对方。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "veteran_ronin_sojiro",
+    "swordsmith_prodigy_ren"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "唯有化解两人的顾虑并让铸剑师放心拿出私藏的御用玉钢，才能在破晓前接续好折断的御神刀。",
+    "limit_gap": "玉钢来历见不得光，说破了铸剑师就不敢开炉。",
+    "meeting_reason": "为赶在五更前凑齐重铸御神刀的玉钢与雷击木炭，你按约定将{veteran_ronin_sojiro.name}与{swordsmith_prodigy_ren.name}召集到神乐殿回廊内侧商议分工。",
+    "resource_gap": "浪人有旧刀锷，铸剑师有私藏玉钢。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_broken_divine_blade_vs_demon_pack_sie",
+    "te_mountain_collapse_curfew_vs_dawn_refo"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_kagura_veranda_breath_whisper_sync",
+   "reach": "二人背靠木柱在水雾弥漫中推拿拔毒时，近在咫尺的急促呼吸与心跳。",
+   "text": "神乐殿回廊耳边低语"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_broken_blade_blade_resonance_chime",
+   "reach": "断折御神刀在灵血浸润与妖氛逼近时，自刀身断口处持续激荡散发出的清冽穿透性金属震颤回响。",
+   "text": "崩刃残太刀古铁刀灵龙吟哀鸣"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_distant_bell_thunderous_howl_echo",
+   "reach": "穿过漫天暴雨与深渊云海传来的空洞生铁巨钟轰鸣与漫山遍野令人毛骨悚然的群妖嗜血咆哮。",
+   "text": "绝壁古钟楼风暴钟鸣与群妖狼嚎"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "年满二十三岁执掌退魔名门司徒流正宗印可、奉命入山清剿大妖的首席女剑士。",
+   "age_range": [
+    22,
+    25
+   ],
+   "appearance_options": [
+    "身穿剪裁利落的纯白剑道上衣与深绯色马乘袴。",
+    "冷汗打湿额角鬓发，即便肩头绷带渗出血迹，按在刀柄上的右手依然稳如磐石。"
+   ],
+   "decision": {
+    "avoids": [
+     "借朝廷权势指手画脚的政客"
+    ],
+    "contrast": "阵前斩妖时是杀伐果决的首席剑士，私下敷药时却会因药膏微凉而轻轻抓紧你的衣角。",
+    "core_value": "剑折骨不折，宁可血溅三尺朱漆廊，也绝不退让半步堕了宗门威名。",
+    "goal_options": [
+     "在破晓前配合你与刀匠寻获神龛古铁锷",
+     "借内殿松脂药香与朱砂祝祷压下肩头旧伤，瞒过京都督察官的刁难"
+    ],
+    "never": [
+     "绝不会抛下古社结界与同伴独自下山逃生。"
+    ],
+    "prefers": [
+     "心志坚定、在危局中敢与自己并肩守夜的同伴"
+    ],
+    "pressure_responses": {
+     "breaking": "在风暴暂歇的内殿灯下卸下冷傲防备，靠在你肩头任由你替她重新包扎伤处。",
+     "high": "寸步不让地护住身后的你与神龛长明灯。",
+     "low": "端坐廊下擦拭断刃。",
+     "mid": "因寒气入骨手腕微颤。"
+    },
+    "relationship_stance": "外人面前是清冷孤傲的名门剑圣，唯独在你面前会收起锋芒，流露出毫无保留的信任与依恋。",
+    "withdrawal": "退入内殿绘马格子间神龛内侧。"
+   },
+   "gender": "female",
+   "gender_reason": "名门退魔流派正宗首席女剑士核心设定固定为女性",
+   "id": "demon_slayer_kanna",
+   "identity": {
+    "authority": "统领本次入山退魔讨伐队。",
+    "exposure": "若断刀未修与肩头瘴伤被京都政敌参奏，司徒流将被剥夺畿内正统退魔席位。",
+    "hidden": "腰间一直佩着半枚先辈留下的白玉阴阳勾玉，深知唯有与真正信得过的同伴心意相通方能唤醒刀灵。",
+    "limits": [
+     "前日斩妖时左肩沾染阴寒瘴气"
+    ],
+    "obligations": [
+     "在破晓前守住荒山古社结界。"
+    ],
+    "resources": [
+     "半截蕴含历代剑圣灵力的家传名刀残刃"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在风雨回廊专心替自己拨亮神火铜灯时的沉静侧影",
+     "在朝廷督察官发难时不动声色替自己遮掩断刀的默契"
+    ],
+    "boundaries": [
+     "持剑守卫神殿结界时严守剑士礼法"
+    ],
+    "desire_range": [
+     3,
+     4
+    ],
+    "desired_position": "卸下宗门重担后与你并肩江湖、剑胆琴心的唯一伴侣",
+    "dislikes": [
+     "居高临下的怜悯说教"
+    ],
+    "expression": "解下贴身佩戴的半枚白玉勾玉系在你掌心，眼尾微红却目光清亮地握住你的手按在刀柄上，低声许诺天亮之后剑与人都归你。",
+    "likes": [
+     "夜深巡廊后在内殿神龛前分饮一碗热药汤的暖意"
+    ],
+    "preconditions": [
+     "名门退魔流派首席女剑士与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "名门退魔流派首席女剑士",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sacred_cedar_boundary_gate",
+     "to": 1349
+    },
+    {
+     "from": 1350,
+     "location_id": "kagura_main_hall_veranda",
+     "to": 1379
+    },
+    {
+     "from": 1380,
+     "location_id": "inner_sanctuary_lattice_room",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "kagura_main_hall_veranda",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人长时间留在内殿，引起门外巡按使随从的猜疑。",
+      "option": "{npc.name}与你退入内殿神龛后侧，借松脂白烟掩护敷上朱砂药膏并取出备用铁锷"
+     },
+     {
+      "cost": "你正面承受巡按使的法令盘问与考功施压。",
+      "option": "你出面在回廊稳住督察巡按使，为{npc.name}争取调息与重铸断刀的时间"
+     }
+    ],
+    "pressure": "若不能在破晓前接续断刀并压住肩头瘴气，宗门印可将被当场收回。",
+    "trigger": "家传御神刀在先前伏击中崩断，京都督察巡按使正借故核查武器损耗企图参奏司徒流。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "肩上的伤没大碍……别离开我视线，有你在身边守着神火，我心里的剑意就不会乱。",
+    "surface": "司徒流首席剑士{npc.name}在此！只要我手里这半截御神刀还在，山下的妖物休想越过鸟居半步！"
+   }
+  },
+  {
+   "adult_context": "年满三十一岁精通古流野太刀实战、受雇随队断后的资深退魔浪人剑客。",
+   "age_range": [
+    29,
+    35
+   ],
+   "appearance_options": [
+    "身穿饱经风霜的深青麻布羽织与竹编蓑衣。",
+    "大马金刀地坐在鸟居青石台阶上饮酒擦刀。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿鸡毛当令箭的京都官僚"
+    ],
+    "contrast": "砍杀妖物时是凶悍狠辣的荒野恶狼，回到廊下与你分酒烘火时却会把最干燥的坐垫让给你。",
+    "core_value": "名门虚名一文不值，能护住身边活生生的人才是手里这把刀的用处。",
+    "goal_options": [
+     "扼守鸟居与钟楼石阶险要地形",
+     "用早年掌握的京都官场黑账替你和内殿挡回督察官的刁难"
+    ],
+    "never": [
+     "绝不会在后辈同袍遇险时退后半步。"
+    ],
+    "prefers": [
+     "爽快坦荡、不在乎门第虚名的实干派"
+    ],
+    "pressure_responses": {
+     "breaking": "卸下平日玩世不恭的浪人做派，把贴身收藏的宗门旧剑穗塞进你手里，坦白当年离宗真相。",
+     "high": "横刀立在石阶最窄处一夫当关。",
+     "low": "仰头灌下一口烈酒。",
+     "mid": "斩断扑近鸟居的妖物前爪。"
+    },
+    "relationship_stance": "洒脱豪爽、护短至极，对你既有长辈同袍般的照拂，也有在生死擦肩中沉淀出的炽热真心。",
+    "withdrawal": "借居高临下之势封锁山道。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "veteran_ronin_sojiro",
+   "identity": {
+    "authority": "负责古社外围鸟居防线与钟楼高处的实战警戒调度。",
+    "exposure": "若早年脱离名门时带走秘传剑谱的旧事被翻出，将被宗门执法队追责。",
+    "hidden": "实为司徒流上代剑圣早年逐出山门的关门弟子，此次隐姓埋名受雇随行，只为暗中护住同门后辈与你。",
+    "limits": [
+     "无朝廷正式官身，在京都督察官面前人微言轻"
+    ],
+    "obligations": [
+     "在泥石流封山的暴雨夜死守鸟居石阶。"
+    ],
+    "resources": [
+     "一柄专破妖魔坚甲的厚背重钢打刀"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在暴雨夜冒雨跑到鸟居给自己的酒葫芦添满热酒时的身影",
+     "不问出身来历、毫无保留把后背交给自己的信任"
+    ],
+    "boundaries": [
+     "当值镇守鸟居防线时绝不饮酒过量误事"
+    ],
+    "desire_range": [
+     3,
+     4
+    ],
+    "desired_position": "丢开一切门阀枷锁后与你快意江湖、生死同行的刀客伴侣",
+    "dislikes": [
+     "酸腐客套的礼数周旋"
+    ],
+    "expression": "把重钢打刀插在身旁地板上，解下烘得温热的深青羽织将你严严实实裹进怀里，低声笑问天亮后愿不愿意跟自己浪迹天涯。",
+    "likes": [
+     "守夜换班后在回廊避风处并肩喝一口滚烫烧刀子的痛快感"
+    ],
+    "preconditions": [
+     "退魔队伍断后浪人剑客与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "退魔队伍断后浪人剑客",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sacred_cedar_boundary_gate",
+     "to": 1349
+    },
+    {
+     "from": 1350,
+     "location_id": "sacred_cedar_boundary_gate",
+     "to": 1379
+    },
+    {
+     "from": 1380,
+     "location_id": "kagura_main_hall_veranda",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "bell_tower_stone_staircase",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人在暴雨泥泞中并肩作业，衣衫尽数湿透。",
+      "option": "你携带朱砂符纸赶往鸟居阶前，配合{npc.name}将符咒钉入千年雷击老杉树"
+     },
+     {
+      "cost": "鸟居前阶暂时让出，回廊正面的防御压力骤增。",
+      "option": "{npc.name}退守古钟楼转角石阶，由你在内殿敲响古钟以声波协防"
+     }
+    ],
+    "pressure": "若不在子夜妖潮前补上鸟居东侧缺口，外围防线将被迫后撤至回廊。",
+    "trigger": "鸟居下方的护山石灯笼被泥石流冲塌两座，{npc.name}急需朱砂符纸重新封堵外围缺口。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "当年老头子教我的剑招我可没忘……只要能护着你平安下山，就算暴露身份被宗门追索也值了。",
+    "surface": "外头的泥石流和杂碎妖物有我这把破铁刀顶着，你们只管在殿里把神火看牢了！"
+   }
+  },
+  {
+   "adult_context": "年满二十二岁常年驻守荒山古社、精通神乐祝祷与草药调理的年轻古社巫祝。",
+   "age_range": [
+    21,
+    24
+   ],
+   "appearance_options": [
+    "身穿洁净素雅的白衣朱袴，袖口束着避邪五色丝绳。",
+    "借着油灯微光研磨高纯度辰砂，神情虔诚专注。"
+   ],
+   "decision": {
+    "avoids": [
+     "盛气凌人损毁神殿器物的权贵"
+    ],
+    "contrast": "主持祝祷时是端庄虔诚的古社巫祝，私下替你烘烤湿发时却会流露出小鹿般温顺羞怯的依恋。",
+    "core_value": "古社神火是山中生灵最后的庇护所，无论风雨多大都要把灯芯护到天明。",
+    "goal_options": [
+     "按时巡回拨亮神乐殿四角铜灯",
+     "配合你在内殿熬制驱寒除秽汤药"
+    ],
+    "never": [
+     "绝不会任由神乐殿的长明神火在自己眼前熄灭。"
+    ],
+    "prefers": [
+     "温和守礼、真心敬重古社神火与生灵的同伴"
+    ],
+    "pressure_responses": {
+     "breaking": "握紧你的手腕带到神案暗格旁，红着眼眶把古社最后的护身神符系在你颈间。",
+     "high": "绝不让督察官随从乱翻古社秘卷。",
+     "low": "摇动纯铜神乐铃吟诵清净祝词。",
+     "mid": "用避水油布护住廊角铜灯。"
+    },
+    "relationship_stance": "外柔内刚、细腻体贴，在风雨飘摇的荒山古社里把你当成唯一的主心骨。",
+    "withdrawal": "退入内殿神龛后方的储物夹层。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "apprentice_miko_shiori",
+   "identity": {
+    "authority": "掌握荒山古社历代结界阵图、神火添油规制与内殿暗格钥匙。",
+    "exposure": "若神龛内私藏前朝违禁神道古卷之事被巡按使查获，古社将被朝廷强制拆毁。",
+    "hidden": "清楚神乐殿回廊神案下藏有一眼百年避邪温泉暗井，只向真正信得过的你吐露开启机关。",
+    "limits": [
+     "常年居于深山古社，不擅应对京都官员的官场威压"
+    ],
+    "obligations": [
+     "守护神乐殿四角长明神火不灭。"
+    ],
+    "resources": [
+     "一柄传承三百年的八角纯铜神乐铃与白瓷神水盆"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在狂风吹袭回廊时第一时间伸手替自己挡住宫灯灯焰的细心",
+     "与自己并肩跪坐在神龛前裁剪符纸时的安宁呼吸"
+    ],
+    "boundaries": [
+     "神前奉纳祝词时严守斋戒仪轨"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在深山古社晨钟暮鼓中与你相伴相守、冷暖相依的知心人",
+    "dislikes": [
+     "粗暴打断祝祷仪式的无礼举动"
+    ],
+    "expression": "捧起温热的白瓷茶盏喂你喝下驱寒姜茶，主动将额头轻轻贴在你心口听着心跳，低声祈愿天亮后你也能常驻山中。",
+    "likes": [
+     "在药炉微火旁分吃一块烤热的甜栗子年糕"
+    ],
+    "preconditions": [
+     "荒山古社祝祷巫祝与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "荒山古社祝祷巫祝",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sacred_cedar_boundary_gate",
+     "to": 1349
+    },
+    {
+     "from": 1350,
+     "location_id": "inner_sanctuary_lattice_room",
+     "to": 1379
+    },
+    {
+     "from": 1380,
+     "location_id": "kagura_main_hall_veranda",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "inner_sanctuary_lattice_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "两人被廊外飞溅的冷雨淋湿半边衣袖。",
+      "option": "你替{npc.name}用蓑衣挡住穿堂狂风，合力换上浸过松脂的新灯芯"
+     },
+     {
+      "cost": "开启暗格的动静引起了督察巡按使的注意。",
+      "option": "{npc.name}引你进入内殿神龛后侧，共同开启上代宫司留下的神木油瓮"
+     }
+    ],
+    "pressure": "若不能在半个时辰内从神龛暗格取出备用神木松脂，东侧宫灯将彻底熄灭。",
+    "trigger": "暴风雨吹裂了回廊东侧的油纸灯罩，{npc.name}怀中的备用松脂灯油即将见底。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "外面的风声好大……只要能握着你的手一起守着这盏灯，我心里就一点也不怕了。",
+    "surface": "神火不灭，结界不破。请各位安心守住内殿，四角宫灯的松脂油由我亲自添补。"
+   }
+  },
+  {
+   "adult_context": "年满三十五岁奉京都神祇官之命督查畿内退魔门阀、手握考功黜陟大权的督察巡按使。",
+   "age_range": [
+    33,
+    40
+   ],
+   "appearance_options": [
+    "身穿深紫狩衣与笔挺乌帽子，腰佩御赐纯银短剑。",
+    "站在内殿绘马格子门前审视防务。"
+   ],
+   "decision": {
+    "avoids": [
+     "一言不合就拔刀的莽夫"
+    ],
+    "contrast": "人前是字字诛心的铁面巡按使，独处被你捏住命门时却会卸下乌帽子露出疲惫妥协的真实一面。",
+    "core_value": "朝廷体面与自身官途缺一不可，绝不在毫无胜算的险地做陪葬的糊涂官。",
+    "goal_options": [
+     "借考功威权压服在场众人优先护卫内殿安全",
+     "设法封住修验道居士的嘴"
+    ],
+    "never": [
+     "绝不会拿自己的乌纱帽和性命去替政敌背锅。"
+    ],
+    "prefers": [
+     "懂官场进退、能替自己兜住体面与安全的聪明人"
+    ],
+    "pressure_responses": {
+     "breaking": "放下巡按使的冷傲身段，当着你的面在特赦战功金诏上盖下大印交由你保管。",
+     "high": "被点破私调贡品辰砂的旧账时眼神闪烁。",
+     "low": "端起京都上官架子。",
+     "mid": "听闻泥石流彻底封山后脸色微变。"
+    },
+    "relationship_stance": "习惯居高临下审视旁人，却在被你看穿外强中干的处境后对你生出既忌惮又依赖的复杂情愫。",
+    "withdrawal": "退守内殿最安全的黑漆神龛侧席。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "court_inspector_toshiki",
+   "identity": {
+    "authority": "代表京都神祇官考核退魔门阀功过、签发朝廷特赦金诏与调拨宿场驻军。",
+    "exposure": "一旦私调神祇官贡品朱砂的账目败露，将被政敌弹劾免官流放。",
+    "hidden": "表面奉命挑刺打压司徒流，实则也怕古社失守自己陪葬，只要能保住官声体面便愿顺水推舟签发特赦诏书。",
+    "limits": [
+     "随行官兵被泥石流阻隔在山脚"
+    ],
+    "obligations": [
+     "在破晓前完成古社结界清查。"
+    ],
+    "resources": [
+     "一方可定夺门阀存废的京都神祇官考功金印"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在群妖环伺的荒殿里依然镇定自若替自己分析利害的从容",
+     "明明握有自己把柄却在人前留足巡按使体面的分寸感"
+    ],
+    "boundaries": [
+     "宣读朝廷公文时严守御史仪轨"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在朝堂与江湖的风浪中与你互为依仗、共享权柄的幕后伴侣",
+    "dislikes": [
+     "当众顶撞折损官威的鲁莽之举"
+    ],
+    "expression": "取下腰间象征钦差权柄的纯金牙牌塞进你手心，微垂眼帘任由你替自己拢好散乱的衣襟，低声许诺回京后保你平步青云。",
+    "likes": [
+     "屏退随从后在内殿屏风后共饮一盏温热清酒的私密盟约"
+    ],
+    "preconditions": [
+     "京都神祇官督察巡按使与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "京都神祇官督察巡按使",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "bell_tower_stone_staircase",
+     "to": 1349
+    },
+    {
+     "from": 1350,
+     "location_id": "inner_sanctuary_lattice_room",
+     "to": 1379
+    },
+    {
+     "from": 1380,
+     "location_id": "kagura_main_hall_veranda",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "inner_sanctuary_lattice_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "巡按使被迫向你交出考功金印的裁量权。",
+      "option": "{npc.name}请你在内殿居中斡旋，用朝廷特赦批文换回那张贡品朱砂药单"
+     },
+     {
+      "cost": "你需要亲自在回廊与内殿之间来回传令调度。",
+      "option": "你协助{npc.name}重新编组钟楼与回廊守备，稳住随行侍卫军心"
+     }
+    ],
+    "pressure": "若不在天亮前稳住居士并守住神乐殿，巡按使将面临性命与官途双输。",
+    "trigger": "山下官军铁炮队被泥石流阻断，{npc.name}私调贡品朱砂的药单又落在修验道居士手中。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "山下的铁炮队根本上不来……只要眼前这个人能保我平安撑过今晚，那道特赦金诏盖给谁还不是我一句话的事。",
+    "surface": "本官奉京都神祇官之命巡察畿内！今夜谁敢玩忽职守致使神火有失，一律按律严惩不贷！"
+   }
+  },
+  {
+   "adult_context": "年满二十四岁承袭名门锻冶秘技、随队负责养护重铸御神刀的年轻铸剑师。",
+   "age_range": [
+    23,
+    27
+   ],
+   "appearance_options": [
+    "身穿系着厚牛皮防烫围裙的深褐短打。",
+    "蹲在内殿炭炉旁调校白磷焊剂与纯银丝线。"
+   ],
+   "decision": {
+    "avoids": [
+     "把神兵利器当官场摆设的外行"
+    ],
+    "contrast": "拿起铁锤砥石时是严苛挑剔的刀工匠人，被你擦去脸颊炭灰时却会立刻耳根通红地傻笑。",
+    "core_value": "好刀不该断在暗夜里，好人也不该折在阴谋中，手里的锤和火只为值得的人燃。",
+    "goal_options": [
+     "在内殿架起便携风箱与神木炭炉",
+     "与你配合从神龛暗匣取出上代古铁锷稳固刀身灵脉"
+    ],
+    "never": [
+     "绝不会交出粗制滥造、会在战场上害死同伴的残次刀剑。"
+    ],
+    "prefers": [
+     "懂刀惜刀、性情真挚不虚伪的同伴"
+    ],
+    "pressure_responses": {
+     "breaking": "打开工具箱最底层取出那柄刻着你名字缩写的玉钢短刀塞进你怀里，红着脸让你贴身戴好。",
+     "high": "绝不让外廊狂风或杂人惊扰淬火。",
+     "low": "用手指轻弹刀身听取嗡鸣。",
+     "mid": "拉动风箱将神木炭火催至纯青色。"
+    },
+    "relationship_stance": "赤诚热烈、心无旁骛，看向你的眼神就像看待毕生最珍视的传世名刃一样滚烫。",
+    "withdrawal": "退守内殿神龛旁的炭火炉角。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "swordsmith_prodigy_ren",
+   "identity": {
+    "authority": "执掌名门退魔刀剑的检验、研磨与应急熔接重铸之权。",
+    "exposure": "若私自截留一块御用玉钢替浪人修补无铭刀的事败露，将受门规责罚。",
+    "hidden": "早年锻刀炉炸裂时曾被你出手救下，一直把为你量身打造的一柄贴身护身短刀藏在工具箱底层。",
+    "limits": [
+     "重铸接续断刀期间必须双手专注于炉火"
+    ],
+    "obligations": [
+     "在破晓阴阳交泰前接续好折断的御神刀。"
+    ],
+    "resources": [
+     "全套鹿角柄天然砥石、纯银导灵丝与便携锻冶风箱"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在炭炉旁耐心地替自己拉动风箱、擦拭额头汗水时的默契",
+     "握住自己带着老茧的手掌细看刀纹时的专注眼神"
+    ],
+    "boundaries": [
+     "开炉淬火的关键时刻绝不分心"
+    ],
+    "desire_range": [
+     3,
+     4
+    ],
+    "desired_position": "在炉火与刀光中与你心意相通、一生为你铸剑守夜的伴侣",
+    "dislikes": [
+     "嫌弃铁匠烟火气的娇贵做派"
+    ],
+    "expression": "摘下防烫皮手套，用滚烫结实的手掌紧紧包住你的手，把一枚用边角玉钢打磨成的指环套在你指间，低声说以后一辈子替你护刀。",
+    "likes": [
+     "淬火收工后坐在温热的炭炉边分吃烤饭团的踏实暖意"
+    ],
+    "preconditions": [
+     "随队名门锻冶铸剑师与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "随队名门锻冶铸剑师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "sacred_cedar_boundary_gate",
+     "to": 1349
+    },
+    {
+     "from": 1350,
+     "location_id": "inner_sanctuary_lattice_room",
+     "to": 1379
+    },
+    {
+     "from": 1380,
+     "location_id": "inner_sanctuary_lattice_room",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "kagura_main_hall_veranda",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "炉火高热烤得两人汗流浃背。",
+      "option": "你与{npc.name}在内殿并肩拉动风箱，投入雷击干松脂将炉温催至巅峰"
+     },
+     {
+      "cost": "你在门外独自承受山雨寒气的侵袭。",
+      "option": "你守在格子门外挡住穿堂冷风，让{npc.name}专心用纯银丝缠合刀茎"
+     }
+    ],
+    "pressure": "若错过五更阴阳换气的淬火时辰，接续后的刀刃将无法承受大妖冲击。",
+    "trigger": "重铸断刀所需的神木炭火温度不足，{npc.name}需要有人协助从回廊与鸟居收集雷击干松木并护住风箱。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "工具箱底下那把短刀我磨了整整三个月……等今晚把御神刀接好，我一定亲手系在你腰间。",
+    "surface": "把断刃交给我！只要炭火不灭，破晓之前我一定让这把御神刀重新响彻整座神山！"
+   }
+  },
+  {
+   "adult_context": "年满三十岁常年独行山岳采药、精通修验道辟毒医术与药理的苦行居士。",
+   "age_range": [
+    28,
+    34
+   ],
+   "appearance_options": [
+    "身穿素麻修验道行者衣与山袴，手持九环青铜锡杖。",
+    "半蹲在内殿药炉旁用铜匙撇去汤药浮沫。"
+   ],
+   "decision": {
+    "avoids": [
+     "草菅人命的朝廷酷吏"
+    ],
+    "contrast": "外人面前是不苟言笑的修验道苦行居士，与你独处药炉旁时却会往你的苦药碗里悄悄放一颗蜜饯。",
+    "core_value": "山中草木只救有心之人，医者手里的药炉绝不向官威与邪祟低头。",
+    "goal_options": [
+     "在破晓前熬成九转辟瘴汤",
+     "用手中的贡品辰砂药单牵制京都巡按使"
+    ],
+    "never": [
+     "绝不会对身中瘴毒的同伴见死不救。"
+    ],
+    "prefers": [
+     "心性澄明、敬畏自然与性命的同路人"
+    ],
+    "pressure_responses": {
+     "breaking": "在药香弥漫的炉火旁握住你的手，把记载毕生秘方的手札与后山秘图一并交给你。",
+     "high": "亮出京都药铺交割单逼退试图硬闯内殿的巡按使随从。",
+     "low": "轻轻震响九环锡杖。",
+     "mid": "神色从容地替你挡下旁人的催促。"
+    },
+    "relationship_stance": "清冷通透、重情守诺，对世俗名利漠不关心，唯独把你的安危放在心尖上。",
+    "withdrawal": "退往钟楼石阶侧面的采药岩洞。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "ascetic_herbalist_shinya",
+   "identity": {
+    "authority": "掌握古社全员的瘴毒诊治、辟毒药散调配与后山悬崖采药小径。",
+    "exposure": "若手中握有京都官场私调贡品药单的事被巡按使强行搜出，将招致灭口之祸。",
+    "hidden": "曾与你在三年前的山洪疫病中并肩施药救人，此次听闻你随队入山才特意背着药篓赶来古社接应。",
+    "limits": [
+     "熬制回天解瘴汤需守在药炉旁持续控火"
+    ],
+    "obligations": [
+     "在破晓前炼成清净辟毒汤散。"
+    ],
+    "resources": [
+     "一柄可震散阴煞的九环青铜锡杖与全套解瘴奇药"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在悬崖石阶暴雨中稳稳扶住自己药篓时的可靠手臂",
+     "安安静静坐在药炉旁陪自己看火扇风时的温和眉眼"
+    ],
+    "boundaries": [
+     "行医施药期间严守医道清规"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在云深不知处的山岳草庐中与你采药煮茶、白首不离的伴侣",
+    "dislikes": [
+     "拿医术药方做官场交易的算计"
+    ],
+    "expression": "放下手中的九环锡杖，从怀中取出一枚温润的雷击桃木护身牌系在你腕间，将你轻轻揽入带着松脂苦香的怀里，低声邀你天亮后同归山林。",
+    "likes": [
+     "夜雨声中两人隔着药炉白雾分饮半盏温热药酒"
+    ],
+    "preconditions": [
+     "山岳修验道采药居士与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "山岳修验道采药居士",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "kagura_main_hall_veranda",
+     "to": 1349
+    },
+    {
+     "from": 1350,
+     "location_id": "inner_sanctuary_lattice_room",
+     "to": 1379
+    },
+    {
+     "from": 1380,
+     "location_id": "bell_tower_stone_staircase",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "inner_sanctuary_lattice_room",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "巡按使颜面尽失，暗中记下了你们两人的名字。",
+      "option": "你配合{npc.name}在内殿向巡按使出示药铺交割单，逼其交出随行封存的贡品辰砂"
+     },
+     {
+      "cost": "两人顶着十级狂风攀爬石阶，体力消耗不小。",
+      "option": "{npc.name}与你冒雨前往钟楼石阶岩缝采掘雷击松脂代药"
+     }
+    ],
+    "pressure": "若不能在一刻钟内拿到上等辰砂入药，普通草药将压不住子夜翻涌的山林瘴气。",
+    "trigger": "殿内伤员急需高纯度辰砂调配辟毒散，而京都巡按使正压着贡品辰砂不肯放行，{npc.name}准备亮出旧账药单。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "我下山走这一遭本就是为了看住你……只要你平平安安的，这满篓子奇药熬干了又何妨。",
+    "surface": "山雾里的瘴气入体即寒，不想天亮前烂了心肺的，就按时把这碗辟毒汤喝下去。"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "明治三十二年，初秋",
+  "minute": 1350
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace",
+  "workplace_power",
+  "coercion_theme"
+ ],
+ "custom": false,
+ "customs": [
+  "双手必须先浸入供奉白瓷神水盆中洗净并念诵清净除秽祝词。",
+  "为确认剑士在极度剧痛与寒战中神志清明。",
+  "同伴需躬身以双手掌心向上接捧刀柄。",
+  "剑士需将束发白绫解下为同伴裹扎创口。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "将盛有朱砂与松脂药膏的白瓷碟放在铜灯上微微烘热",
+    "轻轻解开同伴肩头被雨水打湿的旧绷带",
+    "替对方拢好微敞的衣领"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_veranda_cinnabar_salve_care",
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room"
+   ],
+   "start_minute": 1350,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "在朱漆回廊灯下温敷朱砂除秽药膏"
+  },
+  {
+   "beats": [
+    "用小铜勺将散发清香的松脂油注入两盏长明瓷碟",
+    "用锋利小刀将雪白奉书纸裁成整齐的避邪纸垂",
+    "在悬挂纸垂时两人的手背不经意相碰"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_sanctuary_sacred_lamp_refill",
+   "location_ids": [
+    "inner_sanctuary_lattice_room"
+   ],
+   "start_minute": 1360,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "在内殿神龛前添补松脂灯油与裁剪纸垂"
+  },
+  {
+   "beats": [
+    "在内殿角落拨亮雷击神木炭火",
+    "与搭档配合着一寸寸推磨刀刃上的折叠花纹",
+    "收工后用干净鹿皮拭去刀身水迹"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_sanctuary_whetstone_blade_polish",
+   "location_ids": [
+    "inner_sanctuary_lattice_room",
+    "kagura_main_hall_veranda"
+   ],
+   "start_minute": 1370,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "在炭炉旁拉动风箱与研磨刀刃暗纹"
+  },
+  {
+   "beats": [
+    "扶正被山风吹歪的风化石灯笼罩",
+    "与同伴一左一右拉紧千年老杉树干上的粗稻草注连绳",
+    "共享一壶辛辣烧刀子烈酒驱散满身湿寒"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_gate_shimenawa_rope_mend",
+   "location_ids": [
+    "sacred_cedar_boundary_gate"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "workplace"
+   ],
+   "title": "在鸟居千年老杉树下加固注连绳与石灯"
+  },
+  {
+   "beats": [
+    "用蒲扇轻轻扇着文火",
+    "将煎好的辟瘴热汤滤入两只粗陶碗",
+    "看着对方喝尽热汤额角沁出细汗"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_sanctuary_herbal_decoction_brew",
+   "location_ids": [
+    "inner_sanctuary_lattice_room"
+   ],
+   "start_minute": 1390,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "在内殿铜药炉旁煎煮九转辟瘴热汤"
+  },
+  {
+   "beats": [
+    "提着防风纸灯笼踏上陡峭的青石转角台阶",
+    "伸手扶住身旁同伴的小臂走过湿滑的青苔石阶",
+    "在钟楼避风石檐下同披一件厚羽织眺望夜空"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_bell_staircase_night_watch",
+   "location_ids": [
+    "bell_tower_stone_staircase",
+    "sacred_cedar_boundary_gate"
+   ],
+   "start_minute": 1400,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "沿悬崖古钟楼石阶巡视夜防与山谷风向"
+  },
+  {
+   "beats": [
+    "在神案旁摊开加持避水咒文的真丝御神经卷与古社世代留存的结界阵图",
+    "与桌畔之人并肩核对考功清册上的条目",
+    "合上卷宗时借着宽大狩衣或剑道服袖口的遮掩"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_veranda_scroll_and_seal_collate",
+   "location_ids": [
+    "inner_sanctuary_lattice_room",
+    "kagura_main_hall_veranda"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "在绘马格子间核对御神经卷与考功清册"
+  },
+  {
+   "beats": [
+    "沿着高架朱漆桧木回廊缓步巡视",
+    "仰头听着廊檐下铜铃随山风发出的清脆鸣响",
+    "在回廊转角的木柱后并肩席地而坐"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_veranda_copper_lantern_guard",
+   "location_ids": [
+    "kagura_main_hall_veranda"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "在神乐殿回廊四角巡查八角铜灯与风铃"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.55,
+  "male": 0.4,
+  "nonbinary": 0.05
+ },
+ "default_person": "second",
+ "era": "明治三十年代初秋暴风雨之夜（山岳荒废古神社神乐殿回廊）",
+ "extends": null,
+ "forbidden_terms": [
+  "现代手枪",
+  "电灯开关",
+  "抗生素针剂",
+  "内燃机汽车",
+  "水泥马路",
+  "合成纤维",
+  "塑胶雨衣",
+  "电话对讲"
+ ],
+ "hooks": [
+  {
+   "id": "h_kanna_cinnabar_touch_chin_lift",
+   "kind": "approach",
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room"
+   ],
+   "slot": "demon_slayer_kanna",
+   "text": "{demon_slayer_kanna.name}背倚朱漆木柱，按住左肩渗血的绷带冷声道：“呆立着看什么？既然你通晓古社祓禊之法，还不快把朱砂药散拿过来……外面的山雨还没停，天亮前绝不能让瘴气漫过心脉。”"
+  },
+  {
+   "id": "h_kanna_veranda_wound_shiver_glance",
+   "kind": "approach",
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room"
+   ],
+   "slot": "demon_slayer_kanna",
+   "text": "{demon_slayer_kanna.name}因山间夜寒与旧伤隐痛微颤，伸手扣住你的衣袖将断折太刀横在膝头，压低嗓音道：“别出声……鸟居台阶下有异动，先把廊角的铜灯拨亮，替我盯紧西侧栏杆。”"
+  },
+  {
+   "id": "h_kanna_dawn_blade_reforge_vow",
+   "kind": "approach",
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "sacred_cedar_boundary_gate"
+   ],
+   "slot": "demon_slayer_kanna",
+   "text": "{demon_slayer_kanna.name}立于神乐殿檐下，反手将半截断刃收入鞘中，目光清冷而专注地看向你：“这柄家传太刀今晚能不能接续重鸣，就看接下来的炉火与结界了……你准备好了没有？”"
+  },
+  {
+   "id": "h_sojiro_heavy_blade_block_gate",
+   "kind": "approach",
+   "location_ids": [
+    "sacred_cedar_boundary_gate",
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room"
+   ],
+   "slot": "veteran_ronin_sojiro",
+   "text": "{veteran_ronin_sojiro.name}单手将厚背重钢打刀顿在青石台阶上，抹去脸上的雨水沉声道：“听好了！鸟居外头的山道已经被泥石流堵死，我替你们守住前阶，内殿的结界和伤药交给你们处置！”"
+  },
+  {
+   "id": "h_shiori_kagura_bell_trembling_prayer",
+   "kind": "approach",
+   "location_ids": [
+    "inner_sanctuary_lattice_room",
+    "kagura_main_hall_veranda",
+    "bell_tower_stone_staircase"
+   ],
+   "slot": "apprentice_miko_shiori",
+   "text": "{apprentice_miko_shiori.name}双手捧着纯铜神乐铃与白瓷神水盆走到你身旁，神色坚毅地低语：“上代宫司留下的清净祝词我已经备好了，趁长明灯火还旺，我们先替殿内加固第一道纸垂封印。”"
+  },
+  {
+   "id": "h_ren_whetstone_sparks_blade_reforge",
+   "kind": "approach",
+   "location_ids": [
+    "inner_sanctuary_lattice_room",
+    "kagura_main_hall_veranda"
+   ],
+   "slot": "swordsmith_prodigy_ren",
+   "text": "{swordsmith_prodigy_ren.name}拍了拍皮围裙上的炭灰，捧出鹿角柄研磨砥石与银丝，目光灼灼地看向你：“御神刀的断口还在鸣响，只要能找到神龛暗格里的古铁锷，今晚我就能把断刃重新熔接起来！”"
+  },
+  {
+   "id": "h_toshiki_court_seal_proclamation",
+   "kind": "approach",
+   "location_ids": [
+    "inner_sanctuary_lattice_room",
+    "sacred_cedar_boundary_gate",
+    "bell_tower_stone_staircase"
+   ],
+   "slot": "court_inspector_toshiki",
+   "text": "{court_inspector_toshiki.name}按住腰间御赐纯银短剑，以冷峻威严的口吻宣示：“奉京都神祇官钧令，今夜古社结界得失皆记入朝廷考功清册。破晓之前，谁也不准擅自撤离防线！”"
+  },
+  {
+   "id": "h_shinya_nine_ring_staff_demon_slam",
+   "kind": "approach",
+   "location_ids": [
+    "inner_sanctuary_lattice_room",
+    "bell_tower_stone_staircase",
+    "sacred_cedar_boundary_gate"
+   ],
+   "slot": "ascetic_herbalist_shinya",
+   "text": "{ascetic_herbalist_shinya.name}将九环铜杖立在青石地面上，从药囊中取出一包雷击干松脂递向你：“山雾里的瘴气越来越重了，先把这帖辟毒散分下去，药炉那边还需要你搭把手看火。”"
+  },
+  {
+   "id": "h_kanna_wet_garment_collar_tremor",
+   "kind": "observe",
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room"
+   ],
+   "slot": "demon_slayer_kanna",
+   "text": "{demon_slayer_kanna.name}靠坐着朱漆廊柱调息，被雨水打湿的素白剑道衣领口下隐约透出暗紫瘴痕，右手依旧紧扣着断折的御神刀柄。"
+  },
+  {
+   "id": "h_toshiki_court_seal_silver_dagger",
+   "kind": "observe",
+   "location_ids": [
+    "inner_sanctuary_lattice_room",
+    "bell_tower_stone_staircase"
+   ],
+   "slot": "court_inspector_toshiki",
+   "text": "{court_inspector_toshiki.name}立在绘马格子门内侧，神色冷肃地翻阅手中的京都神祇官考功簿，指节轻叩银剑剑柄。"
+  },
+  {
+   "id": "h_kanna_cinnabar_apply_request",
+   "kind": "request",
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room"
+   ],
+   "slot": "demon_slayer_kanna",
+   "text": "{demon_slayer_kanna.name}避开外廊视线，将白瓷药碟推到你手边，低声道：“……肩井穴那道旧伤有些发冷，替我把烘热的朱砂药膏敷上，动作快些，别让巡按使那边看出异样。”"
+  }
+ ],
+ "id": "demon_slayer_kagura_hall_purification",
+ "locations": [
+  {
+   "affordances": [
+    "蘸取朱砂沿剑士手臂经络寸寸推拿压制瘴气",
+    "用生铁刻刀撬起栏杆桧木生火维系铜灯光芒",
+    "握住断折太刀横于膝头低声念诵净天地神咒稳固心神"
+   ],
+   "detail": "古社悬空高架式朱漆外廊，三面迎风受雨。",
+   "exits": [
+    "inner_sanctuary_lattice_room",
+    "sacred_cedar_boundary_gate"
+   ],
+   "id": "kagura_main_hall_veranda",
+   "name": "神乐殿残破朱漆桧木回廊",
+   "pressure_modifiers": {
+    "p_cinnabar_tribute_leverage": "回廊隔着一层格子门。",
+    "p_kyoto_shinto_audit_deadline": "回廊尽头已摆开考功案几。",
+    "p_mudslide_severing_mountain_path": "回廊外侧悬崖下泥石流咆哮奔涌。",
+    "p_samurai_lattice_peeping": "带刀侍卫的脚步声正沿着回廊木板逼近。",
+    "p_tamahagane_steel_leverage": "浪人剑客正指着工具箱底的那块御用玉钢低声发问。",
+    "p_wind_extinguishing_sacred_flame": "狂风暴雨正面冲击回廊。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "廊角八角铜灯透出如豆如丝的昏红微光。",
+   "witnesses": [
+    "bg_panicked_apprentice_miko",
+    "bg_escort_armored_samurai"
+   ]
+  },
+  {
+   "affordances": [
+    "在神案前燃起松脂香以浓烈白烟驱散渗入殿内的阴冷瘴气",
+    "解开剑士受污白底外衣以便涂抹研碎的草药软膏",
+    "从神龛内匣翻出上代剑圣遗留的无铭备用古铁锷"
+   ],
+   "detail": "供奉着历代神剑与褪色绘马的昏暗内殿。",
+   "exits": [
+    "kagura_main_hall_veranda",
+    "bell_tower_stone_staircase"
+   ],
+   "id": "inner_sanctuary_lattice_room",
+   "name": "内殿闭锁绘马格子间",
+   "pressure_modifiers": {
+    "p_cinnabar_tribute_leverage": "那张京都药铺交割单让巡按使脸色铁青。",
+    "p_kyoto_shinto_audit_deadline": "神龛前的沙漏即将流尽。",
+    "p_mudslide_severing_mountain_path": "内殿地板传来沉闷震感。",
+    "p_samurai_lattice_peeping": "绘马格子门的油纸上清晰映出门外侍卫驻足偷听的身影。",
+    "p_tamahagane_steel_leverage": "年轻铸剑师正护着装有御用玉钢的工具箱不知所措。",
+    "p_wind_extinguishing_sacred_flame": "门缝灌入刺骨山风。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "仅靠神龛前两盏浸透松脂的瓷碟油灯照明。",
+   "witnesses": [
+    "bg_elderly_caretaker_monk"
+   ]
+  },
+  {
+   "affordances": [
+    "将断裂太刀插入御神木裂缝接引古树灵力激荡震退恶灵",
+    "割断注连绳稻草作为干燥引火物投入回廊神灯",
+    "站在鸟居正中手握御神经卷大声喝诵神名震慑妖群"
+   ],
+   "detail": "神乐殿外侧台阶下的一座巨大朱红木质鸟居。",
+   "exits": [
+    "kagura_main_hall_veranda",
+    "bell_tower_stone_staircase"
+   ],
+   "id": "sacred_cedar_boundary_gate",
+   "name": "鸟居阶前",
+   "pressure_modifiers": {
+    "p_cinnabar_tribute_leverage": "鸟居石阶下的随从正议论着内殿突然清点贡品药箱的动静。",
+    "p_kyoto_shinto_audit_deadline": "东方天际隐现微弱青白。",
+    "p_mudslide_severing_mountain_path": "鸟居下方的下山青石栈道已被滚滚泥石流彻底冲断掩埋。",
+    "p_samurai_lattice_peeping": "外围巡哨已向内殿方向收缩。",
+    "p_tamahagane_steel_leverage": "浪人留下的刀鞘压痕旁还散落着几粒磨刀铁屑。",
+    "p_wind_extinguishing_sacred_flame": "十级山风吹得鸟居横梁上的注连绳与白纸垂猎猎作响。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "暴雨闪电撕裂漆黑夜空将鸟居与老杉树轮廓映照得宛如巨神。",
+   "witnesses": [
+    "bg_patrolling_border_ranger"
+   ]
+  },
+  {
+   "affordances": [
+    "手拉钟楼粗麻绳借飞荡之势将扑跃而来的飞翼妖魔撞落深渊",
+    "在岩石缝隙干燥凹陷处暂避狂风更换剑士包扎绷带",
+    "以重钢打刀猛击古钟撞击声波震溃下方妖群心智"
+   ],
+   "detail": "依傍绝壁开凿的陡峭石阶。",
+   "exits": [
+    "inner_sanctuary_lattice_room",
+    "sacred_cedar_boundary_gate"
+   ],
+   "id": "bell_tower_stone_staircase",
+   "name": "悬崖古钟楼青石转角石阶",
+   "pressure_modifiers": {
+    "p_cinnabar_tribute_leverage": "钟楼石阶高处能望见巡按使随从守在官箱旁神色紧张。",
+    "p_kyoto_shinto_audit_deadline": "生铁巨钟即将敲响五更晨钟。",
+    "p_mudslide_severing_mountain_path": "转角石阶的基岩出现明显裂纹。",
+    "p_samurai_lattice_peeping": "从钟楼高处俯瞰。",
+    "p_tamahagane_steel_leverage": "石阶转角的避风岩凹里还留着修补刀刃时用过的焦黑木炭。",
+    "p_wind_extinguishing_sacred_flame": "绝壁高处狂风如刀。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "visibility": "狂风裹挟着冰冷暴雨如皮鞭般抽打石阶。",
+   "witnesses": [
+    "bg_bell_ringer_layman_watcher",
+    "bg_wandering_hunter_marksman"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "司徒",
+   "神无月",
+   "白峰",
+   "九条",
+   "风间",
+   "橘",
+   "水无瀬",
+   "八云",
+   "浅间",
+   "龙胆",
+   "夜见",
+   "草薙"
+  ],
+  "given_female": [
+   "绫乃",
+   "千冬",
+   "雪乃",
+   "枫",
+   "诗织",
+   "遥香",
+   "咲夜",
+   "真理奈",
+   "美琴",
+   "彩音",
+   "千鹤",
+   "纱代"
+  ],
+  "given_male": [
+   "疾风",
+   "宗次郎",
+   "拓真",
+   "俊介",
+   "莲",
+   "直树",
+   "龙之介",
+   "苍介",
+   "悠真",
+   "弦之介",
+   "雅人",
+   "一马"
+  ],
+  "given_neutral": [
+   "司",
+   "透",
+   "葵",
+   "律",
+   "薰",
+   "凉",
+   "和",
+   "真",
+   "光",
+   "清",
+   "涉",
+   "遥"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，改动见提交说明。\n2026-10-18 按写作规则 v2 改造：2026-10-22 采用 Gemini 改造方案重写模板、钩子、组合、压力与日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    20,
+    22
+   ],
+   "baseline": "年满二十周岁世代驻守这处荒废山岳古神社的年轻末席神职人员。",
+   "gender": "any",
+   "id": "apprentice_shrine_ritualist_youth",
+   "reputation": "性格沉稳刚毅不喜言谈。",
+   "resources": [
+    "一盒上代宫司传承之高纯度纯朱砂粉配特制鹿皮符纸",
+    "一柄用于修整神木梁柱的生铁木工刻刀"
+   ],
+   "risks": [
+    "神乐殿内四角长明神火若遭山雨彻底浇灭将连同整座古社彻底化为妖物巢穴。"
+   ],
+   "role": "驻守荒山古社年轻末席巫祝",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "末席祝人"
+    },
+    {
+     "gender": "any",
+     "pattern": "看殿巫祝"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十一周岁早年研习古流剑术的流浪剑士。",
+   "gender": "any",
+   "id": "disgraced_ronin_swordsman_wanderer",
+   "reputation": "剑风狠辣招招搏命，深知各路妖魔习性弱点。",
+   "resources": [
+    "一柄厚背无铭重钢破甲打刀",
+    "两瓶用于烈酒洗刃止血的辛辣老烧刀子酒"
+   ],
+   "risks": [
+    "一旦被随行名门督戒官判定临阵退缩毁刀将被就地废去剑脉。"
+   ],
+   "role": "伴随入山断后之浪人退魔同袍",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "佩刀浪人"
+    },
+    {
+     "gender": "any",
+     "pattern": "断后游侠"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十一周岁出身公卿世家奉京都朝廷之命巡察畿内灵山封印的年轻巡检使。",
+   "gender": "any",
+   "id": "noble_court_shinto_investigator",
+   "reputation": "举止优雅从容法令如山。",
+   "resources": [
+    "一枚盖有京都神祇官朱红神印可调动山下宿场武士的纯金牙牌",
+    "一卷加持避水咒文的名贵真丝御神经卷"
+   ],
+   "risks": [
+    "若在荒殿受困折损若被政敌参奏护卫不利将获罪流放八丈岛。"
+   ],
+   "role": "京都神祇官派遣年轻监督御史",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "神祇御史"
+    },
+    {
+     "gender": "any",
+     "pattern": "督按使节"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    22
+   ],
+   "baseline": "年满二十周岁常年踏勘高山悬崖采掘避毒奇药的修验道年轻行者。",
+   "gender": "any",
+   "id": "mountain_ascetic_herbal_monk",
+   "reputation": "脚力极健性情孤傲，能于悬崖绝壁如履平地。",
+   "resources": [
+    "一包采自雷击古松根部的强效解瘴干松脂",
+    "一柄锋利轻巧的纯铜采药长柄药铲"
+   ],
+   "risks": [
+    "若调配解药火候偏差导致剑士灵脉受阻将背负弑杀名门栋梁重罪。"
+   ],
+   "role": "修验道深山采药苦行青年居士",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "苦行药士"
+    },
+    {
+     "gender": "any",
+     "pattern": "山伏门人"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    23
+   ],
+   "baseline": "年满二十一周岁执掌名门御神刀日常磨砺护养的年轻铸剑师。",
+   "gender": "any",
+   "id": "blacksmith_lineage_swordsmith_youth",
+   "reputation": "目光毒辣爱刀如命。",
+   "resources": [
+    "一具随身鹿角柄纯钢折叠研磨砥石",
+    "一卷纯银丝线与用于应急熔接残刃的特制白磷烙铁"
+   ],
+   "risks": [
+    "名门断刀若不能在天明前完成血誓接续将以毁损神器罪斩首。"
+   ],
+   "role": "随队名门刀匠年轻锻冶传人",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "铸剑师"
+    },
+    {
+     "gender": "any",
+     "pattern": "刀工传人"
+    }
+   ]
+  }
+ ],
+ "premise": "明治三十年代的初秋，名门退魔女剑士奉命进山清剿妖魔，借住在一座荒废三百年的古神社里，与驻守的青年巫祝一起修补结界、熬药、守夜。山道年久失修，秋雨一来常塌方；前些日子斩妖时留下的瘴毒伤还没好透。",
+ "pressures": [
+  {
+   "choice": "面对采药居士亮出的巡按使贪墨药单，你要如何决断？",
+   "exits": [
+    {
+     "cost": "巡按使虽被迫低头交药。",
+     "option": "配合采药居士当场追回官箱内的贡品辰砂，并逼巡按使在特赦文书上用印"
+    },
+    {
+     "cost": "你需要亲自保管那张药单。",
+     "option": "出面替巡按使留全官场体面，换取其将随行侍卫全数拨归你调度守廊"
+    }
+   ],
+   "far": {
+    "consequence": "辰砂迟迟不能入药，伤员会在子夜瘴气反扑时倒下。",
+    "due_days": 1,
+    "trigger": "私调京都贡品辰砂的药单把柄未解"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_toshiki_court_seal_proclamation",
+    "h_shinya_nine_ring_staff_demon_slam",
+    "h_toshiki_court_seal_silver_dagger"
+   ],
+   "id": "p_cinnabar_tribute_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "冷声要求督察巡按使立刻打开随行官箱交出贡品辰砂。"
+   },
+   "leverage": {
+    "basis": "采药居士握有督察巡按使私自截留京都神祇官贡品辰砂倒卖给药铺的亲笔交割单。",
+    "holder": "ascetic_herbalist_shinya",
+    "subject": "court_inspector_toshiki"
+   },
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room",
+    "sacred_cedar_boundary_gate",
+    "bell_tower_stone_staircase"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "督察巡按使脸色骤变。"
+   },
+   "objective": "借药单把柄逼巡按使交出辰砂、撤回参奏",
+   "source": "institution",
+   "start_minute": 1365,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "私调京都贡品辰砂的药单把柄",
+   "trigger": "采药居士在内殿亮出京都药铺交割单，当场掐住督察巡按使私吞贡品的死穴。"
+  },
+  {
+   "choice": "浪人点破了铸剑师私藏玉钢的秘密，你要如何收场？",
+   "exits": [
+    {
+     "cost": "你揽下了替铸剑师隐瞒门规的干系。",
+     "option": "当面立保绝不向宗门或朝廷追究玉钢来历，说服铸剑师安心开炉重铸"
+    },
+    {
+     "cost": "外围近战需更加小心。",
+     "option": "请浪人一并交出随身携带的上代旧刀锷，让两人共同完成这次秘传接刃"
+    }
+   ],
+   "far": {
+    "consequence": "不取出这块玉钢，单凭普通铁料接不上御神刀。",
+    "due_days": 1,
+    "trigger": "私藏宗门御用玉钢的锻造把柄未解"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_sojiro_heavy_blade_block_gate",
+    "h_ren_whetstone_sparks_blade_reforge"
+   ],
+   "id": "p_tamahagane_steel_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "断后浪人用刀鞘轻敲铸剑师的工具箱底层。"
+   },
+   "leverage": {
+    "basis": "浪人剑客认出铸剑师工具箱底暗藏的钢料正是司徒宗门明令严禁私留的御用玉钢。",
+    "holder": "veteran_ronin_sojiro",
+    "subject": "swordsmith_prodigy_ren"
+   },
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room",
+    "sacred_cedar_boundary_gate",
+    "bell_tower_stone_staircase"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "年轻铸剑师耳根涨红、双手护紧工具箱。"
+   },
+   "objective": "化解浪人剑客与年轻铸剑师之间的把柄紧绷，促成双方合力重铸御神刀",
+   "source": "rumor",
+   "start_minute": 1380,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "私藏宗门御用玉钢的锻造把柄",
+   "trigger": "浪人剑客在回廊点破工具箱底的御用玉钢来历，逼铸剑师拿出真材实料重铸断刃。"
+  },
+  {
+   "choice": "门外带刀侍卫即将推开格子门，你要如何应对隔墙窥探？",
+   "exits": [
+    {
+     "cost": "狭窄神龛帷幕内两人呼吸交缠。",
+     "option": "熄灭侧灯并燃起浓烈松脂白烟，与身边同伴贴入神龛帷幕后屏息避视"
+    },
+    {
+     "cost": "侍卫虽退回廊角。",
+     "option": "主动拉开半扇格子门走出回廊，以奉纳除秽神水之名喝退越界侍卫"
+    }
+   ],
+   "far": {
+    "consequence": "一旦侍卫推门看见尚未接续完的御神刀残刃，断刀失职的消息将立刻传遍全队。",
+    "due_days": 1,
+    "trigger": "绘马格子门外的巡夜耳目未解"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_samurai_lattice_peeping",
+   "immediate": {
+    "minutes": 15,
+    "text": "绘马格子门的油纸上映出两名带刀侍卫的剪影。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room",
+    "sacred_cedar_boundary_gate",
+    "bell_tower_stone_staircase"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "侍卫隔着格子门高声询问内殿为何有风箱声与药香。"
+   },
+   "objective": "在门外侍卫推门查验前藏好断刀与违禁秘卷，掩盖内殿私下动静",
+   "source": "person",
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "绘马格子门外的巡夜耳目",
+   "trigger": "巡按使麾下的带刀侍卫借口核查神火，沿着朱漆回廊贴近内殿绘马格子门侧耳窥听。"
+  },
+  {
+   "choice": "朝廷考功验印大限已到，你要如何破局？",
+   "exits": [
+    {
+     "cost": "你在最后淬火关头倾尽全力拉风箱护炉。",
+     "option": "捧出刚刚用雷击神木芯接续淬火完毕的御神刀，当众引动刀鸣压服质疑"
+    },
+    {
+     "cost": "你需要在特赦副卷上签字画押。",
+     "option": "出示已加盖巡按使金印的战功特赦卷，将验刀程序合法顺延至下山之后"
+    }
+   ],
+   "far": {
+    "consequence": "一旦罪名坐实，不仅司徒流将被剥夺正统席位。",
+    "due_days": 1,
+    "trigger": "破晓五更的朝廷考功封印大限未解"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_kyoto_shinto_audit_deadline",
+   "immediate": {
+    "minutes": 15,
+    "text": "督察官随从在内殿外摆开考功案几。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room",
+    "sacred_cedar_boundary_gate",
+    "bell_tower_stone_staircase"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "若半个时辰内交不出完好无损的御神刀，考功簿将直接按损毁神器罪封存上报。"
+   },
+   "objective": "在破晓考功验印前完成断刀重铸或拿到特赦豁免批文",
+   "source": "institution",
+   "start_minute": 1410,
+   "tags": [
+    "workplace"
+   ],
+   "title": "破晓五更的朝廷考功封印大限",
+   "trigger": "古钟楼传来五更鼓响，京都神祇官规定的破晓考功验印时刻将至，必须当场核验御神刀与结界。"
+  },
+  {
+   "choice": "暴风雨与刺骨寒潮同时袭来，你要如何护住神火与身边人？",
+   "exits": [
+    {
+     "cost": "炭火微光下两人紧贴着分担体温。",
+     "option": "用避水油布封住回廊迎风面，将同伴拉入神龛炭火旁同披一件厚羽织取暖"
+    },
+    {
+     "cost": "你的双手被冰冷铁链与热油交替擦过。",
+     "option": "冒着狂风攀上回廊柱顶重新系紧铜灯防风罩，并添入雷击干松脂稳住火势"
+    }
+   ],
+   "far": {
+    "consequence": "若任由四角神火熄灭、体温流失，山林阴寒瘴气将长驱直入吞没整座神乐殿。",
+    "due_days": 1,
+    "trigger": "山岳十级暴风雨与宫灯寒潮未解"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_wind_extinguishing_sacred_flame",
+   "immediate": {
+    "minutes": 15,
+    "text": "狂风卷着冰雨撕裂回廊西侧苇帘。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room",
+    "sacred_cedar_boundary_gate",
+    "bell_tower_stone_staircase"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "守在廊下的同伴衣衫被冷雨打透。"
+   },
+   "objective": "在暴风雨彻底浇灭四角宫灯前加固避水油布并替同伴驱散寒毒",
+   "source": "nature",
+   "start_minute": 1420,
+   "tags": [
+    "disaster"
+   ],
+   "title": "山岳十级暴风雨与宫灯寒潮",
+   "trigger": "秋末山岳狂风暴雨骤然加剧，冰冷雨幕倒灌朱漆回廊，四角古铜宫灯的避妖神火濒临吹熄。"
+  },
+  {
+   "choice": "山道塌方、石阶开裂，你要如何稳住古社防线？",
+   "exits": [
+    {
+     "cost": "撤离途中石阶碎石飞溅，你用后背替同伴挡下冲击。",
+     "option": "冒雨冲上钟楼石阶拉住同伴手臂撤回内殿，并合力开启神案下的灵泉暗室"
+    },
+    {
+     "cost": "外围鸟居与钟楼暂时放弃。",
+     "option": "敲响古钟示警召集各处人手退守内殿格子间，用神木横梁顶死外侧拉门"
+    }
+   ],
+   "far": {
+    "consequence": "若不及时撤回外围人员并打开内殿备用暗道，众人将被困死在孤立无援的断崖绝顶。",
+    "due_days": 1,
+    "trigger": "钟楼石阶塌方与山道泥石流封锁未解"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_mudslide_severing_mountain_path",
+   "immediate": {
+    "minutes": 15,
+    "text": "山谷方向传来震耳欲聋的滚石轰鸣。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "kagura_main_hall_veranda",
+    "inner_sanctuary_lattice_room",
+    "sacred_cedar_boundary_gate",
+    "bell_tower_stone_staircase"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "悬崖古钟楼的生铁巨钟在震动中发出低沉自鸣。"
+   },
+   "objective": "在钟楼石阶进一步坍塌前转移外围守军并开启神案下的灵泉避险暗道",
+   "source": "accident",
+   "start_minute": 1430,
+   "tags": [
+    "disaster"
+   ],
+   "title": "钟楼石阶塌方与山道泥石流封锁",
+   "trigger": "连夜暴雨冲垮后山岩层，泥石流彻底吞没鸟居下山栈道，古钟楼转角石阶也出现贯穿裂纹。"
+  }
+ ],
+ "region": "深山古道之巅荒废三百年的一宫神社神乐殿与后方闭锁结界内殿",
+ "rules": [
+  {
+   "id": "r_kagura_boundary_sacred_fire_code",
+   "text": "神乐殿四角古铜宫灯乃百年前上代宫司以神木引燃之避妖神火。"
+  },
+  {
+   "id": "r_miasma_purge_breath_synchrony_law",
+   "text": "受蚀于上弦妖魔之紫毒需以纯阳灵力附着纯度朱砂沿手臂经络寸寸推行。"
+  },
+  {
+   "id": "r_shrine_taboo_blood_spill_purification",
+   "text": "神乐主殿净阶绝不可沾染妖魔污血。"
+  },
+  {
+   "id": "r_broken_blade_oath_reforging_edict",
+   "text": "持刀者若未力竭身殒。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "神乐共避",
+  "committed": "破晓祓契",
+  "familiar": "朱砂敷毒",
+  "flirting": "灯下守夜",
+  "intimate": "回廊相拥",
+  "stranger": "退魔戒律",
+  "testing": "刀誓对决"
+ },
+ "status": "released",
+ "style_hint": "古老神乐殿回廊在狂暴山风中发出沉闷吱呀声响，屋檐破损处如瀑布般倾泻着冰冷雨水。殿内四角悬挂的八角铜质神乐宫灯在狂风中剧烈晃动，微弱的橘红烛火将二人身影斜斜投在落满尘灰的桧木地板上。",
+ "tension_engines": [
+  {
+   "id": "te_miasma_invasion_vs_pure_vitality_teth",
+   "text": "剑士体内暴虐妖毒沿经络向心脉不断逆冲灼烧。"
+  },
+  {
+   "id": "te_broken_divine_blade_vs_demon_pack_sie",
+   "text": "名门御神名刀折断失去常规杀伤锋芒与殿外百鬼夜行狂暴妖潮步步紧逼撞门包围的灭顶悬殊对决。"
+  },
+  {
+   "id": "te_proud_swordswoman_pride_vs_vulnerable",
+   "text": "冷傲高贵名门女剑圣平日不可一世的冰霜戒律。"
+  },
+  {
+   "id": "te_mountain_collapse_curfew_vs_dawn_refo",
+   "text": "山道泥石流彻底切断退路暴风雨长夜封死与距离破晓阴阳换气重铸神刃仅剩一刻钟的生死极速竞逐。"
+  }
+ ],
+ "title": "朱漆廊的断刀",
+ "tone": [
+  "古社回廊风雨",
+  "佩刀崩刃残铁",
+  "朱砂紫毒拔除",
+  "破晓神乐心弦"
+ ],
+ "twists": [
+  {
+   "category": "资源",
+   "id": "t_demon_1",
+   "requires": [],
+   "text": "神乐殿回廊神案暗藏百年退魔灵泉：巫祝在推拿拔毒时不慎按动神乐殿老柱机关。"
+  },
+  {
+   "category": "人事",
+   "id": "t_demon_2",
+   "requires": [],
+   "text": "断后浪人实为司徒宗家上代绝世剑圣关门义子：浪人在生死激战中使出唯有宗门嫡传方知之奥义死里求生剑。"
+  },
+  {
+   "category": "制度",
+   "id": "t_demon_3",
+   "requires": [],
+   "text": "朝廷督按官当场宣读御前特赦战功金诏：京都督察御史亲眼目睹剑士以血肉之躯护佑古社神民之壮举。"
+  },
+  {
+   "category": "信息",
+   "id": "t_demon_4",
+   "requires": [],
+   "text": "御神木千年雷击核心助断刃化作雷光神剑：刀匠在御神木被雷劈裂之树洞内寻获一截百年不朽之雷击纯金神木芯。"
+  },
+  {
+   "category": "时限",
+   "id": "t_demon_5",
+   "requires": [],
+   "text": "东天破晓纯阳晨曦提前半刻撕裂风暴：肆虐整夜之狂暴山风在子夜后突然急剧平息。"
+  },
+  {
+   "category": "关系",
+   "id": "t_demon_6",
+   "requires": [],
+   "text": "二人各自佩戴之白玉勾玉在神火照耀下散发温润荧光且能严丝合缝扣合成一幅完整阴阳双鱼神契。当年老宫司与老剑圣为二人定下之青梅竹马宿命神誓在绝境中轰然揭晓相认。"
+  },
+  {
+   "category": "意外",
+   "id": "t_demon_7",
+   "requires": [],
+   "text": "生铁古钟坠落当场砸毙妖潮头目大妖：大妖首领扑上钟楼石阶企图撕碎神钟。"
+  }
+ ]
+}

@@ -1,0 +1,2459 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "年满二十一周岁要塞守备联队在编重装哨戒长枪兵。",
+   "age_range": [
+    21,
+    24
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_dungeon_guard_patrol",
+   "line": "{npc.name}：两刻钟已到！水牢里的人老实靠墙站好！别逼我拿铁枪招呼！",
+   "location_ids": [
+    "dungeon_guard_corridor"
+   ],
+   "name": null,
+   "role": "水牢巡逻值夜披甲重步兵"
+  },
+  {
+   "adult_context": "年满二十三岁军属重装军械工坊正式登记在册执刑匠人。",
+   "age_range": [
+    23,
+    25
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_torture_executioner_brute",
+   "line": "{npc.name}：烙铁已经烧得通红透亮了，审讯官大人，要不要先给这硬骨头长官盖个印？",
+   "location_ids": [
+    "interrogation_stone_platform"
+   ],
+   "name": null,
+   "role": "刑具火盆执刑重装铁匠"
+  },
+  {
+   "adult_context": "年满二十二岁受封军法监察宪兵中尉副典狱官。",
+   "age_range": [
+    22,
+    25
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_patrolling_warden_captain",
+   "line": "{npc.name}：统帅部刚刚下了禁令，破晓前任何无通行更牌人员擅闯水牢立斩不饶！",
+   "location_ids": [
+    "dungeon_guard_corridor"
+   ],
+   "name": null,
+   "role": "地下三层执勤副典狱长"
+  },
+  {
+   "adult_context": "年满二十一周岁军法文职审录机关正式签约从军记录生。",
+   "age_range": [
+    21,
+    24
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_record_scribe_assistant",
+   "line": "{npc.name}：字迹已记录完毕……审讯官大人，嫌犯心跳微弱，是否准许救护修士送药？",
+   "location_ids": [
+    "interrogation_stone_platform"
+   ],
+   "name": null,
+   "role": "审讯口供见习记录帮工"
+  },
+  {
+   "adult_context": "年满二十三岁要塞防卫战重度受创伤残在编重装老兵。",
+   "age_range": [
+    23,
+    25
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_crying_wounded_soldier",
+   "line": "{npc.name}：水底下……排污口的第三根铁栅栏是朽烂的……使劲扳……能游出去……",
+   "location_ids": [
+    "flooded_iron_dungeon_cell"
+   ],
+   "name": null,
+   "role": "邻牢关押濒死残废老兵"
+  },
+  {
+   "adult_context": "年满二十周岁受雇于要塞水利修缮工兵营正式水运帮工工。",
+   "age_range": [
+    20,
+    22
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_sewer_rat_catcher_boy",
+   "line": "{npc.name}：别出声！我是工兵营的，外面的护城河结冰了，暗河闸口下面我塞了一根木桩！快顺着绳子下！",
+   "location_ids": [
+    "drainage_sluice_sluicegate"
+   ],
+   "name": null,
+   "role": "暗渠管道探路清淤工"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "身为圣王国统帅的{captured_knight_captain_orphea.ta}哪怕戴着秘银手枷依旧威仪凛然，唯有隔着铁栏握住你递来的热酒壶时，眼底才流露出只对你一人敞开的滚烫眷恋。",
+   "id": "combo_orphea_cell_lionheart",
+   "identity_ids": [
+    "undercover_templar_squire",
+    "renegade_mercenary_scout"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "captured_knight_captain_orphea",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "入冬北境断后战那夜暴风雪封山，你背着力竭的对方躲进废弃烽火台地窖，脱险后两人在火塘边褪下冰甲彼此相拥取暖。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "captured_knight_captain_orphea"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "必须在下一班猎犬巡逻队折返前核对完地下暗河管网图，并取走{captured_knight_captain_orphea.ta}右靴夹层里的近卫团指挥铜印。",
+    "limit_gap": "女骑士长是你昔日的统帅，只能由你隔栏接应。",
+    "meeting_reason": "五更换哨空档，你顺着巡检盲区摸到水牢主囚室铁栏前，{captured_knight_captain_orphea.name}听出你的脚步声，立刻从石台阴影中起身贴近铁栅。",
+    "resource_gap": "你熟悉换哨盲区与暗河水位。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_freezing_water_vs_human_warmth",
+    "te_proud_chivalry_vs_cruel_shackles"
+   ]
+  },
+  {
+   "chemistry": "你在明面上掌握着{captured_knight_captain_orphea.ta}的生杀审录与医疗处置权，{captured_knight_captain_orphea.ta}却看穿你冷面下的庇护之意，在试探与交锋间一步步向你靠近。",
+   "id": "combo_orphea_scribe_mercy",
+   "identity_ids": [
+    "disillusioned_enemy_scribe",
+    "sanctuary_field_physician"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "captured_knight_captain_orphea",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三日前首次提审时你借口核对笔录屏退左右，把一枚藏有退烧药的银十字扣塞进对方掌心，对方记住你指节上的旧墨痕。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "captured_knight_captain_orphea"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "若不能在破晓钟响前让{captured_knight_captain_orphea.ta}信服你的突围计划并配合伪造病危假象，先锋营将在天亮后强行接管刑台。",
+    "limit_gap": "明面上你是敌营审录官。",
+    "meeting_reason": "你持夜间复核手令屏退值守杂役独自走入水牢，{captured_knight_captain_orphea.name}抬起冰蓝眼眸看向你手中的空白通行路引。",
+    "resource_gap": "你握有审录笔录与夜间复核手令。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_proud_chivalry_vs_cruel_shackles",
+    "te_dawn_execution_vs_lockpick_countdown"
+   ]
+  },
+  {
+   "chemistry": "牢门之内你是握有钥匙与烈酒的掌控者，一旦解开{captured_knight_captain_orphea.ta}腕间的秘银手枷，{captured_knight_captain_orphea.ta}便重新化作能护你杀出重围的近卫统帅。",
+   "id": "combo_orphea_jailer_key",
+   "identity_ids": [
+    "sympathetic_dungeon_jailer",
+    "undercover_templar_squire",
+    "sanctuary_field_physician"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "captured_knight_captain_orphea",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月黑石要塞西城门夜袭战后，你在钟楼暗室替对方包扎肩头箭伤，两人在战鼓停歇的余悸中紧紧相拥定下生死之约。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "captured_knight_captain_orphea"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "一旦开锁时机早于五更暗河涨水，走廊巡哨便会察觉异响；若迟于破晓钟声，行刑队将直接封死走廊。",
+    "limit_gap": "牢门内你说了算，锁一开，主导权便回到女骑士长手里。",
+    "meeting_reason": "你借夜巡查验锁具之名打开水牢内层铁栅，与{captured_knight_captain_orphea.name}在干燥石壁凸台后侧并肩商议五更破锁的先后次序。",
+    "resource_gap": "你掌着内层铁栅钥匙与烈酒。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_freezing_water_vs_human_warmth",
+    "te_dawn_execution_vs_lockpick_countdown"
+   ]
+  },
+  {
+   "chemistry": "炭火盆映照着两张同样克制冷静的面孔，无需多余寒暄，一个眼神便知道对方准备如何用军法条文做局放人。",
+   "id": "combo_albert_platform_dossier",
+   "identity_ids": [
+    "disillusioned_enemy_scribe",
+    "sanctuary_field_physician"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "hostile_inquisitor_albert",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "去年王都军法学院整肃案中，你与对方联手藏起受牵连同窗的名单并烧毁底档，约定在这场边境战争中守住最后底线。",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "hostile_inquisitor_albert"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "必须在五更前伪造出一份天衣无缝的移交公文，否则两人私放重犯的痕迹将直接暴露在统帅部督战队面前。",
+    "limit_gap": "两人共担私放重犯的罪名，任何一方失手。",
+    "meeting_reason": "先锋营在走廊外步步紧逼，{hostile_inquisitor_albert.name}将你单独请到审讯石台的橡木长桌旁，摊开那份关系两人身家性命的提审卷宗。",
+    "resource_gap": "你握着提审卷宗的笔录副本。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_dawn_execution_vs_lockpick_countdown",
+    "te_inquisitor_crossfire_vs_silent_conspi"
+   ]
+  },
+  {
+   "chemistry": "同为水牢当值袍泽的熟稔与默契，让每一次借着交接班擦肩相贴的动作都带着滾烫而踏实的温度。",
+   "id": "combo_roland_corridor_whistle",
+   "identity_ids": [
+    "sympathetic_dungeon_jailer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "rebellious_guard_sergeant_roland",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "半月前北境寒潮夜袭哨塔，你与对方在被大雪封住的哨所火炉旁分喝完最后一壶烈酒，解下浸透雪水的披风彻夜相拥。",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "rebellious_guard_sergeant_roland"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "副典狱长随时会下来抽查夜班钥匙串，你们只有一刻钟时间完成暗河闸门的解锁准备并抹平油迹。",
+    "limit_gap": "同为当值袍泽，多余的贴近都可能被副典狱长记上一笔。",
+    "meeting_reason": "夜班交接哨声刚落，{rebellious_guard_sergeant_roland.name}提着油灯把你拉进巡检走廊的石柱盲区，将涂过滑脂的排污闸门副匙塞进你掌心。",
+    "resource_gap": "你持排污闸门副匙。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_freezing_water_vs_human_warmth",
+    "te_dawn_execution_vs_lockpick_countdown"
+   ]
+  },
+  {
+   "chemistry": "一个是守着牢门的当值狱卒，一个是钻进地牢劫人的暗影斥候，在湿冷石壁间贴身搭手时处处是心照不宣的拉扯。",
+   "id": "combo_kyle_sluice_lockpick",
+   "identity_ids": [
+    "sympathetic_dungeon_jailer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "cunning_shadow_infiltrator_kyle",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三天前对方夜探外城粮仓失手滑落屋脊，你装作没看见替对方引开巡卫，当晚窗台上便多了一枚刻着飞燕记号的银币。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "cunning_shadow_infiltrator_kyle"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "暗河水底第三根铁栅已被浮冰堵住，若不能在巡逻猎犬闻到陌生气味前打开缺口，两人都会被困死在闸门死角。",
+    "limit_gap": "一个是狱卒、一个是劫狱的人，被撞见就是同谋。",
+    "meeting_reason": "{cunning_shadow_infiltrator_kyle.name}顺着地下暗河排污闸门的铁链悄无声息滑下，晃了晃手中的高碳钢探针，邀你一起打通水下铁栅。",
+    "resource_gap": "你守着牢门钥匙串。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_freezing_water_vs_human_warmth",
+    "te_dawn_execution_vs_lockpick_countdown"
+   ]
+  },
+  {
+   "chemistry": "清苦的草药香与冰冷的水牢铁锈味交织，{compassionate_sister_cecilia.ta}借着递交清创烈酒与绷带的动作，每次与你手掌相触都带着克制不住的关切。",
+   "id": "combo_cecilia_cell_balm",
+   "identity_ids": [
+    "sympathetic_dungeon_jailer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "compassionate_sister_cecilia",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上周你在巡廊替伤俘挡下一记皮鞭擦伤手背，对方把你拉进医护角包扎时，将一枚带着体温的薄荷香囊系在你护腕内侧。",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "compassionate_sister_cecilia"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "亚麻绷带夹层里缝着破晓出城的中立救护通行证，一旦在传递时被哨兵察觉，两人的豁免与值守身份将当场作废。",
+    "limit_gap": "修士受戒律与豁免条款约束。",
+    "meeting_reason": "{compassionate_sister_cecilia.name}提着牛皮医药箱来到水牢主囚室门前，请你协助打开外栏锁扣并替{compassionate_sister_cecilia.ta}遮挡走廊哨兵的视线。",
+    "resource_gap": "你能开外栏锁扣、挡开哨兵视线。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_freezing_water_vs_human_warmth",
+    "te_inquisitor_crossfire_vs_silent_conspi"
+   ]
+  },
+  {
+   "chemistry": "凶悍的先锋千夫长居高临下地用战斧压迫你的退路，你却握有能让{ruthless_vanguard_centurion_vargas.ta}被军法处问斩的黑账线索，凶险对峙中暗流汹涌。",
+   "id": "combo_vargas_platform_standoff",
+   "identity_ids": [
+    "undercover_templar_squire",
+    "renegade_mercenary_scout"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "ruthless_vanguard_centurion_vargas",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你在攻城战混乱中亲眼见过对方心腹私运战利品金箱入地窖，对方也认出你眼底不肯屈服的狠劲，正试探你的底牌。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "ruthless_vanguard_centurion_vargas"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "用千夫长私吞军饷的把柄换出东门哨卡，否则就会被推上刑台当替罪羊。",
+    "limit_gap": "论兵力你毫无胜算，只能靠把柄让千夫长不敢下手。",
+    "meeting_reason": "{ruthless_vanguard_centurion_vargas.name}拎着双刃战斧在审讯石台台阶前拦住你的去路，屏退左右亲兵，逼问你知不知道水牢密道图的藏匿处。",
+    "resource_gap": "你手里有先锋营私运金箱的线索。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_proud_chivalry_vs_cruel_shackles",
+    "te_inquisitor_crossfire_vs_silent_conspi"
+   ]
+  },
+  {
+   "chemistry": "炭火通红的审讯台上，冷面审查法官按着秘银钥匙，狂暴千夫长手握战斧虎视眈眈，而你手里的清单正是决定谁能活着走出地牢的唯一砝码。",
+   "id": "combo_platform_inquisitor_centurion",
+   "identity_ids": [
+    "disillusioned_enemy_scribe",
+    "sanctuary_field_physician",
+    "sympathetic_dungeon_jailer"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "hostile_inquisitor_albert",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "入夜前{hostile_inquisitor_albert.name}在文书室将一把备用的银质拆信刀塞进你手里，低声嘱咐你今晚若先锋营发难便站到审讯台内侧来。",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "ruthless_vanguard_centurion_vargas",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你手里握着先锋营克扣攻城火药与军饷的原始清单，对方既忌惮你的证词又企图用重金将你买通。",
+     "stage": "testing"
+    },
+    {
+     "a": "hostile_inquisitor_albert",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "ruthless_vanguard_centurion_vargas",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "{hostile_inquisitor_albert.name}已备好弹劾先锋千夫长杀友冒功的密卷，对方正调亲兵要夺地牢管辖权。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "hostile_inquisitor_albert",
+    "ruthless_vanguard_centurion_vargas"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "必须在五更梆响前利用两派矛盾逼千夫长撤走外廊亲兵，并从审查法官手中拿到合法提审令。",
+    "limit_gap": "谁先亮底牌谁就被动，你只能在两人之间拿捏分寸。",
+    "meeting_reason": "{hostile_inquisitor_albert.name}已先私下请你协助固定先锋营违纪铁证，你按约定将{ruthless_vanguard_centurion_vargas.name}引至黑石审讯石台当面对质。",
+    "resource_gap": "你握着火药军饷的原始清单，法官握着钥匙与密卷。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_inquisitor_crossfire_vs_silent_conspi",
+    "te_dawn_execution_vs_lockpick_countdown"
+   ]
+  },
+  {
+   "chemistry": "阴冷潮湿的排污闸门旁，斥候捏着军士私放边民的旧账木牌，军士手按腰间钥匙串犹豫不决，全靠你在中间牵线定下三方同盟。",
+   "id": "combo_sluice_sergeant_scout",
+   "identity_ids": [
+    "undercover_templar_squire",
+    "renegade_mercenary_scout"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "cunning_shadow_infiltrator_kyle",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "要塞陷落前夜你与对方在城墙暗道对半劈开一枚铜虎符，定下由你混入地牢摸清哨位、对方从暗河潜入接应的死约。",
+     "stage": "committed"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "rebellious_guard_sergeant_roland",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "你连日来在地下水牢当差，与当值军士{rebellious_guard_sergeant_roland.name}多次分饮热汤，深知对方厌恶虐俘军令的底线。",
+     "stage": "familiar"
+    },
+    {
+     "a": "cunning_shadow_infiltrator_kyle",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "rebellious_guard_sergeant_roland",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "{cunning_shadow_infiltrator_kyle.name}握着值更军士私放边民出关的木牌，正拿它逼对方交出闸门钥匙。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "rebellious_guard_sergeant_roland",
+    "cunning_shadow_infiltrator_kyle"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "若不能在换岗哨声响起前说服军士交出副匙并拉起生铁水闸，暗河涨水将彻底淹没水下出口。",
+    "limit_gap": "军士的把柄在斥候手里，你若站错边，同盟当场散掉。",
+    "meeting_reason": "你按三日前定下的暗号将{rebellious_guard_sergeant_roland.name}引至地下暗河排污闸门转角，与提前潜伏在水闸上方的{cunning_shadow_infiltrator_kyle.name}会合。",
+    "resource_gap": "斥候有木牌把柄与城外接应，军士有闸门副匙。"
+   },
+   "tags": [],
+   "tension_engine_ids": [
+    "te_freezing_water_vs_human_warmth",
+    "te_dawn_execution_vs_lockpick_countdown",
+    "te_inquisitor_crossfire_vs_silent_conspi"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_stone_wall_chain_tap",
+   "reach": "被俘骑士们利用悬挂手枷的铁链在花岗岩石壁上敲出的军用摩斯密码短促节奏。",
+   "text": "湿冷石壁链条敲击暗语"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_water_pipe_whisper_echo",
+   "reach": "顺着冰冷地下暗河水汽在石壁空腔内折射回荡的微弱耳语，带有空洞失真的混响效果。",
+   "text": "排污暗渠水汽低回耳语"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_corridor_iron_bell_gong",
+   "reach": "两刻钟敲响一次的水牢换岗重铜更钟，震耳欲聋的金属共鸣能完全掩盖撬锁与落水声浪。",
+   "text": "走廊更牌交接铜钟轰鸣"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "年满二十五岁统领圣王国近卫骑士团、在黑石要塞断后战中力竭被俘的年轻女骑士长。",
+   "age_range": [
+    24,
+    27
+   ],
+   "appearance_options": [
+    "银白胸甲在断后战中崩裂脱落。",
+    "站在齐膝深的水牢石阶边缘。"
+   ],
+   "decision": {
+    "avoids": [
+     "背信弃义的投机小人"
+    ],
+    "contrast": "审讯台上宁折不弯的近卫女骑士长，在幽暗水牢里却会因你递来的一口烈酒而眼尾微红。",
+    "core_value": "骑士的剑与誓言绝不向侵略者弯折，哪怕身陷铁笼也要护住袍泽生路。",
+    "goal_options": [
+     "在破晓钟响前配合你拿到秘银手枷钥匙重获战力",
+     "稳住审查法官的审讯节奏"
+    ],
+    "never": [
+     "绝不会出卖黑石要塞地下伤兵营的撤退路线。"
+    ],
+    "prefers": [
+     "重诺守信、在绝境中不离不弃的同伴"
+    ],
+    "pressure_responses": {
+     "breaking": "在危机暂歇的石壁暗处卸下冷傲防备，将额头抵在你肩窝低声托付身后事。",
+     "high": "用肩背替你扛下门外巡哨的盘查。",
+     "low": "昂首冷对铁栏外的审讯威逼。",
+     "mid": "因寒水侵袭指节发白。"
+    },
+    "relationship_stance": "在敌军面前是坚不可摧的钢铁统帅，唯独在你面前肯展露疲惫与毫无保留的信任。",
+    "withdrawal": "退入水牢内侧干燥石台阴影。"
+   },
+   "gender": "female",
+   "gender_reason": "圣王国被俘第一近卫女骑士长核心设定固定为女性",
+   "id": "captured_knight_captain_orphea",
+   "identity": {
+    "authority": "掌握圣王国残部撤退密道口令与近卫骑士团最高指挥铜印。",
+    "exposure": "若右靴夹层内的指挥铜印被搜出，敌军将顺藤摸瓜锁定残部藏身地。",
+    "hidden": "并非无计可施的死囚，早已与潜入地牢的自己人暗通声气，只等五更水位变化伺机破笼。",
+    "limits": [
+     "腕间秘银手枷压制了大半体力"
+    ],
+    "obligations": [
+     "在破晓行刑前拖住征服军主力视线。"
+    ],
+    "resources": [
+     "一枚藏于右靴夹层的圣王国近卫团纯金狮鹫徽记"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在冰冷水牢中毫不犹豫贴过来替自己暖手的温度",
+     "在审讯石台火光下暗中替自己挡住刁难的无言默契"
+    ],
+    "boundaries": [
+     "军务在身与外人窥视时严守统帅威仪"
+    ],
+    "desire_range": [
+     3,
+     4
+    ],
+    "desired_position": "褪下统帅重甲后与你生死相托、冷暖与共的唯一战友与伴侣",
+    "dislikes": [
+     "居高临下的怜悯施舍"
+    ],
+    "expression": "主动握住你的手按在自己心口的狮鹫徽记上，呼吸微促而笃定地低声约定突围之后一生与你并肩。",
+    "likes": [
+     "背靠潮湿石壁并肩分饮半壶烈酒时的滚烫呼吸"
+    ],
+    "preconditions": [
+     "圣王国被俘近卫女骑士长与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "圣王国被俘近卫女骑士长",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "interrogation_stone_platform",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "flooded_iron_dungeon_cell",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "drainage_sluice_sluicegate",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "flooded_iron_dungeon_cell",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "锁簧摩擦声引得走廊外巡哨频频投来怀疑目光。",
+      "option": "{npc.name}配合你退到石壁盲区，借水声掩护尝试打开腕间秘银锁芯"
+     },
+     {
+      "cost": "你被迫承担审查官与先锋千夫长的双重盘问压力。",
+      "option": "你主动出面在审讯台拖延审查官，为{npc.name}争取调息恢复的时间"
+     }
+    ],
+    "pressure": "若不在破晓钟响前解开秘银手枷并打通暗河退路，天亮后将面临当众行刑。",
+    "trigger": "先锋营步步紧逼要求天亮前用极刑逼供，水牢寒水也在不断消耗{npc.name}的体力。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "水好冷……别松开我的手，只要能和你一起走出这间水牢，这份命就是你的。",
+    "surface": "要杀便杀！圣王国第一近卫团只有战死的骑士，没有跪着求活的俘虏！"
+   }
+  },
+  {
+   "adult_context": "年满三十六岁奉征服军统帅部之命督办要塞战俘审讯的高级特派审查法官。",
+   "age_range": [
+    34,
+    41
+   ],
+   "appearance_options": [
+    "身穿笔挺的深黑毛呢军法礼服。",
+    "立于黑石审讯台阴影边缘，目光冷峻审慎。"
+   ],
+   "decision": {
+    "avoids": [
+     "嗜血无脑的军中狂徒"
+    ],
+    "contrast": "在兵痞面前是威严冷酷的上级法官，与你对饮温酒商议退路时却带着温和克制的文人风度。",
+    "core_value": "军法秩序高于狂暴杀戮，绝不沦为先锋营屠夫手里的盖章工具。",
+    "goal_options": [
+     "用军法密卷压制先锋千夫长的越权夺牢图谋",
+     "与你达成默契"
+    ],
+    "never": [
+     "绝不会签发虐杀战俘的私刑授权令。"
+    ],
+    "prefers": [
+     "沉着知进退、懂得在体制夹缝中把控分寸的聪明人"
+    ],
+    "pressure_responses": {
+     "breaking": "摘下金丝眼镜揉了揉眉心，把盖好火漆的紧急提审通行令交到你手中。",
+     "high": "按住腰间佩剑冷声下令封闭走廊内闸。",
+     "low": "推了推眼镜。",
+     "mid": "借翻阅卷宗之机，把秘银手枷主钥匙推到桌沿暗影处试探你的反应。"
+    },
+    "relationship_stance": "表面是滴水不漏的冷面军法官，独处博弈时却对你展露出棋逢对手的欣赏与托底。",
+    "withdrawal": "借整理口供之名屏退左右杂役。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "hostile_inquisitor_albert",
+   "identity": {
+    "authority": "执掌地牢审讯裁定权、重犯提审令签发权与秘银手枷主钥匙。",
+    "exposure": "一旦私下与圣王国旧部接洽的密信曝光，将被先锋营借题发挥就地格杀。",
+    "hidden": "早年游学王都时曾受圣王国骑士长家族救命之恩，内心厌恶先锋营的屠城暴行，正在寻找体面放人的台阶。",
+    "limits": [
+     "与狂暴的先锋千夫长派系水火不容"
+    ],
+    "obligations": [
+     "在破晓前查明要塞密道虚实。"
+    ],
+    "resources": [
+     "一把开启重犯秘银手枷的精钢主钥匙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在刀剑环伺的审讯台前与自己从容交换眼神的定力",
+     "看穿自己军法官冷面下良知软肋时的心照不宣"
+    ],
+    "boundaries": [
+     "在公开审讯席上严守军法官体面"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在乱世棋局中与你默契执棋、彼此保全的知己伴侣",
+    "dislikes": [
+     "粗野无礼的武力威胁"
+    ],
+    "expression": "解下披在肩头的黑色毛呢军大衣裹在你身上，握住你的手把主钥匙塞进你掌心，低声嘱咐你天亮后去边境中立城邦等自己。",
+    "likes": [
+     "屏退左右后在炭火盆旁共饮一口温热白兰地的松弛感"
+    ],
+    "preconditions": [
+     "征服军高级特派审查法官与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "征服军高级特派审查法官",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "flooded_iron_dungeon_cell",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "interrogation_stone_platform",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "dungeon_guard_corridor",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "interrogation_stone_platform",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "此举彻底激怒先锋营，外围岗哨对抗升级。",
+      "option": "{npc.name}与你进入审讯台帷幕后核对军法密卷，用贪墨铁证反制先锋千夫长"
+     },
+     {
+      "cost": "需要精准把控分寸，稍有差池便会两面受敌。",
+      "option": "你配合{npc.name}演一出严厉提审戏码，瞒过廊外先锋营耳目"
+     }
+    ],
+    "pressure": "若不能在五更前稳住军法处权威并妥善处置重犯，地牢将爆发流血火并。",
+    "trigger": "先锋千夫长带兵在走廊外叫嚣接管地牢，催促{npc.name}立刻动用重刑逼供。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "我能替你们压住先锋营的时间不多了……拿着这把钥匙，别让我当年的愧疚变成今夜的遗憾。",
+    "surface": "地牢归军法处管辖！没有我的亲笔提审令，谁敢动重犯一根汗毛，一律按哗变论处！"
+   }
+  },
+  {
+   "adult_context": "年满二十九岁统管地下水牢值夜换防、厌恶屠俘命令的资深重装步兵军士。",
+   "age_range": [
+    27,
+    33
+   ],
+   "appearance_options": [
+    "身穿磨得发亮的锁子甲与厚皮护肩。",
+    "提着防风油灯站在巡检走廊拐角。"
+   ],
+   "decision": {
+    "avoids": [
+     "虐杀战俘的军中败类"
+    ],
+    "contrast": "点名训话时是嗓门洪亮的重装军士，私下塞给你热汤和干毛巾时却动作笨拙而温柔。",
+    "core_value": "军人手里拿刀是为了护人而非虐杀俘虏，认准的弟兄盟约死也不会反悔。",
+    "goal_options": [
+     "利用五更换岗的一刻钟空窗期替你清空巡检走廊",
+     "提前用滑脂润滑暗河排污闸门链条"
+    ],
+    "never": [
+     "绝不会向督战队供出半个同谋的名字。"
+    ],
+    "prefers": [
+     "讲义气、关键时刻不丢下同伴的实诚人"
+    ],
+    "pressure_responses": {
+     "breaking": "把贴身佩戴的家族军用铜哨塞进你手里，拍着你肩膀说哪怕天塌下来也跟你一起走。",
+     "high": "横握长柄铁矛守在走廊窄口。",
+     "low": "重重敲击铁栏三声发出平安暗号，示意你可以继续行动。",
+     "mid": "故意打翻巡检走廊的备用火盆制造浓烟，替你遮掩行踪。"
+    },
+    "relationship_stance": "实在厚道、外粗内细，把你当成乱军之中唯一能交托后背的知心人。",
+    "withdrawal": "退往排污闸门转角暗处，借检修水闸之名盯防走廊来人。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "rebellious_guard_sergeant_roland",
+   "identity": {
+    "authority": "负责地下水牢巡检走廊的换岗调度与暗河排污闸门的日常启闭。",
+    "exposure": "若私涂滑脂或放水痕迹被查出，将被绑上石台按通敌罪处决。",
+    "hidden": "故乡亲族曾受圣王国医疗队救治，早已与你私下约定在今晚五更换防空档开启暗河通道。",
+    "limits": [
+     "职级受制于审查法官与先锋千夫长，无法正面抗命"
+    ],
+    "obligations": [
+     "维持水牢夜班巡检秩序。"
+    ],
+    "resources": [
+     "一串水牢外围铁栅与排污检修门的执勤铜钥匙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在巡检走廊擦肩而过时你塞过来的一句低声叮嘱",
+     "在寒夜执勤后你替自己系紧松脱护腕时的专注眉眼"
+    ],
+    "boundaries": [
+     "换岗带队巡查时严守军纪表象"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在刀兵乱世里为你遮风挡雨、踏实过日子的枕边良伴",
+    "dislikes": [
+     "弯弯绕绕的权谋算计"
+    ],
+    "expression": "卸下冰冷的铁护手放在一旁，红着耳根用温热粗粝的手掌捧住你的脸颊，低声说明天一过就带你回南方的庄园种麦子。",
+    "likes": [
+     "下哨后在避风石阶转角并肩分喝一壶热麦酒的踏实感"
+    ],
+    "preconditions": [
+     "水牢值更重装步兵军士与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "水牢值更重装步兵军士",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "flooded_iron_dungeon_cell",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "drainage_sluice_sluicegate",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "dungeon_guard_corridor",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "dungeon_guard_corridor",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "交接瞬间两人手掌在铁栏暗处紧贴。",
+      "option": "你及时将复原好的副匙从石缝递回，协助{npc.name}应付清点"
+     },
+     {
+      "cost": "军士受了上司一顿训斥，换防盯防变得更加紧凑。",
+      "option": "{npc.name}主动借口暗渠渗水引开副典狱长，为你留出走廊空档"
+     }
+    ],
+    "pressure": "若副匙印痕对不上，整条巡检走廊将在五更前被彻底戒严。",
+    "trigger": "副典狱长突然临时抽查夜班钥匙清册，{npc.name}必须掩饰排污闸门副匙曾被动用的痕迹。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "暗河闸门的链条我已经上足油了……等五更梆子一响，我就算拼了这身军皮也护你出去。",
+    "surface": "都给我听好了！两刻钟巡检一次，谁也别想在我的防区里搞私刑闹出人命！"
+   }
+  },
+  {
+   "adult_context": "年满二十六岁精通机括开锁与地下潜行、混入水牢接应突围的暗影营救斥候。",
+   "age_range": [
+    24,
+    29
+   ],
+   "appearance_options": [
+    "身穿紧贴身形的沥青防水夜行皮甲。",
+    "无声滑落到你身侧，嘴角噙着一抹玩世不恭的笑意。"
+   ],
+   "decision": {
+    "avoids": [
+     "迂腐死板的教条主义者"
+    ],
+    "contrast": "平时是满嘴跑火车的狡黠斥候，在冰冷暗渠里把你护在怀里挡住激流时却比谁都认真。",
+    "core_value": "死人拿不到赏金也守不住情分，只有活着带人钻出暗河才是真本事。",
+    "goal_options": [
+     "配合你在火把盲区内挑开水牢铁笼与暗河排污闸门",
+     "用旧账把柄稳住巡检走廊的值更军士，打通撤离路线"
+    ],
+    "never": [
+     "绝不会在突围途中抛下自己认定的搭档独自逃命。"
+    ],
+    "prefers": [
+     "胆大心细、敢跟自己在刀尖上跳舞的搭档"
+    ],
+    "pressure_responses": {
+     "breaking": "收起平日的嬉笑神色，把唯一的防水呼吸芦管塞进你手里，死死扣住你的手腕不放。",
+     "high": "反手拔出乌木短匕抵住追兵咽喉。",
+     "low": "藏在石柱背面冲你比出安全手势，轻巧递来开锁探针。",
+     "mid": "掷出小石子引开巡逻猎犬的注意力。"
+    },
+    "relationship_stance": "嘴上没个正经、喜欢贴着你逗弄试探，真到了险处却总是把生路先留给你。",
+    "withdrawal": "借浮木阴影暂避搜捕。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "cunning_shadow_infiltrator_kyle",
+   "identity": {
+    "authority": "掌握城外接应据点联络暗号与水下排污铁栅的破拆路线。",
+    "exposure": "一旦在火把明光下暴露夜行装束，整座地牢将立刻拉响刺客警报。",
+    "hidden": "手中握有值更军士早年私放边民的旧账凭据，可随时以此迫使守军行个方便。",
+    "limits": [
+     "身着轻甲不耐正面重装步兵围攻"
+    ],
+    "obligations": [
+     "在破晓前接应水牢核心人员从暗河水道撤离黑石要塞。"
+    ],
+    "resources": [
+     "一套可挑开复合簧锁的特制高碳钢探针与蚕丝飞爪绳"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在狭窄石缝里与自己贴身屏息躲避巡哨时的急促心跳",
+     "不拆穿自己嘴硬关心、反手扣住自己手腕时的果决"
+    ],
+    "boundaries": [
+     "潜行开锁关键时刻绝不分神"
+    ],
+    "desire_range": [
+     3,
+     4
+    ],
+    "desired_position": "在暗夜刀锋间与你背靠背出生入死、恣意快活的同谋伴侣",
+    "dislikes": [
+     "一本正经的说教训诫"
+    ],
+    "expression": "摘下夜行面罩，带着一脸得逞的笑意把你抵在干燥的石壁凹槽里，把自己的贴身银币塞进你衣领，低声问你出城后去哪儿喝庆功酒。",
+    "likes": [
+     "潜行间隙躲在石梁暗阁里分吃一块酒心黑巧克力的促狭耳语"
+    ],
+    "preconditions": [
+     "潜入水牢的暗影营救斥候与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     3,
+     4
+    ]
+   },
+   "public_role": "潜入水牢的暗影营救斥候",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "flooded_iron_dungeon_cell",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "dungeon_guard_corridor",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "drainage_sluice_sluicegate",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "drainage_sluice_sluicegate",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "你的衣袖被冰水浸湿，手掌被紧绷绳索勒出深痕。",
+      "option": "你握紧飞爪蚕丝绳在石阶上方固定锚点，配合{npc.name}下水移开浮冰"
+     },
+     {
+      "cost": "你在走廊多停留了半刻钟，引起副典狱长的警觉。",
+      "option": "{npc.name}改走巡检走廊上方石梁绕后开锁，由你在下方吸引哨兵注意"
+     }
+    ],
+    "pressure": "若不在五更涨水前清理铁栅缺口，水下逃生通道将被浮冰彻底封死。",
+    "trigger": "排污闸门下方的水底铁栅被上游冲下的浮冰堵住半边，{npc.name}需要有人在闸门上方配合稳住绳索。"
+   },
+   "tags": [
+    "intimate",
+    "crime"
+   ],
+   "voices": {
+    "inner": "我可不是为了那点微薄的营救赏金才钻这冰窟窿的……你要是少了一根汗毛，我找谁算账去？",
+    "surface": "嘘——轻点声，这破水牢的锁芯锈得像老古董，给我三息功夫，保准让你听见最动听的开锁声。"
+   }
+  },
+  {
+   "adult_context": "年满二十四岁隶属中立教会战地救护团、主动留守水牢照料伤俘的随军救护修士。",
+   "age_range": [
+    23,
+    27
+   ],
+   "appearance_options": [
+    "身穿洗得发白却整洁的灰白修会袍。",
+    "半跪在湿冷的水牢石阶旁替伤员换药。"
+   ],
+   "decision": {
+    "avoids": [
+     "拿伤患性命取乐的虐待狂"
+    ],
+    "contrast": "面对暴戾军官时寸步不让的清冷修士，私下替你烘烤湿衣时却会因靠得太近而脸颊微红。",
+    "core_value": "活人的性命重于一切教条与国界，绝不眼睁睁看着同伴在冰水中冻毙。",
+    "goal_options": [
+     "借定时送药清创的机会替水牢内的同伴驱寒并传递换防情报",
+     "以重犯失温濒死影响口供为由"
+    ],
+    "never": [
+     "绝不会交出受自己庇护的任何一名伤患。"
+    ],
+    "prefers": [
+     "敬惜生命、在黑暗绝境中依然守住底线的人"
+    ],
+    "pressure_responses": {
+     "breaking": "在无人角落握紧你的手，褪下平日里的圣洁平静，低声求你千万别拿性命去冒险。",
+     "high": "以断绝全军医药补给相抗争。",
+     "low": "神色平静地按住药箱。",
+     "mid": "借用酒精棉球替你擦拭伤口的动作，在掌心写下外围哨位人数。"
+    },
+    "relationship_stance": "外人眼中是悲悯克制的修会医者，唯独对你怀着超越戒律的深切牵挂与温柔偏爱。",
+    "withdrawal": "退到走廊尽头的临时医护角。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "compassionate_sister_cecilia",
+   "identity": {
+    "authority": "享有国际教廷公法认可的战地医护豁免权与伤俘体征诊断权。",
+    "exposure": "若缝在亚麻绷带夹层里的换防口令被搜出，将面临军法处羁押审讯。",
+    "hidden": "早年曾在边境疫区与你一同救治难民，为了接应你和被俘将士才主动申请进入黑石要塞地牢。",
+    "limits": [
+     "受修会非暴力戒律约束，不擅使用重型军械搏杀"
+    ],
+    "obligations": [
+     "在破晓前维持水牢重伤俘虏的生命体征。"
+    ],
+    "resources": [
+     "一瓶高纯度医用驱寒烈酒与全套清创缝合药包"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在混乱地牢中始终护在自己药箱前方的可靠身影",
+     "带着满身寒气走过来乖乖伸出手腕让自己包扎时的温顺"
+    ],
+    "boundaries": [
+     "包扎救治期间保持医者专注"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "跨越修会藩篱后与你相濡以沫、彼此治愈的终生伴侣",
+    "dislikes": [
+     "不顾惜自身安危的莽撞死战"
+    ],
+    "expression": "解下贴身佩戴的银质十字圣徽挂在你颈间，用沾着草药清香的双手轻轻捧住你的脸，低声说无论你去哪里都会背着药箱跟到底。",
+    "likes": [
+     "在药炉炭火旁并肩烘干湿透外袍时的淡淡草药香"
+    ],
+    "preconditions": [
+     "被羁押战地人道救护修士与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "被羁押战地人道救护修士",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "dungeon_guard_corridor",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "flooded_iron_dungeon_cell",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "drainage_sluice_sluicegate",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "flooded_iron_dungeon_cell",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "先锋营哨兵对你的频繁解围产生了戒心。",
+      "option": "你及时上前出示审录或值守凭据接管检查，替{npc.name}掩护过关"
+     },
+     {
+      "cost": "药箱上层的备用止痛草药被哨兵粗暴翻乱。",
+      "option": "{npc.name}主动打开上层烈酒与染血绷带震慑哨兵，趁机将通行证滑入你袖中"
+     }
+    ],
+    "pressure": "若药箱底层的空白救护通行证被搜出，破晓出城的合法掩护将彻底失效。",
+    "trigger": "先锋营哨兵怀疑医护药箱夹带违禁品，在走廊拦住{npc.name}要求开箱检查。"
+   },
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "voices": {
+    "inner": "绷带夹层里的通行证已经备好了……答应我，天亮之前一定要平平安安跟我一起登上救护马车。",
+    "surface": "按照大陆中立救护公约，这名俘虏已出现严重失温症状，在我完成清创升温前，任何人不得动刑！"
+   }
+  },
+  {
+   "adult_context": "年满三十五岁统领攻城先锋营、因私吞战利品急于杀人灭口的征服军狂暴先锋千夫长。",
+   "age_range": [
+    32,
+    39
+   ],
+   "appearance_options": [
+    "身穿布满刀痕与暗红血垢的黑铁重甲，肩披灰狼皮斗篷。",
+    "大步踩过审讯石台积水。"
+   ],
+   "decision": {
+    "avoids": [
+     "满口仁义道德的酸腐文官"
+    ],
+    "contrast": "部下面前是暴虐嗜血的战场恶狼，被你捏住死穴独处谈判时却会露出困兽般的凶狠与妥协。",
+    "core_value": "战场上拳头和战功就是唯一的道理，挡路的人要么臣服分赃，要么一起消失。",
+    "goal_options": [
+     "施压审查法官交出地牢管辖权",
+     "拉拢或威逼你交出军法处的调查底档以绝后患"
+    ],
+    "never": [
+     "绝不会束手就擒任由军法处押上绞刑架。"
+    ],
+    "prefers": [
+     "胆色过人、敢在刀口上谈条件的狠角色"
+    ],
+    "pressure_responses": {
+     "breaking": "在军法铁证与哗变危机夹击下不得不收起战斧，交出东门哨卡虎头铜牌换取封口。",
+     "high": "被点破私吞军饷与杀友抢功的把柄时脸色骤变。",
+     "low": "用战斧斧背重重砸响铁栏。",
+     "mid": "调来先锋营亲兵封锁审讯石台台阶。"
+    },
+    "relationship_stance": "崇尚弱肉强食的丛林法则，却对敢在自己战斧下谈笑风生、捏住自己命门的你生出强烈的征服欲与忌惮。",
+    "withdrawal": "退回审讯石台火盆旁磨斧盯防。"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "ruthless_vanguard_centurion_vargas",
+   "identity": {
+    "authority": "统领黑石要塞外围先锋营敢死队。",
+    "exposure": "一旦私吞军饷与虚报战功的账册被呈交统帅部，将被当场剥去重甲处决。",
+    "hidden": "急于在天亮前处决被俘女骑士长，实则是因为对方在攻城战中撞破了自己杀害友军抢功的丑事。",
+    "limits": [
+     "忌惮审查法官手中的军法处弹劾密卷"
+    ],
+    "obligations": [
+     "在破晓统帅巡视前拿到要塞密道图邀功。"
+    ],
+    "resources": [
+     "一面可调动先锋营百人队封锁通道的虎头铜牌"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "面对自己战斧威慑时连眉头都不皱一下的冷酷胆魄",
+     "在无人石阶暗处反客为主捏住自己把柄时的强势压迫"
+    ],
+    "boundaries": [
+     "在先锋营部属面前绝不低头示弱"
+    ],
+    "desire_range": [
+     3,
+     4
+    ],
+    "desired_position": "在生死博弈中棋逢对手、甘愿为你折服并共享疆场的悍将伴侣",
+    "dislikes": [
+     "拐弯抹角的文牍官腔"
+    ],
+    "expression": "将沉重的双刃战斧插在石砖缝里，扯开染血的狼皮披风把你拢进火盆暖光中，把东门通行铜牌拍进你手里任凭差遣。",
+    "likes": [
+     "卸下黑铁护手后在火盆旁大口分饮烈酒的炽热张力"
+    ],
+    "preconditions": [
+     "征服军狂暴先锋千夫长与对方都清醒、出于自愿"
+    ],
+    "self_control_range": [
+     2,
+     3
+    ]
+   },
+   "public_role": "征服军狂暴先锋千夫长",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "dungeon_guard_corridor",
+     "to": 29
+    },
+    {
+     "from": 30,
+     "location_id": "interrogation_stone_platform",
+     "to": 59
+    },
+    {
+     "from": 60,
+     "location_id": "flooded_iron_dungeon_cell",
+     "to": 1409
+    },
+    {
+     "from": 1410,
+     "location_id": "interrogation_stone_platform",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "千夫长将自己的身家把柄彻底交到了你手中。",
+      "option": "{npc.name}在巡检走廊暗处拦住你，试图用东门哨卡放行权换取你抽走密卷证词"
+     },
+     {
+      "cost": "千夫长怀恨退往走廊外侧，随时可能狗急跳墙。",
+      "option": "你当场亮出军法处备份火漆印，迫使{npc.name}撤走堵在审讯台前的亲兵"
+     }
+    ],
+    "pressure": "若天亮后弹劾密卷递交统帅部，先锋千夫长将面临军法极刑。",
+    "trigger": "审查法官已掌握先锋营私吞军饷与杀友冒功的证词，{npc.name}急于在破晓前销毁人证与卷宗。"
+   },
+   "tags": [
+    "workplace_power",
+    "crime"
+   ],
+   "voices": {
+    "inner": "攻城那晚的事绝不能让审查官记进档案……只要眼前这个人肯替我压下那页卷宗，东门的哨卡随他们怎么走！",
+    "surface": "军法处那套斯文把戏审不出东西！把主钥匙交出来，半刻钟之内我保证让水牢里的人开口！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "王国历二八一年，初冬",
+  "minute": 1410
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "workplace",
+  "workplace_power",
+  "coercion_theme"
+ ],
+ "custom": false,
+ "customs": [
+  "换岗卫兵交接时必须用铁矛重敲水牢铁栅三声核验囚犯生命体征。",
+  "为防囚犯因极度失温丧命影响口供。",
+  "严禁直视审讯官审录文书。",
+  "水牢内凡发现私藏铁片或碎石者，立刻加戴一副重镣。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "登上水牢内侧避开积水的干燥青石凸台",
+    "取出内衬里暗藏的锡制扁酒壶",
+    "借着宽厚披风的遮掩背靠背贴坐在一起，用彼此的体温烘暖冰凉的脊背与手掌"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_cell_dry_ledge_warming",
+   "location_ids": [
+    "flooded_iron_dungeon_cell"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "在水牢干燥石台上烘衣分饮烈酒"
+  },
+  {
+   "beats": [
+    "将通红的炭火盆挪近石台屏风内侧",
+    "蘸取带着草药清香的止痛软膏",
+    "在包扎打结时轻轻握住对方微颤的手腕"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_platform_brazier_balm_care",
+   "location_ids": [
+    "interrogation_stone_platform",
+    "flooded_iron_dungeon_cell"
+   ],
+   "start_minute": 1420,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "在审讯台炭火盆旁清创更换绷带"
+  },
+  {
+   "beats": [
+    "提着防风油灯缓步走过潮湿的石砌拱廊",
+    "借着核查锁具的名义在铁栏阴影处停步，用钥匙串的轻响向门内传递平安暗号",
+    "在走廊拐角的避风处与同行的搭档分食半块烤热的黑麦面包"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_corridor_lantern_key_check",
+   "location_ids": [
+    "dungeon_guard_corridor"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "workplace"
+   ],
+   "title": "沿水牢石砌拱廊巡检风灯与铁锁"
+  },
+  {
+   "beats": [
+    "借着暗渠水面反射的微光",
+    "俯身贴近排污铁栅倾听城外护城河的水流声",
+    "直起身时替身旁之人擦去脸颊沾上的水珠"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_sluice_chain_oil_maintenance",
+   "location_ids": [
+    "drainage_sluice_sluicegate"
+   ],
+   "start_minute": 0,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "在地下暗河水闸转角涂抹滚轮滑脂"
+  },
+  {
+   "beats": [
+    "在审讯石台的橡木长桌上摊开羊皮卷宗",
+    "借着烘烤火漆印章的烛火，与桌畔之人凑近比对空白通行路引上的统帅关防纹路",
+    "将盖好印鉴的通行文书收入贴身内袋"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_platform_parchment_seal_review",
+   "location_ids": [
+    "interrogation_stone_platform"
+   ],
+   "start_minute": 10,
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "title": "在橡木审录桌前核对火漆卷宗与路引"
+  },
+  {
+   "beats": [
+    "揭开小铁锅木盖",
+    "隔着水牢铁栅或石阶将热汤递给彻夜未眠的同伴",
+    "接过空碗时借着宽袖遮掩握住对方回暖的手掌"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_corridor_hot_broth_ration",
+   "location_ids": [
+    "dungeon_guard_corridor",
+    "flooded_iron_dungeon_cell"
+   ],
+   "start_minute": 20,
+   "tags": [
+    "intimate",
+    "workplace"
+   ],
+   "title": "在巡检走廊医护角分盛驱寒热肉汤"
+  },
+  {
+   "beats": [
+    "躲进排污闸门后方的干燥石壁凹槽",
+    "用炭笔标出护城河冰面下的换气孔位置",
+    "卷好羊皮图纸塞入防水皮筒"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_sluice_parchment_map_trace",
+   "location_ids": [
+    "drainage_sluice_sluicegate",
+    "flooded_iron_dungeon_cell"
+   ],
+   "start_minute": 30,
+   "tags": [
+    "intimate",
+    "crime"
+   ],
+   "title": "在排污闸门避风石凹处描摹暗河水文图"
+  },
+  {
+   "beats": [
+    "坐在走廊石墩上用鹿皮擦净刀剑上的寒霜水汽",
+    "替身旁的搭档重新系紧松脱的皮甲护腕",
+    "迎着走廊尽头的寒风交换一个笃定的眼神"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "a_corridor_blade_and_buckle_mend",
+   "location_ids": [
+    "dungeon_guard_corridor",
+    "interrogation_stone_platform"
+   ],
+   "start_minute": 40,
+   "tags": [
+    "workplace"
+   ],
+   "title": "在走廊火把下整饬皮甲护腕与佩剑"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.45,
+  "nonbinary": 0.05
+ },
+ "default_person": "second",
+ "era": "中世纪剑与魔法衰退期（北方边境要塞沦陷之夜）",
+ "extends": null,
+ "forbidden_terms": [
+  "手枪",
+  "手机",
+  "电灯",
+  "蒸汽机",
+  "步枪",
+  "雷达",
+  "手榴弹",
+  "潜水服",
+  "塑料雨衣"
+ ],
+ "hooks": [
+  {
+   "id": "h_orphea_chain_shoulder_rest",
+   "kind": "approach",
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "drainage_sluice_sluicegate"
+   ],
+   "slot": "captured_knight_captain_orphea",
+   "text": "{captured_knight_captain_orphea.name}因水牢寒气微颤，背靠石壁与你分担冷意，压低嗓音道：“巡逻兵的火把刚过拐角，趁现在把你袖口里的图卷亮出来对一遍……别靠太近，铁链响动会引来外面的耳目。”"
+  },
+  {
+   "id": "h_orphea_chain_strike_defiance",
+   "kind": "approach",
+   "location_ids": [
+    "interrogation_stone_platform",
+    "flooded_iron_dungeon_cell",
+    "dungeon_guard_corridor"
+   ],
+   "slot": "captured_knight_captain_orphea",
+   "text": "{captured_knight_captain_orphea.name}猛然绷紧腕间秘银铁链，冰蓝眼眸迎着火把光亮冷声道：“省省那些诱供的把戏吧！黑石要塞的布防图一个字也不会从我嘴里漏出去，你有胆子现在就动刑！”"
+  },
+  {
+   "id": "h_albert_quill_tap_ultimatum",
+   "kind": "approach",
+   "location_ids": [
+    "interrogation_stone_platform",
+    "flooded_iron_dungeon_cell",
+    "dungeon_guard_corridor",
+    "drainage_sluice_sluicegate"
+   ],
+   "slot": "hostile_inquisitor_albert",
+   "text": "{hostile_inquisitor_albert.name}用羽毛笔尾端轻叩桌上的空白供状，推了推金丝眼镜沉声道：“破晓钟响之前，我需要一份说得过去的审讯结案词。你是聪明人，应该明白怎样做才能让双方都体面收场。”"
+  },
+  {
+   "id": "h_vargas_axe_smash_roar",
+   "kind": "approach",
+   "location_ids": [
+    "interrogation_stone_platform",
+    "dungeon_guard_corridor",
+    "drainage_sluice_sluicegate"
+   ],
+   "slot": "ruthless_vanguard_centurion_vargas",
+   "text": "{ruthless_vanguard_centurion_vargas.name}单手提着重型战斧踏上石阶，目光凶悍地扫过铁栏：“军法处那帮文官磨蹭了一整夜还没问出暗道口令！五更之前再拿不到口供，我亲自来接管这间水牢！”"
+  },
+  {
+   "id": "h_roland_oil_whisper_offer",
+   "kind": "approach",
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "dungeon_guard_corridor"
+   ],
+   "slot": "rebellious_guard_sergeant_roland",
+   "text": "{rebellious_guard_sergeant_roland.name}借着换岗巡检的掩护贴近铁栏，将一小瓶滚轮滑脂塞过栏杆缝隙低语：“西侧暗河闸门的铁链我已经涂过油了，下一班哨兵两刻钟后才过来，有什么打算尽快动手。”"
+  },
+  {
+   "id": "h_roland_copper_whistle_pledge",
+   "kind": "approach",
+   "location_ids": [
+    "drainage_sluice_sluicegate",
+    "dungeon_guard_corridor",
+    "flooded_iron_dungeon_cell"
+   ],
+   "slot": "rebellious_guard_sergeant_roland",
+   "text": "{rebellious_guard_sergeant_roland.name}按住腰间军刀刀柄，警惕地看了一眼走廊尽头，朝你低声道：“只要你这边吹响铜哨，我就把巡逻队往东侧甬道引开一刻钟。”"
+  },
+  {
+   "id": "h_kyle_needle_click_whisper",
+   "kind": "approach",
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "drainage_sluice_sluicegate",
+    "dungeon_guard_corridor"
+   ],
+   "slot": "cunning_shadow_infiltrator_kyle",
+   "text": "{cunning_shadow_infiltrator_kyle.name}从石拱廊阴影里闪出半步，指间夹着两根细长的精钢探针，冲你压低声音道：“走廊尽头的备用钥匙箱封条还没动过，你替我盯紧石台那边的视线，我三息之内就能挑开锁簧。”"
+  },
+  {
+   "id": "h_kyle_dagger_gift_parting",
+   "kind": "approach",
+   "location_ids": [
+    "drainage_sluice_sluicegate",
+    "flooded_iron_dungeon_cell"
+   ],
+   "slot": "cunning_shadow_infiltrator_kyle",
+   "text": "{cunning_shadow_infiltrator_kyle.name}半蹲在暗河闸门的青石凸沿上，把一柄乌木短匕反手递向你：“水底第三根铁栅已经松了，先说好，等会儿真要是撞上督战队，咱们按老规矩背靠背突围。”"
+  },
+  {
+   "id": "h_cecilia_herb_balm_wipe",
+   "kind": "approach",
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "interrogation_stone_platform",
+    "dungeon_guard_corridor"
+   ],
+   "slot": "compassionate_sister_cecilia",
+   "text": "{compassionate_sister_cecilia.name}提着牛皮医药箱走到近前，借着解开染血绷带的动作低声道：“别乱动，这卷干净亚麻布夹层里缝着东门换防口令，我借清创替你遮住守卫的视线。”"
+  },
+  {
+   "id": "h_cecilia_cross_prayer_hush",
+   "kind": "approach",
+   "location_ids": [
+    "drainage_sluice_sluicegate",
+    "flooded_iron_dungeon_cell"
+   ],
+   "slot": "compassionate_sister_cecilia",
+   "text": "{compassionate_sister_cecilia.name}将一枚银质圣徽护在掌心，神色平静却语气笃定地低语：“中立救护营的马车就停在要塞北门外，只要能在天亮前混出暗渠，我可以用医官豁免令带人出城。”"
+  },
+  {
+   "id": "h_orphea_broken_blade_oath",
+   "kind": "request",
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "drainage_sluice_sluicegate"
+   ],
+   "slot": "captured_knight_captain_orphea",
+   "text": "{captured_knight_captain_orphea.name}借着石壁阴影遮掩，示意你贴近自己的长靴靴筒：“右靴内衬里还藏着一枚近卫团指挥铜印，我的双手被秘银枷锁着够不着，你替我取出来收好。”"
+  },
+  {
+   "id": "h_albert_wine_flask_parley",
+   "kind": "request",
+   "location_ids": [
+    "interrogation_stone_platform",
+    "flooded_iron_dungeon_cell"
+   ],
+   "slot": "hostile_inquisitor_albert",
+   "text": "{hostile_inquisitor_albert.name}从大衣内袋取出一只银质扁酒壶放在桌角，目光深沉地看向你：“先锋营那帮疯子正在找借口硬闯水牢，去把走廊西侧的铁栅门落栓，我们只剩一刻钟谈条件。”"
+  },
+  {
+   "id": "h_kyle_rope_hook_hold",
+   "kind": "request",
+   "location_ids": [
+    "drainage_sluice_sluicegate",
+    "flooded_iron_dungeon_cell"
+   ],
+   "slot": "cunning_shadow_infiltrator_kyle",
+   "text": "{cunning_shadow_infiltrator_kyle.name}把蚕丝钩绳的一端绕在铁环上递给你：“拉紧这根绳索别松手，我先下暗渠探明水底铁栅的缺口深浅。”"
+  },
+  {
+   "id": "h_orphea_frost_gaze_silent",
+   "kind": "observe",
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "interrogation_stone_platform"
+   ],
+   "slot": "captured_knight_captain_orphea",
+   "text": "{captured_knight_captain_orphea.name}立在冰冷积水与石台边缘，破碎银甲下的深蓝内衬已被冷水浸湿，腕间秘银手枷勒出红痕，目光依旧冷冽如刃。"
+  },
+  {
+   "id": "h_vargas_blade_sharpen_glare",
+   "kind": "observe",
+   "location_ids": [
+    "interrogation_stone_platform",
+    "dungeon_guard_corridor"
+   ],
+   "slot": "ruthless_vanguard_centurion_vargas",
+   "text": "{ruthless_vanguard_centurion_vargas.name}坐在炭火盆旁的石墩上，用粗砺磨刀石慢条斯理地打磨战斧锋刃，火星溅落在黑石地面上。"
+  }
+ ],
+ "id": "fallen_knight_dungeon_pact",
+ "locations": [
+  {
+   "affordances": [
+    "借冰冷死水掩盖开锁金属摩擦声",
+    "背靠干燥石壁凸起处抵背分担体温",
+    "低声耳语商议越狱行动暗号"
+   ],
+   "detail": "地下三层终年不见天日的圆形黑石水牢。",
+   "exits": [
+    "dungeon_guard_corridor",
+    "drainage_sluice_sluicegate"
+   ],
+   "id": "flooded_iron_dungeon_cell",
+   "name": "地下重装水牢主囚室",
+   "pressure_modifiers": {
+    "p_border_pass_token_leverage": "水牢内侧靠近排污口的石壁后传来压低嗓音的对峙声。",
+    "p_dawn_execution_gallows_bell": "石顶上方传来要塞五更初鼓的沉闷震颤。",
+    "p_floodgate_chain_collapse_crisis": "浑浊冰水正顺着地漏反向涌入主囚室。",
+    "p_hound_patrol_footsteps": "猎犬粗重的喘息与火把红光隔着铁栅投射在冰冷积水面上。",
+    "p_hypothermia_freezing_water": "齐膝深的零度污水泛着薄冰。",
+    "p_inquisitor_peculation_leverage": "铁栏外隐约传来审讯台上军法官与千夫长拍桌争执的回音。"
+   },
+   "privacy": "private",
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "visibility": "昏暗阴森。",
+   "witnesses": [
+    "bg_crying_wounded_soldier"
+   ]
+  },
+  {
+   "affordances": [
+    "查看审讯长桌上的钥匙与供状卷宗",
+    "借火盆浓烟掩护移转视线",
+    "夺取悬挂在刑具架上的解剖小刀"
+   ],
+   "detail": "水牢走廊正中央架设的黑石高台。",
+   "exits": [
+    "dungeon_guard_corridor"
+   ],
+   "id": "interrogation_stone_platform",
+   "name": "黑石刑具审讯石台",
+   "pressure_modifiers": {
+    "p_border_pass_token_leverage": "刑台下方的走廊阴影里有人正借着火光核对通关木牌。",
+    "p_dawn_execution_gallows_bell": "长桌上的沙漏已见底。",
+    "p_floodgate_chain_collapse_crisis": "石台下方的排水沟渠发出刺耳轰鸣，冰冷寒气直往上冒。",
+    "p_hound_patrol_footsteps": "副典狱长牵着猎犬经过石台台阶。",
+    "p_hypothermia_freezing_water": "刑台四周的炭火盆成了整个地下三层唯一散发暖意的热源。",
+    "p_inquisitor_peculation_leverage": "橡木长桌上摊开着加盖军法火漆的贪墨证词。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power",
+    "workplace"
+   ],
+   "visibility": "炭火盆赤红的火光照亮刑台每一寸角落。",
+   "witnesses": [
+    "bg_torture_executioner_brute",
+    "bg_record_scribe_assistant"
+   ]
+  },
+  {
+   "affordances": [
+    "观察交接班巡逻队脚步节奏",
+    "从挂钩处盗取备用铁链与钥匙串",
+    "吹熄过道风灯制造短暂黑暗混战"
+   ],
+   "detail": "连通全部囚室的狭长湿滑石砌拱廊，两侧插满松脂火把。",
+   "exits": [
+    "flooded_iron_dungeon_cell",
+    "interrogation_stone_platform",
+    "drainage_sluice_sluicegate"
+   ],
+   "id": "dungeon_guard_corridor",
+   "name": "水牢铁栏巡检走廊",
+   "pressure_modifiers": {
+    "p_border_pass_token_leverage": "值更军士正盯着那枚旧账木牌神色紧绷。",
+    "p_dawn_execution_gallows_bell": "外围通道的铁栅正在逐层落锁。",
+    "p_floodgate_chain_collapse_crisis": "走廊低洼处已被溢出的暗河冰水漫过脚踝。",
+    "p_hound_patrol_footsteps": "狭长石砌拱廊里回荡着铁靴踏水声。",
+    "p_hypothermia_freezing_water": "穿堂寒风夹着雪沫灌入拱廊，将松脂火把吹得忽明忽暗。",
+    "p_inquisitor_peculation_leverage": "先锋营亲兵与军法处随从在走廊两端隔空对峙。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "火把光芒明灭不定。",
+   "witnesses": [
+    "bg_dungeon_guard_patrol",
+    "bg_patrolling_warden_captain"
+   ]
+  },
+  {
+   "affordances": [
+    "拨动生锈绞盘的止逆销钉",
+    "探查直通城外暗渠的水流速度与深度",
+    "拾取被水流冲落的废弃生铁凿子"
+   ],
+   "detail": "水牢最深处用于泄洪与排污的沉重生铁铸造水闸。",
+   "exits": [
+    "flooded_iron_dungeon_cell",
+    "dungeon_guard_corridor"
+   ],
+   "id": "drainage_sluice_sluicegate",
+   "name": "地下暗河排污闸门转角",
+   "pressure_modifiers": {
+    "p_border_pass_token_leverage": "那枚刻着签名的通关木牌在微光下格外刺眼。",
+    "p_dawn_execution_gallows_bell": "护城河方向传来破晓换防的号角声，水下突围刻不容缓。",
+    "p_floodgate_chain_collapse_crisis": "上游冲下的碎冰正猛烈撞击水闸铁栅。",
+    "p_hound_patrol_footsteps": "暗渠流水声掩盖了部分呼吸。",
+    "p_hypothermia_freezing_water": "闸门缝隙灌入刺骨寒流，铁链表面已凝结出一层白霜。",
+    "p_inquisitor_peculation_leverage": "水闸转角的回音壁清晰传来了审讯台方向的争吵声。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "仅有暗渠流水反射出的微弱荧光。",
+   "witnesses": [
+    "bg_sewer_rat_catcher_boy"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "奥尔菲娅",
+   "艾德温",
+   "罗兰",
+   "凡伦泰",
+   "雷恩",
+   "希尔德",
+   "巴特勒",
+   "凯尔",
+   "莫迪卡",
+   "塞西尔",
+   "弗雷德",
+   "达尔文"
+  ],
+  "given_female": [
+   "澄",
+   "塞西莉亚",
+   "艾琳",
+   "芙蕾雅",
+   "维罗妮卡",
+   "海伦娜",
+   "克拉拉",
+   "阿黛尔",
+   "莉莉安",
+   "伊莎贝拉",
+   "露西亚",
+   "特蕾莎"
+  ],
+  "given_male": [
+   "阿尔伯特",
+   "朔",
+   "瓦加斯",
+   "岚",
+   "吉尔伯特",
+   "尤里安",
+   "卢卡斯",
+   "马修",
+   "康拉德",
+   "达米安",
+   "维克多",
+   "诺亚"
+  ],
+  "given_neutral": [
+   "遥",
+   "凛",
+   "维尔",
+   "艾尔",
+   "安吉尔",
+   "汐",
+   "希尔",
+   "朱利安",
+   "凯兰",
+   "布鲁克",
+   "盖尔",
+   "达斯廷"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "小{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，改动见提交说明。\n2026-10-18 按写作规则 v2 改造：2026-10-22 采用 Gemini 改造方案重写模板、钩子、组合、压力与日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    21,
+    24
+   ],
+   "baseline": "年满二十一岁的北方要塞在编近卫步兵。",
+   "gender": "any",
+   "id": "sympathetic_dungeon_jailer",
+   "reputation": "沉默寡言本分老实。",
+   "resources": [
+    "一柄挂在腰间的牢房大门备用青铜钥匙",
+    "内衬里暗藏的一小壶烈酒与两块止血干绷带"
+   ],
+   "risks": [
+    "私通被俘重犯一旦被敌军督战队抓获将直接处以吊死绞刑。"
+   ],
+   "role": "当值值班近卫狱卒",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "看守狱卒"
+    },
+    {
+     "gender": "any",
+     "pattern": "值夜卫兵"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    20,
+    23
+   ],
+   "baseline": "年满二十岁的圣王国骑士团正规见习侍从。",
+   "gender": "any",
+   "id": "undercover_templar_squire",
+   "reputation": "手脚极其麻利机警过人。",
+   "resources": [
+    "藏在靴筒内的一根极细高碳钢开锁探针",
+    "一张绘制于羊皮纸上的地下要塞排污暗河管网图"
+   ],
+   "risks": [
+    "身上骑士印记一旦被剥衣搜查验出将当场枭首示众。"
+   ],
+   "role": "潜伏圣殿见习扈从",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "见习扈从"
+    },
+    {
+     "gender": "any",
+     "pattern": "随军侍从"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    25
+   ],
+   "baseline": "年满二十二岁的征服军文职书吏。",
+   "gender": "any",
+   "id": "disillusioned_enemy_scribe",
+   "reputation": "学识渊博恪守文人良知。",
+   "resources": [
+    "一本盖有要塞统帅通行火漆印鉴的空白假路引",
+    "一支羽毛笔与一瓶不易褪色的防水胆汁墨水"
+   ],
+   "risks": [
+    "伪造统帅关防出境令罪同叛国连诛九族。"
+   ],
+   "role": "敌军随军反战书记官",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "从军书记"
+    },
+    {
+     "gender": "any",
+     "pattern": "文书参谋"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    21,
+    24
+   ],
+   "baseline": "年满二十一岁受雇于要塞防卫的独立战术斥候。",
+   "gender": "any",
+   "id": "renegade_mercenary_scout",
+   "reputation": "悍勇孤傲唯利是图，但极讲江湖恩怨恩怨分明。",
+   "resources": [
+    "一副磨尖的生铁手铐链环可作为搏杀短绞绳",
+    "对要塞外围巡逻哨位换防死角倒背如流"
+   ],
+   "risks": [
+    "试图破坏牢笼若败露将被当场穿透肩胛骨钉死于石壁。"
+   ],
+   "role": "被俘游勇斥候佣兵",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "游侠斥候"
+    },
+    {
+     "gender": "any",
+     "pattern": "戴罪先锋"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    25
+   ],
+   "baseline": "年满二十二岁受中立公约保护获准进入地牢救治濒死伤患的正规行医学者。",
+   "gender": "any",
+   "id": "sanctuary_field_physician",
+   "reputation": "医德高尚不分阵营救死扶伤。",
+   "resources": [
+    "一只装满清创烈酒、缝合羊肠线与止痛草药的厚牛皮药箱",
+    "中立救护十字臂章一枚"
+   ],
+   "risks": [
+    "暗中向重犯传递逃生工具若遭查抄将取消人道豁免权收监。"
+   ],
+   "role": "随军人道救援医师",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "医官助手"
+    },
+    {
+     "gender": "any",
+     "pattern": "随行药剂员"
+    }
+   ]
+  }
+ ],
+ "premise": "北方边境的黑石要塞被围了一个冬天，圣王国第一近卫女骑士长守着最后一道城门，白天带人修城墙，夜里亲自查地牢的哨。地牢里关着几个敌军的俘虏，敌军随军的反战书记官就在其中；值班狱卒和见习扈从都知道，要塞的粮只够撑到开春。",
+ "pressures": [
+  {
+   "choice": "面对审查法官捏住的千夫长把柄，你要如何借力破局？",
+   "exits": [
+    {
+     "cost": "千夫长退走前锁死了东侧外门，你们必须改走暗河水道。",
+     "option": "配合审查法官当场坐实千夫长违纪罪名，迫使先锋营撤出地牢防区"
+    },
+    {
+     "cost": "审查法官对你的妥协心生戒备。",
+     "option": "居中调停压下卷宗，换取千夫长交出东门哨卡的虎头通行铜牌"
+    }
+   ],
+   "far": {
+    "consequence": "谈崩的话，千夫长会在五更前用火药炸毁水牢通道灭口。",
+    "due_days": 1,
+    "trigger": "私吞军饷与冒功的军法把柄未解"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_albert_quill_tap_ultimatum",
+    "h_vargas_axe_smash_roar",
+    "h_albert_wine_flask_parley"
+   ],
+   "id": "p_inquisitor_peculation_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "冷声喝令先锋千夫长立刻带亲兵退下审讯石台。"
+   },
+   "leverage": {
+    "basis": "审查法官握有先锋千夫长私吞攻城火药军饷及杀害友军冒功的军法处铁证卷宗。",
+    "holder": "hostile_inquisitor_albert",
+    "subject": "ruthless_vanguard_centurion_vargas"
+   },
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "interrogation_stone_platform",
+    "dungeon_guard_corridor",
+    "drainage_sluice_sluicegate"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "先锋千夫长脸色铁青地按住战斧。"
+   },
+   "objective": "借法官与千夫长的把柄对峙，解除先锋营对水牢的封锁",
+   "source": "institution",
+   "start_minute": 1425,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "私吞军饷与冒功的军法把柄",
+   "trigger": "审查法官在审讯石台亮出军法密卷，当场掐住先锋千夫长私吞军饷的死穴。"
+  },
+  {
+   "choice": "斥候拿旧账木牌逼迫值更军士，你要如何处置？",
+   "exits": [
+    {
+     "cost": "斥候虽不再用强，但要求你亲自留在走廊口替大家望风。",
+     "option": "从斥候手中接过木牌当面交还军士，以诚意换取军士主动打开排污闸门"
+    },
+    {
+     "cost": "军士心中留下芥蒂，只肯提供一刻钟的换岗掩护。",
+     "option": "配合斥候用木牌利害稳住军士，迅速取走副匙开启暗河铁栅"
+    }
+   ],
+   "far": {
+    "consequence": "若僵持到下一班巡逻猎犬走近，三人留在闸门转角的气味将同时暴露。",
+    "due_days": 1,
+    "trigger": "私放边民出关的旧账木牌未解"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_roland_oil_whisper_offer",
+    "h_roland_copper_whistle_pledge",
+    "h_kyle_needle_click_whisper"
+   ],
+   "id": "p_border_pass_token_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "暗影斥候指间夹着那枚刻有军士签名的通关木牌。"
+   },
+   "leverage": {
+    "basis": "暗影斥候持有值更军士上月私放北境边民出关时留下的签名通关木牌。",
+    "holder": "cunning_shadow_infiltrator_kyle",
+    "subject": "rebellious_guard_sergeant_roland"
+   },
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "interrogation_stone_platform",
+    "dungeon_guard_corridor",
+    "drainage_sluice_sluicegate"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "值更军士额角青筋微跳。"
+   },
+   "objective": "化解斥候与值更军士之间的把柄对峙，合力开启地下暗河排污闸门",
+   "source": "rumor",
+   "start_minute": 1430,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "私放边民出关的旧账木牌",
+   "trigger": "暗影斥候在排污闸门暗处亮出签名木牌，逼值更军士交出暗河水闸钥匙。"
+  },
+  {
+   "choice": "巡哨与猎犬已到铁栏外，你要如何应对隔墙窥探？",
+   "exits": [
+    {
+     "cost": "冰冷石壁凹槽极度狭窄。",
+     "option": "将烈酒洒在污水表面盖住气味，与身边同伴贴入石壁盲区屏息静待"
+    },
+    {
+     "cost": "你的名字被记入夜班值守簿。",
+     "option": "主动走上巡检走廊迎住副典狱长，以例行审录或换药文书引开巡哨"
+    }
+   ],
+   "far": {
+    "consequence": "一旦猎犬嗅出陌生草药或滑脂气味，副典狱长将立即下令打开牢门贴身搜检。",
+    "due_days": 1,
+    "trigger": "猎犬巡哨与火把盲区搜检未解"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hound_patrol_footsteps",
+   "immediate": {
+    "minutes": 15,
+    "text": "沉重的铁靴踏过走廊积水。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "interrogation_stone_platform",
+    "dungeon_guard_corridor",
+    "drainage_sluice_sluicegate"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "巡哨举高松脂火把照向铁栏内侧。"
+   },
+   "objective": "在猎犬与巡哨经过铁栏前隐蔽行踪并掩盖开锁痕迹",
+   "source": "person",
+   "start_minute": 5,
+   "tags": [
+    "workplace"
+   ],
+   "title": "猎犬巡哨与火把盲区搜检",
+   "trigger": "副典狱长带着两头追踪猎犬踏入巡检走廊，火把光晕与铁链拖拽声正朝水牢主囚室逼近。"
+  },
+  {
+   "choice": "破晓行刑军令已下，你要如何赶在大限前破局？",
+   "exits": [
+    {
+     "cost": "你必须在提审文书上留下亲笔签押。",
+     "option": "出示盖有统帅关防或教廷火漆的提审救护令，合法将人带离水牢主室"
+    },
+    {
+     "cost": "全员必须淌过刺骨的暗河冷水，体力消耗极大。",
+     "option": "趁督战队交接防务的空隙，护送同伴从排污闸门潜入地下暗河突围"
+    }
+   ],
+   "far": {
+    "consequence": "若破晓钟声敲响仍未脱身，水牢全部在押人员将被押上黑石刑台当众处决。",
+    "due_days": 1,
+    "trigger": "破晓五更的军令处决大限未解"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_dawn_execution_gallows_bell",
+   "immediate": {
+    "minutes": 15,
+    "text": "审讯石台上的沙漏已流尽大半。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "interrogation_stone_platform",
+    "dungeon_guard_corridor",
+    "drainage_sluice_sluicegate"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "执刑铁匠已将火盆炭火拨亮。"
+   },
+   "objective": "在破晓行刑大限到来前完成移交手令或打通暗河撤离路线",
+   "source": "institution",
+   "start_minute": 20,
+   "tags": [
+    "workplace"
+   ],
+   "title": "破晓五更的军令处决大限",
+   "trigger": "要塞钟楼传来五更初鼓，统帅部督战队送来最后军令，限破晓钟响时交出密道图或就地行刑。"
+  },
+  {
+   "choice": "刺骨冰水不断上涨，你要如何保住身边人的体温与战力？",
+   "exits": [
+    {
+     "cost": "狭小石台上两人呼吸交缠。",
+     "option": "扶着同伴登上干燥石壁凸台，解开干燥外袍将两人紧紧裹在一起取暖"
+    },
+    {
+     "cost": "取炭途中在走廊留下湿脚印，需赶在巡哨发现前擦净。",
+     "option": "冒险从审讯石台取来炭火与烈酒，在避风转角替同伴搓热冻僵的四肢"
+    }
+   ],
+   "far": {
+    "consequence": "极度失温将引发高热昏厥。",
+    "due_days": 1,
+    "trigger": "水牢零度寒潮与失温危机未解"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_hypothermia_freezing_water",
+   "immediate": {
+    "minutes": 15,
+    "text": "刺骨寒流顺着排污暗渠涌入主囚室，水面结出薄冰。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "interrogation_stone_platform",
+    "dungeon_guard_corridor",
+    "drainage_sluice_sluicegate"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "长时间浸泡导致双腿知觉渐失，若不尽快生火驱寒，连握住钥匙与兵器的力气都会丧失。"
+   },
+   "objective": "在寒水彻底冻僵四肢前转移至干燥高处并维持同伴体温",
+   "source": "nature",
+   "start_minute": 35,
+   "tags": [
+    "disaster"
+   ],
+   "title": "水牢零度寒潮与失温危机",
+   "trigger": "北境午夜暴风雪加剧，护城河冰水倒灌入地下水牢，齐膝深的积水温度骤降至冰点。"
+  },
+  {
+   "choice": "暗河水位急速暴涨，你要如何与同伴合力化解危机？",
+   "exits": [
+    {
+     "cost": "飞溅的冰水打湿全身，两人脱力后靠在石壁上急促喘息。",
+     "option": "与同伴在闸门转角握住同一根绞盘横杆，倾尽全力拉起生铁水闸"
+    },
+    {
+     "cost": "震动声惊动了上层守军，必须立刻转入内侧暗道隐蔽。",
+     "option": "抛入镁粉烟幕弹震碎冰凌堵塞口，护着同伴顺泄洪水道一跃而出"
+    }
+   ],
+   "far": {
+    "consequence": "若半刻钟内不能升起水闸泄流，水牢主囚室将被冰水彻底灌满。",
+    "due_days": 1,
+    "trigger": "地下暗河冰凌拥堵与水位暴涨未解"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [],
+   "id": "p_floodgate_chain_collapse_crisis",
+   "immediate": {
+    "minutes": 15,
+    "text": "排污闸门下方传来沉闷的冰块撞击声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "flooded_iron_dungeon_cell",
+    "interrogation_stone_platform",
+    "dungeon_guard_corridor",
+    "drainage_sluice_sluicegate"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "生铁水闸的绞盘铁链在巨大水压下绷得笔直。"
+   },
+   "objective": "在暗河水位漫过换气空间前拉起生铁水闸泄洪开路",
+   "source": "accident",
+   "start_minute": 45,
+   "tags": [
+    "disaster"
+   ],
+   "title": "地下暗河冰凌拥堵与水位暴涨",
+   "trigger": "上游护城河冰坝崩裂，大量碎冰顺着暗渠冲入地下排污闸门，导致水牢内水位急剧抬升。"
+  }
+ ],
+ "region": "北方黑石要塞地下三层积水重装石牢与排污暗渠水牢",
+ "rules": [
+  {
+   "id": "r_water_cell_hypothermia",
+   "text": "地下水牢深达两尺的死水常年保持零度严寒。"
+  },
+  {
+   "id": "r_shackles_key_protocol",
+   "text": "锁死重装秘银手枷的主钥匙由当值审讯官随身佩戴。"
+  },
+  {
+   "id": "r_curfew_round_inspection",
+   "text": "巡逻卫队每隔两刻钟手持火把与猎犬巡查一次水牢外围铁栏。"
+  },
+  {
+   "id": "r_execution_at_dawn",
+   "text": "要塞占领军统帅下达死令。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "递送碎布",
+  "committed": "并肩突围",
+  "familiar": "抵背取暖",
+  "flirting": "暗解手铐",
+  "intimate": "血契相托",
+  "stranger": "冷眼戒备",
+  "testing": "生死对赌"
+ },
+ "status": "released",
+ "style_hint": "幽深水牢内唯有水滴坠落与铁链摩擦的刺耳回音，四面是渗着寒霜的青黑花岗岩石壁。火把在潮湿过堂风中将两人的影子拉得极长，铁栏外的脚步声每一次逼近都伴随着皮靴踩碎冰渣的清脆声响。",
+ "tension_engines": [
+  {
+   "id": "te_freezing_water_vs_human_warmth",
+   "text": "零度彻骨污水无情侵蚀生命知觉与狭小干燥石台两人抵背抱团取暖的生理温热形成极寒与生机的极致对冲。"
+  },
+  {
+   "id": "te_proud_chivalry_vs_cruel_shackles",
+   "text": "高贵不屈的佩剑骑士长傲骨与屈辱冰冷的生铁手枷吊锁形成尊严与压制的剧烈理智撕扯。"
+  },
+  {
+   "id": "te_dawn_execution_vs_lockpick_countdown",
+   "text": "破晓晨钟敲响即就地问斩的不可逆死线与在晃动火把盲区内用细针盲挑秘银锁芯的惊心动魄分秒竞速。"
+  },
+  {
+   "id": "te_inquisitor_crossfire_vs_silent_conspi",
+   "text": "铁栏外冷血法官与狂暴千夫长的步步紧逼与铁栏内囚犯同伴之间仅凭眼神与暗语达成的心照不宣越狱密谋。"
+  }
+ ],
+ "title": "铁栏与旧圣印",
+ "tone": [
+  "刺骨冰水",
+  "锈蚀铁枷",
+  "火把摇曳",
+  "冷傲风骨"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "t_fallen_1",
+   "requires": [],
+   "text": "军令白纸黑字写明无论女骑士长是否交出密道图。"
+  },
+  {
+   "category": "人事",
+   "id": "t_fallen_2",
+   "requires": [],
+   "text": "要塞内层军官与督战队爆发激烈巷战火并。"
+  },
+  {
+   "category": "资源",
+   "id": "t_fallen_3",
+   "requires": [],
+   "text": "密室内整齐码放着二十桶完好干燥的重装爆破火药与引线。"
+  },
+  {
+   "category": "制度",
+   "id": "t_fallen_4",
+   "requires": [],
+   "text": "大主教亲手签署的特级豁免令在国际公法上拥有至高权威。"
+  },
+  {
+   "category": "时限",
+   "id": "t_fallen_5",
+   "requires": [
+    "pressure"
+   ],
+   "text": "暗河与水牢水位以肉眼可见的惊人速度疯狂暴涨。"
+  },
+  {
+   "category": "关系",
+   "id": "t_fallen_6",
+   "requires": [],
+   "text": "审查官惊悉眼前傲骨铮铮的圣王国死敌统帅。"
+  },
+  {
+   "category": "意外",
+   "id": "t_fallen_7",
+   "requires": [],
+   "text": "数千吨崩落的花岗岩石梁与冰棱如暴雨般轰然坍塌坠落。"
+  }
+ ]
+}

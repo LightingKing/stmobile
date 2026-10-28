@@ -1,0 +1,2441 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "考古老教授，在门外焦急指挥挖掘救援。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_archaeology_professor_walter",
+   "line": "千金大小姐！学者！断龙石底下的通风缝清理出来了，你们千万坚持住啊！",
+   "location_ids": [
+    "loc_crypt_antechamber_passage"
+   ],
+   "name": "沃尔特教授",
+   "role": "皇家考古探险队六十岁首席教授"
+  },
+  {
+   "adult_context": "通过门缝传授家族圣物机械用法的忠诚老仆。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "helper",
+   "gender": "male",
+   "id": "bg_vampire_chamberlain_alois",
+   "line": "大小姐！家族权杖顶端的淬火精钢尖棱硬度极高，卡准搭扣偏心槽用力扳断！",
+   "location_ids": [
+    "loc_crypt_antechamber_passage"
+   ],
+   "name": "阿洛伊斯管家",
+   "role": "血族家族六十岁忠诚老管家"
+  },
+  {
+   "adult_context": "严格执行防塌陷条例的安保头目，阻止了盲目爆破。",
+   "age_range": [
+    35,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "male",
+   "id": "bg_crypt_mercenary_kane",
+   "line": "断龙石上方的顶梁出现了二次裂纹，严禁使用炸药，否则整座地宫都会被活埋！",
+   "location_ids": [
+    "loc_crypt_antechamber_passage"
+   ],
+   "name": "凯恩佣兵队长",
+   "role": "护卫探险队三十五岁佣兵头目"
+  },
+  {
+   "adult_context": "在门外监测电气回路与温升曲线的成年女学者。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "messenger",
+   "gender": "female",
+   "id": "bg_female_researcher_clara",
+   "line": "大小姐！学者！配电箱的短路保护已经失效了，必须在五分钟内手动拉下铜闸刀！",
+   "location_ids": [
+    "loc_crypt_antechamber_passage"
+   ],
+   "name": "克拉拉助手",
+   "role": "二十一岁的女考古助理"
+  },
+  {
+   "adult_context": "在门外指导断电步骤的老工人。",
+   "age_range": [
+    55,
+    65
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_electrician_master_otto",
+   "line": "紫外线灯管是并联供电的，只要扳断偏心搭扣拉开主闸刀，整套光幕立刻全部断电！",
+   "location_ids": [
+    "loc_crypt_antechamber_passage"
+   ],
+   "name": "奥托电工",
+   "role": "探险队老机电技师"
+  },
+  {
+   "adult_context": "在门缝处观察内部动静的年满二十一岁正式助手。",
+   "age_range": [
+    21,
+    23
+   ],
+   "function": "witness",
+   "gender": "male",
+   "id": "bg_explorer_apprentice_tom",
+   "line": "石门底部的缝隙传出好浓的臭氧味，灯管快烧炸了，两人还在坚持发力！",
+   "location_ids": [
+    "loc_crypt_antechamber_passage"
+   ],
+   "name": "小汤姆",
+   "role": "二十一岁的探险助手"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "没落的真祖千金与猎魔人学者在石阶死角里背抵石壁、手叠着手，用纯银权杖的尖棱扳断配电闸刀的偏心搭扣。",
+   "id": "cc_lady_and_scholar_leverage",
+   "identity_ids": [],
+   "player_positions": [
+    "high",
+    "equal",
+    "low"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "vampire_lady_alicia",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "紫外线灯网下一起扳着权杖，宿敌的手第一次握在了一处。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "hunter_scholar_rayne",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同为地宫探险搭档，知晓彼此手上力道与破拆技巧。",
+     "stage": "familiar"
+    },
+    {
+     "a": "vampire_lady_alicia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "hunter_scholar_rayne",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "傲娇血族千金与刚毅猎魔学者在灾厄中成为生死不离的脱困搭档。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "vampire_lady_alicia",
+    "hunter_scholar_rayne"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "在表皮深度灼伤前合力扳断偏心搭扣拉开闸刀断电灭灯脱险。",
+    "limit_gap": "千金肌肤灼痛娇躯微颤，学者身处逼仄死角后背承受灼热强光烘烤。",
+    "meeting_reason": "日落后，千金端着一杯红酒下到地宫，看猎魔人学者拓印石棺上的铭文。",
+    "resource_gap": "千金拥有传承淬火钢芯纯银权杖，学者掌握地下机关与电气回路拆解直觉。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_uv_light_radiation_skin_burn",
+    "te_close_contact_body_heat"
+   ]
+  },
+  {
+   "chemistry": "摄政家督与机电总工以精准机电力学拆解偏心暗槽咬合，严丝合缝操作工具突破阻滞。",
+   "id": "cc_regent_and_engineer_equal",
+   "identity_ids": [],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "vampire_lady_alicia",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "长期共研地宫机关防护，对彼此专业定力深具信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "hunter_scholar_rayne",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在探险工程部门共事，熟悉各处机械构造。",
+     "stage": "familiar"
+    },
+    {
+     "a": "vampire_lady_alicia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "hunter_scholar_rayne",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "在沉重机械死锁压迫下并肩发力，消除身份悬殊界限。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "vampire_lady_alicia",
+    "hunter_scholar_rayne"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "利用权杖精准卡死搭扣缺口并顺势撬断自锁自救。",
+    "limit_gap": "断龙石封门无法借助外援，必须在紫蓝强光中凭手感盲操机械脱扣。",
+    "meeting_reason": "千金要变卖地宫里的一批藏品，请猎魔人学者帮忙鉴定真伪，两人在石室里对着清单吵了一晚。",
+    "resource_gap": "家督掌握地宫机关核心图谱，总工拥有配电柜蓝图与高绝缘改锥撬棒。"
+   },
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_circuit_breaker_magnetic_jam",
+    "te_mercury_quartz_burst_hazard"
+   ]
+  },
+  {
+   "chemistry": "誓约骑士以肉身护盾统摄全局，千金依令协同配合，合力爆发千钧推力破死锁。",
+   "id": "cc_knight_and_lady_high",
+   "identity_ids": [],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "vampire_lady_alicia",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "骑士指导千金校准发力矢量，展现卓越忠勇担当。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "hunter_scholar_rayne",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "誓约护卫同僚，配合极为娴熟。",
+     "stage": "familiar"
+    },
+    {
+     "a": "vampire_lady_alicia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "hunter_scholar_rayne",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "傲娇千金与近卫骑士共赴生死，结成无间同盟。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "vampire_lady_alicia",
+    "hunter_scholar_rayne"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "以高刚性力矩反推破除偏心卡死完成无损自救脱困。",
+    "limit_gap": "紫外线强光处于临界强度，任何盲动都会引发皮肤重度损伤。",
+    "meeting_reason": "血族长老会派人来清点名门遗产，千金被迫领人下地宫，猎魔人学者被当作雇来的向导带在身边。",
+    "resource_gap": "骑士掌握防光斗篷与精钢板甲护臂，千金掌握高强度精钢权杖配件。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "tension_engine_ids": [
+    "te_mercury_quartz_burst_hazard",
+    "te_circuit_breaker_magnetic_jam"
+   ]
+  },
+  {
+   "chemistry": "千金以名门千金威严沉着鼓舞士气，青年向导严谨配合测算每道力矩数值。",
+   "id": "cc_explorer_and_specialist_command",
+   "identity_ids": [],
+   "player_positions": [
+    "low",
+    "equal"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "vampire_lady_alicia",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "同处绝境，上下级界限消融于贴身死斗协作中。",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 3
+     },
+     "b": "hunter_scholar_rayne",
+     "b_to_a": {
+      "tension": 2,
+      "trust": 3
+     },
+     "reason": "同在探险组共事，彼此熟稔信任。",
+     "stage": "familiar"
+    },
+    {
+     "a": "vampire_lady_alicia",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 3
+     },
+     "b": "hunter_scholar_rayne",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "千金全力依赖工匠臂膀发力破局。",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "vampire_lady_alicia",
+    "hunter_scholar_rayne"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "确保闸刀机构免遭电弧彻底熔焊，全员安全脱困。",
+    "limit_gap": "高温强光导致孤立无援，必须紧密依偎配合。",
+    "meeting_reason": "白昼里千金睡不着，在棺室里翻一本旧日记，猎魔人学者提着灯来还借走的地图。",
+    "resource_gap": "千金拥有坚忍不拔的傲骨，向导精通搭扣咬合解构。"
+   },
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_uv_light_radiation_skin_burn",
+    "te_circuit_breaker_magnetic_jam"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "exact",
+   "id": "ch_crypt_whisper_breath",
+   "reach": "all",
+   "text": "三十公分死角狭缝两人肌肤相贴急促滚烫的吐息与心跳共振"
+  },
+  {
+   "fidelity": "distorted",
+   "id": "ch_uv_buzz_static",
+   "reach": "local",
+   "text": "高能紫外线水银灯管刺耳电流嗡鸣与电弧噼啪爆鸣回响"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "二十一岁的血族名门继承人，接受过严苛古典礼仪与家传防身格斗训练，平日傲娇毒舌矜持，危难时刻展现出惊人的决断与信赖。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "身穿一袭古典繁复的暗黑哥特风束腰蕾丝长裙，外罩薄黑丝绒防光短披风，肤白胜雪宛如凝脂，两腮带着健康的红润，在紫外线高热与剧烈施力中，面颊泛起娇艳酡红与细腻冷汗，下颌挂着晶莹水珠。",
+    "蕾丝衬裙被汗水湿透紧贴优美起伏身姿，两腮面庞在紫蓝电弧映照下透出娇艳红晕，双手紧握权杖受力端毫不退缩，傲娇英气中透出令人心怜的坚韧反差。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱啼哭的软弱作态",
+     "鲁莽盲动的粗暴蛮干"
+    ],
+    "contrast": "嘴上从来不饶人，管猎魔人学者叫“来送死的凡人”；紫外线灯网亮起时，千金却一把扯下斗篷挡在对方身前，自己的手臂被灼出了红痕。",
+    "core_value": "哪怕平日心高气傲对凡人百般挑剔，生死关头也绝不在机关死锁前向宿命低头，学者是唯一信赖之人。",
+    "goal_options": [
+     "将权杖顶端淬火尖棱卡入配电箱搭扣撬断偏心自锁",
+     "与学者双手重叠合力下压扳断搭扣切断高能电源"
+    ],
+    "never": [
+     "在同伴脱困前独自退缩放弃"
+    ],
+    "prefers": [
+     "沉稳专注且臂力强健的工科学者",
+     "严谨扎实的硬核机械自救手段"
+    ],
+    "pressure_responses": {
+     "breaking": "哪怕双臂酸胀脱力、急促滚烫的吐息交织在学者耳侧，亦咬紧贝齿全力顶住力矩绝不松手。",
+     "high": "在三十公分狭窄死角内整个人贴伏在学者胸前，双手覆在学者手背上倾注全身力气下压。",
+     "low": "在防盗紫外线强光亮起刹那冷静喝令学者低头，迅速指出配电箱在右侧凹槽。",
+     "mid": "毫不犹豫脱卸权杖防尘金套递出实心钢芯尖棱，作为刚性撬具。"
+    },
+    "relationship_stance": "猎魔人学者来古堡考察的这一个月，千金天天嫌对方吵、嫌对方闻起来像大蒜，却每晚都把地宫的灯留到对方收工。",
+    "withdrawal": "脱险后脱力靠在学者怀前微喘，面庞埋在学者肩头掩饰羞赧。"
+   },
+   "gender": "female",
+   "gender_reason": "二十一岁的外貌与心智的落魄纯血吸血鬼名门大小姐，身兼血族傲娇高贵与生死关头的决绝果敢。",
+   "id": "vampire_lady_alicia",
+   "identity": {
+    "authority": "对地宫祖传藏宝与血族传承圣物拥有最高家族处置决定权。",
+    "exposure": "贴身蕾丝束腰裙在近身发力中被热汗浸透紧紧勾勒出窈窕身段，在三十公分狭缝中毫无保留地贴合在学者怀前。",
+    "hidden": "内袋贴身妥善保管着家族纯血真祖证明谱牒",
+    "limits": [
+     "血族肌肤对高能紫外线天生敏感，强光近身会导致表皮剧痛灼伤削弱体力",
+     "死角狭窄导致长裙施展不便"
+    ],
+    "obligations": [
+     "保全自身真祖血脉与家族尊严",
+     "保护青年学者免遭高压电弧短路灼伤脱险"
+    ],
+    "resources": [
+     "一柄家族纯银包精钢骨架权杖（高纯度实心高碳淬火精钢内芯，长六十公分，顶端带三棱淬火几何尖棱与直角折沿，抗弯刚性极高）",
+     "一件高密度黑丝绒防紫外线旅行斗篷",
+     "一枚镶嵌祖母绿的高硬度纯金家族印章戒指"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "学者在紫外线强光骤亮瞬间以肉身和大衣将{npc.name}死死护入怀中的无畏担当",
+     "在昏暗死角内学者沉着排查电气机械死锁时的专注眼神与坚实臂膀"
+    ],
+    "boundaries": [
+     "恪守名门长女的高贵自尊底线",
+     "脱困自救纯靠硬核物理机械力矩绝不涉性"
+    ],
+    "desire_range": [
+     2,
+     4
+    ],
+    "desired_position": "在配电箱死角背靠学者胸膛，双手叠于学者粗糙大手共同紧握权杖长柄奋力向下扳压。",
+    "dislikes": [
+     "轻浮孟浪的越界举动",
+     "临阵推诿的自私行径"
+    ],
+    "expression": "脱险后温柔地为学者擦去额头冷汗，偏过绯红面颊低声道‘学者……刚才表现还算配得上本小姐的信任’。",
+    "likes": [
+     "在剧烈灼痛恐慌中被宽厚胸膛紧紧环抱传来的踏实感与阳刚体温",
+     "冰凉的手被猎魔人滚烫的掌心整个包住、一起压下去的那一刻"
+    ],
+    "preconditions": [
+     "高能紫外线配电闸刀成功扳断跳闸",
+     "死角强光彻底熄灭平复危机",
+     "两人都清醒，心意出于自己，不是灼光绝境里的依赖"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "没落血族的真祖千金",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_vampire_crypt_chamber",
+     "to": 1325
+    },
+    {
+     "from": 1325,
+     "location_id": "loc_crypt_circuit_breaker_nook",
+     "to": 1355
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "权杖尖棱承受数百牛顿反扭力矩产生微磨损，两人手掌手臂受高温金属与电弧轻微燎伤。",
+      "option": "用权杖顶端淬火尖棱折角切入偏心搭扣，两人身躯紧贴合力向下施压扳断自锁脱困自救。"
+     },
+     {
+      "cost": "高压石英灯爆裂将释放剧毒水银蒸汽并引发电弧爆燃，造成致命伤害。",
+      "option": "徒手用古董金银器砸击高压水银石英灯管。"
+     }
+    ],
+    "pressure": "紫外线强光与高温辐射持续逼近，必须在表皮重度灼伤前手动撬断偏心搭扣切断电源。",
+    "trigger": "地宫防盗机关电涌误触，高能紫外线水银灯阵列强行锁死，万斤断龙石下坠咬死通道。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "紫外线烫得皮肤发疼……可猎魔人一直用后背替我挡着光。真讨厌，宿敌的心跳怎么会这么暖。",
+    "surface": "磨蹭什么？权杖内芯是淬火钢，撬得动岩石。看准搭扣缝隙，随本小姐一起往下压！"
+   }
+  },
+  {
+   "adult_context": "二十一岁，持有血族正统继承人冠冕，遇险沉着理智调度果决。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "深紫宫廷束腰礼服外罩黑色皮质战术护肩斗篷，两腮线条饱满紧致带着健康的红润，在紫蓝光弧下神情冷峻威严。",
+    "长发微湿贴在额前，面颊在电光下透着激动的酡红，修长双腿稳稳抵住石壁凹槽，双手握紧权杖受力端。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "怨天尤人"
+    ],
+    "contrast": "威严傲娇的血族家督，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "一切机电自锁皆有力学破绽，找准切向力矩，千斤阻尼亦能瓦解。",
+    "goal_options": [
+     "利用权杖构建刚性撬杠扭转偏心搭扣",
+     "协同学者顶正闸刀自救脱困"
+    ],
+    "never": [
+     "临阵抛下同伴独自逃生"
+    ],
+    "prefers": [
+     "沉稳专注的机电操作",
+     "毫不犹豫的协同发力"
+    ],
+    "pressure_responses": {
+     "breaking": "银牙咬碎双手青筋微显，死死抵住杠杆直至机械锁脱开。",
+     "high": "以全身自重压向力臂末端，与学者紧密相依共同下扳。",
+     "low": "迅速判断出电源自锁在于电磁搭扣过热卡死，明确杠杆支点位置。",
+     "mid": "果断将权杖尖棱卡入偏心暗孔，以手掌固定其切向夹角。"
+    },
+    "relationship_stance": "视学者为最可靠的工科后盾，在灾厄中缔结生死不渝的深厚默契。",
+    "withdrawal": "在脱困后退至安全区域深呼吸平复心绪并整理衣冠。"
+   },
+   "gender": "female",
+   "gender_reason": "血族家族摄政女领主态，具备极高的威严统率力与危机果断决断权。",
+   "id": "regent_lady_alicia",
+   "identity": {
+    "authority": "对古墓内部全部机关防御规程与解除指令拥有最终裁决权。",
+    "exposure": "束腰裙在近身发力中贴紧身姿，在狭窄空间展露无遗。",
+    "hidden": "随身携带地宫底层暗室纯银主钥匙",
+    "limits": [
+     "受困幽闭石室缺乏大型千斤顶支撑",
+     "必须在十分钟内打破机械自锁"
+    ],
+    "obligations": [
+     "保护同伴学者人身安全",
+     "同学者紧密协作切断防盗电源"
+    ],
+    "resources": [
+     "纯银精钢骨架权杖",
+     "防光隔热软皮手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "学者在危难中展现出的机电工程专业判断力与勇猛担当",
+     "近距离贴身支撑时对方如山岳般可靠的臂弯温度"
+    ],
+    "boundaries": [
+     "严守贵族自尊底线",
+     "自救恪守硬核机械物理底线"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "在配电箱死角俯身相依，胸前紧贴学者臂膀共同握持权杖完成绝地逆转。",
+    "dislikes": [
+     "轻浮孟浪",
+     "退缩怯懦"
+    ],
+    "expression": "默默递上手帕为学者擦拭额头汗水，低声叮嘱学者调整呼吸。",
+    "likes": [
+     "彼此心领神会的眼神对视",
+     "闸刀清脆跳脱瞬间的电弧平息声"
+    ],
+    "preconditions": [
+     "偏心搭扣成功跳闸断开",
+     "高能紫外线光弧彻底熄灭"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "血族名门摄政长女兼家督",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_vampire_crypt_chamber",
+     "to": 1325
+    },
+    {
+     "from": 1325,
+     "location_id": "loc_crypt_circuit_breaker_nook",
+     "to": 1355
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员手腕手掌承受强烈金属反冲压迫造成肌肉酸麻与红肿。",
+      "option": "以纯银精钢权杖卡死偏心搭扣，双手合力向下施压扳断搭扣跳闸自救。"
+     },
+     {
+      "cost": "破坏外壳极易造成内部二百伏铜排直接短路引发剧烈电弧爆燃。",
+      "option": "盲目使用石头砸击配电箱面板。"
+     }
+    ],
+    "pressure": "光幕不断向内蔓延且高温炙烤，必须在人员重度灼伤前手动断开闸刀。",
+    "trigger": "地宫防盗电网电涌，紫外线强光灼烧，断龙石封死出口。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "光线太烈了……但学者一直用后背护着我。拼尽全力，我也一定要帮学者把这扇闸门撬断！",
+    "surface": "学者，看准搭扣偏心槽！权杖内芯刚好能卡死暗销，顺着逆时针方向一起往下压！"
+   }
+  },
+  {
+   "adult_context": "二十一岁，具备专业炼金工程与古建筑双重学识，冷静机敏。",
+   "age_range": [
+    21,
+    21
+   ],
+   "appearance_options": [
+    "深灰绒面高领宫廷长裙外搭皮质围裙，两腮线条饱满紧致带着健康的红润，在刺目光斑下目光冷静敏锐。",
+    "长发束起，面颊在电弧荧光下泛着坚毅的冷白，双手紧紧扣住权杖受力点。"
+   ],
+   "decision": {
+    "avoids": [
+     "慌乱盲动",
+     "无端猜忌"
+    ],
+    "contrast": "温雅清丽的学者千金，在沉重机械危机面前爆发出惊人的铿锵韧劲。",
+    "core_value": "一切自锁机构皆有力矩弱点，找准切向力矩，百钧死锁亦可瓦解。",
+    "goal_options": [
+     "利用权杖尖棱折角撬脱自锁搭扣",
+     "协同学者切断高能回路自救脱困"
+    ],
+    "never": [
+     "临阵退缩放弃同伴"
+    ],
+    "prefers": [
+     "精准的力学配合",
+     "沉着果断的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "紧咬银牙死死压住杠杆，直至机械搭扣产生崩断脱开声。",
+     "high": "以全身重量紧贴学者臂膀向下施压消除打滑。",
+     "low": "迅速判断搭扣卡死死点位于下部偏心卡爪。",
+     "mid": "果断将权杖淬火尖棱以特定角度切入槽孔。"
+    },
+    "relationship_stance": "视学者为最可靠的工科后盾，在灾厄中缔结生死不渝的默契同盟。",
+    "withdrawal": "在脱困后退至安全区域深呼吸平复心绪并检查古籍。"
+   },
+   "gender": "female",
+   "gender_reason": "古代炼金与机关学术名媛态，精通地宫机械结构与古今防盗联锁装置。",
+   "id": "alchemist_lady_alicia",
+   "identity": {
+    "authority": "对石室机关回路排布与搭扣偏心受力参数拥有精准专业计算。",
+    "exposure": "紧身长裙贴紧腰肢曲线，在逼仄空间完全展露青春女性罕见的柔韧体态。",
+    "hidden": "随身携带微型防磁六角调整螺丝刀",
+    "limits": [
+     "死角狭窄缺乏大型千斤顶支撑",
+     "必须在十分钟内排除机械阻尼"
+    ],
+    "obligations": [
+     "力保珍贵古文献完好",
+     "与学者紧密协作逃生"
+    ],
+    "resources": [
+     "淬火钢芯纯银权杖",
+     "高抗拉绝缘手帕"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "学者在危急时刻硬扛紫外线强光护住千金的男子汉气概",
+     "贴身施力时对方宽阔胸膛传来的雄浑力量与温热气息"
+    ],
+    "boundaries": [
+     "严守名门长女底线",
+     "出路纯靠机械杠杆自救"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "伏在学者怀侧死角，双手叠于学者手背合力下按权杖柄部。",
+    "dislikes": [
+     "轻浮孟浪",
+     "迟疑推诿"
+    ],
+    "expression": "轻柔递上手巾为学者擦去额头冷汗，温言抚慰并察看对方手掌磨痕。",
+    "likes": [
+     "彼此心领神会的对视",
+     "搭扣断开瞬间的清脆金属鸣响"
+    ],
+    "preconditions": [
+     "断电回路完全切断",
+     "光幕彻底熄灭脱离死角"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "古代炼金机关研究学者",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_vampire_crypt_chamber",
+     "to": 1325
+    },
+    {
+     "from": 1325,
+     "location_id": "loc_crypt_circuit_breaker_nook",
+     "to": 1355
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "施力人员前臂与手掌承受强烈反力矩压迫造成肌肉酸麻淤青。",
+      "option": "以淬火钢芯权杖切入槽孔，双手合力向下施压扳断搭扣跳闸自救。"
+     },
+     {
+      "cost": "数吨玄武岩断龙石非人力所能撼动，极易撞裂胸骨挫伤内脏。",
+      "option": "强行用身体撞击断龙石试图撞出通道。"
+     }
+    ],
+    "pressure": "紫外线强光随着灯管升温持续增强，必须在彻底烧灼前手动撬开搭扣断电。",
+    "trigger": "强光水银灯管电涌导致搭扣磁滞抱死在接通位，强光寸寸逼近。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "死光温度快失控了……但学者一直在护着我。拼尽全力，我也一定要帮学者把这道闸门撬断！",
+    "surface": "学者，受力点在搭扣凹槽第二层！权杖厚度刚好卡死，顺着切线压，我们一起下压！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的学者，具备丰富地下考古破拆资质，沉毅果敢担当可靠。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深灰厚帆布战术风衣配皮手套，身姿挺拔双臂结实，眼神沉静锐利，额角浸满汗水。",
+    "腰系多功能装备带，手持加厚绝缘战术手套，在强光电弧死角稳如磐石护住千金。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿拖延",
+     "盲目冒进"
+    ],
+    "contrast": "平日沉稳寡言的年轻学者，在生死一线时爆发出令人心折的刚毅与担当。",
+    "core_value": "机械自锁虽坚固，必有反向力矩解法；有我在，绝不会让千金受到半分伤害。",
+    "goal_options": [
+     "以权杖尖棱精准插入搭扣槽孔",
+     "全力下压杠杆扳断偏心销"
+    ],
+    "never": [
+     "背弃千金的信任与托付"
+    ],
+    "prefers": [
+     "扎实的机械力学自救",
+     "毫无保留的生死信赖"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将咬死的偏心搭扣扳断跳闸。",
+     "high": "双手包覆住千金双手，毫无保留爆发全身背阔肌与核心重量下按。",
+     "low": "在强光亮起瞬间一把将千金拉入怀中用斗篷严密遮挡，低声安抚对方。",
+     "mid": "伏身狭缝死角指导千金调整握持手势，建立稳固反向力臂支点。"
+    },
+    "relationship_stance": "家族世代猎杀血族，学者却只想把这座地宫的历史写完；千金每晚留着的那盏灯，学者从来没说破。",
+    "withdrawal": "确认强光彻底熄灭千金脱困后方才脱力坐在石阶上长舒一口气。"
+   },
+   "gender": "male",
+   "gender_reason": "青年猎魔人学者，精通古代石室陷阱破拆与近代机电自锁回路原理。",
+   "id": "hunter_scholar_rayne",
+   "identity": {
+    "authority": "掌控地下探险现场破拆排障与应急电气处理最高处置裁决权。",
+    "exposure": "风衣解开半边露出结实胸膛与紧身衬衣，在近身施力时阳刚气魄完全展现。",
+    "hidden": "随身携带一枚备用十字高绝缘陶瓷撬棒头",
+    "limits": [
+     "身负护卫千金重任绝不退缩",
+     "检修死角狭小难以伸展全身"
+    ],
+    "obligations": [
+     "保护千金免受紫外线强光灼伤",
+     "合力打破偏心搭扣机械自锁"
+    ],
+    "resources": [
+     "淬火钢芯纯银权杖（千金提供）",
+     "石棉防高温手套",
+     "防爆强光护目镜"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "千金在突发危机前毫不娇气、毅然递出家传至宝并肩拼命的坚韧勇气",
+     "紧贴施力时千金面颊透出的温润娇红与急促滚烫的吐息"
+    ],
+    "boundaries": [
+     "恪守学者规矩分寸",
+     "绝无轻慢之意"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "后背抵住石壁外沿，双手握住权杖受力柄部，由千金伏于胸前合力下压。",
+    "dislikes": [
+     "轻慢女性",
+     "言而无信"
+    ],
+    "expression": "脱险后默默将自身干燥大衣披在千金微湿的肩头，紧紧握住千金双手以体温抚慰。",
+    "likes": [
+     "彼此掌心交叠时的沉稳踏实",
+     "同声发力突破难关时的心意共鸣"
+    ],
+    "preconditions": [
+     "全员脱困安全无虞",
+     "强光光幕彻底平息"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "来古堡地宫考察的猎魔人学者",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_vampire_crypt_chamber",
+     "to": 1325
+    },
+    {
+     "from": 1325,
+     "location_id": "loc_crypt_circuit_breaker_nook",
+     "to": 1355
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手掌虎口在剧烈金属反冲下产生剧烈震颤与轻度淤血。",
+      "option": "借淬火钢芯权杖尖棱作为刚性力臂，双手叠合以全身重量下压扳断搭扣断电自救。"
+     },
+     {
+      "cost": "中世纪玄武岩石壁厚达数米，徒劳消耗最后体力并加速灼伤。",
+      "option": "用工具砸击石壁试图挖出逃生通道。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬断搭扣，否则强光热辐射将造成不可逆的表皮灼伤。",
+    "trigger": "强光水银灯管电涌引发机械死锁，偏心搭扣卡死，紫外线光斑步步逼近。"
+   },
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "voices": {
+    "inner": "千金的皮肤被灼得发红，还在嘴硬……我家祖上杀了几百年血族，今晚我只想护住这一个。",
+    "surface": "大小姐别动，躲在我后面！搭扣是偏心自锁，权杖尖棱卡进去，我数三下一起压。"
+   }
+  },
+  {
+   "adult_context": "二十二岁的工程师，具备大型公建特种机电应急抢险资质，冷静机敏。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深蓝连体防静电工装配工装靴，身姿矫健动作敏捷，目光从容镇定。",
+    "佩戴高等级防电弧手套，在急迫险情下有条不紊精准指挥。"
+   ],
+   "decision": {
+    "avoids": [
+     "盲目冒险",
+     "违规操作"
+    ],
+    "contrast": "现代工程青年与傲娇血族千金在紫外线死角的硬核协作。",
+    "core_value": "任何机械自锁都有杠杆解法，力矩找对，千斤顶也不及合理支点。",
+    "goal_options": [
+     "利用权杖精准下压偏心搭扣",
+     "协同拉下咬死闸刀安全脱困"
+    ],
+    "never": [
+     "在风险未清前让千金以身犯险"
+    ],
+    "prefers": [
+     "严谨精准的技术推演",
+     "临危不乱的执行力"
+    ],
+    "pressure_responses": {
+     "breaking": "毫不动摇维持发力姿势直至听见搭扣崩裂跳脱声。",
+     "high": "在极限死角内以身躯挡住千金防止强光照射，合力下按权杖。",
+     "low": "迅速判断自锁死点位于下部偏心搭扣，明确逆向扳断方案。",
+     "mid": "用手电光束为千金精准标定权杖插入孔洞的角度与深度。"
+    },
+    "relationship_stance": "恪尽职守又深怀体贴，在危险中给予千金无可替代的坚实安全感。",
+    "withdrawal": "协助千金撤至安全平层后立即设立警示标识通知外界。"
+   },
+   "gender": "male",
+   "gender_reason": "地宫防盗机电维护主管，精通地下特种配电箱机械偏心锁止结构。",
+   "id": "civil_crypt_engineer_rayne",
+   "identity": {
+    "authority": "掌控地宫紫外线防盗配电总箱断路排障最终处置权。",
+    "exposure": "工装服被热汗浸透贴紧胸背，近距离伏卧时散发着阳刚利落的气息。",
+    "hidden": "熟悉地宫排风竖井手动风门位置",
+    "limits": [
+     "断龙石阻断外部援助通道",
+     "必须依靠现有便携器材自救"
+    ],
+    "obligations": [
+     "排查消除配电箱次生电弧爆炸风险",
+     "安全护送千金脱离死角绝境"
+    ],
+    "resources": [
+     "防爆工业强光手电",
+     "高绝缘陶瓷撬棒头",
+     "加厚石棉耐磨防滑手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "千金嘴上不饶人，可一讲到撬法立刻就懂，二话不说就照做",
+     "彼此贴身协作中千金身上淡淡馨香与急促呼吸形成的反差冲击"
+    ],
+    "boundaries": [
+     "严守专业工程师职业操守",
+     "规矩分明"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "并肩伏卧于死角狭缝，单手撑地保持避险空隙，另一手与千金紧握权杖全力压制。",
+    "dislikes": [
+     "违规蛮干",
+     "自暴自弃"
+    ],
+    "expression": "护送千金至安全区域后，微笑着递上干燥纸巾，目光温和坚定。",
+    "likes": [
+     "默契的眼神确认",
+     "手把手校准器械时的体温传递"
+    ],
+    "preconditions": [
+     "完全排除配电箱二次弧光闪爆风险",
+     "人员无伤撤离"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "特种地下防盗机电技术员",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_vampire_crypt_chamber",
+     "to": 1325
+    },
+    {
+     "from": 1325,
+     "location_id": "loc_crypt_circuit_breaker_nook",
+     "to": 1355
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "权杖尖棱产生微小磨损，施力人员手臂承受剧烈肌肉酸胀。",
+      "option": "以权杖尖棱反撬搭扣并借力矩压平自锁连杆，顺势拉下总闸灭灯自救。"
+     },
+     {
+      "cost": "二百伏强电压瞬间击穿人体，造成极度严重的电击休克与肌肉炭化。",
+      "option": "强行徒手掰动带电纯铜闸刀。"
+     }
+    ],
+    "pressure": "升温持续逼近绝缘材料极限，必须在引燃电缆前手动折断搭扣自救。",
+    "trigger": "强光水银灯管过载引发偏心搭扣抱死，紫外线光斑步步逼近死角。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "只要钢芯权杖不打滑，这个反力矩完全足够折断搭扣……千金，抓紧我！",
+    "surface": "大小姐，搭扣就在箱门内侧二寸！权杖尖棱刚好能卡进缝隙，听我数三二一，我们一起下压！"
+   }
+  },
+  {
+   "adult_context": "二十二岁的主管，体格健硕神情沉毅，熟悉全部古建筑机关破拆法则。",
+   "age_range": [
+    22,
+    24
+   ],
+   "appearance_options": [
+    "深色工作T恤配耐磨工装长裤，双臂青筋隆起，神情沉静坚毅，眼神深邃可靠。",
+    "佩戴皮质工具带，在刺目强光的死角内从容沉着指挥脱困自救。"
+   ],
+   "decision": {
+    "avoids": [
+     "推诿扯皮",
+     "投机取巧"
+    ],
+    "contrast": "深沉强悍的机械总师与傲娇贵气的血族千金，在强光死线前形成的强烈反差张力。",
+    "core_value": "一切结构皆有力学破绽，只要找准力矩反支点，千斤大锁亦可扳断。",
+    "goal_options": [
+     "利用权杖组装复合撬杠",
+     "合力扳断卡死的偏心搭扣"
+    ],
+    "never": [
+     "在重门未开前抛下同伴"
+    ],
+    "prefers": [
+     "硬桥硬马的扎实手艺",
+     "毫无保留的生死协作"
+    ],
+    "pressure_responses": {
+     "breaking": "双臂肌肉暴胀如铁，怒吼声中硬生生将偏心搭扣扳断跳闸。",
+     "high": "双手死死握住杠杆最外端，以千钧背肌全力向下猛按到底。",
+     "low": "冷静扫视死角结构，瞬间锁定受力最集中的搭扣卡口。",
+     "mid": "护住千金身躯，指导其将权杖尖棱紧紧卡入受力暗槽。"
+    },
+    "relationship_stance": "视千金为值得誓死守护的名门女子，危难中建立生死莫逆的赤诚信任。",
+    "withdrawal": "确认光幕熄灭千金脱困后，单臂护送千金安全撤至阴凉石阶。"
+   },
+   "gender": "male",
+   "gender_reason": "特种古代机关综合工匠，对地宫铁艺与机械联锁死锁拆解经验极深。",
+   "id": "master_mechanic_rayne",
+   "identity": {
+    "authority": "掌控配电机构受力结构现场破拆与排障最高处置指挥权。",
+    "exposure": "黑色T恤被汗水湿透勾勒出雄健背脊，散发着沉稳刚烈的阳刚气概。",
+    "hidden": "掌握地宫底层应急排水暗渠确切位置",
+    "limits": [
+     "断龙石封门切断外部援助通道",
+     "必须依靠现有便携器材完成力矩反推"
+    ],
+    "obligations": [
+     "保护千金免遭紫外线灼伤",
+     "确保闸刀平稳切断"
+    ],
+    "resources": [
+     "特种钨钼合金加力套筒接头",
+     "高强度应急防爆手电",
+     "石棉防割手套"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "千金在强光绝境中不失名门傲骨的坚韧魄力",
+     "贴身施力时千金温润如玉的身段与柔韧坚毅的发力姿态"
+    ],
+    "boundaries": [
+     "严守专业分寸",
+     "严守自愿安全原则"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "单臂护在千金身前构成安全空隙，另一手与千金共同紧握权杖全力下压。",
+    "dislikes": [
+     "轻浮傲慢",
+     "无端猜忌"
+    ],
+    "expression": "脱险后退后半步递上披风，沉声道一句‘大小姐受惊了，学者在，没事了’。",
+    "likes": [
+     "彼此心照不宣的眼神对碰",
+     "合力突破死锁瞬间的畅快淋漓"
+    ],
+    "preconditions": [
+     "偏心搭扣彻底折断人员出险",
+     "配电箱平稳断电"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "特种地宫机关综合总工",
+   "schedule": [
+    {
+     "from": 1320,
+     "location_id": "loc_vampire_crypt_chamber",
+     "to": 1325
+    },
+    {
+     "from": 1325,
+     "location_id": "loc_crypt_circuit_breaker_nook",
+     "to": 1355
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "手臂与手掌肌肉极度酸痛，工具把手产生微量金属疲劳应力。",
+      "option": "以淬火钢芯权杖组装复合支点，合力向下猛压扳断偏心搭扣断电自救。"
+     },
+     {
+      "cost": "数吨重断龙石自重极大极易造成肩关节脱臼骨折，成功率几乎为零。",
+      "option": "强行以身体肩膀向上托举断龙石试图撑开缝隙。"
+     }
+    ],
+    "pressure": "必须在有限时间内以爆发力矩撬断搭扣，否则持续高温将引爆配电箱线缆。",
+    "trigger": "强光防盗电涌导致搭扣抱死，紫外线强光步步逼近，灼伤险情迫在眉睫。"
+   },
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "voices": {
+    "inner": "大小姐的身子全靠着我……这股淡雅冷香直往鼻尖里钻。拼了这条命，也绝不让死光烧伤千金！",
+    "surface": "大小姐莫慌！这搭扣吃的是偏心阻滞！权杖咬准了缝隙，我们合力管保将卡死处折断！"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "1897 年，深秋",
+  "minute": 1320
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "intimate",
+  "bodily_harm",
+  "substance",
+  "death",
+  "crime",
+  "workplace",
+  "disaster"
+ ],
+ "custom": false,
+ "customs": [
+  "血族纯血正统真祖随身携带镶嵌红宝石与淬火精钢内芯的传承礼仪权杖。",
+  "现代探险与盗墓者在地宫配电箱安装防误碰机械偏心锁止搭扣与电磁熔断器。",
+  "猎魔人学者深入古老地宫随身携带厚实耐磨石棉防光手套与防强光护目镜。",
+  "哥特式古典宫廷礼裙配有繁复丝绸衬裙与防寒天鹅绒长披风用于地宫避寒。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "用丝绒布细致擦拭权杖顶端淬火精钢尖棱表面油污与浮尘",
+    "检查尖棱直角折沿与权杖纯银包覆层接缝有无微小松动",
+    "使用硬度试块校核淬火高碳钢内芯抗弯刚性指标"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [],
+   "id": "act_scepter_calibration_check",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "start_minute": 1320,
+   "tags": [
+    "workplace"
+   ],
+   "title": "晨间纯银精钢权杖顶端尖棱巡检"
+  },
+  {
+   "beats": [
+    "清理搭扣凹槽边缘残留的绝缘油渍与氧化铜绿",
+    "察看偏心棘爪弹簧机械阻尼与脱扣行程指标",
+    "核验配电箱金属外壳接地线紧固情况"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_crypt_breaker_routine_check",
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "start_minute": 1325,
+   "tags": [
+    "workplace"
+   ],
+   "title": "地宫配电箱偏心防误碰搭扣巡查"
+  },
+  {
+   "beats": [
+    "察看高压水银灯管耐热石英管壁有无微细龟裂",
+    "检查防误合电磁铁限位搭扣触点接触电阻",
+    "手动测试应急断电手柄微动开关行程动作"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_uv_lamp_circuit_test",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "start_minute": 1330,
+   "tags": [
+    "workplace"
+   ],
+   "title": "防盗高能水银灯管绝缘耐压巡测"
+  },
+  {
+   "beats": [
+    "检查断龙石两侧玄武岩导轨是否有碎石卡滞",
+    "使用探照灯察看顶部防坠安全销锁紧状态",
+    "核验外侧防风火把通风对流气流速度指标"
+   ],
+   "duration_minutes": 25,
+   "hook_ids": [],
+   "id": "act_portcullis_hoist_patrol",
+   "location_ids": [
+    "loc_crypt_antechamber_passage"
+   ],
+   "start_minute": 1335,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "断龙石重力滑槽与配重钢索巡检"
+  },
+  {
+   "beats": [
+    "白昼漫长，真祖千金坐在地宫石阶上，一小口一小口地喝着红酒。",
+    "猎魔人学者坐在下面几级台阶上翻笔记，千金问学者今天又查到了什么。",
+    "学者念了一段古文，千金听完轻笑：那是我曾祖母写的情诗。"
+   ],
+   "duration_minutes": 20,
+   "hook_ids": [
+    "hd_vampire_lady_alicia",
+    "hd_hunter_scholar_rayne"
+   ],
+   "id": "act_crypt_burn_evac_drill",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "start_minute": 840,
+   "tags": [
+    "workplace"
+   ],
+   "title": "地宫里的红酒"
+  },
+  {
+   "beats": [
+    "千金亲自核验主回路电压表归零",
+    "合上配电箱防尘防护铁盖板",
+    "确认断龙石应急防沉降机械支撑梁就位"
+   ],
+   "duration_minutes": 15,
+   "hook_ids": [],
+   "id": "act_dusk_crypt_main_switch_log",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "start_minute": 1345,
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "title": "日暮地宫防盗主电源复位挂锁"
+  },
+  {
+   "beats": [
+    "搭扣扳断、灯网熄灭、断龙石被外面的人撬开一道缝之后，千金被人扶回棺室，蕾丝长裙被汗浸透，手臂上的灼痕还没褪。",
+    "棺室里只点着一排白蜡烛，千金背过身，命令似的说了一句“解开”，让人一根根抽松背后的束腰系带，凉药膏抹上灼痕时，千金咬住了下唇，没有喊疼。",
+    "千金转过身，指尖勾住对方的衣领：猎魔人，你祖上杀了那么多血族……今晚，换我来抓你一次。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_crypt_candle_corset",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "start_minute": 1430,
+   "tags": [
+    "intimate"
+   ],
+   "title": "棺室烛光下替千金解开蕾丝束腰"
+  },
+  {
+   "beats": [
+    "棺室的白蜡烛下，千金斜倚在天鹅绒棺椁边，蕾丝长裙的领口开得很低，往两只水晶杯里倒满红酒。",
+    "千金举杯：血族已经不喝血了，只喝这个。……猎魔人，你敢不敢跟我碰杯？碰了，就别想全身而退。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_crypt_red_wine_toast",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "start_minute": 1260,
+   "tags": [
+    "intimate"
+   ],
+   "title": "棺室里的红酒"
+  },
+  {
+   "beats": [
+    "千金摘下蕾丝手套，把冰凉的手贴上人的脸颊，红眸在烛光里一眨不眨，嘴角带着坏笑。",
+    "千金说：血族的体温比人低。……你若愿意替我焐热，就点头，我便不再假装高傲。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_crypt_cold_hand",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "intimate"
+   ],
+   "title": "冰凉的手"
+  },
+  {
+   "beats": [
+    "外面的太阳升起来了，千金拉紧棺室的天鹅绒帷幕，打着哈欠钻进被子，把人一起拽进来。",
+    "千金闭着眼说：白昼是血族的夜晚。……陪我睡到日落，这是我允许的最高礼遇。"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [],
+   "id": "act_crypt_daylight_curtain",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "start_minute": 480,
+   "tags": [
+    "intimate"
+   ],
+   "title": "白昼里的天鹅绒帷幕"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "近现代哥特奇幻地下炼金避难所",
+ "extends": null,
+ "forbidden_terms": [
+  "软色情",
+  "系统金手指",
+  "无脑恋爱脑",
+  "机械降神",
+  "违背物理学自救",
+  "代词他她混淆",
+  "未成年人角色",
+  "涉性出路"
+ ],
+ "hooks": [
+  {
+   "id": "hk_uv_warning_thunder",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "slot": "vampire_lady_alicia",
+   "text": "{vampire_lady_alicia.name}按住胸口急促起伏的暗黑哥特束腰礼裙，面颊在紫蓝强光下冷汗涔涔，毅然递出一柄家族淬火精钢内芯权杖直指死角配电箱。"
+  },
+  {
+   "id": "hk_crypt_uv_roaring_rush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "slot": "vampire_lady_alicia",
+   "text": "{vampire_lady_alicia.name}听到水银灯管电弧滋滋爆鸣，在滚烫急喘中咬紧银牙侧身跪倒在三十公分死角直面咬死的金属搭扣。"
+  },
+  {
+   "id": "hk_crypt_breaker_groan_deadlock",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "slot": "hunter_scholar_rayne",
+   "text": "{hunter_scholar_rayne.name}双膝跪地紧贴冰冷石阶，以坚实身躯硬生生护住身前千金免受强光直射灼伤，大声提醒大小姐对准搭扣偏心槽孔！"
+  },
+  {
+   "id": "hk_breaker_deformation_scrape",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "slot": "hunter_scholar_rayne",
+   "text": "{hunter_scholar_rayne.name}反手抽出风衣下摆垫入箱体下沿，用石棉皮手套牢牢护住权杖尖棱硬刃末端防止打滑，大声喝道就是这个偏心自锁搭扣！"
+  },
+  {
+   "id": "hk_tight_breath_ear_brush",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "slot": "vampire_lady_alicia",
+   "text": "{vampire_lady_alicia.name}整个人伏在学者怀前，面庞几乎贴上学者颈项，滚烫娇喘混合着淡雅冷香在狭小检修孔旁猛烈交融。"
+  },
+  {
+   "id": "hk_lace_corset_heat_exchange",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "slot": "vampire_lady_alicia",
+   "text": "{vampire_lady_alicia.name}束腰长裙被热汗浸得半透紧贴背脊曲线，双手毅然越过学者粗壮手臂重叠紧握权杖长柄，合力向下一寸寸猛压！"
+  },
+  {
+   "id": "hk_scepter_flange_notch_align",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "slot": "vampire_lady_alicia",
+   "text": "{vampire_lady_alicia.name}以血族长女的绝对果决，将高纯度实心淬火高碳钢打造的坚硬权杖尖棱，精准别入配电箱搭扣偏心槽孔的自锁死点。"
+  },
+  {
+   "id": "hk_rubber_hammer_chock_in",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "slot": "hunter_scholar_rayne",
+   "text": "{hunter_scholar_rayne.name}将随身绝缘陶瓷头猛然卡入箱体边缘，单臂如铜浇铁铸般撑开避险空隙，大吼道支点已成，大小姐尽管用力下压！"
+  },
+  {
+   "id": "hk_satin_ribbon_bind_grip",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "slot": "vampire_lady_alicia",
+   "text": "{vampire_lady_alicia.name}亲手解下领口洁白高贵的丝绒颈带，紧紧缠绕在两人满是冷汗的手背与权杖柄部，将两人的手臂力量彻底刚性绞合为一体！"
+  },
+  {
+   "id": "hk_atrium_air_pressure_drop",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "slot": "vampire_lady_alicia",
+   "text": "{vampire_lady_alicia.name}察觉水银灯管电弧蜂鸣愈发刺耳，断然喊道灯管要炸了，立刻随本小姐全员趴下进行杠杆最终突压！"
+  },
+  {
+   "id": "hk_synchronized_grunt_heave",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "slot": "hunter_scholar_rayne",
+   "text": "{hunter_scholar_rayne.name}与千金齐声发力，后背肌肉如山丘般隆起，将整整两百斤体重与臂力完全倾注于挥动的权杖末端！"
+  },
+  {
+   "id": "hk_spring_latch_pop_rebound",
+   "kind": "approach",
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "slot": "vampire_lady_alicia",
+   "text": "{vampire_lady_alicia.name}手心感受到清脆至极的机械断裂震颤，偏心搭扣硬生生被权杖折断跳脱，高压铜闸刀伴随耀眼火花轰然跳闸断电！"
+  },
+  {
+   "id": "hk_vault_escape_roll_fresh_air",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "slot": "vampire_lady_alicia",
+   "text": "{vampire_lady_alicia.name}看着刺目紫外线瞬间熄灭，被学者单臂揽住纤腰护在怀前，两人迎着地宫死角渐渐恢复的阴凉空气大口喘息，绝境脱困成功！"
+  },
+  {
+   "id": "hk_end_relief_praise",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "slot": "vampire_lady_alicia",
+   "text": "{vampire_lady_alicia.name}靠在大理石假棺旁微微喘息，面颊带着劫后余生的嫣红，侧过脸轻声对身侧学者道多亏学者勇敢护着我。"
+  },
+  {
+   "id": "hook_alicia_red_wine",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "vampire_lady_alicia",
+   "text": "{npc.name}晃着一杯红酒，靠在石棺边看人：别紧张，是真的红酒。本小姐向来只喝这个……你要不要当第一个例外？"
+  },
+  {
+   "id": "hook_alicia_garlic",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "vampire_lady_alicia",
+   "text": "{npc.name}凑近闻了闻，皱起鼻子：你身上一股大蒜味。过来，本小姐的香水借你一点，省得熏着我的地宫。"
+  },
+  {
+   "id": "hook_alicia_velvet_curtain",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "vampire_lady_alicia",
+   "text": "{npc.name}拉紧窗前的厚丝绒帘，回头说：天快亮了。你要走就趁现在，要留……就陪我坐到天黑。"
+  },
+  {
+   "id": "hook_alicia_cold_hand",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "vampire_lady_alicia",
+   "text": "{npc.name}把一只冰凉的手按在人的手背上，挑起眉：血族的体温就这么低。怕了？那你帮我捂一捂。"
+  },
+  {
+   "id": "hook_rayne_rubbing",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "hunter_scholar_rayne",
+   "text": "{npc.name}把一张刚拓好的铭文递过来：石棺上刻的是你家族的名字。你想知道两百年前，这里发生过什么吗？"
+  },
+  {
+   "id": "hook_rayne_silver_cross",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "hunter_scholar_rayne",
+   "text": "{npc.name}把胸前的银十字架摘下来，揣进了口袋：在你的地宫里，不戴这个了。省得你离我那么远。"
+  },
+  {
+   "id": "hook_alicia_crypt_candles",
+   "kind": "approach",
+   "location_ids": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "slot": "vampire_lady_alicia",
+   "text": "{npc.name}站在棺室门口，手里捏着一只水晶杯：酒醒好了。……猎魔人，进来陪我喝一杯。"
+  },
+  {
+   "id": "hd_vampire_lady_alicia",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "vampire_lady_alicia",
+   "text": "{vampire_lady_alicia.name}倚在书架边，把一本旧书递给你：“读给我听。今晚月色很好。”"
+  },
+  {
+   "id": "hd_hunter_scholar_rayne",
+   "kind": "approach",
+   "location_ids": [],
+   "slot": "hunter_scholar_rayne",
+   "text": "{hunter_scholar_rayne.name}摊开一本考察笔记：“这几幅壁画的拓本，你帮我对一对。”"
+  }
+ ],
+ "id": "vampire_crypt_uv_barrier_scepter_lever",
+ "locations": [
+  {
+   "affordances": [
+    "将天鹅绒斗篷展开遮挡射向千金的散射紫外线",
+    "从权杖顶端旋出淬火尖棱折角察看机械受力结构",
+    "合力跪伏在石壁阴影狭缝躲避直射强光"
+   ],
+   "detail": "深埋地下三十米的中世纪哥特石砌棺室，两侧竖立着黑色玄武岩雕像与纯白大理石假棺。因误触防盗电路，过道上方六组高能紫外线水银石英灯管爆发出刺耳滋滋声与刺目紫蓝强光，断龙石轰然砸落将退路彻底封死，石阶温度因高能灯管炙烤骤升至四十度。",
+   "exits": [
+    "loc_crypt_circuit_breaker_nook",
+    "loc_crypt_antechamber_passage"
+   ],
+   "id": "loc_vampire_crypt_chamber",
+   "name": "地宫大理石棺室通道石阶",
+   "pressure_modifiers": {
+    "p_circuit_breaker_magnetic_jam": "配电箱电磁锁闭搭扣受大电流电涌卡死，偏心弹簧抱死无法电动跳闸。",
+    "p_uv_light_radiation_skin_burn": "高能紫外线光斑随灯架下倾不断逼近，血族表皮已泛起灼痛红斑逼近碳化死线。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "disaster",
+    "intimate"
+   ],
+   "visibility": "刺目的紫蓝强光在石壁上映出狰狞光影，空气中弥漫着强烈的臭氧与高温焦糊味，能看清彼此面庞上滑落的细腻冷汗与急促起伏的胸膛。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "将纯银精钢权杖顶端淬火尖棱折角硬卡入偏心搭扣凹槽",
+    "双手重叠握住杖身长柄以石壁外沿为支点全力向下猛压撬动",
+    "在电磁搭扣崩断脱开的刹那顺势合力拉下总闸灭灯自救"
+   ],
+   "detail": "位于石壁凹陷处的铸铁配电箱检修狭缝，空间仅有三十公分进深。箱内一组厚重铜质双投闸刀被特制偏心防误碰弹簧搭扣死死卡死，搭扣缝隙不足半寸，外层包裹着电涌烧熔的绝缘橡胶。",
+   "exits": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "id": "loc_crypt_circuit_breaker_nook",
+   "name": "闸刀死角",
+   "pressure_modifiers": {
+    "p_circuit_breaker_magnetic_jam": "电磁铁吸力与弹簧形变应力叠加，杠杆反扭阻尼逼近金属疲劳极限。",
+    "p_close_contact_body_heat_tension": "在三十公分狭窄死角中两人身躯紧紧相贴，千金急促滚烫的吐息与颤抖娇躯依偎在学者怀前，湿透蕾丝裙下传来的惊人体温令人心悸。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "intimate"
+   ],
+   "visibility": "电弧火花不时在铜闸刀触头噼啪跳动，强光手电窄光束照亮搭扣内部受力的偏心棘爪。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "通过门底缝隙向内递送加厚绝缘胶带与备用撬棒",
+    "在外侧清理压在断龙石边缘的碎石碎屑",
+    "准备大面积遮光黑布与降温冷敷冰袋迎接脱险人员"
+   ],
+   "detail": "断龙石外侧的前室拱廊，空气阴冷湿润，石壁挂着防风火把。断龙石下沿与地面卡阻留有一掌宽的通气细缝，随行学者与向导正焦急在缝隙外呼喊。",
+   "exits": [
+    "loc_vampire_crypt_chamber"
+   ],
+   "id": "loc_crypt_antechamber_passage",
+   "name": "拱廊前室",
+   "pressure_modifiers": {
+    "p_uv_light_radiation_skin_burn": "外侧人员无法突破万斤断龙石，救援耗时无法赶在千金表皮深度灼伤前完成开启。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "visibility": "昏黄火把光线穿过断龙石细缝投射进来，能看见外侧工具阴影与地面细沙。",
+   "witnesses": [
+    "bg_archaeology_professor_walter",
+    "bg_vampire_chamberlain_alois",
+    "bg_crypt_mercenary_kane"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "德拉库拉",
+   "巴托里",
+   "卡恩斯坦",
+   "范海辛",
+   "贝尔蒙特",
+   "沃克",
+   "克伦威尔",
+   "海德堡",
+   "诺斯费拉",
+   "莫罗佐夫",
+   "斯托克",
+   "阿卡多",
+   "格里芬",
+   "布莱克"
+  ],
+  "given_female": [
+   "艾莉西亚",
+   "塞拉菲娜",
+   "卡米拉",
+   "莱拉",
+   "薇尔莉特",
+   "克里斯汀",
+   "奥菲莉亚",
+   "莫妮卡",
+   "黛安娜",
+   "芙罗拉",
+   "尤利娅",
+   "伊丽莎白",
+   "希尔达",
+   "艾莲娜"
+  ],
+  "given_male": [
+   "雷恩",
+   "加百列",
+   "卢卡斯",
+   "维克多",
+   "达米安",
+   "亚历克",
+   "马修",
+   "塞巴斯",
+   "多米尼克",
+   "克里斯托",
+   "艾德蒙",
+   "文森特",
+   "杰拉尔德",
+   "马库斯"
+  ],
+  "given_neutral": [
+   "诺亚",
+   "西里尔",
+   "瓦伦丁",
+   "尤里安",
+   "阿德里安",
+   "卡洛斯",
+   "马里恩",
+   "达利安",
+   "雷蒙德",
+   "弗洛里安",
+   "莱昂",
+   "特里斯坦",
+   "卢西安",
+   "菲尼克斯"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{family}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "按原稿加入，保留哥特地宫防盗紫外线水银灯网电涌锁死、断龙石咬死通道与血族千金用纯银权杖尖棱扳断配电闸刀搭扣的骨架。同一批有六个同模板的世界，这里拉开的方向是宿敌：没落血族的最后一位千金、世代猎杀血族的猎魔人学者、只喝红酒的血族、嫌对方一身大蒜味、留到收工的那盏灯、摘下的银十字架。写死的人名改为身份称呼；婴儿肥大多换成了其余外貌描写；人物组合按权力结构放开玩家身份，压力与日常不再锁死钩子，并加了几个不限地点的靠近型钩子；千金亲密前提写明脱困之后、双方清醒自愿；新增一个棺室烛光下替千金解开蕾丝束腰的亲密日常。",
+ "player_identities": [
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的猎魔学者，精通古代石室机械陷阱与近代防盗电气回路破拆，沉毅冷静。",
+   "gender": "male",
+   "id": "pi_scholar_hunter_rayne",
+   "reputation": "多次成功化解地下遗迹电气短路与机械自锁危机，深受千金依赖与信任。",
+   "resources": [
+    "一副加厚高密度石棉耐高温防电弧战术手套",
+    "一柄加厚重型不锈钢战术撬棍",
+    "防爆高透防强光工业护目镜"
+   ],
+   "risks": [
+    "若不能在紫外线光幕彻底烧毁石门温控线前切断总闸，短路电弧将引爆蓄电池引发坍塌。"
+   ],
+   "role": "古老地宫考古青年猎魔人学者",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}学者"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}长官"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}先生"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的机械电气青年工匠，亲手改装过地宫紫外线防盗水银灯配电箱结构。",
+   "gender": "male",
+   "id": "pi_crypt_engineer_rayne",
+   "reputation": "对地宫配电与偏心锁止机械构造了如指掌，遇事冷静果决。",
+   "resources": [
+    "地宫高压配电柜电气联动蓝图",
+    "一支加厚纯铜多功能电工改锥撬棒",
+    "高等级防电弧加厚牛皮工作围裙"
+   ],
+   "risks": [
+    "闸刀偏心搭扣带有两百伏残余感应电，强行扳动必须依靠绝缘与刚性撬具。"
+   ],
+   "role": "地宫防盗机关机电青年总工",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}总工"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}师傅"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}工程师"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的誓约守护骑士，精通古代石室机关对抗与重武器杠杆发力技巧。",
+   "gender": "male",
+   "id": "pi_guardian_knight_rayne",
+   "reputation": "以命护卫千金的忠诚骑士，在紫外线危机前毫不犹豫用身躯遮挡光幕。",
+   "resources": [
+    "一副淬火精钢板甲护臂",
+    "一件高强度防光防刺阻燃重斗篷",
+    "一瓶高浓度圣水净化喷剂"
+   ],
+   "risks": [
+    "紫外线强烈散射光线将逐步灼穿防光斗篷表面涂层。"
+   ],
+   "role": "真祖家族首席青年近卫誓约骑士",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}骑士"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}卿"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}骑士长"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    22,
+    24
+   ],
+   "baseline": "二十二岁的地下探险老手，精通石室窄道杠杆支点构建与断路器应急脱扣法则。",
+   "gender": "male",
+   "id": "pi_tomb_explorer_rayne",
+   "reputation": "善于在极限死角利用随身随带物品实现极限逃生。",
+   "resources": [
+    "高硬度铬钼合金便携破拆撬杆",
+    "一盘特种高强度凯夫拉防电缆绳",
+    "高亮度防爆矿灯"
+   ],
+   "risks": [
+    "单人力量难以对抗电磁铁吸合阻尼，必须与千金协同爆发峰值扭矩。"
+   ],
+   "role": "地下遗迹生还青年探险向导",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{given}向导"
+    },
+    {
+     "gender": "any",
+     "pattern": "{given}领队"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}探险家"
+    }
+   ]
+  }
+ ],
+ "premise": "哥特古堡的地宫里，没落的血族名门只剩下最后一位真祖千金，靠变卖祖传藏品和一杯杯红酒熬过漫长的白昼。来地宫考察的猎魔人学者，本该是血族的宿敌，却在古堡里住了一个月。地宫的防盗机关是祖上装的紫外线灯网，电路早就老化了。",
+ "pressures": [
+  {
+   "choice": "是冒险利用权杖强行撬断搭扣，还是在石室死角中等待外侧人员挖掘救援？",
+   "exits": [
+    {
+     "cost": "权杖尖棱受力微磨损，两人手掌手臂受金属高温与散射电弧轻微灼烫。",
+     "option": "两人合力以权杖淬火尖棱下压偏心搭扣扳断跳闸断电自救脱困。"
+    },
+    {
+     "cost": "极其被动，外部挖掘断龙石耗时过长将直接导致严重表皮炭化身亡。",
+     "option": "裹紧斗篷蜷缩在石阶死角被动等待救援。"
+    }
+   ],
+   "far": {
+    "consequence": "受困人员因急性重度紫外线热灼伤休克，在强光炙烤石室内双双身亡殉职。",
+    "due_days": 1,
+    "trigger": "极度紫外线辐射诱发深度灼伤休克"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_uv_warning_thunder",
+    "hk_crypt_uv_roaring_rush",
+    "hk_crypt_breaker_groan_deadlock",
+    "hk_breaker_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_lace_corset_heat_exchange",
+    "hk_scepter_flange_notch_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_alicia_red_wine",
+    "hook_alicia_garlic",
+    "hook_alicia_velvet_curtain",
+    "hook_alicia_cold_hand",
+    "hook_rayne_rubbing",
+    "hook_rayne_silver_cross",
+    "hook_alicia_crypt_candles"
+   ],
+   "id": "p_uv_light_radiation_skin_burn",
+   "immediate": {
+    "minutes": 2,
+    "text": "刺鼻臭氧与灼热浪潮扑面而来，千金雪白肌肤泛起大片灼痛红斑，冷汗瞬间浸透衣衫。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vampire_crypt_chamber",
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "强光光弧蔓延至石阶死角，表皮灼痛加剧，千金嘴唇泛白，呼吸急促虚弱，思维逐渐迟滞。"
+   },
+   "objective": "必须在紫外线强光造成深度炭化昏厥前，用精钢权杖撬断偏心搭扣拉开闸刀自救。",
+   "source": "nature",
+   "start_minute": 1320,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "高能紫外线强光表皮灼伤危机",
+   "trigger": "高能水银紫外线灯管电涌强行锁死，紫蓝强光不断扩散，极度炙烤引发血族表皮重度灼伤危局。"
+  },
+  {
+   "choice": "是单人使用随身短刀尝试剔挑，还是两人身体紧密相贴合力下压精钢权杖？",
+   "exits": [
+    {
+     "cost": "工具把手产生微小塑性形变，施力人员手臂酸麻。",
+     "option": "以风衣皮革护垫构成刚性防滑支点，叠合双手全力压紧权杖下扳折断搭扣。"
+    },
+    {
+     "cost": "硬质撞击击穿带电铜排诱发电弧爆燃，彻底堵死自救通道。",
+     "option": "用工具盲目砸击咬死的铜闸刀。"
+    }
+   ],
+   "far": {
+    "consequence": "搭扣与闸刀彻底熔融焊死，成为永久无法断电的高压死囚牢。",
+    "due_days": 1,
+    "trigger": "闸刀铜排彻底熔焊咬死无法断开"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_uv_warning_thunder",
+    "hk_crypt_uv_roaring_rush",
+    "hk_crypt_breaker_groan_deadlock",
+    "hk_breaker_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_lace_corset_heat_exchange",
+    "hk_scepter_flange_notch_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_alicia_red_wine",
+    "hook_alicia_garlic",
+    "hook_alicia_velvet_curtain",
+    "hook_alicia_cold_hand",
+    "hook_rayne_rubbing",
+    "hook_rayne_silver_cross",
+    "hook_alicia_crypt_candles"
+   ],
+   "id": "p_circuit_breaker_magnetic_jam",
+   "immediate": {
+    "minutes": 2,
+    "text": "偏心搭扣被电磁铁吸力死死咬死，搭扣锁舌在巨大阻尼下纹丝不动。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "箱内温度突破六十度，绝缘橡胶冒出白烟，手动折断自救窗口极速关闭。"
+   },
+   "objective": "在闸刀铜触头被高温彻底熔焊前，以精钢权杖撬断偏心搭扣切断回路自救。",
+   "source": "accident",
+   "start_minute": 1320,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "配电闸刀偏心搭扣磁滞抱死",
+   "trigger": "强电流电涌使防误合偏心搭扣过热变形咬死，闸刀被死死锁止在闭合位无法电动跳闸。"
+  },
+  {
+   "choice": "是因男女名分矜持拉开距离导致施力分散，还是坦然贴身相拥爆发出最大协同扭矩？",
+   "exits": [
+    {
+     "cost": "矜持名门防线被彻底打破，两人心灵产生不可磨灭的深厚依恋。",
+     "option": "抛弃一切杂念，千金伏于学者胸前双手重叠压紧权杖一鼓作气突破自救。"
+    },
+    {
+     "cost": "力矩不足无法撼动偏心搭扣，导致自救彻底失败。",
+     "option": "刻意保持距离单手侧向发力。"
+    }
+   ],
+   "far": {
+    "consequence": "权杖滑出暗槽，错过最后折断搭扣自救时间窗导致人员受严重灼伤。",
+    "due_days": 1,
+    "trigger": "羞怯分心导致发力失衡工具脱落"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_uv_warning_thunder",
+    "hk_crypt_uv_roaring_rush",
+    "hk_crypt_breaker_groan_deadlock",
+    "hk_breaker_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_lace_corset_heat_exchange",
+    "hk_scepter_flange_notch_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_alicia_red_wine",
+    "hook_alicia_garlic",
+    "hook_alicia_velvet_curtain",
+    "hook_alicia_cold_hand",
+    "hook_rayne_rubbing",
+    "hook_rayne_silver_cross",
+    "hook_alicia_crypt_candles"
+   ],
+   "id": "p_close_contact_body_heat_tension",
+   "immediate": {
+    "minutes": 2,
+    "text": "千金束腰长裙温热柔润的触感传来，急促滚烫的吐息直接拂在耳侧颈项。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "千金冰凉的唇几乎擦过颈侧，血族的呼吸这么急，还是头一回。"
+   },
+   "objective": "在极度贴近的肢体接触与异性张力冲击下，克制心神专注机械对位发力。",
+   "source": "person",
+   "start_minute": 1320,
+   "tags": [
+    "workplace"
+   ],
+   "title": "配电死角贴身相依滚烫喘息",
+   "trigger": "两人被迫同时挤在不足三十公分的死角狭缝，湿透蕾丝裙与风衣紧贴，体温与粗重喘息剧烈交叠。"
+  },
+  {
+   "choice": "是冒险就地撬断搭扣，还是退回深处躲避飞溅石英碎片？",
+   "exits": [
+    {
+     "cost": "顾不上手臂上的灼痕，咬着牙硬撑。",
+     "option": "两人贴面眼神交汇瞬间爆发全身重量峰值力矩折断搭扣自救脱离。"
+    },
+    {
+     "cost": "失去最后靠近闸刀的自救机会，被困石室直到中毒身亡。",
+     "option": "退回假棺深处被动躲避飞溅。"
+    }
+   ],
+   "far": {
+    "consequence": "高热石英碎片飞溅四射，剧毒水银蒸汽瞬间充斥幽闭石室造成致命吸入中毒。",
+    "due_days": 1,
+    "trigger": "石英灯管彻底爆碎释放水银毒烟"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_uv_warning_thunder",
+    "hk_crypt_uv_roaring_rush",
+    "hk_crypt_breaker_groan_deadlock",
+    "hk_breaker_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_lace_corset_heat_exchange",
+    "hk_scepter_flange_notch_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_alicia_red_wine",
+    "hook_alicia_garlic",
+    "hook_alicia_velvet_curtain",
+    "hook_alicia_cold_hand",
+    "hook_rayne_rubbing",
+    "hook_rayne_silver_cross",
+    "hook_alicia_crypt_candles"
+   ],
+   "id": "p_mercury_quartz_burst_drop",
+   "immediate": {
+    "minutes": 2,
+    "text": "上方水银灯管发出刺耳的咔咔热裂声，紫蓝电光不规则剧烈抖动。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vampire_crypt_chamber",
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "管壁出现明显熔融气泡，高热石英即将崩碎，留给撬动的时间所剩无几。"
+   },
+   "objective": "必须在石英管炸裂前完成权杖卡齿撬断搭扣并拉闸断电。",
+   "source": "nature",
+   "start_minute": 1320,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "高能水银石英灯管过热爆裂危险",
+   "trigger": "高能灯管持续超负荷通电，石英管壁发生红炽变形，随时可能发生高热炸裂。"
+  },
+  {
+   "choice": "是忍痛咬牙紧扣工具，还是分神活动肢体调整重心？",
+   "exits": [
+    {
+     "cost": "身体摩擦加剧，肌肤泛起大片淤青擦痕。",
+     "option": "千金与学者互相用双腿死死卡住彼此脚踝稳固重心合力下压自救。"
+    },
+    {
+     "cost": "偏心搭扣在电磁力下再度深陷咬死。",
+     "option": "暂停按压后撤舒展肢体。"
+    }
+   ],
+   "far": {
+    "consequence": "权杖被偏心反弹力强行震飞，彻底失去最后断电机会。",
+    "due_days": 1,
+    "trigger": "双腿打滑彻底失去反向支撑力矩"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_uv_warning_thunder",
+    "hk_crypt_uv_roaring_rush",
+    "hk_crypt_breaker_groan_deadlock",
+    "hk_breaker_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_lace_corset_heat_exchange",
+    "hk_scepter_flange_notch_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_alicia_red_wine",
+    "hook_alicia_garlic",
+    "hook_alicia_velvet_curtain",
+    "hook_alicia_cold_hand",
+    "hook_rayne_rubbing",
+    "hook_rayne_silver_cross",
+    "hook_alicia_crypt_candles"
+   ],
+   "id": "p_sweat_soaked_steps_slip_hazard",
+   "immediate": {
+    "minutes": 2,
+    "text": "光滑大理石地面摩擦力急剧下降，膝盖发力时连连微滑。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "持续静力发力使前臂与腿部肌肉发生剧烈震颤，下踩支撑力濒临极限。"
+   },
+   "objective": "在汗湿的石阶上稳住膝盖不打滑，把权杖的杠杆姿势保持住。",
+   "source": "nature",
+   "start_minute": 1320,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "石阶冷汗湿滑发力打滑失稳",
+   "trigger": "剧烈出汗导致石室石阶布满黏湿汗渍，两人半跪施力双腿极易打滑脱位。"
+  },
+  {
+   "choice": "是立即加大力度一鼓作气扳断权杖，还是等待眼部适应再行操作？",
+   "exits": [
+    {
+     "cost": "身心极度疲惫，手臂肌肉严重拉伤酸痛。",
+     "option": "双手重叠倾注全力将权杖向下猛按折断搭扣自救脱困。"
+    },
+    {
+     "cost": "延误最后宝贵战机导致灯管爆裂。",
+     "option": "闭眼揉搓眼球等待恢复视力。"
+    }
+   ],
+   "far": {
+    "consequence": "受困人员彻底丧失视力对准能力，无法继续实施机械自救脱困。",
+    "due_days": 1,
+    "trigger": "视神经强光眩晕彻底丧失对位能力"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hk_uv_warning_thunder",
+    "hk_crypt_uv_roaring_rush",
+    "hk_crypt_breaker_groan_deadlock",
+    "hk_breaker_deformation_scrape",
+    "hk_tight_breath_ear_brush",
+    "hk_lace_corset_heat_exchange",
+    "hk_scepter_flange_notch_align",
+    "hk_rubber_hammer_chock_in",
+    "hk_satin_ribbon_bind_grip",
+    "hk_atrium_air_pressure_drop",
+    "hk_synchronized_grunt_heave",
+    "hk_spring_latch_pop_rebound",
+    "hk_vault_escape_roll_fresh_air",
+    "hk_end_relief_praise",
+    "hook_alicia_red_wine",
+    "hook_alicia_garlic",
+    "hook_alicia_velvet_curtain",
+    "hook_alicia_cold_hand",
+    "hook_rayne_rubbing",
+    "hook_rayne_silver_cross",
+    "hook_alicia_crypt_candles"
+   ],
+   "id": "p_crypt_lantern_oil_exhaustion",
+   "immediate": {
+    "minutes": 2,
+    "text": "火把火苗剧烈闪烁，强弱光线剧烈交替导致视野出现大片黑斑盲点。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_vampire_crypt_chamber",
+    "loc_crypt_circuit_breaker_nook"
+   ],
+   "near": {
+    "deadline_minutes": 4,
+    "text": "强光刺眼眩晕感加剧，微弱光线下仅能凭借触觉感知搭扣边缘。"
+   },
+   "objective": "在视力受强光完全眩晕前，准确卡入尖棱折角并合力扳断闸刀搭扣。",
+   "source": "nature",
+   "start_minute": 1320,
+   "tags": [
+    "workplace",
+    "disaster"
+   ],
+   "title": "石室应急火把渐微视线受阻",
+   "trigger": "石室内氧气随电弧燃烧急剧消耗，备用火把即将熄灭，面临强光与死黑交替的视神经失明危险。"
+  },
+  {
+   "choice": "报上地宫的方位，还是烧掉召令、从此不再是猎魔人",
+   "exits": [
+    {
+     "cost": "千金会知道是谁出卖了这座地宫",
+     "option": "报上方位"
+    },
+    {
+     "cost": "学者从此没有身份，只能留在古堡里",
+     "option": "烧掉召令"
+    }
+   ],
+   "far": {
+    "consequence": "古堡被围，千金失去最后的藏身之处，学者被公会追杀",
+    "due_days": 3,
+    "trigger": "公会派猎手上门"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "hook_alicia_red_wine",
+    "hook_alicia_garlic",
+    "hook_alicia_velvet_curtain",
+    "hook_alicia_cold_hand",
+    "hook_rayne_rubbing",
+    "hook_rayne_silver_cross"
+   ],
+   "id": "p_hunters_guild_summons",
+   "immediate": {
+    "minutes": 5,
+    "text": "阿洛伊斯管家把召令放在银盘里送来，信封上的火漆还没干"
+   },
+   "leverage": null,
+   "location_ids": [
+    "loc_crypt_antechamber_passage"
+   ],
+   "near": {
+    "deadline_minutes": 180,
+    "text": "月出，公会的猎手出发"
+   },
+   "objective": "在月出之前，给公会一个回复",
+   "source": "institution",
+   "start_minute": 1200,
+   "tags": [],
+   "title": "猎魔人公会的召令",
+   "trigger": "灯网熄灭后的第二天入夜，猎魔人公会的信鸽落在古堡窗台：学者必须在月出前报上地宫的方位和真祖的下落，否则以叛会论处，银十字收回"
+  }
+ ],
+ "region": "古老哥特地宫大理石石室与高能紫外线回廊死角",
+ "rules": [
+  {
+   "id": "r_crypt_uv_barrier_safety_limit",
+   "text": "高能紫外线水银阵列已通电充能，严禁肉身盲目穿越光幕引发大面积表皮碳化。"
+  },
+  {
+   "id": "r_scepter_lever_breaker_release",
+   "text": "防误触配电闸刀受磁滞咬死后只能通过高强度硬质合金尖端卡入偏心销反向挑脱。"
+  },
+  {
+   "id": "r_silver_steel_core_safety",
+   "text": "权杖外层纯银虽抑制血族魔力，但内衬高碳淬火精钢骨架具备极高抗弯物理刚性。"
+  },
+  {
+   "id": "r_adult_mechanical_escape_standard",
+   "text": "脱困全凭物理力学与机械自救，一切互动严守成年自愿与安全防护原则。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "共御死光",
+  "committed": "誓死相守",
+  "familiar": "信赖同命",
+  "flirting": "贴身护持",
+  "intimate": "倾心相依",
+  "stranger": "宿敌相逢",
+  "testing": "生死相托"
+ },
+ "status": "released",
+ "style_hint": "哥特奇幻与现代机电防盗交织的工笔，刻画高能紫外线逼近血族娇嫩肌肤的焦灼绝境、纯银精钢权杖顶端淬火尖棱在闸刀偏心搭扣上的剧烈力矩，傲娇血族千金哥特蕾丝礼裙被汗水湿透勾勒身姿与娇喘，动作硬核写实充满协作张力。",
+ "tension_engines": [
+  {
+   "id": "te_uv_light_radiation_skin_burn",
+   "text": "高能紫外线光斑步步逼近，血族表皮极度敏感灼痛，重度表皮炭化绝境迫在眉睫。"
+  },
+  {
+   "id": "te_circuit_breaker_magnetic_jam",
+   "text": "配电箱电磁偏心搭扣受电涌卡死抱死在闭合位，杠杆反扭阻尼逼近极限。"
+  },
+  {
+   "id": "te_close_contact_body_heat",
+   "text": "在三十公分逼仄死角两人完全贴伏，湿透蕾丝裙与战术风衣体温催生极度异性张力。"
+  },
+  {
+   "id": "te_mercury_quartz_burst_hazard",
+   "text": "水银石英灯管在极度高热下随时可能发生剧烈爆裂，释放剧毒蒸汽与致命飞溅碎片。"
+  }
+ ],
+ "title": "吸血鬼真祖千金·地宫紫外线熔断绝境",
+ "tone": [
+  "没落血族的最后一位千金",
+  "宿敌出身的猎魔人学者",
+  "紫外线灯网逼近的灼光",
+  "石阶死角里湿透的蕾丝裙"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "tw_breaker_socket_slot_located",
+   "requires": [
+    "vampire_lady_alicia"
+   ],
+   "text": "{vampire_lady_alicia.name}借电弧微光，在漆黑的铸铁配电箱底层准确定位出咬死偏心搭扣暗孔的微小受力支点。"
+  },
+  {
+   "category": "人事",
+   "id": "tw_crypt_voltage_groan_alarm",
+   "requires": [
+    "vampire_lady_alicia"
+   ],
+   "text": "{vampire_lady_alicia.name}听到水银灯管发出刺耳的高温金属呻吟，光弧剧烈闪烁，面庞上映出冷峻决意。"
+  },
+  {
+   "category": "资源",
+   "id": "tw_ceramic_lever_chock_safety",
+   "requires": [
+    "hunter_scholar_rayne"
+   ],
+   "text": "{hunter_scholar_rayne.name}从口袋抽出绝缘陶瓷撬头，死死垫在箱门边缘下方，彻底构筑起刚性防挤压安全作业间隙。"
+  },
+  {
+   "category": "制度",
+   "id": "tw_velvet_ribbon_bind_tight",
+   "requires": [
+    "vampire_lady_alicia",
+    "hunter_scholar_rayne"
+   ],
+   "text": "{vampire_lady_alicia.name}解下随身丝绒颈带，由{hunter_scholar_rayne.name}迅速将权杖柄部与手背紧密捆扎，消除了手汗打滑隐患。"
+  },
+  {
+   "category": "时限",
+   "id": "tw_heat_alarm_final_minute_rush",
+   "requires": [
+    "vampire_lady_alicia"
+   ],
+   "text": "石室表皮灼痛感已逼近绝对生理极限，石英管即将崩裂，生死死线已逼近最后数秒。"
+  },
+  {
+   "category": "关系",
+   "id": "tw_close_body_tight_bind_leverage",
+   "requires": [
+    "vampire_lady_alicia",
+    "hunter_scholar_rayne"
+   ],
+   "text": "{hunter_scholar_rayne.name}在配电死角紧紧护住{vampire_lady_alicia.name}，两人滚烫手指紧握精钢权杖，急促滚烫的吐息与心跳在幽暗中彻底交叠。"
+  },
+  {
+   "category": "意外",
+   "id": "tw_scepter_lever_release_success",
+   "requires": [
+    "vampire_lady_alicia"
+   ],
+   "text": "伴随一声清脆金属断裂巨响，淬火钢芯权杖成功折断偏心搭扣，高压闸刀瞬间弹开跳闸，高能光幕彻底熄灭，两人顺利脱险自救。"
+  }
+ ]
+}

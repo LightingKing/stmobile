@@ -1,0 +1,2473 @@
+{
+ "background_cast": [
+  {
+   "adult_context": "公会雇佣多年的重装门卫",
+   "age_range": [
+    25,
+    45
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_vault_sentinel",
+   "line": "{npc.name}裹在生铁重甲里持戟立在石门内侧，没有总管令牌，谁也别想跨过去。",
+   "location_ids": [
+    "debt_settlement_chamber"
+   ],
+   "name": null,
+   "role": "重铠门卫哨兵"
+  },
+  {
+   "adult_context": "刚进公会接触到黑账内幕被吓破胆的文职人员",
+   "age_range": [
+    21,
+    30
+   ],
+   "function": "witness",
+   "gender": "any",
+   "id": "bg_reception_clerk",
+   "line": "{npc.name}面色如土抱着沉重账本缩在档案架旁，只要塞其几枚银币，就会偷偷告知你总管今晚把哪份机密委托锁在左侧暗格。",
+   "location_ids": [
+    "contract_vault_archives"
+   ],
+   "name": null,
+   "role": "发抖见习记录员"
+  },
+  {
+   "adult_context": "还不起利息、被扣在地下做杂役的老佣兵",
+   "age_range": [
+    35,
+    60
+   ],
+   "function": "rumor_source",
+   "gender": "any",
+   "id": "bg_manacled_debtor",
+   "line": "{npc.name}缩在水牢一角，递过去半口烈酒，就会哑着嗓子讲当年那支S级队伍是怎么被出卖的。",
+   "location_ids": [
+    "iron_cage_holding_cell"
+   ],
+   "name": null,
+   "role": "欠债多年的老佣兵"
+  },
+  {
+   "adult_context": "专门在破产者身上榨取最后一滴油水的黑市鬣狗",
+   "age_range": [
+    28,
+    48
+   ],
+   "function": "helper",
+   "gender": "any",
+   "id": "bg_whispering_informant",
+   "line": "{npc.name}倚在麦酒桶旁压低帽檐，递过一卷后巷通行的暗号纸条，开价五百金币。",
+   "location_ids": [
+    "whispering_guild_tavern"
+   ],
+   "name": null,
+   "role": "酒馆暗巷中间人"
+  },
+  {
+   "adult_context": "只认公章与赏钱的公会底层奔走急递",
+   "age_range": [
+    22,
+    35
+   ],
+   "function": "messenger",
+   "gender": "any",
+   "id": "bg_courier_runner",
+   "line": "{npc.name}飞奔下楼梯将一纸盖有王都紧急公章的封条拍在门头，大声宣告理事会督查车队已进城，催促暗室立即结清亏空。",
+   "location_ids": [
+    "whispering_guild_tavern"
+   ],
+   "name": null,
+   "role": "公会催命传令兵"
+  },
+  {
+   "adult_context": "边境矿场派来招揽以工抵债者的管事",
+   "age_range": [
+    30,
+    52
+   ],
+   "function": "obstacle",
+   "gender": "any",
+   "id": "bg_slave_dealer_agent",
+   "line": "{npc.name}坐在长案外圈翻着劳役名册，打量每个负债的人，等着天亮接手签了以工抵债的人。",
+   "location_ids": [
+    "debt_settlement_chamber"
+   ],
+   "name": null,
+   "role": "矿场劳役行管事"
+  }
+ ],
+ "cast_combos": [
+  {
+   "chemistry": "石案上摊着三百万金币的违约清算书，{cold_eyed_guildmistress.name}拨着金算珠等你按手印，眼神却落在你领口那道旧伤上。",
+   "id": "combo_mistress_debt_ledger",
+   "identity_ids": [
+    "bankrupt_raid_leader"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "cold_eyed_guildmistress",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三年前北境兽潮围城时你和总管被困在废塔地窖里共度一夜，下山前对方把半枚旧骑士铜牌塞进你怀里",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "cold_eyed_guildmistress"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "谈出一份不必卖命的分期，再问{cold_eyed_guildmistress.name}那半枚铜牌的来历。",
+    "limit_gap": "{cold_eyed_guildmistress.name}在守卫面前不能松口，只能借核账的名义把你多留一会儿。",
+    "meeting_reason": "破晓前最后一轮核账，{cold_eyed_guildmistress.name}点名要你单独下来。",
+    "resource_gap": "{cold_eyed_guildmistress.name}握着清算书和你全队的铭牌；你握着深渊回廊的活地图，公会离不开。"
+   },
+   "tags": [
+    "intimate",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_debt_countdown",
+    "te_abyss_crystal_radiation"
+   ]
+  },
+  {
+   "chemistry": "你以欠债佣兵的假身份坐在审讯椅上，袖口里藏着能查封公会的王室金狮蜡丸，等着看{cold_eyed_guildmistress.name}先亮哪张牌。",
+   "id": "combo_mistress_royal_audit",
+   "identity_ids": [
+    "undercover_royal_auditor"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "cold_eyed_guildmistress",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上月在王都财政厅的闭门酒会上总管替你挡下一杯掺了药的果酒，散场时问你敢不敢来边境查真账",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "cold_eyed_guildmistress"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让{cold_eyed_guildmistress.name}交出原版黑账，换一条体面的退路。",
+    "limit_gap": "{cold_eyed_guildmistress.name}不知道你的底细，只能一边核账一边试探。",
+    "meeting_reason": "{cold_eyed_guildmistress.name}照例传唤欠债佣兵，传来的却是你。",
+    "resource_gap": "你握着王室密敕，一句话就能冻结公会账户；{cold_eyed_guildmistress.name}握着高层的黑账，正想找个买家。"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_debt_countdown",
+    "te_poison_contract_leverage"
+   ]
+  },
+  {
+   "chemistry": "{scarred_guild_enforcer.name}当着守卫的面把大剑顿在你脚边唱黑脸，弯腰查你行囊时，却把一包止痛粉塞进你掌心。",
+   "id": "combo_enforcer_cell_watch",
+   "identity_ids": [
+    "bankrupt_raid_leader"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "scarred_guild_enforcer",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "五年前近卫军团断后战里你背着重伤的行刑官蹚过结冰的界河，两人对折一枚军牌立誓生死相托",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "scarred_guild_enforcer"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "把同袍遗物的线索交给{scarred_guild_enforcer.name}，换一条出地底的路。",
+    "limit_gap": "{scarred_guild_enforcer.name}受契约约束，明面上不能替你说一句话。",
+    "meeting_reason": "换防时{scarred_guild_enforcer.name}亲自押你去水牢，路上只有你们两个。",
+    "resource_gap": "{scarred_guild_enforcer.name}管着地下每一道铁门；你手里有当年同袍遇难的线索，正是对方追查多年的东西。"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_debt_countdown",
+    "te_poison_contract_leverage"
+   ]
+  },
+  {
+   "chemistry": "契约库的油灯昏黄，{fallen_high_mage.name}把戴着封魔环的手腕伸到你面前，要你用开锁探针换深渊第十层的开门密钥。",
+   "id": "combo_mage_vault_cipher",
+   "identity_ids": [
+    "disgraced_rune_artificer",
+    "disillusioned_healer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "fallen_high_mage",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "去年学院禁书塔失火那天你和学者躲在隔音密室里避过搜捕，事后对方在你手背内侧画了一道只有彼此能解的秘印",
+     "stage": "intimate"
+    }
+   ],
+   "slots": [
+    "fallen_high_mage"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "和{fallen_high_mage.name}一起校完深渊第十层的符文图。",
+    "limit_gap": "{fallen_high_mage.name}嘴上傲慢，被你点破推演里的错处时却笑了。",
+    "meeting_reason": "你借查阅旧卷宗进了契约库，{fallen_high_mage.name}早在铁架后等着。",
+    "resource_gap": "你有探针或止痛术；{fallen_high_mage.name}有十二重密钥和学院禁书的残页，谁也离不开谁。"
+   },
+   "tags": [
+    "intimate"
+   ],
+   "tension_engine_ids": [
+    "te_abyss_crystal_radiation",
+    "te_executioner_blade_draw"
+   ]
+  },
+  {
+   "chemistry": "头顶酒馆吵嚷喧嚣，{desperate_scout_survivor.name}躲在空酒桶后拉住你的衣摆，护腕里渗出的幽蓝魔光映亮了两人的脸。",
+   "id": "combo_scout_tavern_barrel",
+   "identity_ids": [
+    "disillusioned_healer",
+    "disgraced_rune_artificer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "desperate_scout_survivor",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "下潜深渊前夜在酒馆阁楼上斥候把赢来的银币全塞进你口袋，说活着回来就请你去南境看海",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "desperate_scout_survivor"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "替{desperate_scout_survivor.name}藏好魔核，听对方把吊桥那晚的事说完。",
+    "limit_gap": "{desperate_scout_survivor.name}怕你知道吊桥那件事，话说到一半就咬住了嘴唇。",
+    "meeting_reason": "换药的时辰到了，{desperate_scout_survivor.name}约你在后巷酒桶边碰头。",
+    "resource_gap": "{desperate_scout_survivor.name}握着一颗价值连城的魔核；你能替对方换药，也能替对方遮住魔核的光。"
+   },
+   "tags": [
+    "intimate",
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_abyss_crystal_radiation",
+    "te_debt_countdown"
+   ]
+  },
+  {
+   "chemistry": "药房里回荡着蒸馏水滴落声，{black_market_apothecary.name}摘下皮护目镜坐到工作台边，问你今夜是来找止痛药，还是来找人。",
+   "id": "combo_apothecary_night_lab",
+   "identity_ids": [
+    "disillusioned_healer",
+    "disgraced_rune_artificer"
+   ],
+   "player_positions": [
+    "equal"
+   ],
+   "power_structure": "equal",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "black_market_apothecary",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上旬你替药师修好了裂开的冷凝铜管，对方留你在药房喝了半宿热甜酒，临走送你一盒润喉膏",
+     "stage": "flirting"
+    }
+   ],
+   "slots": [
+    "black_market_apothecary"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "和{black_market_apothecary.name}一起把新血清配成，再问对方要不要离开这地底。",
+    "limit_gap": "{black_market_apothecary.name}习惯拿诊金说话，对你却总忘了开价。",
+    "meeting_reason": "你送修好的冷凝铜管回药房，{black_market_apothecary.name}留你喝杯热甜酒。",
+    "resource_gap": "{black_market_apothecary.name}有地底唯一的血清与镇痛剂；你有深渊样本，也懂配方。"
+   },
+   "tags": [
+    "intimate",
+    "substance"
+   ],
+   "tension_engine_ids": [
+    "te_executioner_blade_draw",
+    "te_abyss_crystal_radiation"
+   ]
+  },
+  {
+   "chemistry": "整个地窖只有{black_market_apothecary.name}手头有压制深渊毒素的血清，对方晃着水晶试管，等你开出一个比金币更有意思的价码。",
+   "id": "combo_apothecary_debt_clinic",
+   "identity_ids": [
+    "bankrupt_raid_leader"
+   ],
+   "player_positions": [
+    "low"
+   ],
+   "power_structure": "npc_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "black_market_apothecary",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "上次远征归来你把一株深渊夜光草卖给药师，对方压了一半价，却多塞给你两瓶上好的金疮药",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "black_market_apothecary"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "用远征队全灭的真相，换{black_market_apothecary.name}一瓶血清和一个盟友。",
+    "limit_gap": "{black_market_apothecary.name}不肯白给，却也不忍看你的伤拖下去。",
+    "meeting_reason": "伤口又疼了，你下到工坊找{black_market_apothecary.name}赊药。",
+    "resource_gap": "{black_market_apothecary.name}握着你伤口要用的血清；你身上只剩欠条，和一肚子深渊里的见闻。"
+   },
+   "tags": [
+    "substance"
+   ],
+   "tension_engine_ids": [
+    "te_executioner_blade_draw",
+    "te_debt_countdown"
+   ]
+  },
+  {
+   "chemistry": "水牢走廊灯火摇晃，{disgraced_holy_inquisitor.name}认出你靴帮上的王室暗纹，一言不发地横过战锤，替你挡住巡逻守卫的视线。",
+   "id": "combo_inquisitor_royal_pact",
+   "identity_ids": [
+    "undercover_royal_auditor"
+   ],
+   "player_positions": [
+    "high"
+   ],
+   "power_structure": "player_high",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 5
+     },
+     "b": "disgraced_holy_inquisitor",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "三年前审判官遭构陷流放时你在驿道亭为其送行并收下对方的副印，约定查清黑账之日为其复职洗冤",
+     "stage": "committed"
+    }
+   ],
+   "slots": [
+    "disgraced_holy_inquisitor"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "拿到核查手令，兑现当年替{disgraced_holy_inquisitor.name}洗冤的约定。",
+    "limit_gap": "{disgraced_holy_inquisitor.name}守着骑士戒律，不肯在证据齐全前对你多说一句。",
+    "meeting_reason": "你借查看拘押名册下到水牢，与{disgraced_holy_inquisitor.name}碰了面。",
+    "resource_gap": "你握着王室密敕与复职的门路；{disgraced_holy_inquisitor.name}握着前任枢机主教私印的核查手令。"
+   },
+   "tags": [
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_poison_contract_leverage",
+    "te_debt_countdown"
+   ]
+  },
+  {
+   "chemistry": "你按{cold_eyed_guildmistress.name}早先递来的纸条赴约核账，而你事先请来送镇痛剂的{black_market_apothecary.name}正推门进来，把药瓶搁在账本上。",
+   "id": "combo_chamber_sedative_ledger",
+   "identity_ids": [
+    "bankrupt_raid_leader",
+    "disillusioned_healer",
+    "undercover_royal_auditor"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 3,
+      "trust": 2
+     },
+     "b": "cold_eyed_guildmistress",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "总管早些时候托人给你递过一张无字纸条，约你亥时三刻来清算室单独核对那笔三百万金币的坏账",
+     "stage": "testing"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 4
+     },
+     "b": "black_market_apothecary",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "上回深渊瘴气泄露封锁地窖时你和药师在药房里间守了一整夜，天亮前对方把备用钥匙留在了你手里",
+     "stage": "intimate"
+    },
+    {
+     "a": "black_market_apothecary",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "cold_eyed_guildmistress",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "药师长年为总管私配成瘾镇痛剂，拿捏着这位总管不能见光的病根",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "cold_eyed_guildmistress",
+    "black_market_apothecary"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "让两人各退一步，换你一份免责回执和药房通行权。",
+    "limit_gap": "{cold_eyed_guildmistress.name}不能让病根见光，{black_market_apothecary.name}不愿替总管背私调公款的锅。",
+    "meeting_reason": "你约好药师在核账时送药上门，当面把两人的账摊开。",
+    "resource_gap": "药师握着总管买成瘾镇痛剂的签单；总管握着工坊违规提纯的记录。"
+   },
+   "tags": [
+    "substance",
+    "workplace_power"
+   ],
+   "tension_engine_ids": [
+    "te_debt_countdown",
+    "te_executioner_blade_draw"
+   ]
+  },
+  {
+   "chemistry": "{desperate_scout_survivor.name}先求你帮忙转移护腕里的魔核，你特意叫来能认魔核铭文的{fallen_high_mage.name}，三人在酒桶后打开了铅盒。",
+   "id": "combo_tavern_core_bargain",
+   "identity_ids": [
+    "bankrupt_raid_leader",
+    "disillusioned_healer",
+    "disgraced_rune_artificer"
+   ],
+   "player_positions": [
+    "low",
+    "equal",
+    "high"
+   ],
+   "power_structure": "switchable",
+   "relations": [
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 4,
+      "trust": 3
+     },
+     "b": "desperate_scout_survivor",
+     "b_to_a": {
+      "tension": 4,
+      "trust": 4
+     },
+     "reason": "斥候傍晚偷偷求过你帮忙找铅盒遮掩魔核，还发誓事成之后把换来的船票分你一张",
+     "stage": "flirting"
+    },
+    {
+     "a": "player",
+     "a_to_b": {
+      "tension": 2,
+      "trust": 4
+     },
+     "b": "fallen_high_mage",
+     "b_to_a": {
+      "tension": 3,
+      "trust": 3
+     },
+     "reason": "远征出发前你替学者加固过便携观测仪的底座，两人约好回来后一起校对深渊第八层的测绘图",
+     "stage": "familiar"
+    },
+    {
+     "a": "fallen_high_mage",
+     "a_to_b": {
+      "tension": 1,
+      "trust": 2
+     },
+     "b": "desperate_scout_survivor",
+     "b_to_a": {
+      "tension": 1,
+      "trust": 2
+     },
+     "reason": "学者一眼认出斥候护腕里藏着古代魔核，也知道对方斩断吊桥副缆的秘密",
+     "stage": "testing"
+    }
+   ],
+   "slots": [
+    "desperate_scout_survivor",
+    "fallen_high_mage"
+   ],
+   "stakes": {
+    "irreplaceable_goal": "替两人谈好魔核与留影的归属，让谁也不必出卖谁。",
+    "limit_gap": "{desperate_scout_survivor.name}怕旧事曝光，{fallen_high_mage.name}怕魔纹再拖下去。",
+    "meeting_reason": "你事先约好学者，在斥候求助时一起到后巷碰头。",
+    "resource_gap": "学者知道斥候斩断吊桥副缆的事；斥候握着学者压制魔纹急需的魔核。"
+   },
+   "tags": [
+    "crime"
+   ],
+   "tension_engine_ids": [
+    "te_abyss_crystal_radiation",
+    "te_debt_countdown"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "fidelity": "distorted",
+   "id": "ch_chamber_abacus",
+   "reach": "在清算暗室长案方圆三尺之内借算盘拨珠声与纸页摩擦隐秘传递",
+   "text": "算盘试探与耳语"
+  },
+  {
+   "fidelity": "exact",
+   "id": "ch_cell_pipe_knocking",
+   "reach": "顺着地底生铁排污管道震颤，迅速响彻地下全部石室与工坊角落",
+   "text": "水牢铁管敲击警讯"
+  }
+ ],
+ "character_templates": [
+  {
+   "adult_context": "执掌公会追偿与黑账的总管，手腕干练，深谙用债务拿捏冒险者",
+   "age_range": [
+    26,
+    46
+   ],
+   "appearance_options": [
+    "身穿挺括的深黑修身执事礼服，佩戴单片金丝平光镜，指尖常年把玩一枚纯金算珠，眼神冷若寒冰",
+    "发丝高高挽起，外罩天鹅绒短披风，腰间挂着沉重的生铁保险库钥匙，唇角挂着令人不寒而栗的假笑"
+   ],
+   "decision": {
+    "avoids": [
+     "踏入散发血腥与魔兽残肢恶臭的解剖工坊",
+     "让旁人翻看自己的私人账册"
+    ],
+    "contrast": "审讯时辞锋如刀毫不留情，私下服药时却会对着已故故交的铜牌默默失神",
+    "core_value": "数字与契约至高无上，任何人都能被折算成账面上的价值",
+    "goal_options": [
+     "让对方在深渊第十层魔核回收委托上按手印",
+     "从对方口中挖出远征队在深渊隐匿的古代魔导器精确坐标",
+     "将讨伐全灭的责任推卸给当事人以掩盖公会失职丑闻"
+    ],
+    "never": [
+     "在欠条未全额销账前退还当事人的身份铭牌"
+    ],
+    "prefers": [
+     "在四壁铺满绝魔石、门外有守卫的密室里谈判"
+    ],
+    "pressure_responses": {
+     "breaking": "胸口隐痛发作，扶着长案摸向药瓶",
+     "high": "把总管印鉴重重按在契约上，冷声要对方认清处境",
+     "low": "手指拨动算盘珠子发出脆响，用不带温度的声线逐项罗列违约金利息",
+     "mid": "把鹅毛笔搁在羊皮纸上，冷笑着让守卫收走对方的随身物件"
+    },
+    "relationship_stance": "把破产求助的人当账目处理，只信利害制衡",
+    "withdrawal": "独自反锁在契约库深处的生铁案台前，就着烛火一页页撕碎销毁废账"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "cold_eyed_guildmistress",
+   "identity": {
+    "authority": "对违约冒险者有裁定清算、扣押装备与判定抵债年限之权",
+    "exposure": "其亲手签字核准的那份S级讨伐委托，出发前便已被其恶意隐瞒了魔物等级提升的警报",
+    "hidden": "暗中与深渊走私商倒卖古代遗物，积攒巨款企图买断自身契约逃离边境",
+    "limits": [
+     "若无法向王都理事会填平三百万金币的账目亏空将面临停职审查",
+     "常年过劳胸口隐痛，夜里要靠镇痛药剂入睡"
+    ],
+    "obligations": [
+     "向理事会呈交一份经由当事人画押确认的免责追偿报告"
+    ],
+    "resources": [
+     "记录着领主与大贵族违禁委托的原版黑账密册",
+     "一枚能调阅全部抵押档案的总管印鉴"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在自己以强权逼压时，对方依然目光灼灼敢于直视自己不退半步的硬骨",
+     "看破繁复账目陷阱、甚至以高明算计反将自己一军的深沉心机"
+    ],
+    "boundaries": [
+     "绝不许当事人触碰藏在怀表内侧的旧日骑士团受封铭文"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "放下算盘后能平起平坐对弈的人，而不是债户",
+    "dislikes": [
+     "痛哭流涕摇尾乞怜的软骨头",
+     "企图用虚假誓言套近乎的市井无赖"
+    ],
+    "expression": "合上账本、摘下单片眼镜，不带算计地问对方要不要留下喝一杯",
+    "likes": [
+     "隔着算盘与契约展开势均力敌的利害交锋",
+     "极近距离对峙时对方沉稳呼吸带来的压迫感"
+    ],
+    "preconditions": [
+     "公会首席追偿执事与对方都已完全清醒、出于自愿，眼前的危机已经解除",
+     "账目与委托两清，彼此之间再无任何契约或把柄要挟"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "公会首席追偿执事",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "debt_settlement_chamber",
+     "to": 360
+    },
+    {
+     "from": 361,
+     "location_id": "contract_vault_archives",
+     "to": 780
+    },
+    {
+     "from": 781,
+     "location_id": "whispering_guild_tavern",
+     "to": 1140
+    },
+    {
+     "from": 1141,
+     "location_id": "debt_settlement_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "与对方结下梁子，日后难再合作",
+      "option": "压着对方在深渊委托上按下手印"
+     },
+     {
+      "cost": "自身承担挪用公款被除名审查的连带风险",
+      "option": "私下划拨秘密备用金为对方冲抵首期利息换取合作"
+     }
+    ],
+    "pressure": "理事会随时会派人查验原始账本与抵押契约",
+    "trigger": "王都巡视专员的信鸽已在公会屋顶降落，三百万金币的亏空公文尚无当事人画押平账"
+   },
+   "tags": [
+    "workplace",
+    "workplace_power"
+   ],
+   "voices": {
+    "inner": "“理事会的飞鹫已经落在钟楼上了。要是堵不上这个账窟窿，你我谁也脱不了身。”",
+    "surface": "“三百万金币，或者签下这张深渊委托。天亮第一声鸡叫前，我要在纸上看到你的手印。”"
+   }
+  },
+  {
+   "adult_context": "公会雇佣的退役重甲战士，身上满是旧伤疤，负责看守地下石室",
+   "age_range": [
+    28,
+    52
+   ],
+   "appearance_options": [
+    "身形魁梧如铁塔，披着布满刀痕的深灰生铁半身铠，背负一柄斩马大剑，半边脸颊覆着旧烧伤",
+    "面容僵硬如岩石，左眼眶佩戴厚重生铁眼罩，双手关节粗大，腰间挂着一大串水牢钥匙"
+   ],
+   "decision": {
+    "avoids": [
+     "踏入充满复杂符文与魔导仪器的契约密室",
+     "提及王都近卫骑士团旧事"
+    ],
+    "contrast": "审讯时手段凶悍，在给水牢重伤老兵换药时手法却异常沉稳细致",
+    "core_value": "用凶名掩护自己，等着揭穿公会高层的那一天",
+    "goal_options": [
+     "压住场面，不让水牢闹出乱子",
+     "从幸存队员口中确认深渊第八层魔物异化的真相是否与旧案一致",
+     "在必要关头反制总管掩护握有铁证的残存者离开暗室"
+    ],
+    "never": [
+     "在对方未主动动用凶器前将重剑挥向毫无反抗之力的俘虏"
+    ],
+    "prefers": [
+     "在开阔的过道拐角把守"
+    ],
+    "pressure_responses": {
+     "breaking": "旧疾发作，靠着石壁大口喘息",
+     "high": "横身挡住门口，沉声要对方噤声",
+     "low": "大剑往地上一顿，双臂抱胸冷冷打量",
+     "mid": "把一串水牢钥匙重重拍在石案上"
+    },
+    "relationship_stance": "把冒险者看作公会贪婪的替死鬼，心怀同情，面上却不留情",
+    "withdrawal": "独自坐在水牢风口的石墩上，就着机油味用磨刀石反复打磨重剑刃口"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "scarred_guild_enforcer",
+   "identity": {
+    "authority": "负责看守地下石室、押送违约者，阻止有人私逃",
+    "exposure": "随身佩戴的精钢眼罩内侧，暗藏着当年被公会灭口而假死逃生的骑士团同袍遗徽",
+    "hidden": "暗中搜集公会勾结深渊残杀同袍的铁证，等待时机倒戈",
+    "limits": [
+     "早年深渊旧疾未愈，夜里常耳鸣头痛",
+     "受血契咒印禁锢无法公开违背总管签发的盖章指令"
+    ],
+    "obligations": [
+     "确保所有受押破产者无一人私逃出公会地底石室"
+    ],
+    "resources": [
+     "八十磅重的斩马大剑",
+     "地下每一道铁门的钥匙"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在凶恶假面下察觉到自身隐忍、并以平视目光相待的知音",
+     "再难也咬紧牙关不叫一声苦的老兵同道"
+    ],
+    "boundaries": [
+     "绝不许旁人掀开脸上的生铁眼罩窥视受损的魔眼"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "沉默厚重的护道者与断后巨壁，与共谋者并肩突围",
+    "dislikes": [
+     "耍弄虚伪文墨推诿责任的懦夫",
+     "视部下性命如草芥的贵族"
+    ],
+    "expression": "解下腰间坚韧牛皮护腕套入对方腕间，沙哑道一句活下去",
+    "likes": [
+     "分饮辛辣呛喉的劣质烈酒驱寒",
+     "并肩值夜时无需多言的信赖"
+    ],
+    "preconditions": [
+     "公会黑铁行刑官与对方都已完全清醒、出于自愿，眼前的危机已经解除",
+     "看守之责已经卸下，对方也不再受押"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "公会黑铁行刑官",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "debt_settlement_chamber",
+     "to": 420
+    },
+    {
+     "from": 421,
+     "location_id": "iron_cage_holding_cell",
+     "to": 840
+    },
+    {
+     "from": 841,
+     "location_id": "whispering_guild_tavern",
+     "to": 1200
+    },
+    {
+     "from": 1201,
+     "location_id": "debt_settlement_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "整夜守在水牢，旧疾隐隐作痛",
+      "option": "独自下水牢安抚带头的老佣兵"
+     },
+     {
+      "cost": "触犯看守条例面临总管严查",
+      "option": "暗中松开后巷通道门闩放走几名伤病老兵"
+     }
+    ],
+    "pressure": "一旦闹大，地面卫队就会下楼清场，所有人的分期都要作废",
+    "trigger": "几名破产佣兵趁换防聚在一起鼓噪，要求见总管"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "“这人眼里还有光……就像十年前的我。要是真能从深渊带回证物，这些年也算没白熬。”",
+    "surface": "“手老实点。这里不认什么S级前锋，敢动歪心思，先过我这一关。”"
+   }
+  },
+  {
+   "adult_context": "因深渊禁忌实验被学院逐出的破产高阶法师，手腕戴着限制施法的封魔环，急欲重返深渊",
+   "age_range": [
+    25,
+    42
+   ],
+   "appearance_options": [
+    "身穿撕去学院徽记的破损深蓝法师袍，面色苍白，手腕戴着两枚泛着幽蓝微光的封魔环",
+    "眼窝深陷但闪烁着偏执的求知狂热，脖颈处隐约可见深渊魔力侵蚀留下的黑色蛛网魔纹"
+   ],
+   "decision": {
+    "avoids": [
+     "踏入毫无魔力波动的绝魔石室",
+     "让重甲武者无故近身"
+    ],
+    "contrast": "平日言辞傲慢尖刻，面对古代遗物与愿意倾听推演的人却专注虔诚",
+    "core_value": "探索深渊古代终极真理，为此不惜越过世俗律法规则",
+    "goal_options": [
+     "设法解开封魔环，恢复施法",
+     "说服残存队长带自己重返深渊第十层起出古代核心遗物",
+     "将队伍全灭责任推给公会劣质补给以洗脱自身嫌疑"
+    ],
+    "never": [
+     "在未记录下古代魔阵完整回路前将其摧毁"
+    ],
+    "prefers": [
+     "在堆满古旧卷宗的书库深处轻声研讨理论"
+    ],
+    "pressure_responses": {
+     "breaking": "魔纹隐痛发作，扶着书架哑声索要抑制药剂",
+     "high": "在地上勾画一道逆向符阵，逼退逼近的人",
+     "low": "神经质地整理袍领，嘴角勾起冷笑搬出古代魔导定律反驳",
+     "mid": "封魔环闪起电光，低声用古代咒言警告"
+    },
+    "relationship_stance": "将寻常凡人视作短视庸人，唯有掌握智识与力量者才配对谈",
+    "withdrawal": "独自蜷缩在契约库昏暗角落，用指甲在石板上刻画繁复公式"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "fallen_high_mage",
+   "identity": {
+    "authority": "通晓深渊古代符文与深层魔力流动节点的解构专家",
+    "exposure": "随身手抄本内夹藏着从学院禁书区撕下的深渊献祭术残页",
+    "hidden": "远征队遭遇的突发魔兽狂潮，正是其私自激活深渊诱导道标引发的意外",
+    "limits": [
+     "受封魔环禁锢无法调动核心魔力池",
+     "体内魔纹要靠定期服药压制"
+    ],
+    "obligations": [
+     "在学院正式除籍前完成魔导假说的自证"
+    ],
+    "resources": [
+     "藏在臼齿夹层内的微量高纯度纯魔结晶粉末",
+     "脑海中完整记忆的深渊第十层封印门十二重解密密钥"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "能听懂艰深魔导术语并指出核心谬误的敏锐智识",
+     "愿意替施法者挡在前头的可靠后背"
+    ],
+    "boundaries": [
+     "绝不许旁人窥视脖颈处正在扩散的深渊魔纹核心"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "能与自己平等争论魔导真理的同行者",
+    "dislikes": [
+     "迷信神殿教条的顽固说教",
+     "粗暴打断学术推演的武力威胁"
+    ],
+    "expression": "以指尖蘸墨在对方掌心画下一枚古代避火守御符文",
+    "likes": [
+     "在昏暗石室并肩研读古羊皮纸时的呼吸相闻",
+     "推演卡壳时被对方一句话点醒的畅快"
+    ],
+    "preconditions": [
+     "被收押违禁魔导学者与对方都已完全清醒、出于自愿，眼前的危机已经解除",
+     "双方已坦白底牌，谁也不拿封魔环要挟谁"
+    ],
+    "self_control_range": [
+     2,
+     4
+    ]
+   },
+   "public_role": "被收押违禁魔导学者",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "iron_cage_holding_cell",
+     "to": 300
+    },
+    {
+     "from": 301,
+     "location_id": "contract_vault_archives",
+     "to": 720
+    },
+    {
+     "from": 721,
+     "location_id": "dissection_alchemy_lab",
+     "to": 1140
+    },
+    {
+     "from": 1141,
+     "location_id": "iron_cage_holding_cell",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "神智受创导致施法精准度下降",
+      "option": "吞下臼齿里藏的魔晶粉末，暂时压住魔纹"
+     },
+     {
+      "cost": "将核心学术底牌分润旁人丧失独享筹码",
+      "option": "向药师交出部分解密公式换取镇痛抑制剂"
+     }
+    ],
+    "pressure": "必须在天亮查验前找到压制魔纹的药",
+    "trigger": "体内魔纹开始隐隐作痛，手腕的封魔环闪着微光"
+   },
+   "tags": [
+    "substance",
+    "crime"
+   ],
+   "voices": {
+    "inner": "“魔纹已经爬到锁骨了……要是拿不到深渊第十层的古代核心，迟早会撑不住。”",
+    "surface": "“愚蠢的佣兵懂什么？那不是普通魔物，是第三纪元的古代造物！把这封魔环给我解开！”"
+   }
+  },
+  {
+   "adult_context": "与玩家同队的幸存斥候，左臂受了伤，暗中私藏从深渊带出的古代魔核，行事高度警觉",
+   "age_range": [
+    22,
+    38
+   ],
+   "appearance_options": [
+    "身穿沾满泥污的皮革轻甲，左臂用浸透草药的布条绑紧，眼神警觉地不住打量四周",
+    "身形瘦削敏捷，脸色苍白，右手死死按着左臂护腕"
+   ],
+   "decision": {
+    "avoids": [
+     "走近带嗅魔猎犬的执法人员",
+     "让旁人拆开自己的左臂护腕"
+    ],
+    "contrast": "遇事看似惊弓之鸟，在要紧关头包庇同伴时却果决得惊人",
+    "core_value": "无论如何也要带着魔核与活命钱逃离这座吃人的边境公会",
+    "goal_options": [
+     "在公会严密搜身前将怀中魔核安全转移藏匿",
+     "配合或诱导口供风向，避免自己被定为逃兵",
+     "利用后门酒馆换班空档溜出公会地下"
+    ],
+    "never": [
+     "在离开要塞前将深渊魔核白白交公"
+    ],
+    "prefers": [
+     "在光线昏暗、容易脱身的酒馆杂物堆旁落脚"
+    ],
+    "pressure_responses": {
+     "breaking": "累得滑坐在地，死死按住渗光的护腕不肯松手",
+     "high": "把伤臂护在胸前，警告搜身的人别碰",
+     "low": "缩在长案角落，低声复述深渊魔兽袭来的经过",
+     "mid": "死死抓住桌沿替自己辩白，声称是情报有误才导致溃败"
+    },
+    "relationship_stance": "对外人充满戒备猜忌，只对一起从深渊爬出来的旧同伴留有一线信任",
+    "withdrawal": "独自蜷缩在酒馆过道空酒桶后的阴影里，用右手按住左臂绷带"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "desperate_scout_survivor",
+   "identity": {
+    "authority": "作为第一现场目击证人，其口供将直接影响全队覆灭责任归属评定",
+    "exposure": "护腕夹层处不时渗出带着淡淡紫罗兰异香的魔核冷光",
+    "hidden": "撤退关头曾慌乱斩断吊桥副缆以甩脱魔物，导致殿后同伴被困",
+    "limits": [
+     "左臂旧伤未愈，一用力就疼",
+     "受深渊突围惊吓，听到铁链重击声便会本能紧绷"
+    ],
+    "obligations": [
+     "将私藏的魔核安全带出公会换取离开边境的船票"
+    ],
+    "resources": [
+     "藏在护腕夹层内的一枚价值连城的纯黑深渊古代魔核",
+     "一双落地无声的特制潜行软底鹿皮靴"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "在众叛亲离的处境下递来干净绷带与止血药的善意",
+     "知晓自己吊桥旧事后依然愿意共同分担秘密的同谋"
+    ],
+    "boundaries": [
+     "绝不许旁人强行扯开左臂里层的旧伤纱布"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "不再拿魔核换庇护，只想被当成生死同伴的人",
+    "dislikes": [
+     "居高临下的道德审判",
+     "带着算计的施舍同情"
+    ],
+    "expression": "用没受伤的右臂环住对方腰身，把额头抵在对方肩窝低声道谢",
+    "likes": [
+     "在寒冷地窖里并肩靠坐汲取暖意",
+     "被可靠同伴挡在身前的安全感"
+    ],
+    "preconditions": [
+     "残存远征队轻装斥候与对方都已完全清醒、出于自愿，眼前的危机已经解除",
+     "伤已包扎妥当、神智清醒，且与魔核分赃无关"
+    ],
+    "self_control_range": [
+     1,
+     3
+    ]
+   },
+   "public_role": "残存远征队轻装斥候",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "debt_settlement_chamber",
+     "to": 360
+    },
+    {
+     "from": 361,
+     "location_id": "whispering_guild_tavern",
+     "to": 780
+    },
+    {
+     "from": 781,
+     "location_id": "dissection_alchemy_lab",
+     "to": 1200
+    },
+    {
+     "from": 1201,
+     "location_id": "debt_settlement_chamber",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "将身家性命与最大把柄交到对方手里",
+      "option": "请信得过的同伴帮忙引开守卫并暂存魔核"
+     },
+     {
+      "cost": "手臂皮肤受铅粉灼伤留下刺痛红肿",
+      "option": "用黑市铅粉药膏厚涂护腕强行封死魔核气息"
+     }
+    ],
+    "pressure": "必须在换班搜身前找到铅盒或药膏遮住魔核辐射与气味",
+    "trigger": "公会守卫正在后巷清点私藏战利品，护腕夹层内的魔核微光亟需掩盖"
+   },
+   "tags": [
+    "crime"
+   ],
+   "voices": {
+    "inner": "“这颗魔核够吃三辈子……只要撑过今晚的搜身，天一亮就远走高飞！”",
+    "surface": "“队长！别那么看我……当时魔兽咬上来了，不砍副缆大家全都得死！”"
+   }
+  },
+  {
+   "adult_context": "公会地下违禁药师，垄断高阶止痛剂与解毒血清，暗中收集深渊样本，行事冷冽精明",
+   "age_range": [
+    27,
+    49
+   ],
+   "appearance_options": [
+    "身穿油迹斑斑的厚重皮革防毒围裙，佩戴黄铜护目镜，指套染满试剂斑痕，散发草药异香",
+    "神情慵懒冷峭，卷发挽在脑后，腰带上挂满装有各色荧光药剂的水晶试管"
+   ],
+   "decision": {
+    "avoids": [
+     "走近烈阳圣光魔阵照耀的圣堂",
+     "闻到刺鼻的劣质熏香"
+    ],
+    "contrast": "谈论诊金时心肠冷硬，给收养的三眼魔猫和熟人换药时却格外轻柔耐心",
+    "core_value": "世间万物皆可折算为药理与筹码，唯有罕见样本与清醒头脑值得高看",
+    "goal_options": [
+     "获取深渊第十层带回的污血或魔核样本完成新药提纯",
+     "借总管的镇痛剂依赖拿捏其把柄换取独立通行证",
+     "设法打开契约库暗格，取回被扣押的古方手稿"
+    ],
+    "never": [
+     "在未确认药性反应前将未稀释原液交给外行"
+    ],
+    "prefers": [
+     "在蒸馏水声回荡、药气蒸腾的昏暗药房内密谈"
+    ],
+    "pressure_responses": {
+     "breaking": "药柜被撞翻，扑上去抢救核心母液",
+     "high": "打翻一瓶呛人的药雾，趁乱关上工坊门",
+     "low": "晃动水晶试管发出水声，慢条斯理地报出高昂诊金",
+     "mid": "冷笑着举起黄铜注射器，警告闹事者小心麻痹药雾"
+    },
+    "relationship_stance": "将常人视作行走的病历与债户，唯独对敢与自己平视论药的人另眼相看",
+    "withdrawal": "独自反锁在实验室里间的水晶台前，用清凉药液滴眼缓解视觉疲劳"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "black_market_apothecary",
+   "identity": {
+    "authority": "对公会地下伤员的伤情评定、止痛配给及炼金样本调配拥有专业裁决权",
+    "exposure": "工坊暗格内私藏着未经上报的深渊变异魔物活体组织样本",
+    "hidden": "配制的特效镇痛剂具有成瘾性，公会总管正是其药剂控制下的常客",
+    "limits": [
+     "长期吸入药烟导致呼吸道受损，无法长途奔袭",
+     "受公会账目辖制，每月须向高层上缴提纯精油"
+    ],
+    "obligations": [
+     "在天亮前完成新一批深渊抗毒血清的提纯配制"
+    ],
+    "resources": [
+     "三剂提神但透支体力的药剂",
+     "一瓶能化开封蜡的炼金药水"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "面对药剂与针管依然冷静、敢当面质疑配方的胆识",
+     "愿意把自己当医者而不是黑市毒贩看待的平视目光"
+    ],
+    "boundaries": [
+     "绝不许旁人碰触挂在胸前的导师遗留琉璃小瓶"
+    ],
+    "desire_range": [
+     1,
+     3
+    ],
+    "desired_position": "被当成医者而非毒贩看待的平等知己",
+    "dislikes": [
+     "盲目迷信祈祷而讳疾忌医的顽固派",
+     "粗暴打碎水晶器皿的莽夫"
+    ],
+    "expression": "摘下指套替对方扣好领口，难得不带讥讽地叮嘱别再添新伤",
+    "likes": [
+     "隔着工作台争论配方剂量",
+     "对方伤愈后主动回来道谢时的默契"
+    ],
+    "preconditions": [
+     "地下工坊首席炼金医师与对方都已完全清醒、出于自愿，眼前的危机已经解除",
+     "对方伤势已稳、神智清醒，且与试药协议或诊金交易无关"
+    ],
+    "self_control_range": [
+     3,
+     5
+    ]
+   },
+   "public_role": "地下工坊首席炼金医师",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "dissection_alchemy_lab",
+     "to": 480
+    },
+    {
+     "from": 481,
+     "location_id": "debt_settlement_chamber",
+     "to": 900
+    },
+    {
+     "from": 901,
+     "location_id": "iron_cage_holding_cell",
+     "to": 1260
+    },
+    {
+     "from": 1261,
+     "location_id": "dissection_alchemy_lab",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "一旦被查出假账将面临吊销工坊牌照",
+      "option": "将私藏原液转移到通风暗格并伪造损耗记录"
+     },
+     {
+      "cost": "与总管彻底撕破脸失去庇护",
+      "option": "拿总管私下索取镇痛剂的旧签条顶回查账"
+     }
+    ],
+    "pressure": "必须在查账前藏好私扣的镇痛原液与深渊样本",
+    "trigger": "蒸馏釜内的抗毒血清进入关键凝结期，而公会查账执事正催促交出库存清单"
+   },
+   "tags": [
+    "substance",
+    "crime"
+   ],
+   "voices": {
+    "inner": "“这人的抗魔体质倒是罕见……要是能活着走出这间石窖，倒是个值得深交的同类。”",
+    "surface": "“这伤口再拖下去可就废了。想治？拿深渊样本来抵，或者替我去契约库取件东西。”"
+   }
+  },
+  {
+   "adult_context": "因追查公会高层洗钱被剥夺圣职的前任审判官，身披旧重甲，手握公会通敌罪证，在地底暗室卧薪尝胆",
+   "age_range": [
+    30,
+    54
+   ],
+   "appearance_options": [
+    "身披胸口圣徽被凿去的厚重旧板甲，面容刚毅如雕塑，眼神坚毅沉郁宛如孤星",
+    "身形高大威严，右手紧扣磨损严重的双手破甲重锤，呼吸间带着肺寒的沙哑音"
+   ],
+   "decision": {
+    "avoids": [
+     "踏入摆满活体标本的违禁工坊",
+     "触碰沾染深渊污血的魔核"
+    ],
+    "contrast": "外表冷硬如铁石，面对负伤求助者时却会毫不犹豫撕下内衬替其包扎",
+    "core_value": "公理与道义纵处泥泞亦不可磨灭，誓要向草菅人命的高层讨还公道",
+    "goal_options": [
+     "联络地下尚有战力的破产冒险者稳住阵脚共商对策",
+     "迫使公会总管交出封存有篡改评级原件的保险箱秘钥",
+     "挡在同伴身前，掩护携证物的人离开地底"
+    ],
+    "never": [
+     "为了自身脱身而将无辜同伴推出去顶罪"
+    ],
+    "prefers": [
+     "在有坚实石柱可供依托防御的过道交谈"
+    ],
+    "pressure_responses": {
+     "breaking": "护肩松脱仍单膝撑地，握住锤柄不退半步",
+     "high": "横锤挡在伤员身前，用身体挡住狭窄过道",
+     "low": "双手撑在战锤柄头上静立，以沉浑声音背诵王国反高利贷圣律条文",
+     "mid": "战锤顿地震落石屑，厉声斥责公会执事草菅人命"
+    },
+    "relationship_stance": "将受难的破产冒险者视作袍泽，痛恨公会压迫但严守道义底线",
+    "withdrawal": "独自盘坐于水牢干燥石台上，用油布默默擦拭战锤上的缺口"
+   },
+   "gender": "any",
+   "gender_reason": null,
+   "id": "disgraced_holy_inquisitor",
+   "identity": {
+    "authority": "熟记王国圣律典章，能在法理上指出公会高利贷与瞒报评级的违法漏洞",
+    "exposure": "随身佩戴的旧十字吊坠内，封存着当年因公会阴谋遇难的年轻侍从遗留的银发",
+    "hidden": "曾依法判处过公会总管亲眷的重刑，双方有着深重旧怨",
+    "limits": [
+     "被剥夺神圣加护后无法引动高阶治愈神术",
+     "被公会列为重点提防对象，行动受守卫盯梢"
+    ],
+    "obligations": [
+     "在破晓前将公会瞒报魔物评级的罪证送往王都特使手中"
+    ],
+    "resources": [
+     "藏在铠甲背板夹层内加盖前任枢机主教私印的核查手令",
+     "一柄掺了圣银的旧战锤"
+    ]
+   },
+   "intimacy_tendency": {
+    "attraction_sources": [
+     "身处泥泞算计之中依然坚守道义、不肯出卖袍泽的脊梁",
+     "敢并肩直面公会强权的胆气"
+    ],
+    "boundaries": [
+     "绝不许旁人亵渎自己坚守半生的骑士戒律与旧吊坠"
+    ],
+    "desire_range": [
+     1,
+     2
+    ],
+    "desired_position": "坚如磐石的护阵同行者，以信念为纽带结下生死盟约",
+    "dislikes": [
+     "贪生怕死出卖战友的宵小",
+     "玩弄法条字眼害人的阴险文吏"
+    ],
+    "expression": "解下随身多年的圣银挂坠放进对方掌心，宽厚手掌重重按住对方肩头",
+    "likes": [
+     "在寒夜里背靠背倚着石壁分食黑麦面包",
+     "无需多言便能把后背交给对方的默契"
+    ],
+    "preconditions": [
+     "被废黜圣堂破落游侠与对方都已完全清醒、出于自愿，眼前的危机已经解除",
+     "双方已立誓绝不出卖受难同袍"
+    ],
+    "self_control_range": [
+     4,
+     5
+    ]
+   },
+   "public_role": "被废黜圣堂破落游侠",
+   "schedule": [
+    {
+     "from": 0,
+     "location_id": "iron_cage_holding_cell",
+     "to": 360
+    },
+    {
+     "from": 361,
+     "location_id": "debt_settlement_chamber",
+     "to": 840
+    },
+    {
+     "from": 841,
+     "location_id": "whispering_guild_tavern",
+     "to": 1200
+    },
+    {
+     "from": 1201,
+     "location_id": "iron_cage_holding_cell",
+     "to": 1439
+    }
+   ],
+   "situation": {
+    "exits": [
+     {
+      "cost": "一旦暴露，会被公会以私闯罪名追究",
+      "option": "与幸存队长或密查特使联手潜入契约库比对底档"
+     },
+     {
+      "cost": "成为公会高层的首要眼中钉",
+      "option": "在追偿室当众援引圣律拖住总管的清算进度"
+     }
+    ],
+    "pressure": "必须在天亮换防前核实远征队全灭的原始卷宗",
+    "trigger": "公会守卫正在清查水牢往来人员，铠甲夹层里的核查手令急需找到可靠之人传递"
+   },
+   "tags": [
+    "workplace"
+   ],
+   "voices": {
+    "inner": "“当年的旧账该清算了。只要能把证物送出去，这把老骨头留在边境也认了。”",
+    "surface": "“把算盘收起来吧。王国圣律第七条，以欺诈手段隐瞒魔物评级者，契约自始无效！”"
+   }
+  }
+ ],
+ "clock_start": {
+  "label": "拓荒历六十年，收税月",
+  "minute": 1360
+ },
+ "clock_style": "hm",
+ "content_tags": [
+  "coercion_theme",
+  "substance",
+  "workplace_power",
+  "crime",
+  "workplace",
+  "supernatural"
+ ],
+ "custom": false,
+ "customs": [
+  "算盘敲定总账前，欠债人要把冒险者铭牌放在石案上，由总管验明真伪。",
+  "总管把铜算盘归零、连拨三声，表示当晚的斡旋到此为止。",
+  "签深渊委托时，双方把杯中苦艾酒一饮而尽，陶杯反扣在契约上。",
+  "进暗室受询的冒险者要把随身兵刃交给门口守卫封存。"
+ ],
+ "daily_activities": [
+  {
+   "beats": [
+    "一张边缘磨损的深渊回廊草图铺在木箱上，四角压着铜镇纸",
+    "两人凑在一盏油灯下，凭记忆用炭笔补上暗河与安全营地",
+    "肩膀贴着肩膀商量哪条岔路能避开魔兽巢穴"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [
+    "h_mage_scroll_flutter",
+    "h_scout_bandage_glow",
+    "h_clerk_ledger_glance"
+   ],
+   "id": "a_lantern_map_collation",
+   "location_ids": [
+    "contract_vault_archives",
+    "whispering_guild_tavern"
+   ],
+   "start_minute": 1335,
+   "tags": [
+    "workplace"
+   ],
+   "title": "补绘深渊八层草图"
+  },
+  {
+   "beats": [
+    "青铜算盘在魔石灯下拨出脆响，长案上摊着远征队的物资折损清单",
+    "两人逐行核对药材与卷轴的消耗，用红墨圈出对不上的款项",
+    "核完最后一页，一方把温在炭盆边的热麦茶推过桌面"
+   ],
+   "duration_minutes": 45,
+   "hook_ids": [
+    "h_mistress_abacus_snap",
+    "h_enforcer_blade_drop",
+    "h_inquisitor_hammer_lean"
+   ],
+   "id": "a_chamber_abacus_audit",
+   "location_ids": [
+    "debt_settlement_chamber"
+   ],
+   "start_minute": 1350,
+   "tags": [
+    "workplace"
+   ],
+   "title": "长案夜间核账"
+  },
+  {
+   "beats": [
+    "铁架间只点着一盏防风油灯，历年深渊讨伐的羊皮卷按年份排开",
+    "一方站在木梯上抽卷筒，另一方在下面接住、拂去封泥上的灰",
+    "核对旧档的工夫里，两人在铁架背光处并肩翻看那份测绘手记"
+   ],
+   "duration_minutes": 50,
+   "hook_ids": [
+    "h_clerk_ledger_glance",
+    "h_mage_cipher_request",
+    "h_mage_scroll_flutter"
+   ],
+   "id": "a_vault_contract_tamper",
+   "location_ids": [
+    "contract_vault_archives"
+   ],
+   "start_minute": 1365,
+   "tags": [
+    "workplace"
+   ],
+   "title": "契约库旧卷归档"
+  },
+  {
+   "beats": [
+    "酒精灯上的烧杯冒着细泡，苦艾与月光草的香气弥漫开来",
+    "两人把凝好的药膏分装进锡盒，顺手替彼此处理手背的擦伤",
+    "炉火调小后，三眼魔猫跳上工作台蜷成一团"
+   ],
+   "duration_minutes": 40,
+   "hook_ids": [
+    "h_apothecary_needle_tap",
+    "h_scout_potion_beg",
+    "h_scout_bandage_glow"
+   ],
+   "id": "a_lab_poison_titration",
+   "location_ids": [
+    "dissection_alchemy_lab"
+   ],
+   "start_minute": 1380,
+   "tags": [
+    "substance"
+   ],
+   "title": "药房熬止痛膏"
+  },
+  {
+   "beats": [
+    "风口的石墩上摆着磨刀石与干净纱布，壁上的火把噼啪轻响",
+    "一方低头打磨兵器的缺口，另一方坐在旁边重新缠好护腕",
+    "聊起昔日军团与边境旧事，戒备在火光里慢慢松了"
+   ],
+   "duration_minutes": 35,
+   "hook_ids": [
+    "h_enforcer_scar_touch",
+    "h_inquisitor_hammer_lean",
+    "h_enforcer_blade_drop"
+   ],
+   "id": "a_holding_cell_commotion",
+   "location_ids": [
+    "iron_cage_holding_cell"
+   ],
+   "start_minute": 1395,
+   "tags": [
+    "workplace"
+   ],
+   "title": "石廊风口换药"
+  },
+  {
+   "beats": [
+    "头顶传来吟游诗人的琴声，橡木桶上摆着两杯热麦酒",
+    "两人避开前厅的喧闹靠桶而坐，分食黑麦面包与熏肉干",
+    "几口热酒下肚，地窖的寒气散了，话音也压低了"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "h_scout_bandage_glow",
+    "h_scout_potion_beg",
+    "h_mage_cipher_request"
+   ],
+   "id": "a_tavern_rear_smuggling",
+   "location_ids": [
+    "whispering_guild_tavern"
+   ],
+   "start_minute": 1410,
+   "tags": [
+    "intimate"
+   ],
+   "title": "后巷酒桶边的热麦酒"
+  },
+  {
+   "beats": [
+    "蒸馏水冲的甘菊茶冒着白气，冲淡了地底常年的铁锈味",
+    "两人坐在里间木凳上小口啜饮，绷了一整晚的肩背渐渐放松",
+    "放下茶盏时目光相接，都清楚这暗室里还能信谁"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "h_apothecary_needle_tap",
+    "h_enforcer_scar_touch",
+    "h_inquisitor_hammer_lean"
+   ],
+   "id": "a_herb_tea_midnight_break",
+   "location_ids": [
+    "dissection_alchemy_lab",
+    "iron_cage_holding_cell"
+   ],
+   "start_minute": 1425,
+   "tags": [
+    "intimate"
+   ],
+   "title": "里间的宁神茶"
+  },
+  {
+   "beats": [
+    "下半夜寒气渐重，两人把铜炭盆挪到长案与书架之间添上新炭",
+    "卸下护具与披风烘着潮气，听炭火偶尔爆开的轻响",
+    "天亮换班前的这点清静里，谁都没再提三百万金币"
+   ],
+   "duration_minutes": 30,
+   "hook_ids": [
+    "h_mistress_abacus_snap",
+    "h_clerk_ledger_glance",
+    "h_mage_scroll_flutter"
+   ],
+   "id": "a_dawn_slave_branding_prep",
+   "location_ids": [
+    "debt_settlement_chamber",
+    "contract_vault_archives"
+   ],
+   "start_minute": 0,
+   "tags": [
+    "intimate"
+   ],
+   "title": "炭盆旁烤火小憩"
+  }
+ ],
+ "default_npc_gender_mix": {
+  "female": 0.5,
+  "male": 0.5,
+  "nonbinary": 0.0
+ },
+ "default_person": "second",
+ "era": "剑与魔法鼎盛纪元（边境公会暗室）",
+ "extends": null,
+ "forbidden_terms": [
+  "手机",
+  "电话",
+  "微信",
+  "高铁",
+  "飞机",
+  "电脑",
+  "互联网",
+  "Wi-Fi",
+  "警官",
+  "手枪",
+  "香烟",
+  "出租车",
+  "身份证",
+  "电梯",
+  "空调",
+  "蓝牙"
+ ],
+ "hooks": [
+  {
+   "id": "h_mistress_abacus_snap",
+   "kind": "approach",
+   "location_ids": [
+    "debt_settlement_chamber"
+   ],
+   "slot": "cold_eyed_guildmistress",
+   "text": "{cold_eyed_guildmistress.name}修长的指尖轻轻一拨，金算珠在铜杆上发出清脆爆鸣，抬起毫无温度的单片眼镜冷冷逼视：“三百万金币，或者签下这张深渊第十层绝密委托。鸡鸣之前，这张纸上必须有你的名字。”"
+  },
+  {
+   "id": "h_enforcer_blade_drop",
+   "kind": "approach",
+   "location_ids": [
+    "debt_settlement_chamber",
+    "iron_cage_holding_cell"
+   ],
+   "slot": "scarred_guild_enforcer",
+   "text": "{scarred_guild_enforcer.name}把斩马大剑往你鞋尖前一顿，独眼在阴影里泛着寒光：“手别乱动。这里不认什么S级队长，有话坐下说，别让我难做。”"
+  },
+  {
+   "id": "h_mage_scroll_flutter",
+   "kind": "approach",
+   "location_ids": [
+    "contract_vault_archives"
+   ],
+   "slot": "fallen_high_mage",
+   "text": "{fallen_high_mage.name}手腕的封魔环闪着微光，凑到你耳边低声道：“喂，帮我解开这东西！深渊第十层封印门的密钥全在我脑子里。不想被总管当耗材，就跟我联手！”"
+  },
+  {
+   "id": "h_scout_bandage_glow",
+   "kind": "approach",
+   "location_ids": [
+    "whispering_guild_tavern"
+   ],
+   "slot": "desperate_scout_survivor",
+   "text": "{desperate_scout_survivor.name}用右手拽住你的衣袖把你拉到酒桶阴影里，左臂绷带下隐隐透出幽蓝魔光，压低声音：“队长，帮我挡一下那条猎犬！这颗魔核能卖三辈子……天亮分你一半！”"
+  },
+  {
+   "id": "h_apothecary_needle_tap",
+   "kind": "approach",
+   "location_ids": [
+    "dissection_alchemy_lab"
+   ],
+   "slot": "black_market_apothecary",
+   "text": "{black_market_apothecary.name}弹了弹注射器里的墨绿药液，冷眼打量你的伤口：“止痛剂我有，但不白给，也不卖给想死的人。先告诉我，你那支队伍到底是怎么全灭的？”"
+  },
+  {
+   "id": "h_inquisitor_hammer_lean",
+   "kind": "approach",
+   "location_ids": [
+    "iron_cage_holding_cell"
+   ],
+   "slot": "disgraced_holy_inquisitor",
+   "text": "{disgraced_holy_inquisitor.name}双手撑在战锤柄头上，目光如暗夜火炬：“把背挺直。公会伪造魔物评级诱杀良善，这契约在圣律面前就是废纸。天亮前，我陪你昂首走出去。”"
+  },
+  {
+   "id": "h_clerk_ledger_glance",
+   "kind": "observe",
+   "location_ids": [
+    "contract_vault_archives"
+   ],
+   "slot": "cold_eyed_guildmistress",
+   "text": "铁架缝隙对面，{cold_eyed_guildmistress.name}正借着一盏幽暗油灯快速撕毁一卷盖有加急通缉字样的原始羊皮纸，神色间掠过一丝极难察觉的焦灼与疲惫。"
+  },
+  {
+   "id": "h_enforcer_scar_touch",
+   "kind": "observe",
+   "location_ids": [
+    "iron_cage_holding_cell"
+   ],
+   "slot": "scarred_guild_enforcer",
+   "text": "水牢昏暗的火把下，{scarred_guild_enforcer.name}坐在石墩上，用粗布条小心地给一名发着低烧的老佣兵换药，脸上的横肉因旧事微微抽动。"
+  },
+  {
+   "id": "h_scout_potion_beg",
+   "kind": "request",
+   "location_ids": [
+    "whispering_guild_tavern"
+   ],
+   "slot": "desperate_scout_survivor",
+   "text": "{desperate_scout_survivor.name}把一枚旧队徽塞进你掌心，眼眶通红：“队长，去工坊帮我讨一小罐消肿药膏……只要帮我这一次，我把藏宝图全画给你！”"
+  },
+  {
+   "id": "h_mage_cipher_request",
+   "kind": "request",
+   "location_ids": [
+    "contract_vault_archives"
+   ],
+   "slot": "fallen_high_mage",
+   "text": "{fallen_high_mage.name}把一枚写满密文的纽扣悄悄踢到你鞋边，压低声音：“把这个交给后巷的中间人，对方会带解环药水来接应我们，快！”"
+  }
+ ],
+ "id": "guild_backroom_debt",
+ "locations": [
+  {
+   "affordances": [
+    "按住石案上的契约，直视总管对质",
+    "借低头翻账本的工夫比对两份底单",
+    "把温在炭盆边的热麦茶推过桌面"
+   ],
+   "detail": "公会地底灰岩垒砌的窄室，中央一张满是刀痕的黑橡木长案，案上堆着泛黄契约与青铜算盘，四角点着黄磷魔石灯。",
+   "exits": [
+    "contract_vault_archives",
+    "dissection_alchemy_lab",
+    "whispering_guild_tavern"
+   ],
+   "id": "debt_settlement_chamber",
+   "name": "地下追偿与清算暗室",
+   "pressure_modifiers": {
+    "p_antimagic_array_leak": "重闸落下后外头的嘈杂全没了，铜炭盆的火苗映着长案两侧的人影。",
+    "p_dawn_debt_execution": "墙上的沙漏只剩最后一层细沙，羊皮委托在穿堂风里微微卷边。",
+    "p_enforcer_coercive_strip": "铁门外的石阶上传来重甲踏地的闷响，火光从门缝底下扫过。",
+    "p_sedative_recipe_leverage": "青铜算盘旁多了一只墨绿药瓶，烛火把两人的影子投在石壁上。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace",
+    "crime"
+   ],
+   "visibility": "微光只照得清长案两侧的人脸，门边重甲门卫的影子隐在暗处。",
+   "witnesses": [
+    "bg_vault_sentinel"
+   ]
+  },
+  {
+   "affordances": [
+    "拨开生铁抽屉翻找远征队的原始保单",
+    "在木梯上抽下积灰的卷筒",
+    "躲到文件柜后避开巡查的魔犬"
+   ],
+   "detail": "铁门紧锁的档案密室，生铁架上堆着数万卷封蜡的冒险者抵押原件，满是干羊皮与防腐香料的气味。",
+   "exits": [
+    "debt_settlement_chamber",
+    "iron_cage_holding_cell"
+   ],
+   "id": "contract_vault_archives",
+   "name": "违约抵押契约库",
+   "pressure_modifiers": {
+    "p_antimagic_array_leak": "黑曜石墙面结了一层细霜，唯一的提灯在铁架间投下交叠的影子。",
+    "p_bridge_cable_leverage": "高耸的档案架挡住视线，深处传来压低嗓音的对质。"
+   },
+   "privacy": "private",
+   "tags": [
+    "workplace"
+   ],
+   "visibility": "只有一盏防风油灯在铁架间投下栅栏般的影子。",
+   "witnesses": [
+    "bg_reception_clerk"
+   ]
+  },
+  {
+   "affordances": [
+    "从石台上取下装着样本的水晶瓶",
+    "调配镇痛药剂，分装进锡盒",
+    "借蒸馏浓雾翻出排气天窗"
+   ],
+   "detail": "石廊尽头阴湿的工坊，石台上摆着盛放深渊样本的水晶器皿与铜蒸馏管，满是苦艾与溶剂的气味。",
+   "exits": [
+    "debt_settlement_chamber",
+    "iron_cage_holding_cell"
+   ],
+   "id": "dissection_alchemy_lab",
+   "name": "违禁活体魔药实验室",
+   "pressure_modifiers": {
+    "p_abyss_core_overheat": "水银冷凝槽泛着微凉银光，苦艾味里混着样本的冷香。",
+    "p_sedative_recipe_leverage": "上锁的铁皮药柜里，藏着盖有总管私印的领药签条。"
+   },
+   "privacy": "semi",
+   "tags": [
+    "substance",
+    "crime"
+   ],
+   "visibility": "蒸馏灶里跳着惨绿的魔焰，冷雾贴着地面流过脚面。",
+   "witnesses": []
+  },
+  {
+   "affordances": [
+    "隔着铁栅和老佣兵低声打听旧事",
+    "坐在风口石墩上替人重新包扎",
+    "摇晃牢门引开守卫的视线"
+   ],
+   "detail": "地下拘押间，齐踝的冷水漫过地面，铁栅里坐着等候分期裁定的破产冒险者。",
+   "exits": [
+    "contract_vault_archives",
+    "dissection_alchemy_lab",
+    "whispering_guild_tavern"
+   ],
+   "id": "iron_cage_holding_cell",
+   "name": "地下黑铁拘押水牢",
+   "pressure_modifiers": {
+    "p_dawn_debt_execution": "风窗透进灰白的晨光，铁栅里的人都望向走道。",
+    "p_enforcer_coercive_strip": "巡夜的火把照亮潮湿的石墩，磨刀声在水道里回荡。"
+   },
+   "privacy": "public",
+   "tags": [
+    "crime"
+   ],
+   "visibility": "墙上的火把哔剥作响，栅栏内外的目光在昏暗里互相打量。",
+   "witnesses": [
+    "bg_manacled_debtor"
+   ]
+  },
+  {
+   "affordances": [
+    "借头顶的喧闹低声交代接头暗号",
+    "在空酒桶后藏好包裹严实的遗物",
+    "推开后巷窄门看外头的巡逻火把"
+   ],
+   "detail": "连着一楼酒馆与地下暗室的窄过道拐角，头顶传来碰杯与踩踏木板的喧闹，堆着空麦酒桶与旧缆绳。",
+   "exits": [
+    "debt_settlement_chamber",
+    "iron_cage_holding_cell"
+   ],
+   "id": "whispering_guild_tavern",
+   "name": "喧闹酒馆后门角落",
+   "pressure_modifiers": {
+    "p_abyss_core_overheat": "橡木酒桶缝里渗出一丝幽蓝微光，麦酒的醇香压住了药味。",
+    "p_bridge_cable_leverage": "头顶的碰杯与跺靴声，恰好盖住了酒桶后的低语。"
+   },
+   "privacy": "public",
+   "tags": [
+    "workplace_power"
+   ],
+   "visibility": "楼梯口漏下一道光，拐角的阴影正适合藏身耳语。",
+   "witnesses": [
+    "bg_whispering_informant",
+    "bg_courier_runner"
+   ]
+  }
+ ],
+ "name_pools": {
+  "family": [
+   "雷恩",
+   "瓦伦",
+   "艾尔哈特",
+   "克莱因",
+   "西尔维斯",
+   "莫尔",
+   "贝克",
+   "诺克斯",
+   "芬里尔",
+   "索恩",
+   "奥斯汀",
+   "海沃德"
+  ],
+  "given_female": [
+   "蕾娜",
+   "希尔达",
+   "维罗妮卡",
+   "赛琳",
+   "伊莲",
+   "艾达",
+   "卡莲",
+   "莫妮卡",
+   "黛拉",
+   "诺拉",
+   "薇尔",
+   "索菲"
+  ],
+  "given_male": [
+   "凯恩",
+   "维克托",
+   "杰拉德",
+   "洛伦",
+   "戴蒙",
+   "雷格",
+   "巴恩",
+   "马尔斯",
+   "亚当",
+   "格里芬",
+   "卢卡斯",
+   "柯尔"
+  ],
+  "given_neutral": [
+   "希恩",
+   "奥兰",
+   "艾尔",
+   "泽诺",
+   "雷恩",
+   "米夏",
+   "诺埃尔",
+   "尤恩",
+   "瓦尔",
+   "西里尔",
+   "吉尔",
+   "克劳斯"
+  ],
+  "nickname_patterns": [
+   {
+    "gender": "any",
+    "pattern": "老{family}"
+   },
+   {
+    "gender": "any",
+    "pattern": "{given}"
+   }
+  ],
+  "order": "family_first"
+ },
+ "notes": "冒险者公会暗室：破产黑账与禁忌深渊委托完整纯正硬核异世界剑与魔法题材世界包。完全剥离现代都市与擦边媚俗套路，聚焦于残酷的冒险者破产绝路、公会高利贷黑幕、反魔导石室内的肉身与契约压榨，以及深渊第十层绝密死士委托。全维度严格遵循 DATA_CONTRACTS 与 CONTENT_BIBLE 规范：包含 5 个具备双向出入口的地下暗室风格地点、6 位设定严密且无敏感词汇的成年角色模板、6 位背景人物、4 个核心张力引擎、4 组全覆盖权力结构的组合配置、6 项日常互动与 6 项高压事件、10 个规范交互钩子与 7 类核心转折。内容标签全数遵循系统受控词表。\n2026-10-18 按写作规则 v2 改造：人物组合改为 8 单人 + 2 多人；药师握总管的镇痛剂签单、学者握斥候的断桥留影两条把柄；奴隶拍卖、就地格杀、烙铁、刺剑抵喉、卸胳膊、射杀、咬舌画血阵、淬毒短刃、炸药、魔兽吞人与剿灭令全部改掉；删 hd_* 钩子；日常补到八条。",
+ "player_identities": [
+  {
+   "age_range": [
+    25,
+    45
+   ],
+   "baseline": "率领精英队下潜深渊遭伏击折戟，背负三百万金币违约金，每晚被传到追偿石案前核对分期与抵债条款。",
+   "gender": "any",
+   "id": "bankrupt_raid_leader",
+   "reputation": "曾经威震边境的顶尖猎手，如今众叛亲离的破产穷光蛋",
+   "resources": [
+    "熟知深渊第八层到第十层古代回廊巡回路线的活地图",
+    "一枚刻着十二名队员名字的旧队徽"
+   ],
+   "risks": [
+    "若无法自证全灭并非临阵脱逃，将被吊销执照、终身禁入公会"
+   ],
+   "role": "破产远征队仅存队长",
+   "social_position": "low",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "队长{family}"
+    },
+    {
+     "gender": "any",
+     "pattern": "败军之犬{family}"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    24,
+    40
+   ],
+   "baseline": "在深渊突围中侥幸存活的神殿神官，手中掌握着证明公会高层蓄意篡改讨伐魔物评级的情报证据。",
+   "gender": "any",
+   "id": "disillusioned_healer",
+   "reputation": "信仰动摇但恪守医者底线的中立施法者",
+   "resources": [
+    "一管藏在圣徽空心底座里的深渊秽血样本",
+    "不靠圣徽也能在绝魔石室施展的微弱止痛术"
+   ],
+   "risks": [
+    "公会高层一旦察觉其握有评级造假的证据，必会设法封口、逐出神殿"
+   ],
+   "role": "幸存脱逃随队神官",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}神官"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}祭司"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    28,
+    50
+   ],
+   "baseline": "伪装成欠债落魄佣兵潜入公会地下追偿所的王都财政官，身负彻查边境公会洗钱与私吞魔导重器秘密使命。",
+   "gender": "any",
+   "id": "undercover_royal_auditor",
+   "reputation": "衣着寒酸但举止仪态严谨优雅的古怪欠债汉",
+   "resources": [
+    "藏在暗扣夹层内的盖有王室金狮火漆印的紧急调兵蜡丸",
+    "一套精密至极的伪造身份文书与加密账本抄录笔录"
+   ],
+   "risks": [
+    "身份一旦在边境石室暴露，会被公会高层合谋扣押、送回王都问责"
+   ],
+   "role": "王国立案密查特使",
+   "social_position": "high",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}监察长"
+    },
+    {
+     "gender": "any",
+     "pattern": "{family}特派员"
+    }
+   ]
+  },
+  {
+   "age_range": [
+    26,
+    48
+   ],
+   "baseline": "因私自研制深渊古代符文被学院逐出的狂热技师，欠下公会昂贵材料费，急欲前往深渊实地测试解咒机械。",
+   "gender": "any",
+   "id": "disgraced_rune_artificer",
+   "reputation": "技术高绝但精神偏执狂躁的违禁技师",
+   "resources": [
+    "一套能在绝魔环境下运转的微型机械开锁探针",
+    "三枚能放出浓烟的炼金烟雾球"
+   ],
+   "risks": [
+    "其身上的机械改造假肢已被公会锁定追踪，极易引来拘捕宪兵"
+   ],
+   "role": "除名古代魔导工匠",
+   "social_position": "equal",
+   "title_patterns": [
+    {
+     "gender": "any",
+     "pattern": "{family}工匠"
+    },
+    {
+     "gender": "any",
+     "pattern": "疯子{family}"
+    }
+   ]
+  }
+ ],
+ "premise": "边境拓荒重镇的冒险者公会，地底的石窖是追偿室。一支 S 级远征队讨伐失败，欠下三百万金币的违约赔偿，仅存的队长和幸存的神官每天被叫下来谈分期，王国的密查特使也在查这次全灭的内情。公会给了一条生路：一份深渊第十层的绝密盗掘委托，报酬丰厚，风险也高。",
+ "pressures": [
+  {
+   "choice": "帮总管取回药房暗格里的签单，还是帮药师逼总管在免责回执上盖印？",
+   "exits": [
+    {
+     "cost": "得罪药师，日后配血清要付双倍",
+     "option": "替总管从工坊暗格取回签单，换对方抹去首期利息"
+    },
+    {
+     "cost": "总管记恨在心，暗室盘查越来越严",
+     "option": "站在药师一边扣住签单，逼总管交出契约库副钥"
+    }
+   ],
+   "far": {
+    "consequence": "总管被停职，地下追偿室由理事会派人接管。",
+    "due_days": 1,
+    "trigger": "处方与挪用底单呈交理事会"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_mistress_abacus_snap",
+    "h_apothecary_needle_tap",
+    "h_clerk_ledger_glance"
+   ],
+   "id": "p_sedative_recipe_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "药师把一瓶墨绿镇痛剂放在长案边，总管按住胸口，算盘珠停在半空。"
+   },
+   "leverage": {
+    "basis": "药师锁着总管用公会备用金购买成瘾镇痛剂的亲笔签条",
+    "holder": "black_market_apothecary",
+    "subject": "cold_eyed_guildmistress"
+   },
+   "location_ids": [
+    "debt_settlement_chamber",
+    "dissection_alchemy_lab"
+   ],
+   "near": {
+    "deadline_minutes": 45,
+    "text": "总管再不肯销毁查账单，药师就把处方塞进王都巡视专员的信箱。"
+   },
+   "objective": "在两人互相拿捏之间拿到签单原件，换减免违约金或药房通行权。",
+   "source": "person",
+   "start_minute": 1360,
+   "tags": [
+    "substance",
+    "workplace_power"
+   ],
+   "title": "镇痛处方与私调公款的签单",
+   "trigger": "药师握着总管私用成瘾镇痛剂、挪用公款买药的签单，逼对方在天亮查账前销毁工坊的违规提纯记录。"
+  },
+  {
+   "choice": "先用铅盒封住魔核，还是让斥候分出魔核替学者压住魔纹？",
+   "exits": [
+    {
+     "cost": "你得亲自在巷口把风，背上包庇私藏的风险",
+     "option": "让斥候借魔核替学者压住魔纹，换学者销毁断桥留影"
+    },
+    {
+     "cost": "同时背上两人的猜忌，谁翻脸都会引来守卫",
+     "option": "由你暂管魔核与留影晶石，核完契约库底档再分"
+    }
+   ],
+   "far": {
+    "consequence": "斥候被定为临阵脱逃，残存小队一并失去申诉权。",
+    "due_days": 1,
+    "trigger": "断桥留影与私藏魔核被捅到追偿室"
+   },
+   "flags": [
+    "timed",
+    "leverage"
+   ],
+   "hook_ids": [
+    "h_scout_bandage_glow",
+    "h_mage_scroll_flutter",
+    "h_scout_potion_beg",
+    "h_mage_cipher_request"
+   ],
+   "id": "p_bridge_cable_leverage",
+   "immediate": {
+    "minutes": 15,
+    "text": "酒桶后的阴影里，学者指着斥候渗出紫光的护腕，低声念出断桥的坐标。"
+   },
+   "leverage": {
+    "basis": "学者存着斥候斩断吊桥副缆、私吞魔核的测绘留影",
+    "holder": "fallen_high_mage",
+    "subject": "desperate_scout_survivor"
+   },
+   "location_ids": [
+    "whispering_guild_tavern",
+    "contract_vault_archives"
+   ],
+   "near": {
+    "deadline_minutes": 40,
+    "text": "两人的争执声再传出后巷，门外的公会宪兵就要进门搜身。"
+   },
+   "objective": "在魔核的光引来巡逻守卫前，替两人谈定魔核归属与口供口径。",
+   "source": "rumor",
+   "start_minute": 1375,
+   "tags": [
+    "crime"
+   ],
+   "title": "断桥旧账与私藏魔核",
+   "trigger": "学者认出斥候护腕里的古代魔核，又握着对方撤退时斩断吊桥副缆的魔力留影，要对方分出魔核替自己压制魔纹。"
+  },
+  {
+   "choice": "低声提起近卫军团旧事请对方网开一面，还是交出明面上的杂物应付检查？",
+   "exits": [
+    {
+     "cost": "欠下一个大人情，得帮对方留意同袍遗物的下落",
+     "option": "直视对方的独眼说出当年界河断后的番号，请其假作已查验"
+    },
+    {
+     "cost": "少了一件趁手的工具，后面行事更得小心",
+     "option": "交出一把备用小刀应付搜检，保住靴底暗格"
+    }
+   ],
+   "far": {
+    "consequence": "涉事的人被分开关进绝魔石室，夜里不得走动。",
+    "due_days": 1,
+    "trigger": "搜出的证物上报总管"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_enforcer_blade_drop",
+    "h_enforcer_scar_touch",
+    "h_inquisitor_hammer_lean"
+   ],
+   "id": "p_enforcer_coercive_strip",
+   "immediate": {
+    "minutes": 10,
+    "text": "大剑顿在过道石板上，行刑官的独眼扫过你的袖口与靴帮。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "debt_settlement_chamber",
+    "iron_cage_holding_cell"
+   ],
+   "near": {
+    "deadline_minutes": 30,
+    "text": "一旦搜出违禁探针或密令，整条过道就要拉响警哨。"
+   },
+   "objective": "在密件或工具被搜出前，用旧识暗号说动行刑官放行，或借水牢的动静引开盘查。",
+   "source": "person",
+   "start_minute": 1385,
+   "tags": [
+    "workplace"
+   ],
+   "title": "过道里的随身搜检",
+   "trigger": "行刑官奉命在换防前清查地下过道，怀疑有人私藏深渊遗物与开锁工具，要往来的人交出行囊受检。"
+  },
+  {
+   "choice": "签下第十层委托换全队暂缓清算，还是凭旧档案当场驳回违约金？",
+   "exits": [
+    {
+     "cost": "一个月内必须带队重返深渊第十层",
+     "option": "在委托上加一条先发还扣押装备与抚恤金，再按手印"
+    },
+    {
+     "cost": "彻底得罪公会高层，出了石室也得提防",
+     "option": "联合前任审判官出示评级篡改的抄件，逼总管暂缓"
+    }
+   ],
+   "far": {
+    "consequence": "冒险者铭牌被吊销，名下装备与此后三年的分成归公会。",
+    "due_days": 1,
+    "trigger": "鸡鸣时仍未画押或申诉"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_mistress_abacus_snap",
+    "h_inquisitor_hammer_lean",
+    "h_enforcer_blade_drop"
+   ],
+   "id": "p_dawn_debt_execution",
+   "immediate": {
+    "minutes": 15,
+    "text": "青铜算盘被合上，羊皮纸旁摆好了印泥，走廊外传来换防的脚步声。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "debt_settlement_chamber",
+    "iron_cage_holding_cell"
+   ],
+   "near": {
+    "deadline_minutes": 45,
+    "text": "破晓钟声一响，门卫换防，档案库的通道也要封上。"
+   },
+   "objective": "在破晓钟声前找出瞒报评级的原档，或谈妥分期与委托的附加条款。",
+   "source": "institution",
+   "start_minute": 1395,
+   "tags": [
+    "workplace_power"
+   ],
+   "title": "鸡鸣前的深渊委托",
+   "trigger": "离破晓换防只剩半个时辰，公会核完三百万违约金，摊开了深渊第十层委托；逾期不画押又拿不出免责证据，就按以工抵债处置。"
+  },
+  {
+   "choice": "用药房的水银冷凝槽封存样本，还是把样本转进后巷的厚铅桶？",
+   "exits": [
+    {
+     "cost": "用光药房最后一批冷凝水银，账上留下亏空",
+     "option": "和药师合力把样本浸进冷凝槽，再就着炭火烘暖双手"
+    },
+    {
+     "cost": "手指被寒气冻得红肿，一时做不了细活",
+     "option": "用浸油厚毡裹好铅盒，埋进后巷麦酒桶底"
+    }
+   ],
+   "far": {
+    "consequence": "地下工坊被公会封存清查，样本与私藏物全部充公。",
+    "due_days": 1,
+    "trigger": "样本容器冻裂、魔气外泄"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_apothecary_needle_tap",
+    "h_scout_bandage_glow",
+    "h_scout_potion_beg"
+   ],
+   "id": "p_abyss_core_overheat",
+   "immediate": {
+    "minutes": 15,
+    "text": "桌上的水晶瓶结起厚霜，幽蓝冷光透过布包映亮了墙壁。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "dissection_alchemy_lab",
+    "whispering_guild_tavern"
+   ],
+   "near": {
+    "deadline_minutes": 35,
+    "text": "寒雾顺着排风口飘进一楼大厅，嗅魔猎犬就会循味追来。"
+   },
+   "objective": "在寒雾漫出药房与后巷前封存样本，自己也别冻着。",
+   "source": "accident",
+   "start_minute": 1405,
+   "tags": [
+    "substance"
+   ],
+   "title": "深渊样本的冷雾",
+   "trigger": "深渊带回的魔核与污血样本受潮发作，散出刺骨寒雾与紫色荧光，不浸进冷凝槽，容器就要冻裂、惊动楼上。"
+  },
+  {
+   "choice": "趁没人打扰抓紧抄录原始保单，还是先添炭温酒，暖暖同伴冻僵的手？",
+   "exits": [
+    {
+     "cost": "熬了一夜，天亮应对问询时精神紧绷",
+     "option": "两人披同一件厚绒披风凑在炭盆边抄完保单，再把原件放回铁架"
+    },
+    {
+     "cost": "原档缺页明日必被发觉，天亮前得离开要塞",
+     "option": "先用热麦酒和余炭暖热对方的手，只夹带最要紧的一页出库"
+    }
+   ],
+   "far": {
+    "consequence": "没归位的卷宗留在案头，私查档案的事当场败露。",
+    "due_days": 1,
+    "trigger": "重闸升起时巡夜执事进门查验"
+   },
+   "flags": [
+    "timed"
+   ],
+   "hook_ids": [
+    "h_clerk_ledger_glance",
+    "h_mage_scroll_flutter",
+    "h_mage_cipher_request",
+    "h_mistress_abacus_snap"
+   ],
+   "id": "p_antimagic_array_leak",
+   "immediate": {
+    "minutes": 20,
+    "text": "生铁重闸缓缓落下，走廊的脚步声被隔在外头，只剩炭盆微弱的火光。"
+   },
+   "leverage": null,
+   "location_ids": [
+    "contract_vault_archives",
+    "debt_settlement_chamber"
+   ],
+   "near": {
+    "deadline_minutes": 45,
+    "text": "石室越来越冷，单衣挡不住地底渗出的寒气。"
+   },
+   "objective": "趁重闸隔开内外的半个时辰核完关键卷宗，也守着余炭别让同伴受寒。",
+   "source": "nature",
+   "start_minute": 1415,
+   "tags": [
+    "disaster"
+   ],
+   "title": "暴雪夜的落闸石室",
+   "trigger": "地面突降暴雪，地脉魔力起伏，契约库与追偿室的黑曜石阵自动落下保温重闸，室内炭火渐弱。"
+  }
+ ],
+ "region": "边境拓荒重镇冒险者公会地底石窖追偿室与抵押契约库",
+ "rules": [
+  {
+   "id": "r_debt_deadline",
+   "text": "公会违约追偿以破晓第一声鸡鸣为限；逾期交不出等额金币或抵押物，名下装备与此后三年的委托分成一律归公会清偿。"
+  },
+  {
+   "id": "r_antimagic_zone",
+   "text": "地底石室铺着绝魔黑曜石，禁止吟唱三环以上的神术与魔法，违者按违约加罚。"
+  },
+  {
+   "id": "r_abyss_monopoly",
+   "text": "深渊深层带回的遗物与魔核必须经公会清算所过磅折价，私藏私售者吊销执照、永不录用。"
+  },
+  {
+   "id": "r_blood_signature",
+   "text": "债务协议按了血手印，当事人即便退役离境，担保人仍要承担连带清偿之责。"
+  }
+ ],
+ "schema_version": 1,
+ "stage_labels": {
+  "acquainted": "试探筹码",
+  "committed": "共赴深渊",
+  "familiar": "把柄共谋",
+  "flirting": "利益引诱",
+  "intimate": "立下血契",
+  "stranger": "冷眼核账",
+  "testing": "底牌对赌"
+ },
+ "status": "released",
+ "style_hint": "昏黄的魔石灯、泛黄的羊皮纸欠条、铜算盘珠拨动的脆响，以及公会总管褪去白日职业假笑后的冷静审视。",
+ "tension_engines": [
+  {
+   "id": "te_debt_countdown",
+   "text": "破晓鸡鸣前，要在三百万金币的分期方案与深渊第十层委托之间二选一。"
+  },
+  {
+   "id": "te_poison_contract_leverage",
+   "text": "总管握着被改过的远征档案，当事人握着评级造假的证据，隔着石案互探底牌。"
+  },
+  {
+   "id": "te_abyss_crystal_radiation",
+   "text": "私藏的深渊魔核在护腕里幽幽发光，一旦被嗅魔猎犬察觉就要充公、按私藏论罚。"
+  },
+  {
+   "id": "te_executioner_blade_draw",
+   "text": "总管离不开药师配的镇痛剂；谁握着药方与签单，谁就握着暗室里真正的话语权。"
+  }
+ ],
+ "title": "边境公会的黑账暗室",
+ "tone": [
+  "冷光魔石",
+  "羊皮黑账",
+  "算盘铜珠",
+  "炭盆暖光"
+ ],
+ "twists": [
+  {
+   "category": "信息",
+   "id": "t_guild_tampered_intel",
+   "requires": [
+    "cold_eyed_guildmistress"
+   ],
+   "text": "{cold_eyed_guildmistress.name}当年奉高层之命压下了魔物评级上调的预警，只为压低委托赔付；原始通报还锁在档案库底层。"
+  },
+  {
+   "category": "人事",
+   "id": "t_former_guildmaster_abyss",
+   "requires": [
+    "desperate_scout_survivor"
+   ],
+   "text": "{desperate_scout_survivor.name}吐露：三年前宣告阵亡的上一任会长还活着，在深渊第十层替走私商收货，今晚的委托就是去给那位前会长送补给。"
+  },
+  {
+   "category": "资源",
+   "id": "t_empty_guild_vault",
+   "requires": [],
+   "text": "公会大金库开库盘点，里面堆的不是三百万金币，而是充数的生铁砖：公会几个月前就已资不抵债。"
+  },
+  {
+   "category": "制度",
+   "id": "t_royal_purge_decree",
+   "requires": [],
+   "text": "王都财政院的查账车队连夜进城，宣布冻结公会全部账户，所有追偿一律暂停待审。"
+  },
+  {
+   "category": "时限",
+   "id": "t_solar_eclipse_dawn",
+   "requires": [],
+   "text": "黎明前起了大雾，城门晚开半个时辰，理事会的查账车队也跟着延后进城。"
+  },
+  {
+   "category": "关系",
+   "id": "t_enforcer_inquisitor_kin",
+   "requires": [
+    "scarred_guild_enforcer",
+    "disgraced_holy_inquisitor"
+   ],
+   "text": "{scarred_guild_enforcer.name}认出了{disgraced_holy_inquisitor.name}，正是二十年前替自己顶罪、被逐出圣堂的导师。"
+  },
+  {
+   "category": "意外",
+   "id": "t_abyss_mimic_breach",
+   "requires": [],
+   "text": "水牢排污口被深渊黏液堵住，污水漫上走廊，所有人只得搬到酒馆后门的过道里暂候。"
+  }
+ ]
+}
