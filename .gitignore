@@ -7,3 +7,6 @@ dist/
 *.keystore
 *.log
 evidence/
+tmpdiff/
+hold/
+gradle-debug*.txt
