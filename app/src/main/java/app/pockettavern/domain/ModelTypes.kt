@@ -22,7 +22,7 @@ object ModelTypes {
                     ?.asString?.trim()?.lowercase(Locale.ROOT).orEmpty()
             }.getOrDefault("")
             if (declaredType.isNotBlank() && declaredType != "model") type = declaredType
-            else if (type.isBlank() || providerKind in listOf("openai", "anthropic")) type = "text"
+            else if (type.isBlank() || providerKind in listOf("openai", "anthropic", "writing-server")) type = "text"
         }
         return if (type == model.type) model else model.copy(type = type)
     }

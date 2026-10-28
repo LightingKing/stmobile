@@ -24,5 +24,6 @@ class ModelTypesTest {
         assertEquals("image", ModelTypes.normalize(cachedImage, "openai").type)
         assertEquals("text", ModelTypes.normalize(ModelInfo(type = "", rawJson = "{}"), "openai").type)
         assertEquals("text", ModelTypes.normalize(ModelInfo(type = "model", rawJson = "not-json"), "anthropic").type)
+        assertEquals("text", ModelTypes.normalize(ModelInfo(type = "model", rawJson = "not-json"), "writing-server").type)
     }
 }

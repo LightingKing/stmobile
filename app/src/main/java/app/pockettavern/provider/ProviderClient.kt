@@ -6,11 +6,11 @@ import app.pockettavern.domain.ModelTypes
 import app.pockettavern.domain.Preset
 import app.pockettavern.domain.ProviderConfig
 import app.pockettavern.domain.StreamDelta
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.Call
 import okhttp3.HttpUrl
-import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -19,12 +19,15 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
+import java.io.InterruptedIOException
+import java.net.SocketTimeoutException
 import java.util.Locale
+import java.util.UUID
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicReference
 
 private fun newProviderHttpClient(): OkHttpClient = OkHttpClient.Builder()
-    .readTimeout(120, TimeUnit.SECONDS)
     .retryOnConnectionFailure(false)
     .followRedirects(false)
     .followSslRedirects(false)
@@ -34,25 +37,48 @@ private fun newProviderHttpClient(): OkHttpClient = OkHttpClient.Builder()
 class ProviderException(
     val kind: Kind,
     message: String,
-    cause: Throwable? = null
+    cause: Throwable? = null,
+    val finishReason: String = "",
+    val requestId: String = "",
+    val partial: CompletionResult? = null
 ) : IOException(message, cause) {
-    enum class Kind { INVALID_URL, HTTP, IN_BAND, AUTH, RATE_LIMIT, BILLING, CONTEXT, NETWORK, CANCELLED, UNSUPPORTED }
+    enum class Kind { INVALID_URL, HTTP, IN_BAND, AUTH, RATE_LIMIT, BILLING, CONTEXT, NETWORK, TIMEOUT, CANCELLED, CONTENT_FILTER, EMPTY_RESPONSE, UNSUPPORTED }
 }
 
 /** HTTP transport for the first-party and OpenAI-compatible provider protocols. */
 class ProviderClient(
     client: OkHttpClient = newProviderHttpClient(),
-    private val allowInsecureHttpForTests: Boolean = false
+    private val allowInsecureHttpForTests: Boolean = false,
+    private val onDiagnostic: (String) -> Unit = {},
+    private val timeoutMillis: Long = 0L,
+    private val callTimeoutMillis: Long = 0L
 ) {
+    init { require(timeoutMillis >= 0) { "timeoutMillis must not be negative" } }
+    init { require(callTimeoutMillis >= 0) { "callTimeoutMillis must not be negative" } }
     private val client: OkHttpClient = client.newBuilder()
-        .readTimeout(120, TimeUnit.SECONDS)
+        .readTimeout(timeoutMillis, TimeUnit.MILLISECONDS)
+        // Chat waits for the provider's end signal or an explicit cancellation.
+        // Thinking can be long or silent; neither elapsed time nor received
+        // tokens may discard an already paid generation. Compact opts in to
+        // its own finite timeouts through the constructor.
+        .callTimeout(callTimeoutMillis, TimeUnit.MILLISECONDS)
         .retryOnConnectionFailure(false)
         .followRedirects(false)
         .followSslRedirects(false)
         .build()
+    // Catalog retrieval is independent from waiting for model generation.
+    private val modelsClient = this.client.newBuilder()
+        .readTimeout(timeoutMillis.takeIf { it > 0 } ?: 120_000L, TimeUnit.MILLISECONDS)
+        .callTimeout(callTimeoutMillis.takeIf { it > 0 } ?: 180_000L, TimeUnit.MILLISECONDS)
+        .build()
     private val activeCall = AtomicReference<Call?>(null)
+    /** Kept separate from activeCall: OkHttp may report a cancelled socket after the reference is cleared. */
+    private val cancelRequested = AtomicBoolean(false)
+    private val connectTimeoutMillis = this.client.connectTimeoutMillis.toLong()
+    private val writeTimeoutMillis = this.client.writeTimeoutMillis.toLong()
 
     suspend fun models(provider: ProviderConfig, key: String): List<ModelInfo> = withContext(Dispatchers.IO) {
+        cancelRequested.set(false)
         val base = checkedBaseUrl(provider)
         val kind = provider.kind.lowercase(Locale.ROOT)
         val all = ArrayList<ModelInfo>()
@@ -64,7 +90,7 @@ class ProviderClient(
                 if (!after.isNullOrBlank()) addQueryParameter("after_id", after)
             }.build()
             val request = Request.Builder().url(url).applyHeaders(kind, key).get().build()
-            val response = execute(request)
+            val response = execute(request, modelsClient)
             try {
                 val body = response.body?.string().orEmpty()
                 if (!response.isSuccessful) throw httpError(response.code, body, key)
@@ -74,6 +100,7 @@ class ProviderClient(
             } finally {
                 response.close()
                 activeCall.set(null)
+                cancelRequested.set(false)
             }
             page++
         } while (!after.isNullOrBlank() && page < MAX_MODEL_PAGES)
@@ -87,90 +114,247 @@ class ProviderClient(
         messagesJson: String,
         preset: Preset,
         toolsJson: String = "[]",
+        metadata: Map<String, String> = emptyMap(),
+        finalAnswerOnly: Boolean = false,
         onDelta: (StreamDelta) -> Unit = {}
     ): CompletionResult = withContext(Dispatchers.IO) {
+        cancelRequested.set(false)
         if (modelId.isBlank()) throw ProviderException(ProviderException.Kind.UNSUPPORTED, "未选择模型")
         val base = checkedBaseUrl(provider)
         val kind = provider.kind.lowercase(Locale.ROOT)
         val inputMessages = parseArray(messagesJson, "messages")
-        val payload = if (kind == "anthropic") {
-            anthropicPayload(modelId, inputMessages, preset, toolsJson)
-        } else {
-            openAiPayload(modelId, inputMessages, preset, toolsJson)
+        val veniceCapabilities = if (kind == "venice") VeniceModelCapabilities.from(provider.models.firstOrNull { it.id == modelId }) else null
+        val budgetSent = preset.generationBudgetEnabled || kind == "anthropic"
+        val reasoningBudget = if (budgetSent && kind == "venice" && preset.reasoningEffort != "none") preset.reasoningBudget else 0
+        val totalOutputBudget = if (!budgetSent) 0L else if (kind == "venice") veniceCapabilities!!.totalCompletionBudget(preset) else preset.maxOutput.toLong()
+        if (budgetSent && totalOutputBudget !in 1..Int.MAX_VALUE.toLong()) {
+            throw ProviderException(ProviderException.Kind.UNSUPPORTED,
+                "生成总预算超出可用范围，请降低正文上限或思考预留；尚未发送请求")
         }
-        val endpoint = if (kind == "anthropic") "messages" else "chat/completions"
-        val request = Request.Builder()
-            .url(base.newBuilder().addPathSegments(endpoint).build())
-            .applyHeaders(kind, key)
-            .post(payload.toString().toRequestBody(JSON_MEDIA))
-            .build()
-        val response = execute(request)
+        val trace = DiagnosticTrace(
+            provider,
+            base,
+            modelId,
+            kind,
+            if (budgetSent) preset.maxOutput else 0,
+            reasoningBudget,
+            totalOutputBudget.toInt(),
+            inputMessages.length(),
+            messagesJson.length,
+            timeoutMillis,
+            connectTimeoutMillis,
+            writeTimeoutMillis,
+            callTimeoutMillis,
+            key,
+            onDiagnostic
+        )
+        trace.requestedSettings(preset, veniceCapabilities)
+        trace.emit("started", "request")
+        var outcome = "error"
+        var completed: CompletionResult? = null
         try {
-            response.use {
-                if (!it.isSuccessful) {
-                    val errorBody = readBody(it)
-                    throw httpError(it.code, errorBody, key)
-                }
-                val contentType = it.header("Content-Type").orEmpty()
-                if (contentType.contains("application/json", ignoreCase = true)) {
-                    val body = it.body?.string().orEmpty()
-                    return@use parseNonStreaming(kind, body, it.header("x-request-id"))
-                }
-                val source = it.body?.source() ?: throw ProviderException(ProviderException.Kind.NETWORK, "响应没有内容")
-                val stream = SseAccumulator(kind, onDelta)
-                try {
-                    while (true) {
-                        val line = source.readUtf8Line() ?: break
-                        stream.acceptLine(line)
+            val availableTools = if (finalAnswerOnly) "[]" else toolsJson
+            val payload = if (kind == "anthropic") {
+                // Prior tool_use/tool_result blocks stay paired in the input;
+                // omitting tools is the compatible way to end further tool use.
+                anthropicPayload(modelId, inputMessages, preset, availableTools)
+            } else {
+                openAiPayload(modelId, inputMessages, preset, availableTools).also {
+                    if (finalAnswerOnly) it.put("tool_choice", "none")
+                    if (kind == "writing-server" && metadata.isNotEmpty()) {
+                        it.put("metadata", JSONObject().apply {
+                            metadata.forEach { (name, value) -> put(name, value) }
+                        })
                     }
-                    stream.finish()
-                    stream.result(it.header("x-request-id"))
-                } catch (e: ProviderException) {
-                    throw e
-                } catch (e: IOException) {
-                    if (e.message?.contains("Canceled", ignoreCase = true) == true) {
-                        throw ProviderException(ProviderException.Kind.CANCELLED, "请求已取消", e)
+                    if (kind == "venice") {
+                        applyVeniceSettings(it, modelId, preset, veniceCapabilities!!)
+                        it.put("stream_options", JSONObject().put("include_usage", true))
                     }
-                    throw ProviderException(ProviderException.Kind.NETWORK, "网络连接失败", e)
                 }
             }
+            trace.payloadSettings(payload)
+            val endpoint = if (kind == "anthropic") "messages" else "chat/completions"
+            val request = Request.Builder()
+                .url(base.newBuilder().addPathSegments(endpoint).build())
+                .applyHeaders(kind, key)
+                .post(payload.toString().toRequestBody(JSON_MEDIA))
+                .build()
+            val response = execute(request)
+            trace.headers(response.code, response.header("x-request-id"))
+            try {
+                if (!response.isSuccessful) {
+                    val errorBody = readBody(response)
+                    throw httpError(response.code, errorBody, key)
+                }
+                val contentType = response.header("Content-Type").orEmpty()
+                completed = if (contentType.contains("application/json", ignoreCase = true)) {
+                    val bodySource = response.body?.source()
+                        ?: throw ProviderException(ProviderException.Kind.NETWORK, "响应没有内容")
+                    val hasBodyByte = bodySource.request(1)
+                    if (hasBodyByte) trace.firstByte()
+                    val body = bodySource.readUtf8()
+                    trace.jsonDecoded(body)
+                    parseNonStreaming(kind, body, response.header("x-request-id"), key)
+                } else {
+                    val source = response.body?.source() ?: throw ProviderException(ProviderException.Kind.NETWORK, "响应没有内容")
+                    val stream = SseAccumulator(kind, onDelta, key) { trace.firstDelta() }
+                    try {
+                        if (source.request(1)) trace.firstByte()
+                        while (true) {
+                            val line = source.readUtf8Line() ?: break
+                            trace.firstByte()
+                            if (stream.acceptLine(line)) break
+                        }
+                        if (cancelRequested.get()) {
+                            val partial = stream.result(response.header("x-request-id"))
+                            throw ProviderException(
+                                ProviderException.Kind.CANCELLED,
+                                "请求已取消",
+                                finishReason = partial.finishReason,
+                                requestId = partial.requestId,
+                                partial = partial
+                            )
+                        }
+                        stream.finish()
+                        stream.result(response.header("x-request-id"))
+                    } catch (error: ProviderException) {
+                        val partial = stream.result(response.header("x-request-id"))
+                        throw ProviderException(
+                            error.kind,
+                            error.message.orEmpty(),
+                            error.cause,
+                            finishReason = error.finishReason.ifBlank { partial.finishReason },
+                            requestId = error.requestId.ifBlank { partial.requestId },
+                            // Rebuild from the accumulator so a header request ID is retained even
+                            // when finish() or an in-band error created its own partial result.
+                            partial = partial
+                        )
+                    } catch (error: SocketTimeoutException) {
+                        val partial = stream.result(response.header("x-request-id"))
+                        throw ProviderException(
+                            ProviderException.Kind.TIMEOUT,
+                            "请求超时",
+                            error,
+                            finishReason = partial.finishReason,
+                            requestId = partial.requestId,
+                            partial = partial
+                        )
+                    } catch (error: IOException) {
+                        val partial = stream.result(response.header("x-request-id"))
+                        val cancelled = cancelRequested.get() || error.message.orEmpty().contains("Canceled", ignoreCase = true)
+                        val timedOut = !cancelled && error is InterruptedIOException && error.message.orEmpty().contains("timeout", ignoreCase = true)
+                        throw ProviderException(
+                            when {
+                                cancelled -> ProviderException.Kind.CANCELLED
+                                timedOut -> ProviderException.Kind.TIMEOUT
+                                else -> ProviderException.Kind.NETWORK
+                            },
+                            when {
+                                cancelled -> "请求已取消"
+                                timedOut -> "请求超时"
+                                else -> "网络连接失败"
+                            },
+                            error,
+                            finishReason = partial.finishReason,
+                            requestId = partial.requestId,
+                            partial = partial
+                        )
+                    } finally {
+                        trace.streamMetrics(stream)
+                    }
+                }
+            } finally {
+                response.close()
+            }
+            trace.result(completed!!)
+            completed = validateResult(completed!!)
+            outcome = "complete"
+            completed!!
+        } catch (error: CancellationException) {
+            outcome = "cancelled"
+            throw error
+        } catch (error: ProviderException) {
+            outcome = when (error.kind) {
+                ProviderException.Kind.CONTENT_FILTER -> "content_filter"
+                ProviderException.Kind.EMPTY_RESPONSE -> "empty_response"
+                ProviderException.Kind.TIMEOUT -> "timeout"
+                ProviderException.Kind.CANCELLED -> "cancelled"
+                else -> if (error.message.orEmpty().contains("提前结束")) "incomplete_stream" else "error"
+            }
+            trace.failure(error)
+            throw if (error.requestId.isBlank() && trace.currentRequestId().isNotBlank()) {
+                ProviderException(error.kind, error.message.orEmpty(), error,
+                    finishReason=error.finishReason, requestId=trace.currentRequestId(), partial=error.partial)
+            } else error
+        } catch (error: SocketTimeoutException) {
+            outcome = "timeout"
+            val wrapped = ProviderException(ProviderException.Kind.TIMEOUT, "请求超时", error, requestId = trace.currentRequestId())
+            trace.failure(wrapped)
+            throw wrapped
+        } catch (error: IOException) {
+            val cancelled = cancelRequested.get() || error.message.orEmpty().contains("Canceled", ignoreCase = true)
+            val timedOut = !cancelled && error is InterruptedIOException && error.message.orEmpty().contains("timeout", ignoreCase = true)
+            outcome = when {
+                cancelled -> "cancelled"
+                timedOut -> "timeout"
+                else -> "error"
+            }
+            val wrapped = ProviderException(
+                when {
+                    cancelled -> ProviderException.Kind.CANCELLED
+                    timedOut -> ProviderException.Kind.TIMEOUT
+                    else -> ProviderException.Kind.NETWORK
+                },
+                when {
+                    cancelled -> "请求已取消"
+                    timedOut -> "请求超时"
+                    else -> "网络连接失败"
+                },
+                error,
+                requestId = trace.currentRequestId()
+            )
+            trace.failure(wrapped)
+            throw wrapped
         } finally {
             activeCall.set(null)
+            cancelRequested.set(false)
+            trace.emitFinished(outcome, completed)
         }
     }
 
     fun cancel() {
-        activeCall.getAndSet(null)?.cancel()
+        cancelRequested.set(true)
+        activeCall.get()?.cancel()
     }
 
-    private fun execute(request: Request) : okhttp3.Response {
-        val call = client.newCall(request)
+    private fun execute(request: Request, transport: OkHttpClient = client) : okhttp3.Response {
+        val call = transport.newCall(request)
         if (!activeCall.compareAndSet(null, call)) {
             call.cancel()
             throw ProviderException(ProviderException.Kind.CANCELLED, "已有请求正在执行")
         }
         return try {
             call.execute()
+        } catch (e: SocketTimeoutException) {
+            activeCall.compareAndSet(call, null)
+            throw ProviderException(ProviderException.Kind.TIMEOUT, "请求超时", e)
         } catch (e: IOException) {
             activeCall.compareAndSet(call, null)
-            if (call.isCanceled()) throw ProviderException(ProviderException.Kind.CANCELLED, "请求已取消", e)
+            if (call.isCanceled() || cancelRequested.get()) throw ProviderException(ProviderException.Kind.CANCELLED, "请求已取消", e)
+            if (e is InterruptedIOException && e.message.orEmpty().contains("timeout", ignoreCase = true)) {
+                throw ProviderException(ProviderException.Kind.TIMEOUT, "请求超时", e)
+            }
             throw ProviderException(ProviderException.Kind.NETWORK, "网络连接失败", e)
         }
     }
 
     private fun checkedBaseUrl(provider: ProviderConfig): HttpUrl {
-        val raw = provider.baseUrl.trim()
-        val url = raw.toHttpUrlOrNull() ?: throw ProviderException(ProviderException.Kind.INVALID_URL, "API 地址无效")
-        if (url.username.isNotEmpty() || url.password.isNotEmpty()) {
-            throw ProviderException(ProviderException.Kind.INVALID_URL, "API 地址不能包含账号信息")
+        return try {
+            ProviderUrlPolicy.parse(provider, allowInsecureHttpForTests)
+        } catch (error: IllegalArgumentException) {
+            throw ProviderException(ProviderException.Kind.INVALID_URL, error.message ?: "API 地址无效")
         }
-        if (url.scheme != "https" && !(allowInsecureHttpForTests && url.scheme == "http" && isLocal(url.host))) {
-            throw ProviderException(ProviderException.Kind.INVALID_URL, "API 地址必须使用 HTTPS")
-        }
-        return url
     }
-
-    private fun isLocal(host: String): Boolean = host == "localhost" || host == "127.0.0.1" || host == "::1"
 
     private fun Request.Builder.applyHeaders(kind: String, key: String): Request.Builder {
         val cleanKey = key.trim()
@@ -199,6 +383,7 @@ class ProviderClient(
     private fun redact(value: String, key: String): String {
         var result = value.replace(Regex("(?i)(api[-_ ]?key|authorization|x-api-key)(\\s*[:=]\\s*)[^,\\s}]+"), "$1$2[REDACTED]")
         if (key.isNotBlank()) result = result.replace(key, "[REDACTED]")
+        result = result.replace(Regex("(?i)\\bsk-[A-Za-z0-9_-]{8,}\\b"), "[REDACTED]")
         return result.take(MAX_ERROR_BYTES)
     }
 
@@ -236,9 +421,14 @@ class ProviderClient(
         return ModelsPage(result, hasMore, afterId)
     }
 
-    private fun parseNonStreaming(kind: String, body: String, requestId: String?): CompletionResult {
+    private fun parseNonStreaming(kind: String, body: String, requestId: String?, key: String): CompletionResult {
         val json = try { JSONObject(body) } catch (e: Exception) { throw ProviderException(ProviderException.Kind.HTTP, "响应格式无效", e) }
-        if (json.has("error")) throw ProviderException(ProviderException.Kind.IN_BAND, json.optJSONObject("error")?.optString("message") ?: json.optString("error"))
+        val resolvedRequestId = requestId?.takeIf { it.isNotBlank() }
+            ?: json.optString("request_id", json.optString("requestId", "")).takeIf { it.isNotBlank() }.orEmpty()
+        if (json.has("error")) {
+            val message = json.optJSONObject("error")?.optString("message") ?: json.optString("error")
+            throw ProviderException(ProviderException.Kind.IN_BAND, redact(message, key), requestId = resolvedRequestId)
+        }
         if (kind == "anthropic") {
             val content = StringBuilder()
             val reasoning = StringBuilder()
@@ -253,14 +443,18 @@ class ProviderClient(
                         .put("type", "function").put("function", JSONObject().put("name", block.optString("name")).put("arguments", block.optJSONObject("input")?.toString() ?: "{}")))
                 }
             }
-            return CompletionResult(content.toString(), reasoning.toString(), tools.toString(), JSONObject().put("request_id", requestId ?: JSONObject.NULL).put("raw", json).toString())
+            val finish = json.optString("stop_reason", json.optString("finish_reason", ""))
+            return CompletionResult(content.toString(), reasoning.toString(), tools.toString(), JSONObject().put("request_id", resolvedRequestId.ifBlank { JSONObject.NULL }).put("raw", json).toString(), finish, resolvedRequestId)
         }
         val choice = json.optJSONArray("choices")?.optJSONObject(0) ?: JSONObject()
         val message = choice.optJSONObject("message") ?: choice.optJSONObject("delta") ?: JSONObject()
-        val content = message.optString("content", "")
-        val reasoning = message.optString("reasoning_content", message.optString("reasoning", ""))
+        val (visible, thought) = contentParts(message.opt("content"))
+        val (body, inline) = InlineReasoningSplitter.split(visible)
+        val content = body.ifBlank { extractText(message.opt("refusal")) }
+        val reasoning = reasoningText(message) + thought + inline
         val tools = message.optJSONArray("tool_calls") ?: JSONArray()
-        return CompletionResult(content, reasoning, tools.toString(), JSONObject().put("request_id", requestId ?: JSONObject.NULL).put("raw", json).toString())
+        val finish = choice.optString("finish_reason", json.optString("finish_reason", ""))
+        return CompletionResult(content, reasoning, tools.toString(), JSONObject().put("request_id", resolvedRequestId.ifBlank { JSONObject.NULL }).put("raw", json).toString(), finish, resolvedRequestId)
     }
 
     private fun openAiPayload(modelId: String, input: JSONArray, preset: Preset, toolsJson: String): JSONObject {
@@ -274,10 +468,44 @@ class ProviderClient(
             messages.put(openAiMessage(original))
         }
         val payload = JSONObject().put("model", modelId).put("messages", messages).put("stream", true)
-            .put("temperature", preset.temperature).put("max_tokens", preset.maxOutput)
+            .put("temperature", preset.temperature)
+        if (preset.generationBudgetEnabled) payload.put("max_tokens", preset.maxOutput)
         val tools = parseArrayOrNull(toolsJson)
         if (tools != null && tools.length() > 0) payload.put("tools", tools)
         return payload
+    }
+
+    private fun applyVeniceSettings(payload: JSONObject, modelId: String, preset: Preset, capabilities: VeniceModelCapabilities) {
+        val requested = preset.reasoningEffort
+        if (requested != "default" && requested !in capabilities.reasoningEffortOptions) {
+            throw ProviderException(ProviderException.Kind.UNSUPPORTED,
+                "当前模型目录未确认支持所选推理强度，请刷新 Venice 模型目录并重新选择；尚未发送请求")
+        }
+        // A disabled custom budget omits both aliases entirely; zero is not
+        // sent as a made-up unlimited value. The provider chooses its default.
+        payload.remove("max_tokens")
+        if (preset.generationBudgetEnabled) {
+            val reasoningBudget = if (preset.reasoningEffort == "none") 0 else preset.reasoningBudget
+            val totalBudget = capabilities.totalCompletionBudget(preset)
+            capabilities.maxCompletionTokens?.let { maximum ->
+                if (totalBudget > maximum.toLong()) throw ProviderException(ProviderException.Kind.UNSUPPORTED,
+                    "正文上限 ${preset.maxOutput} + 思考预留 ${reasoningBudget} = 总生成预算 ${totalBudget}，超过当前 Venice 模型目录上限 $maximum；请降低其中一项后重试，尚未发送请求")
+            }
+            payload.put("max_completion_tokens", totalBudget.toInt())
+        }
+        val venice = JSONObject().put("include_venice_system_prompt", preset.includeVeniceSystemPrompt)
+            .put("strip_thinking_response", false)
+        if (requested != "default") {
+            payload.put("reasoning_effort", requested)
+            venice.put("disable_thinking", requested == "none")
+        }
+        payload.put("venice_parameters", venice)
+        val effectiveEffort = if (requested == "default") capabilities.defaultReasoningEffort else requested
+        if (modelId == "deepseek-v4-1-flash-1017" && effectiveEffort != null && effectiveEffort != "none") {
+            // This snapshot's thinking mode ignores sampling temperature. Keep it in
+            // non-thinking/unknown modes and for every other model or provider.
+            payload.remove("temperature")
+        }
     }
 
     private fun anthropicPayload(modelId: String, input: JSONArray, preset: Preset, toolsJson: String): JSONObject {
@@ -443,59 +671,475 @@ class ProviderClient(
 
     private fun parseArrayOrNull(text: String): JSONArray? = try { JSONArray(text) } catch (_: Exception) { null }
 
+    private fun extractText(value: Any?): String = when (value) {
+        null, JSONObject.NULL -> ""
+        is String -> value
+        is JSONArray -> buildString {
+            for (i in 0 until value.length()) {
+                val item = value.opt(i)
+                when (item) {
+                    is JSONObject -> {
+                        val text = extractText(item.opt("text"))
+                            .ifBlank { extractText(item.opt("output_text")) }
+                        if (text.isNotBlank()) append(text)
+                    }
+                    else -> append(extractText(item))
+                }
+            }
+        }
+        is JSONObject -> extractText(value.opt("text")).ifBlank { extractText(value.opt("content")) }
+        else -> ""
+    }
+
+    /** Splits content parts into visible text and parts flagged as model thoughts. */
+    private fun contentParts(value: Any?): Pair<String, String> {
+        if (value !is JSONArray) return extractText(value) to ""
+        val text = StringBuilder()
+        val thought = StringBuilder()
+        for (i in 0 until value.length()) {
+            val item = value.opt(i)
+            if (item is JSONObject && (item.optBoolean("thought") || item.optString("type") in THOUGHT_PARTS)) {
+                thought.append(extractText(item.opt("thinking")).ifBlank { extractText(item.opt("text")) }.ifBlank { extractText(item.opt("reasoning")) })
+            } else if (item is JSONObject) {
+                text.append(extractText(item.opt("text")).ifBlank { extractText(item.opt("output_text")) })
+            } else text.append(extractText(item))
+        }
+        return text.toString() to thought.toString()
+    }
+
+    /** Plain reasoning fields win; `reasoning_details` usually repeats them and is only a fallback. */
+    private fun reasoningText(source: JSONObject): String {
+        for (key in listOf("reasoning_content", "reasoning")) {
+            (source.opt(key) as? String)?.takeIf { it.isNotEmpty() }?.let { return it }
+        }
+        val details = source.optJSONArray("reasoning_details") ?: return ""
+        return buildString {
+            for (i in 0 until details.length()) {
+                val detail = details.optJSONObject(i) ?: continue
+                when (detail.optString("type")) {
+                    "reasoning.text" -> append(detail.optString("text"))
+                    "reasoning.summary" -> append(detail.optString("summary"))
+                }
+            }
+        }
+    }
+
+    private fun validateResult(result: CompletionResult): CompletionResult {
+        // A filtered response may contain a partial reply or tool call. Keep it
+        // for diagnostics, but never mark it complete or execute those tools.
+        if (result.finishReason.trim().replace('-', '_').equals("content_filter", ignoreCase = true)) {
+            throw ProviderException(
+                ProviderException.Kind.CONTENT_FILTER,
+                if (result.content.isNotBlank()) "平台或上游已过滤后续内容，已保留部分回复"
+                else "平台或上游已过滤回复，未收到正文",
+                finishReason = result.finishReason,
+                requestId = result.requestId,
+                partial = result
+            )
+        }
+        val validTools = runCatching { JSONArray(result.toolCallsJson).length() > 0 }.getOrDefault(false)
+        if (result.content.isNotBlank() || validTools) return result
+        if (result.reasoning.isNotBlank()) {
+            throw ProviderException(
+                ProviderException.Kind.EMPTY_RESPONSE,
+                "模型只返回思考过程，未收到回复正文",
+                finishReason = result.finishReason,
+                requestId = result.requestId,
+                partial = result
+            )
+        }
+        throw ProviderException(
+            ProviderException.Kind.EMPTY_RESPONSE,
+            "模型返回空回复",
+            finishReason = result.finishReason,
+            requestId = result.requestId,
+            partial = result
+        )
+    }
+
     private fun firstInt(obj: JSONObject, vararg names: String): Int? = names.firstNotNullOfOrNull { name ->
         if (!obj.has(name)) null else obj.optInt(name, -1).takeIf { it > 0 }
     }
 
     private fun firstBool(obj: JSONObject, vararg names: String): Boolean? = names.firstNotNullOfOrNull { name -> if (obj.has(name)) obj.optBoolean(name) else null }
 
-    private class SseAccumulator(private val kind: String, private val onDelta: (StreamDelta) -> Unit) {
+    private fun numericUsage(source: JSONObject): JSONObject {
+        val result = JSONObject()
+        val topLevel = setOf("prompt_tokens", "completion_tokens", "total_tokens", "input_tokens", "output_tokens", "reasoning_tokens", "cached_tokens", "cost", "costs")
+        for (key in topLevel) {
+            val value = source.opt(key)
+            when (value) {
+                is Number -> result.put(key, value)
+                is JSONObject -> if (key in setOf("cost", "costs")) result.put(key, numericObject(value))
+            }
+        }
+        listOf("completion_tokens_details", "prompt_tokens_details").forEach { key ->
+            source.optJSONObject(key)?.let { details ->
+                val allowed = if (key == "completion_tokens_details") setOf("reasoning_tokens") else setOf("cached_tokens")
+                val selected = JSONObject()
+                allowed.forEach { field -> if (details.opt(field) is Number) selected.put(field, details.opt(field)) }
+                if (selected.length() > 0) result.put(key, selected)
+            }
+        }
+        return result
+    }
+
+    private fun numericObject(source: JSONObject): JSONObject {
+        val result = JSONObject()
+        for (key in setOf("input_tokens", "output_tokens", "total", "usd")) {
+            val value = source.opt(key)
+            if (value is Number) result.put(key, value)
+        }
+        return result
+    }
+
+    private data class StreamStats(
+        val eventCount: Int,
+        val malformedEvents: Int,
+        val doneSignal: Boolean,
+        val finishReason: String,
+        val requestId: String,
+        val responseId: String,
+        val usage: JSONObject?,
+        val contentChars: Int,
+        val reasoningChars: Int,
+        val toolCalls: Int
+    )
+
+    private data class ToolCallState(
+        var id: String = "",
+        var type: String = "function",
+        val name: StringBuilder = StringBuilder(),
+        val arguments: StringBuilder = StringBuilder()
+    )
+
+    private inner class DiagnosticTrace(
+        private val provider: ProviderConfig,
+        private val base: HttpUrl,
+        private val modelId: String,
+        private val kind: String,
+        private val visibleOutputTokens: Int,
+        private val reasoningBudgetTokens: Int,
+        private val maxOutputTokens: Int,
+        private val inputMessageCount: Int,
+        private val inputChars: Int,
+        private val readTimeoutMillis: Long,
+        private val connectTimeoutMillis: Long,
+        private val writeTimeoutMillis: Long,
+        private val callTimeoutMillis: Long,
+        private val key: String,
+        private val callback: (String) -> Unit
+    ) {
+        private val startedAt = System.currentTimeMillis()
+        private val traceId = UUID.randomUUID().toString()
+        private var phase = "request"
+        private var httpStatus = 0
+        private var firstByteMs = -1L
+        private var firstDeltaMs = -1L
+        private var requestId = ""
+        private var responseId = ""
+        private var outcome = ""
+        private var finishReason = ""
+        private var contentChars = 0
+        private var reasoningChars = 0
+        private var toolCalls = 0
+        private var eventCount = 0
+        private var malformedEvents = 0
+        private var doneSignal = false
+        private var usage: JSONObject? = null
+        private var errorType = ""
+        private val requestSettings = JSONObject()
+
+        fun requestedSettings(preset: Preset, capabilities: VeniceModelCapabilities?) {
+            requestSettings.put("visible_max_output_tokens", visibleOutputTokens)
+                .put("reasoning_budget_tokens", if (kind == "venice") reasoningBudgetTokens else 0)
+                .put("generation_budget_enabled", preset.generationBudgetEnabled)
+            if (kind != "venice") return
+            requestSettings.put("requested_reasoning_effort", safe(preset.reasoningEffort))
+            capabilities?.defaultReasoningEffort?.let { requestSettings.put("default_reasoning_effort", it) }
+        }
+
+        /** Copy only known scalar settings; never log the payload, messages, or tools themselves. */
+        fun payloadSettings(payload: JSONObject) {
+            val outputField = when {
+                payload.has("max_completion_tokens") -> "max_completion_tokens"
+                payload.has("max_tokens") -> "max_tokens"
+                else -> "omitted"
+            }
+            requestSettings.put("output_budget_field", outputField)
+                .put("temperature_sent", payload.has("temperature"))
+                .put("request_tool_count", payload.optJSONArray("tools")?.length() ?: 0)
+            (payload.opt("temperature") as? Number)?.let { requestSettings.put("temperature", it) }
+            (payload.opt("reasoning_effort") as? String)?.let { requestSettings.put("reasoning_effort", safe(it)) }
+            payload.optJSONObject("venice_parameters")?.let { venice ->
+                requestSettings.put("venice_system_prompt_included", venice.optBoolean("include_venice_system_prompt"))
+                if (venice.has("disable_thinking")) requestSettings.put("disable_thinking", venice.optBoolean("disable_thinking"))
+                requestSettings.put("strip_thinking_response", venice.optBoolean("strip_thinking_response"))
+            }
+        }
+
+        fun emit(event: String, nextPhase: String) {
+            phase = nextPhase
+            val now = System.currentTimeMillis()
+            val json = JSONObject()
+                .put("trace_id", traceId)
+                .put("event", event)
+                .put("started_at_ms", startedAt)
+                .put("elapsed_ms", (now - startedAt).coerceAtLeast(0))
+                .put("phase", phase)
+                .put("http_status", httpStatus)
+                .put("request_id", safe(requestId))
+                .put("response_id", safe(responseId))
+                .put("finish_reason", safe(finishReason))
+                .put("outcome", outcome)
+                // timeout_ms is retained for older consumers and means the read idle timeout.
+                .put("timeout_ms", readTimeoutMillis)
+                .put("read_timeout_ms", readTimeoutMillis)
+                .put("connect_timeout_ms", connectTimeoutMillis)
+                .put("write_timeout_ms", writeTimeoutMillis)
+                .put("call_timeout_ms", callTimeoutMillis)
+                .put("content_chars", contentChars)
+                .put("reasoning_chars", reasoningChars)
+                .put("tool_calls", toolCalls)
+                .put("event_count", eventCount)
+                .put("malformed_events", malformedEvents)
+                .put("done_signal", doneSignal)
+                .put("provider_kind", safe(kind))
+                .put("provider_name", safe(provider.name))
+                .put("provider_id", safe(provider.id))
+                .put("model_id", safe(modelId))
+                .put("api_host", safe(base.host))
+                .put("max_output_tokens", maxOutputTokens)
+                .put("input_message_count", inputMessageCount)
+                .put("input_chars", inputChars)
+            requestSettings.keys().forEach { name -> json.put(name, requestSettings.get(name)) }
+            if (firstByteMs >= 0) json.put("first_byte_ms", firstByteMs)
+            if (firstDeltaMs >= 0) json.put("first_delta_ms", firstDeltaMs)
+            usage?.takeIf { it.length() > 0 }?.let { json.put("usage", it) }
+            if (errorType.isNotBlank()) json.put("error_type", errorType)
+            safeDiagnostic(json)
+        }
+
+        fun headers(status: Int, headerRequestId: String?) {
+            httpStatus = status
+            requestId = headerRequestId.orEmpty()
+            emit("headers", "response_headers")
+        }
+
+        fun firstByte() {
+            if (firstByteMs < 0L) firstByteMs = (System.currentTimeMillis() - startedAt).coerceAtLeast(0)
+            if (phase == "response_headers") phase = "stream"
+        }
+
+        fun firstDelta() {
+            firstByte()
+            if (firstDeltaMs < 0L) {
+                firstDeltaMs = (System.currentTimeMillis() - startedAt).coerceAtLeast(0)
+                emit("first_delta", "stream")
+            } else phase = "stream"
+        }
+
+        fun jsonDecoded(body: String) {
+            phase = "json_decode"
+            runCatching { JSONObject(body) }.getOrNull()?.let { root ->
+                usage = root.optJSONObject("usage")?.let(::numericUsage)
+                responseId = root.optString("id", "")
+                if (requestId.isBlank()) requestId = root.optString("request_id", root.optString("requestId", ""))
+                val choice = root.optJSONArray("choices")?.optJSONObject(0)
+                finishReason = choice?.optString("finish_reason", "").orEmpty().ifBlank { root.optString("finish_reason", "") }
+            }
+        }
+
+        fun streamMetrics(stream: SseAccumulator) {
+            val stats = stream.stats()
+            eventCount = stats.eventCount
+            malformedEvents = stats.malformedEvents
+            doneSignal = stats.doneSignal
+            finishReason = stats.finishReason
+            usage = stats.usage
+            contentChars = stats.contentChars
+            reasoningChars = stats.reasoningChars
+            toolCalls = stats.toolCalls
+            if (requestId.isBlank()) requestId = stats.requestId
+            responseId = stats.responseId
+        }
+
+        fun result(result: CompletionResult) {
+            contentChars = result.content.length
+            reasoningChars = result.reasoning.length
+            toolCalls = runCatching { JSONArray(result.toolCallsJson).length() }.getOrDefault(0)
+            finishReason = result.finishReason
+            if (requestId.isBlank()) requestId = result.requestId
+        }
+
+        fun failure(error: ProviderException) {
+            // Class name only: exception messages can echo hosts or response text.
+            errorType = error.cause?.javaClass?.simpleName ?: error.kind.name.lowercase()
+            finishReason = error.finishReason.ifBlank { finishReason }
+            requestId = error.requestId.ifBlank { requestId }
+            error.partial?.let(::result)
+        }
+
+        fun currentRequestId(): String = requestId
+
+        fun emitFinished(outcome: String, result: CompletionResult?) {
+            this.outcome = outcome
+            result?.let(::result)
+            emit("finished", phase)
+        }
+
+        private fun safe(value: String): String = redact(value, key).take(240)
+        private fun safeDiagnostic(json: JSONObject) { runCatching { callback(json.toString()) } }
+    }
+
+    private inner class SseAccumulator(
+        private val kind: String,
+        private val onDelta: (StreamDelta) -> Unit,
+        private val key: String,
+        private val onFirstDelta: () -> Unit
+    ) {
         private val dataLines = ArrayList<String>()
         private val content = StringBuilder()
         private val reasoning = StringBuilder()
         private val toolCalls = LinkedHashMap<Int, ToolCallState>()
         private var rawEvents = 0
+        private var malformedEvents = 0
         private var doneSignal = false
         private var rawLast = "{}"
+        private var finishReason = ""
+        private var requestId = ""
+        private var responseId = ""
+        private var usage: JSONObject? = null
+        private var emittedDelta = false
+        private val inlineReasoning = InlineReasoningSplitter()
 
-        fun acceptLine(line: String) {
-            when {
-                line.startsWith("data:") -> dataLines += line.substringAfter("data:").trimStart()
+        fun acceptLine(line: String): Boolean {
+            if (doneSignal) return true
+            return when {
+                line.startsWith("data:") -> {
+                    dataLines += line.substringAfter("data:").trimStart()
+                    false
+                }
                 line.isEmpty() -> flush()
-                line.startsWith(":") -> Unit
+                line.startsWith(":") -> false
+                else -> false
             }
         }
 
         fun finish() {
             flush()
-            if (!doneSignal) throw ProviderException(ProviderException.Kind.NETWORK, "流式响应提前结束")
+            drainInlineReasoning()
+            if (!doneSignal) throw ProviderException(ProviderException.Kind.NETWORK, "流式响应提前结束", partial = result(null))
         }
 
-        private fun flush() {
-            if (dataLines.isEmpty()) return
+        fun stats(): StreamStats = StreamStats(rawEvents, malformedEvents, doneSignal, finishReason, requestId, responseId, usage, content.length, reasoning.length, toolCalls.size)
+
+        private fun flush(): Boolean {
+            if (dataLines.isEmpty()) return doneSignal
             val data = dataLines.joinToString("\n").also { dataLines.clear() }
-            if (data == "[DONE]") { doneSignal = true; return }
-            val json = try { JSONObject(data) } catch (_: Exception) { return }
+            if (data == "[DONE]") {
+                doneSignal = true
+                return true
+            }
+            val json = try { JSONObject(data) } catch (_: Exception) {
+                malformedEvents++
+                return false
+            }
             rawEvents++
             rawLast = json.toString()
             if (kind == "anthropic") parseAnthropic(json) else parseOpenAi(json)
+            return doneSignal
+        }
+
+        private fun markDelta() {
+            if (!emittedDelta) {
+                emittedDelta = true
+                onFirstDelta()
+            }
+        }
+
+        private fun appendContent(text: String, snapshot: Boolean = false) {
+            if (text.isEmpty()) return
+            if (snapshot) {
+                val current = content.toString()
+                if (current.isNotBlank() && text.startsWith(current)) {
+                    content.clear(); content.append(text)
+                    val suffix = text.removePrefix(current)
+                    if (suffix.isNotEmpty()) onDelta(StreamDelta(content = suffix))
+                    markDelta()
+                    return
+                }
+                if (current == text || current.startsWith(text)) return
+                content.clear(); content.append(text)
+                onDelta(StreamDelta(content = text, replaceContent = true))
+                markDelta()
+                return
+            }
+            content.append(text)
+            onDelta(StreamDelta(content = text))
+            markDelta()
+        }
+
+        private fun appendReasoning(text: String, snapshot: Boolean = false) {
+            if (text.isEmpty()) return
+            val added = when {
+                !snapshot || reasoning.isEmpty() -> text
+                text.startsWith(reasoning) -> text.substring(reasoning.length)
+                else -> ""
+            }
+            if (added.isEmpty()) return
+            reasoning.append(added)
+            onDelta(StreamDelta(reasoning = added))
+            markDelta()
+        }
+
+        private fun feedContent(text: String) {
+            if (text.isEmpty()) return
+            val (visible, thought) = inlineReasoning.feed(text)
+            appendReasoning(thought)
+            appendContent(visible)
+        }
+
+        private fun drainInlineReasoning() {
+            val (visible, thought) = inlineReasoning.finish()
+            appendReasoning(thought)
+            appendContent(visible)
         }
 
         private fun parseOpenAi(json: JSONObject) {
             if (json.has("error")) throw inBand(json.optJSONObject("error")?.optString("message") ?: json.optString("error"))
-            val choice = json.optJSONArray("choices")?.optJSONObject(0) ?: return
-            val delta = choice.optJSONObject("delta") ?: JSONObject()
-            val text = delta.optString("content", "")
-            val think = delta.optString("reasoning_content", delta.optString("reasoning", ""))
-            if (text.isNotEmpty()) { content.append(text); onDelta(StreamDelta(content = text)) }
-            if (think.isNotEmpty()) { reasoning.append(think); onDelta(StreamDelta(reasoning = think)) }
-            val calls = delta.optJSONArray("tool_calls") ?: return
+            responseId = json.optString("id", responseId)
+            if (requestId.isBlank()) requestId = json.optString("request_id", json.optString("requestId", ""))
+            json.optJSONObject("usage")?.let { usage = numericUsage(it) }
+            // Chunks for other choices would otherwise be appended to the one visible reply.
+            val choices = json.optJSONArray("choices") ?: return
+            val choice = (0 until choices.length()).mapNotNull { choices.optJSONObject(it) }
+                .firstOrNull { it.optInt("index", 0) == 0 } ?: return
+            choice.optString("finish_reason").takeIf { it.isNotBlank() }?.let { finishReason = it }
+            val delta = choice.optJSONObject("delta")
+            val message = choice.optJSONObject("message")
+            val source = delta ?: message ?: JSONObject()
+            val snapshot = delta == null && message != null
+            val (visible, thought) = contentParts(source.opt("content"))
+            if (snapshot) {
+                val (body, inline) = InlineReasoningSplitter.split(visible)
+                inlineReasoning.finish()
+                appendReasoning(reasoningText(source) + thought + inline, true)
+                appendContent(body, true)
+            } else {
+                appendReasoning(reasoningText(source) + thought)
+                feedContent(visible)
+            }
+            appendContent(extractText(source.opt("refusal")), snapshot)
+            parseToolCalls(source.optJSONArray("tool_calls"))
+        }
+
+        private fun parseToolCalls(calls: JSONArray?) {
+            if (calls == null) return
             for (i in 0 until calls.length()) {
                 val call = calls.optJSONObject(i) ?: continue
                 val index = call.optInt("index", i)
                 val state = toolCalls.getOrPut(index) { ToolCallState() }
-                // Providers may emit id/type only in the first chunk and send null or
-                // empty placeholders in later chunks. Never erase a useful value.
                 call.opt("id")?.takeUnless { it == JSONObject.NULL }?.toString()?.trim()
                     ?.takeIf { it.isNotBlank() }?.let { state.id = it }
                 call.opt("type")?.takeUnless { it == JSONObject.NULL }?.toString()?.trim()
@@ -505,13 +1149,17 @@ class ProviderClient(
                     if (function.has("name")) state.name.append(function.optString("name"))
                     if (function.has("arguments")) state.arguments.append(function.optString("arguments"))
                 }
+                markDelta()
             }
         }
 
         private fun parseAnthropic(json: JSONObject) {
             if (json.optString("type") == "error") throw inBand(json.optJSONObject("error")?.optString("message") ?: "Anthropic 流中错误")
+            if (json.has("message")) json.optJSONObject("message")?.optString("id")?.takeIf { it.isNotBlank() }?.let { responseId = it }
+            if (json.has("usage")) json.optJSONObject("usage")?.let { usage = numericUsage(it) }
             when (json.optString("type")) {
                 "message_stop" -> doneSignal = true
+                "message_delta" -> json.optJSONObject("delta")?.optString("stop_reason")?.takeIf { it.isNotBlank() }?.let { finishReason = it }
                 "content_block_start" -> {
                     val block = json.optJSONObject("content_block") ?: return
                     if (block.optString("type") == "tool_use") {
@@ -519,45 +1167,43 @@ class ProviderClient(
                         state.id = block.optString("id")
                         state.type = "function"
                         state.name.append(block.optString("name"))
+                        markDelta()
                     }
                 }
                 "content_block_delta" -> {
                     val delta = json.optJSONObject("delta") ?: return
                     when (delta.optString("type")) {
-                        "text_delta" -> {
-                            val text = delta.optString("text")
-                            content.append(text); if (text.isNotEmpty()) onDelta(StreamDelta(content = text))
-                        }
-                        "thinking_delta" -> {
-                            val text = delta.optString("thinking", "")
-                            reasoning.append(text); if (text.isNotEmpty()) onDelta(StreamDelta(reasoning = text))
-                        }
-                        // Signatures authenticate a thinking block for replay. They are
-                        // not user-facing reasoning text and StreamDelta has no signature field.
+                        "text_delta" -> appendContent(delta.optString("text"))
+                        "thinking_delta" -> appendReasoning(delta.optString("thinking", ""))
                         "signature_delta" -> Unit
-                        "input_json_delta" -> toolCalls.getOrPut(json.optInt("index", toolCalls.size)) { ToolCallState() }.arguments.append(delta.optString("partial_json"))
+                        "input_json_delta" -> {
+                            toolCalls.getOrPut(json.optInt("index", toolCalls.size)) { ToolCallState() }.arguments.append(delta.optString("partial_json"))
+                            markDelta()
+                        }
                     }
                 }
             }
         }
 
         fun result(requestId: String?): CompletionResult {
+            drainInlineReasoning()
             val calls = JSONArray()
             for ((index, state) in toolCalls.toSortedMap()) {
                 val id = state.id.ifBlank { "call_$index" }
                 calls.put(JSONObject().put("index", index).put("id", id).put("type", state.type)
                     .put("function", JSONObject().put("name", state.name.toString()).put("arguments", state.arguments.toString())))
             }
-            return CompletionResult(content.toString(), reasoning.toString(), calls.toString(), JSONObject().put("events", rawEvents).put("last", rawLast).put("request_id", requestId ?: JSONObject.NULL).toString())
+            val resolved = requestId?.takeIf { it.isNotBlank() } ?: this.requestId
+            return CompletionResult(content.toString(), reasoning.toString(), calls.toString(), JSONObject().put("events", rawEvents).put("last", rawLast).put("request_id", resolved.ifBlank { JSONObject.NULL }).toString(), finishReason, resolved)
         }
 
-        private fun inBand(message: String): ProviderException = ProviderException(ProviderException.Kind.IN_BAND, "流中错误: ${message.take(500)}")
-        private data class ToolCallState(var id: String = "", var type: String = "function", val name: StringBuilder = StringBuilder(), val arguments: StringBuilder = StringBuilder())
+        private fun inBand(message: String): ProviderException = ProviderException(ProviderException.Kind.IN_BAND, "流中错误: ${redact(message, key).take(500)}")
     }
 
     private companion object {
         val JSON_MEDIA = "application/json; charset=utf-8".toMediaType()
         const val MAX_ERROR_BYTES = 16_384
         const val MAX_MODEL_PAGES = 100
+        val THOUGHT_PARTS = setOf("thinking", "reasoning", "redacted_thinking")
     }
 }

@@ -79,15 +79,30 @@ private val PickerProviders = listOf(
     )
 )
 
-private fun pickerSession(status: String = ""): UiSession {
+private val SameNameChat = Chat(id = "same-name-chat", title = "同名模型", providerId = "venice", modelId = "deepseek-v4-1-flash-1017")
+
+private val SameNameProviders = listOf(
+    ProviderConfig(
+        id = "venice",
+        name = "Venice",
+        kind = "venice",
+        models = listOf(
+            ModelInfo(id = "deepseek-v4-1-flash", name = "DeepSeek V4.1 Flash", type = "text", contextTokens = 1_000_000),
+            ModelInfo(id = "deepseek-v4-1-flash-1017", name = "DeepSeek V4.1 Flash", type = "text", contextTokens = 1_000_000),
+            ModelInfo(id = "venice-uncensored", name = "Venice Uncensored", type = "text", contextTokens = 32_768)
+        )
+    )
+)
+
+private fun pickerSession(status: String = "", providers: List<ProviderConfig> = PickerProviders, chat: Chat = PickerChat): UiSession {
     val restored = DataCodec.decode(DataCodec.encode(AppData(
-        providers = PickerProviders,
-        chats = listOf(PickerChat),
+        providers = providers,
+        chats = listOf(chat),
         settings = AppSettings(darkMode = "light")
     )))
     return UiSession(
         data = restored,
-        selectedChatId = PickerChat.id,
+        selectedChatId = chat.id,
         loading = false,
         status = status
     )
@@ -97,11 +112,12 @@ private fun pickerSession(status: String = ""): UiSession {
 private fun ModelPickerPreview(
     state: UiSession,
     initialQuery: String = "",
-    initialProviderId: String = ""
+    initialProviderId: String = "",
+    chat: Chat = PickerChat
 ) {
     Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         ConversationModelsContent(
-            chat = PickerChat,
+            chat = chat,
             state = state,
             actions = ModelPickerActions,
             initialQuery = initialQuery,
@@ -136,4 +152,20 @@ fun conversationModelsNarrowLargeTextPreview() {
     PocketTheme("light") {
         ModelPickerPreview(pickerSession(), initialProviderId = "cool-coffee")
     }
+}
+
+@PreviewTest
+@Preview(name = "同名模型显示 ID 窄屏大字", showBackground = true, widthDp = 360, heightDp = 760, fontScale = 1.3f)
+@androidx.compose.runtime.Composable
+fun conversationModelsSameNamePreview() {
+    PocketTheme("light") {
+        ModelPickerPreview(pickerSession(providers = SameNameProviders, chat = SameNameChat), chat = SameNameChat)
+    }
+}
+
+@PreviewTest
+@Preview(name = "同名模型顶部显示 ID 窄屏", showBackground = true, widthDp = 320, heightDp = 640)
+@androidx.compose.runtime.Composable
+fun conversationHeaderSameNamePreview() {
+    PocketApp(pickerSession(providers = SameNameProviders, chat = SameNameChat), ModelPickerActions)
 }
