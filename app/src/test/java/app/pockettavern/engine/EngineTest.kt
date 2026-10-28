@@ -21,6 +21,82 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class EngineTest {
+    @Test fun emptyAssistantAttemptsDoNotPolluteNextRequestButPartialRepliesAndToolsRemain() {
+        val toolJson = "[{\"id\":\"call-1\",\"type\":\"function\",\"function\":{\"name\":\"lookup\",\"arguments\":\"{}\"}}]"
+        val messages = listOf(
+            Message(content = "first"),
+            Message(role = "assistant"),
+            Message(role = "assistant", status = "error"),
+            Message(role = "assistant", status = "stopped", reasoning = "unfinished thought"),
+            Message(role = "assistant", status = "error", content = "partial answer"),
+            Message(role = "assistant", toolCallsJson = toolJson),
+            Message(role = "tool", content = "result", toolCallId = "call-1"),
+            Message(content = "next")
+        )
+        val built = JSONArray(ContextEngine.build(AppData(), Chat(messages = messages)).messagesJson)
+        val assistants = (0 until built.length()).map(built::getJSONObject).filter { it.optString("role") == "assistant" }
+        assertEquals(2, assistants.size)
+        assertTrue(assistants.any { it.optString("content") == "partial answer" })
+        assertTrue(assistants.any { it.optJSONArray("tool_calls")?.length() == 1 })
+        assertEquals(8, messages.size)
+    }
+
+    @Test fun everyEarlierAssistantPassageIsSentBackExactlyOnce() {
+        val passage = "雪从庄园的屋檐上滑落，顾砚舟把温度计的读数抄进本子。".repeat(6)
+        val toolJson = "[{\"id\":\"call-1\",\"type\":\"function\",\"function\":{\"name\":\"skill_read\",\"arguments\":\"{}\"}}]"
+        val messages = listOf(
+            Message(content = "开始"),
+            Message(role = "assistant", content = passage, reasoning = "先写雪"),
+            Message(content = "继续"),
+            Message(role = "assistant", content = "第二段开头", toolCallsJson = toolJson),
+            Message(role = "tool", content = "引用文件原文", toolCallId = "call-1"),
+            Message(role = "assistant", content = "第二段写完"),
+            Message(content = "再继续")
+        )
+        val json = ContextEngine.build(AppData(), Chat(messages = messages)).messagesJson
+        assertEquals(1, Regex(Regex.escape(passage)).findAll(json).count())
+        assertEquals(1, Regex("第二段开头").findAll(json).count())
+        assertEquals(1, Regex("第二段写完").findAll(json).count())
+        assertEquals(1, Regex("先写雪").findAll(json).count())
+    }
+
+    @Test fun storyLoreUsesRecentNpcProseWithoutLeakingIntoOtherCharacters() {
+        val character = app.pockettavern.domain.Character(id = "story", name = "story")
+        val entry = app.pockettavern.domain.WorldEntry(
+            name = "管家", content = "NPC_CANON", keywords = listOf("顾砚舟"),
+            characterId = character.id, searchRange = 1000
+        )
+        val data = AppData(characters = listOf(character), worldEntries = listOf(
+            entry,
+            entry.copy(id = "legacy", content = "LEGACY_ONLY_LATEST_USER", searchRange = 0),
+            entry.copy(id = "foreign", content = "OTHER_STORY_SECRET", characterId = "other", always = true),
+            entry.copy(id = "disabled", content = "DISABLED_RULE", enabled = false)
+        ))
+        val chat = Chat(characterId = character.id, messages = listOf(
+            Message(role = "assistant", content = "顾砚舟在门边等候。"),
+            Message(role = "user", content = "问他今天的安排。")
+        ))
+        val built = ContextEngine.build(data, chat).messagesJson
+        assertTrue(built.contains("NPC_CANON"))
+        assertFalse(built.contains("LEGACY_ONLY_LATEST_USER"))
+        assertFalse(built.contains("OTHER_STORY_SECRET"))
+        assertFalse(built.contains("DISABLED_RULE"))
+        assertFalse(ContextEngine.build(data, chat.copy(characterId = "unrelated")).messagesJson.contains("NPC_CANON"))
+    }
+
+    @Test fun storyLoreScanIsBoundedAndDoesNotActivateFromToolResults() {
+        val entry = app.pockettavern.domain.WorldEntry(content = "BOUNDED_LORE", keywords = listOf("顾砚舟"), searchRange = 20)
+        val data = AppData(worldEntries = listOf(entry))
+        val chat = Chat(messages = listOf(
+            Message(role = "assistant", content = "顾砚舟"),
+            Message(role = "user", content = "庭院".repeat(30)),
+            Message(role = "tool", content = "顾砚舟")
+        ))
+        assertFalse(ContextEngine.build(data, chat).messagesJson.contains("BOUNDED_LORE"))
+        val spoken = chat.copy(messages = chat.messages + Message(role = "user", content = "叫顾砚舟来。"))
+        assertTrue(ContextEngine.build(data, spoken).messagesJson.contains("BOUNDED_LORE"))
+    }
+
     @Test fun memorySearchIsolatedToChatUnlessGlobal() = runBlocking {
         val first = Chat(id = "first", skillIds = listOf("memory"), messages = listOf(Message(role = "user", content = "hi")))
         val second = Chat(id = "second")
@@ -67,13 +143,25 @@ class EngineTest {
         val message = Message(role = "user", content = "看图", attachments = listOf(Attachment(mime = "image/png", dataUrl = "data:image/png;base64," + "a".repeat(10000))))
         val chat = Chat(providerId = "p", modelId = "m", messages = listOf(message))
         val build = ContextEngine.build(AppData(providers = listOf(provider), settings = AppSettings(contextOverride = 1024)), chat)
-        assertEquals(1, build.budget)
+        assertEquals(512, build.budget)
         assertTrue(build.preview.contains("messages JSON"))
         assertTrue(build.messagesJson.contains("image_url"))
         assertTrue(build.messagesJson.contains("data:image/png;base64,"))
         assertFalse(build.preview.contains("data:image/png;base64,"))
         assertTrue(build.preview.contains("二进制附件已省略"))
         assertTrue(build.preview.contains("bytes="))
+    }
+
+    @Test fun veniceContextBudgetReservesReasoningOutsideVisibleOutputTarget() {
+        val model = ModelInfo(id = "reasoning", contextTokens = 4096)
+        val provider = app.pockettavern.domain.ProviderConfig(id = "venice", kind = "venice", models = listOf(model))
+        val preset = app.pockettavern.domain.Preset(maxOutput = 512, reasoningEffort = "low", reasoningBudget = 256, generationBudgetEnabled = true)
+        val chat = Chat(providerId = "venice", modelId = "reasoning", presetId = preset.id, messages = listOf(Message(content = "继续")))
+        val data = AppData(providers = listOf(provider), presets = listOf(preset), settings = AppSettings(contextOverride = 4096))
+        val withReserve = ContextEngine.build(data, chat)
+        val withoutReserve = ContextEngine.build(data.copy(providers = listOf(provider.copy(kind = "openai"))), chat)
+        assertEquals(2816, withReserve.budget)
+        assertEquals(3072, withoutReserve.budget)
     }
 
     @Test fun plainTextAttachmentDataIsNotUrlDecodedAndDeletedPresetUsesFirstPreset() {

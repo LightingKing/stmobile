@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -26,14 +27,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.pockettavern.domain.*
+import app.pockettavern.engine.DeepSeekWriting
+import app.pockettavern.engine.ConversationTurns
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -47,22 +52,40 @@ internal fun ChatTab(state: UiSession, actions: AppActions) {
     val chat = chats.firstOrNull { it.id == state.selectedChatId } ?: chats.firstOrNull()
     val conversationStates = rememberSaveableStateHolder()
     var historyOpen by remember { mutableStateOf(false) }
+    var historyDeleteId by rememberSaveable { mutableStateOf<String?>(null) }
     var modelsOpen by remember { mutableStateOf(false) }
     var optionsOpen by remember(chat?.id) { mutableStateOf(false) }
+    var memoryOpen by rememberSaveable(chat?.id) { mutableStateOf(false) }
+    var scenarioStatusOpen by rememberSaveable(chat?.id) { mutableStateOf(false) }
+    var scenarioRosterOpen by rememberSaveable(chat?.id) { mutableStateOf(false) }
     var contextOpen by remember(chat?.id) { mutableStateOf(false) }
     var renameOpen by remember(chat?.id) { mutableStateOf(false) }
     var deleteOpen by remember(chat?.id) { mutableStateOf(false) }
+    var repairOpen by remember(chat?.id) { mutableStateOf(false) }
+    var undoRepairOpen by remember(chat?.id) { mutableStateOf(false) }
+    var continuityOpen by remember(chat?.id) { mutableStateOf(false) }
+    var researchOpen by remember(chat?.id) { mutableStateOf(false) }
+    var deepSeekWritingOpen by remember(chat?.id) { mutableStateOf(false) }
     var editMessage by remember(chat?.id) { mutableStateOf<Message?>(null) }
     var branchMessage by remember(chat?.id) { mutableStateOf<Message?>(null) }
 
     Column(Modifier.fillMaxSize()) {
         ConversationHeader(chat, state, actions, onHistory = { historyOpen = true }, onModels = { modelsOpen = true },
-            onOptions = { optionsOpen = true }, onRename = { renameOpen = true }, onDelete = { deleteOpen = true })
+            onOptions = { optionsOpen = true }, onRename = { renameOpen = true }, onDelete = { deleteOpen = true },
+            onRepair = { repairOpen = true }, onUndoRepair = { undoRepairOpen = true }, onMemory = { memoryOpen = true },
+            onContinuity = { continuityOpen = true }, onResearch = { researchOpen = true }, onDeepSeekWriting = { deepSeekWritingOpen = true },
+            onScenarioStatus = { scenarioStatusOpen = true }, onScenarioRoster = { scenarioRosterOpen = true })
         if (chat == null) {
             ConversationWelcome(Modifier.weight(1f), "给想象，留一点空间。", "聊天、创作，或继续一个故事。\n你的会话会保存在这台设备上。") {
-                Button(onClick = { actions.createChat() }, contentPadding = PaddingValues(horizontal = 24.dp, vertical = 14.dp), enabled = !state.busy) {
-                    Icon(Icons.Outlined.Add, null, Modifier.size(18.dp))
-                    Spacer(Modifier.width(8.dp)); Text("开始新对话")
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Button(onClick = { actions.createChat() }, contentPadding = PaddingValues(horizontal = 20.dp, vertical = 14.dp), enabled = !state.busy) {
+                        Icon(Icons.Outlined.Add, null, Modifier.size(18.dp))
+                        Spacer(Modifier.width(8.dp)); Text("开始新对话")
+                    }
+                    OutlinedButton(onClick = { actions.importFile("chat") }, contentPadding = PaddingValues(horizontal = 16.dp, vertical = 14.dp), enabled = !state.busy) {
+                        Icon(Icons.Outlined.FileUpload, null, Modifier.size(18.dp))
+                        Spacer(Modifier.width(6.dp)); Text("导入会话")
+                    }
                 }
             }
         } else {
@@ -74,16 +97,30 @@ internal fun ChatTab(state: UiSession, actions: AppActions) {
 
     if (historyOpen) ConversationHistory(chats, chat?.id, state.busy, onDismiss = { historyOpen = false }, onSelect = {
         actions.selectChat(it); historyOpen = false
-    }, onCreate = { actions.createChat(); historyOpen = false })
+    }, onCreate = { actions.createChat(); historyOpen = false }, onImport = { actions.importFile("chat"); historyOpen = false }, onDelete = { historyDeleteId = it })
     if (modelsOpen) ConversationModels(chat, state, actions) { modelsOpen = false }
     if (chat != null) {
         if (optionsOpen) ChatOptionsDialog(chat, state, actions, onDismiss = { optionsOpen = false }, onPreview = {
             actions.previewContext(); optionsOpen = false; contextOpen = true
-        })
+        }, onMemory = { optionsOpen = false; memoryOpen = true })
+        if (memoryOpen) ConversationMemoryScreen(chat, state, actions) { memoryOpen = false }
+        if (scenarioStatusOpen) ScenarioStatusScreen(chat, state, actions) { scenarioStatusOpen = false }
+        if (scenarioRosterOpen) ScenarioRosterScreen(chat, state, actions) { scenarioRosterOpen = false }
+        if (continuityOpen) ContinuityNotesDialog(chat, state.busy, onSave = { actions.saveContinuityNotes(chat.id, it) }) { continuityOpen = false }
+        if (researchOpen) ResearchDialog(chat, state, actions) { researchOpen = false }
+        if (deepSeekWritingOpen) DeepSeekWritingDialog(chat, state, actions) { deepSeekWritingOpen = false }
         if (renameOpen) RenameChatDialog(chat, actions) { renameOpen = false }
         if (deleteOpen) ConfirmDeleteDialog("会话“${chat.title}”", {
             actions.deleteChat(chat.id); deleteOpen = false
         }) { deleteOpen = false }
+        if (repairOpen) ConversationRepairDialog(chat, state.busy, actions) { repairOpen = false }
+        if (undoRepairOpen) AlertDialog(
+            onDismissRequest = { undoRepairOpen = false },
+            title = { Text("恢复修复前的会话？") },
+            text = { Text("这会恢复修复时删掉的内容，并保留修复后新发送、新生成的剧情。修复后产生且仍有效的摘要和知识笔记也会继续保留。") },
+            confirmButton = { Button(onClick = { actions.undoLastChatRepair(chat.id); undoRepairOpen = false }, enabled = !state.busy) { Text("恢复快照") } },
+            dismissButton = { TextButton(onClick = { undoRepairOpen = false }) { Text("取消") } }
+        )
         editMessage?.let { EditMessageDialog(it, actions) { editMessage = null } }
         branchMessage?.let { message ->
             AlertDialog(onDismissRequest = { branchMessage = null }, title = { Text("从这里继续") },
@@ -92,14 +129,32 @@ internal fun ChatTab(state: UiSession, actions: AppActions) {
                 dismissButton = { TextButton(onClick = { branchMessage = null }) { Text("取消") } })
         }
     }
+    historyDeleteId?.let { id ->
+        val target = chats.firstOrNull { it.id == id }
+        if (target != null) {
+            ConfirmDeleteDialog("会话“${target.title}”", {
+                actions.deleteChat(id)
+                historyDeleteId = null
+            }, { historyDeleteId = null })
+        } else {
+            historyDeleteId = null
+        }
+    }
     if (contextOpen) ContextPreviewDialog(state, actions) { contextOpen = false }
 }
 
 @Composable
-private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppActions, onHistory: () -> Unit, onModels: () -> Unit, onOptions: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit) {
+private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppActions, onHistory: () -> Unit, onModels: () -> Unit, onOptions: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit, onRepair: () -> Unit, onUndoRepair: () -> Unit, onMemory: () -> Unit, onContinuity: () -> Unit, onResearch: () -> Unit, onDeepSeekWriting: () -> Unit, onScenarioStatus: () -> Unit, onScenarioRoster: () -> Unit) {
     var menuOpen by remember(chat?.id) { mutableStateOf(false) }
     var presetOpen by remember(chat?.id) { mutableStateOf(false) }
     val colors = MaterialTheme.colorScheme
+    // Keep the scenario tools discoverable for imported/legacy chats too.  A
+    // character-bound chat is enough to show the entry points; the panels
+    // themselves still decide whether there is a world book, history vault or
+    // manual data to render.
+    val scenarioToolsVisible = chat?.let {
+        it.characterId.isNotBlank() || it.scenarioState != ScenarioState() || it.scenarioRoster.isNotEmpty()
+    } == true
     Column {
         Row(Modifier.fillMaxWidth().padding(start = 8.dp, end = 8.dp, top = 6.dp), verticalAlignment = Alignment.CenterVertically) {
             IconButton(onClick = onHistory) { Icon(Icons.Outlined.Menu, "历史会话", Modifier.size(24.dp)) }
@@ -109,13 +164,57 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
             }
             IconButton(onClick = { actions.createChat() }, enabled = !state.busy) { Icon(Icons.Outlined.Add, "新建会话") }
             if (chat != null) Box {
+                // Imported/older scenario chats do not carry the built-in id,
+                // but they still have a world book or saved panel facts. Keep
+                // the two entry points visible for those chats too.
+                if (scenarioToolsVisible) {
+                    IconButton(onClick = onScenarioStatus, enabled = !state.busy) { Icon(Icons.Outlined.Inventory2, "打开剧本状态") }
+                    IconButton(onClick = onScenarioRoster, enabled = !state.busy) { Icon(Icons.Outlined.AccountTree, "打开角色关系图") }
+                }
                 IconButton(onClick = { menuOpen = true }) { Icon(Icons.Outlined.MoreHoriz, "会话菜单") }
                 DropdownMenu(menuOpen, { menuOpen = false }) {
+                    if (ConversationTurns.regenerationAnchor(chat) != null) DropdownMenuItem(
+                        text = { Text("重新生成本轮") }, leadingIcon = { Icon(Icons.Outlined.Refresh, null) },
+                        enabled = !state.busy && !state.loading,
+                        onClick = { menuOpen = false; actions.regenerate() })
+                    DropdownMenuItem(text = { Text("会话记忆") }, leadingIcon = { Icon(Icons.Outlined.History, null) }, onClick = { menuOpen = false; onMemory() })
+                    DropdownMenuItem(text = { Text("剧本状态面板") }, leadingIcon = { Icon(Icons.Outlined.Inventory2, null) }, onClick = { menuOpen = false; onScenarioStatus() })
+                    DropdownMenuItem(text = { Text("角色关系图") }, leadingIcon = { Icon(Icons.Outlined.AccountTree, null) }, onClick = { menuOpen = false; onScenarioRoster() })
+                    DropdownMenuItem(text = { Text("当前场景与连贯性") }, leadingIcon = { Icon(Icons.Outlined.EditNote, null) }, enabled = !state.busy, onClick = { menuOpen = false; onContinuity() })
+                    DropdownMenuItem(text = { Text("联网研究人物/设定") }, leadingIcon = { Icon(Icons.Outlined.Search, null) }, enabled = !state.busy, onClick = { menuOpen = false; onResearch() })
+                    if (DeepSeekWriting.isTarget(state.data.providers.firstOrNull { it.id == chat.providerId }, chat.modelId)) {
+                        DropdownMenuItem(text = { Text("DeepSeek 写作调优") }, leadingIcon = { Icon(Icons.Outlined.Tune, null) }, enabled = !state.busy, onClick = { menuOpen = false; onDeepSeekWriting() })
+                    }
                     DropdownMenuItem(text = { Text("记忆、压缩与 Skills") }, leadingIcon = { Icon(Icons.Outlined.Tune, null) }, enabled = !state.busy, onClick = { menuOpen = false; onOptions() })
+                    DropdownMenuItem(text = { Text("修复当前会话") }, leadingIcon = { Icon(Icons.Outlined.BuildCircle, null) }, enabled = !state.busy, onClick = { menuOpen = false; onRepair() })
+                    if (chat.id in state.repairBackupChatIds) DropdownMenuItem(text = { Text("恢复修复前历史") }, leadingIcon = { Icon(Icons.Outlined.History, null) }, enabled = !state.busy, onClick = { menuOpen = false; onUndoRepair() })
                     DropdownMenuItem(text = { Text("重命名会话") }, leadingIcon = { Icon(Icons.Outlined.Edit, null) }, enabled = !state.busy, onClick = { menuOpen = false; onRename() })
                     DropdownMenuItem(text = { Text("导出会话") }, leadingIcon = { Icon(Icons.Outlined.FileDownload, null) }, onClick = { menuOpen = false; actions.exportFile("chat", chat.id) })
+                    DropdownMenuItem(text = { Text("导出 Obsidian 知识库") }, leadingIcon = { Icon(Icons.Outlined.FolderZip, null) }, onClick = { menuOpen = false; actions.exportFile("chat_vault", chat.id) })
+                    DropdownMenuItem(text = { Text("导出 JSONL（兼容酒馆）") }, leadingIcon = { Icon(Icons.Outlined.DataObject, null) }, onClick = { menuOpen = false; actions.exportFile("chat_jsonl", chat.id) })
                     HorizontalDivider()
                     DropdownMenuItem(text = { Text("删除会话", color = colors.error) }, leadingIcon = { Icon(Icons.Outlined.DeleteOutline, null, tint = colors.error) }, enabled = !state.busy, onClick = { menuOpen = false; onDelete() })
+                }
+            }
+            if (scenarioToolsVisible) {
+                Row(
+                    Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).padding(start = 20.dp, end = 16.dp, bottom = 6.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text("剧本工具", style = MaterialTheme.typography.labelMedium, color = colors.onSurfaceVariant)
+                    AssistChip(
+                        onClick = onScenarioStatus,
+                        enabled = !state.busy,
+                        label = { Text("状态面板") },
+                        leadingIcon = { Icon(Icons.Outlined.Inventory2, null, Modifier.size(16.dp)) }
+                    )
+                    AssistChip(
+                        onClick = onScenarioRoster,
+                        enabled = !state.busy,
+                        label = { Text("人物关系") },
+                        leadingIcon = { Icon(Icons.Outlined.AccountTree, null, Modifier.size(16.dp)) }
+                    )
                 }
             }
         }
@@ -127,7 +226,11 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
                     Row(Modifier.padding(horizontal = 12.dp).heightIn(min = 44.dp), verticalAlignment = Alignment.CenterVertically) {
                         Icon(Icons.Outlined.AutoAwesome, null, Modifier.size(14.dp), tint = colors.primary)
                         Spacer(Modifier.width(6.dp))
-                        Text(model?.name?.ifBlank { model.id } ?: chat.modelId.ifBlank { "选择模型" }, Modifier.weight(1f), maxLines = 1, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.labelMedium, color = colors.onPrimaryContainer)
+                        val modelId = model?.let { selectedModelId(state.data.providers, it) }
+                        Column(Modifier.weight(1f).padding(vertical = if (modelId != null) 4.dp else 0.dp)) {
+                            Text(model?.name?.ifBlank { model.id } ?: chat.modelId.ifBlank { "选择模型" }, maxLines = 1, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.labelMedium, color = colors.onPrimaryContainer)
+                            modelId?.let { Text(it, style = MaterialTheme.typography.labelSmall.copy(fontFamily = FontFamily.Monospace), color = colors.onPrimaryContainer.copy(alpha = 0.75f), maxLines = 2) }
+                        }
                         Icon(Icons.Outlined.ExpandMore, null, Modifier.size(16.dp), tint = colors.primary)
                     }
                 }
@@ -152,24 +255,39 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
 @Composable
 private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, modifier: Modifier, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit, onModels: () -> Unit) {
     var draft by rememberSaveable { mutableStateOf("") }
-    val listState = rememberLazyListState()
+    var intent by rememberSaveable { mutableStateOf("auto") }
+    // Top-down layout keeps the reading position fixed while the last message grows below it.
+    val listState = rememberLazyListState(chat.messages.lastIndex.coerceAtLeast(0), ChatFollow.END_OFFSET)
     val scope = rememberCoroutineScope()
     var followLatest by rememberSaveable { mutableStateOf(true) }
-    val showLatest by remember { derivedStateOf { listState.firstVisibleItemIndex > 0 || listState.firstVisibleItemScrollOffset > 160 } }
+    val slopPx = with(LocalDensity.current) { 24.dp.roundToPx() }
+    val atBottom by remember(slopPx) { derivedStateOf {
+        val info = listState.layoutInfo
+        val last = info.visibleItemsInfo.lastOrNull()
+        ChatFollow.isAtBottom(last?.index ?: -1, info.totalItemsCount, (last?.let { it.offset + it.size } ?: 0) + info.afterContentPadding, info.viewportEndOffset, slopPx)
+    } }
+    val showLatest = !atBottom
     val latest = chat.messages.lastOrNull()
     val assistantName = state.data.characters.firstOrNull { it.id == chat.characterId }?.name?.ifBlank { null } ?: "酒馆助手"
-    val lastUserIndex = chat.messages.indexOfLast { it.role == "user" }
-    val lastAssistant = chat.messages.drop(lastUserIndex + 1).lastOrNull { it.role == "assistant" }?.id
+    val regenerationAnchorId = ConversationTurns.regenerationAnchor(chat)?.id
 
+    fun pinToEnd() {
+        val total = listState.layoutInfo.totalItemsCount.takeIf { it > 0 } ?: chat.messages.size
+        if (ChatFollow.shouldAutoScroll(followLatest, listState.isScrollInProgress, total > 0)) listState.requestScrollToItem(total - 1, ChatFollow.END_OFFSET)
+    }
     // Only follow the stream while the reader is at the bottom; reading history never jumps away.
     LaunchedEffect(listState) {
-        snapshotFlow { listState.isScrollInProgress to listState.canScrollBackward }.collect { (scrolling, away) ->
-            if (scrolling) followLatest = !away
+        var wasScrolling = false
+        snapshotFlow { listState.isScrollInProgress to atBottom }.collect { (scrolling, bottom) ->
+            followLatest = ChatFollow.nextFollow(followLatest, wasScrolling, scrolling, bottom)
+            wasScrolling = scrolling
         }
     }
-    LaunchedEffect(latest?.id, latest?.content, latest?.reasoning, latest?.status) {
-        if (followLatest && chat.messages.isNotEmpty()) listState.scrollToItem(0)
+    LaunchedEffect(listState) {
+        // The keyboard shrinks the viewport; a follower keeps seeing the newest line.
+        snapshotFlow { listState.layoutInfo.viewportSize.height }.collect { pinToEnd() }
     }
+    LaunchedEffect(chat.messages.size, latest?.id, latest?.content, latest?.reasoning, latest?.status) { pinToEnd() }
 
     Column(modifier.fillMaxWidth()) {
         Box(Modifier.weight(1f).fillMaxWidth()) {
@@ -180,27 +298,59 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
                     }
                 }
             } else {
-                LazyColumn(state = listState, reverseLayout = true, modifier = Modifier.fillMaxSize(),
+                LazyColumn(state = listState, modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 24.dp, bottom = 16.dp), verticalArrangement = Arrangement.spacedBy(24.dp)) {
-                    items(chat.messages.asReversed(), key = { it.id }) { message ->
-                        ConversationMessage(message, assistantName, state.busy, message.id == lastAssistant && lastUserIndex >= 0, actions, onEdit, onBranch)
+                    items(chat.messages, key = { it.id }) { message ->
+                        ConversationMessage(message, assistantName, state.busy || state.loading, message.id == regenerationAnchorId, actions, onEdit, onBranch)
                     }
                 }
-                if (showLatest) FilledTonalIconButton(onClick = { followLatest = true; scope.launch { listState.animateScrollToItem(0) } }, modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 10.dp)) {
+                if (showLatest) FilledTonalIconButton(onClick = { followLatest = true; scope.launch {
+                    val last = chat.messages.lastIndex.coerceAtLeast(0)
+                    listState.animateScrollToItem(last); listState.scrollToItem(last, ChatFollow.END_OFFSET)
+                } }, modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 10.dp)) {
                     Icon(Icons.Outlined.ArrowDownward, "回到最新消息")
                 }
             }
         }
-        if (state.busy && latest?.status != "streaming") Row(Modifier.padding(horizontal = 24.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        val compression = state.compressionProgress?.takeIf { state.busy && it.chatId == chat.id }
+        if (compression != null) CompressionProgressCard(compression)
+        else if (state.busy && latest?.status != "streaming") Row(Modifier.padding(horizontal = 24.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             CircularProgressIndicator(Modifier.size(12.dp), strokeWidth = 1.5.dp)
             Text("任务进行中…", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
-        ConversationComposer(draft, { draft = it }, state.pendingAttachments, state.busy, onAttach = { actions.pickAttachment() }, onRemove = { actions.removeAttachment(it) }, onSend = {
-            if (state.busy) actions.stop() else if (actions.send(draft.trim())) {
-                draft = ""; followLatest = true
-                scope.launch { listState.scrollToItem(0) }
+        else if (!state.busy && !state.loading && chat.messages.lastOrNull { !it.contextExcluded }?.role == "tool") {
+            Surface(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 6.dp), color = MaterialTheme.colorScheme.secondaryContainer, shape = MaterialTheme.shapes.medium) {
+                Column(Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
+                    Text("本轮停在工具步骤，尚未收到最终回复。已有记录保留。", style = MaterialTheme.typography.bodySmall)
+                    TextButton(onClick = { actions.regenerate() }) { Text("重新生成本轮") }
+                }
+            }
+        }
+        ConversationComposer(draft, { draft = it }, state.pendingAttachments, state.busy, intent, { intent = it }, onAttach = { actions.pickAttachment() }, onRemove = { actions.removeAttachment(it) }, onSend = {
+            if (state.busy) actions.stop() else if (actions.sendWithIntent(draft.trim(), intent)) {
+                draft = ""; intent = "auto"; followLatest = true
             }
         })
+    }
+}
+
+/** Progress survives snackbar dismissal; the bounded card remains readable at large font sizes. */
+@Composable
+private fun CompressionProgressCard(progress: CompressionProgress) {
+    val scroll = rememberScrollState()
+    Surface(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 6.dp),
+        color = MaterialTheme.colorScheme.secondaryContainer,
+        shape = MaterialTheme.shapes.medium
+    ) {
+        Column(Modifier.heightIn(max = 240.dp).verticalScroll(scroll).padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text(progress.message, style = MaterialTheme.typography.bodySmall)
+            if (progress.total > 0) LinearProgressIndicator(
+                progress = { (progress.completed.toFloat() / progress.total).coerceIn(0f, 1f) },
+                modifier = Modifier.fillMaxWidth()
+            ) else LinearProgressIndicator(Modifier.fillMaxWidth())
+            Text(progress.scope, style = MaterialTheme.typography.bodySmall)
+        }
     }
 }
 
@@ -219,9 +369,10 @@ private fun ConversationWelcome(modifier: Modifier, title: String, subtitle: Str
 }
 
 @Composable
-private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attachments: List<Attachment>, busy: Boolean, onAttach: () -> Unit, onRemove: (String) -> Unit, onSend: () -> Unit) {
+private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attachments: List<Attachment>, busy: Boolean, intent: String, onIntent: (String) -> Unit, onAttach: () -> Unit, onRemove: (String) -> Unit, onSend: () -> Unit) {
     val colors = MaterialTheme.colorScheme
     Column(Modifier.fillMaxWidth().padding(horizontal = 12.dp).padding(top = 4.dp, bottom = 10.dp)) {
+        WritingIntentSelector(intent, onIntent, enabled = !busy)
         Surface(shape = RoundedCornerShape(24.dp), color = colors.surface, border = BorderStroke(1.dp, colors.outlineVariant), shadowElevation = 2.dp) {
             Column(Modifier.fillMaxWidth()) {
                 if (attachments.isNotEmpty()) Row(Modifier.horizontalScroll(rememberScrollState()).padding(start = 12.dp, end = 12.dp, top = 6.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -254,11 +405,14 @@ private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attac
 private fun ConversationMessage(message: Message, assistantName: String, busy: Boolean, canRegenerate: Boolean, actions: AppActions, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit) {
     val user = message.role == "user"
     val tool = message.role == "tool"
+    val notice = if (!user && !tool) messageNotice(message) else null
     val colors = MaterialTheme.colorScheme
     val clipboard = LocalClipboardManager.current
     var menuOpen by remember(message.id) { mutableStateOf(false) }
     var reasoningOpen by rememberSaveable(message.id) { mutableStateOf(false) }
     var toolOpen by rememberSaveable(message.id) { mutableStateOf(false) }
+    var excludedOpen by rememberSaveable(message.id, message.contextExcluded) { mutableStateOf(false) }
+    var skillsOpen by rememberSaveable(message.id) { mutableStateOf(false) }
     val time = remember(message.createdAt) { SimpleDateFormat("HH:mm", Locale.CHINA).format(Date(message.createdAt)) }
     val copyMessage = { clipboard.setText(AnnotatedString(message.content)) }
     Column(Modifier.fillMaxWidth(), horizontalAlignment = if (user) Alignment.End else Alignment.Start) {
@@ -277,55 +431,104 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
                 DropdownMenu(menuOpen, { menuOpen = false }) {
                     DropdownMenuItem(text = { Text("复制文字") }, leadingIcon = { Icon(Icons.Outlined.ContentCopy, null) }, onClick = { copyMessage(); menuOpen = false })
                     if (user) DropdownMenuItem(text = { Text("编辑消息") }, leadingIcon = { Icon(Icons.Outlined.Edit, null) }, enabled = !busy, onClick = { menuOpen = false; onEdit(message) })
+                    if (user || message.role == "assistant") DropdownMenuItem(
+                        text = { Text(if (message.contextExcluded) "恢复到后续上下文" else "排除出后续上下文") },
+                        leadingIcon = { Icon(if (message.contextExcluded) Icons.Outlined.Restore else Icons.Outlined.VisibilityOff, null) },
+                        enabled = !busy && message.status != "streaming",
+                        onClick = { menuOpen = false; actions.setMessageContext(message.id, included = message.contextExcluded) })
+                    if (message.role == "assistant" && message.skillSnapshotJson.isNotBlank()) DropdownMenuItem(text = { Text("本轮 Skills") }, leadingIcon = { Icon(Icons.Outlined.AutoAwesome, null) }, onClick = { menuOpen = false; skillsOpen = true })
                     DropdownMenuItem(text = { Text("从这里创建分支") }, leadingIcon = { Icon(Icons.Outlined.AccountTree, null) }, enabled = !busy && message.status != "streaming", onClick = { menuOpen = false; onBranch(message) })
                 }
             }
         }
-        if (message.reasoning.isNotBlank()) {
-            TextButton(onClick = { reasoningOpen = !reasoningOpen }, contentPadding = PaddingValues(horizontal = 0.dp)) {
-                Icon(Icons.Outlined.Psychology, null, Modifier.size(16.dp)); Spacer(Modifier.width(6.dp))
-                Text(if (reasoningOpen) "收起思考过程" else "查看思考过程", style = MaterialTheme.typography.labelMedium)
-                Icon(if (reasoningOpen) Icons.Outlined.ExpandLess else Icons.Outlined.ExpandMore, null, Modifier.size(16.dp))
-            }
-            if (reasoningOpen) Surface(color = colors.surfaceContainerLow, shape = RoundedCornerShape(12.dp)) {
-                SelectionContainer { Text(message.reasoning, Modifier.padding(12.dp), style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant) }
-            }
-        }
-        when {
-            tool -> {
-                TextButton(onClick = { toolOpen = !toolOpen }, contentPadding = PaddingValues(0.dp)) {
-                    Text(if (toolOpen) "收起结果" else "查看工具返回内容", style = MaterialTheme.typography.labelMedium)
-                    Icon(if (toolOpen) Icons.Outlined.ExpandLess else Icons.Outlined.ExpandMore, null, Modifier.size(16.dp))
+        WritingIntentLabel(message.intent)
+        if (message.contextExcluded) ExcludedMessageNotice(message.role == "assistant", excludedOpen, canRestoreIndividually = user || message.role == "assistant") { excludedOpen = !excludedOpen }
+        if (!message.contextExcluded || excludedOpen) {
+            if (message.reasoning.isNotBlank()) {
+                TextButton(onClick = { reasoningOpen = !reasoningOpen }, contentPadding = PaddingValues(horizontal = 0.dp)) {
+                    Icon(Icons.Outlined.Psychology, null, Modifier.size(16.dp)); Spacer(Modifier.width(6.dp))
+                    Text(if (reasoningOpen) "收起思考过程" else "查看思考过程", style = MaterialTheme.typography.labelMedium)
+                    Icon(if (reasoningOpen) Icons.Outlined.ExpandLess else Icons.Outlined.ExpandMore, null, Modifier.size(16.dp))
                 }
-                if (toolOpen) Surface(color = colors.surfaceContainerLow, shape = RoundedCornerShape(12.dp)) { ReadingMarkdown(message.content, Modifier.padding(12.dp)) }
+                if (reasoningOpen) Surface(color = colors.surfaceContainerLow, shape = RoundedCornerShape(12.dp)) {
+                    SelectionContainer { Text(message.reasoning, Modifier.padding(12.dp), style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant) }
+                }
             }
-            user -> Surface(Modifier.fillMaxWidth(0.9f), shape = RoundedCornerShape(topStart = 20.dp, topEnd = 6.dp, bottomEnd = 20.dp, bottomStart = 20.dp), color = colors.primaryContainer) {
-                ReadingMarkdown(message.content.ifBlank { if (message.attachments.isNotEmpty()) "已发送附件" else "（空消息）" }, Modifier.padding(horizontal = 16.dp, vertical = 12.dp))
+            when {
+                tool -> {
+                    TextButton(onClick = { toolOpen = !toolOpen }, contentPadding = PaddingValues(0.dp)) {
+                        Text(if (toolOpen) "收起结果" else "查看工具返回内容", style = MaterialTheme.typography.labelMedium)
+                        Icon(if (toolOpen) Icons.Outlined.ExpandLess else Icons.Outlined.ExpandMore, null, Modifier.size(16.dp))
+                    }
+                    if (toolOpen) Surface(color = colors.surfaceContainerLow, shape = RoundedCornerShape(12.dp)) { ReadingMarkdown(message.content, Modifier.padding(12.dp)) }
+                }
+                user -> Surface(Modifier.fillMaxWidth(0.9f), shape = RoundedCornerShape(topStart = 20.dp, topEnd = 6.dp, bottomEnd = 20.dp, bottomStart = 20.dp), color = colors.primaryContainer) {
+                    ReadingMarkdown(message.content.ifBlank { if (message.attachments.isNotEmpty()) "已发送附件" else "（空消息）" }, Modifier.padding(horizontal = 16.dp, vertical = 12.dp))
+                }
+                message.content.isNotBlank() -> ReadingMarkdown(message.content)
+                message.status == "streaming" -> Text("正在构思…", style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
+                message.toolCallsJson != "[]" -> Text("工具调用记录", style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
+                notice != null -> Text(notice.text, style = MaterialTheme.typography.bodyMedium, color = if (notice.tone == MessageNoticeTone.ERROR) colors.error else colors.onSurfaceVariant)
+                else -> Text("（暂无回复内容）", style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
             }
-            message.content.isNotBlank() -> ReadingMarkdown(message.content)
-            message.status == "streaming" -> Text("正在构思…", style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
-            message.toolCallsJson != "[]" -> Text("正在调用工具", style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
-            else -> Text("（暂无回复内容）", style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
-        }
-        if (message.attachments.isNotEmpty()) Row(Modifier.horizontalScroll(rememberScrollState()).padding(top = 8.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            message.attachments.forEach { attachment ->
-                Surface(color = colors.surfaceContainer, shape = RoundedCornerShape(8.dp)) {
-                    Row(Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Icon(Icons.Outlined.AttachFile, null, Modifier.size(14.dp)); Spacer(Modifier.width(4.dp))
-                        Text(attachment.name, Modifier.widthIn(max = 220.dp), style = MaterialTheme.typography.labelMedium, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            if (message.attachments.isNotEmpty()) Row(Modifier.horizontalScroll(rememberScrollState()).padding(top = 8.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                message.attachments.forEach { attachment ->
+                    Surface(color = colors.surfaceContainer, shape = RoundedCornerShape(8.dp)) {
+                        Row(Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                            Icon(Icons.Outlined.AttachFile, null, Modifier.size(14.dp)); Spacer(Modifier.width(4.dp))
+                            Text(attachment.name, Modifier.widthIn(max = 220.dp), style = MaterialTheme.typography.labelMedium, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                        }
                     }
                 }
             }
+            val status = when {
+                message.status == "streaming" -> "正在生成"
+                message.status == "stopped" -> "已停止 · 已保留生成内容"
+                message.status == "error" && message.finishReason.trim().lowercase(Locale.ROOT) in setOf("content_filter", "content-filter") -> ""
+                message.status == "error" -> "生成中断 · 可重试"
+                message.status == "interrupted" -> "上次生成中断"
+                else -> ""
+            }
+            if (status.isNotBlank()) Row(Modifier.padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                if (message.status == "streaming") CircularProgressIndicator(Modifier.size(12.dp), strokeWidth = 1.5.dp)
+                Text(status, style = MaterialTheme.typography.labelSmall, color = if (message.status == "error") colors.error else colors.onSurfaceVariant)
+            }
+            if (notice != null && notice.detail.isNotBlank()) MessageNoticeDetails(notice, clipboard, message.content.isNotBlank())
+            if (message.qualityNotice.isNotBlank()) WritingQualityNotice(message.qualityNotice)
         }
-        val status = when (message.status) { "streaming" -> "正在生成"; "stopped" -> "已停止 · 已保留生成内容"; "error" -> "生成中断 · 可重试"; "interrupted" -> "上次生成中断"; else -> "" }
-        if (status.isNotBlank()) Row(Modifier.padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            if (message.status == "streaming") CircularProgressIndicator(Modifier.size(12.dp), strokeWidth = 1.5.dp)
-            Text(status, style = MaterialTheme.typography.labelSmall, color = if (message.status == "error") colors.error else colors.onSurfaceVariant)
-        }
-        if (canRegenerate && message.status != "streaming") Row(Modifier.padding(top = 4.dp), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-            IconButton(onClick = copyMessage) { Icon(Icons.Outlined.ContentCopy, "复制回复", Modifier.size(17.dp), tint = colors.onSurfaceVariant) }
+        // Recovery must also be available while a discarded draft is collapsed,
+        // or when the process exited before an assistant placeholder was saved.
+        if (canRegenerate) Row(Modifier.padding(top = 4.dp), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+            if (!user) IconButton(onClick = copyMessage) { Icon(Icons.Outlined.ContentCopy, "复制回复", Modifier.size(17.dp), tint = colors.onSurfaceVariant) }
             TextButton(onClick = { actions.regenerate() }, enabled = !busy, contentPadding = PaddingValues(horizontal = 8.dp)) {
                 Icon(Icons.Outlined.Refresh, null, Modifier.size(17.dp)); Spacer(Modifier.width(5.dp)); Text("重新生成", style = MaterialTheme.typography.labelMedium)
+            }
+        }
+    }
+    if (skillsOpen) SkillSnapshotDialog(message.skillSnapshotJson) { skillsOpen = false }
+}
+
+@Composable
+private fun MessageNoticeDetails(notice: MessageNotice, clipboard: androidx.compose.ui.platform.ClipboardManager, showTitle: Boolean) {
+    val colors = MaterialTheme.colorScheme
+    val background = when (notice.tone) {
+        MessageNoticeTone.ERROR -> colors.errorContainer.copy(alpha = 0.62f)
+        MessageNoticeTone.WARNING -> colors.surfaceContainerHigh
+        MessageNoticeTone.NEUTRAL -> colors.surfaceContainerLow
+    }
+    Surface(color = background, shape = RoundedCornerShape(12.dp), modifier = Modifier.padding(top = 8.dp)) {
+        Column(Modifier.padding(horizontal = 12.dp, vertical = 10.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            if (showTitle) Text(notice.text, style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.SemiBold)
+            Text(notice.detail, style = MaterialTheme.typography.bodySmall, color = if (notice.tone == MessageNoticeTone.ERROR) colors.onErrorContainer else colors.onSurfaceVariant)
+            if (notice.diagnosticText.isNotBlank()) {
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text("诊断信息已脱敏", Modifier.weight(1f), style = MaterialTheme.typography.labelSmall, color = colors.onSurfaceVariant)
+                    TextButton(onClick = { clipboard.setText(AnnotatedString(notice.diagnosticText)) }, contentPadding = PaddingValues(horizontal = 8.dp, vertical = 0.dp)) {
+                        Icon(Icons.Outlined.ContentCopy, null, Modifier.size(15.dp))
+                        Spacer(Modifier.width(4.dp))
+                        Text("复制诊断", style = MaterialTheme.typography.labelSmall)
+                    }
+                }
             }
         }
     }
@@ -333,14 +536,15 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ConversationHistory(chats: List<Chat>, selectedId: String?, busy: Boolean, onDismiss: () -> Unit, onSelect: (String) -> Unit, onCreate: () -> Unit) {
+private fun ConversationHistory(chats: List<Chat>, selectedId: String?, busy: Boolean, onDismiss: () -> Unit, onSelect: (String) -> Unit, onCreate: () -> Unit, onImport: () -> Unit, onDelete: (String) -> Unit) {
     var query by rememberSaveable { mutableStateOf("") }
     val visible = chats.filter { query.isBlank() || it.title.contains(query.trim(), true) }
     ModalBottomSheet(onDismissRequest = onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true), containerColor = MaterialTheme.colorScheme.background) {
         Column(Modifier.fillMaxWidth().fillMaxHeight(0.85f)) {
             Row(Modifier.fillMaxWidth().padding(horizontal = 20.dp), verticalAlignment = Alignment.CenterVertically) {
                 Text("你的会话", Modifier.weight(1f), style = MaterialTheme.typography.headlineSmall)
-                FilledTonalButton(onClick = onCreate, enabled = !busy) { Icon(Icons.Outlined.Add, null, Modifier.size(18.dp)); Spacer(Modifier.width(4.dp)); Text("新建") }
+                OutlinedButton(onClick = onImport, enabled = !busy, contentPadding = PaddingValues(horizontal = 10.dp)) { Icon(Icons.Outlined.FileUpload, null, Modifier.size(18.dp)); Spacer(Modifier.width(3.dp)); Text("导入") }
+                FilledTonalButton(onClick = onCreate, enabled = !busy, contentPadding = PaddingValues(horizontal = 10.dp)) { Icon(Icons.Outlined.Add, null, Modifier.size(18.dp)); Spacer(Modifier.width(3.dp)); Text("新建") }
             }
             OutlinedTextField(query, { query = it }, Modifier.fillMaxWidth().padding(20.dp), placeholder = { Text("搜索会话名称") }, singleLine = true, shape = RoundedCornerShape(16.dp), leadingIcon = { Icon(Icons.Outlined.Search, null) })
             LazyColumn(Modifier.weight(1f), contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -354,6 +558,9 @@ private fun ConversationHistory(chats: List<Chat>, selectedId: String?, busy: Bo
                                 Text(chat.messages.lastOrNull { it.role != "tool" }?.content?.replace('\n', ' ')?.ifBlank { "暂无消息" } ?: "暂无消息", maxLines = 1, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                             }
                             if (chat.id == selectedId) Icon(Icons.Outlined.Check, "当前会话", Modifier.size(18.dp), tint = MaterialTheme.colorScheme.primary)
+                            IconButton(onClick = { onDelete(chat.id) }, enabled = !busy) {
+                                Icon(Icons.Outlined.DeleteOutline, "删除会话", tint = MaterialTheme.colorScheme.error)
+                            }
                         }
                     }
                 }
@@ -460,9 +667,12 @@ internal fun ConversationModelsContent(
                     val selected = chat?.providerId == provider.id && chat.modelId == model.id
                     Surface(onClick = { actions.chooseModel(provider.id, model.id); onDismiss() }, enabled = !state.busy, shape = RoundedCornerShape(14.dp), color = if (selected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.background) {
                         Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
+                            val label = modelRowLabel(provider, model)
                             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                                Text(model.name.ifBlank { model.id }, style = MaterialTheme.typography.titleSmall)
-                                Text(provider.name + " · " + (model.contextTokens / 1024).toString() + "K 上下文", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                Text(label.title, style = MaterialTheme.typography.titleSmall)
+                                Text(label.meta, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                // Wraps instead of truncating: snapshot suffixes such as -1017 sit at the end.
+                                label.id?.let { Text(it, style = MaterialTheme.typography.labelSmall.copy(fontFamily = FontFamily.Monospace), color = MaterialTheme.colorScheme.onSurfaceVariant) }
                             }
                             if (selected) Icon(Icons.Outlined.Check, "当前模型", Modifier.size(20.dp), tint = MaterialTheme.colorScheme.primary)
                         }

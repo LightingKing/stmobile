@@ -1,7 +1,6 @@
 package app.pockettavern
 
 import android.test.ActivityInstrumentationTestCase2
-import androidx.lifecycle.ViewModelProvider
 import app.pockettavern.domain.*
 import app.pockettavern.data.*
 import kotlinx.coroutines.runBlocking
@@ -10,7 +9,7 @@ import kotlinx.coroutines.runBlocking
 class AppSmokeTest: ActivityInstrumentationTestCase2<MainActivity>(MainActivity::class.java) {
     fun testLaunchChatPersistenceAndKeystore() {
         val screen=activity
-        val controller=ViewModelProvider(screen)[AppController::class.java]
+        val controller=(screen.application as PocketApplication).controller
         val deadline=System.currentTimeMillis()+15000
         while(controller.state.value.loading && System.currentTimeMillis()<deadline) Thread.sleep(100)
         assertFalse("Database load must complete",controller.state.value.loading)

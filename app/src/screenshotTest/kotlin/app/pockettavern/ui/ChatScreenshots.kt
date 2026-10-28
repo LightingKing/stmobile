@@ -8,6 +8,7 @@ import app.pockettavern.domain.AppSettings
 import app.pockettavern.domain.Attachment
 import app.pockettavern.domain.Character
 import app.pockettavern.domain.Chat
+import app.pockettavern.domain.CompressionProgress
 import app.pockettavern.domain.Memory
 import app.pockettavern.domain.MediaJob
 import app.pockettavern.domain.Message
@@ -215,6 +216,125 @@ fun chatStreamingPreview() {
         createdAt = PREVIEW_TIME + 120_000L
     )
     PocketApp(previewSession(chat = previewChat(messages, "流式响应"), busy = true), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "增量压缩范围窄屏大字", showBackground = true, widthDp = 320, heightDp = 820, fontScale = 1.3f)
+@androidx.compose.runtime.Composable
+fun chatIncrementalCompressionNarrowPreview() {
+    val chat = previewChat(normalMessages() + Message(
+        id = "preview-compression-user", role = "user", content = "接着刚才的剧情继续。", createdAt = PREVIEW_TIME + 120_000L
+    ), "第三次压缩 · 保留旧记忆")
+    PocketApp(previewSession(chat = chat, busy = true).copy(compressionProgress = CompressionProgress(
+        chatId = chat.id,
+        scope = "整轮输入约 60,000 tokens · 触发线 52,428（80%） · 日常输入上限 65,536\n其中 Skills 27,000 · 当前摘要 8,000 · 近期对话 21,000 · 其他固定内容 3,000 · 工具定义 1,000\n复用上次摘要，已覆盖原文第 1–160 条。\n本次仅整理新增原文第 161–186 条，共 26 条，约 12,422 tokens。",
+        completed = 0, total = 1,
+        message = "正在更新续聊摘要与知识：第 1 次请求，预计共 1 次（已等待 20s）"
+    )), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "旧工具链未完成仍可重试", showBackground = true, widthDp = 320, heightDp = 820, fontScale = 1.3f)
+@androidx.compose.runtime.Composable
+fun chatUnfinishedToolTurnPreview() {
+    val calls = """[{"id":"lookup-1","type":"function","function":{"name":"history_search","arguments":"{\"query\":\"旧约定\"}"}}]"""
+    val messages = listOf(
+        Message(id = "tool-user", content = "上次约好的路线是什么？", createdAt = PREVIEW_TIME),
+        Message(id = "tool-assistant", role = "assistant", toolCallsJson = calls, finishReason = "tool_calls", createdAt = PREVIEW_TIME),
+        Message(id = "tool-result", role = "tool", toolCallId = "lookup-1", content = "已找到对应原文片段。", createdAt = PREVIEW_TIME)
+    )
+    PocketApp(previewSession(chat = previewChat(messages, "原会话继续")), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "长回复流式跟随到底部", showBackground = true, widthDp = 420, heightDp = 720)
+@androidx.compose.runtime.Composable
+fun chatStreamingFollowsEndPreview() {
+    val paragraphs = (1..12).joinToString("\n\n") { "第 $it 段：雪线沿着庄园围墙慢慢上涨，巡夜的人把新的读数写进本子。" }
+    val messages = normalMessages() + Message(
+        id = "preview-assistant-long-streaming",
+        role = "assistant",
+        content = "$paragraphs\n\n最新一行：输出仍在继续。",
+        status = "streaming",
+        createdAt = PREVIEW_TIME + 120_000L
+    )
+    PocketApp(previewSession(chat = previewChat(messages, "流式跟随"), busy = true), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "空回复与诊断", showBackground = true, widthDp = 420, heightDp = 900)
+@androidx.compose.runtime.Composable
+fun chatEmptyReplyDiagnosticsPreview() {
+    val messages = normalMessages() + Message(
+        id = "preview-assistant-error",
+        role = "assistant",
+        content = "已经收到请求，但正文没有完成。",
+        status = "error",
+        errorMessage = "模型返回空回复",
+        finishReason = "length",
+        requestId = "preview-request-123",
+        createdAt = PREVIEW_TIME + 120_000L
+    )
+    PocketApp(previewSession(chat = previewChat(messages, "空回复诊断")), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "旧版本空回复", showBackground = true, widthDp = 420, heightDp = 760)
+@androidx.compose.runtime.Composable
+fun chatLegacyEmptyReplyPreview() {
+    val messages = listOf(
+        Message(id = "preview-user-empty", role = "user", content = "继续写下一段。", createdAt = PREVIEW_TIME),
+        Message(id = "preview-assistant-empty", role = "assistant", createdAt = PREVIEW_TIME + 60_000L)
+    )
+    PocketApp(previewSession(chat = previewChat(messages, "旧版空回复")), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "内容过滤空回复", showBackground = true, widthDp = 420, heightDp = 820)
+@androidx.compose.runtime.Composable
+fun chatContentFilterPreview() {
+    val messages = listOf(
+        Message(id = "preview-user-filter", role = "user", content = "继续生成下一段。", createdAt = PREVIEW_TIME),
+        Message(
+            id = "preview-assistant-filter",
+            role = "assistant",
+            status = "error",
+            errorMessage = "模型返回空回复",
+            finishReason = "content_filter",
+            requestId = "preview-response-filter",
+            createdAt = PREVIEW_TIME + 60_000L
+        )
+    )
+    PocketApp(previewSession(chat = previewChat(messages, "内容过滤诊断")), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "请求日志", showBackground = true, widthDp = 420, heightDp = 860)
+@androidx.compose.runtime.Composable
+fun requestDiagnosticsPreview() {
+    PocketApp(previewSession().copy(appVersion = "0.1.7 (8)", diagnostics = "应用版本：0.1.7 (8)\n平台：Venice\n模型：Gemini 4 Argon\n结果：正文为空\nHTTP：200\n耗时：125 秒\n结束原因：length\n正文：0 字符\n思考：0 字符\n输入 token：8200\n输出 token：2048\n其中推理 token：2048\nrequest_id：preview-request-123\n\n计费状态：未知。请核对 Venice 账本。"), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "重开后废稿仍可重试", showBackground = true, widthDp = 380, heightDp = 820)
+@androidx.compose.runtime.Composable
+fun chatReopenedDiscardedReplyPreview() {
+    val saved = previewChat(listOf(
+        Message(id = "retry-user", content = "（重新生成）", intent = "rewrite", createdAt = PREVIEW_TIME),
+        Message(id = "retry-error", role = "assistant", status = "error", errorMessage = "网络连接失败",
+            contextExcluded = true, createdAt = PREVIEW_TIME + 60_000L)
+    ), "退出后恢复当前会话")
+    val reopened = app.pockettavern.data.DataCodec.decode(app.pockettavern.data.DataCodec.encode(AppData(chats = listOf(saved)))).chats.single()
+    PocketApp(previewSession(chat = reopened), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "尚无回复也可重试", showBackground = true, widthDp = 320, heightDp = 760, fontScale = 1.3f)
+@androidx.compose.runtime.Composable
+fun chatReopenedUnansweredPreview() {
+    PocketApp(previewSession(chat = previewChat(listOf(
+        Message(id = "unanswered-user", content = "接着刚才的剧情继续。", createdAt = PREVIEW_TIME)
+    ), "尚未收到回复")), PreviewActions)
 }
 
 @PreviewTest

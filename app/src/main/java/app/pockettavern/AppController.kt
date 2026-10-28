@@ -2,6 +2,7 @@ package app.pockettavern
 
 import android.app.Application
 import android.net.Uri
+import android.os.Build
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import app.pockettavern.data.*
@@ -15,44 +16,137 @@ import kotlinx.coroutines.flow.asStateFlow
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
+import java.io.FileOutputStream
+import java.nio.file.AtomicMoveNotSupportedException
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
 
 interface NativeHost {
+    fun requestGenerationNotifications() { }
     fun importFile(kind: String)
     fun exportText(name: String, mime: String, content: String)
     fun exportBinary(name: String, mime: String, file: File)
     fun pickAttachment()
     fun openFile(file: File, mime: String)
+    fun openDoubaoWebResearch(requestId: String, chatId: String, subject: String, categories: List<String>, allowFiction: Boolean, prompt: String) { }
 }
+
+internal fun applyChatSkillUpdate(
+    data: AppData,
+    chatId: String,
+    skillIds: List<String>,
+    summaries: List<Summary>,
+    updatedAt: Long = System.currentTimeMillis()
+): AppData {
+    val chat = data.chats.firstOrNull { it.id == chatId } ?: error("会话不存在：$chatId")
+    val requested = skillIds.distinct()
+    val installedIds = ToolRuntime.skillsInOrder(data.skills, requested).map { it.id }
+    val missing = requested.filterNot(installedIds.toSet()::contains)
+    require(missing.isEmpty()) { "Skill 不存在：${missing.joinToString()}" }
+    val blocked = if (data.settings.adultSkillsConfirmed) emptySet() else data.skills.filter { it.adult }.mapTo(mutableSetOf()) { it.id }
+    val allowed = requested.filterNot(blocked::contains)
+    val newlySelected = allowed.toSet() - chat.skillIds.toSet()
+    return data.copy(
+        chats = data.chats.map { current ->
+            if (current.id == chatId) current.copy(skillIds = allowed, summaries = summaries, updatedAt = updatedAt) else current
+        },
+        skills = data.skills.map { skill ->
+            if (skill.id in newlySelected && !skill.enabled) skill.copy(enabled = true) else skill
+        }
+    )
+}
+
+/**
+ * Chooses the conversation to restore when the process starts.  A persisted
+ * selection wins as long as that chat still exists; old installs which have
+ * no selection fall back to the most recently changed conversation.
+ */
+internal fun preferredChatId(chats: List<Chat>, persistedId: String = ""): String =
+    chats.firstOrNull { it.id == persistedId }?.id
+        ?: chats.maxByOrNull { it.updatedAt }?.id.orEmpty()
 
 class AppController(application: Application) : AndroidViewModel(application), AppActions {
     private val app = application as PocketApplication
-    private val mutable = MutableStateFlow(UiSession())
+    private val sessionPreferences = app.getSharedPreferences(SESSION_PREFERENCES, Application.MODE_PRIVATE)
+    private val installedVersion = app.packageManager.getPackageInfo(app.packageName, 0).let {
+        @Suppress("DEPRECATION")
+        val code = if (Build.VERSION.SDK_INT >= 28) it.longVersionCode else it.versionCode.toLong()
+        "${it.versionName} ($code)"
+    }
+    private val mutable = MutableStateFlow(UiSession(appVersion=installedVersion))
     val state = mutable.asStateFlow()
     var host: NativeHost? = null
-    private val providerClient = ProviderClient()
+    private val requestLogs by lazy { RequestLogStore(File(app.filesDir, "diagnostics"), installedVersion, Build.VERSION.SDK_INT) }
+    private val compactCheckpoints by lazy { CompactCheckpointStore(File(app.filesDir, "compact-pending")) }
+    @Volatile private var requestPurpose = "chat"
+    @Volatile var uiVisible = false
+    private val providerClient = ProviderClient(onDiagnostic = { event ->
+        runCatching { requestLogs.record(JSONObject(event).put("purpose", requestPurpose)
+            .put("app_state", if (uiVisible) "foreground" else "background").toString()) }
+    })
+    // A large compact request can read a book and emit both working state and knowledge updates.
+    // Keep its bounded transport independent from ordinary chat, and never retry it automatically.
+    private val compactClient = ProviderClient(
+        client = okhttp3.OkHttpClient.Builder().writeTimeout(60, java.util.concurrent.TimeUnit.SECONDS).build(),
+        timeoutMillis = 300_000L,
+        callTimeoutMillis = COMPACT_REQUEST_DEADLINE_MS,
+        onDiagnostic = { event ->
+            runCatching { requestLogs.record(JSONObject(event).put("purpose", requestPurpose)
+                .put("app_state", if (uiVisible) "foreground" else "background").toString()) }
+        }
+    )
+    private val researchClient = DoubaoResearchClient()
+    private val directSearchClient = DoubaoSearchClient()
+    private val billingClient = VeniceBillingClient()
+    private val veniceBalanceClient = VeniceBalanceClient(onDiagnostic = { event ->
+        runCatching { requestLogs.record(JSONObject(event).put("purpose", "venice_balance")
+            .put("app_state", if (uiVisible) "foreground" else "background").toString()) }
+    })
     private val mediaClient = MediaClient()
-    private val tools = ToolRuntime(File(app.filesDir,"workspace").apply { mkdirs() }) { id -> key(id) }
-    private val builtinSkills by lazy { BuiltinSkills.load { path -> app.assets.open(path).bufferedReader(Charsets.UTF_8).use { it.readText() } } }
-    private val saves = Channel<AppData>(Channel.CONFLATED)
+    private val readAsset: (String) -> String = { path -> app.assets.open(path).bufferedReader(Charsets.UTF_8).use { it.readText() } }
+    private val tools = ToolRuntime(File(app.filesDir,"workspace").apply { mkdirs() }, { skill, path -> BuiltinSkills.readResource(readAsset, skill, path) }) { id -> key(id) }
+    private val builtinSkills by lazy { BuiltinSkills.loadAll(readAsset) }
+    private val builtinScenarios by lazy { BuiltinScenarios.load { path -> app.assets.open(path).bufferedReader(Charsets.UTF_8).use { it.readText() } } }
+    private val saves = StatePersistence<AppData>(
+        CoroutineScope(viewModelScope.coroutineContext + Dispatchers.IO),
+        write = { app.database.state().save(StateDocument(json=DataCodec.encode(it))) },
+        onError = { error -> viewModelScope.launch { status("保存失败：${error.message ?: "存储不可用"}") } }
+    )
     private var loadFailed = false
     private var operation: Job? = null
+    /** Balance lookups are independent read-only jobs and must not occupy the chat busy flag. */
+    private val veniceBalanceJobs = mutableMapOf<String, Job>()
+    private data class GenerationLease(val token: String = newId(), val ready: CompletableDeferred<Unit> = CompletableDeferred())
+    private var generationLease: GenerationLease? = null
+    private var stopReason: String? = null
     private var installationCall: okhttp3.Call? = null
     private val data get() = mutable.value.data
     private val selected get() = data.chats.find { it.id == mutable.value.selectedChatId }
 
     init {
-        viewModelScope.launch(Dispatchers.IO) {
-            for (snapshot in saves) try { app.database.state().save(StateDocument(json=DataCodec.encode(snapshot))) } catch (error: Exception) {
-                withContext(Dispatchers.Main) { status("保存失败：${error.message ?: "存储不可用"}") }
-            }
-        }
         viewModelScope.launch {
             try {
                 val loaded = withContext(Dispatchers.IO) { app.database.state().load()?.let { DataCodec.decode(it.json) } ?: AppData() }
-                val seeded = withContext(Dispatchers.IO) { BuiltinSkills.merge(loaded,builtinSkills) }
+                val discardRepairBackups = withContext(Dispatchers.IO) { finishPendingRepairBackupDiscard(loaded) }
+                val seeded = withContext(Dispatchers.IO) {
+                    BuiltinScenarios.merge(BuiltinSkills.merge(loaded,builtinSkills),builtinScenarios)
+                }
+                val stars = withContext(Dispatchers.IO) { BuiltinSkills.loadStars(readAsset) }
                 val restored = seeded.copy(chats=seeded.chats.map { chat -> chat.copy(messages=chat.messages.map { if(it.status=="streaming") it.copy(status="interrupted") else it }) })
-                mutable.value = mutable.value.copy(data=restored,selectedChatId=restored.chats.firstOrNull()?.id ?: "",loading=false,hasKeys=restored.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet())
-                if(restored != loaded) saves.trySend(restored)
+                val restoredChatIds = restored.chats.mapTo(mutableSetOf()) { it.id }
+                val restoredChats = restored.chats.associateBy { it.id }
+                val repairBackups = if (discardRepairBackups) emptySet() else withContext(Dispatchers.IO) {
+                    repairBackupDirectory().listFiles()?.filter { it.isFile && it.extension == "json" }?.mapNotNull { file ->
+                        val id = file.nameWithoutExtension
+                        val snapshot = id.takeIf { it in restoredChatIds }?.let { runCatching { readRepairBackup(it) }.getOrNull() }
+                        val valid = snapshot != null && ConversationRepair.snapshotAppliesTo(snapshot, restoredChats.getValue(id))
+                        if (valid) id else { file.delete(); null }
+                    }?.toSet().orEmpty()
+                }
+                val restoredSelection = preferredChatId(restored.chats, sessionPreferences.getString(LAST_SELECTED_CHAT_ID, "").orEmpty())
+                sessionPreferences.edit().putString(LAST_SELECTED_CHAT_ID, restoredSelection).apply()
+                mutable.value = mutable.value.copy(data=restored,selectedChatId=restoredSelection,loading=false,hasResearchSearchKey=app.secrets.has(DoubaoSearchClient.CREDENTIAL_ID),hasKeys=restored.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet(),skillStars=stars,missingBuiltinSkills=BuiltinSkills.missing(restored,builtinSkills),repairBackupChatIds=repairBackups)
+                if(restored != loaded) saves.submit(restored)
                 restored.chats.forEach { repairPendingTools(it.id) }
             } catch (error: Exception) {
                 loadFailed = true
@@ -64,8 +158,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
     private fun change(value: AppData, persist: Boolean = true) {
         if(mutable.value.loading) { status("正在读取本地数据，请稍候"); return }
         if(loadFailed) { status("本地数据读取失败，已阻止覆盖。请在设置导出原始数据或恢复备份"); return }
-        mutable.value = mutable.value.copy(data=value)
-        if (persist) saves.trySend(value)
+        mutable.value = mutable.value.copy(data=value,missingBuiltinSkills=BuiltinSkills.missing(value,builtinSkills))
+        if (persist) saves.submit(value)
     }
     private fun status(text: String) { mutable.value = mutable.value.copy(status=text) }
     private fun changeChat(id: String, persist: Boolean = true, transform: (Chat)->Chat) {
@@ -76,38 +170,105 @@ class AppController(application: Application) : AndroidViewModel(application), A
     private fun credentialId(provider: ProviderConfig): String = java.security.MessageDigest.getInstance("SHA-256").digest("${provider.id}|${provider.kind}|${provider.baseUrl.trim().trimEnd('/')}".toByteArray(Charsets.UTF_8)).joinToString("") { "%02x".format(it) }
     private fun key(id: String): String = app.secrets.get(credentialId(provider(id))).also { require(it.isNotBlank()) { "请在模型页面填写 API key" } }
     private fun preset(chat: Chat): Preset = data.presets.find { it.id==chat.presetId } ?: data.presets.first()
-    private fun action(block: suspend ()->Unit) {
+    private fun action(
+        backgroundGeneration: Boolean = false,
+        onStarted: () -> Unit = {},
+        onFinished: (error: String?, cancelled: Boolean) -> Unit = { _, _ -> },
+        verifySavedState: (suspend () -> Unit)? = null,
+        block: suspend () -> Unit
+    ) {
         if(mutable.value.loading) { status("正在读取本地数据，请稍候"); return }
         if(loadFailed) { status("请先恢复本地数据，已阻止新任务覆盖原数据库"); return }
         if(mutable.value.busy) { status("当前任务进行中，请先停止或等待完成"); return }
+        val lease = if (backgroundGeneration) GenerationLease() else null
+        generationLease = lease
+        stopReason = null
         mutable.value = mutable.value.copy(busy=true,status="")
-        operation = viewModelScope.launch {
-            try { block() }
-            catch (_: CancellationException) { status("已停止；已收到的内容已保留") }
-            catch (error: Exception) { status(error.message?.take(800) ?: "操作失败") }
-            finally { mutable.value = mutable.value.copy(busy=false); saves.trySend(data) }
+        onStarted()
+        operation = viewModelScope.launch(start = CoroutineStart.LAZY) {
+            var failure: String? = null
+            var cancelled = false
+            var serviceReady = lease == null
+            try {
+                if (lease != null) {
+                    host?.requestGenerationNotifications()
+                    GenerationService.start(app, lease.token)
+                    withTimeout(10_000) { lease.ready.await() }
+                    serviceReady = true
+                }
+                block()
+            }
+            catch (_: TimeoutCancellationException) {
+                failure = if (serviceReady) "任务等待超时，请查看诊断日志后重试" else "后台生成服务未能及时启动，请返回应用后重试"
+                status(failure)
+            }
+            catch (_: CancellationException) { cancelled = true; failure = stopReason ?: "生成已中断；已收到的内容已保留，可重试"; status(failure) }
+            catch (error: Exception) { failure = error.message?.take(800) ?: "操作失败"; status(failure) }
+            finally {
+                // Keep the process foreground until the final text/status reached storage.
+                withContext(NonCancellable) {
+                    runCatching { saves.flush(data) }.onFailure {
+                        val saveError = "保存失败：${it.message ?: "存储不可用"}"
+                        failure = listOfNotNull(failure, saveError).joinToString("\n")
+                        cancelled = false
+                        status(saveError)
+                    }
+                    if (failure == null && verifySavedState != null) {
+                        runCatching { verifySavedState() }.onFailure {
+                            failure = "保存后校验未通过：${it.message?.take(500) ?: "无法核对重建结果"}"
+                            status(failure!!)
+                        }
+                    }
+                }
+                if (generationLease === lease) generationLease = null
+                lease?.let { GenerationService.finish(app, it.token) }
+                mutable.value = mutable.value.copy(busy=false)
+                operation = null
+                onFinished(failure, cancelled)
+            }
         }
+        operation?.start()
+    }
+
+    internal fun isGenerationActive(token: String): Boolean = generationLease?.token == token
+    internal fun onGenerationServiceReady(token: String) {
+        generationLease?.takeIf { it.token == token }?.ready?.complete(Unit)
+    }
+    internal fun stopGenerationFromService(token: String, reason: String) {
+        if (isGenerationActive(token)) cancelOperation(reason)
+    }
+    fun checkpoint() {
+        if (!mutable.value.loading && !loadFailed) saves.submit(data)
     }
 
     override fun saveProvider(provider: ProviderConfig, key: String) {
         runCatching {
             require(!mutable.value.busy) { "请先停止当前任务再修改平台" }
-            val uri = Uri.parse(provider.baseUrl.trim())
-            require(uri.scheme=="https" && !uri.host.isNullOrBlank() && uri.userInfo==null && uri.query==null && uri.fragment==null) { "平台地址必须是有效 HTTPS API 地址，不含密钥或查询参数" }
-            require(provider.name.isNotBlank() && provider.kind in listOf("venice","openai","anthropic")) { "平台名称或协议无效" }
+            require(provider.name.isNotBlank() && provider.kind in listOf("venice","openai","anthropic","writing-server")) { "平台名称或协议无效" }
+            val urlViolation = ProviderUrlPolicy.violation(provider)
+            require(urlViolation == null) { "平台地址无效：$urlViolation" }
             val normalized = provider.copy(baseUrl=provider.baseUrl.trim().trimEnd('/'),name=provider.name.trim())
             val previous=data.providers.find { it.id==provider.id }
             require(previous==null || credentialId(previous)==credentialId(normalized) || key.isNotBlank()) { "平台地址或协议已更改，请重新填写 API key" }
             if(key.isNotBlank()) app.secrets.put(credentialId(normalized),key.trim())
             change(data.copy(providers=data.providers.filterNot { it.id==provider.id } + normalized))
             mutable.value = mutable.value.copy(hasKeys=data.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet())
+            if (previous != null && (credentialId(previous) != credentialId(normalized) || key.isNotBlank())) clearVeniceBalance(normalized.id)
             status("平台已保存")
         }.onFailure { status(it.message ?: "保存失败") }
     }
     override fun deleteProvider(id: String) {
         if(mutable.value.busy) { status("请先停止当前任务"); return }
         data.providers.find { it.id==id }?.let { app.secrets.delete(credentialId(it)) }; change(data.copy(providers=data.providers.filterNot { it.id==id }))
+        clearVeniceBalance(id)
         mutable.value=mutable.value.copy(hasKeys=mutable.value.hasKeys-id)
+    }
+
+    private fun clearVeniceBalance(providerId: String) {
+        veniceBalanceJobs.remove(providerId)?.cancel()
+        if (mutable.value.veniceBalances.containsKey(providerId)) {
+            mutable.value = mutable.value.copy(veniceBalances = mutable.value.veniceBalances - providerId)
+        }
     }
     override fun refreshModels(id: String) = action {
         val targets=if(id=="*") data.providers.toList() else listOf(provider(id))
@@ -125,29 +286,348 @@ class AppController(application: Application) : AndroidViewModel(application), A
         }
         status(reports.joinToString("；"))
     }
+
+    override fun refreshVeniceBalance(providerId: String) {
+        if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
+        val p = runCatching { provider(providerId) }.getOrElse { status(it.message ?: "找不到平台"); return }
+        if (!p.kind.equals("venice", ignoreCase = true)) { status("余额查询仅支持 Venice 平台"); return }
+        val previous = mutable.value.veniceBalances[providerId]
+        if (previous?.loading == true) return
+        mutable.value = mutable.value.copy(veniceBalances = mutable.value.veniceBalances + (providerId to (previous ?: VeniceBalanceState()).copy(loading = true, error = "")))
+        val job = viewModelScope.launch(start = CoroutineStart.LAZY) {
+            try {
+                val result = withContext(Dispatchers.IO) { veniceBalanceClient.fetch(p, key(providerId)) }
+                if (veniceBalanceJobs[providerId] === coroutineContext[Job]) {
+                    mutable.value = mutable.value.copy(veniceBalances = mutable.value.veniceBalances + (providerId to VeniceBalanceState(balance = result)))
+                    status("${p.name}余额已刷新")
+                }
+            } catch (error: CancellationException) {
+                if (veniceBalanceJobs[providerId] === coroutineContext[Job]) {
+                    mutable.value = mutable.value.copy(veniceBalances = mutable.value.veniceBalances + (providerId to (mutable.value.veniceBalances[providerId] ?: VeniceBalanceState()).copy(loading = false)))
+                }
+            } catch (error: Exception) {
+                val message = error.message?.take(500) ?: "余额查询失败"
+                if (veniceBalanceJobs[providerId] === coroutineContext[Job]) {
+                    val old = mutable.value.veniceBalances[providerId]
+                    mutable.value = mutable.value.copy(veniceBalances = mutable.value.veniceBalances + (providerId to VeniceBalanceState(balance = old?.balance, loading = false, error = message)))
+                }
+            } finally {
+                if (veniceBalanceJobs[providerId] === coroutineContext[Job]) veniceBalanceJobs.remove(providerId)
+            }
+        }
+        veniceBalanceJobs[providerId] = job
+        job.start()
+    }
     override fun createChat(characterId: String) {
+        if (mutable.value.loading) { status("正在读取本地数据，请稍候"); return }
+        if (loadFailed) { status("本地数据读取失败，已阻止创建会话"); return }
+        if (mutable.value.busy) { status("当前任务进行中，请先停止或等待完成"); return }
+        val inherited = selected?.let { currentChat ->
+            data.providers.firstOrNull { it.id == currentChat.providerId }?.let { currentProvider ->
+                currentProvider.models.firstOrNull { model ->
+                    model.id == currentChat.modelId && model.type == "text" && !model.offline
+                }?.let { model -> currentProvider to model }
+            }
+        }
         val p=data.providers.firstOrNull { it.id in mutable.value.hasKeys && it.models.any { m -> m.type=="text" && !m.offline } }
             ?: data.providers.firstOrNull { it.models.any { m -> m.type=="text" && !m.offline } } ?: data.providers.firstOrNull()
+        val selectedProvider = inherited?.first ?: p
         val character=data.characters.find { it.id==characterId }
-        val chat=Chat(title=character?.name?.takeIf { it.isNotBlank() } ?: "新会话",providerId=p?.id ?: "",modelId=p?.models?.firstOrNull { it.type=="text" && !it.offline }?.id ?: "",presetId=if(character!=null && data.presets.any { it.id=="roleplay" }) "roleplay" else data.presets.first().id,characterId=characterId,messages=character?.firstMessage?.takeIf { it.isNotBlank() }?.let { listOf(Message(role="assistant",content=it)) } ?: emptyList())
-        change(data.copy(chats=listOf(chat)+data.chats)); mutable.value=mutable.value.copy(selectedChatId=chat.id,pendingAttachments=emptyList())
+        val modelId = inherited?.second?.id ?: selectedProvider?.models?.firstOrNull { it.type=="text" && !it.offline }?.id.orEmpty()
+        val presetId = BuiltinScenarios.presetIdForCharacter(character, data.presets)
+        val chat=Chat(title=character?.name?.takeIf { it.isNotBlank() } ?: "新会话",providerId=selectedProvider?.id ?: "",modelId=modelId,presetId=presetId,characterId=characterId,messages=character?.firstMessage?.takeIf { it.isNotBlank() }?.let { listOf(Message(role="assistant",content=it)) } ?: emptyList())
+        change(data.copy(chats=listOf(chat)+data.chats)); rememberSelectedChat(chat.id); mutable.value=mutable.value.copy(selectedChatId=chat.id,pendingAttachments=emptyList())
     }
-    override fun selectChat(id: String) { mutable.value=mutable.value.copy(selectedChatId=id,pendingAttachments=emptyList()) }
-    override fun updateChat(chat: Chat) { if(mutable.value.busy) { status("请先停止当前任务再修改会话设置"); return }; changeChat(chat.id) { chat } }
+    override fun selectChat(id: String) {
+        if (data.chats.none { it.id == id }) { status("会话不存在"); return }
+        rememberSelectedChat(id)
+        mutable.value=mutable.value.copy(selectedChatId=id,pendingAttachments=emptyList())
+    }
+    override fun updateChat(chat: Chat) {
+        if(mutable.value.busy) { status("请先停止当前任务再修改会话设置"); return }
+        val blocked=if(data.settings.adultSkillsConfirmed) emptySet() else data.skills.filter { it.adult }.map { it.id }.toSet()
+        if(chat.skillIds.any { it in blocked }) status("成人向 Skill 需要先确认已年满 18 岁，并仅用于成年角色")
+        changeChat(chat.id) { chat.copy(skillIds=chat.skillIds.filterNot { it in blocked }) }
+    }
+    override fun saveScenarioState(chatId: String, state: ScenarioState) {
+        if (mutable.value.busy) { status("请先停止当前任务再保存剧本状态"); return }
+        if (data.chats.none { it.id == chatId }) { status("会话不存在"); return }
+        changeChat(chatId) { it.copy(scenarioState = state.copy(updatedAt = System.currentTimeMillis(), source = state.source.ifBlank { "用户确认" })) }
+        status("剧本状态已保存")
+    }
+    override fun saveScenarioRoster(chatId: String, roster: List<ScenarioPerson>) {
+        if (mutable.value.busy) { status("请先停止当前任务再保存人物名册"); return }
+        if (data.chats.none { it.id == chatId }) { status("会话不存在"); return }
+        changeChat(chatId) { it.copy(scenarioRoster = roster) }
+        status("人物名册已保存")
+    }
+    override fun organizeScenarioFromHistory(chatId: String) {
+        if (data.chats.none { it.id == chatId }) { status("会话不存在"); return }
+        action(backgroundGeneration = true, onStarted = { status("正在读取历史对话，整理剧本状态和人物关系…") }) {
+            val changed = organizeScenarioFromHistoryInternal(chatId)
+            status(if (changed) "已根据历史对话整理剧本状态和人物关系" else "历史中没有发现可确认的新状态，原记录保持不变")
+        }
+    }
+    private suspend fun organizeScenarioFromHistoryInternal(chatId: String): Boolean {
+        val original = current(chatId)
+        val sources = ScenarioHistoryOrganizer.messages(original)
+        require(sources.isNotEmpty()) { "当前会话没有可整理的有效历史对话" }
+        val active = preset(original)
+        val p = provider(active.summaryProviderId.ifBlank { original.providerId })
+        val modelId = active.summaryModelId.ifBlank { original.modelId }
+        require(modelId.isNotBlank()) { "请先选择可用的整理模型" }
+        val model = p.models.find { it.id == modelId }
+        require(model != null && model.type == "text" && !model.offline) { "整理模型不可用，请刷新模型目录后重试" }
+        val window = MemoryRebuilder.effectiveWindow(model.contextTokens, data.settings.contextOverride)
+        val output = HistoryCompressor.outputLimit(window)
+        val organizePreset = DeepSeekWriting.summaryPreset(active, p, model, output)
+        val secret = key(p.id)
+        val sourceHash = ContextEngine.sourceHash(original.messages)
+        val systemTokens = ContextEngine.estimateTokens(ScenarioHistoryOrganizer.systemPrompt())
+        val inputBudget = (window - output - HistoryCompressor.safetyReserve(window) - systemTokens - 256).coerceAtLeast(1024)
+        // Existing compact notes are evidence too.  Without this index the
+        // organizer only sees surviving raw turns and silently drops facts that
+        // were already moved into the memory vault by an earlier compression.
+        // Bound the injected index by the same request budget; full note text
+        // remains available to history_read and in the Obsidian export.
+        val memoryEvidenceBudget = minOf(12_000, (inputBudget / 5).coerceAtLeast(256))
+        val existingMemory = ScenarioHistoryOrganizer.memoryEvidence(original, memoryEvidenceBudget)
+        // Materialize each source exactly once. The old planner serialized the
+        // growing prefix for every candidate end, which made long histories
+        // quadratic in both CPU and temporary memory before the first request.
+        val sourceCharacters = sources.sumOf { message ->
+            message.content.length.toLong() + message.attachments.sumOf { it.dataUrl.length.toLong() }
+        }
+        require(sourceCharacters <= 8_000_000L && sources.all { message ->
+            message.content.length.toLong() + message.attachments.sumOf { it.dataUrl.length.toLong() } <= 2_000_000L
+        }) {
+            "历史原文过大，整理前请先分支会话或拆分超长附件（当前约 ${sourceCharacters / 1_000_000} MB 文本）"
+        }
+        val sourceTexts = sources.map { HistorySource.memoryText(it) }
+        val sourceCosts = sourceTexts.map { text ->
+            ContextEngine.estimateTokens(JSONObject().put("source", text).toString()) + 4
+        }
+        var draft = ScenarioHistoryPatch(state = original.scenarioState, people = original.scenarioRoster)
+        var index = 0
+        var calls = 0
+        while (index < sources.size) {
+            currentCoroutineContext().ensureActive()
+            var end = index
+            var estimated = ContextEngine.estimateTokens(ScenarioHistoryOrganizer.requestText(draft, emptyList(), existingMemory))
+            while (end < sources.size) {
+                if (estimated + sourceCosts[end] > inputBudget) break
+                estimated += sourceCosts[end]
+                end++
+            }
+            require(end > index) {
+                "历史中有一条消息超过整理模型可用窗口，请先拆分该条消息后重试"
+            }
+            var lastGood = sources.subList(index, end)
+            // The additive estimate above intentionally overestimates JSON
+            // framing. Verify the one actual payload once and trim only if
+            // escaping pushed it over the bound.
+            while (lastGood.isNotEmpty() && systemTokens + ContextEngine.estimateTokens(ScenarioHistoryOrganizer.requestText(draft, lastGood, existingMemory)) > inputBudget) {
+                lastGood = lastGood.dropLast(1)
+                end--
+            }
+            require(lastGood.isNotEmpty() && end > index) {
+                "历史中有一条消息超过整理模型可用窗口，请先拆分该条消息后重试"
+            }
+            val allowedIds = (lastGood.map { it.id } + existingMemory.flatMap { it.sourceMessageIds }).toMutableSet()
+            val allowedSummaryIds = existingMemory.filter { it.sourceKind == "summary" }.map { it.id }.toSet()
+            val request = JSONArray()
+                .put(JSONObject().put("role", "system").put("content", ScenarioHistoryOrganizer.systemPrompt()))
+                .put(JSONObject().put("role", "user").put("content", ScenarioHistoryOrganizer.requestText(draft, lastGood, existingMemory))).toString()
+            requestPurpose = "scenario_organize"
+            val response = compactClient.chat(p, secret, modelId, request, organizePreset, toolsJson = "[]", finalAnswerOnly = true)
+            require(response.content.isNotBlank() && response.finishReason.lowercase() in setOf("stop", "end_turn", "stop_sequence")) {
+                "历史整理未完成（finish_reason=${response.finishReason.ifBlank { "未知" }}），原剧本状态未修改"
+            }
+            val patch = ScenarioHistoryOrganizer.parse(response.content, allowedIds, allowedSummaryIds)
+            draft = ScenarioHistoryOrganizer.merge(draft, patch)
+            index = end
+            calls++
+            status("正在整理历史对话：已完成 $index/${sources.size} 条，已请求 $calls 次")
+        }
+        val latest = current(chatId)
+        require(ContextEngine.sourceHash(latest.messages) == sourceHash) {
+            "整理期间会话新增或修改了消息，未写回整理结果；请重新点击整理"
+        }
+        val unchanged = draft.state == original.scenarioState && draft.people == original.scenarioRoster
+        // A panel can predate the knowledge-vault integration.  Even when the
+        // visible values are unchanged, write the missing source-bound notes;
+        // repeated整理 of the same source remains idempotent.
+        val generatedNotes = ScenarioHistoryOrganizer.scenarioNotes(original, draft)
+        val notesAlreadySaved = generatedNotes.isNotEmpty() && generatedNotes.all { generated ->
+            original.knowledgeNotes.any { saved ->
+                saved.sourceKind == "conversation" && saved.title == generated.title &&
+                    saved.kind == generated.kind && saved.entity == generated.entity &&
+                    saved.sourceHash == generated.sourceHash
+            }
+        }
+        if (unchanged && (generatedNotes.isEmpty() || notesAlreadySaved)) return false
+        changeChat(chatId) { ScenarioHistoryOrganizer.mergeInto(it, draft) }
+        return true
+    }
     override fun deleteChat(id: String) {
-        if(mutable.value.busy) { status("请先停止当前任务"); return }
-        change(data.copy(chats=data.chats.filterNot { it.id==id },memories=data.memories.filterNot { it.scope=="chat" && it.targetId==id }))
-        if(mutable.value.selectedChatId==id) mutable.value=mutable.value.copy(selectedChatId=data.chats.firstOrNull()?.id ?: "")
+        if(mutable.value.busy || mutable.value.loading || loadFailed) { status("请等待本地数据读取完成并停止当前任务"); return }
+        val next = data.copy(chats=data.chats.filterNot { it.id==id },memories=data.memories.filterNot { it.scope=="chat" && it.targetId==id })
+        change(next)
+        val nextSelected = if(mutable.value.selectedChatId==id) preferredChatId(next.chats, "") else mutable.value.selectedChatId
+        rememberSelectedChat(nextSelected)
+        mutable.value=mutable.value.copy(
+            selectedChatId=nextSelected,
+            repairBackupChatIds=mutable.value.repairBackupChatIds
+        )
+        viewModelScope.launch {
+            runCatching {
+                saves.flush(next)
+                val deleted = withContext(Dispatchers.IO) {
+                    compactCheckpoints.clear(id, "compression")
+                    compactCheckpoints.clear(id, "memory_rebuild")
+                    deleteRepairBackup(id)
+                }
+                mutable.value=mutable.value.copy(repairBackupChatIds=mutable.value.repairBackupChatIds-id)
+                if (!deleted) status("会话已删除；遗留的修复快照会在下次启动时清理")
+            }.onFailure { status("会话已从当前界面删除，但本地保存失败；修复快照仍保留，重启后可恢复：${it.message ?: "未知错误"}") }
+        }
+    }
+    override fun repairMessages(chatId: String, messageIds: Set<String>) {
+        if(mutable.value.busy || mutable.value.loading || loadFailed) { status("请等待会话空闲并完成本地数据读取后再修复"); return }
+        val originalData = data
+        val originalChat = originalData.chats.firstOrNull { it.id == chatId } ?: run { status("找不到要修复的会话"); return }
+        viewModelScope.launch {
+            runCatching {
+                val cleaned = ConversationRepair.remove(originalChat, messageIds)
+                val discardedOldSnapshots = withContext(Dispatchers.IO) {
+                    val discarded = finishPendingRepairBackupDiscard(originalData)
+                    require(!repairBackupDiscardMarker().exists()) { "旧修复快照仍在清理，请重启应用完成清理后再修复会话" }
+                    writeRepairBackup(originalChat, cleaned)
+                    discarded
+                }
+                if (data !== originalData) error("修复期间会话数据发生变化，已保留修复前快照，请重新打开预览")
+                change(originalData.copy(chats=originalData.chats.map { if (it.id == chatId) cleaned else it }))
+                mutable.value = mutable.value.copy(repairBackupChatIds=(if (discardedOldSnapshots) emptySet() else mutable.value.repairBackupChatIds) + chatId)
+                status("已清理 ${originalChat.messages.size - cleaned.messages.size} 条消息；当前摘要和历史知识索引已重新对齐，可从原剧情继续，修复前快照可撤销")
+            }.onFailure { status("会话修复未应用：${it.message ?: "未知错误"}") }
+        }
+    }
+    override fun undoLastChatRepair(chatId: String) {
+        if (mutable.value.busy || mutable.value.loading || loadFailed) { status("请等待会话空闲并完成本地数据读取后再撤销"); return }
+        val originalData = data
+        if (originalData.chats.none { it.id == chatId }) { status("找不到会话"); return }
+        viewModelScope.launch {
+            runCatching {
+                val previous = withContext(Dispatchers.IO) { readRepairBackup(chatId) }
+                require(previous.id == chatId) { "备份与当前会话身份不匹配" }
+                if (data !== originalData) error("撤销期间会话数据发生变化，请重试")
+                val currentChat = originalData.chats.first { it.id == chatId }
+                require(ConversationRepair.snapshotAppliesTo(previous, currentChat)) { "修复快照不属于当前会话状态，已拒绝恢复" }
+                val restored = ConversationRepair.restore(previous, currentChat)
+                val restoredData = originalData.copy(chats=originalData.chats.map { if (it.id == chatId) restored else it })
+                change(restoredData)
+                saves.flush(restoredData)
+                val backupDeleted = withContext(Dispatchers.IO) { repairBackupFile(chatId).let { it.delete() || !it.exists() } }
+                mutable.value = mutable.value.copy(repairBackupChatIds=mutable.value.repairBackupChatIds - chatId)
+                status(if (backupDeleted) {
+                    "已恢复修复前的完整历史；修复后新发送和新生成的消息已接在原历史后面，可继续当前会话"
+                } else {
+                    "历史已恢复并可继续；遗留快照无法立即清理，下次启动会自动处理"
+                })
+            }.onFailure { status("无法恢复修复前历史：${it.message ?: "备份不可用"}") }
+        }
+    }
+    private fun repairBackupDirectory(): File = File(app.filesDir, "conversation-repair")
+    private fun repairBackupDiscardMarker(): File = File(app.filesDir, "conversation-repair-discard.json")
+    private fun writeRepairBackupDiscardMarker(intent: RepairBackupDiscardMarker) {
+        val destination = repairBackupDiscardMarker()
+        val bytes = intent.encode().toByteArray(Charsets.UTF_8)
+        val temporary = File.createTempFile("conversation-repair-discard-", ".tmp", app.filesDir)
+        try {
+            FileOutputStream(temporary).use { it.write(bytes); it.fd.sync() }
+            try {
+                Files.move(temporary.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE)
+            } catch (_: AtomicMoveNotSupportedException) {
+                Files.move(temporary.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING)
+            }
+        } finally { temporary.delete() }
+    }
+    /** Returns true when old repair snapshots belong to a full backup that is now durably active. */
+    private fun finishPendingRepairBackupDiscard(loaded: AppData): Boolean {
+        val marker = repairBackupDiscardMarker()
+        if (!marker.isFile) return false
+        val intent = runCatching {
+            require(marker.length() <= 1024) { "修复快照清理标记过大" }
+            RepairBackupDiscardMarker.decode(marker.readText(Charsets.UTF_8))
+        }.getOrNull()
+        if (intent == null || !intent.isApplicableTo(DataCodec.fingerprint(loaded))) {
+            marker.delete()
+            return false
+        }
+        if (!intent.isCommitted) writeRepairBackupDiscardMarker(intent.committed())
+        val cleaned = runCatching { clearRepairBackups() }.isSuccess
+        if (cleaned) marker.delete()
+        return true
+    }
+    private fun cancelRepairBackupDiscardMarker() {
+        repairBackupDiscardMarker().delete()
+    }
+    private fun deleteRepairBackup(chatId: String): Boolean {
+        if (!chatId.matches(Regex("[A-Za-z0-9._-]{1,100}"))) return true
+        return repairBackupFile(chatId).let { it.delete() || !it.exists() }
+    }
+    private fun clearRepairBackups() {
+        val directory = repairBackupDirectory()
+        require(!directory.exists() || directory.deleteRecursively()) { "无法清理旧的会话修复快照" }
+    }
+    private fun repairBackupFile(chatId: String): File {
+        require(chatId.matches(Regex("[A-Za-z0-9._-]{1,100}"))) { "会话 ID 格式无效" }
+        return File(repairBackupDirectory(), "$chatId.json")
+    }
+    private fun writeRepairBackup(original: Chat, repaired: Chat) {
+        require(!repairBackupDiscardMarker().exists()) { "旧修复快照仍在清理，请重启应用完成清理后再修复会话" }
+        val directory = repairBackupDirectory()
+        require(directory.isDirectory || directory.mkdirs()) { "无法创建会话备份目录" }
+        val destination = repairBackupFile(original.id)
+        val snapshot = if (destination.isFile) {
+            ConversationRepair.extendSnapshot(readRepairBackup(original.id), original)
+        } else original
+        val bytes = JSONObject().put("originalChat", DataCodec.gson.toJson(snapshot)).put("repairAppliedAt", repaired.updatedAt).toString().toByteArray(Charsets.UTF_8)
+        require(bytes.size <= DataCodec.MAX_JSON_UTF8_BYTES) { "会话快照超过备份上限" }
+        val temporary = File.createTempFile("${original.id.take(20)}-", ".tmp", directory)
+        try {
+            FileOutputStream(temporary).use { it.write(bytes); it.fd.sync() }
+            try {
+                Files.move(temporary.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE)
+            } catch (_: AtomicMoveNotSupportedException) {
+                Files.move(temporary.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING)
+            }
+        } finally { temporary.delete() }
+    }
+    private fun readRepairBackup(chatId: String): Chat {
+        val file = repairBackupFile(chatId)
+        require(file.isFile && file.length() <= DataCodec.MAX_JSON_UTF8_BYTES) { "没有可用的修复前快照" }
+        val root = JSONObject(file.readText(Charsets.UTF_8))
+        val restored = DataCodec.gson.fromJson(root.getString("originalChat"), Chat::class.java)
+        require(restored.id == chatId) { "备份会话 ID 不匹配" }
+        return restored
     }
     override fun chooseModel(providerId: String, modelId: String) {
+        if(mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
         if(mutable.value.busy) { status("请先停止当前任务再切换模型"); return }
         val candidate=data.providers.find { it.id==providerId }?.models?.find { it.id==modelId }
         if(candidate==null || candidate.type!="text" || candidate.offline) { status("请选择目录中可用的聊天模型，必要时先刷新"); return }
         if(selected==null) createChat()
-        selected?.let { changeChat(it.id) { c -> c.copy(providerId=providerId,modelId=modelId) } }
-        status("已选择 $modelId")
+        val chat = selected ?: return
+        runCatching {
+            val updated = DeepSeekWriting.selectModel(data,chat.id,providerId,modelId)
+            val adapted = updated.chats.first { it.id == chat.id }.presetId != chat.presetId
+            change(updated)
+            status(if (adapted) "已选择 $modelId；已建立兼容预设，思考档位或预算按新模型调整，原写作预设保留" else "已选择 $modelId")
+        }.onFailure { status(it.message ?: "切换模型失败") }
     }
-    override fun send(text: String): Boolean {
+    override fun send(text: String): Boolean = sendWithIntent(text, "auto")
+    override fun sendWithIntent(text: String, intent: String): Boolean {
         if(text.isBlank() && mutable.value.pendingAttachments.isEmpty()) return false
         if(mutable.value.loading || loadFailed) { status("本地数据尚未就绪，消息未发送"); return false }
         if(mutable.value.busy) { status("当前任务进行中"); return false }
@@ -157,63 +637,167 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val attachments=mutable.value.pendingAttachments
         val model=data.providers.find { it.id==chat.providerId }?.models?.find { it.id==chat.modelId }
         if(attachments.any { it.mime.startsWith("image/") } && model?.supportsVision!=true) { status("当前模型未声明视觉能力，请选择支持图片的模型"); return false }
-        val message=Message(content=text.trim(),attachments=attachments)
-        changeChat(chat.id) { it.copy(title=if(it.messages.isEmpty() && it.title=="新会话") text.trim().take(24).ifBlank { "附件会话" } else it.title,messages=it.messages+message) }
-        mutable.value=mutable.value.copy(pendingAttachments=emptyList())
-        action { generate(chat.id) }
-        return true
+        return try {
+            val message=Message(content=text.trim(),attachments=attachments,intent=ConversationTurns.resolveIntent(text,intent))
+            changeChat(chat.id) { ConversationTurns.append(it,message).copy(title=if(it.messages.isEmpty() && it.title=="新会话") text.trim().take(24).ifBlank { "附件会话" } else it.title) }
+            disableExcludedMemories(chat.id)
+            mutable.value=mutable.value.copy(pendingAttachments=emptyList())
+            action(backgroundGeneration = true) { generate(chat.id) }
+            true
+        } catch (error: Exception) {
+            // Sending is invoked directly from a Compose click handler. A
+            // malformed legacy/imported state must become an actionable status,
+            // rather than an uncaught exception that closes the Activity.
+            status("消息未发送：${error.message?.take(500) ?: "本地会话数据无效，请导出后修复"}")
+            false
+        }
     }
     private suspend fun generate(chatId: String) {
         var liveId=""
+        val generationId=newId()
         try {
             var chat=current(chatId)
             var context=ContextEngine.build(data,chat)
-            if(context.needsCompression && data.settings.autoCompress && ContextEngine.compressionSlice(data,chat)!=null) { summarize(chatId); chat=current(chatId); context=ContextEngine.build(data,chat) }
-            require(context.estimatedTokens<=context.budget) { "上下文超出预算：请压缩历史、减少固定内容或调整上下文窗口" }
+            recordContextBudget(context)
+            if(context.needsCompression && data.settings.autoCompress) { summarize(chatId); chat=current(chatId); context=ContextEngine.build(data,chat) }
+            require(context.estimatedTokens<=context.budget) { overBudgetMessage("上下文超出预算：请压缩历史、减少固定内容或调整上下文窗口",context) }
             val p=provider(chat.providerId); val secret=key(p.id); val model=p.models.find { it.id==chat.modelId }
             require(model!=null && model.type=="text" && !model.offline) { "模型不在可用聊天目录中，请刷新目录或手动添加模型" }
-            val activeSkills=data.skills.filter { it.id in chat.skillIds && it.enabled }
-            val toolDefinitions=if(model?.supportsTools==true) tools.definitions(activeSkills.flatMap { it.permissions }.distinct()) else "[]"
-            for(step in 0 until data.settings.maxToolSteps) {
+            val toolPolicy = ToolTurnPolicy()
+            val maxToolSteps = data.settings.maxToolSteps.coerceIn(1, 16)
+            // Tool rounds have a separate budget; always reserve a final response after them.
+            for(step in 0..maxToolSteps) {
                 currentCoroutineContext().ensureActive()
-                val before=current(chatId)
-                val built=ContextEngine.build(data,before)
-                require(built.estimatedTokens<=built.budget) { "工具结果使上下文超限，请压缩后重试" }
-                val outgoing=built.messagesJson
-                val assistant=Message(role="assistant",status="streaming")
-                liveId=assistant.id
-                changeChat(chatId) { it.copy(messages=it.messages+assistant) }
-                var content=""; var reasoning=""; var lastSave=System.currentTimeMillis()
-                val result=providerClient.chat(p,secret,before.modelId,outgoing,preset(before),toolDefinitions) { delta ->
-                    content+=delta.content; reasoning+=delta.reasoning
-                    val textCopy=content; val reasoningCopy=reasoning
-                    viewModelScope.launch {
-                        val persist=System.currentTimeMillis()-lastSave>900
-                        if(persist) lastSave=System.currentTimeMillis()
-                        changeChat(chatId,persist) { c -> c.copy(messages=c.messages.map { if(it.id==assistant.id && it.status=="streaming") it.copy(content=textCopy,reasoning=reasoningCopy) else it }) }
+                val finalAnswerOnly = toolPolicy.finalAnswerRequired(step, maxToolSteps)
+                fun requestTokens(built: ContextBuild): Int = built.estimatedTokens + if (finalAnswerOnly) {
+                    ContextEngine.estimateTokens(JSONObject().put("role", "system").put("content", toolPolicy.finalInstruction).toString()) -
+                        (if (built.toolDefinitions == "[]") 0 else ContextEngine.estimateTokens(built.toolDefinitions))
+                } else 0
+                var before=current(chatId)
+                var built=ContextEngine.build(data,before)
+                if (step > 0 && requestTokens(built) > built.budget && built.needsCompression && data.settings.autoCompress) {
+                    val latestUser = before.messages.indexOfLast { it.role == "user" && !it.contextExcluded }
+                    val boundary = built.compression?.throughMessageId?.let { id -> before.messages.indexOfFirst { it.id == id } } ?: -1
+                    // Only older complete turns may be compacted here. Current lookup evidence
+                    // must reach the model intact, never disappear inside a prose-only summary.
+                    if (boundary in 0 until latestUser) {
+                        summarize(chatId)
+                        before = current(chatId)
+                        built = ContextEngine.build(data,before)
                     }
                 }
-                changeChat(chatId) { c -> c.copy(messages=c.messages.map { if(it.id==assistant.id) it.copy(content=result.content,reasoning=result.reasoning,toolCallsJson=result.toolCallsJson,status="complete") else it }) }
-                liveId=""
+                val outgoing = if (finalAnswerOnly) toolPolicy.finalMessages(built.messagesJson) else built.messagesJson
+                val toolDefinitions = if (finalAnswerOnly) "[]" else built.toolDefinitions
+                val outgoingTokens = requestTokens(built)
+                require(outgoingTokens <= built.budget) { overBudgetMessage("本轮工具结果已保存，但最终回答的上下文超出预算", built) }
+                val userTurn=before.messages.lastOrNull { it.role=="user" && !it.contextExcluded }
+                val assistant=Message(role="assistant",status="streaming",intent=if(userTurn?.intent=="correction") "correction" else "dialogue",generationId=generationId,revisionOf=userTurn?.revisionOf.orEmpty(),
+                    skillSnapshotJson=SkillRuntimeSnapshot.manifest(ToolRuntime.activeSkills(data.skills,data.settings,before),model.supportsTools))
+                liveId=assistant.id
+                changeChat(chatId) { it.copy(messages=it.messages+assistant) }
+                var streamed=StreamDelta(); var lastSave=System.currentTimeMillis()
+                val updates = Channel<StreamDelta>(Channel.CONFLATED)
+                val collector = viewModelScope.launch {
+                    for (snapshot in updates) {
+                        val persist=System.currentTimeMillis()-lastSave>900
+                        if(persist) lastSave=System.currentTimeMillis()
+                        changeChat(chatId,persist) { c -> c.copy(messages=c.messages.map { if(it.id==assistant.id && it.status=="streaming") it.copy(content=snapshot.content,reasoning=snapshot.reasoning) else it }) }
+                    }
+                }
+                val result = try {
+                    requestPurpose = if (finalAnswerOnly) "chat_final" else "chat"
+                    providerClient.chat(p,secret,before.modelId,outgoing,preset(before),toolDefinitions,
+                        metadata = if (p.kind.equals("writing-server", ignoreCase = true)) mapOf(
+                            "pocket_tavern_chat_id" to chatId,
+                            "pocket_tavern_purpose" to "chat"
+                        ) else emptyMap(),
+                        finalAnswerOnly=finalAnswerOnly) { delta ->
+                        streamed=delta.appendTo(streamed)
+                        updates.trySend(streamed)
+                    }
+                } finally {
+                    updates.close()
+                    // Drain the last received text before cancellation marks this message.
+                    withContext(NonCancellable) { collector.join() }
+                }
                 val calls=JSONArray(result.toolCallsJson)
+                // A provider may include the state marker alongside a tool call.
+                // Apply only when the marker is present; ordinary tool-planning
+                // prose remains unchanged and still proceeds through the tool loop.
+                val synced = ScenarioStateSync.apply(before, result.content)
+                changeChat(chatId) { c -> c.copy(
+                    scenarioState = synced.chat.scenarioState,
+                    scenarioRoster = synced.chat.scenarioRoster,
+                    messages=c.messages.map { if(it.id==assistant.id) it.copy(content=synced.visibleContent,reasoning=result.reasoning,toolCallsJson=result.toolCallsJson,status="complete",finishReason=result.finishReason,requestId=result.requestId,
+                        qualityNotice=before.messages.firstOrNull { old -> old.id==assistant.revisionOf }?.let { old -> ConversationTurns.rewriteNotice(old.content,synced.visibleContent) }.orEmpty()) else it }) }
                 if(calls.length()==0) return
+                require(!finalAnswerOnly) { "模型在最终回答阶段仍返回工具调用；已停止继续执行，已有结果保留，可重新生成本轮。" }
                 require(model?.supportsTools==true) { "模型返回了未启用的工具调用" }
                 for(i in 0 until calls.length()) {
                     currentCoroutineContext().ensureActive()
                     val call=calls.getJSONObject(i); val function=call.getJSONObject("function")
-                    val liveSkills=data.skills.filter { it.enabled && it.id in current(chatId).skillIds }
-                    val toolResult=try { tools.execute(function.getString("name"),function.optString("arguments","{}"),liveSkills,data,current(chatId)) }
+                    val name = function.getString("name")
+                    val arguments = function.optString("arguments", "{}")
+                    val decision = toolPolicy.beforeCall(name, arguments)
+                    val toolResult=if (!decision.execute) ToolResult(decision.response.orEmpty()) else try {
+                        if (name in setOf("history_search", "history_read")) {
+                            val toolContext = ContextEngine.build(data,current(chatId))
+                            val remaining = (toolContext.budget - toolContext.estimatedTokens - 512).coerceAtLeast(0)
+                            val allowance = minOf(4096, (remaining / (calls.length() - i) - 96).coerceAtLeast(0))
+                            ToolResult(withContext(Dispatchers.Default) {
+                                KnowledgeVault.toolResponse(current(chatId),name,arguments,allowance)
+                            })
+                        } else tools.execute(name,arguments,data.skills,data,current(chatId))
+                    }
                     catch(error: Exception) { if(error is CancellationException) throw error; ToolResult("工具执行失败：${error.message}") }
+                    if (decision.execute) toolPolicy.recordResult(name, arguments, toolResult.content)
                     toolResult.memories?.let { added -> change(data.copy(memories=(data.memories+added).associateBy { it.id }.values.toList())) }
-                    changeChat(chatId) { c -> c.copy(messages=c.messages+Message(role="tool",content=toolResult.content,toolCallId=call.getString("id"))) }
+                    changeChat(chatId) { c -> c.copy(messages=c.messages+Message(role="tool",content=toolResult.content,toolCallId=call.getString("id"),generationId=generationId,intent=assistant.intent)) }
+                }
+                toolPolicy.completedRound((0 until calls.length()).map { calls.getJSONObject(it).getJSONObject("function").getString("name") })
+                if (toolPolicy.shouldFinalize || step + 1 >= maxToolSteps) {
+                    runCatching { requestLogs.record(JSONObject().put("event", "tool_turn_finished").put("purpose", "tool_control")
+                        .put("phase", "final_answer").put("outcome", toolPolicy.reason.ifBlank { "tool_step_limit" })
+                        .put("tool_round", step + 1).toString()) }
                 }
             }
-            status("已达到工具执行步数上限。结果已保存，可继续发送消息")
+            error("本轮未收到最终回复；工具结果已保存，可重新生成本轮。")
         } catch(error: Exception) {
-            if(liveId.isNotEmpty()) changeChat(chatId) { c -> c.copy(messages=c.messages.map { if(it.id==liveId) it.copy(status=if(error is CancellationException) "stopped" else "error") else it }) }
+            val cancelled = error is CancellationException || !currentCoroutineContext().isActive
+            val failure = error as? ProviderException
+            val partial = failure?.partial
+            val errorText = if(cancelled) "" else error.message?.take(800) ?: "生成失败，请查看请求日志"
+            if(liveId.isNotEmpty()) changeChat(chatId) { c -> c.copy(messages=c.messages.map { if(it.id==liveId) it.copy(
+                status=if(cancelled) "stopped" else "error", errorMessage=errorText,
+                content=partial?.content?.takeIf(String::isNotBlank) ?: it.content,
+                reasoning=partial?.reasoning?.takeIf(String::isNotBlank) ?: it.reasoning,
+                finishReason=failure?.finishReason?.ifBlank { it.finishReason } ?: it.finishReason,
+                requestId=failure?.requestId?.ifBlank { it.requestId } ?: it.requestId
+            ) else it }) }
+            else changeChat(chatId) { c ->
+                val userTurn=c.messages.lastOrNull { it.role=="user" && !it.contextExcluded }
+                c.copy(messages=c.messages+Message(role="assistant",generationId=generationId,
+                intent=if(userTurn?.intent=="correction") "correction" else "dialogue",revisionOf=userTurn?.revisionOf.orEmpty(),
+                status=if(cancelled) "stopped" else "error", errorMessage=errorText,
+                finishReason=failure?.finishReason.orEmpty(),requestId=failure?.requestId.orEmpty())) }
             repairPendingTools(chatId)
             throw error
         }
+    }
+    private fun recordContextBudget(context: ContextBuild) {
+        val budget = context.budgetBreakdown ?: return
+        runCatching { requestLogs.record(JSONObject().put("event", "context_budget").put("purpose", "context_budget")
+            .put("phase", "planning").put("outcome", budget.blockedReason.ifBlank { budget.triggerReason })
+            .put("context_input_tokens", budget.estimatedInputTokens).put("context_input_budget", budget.inputBudget)
+            .put("context_trigger_tokens", budget.triggerTokens).put("context_skill_tokens", budget.skillTokens)
+            .put("context_summary_tokens", budget.summaryTokens).put("context_recent_tokens", budget.recentTokens)
+            .put("context_tool_tokens", budget.toolTokens).put("context_model_window", budget.modelWindow)
+            .put("context_daily_limit", budget.configuredInputLimit).toString()) }
+    }
+    private fun overBudgetMessage(base: String, context: ContextBuild): String {
+        val heavy=context.skillTokens.sortedByDescending { it.second }.take(3).joinToString("、") { "${it.first} 约 ${it.second}" }
+        val detail="（估算 ${context.estimatedTokens}/${context.budget} tokens"+(if(heavy.isBlank()) "" else "；已选 Skills：$heavy tokens")+"；可减少固定内容、保留轮数，或到设置提高日常输入预算；预算仍受模型容量限制）"
+        return base+detail+context.budgetBreakdown?.let { "\n${CompressionScope.describeBudget(it)}" }.orEmpty()
     }
     private fun repairPendingTools(chatId: String) {
         val chat=data.chats.find { it.id==chatId } ?: return
@@ -226,29 +810,194 @@ class AppController(application: Application) : AndroidViewModel(application), A
             val ids=(0 until calls.length()).map { calls.getJSONObject(it).optString("id") }.filter { it.isNotBlank() }
             val answered=mutableSetOf<String>()
             while(index<chat.messages.size && chat.messages[index].role=="tool") { val tool=chat.messages[index++]; result+=tool; answered+=tool.toolCallId }
-            (ids-answered).forEach { result+=Message(role="tool",toolCallId=it,content="该工具在执行完成前被停止或失败，未确认完成。") }
+            (ids-answered).forEach { result+=Message(role="tool",toolCallId=it,content="该工具在执行完成前被停止或失败，未确认完成。",generationId=message.generationId,intent=message.intent,contextExcluded=message.contextExcluded) }
         }
         if(result!=chat.messages) changeChat(chatId) { it.copy(messages=result) }
     }
-    override fun stop() { operation?.cancel(); providerClient.cancel(); mediaClient.cancel(); tools.cancel(); installationCall?.cancel() }
+    override fun stop() = cancelOperation(
+        if (mutable.value.memoryRebuild?.phase == "running") "已停止记忆重建"
+        else "已停止；已收到的内容已保留"
+    )
+    private fun cancelOperation(reason: String) {
+        stopReason = reason
+        operation?.cancel(); providerClient.cancel(); compactClient.cancel(); researchClient.cancel(); directSearchClient.cancel(); billingClient.cancel(); mediaClient.cancel(); tools.cancel(); installationCall?.cancel()
+    }
+    private fun disableExcludedMemories(chatId: String) {
+        val memories=ConversationTurns.disableExcludedMemories(current(chatId),data.memories)
+        if(memories!=data.memories) change(data.copy(memories=memories))
+    }
     override fun regenerate() {
         val chat=selected ?: return
+        if(mutable.value.loading || loadFailed) { status("本地数据尚未就绪，未重新生成"); return }
         if(mutable.value.busy) return
-        val lastUser=chat.messages.indexOfLast { it.role=="user" }
-        if(lastUser<0) { status("请先发送一条消息"); return }
-        val retainedMessageIds=chat.messages.take(lastUser+1).map { it.id }.toSet()
-        changeChat(chat.id) { it.copy(messages=it.messages.take(lastUser+1),activeSummaryId="") }
-        change(data.copy(memories=data.memories.map { memory ->
-            if (memory.scope=="chat" && memory.targetId==chat.id && memory.sourceMessageId.isNotBlank() && memory.sourceMessageId !in retainedMessageIds) {
-                memory.copy(enabled=false)
-            } else memory
-        }))
-        action { generate(chat.id) }
+        if(chat.messages.none { it.role=="user" && !it.contextExcluded }) { status("请先发送一条消息"); return }
+        changeChat(chat.id) { ConversationTurns.regenerate(it) }
+        disableExcludedMemories(chat.id)
+        action(backgroundGeneration = true) { generate(chat.id) }
+    }
+    override fun setMessageContext(id: String, included: Boolean) {
+        if(mutable.value.busy) { status("请先停止当前生成"); return }
+        val chat=selected ?: return
+        changeChat(chat.id) { ConversationTurns.setIncluded(it,id,included) }
+        disableExcludedMemories(chat.id)
+        status(if(included) "已恢复该轮参与上下文；请确认与后续剧情一致" else "已保留原文并排除该轮；相关旧摘要会自动失效")
+    }
+    override fun saveContinuityNotes(chatId: String, text: String) {
+        if(mutable.value.busy) { status("请先停止当前生成"); return }
+        if(text.length>8000) { status("当前场景最多 8000 字符"); return }
+        if(data.chats.none { it.id==chatId }) { status("会话已不存在"); return }
+        changeChat(chatId) { it.copy(continuityNotes=text.trim()) }
+        status("当前场景已保存，下一轮生效")
+    }
+    override fun saveResearchSearchKey(key: String) {
+        if (mutable.value.busy || mutable.value.loading || loadFailed) { status("请等待当前任务结束后保存搜索 Key"); return }
+        val secret = key.trim()
+        if (secret.isBlank()) { status("请输入豆包搜索专用 Key"); return }
+        runCatching { app.secrets.put(DoubaoSearchClient.CREDENTIAL_ID, secret) }
+            .onSuccess { mutable.value = mutable.value.copy(hasResearchSearchKey = true); status("豆包搜索 Key 已加密保存") }
+            .onFailure { status("搜索 Key 保存失败，请重试") }
+    }
+
+    override fun openDoubaoWebResearch(chatId: String, subject: String, categories: List<String>, allowFiction: Boolean) {
+        if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
+        if (mutable.value.busy) { status("请先停止当前任务"); return }
+        runCatching {
+            require(data.chats.any { it.id == chatId }) { "目标会话不存在" }
+            val normalized = categories.mapNotNull { ResearchCategory.fromWire(it)?.wireName }.distinct()
+            require(normalized.isNotEmpty()) { "至少选择一个研究范围" }
+            val request = DoubaoWebRequest(newId(), chatId, subject.trim(), normalized, allowFiction)
+            host?.openDoubaoWebResearch(request.id, chatId, request.subject, normalized, allowFiction, DoubaoWebResearch.prompt(request))
+                ?: error("当前页面无法打开豆包网页")
+            status("已打开豆包网页；登录后会自动提交研究问题并回传结果")
+        }.onFailure { status(it.message ?: "无法打开豆包网页") }
+    }
+
+    override fun importDoubaoWebAnswer(
+        requestId: String, chatId: String, subject: String, categories: List<String>, allowFiction: Boolean,
+        text: String, pageUrl: String, sourceLinks: List<String>, mediaDescription: String
+    ) {
+        var savedNoteId = ""
+        action(
+            onStarted = { status("正在保存豆包网页版原始回答…") },
+            onFinished = { error, cancelled ->
+                if (error == null && !cancelled && savedNoteId.isNotBlank()) status("豆包网页版回答已保存到会话知识库；已标记为原始回答，未逐项核验")
+            },
+            verifySavedState = {
+                val restored = withContext(Dispatchers.IO) { app.database.state().load()?.let { DataCodec.decode(it.json) } }
+                check(restored?.chats?.find { it.id == chatId }?.knowledgeNotes?.any { it.id == savedNoteId } == true) { "未能从数据库读回豆包网页版研究记录" }
+            }
+        ) {
+            val request = DoubaoWebRequest(requestId, chatId, subject, categories, allowFiction)
+            val answer = DoubaoWebAnswer(requestId, text, pageUrl, sourceLinks, mediaDescription)
+            val saved = DoubaoWebResearch.save(current(chatId), request, answer)
+            change(data.copy(chats = data.chats.map { if (it.id == chatId) saved.chat.copy(updatedAt = System.currentTimeMillis()) else it }))
+            savedNoteId = saved.note.id
+        }
+    }
+    override fun researchCharacter(
+        chatId: String,
+        subject: String,
+        categories: List<String>,
+        useOnline: Boolean,
+        allowFiction: Boolean,
+        saveToKnowledgeBase: Boolean,
+        researchProviderId: String,
+        researchModelId: String,
+        searchMode: String
+    ) {
+        if (subject.isBlank()) { status("请填写人物或主题"); return }
+        if (categories.isEmpty()) { status("至少选择一个研究范围"); return }
+        var savedNoteId = ""
+        var completionNotice = ""
+        action(
+            backgroundGeneration = true,
+            onStarted = { status("正在调用豆包联网检索并整理人物资料…") },
+            onFinished = { error, cancelled ->
+                if (error == null && !cancelled && savedNoteId.isNotBlank()) status(completionNotice)
+            },
+            verifySavedState = {
+                val restored = withContext(Dispatchers.IO) {
+                    app.database.state().load()?.let { DataCodec.decode(it.json) }
+                }
+                check(restored?.chats?.find { it.id == chatId }?.knowledgeNotes?.any { it.id == savedNoteId && it.sourceKind == "research" } == true) {
+                    "未能从数据库读回本次研究记录"
+                }
+            }
+        ) {
+            val chat = current(chatId)
+            require(useOnline) { "人物研究需要开启豆包联网搜索" }
+            val researchProvider = provider(researchProviderId)
+            require(DoubaoResearchClient.isSupportedBaseUrl(researchProvider.baseUrl)) {
+                "请配置豆包·火山方舟官方 API 平台"
+            }
+            val parsedCategories = categories.mapNotNull { ResearchCategory.fromWire(it) }.distinct()
+            require(parsedCategories.isNotEmpty() && parsedCategories.size == categories.distinct().size) { "研究范围无效，请重新选择" }
+            val request = PublicResearchRequest(subject.trim(), parsedCategories, allowFiction = allowFiction)
+            require(request.validate().isEmpty()) { request.validate().joinToString("；") }
+            require(researchModelId.isNotBlank() && researchModelId.length <= 200) { "请填写已开通联网搜索的豆包模型 ID 或推理接入点" }
+            val previous = chat.knowledgeNotes.filter { it.sourceKind == "research" }
+            require(previous.size < KnowledgeVault.MAX_RESEARCH_NOTES && previous.sumOf { it.text.length } < KnowledgeVault.MAX_RESEARCH_TOTAL_CHARS) {
+                "研究资料容量已满，请先整理已有资料"
+            }
+            require(searchMode in setOf("direct", "native")) { "联网方式无效" }
+            val targetProfile = PublicResearch.profileUrlSubject(request.subject)
+            val result = if (searchMode == "direct") {
+                val searchKey = app.secrets.get(DoubaoSearchClient.CREDENTIAL_ID)
+                require(searchKey.isNotBlank()) { "请先配置豆包搜索专用 Key" }
+                val sources = try {
+                    directSearchClient.search(searchKey, request)
+                        .filter { PublicResearch.isRelevantSourceHit(it, request) }
+                } catch (error: ProviderException) {
+                    if (targetProfile != null && error.kind == ProviderException.Kind.EMPTY_RESPONSE) emptyList() else throw error
+                }
+                currentCoroutineContext().ensureActive()
+                val observedAt = java.time.Instant.now().toString()
+                if (targetProfile != null && sources.isEmpty()) {
+                    PublicResearchResult(request.subject, observedAt, emptyList(),
+                        warnings = listOf("本次豆包搜索没有找到可关联到该主页的资料。"), networkStatus = "unverified")
+                } else {
+                    require(sources.isNotEmpty()) { "搜索结果与查询对象无可靠对应关系，未保存资料；请补充姓名、职业或作品名后重试" }
+                    status("已获取 ${sources.size} 条来源，正在让豆包整理六类资料…")
+                    requestPurpose = "research_summary"
+                    val summary = providerClient.chat(researchProvider, key(researchProviderId), researchModelId.trim(),
+                        ResearchWorkflow.summaryMessages(request, sources, observedAt), Preset(temperature = 0.3, maxOutput = 10_000, generationBudgetEnabled = true),
+                        metadata = if (researchProvider.kind.equals("writing-server", ignoreCase = true)) mapOf(
+                            "pocket_tavern_chat_id" to chatId,
+                            "pocket_tavern_purpose" to "summary"
+                        ) else emptyMap())
+                    require(summary.finishReason.isBlank() || summary.finishReason == "stop") { "豆包资料总结未完整结束，本次未保存，请重试" }
+                    ResearchWorkflow.parseSummary(summary.content, request, sources, observedAt)
+                }
+            } else researchClient.research(researchProvider.baseUrl, key(researchProviderId), researchModelId.trim(), request)
+            currentCoroutineContext().ensureActive()
+            val unverifiedProfile = targetProfile != null && result.networkStatus == "unverified"
+            val saved = if (unverifiedProfile) {
+                ResearchWorkflow.saveUnverifiedProfile(current(chatId), requireNotNull(targetProfile),
+                    result.warnings.joinToString("；"), researchModelId.trim())
+            } else ResearchWorkflow.save(current(chatId), result, researchModelId.trim(), saveToKnowledgeBase)
+            change(data.copy(chats = data.chats.map { if (it.id == chatId) saved.chat.copy(updatedAt = System.currentTimeMillis()) else it },
+                settings = data.settings.copy(researchProviderId = researchProviderId, researchModelId = researchModelId.trim(), researchSearchMode = searchMode)))
+            savedNoteId = saved.note.id
+            completionNotice = when {
+                unverifiedProfile -> "主页链接已保存为待核验资料，可在研究面板查看；本次未获取到可核验的人物信息"
+                !saveToKnowledgeBase && saved.knowledgeOnly -> "研究已保存到会话知识库；当前场景放不下完整资料，原场景已保留。可在研究面板查看全文"
+                saved.knowledgeOnly -> "豆包研究完成并已保存；可在研究面板查看全文与来源，继续聊天时可检索调用"
+                else -> "豆包研究完成并已保存；资料已加入当前场景，下一轮生效"
+            }
+            if (!unverifiedProfile && result.warnings.isNotEmpty()) completionNotice += "。部分资料存在缺项或待核实提示，请查看研究记录"
+        }
+    }
+    override fun applyDeepSeekWriting(chatId: String, effort: String, maxOutput: Int, includePlatformPrompt: Boolean, reasoningBudget: Int, generationBudgetEnabled: Boolean) {
+        if (mutable.value.busy || mutable.value.loading || loadFailed) { status("请等待会话空闲并完成本地数据读取后再应用"); return }
+        runCatching {
+            change(DeepSeekWriting.apply(data, chatId, effort, maxOutput, includePlatformPrompt, reasoningBudget, generationBudgetEnabled))
+            status("DeepSeek 写作参数已应用，下一轮生效；可在预设中选回原方案")
+        }.onFailure { status(it.message ?: "写作参数应用失败") }
     }
     override fun editMessage(id: String, text: String) {
         if(mutable.value.busy) { status("请先停止当前生成"); return }
         val chat=selected ?: return
-        changeChat(chat.id) { c -> c.copy(messages=c.messages.map { if(it.id==id) it.copy(content=text) else it },activeSummaryId="") }
+        changeChat(chat.id) { c -> c.copy(messages=c.messages.map { if(it.id==id) it.copy(content=text) else it }) }
         change(data.copy(memories=data.memories.map { memory ->
             if (memory.scope=="chat" && memory.targetId==chat.id && memory.sourceMessageId==id) memory.copy(enabled=false) else memory
         }))
@@ -260,7 +1009,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         change(data.copy(chats=listOf(branch)+data.chats,memories=data.memories+copiedMemories)); repairPendingTools(branch.id); selectChat(branch.id)
     }
     override fun savePreset(preset: Preset) {
-        if(preset.name.isBlank() || preset.maxOutput !in 1..131072 || preset.temperature !in 0.0..2.0) { status("预设名称或生成参数无效"); return }
+        if(preset.name.isBlank() || preset.maxOutput !in 1..131072 || preset.reasoningBudget !in 0..131072 || preset.temperature !in 0.0..2.0 || preset.reasoningEffort !in PresetOptions.reasoningEfforts) { status("预设名称或生成参数无效"); return }
         change(data.copy(presets=data.presets.filterNot { it.id==preset.id }+preset))
     }
     override fun deletePreset(id: String) { if(data.presets.size<=1) { status("至少保留一个预设"); return }; change(data.copy(presets=data.presets.filterNot { it.id==id })) }
@@ -293,6 +1042,16 @@ class AppController(application: Application) : AndroidViewModel(application), A
             status(if(selected) "Skill 已启用并加入当前会话" else "Skill 已移出当前会话，其它会话不受影响")
         }.onFailure { status(it.message ?: "无法更新 Skill 选择") }
     }
+    override fun updateChatSkills(chatId: String, skillIds: List<String>, summaries: List<Summary>) {
+        if(mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
+        if(mutable.value.busy) { status("请先停止当前任务再修改会话 Skills"); return }
+        val blocked = if(data.settings.adultSkillsConfirmed) emptySet() else data.skills.filter { it.adult }.map { it.id }.toSet()
+        runCatching {
+            val updated = applyChatSkillUpdate(data,chatId,skillIds,summaries)
+            change(updated)
+            status(if(skillIds.any { it in blocked }) "成人向 Skill 需要先确认已年满 18 岁，并仅用于成年角色" else "会话 Skills 与注入顺序已保存")
+        }.onFailure { status(it.message ?: "无法保存会话 Skills") }
+    }
     override fun installSkillUrl(url: String) = action {
         val uri=Uri.parse(url.trim())
         require(uri.scheme=="https" && !uri.host.isNullOrBlank() && uri.userInfo==null) { "请输入 HTTPS 的 SKILL.md 或 ZIP 下载地址" }
@@ -313,54 +1072,308 @@ class AppController(application: Application) : AndroidViewModel(application), A
         change(data.copy(skills=data.skills+skills)); status("已安装 ${skills.size} 个 Skill；查看内容并授予所需权限后启用")
     }
     override fun deleteSkill(id: String) { change(data.copy(skills=data.skills.filterNot { it.id==id },chats=data.chats.map { it.copy(skillIds=it.skillIds-id) })) }
-    override fun saveSettings(settings: AppSettings) {
-        if(settings.keepRecentTurns !in 1..100 || settings.compressionThreshold !in 0.2..0.95 || settings.maxToolSteps !in 1..16 || settings.contextOverride !in 0..2000000) { status("设置超出允许范围"); return }
-        change(data.copy(settings=settings.copy(builtinSkillsSeen=data.settings.builtinSkillsSeen))); status("设置已保存")
+    override fun restoreBuiltinSkill(id: String) {
+        if(mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
+        if(mutable.value.busy) { status("请先停止当前任务再安装 Skills"); return }
+        runCatching {
+            change(BuiltinSkills.restore(data,builtinSkills,id))
+            status("已安装内置原版；尚未启用，也未加入会话")
+        }.onFailure { status(it.message ?: "安装内置原版失败") }
     }
-    override fun compress() { selected?.id?.let { id -> action { summarize(id); status("摘要已保存，原始消息完整保留") } } }
-    private suspend fun summarize(chatId: String) {
+    override fun saveSettings(settings: AppSettings) {
+        if(settings.keepRecentTurns !in 1..100 || settings.compressionThreshold !in 0.2..0.95 || settings.maxToolSteps !in 1..16 || settings.contextOverride !in 0..2000000 || settings.maxContextInputTokens !in 0..2000000) { status("设置超出允许范围"); return }
+        change(data.copy(settings=settings.copy(builtinSkillsSeen=data.settings.builtinSkillsSeen,builtinScenariosSeen=data.settings.builtinScenariosSeen,adultSkillsConfirmed=data.settings.adultSkillsConfirmed,builtinSkillsRevision=data.settings.builtinSkillsRevision))); status("设置已保存")
+    }
+    override fun confirmAdultSkills(confirmed: Boolean) {
+        if(mutable.value.busy) { status("请先停止当前任务"); return }
+        val adultIds=data.skills.filter { it.adult }.map { it.id }.toSet()
+        val chats=if(confirmed) data.chats else data.chats.map { chat -> chat.copy(skillIds=chat.skillIds.filterNot { it in adultIds }) }
+        change(data.copy(chats=chats,settings=data.settings.copy(adultSkillsConfirmed=confirmed)))
+        status(if(confirmed) "已确认：成人向 Skills 仅用于成年角色" else "已关闭成人向 Skills，并从所有会话中移除")
+    }
+    override fun compress() { selected?.id?.let { id -> action(backgroundGeneration = true) { summarize(id); status("摘要已保存，原始消息完整保留") } } }
+    override fun rebuildHistory() {
+        selected?.id?.let { id ->
+            var expectedNoteIds: List<String>? = null
+            action(
+                backgroundGeneration = true,
+                onStarted = { mutable.value = mutable.value.copy(memoryRebuild = MemoryRebuildState(chatId = id)) },
+                verifySavedState = {
+                    val result = mutable.value.memoryRebuild?.takeIf { it.chatId == id }
+                        ?: error("本次重建记录缺失，请导出记忆诊断")
+                    val noteIds = expectedNoteIds ?: error("本次分段记忆记录缺失，请导出记忆诊断")
+                    withContext(Dispatchers.IO) {
+                        val persisted = app.database.state().load()?.let { DataCodec.decode(it.json) }
+                            ?.chats?.singleOrNull { it.id == id }
+                            ?: error("数据库中未找到本次会话，请导出记忆诊断")
+                        MemoryRebuilder.verifyApplied(persisted, result.summaryId, result.sourceMessageCount, noteIds)
+                    }
+                    MemoryRebuilder.verifyApplied(current(id), result.summaryId, result.sourceMessageCount, noteIds)
+                },
+                onFinished = { error, cancelled ->
+                    val progress = mutable.value.memoryRebuild?.takeIf { it.chatId == id }
+                    if (progress != null) {
+                        val message = when {
+                            error == null -> "重建完成并已保存：覆盖 ${progress.sourceMessageCount} 条原文、${progress.noteCount} 段记忆，新摘要已启用并通过保存后校验。可继续当前会话。"
+                            progress.noteCount > 0 -> "记忆已生成，但未能确认保存或启用结果；请先导出记忆诊断。\n$error"
+                            cancelled -> "重建已中断，原摘要与分段记忆未替换。\n$error"
+                            else -> "重建失败，原摘要与分段记忆未替换。\n$error"
+                        }
+                        mutable.value = mutable.value.copy(memoryRebuild = progress.copy(
+                            phase = if (error == null) "success" else if (cancelled) "cancelled" else "error",
+                            message = message,
+                            finishedAt = System.currentTimeMillis()
+                        ))
+                        status(message)
+                    }
+                }
+            ) { expectedNoteIds = rebuildHistory(id) }
+        }
+    }
+    private suspend fun rebuildHistory(chatId: String): List<String> {
         val chat=current(chatId)
-        val slice=ContextEngine.compressionSlice(data,chat) ?: error("可压缩的旧消息不足，可减少保留轮数后重试")
+        val slice=MemoryRebuilder.snapshot(chat)
         val active=preset(chat)
         val p=provider(active.summaryProviderId.ifBlank { chat.providerId })
         val modelId=active.summaryModelId.ifBlank { chat.modelId }
         require(modelId.isNotBlank()) { "请选择摘要模型" }
         val summaryModel=p.models.find { it.id==modelId }
         require(summaryModel!=null && summaryModel.type=="text" && !summaryModel.offline) { "摘要模型不可用，请刷新目录并重新选择" }
-        val window=summaryModel.contextTokens
-        val output=minOf(2048,window/4).coerceAtLeast(256)
-        val summaryPreset=active.copy(maxOutput=output,temperature=0.2)
-        val cap=(window-output-2048).coerceAtLeast(1024)
+        val window=MemoryRebuilder.effectiveWindow(summaryModel.contextTokens,data.settings.contextOverride)
+        val output=HistoryCompressor.outputLimit(window)
         val secret=key(p.id)
-        var pieces=ContextEngine.summarySource(slice.messages)
-        suspend fun reduce(input: List<String>): List<String> {
-            val chunks=mutableListOf<String>(); val buffer=StringBuilder()
-            input.forEach { text ->
-                for(part in text.chunked(maxOf(256,cap/2))) {
-                    if(ContextEngine.estimateTokens(buffer.toString()+part)>cap && buffer.isNotEmpty()) { chunks+=buffer.toString(); buffer.clear() }
-                    buffer.append(part).append('\n')
-                }
-            }
-            if(buffer.isNotEmpty()) chunks+=buffer.toString()
-            return chunks.mapIndexed { index,text ->
-                status("正在压缩历史 ${index+1}/${chunks.size}")
-                val messages=JSONArray().put(JSONObject().put("role","system").put("content",active.summaryPrompt)).put(JSONObject().put("role","user").put("content",text))
-                providerClient.chat(p,secret,modelId,messages.toString(),summaryPreset).content.also { require(it.isNotBlank()) { "摘要模型返回空内容，原摘要未修改" } }
-            }
+        val summaryPreset=DeepSeekWriting.summaryPreset(active,p,summaryModel,output)
+        val checkpointIdentity=compactIdentity(p,modelId,summaryPreset)
+        val checkpoint=withContext(Dispatchers.IO) { compactCheckpoints.load(chatId,"memory_rebuild",checkpointIdentity) }
+        val completed=HistoryCompressor.compress(slice,window,active.summaryPrompt,onProgress = { done, total ->
+            val message = if (done == total) "已完成 $total 次请求，正在校验并保存续聊摘要与知识…"
+                else "重建记忆：已完成 $done 次请求，预计共 $total 次\n${p.name} · $modelId · 窗口 $window tokens · ${slice.messages.size} 条原文"
+            mutable.value = mutable.value.copy(memoryRebuild = MemoryRebuildState(
+                chatId=chatId, completed=done, total=total, message=message,
+                sourceMessageCount=slice.messages.size
+            ))
+        }, resume = checkpoint, onCheckpoint = { saved ->
+            withContext(Dispatchers.IO) { compactCheckpoints.save(chatId,"memory_rebuild",checkpointIdentity,saved) }
+        }) { text ->
+            val payload=JSONArray()
+                .put(JSONObject().put("role","system").put("content",HistoryCompressor.systemPrompt(active.summaryPrompt)))
+                .put(JSONObject().put("role","user").put("content",text)).toString()
+            requestPurpose="memory_rebuild"
+            compactClient.chat(p,secret,modelId,payload,summaryPreset,
+                metadata = if (p.kind.equals("writing-server", ignoreCase = true)) mapOf(
+                    "pocket_tavern_chat_id" to chatId,
+                    "pocket_tavern_purpose" to "rebuild"
+                ) else emptyMap())
         }
-        pieces=reduce(pieces)
-        var rounds=0
-        while(pieces.size>1 && rounds++<5) pieces=reduce(pieces)
-        require(pieces.size==1 && ContextEngine.estimateTokens(pieces.first())<cap) { "摘要仍过长，请提高摘要模型窗口或降低输出长度" }
-        val now=current(chatId)
-        val end=now.messages.indexOfFirst { it.id==slice.throughMessageId }
-        require(end>=0 && ContextEngine.sourceHash(now.messages.take(end+1))==slice.sourceHash) { "消息已修改，本次摘要未应用" }
-        val summary=Summary(text=pieces.first(),throughMessageId=slice.throughMessageId,sourceHash=slice.sourceHash,modelId=modelId)
-        changeChat(chatId) { it.copy(summaries=it.summaries+summary,activeSummaryId=summary.id) }
+        currentCoroutineContext().ensureActive()
+        val rebuilt = MemoryRebuilder.commit(current(chatId),slice,completed,modelId)
+        changeChat(chatId) { rebuilt }
+        mutable.value = mutable.value.copy(memoryRebuild = mutable.value.memoryRebuild?.copy(
+            noteCount=completed.notes.size, summaryId=rebuilt.activeSummaryId,
+            sourceMessageCount=slice.messages.size,
+            message="${completed.requestCount} 次请求已完成，正在保存续聊摘要与 ${completed.notes.size} 条知识记录…"
+        ))
+        saves.flush(data)
+        withContext(Dispatchers.IO) { compactCheckpoints.clear(chatId,"memory_rebuild") }
+        return rebuilt.knowledgeNotes.map { it.id }
     }
-    override fun restoreSummary(id: String) { selected?.let { changeChat(it.id) { c -> c.copy(activeSummaryId=id) } }; status(if(id.isEmpty()) "已恢复完整原始上下文" else "已切换摘要版本") }
+    private fun compactIdentity(provider: ProviderConfig, modelId: String, summaryPreset: Preset): String =
+        JSONObject().put("providerId", provider.id).put("baseUrl", provider.baseUrl).put("kind", provider.kind)
+            .put("modelId", modelId).put("maxOutput", summaryPreset.maxOutput).put("temperature", summaryPreset.temperature)
+            .put("reasoningEffort", summaryPreset.reasoningEffort).put("reasoningBudget", summaryPreset.reasoningBudget)
+            .put("includeVeniceSystemPrompt", summaryPreset.includeVeniceSystemPrompt).toString()
+    override fun exportMemoryDiagnostics() {
+        if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
+        val chat = selected ?: run { status("请先选择会话"); return }
+        val rebuild = mutable.value.memoryRebuild
+        val busy = mutable.value.busy
+        viewModelScope.launch {
+            runCatching {
+                val report = withContext(Dispatchers.IO) {
+                    val metadata = JSONObject(MemoryDiagnostics.report(chat, rebuild))
+                        .put("appVersion", installedVersion)
+                        .put("androidSdk", Build.VERSION.SDK_INT)
+                        .put("exportedAt", System.currentTimeMillis())
+                        .put("operationRunningAtCapture", busy)
+                    // Read without flushing so a mismatch between UI and storage remains observable.
+                    try {
+                        val document = app.database.state().load()
+                        val persisted = document?.let { DataCodec.decode(it.json) }?.chats?.singleOrNull { it.id == chat.id }
+                        metadata.put("persistedReadStatus", when {
+                            document == null -> "no_document"
+                            persisted == null -> "chat_missing"
+                            else -> "ok"
+                        })
+                        if (persisted != null) {
+                            metadata.put("persisted", JSONObject(MemoryDiagnostics.report(persisted, null)))
+                                .put("persistedUpdatedAt", document!!.updatedAt)
+                        }
+                    } catch (cancelled: CancellationException) {
+                        throw cancelled
+                    } catch (_: Exception) {
+                        // Exception messages may contain input fragments; export only a fixed status.
+                        metadata.put("persistedReadStatus", "read_error")
+                    }
+                    metadata.toString(2)
+                }
+                val exportHost = host ?: error("请返回应用后再导出")
+                exportHost.exportText("pocket-tavern-memory-diagnostics.json", "application/json", report)
+            }.onFailure { status("记忆诊断导出失败：${it.message ?: "无法导出"}") }
+        }
+    }
+    private suspend fun summarize(chatId: String) {
+        val chat=current(chatId)
+        val built = ContextEngine.build(data, chat)
+        val slice = built.compression ?: error(overBudgetMessage("没有可安全压缩的旧消息", built))
+        val active=preset(chat)
+        val p=provider(active.summaryProviderId.ifBlank { chat.providerId })
+        val modelId=active.summaryModelId.ifBlank { chat.modelId }
+        require(modelId.isNotBlank()) { "请选择摘要模型" }
+        val summaryModel=p.models.find { it.id==modelId }
+        require(summaryModel!=null && summaryModel.type=="text" && !summaryModel.offline) { "摘要模型不可用，请刷新目录并重新选择" }
+        val window=MemoryRebuilder.effectiveWindow(summaryModel.contextTokens,data.settings.contextOverride)
+        val output=HistoryCompressor.outputLimit(window)
+        val summaryPreset=DeepSeekWriting.summaryPreset(active,p,summaryModel,output)
+        val secret=key(p.id)
+        val checkpointIdentity=compactIdentity(p,modelId,summaryPreset)
+        val checkpoint=withContext(Dispatchers.IO) { compactCheckpoints.load(chatId,"compression",checkpointIdentity) }
+        val compressionRecord = CompressionScope.record(chat, slice, budget = built.budgetBreakdown)
+        val scopeDescription = CompressionScope.describe(chat, compressionRecord)
+        fun progress(message: String, completed: Int, total: Int) {
+            mutable.value = mutable.value.copy(compressionProgress = CompressionProgress(
+                chatId, scopeDescription, completed, total, message
+            ))
+        }
+        var activeSegment = 0
+        var totalSegments = 0
+        var segmentStartedAt = 0L
+        val compressionStartedAt = System.currentTimeMillis()
+        progress("正在准备本次新增记忆…", 0, 0)
+        try {
+            val compressed = try {
+                HistoryCompressor.compress(
+                    slice,
+                    window,
+                    active.summaryPrompt,
+                    onProgress = { done, total ->
+                        totalSegments = total
+                        val elapsed = ((System.currentTimeMillis() - compressionStartedAt) / 1000).coerceAtLeast(0)
+                        progress(if (done == total) {
+                            "本次 $done 次请求已完成，正在校验并保存…（已用 ${elapsed}s）"
+                        } else {
+                            "本次新增记忆：已完成 $done 次请求，预计共 $total 次（已用 ${elapsed}s）"
+                        }, done, total)
+                    },
+                    onSegmentStart = { segment, total ->
+                        activeSegment = segment
+                        totalSegments = total
+                        segmentStartedAt = System.currentTimeMillis()
+                        progress("正在更新续聊摘要与知识：第 $segment 次请求，预计共 $total 次", segment - 1, total)
+                    },
+                    resume = checkpoint,
+                    onCheckpoint = { saved ->
+                        withContext(Dispatchers.IO) { compactCheckpoints.save(chatId,"compression",checkpointIdentity,saved) }
+                    }
+                ) { text ->
+                    val segment = activeSegment
+                    val segmentTotal = totalSegments
+                    val startedAt = segmentStartedAt
+                    coroutineScope {
+                        val ticker = launch {
+                            while (isActive) {
+                                delay(10_000)
+                                val waited = ((System.currentTimeMillis() - startedAt) / 1000).coerceAtLeast(0)
+                                progress("正在更新续聊摘要与知识：第 $segment 次请求，预计共 $segmentTotal 次（已等待 ${waited}s）", segment - 1, segmentTotal)
+                            }
+                        }
+                        try {
+                            val messages=JSONArray()
+                                .put(JSONObject().put("role","system").put("content",HistoryCompressor.systemPrompt(active.summaryPrompt)))
+                                .put(JSONObject().put("role","user").put("content",text))
+                            requestPurpose = "compression"
+                            try {
+                                withTimeout(COMPACT_REQUEST_DEADLINE_MS) {
+                                    compactClient.chat(p,secret,modelId,messages.toString(),summaryPreset,
+                                        metadata = if (p.kind.equals("writing-server", ignoreCase = true)) mapOf(
+                                            "pocket_tavern_chat_id" to chatId,
+                                            "pocket_tavern_purpose" to "compact"
+                                        ) else emptyMap())
+                                }
+                            } catch (_: TimeoutCancellationException) {
+                                compactClient.cancel()
+                                throw ProviderException(
+                                    ProviderException.Kind.TIMEOUT,
+                                    "记忆压缩第 $segment 次请求等待超过 ${COMPACT_REQUEST_DEADLINE_MS / 1000} 秒",
+                                    finishReason = "timeout"
+                                )
+                            }
+                        } finally {
+                            ticker.cancel()
+                        }
+                    }
+                }
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (error: Exception) {
+                if (activeSegment > 0 && totalSegments > 0) {
+                    throw IllegalStateException(
+                        "$scopeDescription\n本次第 $activeSegment 次请求失败（预计共 $totalSegments 次）：${error.message?.take(500) ?: "摘要请求未完成"}",
+                        error
+                    )
+                }
+                throw error
+            }
+            currentCoroutineContext().ensureActive()
+            val updated = IncrementalMemory.commit(current(chatId), slice, compressed, modelId,
+                compressionRecord.copy(segmentCount = compressed.requestCount, requestCount = compressed.requestCount))
+            changeChat(chatId) { updated }
+            // Finish saving the boundary before a following generation can be interrupted.
+            saves.flush(data)
+            withContext(Dispatchers.IO) { compactCheckpoints.clear(chatId,"compression") }
+        } finally {
+            mutable.value = mutable.value.copy(compressionProgress = null)
+        }
+    }
+    override fun restoreSummary(id: String) {
+        if(mutable.value.busy) { status("请先等待当前任务完成再切换摘要"); return }
+        selected?.let { changeChat(it.id) { c -> c.copy(activeSummaryId=id) } }
+        status(if(id.isEmpty()) "已恢复完整原始上下文" else "已切换摘要版本")
+    }
     override fun previewContext() { runCatching { selected?.let { mutable.value=mutable.value.copy(contextPreview=ContextEngine.build(data,it).preview) } }.onFailure { status(it.message ?: "无法组装上下文") } }
     override fun dismissPreview() { mutable.value=mutable.value.copy(contextPreview="") }
+    override fun showDiagnostics() {
+        viewModelScope.launch {
+            val summary = withContext(Dispatchers.IO) { requestLogs.latestSummary() }
+            mutable.value=mutable.value.copy(diagnostics=summary)
+        }
+    }
+    override fun dismissDiagnostics() { mutable.value=mutable.value.copy(diagnostics="") }
+    override fun clearDiagnostics() {
+        if(mutable.value.busy) { status("请等待当前任务完成后清空日志"); return }
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) { requestLogs.clear() }
+            status("本机请求日志已清空")
+        }
+    }
+    override fun checkBilling() = action {
+        val raw = withContext(Dispatchers.IO) { requestLogs.latestRequestJson() }
+        if(raw == null) {
+            mutable.value=mutable.value.copy(diagnostics="尚无可核对的请求日志。旧版本没有记录请求 ID，无法回查截图中的那一轮；升级后生成一次，再核对。")
+            return@action
+        }
+        val log = JSONObject(raw)
+        val p = data.providers.find { it.id == log.optString("provider_id") }
+        if(p == null || p.kind != "venice" || Uri.parse(p.baseUrl).host != "api.venice.ai" || log.optString("api_host") != "api.venice.ai") {
+            mutable.value=mutable.value.copy(diagnostics="最近一次请求不属于当前配置的官方 Venice 平台，无法用 Venice 账本核对。可先查看或导出请求日志。")
+            return@action
+        }
+        val ids = setOf(log.optString("request_id"),log.optString("response_id")).filter { it.isNotBlank() }.toSet()
+        val started = log.optLong("started_at_ms")
+        val ended = started + log.optLong("elapsed_ms").coerceAtLeast(0)
+        val result = billingClient.lookup(p,key(p.id),ids,(started-300_000).coerceAtLeast(0),ended+300_000)
+        val summary = withContext(Dispatchers.IO) { requestLogs.latestSummary() }
+        mutable.value=mutable.value.copy(diagnostics="$summary\n\n$result")
+    }
     override fun importFile(kind: String) { host?.importFile(kind) }
     override fun pickAttachment() { host?.pickAttachment() }
     override fun removeAttachment(id: String) { mutable.value=mutable.value.copy(pendingAttachments=mutable.value.pendingAttachments.filterNot { it.id==id }) }
@@ -377,19 +1390,68 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
     fun importBytes(kind: String, name: String, bytes: ByteArray) {
         runCatching {
-            require(!mutable.value.busy) { "请先停止当前任务再导入" }
+            require(!mutable.value.busy && !mutable.value.loading) { "请等待当前任务和本地数据读取完成后再导入" }
             when(kind) {
-                "backup" -> { val restored=BackupArchive.restore(bytes,app.filesDir,app.cacheDir).let { BuiltinSkills.merge(it.copy(skills=it.skills.map { s -> s.copy(enabled=false,permissions=emptyList()) }),builtinSkills) }; loadFailed=false; change(restored); mutable.value=mutable.value.copy(selectedChatId=restored.chats.firstOrNull()?.id ?: "",hasKeys=restored.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet()); status("备份已恢复；技能权限需重新授予，未配置平台请重新填写密钥") }
+                "backup" -> {
+                    val currentData = data
+                    mutable.value=mutable.value.copy(loading=true)
+                    viewModelScope.launch {
+                        var databaseRestored = false
+                        var mayCancelPreparedMarker = false
+                        try {
+                            withContext(Dispatchers.IO) {
+                                finishPendingRepairBackupDiscard(currentData)
+                                require(!repairBackupDiscardMarker().exists()) { "旧修复快照仍在清理，请重启应用完成清理后再导入备份" }
+                            }
+                            mayCancelPreparedMarker = true
+                            val restored = withContext(Dispatchers.IO) {
+                                BackupArchive.restore(bytes,app.filesDir,app.cacheDir).let {
+                                    val withSkills = BuiltinSkills.merge(it.copy(skills=it.skills.map { s -> s.copy(enabled=false,permissions=emptyList()) }),builtinSkills)
+                                    BuiltinScenarios.merge(withSkills,builtinScenarios)
+                                }
+                            }
+                            val discardIntent = RepairBackupDiscardMarker.prepared(DataCodec.fingerprint(restored))
+                            withContext(Dispatchers.IO) { writeRepairBackupDiscardMarker(discardIntent) }
+                            saves.flush(restored)
+                            databaseRestored = true
+                            withContext(Dispatchers.IO) { writeRepairBackupDiscardMarker(discardIntent.committed()) }
+                            val cleanupComplete = withContext(Dispatchers.IO) { finishPendingRepairBackupDiscard(restored) }
+                            loadFailed=false
+                            val restoredSelection = preferredChatId(restored.chats, sessionPreferences.getString(LAST_SELECTED_CHAT_ID, "").orEmpty())
+                            rememberSelectedChat(restoredSelection)
+                            mutable.value=mutable.value.copy(data=restored,selectedChatId=restoredSelection,loading=false,hasResearchSearchKey=app.secrets.has(DoubaoSearchClient.CREDENTIAL_ID),hasKeys=restored.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet(),missingBuiltinSkills=BuiltinSkills.missing(restored,builtinSkills),repairBackupChatIds=emptySet(),memoryRebuild=null)
+                            status(if (cleanupComplete && !repairBackupDiscardMarker().exists()) "备份已恢复；技能权限需重新授予，未配置平台请重新填写密钥" else "备份已恢复；旧修复快照已停用，下次启动会继续清理")
+                        } catch (error: Throwable) {
+                            if (!databaseRestored) {
+                                if (mayCancelPreparedMarker) withContext(Dispatchers.IO) { cancelRepairBackupDiscardMarker() }
+                                mutable.value=mutable.value.copy(loading=false)
+                                status("导入失败：${error.message ?: "无法保存恢复的数据"}；原数据和会话修复快照仍保留")
+                            } else {
+                                status("备份已写入，但旧修复快照的清理状态无法持久化。请重启应用后再继续使用")
+                            }
+                        }
+                    }
+                }
                 "skill" -> { val skills=SkillImporter.importFile(name,bytes); change(data.copy(skills=data.skills+skills)); status("已安装 ${skills.size} 个 Skill。请检查权限并在会话中启用") }
                 "character" -> { val c=Exchange.character(bytes); saveCharacter(c); val root=runCatching { JSONObject(c.originalJson).optJSONObject("data")?.optJSONObject("character_book") }.getOrNull(); if(root!=null) change(data.copy(worldEntries=data.worldEntries+Exchange.worldbook(root.toString(),c.id))); status("角色卡已导入") }
                 "worldbook" -> { val entries=Exchange.worldbook(bytes.toString(Charsets.UTF_8)); change(data.copy(worldEntries=data.worldEntries+entries)); status("已导入 ${entries.size} 个世界书条目") }
-                "chat" -> { val p=data.providers.firstOrNull(); val chat=Exchange.chat(bytes.toString(Charsets.UTF_8),p?.id ?: "",p?.models?.firstOrNull { it.type=="text" }?.id ?: ""); change(data.copy(chats=listOf(chat)+data.chats)); selectChat(chat.id); status("会话已导入") }
+                "chat" -> { val p=data.providers.firstOrNull(); val chat=Exchange.chat(bytes.toString(Charsets.UTF_8),p?.id ?: "",p?.models?.firstOrNull { it.type=="text" }?.id ?: ""); change(data.copy(chats=listOf(chat)+data.chats)); selectChat(chat.id); status("会话已导入并已打开") }
                 "preset" -> { val p=Exchange.preset(bytes.toString(Charsets.UTF_8),name.substringBeforeLast('.')); savePreset(p); status("预设已导入；不支持的 ST 扩展字段未执行") }
                 else -> error("未知导入格式")
             }
         }.onFailure { status("导入失败：${it.message}") }
     }
     override fun exportFile(kind: String, id: String) {
+        if(kind=="diagnostics") {
+            viewModelScope.launch {
+                runCatching {
+                    val logs = withContext(Dispatchers.IO) { requestLogs.exportJsonl() }
+                    require(logs.isNotBlank()) { "还没有请求日志；升级后生成一次会开始记录" }
+                    host?.exportText("pocket-tavern-diagnostics.jsonl","application/x-ndjson",logs)
+                }.onFailure { status(it.message ?: "日志导出失败") }
+            }
+            return
+        }
         if(loadFailed && kind=="backup") {
             viewModelScope.launch {
                 runCatching { val original=withContext(Dispatchers.IO) { app.database.state().load()?.json ?: error("未找到可恢复的数据") }; host?.exportText("pocket-tavern-recovery.json","application/json",original) }.onFailure { status("原始数据导出失败：${it.message}") }
@@ -399,11 +1461,17 @@ class AppController(application: Application) : AndroidViewModel(application), A
         runCatching {
             when(kind) {
                 "backup" -> { val file=File(app.cacheDir,"exports/backup-${newId()}.zip"); BackupArchive.write(data,app.filesDir,file); host?.exportBinary("pocket-tavern-backup.zip","application/zip",file) }
-                "chat" -> host?.exportText("conversation.jsonl","application/octet-stream",Exchange.chatJsonl(data.chats.first { it.id==id.ifBlank { mutable.value.selectedChatId } }))
+                "chat" -> host?.exportText("conversation.md","text/markdown",VaultExport.conversation(data.chats.first { it.id==id.ifBlank { mutable.value.selectedChatId } }))
+                "chat_jsonl" -> host?.exportText("conversation.jsonl","application/jsonl",Exchange.chatJsonl(data.chats.first { it.id==id.ifBlank { mutable.value.selectedChatId } }))
+                "chat_vault" -> {
+                    val file=File(app.cacheDir,"exports/vault-${newId()}.zip")
+                    VaultExport.write(data.chats.first { it.id==id.ifBlank { mutable.value.selectedChatId } },file)
+                    host?.exportBinary("conversation-vault.zip","application/zip",file)
+                }
                 "character" -> host?.exportText("character.json","application/json",Exchange.characterJson(data.characters.first { it.id==id }))
                 "preset" -> host?.exportText("preset.json","application/json",Exchange.presetJson(data.presets.first { it.id==id }))
                 "skill" -> host?.exportText("SKILL.md","text/markdown",data.skills.first { it.id==id }.let { "---\nname: ${it.name}\ndescription: ${JSONObject.quote(it.description)}\n---\n\n${it.content}" })
-                "worldbook" -> { val entries=JSONObject(); data.worldEntries.forEachIndexed { i,e -> entries.put(i.toString(),JSONObject().put("comment",e.name).put("content",e.content).put("key",JSONArray(e.keywords)).put("constant",e.always).put("disable",!e.enabled).put("order",e.priority)) }; host?.exportText("worldbook.json","application/json",JSONObject().put("entries",entries).toString(2)) }
+                "worldbook" -> { val entries=JSONObject(); data.worldEntries.forEachIndexed { i,e -> entries.put(i.toString(),JSONObject().put("comment",e.name).put("content",e.content).put("key",JSONArray(e.keywords)).put("constant",e.always).put("disable",!e.enabled).put("order",e.priority).put("searchRange",e.searchRange)) }; host?.exportText("worldbook.json","application/json",JSONObject().put("entries",entries).toString(2)) }
             }
         }.onFailure { status(it.message ?: "导出失败") }
     }
@@ -438,7 +1506,25 @@ class AppController(application: Application) : AndroidViewModel(application), A
         return file
     }
     private fun mimeFor(file: File): String = when(file.extension.lowercase()) { "png"->"image/png";"jpg","jpeg"->"image/jpeg";"webp"->"image/webp";"mp3"->"audio/mpeg";"wav"->"audio/wav";"mp4"->"video/mp4";else->"application/octet-stream" }
+    private fun rememberSelectedChat(id: String) {
+        sessionPreferences.edit().putString(LAST_SELECTED_CHAT_ID, id).apply()
+    }
     override fun clearStatus() { status("") }
     fun reportError(text: String) { status(text) }
-    override fun onCleared() { stop(); saves.close(); super.onCleared() }
+    override fun onCleared() {
+        veniceBalanceJobs.values.forEach { it.cancel() }
+        veniceBalanceJobs.clear()
+        stop()
+        super.onCleared()
+    }
+
+    private companion object {
+        const val SESSION_PREFERENCES = "session-state"
+        const val LAST_SELECTED_CHAT_ID = "last-selected-chat-id"
+        /**
+         * ProviderClient has a read-idle timeout, but a server that keeps a stream alive
+         * with heartbeat events could otherwise leave one history segment pending forever.
+         */
+        const val COMPACT_REQUEST_DEADLINE_MS = 900_000L
+    }
 }

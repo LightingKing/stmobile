@@ -1,18 +1,24 @@
 package app.pockettavern.engine
 
 import app.pockettavern.domain.AppData
+import app.pockettavern.domain.AppSettings
 import app.pockettavern.domain.Chat
 import app.pockettavern.domain.Memory
+import app.pockettavern.domain.SkillRecord
+import app.pockettavern.data.BuiltinSkills
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.InputStream
 import java.net.URI
 import java.net.URLDecoder
 import java.nio.charset.StandardCharsets
+import java.time.Instant
 import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -25,6 +31,7 @@ data class ToolResult(val content: String, val memories: List<Memory>? = null)
 /** Small, bounded, permission-gated runtime for the first-party mobile tools. */
 class ToolRuntime(
     private val workspace: File,
+    private val resourceReader: (SkillRecord, String) -> String? = { skill, path -> skill.files[path] },
     private val credentialResolver: (String) -> String = { "" }
 ) {
     private val client = OkHttpClient.Builder()
@@ -47,7 +54,7 @@ class ToolRuntime(
     suspend fun execute(
         name: String,
         argumentsJson: String,
-        skills: List<app.pockettavern.domain.SkillRecord>,
+        skills: List<SkillRecord>,
         data: AppData,
         chat: Chat
     ): ToolResult = withContext(Dispatchers.IO) {
@@ -57,11 +64,12 @@ class ToolRuntime(
         // An empty selection means that this chat has no Skills enabled. Never treat
         // it as a wildcard: callers may pass the installed catalog for convenience,
         // but only an explicit per-chat selection can grant a tool.
-        val enabled = skills.filter { it.enabled && it.id in chat.skillIds }
+        val enabled = activeSkills(skills, data.settings, chat)
+        if (name == "skill_read" && enabled.isEmpty()) return@withContext ToolResult("工具权限被拒绝：没有启用的 Skill")
         val grants = enabled.flatMap { it.permissions }.toSet()
         val required = permissionFor(name)
-        if (required != null && required !in grants) return@withContext ToolResult("工具权限被拒绝：$name 需要 $required")
-        if (name == "skill_read" && enabled.isEmpty()) return@withContext ToolResult("工具权限被拒绝：没有启用的 Skill")
+        val skillReadGranted = name == "skill_read" && enabled.any(::hasReferences)
+        if (required != null && required !in grants && !skillReadGranted) return@withContext ToolResult("工具权限被拒绝：$name 需要 $required")
         try {
             executeChecked(name, JSONObject(argumentsJson), enabled, data, chat)
         } catch (cancelled: CancellationException) {
@@ -71,16 +79,20 @@ class ToolRuntime(
         }
     }
 
-    private fun executeChecked(name: String, args: JSONObject, skills: List<app.pockettavern.domain.SkillRecord>, data: AppData, chat: Chat): ToolResult {
+    private suspend fun executeChecked(name: String, args: JSONObject, skills: List<SkillRecord>, data: AppData, chat: Chat): ToolResult {
         return when (name) {
+            "history_search" -> ToolResult(KnowledgeVault.searchJson(chat, args.optString("query")))
+            "history_read" -> ToolResult(KnowledgeVault.read(chat, args.optString("id"), args.optInt("offset", 0)))
             "workspace_list" -> listWorkspace(args)
             "workspace_read" -> readWorkspace(args)
             "workspace_write" -> writeWorkspace(args)
             "web_fetch" -> networkRequest(args, "GET", data, chat, false)
             "http_request" -> networkRequest(args, args.optString("method", "GET").uppercase(), data, chat, true)
+            "public_research" -> publicResearch(args)
             "memory_search" -> memorySearch(args, data, chat)
             "memory_save" -> memorySave(args, data, chat)
             "skill_read" -> readSkill(args, skills)
+            "skill_list" -> ToolResult(SkillRuntimeSnapshot.manifest(skills, toolsSupported = true))
             else -> ToolResult("未知工具：$name")
         }
     }
@@ -170,6 +182,55 @@ class ToolRuntime(
         }
     }
 
+    /** Read-only public web search. Search snippets are returned as sources, never as asserted facts. */
+    private suspend fun publicResearch(args: JSONObject): ToolResult {
+        val categories = args.optJSONArray("categories")?.let { values ->
+            (0 until values.length()).mapNotNull { ResearchCategory.fromWire(values.optString(it)) }
+        }?.ifEmpty { ResearchCategory.values().toList() } ?: ResearchCategory.values().toList()
+        val request = PublicResearchRequest(
+            subject = args.optString("subject").trim(),
+            categories = categories.distinct(),
+            query = args.optString("query").trim(),
+            allowFiction = args.optBoolean("allowFiction", true),
+            asOf = args.optString("asOf").trim().takeIf(String::isNotBlank)
+        )
+        request.validate().takeIf { it.isNotEmpty() }?.let { return ToolResult(JSONObject().put("status", "invalid").put("errors", JSONArray(it)).toString()) }
+        val result = try {
+            var lastFailure: Throwable? = null
+            var found: JSONObject? = null
+            for (searchUrl in PublicResearch.searchUrls(request)) {
+                currentCoroutineContext().ensureActive()
+                try {
+                    val http = Request.Builder().url(searchUrl).header("Accept", "text/html").header("User-Agent", "PocketTavern/0.1 public-research").get().build()
+                    client.newCall(http).execute().use { response ->
+                        val html = response.body?.byteStream()?.use(::readBounded).orEmpty()
+                        if (!response.isSuccessful) throw IllegalStateException("公开搜索 HTTP ${response.code}")
+                        val hits = PublicResearch.parseSearchHtml(html).filter(PublicResearch::isSafeSourceHit)
+                            .filter { PublicResearch.isRelevantSourceHit(it, request) }
+                        if (hits.isEmpty()) throw IllegalStateException("公开搜索没有可解析结果")
+                        val sources = JSONArray()
+                        hits.forEach { hit -> sources.put(JSONObject().put("title", hit.title).put("url", hit.url).put("snippet", hit.snippet)) }
+                        found = JSONObject().put("status", "ok").put("subject", request.subject).put("requestedAt", Instant.now().toString()).put("sources", sources)
+                            .put("note", "这些是公开网页检索来源，不是已核实事实；请逐条标记 fact/inference/fictional 后再写入剧情。")
+                    }
+                } catch (failure: Throwable) {
+                    if (failure is CancellationException) throw failure
+                    currentCoroutineContext().ensureActive()
+                    lastFailure = failure
+                }
+                if (found != null) break
+            }
+            found ?: throw (lastFailure ?: IllegalStateException("公开搜索失败"))
+        } catch (failure: Throwable) {
+            if (failure is CancellationException) throw failure
+            currentCoroutineContext().ensureActive()
+            val fallback = PublicResearch.fallback(request, failure.message ?: "公开搜索失败")
+            fallback.toJson().put("status", "failed")
+        }
+        // Search results are evidence in the tool turn, not user-confirmed memory.
+        return ToolResult(result.toString())
+    }
+
     private fun providerUrl(args: JSONObject, providerId: String, data: AppData, chat: Chat): String {
         if (chat.providerId.isNotBlank() && providerId != chat.providerId) throw SecurityException("Provider 必须是当前会话已选择的 Provider")
         val provider = data.providers.firstOrNull { it.id == providerId } ?: throw IllegalArgumentException("Provider 不存在")
@@ -219,8 +280,9 @@ class ToolRuntime(
         val query = args.optString("query").trim()
         if (query.isBlank()) return ToolResult("query 不能为空")
         val terms = query.lowercase().split(Regex("\\s+")).filter(String::isNotBlank)
+        val excludedSources = chat.messages.filter { it.contextExcluded }.map { it.id }.toSet()
         val matches = data.memories.filter { memory ->
-            memory.enabled && (memory.scope.equals("global", true) ||
+            memory.enabled && memory.sourceMessageId !in excludedSources && (memory.scope.equals("global", true) ||
                 (memory.scope.equals("chat", true) && memory.targetId.isNotBlank() && memory.targetId == chat.id) ||
                 (memory.scope.equals("character", true) && memory.targetId.isNotBlank() && memory.targetId == chat.characterId)) &&
                 terms.any { memory.text.lowercase().contains(it) }
@@ -245,14 +307,28 @@ class ToolRuntime(
         return ToolResult("已保存会话记忆：${memory.text}$note", listOf(memory))
     }
 
-    private fun readSkill(args: JSONObject, skills: List<app.pockettavern.domain.SkillRecord>): ToolResult {
-        val skill = skills.firstOrNull { it.id == args.optString("skillId") || it.name == args.optString("skill") }
-            ?: return ToolResult("未找到已启用的 Skill")
-        val requested = args.optString("path", "SKILL.md").replace('\\', '/')
-        if (requested.startsWith('/') || requested.split('/').any { it == ".." || it.isBlank() }) return ToolResult("Skill 路径无效")
-        val content = skill.files[requested] ?: if (requested == "SKILL.md") skill.content else null
-            ?: return ToolResult("Skill 引用文件不存在")
+    private fun readSkill(args: JSONObject, skills: List<SkillRecord>): ToolResult {
+        // Models frequently pass the display name in skillId, so accept either form.
+        val key = args.optString("skillId").ifBlank { args.optString("skill") }.trim()
+        val skill = skills.firstOrNull { it.id == key } ?: skills.firstOrNull { it.name == key }
+            ?: return ToolResult("未找到已启用的 Skill：$key。当前会话可用：" + skills.joinToString("；") { "skillId=${it.id}（${it.name}）" })
+        var requested = args.optString("path").replace('\\', '/').trim()
+        while (requested.startsWith("./")) requested = requested.removePrefix("./")
+        if (requested.isBlank()) requested = "SKILL.md"
+        if (requested.startsWith('/') || requested.split('/').any { it == "." || it == ".." || it.isBlank() }) return ToolResult("Skill 路径无效")
+        val content = readSkillResource(skill, requested) ?: if (requested == "SKILL.md") skill.content else null
+            ?: return ToolResult("Skill 引用文件不存在：$requested。可读取：" + (listOf("SKILL.md") + referencePaths(skill)).joinToString("、"))
+        if (content.startsWith("base64:")) return ToolResult("该 Skill 文件是二进制内容，无法作为文本读取：$requested")
         return ToolResult(content.take(MAX_RESULT_BYTES))
+    }
+
+    private fun readSkillResource(skill: SkillRecord, path: String): String? {
+        val direct = runCatching { resourceReader(skill, path) }
+        if (direct.getOrNull() != null) return direct.getOrNull()
+        val assetBacked = skill.files[path]?.startsWith(BuiltinSkills.ASSET_PREFIX) == true
+        val originalId = if (assetBacked) DUPLICATE_SKILL_ID.matchEntire(skill.id)?.groupValues?.get(1) else null
+        if (originalId != null) return resourceReader(skill.copy(id = originalId), path)
+        return direct.getOrThrow()
     }
 
     companion object {
@@ -264,12 +340,36 @@ class ToolRuntime(
         private const val MAX_MEMORY_TEXT_BYTES = 4L * 1024 * 1024
         private const val MAX_LIST_ITEMS = 500
         private const val MAX_MEMORY_RESULTS = 20
+        private val DUPLICATE_SKILL_ID = Regex("^(.+)-duplicate-\\d+$")
         private val SAFE_HEADERS = setOf("accept", "content-type", "user-agent", "cache-control")
 
-        internal fun definitionsForPermissions(permissions: Set<String>): String {
+        /** Skills that this chat explicitly selected and that the user is allowed to use. */
+        fun activeSkills(skills: List<SkillRecord>, settings: AppSettings, chat: Chat): List<SkillRecord> {
+            return skillsInOrder(skills, chat.skillIds)
+                .filter { it.enabled && (!it.adult || settings.adultSkillsConfirmed) }
+        }
+
+        /** Resolves installed Skills in the exact order stored by the chat. */
+        fun skillsInOrder(skills: List<SkillRecord>, skillIds: List<String>): List<SkillRecord> {
+            val installed = skills.associateBy { it.id }
+            return skillIds.distinct().mapNotNull(installed::get)
+        }
+
+        /** Files the model may request through skill_read besides the SKILL.md body. */
+        fun referencePaths(skill: SkillRecord): List<String> =
+            skill.files.keys.filter { it != "SKILL.md" && it != "LICENSE" }.sorted()
+
+        fun hasReferences(skill: SkillRecord): Boolean = referencePaths(skill).isNotEmpty()
+
+        /** Listing is always read-only; skill_read is implied by bundled references. */
+        fun definitionsForSkills(skills: List<SkillRecord>): String =
+            definitionsForPermissions(skills.flatMap { it.permissions }.toSet(), skills.any(::hasReferences))
+
+        internal fun definitionsForPermissions(permissions: Set<String>, skillRead: Boolean = false): String {
             val tools = JSONArray()
             fun add(name: String, description: String, properties: JSONObject, required: List<String> = emptyList()) {
-                if (permissionFor(name)?.let(permissions::contains) != true) return
+                val allowed = name == "skill_list" || permissionFor(name)?.let(permissions::contains) == true || (name == "skill_read" && skillRead)
+                if (!allowed) return
                 tools.put(JSONObject().put("type", "function").put("function", JSONObject()
                     .put("name", name).put("description", description)
                     .put("parameters", JSONObject().put("type", "object").put("properties", properties).put("required", JSONArray(required)))))
@@ -282,16 +382,21 @@ class ToolRuntime(
                 .put("url", JSONObject().put("type", "string")).put("providerId", JSONObject().put("type", "string"))
                 .put("path", JSONObject().put("type", "string")).put("method", JSONObject().put("type", "string"))
                 .put("body", JSONObject().put("type", "string")))
+            if (permissions.contains("network")) tools.put(PublicResearch.toolDefinition())
             add("memory_search", "检索当前会话可见的记忆", JSONObject().put("query", JSONObject().put("type", "string")), listOf("query"))
             add("memory_save", "保存一条属于当前会话的记忆；是否提升为全局记忆由用户在界面中决定", JSONObject().put("text", JSONObject().put("type", "string")), listOf("text"))
-            add("skill_read", "读取已启用 Skill 的引用资源", JSONObject().put("skillId", JSONObject().put("type", "string")).put("path", JSONObject().put("type", "string")), listOf("skillId"))
+            add("skill_read", "读取当前会话已启用 Skill 的引用文件（系统提示中列出的 skillId 与文件路径）", JSONObject()
+                .put("skillId", JSONObject().put("type", "string").put("description", "系统提示中【Skill 引用文件】给出的 skillId"))
+                .put("path", JSONObject().put("type", "string").put("description", "引用文件的相对路径，例如 references/guide.md")),
+                listOf("skillId", "path"))
+            add("skill_list", "只读查询本轮真实启用的 Skills 数量、ID、名称与顺序；区分正文注入和引用读取。本工具不修改开关，也不证明写作规则已执行。", JSONObject())
             return tools.toString()
         }
 
         private fun permissionFor(name: String): String? = when (name) {
             "workspace_list", "workspace_read", "skill_read" -> "files.read"
             "workspace_write" -> "files.write"
-            "web_fetch", "http_request" -> "network"
+            "web_fetch", "http_request", "public_research" -> "network"
             "memory_search", "memory_save" -> "memory"
             else -> null
         }

@@ -5,20 +5,22 @@
 | 功能 | 状态 | 当前行为与边界 |
 | --- | --- | --- |
 | 独立 Android 应用 | 已实现 | `applicationId` 为 `app.pockettavern`；`minSdk 26`（Android 8.0），目标 SDK 35；使用应用自己的 Room、文件目录和密钥存储。 |
-| Provider 配置 | 已实现 | 支持 Venice、OpenAI 兼容和 Anthropic；Base URL 要求 HTTPS、无用户信息/查询/片段；API Key 通过 Android Keystore 保护的 SecretStore 保存。 |
+| Provider 配置 | 已实现 | 支持 Venice、OpenAI 兼容和 Anthropic；Base URL 要求 HTTPS、无用户信息/查询/片段；API Key 通过 Android Keystore 保护的 SecretStore 保存。手动添加模型时可显式标记视觉能力，适配目录未声明能力的 OpenAI-compatible 视觉模型。 |
 | Venice 动态模型目录 | 已实现 | 请求 `/models?type=all`，支持 `after_id` 分页；保留上下文、工具/视觉/推理能力、离线标记和原始 JSON。 |
+| Venice 余额查询 | 已实现，待设备验收 | 模型页 Venice 平台卡片手动请求 `/api/v1/billing/balance`；账户接口 401/403 才回退 `/api/v1/api_keys/rate_limits`。分别显示订阅积分与充值积分，并单独显示 DIEM/奖励；回退结果标记为“当前 Key 可用额度”，不等同账户总余额。缺失字段显示“未返回”，账户 `usd: null` 显示 0。 |
 | 模型价格 | 已实现，待设备验收 | 从 Venice 目录原始数据解析并直接展示货币、金额、计费单位及分档价格，兼容旧缓存；模型卡片和媒体工具均可查看。未知单位或缺失价格明确提示，视频通过参数报价；其他平台的定价格式尚未适配。 |
 | Provider 查询 | 已实现，待设备验收 | 模型目录支持按已配置平台筛选，搜索匹配平台名称/ID/协议/地址及模型名称/ID/类型，多词和类型筛选可组合，空结果支持清除筛选。 |
 | 十类目录标签 | 已实现 | UI 按 `text`、`image`、`inpaint`、`upscale`、`tts`、`asr`、`video`、`music`、`embedding`、`decision` 展示。未知类型可展示但没有自动适配器。 |
 | 聊天阅读界面 | 已实现，主机原生渲染已检查 | 暖白/深森林主题、通栏助手正文、用户气泡、菜单式操作、历史抽屉、带 Provider 筛选的模型面板、会话草稿保存、流式跟随与回到底部；8 种 Compose 画面已检查，软键盘与触摸交互仍待真机验收。 |
 | OpenAI 兼容聊天 | 已实现 | 使用 `/chat/completions`，支持流式响应、JSON 回退、工具调用和推理字段；聊天入口要求可用的文本模型。 |
+| 豆包人物研究 | 已实现，独立搜索真实接口已验证，模型总结待设备验收 | 默认独立豆包搜索 Custom API + 方舟模型总结，也支持方舟内置联网内容插件，六类资料与来源/推测/虚构分层；研究记录可检索、查看全文和导出，重建记忆后保留。每次最多 3 次搜索、10000 输出 tokens，不自动重试；需要模型与搜索权限。 |
 | Anthropic 聊天 | 已实现 | 使用 `/messages`、`x-api-key` 和 Anthropic 工具格式转换，支持 SSE；聊天入口要求可用的文本模型。 |
 | Venice 媒体请求 | 已实现 | 支持 image、inpaint、upscale、tts、asr、video、music、embedding、decision；按接口要求使用 JSON 或 multipart，并允许高级参数。视频和音乐采用 quote 后 queue 流程。 |
 | 媒体保存与打开 | 已实现 | 输出保存到应用私有 `media` 目录；通过 FileProvider 或系统文件选择器访问，不申请共享存储权限。 |
 | 角色与 Worldbook | 已实现 | 支持角色提示词、开场内容、全局 Persona、关键词/always Worldbook 条目和角色关联。字段覆盖以应用数据模型为准。 |
 | 预设 | 已实现 | 保存系统提示词、温度、最大输出、摘要提示词、摘要 Provider ID 和摘要模型 ID；独立导入/导出保留这些字段。 |
 | 记忆 | 已实现但有边界 | 支持 global/chat/character 范围和用户/Skill 保存；当前 `memory_search` 是本地词项匹配。语义 vector 记忆索引尚未集成。 |
-| 上下文压缩 | 已实现但有边界 | 按摘要提示词和摘要 Provider/模型生成摘要，校验源消息 hash；摘要失败停止本次发送并保留旧数据；摘要来源失效时使用原文并重新校验预算。 |
+| 上下文压缩与知识库 | 已实现但有边界 | 旧续聊摘要＋新增原文，同次输出新摘要和知识增量；按实际窗口分批，不再固定 8192。默认日常输入预算 65,536，可独立调整；支持完整响应暂存续跑、来源校验、分类阅读与 Obsidian 导出。模型按需查历史，无每轮强制召回；提取质量与调用时机仍需实际模型验证。 |
 | Skills 导入 | 已实现 | 支持 `SKILL.md` 或 HTTPS ZIP；限制输入/解压大小、条目数和文件路径，保留文本或受控的 base64 文件内容。导入后默认禁用且无权限。 |
 | GitHub 写作 Skills | 已实现，待设备验收 | 7 个上游原版 Skill，附 MIT 许可证、固定 commit 链接和 SHA-256。按小说/言情分类，可在 Skills 页直接勾选当前会话；默认关闭且不自动授权工具。详见 THIRD_PARTY_SKILLS.md。 |
 | Skills 工具 | 已实现 | 按能力归为 7 类：工作区列举、读取、写入，网页读取，一般 HTTPS 请求，记忆搜索/保存，Skill 文件读取。源码注册 8 个函数：`workspace_list`、`workspace_read`、`workspace_write`、`web_fetch`、`http_request`、`memory_search`、`memory_save`、`skill_read`。 |

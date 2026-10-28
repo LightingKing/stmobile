@@ -1,9 +1,12 @@
 package app.pockettavern
 
 import android.app.AlertDialog
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.os.Build
 import android.provider.OpenableColumns
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,12 +15,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.core.content.FileProvider
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import app.pockettavern.ui.PocketApp
+import app.pockettavern.ui.DoubaoWebResearchActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONArray
 import java.io.ByteArrayOutputStream
 import java.io.File
 
@@ -27,6 +31,7 @@ class MainActivity : ComponentActivity(), NativeHost {
     private var exportContent: String? = null
     private var exportSource: File? = null
     private var exportMime = "application/json"
+    private val notifications = registerForActivityResult(ActivityResultContracts.RequestPermission()) { }
     private val importer = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         if(uri!=null) lifecycleScope.launch {
             try {
@@ -66,10 +71,23 @@ class MainActivity : ComponentActivity(), NativeHost {
             }
         }
     }
+    private val doubaoResearchLauncher=registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode != RESULT_OK) return@registerForActivityResult
+        val data = result.data ?: return@registerForActivityResult
+        val requestId = data.getStringExtra(DoubaoWebResearchActivity.EXTRA_REQUEST_ID).orEmpty()
+        val chatId = data.getStringExtra(DoubaoWebResearchActivity.EXTRA_CHAT_ID).orEmpty()
+        val subject = data.getStringExtra(DoubaoWebResearchActivity.EXTRA_SUBJECT).orEmpty()
+        val categories = runCatching { JSONArray(data.getStringExtra(DoubaoWebResearchActivity.EXTRA_CATEGORIES).orEmpty()).let { array -> (0 until array.length()).map { array.getString(it) } } }.getOrDefault(emptyList())
+        val text = data.getStringExtra(DoubaoWebResearchActivity.EXTRA_ANSWER).orEmpty()
+        val pageUrl = data.getStringExtra(DoubaoWebResearchActivity.EXTRA_PAGE_URL).orEmpty()
+        val links = runCatching { JSONArray(data.getStringExtra(DoubaoWebResearchActivity.EXTRA_SOURCE_LINKS).orEmpty()).let { array -> (0 until array.length()).map { array.getString(it) } } }.getOrDefault(emptyList())
+        val mediaDescription = data.getStringExtra(DoubaoWebResearchActivity.EXTRA_MEDIA_DESCRIPTION).orEmpty()
+        controller.importDoubaoWebAnswer(requestId, chatId, subject, categories, data.getBooleanExtra(DoubaoWebResearchActivity.EXTRA_ALLOW_FICTION, true), text, pageUrl, links, mediaDescription)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        controller=ViewModelProvider(this)[AppController::class.java]
+        controller=(application as PocketApplication).controller
         controller.host=this
         importKind=savedInstanceState?.getString("importKind") ?: ""
         savedInstanceState?.getString("exportSource")?.let { exportSource=File(it) }
@@ -81,8 +99,28 @@ class MainActivity : ComponentActivity(), NativeHost {
         super.onSaveInstanceState(outState)
     }
     override fun onDestroy() { if(controller.host===this) controller.host=null; super.onDestroy() }
+    override fun requestGenerationNotifications() {
+        if (Build.VERSION.SDK_INT < 33 || checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) return
+        val preferences = getSharedPreferences("notification-permission", MODE_PRIVATE)
+        if (!preferences.getBoolean("requested", false)) {
+            preferences.edit().putBoolean("requested", true).apply()
+            notifications.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
+    }
+    override fun onStart() { super.onStart(); controller.uiVisible = true }
+    override fun onStop() { controller.uiVisible = false; controller.checkpoint(); super.onStop() }
     override fun importFile(kind: String) { importKind=kind; importer.launch(arrayOf("*/*")) }
     override fun pickAttachment() { attachmentPicker.launch(arrayOf("image/*","audio/*","text/*","application/json","application/octet-stream")) }
+    override fun openDoubaoWebResearch(requestId: String, chatId: String, subject: String, categories: List<String>, allowFiction: Boolean, prompt: String) {
+        val intent = Intent(this, DoubaoWebResearchActivity::class.java)
+            .putExtra(DoubaoWebResearchActivity.EXTRA_REQUEST_ID, requestId)
+            .putExtra(DoubaoWebResearchActivity.EXTRA_CHAT_ID, chatId)
+            .putExtra(DoubaoWebResearchActivity.EXTRA_SUBJECT, subject)
+            .putExtra(DoubaoWebResearchActivity.EXTRA_CATEGORIES, JSONArray(categories).toString())
+            .putExtra(DoubaoWebResearchActivity.EXTRA_ALLOW_FICTION, allowFiction)
+            .putExtra(DoubaoWebResearchActivity.EXTRA_PROMPT, prompt)
+        doubaoResearchLauncher.launch(intent)
+    }
     override fun exportText(name: String, mime: String, content: String) {
         val file=File(cacheDir,"exports/${java.util.UUID.randomUUID()}.txt"); file.parentFile?.mkdirs(); file.writeText(content)
         exportBinary(name,mime,file)
