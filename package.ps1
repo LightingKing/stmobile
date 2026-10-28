@@ -27,14 +27,19 @@ try {
     & (Join-Path $PSScriptRoot 'build.ps1') -WithTests -Release -Offline:$Offline -AndroidMirror $AndroidMirror
     $taskDist=Join-Path $PSScriptRoot 'dist'
     New-Item -ItemType Directory -Path $taskDist -Force | Out-Null
-    $taskApk=Join-Path $taskDist 'PocketTavern-0.1.4.apk'
+    $taskBuildGradle=Join-Path $PSScriptRoot 'app\build.gradle.kts'
+    $taskVersionMatch=[regex]::Match((Get-Content -LiteralPath $taskBuildGradle -Raw), '(?m)^\s*versionName\s*=\s*"([^"]+)"')
+    if(!$taskVersionMatch.Success) { throw 'Unable to determine versionName from app/build.gradle.kts.' }
+    $taskVersion=$taskVersionMatch.Groups[1].Value
+    $taskApkName="PocketTavern-$taskVersion.apk"
+    $taskApk=Join-Path $taskDist $taskApkName
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'app\build\outputs\apk\release\app-release.apk') -Destination $taskApk -Force
     $taskSdk=if($env:ANDROID_HOME) { $env:ANDROID_HOME } else { Join-Path $env:LOCALAPPDATA 'Android\Sdk' }
     $taskSigner=Join-Path $taskSdk 'build-tools\35.0.0\apksigner.bat'
     & $taskSigner verify --verbose $taskApk
     if($LASTEXITCODE -ne 0) { throw 'APK signature verification failed.' }
     $taskHash=(Get-FileHash -LiteralPath $taskApk -Algorithm SHA256).Hash
-    "$taskHash  PocketTavern-0.1.4.apk" | Set-Content -LiteralPath (Join-Path $taskDist 'SHA256SUMS.txt') -Encoding utf8
+    "$taskHash  $taskApkName" | Set-Content -LiteralPath (Join-Path $taskDist "SHA256SUMS-$taskVersion.txt") -Encoding utf8
     Write-Output $taskApk
     Write-Output "SHA256 $taskHash"
 } finally {

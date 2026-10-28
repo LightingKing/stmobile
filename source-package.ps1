@@ -2,7 +2,7 @@ param([string]$Destination='')
 $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $taskRoot=[IO.Path]::GetFullPath($PSScriptRoot)
-if (!$Destination) { $Destination=Join-Path $taskRoot 'dist\PocketTavern-0.1.4-source.zip' }
+if (!$Destination) { $Destination=Join-Path $taskRoot 'dist\PocketTavern-0.1.52-source.zip' }
 $taskDestination=[IO.Path]::GetFullPath($Destination)
 New-Item -ItemType Directory -Path ([IO.Path]::GetDirectoryName($taskDestination)) -Force | Out-Null
 $taskFiles=@()
@@ -13,6 +13,13 @@ foreach($taskDir in @('app\src','docs','examples','gradle\wrapper')) {
     if(Test-Path -LiteralPath $taskPath) { $taskFiles+=Get-ChildItem -LiteralPath $taskPath -File -Recurse }
 }
 $taskFiles+=Get-Item -LiteralPath (Join-Path $taskRoot 'app\build.gradle.kts')
+$taskServer=Join-Path $taskRoot 'writing-server'
+if(Test-Path -LiteralPath $taskServer) {
+    $taskFiles+=Get-ChildItem -LiteralPath $taskServer -File -Recurse | Where-Object {
+        $_.FullName -notmatch '[\\/](node_modules|runtime|writing-server-data)[\\/]' -and
+        $_.Extension -notin @('.log','.jks','.keystore') -and $_.Name -notlike '.env*'
+    }
+}
 $taskStream=[IO.File]::Open($taskDestination,[IO.FileMode]::Create)
 $taskArchive=[IO.Compression.ZipArchive]::new($taskStream,[IO.Compression.ZipArchiveMode]::Create)
 try {
