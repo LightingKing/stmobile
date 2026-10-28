@@ -1,0 +1,12 @@
+{
+  "host": "127.0.0.1",
+  "port": 8791,
+  "upstreamBaseUrl": "https://api.venice.ai/api/v1",
+  "upstreamModel": "deepseek-v4-1-flash-1017",
+  "contextTokens": 1000000,
+  "reviewSkill": "sh-shuorenhua",
+  "reasoningEffort": "default",
+  "reviewReasoningEffort": "none",
+  "autoRevise": false,
+  "includeVeniceSystemPrompt": false
+}
