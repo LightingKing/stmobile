@@ -13,8 +13,8 @@ android {
         applicationId = "app.pockettavern"
         minSdk = 26
         targetSdk = 35
-        versionCode = 64
-        versionName = "0.1.63"
+        versionCode = 65
+        versionName = "0.1.64"
         testInstrumentationRunner = "android.test.InstrumentationTestRunner"
     }
     useLibrary("android.test.runner", false)

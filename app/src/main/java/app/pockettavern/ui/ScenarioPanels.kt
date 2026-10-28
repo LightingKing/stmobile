@@ -17,9 +17,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.ArrowForward
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.AccountTree
 import androidx.compose.material.icons.outlined.AutoAwesome
@@ -50,7 +50,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -59,16 +58,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.shape.RoundedCornerShape
 import app.pockettavern.domain.*
 import app.pockettavern.engine.ScenarioHistoryOrganizer
+import kotlinx.coroutines.launch
 
 /** A compact, bounded view of the world-book facts used by a scenario. */
 internal data class ScenarioSourceSection(val title: String, val content: String, val kind: String)
@@ -471,6 +472,8 @@ internal fun ScenarioRosterScreen(chat: Chat, state: UiSession, actions: AppActi
     val sections = remember(entries) { ScenarioPanelData.rosterSections(entries) }
     var editPerson by remember { mutableStateOf<ScenarioPerson?>(null) }
     var expanded by remember { mutableStateOf<String?>(null) }
+    val listState = rememberLazyListState()
+    val scope = rememberCoroutineScope()
     val panelMaxHeight = (LocalConfiguration.current.screenHeightDp * 0.92f).dp
     ModalBottomSheet(onDismissRequest = onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true), containerColor = MaterialTheme.colorScheme.background) {
         Column(Modifier.fillMaxWidth().wrapContentHeight().heightIn(max = panelMaxHeight)) {
@@ -478,7 +481,7 @@ internal fun ScenarioRosterScreen(chat: Chat, state: UiSession, actions: AppActi
                 IconButton(onClick = { actions.organizeScenarioFromHistory(chat.id) }, enabled = !state.busy) { Icon(Icons.Outlined.AutoAwesome, "从历史对话整理") }
                 IconButton(onClick = { editPerson = ScenarioPerson() }, enabled = !state.busy) { Icon(Icons.Outlined.Add, "新增人物") }
             }
-            LazyColumn(Modifier.fillMaxWidth().wrapContentHeight().heightIn(max = panelMaxHeight - 96.dp), contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 28.dp)) {
+            LazyColumn(Modifier.fillMaxWidth().wrapContentHeight().heightIn(max = panelMaxHeight - 96.dp), state = listState, contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 28.dp)) {
                 item {
                     val summary = ScenarioPanelData.groupSummary(entries)
                     if (summary.isNotBlank()) Text(summary, Modifier.padding(horizontal = 16.dp, vertical = 8.dp), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -489,7 +492,11 @@ internal fun ScenarioRosterScreen(chat: Chat, state: UiSession, actions: AppActi
                         Modifier.padding(horizontal = 16.dp, vertical = 4.dp), style = MaterialTheme.typography.labelSmall,
                         color = if (historyCount > 0) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
                     )
-                    RelationshipOverview(people)
+                    RelationshipOverview(people, onOpenPerson = { person ->
+                        // Person cards follow this header item, in `people` order.
+                        val index = people.indexOfFirst { it.id == person.id }
+                        if (index >= 0) { expanded = person.id; scope.launch { listState.animateScrollToItem(1 + index) } }
+                    })
                 }
                 if (people.isEmpty()) item { EmptyPanel("还没有可显示的人物", "角色卡中没有可识别的【角色：】条目，可点击右上角新增。", Icons.Outlined.Group) }
                 items(people, key = { it.id }) { person ->
@@ -511,67 +518,36 @@ internal fun ScenarioRosterScreen(chat: Chat, state: UiSession, actions: AppActi
 }
 
 @Composable
-private fun RelationshipOverview(people: List<ScenarioPerson>) {
+internal fun RelationshipOverview(
+    people: List<ScenarioPerson>, onOpenPerson: (ScenarioPerson) -> Unit,
+    initialMode: Int = 0, initialSelection: String? = null,
+) {
     if (people.isEmpty()) return
     val protagonist = people.firstOrNull { person ->
         person.role.contains("主角") || person.relationship.contains("主角") || person.name == "谷若尘"
     }
     val rootName = protagonist?.name ?: "主角 / 当前视角"
-    val members = people.filter { it.name != protagonist?.name }
-    val groups = members.groupBy(::organizationGroup).toList()
-    val edges = relationshipEdges(rootName, protagonist, people)
-    Card(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 6.dp), colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = .42f))) {
-        Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(7.dp)) {
-            Text("组织架构", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
-            Text("${people.size} 人 · ${groups.size} 个组织分组 · 分组按岗位/活动归类，关系网只显示原文明确登记的关系", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Surface(color = MaterialTheme.colorScheme.primary, shape = RoundedCornerShape(50)) {
-                Text("$rootName · 核心", Modifier.padding(horizontal = 14.dp, vertical = 7.dp), color = MaterialTheme.colorScheme.onPrimary, style = MaterialTheme.typography.labelLarge)
-            }
-            if (groups.isEmpty()) {
-                Text("暂无可分组的关系记录", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            }
-            groups.forEach { (group, groupedPeople) ->
-                Row(verticalAlignment = Alignment.Top, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text("│", color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.titleMedium)
-                        Icon(Icons.AutoMirrored.Outlined.ArrowForward, null, Modifier.size(15.dp), tint = MaterialTheme.colorScheme.primary)
-                    }
-                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Surface(color = MaterialTheme.colorScheme.surfaceVariant, shape = RoundedCornerShape(8.dp)) {
-                            Text("$group · ${groupedPeople.size} 人", Modifier.padding(horizontal = 9.dp, vertical = 4.dp), style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.Bold)
-                        }
-                        FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(5.dp)) {
-                            groupedPeople.forEach { person ->
-                                Surface(color = MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(12.dp)) {
-                                    Column(Modifier.padding(horizontal = 10.dp, vertical = 6.dp)) {
-                                        Text(person.name, style = MaterialTheme.typography.bodySmall, fontWeight = FontWeight.SemiBold)
-                                        Text(person.role.ifBlank { person.relationship.ifBlank { "关系未记录" } }, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            HorizontalDivider(Modifier.padding(vertical = 3.dp))
-            Text("关系网络 · ${edges.size} 条明确关系", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold)
-            edges.forEach { edge ->
-                Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)) {
-                    Row(Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(5.dp)) {
-                        Surface(color = MaterialTheme.colorScheme.primaryContainer, shape = RoundedCornerShape(8.dp)) { Text(edge.from, Modifier.padding(horizontal = 7.dp, vertical = 4.dp), style = MaterialTheme.typography.bodySmall, fontWeight = FontWeight.SemiBold) }
-                        Icon(Icons.AutoMirrored.Outlined.ArrowForward, null, Modifier.size(14.dp), tint = MaterialTheme.colorScheme.primary)
-                        Surface(color = MaterialTheme.colorScheme.secondaryContainer, shape = RoundedCornerShape(8.dp)) { Text(edge.to, Modifier.padding(horizontal = 7.dp, vertical = 4.dp), style = MaterialTheme.typography.bodySmall, fontWeight = FontWeight.SemiBold) }
-                        Text(edge.label, Modifier.weight(1f), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 2, overflow = TextOverflow.Ellipsis)
-                    }
-                }
-            }
+    val groups = remember(people, protagonist) {
+        people.filter { it.name != protagonist?.name }.groupBy(::organizationGroup).toList()
+            .sortedBy { (group, _) -> RelationshipGroupOrder.indexOf(group).let { if (it < 0) RelationshipGroupOrder.size else it } }
+    }
+    val edges = remember(people, rootName, protagonist) { relationshipEdges(rootName, protagonist, people) }
+    val cardColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = .42f)
+    Card(Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 6.dp), colors = CardDefaults.cardColors(containerColor = cardColor)) {
+        Column(Modifier.padding(horizontal = 8.dp, vertical = 12.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Text("组织架构与关系网络", Modifier.padding(horizontal = 6.dp), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            Text("${people.size} 人 · ${groups.size} 个组织分组 · ${edges.size} 条明确关系。分组按岗位/活动归类，关系网只画原文明确登记的关系。",
+                Modifier.padding(horizontal = 6.dp), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            RelationshipDiagrams(rootName, groups, people, edges, ::organizationGroup, onOpenPerson,
+                background = cardColor.compositeOver(MaterialTheme.colorScheme.background),
+                initialMode = initialMode, initialSelection = initialSelection)
         }
     }
 }
 
 internal data class RelationshipEdge(val from: String, val to: String, val label: String)
 
-private fun organizationGroup(person: ScenarioPerson): String {
+internal fun organizationGroup(person: ScenarioPerson): String {
     val text = "${person.role} ${person.relationship} ${person.activity}"
     return when {
         Regex("管家|行政|预算|合同").containsMatchIn(text) -> "庄园管理"
