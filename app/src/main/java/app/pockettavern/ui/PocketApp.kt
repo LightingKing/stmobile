@@ -273,6 +273,8 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
     }
     var pendingAdult by remember { mutableStateOf<String?>(null) }
     val skills = state.data.skills
+    val skillToolsSupported = chatSupportsTools(state.data, chat)
+    val skillCostById = remember(skills, skillToolsSupported) { skillCosts(skills, skillToolsSupported) }
     val activeSummary = chat.summaries.firstOrNull { it.id == chat.activeSummaryId }
     val recallToolsAvailable = state.data.providers.firstOrNull { it.id == chat.providerId }
         ?.models?.firstOrNull { it.id == chat.modelId }?.supportsTools == true
@@ -307,6 +309,7 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
             Text("本会话 Skills", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
             Text("模型会按下列顺序从上到下注入 Skill 正文，然后再加入历史摘要和对话。排序只影响当前会话；未打开总开关的 Skill 不会注入。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             val orderedSkills = ToolRuntime.skillsInOrder(skills, selectedOrder)
+            if (orderedSkills.isNotEmpty()) SkillCostSummaryLine(skillCostSummary(orderedSkills, skillCostById, chatInputLimit(state.data, chat), state.data.settings.adultSkillsConfirmed))
             if (orderedSkills.isEmpty()) {
                 Text("当前会话还没有选择 Skill。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             } else {
@@ -318,6 +321,7 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
                                 Column(Modifier.weight(1f)) {
                                     Text(skill.name.ifBlank { "未命名 Skill" }, style = MaterialTheme.typography.bodyMedium, maxLines = 1, overflow = TextOverflow.Ellipsis)
                                     if (!skill.enabled) Text("总开关关闭 · 不会注入", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.error)
+                                    else skillCostById[skill.id]?.let { SkillCostLine(it) }
                                 }
                                 IconButton(enabled = !state.busy && index > 0, onClick = {
                                     selectedOrder = moveSkillInOrder(selectedOrder, skill.id, -1)
@@ -331,7 +335,7 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
                 }
             }
             Text("新勾选的 Skill 会追加到注入顺序末尾并自动打开“允许启用”；已经在本会话但总开关后来被关闭的 Skill 不会被悄然重新启用，请到 Skills 页明确打开。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            ChatSkillPicker(skills, selectedOrder.toSet(), state.busy || state.loading, onSelect = { skill, checked ->
+            ChatSkillPicker(skills, selectedOrder.toSet(), state.busy || state.loading, costs = skillCostById, onSelect = { skill, checked ->
                 if (checked && skill.adult && !state.data.settings.adultSkillsConfirmed) pendingAdult = skill.id
                 else selectedOrder = if (checked) (selectedOrder + skill.id).distinct() else selectedOrder.filterNot { it == skill.id }
             })
@@ -361,7 +365,8 @@ internal fun ChatSkillPicker(
     locked: Boolean,
     onSelect: (SkillRecord, Boolean) -> Unit,
     initialFilters: SkillFilters = SkillFilters(),
-    initialScenario: SkillScenario = SkillScenario.ROLEPLAY
+    initialScenario: SkillScenario = SkillScenario.ROLEPLAY,
+    costs: Map<String, Int> = emptyMap()
 ) {
     var filters by rememberSkillFilters(initialFilters)
     var guided by rememberSaveable { mutableStateOf(initialFilters == SkillFilters()) }
@@ -391,6 +396,7 @@ internal fun ChatSkillPicker(
                     if (guided) suggestions.firstOrNull { it.skill.id == skill.id }?.let { SkillSuggestionLabel(it) }
                     Text(skill.name, fontWeight = FontWeight.SemiBold)
                     SkillMetadataLabels(skill)
+                    costs[skill.id]?.let { SkillCostLine(it) }
                     SkillChoiceExplanation(skill, showEffect = guided)
                     if (!guided) Text(skill.description, style = MaterialTheme.typography.bodySmall, maxLines = 2, overflow = TextOverflow.Ellipsis)
                     if (selectedIds.contains(skill.id) && skill.id in originalSelection && !skill.enabled) Text("总开关已关闭，请到 Skills 页明确启用。", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.error)

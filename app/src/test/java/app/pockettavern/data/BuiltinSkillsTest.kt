@@ -259,14 +259,14 @@ class BuiltinSkillsTest {
         assertTrue("writing Skills catalog asset is missing", catalog.isFile)
 
         val loaded = BuiltinSkills.load { relative -> File(root, relative).readText() }
-        assertEquals(24, loaded.size)
+        assertEquals(25, loaded.size)
         assertEquals(9, loaded.count { it.source == "GitHub精选 · 小说写作" })
         assertEquals(7, loaded.count { it.source == "GitHub精选 · 角色扮演" })
-        assertEquals(8, loaded.count { it.source == "GitHub精选 · 成人向" })
+        assertEquals(9, loaded.count { it.source == "GitHub精选 · 成人向" })
         assertTrue(loaded.all { it.id.startsWith("builtin-writing-") && !it.enabled && it.permissions.isEmpty() })
         assertTrue(loaded.all { it.sourceLicense in setOf("MIT", "GPL-3.0", "AGPL-3.0", "CC-BY-4.0", BuiltinSkills.PERSONAL_USE_LICENSE) && it.files.containsKey("LICENSE") })
-        assertEquals(3, loaded.count { it.sourceLicense == BuiltinSkills.PERSONAL_USE_LICENSE })
-        assertEquals(listOf("at-adult-tension-original", "dn-deep-novel", "dp-chapter-adult-original", "fe-fictional-erotica", "hn-continuity", "hn-scene-writing", "hn-worldbuilding", "va-velvet-ascent"),
+        assertEquals(4, loaded.count { it.sourceLicense == BuiltinSkills.PERSONAL_USE_LICENSE })
+        assertEquals(listOf("at-adult-tension-original", "dn-deep-novel", "dp-chapter-adult-original", "ec-erotica-craft", "fe-fictional-erotica", "hn-continuity", "hn-scene-writing", "hn-worldbuilding", "va-velvet-ascent"),
             loaded.filter { it.adult }.map { it.id.removePrefix("builtin-writing-") }.sorted())
     }
 
@@ -285,7 +285,7 @@ class BuiltinSkillsTest {
                 references++
             }
         }
-        assertEquals(322, references)
+        assertEquals(325, references)
         val stateChars = DataCodec.encode(AppData(skills = loaded)).length
         assertTrue("reference text must not be copied into persisted state ($stateChars vs $resolvedChars)", stateChars < resolvedChars)
         val sepia = loaded.single { it.id == "builtin-writing-se-sepia" }
@@ -353,7 +353,11 @@ class BuiltinSkillsTest {
             val line = contents.indexOfFirst { it.optString("content") == expected }
             assertEquals("system", contents[line].getString("role"))
             assertTrue("sent after every skill prompt", contents.drop(line + 1).none { it.optString("content").startsWith("【Skill: ") })
-            assertEquals("chat history follows unchanged", history.map { it.content }, contents.drop(line + 1).map { it.getString("content") })
+            // 0.1.66: it closes the stable prompt; only turn-varying system context sits between it and the history.
+            val after = contents.drop(line + 1)
+            val firstChat = after.indexOfFirst { it.getString("role") != "system" }
+            assertTrue(after.take(firstChat).all { it.getString("role") == "system" })
+            assertEquals("chat history follows unchanged", history.map { it.content }, after.drop(firstChat).map { it.getString("content") })
         }
     }
 

@@ -312,10 +312,15 @@ class ToolRuntime(
         val key = args.optString("skillId").ifBlank { args.optString("skill") }.trim()
         val skill = skills.firstOrNull { it.id == key } ?: skills.firstOrNull { it.name == key }
             ?: return ToolResult("未找到已启用的 Skill：$key。当前会话可用：" + skills.joinToString("；") { "skillId=${it.id}（${it.name}）" })
-        var requested = args.optString("path").replace('\\', '/').trim()
+        var requested = args.optString("path").replace('\\', '/').trim().trimEnd('/')
         while (requested.startsWith("./")) requested = requested.removePrefix("./")
         if (requested.isBlank()) requested = "SKILL.md"
         if (requested.startsWith('/') || requested.split('/').any { it == "." || it == ".." || it.isBlank() }) return ToolResult("Skill 路径无效")
+        // Large reference trees are summarised per folder in the prompt; a folder path lists it.
+        val inFolder = referencePaths(skill).filter { it.startsWith("$requested/") }
+        if (inFolder.isNotEmpty() && skill.files[requested] == null) {
+            return ToolResult("目录 $requested/ 下共 ${inFolder.size} 个文件：\n" + inFolder.take(MAX_LIST_ITEMS).joinToString("\n") { "- $it" })
+        }
         val content = readSkillResource(skill, requested) ?: if (requested == "SKILL.md") skill.content else null
             ?: return ToolResult("Skill 引用文件不存在：$requested。可读取：" + (listOf("SKILL.md") + referencePaths(skill)).joinToString("、"))
         if (content.startsWith("base64:")) return ToolResult("该 Skill 文件是二进制内容，无法作为文本读取：$requested")
@@ -385,9 +390,9 @@ class ToolRuntime(
             if (permissions.contains("network")) tools.put(PublicResearch.toolDefinition())
             add("memory_search", "检索当前会话可见的记忆", JSONObject().put("query", JSONObject().put("type", "string")), listOf("query"))
             add("memory_save", "保存一条属于当前会话的记忆；是否提升为全局记忆由用户在界面中决定", JSONObject().put("text", JSONObject().put("type", "string")), listOf("text"))
-            add("skill_read", "读取当前会话已启用 Skill 的引用文件（系统提示中列出的 skillId 与文件路径）", JSONObject()
+            add("skill_read", "读取当前会话已启用 Skill 的引用文件（系统提示中列出的 skillId 与文件路径）；path 填目录名时列出该目录下的文件", JSONObject()
                 .put("skillId", JSONObject().put("type", "string").put("description", "系统提示中【Skill 引用文件】给出的 skillId"))
-                .put("path", JSONObject().put("type", "string").put("description", "引用文件的相对路径，例如 references/guide.md")),
+                .put("path", JSONObject().put("type", "string").put("description", "引用文件的相对路径，例如 references/guide.md；也可填目录，例如 content")),
                 listOf("skillId", "path"))
             add("skill_list", "只读查询本轮真实启用的 Skills 数量、ID、名称与顺序；区分正文注入和引用读取。本工具不修改开关，也不证明写作规则已执行。", JSONObject())
             return tools.toString()

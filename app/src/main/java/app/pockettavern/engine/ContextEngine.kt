@@ -53,25 +53,12 @@ object ContextEngine {
             }
         }
 
+        // Order matters for provider prefix caching: everything that is the same
+        // from one turn to the next (preset, card, Skills, fixed policies) comes
+        // first; content that changes between turns (pinned facts, memories,
+        // summary, keyword-triggered lore, scenario state) follows, then history.
         addSystem(preset.systemPrompt, "preset")
         addSystem(characterPrompt(character, data.settings.userPersona), "character")
-
-        val latestUserText = chat.messages.asReversed().firstOrNull { !it.contextExcluded && it.role == "user" }?.content.orEmpty()
-        // Imported story lore can scan recent prose, so pronoun-only follow-ups retain
-        // the NPC introduced in the previous response. Old entries keep their behavior.
-        val worldScanText = recentProse(chat, 10_000)
-        val excludedSources = chat.messages.filter { it.contextExcluded }.map { it.id }.toSet()
-        val memories = data.memories.filter { it.enabled && it.sourceMessageId !in excludedSources && memoryApplies(it, chat, character) }
-        if (memories.isNotEmpty()) addSystem("【已确认记忆】\n" + memories.joinToString("\n") { "- ${it.text}" }, "memory")
-
-        val world = data.worldEntries.filter {
-            it.enabled && (it.characterId.isBlank() || it.characterId == chat.characterId) &&
-                (it.always || it.keywords.any { keyword ->
-                    val text = if (it.searchRange > 0) worldScanText.takeLast(it.searchRange.coerceAtMost(10_000)) else latestUserText
-                    keyword.isNotBlank() && text.contains(keyword, ignoreCase = true)
-                })
-        }.sortedByDescending { it.priority }
-        if (world.isNotEmpty()) addSystem("【世界书资料】\n" + world.joinToString("\n") { "- ${it.name}: ${it.content}" }, "world")
 
         val selectedSkills = ToolRuntime.activeSkills(data.skills, data.settings, chat)
         // Skills selected for the conversation are injected as-is after the
@@ -80,6 +67,7 @@ object ContextEngine {
         val skills = selectedSkills
         val toolsSupported = model?.supportsTools == true
         if (skills.any { it.adult }) addSystem(ADULT_BOUNDARY)
+        if (skills.isNotEmpty()) addSystem(if (toolsSupported) SKILL_CHAT_MODE_WITH_TOOLS else SKILL_CHAT_MODE_NO_TOOLS)
         val skillTokens = skills.map { skill ->
             val prompt = skillPrompt(skill, toolsSupported)
             addSystem(prompt, "skill")
@@ -100,7 +88,6 @@ object ContextEngine {
 
         val validSummary = findValidSummary(chat)
         val cutoff = validSummary?.let { chat.messages.indexOfFirst { message -> message.id == it.throughMessageId } } ?: -1
-        if (validSummary != null && validSummary.text.isNotBlank()) addSystem("【历史摘要】\n${validSummary.text}", "summary")
         val latestUserIndex = chat.messages.indexOfLast { !it.contextExcluded && it.role == "user" }
         val hasResearch = chat.knowledgeNotes.any { it.sourceKind == "research" }
         val hasHistory = validSummary != null || hasResearch || chat.messages.withIndex().any { (index, message) ->
@@ -116,9 +103,28 @@ object ContextEngine {
             addSystem("【历史核对能力】当前模型未启用历史检索工具，只能使用本次上下文实际提供的原文与当前摘要；知识库不会自动整库注入。不要声称已搜索、读取或核验未提供的历史；缺少信息时说明不确定，可请用户提供相关原文或切换支持工具的模型。")
         }
         val toolDefinitions = toolArray.toString()
-        addSystem(NarrativePolicy.prompt(chat, preset, skills))
-        addSystem(ScenarioStateSync.prompt(chat), "policy")
         addSystem(REPLY_NO_REPEAT)
+
+        // Turn-varying context from here on.
+        addSystem(NarrativePolicy.prompt(chat, preset, skills))
+        val latestUserText = chat.messages.asReversed().firstOrNull { !it.contextExcluded && it.role == "user" }?.content.orEmpty()
+        // Imported story lore can scan recent prose, so pronoun-only follow-ups retain
+        // the NPC introduced in the previous response. Old entries keep their behavior.
+        val worldScanText = recentProse(chat, 10_000)
+        val excludedSources = chat.messages.filter { it.contextExcluded }.map { it.id }.toSet()
+        val memories = data.memories.filter { it.enabled && it.sourceMessageId !in excludedSources && memoryApplies(it, chat, character) }
+        if (memories.isNotEmpty()) addSystem("【已确认记忆】\n" + memories.joinToString("\n") { "- ${it.text}" }, "memory")
+        if (validSummary != null && validSummary.text.isNotBlank()) addSystem("【历史摘要】\n${validSummary.text}", "summary")
+
+        val world = data.worldEntries.filter {
+            it.enabled && (it.characterId.isBlank() || it.characterId == chat.characterId) &&
+                (it.always || it.keywords.any { keyword ->
+                    val text = if (it.searchRange > 0) worldScanText.takeLast(it.searchRange.coerceAtMost(10_000)) else latestUserText
+                    keyword.isNotBlank() && text.contains(keyword, ignoreCase = true)
+                })
+        }.sortedByDescending { it.priority }
+        if (world.isNotEmpty()) addSystem("【世界书资料】\n" + world.joinToString("\n") { "- ${it.name}: ${it.content}" }, "world")
+        addSystem(ScenarioStateSync.prompt(chat), "policy")
 
         val live = chat.messages.drop(cutoff + 1)
         val sentLive = withoutPastRecallResults(effectiveMessages(live), chat.messages.getOrNull(latestUserIndex)?.id).filter(::isSent)
@@ -270,14 +276,40 @@ object ContextEngine {
     private fun skillPrompt(skill: app.pockettavern.domain.SkillRecord, toolsSupported: Boolean): String {
         val references = ToolRuntime.referencePaths(skill)
         val body = "【Skill: ${skill.name}】\n${skill.content}"
-        if (references.isEmpty()) return body
-        val list = references.joinToString("\n") { "- $it" }
-        return if (toolsSupported) {
-            "$body\n\n【Skill 引用文件】skillId=${skill.id}\n正文提到这些文件时，调用 skill_read 工具（参数 skillId 与 path）读取原文，不要凭空臆测内容：\n$list"
-        } else {
-            "$body\n\n【Skill 引用文件】当前模型不支持工具调用，以下引用文件无法读取；请只依据上方正文：\n$list"
-        }
+        // Without tools the files cannot be read, so listing them only costs tokens;
+        // the run-time manifest still reports how many there are.
+        if (references.isEmpty() || !toolsSupported) return body
+        return "$body\n\n【Skill 引用文件】skillId=${skill.id}\n正文提到这些文件时，调用 skill_read 工具（参数 skillId 与 path）读取原文，不要凭空臆测内容：\n" +
+            referenceOutline(references)
     }
+
+    /** Estimated tokens this Skill adds to every request, for the picker and budget notes. */
+    fun skillPromptTokens(skill: app.pockettavern.domain.SkillRecord, toolsSupported: Boolean): Int =
+        estimateTokens(skillPrompt(skill, toolsSupported))
+
+    /**
+     * Lists every path for ordinary Skills. Very large reference trees (one DSH
+     * bundle ships 221 files) are summarised per top-level folder instead; small
+     * folders stay listed and a folder path given to skill_read lists its files.
+     */
+    internal fun referenceOutline(paths: List<String>): String {
+        if (paths.size <= REFERENCE_LIST_LIMIT) return paths.joinToString("\n") { "- $it" }
+        return paths.groupBy { it.substringBefore('/', missingDelimiterValue = "") }.flatMap { (folder, files) ->
+            if (folder.isEmpty() || files.size <= REFERENCE_FOLDER_LIST_LIMIT) files.map { "- $it" }
+            else listOf("- $folder/（${files.size} 个文件；path 填 \"$folder\" 可列出）")
+        }.joinToString("\n")
+    }
+
+    private const val REFERENCE_LIST_LIMIT = 20
+    private const val REFERENCE_FOLDER_LIST_LIMIT = 8
+
+    /**
+     * Upstream Skills are written for desktop coding agents. In chat only their
+     * writing guidance applies; project files, scripts and questionnaires do not.
+     */
+    private const val SKILL_CHAT_MODE_BASE = "【Skill 使用方式】下面的 Skill 原文多为电脑上的编程或写作助手编写。其中读写项目文件、运行脚本或命令、调用子代理、先做问卷或需求勘察、输出检查报告等步骤，在本聊天中都不执行；只采用其中的写作规范、风格要求和检查要点，直接写出本轮回复。"
+    private const val SKILL_CHAT_MODE_WITH_TOOLS = SKILL_CHAT_MODE_BASE + "正文提到的引用文件确有需要时，用 skill_read 按需读取。"
+    private const val SKILL_CHAT_MODE_NO_TOOLS = SKILL_CHAT_MODE_BASE + "当前模型不能读取引用文件，只依据各 Skill 正文。"
 
     /** Sent once per chat request. */
     const val REPLY_NO_REPEAT = "【避免重复回复】同一条回复里不要把同一段话或同一段落输出两三遍，也不要再写一遍本条回复前面已经写过的大段内容。"
@@ -524,6 +556,15 @@ object ContextEngine {
      */
     private fun withoutPastRecallResults(messages: List<Message>, currentUserId: String?): List<Message> {
         val currentStart = messages.indexOfLast { it.id == currentUserId }.let { if (it < 0) messages.size else it }
+        // A Skill reference read stays in history so later turns keep the rule
+        // text, but only its newest copy: re-reading the same file must not
+        // send it twice. Keys are (Skill, path) of each skill_read call.
+        val latestSkillRead = HashMap<String, Pair<Int, Int>>()
+        messages.forEachIndexed { index, message ->
+            if (message.role != "assistant") return@forEachIndexed
+            val calls = runCatching { JSONArray(message.toolCallsJson) }.getOrNull() ?: return@forEachIndexed
+            for (callIndex in 0 until calls.length()) skillReadKey(calls.optJSONObject(callIndex))?.let { latestSkillRead[it] = index to callIndex }
+        }
         val removed = mutableSetOf<String>()
         return messages.mapIndexedNotNull { index, message ->
             if (index >= currentStart) return@mapIndexedNotNull message
@@ -537,7 +578,8 @@ object ContextEngine {
                 val call = calls.optJSONObject(callIndex)
                 val name = call?.optJSONObject("function")?.optString("name")
                 val id = call?.optString("id").orEmpty()
-                if (name in setOf("history_search", "history_read") && id.isNotBlank()) {
+                val supersededRead = skillReadKey(call)?.let { latestSkillRead[it] != index to callIndex } == true
+                if ((name in setOf("history_search", "history_read") || supersededRead) && id.isNotBlank()) {
                     removed += id
                     changed = true
                 } else retained.put(calls.get(callIndex))
@@ -545,6 +587,17 @@ object ContextEngine {
             if (changed) message.copy(toolCallsJson = retained.toString(),
                 reasoning = if (retained.length() == 0) "" else message.reasoning) else message
         }
+    }
+
+    /** Same normalisation as ToolRuntime.readSkill: skillId (or skill), path defaulting to SKILL.md. */
+    private fun skillReadKey(call: JSONObject?): String? {
+        val function = call?.optJSONObject("function") ?: return null
+        if (function.optString("name") != "skill_read") return null
+        val args = runCatching { JSONObject(function.optString("arguments").ifBlank { "{}" }) }.getOrNull() ?: return null
+        val skill = args.optString("skillId").ifBlank { args.optString("skill") }.trim()
+        var path = args.optString("path").replace('\\', '/').trim().trimEnd('/')
+        while (path.startsWith("./")) path = path.removePrefix("./")
+        return "$skill\u0000${path.ifBlank { "SKILL.md" }}"
     }
 
     private fun buildPreview(messagesJson: String, toolDefinitions: String, estimated: Int, budget: Int, summary: Summary?, skills: Int): String {

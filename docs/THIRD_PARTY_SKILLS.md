@@ -1,12 +1,12 @@
 # 第三方写作 Skills
 
-当前版本：0.1.65；目录星数最近核对日期：2026-10-29。
+当前版本：0.1.66；目录星数最近核对日期：2026-10-29。
 
-**当前收录 24 个 GitHub Skills，来自 18 个仓库；另有 2 个本应用编写的 Skills，共 26 个。NSFW 成人向共 8 个。** 应用里的中文名称、简介、详情、用途分类和 GitHub 星数都是独立显示元数据，不写进上游文件；每个已打包上游文件保留固定提交的原始字节。
+**当前收录 25 个 GitHub Skills，来自 19 个仓库；另有 2 个本应用编写的 Skills，共 27 个。NSFW 成人向共 9 个。** 应用里的中文名称、简介、详情、用途分类和 GitHub 星数都是独立显示元数据，不写进上游文件；每个已打包上游文件保留固定提交的原始字节。
 
-## 0.1.65 当前收录（24 个 GitHub Skill + 2 个本应用编写）
+## 0.1.66 当前收录（25 个 GitHub Skill + 2 个本应用编写）
 
-清理标准：只保留能直接改善聊天写作的 Skill——全部 NSFW 成人向、去 AI 味与文笔标准、台词与人物口吻、长篇连贯和角色扮演。给电脑端写作项目用的流程工具、大纲与类型规范、制卡工具、社会常识话术和文章改写不再内置。共移除 63 个：
+0.1.65 清理标准：只保留能直接改善聊天写作的 Skill——全部 NSFW 成人向、去 AI 味与文笔标准、台词与人物口吻、长篇连贯和角色扮演。给电脑端写作项目用的流程工具、大纲与类型规范、制卡工具、社会常识话术和文章改写不再内置。共移除 63 个：
 
 - **小说项目流程与审稿工具（40 个）**：`an-awesome-novel`、`os-story`、`os-story-long-write`、`os-story-short-write`、`os-story-review`、`os-story-long-analyze`、`os-story-short-analyze`、`os-story-long-scan`、`os-story-short-scan`、`os-story-import`、`cw-webnovel`、`vn-booming`、`vn-fuck-it`、`vn-bookplan`、`vn-discuss`、`vn-name`、`vn-polish`、`vn-revise`、`vn-sync`、`vn-taste`、`vn-training-ground`、`vn-write`、`ns-novel-studio`、`ns-chief-editor`、`ns-architect`、`ns-lore-master`、`ns-writer`、`ns-editor`、`ns-designer`、`dp-chapter-draft`、`dp-chapter-summary`、`dp-review-consistency`、`dp-review-final-report`、`dp-review-reader`、`dp-set-concept`、`dp-set-outline`、`dp-set-style`、`dp-tool-research`、`dp-using-dreampowers`、`cn-chinese-novelist`
 - **大纲、类型规范与世界观生成（13 个）**：`wf-fantasy`、`wf-mystery`、`wf-dialogue`、`wf-scene`、`wf-romance`、`sm-story-structure`、`sm-fiction-scene`、`qm-apocalypse`、`qm-outline-builder`、`qm-world-rules`、`qm-supporting-cast`、`ss-hard-sci-fi`、`iw-ip-worldbuilding`
@@ -14,11 +14,11 @@
 - **人情世故、职场与体制内（5 个）**：`rs-renqing-shi-gu`、`rq-renqing-shigu`、`gq-workplace-eq`、`tz-tizhi`、`sp-socialization`
 - **文章改写（非小说）（1 个）**：`sh-shuorenhua`
 
-升级到 0.1.65 时，已安装的上述条目会从技能库和所有会话的勾选里移除（它们的引用文件已不随 APK 提供），用户自行导入的 Skill 不受影响。需要时可从 GitHub 链接重新导入。
+升级时，已安装的上述条目会从技能库和所有会话的勾选里移除（它们的引用文件已不随 APK 提供），用户自行导入的 Skill 不受影响。需要时可从 GitHub 链接重新导入。
 
-新增 3 个，均为 MIT，按固定提交原样收录 `SKILL.md` 和 `references/` 下的 Markdown，未收录上游的 Python 脚本与 JSON 基准数据：`se-sepia`（以小说为主的去 AI 味，附中文校准）、`fe-fictional-erotica`（成人向亲密场景，中英双语）、`fp-fiction-prose-style`（英文小说文笔标准）。星数为 2026-10-29 的 GitHub 快照，只作关注度参考，不是写作效果排名。
+0.1.65 新增 3 个 MIT 条目：`se-sepia`（以小说为主的去 AI 味，附中文校准）、`fe-fictional-erotica`（成人向亲密场景，中英双语）、`fp-fiction-prose-style`（英文小说文笔标准）。0.1.66 新增 `ec-erotica-craft`（成人向正文的尺度锚定与用词规则）：上游没有许可证，按个人自用收录，`references/samples.md` 节选自已出版小说。新增条目都按固定提交原样收录 `SKILL.md` 和 `references/` 下的 Markdown，不含上游脚本、评测与 JSON 数据。星数为 2026-10-29 的 GitHub 快照，只作关注度参考，不是写作效果排名。
 
-成人向 8 个，来自 6 个仓库。
+成人向 9 个，来自 7 个仓库。
 
 | ID | 分类 | 来源（固定提交的 SKILL.md） | 提交 | 许可 | 星数 |
 |---|---|---|---|---|---|
@@ -46,6 +46,7 @@
 | `se-sepia` **新增** | 小说写作 | [Nanako0129/sepia](https://github.com/Nanako0129/sepia/blob/fb06be76abeae7dd606960a32f2b10c1d1798e0d/skills/sepia/SKILL.md) | `fb06be76abea` | MIT | ★ 3,537 |
 | `fe-fictional-erotica` **新增** | 成人向 | [rs-skills-lab/fictional-erotica](https://github.com/rs-skills-lab/fictional-erotica/blob/2c6dd6277556b2721d786e495dda2e3459fad6a8/fictional-erotica/SKILL.md) | `2c6dd6277556` | MIT | ★ 9 |
 | `fp-fiction-prose-style` **新增** | 小说写作 | [unkarelian/fiction-prose-style](https://github.com/unkarelian/fiction-prose-style/blob/2f5947ac92e68a7ad620b0c20c41081230cc6d3a/SKILL.md) | `2f5947ac92e6` | MIT | ★ 2 |
+| `ec-erotica-craft` **新增** | 成人向 | [mengqiqi-hash/erotica-craft](https://github.com/mengqiqi-hash/erotica-craft/blob/44bc61667a224597e9e5d0548f21fc42463265b4/SKILL.md) | `44bc61667a22` | 无许可证 · 仅限个人自用 | ★ 0 |
 
 > 以下为 0.1.51 及更早的整理记录，包含 0.1.65 已移除的条目，仅供追溯。
 

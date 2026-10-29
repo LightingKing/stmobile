@@ -47,7 +47,7 @@ class VerbatimSkillsTest {
             val onDisk = dir.walkTopDown().filter { it.isFile }.map { it.relativeTo(dir).invariantSeparatorsPath }.toSet()
             assertEquals("no unlisted or patched copies in $id", listed, onDisk)
         }
-        assertEquals(346, checked)
+        assertEquals(350, checked)
     }
 
     @Test fun storedSkillFileIsUpstreamTextAndThePromptBodyIsItsBody() {
@@ -76,10 +76,10 @@ class VerbatimSkillsTest {
         val ids = loaded.map { it.id.removePrefix("builtin-writing-") }
         assertEquals(OLD_KEPT, ids.take(OLD_KEPT.size))
         assertEquals(NEW, ids.drop(OLD_KEPT.size))
-        assertEquals(24, ids.size)
+        assertEquals(25, ids.size)
         (WITHDRAWN + BuiltinSkills.RETIRED.map { it.removePrefix("builtin-writing-") }).forEach { assertFalse(it, it in ids) }
         val all = BuiltinSkills.loadAll(read).map { it.id.removePrefix("builtin-writing-") }
-        assertEquals(listOf("pt-character-voice", "pt-china-common-sense"), all.drop(24))
+        assertEquals(listOf("pt-character-voice", "pt-china-common-sense"), all.drop(25))
     }
 
     @Test fun skillsRetiredIn0165LeaveTheStoreAndEveryChatSelection() {
@@ -111,7 +111,7 @@ class VerbatimSkillsTest {
         NEW.forEach { id ->
             val description = loaded.single { it.id == "builtin-writing-$id" }.description
             if (id == "anti-ai-slop-writing") assertTrue(id, description.startsWith("GitHub 原版"))
-            else if (id !in setOf("ss-stop-slop", "se-sepia", "fe-fictional-erotica", "fp-fiction-prose-style")) {
+            else if (id !in setOf("ss-stop-slop", "se-sepia", "fe-fictional-erotica", "fp-fiction-prose-style", "ec-erotica-craft")) {
                 assertTrue(id, description.startsWith("开了以后"))
             }
         }
@@ -153,7 +153,7 @@ class VerbatimSkillsTest {
 
     @Test fun adultSkillsStayHiddenUntilEighteenPlusIsConfirmed() {
         val adult = loaded.filter { it.adult }
-        assertEquals(listOf("at-adult-tension-original", "dn-deep-novel", "dp-chapter-adult-original", "fe-fictional-erotica", "hn-continuity", "hn-scene-writing", "hn-worldbuilding", "va-velvet-ascent"), adult.map { it.id.removePrefix("builtin-writing-") }.sorted())
+        assertEquals(listOf("at-adult-tension-original", "dn-deep-novel", "dp-chapter-adult-original", "ec-erotica-craft", "fe-fictional-erotica", "hn-continuity", "hn-scene-writing", "hn-worldbuilding", "va-velvet-ascent"), adult.map { it.id.removePrefix("builtin-writing-") }.sorted())
         val chat = Chat(id = "c", messages = listOf(Message(role = "user", content = "开始")))
         val data = AppData(chats = listOf(chat), skills = loaded)
         adult.forEach { skill ->
@@ -194,7 +194,7 @@ class VerbatimSkillsTest {
     @Test fun skillsTabOffersTheNewCategories() {
         assertEquals(listOf("小说写作", "言情与关系", "角色扮演", "世界观", "社会常识", "成人向"), BuiltinSkills.CATEGORIES)
         val counts = loaded.groupingBy { BuiltinSkills.bundledCategory(it) }.eachCount()
-        assertEquals(mapOf("小说写作" to 9, "角色扮演" to 7, "成人向" to 8), counts)
+        assertEquals(mapOf("小说写作" to 9, "角色扮演" to 7, "成人向" to 9), counts)
     }
 
     private fun gitBlob(bytes: ByteArray): String = MessageDigest.getInstance("SHA-1").run {
@@ -211,7 +211,7 @@ class VerbatimSkillsTest {
         val NEW = listOf(
             "dv-roleplay-modes", "an-roleplay-sandbox", "os-story-deslop", "dp-chapter-direct", "dp-character-style",
             "dp-chapter-adult-original", "at-adult-tension-original", "ds-roleplay-preset-original", "anti-ai-slop-writing",
-            "ss-stop-slop", "se-sepia", "fe-fictional-erotica", "fp-fiction-prose-style"
+            "ss-stop-slop", "se-sepia", "fe-fictional-erotica", "fp-fiction-prose-style", "ec-erotica-craft"
         )
     }
 }

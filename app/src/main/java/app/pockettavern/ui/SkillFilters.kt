@@ -71,7 +71,7 @@ private val bundledSkillUses: Map<String, SkillUse> = buildMap {
     assign(SkillUse.WORKFLOW, "dn-deep-novel")
     assign(SkillUse.PROSE,
         "fp-fiction-prose-style", "tm-dialogue", "dp-chapter-direct",
-        "hn-scene-writing", "dp-chapter-adult-original", "fe-fictional-erotica")
+        "hn-scene-writing", "dp-chapter-adult-original", "fe-fictional-erotica", "ec-erotica-craft")
     assign(SkillUse.REVISION,
         "se-sepia", "ss-stop-slop", "anti-ai-slop-writing", "os-story-deslop", "tm-deslop",
         "tm-continuity", "hn-continuity")

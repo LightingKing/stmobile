@@ -1,10 +1,10 @@
 # GitHub Skills 中文简介、详情和星数
 
-当前版本 0.1.65：共 24 个 GitHub Skill，来自 18 个仓库；其中 NSFW 成人向 8 个。另有 2 个本应用编写的 Skill，不属于本清单。
+当前版本 0.1.66：共 25 个 GitHub Skill，来自 19 个仓库；其中 NSFW 成人向 9 个。另有 2 个本应用编写的 Skill，不属于本清单。
 
-## 0.1.65 当前收录
+## 0.1.66 当前收录
 
-清理标准：只保留能直接改善聊天写作的 Skill——全部 NSFW 成人向、去 AI 味与文笔标准、台词与人物口吻、长篇连贯和角色扮演。给电脑端写作项目用的流程工具、大纲与类型规范、制卡工具、社会常识话术和文章改写不再内置。共移除 63 个：
+0.1.65 清理标准：只保留能直接改善聊天写作的 Skill——全部 NSFW 成人向、去 AI 味与文笔标准、台词与人物口吻、长篇连贯和角色扮演。给电脑端写作项目用的流程工具、大纲与类型规范、制卡工具、社会常识话术和文章改写不再内置。共移除 63 个：
 
 - **小说项目流程与审稿工具（40 个）**：`an-awesome-novel`、`os-story`、`os-story-long-write`、`os-story-short-write`、`os-story-review`、`os-story-long-analyze`、`os-story-short-analyze`、`os-story-long-scan`、`os-story-short-scan`、`os-story-import`、`cw-webnovel`、`vn-booming`、`vn-fuck-it`、`vn-bookplan`、`vn-discuss`、`vn-name`、`vn-polish`、`vn-revise`、`vn-sync`、`vn-taste`、`vn-training-ground`、`vn-write`、`ns-novel-studio`、`ns-chief-editor`、`ns-architect`、`ns-lore-master`、`ns-writer`、`ns-editor`、`ns-designer`、`dp-chapter-draft`、`dp-chapter-summary`、`dp-review-consistency`、`dp-review-final-report`、`dp-review-reader`、`dp-set-concept`、`dp-set-outline`、`dp-set-style`、`dp-tool-research`、`dp-using-dreampowers`、`cn-chinese-novelist`
 - **大纲、类型规范与世界观生成（13 个）**：`wf-fantasy`、`wf-mystery`、`wf-dialogue`、`wf-scene`、`wf-romance`、`sm-story-structure`、`sm-fiction-scene`、`qm-apocalypse`、`qm-outline-builder`、`qm-world-rules`、`qm-supporting-cast`、`ss-hard-sci-fi`、`iw-ip-worldbuilding`
@@ -12,9 +12,9 @@
 - **人情世故、职场与体制内（5 个）**：`rs-renqing-shi-gu`、`rq-renqing-shigu`、`gq-workplace-eq`、`tz-tizhi`、`sp-socialization`
 - **文章改写（非小说）（1 个）**：`sh-shuorenhua`
 
-升级到 0.1.65 时，已安装的上述条目会从技能库和所有会话的勾选里移除（它们的引用文件已不随 APK 提供），用户自行导入的 Skill 不受影响。需要时可从 GitHub 链接重新导入。
+升级时，已安装的上述条目会从技能库和所有会话的勾选里移除（它们的引用文件已不随 APK 提供），用户自行导入的 Skill 不受影响。需要时可从 GitHub 链接重新导入。
 
-新增 3 个，均为 MIT，按固定提交原样收录 `SKILL.md` 和 `references/` 下的 Markdown，未收录上游的 Python 脚本与 JSON 基准数据：`se-sepia`（以小说为主的去 AI 味，附中文校准）、`fe-fictional-erotica`（成人向亲密场景，中英双语）、`fp-fiction-prose-style`（英文小说文笔标准）。星数为 2026-10-29 的 GitHub 快照，只作关注度参考，不是写作效果排名。
+0.1.65 新增 3 个 MIT 条目：`se-sepia`（以小说为主的去 AI 味，附中文校准）、`fe-fictional-erotica`（成人向亲密场景，中英双语）、`fp-fiction-prose-style`（英文小说文笔标准）。0.1.66 新增 `ec-erotica-craft`（成人向正文的尺度锚定与用词规则）：上游没有许可证，按个人自用收录，`references/samples.md` 节选自已出版小说。新增条目都按固定提交原样收录 `SKILL.md` 和 `references/` 下的 Markdown，不含上游脚本、评测与 JSON 数据。星数为 2026-10-29 的 GitHub 快照，只作关注度参考，不是写作效果排名。
 
 | Skill | 简介 | 星数 | 许可 |
 |---|---|---|---|
@@ -42,6 +42,7 @@
 | `se-sepia` **新增** · Sepia · 小说去 AI 味 | GitHub 高星 Skill（附中文校准）：以小说为主的去 AI 味。先修叙事结构——旁白替读者点题、因果过于整齐、情绪只靠身体反应、结局靠成长收束——再处理措辞与句长节奏。适合写章节或回头审稿；逐轮续写时当作自查清单，规则文件较长。 | ★ 3,537 | MIT |
 | `fe-fictional-erotica` **新增** · Fictional Erotica · 成人亲密场景 | 原版中英双语 Skill：成人向亲密场景与情色扮演。台词属于具体人物而不背诵人设，身体、姿势、衣物与关系状态前后连贯，每个节拍都推动身体或情绪变化；露骨程度按你的措辞（如“黄文”“情色”“感官亲密”）判断，不写“不是 X，而是 Y”式解释。 | ★ 9 | MIT |
 | `fp-fiction-prose-style` **新增** · Fiction Prose Style · 小说文笔标准 | 原版英文 Skill：一位读者盲测打磨的小说文笔标准——旁白用视角人物的口吻，台词能“演出来”，每场戏都有在场的人和具体物件，细节点到为止，句子长短交替。规则基于英文阅读偏好，中文需按语义取用；开启后会读取约 1.2 万 tokens 的偏好文件。 | ★ 2 | MIT |
+| `ec-erotica-craft` **新增** · Erotica Craft · 尺度与用词 | 原版中文 Skill：成人向正文的尺度锚定与用词规则——纠正模型写淡、代称、留白切走的倾向，给出身体反应、心理在场和用词密度的基准，并列出器官直呼、声音直接写和去 AI 味的用词要求；不干涉结构与情节，只写成年角色。 | ★ 0 | 无许可证 · 仅限个人自用 |
 
 > 以下为 0.1.51 及更早的中文目录，包含 0.1.65 已移除的条目，仅供追溯。
 

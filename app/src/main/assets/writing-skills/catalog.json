@@ -2068,6 +2068,41 @@
       ],
       "githubStars": 2,
       "gitBlob": "a0675ef5274886d0cb7740d01aed61e73714d919"
+    },
+    {
+      "id": "ec-erotica-craft",
+      "name": "Erotica Craft · 尺度与用词",
+      "category": "成人向",
+      "description": "原版中文 Skill：成人向正文的尺度锚定与用词规则——纠正模型写淡、代称、留白切走的倾向，给出身体反应、心理在场和用词密度的基准，并列出器官直呼、声音直接写和去 AI 味的用词要求；不干涉结构与情节，只写成年角色。",
+      "sourceUrl": "https://github.com/mengqiqi-hash/erotica-craft/blob/44bc61667a224597e9e5d0548f21fc42463265b4/SKILL.md",
+      "commit": "44bc61667a224597e9e5d0548f21fc42463265b4",
+      "license": "UNLICENSED",
+      "licensePath": "licenses/erotica-craft-PERSONAL-USE-NOTICE",
+      "sha256": "48dfe278b84f44d182aa3ae2c28a31311efdd94ed688524b1c4f38a2c2995fb1",
+      "personalUse": true,
+      "adult": true,
+      "files": [
+        {
+          "path": "references/lexicon.md",
+          "upstreamPath": "references/lexicon.md",
+          "sha256": "ad6c0b13133fb2db2bf8b2d5c7297d17e020c77e327686e8d0d1e7d2d947714c",
+          "gitBlob": "142a3c59f390bdf61de3c32b3011326f2f60a930"
+        },
+        {
+          "path": "references/samples.md",
+          "upstreamPath": "references/samples.md",
+          "sha256": "719ac227aa961fbd682b446fe5497601edcf5a5c0160015204a48e44449c1a3a",
+          "gitBlob": "60782fdd836af95eca7c22f78cac891caa038568"
+        },
+        {
+          "path": "references/scale.md",
+          "upstreamPath": "references/scale.md",
+          "sha256": "783cc8e54fe1a48ad11d5c442d183333782f0682c7019f267c694da714db6838",
+          "gitBlob": "0cd52c1b76e320b26dff63bd687542078933796d"
+        }
+      ],
+      "githubStars": 0,
+      "gitBlob": "21e18b944f51879abae8cf40392b00d04ac0d1f1"
     }
   ]
 }

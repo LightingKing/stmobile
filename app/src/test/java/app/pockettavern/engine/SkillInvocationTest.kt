@@ -237,6 +237,7 @@ class SkillInvocationTest {
         val system = (0 until messages.length()).map { messages.getJSONObject(it) }.filter { it.getString("role") == "system" }.joinToString("\n") { it.optString("content") }
         assertTrue(system.contains("正文：需要时读取 references/guide.md"))
         assertTrue(system.contains("不支持工具调用"))
+        assertFalse("unreadable files are not listed", system.contains("【Skill 引用文件】"))
         assertFalse(JSONObject().put("s", system).toString().contains("指南全文"))
     }
 }

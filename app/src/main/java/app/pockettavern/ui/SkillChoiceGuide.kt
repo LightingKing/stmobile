@@ -52,7 +52,7 @@ private val scenarioSuggestions = mapOf(
     SkillScenario.ADULT_STORY to listOf(
         pick("fe-fictional-erotica", SkillSuggestionRole.PRIMARY, "台词属于具体人物，身体和关系状态前后连贯，露骨程度按你的措辞判断。"),
         pick("hn-scene-writing", SkillSuggestionRole.ALTERNATIVE, "面向单个亲密场景的中文写作规范。"),
-        pick("hn-continuity", SkillSuggestionRole.SUPPORT, "跨章关系、情绪和角色状态需要衔接时再加。")
+        pick("ec-erotica-craft", SkillSuggestionRole.SUPPORT, "写得太淡、太含蓄或总用代称时再加，只管尺度和用词。")
     ),
     SkillScenario.ADULT_ROLEPLAY to listOf(
         pick("va-velvet-ascent", SkillSuggestionRole.PRIMARY, "想看状态栏、关系阶段和行动选项，可以先试这一套。"),
@@ -87,6 +87,7 @@ private val specificHints = buildMap<String, SkillChoiceHint> {
     add("tm-continuity", whenToUse = "长篇的时间线、资源、人物认知或状态对不上。", pairing = "有较长前文或状态资料时再加；它不能找回没有发送给模型的内容。")
     add("pt-china-common-sense", whenToUse = "现代中国背景下，人物的生活常识或处事细节出错。", pairing = "只在对应背景下添加；人物设定和具体情境优先。")
     add("fe-fictional-erotica", "hn-scene-writing", "dp-chapter-adult-original", whenToUse = "写虚构成年角色的亲密场景正文。", pairing = "场景写作先选一个；跨章时可加连续性，不需要同时开互动引擎。")
+    add("ec-erotica-craft", whenToUse = "成人场景写得太淡、用代称或在关键处留白切走。", pairing = "辅助项，可配一个成人场景写作主技能；只管尺度和用词，不改情节。")
     add("va-velvet-ascent", whenToUse = "想玩带状态栏、关系阶段和选项的成人向互动。", pairing = "先和其他主互动技能选一个；不想每轮带栏目时改选正文写作。")
     add("at-adult-tension-original", whenToUse = "想试更重 NPC 自主行动与关系状态的成人向互动。", pairing = "先与其他互动引擎选一个；引用需工具模型，手机不运行 DSH Python。")
     add("hn-continuity", whenToUse = "成人向故事的跨章关系、情绪或状态开始混乱。", pairing = "它是辅助，可配一个正文或互动主技能，不必开局就加。")

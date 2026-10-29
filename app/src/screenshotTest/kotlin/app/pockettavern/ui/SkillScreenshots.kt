@@ -302,3 +302,23 @@ fun chatSkillInjectionOrderNarrowLargeTextPreview() {
         }
     }
 }
+
+@PreviewTest
+@Preview(name = "会话 Skill 每轮占用估算", showBackground = true, widthDp = 360, heightDp = 1200, fontScale = 1.3f)
+@androidx.compose.runtime.Composable
+fun chatSkillCostPreview() {
+    // Fixed numbers stand in for ContextEngine estimates; the layout is what is checked here.
+    val costs = mapOf(
+        "builtin-writing-fp-fiction-prose-style" to 12_471, "builtin-writing-dp-chapter-direct" to 17_998,
+        "builtin-writing-tm-continuity" to 1_838, "builtin-writing-tm-dialogue" to 1_461
+    )
+    val selected = setOf("builtin-writing-fp-fiction-prose-style", "builtin-writing-tm-continuity")
+    PocketTheme("light") {
+        Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+            Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)) {
+                SkillCostSummaryLine(skillCostSummary(ChoiceSkills.filter { it.id in selected }.map { it.copy(enabled = true) }, costs, 65_536, adultConfirmed = false))
+                ChatSkillPicker(ChoiceSkills, selected, false, { _, _ -> }, initialScenario = SkillScenario.NOVEL, costs = costs)
+            }
+        }
+    }
+}
