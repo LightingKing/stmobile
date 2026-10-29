@@ -13,7 +13,7 @@ class SkillGuidesTest {
     private val shipped = BuiltinSkills.loadAll { File("src/main/assets", it).readText() }
 
     @Test fun everyBundledSkillHasGuideAndNoStrayGuides() {
-        assertEquals(86, shipped.size)
+        assertEquals(26, shipped.size)
         shipped.forEach { assertNotNull("${it.id} 缺少效果说明", skillGuide(it.id)) }
         assertEquals(shipped.map { it.id }.toSet(), SkillGuides.ids)
     }

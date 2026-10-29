@@ -66,7 +66,7 @@ class BuiltinSkillsTest {
         val skills = BuiltinSkills.load(files::getValue)
 
         assertEquals(
-            listOf("wf-fantasy", "wf-mystery", "wf-dialogue", "wf-scene", "wf-romance", "sm-story-structure", "sm-fiction-scene"),
+            listOf("fx-fantasy", "fx-mystery", "fx-dialogue", "fx-scene", "fx-romance", "fy-story-structure", "fy-fiction-scene"),
             skills.map { it.id.removePrefix("builtin-writing-") }
         )
         assertEquals("幻想写作", skills.first().name)
@@ -259,17 +259,14 @@ class BuiltinSkillsTest {
         assertTrue("writing Skills catalog asset is missing", catalog.isFile)
 
         val loaded = BuiltinSkills.load { relative -> File(root, relative).readText() }
-        assertEquals(84, loaded.size)
-        assertEquals(54, loaded.count { it.source == "GitHub精选 · 小说写作" })
-        assertEquals(1, loaded.count { it.source == "GitHub精选 · 言情与关系" })
-        assertEquals(11, loaded.count { it.source == "GitHub精选 · 角色扮演" })
-        assertEquals(6, loaded.count { it.source == "GitHub精选 · 世界观" })
-        assertEquals(5, loaded.count { it.source == "GitHub精选 · 社会常识" })
-        assertEquals(7, loaded.count { it.source == "GitHub精选 · 成人向" })
+        assertEquals(24, loaded.size)
+        assertEquals(9, loaded.count { it.source == "GitHub精选 · 小说写作" })
+        assertEquals(7, loaded.count { it.source == "GitHub精选 · 角色扮演" })
+        assertEquals(8, loaded.count { it.source == "GitHub精选 · 成人向" })
         assertTrue(loaded.all { it.id.startsWith("builtin-writing-") && !it.enabled && it.permissions.isEmpty() })
         assertTrue(loaded.all { it.sourceLicense in setOf("MIT", "GPL-3.0", "AGPL-3.0", "CC-BY-4.0", BuiltinSkills.PERSONAL_USE_LICENSE) && it.files.containsKey("LICENSE") })
-        assertEquals(8, loaded.count { it.sourceLicense == BuiltinSkills.PERSONAL_USE_LICENSE })
-        assertEquals(listOf("at-adult-tension-original", "dn-deep-novel", "dp-chapter-adult-original", "hn-continuity", "hn-scene-writing", "hn-worldbuilding", "va-velvet-ascent"),
+        assertEquals(3, loaded.count { it.sourceLicense == BuiltinSkills.PERSONAL_USE_LICENSE })
+        assertEquals(listOf("at-adult-tension-original", "dn-deep-novel", "dp-chapter-adult-original", "fe-fictional-erotica", "hn-continuity", "hn-scene-writing", "hn-worldbuilding", "va-velvet-ascent"),
             loaded.filter { it.adult }.map { it.id.removePrefix("builtin-writing-") }.sorted())
     }
 
@@ -288,11 +285,11 @@ class BuiltinSkillsTest {
                 references++
             }
         }
-        assertEquals(988, references)
+        assertEquals(322, references)
         val stateChars = DataCodec.encode(AppData(skills = loaded)).length
         assertTrue("reference text must not be copied into persisted state ($stateChars vs $resolvedChars)", stateChars < resolvedChars)
-        val card = loaded.single { it.id == "builtin-writing-fv-card-author" }
-        assertTrue(BuiltinSkills.readResource(reader, card, "genres/genre-u-wuxia-jianghu.md").orEmpty().isNotBlank())
+        val sepia = loaded.single { it.id == "builtin-writing-se-sepia" }
+        assertTrue(BuiltinSkills.readResource(reader, sepia, "references/languages/zh.md").orEmpty().isNotBlank())
     }
 
     @Test fun webnovelSkillsShipPinnedWithMitLicenseAndReferences() {
@@ -323,7 +320,7 @@ class BuiltinSkillsTest {
         val loaded = BuiltinSkills.load { File(root, it).readText() }
         val chat = Chat(id = "c", messages = listOf(Message(role = "user", content = "开始")))
         var data = AppData(chats = listOf(chat), skills = loaded)
-        listOf("tm-deslop", "tm-dialogue", "tm-continuity", "wf-dialogue", "tt-sp-roleplay").forEach {
+        listOf("tm-deslop", "tm-dialogue", "tm-continuity", "dp-character-style", "tt-sp-roleplay").forEach {
             data = BuiltinSkills.selectForChat(data, "c", "builtin-writing-$it", true)
         }
         val messages = org.json.JSONArray(ContextEngine.build(data, data.chats.single()).messagesJson)
@@ -396,20 +393,20 @@ class BuiltinSkillsTest {
 
     private fun fixtureFiles(): Map<String, String> {
         val source = linkedMapOf(
-            "wf-fantasy" to "幻想写作的原文内容。",
-            "wf-mystery" to "推理写作的原文内容。",
-            "wf-dialogue" to "对白写作的原文内容。",
-            "wf-scene" to "场景写作的原文内容。",
-            "wf-romance" to "言情关系写作的原文内容。",
-            "sm-story-structure" to "故事结构的原文内容。",
-            "sm-fiction-scene" to "小说场景的原文内容。"
+            "fx-fantasy" to "幻想写作的原文内容。",
+            "fx-mystery" to "推理写作的原文内容。",
+            "fx-dialogue" to "对白写作的原文内容。",
+            "fx-scene" to "场景写作的原文内容。",
+            "fx-romance" to "言情关系写作的原文内容。",
+            "fy-story-structure" to "故事结构的原文内容。",
+            "fy-fiction-scene" to "小说场景的原文内容。"
         )
         val names = mapOf(
-            "wf-fantasy" to "幻想写作", "wf-mystery" to "推理写作", "wf-dialogue" to "对白写作",
-            "wf-scene" to "场景写作", "wf-romance" to "言情与关系", "sm-story-structure" to "故事结构",
-            "sm-fiction-scene" to "小说场景"
+            "fx-fantasy" to "幻想写作", "fx-mystery" to "推理写作", "fx-dialogue" to "对白写作",
+            "fx-scene" to "场景写作", "fx-romance" to "言情与关系", "fy-story-structure" to "故事结构",
+            "fy-fiction-scene" to "小说场景"
         )
-        val categories = source.keys.associateWith { if (it == "wf-romance") "言情与关系" else "小说写作" }
+        val categories = source.keys.associateWith { if (it == "fx-romance") "言情与关系" else "小说写作" }
         val files = linkedMapOf<String, String>()
         val entries = source.map { (id, body) ->
             val raw = """
@@ -421,9 +418,9 @@ class BuiltinSkillsTest {
                 $body
             """.trimIndent()
             files["writing-skills/$id/SKILL.md"] = raw
-            val repository = if (id.startsWith("wf-")) "wordflowlab/novel-writer-skills" else "SkillMedev/skills"
-            val path = if (id.startsWith("wf-")) "templates/skills/genre-knowledge/$id/SKILL.md" else "skills/$id/SKILL.md"
-            val licensePath = if (id.startsWith("wf-")) "licenses/wordflowlab-LICENSE" else "licenses/skillmedev-LICENSE"
+            val repository = if (id.startsWith("fx-")) "wordflowlab/novel-writer-skills" else "SkillMedev/skills"
+            val path = if (id.startsWith("fx-")) "templates/skills/genre-knowledge/$id/SKILL.md" else "skills/$id/SKILL.md"
+            val licensePath = if (id.startsWith("fx-")) "licenses/wordflowlab-LICENSE" else "licenses/skillmedev-LICENSE"
             """{"id":"$id","name":"${names.getValue(id)}","category":"${categories.getValue(id)}","description":"固定原文测试","sourceUrl":"https://github.com/$repository/blob/$COMMIT/$path","commit":"$COMMIT","license":"MIT","licensePath":"$licensePath","sha256":"${sha256(raw)}","gitBlob":"${"a".repeat(40)}"}"""
         }
         files["writing-skills/catalog.json"] = "{\"version\":1,\"skills\":[${entries.joinToString(",")}] }"

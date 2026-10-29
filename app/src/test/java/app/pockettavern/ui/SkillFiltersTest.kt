@@ -30,7 +30,7 @@ class SkillFiltersTest {
 
     @Test fun everyBundledMetadataRecordHasAnExplicitPurpose() {
         val bundled = bundledMetadata()
-        assertTrue(bundled.size >= 79)
+        assertEquals(26, bundled.size)
         bundled.forEach { skill ->
             assertFalse("Missing purpose for ${skill.id}", skillUse(skill) in setOf(SkillUse.ALL, SkillUse.CUSTOM))
         }
@@ -43,13 +43,13 @@ class SkillFiltersTest {
     @Test fun adultScopeIsIndependentOfPurpose() {
         val world = builtin("hn-worldbuilding", adult = true)
         val prose = builtin("hn-scene-writing", adult = true)
-        val general = builtin("wf-fantasy")
+        val general = builtin("tm-dialogue")
         val skills = listOf(world, prose, general)
         assertEquals(SkillUse.WORLDBUILDING, skillUse(world))
         assertEquals(SkillUse.PROSE, skillUse(prose))
-        assertEquals(listOf(world, general), filterSkills(skills, SkillFilters(use = SkillUse.WORLDBUILDING)))
-        assertEquals(listOf(world), filterSkills(skills, SkillFilters(use = SkillUse.WORLDBUILDING, content = SkillContentFilter.ADULT)))
-        assertEquals(listOf(general), filterSkills(skills, SkillFilters(use = SkillUse.WORLDBUILDING, content = SkillContentFilter.GENERAL)))
+        assertEquals(listOf(prose, general), filterSkills(skills, SkillFilters(use = SkillUse.PROSE)))
+        assertEquals(listOf(prose), filterSkills(skills, SkillFilters(use = SkillUse.PROSE, content = SkillContentFilter.ADULT)))
+        assertEquals(listOf(general), filterSkills(skills, SkillFilters(use = SkillUse.PROSE, content = SkillContentFilter.GENERAL)))
         assertEquals(listOf(world, prose), filterSkills(skills, SkillFilters(content = SkillContentFilter.ADULT)))
         // Purpose is stable even if a user's content marker or display source changes.
         assertEquals(SkillUse.WORLDBUILDING, skillUse(world.copy(adult = false, source = "自定义显示")))
@@ -58,10 +58,10 @@ class SkillFiltersTest {
     @Test fun countsIgnoreTheirOwnDimensionAndRespectAllOthers() {
         val world = builtin("hn-worldbuilding", adult = true, enabled = true)
         val prose = builtin("hn-scene-writing", adult = true, enabled = true)
-        val general = builtin("wf-fantasy", enabled = true)
-        val disabled = builtin("wf-dialogue")
+        val general = builtin("tm-dialogue", enabled = true)
+        val disabled = builtin("fv-chat-doctor")
         val skills = listOf(world, prose, general, disabled)
-        val filters = SkillFilters(use = SkillUse.WORLDBUILDING, content = SkillContentFilter.ADULT, status = SkillStatusFilter.ENABLED)
+        val filters = SkillFilters(use = SkillUse.PROSE, content = SkillContentFilter.ADULT, status = SkillStatusFilter.ENABLED)
         val purposes = skillUseCounts(skills, filters)
         assertEquals(2, purposes.getValue(SkillUse.ALL))
         assertEquals(1, purposes.getValue(SkillUse.WORLDBUILDING))
@@ -77,7 +77,7 @@ class SkillFiltersTest {
             sourceUrl = "https://github.com/C1audel3/Hnovel/blob/123/SKILL.md",
             content = "never-index-secret", files = mapOf("reference.md" to "never-index-file")
         )
-        val other = builtin("wf-dialogue").copy(name = "节奏与对白", sourceUrl = "https://github.com/other/repo")
+        val other = builtin("tm-dialogue").copy(name = "节奏与对白", sourceUrl = "https://github.com/other/repo")
         val skills = listOf(match, other)
         assertEquals(listOf(match), filterSkills(skills, SkillFilters(query = "  HNOVEL\n中文\t场景 ")))
         assertEquals(listOf(match), filterSkills(skills, SkillFilters(query = "github精选 c1audel3")))
@@ -89,7 +89,7 @@ class SkillFiltersTest {
     }
 
     @Test fun statusAndSelectionAreDifferentAndDoNotMutateInputs() {
-        val enabled = builtin("wf-dialogue", enabled = true)
+        val enabled = builtin("tm-dialogue", enabled = true)
         val disabled = builtin("hn-scene-writing", adult = true)
         val custom = SkillRecord(id = "imported", enabled = true)
         val skills = listOf(enabled, disabled, custom)

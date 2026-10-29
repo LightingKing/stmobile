@@ -120,7 +120,7 @@ private fun SkillGuidePreview() {
     PocketTheme("light") {
         Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                listOf("tm-continuity", "qm-apocalypse", "va-velvet-ascent").forEach { SkillGuideCard(skillGuide("builtin-writing-$it")!!) }
+                listOf("tm-continuity", "se-sepia", "va-velvet-ascent").forEach { SkillGuideCard(skillGuide("builtin-writing-$it")!!) }
             }
         }
     }
@@ -148,7 +148,8 @@ private val LibraryAdultSkills = listOf(
     AdultSkill.copy(id = "builtin-writing-va-velvet-ascent", name = "成人向文字 GalGame", description = "关系阶段、状态栏与选项驱动的互动叙事。"),
     AdultSkill.copy(id = "builtin-writing-dn-deep-novel", name = "成人向长篇小说系统", description = "长篇创作流程、项目记忆与角色状态维护。"),
     AdultSkill.copy(id = "builtin-writing-dp-chapter-adult-original", name = "成人章节写作（原版）", description = "Dreampowers 的可选成人章节模块，保留上游原版。"),
-    AdultSkill.copy(id = "builtin-writing-at-adult-tension-original", name = "成人互动叙事（原版）", description = "DeepSeek 角色互动、关系变化与存档叙事。")
+    AdultSkill.copy(id = "builtin-writing-at-adult-tension-original", name = "成人互动叙事（原版）", description = "DeepSeek 角色互动、关系变化与存档叙事。"),
+    AdultSkill.copy(id = "builtin-writing-fe-fictional-erotica", name = "Fictional Erotica · 成人亲密场景", description = "台词属于具体人物，身体与关系状态前后连贯。")
 )
 
 private val LibrarySkills = listOf(
@@ -207,15 +208,15 @@ fun chatSkillPickerNarrowLargeTextPreview() {
 }
 
 private val ChoiceSkills = LibrarySkills + listOf(
-    RoleplaySkill.copy(id = "builtin-writing-dp-chapter-draft", name = "章节初稿", description = "依据设定和大纲写本章初稿。", enabled = false),
+    RoleplaySkill.copy(id = "builtin-writing-fp-fiction-prose-style", name = "Fiction Prose Style · 小说文笔标准", description = "旁白贴着人物口吻，场面里有人有物，细节点到为止。", enabled = false),
     RoleplaySkill.copy(id = "builtin-writing-tm-dialogue", name = "人物对白", description = "让台词符合角色身份和当下情境。", enabled = false),
     RoleplaySkill.copy(id = "builtin-writing-ds-roleplay-preset-original", name = "DeepSeek 沉浸角色预设", description = "DeepSeek 向角色扮演预设，偏沉浸表演与文件记忆。", enabled = false),
     RoleplaySkill.copy(id = "builtin-writing-tt-sp-roleplay", name = "角色扮演连贯性", description = "让角色扮演保持状态和对话连贯。", enabled = false),
     RoleplaySkill.copy(id = "builtin-writing-an-roleplay-sandbox", name = "角色扮演沙盒", description = "互动角色与场景推进。", enabled = false),
     RoleplaySkill.copy(id = "builtin-writing-tm-continuity", name = "长篇连贯性检查", description = "核查人物关系与跨章连续性。", enabled = false),
-    RoleplaySkill.copy(id = "builtin-writing-vn-write", name = "网文正文写作", description = "根据大纲写章节正文。", enabled = false),
-    RoleplaySkill.copy(id = "builtin-writing-ns-writer", name = "小说写手", description = "章节起草与小说正文。", enabled = false),
-    RoleplaySkill.copy(id = "builtin-writing-wf-dialogue", name = "对白写作", description = "对白、潜台词与动作。", enabled = false)
+    RoleplaySkill.copy(id = "builtin-writing-dp-chapter-direct", name = "场景导演与节奏", description = "动作、情感和对话场景的节奏与张力。", enabled = false),
+    RoleplaySkill.copy(id = "builtin-writing-dp-character-style", name = "角色说话风格档案", description = "为角色建立说话习惯和语言档案。", enabled = false),
+    RoleplaySkill.copy(id = "builtin-writing-se-sepia", name = "Sepia · 小说去 AI 味", description = "先修叙事结构里的 AI 痕迹，再改措辞。", enabled = false)
 )
 
 @androidx.compose.runtime.Composable

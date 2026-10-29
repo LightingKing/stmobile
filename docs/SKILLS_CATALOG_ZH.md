@@ -1,6 +1,49 @@
 # GitHub Skills 中文简介、详情和星数
 
-当前版本 0.1.51：共 84 个 GitHub Skill，来自 31 个仓库；其中 NSFW 成人向 7 个。另有 2 个本应用编写的 Skill，不属于本清单。
+当前版本 0.1.65：共 24 个 GitHub Skill，来自 18 个仓库；其中 NSFW 成人向 8 个。另有 2 个本应用编写的 Skill，不属于本清单。
+
+## 0.1.65 当前收录
+
+清理标准：只保留能直接改善聊天写作的 Skill——全部 NSFW 成人向、去 AI 味与文笔标准、台词与人物口吻、长篇连贯和角色扮演。给电脑端写作项目用的流程工具、大纲与类型规范、制卡工具、社会常识话术和文章改写不再内置。共移除 63 个：
+
+- **小说项目流程与审稿工具（40 个）**：`an-awesome-novel`、`os-story`、`os-story-long-write`、`os-story-short-write`、`os-story-review`、`os-story-long-analyze`、`os-story-short-analyze`、`os-story-long-scan`、`os-story-short-scan`、`os-story-import`、`cw-webnovel`、`vn-booming`、`vn-fuck-it`、`vn-bookplan`、`vn-discuss`、`vn-name`、`vn-polish`、`vn-revise`、`vn-sync`、`vn-taste`、`vn-training-ground`、`vn-write`、`ns-novel-studio`、`ns-chief-editor`、`ns-architect`、`ns-lore-master`、`ns-writer`、`ns-editor`、`ns-designer`、`dp-chapter-draft`、`dp-chapter-summary`、`dp-review-consistency`、`dp-review-final-report`、`dp-review-reader`、`dp-set-concept`、`dp-set-outline`、`dp-set-style`、`dp-tool-research`、`dp-using-dreampowers`、`cn-chinese-novelist`
+- **大纲、类型规范与世界观生成（13 个）**：`wf-fantasy`、`wf-mystery`、`wf-dialogue`、`wf-scene`、`wf-romance`、`sm-story-structure`、`sm-fiction-scene`、`qm-apocalypse`、`qm-outline-builder`、`qm-world-rules`、`qm-supporting-cast`、`ss-hard-sci-fi`、`iw-ip-worldbuilding`
+- **角色卡、世界书与酒馆界面制作（4 个）**：`fv-card-author`、`tc-tavern-design`、`tc-tavern-cards`、`tc-tavern-ui`
+- **人情世故、职场与体制内（5 个）**：`rs-renqing-shi-gu`、`rq-renqing-shigu`、`gq-workplace-eq`、`tz-tizhi`、`sp-socialization`
+- **文章改写（非小说）（1 个）**：`sh-shuorenhua`
+
+升级到 0.1.65 时，已安装的上述条目会从技能库和所有会话的勾选里移除（它们的引用文件已不随 APK 提供），用户自行导入的 Skill 不受影响。需要时可从 GitHub 链接重新导入。
+
+新增 3 个，均为 MIT，按固定提交原样收录 `SKILL.md` 和 `references/` 下的 Markdown，未收录上游的 Python 脚本与 JSON 基准数据：`se-sepia`（以小说为主的去 AI 味，附中文校准）、`fe-fictional-erotica`（成人向亲密场景，中英双语）、`fp-fiction-prose-style`（英文小说文笔标准）。星数为 2026-10-29 的 GitHub 快照，只作关注度参考，不是写作效果排名。
+
+| Skill | 简介 | 星数 | 许可 |
+|---|---|---|---|
+| `hn-scene-writing` · 情欲场景写作 | 原版中文 Skill：成人向小说的场景分级（L1–L6）、节奏、感官描写与写后检查。仅用于明确成年的虚构角色。 | ★ 6 | MIT |
+| `hn-worldbuilding` · 成人向世界观 | 原版中文 Skill：成人向小说的修炼/双修体系、场所与规则设定。仅用于明确成年的虚构角色。 | ★ 6 | MIT |
+| `hn-continuity` · 成人向连续性 | 原版中文 Skill：成人向长篇中的关系进展、好感度、身体与情感状态连续性检查。 | ★ 6 | MIT |
+| `va-velvet-ascent` · 成人向文字 GalGame | 原版 Skill（英文规则、中文游玩）：回合制成人向文字 GalGame 主持，关系分阶段升温、NSFW 0–4 档与故事记忆；上游明确只写成年、合意的虚构角色。 | ★ 30 | MIT |
+| `fv-chat-doctor` · 聊天质量诊断 | 原版中文 Skill：角色扮演聊崩后的诊断——AI 味、OOC、遗忘、剧情推不动、回复过长或过短等问题的定位与修正。 | ★ 31 | MIT |
+| `tt-sp-roleplay` · 多回合扮演连贯性 | 原版英文 Skill：超过约 5 回合的长扮演中，用草稿记录站位、持有物、声线和已发生事实，避免串戏。可用中文游玩。 | ★ 23 | MIT |
+| `jw-game-facilitator` · 文字 RPG 主持人 | 原版英文 Skill：叙事型 RPG 主持——管理场景、扮演 NPC、维持故事连贯，不按预定剧本推进。可用中文游玩。 | ★ 179 | MIT |
+| `tm-deslop` · 去 AI 味 | 原版中文 Skill：去掉网文里的 AI 味——无缘无故的修辞、排比、同义反复、极端词、翻译腔、标点与装饰符号；附去 AI 味清单、句式节奏、情绪外显等 5 份上游参考。 | ★ 94 | MIT |
+| `tm-dialogue` · 网文对话与台词 | 原版中文 Skill：口语化、有潜台词、一人一声的台词与对话；为主要角色定语言指纹，避免所有人一个腔。 | ★ 94 | MIT |
+| `tm-continuity` · 长篇连贯性检查 | 原版中文 Skill：长篇连贯性体检——时间线、资源增减、知情人名单、伤势、战力与情绪关系的前后一致，矛盾定位并给改法。 | ★ 94 | MIT |
+| `dn-deep-novel` · 成人向长篇小说系统 | 开了以后，长篇写作按“回顾前文、分段起草、按禁词表和风格自查”推进，并持续记住角色状态和关系；原版的项目目录、状态机和文档模板作为参考文件附带。 | ★ 21 | MIT |
+| `dv-roleplay-modes` · DeepSeek 角色扮演思考模式 | 开了以后，模型拿到 DeepSeek V4 官方的“角色沉浸 / 纯分析”两种思考模式说明，可按你的要求在思考里写角色内心独白，或只做剧情分析。 | ★ 2,333 | 无许可证 · 仅限个人自用 |
+| `an-roleplay-sandbox` · 角色推演沙盘 | 开了以后，卡剧情时设好舞台、角色和触发条件，模型逐个推演每个角色的行动、台词和神态，你每轮都能改，推到剧情目标为止。 | ★ 845 | AGPL-3.0 |
+| `os-story-deslop` · 网文去 AI 味（三层诊断） | 开了以后，从表达、叙事用笔、故事因果三层找出 AI 腔并改写，保留你的文风和已定剧情。 | ★ 634 | MIT |
+| `dp-chapter-direct` · 场景导演与节奏 | 开了以后，写动作、情感、对话等场景时，模型从句子节奏、微张力到整章张力弧线和风险升级控制叙事节奏。 | ★ 74 | GPL-3.0 |
+| `dp-character-style` · 角色说话风格档案 | 开了以后，为角色建立说话习惯和语言档案，写对白时检查声线是否一致，并用角色“回避不说的话”写潜台词。 | ★ 74 | GPL-3.0 |
+| `dp-chapter-adult-original` · 成人章节写作 · Dreampowers | 开了以后，为成年虚构角色的成人章节提供场景写作流程；来自 Dreampowers 的原版章节技能。 | ★ 74 | GPL-3.0 |
+| `at-adult-tension-original` · 成人互动叙事 · DSH | 开了以后，互动剧情更注重 NPC 的自主决策、人物关系和世界状态；附带原版文本资源，手机端不运行 DSH 的 Python 脚本。 | ★ 408 | 无许可证 · 仅限个人自用 |
+| `ds-roleplay-preset-original` · DeepSeek 沉浸角色预设 · DSH | 开了以后，将 DeepSeek 角色沉浸、酒馆演出和文件记忆预设作为模型参考；原版 YAML 原样保留，手机端不解释 DSH 配置字段。 | ★ 32 | MIT |
+| `anti-ai-slop-writing` · Anti-AI-Slop 去 AI 味 | GitHub 原版英文 Skill：通过结构、句式、标点、准确性和声线约束减少 AI 写作痕迹；明确要求时启用，中文正文也可作为检查清单参考。 | ★ 576 | 无许可证 · 仅限个人自用 |
+| `ss-stop-slop` · Stop Slop · 去 AI 味 | GitHub 高星英文 Skill：从填充、套话、被动句、空泛断言和机械节奏等结构层面减少 AI 写作痕迹；适合作为正文审校或改写时的可选规则，中文输出仍需按语义判断。 | ★ 18,434 | MIT |
+| `se-sepia` **新增** · Sepia · 小说去 AI 味 | GitHub 高星 Skill（附中文校准）：以小说为主的去 AI 味。先修叙事结构——旁白替读者点题、因果过于整齐、情绪只靠身体反应、结局靠成长收束——再处理措辞与句长节奏。适合写章节或回头审稿；逐轮续写时当作自查清单，规则文件较长。 | ★ 3,537 | MIT |
+| `fe-fictional-erotica` **新增** · Fictional Erotica · 成人亲密场景 | 原版中英双语 Skill：成人向亲密场景与情色扮演。台词属于具体人物而不背诵人设，身体、姿势、衣物与关系状态前后连贯，每个节拍都推动身体或情绪变化；露骨程度按你的措辞（如“黄文”“情色”“感官亲密”）判断，不写“不是 X，而是 Y”式解释。 | ★ 9 | MIT |
+| `fp-fiction-prose-style` **新增** · Fiction Prose Style · 小说文笔标准 | 原版英文 Skill：一位读者盲测打磨的小说文笔标准——旁白用视角人物的口吻，台词能“演出来”，每场戏都有在场的人和具体物件，细节点到为止，句子长短交替。规则基于英文阅读偏好，中文需按语义取用；开启后会读取约 1.2 万 tokens 的偏好文件。 | ★ 2 | MIT |
+
+> 以下为 0.1.51 及更早的中文目录，包含 0.1.65 已移除的条目，仅供追溯。
 
 ## 本轮整理：默认只看 NSFW 与精选写作
 

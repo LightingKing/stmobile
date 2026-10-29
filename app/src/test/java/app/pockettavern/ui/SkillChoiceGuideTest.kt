@@ -22,14 +22,16 @@ class SkillChoiceGuideTest {
         }
     }
 
-    @Test fun eachScenarioHasThreeInstalledCandidatesInStableRoleOrder() {
+    @Test fun eachScenarioLeadsWithAnInstalledPrimaryInStableRoleOrder() {
         val skills = bundledMetadata()
-        assertEquals(86, skills.size)
+        assertEquals(26, skills.size)
         SkillScenario.entries.forEach { scenario ->
             val result = suggestSkills(skills.reversed(), scenario)
-            assertEquals("Candidates for $scenario", 3, result.size)
-            assertEquals(SkillSuggestionRole.entries, result.map { it.role })
-            assertEquals(3, result.map { it.skill.id }.toSet().size)
+            // The trimmed catalog has a single common-sense Skill; no unrelated filler is invented.
+            val expected = if (scenario == SkillScenario.COMMON_SENSE) 1 else 3
+            assertEquals("Candidates for $scenario", expected, result.size)
+            assertEquals(SkillSuggestionRole.entries.take(expected), result.map { it.role })
+            assertEquals(expected, result.map { it.skill.id }.toSet().size)
             assertTrue(result.all { it.reason.isNotBlank() })
             result.forEach { assertSame(skills.first { skill -> skill.id == it.skill.id }, it.skill) }
         }

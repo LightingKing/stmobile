@@ -47,7 +47,7 @@ class VerbatimSkillsTest {
             val onDisk = dir.walkTopDown().filter { it.isFile }.map { it.relativeTo(dir).invariantSeparatorsPath }.toSet()
             assertEquals("no unlisted or patched copies in $id", listed, onDisk)
         }
-        assertEquals(1072, checked)
+        assertEquals(346, checked)
     }
 
     @Test fun storedSkillFileIsUpstreamTextAndThePromptBodyIsItsBody() {
@@ -76,10 +76,28 @@ class VerbatimSkillsTest {
         val ids = loaded.map { it.id.removePrefix("builtin-writing-") }
         assertEquals(OLD_KEPT, ids.take(OLD_KEPT.size))
         assertEquals(NEW, ids.drop(OLD_KEPT.size))
-        assertEquals(84, ids.size)
-        WITHDRAWN.forEach { assertFalse(it, it in ids) }
+        assertEquals(24, ids.size)
+        (WITHDRAWN + BuiltinSkills.RETIRED.map { it.removePrefix("builtin-writing-") }).forEach { assertFalse(it, it in ids) }
         val all = BuiltinSkills.loadAll(read).map { it.id.removePrefix("builtin-writing-") }
-        assertEquals(listOf("pt-character-voice", "pt-china-common-sense"), all.drop(84))
+        assertEquals(listOf("pt-character-voice", "pt-china-common-sense"), all.drop(24))
+    }
+
+    @Test fun skillsRetiredIn0165LeaveTheStoreAndEveryChatSelection() {
+        val retired = SkillRecord(id = "builtin-writing-vn-write", name = "章节创作（事件卡）",
+            files = mapOf("references/a.md" to "${BuiltinSkills.ASSET_PREFIX}${"0".repeat(64)}"), enabled = true)
+        val kept = loaded.single { it.id == "builtin-writing-tm-dialogue" }.copy(enabled = true)
+        val imported = SkillRecord(id = "imported-vn-write", name = "我自己导入的同名 Skill")
+        val chat = Chat(id = "c", skillIds = listOf(retired.id, kept.id, imported.id))
+        val saved = AppData(chats = listOf(chat), skills = listOf(retired, kept, imported),
+            settings = app.pockettavern.domain.AppSettings(builtinSkillsSeen = listOf(retired.id, kept.id), builtinSkillsRevision = 4))
+        val merged = BuiltinSkills.merge(saved, loaded)
+        assertTrue(merged.skills.none { it.id == retired.id })
+        assertEquals(listOf(kept.id, imported.id), merged.chats.single().skillIds)
+        assertTrue("user imports are untouched", merged.skills.any { it.id == imported.id })
+        assertTrue(merged.skills.single { it.id == kept.id }.enabled)
+        assertTrue(BuiltinSkills.missing(merged, loaded).none { it.id == retired.id })
+        assertEquals(63, BuiltinSkills.RETIRED.size)
+        assertTrue(BuiltinSkills.RETIRED.none { id -> loaded.any { it.id == id } })
     }
 
     @Test fun everyBundledSkillHasChineseBlurbAndDetail() {
@@ -93,14 +111,14 @@ class VerbatimSkillsTest {
         NEW.forEach { id ->
             val description = loaded.single { it.id == "builtin-writing-$id" }.description
             if (id == "anti-ai-slop-writing") assertTrue(id, description.startsWith("GitHub 原版"))
-            else if (id !in setOf("ss-stop-slop", "cn-chinese-novelist", "sh-shuorenhua")) {
+            else if (id !in setOf("ss-stop-slop", "se-sepia", "fe-fictional-erotica", "fp-fiction-prose-style")) {
                 assertTrue(id, description.startsWith("开了以后"))
             }
         }
     }
 
     @Test fun everyGitHubSkillHasARecordedStarCountAndFirstPartyHasNone() {
-        assertEquals("2026-10-26", catalog.getString("starsCheckedAt"))
+        assertEquals("2026-10-29", catalog.getString("starsCheckedAt"))
         val stars = BuiltinSkills.loadStars(read)
         assertEquals(loaded.map { it.id }.toSet(), stars.keys)
         loaded.forEach { skill ->
@@ -108,7 +126,7 @@ class VerbatimSkillsTest {
             assertTrue(skill.id, star.stars != null && star.stars!! >= 0)
             assertTrue(skill.id, skill.sourceUrl.startsWith("https://github.com/${star.repo}/blob/"))
         }
-        assertEquals(GitHubStars("ai4rpg/tavern-cards", 260, "2026-10-26"), stars.getValue("builtin-writing-tc-tavern-cards"))
+        assertEquals(GitHubStars("Nanako0129/sepia", 3537, "2026-10-29"), stars.getValue("builtin-writing-se-sepia"))
         assertNull(stars["builtin-writing-pt-character-voice"])
         assertNull(stars["builtin-writing-pt-china-common-sense"])
         assertEquals("GitHub 仓库 ★ 260", starsCardLine(GitHubStars("ai4rpg/tavern-cards", 260, "2026-10-22")))
@@ -135,7 +153,7 @@ class VerbatimSkillsTest {
 
     @Test fun adultSkillsStayHiddenUntilEighteenPlusIsConfirmed() {
         val adult = loaded.filter { it.adult }
-        assertEquals(listOf("at-adult-tension-original", "dn-deep-novel", "dp-chapter-adult-original", "hn-continuity", "hn-scene-writing", "hn-worldbuilding", "va-velvet-ascent"), adult.map { it.id.removePrefix("builtin-writing-") }.sorted())
+        assertEquals(listOf("at-adult-tension-original", "dn-deep-novel", "dp-chapter-adult-original", "fe-fictional-erotica", "hn-continuity", "hn-scene-writing", "hn-worldbuilding", "va-velvet-ascent"), adult.map { it.id.removePrefix("builtin-writing-") }.sorted())
         val chat = Chat(id = "c", messages = listOf(Message(role = "user", content = "开始")))
         val data = AppData(chats = listOf(chat), skills = loaded)
         adult.forEach { skill ->
@@ -176,7 +194,7 @@ class VerbatimSkillsTest {
     @Test fun skillsTabOffersTheNewCategories() {
         assertEquals(listOf("小说写作", "言情与关系", "角色扮演", "世界观", "社会常识", "成人向"), BuiltinSkills.CATEGORIES)
         val counts = loaded.groupingBy { BuiltinSkills.bundledCategory(it) }.eachCount()
-        assertEquals(mapOf("小说写作" to 54, "言情与关系" to 1, "角色扮演" to 11, "世界观" to 6, "社会常识" to 5, "成人向" to 7), counts)
+        assertEquals(mapOf("小说写作" to 9, "角色扮演" to 7, "成人向" to 8), counts)
     }
 
     private fun gitBlob(bytes: ByteArray): String = MessageDigest.getInstance("SHA-1").run {
@@ -186,27 +204,14 @@ class VerbatimSkillsTest {
 
     companion object {
         val OLD_KEPT = listOf(
-            "wf-fantasy", "wf-mystery", "wf-dialogue", "wf-scene", "wf-romance", "sm-story-structure", "sm-fiction-scene",
-            "hn-scene-writing", "hn-worldbuilding", "hn-continuity", "va-velvet-ascent", "qm-apocalypse", "qm-outline-builder",
-            "qm-world-rules", "qm-supporting-cast", "ss-hard-sci-fi", "fv-card-author", "fv-chat-doctor", "tt-sp-roleplay",
+            "hn-scene-writing", "hn-worldbuilding", "hn-continuity", "va-velvet-ascent", "fv-chat-doctor", "tt-sp-roleplay",
             "jw-game-facilitator", "tm-deslop", "tm-dialogue", "tm-continuity", "dn-deep-novel"
         )
         val WITHDRAWN = listOf("dp-chapter-adult", "at-adult-tension")
         val NEW = listOf(
-            "dv-roleplay-modes", "an-awesome-novel", "an-roleplay-sandbox",
-            "os-story", "os-story-long-write", "os-story-short-write", "os-story-deslop", "os-story-review",
-            "os-story-long-analyze", "os-story-short-analyze", "os-story-long-scan", "os-story-short-scan", "os-story-import",
-            "cw-webnovel",
-            "vn-booming", "vn-fuck-it", "vn-bookplan", "vn-discuss", "vn-name", "vn-polish", "vn-revise", "vn-sync",
-            "vn-taste", "vn-training-ground", "vn-write",
-            "ns-novel-studio", "ns-chief-editor", "ns-architect", "ns-lore-master", "ns-writer", "ns-editor", "ns-designer",
-            "iw-ip-worldbuilding", "tc-tavern-design", "tc-tavern-cards", "tc-tavern-ui",
-            "rs-renqing-shi-gu", "rq-renqing-shigu", "gq-workplace-eq", "tz-tizhi", "sp-socialization",
-            "dp-chapter-direct", "dp-chapter-draft", "dp-chapter-summary", "dp-character-style", "dp-review-consistency",
-            "dp-review-final-report", "dp-review-reader", "dp-set-concept", "dp-set-outline", "dp-set-style",
-            "dp-tool-research", "dp-using-dreampowers",
+            "dv-roleplay-modes", "an-roleplay-sandbox", "os-story-deslop", "dp-chapter-direct", "dp-character-style",
             "dp-chapter-adult-original", "at-adult-tension-original", "ds-roleplay-preset-original", "anti-ai-slop-writing",
-            "ss-stop-slop", "cn-chinese-novelist", "sh-shuorenhua"
+            "ss-stop-slop", "se-sepia", "fe-fictional-erotica", "fp-fiction-prose-style"
         )
     }
 }

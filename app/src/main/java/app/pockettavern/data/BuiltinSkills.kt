@@ -35,6 +35,27 @@ object BuiltinSkills {
     private const val GITHUB_CATALOG_REVISION = 4
     /** 0.1.16 shipped line-trimmed copies of these withdrawn Skills. */
     private val WITHDRAWN_PATCHED = setOf("builtin-writing-dp-chapter-adult", "builtin-writing-at-adult-tension")
+    /**
+     * Dropped from the catalog in 0.1.65: project workflows, outline and card tools, genre rules,
+     * social etiquette and article rewriting that did not improve chat writing. Their installed
+     * records point at reference assets that are no longer shipped, so they leave the store and
+     * every chat selection together.
+     */
+    internal val RETIRED = setOf(
+        "wf-fantasy", "wf-mystery", "wf-dialogue", "wf-scene", "wf-romance", "sm-story-structure",
+        "sm-fiction-scene", "qm-apocalypse", "qm-outline-builder", "qm-world-rules", "qm-supporting-cast",
+        "ss-hard-sci-fi", "fv-card-author", "an-awesome-novel", "os-story", "os-story-long-write",
+        "os-story-short-write", "os-story-review", "os-story-long-analyze", "os-story-short-analyze",
+        "os-story-long-scan", "os-story-short-scan", "os-story-import", "cw-webnovel", "vn-booming", "vn-fuck-it",
+        "vn-bookplan", "vn-discuss", "vn-name", "vn-polish", "vn-revise", "vn-sync", "vn-taste",
+        "vn-training-ground", "vn-write", "ns-novel-studio", "ns-chief-editor", "ns-architect", "ns-lore-master",
+        "ns-writer", "ns-editor", "ns-designer", "iw-ip-worldbuilding", "tc-tavern-design", "tc-tavern-cards",
+        "tc-tavern-ui", "rs-renqing-shi-gu", "rq-renqing-shigu", "gq-workplace-eq", "tz-tizhi", "sp-socialization",
+        "dp-chapter-draft", "dp-chapter-summary", "dp-review-consistency", "dp-review-final-report",
+        "dp-review-reader", "dp-set-concept", "dp-set-outline", "dp-set-style", "dp-tool-research",
+        "dp-using-dreampowers", "cn-chinese-novelist", "sh-shuorenhua"
+    ).mapTo(HashSet()) { "builtin-writing-$it" }
+    private val WITHDRAWN: Set<String> = WITHDRAWN_PATCHED + RETIRED
 
     /**
      * Reads the catalog and each referenced SKILL.md through the supplied asset reader.
@@ -221,7 +242,7 @@ object BuiltinSkills {
         val hasGitHubCatalog = catalog.any { it.source.startsWith("GitHub精选 · ") }
         val refreshGitHub = hasGitHubCatalog && data.settings.builtinSkillsRevision < GITHUB_CATALOG_REVISION
         val refreshAllGitHub = data.settings.builtinSkillsRevision < 1
-        val skills = data.skills.filterNot { it.id in WITHDRAWN_PATCHED }.map { skill ->
+        val skills = data.skills.filterNot { it.id in WITHDRAWN }.map { skill ->
             val verbatim = byId[skill.id]
             if (refreshGitHub && verbatim != null && verbatim.source.startsWith("GitHub精选 · ") &&
                 (refreshAllGitHub || skill.id == "builtin-writing-dn-deep-novel")) {
@@ -229,7 +250,7 @@ object BuiltinSkills {
             } else skill
         }.toMutableList()
         val chats = data.chats.map { chat ->
-            if (chat.skillIds.none { it in WITHDRAWN_PATCHED }) chat else chat.copy(skillIds = chat.skillIds.filterNot { it in WITHDRAWN_PATCHED })
+            if (chat.skillIds.none { it in WITHDRAWN }) chat else chat.copy(skillIds = chat.skillIds.filterNot { it in WITHDRAWN })
         }
         catalog.forEach { builtin ->
             require(builtin.id.startsWith("builtin-writing-")) { "只能合并内置 writing Skill" }
@@ -255,12 +276,12 @@ object BuiltinSkills {
     /** Missing bundled entries include deletions and entries deferred by the store limit. */
     fun missing(data: AppData, catalog: List<SkillRecord>): List<SkillRecord> {
         val installed = data.skills.mapTo(mutableSetOf()) { it.id }
-        return catalog.filter { it.id !in installed && it.id !in WITHDRAWN_PATCHED }
+        return catalog.filter { it.id !in installed && it.id !in WITHDRAWN }
     }
 
     /** Explicitly restores one original without changing any installed record or chat selection. */
     fun restore(data: AppData, catalog: List<SkillRecord>, id: String): AppData {
-        val builtin = catalog.firstOrNull { it.id == id && it.id !in WITHDRAWN_PATCHED }
+        val builtin = catalog.firstOrNull { it.id == id && it.id !in WITHDRAWN }
             ?: throw IllegalArgumentException("内置 Skill 不存在：$id")
         if (data.skills.any { it.id == id }) return data
         require(data.skills.size < MAX_SKILLS) { "Skills 已达 500 项，请先删除不需要的项目" }

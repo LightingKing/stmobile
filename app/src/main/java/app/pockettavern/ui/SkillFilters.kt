@@ -47,17 +47,18 @@ internal fun defaultSkillLibraryFilters(): SkillFilters =
     SkillFilters(scope = SkillCatalogScope.CURATED)
 
 /**
- * IDs are catalog metadata, not content inspection. Keep this list small and focused on skills that
- * improve prose, dialogue, continuity, or factual boundaries. Adult Skills are always included in
- * the curated view. User-installed Skills remain visible so an import is never hidden unexpectedly.
+ * IDs are catalog metadata, not content inspection. Since 0.1.65 the bundled catalog only keeps
+ * Skills that help chat writing, so the focused view lists every general one: de-AI and prose
+ * standards, dialogue and character voice, continuity, and roleplay. Adult Skills are always
+ * included in the curated view. User-installed Skills remain visible so an import is never hidden
+ * unexpectedly.
  */
 private val CURATED_SKILL_IDS = setOf(
-    // High-star, directly importable writing Skills added after the previous hand-picked set.
-    "ss-stop-slop", "cn-chinese-novelist", "sh-shuorenhua",
-    // Existing MIT story tools with direct value for prose, dialogue and continuity.
-    "os-story-deslop", "os-story-long-write", "tm-continuity", "tm-dialogue",
+    "se-sepia", "fp-fiction-prose-style", "ss-stop-slop", "anti-ai-slop-writing", "os-story-deslop", "tm-deslop",
+    "tm-dialogue", "dp-character-style", "dp-chapter-direct", "tm-continuity",
+    "tt-sp-roleplay", "fv-chat-doctor", "jw-game-facilitator", "an-roleplay-sandbox", "dv-roleplay-modes", "ds-roleplay-preset-original",
     // Existing personal-use and first-party boundaries remain available in the focused view.
-    "anti-ai-slop-writing", "ai-deslop", "pt-no-invention", "pt-canon-boundaries"
+    "ai-deslop", "pt-no-invention", "pt-canon-boundaries", "pt-character-voice", "pt-china-common-sense"
 )
 
 private fun isCuratedSkill(skill: SkillRecord): Boolean =
@@ -67,34 +68,19 @@ private fun isCuratedSkill(skill: SkillRecord): Boolean =
 // These assignments use the catalog's public names and descriptions, never the Skill body.
 private val bundledSkillUses: Map<String, SkillUse> = buildMap {
     fun assign(use: SkillUse, vararg ids: String) = ids.forEach { put("builtin-writing-$it", use) }
-    assign(SkillUse.WORKFLOW,
-        "dn-deep-novel", "ss-hard-sci-fi", "an-awesome-novel", "os-story",
-        "os-story-long-write", "os-story-short-write", "os-story-import", "cw-webnovel",
-        "ns-novel-studio", "ns-chief-editor", "ns-designer", "dp-tool-research", "dp-using-dreampowers")
-    assign(SkillUse.OUTLINE,
-        "sm-story-structure", "qm-apocalypse", "qm-outline-builder", "vn-booming",
-        "vn-bookplan", "ns-architect", "dp-set-outline")
+    assign(SkillUse.WORKFLOW, "dn-deep-novel")
     assign(SkillUse.PROSE,
-        "wf-mystery", "wf-dialogue", "wf-scene", "wf-romance", "sm-fiction-scene",
-        "hn-scene-writing", "tm-dialogue", "vn-fuck-it", "vn-write", "vn-taste",
-        "ns-writer", "dp-chapter-direct", "dp-chapter-draft", "dp-set-style", "dp-chapter-adult-original")
+        "fp-fiction-prose-style", "tm-dialogue", "dp-chapter-direct",
+        "hn-scene-writing", "dp-chapter-adult-original", "fe-fictional-erotica")
     assign(SkillUse.REVISION,
-        "hn-continuity", "tm-deslop", "tm-continuity", "os-story-deslop", "anti-ai-slop-writing", "os-story-review",
-        "os-story-long-analyze", "os-story-short-analyze", "os-story-long-scan", "os-story-short-scan",
-        "vn-polish", "vn-revise", "vn-sync", "ns-editor", "dp-chapter-summary",
-        "dp-review-consistency", "dp-review-final-report", "dp-review-reader", "ss-stop-slop", "sh-shuorenhua")
-    assign(SkillUse.WORKFLOW, "cn-chinese-novelist")
-    assign(SkillUse.CHARACTER, "qm-supporting-cast", "dp-character-style", "pt-character-voice")
-    assign(SkillUse.WORLDBUILDING,
-        "wf-fantasy", "hn-worldbuilding", "qm-world-rules", "vn-discuss", "vn-name",
-        "vn-training-ground", "ns-lore-master", "iw-ip-worldbuilding", "dp-set-concept")
+        "se-sepia", "ss-stop-slop", "anti-ai-slop-writing", "os-story-deslop", "tm-deslop",
+        "tm-continuity", "hn-continuity")
+    assign(SkillUse.CHARACTER, "dp-character-style", "pt-character-voice")
+    assign(SkillUse.WORLDBUILDING, "hn-worldbuilding")
     assign(SkillUse.ROLEPLAY,
         "va-velvet-ascent", "fv-chat-doctor", "tt-sp-roleplay", "jw-game-facilitator",
         "dv-roleplay-modes", "an-roleplay-sandbox", "at-adult-tension-original", "ds-roleplay-preset-original")
-    assign(SkillUse.TAVERN, "fv-card-author", "tc-tavern-design", "tc-tavern-cards", "tc-tavern-ui")
-    assign(SkillUse.SOCIAL,
-        "rs-renqing-shi-gu", "rq-renqing-shigu", "gq-workplace-eq", "tz-tizhi",
-        "sp-socialization", "pt-china-common-sense")
+    assign(SkillUse.SOCIAL, "pt-china-common-sense")
 }
 
 fun skillUse(skill: SkillRecord): SkillUse = bundledSkillUses[skill.id] ?: SkillUse.CUSTOM

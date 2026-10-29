@@ -42,8 +42,8 @@ class FirstPartySkillsTest {
     @Test fun allBundledSkillsAreUpstreamPlusTheTwoFirstParty() {
         val all = BuiltinSkills.loadAll(read)
         val upstream = BuiltinSkills.load(read)
-        assertEquals(86, all.size)
-        assertEquals(84, upstream.size)
+        assertEquals(26, all.size)
+        assertEquals(24, upstream.size)
         assertEquals(ids, all.drop(upstream.size).map { it.id })
         assertTrue("first-party Skills show no star line", BuiltinSkills.loadStars(read).keys.none { it in ids })
         assertTrue("upstream ids never use the first-party marker", upstream.none { it.id.startsWith("builtin-writing-pt-") })

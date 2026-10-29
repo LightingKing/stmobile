@@ -67,6 +67,9 @@ internal fun SkillFilterPanel(
     compact: Boolean = false
 ) {
     val useCounts = skillUseCounts(skills, filters, selectedIds)
+    // Purposes with nothing to show (the trimmed catalog has no outline or card tools) stay out of
+    // the menus; the current choice and “all” remain so a saved filter is never stranded.
+    val shownUses = SkillUse.values().filter { it == SkillUse.ALL || it == filters.use || (useCounts[it] ?: 0) > 0 }
     val contentCounts = skillContentCounts(skills, filters, selectedIds)
     var usesOpen by rememberSaveable { mutableStateOf(false) }
     var statusOpen by rememberSaveable { mutableStateOf(false) }
@@ -112,7 +115,7 @@ internal fun SkillFilterPanel(
                         Text("用途：${filters.use.label} ${useCounts[filters.use] ?: 0}")
                     }
                     DropdownMenu(expanded = usesOpen, onDismissRequest = { usesOpen = false }) {
-                        SkillUse.values().forEach { use ->
+                        shownUses.forEach { use ->
                             DropdownMenuItem(text = { Text("${use.label} · ${useCounts[use] ?: 0}") }, onClick = {
                                 onChange(filters.copy(use = use)); usesOpen = false
                             })
@@ -138,7 +141,7 @@ internal fun SkillFilterPanel(
         }
         if (!compact && showAllUses) {
             FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                SkillUse.values().forEach { use ->
+                shownUses.forEach { use ->
                     FilterChip(
                         selected = filters.use == use,
                         onClick = { onChange(filters.copy(use = use)) },

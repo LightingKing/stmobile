@@ -39,9 +39,9 @@ Pocket Tavern 是一个独立的 Android SillyTavern 风格应用。它使用自
 - **用途和成人标记分开。** 用途包含写作流程、大纲与结构、正文与对白、审稿与修订、角色塑造、世界观设定、互动角色扮演、酒馆制作、社会常识；独立选择全部、通用或 NSFW，不再把用途与内容尺度混成一组分类。Skills 页默认只展示精选写作与 NSFW，完整目录仍可恢复。
 - **库和聊天都能筛选。** 按名称、简介、仓库搜索，按用途、内容和启用状态筛选；显示安装、匹配、NSFW 和当前会话已选数量。切换筛选不会清掉会话选择。
 - **补齐原版条目。** 新增 Dreampowers 成人章节写作、DSH 成人互动叙事和 DeepSeek 沉浸角色预设，并补回 Deep Novel 的 `assets/template/config/instruction.md`。7 项成人向分别是情欲场景写作、成人向世界观、成人向连续性、Velvet Ascent、Deep Novel、Dreampowers 成人章节、DSH 成人互动。
-- **原始字节与兼容范围。** 1072 个上游文件（84 个入口、988 个引用文件）逐个按 SHA-256 和 Git blob 校验。DSH 成人互动的 221 个文本引用已附带；Android 不运行其 51 个 Python 文件。DeepSeek 角色预设的入口实际是 `agent.cordis.yml`，原字节映射为 `SKILL.md` 供模型参考，应用不解释 DSH YAML 配置。上游正文没有改写，中文说明和星数属于界面元数据。
+- **原始字节与兼容范围。** 346 个上游文件（24 个入口、322 个引用文件）逐个按 SHA-256 和 Git blob 校验。DSH 成人互动的 221 个文本引用已附带；Android 不运行其 51 个 Python 文件。DeepSeek 角色预设的入口实际是 `agent.cordis.yml`，原字节映射为 `SKILL.md` 供模型参考，应用不解释 DSH YAML 配置。上游正文没有改写，中文说明和星数属于界面元数据。
 - **升级与恢复。** 保留已有启用状态、权限和会话选择；0.1.51 会补齐新增的 stop-slop、Chinese Novelist 和说人话，其他用户编辑继续保留。曾删除的内置条目会在 Skills 页列为“可恢复的内置原版”，逐项点“安装原版”后默认关闭。旧版本两个删节成人条目继续撤回，新原版使用独立 ID。
-- **中文资料与星数。** 84 个 GitHub 项都有中文简介和详情、2026-10-26 的仓库星数快照（非实时）；另 2 个应用自编项单独标明来源。`daha1216/erotic-game-skill` 本次查询仍返回 404，未计入。
+- **中文资料与星数。** 24 个 GitHub 项都有中文简介和详情、2026-10-29 的仓库星数快照（非实时）；另 2 个应用自编项单独标明来源。`daha1216/erotic-game-skill` 本次查询仍返回 404，未计入。
 - 0.1.18 已重新下载此前的全部 77 个 GitHub Skill。0.1.17–0.1.18 整项跳过上述三个新条目和 Deep Novel 引用文件的说明只适用于历史版本；其他未收录文件见第三方清单。
 
 逐项中文简介、详情和星数见 [GitHub Skills 中文目录](docs/SKILLS_CATALOG_ZH.md)；来源、提交、Git 对象 ID 和跳过原因见 [第三方 Skill 清单](docs/THIRD_PARTY_SKILLS.md)。
@@ -85,8 +85,8 @@ Pocket Tavern 是一个独立的 Android SillyTavern 风格应用。它使用自
 - 文本聊天：支持 Venice/OpenAI 兼容接口和 Anthropic Messages 接口。Provider 的 Base URL 必须是 HTTPS，API Key 保存到 Android Keystore 保护的本地密钥存储中。
 - 角色、系统提示词、全局 Persona、Worldbook、聊天预设、摘要预设和压缩回退均由应用本地数据模型管理。
 - Skills 采用显式启用和权限授予流程；每个 Skill 的文件访问、网络和记忆权限都可以由用户审核。
-- 内置 84 个 GitHub Skills 和 2 个本应用编写的 Skill，全部默认关闭，原文、引用文件和许可证随 APK 提供；[完整来源、哈希与审查清单](docs/THIRD_PARTY_SKILLS.md)。
-  - 用途：写作流程 13 个、大纲与结构 7 个、正文与对白 15 个、审稿与修订 18 个、角色塑造 2 个、世界观设定 9 个、互动角色扮演 8 个、酒馆制作 4 个、社会常识 5 个，共 84 个 GitHub Skill；另有本应用编写的角色说话风格和中国社会常识各 1 个。
+- 内置 24 个 GitHub Skills 和 2 个本应用编写的 Skill，全部默认关闭，原文、引用文件和许可证随 APK 提供；[完整来源、哈希与审查清单](docs/THIRD_PARTY_SKILLS.md)。
+  - 用途：写作流程 1 个、正文与对白 6 个、审稿与修订 7 个、角色塑造 1 个、世界观设定 1 个、互动角色扮演 8 个，共 24 个 GitHub Skill；另有本应用编写的角色说话风格和中国社会常识各 1 个。
   - 内容尺度独立于用途：通用 76 个、NSFW 成人向 7 个（包含上述 2 个自编后的总量）；Skills 库和聊天勾选器共用搜索、用途、尺度与状态筛选，显示匹配数量。
   - 成人向 7 个来自 5 个仓库：Hnovel 的场景写作、世界观、连续性 3 个模块，另有 Velvet Ascent、Deep Novel、Dreampowers 成人章节和 DSH 成人互动。需确认年满 18 岁，只用于虚构成年角色。
   - 已删除的内置 Skill 可在“安装原版”入口恢复，恢复后默认关闭、无工具权限，不自动加入会话。
@@ -149,7 +149,7 @@ pwsh .\package.ps1
 
 内置条目默认禁用且无工具权限；写作正文不依赖工具调用，可用于普通文本模型。若需要工具读写文件、联网或保存记忆，再在详情页授予所需权限，并选用支持工具调用的聊天模型。上游 Skill 中的 Read/Grep 和 `/write` 等是桌面环境约定，不是本应用中的可执行命令。源码中的 `examples/story-continuity/SKILL.md` 是单独的工具验证示例，不属于 GitHub 精选库。
 
-首次安装提供 86 个内置条目（84 个 GitHub Skill、2 个本应用编写的 Skill），其中 7 个成人向 Skill 来自 5 个仓库，全部默认关闭；旧版升级补齐尚未安装过的条目，重启不会重复添加，已删除的条目不会自动恢复，可到“可恢复的内置原版”逐项安装。0.1.51 的 catalog revision 4 会为旧安装补齐新增的 3 个高星写作 Skill，并保留已有启用开关、工具授权和会话选择；更早 revision 的旧安装仍会按迁移逻辑刷新已安装 GitHub 原文。刷新保留启用开关、工具授权和会话选择，其余现有编辑、自编条目与用户自行导入的 Skills 不覆盖。中文简介和详情是界面资料，SKILL.md 保持收录版本的上游原文；完整中文目录见 [GitHub Skills 中文目录](docs/SKILLS_CATALOG_ZH.md)。
+首次安装提供 26 个内置条目（24 个 GitHub Skill、2 个本应用编写的 Skill），其中 8 个成人向 Skill 来自 6 个仓库，全部默认关闭；0.1.65 移除了 63 个不直接改善聊天写作的条目，升级时会从技能库和会话勾选中一并移除，用户自行导入的 Skill 不受影响；旧版升级补齐尚未安装过的条目，重启不会重复添加，已删除的条目不会自动恢复，可到“可恢复的内置原版”逐项安装。0.1.51 的 catalog revision 4 会为旧安装补齐新增的 3 个高星写作 Skill，并保留已有启用开关、工具授权和会话选择；更早 revision 的旧安装仍会按迁移逻辑刷新已安装 GitHub 原文。刷新保留启用开关、工具授权和会话选择，其余现有编辑、自编条目与用户自行导入的 Skills 不覆盖。中文简介和详情是界面资料，SKILL.md 保持收录版本的上游原文；完整中文目录见 [GitHub Skills 中文目录](docs/SKILLS_CATALOG_ZH.md)。
 
 按能力可归为 7 类：工作区列举、工作区读取、工作区写入、网页读取、一般 HTTPS 请求、记忆搜索/保存、Skill 文件读取。源码实际注册的函数名是 8 个：`workspace_list`、`workspace_read`、`workspace_write`、`web_fetch`、`http_request`、`memory_search`、`memory_save`、`skill_read`；其中“网络”包含两个独立函数，“记忆”包含两个独立函数。每个 Skill 初始为禁用且无权限，导入或下载后须由用户审核并明确授予权限。
 
