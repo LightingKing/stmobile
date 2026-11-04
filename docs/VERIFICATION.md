@@ -22,7 +22,7 @@
 **本机部署（这台电脑）：**
 - **迁移私密数据**：之前的私密目录实际位于 Codex 应用的虚拟化 AppData 中（`Packages\OpenAI.Codex_…\LocalCache\Local\PocketTavernServer`），文件带 EFS 加密，计划任务读不到。已把网关 Token、Venice Key、`chats`、`evaluations` 按字节复制到真实的 `%LOCALAPPDATA%\PocketTavernServer`；源文件与副本逐字节一致，手机原有 Token 继续有效。复制过程未输出内容。
 - **计划任务**：`PocketTavernWritingServer` 已安装并运行，服务在 `127.0.0.1:8791` 和 `192.168.1.22:8791` 监听，状态接口返回 `ready=true`。
-- **防火墙**：本机有线网络被 Windows 标为“公用”，为了不让手机局域网连接断掉，安装时使用了 `-AllowPublicNetwork`，规则为“专用、公用”、仅本地子网。
+- **防火墙**：本机有线网络原先被 Windows 标为“公用”，安装时临时使用了 `-AllowPublicNetwork`。经用户同意，已把该网络改为“专用”，规则 `PocketTavernWritingLan` 收紧为只用于专用网络、仅本地子网。检查时发现，这台电脑的 Windows 防火墙三个配置文件都处于关闭状态，也没有注册第三方防火墙，因此这条规则要等防火墙开启后才生效；目前局域网内的设备都能连到 8791，只靠网关 Token 保护。
 
 **验证与交付：**
 - **服务端测试**：Node 测试 **64 项全部通过**（原 41 项，其中 1 项因上述启动问题失败）。新增内容覆盖：逐字转发与不重复、writer 草稿实时转发、autoRevise 不提前发送、中途失败只补发未发送部分、同会话替换、摘要并行、断开释放、错误 Token 限流与隧道来源、状态不含密钥、备份上传、去重、下载、删除、超限与非 ZIP、保留份数、上游连接前与流中空闲超时、慢速但持续的流不被打断，以及旧审校配置兼容。
@@ -33,7 +33,8 @@
 - **APK**：`aapt` 显示 versionName **0.1.68** / versionCode **69**。Release APK 大小 **19,231,178** 字节，SHA-256 `91588532AF0A849CFD63BA119565C8D951A28DF05245A12E4E0521D47AE65779`，已复制到 `C:\Users\Administrator\Desktop\PocketTavern-0.1.68.apk`。`apksigner` v2 验证通过，证书 SHA-256 `88fe7e1b467fbc42b7e9d3cdc10d560c15acf1b9f387aff99b4b69cef878b7e9` 与历史版本一致。
 
 **未完成：**
-- 未在手机上验收电脑连接、自动备份和从电脑恢复；手机经局域网实际访问需要本机网络为专用网络，或保留当前的公用网络放行规则。
+- 未在手机上验收电脑连接、自动备份和从电脑恢复。
+- Windows 防火墙是否开启由用户决定；开启后应在手机上重新确认局域网连接。
 - 逐字转发未用真实的 Venice 请求验证（按约定未发起付费请求），只用本地模拟上游测试。
 - NPS 远程访问未配置：需要在 NPS 服务器后台添加域名和证书，见写作服务 README。
 
