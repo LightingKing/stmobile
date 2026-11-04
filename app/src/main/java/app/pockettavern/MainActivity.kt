@@ -108,7 +108,12 @@ class MainActivity : ComponentActivity(), NativeHost {
         }
     }
     override fun onStart() { super.onStart(); controller.uiVisible = true }
-    override fun onStop() { controller.uiVisible = false; controller.checkpoint(); super.onStop() }
+    override fun onStop() {
+        controller.uiVisible = false
+        controller.checkpoint()
+        if (!isChangingConfigurations) controller.onBackgrounded()
+        super.onStop()
+    }
     override fun importFile(kind: String) { importKind=kind; importer.launch(arrayOf("*/*")) }
     override fun pickAttachment() { attachmentPicker.launch(arrayOf("image/*","audio/*","text/*","application/json","application/octet-stream")) }
     override fun openDoubaoWebResearch(requestId: String, chatId: String, subject: String, categories: List<String>, allowFiction: Boolean, prompt: String) {

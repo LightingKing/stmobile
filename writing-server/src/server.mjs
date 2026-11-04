@@ -1,8 +1,11 @@
 import http from 'node:http';
 import crypto from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import { createUpstream } from './upstream.mjs';
 import { createVault } from './vault.mjs';
 import { runCompletion } from './pipeline.mjs';
+import { BackupError, createBackupStore } from './backups.mjs';
+import { clientAddress, createAuthGuard } from './guard.mjs';
 
 const DEFAULT_CONFIG = {
   host: '127.0.0.1',
@@ -12,6 +15,12 @@ const DEFAULT_CONFIG = {
   upstreamModel: 'deepseek-v4-1-flash-1017',
 };
 const MAX_BODY = 32 * 1024 * 1024;
+const SERVER_VERSION = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version;
+// A phone that stops reading must not make the server buffer a whole generation.
+const MAX_STREAM_BACKLOG = 8 * 1024 * 1024;
+const SUPERSEDE_WAIT_MS = 10_000;
+const UPLOAD_IDLE_MS = 60_000;
+const BACKUP_PATH = /^\/v1\/backups\/(\d{8}-\d{6}-[0-9a-f]{6})$/;
 
 function safeToken(expected, provided) {
   const a = Buffer.from(String(expected || ''));
@@ -19,9 +28,9 @@ function safeToken(expected, provided) {
   return a.length > 0 && a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 
-function sendJson(res, status, body) {
+function sendJson(res, status, body, headers = {}) {
   const text = JSON.stringify(body);
-  res.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' });
+  res.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...headers });
   res.end(text);
 }
 
@@ -67,14 +76,6 @@ function partialPayload(partial) {
   };
 }
 
-function writePartialStream(res, partial) {
-  if (!partial) return;
-  const value = partialPayload(partial);
-  if (value.reasoning) sse(res, { id: value.id, object: 'chat.completion.chunk', choices: [{ index: 0, delta: { reasoning_content: value.reasoning }, finish_reason: null }] });
-  if (value.content) sse(res, { id: value.id, object: 'chat.completion.chunk', choices: [{ index: 0, delta: { content: value.content }, finish_reason: null }] });
-  if (value.tool_calls?.length) sse(res, { id: value.id, object: 'chat.completion.chunk', choices: [{ index: 0, delta: { tool_calls: value.tool_calls }, finish_reason: null }] });
-}
-
 function publicRun(run) {
   const allowed = ['run_id', 'chat_hash', 'model', 'purpose', 'status', 'created_at', 'updated_at', 'stages', 'error', 'warning'];
   return Object.fromEntries(allowed.filter((key) => run[key] !== undefined).map((key) => [key, run[key]]));
@@ -94,33 +95,136 @@ function resultJson(result) {
   };
 }
 
-function writeFinalStream(res, result) {
-  const choiceBase = { index: 0, delta: { role: 'assistant' }, finish_reason: null };
-  sse(res, { id: result.id, object: 'chat.completion.chunk', choices: [choiceBase] });
-  if (result.reasoning) sse(res, { id: result.id, object: 'chat.completion.chunk', choices: [{ index: 0, delta: { reasoning_content: result.reasoning }, finish_reason: null }] });
-  // service_notice stays in pocket_tavern_notice (as in resultJson): a content
-  // delta would be saved as story text and sent back as context next turn.
-  if (result.content) sse(res, { id: result.id, object: 'chat.completion.chunk', choices: [{ index: 0, delta: { content: result.content }, finish_reason: null }] });
-  if (result.tool_calls?.length) sse(res, { id: result.id, object: 'chat.completion.chunk', choices: [{ index: 0, delta: { tool_calls: result.tool_calls }, finish_reason: null }] });
-  sse(res, { id: result.id, object: 'chat.completion.chunk', choices: [{ index: 0, delta: {}, finish_reason: result.finish_reason || (result.tool_calls?.length ? 'tool_calls' : 'stop') }], usage: result.usage || undefined, pocket_tavern_warning: result.warning || undefined, pocket_tavern_notice: result.service_notice || undefined });
-  res.write('data: [DONE]\n\n');
-  res.end();
+function chunk(id, delta) {
+  return { id, object: 'chat.completion.chunk', choices: [{ index: 0, delta, finish_reason: null }] };
 }
 
-export function createServer({ config = {}, vault = null, upstream = null, skills = null } = {}) {
+/**
+ * One SSE answer. Reasoning and text go out as they grow and are never repeated, so the
+ * final frame only carries what is new (later-stage reasoning, tool calls, usage, notices).
+ * service_notice stays in pocket_tavern_notice (as in resultJson): a content delta would be
+ * saved as story text and sent back as context next turn.
+ */
+function answerStream(res, id) {
+  const sent = { role: false, reasoning: '', content: '' };
+  const open = () => !res.destroyed && !res.writableEnded;
+  const role = () => { if (!sent.role) { sent.role = true; sse(res, chunk(id, { role: 'assistant' })); } };
+  function push(result) {
+    if (!result || !open()) return;
+    const reasoning = String(result.reasoning || '');
+    const content = String(result.content || '');
+    // Only text that extends what was sent can go out; a rewritten snapshot cannot be taken back.
+    if (reasoning.length > sent.reasoning.length && reasoning.startsWith(sent.reasoning)) {
+      role(); sse(res, chunk(id, { reasoning_content: reasoning.slice(sent.reasoning.length) })); sent.reasoning = reasoning;
+    }
+    if (content.length > sent.content.length && content.startsWith(sent.content)) {
+      role(); sse(res, chunk(id, { content: content.slice(sent.content.length) })); sent.content = content;
+    }
+  }
+  function finish(result) {
+    if (!open()) return;
+    role();
+    push(result);
+    if (result.tool_calls?.length) sse(res, chunk(id, { tool_calls: result.tool_calls }));
+    sse(res, { id, object: 'chat.completion.chunk', choices: [{ index: 0, delta: {}, finish_reason: result.finish_reason || (result.tool_calls?.length ? 'tool_calls' : 'stop') }], usage: result.usage || undefined, pocket_tavern_warning: result.warning || undefined, pocket_tavern_notice: result.service_notice || undefined });
+    res.write('data: [DONE]\n\n');
+    res.end();
+  }
+  function fail(error, partial) {
+    if (!open()) return;
+    if (partial) {
+      push(partial);
+      if (partial.tool_calls?.length) sse(res, chunk(id, { tool_calls: partial.tool_calls }));
+    }
+    sse(res, { ...errorPayload(error), partial: partialPayload(partial) });
+    res.end();
+  }
+  return { push, finish, fail };
+}
+
+export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null } = {}) {
   const resolved = { ...DEFAULT_CONFIG, ...config };
-  const store = vault || createVault({ dataDir: resolved.dataDir || './writing-server-data' });
-  const remote = upstream || (resolved.upstreamKey ? createUpstream({ baseUrl: resolved.upstreamBaseUrl, key: resolved.upstreamKey }) : null);
+  const dataDir = resolved.dataDir || './writing-server-data';
+  const store = vault || createVault({ dataDir });
+  const backupStore = backups || createBackupStore({ dataDir, keep: resolved.backupKeep ?? 20 });
+  const authGuard = guard || createAuthGuard();
+  const remote = upstream || (resolved.upstreamKey ? createUpstream({ baseUrl: resolved.upstreamBaseUrl, key: resolved.upstreamKey, idleTimeoutMs: resolved.upstreamIdleTimeoutMs }) : null);
   const ready = Boolean(resolved.token && remote);
-  const busy = new Set();
-  let server;
+  const startedAt = new Date();
+  // Generations in flight, one per chat and purpose. A repeat of the same request replaces the old one.
+  const active = new Map();
+
+  async function status(source) {
+    let upstreamHost = '';
+    try { upstreamHost = new URL(resolved.upstreamBaseUrl).hostname; } catch { /* reported as blank */ }
+    return {
+      ok: true, ready, service: 'pocket-tavern-writing-server', version: SERVER_VERSION,
+      started_at: startedAt.toISOString(), uptime_seconds: Math.round((Date.now() - startedAt.getTime()) / 1000),
+      listen: { hosts: resolved.listenHosts || [resolved.host], port: resolved.port },
+      client_address: source,
+      upstream: { configured: Boolean(remote), host: upstreamHost, model: resolved.upstreamModel, idle_timeout_seconds: Math.round((resolved.upstreamIdleTimeoutMs || 180_000) / 1000) },
+      review_skill: resolved.reviewSkillSource?.id || 'none',
+      models: modelList(resolved).data.map((model) => model.id),
+      active_requests: active.size,
+      backups: await backupStore.summary(),
+      features: ['live_stream', 'supersede', 'backups', 'auth_throttle'],
+    };
+  }
+
+  async function handleBackups(req, res, parsed) {
+    if (parsed.pathname === '/v1/backups' && req.method === 'GET') return sendJson(res, 200, { object: 'list', data: await backupStore.list() });
+    if (parsed.pathname === '/v1/backups' && req.method === 'POST') {
+      const type = String(req.headers['content-type'] || '').split(';')[0].trim().toLowerCase();
+      if (!['application/zip', 'application/octet-stream'].includes(type)) return sendJson(res, 415, { error: { message: '备份必须以 application/zip 上传', code: 'unsupported_media_type' } });
+      const length = req.headers['content-length'] === undefined ? null : Number(req.headers['content-length']);
+      if (length !== null && (!Number.isSafeInteger(length) || length < 0)) return sendJson(res, 400, { error: { message: 'Content-Length 无效' } });
+      // Slow mobile uploads are fine; a stalled one must not hold the upload slot forever.
+      req.setTimeout(UPLOAD_IDLE_MS, () => req.destroy(new BackupError('备份上传超时', 408, 'backup_timeout')));
+      try {
+        const meta = await backupStore.save(req, { declaredLength: length, device: req.headers['x-pocket-device'], appVersion: req.headers['x-pocket-app-version'], reason: req.headers['x-pocket-backup-reason'] });
+        return sendJson(res, meta.duplicate ? 200 : 201, meta);
+      } catch (error) {
+        const known = error instanceof BackupError;
+        if (!known) console.error('Backup upload failed:', error?.code || error?.message);
+        if (!res.headersSent && !res.destroyed) return sendJson(res, known ? error.status : 400, { error: { message: known ? error.message : '备份上传失败', code: known ? error.code : 'backup_failed' } }, { connection: 'close' });
+      } finally {
+        req.socket?.setTimeout(0);
+      }
+      return undefined;
+    }
+    const match = parsed.pathname.match(BACKUP_PATH);
+    if (match && req.method === 'GET') {
+      const backup = await backupStore.open(match[1]);
+      if (!backup) return sendJson(res, 404, { error: { message: '备份不存在' } });
+      res.writeHead(200, {
+        'content-type': 'application/zip', 'content-length': String(backup.size), 'cache-control': 'no-store',
+        'content-disposition': `attachment; filename="pocket-tavern-${backup.meta.id}.zip"`, 'x-pocket-sha256': backup.meta.sha256,
+      });
+      backup.stream().on('error', (error) => res.destroy(error)).pipe(res);
+      return undefined;
+    }
+    if (match && req.method === 'DELETE') {
+      return (await backupStore.remove(match[1])) ? sendJson(res, 200, { deleted: match[1] }) : sendJson(res, 404, { error: { message: '备份不存在' } });
+    }
+    return sendJson(res, 404, { error: { message: '路径不存在' } });
+  }
 
   async function handler(req, res) {
     const parsed = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
     if (parsed.pathname === '/healthz' && req.method === 'GET') return sendJson(res, 200, { ok: true, ready });
     const authorization = String(req.headers.authorization || '');
-    if (!resolved.token || !authorization.startsWith('Bearer ') || !safeToken(resolved.token, authorization.slice(7))) return sendJson(res, 401, { error: { message: '未授权', type: 'auth_error' } });
+    if (!authorization.startsWith('Bearer ')) return sendJson(res, 401, { error: { message: '未授权', type: 'auth_error' } });
+    const source = clientAddress(req, [resolved.host]);
+    const retryAfter = authGuard.retryAfter(source);
+    if (retryAfter) return sendJson(res, 429, { error: { message: '令牌错误次数过多，请稍后再试', type: 'auth_throttled' } }, { 'retry-after': String(retryAfter) });
+    if (!resolved.token || !safeToken(resolved.token, authorization.slice(7))) {
+      if (authGuard.fail(source)) console.warn(`Wrong gateway token repeated from ${source}; refusing it for 15 minutes.`);
+      return sendJson(res, 401, { error: { message: '未授权', type: 'auth_error' } });
+    }
+    authGuard.succeed(source);
     if (parsed.pathname === '/v1/models' && req.method === 'GET') return sendJson(res, 200, modelList(resolved));
+    if (parsed.pathname === '/v1/pocket/status' && req.method === 'GET') return sendJson(res, 200, await status(source));
+    if (parsed.pathname === '/v1/backups' || parsed.pathname.startsWith('/v1/backups/')) return handleBackups(req, res, parsed);
     if (parsed.pathname === '/v1/runs' && req.method === 'GET') {
       const chatId = parsed.searchParams.get('chat_id') || '';
       if (!chatId) return sendJson(res, 400, { error: { message: '缺少 chat_id' } });
@@ -154,18 +258,33 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
     if (metadata.pocket_tavern_chat_id !== undefined && (typeof metadata.pocket_tavern_chat_id !== 'string' || chatId.length > 200)) return sendJson(res, 400, { error: { message: '会话 ID 格式无效' } });
     if (metadata.pocket_tavern_purpose !== undefined && (typeof metadata.pocket_tavern_purpose !== 'string' || !['chat', 'summary', 'compact', 'rebuild'].includes(metadata.pocket_tavern_purpose))) return sendJson(res, 400, { error: { message: '请求用途无效' } });
     if (body.model === 'pocket-writer' && !chatId) return sendJson(res, 400, { error: { message: 'pocket-writer 缺少会话 ID' } });
-    const lockId = chatId || `direct-${crypto.createHash('sha256').update(JSON.stringify(body.messages)).digest('hex')}`;
-    if (busy.has(lockId)) return sendJson(res, 409, { error: { message: '同一会话已有运行中的请求', type: 'busy' } });
-    busy.add(lockId);
-    const abort = new AbortController();
+    // A summary may run beside the chat reply, so the purpose is part of the lock.
+    const lockId = chatId ? `${chatId}\u0000${metadata.pocket_tavern_purpose || 'chat'}` : `direct-${crypto.createHash('sha256').update(JSON.stringify(body.messages)).digest('hex')}`;
+    const previous = active.get(lockId);
+    if (previous) {
+      // The phone sent the same request again, usually after its connection dropped: the newer one wins.
+      previous.superseded = true;
+      previous.abort.abort();
+      await Promise.race([previous.done, new Promise((resolve) => setTimeout(resolve, SUPERSEDE_WAIT_MS).unref())]);
+      if (active.has(lockId)) return sendJson(res, 409, { error: { message: '同一会话已有运行中的请求', type: 'busy' } });
+    }
+    let release;
+    const entry = { abort: new AbortController(), superseded: false, done: new Promise((resolve) => { release = resolve; }) };
+    active.set(lockId, entry);
+    const abort = entry.abort;
     const onClose = () => { if (!res.writableEnded) abort.abort(); };
     req.once('aborted', onClose);
     res.once('close', onClose);
     const stream = body.stream !== false;
-    if (stream) res.writeHead(200, { 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-cache, no-store', connection: 'keep-alive' });
+    const answer = stream ? answerStream(res, `chatcmpl-${crypto.randomUUID()}`) : null;
+    if (stream) res.writeHead(200, { 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-cache, no-store', connection: 'keep-alive', 'x-accel-buffering': 'no' });
     let heartbeat = null;
     try {
       const result = await runCompletion({ request: body, config: resolved, vault: store, upstream: remote, signal: abort.signal, skills,
+        onProgress: stream ? (_stage, partial) => {
+          answer.push(partial);
+          if (res.writableLength > MAX_STREAM_BACKLOG) abort.abort();
+        } : null,
         onStage: async (name, status) => {
           if (!stream) return;
           comment(res, `stage=${name}; status=${status}`);
@@ -177,25 +296,31 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
             heartbeat = null;
           }
         } });
-      if (stream) writeFinalStream(res, result); else sendJson(res, 200, resultJson(result));
+      if (stream) answer.finish(result); else sendJson(res, 200, resultJson(result));
     } catch (error) {
-      const partial = !abort.signal.aborted ? partialPayload(error.partial) : undefined;
-      if (!res.headersSent) sendJson(res, error.status || 502, { ...errorPayload(error), partial });
-      else if (stream && !res.writableEnded) {
-        if (partial) writePartialStream(res, error.partial);
-        sse(res, { ...errorPayload(error), partial });
-        res.end();
-      }
+      const reported = entry.superseded ? Object.assign(new Error('同一会话有新的请求，本次已取消'), { code: 'superseded', status: 409 }) : error;
+      const partial = !abort.signal.aborted ? error.partial : undefined;
+      if (!res.headersSent) sendJson(res, reported.status || 502, { ...errorPayload(reported), partial: partialPayload(partial) });
+      else if (stream) answer.fail(reported, partial);
     } finally {
       if (heartbeat) clearInterval(heartbeat);
-      busy.delete(lockId);
+      if (active.get(lockId) === entry) active.delete(lockId);
+      release();
       req.off('aborted', onClose);
       res.off('close', onClose);
     }
   }
 
-  server = http.createServer((req, res) => { handler(req, res).catch((error) => { if (!res.headersSent) sendJson(res, 500, errorPayload(error)); else res.destroy(error); }); });
+  const requestListener = (req, res) => { handler(req, res).catch((error) => { if (!res.headersSent) sendJson(res, 500, errorPayload(error)); else res.destroy(error); }); };
+  const server = http.createServer(requestListener);
+  // Notice phones that vanished without closing the connection (Wi-Fi lost, app killed).
+  server.on('connection', (socket) => socket.setKeepAlive(true, 30_000));
+  server.pocket = {
+    requestListener,
+    activeRequests: () => active.size,
+    abortAll: () => { for (const item of active.values()) item.abort.abort(); },
+  };
   return server;
 }
 
-export { DEFAULT_CONFIG, MAX_BODY, modelList, safeToken };
+export { DEFAULT_CONFIG, MAX_BODY, SERVER_VERSION, modelList, safeToken };

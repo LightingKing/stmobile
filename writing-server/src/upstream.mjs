@@ -97,7 +97,7 @@ async function readResponse(response, limit = 64 * 1024 * 1024) {
   return Buffer.concat(chunks).toString('utf8');
 }
 
-async function parseSse(stream, { onEvent } = {}) {
+async function parseSse(stream, { onProgress, idle } = {}) {
   const result = newResult();
   let buffer = '';
   let doneSignal = false;
@@ -110,7 +110,7 @@ async function parseSse(stream, { onEvent } = {}) {
     let json;
     try { json = JSON.parse(value); } catch (error) { throw new UpstreamError('上游 SSE 数据格式无效', { code: 'invalid_stream', partial: result, cause: error }); }
     applyEvent(result, json);
-    onEvent?.(json);
+    onProgress?.(result);
   };
   try {
     for await (const chunk of stream) {
@@ -126,19 +126,34 @@ async function parseSse(stream, { onEvent } = {}) {
     if (buffer.trim()) await consume(buffer.trim());
   } catch (error) {
     if (error instanceof UpstreamError) throw error;
+    if (idle?.fired) throw idleError(idle, result, error);
     throw new UpstreamError(`上游流读取失败：${error?.message || '网络错误'}`, { code: 'stream_error', partial: result, cause: error });
   }
   if (!doneSignal || !result.finish_reason) throw new UpstreamError('上游流在完成前结束', { code: 'truncated_stream', partial: result });
   return result;
 }
 
-function requestHttp(url, { headers, body, signal }) {
+function idleError(idle, partial, cause) {
+  return new UpstreamError(`上游 ${Math.round(idle.ms / 1000)} 秒没有返回任何数据，已中止本次请求`, { status: 504, code: 'upstream_idle_timeout', partial, cause });
+}
+
+/**
+ * `idle.ms` bounds silence on the socket, both before the response headers and between stream chunks.
+ * Each call gets its own connection so the idle timer never outlives it on a pooled socket.
+ */
+function requestHttp(url, { headers, body, signal, idle }) {
   const transport = url.protocol === 'https:' ? https : http;
   return new Promise((resolve, reject) => {
     let settled = false;
-    const req = transport.request(url, { method: 'POST', headers, timeout: 0 }, (response) => {
+    const req = transport.request(url, { method: 'POST', headers, agent: false }, (response) => {
       settled = true;
       resolve(response);
+    });
+    req.setTimeout(idle.ms, () => {
+      idle.fired = true;
+      const error = Object.assign(new Error('upstream idle'), { code: 'UPSTREAM_IDLE' });
+      req.destroy(error);
+      if (!settled) reject(error);
     });
     const abort = () => {
       const error = Object.assign(new Error('请求已取消'), { name: 'AbortError', code: 'ABORT_ERR' });
@@ -154,19 +169,22 @@ function requestHttp(url, { headers, body, signal }) {
   });
 }
 
-export function createUpstream({ baseUrl, key }) {
+export function createUpstream({ baseUrl, key, idleTimeoutMs = 180_000 }) {
   if (!baseUrl) throw new Error('upstreamBaseUrl is required');
   const endpoint = new URL('chat/completions', `${String(baseUrl).replace(/\/+$/, '')}/`);
   return {
-    async complete({ body, signal, onEvent } = {}) {
+    /** `onProgress(result)` sees the accumulated result after every SSE event. */
+    async complete({ body, signal, onProgress } = {}) {
+      const idle = { ms: idleTimeoutMs, fired: false };
       let response;
       try {
         response = await requestHttp(endpoint, {
           headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json', accept: 'text/event-stream, application/json' },
-          body: JSON.stringify(body), signal,
+          body: JSON.stringify(body), signal, idle,
         });
       } catch (error) {
         if (error?.name === 'AbortError') throw error;
+        if (idle.fired) throw idleError(idle, null, error);
         throw new UpstreamError(`连接上游失败：${error?.message || '网络错误'}`, { code: 'network_error', cause: error });
       }
       if (response.statusCode < 200 || response.statusCode >= 300) {
@@ -175,7 +193,13 @@ export function createUpstream({ baseUrl, key }) {
       }
       const type = String(response.headers['content-type'] || '');
       if (type.toLowerCase().includes('application/json')) {
-        const text = await readResponse(response);
+        let text;
+        try { text = await readResponse(response); }
+        catch (error) {
+          if (error instanceof UpstreamError) throw error;
+          if (idle.fired) throw idleError(idle, null, error);
+          throw new UpstreamError(`上游响应读取失败：${error?.message || '网络错误'}`, { code: 'stream_error', cause: error });
+        }
         let json;
         try { json = JSON.parse(text); } catch (error) { throw new UpstreamError('上游 JSON 响应无效', { code: 'invalid_json', cause: error }); }
         if (json?.error) throw new UpstreamError(json.error.message || '上游返回错误', { code: 'upstream_error' });
@@ -183,7 +207,7 @@ export function createUpstream({ baseUrl, key }) {
         if (!result.finish_reason) throw new UpstreamError('上游 JSON 缺少 finish_reason', { code: 'missing_finish_reason', partial: result });
         return result;
       }
-      return parseSse(response, { onEvent });
+      return parseSse(response, { onProgress, idle });
     },
   };
 }

@@ -4,9 +4,11 @@
   "upstreamBaseUrl": "https://api.venice.ai/api/v1",
   "upstreamModel": "deepseek-v4-1-flash-1017",
   "contextTokens": 1000000,
-  "reviewSkill": "sh-shuorenhua",
+  "reviewSkill": "ss-stop-slop",
   "reasoningEffort": "default",
   "reviewReasoningEffort": "none",
   "autoRevise": false,
+  "upstreamIdleTimeoutSec": 180,
+  "backupKeep": 20,
   "includeVeniceSystemPrompt": false
 }

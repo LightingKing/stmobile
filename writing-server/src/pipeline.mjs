@@ -95,7 +95,11 @@ function stage(name, status, result = null, extra = {}) {
   return { name, status, ...(result ? { finish_reason: result.finish_reason, usage: result.usage } : {}), ...extra };
 }
 
-export async function runCompletion({ request, config, vault, upstream, signal, onStage = async () => {} }) {
+/**
+ * `onProgress(stage, result)` receives the accumulated text of a stage that is
+ * certain to become the answer, so it can be forwarded while it is generated.
+ */
+export async function runCompletion({ request, config, vault, upstream, signal, onStage = async () => {}, onProgress = null }) {
   const model = String(request.model || '');
   const metadata = request.metadata && typeof request.metadata === 'object' ? request.metadata : {};
   const chatId = String(metadata.pocket_tavern_chat_id || '').trim();
@@ -105,10 +109,10 @@ export async function runCompletion({ request, config, vault, upstream, signal, 
   const run = await vault.startRun({ chatId: vaultChatId, model, purpose, request });
   let current = run;
   const totalUsage = {};
-  const call = async (name, body) => {
+  const call = async (name, body, live = false) => {
     await onStage(name, 'started');
     try {
-      const result = await upstream.complete({ body, signal });
+      const result = await upstream.complete({ body, signal, onProgress: live && onProgress ? (partial) => onProgress(name, partial) : undefined });
       Object.assign(totalUsage, mergeUsage(totalUsage, result.usage));
       current = await vault.updateRun(current, { stages: [...(current.stages || []), stage(name, 'complete', result)] });
       await onStage(name, 'complete', result);
@@ -142,7 +146,9 @@ export async function runCompletion({ request, config, vault, upstream, signal, 
 
   try {
     const direct = model === 'pocket-direct' || PURPOSE_DIRECT.has(purpose);
-    const draft = await call(direct ? 'direct' : 'draft', requestBody(request, config.upstreamModel, true, config));
+    // Without auto-revision every writer outcome (pass, notice or fallback) returns the draft text.
+    const draftIsAnswer = direct || config.autoRevise !== true;
+    const draft = await call(direct ? 'direct' : 'draft', requestBody(request, config.upstreamModel, true, config), draftIsAnswer);
     current = await vault.updateRun(current, { draft });
     if (!draft.content && !draft.tool_calls?.length && !['content_filter', 'length'].includes(draft.finish_reason)) {
       throw new UpstreamError('上游返回空正文，已归档且不会把空结果作为回答', { code: 'empty_response', partial: draft });

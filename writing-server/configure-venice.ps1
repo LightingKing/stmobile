@@ -1,5 +1,6 @@
-param([string]$KeyFile='')
+﻿param([string]$KeyFile='')
 $ErrorActionPreference='Stop'
+if($PSHOME -like '*\WindowsApps\*'){throw 'This is the Microsoft Store PowerShell, which keeps AppData in its own package folder. Run the script with Windows PowerShell (powershell.exe) instead.'}
 $taskData=Join-Path $env:LOCALAPPDATA 'PocketTavernServer'
 New-Item -ItemType Directory -Path $taskData -Force | Out-Null
 $taskSid=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value

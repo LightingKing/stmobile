@@ -100,4 +100,12 @@ interface AppActions {
     fun setStickerPackEnabled(id: String, enabled: Boolean) { }
     fun setChatStickerFrequency(chatId: String, frequency: String) { }
     fun stickerFile(sticker: Sticker): java.io.File? = null
+    /** Settings → 电脑连接: asks the PC writing server for its status. */
+    fun checkPcLink() { }
+    fun backupToPc() { }
+    fun loadPcBackups() { }
+    /** Sends the current data to the PC as a safety copy, then restores [backupId] through the normal restore. */
+    fun restoreFromPc(backupId: String) { }
+    fun setPcAutoBackup(enabled: Boolean) { }
+    fun choosePcProvider(providerId: String) { }
 }

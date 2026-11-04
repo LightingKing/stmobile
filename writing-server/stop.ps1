@@ -1,12 +1,20 @@
-$ErrorActionPreference='Stop'
-$taskData=Join-Path $env:LOCALAPPDATA 'PocketTavernServer'
-$taskPidFile=Join-Path $taskData 'server.pid'
-if(!(Test-Path -LiteralPath $taskPidFile)){Write-Output 'No writing service PID file.'; exit 0}
-$taskId=0
-if(![int]::TryParse([IO.File]::ReadAllText($taskPidFile).Trim(),[ref]$taskId)){throw 'Invalid PID file; no process stopped.'}
-$taskMain=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot 'src\main.mjs'))
-$taskProcess=Get-CimInstance Win32_Process -Filter "ProcessId=$taskId" -ErrorAction SilentlyContinue
-if(!$taskProcess){Write-Output 'Writing service is already stopped.'; exit 0}
-if(!$taskProcess.CommandLine.Contains($taskMain)){throw 'PID belongs to another program; no process stopped.'}
-Stop-Process -Id $taskId
-Write-Output 'Writing service stopped. Existing run files remain in the private directory.'
+﻿$ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot 'scripts\windows-common.ps1')
+$dir = Get-PocketDataDir
+$server = Get-PocketServerProcess $dir
+$supervisor = Get-PocketSupervisorProcess $dir
+if (!$server -and !$supervisor) { Write-Output 'Writing service is already stopped.'; exit 0 }
+$stopFile = Join-Path $dir 'stop.request'
+[IO.File]::WriteAllText($stopFile, 'stop')
+# The server lets generations in progress finish for up to 60 s before it exits.
+if ($server) {
+  Write-Output 'Stopping the writing service (running generations get up to 60 s to finish)...'
+  Wait-Process -Id $server.ProcessId -Timeout 75 -ErrorAction SilentlyContinue
+  if (Get-Process -Id $server.ProcessId -ErrorAction SilentlyContinue) { Stop-Process -Id $server.ProcessId -Force }
+}
+if ($supervisor) {
+  Wait-Process -Id $supervisor.ProcessId -Timeout 15 -ErrorAction SilentlyContinue
+  if (Get-Process -Id $supervisor.ProcessId -ErrorAction SilentlyContinue) { Stop-Process -Id $supervisor.ProcessId -Force }
+}
+Remove-Item -LiteralPath $stopFile -ErrorAction SilentlyContinue
+Write-Output 'Writing service stopped. Run files and backups remain in the private directory.'

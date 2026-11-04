@@ -5,6 +5,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isIP } from 'node:net';
 
+const REVIEW_SKILLS = new Set(['none', 'ss-stop-slop']);
+const DEFAULT_REVIEW_SKILL = 'ss-stop-slop';
+// sh-shuorenhua left the pinned catalog in app 0.1.65; configs written before then keep starting.
+const RETIRED_REVIEW_SKILLS = { 'sh-shuorenhua': DEFAULT_REVIEW_SKILL };
+
+function boundedInteger(value, fallback, min, max, label) {
+  if (value === undefined) return fallback;
+  if (!Number.isInteger(value) || value < min || value > max) throw new Error(`${label}配置无效`);
+  return value;
+}
+
 export function isPrivateIpv4(host) {
   if (isIP(host) !== 4) return false;
   const [a, b] = host.split('.').map(Number);
@@ -48,9 +59,9 @@ export async function loadConfig(dataDir = defaultDataDir()) {
   if (token.length < 32 || /\s/.test(token)) throw new Error('网关 Token 无效');
   const upstreamKey = (process.env.VENICE_API_KEY || await readPrivateText(path.join(dataDir, 'venice-key.txt'))).trim();
   if (upstreamKey && /\s/.test(upstreamKey)) throw new Error('Venice Key 必须为单行');
-  const allowedSkills = new Set(['none', 'sh-shuorenhua', 'ss-stop-slop']);
-  const reviewSkill = raw.reviewSkill ?? 'sh-shuorenhua';
-  if (!allowedSkills.has(reviewSkill)) throw new Error('审校 Skill 配置无效');
+  const requestedSkill = raw.reviewSkill ?? DEFAULT_REVIEW_SKILL;
+  const reviewSkill = RETIRED_REVIEW_SKILLS[requestedSkill] ?? requestedSkill;
+  if (!REVIEW_SKILLS.has(reviewSkill)) throw new Error('审校 Skill 配置无效');
   let reviewSkillText = '';
   let reviewSkillSource = null;
   if (reviewSkill !== 'none') {
@@ -70,5 +81,8 @@ export async function loadConfig(dataDir = defaultDataDir()) {
     reviewReasoningEffort: raw.reviewReasoningEffort ?? 'none',
     autoRevise: raw.autoRevise === true,
     includeVeniceSystemPrompt: raw.includeVeniceSystemPrompt === true,
+    lanMode: raw.lanMode === true,
+    upstreamIdleTimeoutMs: boundedInteger(raw.upstreamIdleTimeoutSec, 180, 30, 1800, '上游空闲超时') * 1000,
+    backupKeep: boundedInteger(raw.backupKeep, 20, 1, 200, '备份保留份数'),
   };
 }

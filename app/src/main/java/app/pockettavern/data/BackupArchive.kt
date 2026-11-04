@@ -8,6 +8,9 @@ import java.util.zip.ZipOutputStream
 
 object BackupArchive {
     private const val MAX_TOTAL=128L*1024*1024
+    // A fixed entry time makes unchanged data produce identical bytes, so repeat PC backups can be skipped.
+    private const val ENTRY_TIME=1_577_836_800_000L
+    private fun entry(name: String)=ZipEntry(name).apply { time=ENTRY_TIME }
     fun write(data: AppData, filesDir: File, target: File) {
         val sources=linkedMapOf<String,File>()
         val mediaRoot=File(filesDir,"media").canonicalFile
@@ -30,8 +33,8 @@ object BackupArchive {
         require(sources.size<2000 && sources.values.sumOf { it.length() }+state.size<=MAX_TOTAL) { "备份超过 128 MB，请先单独保存大型媒体" }
         target.parentFile?.mkdirs()
         ZipOutputStream(target.outputStream()).use { zip ->
-            zip.putNextEntry(ZipEntry("state.json")); zip.write(state); zip.closeEntry()
-            sources.forEach { (name,file) -> zip.putNextEntry(ZipEntry(name)); file.inputStream().use { it.copyTo(zip) }; zip.closeEntry() }
+            zip.putNextEntry(entry("state.json")); zip.write(state); zip.closeEntry()
+            sources.forEach { (name,file) -> zip.putNextEntry(entry(name)); file.inputStream().use { it.copyTo(zip) }; zip.closeEntry() }
         }
     }
     fun restore(bytes: ByteArray, filesDir: File, cacheDir: File): AppData {

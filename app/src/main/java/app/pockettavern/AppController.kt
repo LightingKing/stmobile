@@ -75,6 +75,10 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
     private val mutable = MutableStateFlow(UiSession(appVersion=installedVersion))
     val state = mutable.asStateFlow()
+    private val pcStore = SharedPreferencesPcLinkStore(app.getSharedPreferences("pc_link", Application.MODE_PRIVATE))
+    private val pcClient = PcLinkClient()
+    private val pcBackups = PcBackups(pcClient, pcStore, app.filesDir, app.cacheDir, "${Build.MANUFACTURER} ${Build.MODEL}".trim(), installedVersion)
+    init { mutable.value = mutable.value.copy(pcLink = pcLinkFromStore(PcLinkState())) }
     var host: NativeHost? = null
     private val requestLogs by lazy { RequestLogStore(File(app.filesDir, "diagnostics"), installedVersion, Build.VERSION.SDK_INT) }
     private val compactCheckpoints by lazy { CompactCheckpointStore(File(app.filesDir, "compact-pending")) }
@@ -1422,6 +1426,83 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
 
     override fun stickerFile(sticker: Sticker): java.io.File? = StickerStore.file(app.filesDir, sticker)
+
+    private fun pcLinkFromStore(link: PcLinkState) = link.copy(providerId = pcStore.providerId, autoBackup = pcStore.autoBackup,
+        lastBackupAt = pcStore.lastBackupAt, lastBackupSize = pcStore.lastBackupSize, lastBackupError = pcStore.lastError)
+
+    private fun updatePcLink(transform: (PcLinkState) -> PcLinkState) { mutable.value = mutable.value.copy(pcLink = transform(mutable.value.pcLink)) }
+
+    /** The writing-server platform chosen for this phone, or the only one there is. */
+    private fun pcProvider(): ProviderConfig? {
+        val servers = data.providers.filter { it.kind.equals("writing-server", ignoreCase = true) }
+        return servers.firstOrNull { it.id == pcStore.providerId } ?: servers.firstOrNull()
+    }
+
+    /** One PC job at a time. A quiet job (the automatic backup) skips silently when nothing is set up. */
+    private fun pcJob(name: String, quiet: Boolean = false, block: suspend (ProviderConfig, String) -> Unit) {
+        if (mutable.value.pcLink.busy.isNotBlank()) return
+        val provider = pcProvider()
+        val key = provider?.let { app.secrets.get(credentialId(it)) }.orEmpty()
+        if (provider == null || key.isBlank()) {
+            if (!quiet) updatePcLink { it.copy(error = if (provider == null) "还没有添加电脑写作服务平台" else "请先在平台页填写电脑写作服务的 Token") }
+            return
+        }
+        updatePcLink { it.copy(busy = name, error = if (quiet) it.error else "") }
+        viewModelScope.launch {
+            try { block(provider, key) }
+            catch (error: CancellationException) { throw error }
+            catch (error: Exception) { if (!quiet) updatePcLink { it.copy(error = error.message ?: "电脑连接失败") } }
+            finally { updatePcLink { pcLinkFromStore(it).copy(busy = "") } }
+        }
+    }
+
+    override fun checkPcLink() = pcJob("check") { provider, key ->
+        val status = pcClient.status(provider, key)
+        updatePcLink { it.copy(status = status) }
+    }
+
+    override fun backupToPc() {
+        if (loadFailed || mutable.value.loading) return updatePcLink { it.copy(error = "本机数据还没有正常读取，暂时不能备份") }
+        pcJob("backup") { provider, key ->
+            val result = pcBackups.upload(provider, key, data, "manual") as PcBackups.Upload.Stored
+            status(if (result.duplicate) "电脑上的最新备份与当前数据相同" else "已备份到电脑（${readableSize(result.size)}）")
+            val latest = runCatching { pcClient.status(provider, key) }.getOrNull()
+            updatePcLink { it.copy(backups = null, status = latest ?: it.status) }
+        }
+    }
+
+    override fun loadPcBackups() = pcJob("list") { provider, key ->
+        val backups = pcClient.backups(provider, key)
+        updatePcLink { it.copy(backups = backups) }
+    }
+
+    override fun restoreFromPc(backupId: String) {
+        val backup = mutable.value.pcLink.backups?.firstOrNull { it.id == backupId } ?: return updatePcLink { it.copy(error = "请先刷新电脑上的备份列表") }
+        if (mutable.value.busy || mutable.value.loading) return updatePcLink { it.copy(error = "请等待当前任务完成后再恢复") }
+        pcJob("restore") { provider, key ->
+            // What is about to be replaced goes to the PC first; unreadable local data has nothing worth keeping.
+            if (!loadFailed) pcBackups.upload(provider, key, data, "pre-restore")
+            val bytes = pcBackups.fetch(provider, key, backup)
+            updatePcLink { it.copy(backups = null) }
+            importBytes("backup", "pc-${backup.id}.zip", bytes)
+        }
+    }
+
+    override fun setPcAutoBackup(enabled: Boolean) {
+        pcStore.autoBackup = enabled
+        updatePcLink { it.copy(autoBackup = enabled) }
+    }
+
+    override fun choosePcProvider(providerId: String) {
+        pcStore.providerId = providerId
+        updatePcLink { it.copy(providerId = providerId, status = null, backups = null, error = "") }
+    }
+
+    /** The app left the screen: the moment for the automatic PC backup, when one is due. */
+    fun onBackgrounded() {
+        if (loadFailed || mutable.value.loading || mutable.value.busy || !pcBackups.autoBackupDue()) return
+        pcJob("backup", quiet = true) { provider, key -> pcBackups.upload(provider, key, data, "auto") }
+    }
 
     fun importBytes(kind: String, name: String, bytes: ByteArray) {
         runCatching {

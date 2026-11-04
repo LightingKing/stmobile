@@ -1287,6 +1287,12 @@ private fun SettingsTab(state: UiSession, actions: AppActions) {
         item { SectionTitle("系统预设", action = { IconButton(onClick = { presetDialog = Preset() }) { Icon(Icons.Outlined.Add, "新建预设") } }) }
         items(state.data.presets, key = { it.id }) { preset -> PresetCard(preset, actions) { presetDialog = preset } }
         item {
+            SectionTitle("电脑连接")
+            PcLinkCard(state.pcLink, state.data.providers.filter { it.kind.equals("writing-server", ignoreCase = true) }, locked = state.busy || state.loading,
+                onCheck = actions::checkPcLink, onBackup = actions::backupToPc, onLoadBackups = actions::loadPcBackups, onRestore = actions::restoreFromPc,
+                onAutoBackup = actions::setPcAutoBackup, onChooseProvider = actions::choosePcProvider)
+        }
+        item {
             SectionTitle("数据备份与迁移")
             BackupButtons(actions, onImport = { showImport = it })
         }
