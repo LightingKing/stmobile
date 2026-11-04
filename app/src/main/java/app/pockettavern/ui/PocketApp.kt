@@ -342,6 +342,13 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
             if (state.missingBuiltinSkills.isNotEmpty()) {
                 Text("另有 ${state.missingBuiltinSkills.size} 个内置 Skill 未安装，可到 Skills 页逐项恢复原版。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
+            Divider()
+            Text("表情包", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            // Read the live chat: the dialog's `chat` is a snapshot and this setting applies at once.
+            val liveFrequency = state.data.chats.firstOrNull { it.id == chat.id }?.stickerFrequency ?: chat.stickerFrequency
+            StickerFrequencyChooser(liveFrequency, state.data.stickerPacks.filter { it.enabled }.sumOf { it.stickers.size }, !state.busy && !state.loading) {
+                actions.setChatStickerFrequency(chat.id, it)
+            }
         }
     }, confirmButton = { Button(enabled = !state.busy && !state.loading, onClick = {
         if (activeSummary != null && summaryText.isBlank()) {
@@ -1270,6 +1277,12 @@ private fun SettingsTab(state: UiSession, actions: AppActions) {
                 Text(if (adultConfirmed) "已确认年满 18 岁。关闭后会从所有会话移除成人向 Skills，且不再发送给模型。" else "未确认时，成人向 Skills 不能加入会话，也不会发送给模型。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             } }
             if (confirmAdult) AdultSkillConfirmDialog(onConfirm = { actions.confirmAdultSkills(true); confirmAdult = false }) { confirmAdult = false }
+        }
+        item {
+            SectionTitle("表情包")
+            StickerPacksCard(state.data.stickerPacks, state.busy || state.loading, onImport = { actions.importFile("stickers") },
+                onEnable = actions::setStickerPackEnabled, onDelete = actions::deleteStickerPack,
+                load = { sticker -> actions.stickerFile(sticker)?.let { decodeStickerFile(it, 160) } })
         }
         item { SectionTitle("系统预设", action = { IconButton(onClick = { presetDialog = Preset() }) { Icon(Icons.Outlined.Add, "新建预设") } }) }
         items(state.data.presets, key = { it.id }) { preset -> PresetCard(preset, actions) { presetDialog = preset } }

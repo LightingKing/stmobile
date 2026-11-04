@@ -74,6 +74,10 @@ object DataCodec {
             require(app.pockettavern.provider.ProviderUrlPolicy.violation(it) == null) { "备份平台地址无效" }
         }
         data.chats.forEach { chat -> chat.messages.flatMap { it.attachments }.forEach { require(it.path.isBlank()) { "备份附件必须嵌入数据，不能引用本地路径" } } }
+        require(data.stickerPacks.size <= 20 && data.stickerPacks.all { it.stickers.size <= StickerImporter.MAX_STICKERS }) { "表情包数量过多" }
+        data.stickerPacks.flatMap { it.stickers }.forEach { sticker ->
+            require(StickerStore.isSafe(sticker.file) && sticker.key.isNotBlank() && sticker.key.length <= 24 && sticker.key.none { it in "[]【】:：\n" }) { "表情包条目无效" }
+        }
         data.chats.forEach { chat ->
             chat.knowledgeNotes.forEach { note ->
                 require(note.sourceKind in setOf("conversation", "research")) { "知识笔记来源类型无效" }
@@ -132,7 +136,8 @@ object DataCodec {
                 scenarioRoster = chat.scenarioRoster.orEmpty().map(::normalizeScenarioPerson),
                 // Legacy value is intentionally ignored; writing guidance is
                 // now always supplied by NarrativePolicy.
-                expressionMode = "request"
+                expressionMode = "request",
+                stickerFrequency = app.pockettavern.engine.StickerFrequency.of(chat.stickerFrequency).id
             )
         },
         presets = data.presets.orEmpty().map { preset ->
@@ -143,6 +148,13 @@ object DataCodec {
         memories = data.memories.orEmpty().map { memory -> memory.copy(id = memory.id.orEmpty().ifBlank { newId() }, text = memory.text.orEmpty(), scope = memory.scope.orEmpty().ifBlank { "chat" }, targetId = memory.targetId.orEmpty(), sourceMessageId = memory.sourceMessageId.orEmpty()) },
         worldEntries = data.worldEntries.orEmpty().map { entry -> entry.copy(id = entry.id.orEmpty().ifBlank { newId() }, name = entry.name.orEmpty(), content = entry.content.orEmpty(), keywords = entry.keywords.orEmpty(), characterId = entry.characterId.orEmpty()) },
         skills = data.skills.orEmpty().map { skill -> skill.copy(id = skill.id.orEmpty().ifBlank { newId() }, name = skill.name.orEmpty(), description = skill.description.orEmpty(), content = skill.content.orEmpty(), files = skill.files.orEmpty(), permissions = skill.permissions.orEmpty(), source = skill.source.orEmpty(), warnings = skill.warnings.orEmpty(), sourceUrl = skill.sourceUrl.orEmpty(), sourceCommit = skill.sourceCommit.orEmpty(), sourceLicense = skill.sourceLicense.orEmpty()) },
+        // Sticker metadata only; the images are separate files under filesDir/stickers.
+        stickerPacks = data.stickerPacks.orEmpty().map { pack ->
+            pack.copy(id = pack.id.orEmpty().ifBlank { newId() }, name = pack.name.orEmpty(), license = pack.license.orEmpty(), source = pack.source.orEmpty(),
+                stickers = pack.stickers.orEmpty().map { sticker ->
+                    sticker.copy(key = sticker.key.orEmpty(), name = sticker.name.orEmpty(), description = sticker.description.orEmpty(), tags = sticker.tags.orEmpty(), file = sticker.file.orEmpty())
+                })
+        },
         mediaJobs = data.mediaJobs.orEmpty().map { job -> job.copy(id = job.id.orEmpty().ifBlank { newId() }, providerId = job.providerId.orEmpty(), modelId = job.modelId.orEmpty(), type = job.type.orEmpty(), requestJson = job.requestJson.orEmpty().ifBlank { "{}" }, queueId = job.queueId.orEmpty(), status = job.status.orEmpty(), resultJson = job.resultJson.orEmpty(), filePath = job.filePath.orEmpty()) },
         // Keep the nullable bridge explicit: Gson may leave an omitted object
         // null even though the Kotlin model declares it non-null.

@@ -95,4 +95,9 @@ interface AppActions {
     fun openMedia(id: String)
     fun saveMedia(id: String)
     fun clearStatus()
+    /** Sticker packs: import goes through importFile("stickers"). Defaults keep preview fakes compiling. */
+    fun deleteStickerPack(id: String) { }
+    fun setStickerPackEnabled(id: String, enabled: Boolean) { }
+    fun setChatStickerFrequency(chatId: String, frequency: String) { }
+    fun stickerFile(sticker: Sticker): java.io.File? = null
 }

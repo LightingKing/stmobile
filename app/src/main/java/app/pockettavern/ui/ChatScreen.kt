@@ -38,6 +38,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.pockettavern.domain.*
 import app.pockettavern.engine.DeepSeekWriting
+import app.pockettavern.engine.StickerGate
+import app.pockettavern.engine.StickerMarkup
 import app.pockettavern.engine.ConversationTurns
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -254,6 +256,8 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
 
 @Composable
 private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, modifier: Modifier, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit, onModels: () -> Unit) {
+    val stickers = remember(state.data.stickerPacks) { StickerGate.stickers(state.data) }
+    val loadSticker = remember(actions) { { sticker: Sticker -> actions.stickerFile(sticker)?.let { decodeStickerFile(it) } } }
     var draft by rememberSaveable { mutableStateOf("") }
     var intent by rememberSaveable { mutableStateOf("auto") }
     // Top-down layout keeps the reading position fixed while the last message grows below it.
@@ -301,7 +305,7 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
                 LazyColumn(state = listState, modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 24.dp, bottom = 16.dp), verticalArrangement = Arrangement.spacedBy(24.dp)) {
                     items(chat.messages, key = { it.id }) { message ->
-                        ConversationMessage(message, assistantName, state.busy || state.loading, message.id == regenerationAnchorId, actions, onEdit, onBranch)
+                        ConversationMessage(message, assistantName, state.busy || state.loading, message.id == regenerationAnchorId, actions, onEdit, onBranch, stickers, loadSticker)
                     }
                 }
                 if (showLatest) FilledTonalIconButton(onClick = { followLatest = true; scope.launch {
@@ -402,7 +406,8 @@ private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attac
 }
 
 @Composable
-private fun ConversationMessage(message: Message, assistantName: String, busy: Boolean, canRegenerate: Boolean, actions: AppActions, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit) {
+private fun ConversationMessage(message: Message, assistantName: String, busy: Boolean, canRegenerate: Boolean, actions: AppActions, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit,
+                                stickers: List<Sticker> = emptyList(), loadSticker: (Sticker) -> androidx.compose.ui.graphics.ImageBitmap? = { null }) {
     val user = message.role == "user"
     val tool = message.role == "tool"
     val notice = if (!user && !tool) messageNotice(message) else null
@@ -414,7 +419,7 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
     var excludedOpen by rememberSaveable(message.id, message.contextExcluded) { mutableStateOf(false) }
     var skillsOpen by rememberSaveable(message.id) { mutableStateOf(false) }
     val time = remember(message.createdAt) { SimpleDateFormat("HH:mm", Locale.CHINA).format(Date(message.createdAt)) }
-    val copyMessage = { clipboard.setText(AnnotatedString(message.content)) }
+    val copyMessage = { clipboard.setText(AnnotatedString(StickerMarkup.strip(message.content))) }
     Column(Modifier.fillMaxWidth(), horizontalAlignment = if (user) Alignment.End else Alignment.Start) {
         Row(Modifier.fillMaxWidth(if (user) 0.9f else 1f), verticalAlignment = Alignment.CenterVertically) {
             if (!user) {
@@ -465,7 +470,7 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
                 user -> Surface(Modifier.fillMaxWidth(0.9f), shape = RoundedCornerShape(topStart = 20.dp, topEnd = 6.dp, bottomEnd = 20.dp, bottomStart = 20.dp), color = colors.primaryContainer) {
                     ReadingMarkdown(message.content.ifBlank { if (message.attachments.isNotEmpty()) "已发送附件" else "（空消息）" }, Modifier.padding(horizontal = 16.dp, vertical = 12.dp))
                 }
-                message.content.isNotBlank() -> ReadingMarkdown(message.content)
+                message.content.isNotBlank() -> AssistantTextWithSticker(message.content, message.status == "streaming", stickers, loadSticker)
                 message.status == "streaming" -> Text("正在构思…", style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
                 message.toolCallsJson != "[]" -> Text("工具调用记录", style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
                 notice != null -> Text(notice.text, style = MaterialTheme.typography.bodyMedium, color = if (notice.tone == MessageNoticeTone.ERROR) colors.error else colors.onSurfaceVariant)

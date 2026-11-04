@@ -47,7 +47,7 @@ data class ScenarioPerson(
     val ability: String = "", val activity: String = "", val clothing: String = "", val personality: String = "",
     val description: String = "", val status: String = "未知", val source: String = ""
 )
-data class Chat(val id: String = newId(), val title: String = "新会话", val providerId: String = "venice", val modelId: String = "", val presetId: String = "default", val characterId: String = "", val messages: List<Message> = emptyList(), val summaries: List<Summary> = emptyList(), val activeSummaryId: String = "", val skillIds: List<String> = emptyList(), val updatedAt: Long = System.currentTimeMillis(), val knowledgeNotes: List<KnowledgeNote> = emptyList(), val continuityNotes: String = "", val expressionMode: String = "request", val scenarioState: ScenarioState = ScenarioState(), val scenarioRoster: List<ScenarioPerson> = emptyList())
+data class Chat(val id: String = newId(), val title: String = "新会话", val providerId: String = "venice", val modelId: String = "", val presetId: String = "default", val characterId: String = "", val messages: List<Message> = emptyList(), val summaries: List<Summary> = emptyList(), val activeSummaryId: String = "", val skillIds: List<String> = emptyList(), val updatedAt: Long = System.currentTimeMillis(), val knowledgeNotes: List<KnowledgeNote> = emptyList(), val continuityNotes: String = "", val expressionMode: String = "request", val scenarioState: ScenarioState = ScenarioState(), val scenarioRoster: List<ScenarioPerson> = emptyList(), val stickerFrequency: String = "off")
 /**
  * Generation budgets are opt-in through [generationBudgetEnabled]. Stored
  * amounts stay editable while disabled and do not impose a request limit.
@@ -62,7 +62,7 @@ data class WorldEntry(val id: String = newId(), val name: String = "", val conte
 data class SkillRecord(val id: String = newId(), val name: String = "", val description: String = "", val content: String = "", val files: Map<String,String> = emptyMap(), val enabled: Boolean = true, val permissions: List<String> = emptyList(), val source: String = "本地导入", val warnings: List<String> = emptyList(), val sourceUrl: String = "", val sourceCommit: String = "", val sourceLicense: String = "", val adult: Boolean = false)
 data class MediaJob(val id: String = newId(), val providerId: String = "", val modelId: String = "", val type: String = "", val requestJson: String = "{}", val queueId: String = "", val status: String = "", val resultJson: String = "", val filePath: String = "", val createdAt: Long = System.currentTimeMillis())
 data class AppSettings(val autoCompress: Boolean = true, val compressionThreshold: Double = 0.8, val keepRecentTurns: Int = 8, val contextOverride: Int = 0, val darkMode: String = "system", val userPersona: String = "", val maxToolSteps: Int = 8, val builtinSkillsSeen: List<String> = emptyList(), val builtinScenariosSeen: List<String> = emptyList(), val adultSkillsConfirmed: Boolean = false, val builtinSkillsRevision: Int = 0, val researchProviderId: String = "", val researchModelId: String = "", val researchSearchMode: String = "direct", val maxContextInputTokens: Int = 65_536)
-data class AppData(val schemaVersion: Int = 1, val providers: List<ProviderConfig> = listOf(ProviderConfig(id="venice")), val chats: List<Chat> = emptyList(), val presets: List<Preset> = listOf(Preset(id="default",name="通用助手",systemPrompt="请用中文回答，遵循用户要求。准确区分事实与推测。"), Preset(id="roleplay",name="角色扮演",systemPrompt="遵循角色卡、世界设定和已发生的事实。用户控制自己的角色，不代替用户决定动作、台词、心理或选择。")), val characters: List<Character> = emptyList(), val memories: List<Memory> = emptyList(), val worldEntries: List<WorldEntry> = emptyList(), val skills: List<SkillRecord> = emptyList(), val mediaJobs: List<MediaJob> = emptyList(), val settings: AppSettings = AppSettings())
+data class AppData(val schemaVersion: Int = 1, val providers: List<ProviderConfig> = listOf(ProviderConfig(id="venice")), val chats: List<Chat> = emptyList(), val presets: List<Preset> = listOf(Preset(id="default",name="通用助手",systemPrompt="请用中文回答，遵循用户要求。准确区分事实与推测。"), Preset(id="roleplay",name="角色扮演",systemPrompt="遵循角色卡、世界设定和已发生的事实。用户控制自己的角色，不代替用户决定动作、台词、心理或选择。")), val characters: List<Character> = emptyList(), val memories: List<Memory> = emptyList(), val worldEntries: List<WorldEntry> = emptyList(), val skills: List<SkillRecord> = emptyList(), val mediaJobs: List<MediaJob> = emptyList(), val settings: AppSettings = AppSettings(), val stickerPacks: List<StickerPack> = emptyList())
 data class MemoryRebuildState(
     val chatId: String,
     val phase: String = "running",
@@ -85,3 +85,13 @@ data class StreamDelta(val content: String = "", val reasoning: String = "", val
 data class ContextBuild(val messagesJson: String, val estimatedTokens: Int, val budget: Int, val needsCompression: Boolean, val preview: String, val toolDefinitions: String = "[]", val skillTokens: List<Pair<String, Int>> = emptyList(), val compression: CompressionSlice? = null, val budgetBreakdown: ContextBudgetBreakdown? = null)
 /** [messages] are only the turns not yet covered by [previousSummary]; [sourceHash] covers the whole prefix. */
 data class CompressionSlice(val messages: List<Message>, val throughMessageId: String, val sourceHash: String, val previousSummary: String = "", val projectedTokens: Int = 0)
+
+/**
+ * One image of an imported sticker pack. [key] is what the model writes in
+ * "[表情:key]" and is unique across all packs; [file] is relative to
+ * filesDir/stickers.
+ */
+data class Sticker(val key: String = "", val name: String = "", val description: String = "", val tags: List<String> = emptyList(), val file: String = "")
+
+/** Metadata only; the images live on disk so state saves stay small. */
+data class StickerPack(val id: String = newId(), val name: String = "", val license: String = "", val source: String = "", val enabled: Boolean = true, val stickers: List<Sticker> = emptyList(), val importedAt: Long = System.currentTimeMillis())

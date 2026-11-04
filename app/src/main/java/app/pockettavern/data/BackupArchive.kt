@@ -22,6 +22,10 @@ object BackupArchive {
             require(file.canonicalPath.startsWith(workspace.canonicalPath+File.separator)) { "工作区包含外部链接" }
             sources["workspace/"+file.relativeTo(workspace).invariantSeparatorsPath]=file
         }
+        // Only images a pack still lists; their relative path is kept so state needs no rewrite.
+        data.stickerPacks.forEach { pack -> pack.stickers.forEach { sticker ->
+            StickerStore.file(filesDir,sticker)?.let { sources["${StickerStore.DIR}/${sticker.file}"]=it }
+        } }
         val state=DataCodec.encode(portable).toByteArray(Charsets.UTF_8)
         require(sources.size<2000 && sources.values.sumOf { it.length() }+state.size<=MAX_TOTAL) { "备份超过 128 MB，请先单独保存大型媒体" }
         target.parentFile?.mkdirs()
@@ -41,7 +45,7 @@ object BackupArchive {
                     require(++count<=2000) { "备份文件过多" }
                     val name=entry.name.replace('\\','/')
                     require(!name.startsWith('/') && ':' !in name && name.split('/').none { it==".." || it=="." }) { "备份路径不安全" }
-                    require(name=="state.json" || name.startsWith("media/") || name.startsWith("workspace/")) { "备份包含未知文件" }
+                    require(name=="state.json" || name.startsWith("media/") || name.startsWith("workspace/") || name.startsWith("${StickerStore.DIR}/")) { "备份包含未知文件" }
                     val file=File(stage,name).canonicalFile
                     require(file.path.startsWith(stage.canonicalPath+File.separator)) { "备份路径越界" }
                     if(entry.isDirectory) { file.mkdirs(); continue }
@@ -70,7 +74,19 @@ object BackupArchive {
                 require(target.path.startsWith(File(filesDir,"workspace").canonicalPath+File.separator)) { "工作区路径越界" }
                 target.parentFile?.mkdirs(); source.copyTo(target,overwrite=true)
             }
-            return restored.copy(mediaJobs=jobs)
+            // A sticker whose image is missing from the archive is dropped rather than failing the restore.
+            val stickerRoot=File(filesDir,StickerStore.DIR).canonicalFile
+            val packs=restored.stickerPacks.map { pack ->
+                pack.copy(stickers=pack.stickers.filter { sticker ->
+                    val source=File(stage,"${StickerStore.DIR}/${sticker.file}").canonicalFile
+                    val target=File(stickerRoot,sticker.file).canonicalFile
+                    val ok=StickerStore.isSafe(sticker.file) && source.isFile &&
+                        source.path.startsWith(File(stage,StickerStore.DIR).canonicalPath+File.separator) && target.path.startsWith(stickerRoot.path+File.separator)
+                    if(ok) { target.parentFile?.mkdirs(); source.copyTo(target,overwrite=true) }
+                    ok
+                })
+            }.filter { it.stickers.isNotEmpty() }
+            return restored.copy(mediaJobs=jobs,stickerPacks=packs)
         } finally {
             check(stage.canonicalPath.startsWith(cacheDir.canonicalPath+File.separator))
             stage.deleteRecursively()

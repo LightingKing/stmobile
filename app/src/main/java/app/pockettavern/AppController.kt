@@ -725,11 +725,16 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 // Apply only when the marker is present; ordinary tool-planning
                 // prose remains unchanged and still proceeds through the tool loop.
                 val synced = ScenarioStateSync.apply(before, result.content)
+                // The app, not the model, decides whether this turn may carry a sticker:
+                // extra, unknown or disallowed markers are dropped before saving.
+                val stickerList = StickerGate.stickers(data)
+                val stickerTurn = StickerGate.decide(before, stickerList.isNotEmpty())
+                val visible = StickerMarkup.normalize(synced.visibleContent, stickerTurn != StickerGate.Turn.NONE, stickerList)
                 changeChat(chatId) { c -> c.copy(
                     scenarioState = synced.chat.scenarioState,
                     scenarioRoster = synced.chat.scenarioRoster,
-                    messages=c.messages.map { if(it.id==assistant.id) it.copy(content=synced.visibleContent,reasoning=result.reasoning,toolCallsJson=result.toolCallsJson,status="complete",finishReason=result.finishReason,requestId=result.requestId,
-                        qualityNotice=before.messages.firstOrNull { old -> old.id==assistant.revisionOf }?.let { old -> ConversationTurns.rewriteNotice(old.content,synced.visibleContent) }.orEmpty()) else it }) }
+                    messages=c.messages.map { if(it.id==assistant.id) it.copy(content=visible,reasoning=result.reasoning,toolCallsJson=result.toolCallsJson,status="complete",finishReason=result.finishReason,requestId=result.requestId,
+                        qualityNotice=before.messages.firstOrNull { old -> old.id==assistant.revisionOf }?.let { old -> ConversationTurns.rewriteNotice(old.content,visible) }.orEmpty()) else it }) }
                 if(calls.length()==0) return
                 require(!finalAnswerOnly) { "模型在最终回答阶段仍返回工具调用；已停止继续执行，已有结果保留，可重新生成本轮。" }
                 require(model?.supportsTools==true) { "模型返回了未启用的工具调用" }
@@ -1388,6 +1393,36 @@ class AppController(application: Application) : AndroidViewModel(application), A
             mutable.value=mutable.value.copy(pendingAttachments=mutable.value.pendingAttachments+attachment)
         }.onFailure { status(it.message ?: "附件读取失败") }
     }
+    /** Images are written on the IO thread; state only learns the pack once every file is on disk. */
+    private fun importStickers(name: String, bytes: ByteArray) {
+        require(data.stickerPacks.size < MAX_STICKER_PACKS) { "表情包已达 $MAX_STICKER_PACKS 个，请先删除不用的" }
+        val taken = data.stickerPacks.flatMap { pack -> pack.stickers.map { it.key } }.toSet()
+        viewModelScope.launch {
+            runCatching {
+                val pack = withContext(Dispatchers.IO) { StickerStore.save(app.filesDir, StickerImporter.read(name, bytes, taken), name) }
+                change(data.copy(stickerPacks = data.stickerPacks + pack))
+                status("已导入表情包“${pack.name}”，共 ${pack.stickers.size} 张。在会话设置里打开表情包后，模型才会发图")
+            }.onFailure { status("表情包导入失败：${it.message}") }
+        }
+    }
+
+    override fun deleteStickerPack(id: String) {
+        if (data.stickerPacks.none { it.id == id }) return
+        change(data.copy(stickerPacks = data.stickerPacks.filterNot { it.id == id }))
+        viewModelScope.launch(Dispatchers.IO) { StickerStore.delete(app.filesDir, id) }
+        status("已删除表情包")
+    }
+
+    override fun setStickerPackEnabled(id: String, enabled: Boolean) {
+        change(data.copy(stickerPacks = data.stickerPacks.map { if (it.id == id) it.copy(enabled = enabled) else it }))
+    }
+
+    override fun setChatStickerFrequency(chatId: String, frequency: String) {
+        changeChat(chatId) { it.copy(stickerFrequency = StickerFrequency.of(frequency).id) }
+    }
+
+    override fun stickerFile(sticker: Sticker): java.io.File? = StickerStore.file(app.filesDir, sticker)
+
     fun importBytes(kind: String, name: String, bytes: ByteArray) {
         runCatching {
             require(!mutable.value.busy && !mutable.value.loading) { "请等待当前任务和本地数据读取完成后再导入" }
@@ -1437,6 +1472,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 "worldbook" -> { val entries=Exchange.worldbook(bytes.toString(Charsets.UTF_8)); change(data.copy(worldEntries=data.worldEntries+entries)); status("已导入 ${entries.size} 个世界书条目") }
                 "chat" -> { val p=data.providers.firstOrNull(); val chat=Exchange.chat(bytes.toString(Charsets.UTF_8),p?.id ?: "",p?.models?.firstOrNull { it.type=="text" }?.id ?: ""); change(data.copy(chats=listOf(chat)+data.chats)); selectChat(chat.id); status("会话已导入并已打开") }
                 "preset" -> { val p=Exchange.preset(bytes.toString(Charsets.UTF_8),name.substringBeforeLast('.')); savePreset(p); status("预设已导入；不支持的 ST 扩展字段未执行") }
+                "stickers" -> importStickers(name, bytes)
                 else -> error("未知导入格式")
             }
         }.onFailure { status("导入失败：${it.message}") }
@@ -1526,5 +1562,6 @@ class AppController(application: Application) : AndroidViewModel(application), A
          * with heartbeat events could otherwise leave one history segment pending forever.
          */
         const val COMPACT_REQUEST_DEADLINE_MS = 900_000L
+        const val MAX_STICKER_PACKS = 20
     }
 }

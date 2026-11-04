@@ -103,6 +103,12 @@ object ContextEngine {
             addSystem("【历史核对能力】当前模型未启用历史检索工具，只能使用本次上下文实际提供的原文与当前摘要；知识库不会自动整库注入。不要声称已搜索、读取或核验未提供的历史；缺少信息时说明不确定，可请用户提供相关原文或切换支持工具的模型。")
         }
         val toolDefinitions = toolArray.toString()
+        // Stickers: the list is stable per chat and cacheable; whether this turn may use
+        // one is decided by the app from recent replies and sent in the varying part below.
+        val stickers = StickerGate.stickers(data)
+        val stickerTurn = StickerGate.decide(chat, stickers.isNotEmpty())
+        val stickersOn = StickerFrequency.of(chat.stickerFrequency) != StickerFrequency.OFF && stickers.isNotEmpty()
+        if (stickersOn) addSystem(StickerPrompt.list(stickers), "policy")
         addSystem(REPLY_NO_REPEAT)
 
         // Turn-varying context from here on.
@@ -125,6 +131,7 @@ object ContextEngine {
         }.sortedByDescending { it.priority }
         if (world.isNotEmpty()) addSystem("【世界书资料】\n" + world.joinToString("\n") { "- ${it.name}: ${it.content}" }, "world")
         addSystem(ScenarioStateSync.prompt(chat), "policy")
+        if (stickersOn) addSystem(StickerPrompt.turn(stickerTurn, StickerGate.recentKeys(chat)), "policy")
 
         val live = chat.messages.drop(cutoff + 1)
         val sentLive = withoutPastRecallResults(effectiveMessages(live), chat.messages.getOrNull(latestUserIndex)?.id).filter(::isSent)
@@ -475,7 +482,8 @@ object ContextEngine {
     }
 
     private fun contentFor(message: Message, model: ModelInfo?, currentUserTurn: Boolean): Any {
-        val prose = NarrativePolicy.messageContent(message, currentUserTurn)
+        // Sticker markers are display-only; earlier replies go back to the model without them.
+        val prose = NarrativePolicy.messageContent(message, currentUserTurn).let { if (message.role == "assistant") StickerMarkup.strip(it) else it }
         if (message.attachments.isEmpty()) return prose
         val content = JSONArray()
         if (prose.isNotBlank()) content.put(JSONObject().put("type", "text").put("text", prose))
