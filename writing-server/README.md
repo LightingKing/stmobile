@@ -56,6 +56,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\install-autostart.ps1 -Lan
 服务本身只说 HTTP，外网访问必须由隧道提供 HTTPS，手机端也只接受 HTTPS 的外网地址。
 
 - **NPS**：在 NPS 管理后台给本机客户端添加“域名解析”（host）：域名填你的子域名，协议选 HTTPS（或 all），**目标填 `127.0.0.1:8791`**，并为该域名配置证书。`nps.conf` 中 `https_just_proxy=true` 时 NPS 只转发 TLS、不解密，请改为 `false` 并让 NPS 用证书终止 HTTPS，否则会把 TLS 直接转给只说 HTTP 的服务。建议同时开启 `http_add_origin_header=true`，服务据此区分不同来源的客户端。手机 Base URL 填 `https://你的域名/v1`。不要用普通 TCP 端口映射暴露 8791，那样 Token 会以明文在公网传输。
+- **Nginx 在 NPS 前面**（Nginx 用证书终止 443，再转给 NPS 的 HTTP 端口）：Nginx 默认只收 1 MB 的请求体，备份和长会话都会被它直接回 `413`。在该域名的 `server { }` 中加 `client_max_body_size 160m;`（备份最大 128 MB、聊天请求最大 32 MB），并加 `proxy_read_timeout 600s;`、`proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;`。服务的 SSE 响应带 `X-Accel-Buffering: no`，逐字输出不会被 Nginx 缓冲；实测经 Nginx 和 NPS 后，每秒一段的输出按秒到达手机。
 - **Tailscale**：`start.ps1 -Tailnet` 用 `tailscale serve` 在 8443 端口提供 HTTPS，手机和电脑登录同一 Tailscale 网络。
 
 公网暴露时的保护：所有接口（`/healthz` 除外）都要网关 Token；同一来源 10 分钟内 10 次错误 Token 后封锁 15 分钟，被封期间不再校验它发来的 Token（只计“带了错误 Token”的请求，扫描器不带 Token 的请求只返回 401，不会封住你）。来源按连接地址判断；连接来自本机隧道时，取 `X-Forwarded-For` 的最后一跳。NPS 没有开启 `http_add_origin_header` 时，所有外网请求共用一个来源。
