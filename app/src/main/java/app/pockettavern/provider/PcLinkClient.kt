@@ -137,6 +137,13 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         target
     }
 
+    /** One DSH engine command, run on the PC; returns the engine's JSON ({ok, data, error}) as text. */
+    suspend fun runDsh(provider: ProviderConfig, key: String, command: String, input: JSONObject): String = withContext(Dispatchers.IO) {
+        val body = JSONObject().put("command", command).put("input", input).toString().toRequestBody(JSON)
+        val text = call(client, request(provider, key, "pocket/dsh").post(body).build()) { it.body?.string().orEmpty() }
+        parse(text).toString()
+    }
+
     /** Sticker packs kept on the PC. Their files are "<packId>/<NNN.ext>", fetched with [stickerImage]. */
     suspend fun stickerPacks(provider: ProviderConfig, key: String): List<StickerPack> = withContext(Dispatchers.IO) {
         val packs = parse(call(quick, request(provider, key, "stickers").get().build()) { it.body?.string().orEmpty() }).optJSONArray("packs") ?: JSONArray()

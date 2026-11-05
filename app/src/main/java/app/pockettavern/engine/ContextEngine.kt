@@ -37,8 +37,11 @@ object ContextEngine {
     /** Normally preserve the latest exchange; emergency recovery may summarize the entire source span. */
     private const val MIN_KEPT_TURNS = 2
 
-    /** [stickers] are the ones this chat may use; the app passes only the PC's when the chat talks to it. */
-    fun build(data: AppData, chat: Chat, stickers: List<Sticker> = StickerGate.stickers(data)): ContextBuild {
+    /**
+     * [stickers] are the ones this chat may use; the app passes only the PC's when the chat talks to it.
+     * [onPc] says the chat uses the PC writing server, which runs engines the phone cannot (DSH).
+     */
+    fun build(data: AppData, chat: Chat, stickers: List<Sticker> = StickerGate.stickers(data), onPc: Boolean = false): ContextBuild {
         val preset = data.presets.firstOrNull { it.id == chat.presetId }
             ?: data.presets.firstOrNull()
             ?: Preset(id = chat.presetId)
@@ -70,6 +73,8 @@ object ContextEngine {
         val toolsSupported = model?.supportsTools == true
         if (skills.any { it.adult }) addSystem(ADULT_BOUNDARY)
         if (skills.isNotEmpty()) addSystem(if (toolsSupported) SKILL_CHAT_MODE_WITH_TOOLS else SKILL_CHAT_MODE_NO_TOOLS)
+        val dshEngine = DshTool.available(skills, onPc, toolsSupported)
+        if (dshEngine) addSystem(DshTool.PROMPT)
         val skillTokens = skills.map { skill ->
             val prompt = skillPrompt(skill, toolsSupported)
             addSystem(prompt, "skill")
@@ -87,6 +92,7 @@ object ContextEngine {
             addSystem(PUBLIC_RESEARCH_POLICY)
         }
         val toolArray = JSONArray(if (toolsSupported) ToolRuntime.definitionsForSkills(skills) else "[]")
+        if (dshEngine) toolArray.put(DshTool.definition())
 
         val validSummary = findValidSummary(chat)
         val cutoff = validSummary?.let { chat.messages.indexOfFirst { message -> message.id == it.throughMessageId } } ?: -1

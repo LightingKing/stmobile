@@ -130,6 +130,19 @@ class PcLinkClientTest {
         assertEquals("DELETE", server.takeRequest().method)
     }
 
+    @Test fun dshCommandsRunOnThePc() {
+        server.enqueue(json("""{"ok":true,"data":{"session_id":"s1"},"error":null}"""))
+        val envelope = org.json.JSONObject(runBlocking { client.runDsh(pc, "t", "new-game", org.json.JSONObject().put("request_id", "r_12345678")) })
+        assertTrue(envelope.getBoolean("ok"))
+        val request = server.takeRequest()
+        assertEquals("/v1/pocket/dsh", request.path)
+        val sent = org.json.JSONObject(request.body.readUtf8())
+        assertEquals("new-game", sent.getString("command"))
+        assertEquals("r_12345678", sent.getJSONObject("input").getString("request_id"))
+        server.enqueue(json("""{"error":{"message":"路径不存在"}}""", 404))
+        assertTrue(failure { client.runDsh(pc, "t", "doctor", org.json.JSONObject()) }.message!!.contains("版本过旧"))
+    }
+
     @Test fun refusalsExplainWhatToDo() {
         server.enqueue(json("""{"error":{"message":"未授权"}}""", 401))
         assertTrue(failure { client.status(pc, "wrong") }.message!!.contains("手机连接.txt"))

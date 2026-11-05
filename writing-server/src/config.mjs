@@ -158,5 +158,7 @@ export async function loadConfig(dataDir = defaultDataDir()) {
     // Long contexts can keep the upstream silent for minutes before its first token; 0 turns the limit off.
     upstreamIdleTimeoutMs: (raw.upstreamIdleTimeoutSec === 0 ? 0 : boundedInteger(raw.upstreamIdleTimeoutSec, 900, 30, 3600, '上游空闲超时')) * 1000,
     backupKeep: boundedInteger(raw.backupKeep, 20, 1, 200, '备份保留份数'),
+    // PC-only: which Python runs the DSH engine; blank means python, then py -3.
+    pythonPath: typeof raw.pythonPath === 'string' ? raw.pythonPath.trim() : '',
   };
 }

@@ -757,7 +757,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
                             ToolResult(withContext(Dispatchers.Default) {
                                 KnowledgeVault.toolResponse(current(chatId),name,arguments,allowance)
                             })
-                        } else tools.execute(name,arguments,data.skills,data,current(chatId))
+                        } else if (name == DshTool.NAME) runDsh(arguments, current(chatId))
+                        else tools.execute(name,arguments,data.skills,data,current(chatId))
                     }
                     catch(error: Exception) { if(error is CancellationException) throw error; ToolResult("工具执行失败：${error.message}") }
                     if (decision.execute) toolPolicy.recordResult(name, arguments, toolResult.content)
@@ -1485,7 +1486,25 @@ class AppController(application: Application) : AndroidViewModel(application), A
     /** Stickers live on the PC, so only chats talking to the PC writing server get them. */
     private fun stickersFor(chat: Chat): List<Sticker> = StickerGate.forChat(chat, data.providers, mutable.value.pcLink.stickerPacks)
 
-    private fun buildContext(source: AppData, chat: Chat) = ContextEngine.build(source, chat, stickersFor(chat))
+    private fun buildContext(source: AppData, chat: Chat) = ContextEngine.build(source, chat, stickersFor(chat), onPc = onPc(chat))
+
+    private fun onPc(chat: Chat) = data.providers.firstOrNull { it.id == chat.providerId }?.kind.equals("writing-server", ignoreCase = true)
+
+    /** A DSH engine call from the model, run by the PC this chat talks to. The engine's own JSON goes back. */
+    private suspend fun runDsh(arguments: String, chat: Chat): ToolResult {
+        fun failure(code: String, message: String) = ToolResult(JSONObject().put("ok", false).put("data", JSONObject.NULL)
+            .put("error", JSONObject().put("code", code).put("message", message)).toString())
+        val provider = data.providers.firstOrNull { it.id == chat.providerId }?.takeIf { onPc(chat) }
+            ?: return failure("NOT_ON_PC", "DSH 引擎只能在使用电脑写作服务的会话里调用")
+        if (ToolRuntime.activeSkills(data.skills, data.settings, chat).none { it.id == DshTool.SKILL_ID }) return failure("SKILL_OFF", "本会话没有启用 DSH 成人互动")
+        val args = runCatching { JSONObject(arguments) }.getOrNull() ?: return failure("INVALID_INPUT", "工具参数不是 JSON")
+        val key = app.secrets.get(credentialId(provider)).takeIf { it.isNotBlank() } ?: return failure("PC_UNREACHABLE", "没有填写电脑写作服务的 Token")
+        return try {
+            val envelope = pcClient.runDsh(provider, key, args.optString("command"), args.optJSONObject("input") ?: JSONObject())
+            if (envelope.length > MAX_DSH_RESULT_CHARS) failure("RESULT_TOO_LARGE", "引擎返回内容过大；请改用 brief 等更短的查询") else ToolResult(envelope)
+        } catch (error: CancellationException) { throw error }
+        catch (error: Exception) { failure("PC_UNREACHABLE", error.message ?: "连不上电脑上的 DSH 引擎") }
+    }
 
     private val pcStickerCache get() = File(app.cacheDir, "pc-stickers")
 
@@ -1750,6 +1769,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
          */
         const val COMPACT_REQUEST_DEADLINE_MS = 900_000L
         const val MAX_STICKER_PACKS = 20
+        private const val MAX_DSH_RESULT_CHARS = 200_000
         private val PC_STICKER_FILE = Regex("[0-9a-f]{12}/\\d{3}\\.(png|jpg|gif|webp)")
     }
 }

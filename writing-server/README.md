@@ -87,6 +87,15 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\install-autostart.ps1 -Lan
 - **同一会话再次请求**：同一会话、同一用途（聊天 / 摘要 / 压缩 / 重建）的新请求会取消仍在运行的旧请求，不再返回 409；聊天回复和摘要可以同时进行。手机断开时请求立即释放；手机不读取数据导致积压超过 8 MB 时也会中止。
 - **心跳**：每个阶段运行时每 15 秒发送一次 SSE 注释，避免中间设备断开空闲连接。
 
+## DSH 成人互动引擎
+
+DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tension`）用一套本地 Python 引擎记录世界、人物、时间、事实、边界和存档，它的 SKILL.md 要求模型在终端里运行 `adult_tension.py`。手机跑不了，所以 0.1.72（服务 0.5.0）起由这台电脑运行：
+
+- **代码来源**：`vendor/adult-tension/` 只收录上游固定提交 `26641ebe` 的 `scripts/` 和 `runtime/`（51 个 Python 文件），`MANIFEST.json` 记下每个文件的 git blob 哈希，每次启动都会校验。SKILL.md、`references/` 和 `content/`（211 个世界）直接用 App 收录的同一份，在这个提交下逐字节一致。上游没有声明许可证，这里只作个人使用。
+- **安全检查**：收录前查过源码，只用 Python 标准库，不联网，不启动其他程序，没有 `exec`/`eval`。数据只写在 `--data-dir` 指定的目录里，唯一例外是导出、导入存档可以指定任意路径，服务会拒绝这两个命令里的 `path` 字段。引擎的开发自检命令（`verify-content`、`smoke`）不开放。调用 Python 时只传最少的环境变量，Venice Key 等变量不会传进去。
+- **运行方式**：第一次调用时，把引擎和 App 的 Skill 文件拼成私密目录下的 `dsh/skill/`，存档放在 `dsh/data/`。`POST /v1/pocket/dsh`（`{"command", "input"}`）按顺序执行，每次最多 60 秒，返回引擎原样的 JSON（`ok`、`data`、`error`）。Python 默认依次找 `python`、`py -3`、`python3`，要求 3.10 及以上；也可以在 `config.json` 里写 `pythonPath`（只能在电脑上改）。`/v1/pocket/status` 的 `dsh` 字段显示引擎是否可用和 Python 版本。
+- **手机端**：只有会话使用电脑写作服务、模型支持工具、并且勾选了 DSH 成人互动时，模型才会拿到 `dsh_runtime` 工具，同时收到一句说明：SKILL.md 里在终端运行引擎的步骤，在这里改用这个工具。其他平台上，这个 Skill 仍然只用文字规则。
+
 ## 表情包
 
 表情包保存在私密目录的 `stickers/<包ID>/`：每个包一份 `pack.json`，加上 `001.png` 这样编号的图片。手机读取用户的 ZIP（识别 stickers.json、Markdown 表格、manifest.json 或纯图片），再把整理好的包上传到电脑，电脑不解析 ZIP。
