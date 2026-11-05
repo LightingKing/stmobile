@@ -87,6 +87,17 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\install-autostart.ps1 -Lan
 - **同一会话再次请求**：同一会话、同一用途（聊天 / 摘要 / 压缩 / 重建）的新请求会取消仍在运行的旧请求，不再返回 409；聊天回复和摘要可以同时进行。手机断开时请求立即释放；手机不读取数据导致积压超过 8 MB 时也会中止。
 - **心跳**：每个阶段运行时每 15 秒发送一次 SSE 注释，避免中间设备断开空闲连接。
 
+## 表情包
+
+表情包保存在私密目录的 `stickers/<包ID>/`：每个包一份 `pack.json`，加上 `001.png` 这样编号的图片。手机读取用户的 ZIP（识别 stickers.json、Markdown 表格、manifest.json 或纯图片），再把整理好的包上传到电脑，电脑不解析 ZIP。
+
+- `GET /v1/stickers`：列出全部表情包和上限。
+- `POST /v1/stickers/packs`：类型 `application/vnd.pocket-tavern.stickers`，内容依次为 4 字节大端的说明长度、JSON 说明（名称、许可、来源和每张图的名称、描述、标签、大小），以及按顺序排列的图片字节。电脑会重新检查每张图的文件头（PNG / JPEG / GIF / WebP）和大小（≤ 2 MB），以及名称是否有效、是否与已有表情重名。最多 20 个包，每包最多 300 张，单次上传最大 64 MB。保存时先写入临时目录，完整后才出现在列表中。
+- `PATCH /v1/stickers/packs/<id>`（`{"enabled": true/false}`）启用或停用；`DELETE` 删除。
+- `GET /v1/stickers/files/<id>/<NNN.ext>`：读取图片。上传后图片不会再变，所以响应带一年的不可变缓存头，手机缓存后不再重复下载。
+
+只有会话使用电脑写作服务时，手机才把表情清单发给模型；用其他平台聊天时不发图。
+
 ## 手机备份
 
 - `POST /v1/backups`：请求体为 App 生成的备份 ZIP（`application/zip`），最大 128 MB，与 App 的恢复上限一致。服务边接收边写入临时文件并计算 SHA-256，完整收到后才出现在列表中；内容与最新一份相同时不再保存，返回已有记录和 `duplicate: true`。磁盘剩余空间不足（备份大小 + 512 MB）时拒绝。同一时间只接收一个上传，60 秒没有数据的上传会被中止。

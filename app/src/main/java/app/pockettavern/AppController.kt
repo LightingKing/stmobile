@@ -152,6 +152,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 mutable.value = mutable.value.copy(data=restored,selectedChatId=restoredSelection,loading=false,hasResearchSearchKey=app.secrets.has(DoubaoSearchClient.CREDENTIAL_ID),hasKeys=restored.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet(),skillStars=stars,missingBuiltinSkills=BuiltinSkills.missing(restored,builtinSkills),repairBackupChatIds=repairBackups)
                 if(restored != loaded) saves.submit(restored)
                 restored.chats.forEach { repairPendingTools(it.id) }
+                refreshPcStickers()
             } catch (error: Exception) {
                 loadFailed = true
                 mutable.value = mutable.value.copy(loading=false,status="读取本地数据失败，原数据库已保留。已阻止写入；可到设置导出原始数据或恢复备份：${error.message}")
@@ -661,9 +662,9 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val generationId=newId()
         try {
             var chat=current(chatId)
-            var context=ContextEngine.build(data,chat)
+            var context=buildContext(data, chat)
             recordContextBudget(context)
-            if(context.needsCompression && data.settings.autoCompress) { summarize(chatId); chat=current(chatId); context=ContextEngine.build(data,chat) }
+            if(context.needsCompression && data.settings.autoCompress) { summarize(chatId); chat=current(chatId); context=buildContext(data, chat) }
             require(context.estimatedTokens<=context.budget) { overBudgetMessage("上下文超出预算：请压缩历史、减少固定内容或调整上下文窗口",context) }
             val p=provider(chat.providerId); val secret=key(p.id); val model=p.models.find { it.id==chat.modelId }
             require(model!=null && model.type=="text" && !model.offline) { "模型不在可用聊天目录中，请刷新目录或手动添加模型" }
@@ -678,7 +679,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                         (if (built.toolDefinitions == "[]") 0 else ContextEngine.estimateTokens(built.toolDefinitions))
                 } else 0
                 var before=current(chatId)
-                var built=ContextEngine.build(data,before)
+                var built=buildContext(data, before)
                 if (step > 0 && requestTokens(built) > built.budget && built.needsCompression && data.settings.autoCompress) {
                     val latestUser = before.messages.indexOfLast { it.role == "user" && !it.contextExcluded }
                     val boundary = built.compression?.throughMessageId?.let { id -> before.messages.indexOfFirst { it.id == id } } ?: -1
@@ -687,7 +688,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                     if (boundary in 0 until latestUser) {
                         summarize(chatId)
                         before = current(chatId)
-                        built = ContextEngine.build(data,before)
+                        built = buildContext(data, before)
                     }
                 }
                 val outgoing = if (finalAnswerOnly) toolPolicy.finalMessages(built.messagesJson) else built.messagesJson
@@ -731,7 +732,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 val synced = ScenarioStateSync.apply(before, result.content)
                 // The app, not the model, decides whether this turn may carry a sticker:
                 // extra, unknown or disallowed markers are dropped before saving.
-                val stickerList = StickerGate.stickers(data)
+                val stickerList = stickersFor(before)
                 val stickerTurn = StickerGate.decide(before, stickerList.isNotEmpty())
                 val visible = StickerMarkup.normalize(synced.visibleContent, stickerTurn != StickerGate.Turn.NONE, stickerList)
                 changeChat(chatId) { c -> c.copy(
@@ -750,7 +751,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                     val decision = toolPolicy.beforeCall(name, arguments)
                     val toolResult=if (!decision.execute) ToolResult(decision.response.orEmpty()) else try {
                         if (name in setOf("history_search", "history_read")) {
-                            val toolContext = ContextEngine.build(data,current(chatId))
+                            val toolContext = buildContext(data, current(chatId))
                             val remaining = (toolContext.budget - toolContext.estimatedTokens - 512).coerceAtLeast(0)
                             val allowance = minOf(4096, (remaining / (calls.length() - i) - 96).coerceAtLeast(0))
                             ToolResult(withContext(Dispatchers.Default) {
@@ -1232,7 +1233,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
     private suspend fun summarize(chatId: String) {
         val chat=current(chatId)
-        val built = ContextEngine.build(data, chat)
+        val built = buildContext(data, chat)
         val slice = built.compression ?: error(overBudgetMessage("没有可安全压缩的旧消息", built))
         val active=preset(chat)
         val p=provider(active.summaryProviderId.ifBlank { chat.providerId })
@@ -1348,7 +1349,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         selected?.let { changeChat(it.id) { c -> c.copy(activeSummaryId=id) } }
         status(if(id.isEmpty()) "已恢复完整原始上下文" else "已切换摘要版本")
     }
-    override fun previewContext() { runCatching { selected?.let { mutable.value=mutable.value.copy(contextPreview=ContextEngine.build(data,it).preview) } }.onFailure { status(it.message ?: "无法组装上下文") } }
+    override fun previewContext() { runCatching { selected?.let { mutable.value=mutable.value.copy(contextPreview=buildContext(data, it).preview) } }.onFailure { status(it.message ?: "无法组装上下文") } }
     override fun dismissPreview() { mutable.value=mutable.value.copy(contextPreview="") }
     override fun showDiagnostics() {
         viewModelScope.launch {
@@ -1397,28 +1398,113 @@ class AppController(application: Application) : AndroidViewModel(application), A
             mutable.value=mutable.value.copy(pendingAttachments=mutable.value.pendingAttachments+attachment)
         }.onFailure { status(it.message ?: "附件读取失败") }
     }
-    /** Images are written on the IO thread; state only learns the pack once every file is on disk. */
-    private fun importStickers(name: String, bytes: ByteArray) {
-        require(data.stickerPacks.size < MAX_STICKER_PACKS) { "表情包已达 $MAX_STICKER_PACKS 个，请先删除不用的" }
-        val taken = data.stickerPacks.flatMap { pack -> pack.stickers.map { it.key } }.toSet()
-        viewModelScope.launch {
-            runCatching {
-                val pack = withContext(Dispatchers.IO) { StickerStore.save(app.filesDir, StickerImporter.read(name, bytes, taken), name) }
-                change(data.copy(stickerPacks = data.stickerPacks + pack))
-                status("已导入表情包“${pack.name}”，共 ${pack.stickers.size} 张。在会话设置里打开表情包后，模型才会发图")
-            }.onFailure { status("表情包导入失败：${it.message}") }
-        }
+    /** The phone reads the user's ZIP, then the pack is stored on the PC; the phone keeps none of the images. */
+    private fun importStickers(name: String, bytes: ByteArray) = stickerJob { provider, key ->
+        val existing = pcClient.stickerPacks(provider, key)
+        require(existing.size < MAX_STICKER_PACKS) { "电脑上的表情包已达 $MAX_STICKER_PACKS 个，请先删除不用的" }
+        val taken = existing.flatMap { pack -> pack.stickers.map { it.key } }.toSet()
+        val pack = withContext(Dispatchers.IO) { StickerImporter.read(name, bytes, taken) }
+        val stored = pcClient.uploadStickerPack(provider, key, pack, name)
+        updatePcLink { it.copy(stickerPacks = existing + stored, stickersError = "") }
+        status("已把表情包“${stored.name}”存到电脑，共 ${stored.stickers.size} 张。用电脑写作服务的会话打开表情包后，模型才会发图")
     }
 
     override fun deleteStickerPack(id: String) {
+        if (mutable.value.pcLink.stickerPacks.orEmpty().any { it.id == id }) {
+            stickerJob { provider, key ->
+                pcClient.deleteStickerPack(provider, key, id)
+                updatePcLink { it.copy(stickerPacks = it.stickerPacks?.filterNot { pack -> pack.id == id }) }
+                withContext(Dispatchers.IO) { File(pcStickerCache, id).deleteRecursively() }
+                status("已从电脑删除表情包")
+            }
+            return
+        }
+        // A pack still on the phone from before 0.1.71.
         if (data.stickerPacks.none { it.id == id }) return
         change(data.copy(stickerPacks = data.stickerPacks.filterNot { it.id == id }))
         viewModelScope.launch(Dispatchers.IO) { StickerStore.delete(app.filesDir, id) }
-        status("已删除表情包")
+        status("已删除手机上的旧表情包")
     }
 
-    override fun setStickerPackEnabled(id: String, enabled: Boolean) {
-        change(data.copy(stickerPacks = data.stickerPacks.map { if (it.id == id) it.copy(enabled = enabled) else it }))
+    override fun setStickerPackEnabled(id: String, enabled: Boolean) = stickerJob { provider, key ->
+        val pack = pcClient.setStickerPackEnabled(provider, key, id, enabled)
+        updatePcLink { it.copy(stickerPacks = it.stickerPacks?.map { old -> if (old.id == id) pack else old }) }
+    }
+
+    /**
+     * Moves packs imported before 0.1.71 from the phone to the PC. Each phone copy is removed once
+     * the PC has it; a name already used on the PC gets a number, so older replies using it lose that sticker.
+     */
+    override fun migrateLocalStickers() {
+        if (data.stickerPacks.isEmpty()) return
+        stickerJob { provider, key ->
+            var existing = pcClient.stickerPacks(provider, key)
+            var moved = 0
+            for (pack in data.stickerPacks) {
+                require(existing.size < MAX_STICKER_PACKS) { "电脑上的表情包已达 $MAX_STICKER_PACKS 个，已移动 $moved 个" }
+                val taken = existing.flatMap { old -> old.stickers.map { it.key } }.toSet()
+                val upload = withContext(Dispatchers.IO) { StickerStore.toUpload(app.filesDir, pack, taken) }
+                if (upload.items.isNotEmpty()) existing = existing + pcClient.uploadStickerPack(provider, key, upload, pack.source.ifBlank { pack.name })
+                change(data.copy(stickerPacks = data.stickerPacks.filterNot { it.id == pack.id }))
+                withContext(Dispatchers.IO) { StickerStore.delete(app.filesDir, pack.id) }
+                moved++
+                updatePcLink { it.copy(stickerPacks = existing, stickersError = "") }
+            }
+            status("已把 $moved 个表情包移到电脑，手机上的副本已删除")
+        }
+    }
+
+    /** Sticker work on the PC; failures go to the status line and the sticker card. */
+    private fun stickerJob(block: suspend (ProviderConfig, String) -> Unit) {
+        if (pcProvider() == null) return status("表情包存放在电脑写作服务上，请先在模型页添加电脑写作服务平台")
+        pcJob("stickers") { provider, key ->
+            try { block(provider, key) }
+            catch (error: CancellationException) { throw error }
+            catch (error: Exception) {
+                status("表情包操作失败：${error.message ?: "未知错误"}")
+                updatePcLink { it.copy(stickersError = error.message ?: "表情包操作失败") }
+            }
+        }
+    }
+
+    /** Reads the PC's packs in the background. A failure keeps the last list, so names in chats still resolve. */
+    private fun refreshPcStickers() {
+        val provider = pcProvider() ?: return
+        val key = app.secrets.get(credentialId(provider)).takeIf { it.isNotBlank() } ?: return
+        viewModelScope.launch {
+            try {
+                val packs = pcClient.stickerPacks(provider, key)
+                updatePcLink { it.copy(stickerPacks = packs, stickersError = "") }
+                // Cached images of packs deleted on the PC go too.
+                withContext(Dispatchers.IO) { pcStickerCache.listFiles()?.filter { dir -> packs.none { it.id == dir.name } }?.forEach { it.deleteRecursively() } }
+            } catch (error: CancellationException) { throw error }
+            catch (error: Exception) { updatePcLink { it.copy(stickersError = error.message ?: "读取电脑上的表情包失败") } }
+        }
+    }
+
+    /** Stickers live on the PC, so only chats talking to the PC writing server get them. */
+    private fun stickersFor(chat: Chat): List<Sticker> = StickerGate.forChat(chat, data.providers, mutable.value.pcLink.stickerPacks)
+
+    private fun buildContext(source: AppData, chat: Chat) = ContextEngine.build(source, chat, stickersFor(chat))
+
+    private val pcStickerCache get() = File(app.cacheDir, "pc-stickers")
+
+    /** A PC sticker image, cached on the phone after the first fetch. Blocking: the image loader calls it off the main thread. */
+    override fun pcStickerFile(sticker: Sticker): File? {
+        if (!PC_STICKER_FILE.matches(sticker.file)) return null
+        val target = File(pcStickerCache, sticker.file)
+        if (target.isFile) return target
+        // Whichever PC platform answers: at home the LAN address, away the remote one.
+        val servers = data.providers.filter { it.kind.equals("writing-server", ignoreCase = true) }.sortedByDescending { it.id == pcStore.providerId }
+        for (provider in servers) {
+            val key = app.secrets.get(credentialId(provider)).takeIf { it.isNotBlank() } ?: continue
+            val bytes = runCatching { pcClient.stickerImage(provider, key, sticker.file) }.getOrNull() ?: continue
+            target.parentFile?.mkdirs()
+            val part = File(target.parentFile, "${target.name}.part")
+            part.writeBytes(bytes)
+            if (part.renameTo(target)) return target
+        }
+        return null
     }
 
     override fun setChatStickerFrequency(chatId: String, frequency: String) {
@@ -1459,6 +1545,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     override fun checkPcLink() = pcJob("check") { provider, key ->
         val status = pcClient.status(provider, key)
         updatePcLink { it.copy(status = status) }
+        refreshPcStickers()
     }
 
     override fun backupToPc() {
@@ -1496,6 +1583,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     override fun choosePcProvider(providerId: String) {
         pcStore.providerId = providerId
         updatePcLink { it.copy(providerId = providerId, status = null, backups = null, settings = null, error = "") }
+        refreshPcStickers()
     }
 
     override fun loadPcSettings() = pcJob("settings") { provider, key ->
@@ -1662,5 +1750,6 @@ class AppController(application: Application) : AndroidViewModel(application), A
          */
         const val COMPACT_REQUEST_DEADLINE_MS = 900_000L
         const val MAX_STICKER_PACKS = 20
+        private val PC_STICKER_FILE = Regex("[0-9a-f]{12}/\\d{3}\\.(png|jpg|gif|webp)")
     }
 }

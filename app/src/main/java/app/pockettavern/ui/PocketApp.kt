@@ -345,8 +345,12 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
             Divider()
             Text("表情包", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
             // Read the live chat: the dialog's `chat` is a snapshot and this setting applies at once.
-            val liveFrequency = state.data.chats.firstOrNull { it.id == chat.id }?.stickerFrequency ?: chat.stickerFrequency
-            StickerFrequencyChooser(liveFrequency, state.data.stickerPacks.filter { it.enabled }.sumOf { it.stickers.size }, !state.busy && !state.loading) {
+            val liveChat = state.data.chats.firstOrNull { it.id == chat.id } ?: chat
+            val liveFrequency = liveChat.stickerFrequency
+            // Stickers live on the PC, so only a chat using the PC writing server can send them.
+            val onPc = state.data.providers.firstOrNull { it.id == liveChat.providerId }?.kind.equals("writing-server", ignoreCase = true)
+            val stickerCount = if (onPc) state.pcLink.stickerPacks.orEmpty().filter { it.enabled }.sumOf { it.stickers.size } else 0
+            StickerFrequencyChooser(liveFrequency, stickerCount, !state.busy && !state.loading, onPc = onPc) {
                 actions.setChatStickerFrequency(chat.id, it)
             }
         }
@@ -1280,9 +1284,11 @@ private fun SettingsTab(state: UiSession, actions: AppActions) {
         }
         item {
             SectionTitle("表情包")
-            StickerPacksCard(state.data.stickerPacks, state.busy || state.loading, onImport = { actions.importFile("stickers") },
+            StickerPacksCard(state.pcLink.stickerPacks, state.busy || state.loading || state.pcLink.busy.isNotBlank(), onImport = { actions.importFile("stickers") },
                 onEnable = actions::setStickerPackEnabled, onDelete = actions::deleteStickerPack,
-                load = { sticker -> actions.stickerFile(sticker)?.let { decodeStickerFile(it, 160) } })
+                load = { sticker -> actions.pcStickerFile(sticker)?.let { decodeStickerFile(it, 160) } },
+                pcAvailable = state.data.providers.any { it.kind.equals("writing-server", ignoreCase = true) },
+                error = state.pcLink.stickersError, legacy = state.data.stickerPacks, onMigrate = actions::migrateLocalStickers)
         }
         item { SectionTitle("系统预设", action = { IconButton(onClick = { presetDialog = Preset() }) { Icon(Icons.Outlined.Add, "新建预设") } }) }
         items(state.data.presets, key = { it.id }) { preset -> PresetCard(preset, actions) { presetDialog = preset } }

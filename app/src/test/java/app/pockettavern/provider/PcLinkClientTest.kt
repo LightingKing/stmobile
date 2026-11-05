@@ -92,6 +92,44 @@ class PcLinkClientTest {
         assertTrue(failure { client.saveSettings(pc, "t", mapOf("upstreamBaseUrl" to "x")) }.message!!.contains("不能从手机修改"))
     }
 
+    @Test fun stickerPacksLiveOnThePc() {
+        server.enqueue(json("""{"object":"list","packs":[{"id":"0123456789ab","name":"大肥鱼","license":"personal","enabled":true,"imported_at":"2026-11-05T08:00:00.000Z",
+            "stickers":[{"key":"干饭","name":"干饭","description":"白米饭","tags":["饭点"],"file":"0123456789ab/001.png"},{"key":"bad","file":"../../config.json"}]}]}"""))
+        val packs = runBlocking { client.stickerPacks(pc, "t") }
+        assertEquals("/v1/stickers", server.takeRequest().path)
+        assertEquals("an unsafe file path is dropped", listOf("干饭"), packs.single().stickers.map { it.key })
+        assertEquals(listOf("饭点"), packs.single().stickers.single().tags)
+
+        val png = byteArrayOf(0x89.toByte(), 'P'.code.toByte(), 'N'.code.toByte(), 'G'.code.toByte(), 13, 10, 26, 10, 7)
+        val pack = app.pockettavern.data.StickerImporter.Pack("新包", "CC0", listOf(
+            app.pockettavern.data.StickerImporter.Item("smile", "smile", "微笑", listOf("开心"), "png", png),
+            app.pockettavern.data.StickerImporter.Item("ok", "ok", "", emptyList(), "png", png + 1)))
+        server.enqueue(json("""{"id":"ba9876543210","name":"新包","enabled":true,"stickers":[{"key":"smile","file":"ba9876543210/001.png"}]}""", 201))
+        val stored = runBlocking { client.uploadStickerPack(pc, "t", pack, "new.zip") }
+        assertEquals("ba9876543210", stored.id)
+        val upload = server.takeRequest()
+        assertEquals("/v1/stickers/packs", upload.path)
+        assertEquals("application/vnd.pocket-tavern.stickers", upload.getHeader("Content-Type"))
+        val body = upload.body.readByteArray()
+        val headerLength = java.nio.ByteBuffer.wrap(body, 0, 4).int
+        val header = org.json.JSONObject(String(body, 4, headerLength, Charsets.UTF_8))
+        assertEquals("new.zip", header.getString("source"))
+        assertEquals(listOf(png.size, png.size + 1), (0 until 2).map { header.getJSONArray("stickers").getJSONObject(it).getInt("size") })
+        assertEquals(4 + headerLength + png.size * 2 + 1, body.size)
+
+        server.enqueue(MockResponse().setHeader("Content-Type", "image/png").setBody(Buffer().write(png)))
+        assertTrue(client.stickerImage(pc, "t", "0123456789ab/001.png").contentEquals(png))
+        assertEquals("/v1/stickers/files/0123456789ab/001.png", server.takeRequest().path)
+        try { client.stickerImage(pc, "t", "../config.json"); fail("unsafe path") } catch (_: IllegalArgumentException) { }
+
+        server.enqueue(json("""{"id":"0123456789ab","name":"大肥鱼","enabled":false,"stickers":[]}"""))
+        assertFalse(runBlocking { client.setStickerPackEnabled(pc, "t", "0123456789ab", false) }.enabled)
+        assertEquals("PATCH", server.takeRequest().method)
+        server.enqueue(json("""{"deleted":"0123456789ab"}"""))
+        runBlocking { client.deleteStickerPack(pc, "t", "0123456789ab") }
+        assertEquals("DELETE", server.takeRequest().method)
+    }
+
     @Test fun refusalsExplainWhatToDo() {
         server.enqueue(json("""{"error":{"message":"未授权"}}""", 401))
         assertTrue(failure { client.status(pc, "wrong") }.message!!.contains("手机连接.txt"))

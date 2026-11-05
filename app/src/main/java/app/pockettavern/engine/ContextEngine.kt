@@ -11,6 +11,7 @@ import app.pockettavern.domain.Message
 import app.pockettavern.domain.Memory
 import app.pockettavern.domain.ModelInfo
 import app.pockettavern.domain.Preset
+import app.pockettavern.domain.Sticker
 import app.pockettavern.domain.Summary
 import app.pockettavern.provider.VeniceModelCapabilities
 import java.nio.charset.StandardCharsets
@@ -36,7 +37,8 @@ object ContextEngine {
     /** Normally preserve the latest exchange; emergency recovery may summarize the entire source span. */
     private const val MIN_KEPT_TURNS = 2
 
-    fun build(data: AppData, chat: Chat): ContextBuild {
+    /** [stickers] are the ones this chat may use; the app passes only the PC's when the chat talks to it. */
+    fun build(data: AppData, chat: Chat, stickers: List<Sticker> = StickerGate.stickers(data)): ContextBuild {
         val preset = data.presets.firstOrNull { it.id == chat.presetId }
             ?: data.presets.firstOrNull()
             ?: Preset(id = chat.presetId)
@@ -105,7 +107,6 @@ object ContextEngine {
         val toolDefinitions = toolArray.toString()
         // Stickers: the list is stable per chat and cacheable; whether this turn may use
         // one is decided by the app from recent replies and sent in the varying part below.
-        val stickers = StickerGate.stickers(data)
         val stickerTurn = StickerGate.decide(chat, stickers.isNotEmpty())
         val stickersOn = StickerFrequency.of(chat.stickerFrequency) != StickerFrequency.OFF && stickers.isNotEmpty()
         if (stickersOn) addSystem(StickerPrompt.list(stickers), "policy")

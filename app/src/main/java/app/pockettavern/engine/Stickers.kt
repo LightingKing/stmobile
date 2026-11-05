@@ -2,7 +2,9 @@ package app.pockettavern.engine
 
 import app.pockettavern.domain.AppData
 import app.pockettavern.domain.Chat
+import app.pockettavern.domain.ProviderConfig
 import app.pockettavern.domain.Sticker
+import app.pockettavern.domain.StickerPack
 
 /**
  * Per-chat sticker frequency. [recentLimit] stickers are allowed in the last
@@ -68,6 +70,16 @@ object StickerGate {
     enum class Turn { NONE, MAY, MUST }
 
     fun stickers(data: AppData): List<Sticker> = data.stickerPacks.filter { it.enabled }.flatMap { it.stickers }
+
+    /**
+     * Sticker packs live on the PC writing server, so a chat gets them only while it talks to
+     * one. [pcPacks] is what that PC holds, or null before it has been read.
+     */
+    fun forChat(chat: Chat, providers: List<ProviderConfig>, pcPacks: List<StickerPack>?): List<Sticker> {
+        val kind = providers.firstOrNull { it.id == chat.providerId }?.kind.orEmpty()
+        if (!kind.equals("writing-server", ignoreCase = true)) return emptyList()
+        return pcPacks.orEmpty().filter { it.enabled }.flatMap { it.stickers }
+    }
 
     fun decide(chat: Chat, available: Boolean): Turn {
         val frequency = StickerFrequency.of(chat.stickerFrequency)

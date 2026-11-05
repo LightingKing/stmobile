@@ -77,7 +77,10 @@ data class PcLinkState(
     val lastBackupSize: Long = 0,
     val lastBackupError: String = "",
     /** Loaded when the PC settings page opens; null until then. */
-    val settings: PcSettings? = null
+    val settings: PcSettings? = null,
+    /** Sticker packs kept on the PC; null until read. Only chats on the PC writing server use them. */
+    val stickerPacks: List<StickerPack>? = null,
+    val stickersError: String = ""
 )
 
 object PcBackupPolicy {

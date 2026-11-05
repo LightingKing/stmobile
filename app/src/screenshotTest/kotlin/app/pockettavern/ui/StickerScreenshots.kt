@@ -61,9 +61,19 @@ fun stickerSettingsPreview() = StickerPreviewSurface {
 }
 
 @PreviewTest
-@Preview(name = "会话表情频率", showBackground = true, widthDp = 360, heightDp = 360, fontScale = 1.3f)
+@Preview(name = "会话表情频率", showBackground = true, widthDp = 360, heightDp = 620, fontScale = 1.3f)
 @Composable
 fun stickerFrequencyPreview() = StickerPreviewSurface {
     StickerFrequencyChooser("standard", available = 35, enabled = true) {}
     StickerFrequencyChooser("off", available = 0, enabled = true) {}
+    StickerFrequencyChooser("standard", available = 0, enabled = true, onPc = false) {}
+}
+
+@PreviewTest
+@Preview(name = "表情包-手机上的旧包与未连电脑", showBackground = true, widthDp = 360, heightDp = 1150, fontScale = 1.3f)
+@Composable
+fun stickerSettingsLegacyPreview() = StickerPreviewSurface {
+    StickerPacksCard(emptyList(), busy = false, onImport = {}, onEnable = { _, _ -> }, onDelete = {}, load = loadPreview,
+        legacy = listOf(StickerPack(id = "old", name = "大肥鱼表情", stickers = PreviewStickers)))
+    StickerPacksCard(null, busy = false, onImport = {}, onEnable = { _, _ -> }, onDelete = {}, load = loadPreview, pcAvailable = false)
 }

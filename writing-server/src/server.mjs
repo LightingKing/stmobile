@@ -1,12 +1,13 @@
 import http from 'node:http';
 import crypto from 'node:crypto';
-import { readFileSync } from 'node:fs';
+import { createReadStream, readFileSync } from 'node:fs';
 import { createUpstream } from './upstream.mjs';
 import { createVault } from './vault.mjs';
 import { runCompletion } from './pipeline.mjs';
 import { BackupError, createBackupStore } from './backups.mjs';
 import { clientAddress, createAuthGuard } from './guard.mjs';
 import { capability, contextOf, createCatalog, displayName } from './catalog.mjs';
+import { STICKER_LIMITS, STICKER_UPLOAD_TYPE, StickerError, createStickerStore } from './stickers.mjs';
 import { MODEL_ID, SETTING_OPTIONS, applySettings, loadReviewSkill, saveSettings, settingsOf, validateSettings } from './config.mjs';
 
 const DEFAULT_CONFIG = {
@@ -34,6 +35,18 @@ function sendJson(res, status, body, headers = {}) {
   const text = JSON.stringify(body);
   res.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...headers });
   res.end(text);
+}
+
+/** A raw body, refused once it passes [limit] bytes. */
+async function readRaw(req, limit) {
+  let size = 0;
+  const chunks = [];
+  for await (const chunk of req) {
+    size += chunk.length;
+    if (size > limit) throw Object.assign(new Error(`请求体超过 ${Math.round(limit / 1024 / 1024)}MB 限制`), { status: 413, code: 'request_too_large' });
+    chunks.push(chunk);
+  }
+  return Buffer.concat(chunks);
 }
 
 async function readBody(req) {
@@ -166,7 +179,7 @@ function answerStream(res, id) {
   return { push, finish, fail };
 }
 
-export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null, catalog = null } = {}) {
+export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null, catalog = null, stickers = null } = {}) {
   const resolved = { ...DEFAULT_CONFIG, ...config };
   const dataDir = resolved.dataDir || './writing-server-data';
   const store = vault || createVault({ dataDir });
@@ -174,6 +187,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
   const authGuard = guard || createAuthGuard();
   const remote = upstream || (resolved.upstreamKey ? createUpstream({ baseUrl: resolved.upstreamBaseUrl, key: resolved.upstreamKey, idleTimeoutMs: resolved.upstreamIdleTimeoutMs }) : null);
   const models = catalog || createCatalog({ upstream: remote });
+  const stickerStore = stickers || createStickerStore({ dataDir });
   const ready = Boolean(resolved.token && remote);
   const startedAt = new Date();
   // Generations in flight, one per chat and purpose. A repeat of the same request replaces the old one.
@@ -199,7 +213,8 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       archive: true,
       active_requests: active.size,
       backups: await backupStore.summary(),
-      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings'],
+      stickers: await stickerStore.summary(),
+      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings', 'stickers'],
     };
   }
 
@@ -231,6 +246,45 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       return sendJson(res, 200, settingsPayload());
     } catch (error) {
       return sendJson(res, error.status || 500, errorPayload(error));
+    }
+  }
+
+  /** Sticker packs live on this PC; the phone lists them, uploads packs it has read and fetches images. */
+  async function handleStickers(req, res, parsed) {
+    const route = parsed.pathname.slice('/v1/stickers'.length);
+    try {
+      if (route === '' && req.method === 'GET') return sendJson(res, 200, { object: 'list', packs: await stickerStore.list(), limits: STICKER_LIMITS });
+      if (route === '/packs' && req.method === 'POST') {
+        const type = String(req.headers['content-type'] || '').split(';')[0].trim().toLowerCase();
+        if (type !== STICKER_UPLOAD_TYPE) return sendJson(res, 415, { error: { message: `表情包需以 ${STICKER_UPLOAD_TYPE} 上传`, code: 'unsupported_media_type' } });
+        const pack = await stickerStore.add(await readRaw(req, STICKER_LIMITS.uploadBytes));
+        console.log(`Sticker pack added from the phone: ${pack.stickers.length} images`);
+        return sendJson(res, 201, pack);
+      }
+      const packMatch = route.match(/^\/packs\/([0-9a-f]{12})$/);
+      if (packMatch && req.method === 'PATCH') {
+        const body = await readBody(req);
+        if (typeof body?.enabled !== 'boolean') return sendJson(res, 400, { error: { message: '缺少 enabled' } });
+        const pack = await stickerStore.setEnabled(packMatch[1], body.enabled);
+        return pack ? sendJson(res, 200, pack) : sendJson(res, 404, { error: { message: '表情包不存在' } });
+      }
+      if (packMatch && req.method === 'DELETE') {
+        return (await stickerStore.remove(packMatch[1])) ? sendJson(res, 200, { deleted: packMatch[1] }) : sendJson(res, 404, { error: { message: '表情包不存在' } });
+      }
+      const fileMatch = route.match(/^\/files\/([0-9a-f]{12})\/(\d{3}\.(?:png|jpg|gif|webp))$/);
+      if (fileMatch && req.method === 'GET') {
+        const image = await stickerStore.file(fileMatch[1], fileMatch[2]);
+        if (!image) return sendJson(res, 404, { error: { message: '表情图片不存在' } });
+        // A pack's images never change after upload, so the phone may keep its copy.
+        res.writeHead(200, { 'content-type': image.type, 'content-length': String(image.size), 'cache-control': 'private, max-age=31536000, immutable' });
+        createReadStream(image.path).on('error', (error) => res.destroy(error)).pipe(res);
+        return undefined;
+      }
+      return sendJson(res, 404, { error: { message: '路径不存在' } });
+    } catch (error) {
+      const known = error instanceof StickerError || error.status;
+      if (!known) console.error('Sticker request failed:', error?.code || error?.message);
+      return sendJson(res, error.status || 500, { error: { message: known ? error.message : '表情包操作失败', code: error.code || 'stickers_failed' } });
     }
   }
 
@@ -290,6 +344,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       return sendJson(res, 200, { ...modelList(resolved, available), ...(error ? { pocket_tavern_warning: error } : {}) });
     }
     if (parsed.pathname === '/v1/pocket/config') return handleSettings(req, res);
+    if (parsed.pathname === '/v1/stickers' || parsed.pathname.startsWith('/v1/stickers/')) return handleStickers(req, res, parsed);
     if (parsed.pathname === '/v1/pocket/status' && req.method === 'GET') return sendJson(res, 200, await status(source));
     if (parsed.pathname === '/v1/backups' || parsed.pathname.startsWith('/v1/backups/')) return handleBackups(req, res, parsed);
     if (parsed.pathname === '/v1/runs' && req.method === 'GET') {

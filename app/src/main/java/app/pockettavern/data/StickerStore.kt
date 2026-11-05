@@ -39,6 +39,23 @@ object StickerStore {
         return file.takeIf { it.path.startsWith(root(filesDir).path + File.separator) && it.isFile }
     }
 
+    /**
+     * A pack kept on the phone, read back as an upload for the PC. Missing images are left out;
+     * a name the PC already uses gets the lowest free number, as a fresh import would.
+     */
+    fun toUpload(filesDir: File, pack: StickerPack, takenKeys: Set<String>): StickerImporter.Pack {
+        val taken = takenKeys.toMutableSet()
+        val items = pack.stickers.mapNotNull { sticker ->
+            val image = file(filesDir, sticker) ?: return@mapNotNull null
+            var key = sticker.key
+            var suffix = 2
+            while (key in taken) key = "${sticker.key.take(22)}$suffix".also { suffix++ }
+            taken += key
+            StickerImporter.Item(key, sticker.name, sticker.description, sticker.tags, image.extension.lowercase(), image.readBytes())
+        }
+        return StickerImporter.Pack(pack.name, pack.license, items)
+    }
+
     /** "<packId>/<name>": two plain segments, nothing that can climb out of the folder. */
     fun isSafe(path: String): Boolean {
         val parts = path.split('/')

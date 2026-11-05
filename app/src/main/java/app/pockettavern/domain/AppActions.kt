@@ -100,6 +100,10 @@ interface AppActions {
     fun setStickerPackEnabled(id: String, enabled: Boolean) { }
     fun setChatStickerFrequency(chatId: String, frequency: String) { }
     fun stickerFile(sticker: Sticker): java.io.File? = null
+    /** A sticker image from the PC, fetched once and then cached; blocking, call off the main thread. */
+    fun pcStickerFile(sticker: Sticker): java.io.File? = null
+    /** Moves packs imported before 0.1.71 from the phone to the PC. */
+    fun migrateLocalStickers() { }
     /** Settings → 电脑连接: asks the PC writing server for its status. */
     fun checkPcLink() { }
     fun backupToPc() { }

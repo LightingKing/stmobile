@@ -38,7 +38,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.pockettavern.domain.*
 import app.pockettavern.engine.DeepSeekWriting
-import app.pockettavern.engine.StickerGate
 import app.pockettavern.engine.StickerMarkup
 import app.pockettavern.engine.ConversationTurns
 import kotlinx.coroutines.launch
@@ -256,8 +255,9 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
 
 @Composable
 private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, modifier: Modifier, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit, onModels: () -> Unit) {
-    val stickers = remember(state.data.stickerPacks) { StickerGate.stickers(state.data) }
-    val loadSticker = remember(actions) { { sticker: Sticker -> actions.stickerFile(sticker)?.let { decodeStickerFile(it) } } }
+    // Sticker packs live on the PC; their images come from it and are cached on the phone.
+    val stickers = remember(state.pcLink.stickerPacks) { state.pcLink.stickerPacks.orEmpty().flatMap { it.stickers } }
+    val loadSticker = remember(actions) { { sticker: Sticker -> actions.pcStickerFile(sticker)?.let { decodeStickerFile(it) } } }
     var draft by rememberSaveable { mutableStateOf("") }
     var intent by rememberSaveable { mutableStateOf("auto") }
     // Top-down layout keeps the reading position fixed while the last message grows below it.

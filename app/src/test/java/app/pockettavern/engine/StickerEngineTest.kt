@@ -3,6 +3,7 @@ package app.pockettavern.engine
 import app.pockettavern.domain.AppData
 import app.pockettavern.domain.Chat
 import app.pockettavern.domain.Message
+import app.pockettavern.domain.ProviderConfig
 import app.pockettavern.domain.Sticker
 import app.pockettavern.domain.StickerPack
 import app.pockettavern.domain.WorldEntry
@@ -51,6 +52,22 @@ class StickerEngineTest {
         assertEquals(StickerGate.Turn.MAY, StickerGate.decide(chat("low", listOf("a\n[表情:smile]", "b", "c", "d", "e", "f")), available = true))
         assertEquals(StickerGate.Turn.NONE, StickerGate.decide(chat("every", emptyList(), intent = "correction"), available = true))
         assertEquals(listOf("smile", "干饭"), StickerGate.recentKeys(chat("high", listOf("a\n[表情:smile]", "b\n[表情:干饭]"))))
+    }
+
+    @Test fun onlyChatsOnThePcWritingServerGetThePcStickers() {
+        val pc = ProviderConfig(id = "pc", kind = "writing-server", baseUrl = "http://192.168.1.22:8791/v1")
+        val venice = ProviderConfig(id = "venice")
+        val packs = listOf(StickerPack(id = "a", stickers = stickers), StickerPack(id = "b", enabled = false, stickers = listOf(Sticker(key = "off", file = "b/001.png"))))
+        assertEquals(listOf("smile", "干饭"), StickerGate.forChat(Chat(id = "c", providerId = "pc"), listOf(pc, venice), packs).map { it.key })
+        assertTrue(StickerGate.forChat(Chat(id = "c", providerId = "venice"), listOf(pc, venice), packs).isEmpty())
+        assertTrue("not read from the PC yet", StickerGate.forChat(Chat(id = "c", providerId = "pc"), listOf(pc), null).isEmpty())
+
+        // The app passes the chat's stickers; phone-side packs alone no longer reach the prompt.
+        val chat = Chat(id = "c", providerId = "venice", stickerFrequency = "every", messages = listOf(Message(role = "user", content = "早")))
+        val data = AppData(chats = listOf(chat), stickerPacks = listOf(StickerPack(id = "p", stickers = stickers)))
+        val messages = JSONArray(ContextEngine.build(data, chat, emptyList()).messagesJson).toString()
+        assertFalse(messages.contains("【表情包】"))
+        assertTrue(JSONArray(ContextEngine.build(data, chat, stickers).messagesJson).toString().contains("【表情包】"))
     }
 
     @Test fun contextSendsTheListOnlyWhenOnAndNeverEchoesPastMarkers() {

@@ -1,9 +1,12 @@
 package app.pockettavern.provider
 
+import app.pockettavern.data.StickerImporter
 import app.pockettavern.domain.PcBackup
 import app.pockettavern.domain.PcSettings
 import app.pockettavern.domain.PcStatus
 import app.pockettavern.domain.ProviderConfig
+import app.pockettavern.domain.Sticker
+import app.pockettavern.domain.StickerPack
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.HttpUrl
@@ -134,6 +137,74 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         target
     }
 
+    /** Sticker packs kept on the PC. Their files are "<packId>/<NNN.ext>", fetched with [stickerImage]. */
+    suspend fun stickerPacks(provider: ProviderConfig, key: String): List<StickerPack> = withContext(Dispatchers.IO) {
+        val packs = parse(call(quick, request(provider, key, "stickers").get().build()) { it.body?.string().orEmpty() }).optJSONArray("packs") ?: JSONArray()
+        (0 until packs.length()).mapNotNull { packs.optJSONObject(it)?.let(::stickerPack) }
+    }
+
+    /**
+     * Uploads a pack the phone has read from the user's ZIP: a 4-byte header length, the JSON
+     * header, then each image's bytes in order. The PC checks every image and name again.
+     */
+    suspend fun uploadStickerPack(provider: ProviderConfig, key: String, pack: StickerImporter.Pack, source: String): StickerPack = withContext(Dispatchers.IO) {
+        val header = JSONObject().put("name", pack.name).put("license", pack.license).put("source", source.take(120)).put("stickers", JSONArray().apply {
+            pack.items.forEach { item ->
+                put(JSONObject().put("key", item.key).put("name", item.name).put("description", item.description)
+                    .put("tags", JSONArray(item.tags)).put("extension", item.extension).put("size", item.bytes.size))
+            }
+        }).toString().toByteArray(Charsets.UTF_8)
+        val body = java.io.ByteArrayOutputStream(4 + header.size + pack.items.sumOf { it.bytes.size }).apply {
+            write(java.nio.ByteBuffer.allocate(4).putInt(header.size).array())
+            write(header)
+            pack.items.forEach { write(it.bytes) }
+        }.toByteArray().toRequestBody(STICKERS)
+        stickerPack(parse(call(client, request(provider, key, "stickers/packs").post(body).build()) { it.body?.string().orEmpty() }))
+    }
+
+    suspend fun setStickerPackEnabled(provider: ProviderConfig, key: String, id: String, enabled: Boolean): StickerPack = withContext(Dispatchers.IO) {
+        val body = JSONObject().put("enabled", enabled).toString().toRequestBody(JSON)
+        stickerPack(parse(call(quick, request(provider, key, "stickers/packs/$id").patch(body).build()) { it.body?.string().orEmpty() }))
+    }
+
+    suspend fun deleteStickerPack(provider: ProviderConfig, key: String, id: String) = withContext(Dispatchers.IO) {
+        call(quick, request(provider, key, "stickers/packs/$id").delete().build()) { }
+    }
+
+    /** Blocking: called from the image loader's IO thread. Returns the image bytes, at most 2 MB. */
+    fun stickerImage(provider: ProviderConfig, key: String, file: String): ByteArray {
+        require(STICKER_FILE.matches(file)) { "表情图片路径无效" }
+        return call(quick, request(provider, key, "stickers/files/$file").get().build()) { response ->
+            val body = response.body ?: throw PcLinkException("电脑没有返回表情图片")
+            val output = java.io.ByteArrayOutputStream()
+            body.byteStream().use { input ->
+                val buffer = ByteArray(16 * 1024)
+                while (true) {
+                    val read = input.read(buffer)
+                    if (read < 0) break
+                    if (output.size() + read > MAX_STICKER_BYTES) throw PcLinkException("表情图片超过 2 MB")
+                    output.write(buffer, 0, read)
+                }
+            }
+            output.toByteArray()
+        }
+    }
+
+    private fun stickerPack(json: JSONObject): StickerPack {
+        val stickers = json.optJSONArray("stickers") ?: JSONArray()
+        return StickerPack(
+            id = json.optString("id"), name = json.optString("name"), license = json.optString("license"), source = json.optString("source"),
+            enabled = json.optBoolean("enabled", true),
+            importedAt = runCatching { java.time.Instant.parse(json.optString("imported_at")).toEpochMilli() }.getOrDefault(0L),
+            stickers = (0 until stickers.length()).mapNotNull { index ->
+                stickers.optJSONObject(index)?.let { item ->
+                    Sticker(key = item.optString("key"), name = item.optString("name"), description = item.optString("description"),
+                        tags = item.optJSONArray("tags").strings(), file = item.optString("file"))
+                }?.takeIf { it.key.isNotBlank() && STICKER_FILE.matches(it.file) }
+            }
+        )
+    }
+
     private fun base(provider: ProviderConfig): HttpUrl = try {
         ProviderUrlPolicy.parse(provider, allowInsecureHttpForTests)
     } catch (error: IllegalArgumentException) {
@@ -193,5 +264,8 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         const val TRANSFER_IDLE_MINUTES = 10L
         private val ZIP = "application/zip".toMediaType()
         private val JSON = "application/json; charset=utf-8".toMediaType()
+        private val STICKERS = "application/vnd.pocket-tavern.stickers".toMediaType()
+        private const val MAX_STICKER_BYTES = 2 * 1024 * 1024
+        private val STICKER_FILE = Regex("[0-9a-f]{12}/\\d{3}\\.(png|jpg|gif|webp)")
     }
 }

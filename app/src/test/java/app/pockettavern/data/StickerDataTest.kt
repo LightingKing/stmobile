@@ -106,6 +106,17 @@ class StickerDataTest {
         assertTrue(dir.exists())
     }
 
+    @Test fun phonePacksBecomePcUploadsWithFreeNamesAndNoMissingImages() {
+        val dir = Files.createTempDirectory("stickers-move").toFile()
+        val saved = StickerStore.save(dir, StickerImporter.read("p.zip", zip("smile.png" to png, "think.jpg" to jpg)), "p.zip")
+        val withGhost = saved.copy(stickers = saved.stickers + Sticker(key = "ghost", file = "${saved.id}/999.png"))
+        val upload = StickerStore.toUpload(dir, withGhost, takenKeys = setOf("smile", "smile2"))
+        assertEquals(listOf("smile3", "think"), upload.items.map { it.key })
+        assertEquals(listOf("png", "jpg"), upload.items.map { it.extension })
+        assertTrue(upload.items.first().bytes.contentEquals(png))
+        assertEquals(saved.name, upload.name)
+    }
+
     @Test fun codecKeepsStickerDataAndOldStateGetsDefaults() {
         val pack = StickerPack(id = "p1", name = "包", license = "personal", stickers = listOf(Sticker(key = "smile", name = "smile", file = "p1/001.png")))
         val data = AppData(chats = listOf(Chat(id = "c", stickerFrequency = "standard")), stickerPacks = listOf(pack))
