@@ -72,6 +72,7 @@ object DataCodec {
             // Same policy the provider editor enforces on save; a stricter check
             // here would make a saved LAN writing-server block the next load.
             require(app.pockettavern.provider.ProviderUrlPolicy.violation(it) == null) { "备份平台地址无效" }
+            require(app.pockettavern.provider.ProviderUrlPolicy.lanViolation(it) == null) { "备份平台的局域网地址无效" }
         }
         data.chats.forEach { chat -> chat.messages.flatMap { it.attachments }.forEach { require(it.path.isBlank()) { "备份附件必须嵌入数据，不能引用本地路径" } } }
         require(data.stickerPacks.size <= 20 && data.stickerPacks.all { it.stickers.size <= StickerImporter.MAX_STICKERS }) { "表情包数量过多" }
@@ -102,6 +103,7 @@ object DataCodec {
                 name = provider.name.orEmpty(),
                 kind = provider.kind.orEmpty().ifBlank { "openai" },
                 baseUrl = provider.baseUrl.orEmpty().ifBlank { "https://api.venice.ai/api/v1" },
+                lanBaseUrl = provider.lanBaseUrl.orEmpty().trim(),
                 models = provider.models.orEmpty().map { model ->
                     model.copy(
                         id = model.id.orEmpty(), name = model.name.orEmpty(), type = model.type.orEmpty().ifBlank { "text" },

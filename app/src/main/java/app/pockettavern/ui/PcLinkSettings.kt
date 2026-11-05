@@ -57,6 +57,14 @@ private fun backupTime(instant: Instant, zone: ZoneId) = BackupTime.format(insta
 
 private fun backupTime(iso: String, zone: ZoneId) = runCatching { backupTime(Instant.parse(iso), zone) }.getOrDefault(iso)
 
+/** Which address the last request used, and how to get the at-home LAN switch when it is not set up. */
+internal fun routeText(server: ProviderConfig, route: String): String = when {
+    server.lanBaseUrl.isBlank() -> "没有填家里的局域网地址：一直走上面这个地址。在平台里填上后，在家会自动走内网。"
+    route == "lan" -> "当前线路：家里的局域网（已确认是你的电脑）"
+    route == "remote" -> "当前线路：远程（不在家，或连不上家里的电脑）"
+    else -> "下次请求时自动判断走内网还是远程"
+}
+
 private fun reasonLabel(reason: String) = when (reason) {
     "auto" -> "自动"
     "pre-restore" -> "恢复前自动保存"
@@ -98,6 +106,9 @@ internal fun PcLinkCard(
             Column {
                 Text(server.name, fontWeight = FontWeight.SemiBold)
                 Text(server.baseUrl, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                if (server.lanBaseUrl.isNotBlank()) Text("家里：${server.lanBaseUrl}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(routeText(server, link.route), style = MaterialTheme.typography.labelSmall,
+                    color = if (link.route == "lan") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant)
             }
             PcStatusLine(link)
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {

@@ -208,7 +208,7 @@ export async function runCompletion({ request, config, vault, upstream, signal, 
         }
       }
     } else {
-      current = await vault.updateRun(current, { warning: bypassReview(draft) ? '草稿因工具调用、过滤或长度结束，未执行审核/修订。' : undefined });
+      current = await vault.updateRun(current, { warning: !direct && bypassReview(draft) ? '草稿因工具调用、过滤或长度结束，未执行审核/修订。' : undefined });
     }
     const finalResult = {
       ...final,

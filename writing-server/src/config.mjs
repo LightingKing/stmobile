@@ -160,5 +160,9 @@ export async function loadConfig(dataDir = defaultDataDir()) {
     backupKeep: boundedInteger(raw.backupKeep, 20, 1, 200, '备份保留份数'),
     // PC-only: which Python runs the DSH engine; blank means python, then py -3.
     pythonPath: typeof raw.pythonPath === 'string' ? raw.pythonPath.trim() : '',
+    // The internet address phones use (shown on the dashboard); the server itself never calls it.
+    publicBaseUrl: typeof raw.publicBaseUrl === 'string' ? raw.publicBaseUrl.trim() : '',
+    // The PC dashboard, on 127.0.0.1 only.
+    adminPort: boundedInteger(raw.adminPort, port + 1, 1024, 65535, '管理页端口'),
   };
 }

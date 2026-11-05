@@ -80,7 +80,9 @@ data class PcLinkState(
     val settings: PcSettings? = null,
     /** Sticker packs kept on the PC; null until read. Only chats on the PC writing server use them. */
     val stickerPacks: List<StickerPack>? = null,
-    val stickersError: String = ""
+    val stickersError: String = "",
+    /** "lan" or "remote" after the last request to the chosen PC; blank before any. */
+    val route: String = ""
 )
 
 object PcBackupPolicy {

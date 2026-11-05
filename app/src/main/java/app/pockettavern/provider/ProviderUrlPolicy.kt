@@ -23,6 +23,13 @@ object ProviderUrlPolicy {
         return "API 地址必须使用 HTTPS；局域网写作服务仅允许 RFC1918 字面 IPv4 的 HTTP 地址"
     }
 
+    /** The optional home-network address of a PC writing server, held to the same rules as its main address. */
+    fun lanViolation(provider: ProviderConfig, allowInsecureHttpForTests: Boolean = false): String? {
+        if (provider.lanBaseUrl.isBlank()) return null
+        if (!provider.kind.equals("writing-server", ignoreCase = true)) return "只有本机写作服务可以填局域网地址"
+        return violation(provider.copy(baseUrl = provider.lanBaseUrl), allowInsecureHttpForTests)?.let { "局域网地址：$it" }
+    }
+
     fun isPrivateIpv4Literal(host: String): Boolean {
         val parts = host.split('.')
         if (parts.size != 4 || parts.any { part ->

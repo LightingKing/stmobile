@@ -332,6 +332,16 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
   async function handler(req, res) {
     const parsed = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
     if (parsed.pathname === '/healthz' && req.method === 'GET') return sendJson(res, 200, { ok: true, ready });
+    if (parsed.pathname === '/v1/pocket/hello' && req.method === 'GET') {
+      // Lets a phone confirm a LAN address is this PC before sending the token over plain HTTP: it
+      // proves knowing the token without revealing it. Only the LAN listener answers, so nobody can
+      // fetch proofs through the internet tunnel and replay them on another network.
+      const local = String(req.socket?.localAddress || '').replace(/^::ffff:/, '');
+      if (resolved.lanMode !== true || local !== resolved.host) return sendJson(res, 404, { error: { message: '路径不存在' } });
+      const nonce = parsed.searchParams.get('nonce') || '';
+      if (!/^[0-9a-f]{32,128}$/.test(nonce)) return sendJson(res, 400, { error: { message: 'nonce 无效' } });
+      return sendJson(res, 200, { proof: crypto.createHmac('sha256', String(resolved.token || '')).update(`pocket-tavern-lan:${nonce}`).digest('hex') });
+    }
     const authorization = String(req.headers.authorization || '');
     if (!authorization.startsWith('Bearer ')) return sendJson(res, 401, { error: { message: '未授权', type: 'auth_error' } });
     const source = clientAddress(req, [resolved.host]);
@@ -456,6 +466,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
   server.on('connection', (socket) => socket.setKeepAlive(true, 30_000));
   server.pocket = {
     requestListener,
+    vault: store,
     activeRequests: () => active.size,
     abortAll: () => { for (const item of active.values()) item.abort.abort(); },
   };

@@ -3,7 +3,7 @@ package app.pockettavern.domain
 import java.util.UUID
 
 fun newId(): String = UUID.randomUUID().toString()
-data class ProviderConfig(val id: String = newId(), val name: String = "Venice", val kind: String = "venice", val baseUrl: String = "https://api.venice.ai/api/v1", val models: List<ModelInfo> = emptyList(), val refreshedAt: Long = 0)
+data class ProviderConfig(val id: String = newId(), val name: String = "Venice", val kind: String = "venice", val baseUrl: String = "https://api.venice.ai/api/v1", val models: List<ModelInfo> = emptyList(), val refreshedAt: Long = 0, val lanBaseUrl: String = "")
 data class ModelInfo(val id: String = "", val name: String = "", val type: String = "text", val contextTokens: Int = 32768, val supportsTools: Boolean = false, val supportsVision: Boolean = false, val supportsReasoning: Boolean = false, val offline: Boolean = false, val rawJson: String = "{}")
 data class Attachment(val id: String = newId(), val name: String = "", val mime: String = "", val path: String = "", val dataUrl: String = "")
 data class Message(val id: String = newId(), val role: String = "user", val content: String = "", val reasoning: String = "", val toolCallsJson: String = "[]", val toolCallId: String = "", val status: String = "complete", val createdAt: Long = System.currentTimeMillis(), val attachments: List<Attachment> = emptyList(), val errorMessage: String = "", val finishReason: String = "", val requestId: String = "", val contextExcluded: Boolean = false, val intent: String = "dialogue", val generationId: String = "", val revisionOf: String = "", val qualityNotice: String = "", val skillSnapshotJson: String = "")

@@ -870,15 +870,21 @@ internal fun ProviderDialog(provider: ProviderConfig, state: UiSession, actions:
     FormDialog("${if (state.data.providers.none { it.id == provider.id }) "添加" else "编辑"}平台", onDismiss, validate = { when {
         value.name.isBlank() -> "请输入平台名称。"
         ProviderUrlPolicy.violation(value) != null -> ProviderUrlPolicy.violation(value)
+        ProviderUrlPolicy.lanViolation(value) != null -> ProviderUrlPolicy.lanViolation(value)
         credentialBindingChanged && key.isBlank() -> "修改 Base URL 或协议后必须重新填写 API Key。"
         else -> null
     } }, confirm = { actions.saveProvider(value, key); onDismiss() }) {
         FormText("名称", value.name) { value = value.copy(name = it) }
         ChoiceRow("协议类型", listOf("venice" to "Venice", "openai" to "OpenAI-compatible", "writing-server" to "本机写作服务（OpenAI-compatible）", "anthropic" to "Anthropic Messages"), value.kind) { value = value.copy(kind = it) }
         if (value.kind.equals("writing-server", ignoreCase = true)) {
-            Text("局域网调试只填电脑内网 IP（例如 192.168.1.22:8791）与网关 Token；不要填公网域名、查询参数或 URL 内嵌密钥。", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text("Base URL 填电脑的远程地址（https://域名/v1）；只在家用的话，填电脑内网地址（例如 http://192.168.1.22:8791/v1）。API Key 填网关 Token。", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
         FormText("Base URL", value.baseUrl) { value = value.copy(baseUrl = it) }
+        if (value.kind.equals("writing-server", ignoreCase = true)) {
+            FormText("家里的局域网地址（可选）", value.lanBaseUrl) { value = value.copy(lanBaseUrl = it) }
+            Text("填了以后，手机在家时自动走这个内网地址，更快也不经过外网；出门自动改走上面的 Base URL。走内网前，App 会先确认对方确实是你的电脑，才会发送 Token。",
+                style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        }
         OutlinedTextField(key, { key = it }, Modifier.fillMaxWidth(), label = { Text("API Key（留空保持已有密钥）") }, visualTransformation = if (showKey) androidx.compose.ui.text.input.VisualTransformation.None else PasswordVisualTransformation(), trailingIcon = { IconButton({ showKey = !showKey }) { Icon(if (showKey) Icons.Outlined.Visibility else Icons.Outlined.Security, "显示或隐藏密钥") } }, singleLine = true)
         Text("同一地址和协议留空会保留已有密钥；修改 Base URL 或协议后必须重新填写。凭据按地址/协议绑定，不会从备份或旧地址偷偷迁移。导出备份不包含密钥。", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Divider()

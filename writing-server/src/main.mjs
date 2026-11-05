@@ -5,6 +5,7 @@ import path from 'node:path';
 import { format } from 'node:util';
 import { loadConfig, defaultDataDir } from './config.mjs';
 import { createServer } from './server.mjs';
+import { createAdminServer } from './admin.mjs';
 
 const LOG_LIMIT = 5 * 1024 * 1024;
 // Generations already paid for get this long to finish when the service is asked to stop.
@@ -66,6 +67,11 @@ try {
     console.error(error.code === 'EADDRINUSE' ? '写作服务端口已被使用。' : `写作服务无法监听（${error.code || '未知错误'}），请检查本机地址。`);
     process.exit(1);
   });
+  // The dashboard is optional: a busy port is logged, the service runs on.
+  const admin = createAdminServer({ requestListener: server.pocket.requestListener, config, vault: server.pocket.vault, dataDir: config.dataDir });
+  admin.on('error', (error) => console.warn(`电脑管理页没有启动（${error.code || error.message}）。`));
+  admin.listen(config.adminPort, '127.0.0.1', () => console.log(`Dashboard on http://127.0.0.1:${config.adminPort}/`));
+  servers.push(admin);
   await writeFile(pidFile, String(process.pid), { mode: 0o600 });
   console.log(`Pocket writing server listening on ${hosts.map((host) => `${host}:${config.port}`).join(', ')}`);
   console.log(config.upstreamKey ? 'Upstream credential configured; writing quality is not yet verified.' : 'Upstream credential missing. Models, status and backups available; generation disabled.');

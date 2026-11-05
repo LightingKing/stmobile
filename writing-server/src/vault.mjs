@@ -142,6 +142,32 @@ export function createVault({ dataDir }) {
       }
       return result.sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
     },
+    /** The newest runs across every chat, for the PC dashboard. Chats are known only by their hash here. */
+    async recentRuns(limit = 50) {
+      const chats = await fs.readdir(path.join(root, 'chats'), { withFileTypes: true }).catch(() => []);
+      const files = [];
+      for (const chat of chats) {
+        if (!chat.isDirectory()) continue;
+        const dir = path.join(root, 'chats', chat.name, 'runs');
+        for (const entry of await fs.readdir(dir, { withFileTypes: true }).catch(() => [])) {
+          if (!entry.isFile() || !entry.name.endsWith('.json')) continue;
+          const file = path.join(dir, entry.name);
+          const info = await fs.stat(file).catch(() => null);
+          if (info) files.push({ file, mtime: info.mtimeMs });
+        }
+      }
+      files.sort((a, b) => b.mtime - a.mtime);
+      const runs = [];
+      for (const { file } of files.slice(0, limit)) {
+        try { runs.push(JSON.parse(await fs.readFile(file, 'utf8'))); } catch { /* skip a half-written file */ }
+      }
+      return runs;
+    },
+    /** A run's Markdown record by chat hash, for the PC dashboard. */
+    async runMarkdown(hash, id) {
+      if (!/^[0-9a-f]{16,128}$/.test(String(hash)) || !/^[A-Za-z0-9._-]{1,120}$/.test(String(id))) return null;
+      try { return await fs.readFile(path.join(root, 'chats', hash, 'runs', `${id}.md`), 'utf8'); } catch { return null; }
+    },
     async getRun(chatId, id) {
       if (!/^[A-Za-z0-9._-]{1,120}$/.test(id)) return null;
       try { return JSON.parse(await fs.readFile(fileFor(chatId, id), 'utf8')); } catch { return null; }

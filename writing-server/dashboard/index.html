@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>口袋酒馆 · 电脑写作服务</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>口袋酒馆 · 电脑写作服务</h1>
+    <span id="badge" class="badge">读取中…</span>
+  </header>
+  <nav>
+    <a href="#overview">概览</a><a href="#connection">连接</a><a href="#runs">最近的请求</a><a href="#settings">电脑设置</a>
+    <a href="#backups">手机备份</a><a href="#stickers">表情包</a><a href="#dsh">DSH 引擎</a><a href="#logs">日志</a>
+  </nav>
+  <main>
+    <section id="overview">
+      <h2>概览</h2>
+      <div id="overview-grid" class="grid"></div>
+    </section>
+
+    <section id="connection">
+      <h2>连接</h2>
+      <dl id="connection-list" class="pairs"></dl>
+      <form id="public-form" class="inline">
+        <label>远程地址（NPS 域名）<input id="public-url" type="url" placeholder="https://你的域名/v1"></label>
+        <button type="submit">保存</button>
+      </form>
+      <p class="hint">手机在家时自动走局域网地址，在外面走远程地址。网关 Token 等同于密码，不要发给别人。</p>
+    </section>
+
+    <section id="runs">
+      <h2>最近的请求 <button id="runs-refresh" class="small">刷新</button></h2>
+      <div class="table-wrap"><table id="runs-table"></table></div>
+      <div id="run-detail" class="detail" hidden>
+        <div class="detail-head"><strong id="run-title"></strong><button id="run-close" class="small">关闭</button></div>
+        <pre id="run-text"></pre>
+      </div>
+    </section>
+
+    <section id="settings">
+      <h2>电脑设置</h2>
+      <form id="settings-form" class="form"></form>
+      <p class="hint">保存后立即生效，和手机上“设置 → 电脑连接 → 电脑设置”是同一份。上游地址和 Venice Key 不在这里改。</p>
+    </section>
+
+    <section id="backups">
+      <h2>手机备份</h2>
+      <div class="table-wrap"><table id="backups-table"></table></div>
+    </section>
+
+    <section id="stickers">
+      <h2>表情包</h2>
+      <div id="sticker-list"></div>
+    </section>
+
+    <section id="dsh">
+      <h2>DSH 成人互动引擎</h2>
+      <dl id="dsh-list" class="pairs"></dl>
+    </section>
+
+    <section id="logs">
+      <h2>日志 <button id="logs-refresh" class="small">刷新</button></h2>
+      <pre id="log-view" class="log"></pre>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

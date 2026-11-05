@@ -36,12 +36,13 @@ private fun Card(link: PcLinkState, servers: List<ProviderConfig> = listOf(Previ
     PcLinkCard(link, servers, locked = false, onCheck = {}, onBackup = {}, onLoadBackups = {}, onRestore = {}, onAutoBackup = {}, onChooseProvider = {}, zone = PreviewZone)
 
 @PreviewTest
-@Preview(name = "电脑已连接", showBackground = true, widthDp = 360, heightDp = 760, fontScale = 1.3f)
+@Preview(name = "电脑已连接", showBackground = true, widthDp = 360, heightDp = 860, fontScale = 1.3f)
 @Composable
 fun pcLinkConnectedPreview() = PcPreviewSurface {
-    Card(PcLinkState(providerId = "pc", autoBackup = true, lastBackupAt = 1_793_005_800_000L, lastBackupSize = 3_355_443,
+    Card(PcLinkState(providerId = "pc", autoBackup = true, lastBackupAt = 1_793_005_800_000L, lastBackupSize = 3_355_443, route = "lan",
         status = PcStatus(version = "0.2.0", ready = true, upstreamHost = "api.venice.ai", upstreamModel = "deepseek-v4-1-flash-1017",
-            backupCount = 4, backupBytes = 13_421_772, backupKeep = 20, defaultModelName = "DeepSeek V4.1 Flash", modelsAvailable = 27)))
+            backupCount = 4, backupBytes = 13_421_772, backupKeep = 20, defaultModelName = "DeepSeek V4.1 Flash", modelsAvailable = 27)),
+        servers = listOf(PreviewServer.copy(baseUrl = "https://pt.example.com/v1", lanBaseUrl = "http://192.168.1.22:8791/v1")))
 }
 
 @PreviewTest

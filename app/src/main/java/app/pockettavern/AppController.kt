@@ -77,8 +77,15 @@ class AppController(application: Application) : AndroidViewModel(application), A
     val state = mutable.asStateFlow()
     private val pcStore = SharedPreferencesPcLinkStore(app.getSharedPreferences("pc_link", Application.MODE_PRIVATE))
     private val pcClient = PcLinkClient()
+    private val pcRouter = PcRouter()
+    // Leaving or reaching home changes the network: the LAN check runs again on the next request.
+    private val networkWatch = object : android.net.ConnectivityManager.NetworkCallback() {
+        override fun onAvailable(network: android.net.Network) = pcRouter.forget()
+        override fun onLost(network: android.net.Network) = pcRouter.forget()
+    }
     private val pcBackups = PcBackups(pcClient, pcStore, app.filesDir, app.cacheDir, "${Build.MANUFACTURER} ${Build.MODEL}".trim(), installedVersion)
     init { mutable.value = mutable.value.copy(pcLink = pcLinkFromStore(PcLinkState())) }
+    init { runCatching { app.getSystemService(android.net.ConnectivityManager::class.java)?.registerDefaultNetworkCallback(networkWatch) } }
     var host: NativeHost? = null
     private val requestLogs by lazy { RequestLogStore(File(app.filesDir, "diagnostics"), installedVersion, Build.VERSION.SDK_INT) }
     private val compactCheckpoints by lazy { CompactCheckpointStore(File(app.filesDir, "compact-pending")) }
@@ -252,7 +259,11 @@ class AppController(application: Application) : AndroidViewModel(application), A
             require(provider.name.isNotBlank() && provider.kind in listOf("venice","openai","anthropic","writing-server")) { "平台名称或协议无效" }
             val urlViolation = ProviderUrlPolicy.violation(provider)
             require(urlViolation == null) { "平台地址无效：$urlViolation" }
-            val normalized = provider.copy(baseUrl=provider.baseUrl.trim().trimEnd('/'),name=provider.name.trim())
+            val lanViolation = ProviderUrlPolicy.lanViolation(provider)
+            require(lanViolation == null) { lanViolation.orEmpty() }
+            val normalized = provider.copy(baseUrl=provider.baseUrl.trim().trimEnd('/'),name=provider.name.trim(),
+                lanBaseUrl=if (provider.kind.equals("writing-server", ignoreCase = true)) provider.lanBaseUrl.trim().trimEnd('/') else "")
+            pcRouter.forget()
             val previous=data.providers.find { it.id==provider.id }
             require(previous==null || credentialId(previous)==credentialId(normalized) || key.isNotBlank()) { "平台地址或协议已更改，请重新填写 API key" }
             if(key.isNotBlank()) app.secrets.put(credentialId(normalized),key.trim())
@@ -280,7 +291,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val reports=mutableListOf<String>()
         for(p in targets) {
             try {
-                val models=providerClient.models(p,key(p.id))
+                val models=providerClient.models(routed(p),key(p.id))
                 change(data.copy(providers=data.providers.map { if(it.id==p.id) it.copy(models=models,refreshedAt=System.currentTimeMillis()) else it }))
                 reports+="${p.name}：${models.size} 个模型"
             } catch(error:Exception) {
@@ -444,7 +455,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 .put(JSONObject().put("role", "system").put("content", ScenarioHistoryOrganizer.systemPrompt()))
                 .put(JSONObject().put("role", "user").put("content", ScenarioHistoryOrganizer.requestText(draft, lastGood, existingMemory))).toString()
             requestPurpose = "scenario_organize"
-            val response = compactClient.chat(p, secret, modelId, request, organizePreset, toolsJson = "[]", finalAnswerOnly = true)
+            val response = compactClient.chat(routed(p), secret, modelId, request, organizePreset, toolsJson = "[]", finalAnswerOnly = true)
             require(response.content.isNotBlank() && response.finishReason.lowercase() in setOf("stop", "end_turn", "stop_sequence")) {
                 "历史整理未完成（finish_reason=${response.finishReason.ifBlank { "未知" }}），原剧本状态未修改"
             }
@@ -711,7 +722,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 }
                 val result = try {
                     requestPurpose = if (finalAnswerOnly) "chat_final" else "chat"
-                    providerClient.chat(p,secret,before.modelId,outgoing,preset(before),toolDefinitions,
+                    providerClient.chat(routed(p),secret,before.modelId,outgoing,preset(before),toolDefinitions,
                         metadata = if (p.kind.equals("writing-server", ignoreCase = true)) mapOf(
                             "pocket_tavern_chat_id" to chatId,
                             "pocket_tavern_purpose" to "chat"
@@ -776,6 +787,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         } catch(error: Exception) {
             val cancelled = error is CancellationException || !currentCoroutineContext().isActive
             val failure = error as? ProviderException
+            if (failure?.kind in setOf(ProviderException.Kind.NETWORK, ProviderException.Kind.TIMEOUT)) pcRouter.forget()
             val partial = failure?.partial
             val errorText = if(cancelled) "" else error.message?.take(800) ?: "生成失败，请查看请求日志"
             if(liveId.isNotEmpty()) changeChat(chatId) { c -> c.copy(messages=c.messages.map { if(it.id==liveId) it.copy(
@@ -970,7 +982,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                     require(sources.isNotEmpty()) { "搜索结果与查询对象无可靠对应关系，未保存资料；请补充姓名、职业或作品名后重试" }
                     status("已获取 ${sources.size} 条来源，正在让豆包整理六类资料…")
                     requestPurpose = "research_summary"
-                    val summary = providerClient.chat(researchProvider, key(researchProviderId), researchModelId.trim(),
+                    val summary = providerClient.chat(routed(researchProvider), key(researchProviderId), researchModelId.trim(),
                         ResearchWorkflow.summaryMessages(request, sources, observedAt), Preset(temperature = 0.3, maxOutput = 10_000, generationBudgetEnabled = true),
                         metadata = if (researchProvider.kind.equals("writing-server", ignoreCase = true)) mapOf(
                             "pocket_tavern_chat_id" to chatId,
@@ -1170,7 +1182,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 .put(JSONObject().put("role","system").put("content",HistoryCompressor.systemPrompt(active.summaryPrompt)))
                 .put(JSONObject().put("role","user").put("content",text)).toString()
             requestPurpose="memory_rebuild"
-            compactClient.chat(p,secret,modelId,payload,summaryPreset,
+            compactClient.chat(routed(p),secret,modelId,payload,summaryPreset,
                 metadata = if (p.kind.equals("writing-server", ignoreCase = true)) mapOf(
                     "pocket_tavern_chat_id" to chatId,
                     "pocket_tavern_purpose" to "rebuild"
@@ -1304,7 +1316,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                             requestPurpose = "compression"
                             try {
                                 withTimeout(COMPACT_REQUEST_DEADLINE_MS) {
-                                    compactClient.chat(p,secret,modelId,messages.toString(),summaryPreset,
+                                    compactClient.chat(routed(p),secret,modelId,messages.toString(),summaryPreset,
                                         metadata = if (p.kind.equals("writing-server", ignoreCase = true)) mapOf(
                                             "pocket_tavern_chat_id" to chatId,
                                             "pocket_tavern_purpose" to "compact"
@@ -1488,6 +1500,17 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     private fun buildContext(source: AppData, chat: Chat) = ContextEngine.build(source, chat, stickersFor(chat), onPc = onPc(chat))
 
+    /**
+     * A PC writing server with a home-network address goes over the LAN while this phone is at home.
+     * The token stays keyed to the provider as saved, never to the address chosen for a request.
+     */
+    private suspend fun routed(provider: ProviderConfig): ProviderConfig {
+        if (!provider.kind.equals("writing-server", ignoreCase = true) || provider.lanBaseUrl.isBlank()) return provider
+        val route = pcRouter.resolve(provider, app.secrets.get(credentialId(provider)))
+        if (provider.id == pcProvider()?.id) updatePcLink { it.copy(route = if (route.baseUrl == provider.baseUrl) "remote" else "lan") }
+        return route
+    }
+
     private fun onPc(chat: Chat) = data.providers.firstOrNull { it.id == chat.providerId }?.kind.equals("writing-server", ignoreCase = true)
 
     /** A DSH engine call from the model, run by the PC this chat talks to. The engine's own JSON goes back. */
@@ -1500,7 +1523,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val args = runCatching { JSONObject(arguments) }.getOrNull() ?: return failure("INVALID_INPUT", "工具参数不是 JSON")
         val key = app.secrets.get(credentialId(provider)).takeIf { it.isNotBlank() } ?: return failure("PC_UNREACHABLE", "没有填写电脑写作服务的 Token")
         return try {
-            val envelope = pcClient.runDsh(provider, key, args.optString("command"), args.optJSONObject("input") ?: JSONObject())
+            val envelope = pcClient.runDsh(routed(provider), key, args.optString("command"), args.optJSONObject("input") ?: JSONObject())
             if (envelope.length > MAX_DSH_RESULT_CHARS) failure("RESULT_TOO_LARGE", "引擎返回内容过大；请改用 brief 等更短的查询") else ToolResult(envelope)
         } catch (error: CancellationException) { throw error }
         catch (error: Exception) { failure("PC_UNREACHABLE", error.message ?: "连不上电脑上的 DSH 引擎") }
@@ -1517,7 +1540,9 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val servers = data.providers.filter { it.kind.equals("writing-server", ignoreCase = true) }.sortedByDescending { it.id == pcStore.providerId }
         for (provider in servers) {
             val key = app.secrets.get(credentialId(provider)).takeIf { it.isNotBlank() } ?: continue
-            val bytes = runCatching { pcClient.stickerImage(provider, key, sticker.file) }.getOrNull() ?: continue
+            val bytes = (listOf(pcRouter.current(provider), provider).distinct()).firstNotNullOfOrNull { route ->
+                runCatching { pcClient.stickerImage(route, key, sticker.file) }.getOrNull()
+            } ?: continue
             target.parentFile?.mkdirs()
             val part = File(target.parentFile, "${target.name}.part")
             part.writeBytes(bytes)
@@ -1554,9 +1579,12 @@ class AppController(application: Application) : AndroidViewModel(application), A
         }
         updatePcLink { it.copy(busy = name, error = if (quiet) it.error else "") }
         viewModelScope.launch {
-            try { block(provider, key) }
+            try { block(routed(provider), key) }
             catch (error: CancellationException) { throw error }
-            catch (error: Exception) { if (!quiet) updatePcLink { it.copy(error = error.message ?: "电脑连接失败") } }
+            catch (error: Exception) {
+                if (error is PcLinkException && error.httpCode == 0) pcRouter.forget()
+                if (!quiet) updatePcLink { it.copy(error = error.message ?: "电脑连接失败") }
+            }
             finally { updatePcLink { pcLinkFromStore(it).copy(busy = "") } }
         }
     }
@@ -1754,6 +1782,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     override fun clearStatus() { status("") }
     fun reportError(text: String) { status(text) }
     override fun onCleared() {
+        runCatching { app.getSystemService(android.net.ConnectivityManager::class.java)?.unregisterNetworkCallback(networkWatch) }
         veniceBalanceJobs.values.forEach { it.cancel() }
         veniceBalanceJobs.clear()
         stop()
