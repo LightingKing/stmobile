@@ -177,7 +177,7 @@ test('status reports service health and backups without secrets', async () => {
     const status = JSON.parse(text);
     assert.equal(status.ready, true);
     assert.equal(status.upstream.host, 'api.venice.ai');
-    assert.equal(status.upstream.idle_timeout_seconds, 180);
+    assert.equal(status.upstream.idle_timeout_seconds, 900);
     assert.equal(status.review_skill, 'ss-stop-slop');
     assert.equal(status.backups.count, 0);
     assert.equal(status.client_address, '127.0.0.1');

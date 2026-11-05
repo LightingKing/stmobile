@@ -126,3 +126,15 @@ test('upstream slow but steady stream is not cut by the idle limit', async () =>
     assert.equal(result.content, '123');
   });
 });
+
+test('upstream idle limit 0 waits as long as the upstream needs', async () => {
+  await withHandler((_req, res) => {
+    setTimeout(() => {
+      res.writeHead(200, { 'content-type': 'text/event-stream' });
+      res.end('data: {"choices":[{"delta":{"content":"慢"},"finish_reason":"stop"}]}\n\ndata: [DONE]\n\n');
+    }, 300);
+  }, async (base) => {
+    const upstream = createUpstream({ baseUrl: base, key: 'fixture', idleTimeoutMs: 0 });
+    assert.equal((await upstream.complete({ body: { model: 'm', messages: [] } })).content, '慢');
+  });
+});

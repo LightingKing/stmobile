@@ -64,7 +64,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\install-autostart.ps1 -Lan
 ## 生成、超时与并发
 
 - **逐字转发**：`pocket-direct`，以及未开启自动修订的 `pocket-writer`，会把上游的正文和思考边生成边发给手机。`pocket-writer` 的审校结论和审校思考在最后一帧补发，不会重复已发送的正文。开启 `autoRevise` 时最终文字可能是修订稿，因此仍等全部阶段结束后一次发送。
-- **上游空闲超时**：上游连续 `upstreamIdleTimeoutSec` 秒（默认 180）没有任何数据就中止本次请求，已收到的正文和思考作为 partial 发回手机并归档。思考期间只要还在输出就不会被打断，整轮生成没有总时限。
+- **上游空闲超时**：上游连续 `upstreamIdleTimeoutSec` 秒（默认 900，即 15 分钟；填 `0` 不设限）没有任何数据就中止本次请求，已收到的正文和思考作为 partial 发回手机并归档。上下文很长时，上游在第一个字之前可能沉默好几分钟，因此默认值放得很宽；只要还在输出就不会被打断，整轮生成没有总时限。等待期间服务每 15 秒给手机发一次心跳，手机、Nginx、NPS 的连接不会因此断开。
 - **同一会话再次请求**：同一会话、同一用途（聊天 / 摘要 / 压缩 / 重建）的新请求会取消仍在运行的旧请求，不再返回 409；聊天回复和摘要可以同时进行。手机断开时请求立即释放；手机不读取数据导致积压超过 8 MB 时也会中止。
 - **心跳**：每个阶段运行时每 15 秒发送一次 SSE 注释，避免中间设备断开空闲连接。
 
@@ -76,7 +76,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\install-autostart.ps1 -Lan
 
 ## 参数与输出保留
 
-- `%LOCALAPPDATA%\PocketTavernServer\config.json` 设置真实上游模型、窗口、审校 Skill、思考强度、`upstreamIdleTimeoutSec`（30–1800）和 `backupKeep`（1–200）；改完后运行 `stop.ps1` 再 `start.ps1`。默认模型为 `deepseek-v4-1-flash-1017`，真实目录窗口为 `1000000`。
+- `%LOCALAPPDATA%\PocketTavernServer\config.json` 设置真实上游模型、窗口、审校 Skill、思考强度、`upstreamIdleTimeoutSec`（`0` 或 30–3600）和 `backupKeep`（1–200）；改完后运行 `stop.ps1` 再 `start.ps1`。默认模型为 `deepseek-v4-1-flash-1017`，真实目录窗口为 `1000000`。
 - 默认不新增输出预算，不按本地接收字符数或思考量截断。手机明确启用预算才向上游传预算；服务端不能移除模型自身限制。
 - 审校或修订失败时返回已收到的草稿，并在 `pocket_tavern_notice` 中标注服务提示，不自动重试，提示不会写进正文。首轮流失败时先补发未发送的正文/推理，再发送错误，手机可保存 partial。
 - 额外阶段会增加上下文；容量估算不足时跳过该付费阶段并提示，不切掉原文。

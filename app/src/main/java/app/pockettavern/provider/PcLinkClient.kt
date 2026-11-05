@@ -26,14 +26,16 @@ class PcLinkException(message: String, val httpCode: Int = 0, cause: Throwable? 
  * provider's base URL and gateway token, under the same URL policy as chat.
  */
 class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsecureHttpForTests: Boolean = false) {
+    // Backups can be large and cross a slow tunnel; only ten minutes without a single byte counts as failed.
     private val client = client.newBuilder()
         .connectTimeout(10, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
-        .writeTimeout(60, TimeUnit.SECONDS)
+        .readTimeout(TRANSFER_IDLE_MINUTES, TimeUnit.MINUTES)
+        .writeTimeout(TRANSFER_IDLE_MINUTES, TimeUnit.MINUTES)
         .retryOnConnectionFailure(false)
         .followRedirects(false)
         .followSslRedirects(false)
         .build()
+    // Status and the backup list are small: an offline PC should be reported quickly.
     private val quick = this.client.newBuilder().callTimeout(20, TimeUnit.SECONDS).build()
 
     suspend fun status(provider: ProviderConfig, key: String): PcStatus = withContext(Dispatchers.IO) {
@@ -156,6 +158,7 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
 
     companion object {
         const val MAX_BACKUP_BYTES = 128L * 1024 * 1024
+        const val TRANSFER_IDLE_MINUTES = 10L
         private val ZIP = "application/zip".toMediaType()
     }
 }

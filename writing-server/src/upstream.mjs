@@ -138,7 +138,7 @@ function idleError(idle, partial, cause) {
 }
 
 /**
- * `idle.ms` bounds silence on the socket, both before the response headers and between stream chunks.
+ * `idle.ms` bounds silence on the socket, both before the response headers and between stream chunks (0: no limit).
  * Each call gets its own connection so the idle timer never outlives it on a pooled socket.
  */
 function requestHttp(url, { headers, body, signal, idle }) {
@@ -149,7 +149,7 @@ function requestHttp(url, { headers, body, signal, idle }) {
       settled = true;
       resolve(response);
     });
-    req.setTimeout(idle.ms, () => {
+    if (idle.ms > 0) req.setTimeout(idle.ms, () => {
       idle.fired = true;
       const error = Object.assign(new Error('upstream idle'), { code: 'UPSTREAM_IDLE' });
       req.destroy(error);
@@ -169,7 +169,7 @@ function requestHttp(url, { headers, body, signal, idle }) {
   });
 }
 
-export function createUpstream({ baseUrl, key, idleTimeoutMs = 180_000 }) {
+export function createUpstream({ baseUrl, key, idleTimeoutMs = 900_000 }) {
   if (!baseUrl) throw new Error('upstreamBaseUrl is required');
   const endpoint = new URL('chat/completions', `${String(baseUrl).replace(/\/+$/, '')}/`);
   return {

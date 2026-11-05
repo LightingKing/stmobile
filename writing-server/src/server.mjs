@@ -162,7 +162,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       started_at: startedAt.toISOString(), uptime_seconds: Math.round((Date.now() - startedAt.getTime()) / 1000),
       listen: { hosts: resolved.listenHosts || [resolved.host], port: resolved.port },
       client_address: source,
-      upstream: { configured: Boolean(remote), host: upstreamHost, model: resolved.upstreamModel, idle_timeout_seconds: Math.round((resolved.upstreamIdleTimeoutMs || 180_000) / 1000) },
+      upstream: { configured: Boolean(remote), host: upstreamHost, model: resolved.upstreamModel, idle_timeout_seconds: Math.round((resolved.upstreamIdleTimeoutMs ?? 900_000) / 1000) },
       review_skill: resolved.reviewSkillSource?.id || 'none',
       models: modelList(resolved).data.map((model) => model.id),
       active_requests: active.size,

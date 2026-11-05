@@ -82,7 +82,8 @@ export async function loadConfig(dataDir = defaultDataDir()) {
     autoRevise: raw.autoRevise === true,
     includeVeniceSystemPrompt: raw.includeVeniceSystemPrompt === true,
     lanMode: raw.lanMode === true,
-    upstreamIdleTimeoutMs: boundedInteger(raw.upstreamIdleTimeoutSec, 180, 30, 1800, '上游空闲超时') * 1000,
+    // Long contexts can keep the upstream silent for minutes before its first token; 0 turns the limit off.
+    upstreamIdleTimeoutMs: (raw.upstreamIdleTimeoutSec === 0 ? 0 : boundedInteger(raw.upstreamIdleTimeoutSec, 900, 30, 3600, '上游空闲超时')) * 1000,
     backupKeep: boundedInteger(raw.backupKeep, 20, 1, 200, '备份保留份数'),
   };
 }

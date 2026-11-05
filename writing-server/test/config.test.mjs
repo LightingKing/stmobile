@@ -18,7 +18,7 @@ test('private bootstrap preserves a stable token and verifies upstream review by
     assert.equal(first.token, second.token);
     assert.equal(first.reviewSkillSource.id, 'ss-stop-slop');
     assert.equal(first.backupKeep, 20);
-    assert.equal(first.upstreamIdleTimeoutMs, 180_000);
+    assert.equal(first.upstreamIdleTimeoutMs, 900_000);
     assert.ok(first.reviewSkillText.length > 0);
     assert.equal(first.host, '127.0.0.1');
     assert.equal(JSON.parse(await readFile(path.join(dir, 'config.json'))).token, undefined);
@@ -42,6 +42,8 @@ test('configs naming the retired reviewer still start, and bad limits are refuse
     assert.equal((await loadConfig(dir)).reviewSkillText, '');
     await writeFile(path.join(dir, 'config.json'), JSON.stringify({ ...raw, reviewSkill: 'unknown-skill' }));
     await assert.rejects(loadConfig(dir), /审校 Skill/);
+    await writeFile(path.join(dir, 'config.json'), JSON.stringify({ ...raw, upstreamIdleTimeoutSec: 0 }));
+    assert.equal((await loadConfig(dir)).upstreamIdleTimeoutMs, 0, '0 turns the limit off');
     await writeFile(path.join(dir, 'config.json'), JSON.stringify({ ...raw, upstreamIdleTimeoutSec: 5 }));
     await assert.rejects(loadConfig(dir), /上游空闲超时/);
   } finally { await rm(dir, { recursive: true, force: true }); }

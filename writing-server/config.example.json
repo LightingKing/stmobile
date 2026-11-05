@@ -8,7 +8,7 @@
   "reasoningEffort": "default",
   "reviewReasoningEffort": "none",
   "autoRevise": false,
-  "upstreamIdleTimeoutSec": 180,
+  "upstreamIdleTimeoutSec": 900,
   "backupKeep": 20,
   "includeVeniceSystemPrompt": false
 }
