@@ -27,15 +27,37 @@ object ModelPricing {
         "cacheWrite" to "缓存写入",
         "extended" to "扩展"
     )
+    /** The PC writing server charges nothing itself; its upstream account pays for each request it makes. */
+    private fun writingServer(model: ModelInfo): ModelPriceInfo {
+        val root = runCatching { JSONObject(model.rawJson) }.getOrNull()
+        val upstream = root?.optJSONObject("upstream")
+        val host = upstream?.optString("host").orEmpty()
+        val name = upstream?.optString("model").orEmpty()
+        val venice = host.equals("api.venice.ai", ignoreCase = true)
+        val writer = "审校建议模式每轮多发一次审校请求（带上完整上下文和草稿），费用明显高于直连。".takeIf { model.id == "pocket-writer" }
+        // Venice prices the PC passes through read exactly like a direct Venice catalog.
+        if (venice && root != null && findPricing(root) != null) {
+            val prices = describe(model, "venice")
+            return ModelPriceInfo(listOfNotNull(writer) + prices.lines,
+                note = listOf("经电脑转发，从电脑上配置的 Venice 账户扣费。", prices.note).filter { it.isNotBlank() }.joinToString(" "))
+        }
+        val source = when {
+            name.isBlank() -> "电脑写作服务配置的上游模型"
+            venice -> "Venice 上 $name"
+            host.isNotBlank() -> "$host 上 $name"
+            else -> name
+        }
+        val lines = listOfNotNull("按$source 的价格计费，从电脑上配置的${if (venice) " Venice " else "上游"}账户扣费。", writer)
+        return ModelPriceInfo(lines, note = if (name.isBlank()) "刷新模型目录后会显示具体的上游模型。" else "")
+    }
+
     private val metadataKeys = setOf("min_seconds", "max_seconds", "included")
     private val currencyMetadataKeys = setOf("min_seconds", "max_seconds", "included")
 
     fun describe(model: ModelInfo, providerKind: String): ModelPriceInfo {
+        if (providerKind.equals("writing-server", ignoreCase = true)) return writingServer(model)
         if (!providerKind.equals("venice", ignoreCase = true)) {
-            return ModelPriceInfo(
-                lines = listOf("价格：该平台的定价格式尚未适配，无法安全解释计费单位。"),
-                note = "非 Venice 定价字段不会按 Venice 规则解释或换算。"
-            )
+            return ModelPriceInfo(lines = listOf("这个平台的模型目录没有提供 App 能识别的价格，以平台账单为准。"))
         }
 
         val root = runCatching { JSONObject(model.rawJson) }.getOrNull()

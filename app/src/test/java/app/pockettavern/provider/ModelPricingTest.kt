@@ -123,7 +123,8 @@ class ModelPricingTest {
         val unknownProvider = ModelPricing.describe(model("text", raw), "openai")
         val malformed = ModelPricing.describe(model("text", raw), "venice")
 
-        assertTrue(unknownProvider.lines.single().contains("格式尚未适配"))
+        assertTrue(unknownProvider.lines.single().contains("没有提供 App 能识别的价格"))
+        assertFalse(unknownProvider.lines.any { it.contains("USD") })
         assertTrue(malformed.lines.any { it.contains("不能视为免费") })
         assertFalse(malformed.lines.any { it.contains("0 USD") })
     }
@@ -158,6 +159,34 @@ class ModelPricingTest {
         assertTrue(result.lines.single().contains("0.2 USD"))
         assertTrue(result.lines.single().contains("0.2 Diem"))
         assertTrue(result.lines.single().contains("计费单位未提供"))
+    }
+
+    @Test fun pcWritingServerSaysWhoseAccountPaysInPlainWords() {
+        val upstream = """{"id":"pocket-direct","upstream":{"host":"api.venice.ai","model":"deepseek-v4-1-flash-1017"}}"""
+        val direct = ModelPricing.describe(ModelInfo(id = "pocket-direct", type = "text", rawJson = upstream), "writing-server")
+        assertTrue(direct.lines.single().contains("按Venice 上 deepseek-v4-1-flash-1017 的价格计费，从电脑上配置的 Venice 账户扣费"))
+        assertTrue(direct.note.isBlank())
+        val writer = ModelPricing.describe(ModelInfo(id = "pocket-writer", type = "text", rawJson = upstream), "writing-server")
+        assertTrue(writer.lines.last().contains("多发一次审校请求"))
+        // A catalog cached before the server reported its upstream still reads sensibly.
+        val cached = ModelPricing.describe(ModelInfo(id = "pocket-direct", type = "text", rawJson = """{"id":"pocket-direct"}"""), "writing-server")
+        assertTrue(cached.lines.single().contains("电脑写作服务配置的上游模型"))
+        assertTrue(cached.note.contains("刷新模型目录"))
+        val other = ModelPricing.describe(model("text", """{"pricing":{"input":1}}"""), "openai")
+        assertFalse(other.lines.single().contains("定价格式尚未适配"))
+        assertTrue(other.lines.single().contains("以平台账单为准"))
+    }
+
+    @Test fun veniceModelsPassedThroughThePcShowTheirRealPrices() {
+        val upstream = """{"id":"llama-3.3-70b","model_spec":{"pricing":{"input":{"usd":0.7},"output":{"usd":2.8}}},"upstream":{"host":"api.venice.ai","model":"llama-3.3-70b"}}"""
+        val result = ModelPricing.describe(ModelInfo(id = "llama-3.3-70b", type = "text", rawJson = upstream), "writing-server")
+        assertTrue(result.lines.any { it.contains("0.7") && it.contains("USD") })
+        assertTrue(result.note.contains("经电脑转发"))
+        // The default-model alias carries the default model's prices at the top level.
+        val alias = """{"id":"pocket-writer","pricing":{"input":{"usd":0.3},"output":{"usd":1.2}},"upstream":{"host":"api.venice.ai","model":"deepseek-v4-1-flash-1017"}}"""
+        val writer = ModelPricing.describe(ModelInfo(id = "pocket-writer", type = "text", rawJson = alias), "writing-server")
+        assertTrue(writer.lines.first().contains("多发一次审校请求"))
+        assertTrue(writer.lines.any { it.contains("1.2") })
     }
 
     private fun model(type: String, rawJson: String): ModelInfo = ModelInfo(id = "test", type = type, rawJson = rawJson)

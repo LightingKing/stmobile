@@ -1288,9 +1288,15 @@ private fun SettingsTab(state: UiSession, actions: AppActions) {
         items(state.data.presets, key = { it.id }) { preset -> PresetCard(preset, actions) { presetDialog = preset } }
         item {
             SectionTitle("电脑连接")
-            PcLinkCard(state.pcLink, state.data.providers.filter { it.kind.equals("writing-server", ignoreCase = true) }, locked = state.busy || state.loading,
+            val servers = state.data.providers.filter { it.kind.equals("writing-server", ignoreCase = true) }
+            val server = servers.firstOrNull { it.id == state.pcLink.providerId } ?: servers.firstOrNull()
+            PcLinkCard(state.pcLink, servers, locked = state.busy || state.loading,
                 onCheck = actions::checkPcLink, onBackup = actions::backupToPc, onLoadBackups = actions::loadPcBackups, onRestore = actions::restoreFromPc,
-                onAutoBackup = actions::setPcAutoBackup, onChooseProvider = actions::choosePcProvider)
+                onAutoBackup = actions::setPcAutoBackup, onChooseProvider = actions::choosePcProvider,
+                // The upstream models the PC offers, without its two default-model aliases.
+                models = server?.models.orEmpty().filter { it.type == "text" && it.id !in setOf("pocket-direct", "pocket-writer") },
+                onLoadSettings = actions::loadPcSettings, onSaveSettings = actions::savePcSettings,
+                onRefreshModels = { server?.let { actions.refreshModels(it.id) } })
         }
         item {
             SectionTitle("数据备份与迁移")

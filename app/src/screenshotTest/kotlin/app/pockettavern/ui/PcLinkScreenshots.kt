@@ -41,7 +41,7 @@ private fun Card(link: PcLinkState, servers: List<ProviderConfig> = listOf(Previ
 fun pcLinkConnectedPreview() = PcPreviewSurface {
     Card(PcLinkState(providerId = "pc", autoBackup = true, lastBackupAt = 1_793_005_800_000L, lastBackupSize = 3_355_443,
         status = PcStatus(version = "0.2.0", ready = true, upstreamHost = "api.venice.ai", upstreamModel = "deepseek-v4-1-flash-1017",
-            backupCount = 4, backupBytes = 13_421_772, backupKeep = 20)))
+            backupCount = 4, backupBytes = 13_421_772, backupKeep = 20, defaultModelName = "DeepSeek V4.1 Flash", modelsAvailable = 27)))
 }
 
 @PreviewTest

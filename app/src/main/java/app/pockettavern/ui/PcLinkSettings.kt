@@ -42,7 +42,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import app.pockettavern.domain.PcBackup
 import app.pockettavern.domain.PcBackupPolicy
+import app.pockettavern.domain.ModelInfo
 import app.pockettavern.domain.PcLinkState
+import app.pockettavern.domain.PcSettings
 import app.pockettavern.domain.ProviderConfig
 import app.pockettavern.domain.readableSize
 import java.time.Instant
@@ -73,9 +75,14 @@ internal fun PcLinkCard(
     onRestore: (String) -> Unit,
     onAutoBackup: (Boolean) -> Unit,
     onChooseProvider: (String) -> Unit,
+    models: List<ModelInfo> = emptyList(),
+    onLoadSettings: () -> Unit = {},
+    onSaveSettings: (PcSettings, PcSettings) -> Unit = { _, _ -> },
+    onRefreshModels: () -> Unit = {},
     zone: ZoneId = ZoneId.systemDefault()
 ) {
     var showRestore by remember { mutableStateOf(false) }
+    var showSettings by remember { mutableStateOf(false) }
     val idle = link.busy.isBlank()
     Card(Modifier.fillMaxWidth().padding(horizontal = 12.dp)) {
         Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -93,7 +100,10 @@ internal fun PcLinkCard(
                 Text(server.baseUrl, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
             PcStatusLine(link)
-            OutlinedButton(onCheck, Modifier.fillMaxWidth(), enabled = idle) { Text(if (link.busy == "check") "正在检查…" else "检查连接") }
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                OutlinedButton(onCheck, Modifier.weight(1f), enabled = idle) { Text(if (link.busy == "check") "正在检查…" else "检查连接") }
+                OutlinedButton({ showSettings = true; onLoadSettings() }, Modifier.weight(1f), enabled = idle) { Text("电脑设置…") }
+            }
             HorizontalDivider()
             Text("备份到电脑", fontWeight = FontWeight.SemiBold)
             Text(if (link.lastBackupAt > 0) "上次备份：${backupTime(Instant.ofEpochMilli(link.lastBackupAt), zone)}" +
@@ -115,6 +125,8 @@ internal fun PcLinkCard(
         }
     }
     if (showRestore) PcRestoreDialog(link, zone, onRefresh = onLoadBackups, onRestore = { onRestore(it); showRestore = false }) { showRestore = false }
+    if (showSettings) PcSettingsDialog(link, models, onRetry = onLoadSettings, onRefreshModels = onRefreshModels,
+        onSave = { original, edited -> onSaveSettings(original, edited); showSettings = false }) { showSettings = false }
 }
 
 @Composable
@@ -133,7 +145,8 @@ private fun PcStatusLine(link: PcLinkState) {
         status == null && link.error.isNotBlank() -> listOf(link.error)
         status == null -> listOf("点“检查连接”确认电脑是否在线。")
         else -> listOfNotNull(
-            if (status.ready) "上游 ${status.upstreamHost} · ${status.upstreamModel}" else "电脑还没有配置上游 Key：可以备份，暂时不能生成。",
+            if (status.ready) "默认模型：${status.defaultModelName.ifBlank { status.upstreamModel }}（${status.upstreamHost}）" else "电脑还没有配置上游 Key：可以备份，暂时不能生成。",
+            status.modelsAvailable?.let { "可在模型页选用 $it 个上游模型；每次请求都在电脑上存档" },
             if (status.activeRequests > 0) "正在处理 ${status.activeRequests} 个请求" else null,
             "电脑上有 ${status.backupCount} 份备份" + if (status.backupCount > 0) "，共 ${readableSize(status.backupBytes)}" else ""
         )

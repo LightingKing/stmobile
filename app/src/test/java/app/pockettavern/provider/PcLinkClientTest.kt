@@ -56,6 +56,42 @@ class PcLinkClientTest {
         assertTrue("backups" in status.features)
     }
 
+    @Test fun statusCarriesTheDefaultModelAndHowManyModelsThePcOffers() {
+        server.enqueue(json("""{"version":"0.3.0","ready":true,"upstream":{"host":"api.venice.ai","model":"llama-3.3-70b"},
+            "default_model":{"id":"llama-3.3-70b","name":"Llama 3.3 70B"},"models_available":27,"auto_revise":false,"backups":{}}"""))
+        val status = runBlocking { client.status(pc, "t") }
+        assertEquals("Llama 3.3 70B", status.defaultModelName)
+        assertEquals(27, status.modelsAvailable)
+        server.enqueue(json("""{"version":"0.3.0","ready":true,"upstream":{"model":"m"},"models_available":null,"backups":{}}"""))
+        val unknown = runBlocking { client.status(pc, "t") }
+        assertEquals(null, unknown.modelsAvailable)
+        assertEquals("m", unknown.defaultModelId)
+    }
+
+    @Test fun settingsAreReadAndOnlyChangesAreSent() {
+        val payload = """{"settings":{"upstreamModel":"deepseek-v4-1-flash-1017","reasoningEffort":"default","reviewReasoningEffort":"none","reviewSkill":"ss-stop-slop",
+            "autoRevise":false,"includeVeniceSystemPrompt":false,"upstreamIdleTimeoutSec":900,"backupKeep":20},"fixed":{"upstream_host":"api.venice.ai"}}"""
+        server.enqueue(json(payload))
+        val original = runBlocking { client.settings(pc, "t") }
+        assertEquals("/v1/pocket/config", server.takeRequest().path)
+        assertEquals("api.venice.ai", original.upstreamHost)
+        assertEquals(900, original.upstreamIdleTimeoutSec)
+
+        val edited = original.copy(upstreamModel = "llama-3.3-70b", upstreamIdleTimeoutSec = 0, upstreamHost = "ignored")
+        assertEquals(mapOf("upstreamModel" to "llama-3.3-70b", "upstreamIdleTimeoutSec" to 0), edited.changesFrom(original))
+        server.enqueue(json(payload.replace("deepseek-v4-1-flash-1017", "llama-3.3-70b")))
+        val saved = runBlocking { client.saveSettings(pc, "t", edited.changesFrom(original)) }
+        val request = server.takeRequest()
+        assertEquals("PATCH", request.method)
+        val sent = org.json.JSONObject(request.body.readUtf8()).getJSONObject("settings")
+        assertEquals(setOf("upstreamModel", "upstreamIdleTimeoutSec"), sent.keySet())
+        assertEquals(0, sent.getInt("upstreamIdleTimeoutSec"))
+        assertEquals("llama-3.3-70b", saved.upstreamModel)
+
+        server.enqueue(json("""{"error":{"message":"不能从手机修改：upstreamBaseUrl"}}""", 400))
+        assertTrue(failure { client.saveSettings(pc, "t", mapOf("upstreamBaseUrl" to "x")) }.message!!.contains("不能从手机修改"))
+    }
+
     @Test fun refusalsExplainWhatToDo() {
         server.enqueue(json("""{"error":{"message":"未授权"}}""", 401))
         assertTrue(failure { client.status(pc, "wrong") }.message!!.contains("手机连接.txt"))

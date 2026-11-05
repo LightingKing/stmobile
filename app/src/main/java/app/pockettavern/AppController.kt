@@ -1495,7 +1495,25 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     override fun choosePcProvider(providerId: String) {
         pcStore.providerId = providerId
-        updatePcLink { it.copy(providerId = providerId, status = null, backups = null, error = "") }
+        updatePcLink { it.copy(providerId = providerId, status = null, backups = null, settings = null, error = "") }
+    }
+
+    override fun loadPcSettings() = pcJob("settings") { provider, key ->
+        val settings = pcClient.settings(provider, key)
+        updatePcLink { it.copy(settings = settings) }
+    }
+
+    override fun savePcSettings(original: PcSettings, edited: PcSettings) {
+        val changes = edited.changesFrom(original)
+        if (changes.isEmpty()) return
+        pcJob("settings") { provider, key ->
+            val saved = pcClient.saveSettings(provider, key, changes)
+            val latest = runCatching { pcClient.status(provider, key) }.getOrNull()
+            updatePcLink { it.copy(settings = saved, status = latest ?: it.status) }
+            status("电脑设置已保存，立即生效")
+            // The default-model entries carry the model's name and price, so the catalog is refetched.
+            if ("upstreamModel" in changes) refreshModels(provider.id)
+        }
     }
 
     /** The app left the screen: the moment for the automatic PC backup, when one is due. */

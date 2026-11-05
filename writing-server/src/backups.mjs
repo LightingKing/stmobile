@@ -34,6 +34,7 @@ function newId(date = new Date()) {
 export function createBackupStore({ dataDir, keep = 20, maxBytes = MAX_BACKUP_BYTES }) {
   const dir = path.join(dataDir, 'backups');
   let uploading = false;
+  let keepCount = keep;
 
   const zipFile = (id) => path.join(dir, `${id}.zip`);
   const metaFile = (id) => path.join(dir, `${id}.json`);
@@ -64,7 +65,7 @@ export function createBackupStore({ dataDir, keep = 20, maxBytes = MAX_BACKUP_BY
 
   async function prune() {
     const items = await list();
-    for (const item of items.slice(keep)) await remove(item.id);
+    for (const item of items.slice(keepCount)) await remove(item.id);
   }
 
   async function save(source, { declaredLength = null, device = '', appVersion = '', reason = 'manual' } = {}) {
@@ -123,11 +124,14 @@ export function createBackupStore({ dataDir, keep = 20, maxBytes = MAX_BACKUP_BY
   async function summary() {
     const items = await list();
     return {
-      count: items.length, keep, max_bytes: maxBytes,
+      count: items.length, keep: keepCount, max_bytes: maxBytes,
       total_bytes: items.reduce((sum, item) => sum + (Number(item.size) || 0), 0),
       latest: items[0] ? { id: items[0].id, created_at: items[0].created_at, size: items[0].size, device: items[0].device, reason: items[0].reason } : null,
     };
   }
 
-  return { list, save, open, remove, summary, get uploading() { return uploading; } };
+  /** Takes effect from the next save; existing extra copies go then, not immediately. */
+  function setKeep(count) { keepCount = count; }
+
+  return { list, save, open, remove, summary, setKeep, get uploading() { return uploading; } };
 }

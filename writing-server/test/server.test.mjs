@@ -30,6 +30,8 @@ test('server authenticates models and returns configured model capabilities', as
     assert.equal(data.data.length, 2);
     assert.equal(data.data[1].context_length, 123456);
     assert.equal(data.data[1].supports_tools, true);
+    assert.deepEqual(data.data[0].upstream, { host: 'api.venice.ai', model: 'deepseek-v4-1-flash-1017' });
+    assert.doesNotMatch(JSON.stringify(data), /test-token/);
   } finally { await new Promise((resolve) => server.close(resolve)); }
 });
 

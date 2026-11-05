@@ -1,15 +1,34 @@
 # 电脑写作服务
 
-Android 0.1.52 起可选择“本机写作服务”平台。电脑通过 Venice 调用 DeepSeek，手机继续管理原会话、角色卡、预设、Skills 和记忆。切换平台不会新建或清空会话。0.1.68 起手机还能在“设置 → 电脑连接”查看服务状态，并把备份存到这台电脑。
+Android 0.1.52 起可选择“本机写作服务”平台。电脑替手机调用 Venice，Venice Key 只放在电脑上；手机继续管理原会话、角色卡、预设、Skills 和记忆。切换平台不会新建或清空会话。0.1.68 起手机能在“设置 → 电脑连接”查看服务状态，并把备份存到这台电脑；0.1.70（服务 0.3.0）起可以在模型页选用上游的任意文本模型，并在“电脑设置”页修改电脑上的设置。
 
 ## 当前提供什么
 
 | 模型 | 一次普通回答 | 用途 |
 | --- | --- | --- |
-| `pocket-direct` | 1 次上游请求 | 与原模型作对照 |
-| `pocket-writer` | 草稿 + 审校建议，默认保留原稿 | 试验性建议；当前未通过写作质量验收 |
+| `pocket-direct`（默认模型） | 1 次上游请求 | 用电脑上设定的默认模型直接回答 |
+| `pocket-writer`（默认模型 + 审校建议） | 草稿 + 审校建议，默认保留原稿 | 试验性建议；当前未通过写作质量验收 |
+| 上游的每个文本模型，例如 `llama-3.3-70b` | 1 次上游请求 | 原样转给上游；上下文、能力和价格按上游目录显示 |
 
-两种模式的正文使用相同上游模型与基础参数。默认审校模式是 2 次请求；只有在电脑配置中明确启用 `autoRevise: true` 才允许再修订一次，最多 3 次。首轮真实对照发现误判和修订退步，因此本机保持 `false`。审校采用 `reviewReasoningEffort: none`，避免把预算全花在思考上，正文思考设置不变。额外审校会增加输入 token、输出 token 和等待时间。没有循环自评、无限修订或自动付费重试。摘要、压缩、记忆重建仍只调用一次，不走改文流程。草稿要求调用手机工具时，先返回工具调用，由 App 继续原有工具流程。
+模型列表由电脑向上游读取，缓存 10 分钟；上游暂时读不到时继续用上次的列表，至少保留两个默认模型入口。上游标明不支持思考的模型，不会收到电脑配置的思考参数。
+
+## 手机上能改的电脑设置
+
+“设置 → 电脑连接 → 电脑设置”通过 `GET/PATCH /v1/pocket/config` 读写 `config.json`，保存后立即生效，不用重启服务。只发送改动过的项，改动记录在 `server.log`。
+
+| 设置 | config.json 字段 |
+| --- | --- |
+| 默认模型（须在上游目录里） | `upstreamModel` |
+| 思考强度：默认 / 关闭 / 低 / 中 / 高 | `reasoningEffort` |
+| 审校建议模式的审校 Skill，以及审校思考强度 | `reviewSkill`、`reviewReasoningEffort` |
+| 按审校意见自动改正文（试验） | `autoRevise` |
+| 附带 Venice 自带的系统提示 | `includeVeniceSystemPrompt` |
+| 上游最长等待（0 表示不限） | `upstreamIdleTimeoutSec` |
+| 电脑保留备份份数 | `backupKeep` |
+
+上游地址、各类 Key、网关 Token、监听地址和端口只能在电脑上改。手机请求修改这些字段会被拒绝并提示“不能从手机修改”，这样即使网关 Token 泄露，别人也无法把 Venice Key 转到其他服务器。
+
+两个默认模型入口的正文使用相同上游模型与基础参数。默认审校模式是 2 次请求；只有在电脑配置中明确启用 `autoRevise: true` 才允许再修订一次，最多 3 次。首轮真实对照发现误判和修订退步，因此本机保持 `false`。审校采用 `reviewReasoningEffort: none`，避免把预算全花在思考上，正文思考设置不变。额外审校会增加输入 token、输出 token 和等待时间。没有循环自评、无限修订或自动付费重试。摘要、压缩、记忆重建仍只调用一次，不走改文流程。草稿要求调用手机工具时，先返回工具调用，由 App 继续原有工具流程。
 
 审校使用仓库已固定 commit、通过 SHA-256 校验的 `ss-stop-slop` 原文，也可在私密配置中设为 `none`。原来的 `sh-shuorenhua` 已在 App 0.1.65 移出内置目录；旧配置里写着它时自动改用 `ss-stop-slop`，服务照常启动。上游原文未修改。星数和协议测试不代表写作质量改善，实际效果见对照记录。
 
@@ -76,7 +95,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\install-autostart.ps1 -Lan
 
 ## 参数与输出保留
 
-- `%LOCALAPPDATA%\PocketTavernServer\config.json` 设置真实上游模型、窗口、审校 Skill、思考强度、`upstreamIdleTimeoutSec`（`0` 或 30–3600）和 `backupKeep`（1–200）；改完后运行 `stop.ps1` 再 `start.ps1`。默认模型为 `deepseek-v4-1-flash-1017`，真实目录窗口为 `1000000`。
+- `%LOCALAPPDATA%\PocketTavernServer\config.json` 设置真实上游模型、窗口、审校 Skill、思考强度、`upstreamIdleTimeoutSec`（`0` 或 30–3600）和 `backupKeep`（1–200）；在电脑上手改后运行 `stop.ps1` 再 `start.ps1`，从手机“电脑设置”改的项立即生效。默认模型为 `deepseek-v4-1-flash-1017`，真实目录窗口为 `1000000`。
 - 默认不新增输出预算，不按本地接收字符数或思考量截断。手机明确启用预算才向上游传预算；服务端不能移除模型自身限制。
 - 审校或修订失败时返回已收到的草稿，并在 `pocket_tavern_notice` 中标注服务提示，不自动重试，提示不会写进正文。首轮流失败时先补发未发送的正文/推理，再发送错误，手机可保存 partial。
 - 额外阶段会增加上下文；容量估算不足时跳过该付费阶段并提示，不切掉原文。
@@ -86,7 +105,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\install-autostart.ps1 -Lan
 
 - 可把私密目录 `chats` 作为 Obsidian 文件库打开；每次请求一份 Markdown 和对应 JSON。
 - `GET /healthz`：最小存活状态，不需要 Token。`ready` 表示有凭据配置，不代表凭据已经通过上游验证。
-- 携带网关 Bearer Token 后：`GET /v1/pocket/status` 返回版本、运行时长、监听地址、上游主机与模型、审校 Skill、进行中的请求数和备份统计，不含任何密钥；`GET /v1/models` 获取两个模式；`GET /v1/runs?chat_id=<会话ID>` 只返回诊断元数据，显式增加 `include_content=true` 才返回原文。
+- 携带网关 Bearer Token 后：`GET /v1/pocket/status` 返回版本、运行时长、监听地址、上游主机、默认模型、可选模型数、审校 Skill、进行中的请求数和备份统计，不含任何密钥；`GET /v1/models` 获取两个默认模型入口和上游文本模型（`?refresh=true` 跳过 10 分钟缓存）；`GET/PATCH /v1/pocket/config` 读写手机可改的设置；`GET /v1/runs?chat_id=<会话ID>` 只返回诊断元数据，显式增加 `include_content=true` 才返回原文。
 - `node --test test/*.test.mjs`（或 `npm test`）运行本地协议、超时、备份与限流测试，不产生模型费用。
 - `npm run evaluate` 只查看对照计划；加 `-- --run` 才调用 Venice。每次执行有 6 次尝试上限、每次 10000 tokens，生成随机 A/B 文稿与调用账本；不要为了重试反复运行。
 - 本次实测与失败样例总结见 [EVALUATION.md](docs/EVALUATION.md)。这轮 6 次已用完，进一步真实测试须另行约定预算。

@@ -108,4 +108,8 @@ interface AppActions {
     fun restoreFromPc(backupId: String) { }
     fun setPcAutoBackup(enabled: Boolean) { }
     fun choosePcProvider(providerId: String) { }
+    /** Reads the PC's phone-editable settings for the settings page. */
+    fun loadPcSettings() { }
+    /** Sends what differs between [original] and [edited]; the PC applies it at once. */
+    fun savePcSettings(original: PcSettings, edited: PcSettings) { }
 }

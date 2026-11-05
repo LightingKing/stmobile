@@ -1,6 +1,7 @@
 package app.pockettavern.provider
 
 import app.pockettavern.domain.PcBackup
+import app.pockettavern.domain.PcSettings
 import app.pockettavern.domain.PcStatus
 import app.pockettavern.domain.ProviderConfig
 import kotlinx.coroutines.Dispatchers
@@ -10,6 +11,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import org.json.JSONArray
 import org.json.JSONException
@@ -50,7 +52,37 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
             listenHosts = json.optJSONObject("listen")?.optJSONArray("hosts").strings(),
             uptimeSeconds = json.optLong("uptime_seconds"),
             backupCount = backups.optInt("count"), backupBytes = backups.optLong("total_bytes"), backupKeep = backups.optInt("keep"),
-            features = json.optJSONArray("features").strings()
+            features = json.optJSONArray("features").strings(),
+            defaultModelId = json.optJSONObject("default_model")?.optString("id").orEmpty().ifBlank { upstream.optString("model") },
+            defaultModelName = json.optJSONObject("default_model")?.optString("name").orEmpty(),
+            modelsAvailable = if (json.has("models_available") && !json.isNull("models_available")) json.optInt("models_available") else null,
+            autoRevise = json.optBoolean("auto_revise")
+        )
+    }
+
+    suspend fun settings(provider: ProviderConfig, key: String): PcSettings = withContext(Dispatchers.IO) {
+        settingsFrom(parse(call(quick, request(provider, key, "pocket/config").get().build()) { it.body?.string().orEmpty() }))
+    }
+
+    /** Sends only [changes]; the PC validates them, writes config.json and applies them at once. */
+    suspend fun saveSettings(provider: ProviderConfig, key: String, changes: Map<String, Any>): PcSettings = withContext(Dispatchers.IO) {
+        val body = JSONObject().put("settings", JSONObject(changes)).toString().toRequestBody(JSON)
+        settingsFrom(parse(call(quick, request(provider, key, "pocket/config").patch(body).build()) { it.body?.string().orEmpty() }))
+    }
+
+    private fun settingsFrom(json: JSONObject): PcSettings {
+        val settings = json.optJSONObject("settings") ?: throw PcLinkException("电脑没有返回设置内容")
+        val defaults = PcSettings()
+        return PcSettings(
+            upstreamModel = settings.optString("upstreamModel"),
+            reasoningEffort = settings.optString("reasoningEffort", defaults.reasoningEffort),
+            reviewReasoningEffort = settings.optString("reviewReasoningEffort", defaults.reviewReasoningEffort),
+            reviewSkill = settings.optString("reviewSkill", defaults.reviewSkill),
+            autoRevise = settings.optBoolean("autoRevise"),
+            includeVeniceSystemPrompt = settings.optBoolean("includeVeniceSystemPrompt"),
+            upstreamIdleTimeoutSec = settings.optInt("upstreamIdleTimeoutSec", defaults.upstreamIdleTimeoutSec),
+            backupKeep = settings.optInt("backupKeep", defaults.backupKeep),
+            upstreamHost = json.optJSONObject("fixed")?.optString("upstream_host").orEmpty()
         )
     }
 
@@ -160,5 +192,6 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         const val MAX_BACKUP_BYTES = 128L * 1024 * 1024
         const val TRANSFER_IDLE_MINUTES = 10L
         private val ZIP = "application/zip".toMediaType()
+        private val JSON = "application/json; charset=utf-8".toMediaType()
     }
 }

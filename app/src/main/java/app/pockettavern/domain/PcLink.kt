@@ -14,8 +14,41 @@ data class PcStatus(
     val backupCount: Int = 0,
     val backupBytes: Long = 0,
     val backupKeep: Int = 0,
-    val features: List<String> = emptyList()
+    val features: List<String> = emptyList(),
+    val defaultModelId: String = "",
+    val defaultModelName: String = "",
+    /** null until the PC has read its upstream's model list once. */
+    val modelsAvailable: Int? = null,
+    val autoRevise: Boolean = false
 )
+
+/**
+ * The PC settings the phone may change (GET/PATCH /v1/pocket/config). The upstream address,
+ * keys and listening address stay PC-only; [upstreamHost] is shown, never edited.
+ */
+data class PcSettings(
+    val upstreamModel: String = "",
+    val reasoningEffort: String = "default",
+    val reviewReasoningEffort: String = "none",
+    val reviewSkill: String = "ss-stop-slop",
+    val autoRevise: Boolean = false,
+    val includeVeniceSystemPrompt: Boolean = false,
+    val upstreamIdleTimeoutSec: Int = 900,
+    val backupKeep: Int = 20,
+    val upstreamHost: String = ""
+) {
+    /** Only what changed, in the server's field names, so a save never rewrites settings left alone. */
+    fun changesFrom(original: PcSettings): Map<String, Any> = buildMap {
+        if (upstreamModel != original.upstreamModel) put("upstreamModel", upstreamModel)
+        if (reasoningEffort != original.reasoningEffort) put("reasoningEffort", reasoningEffort)
+        if (reviewReasoningEffort != original.reviewReasoningEffort) put("reviewReasoningEffort", reviewReasoningEffort)
+        if (reviewSkill != original.reviewSkill) put("reviewSkill", reviewSkill)
+        if (autoRevise != original.autoRevise) put("autoRevise", autoRevise)
+        if (includeVeniceSystemPrompt != original.includeVeniceSystemPrompt) put("includeVeniceSystemPrompt", includeVeniceSystemPrompt)
+        if (upstreamIdleTimeoutSec != original.upstreamIdleTimeoutSec) put("upstreamIdleTimeoutSec", upstreamIdleTimeoutSec)
+        if (backupKeep != original.backupKeep) put("backupKeep", backupKeep)
+    }
+}
 
 /** One phone backup kept on the PC. [reason] is "manual", "auto" or "pre-restore". */
 data class PcBackup(
@@ -30,7 +63,7 @@ data class PcBackup(
 
 /**
  * Settings → 电脑连接. [busy] names the job in progress ("check", "backup",
- * "list", "restore") or is blank. Backup bookkeeping is device-local and
+ * "list", "restore", "settings") or is blank. Backup bookkeeping is device-local and
  * never part of [AppData], so restoring a backup cannot rewrite it.
  */
 data class PcLinkState(
@@ -42,7 +75,9 @@ data class PcLinkState(
     val autoBackup: Boolean = false,
     val lastBackupAt: Long = 0,
     val lastBackupSize: Long = 0,
-    val lastBackupError: String = ""
+    val lastBackupError: String = "",
+    /** Loaded when the PC settings page opens; null until then. */
+    val settings: PcSettings? = null
 )
 
 object PcBackupPolicy {

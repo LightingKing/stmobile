@@ -6,6 +6,8 @@ import { createVault } from './vault.mjs';
 import { runCompletion } from './pipeline.mjs';
 import { BackupError, createBackupStore } from './backups.mjs';
 import { clientAddress, createAuthGuard } from './guard.mjs';
+import { capability, contextOf, createCatalog, displayName } from './catalog.mjs';
+import { MODEL_ID, SETTING_OPTIONS, applySettings, loadReviewSkill, saveSettings, settingsOf, validateSettings } from './config.mjs';
 
 const DEFAULT_CONFIG = {
   host: '127.0.0.1',
@@ -46,13 +48,35 @@ async function readBody(req) {
   catch { throw Object.assign(new Error('请求 JSON 无效'), { status: 400, code: 'invalid_json' }); }
 }
 
-function modelList(config) {
-  const context = Number(config.contextTokens) > 0 ? Number(config.contextTokens) : DEFAULT_CONFIG.contextTokens;
+function upstreamHost(config) {
+  try { return new URL(config.upstreamBaseUrl).hostname; } catch { return ''; }
+}
+
+/**
+ * The two aliases for the PC's default model, then every upstream text model as the upstream
+ * describes it (Venice's model_spec carries context, capabilities and prices). Each entry names
+ * its upstream so the phone can say whose prices apply; nothing here carries a key.
+ */
+function modelList(config, catalog = []) {
+  const host = upstreamHost(config);
+  const fallbackContext = Number(config.contextTokens) > 0 ? Number(config.contextTokens) : DEFAULT_CONFIG.contextTokens;
+  const fallback = catalog.find((entry) => entry.id === config.upstreamModel);
+  const defaultName = displayName(fallback, config.upstreamModel);
+  const tools = capability(fallback, 'supportsFunctionCalling') ?? true;
+  const alias = (id, name) => ({
+    id, object: 'model', name, owned_by: 'pocket-tavern', type: 'text',
+    context_length: contextOf(fallback) ?? fallbackContext,
+    supports_tools: tools, supports_vision: capability(fallback, 'supportsVision') ?? false,
+    supports_reasoning: capability(fallback, 'supportsReasoning') ?? false, capabilities: { supportsTools: tools },
+    ...(fallback?.model_spec?.pricing ? { pricing: fallback.model_spec.pricing } : {}),
+    upstream: { host, model: config.upstreamModel || '' },
+  });
   return {
     object: 'list',
     data: [
-      { id: 'pocket-direct', object: 'model', name: 'Pocket Tavern 直连', owned_by: 'pocket-tavern', type: 'text', context_length: context, supports_tools: true, capabilities: { supportsTools: true } },
-      { id: 'pocket-writer', object: 'model', name: config.autoRevise ? 'Pocket Tavern 写作修订（试验）' : 'Pocket Tavern 审校建议（保留原稿）', owned_by: 'pocket-tavern', type: 'text', context_length: context, supports_tools: true, capabilities: { supportsTools: true } },
+      alias('pocket-direct', `默认模型 · ${defaultName}`),
+      alias('pocket-writer', `${config.autoRevise ? '默认模型 + 自动修订（试验）' : '默认模型 + 审校建议'} · ${defaultName}`),
+      ...catalog.map((entry) => ({ ...entry, owned_by: 'pocket-tavern', upstream: { host, model: entry.id } })),
     ],
   };
 }
@@ -142,33 +166,72 @@ function answerStream(res, id) {
   return { push, finish, fail };
 }
 
-export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null } = {}) {
+export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null, catalog = null } = {}) {
   const resolved = { ...DEFAULT_CONFIG, ...config };
   const dataDir = resolved.dataDir || './writing-server-data';
   const store = vault || createVault({ dataDir });
   const backupStore = backups || createBackupStore({ dataDir, keep: resolved.backupKeep ?? 20 });
   const authGuard = guard || createAuthGuard();
   const remote = upstream || (resolved.upstreamKey ? createUpstream({ baseUrl: resolved.upstreamBaseUrl, key: resolved.upstreamKey, idleTimeoutMs: resolved.upstreamIdleTimeoutMs }) : null);
+  const models = catalog || createCatalog({ upstream: remote });
   const ready = Boolean(resolved.token && remote);
   const startedAt = new Date();
   // Generations in flight, one per chat and purpose. A repeat of the same request replaces the old one.
   const active = new Map();
+  // Settings saves run one after another so two phones cannot interleave config.json writes.
+  let settingsWrites = Promise.resolve();
 
   async function status(source) {
-    let upstreamHost = '';
-    try { upstreamHost = new URL(resolved.upstreamBaseUrl).hostname; } catch { /* reported as blank */ }
+    models.warm();
+    const fallback = models.find(resolved.upstreamModel);
     return {
       ok: true, ready, service: 'pocket-tavern-writing-server', version: SERVER_VERSION,
       started_at: startedAt.toISOString(), uptime_seconds: Math.round((Date.now() - startedAt.getTime()) / 1000),
       listen: { hosts: resolved.listenHosts || [resolved.host], port: resolved.port },
       client_address: source,
-      upstream: { configured: Boolean(remote), host: upstreamHost, model: resolved.upstreamModel, idle_timeout_seconds: Math.round((resolved.upstreamIdleTimeoutMs ?? 900_000) / 1000) },
+      upstream: { configured: Boolean(remote), host: upstreamHost(resolved), model: resolved.upstreamModel, idle_timeout_seconds: Math.round((resolved.upstreamIdleTimeoutMs ?? 900_000) / 1000) },
+      default_model: { id: resolved.upstreamModel, name: displayName(fallback, resolved.upstreamModel) },
+      // null until the upstream catalog has been read once.
+      models_available: models.loaded ? models.count : null,
+      models_error: models.error || undefined,
       review_skill: resolved.reviewSkillSource?.id || 'none',
-      models: modelList(resolved).data.map((model) => model.id),
+      auto_revise: resolved.autoRevise === true,
+      archive: true,
       active_requests: active.size,
       backups: await backupStore.summary(),
-      features: ['live_stream', 'supersede', 'backups', 'auth_throttle'],
+      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings'],
     };
+  }
+
+  function settingsPayload() {
+    return {
+      settings: settingsOf(resolved), options: SETTING_OPTIONS,
+      fixed: { upstream_host: upstreamHost(resolved), port: resolved.port, lan_mode: resolved.lanMode === true },
+    };
+  }
+
+  async function handleSettings(req, res) {
+    if (req.method === 'GET') return sendJson(res, 200, settingsPayload());
+    if (req.method !== 'PATCH') return sendJson(res, 405, { error: { message: '只支持 GET 和 PATCH' } });
+    try {
+      const changes = validateSettings((await readBody(req))?.settings);
+      if (changes.upstreamModel && changes.upstreamModel !== resolved.upstreamModel) {
+        const { models: available } = await models.list();
+        if (models.loaded && !available.some((entry) => entry.id === changes.upstreamModel)) {
+          return sendJson(res, 400, { error: { message: `上游没有这个模型：${changes.upstreamModel}`, code: 'unknown_model' } });
+        }
+      }
+      const reviewSkill = 'reviewSkill' in changes ? await loadReviewSkill(changes.reviewSkill) : null;
+      const write = settingsWrites.then(() => saveSettings(dataDir, changes));
+      settingsWrites = write.catch(() => {});
+      await write;
+      applySettings(resolved, changes, reviewSkill);
+      backupStore.setKeep?.(resolved.backupKeep);
+      console.log(`Settings changed from the phone: ${Object.keys(changes).join(', ')}`);
+      return sendJson(res, 200, settingsPayload());
+    } catch (error) {
+      return sendJson(res, error.status || 500, errorPayload(error));
+    }
   }
 
   async function handleBackups(req, res, parsed) {
@@ -222,7 +285,11 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       return sendJson(res, 401, { error: { message: '未授权', type: 'auth_error' } });
     }
     authGuard.succeed(source);
-    if (parsed.pathname === '/v1/models' && req.method === 'GET') return sendJson(res, 200, modelList(resolved));
+    if (parsed.pathname === '/v1/models' && req.method === 'GET') {
+      const { models: available, error } = await models.list({ refresh: parsed.searchParams.get('refresh') === 'true' });
+      return sendJson(res, 200, { ...modelList(resolved, available), ...(error ? { pocket_tavern_warning: error } : {}) });
+    }
+    if (parsed.pathname === '/v1/pocket/config') return handleSettings(req, res);
     if (parsed.pathname === '/v1/pocket/status' && req.method === 'GET') return sendJson(res, 200, await status(source));
     if (parsed.pathname === '/v1/backups' || parsed.pathname.startsWith('/v1/backups/')) return handleBackups(req, res, parsed);
     if (parsed.pathname === '/v1/runs' && req.method === 'GET') {
@@ -251,7 +318,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
     try { body = await readBody(req); } catch (error) { return sendJson(res, error.status || 400, errorPayload(error)); }
     if (!body || typeof body !== 'object' || Array.isArray(body) || !Array.isArray(body.messages) || !String(body.model || '').trim()) return sendJson(res, 400, { error: { message: '请求缺少 model 或 messages' } });
     if (body.messages.length > 10000 || body.messages.some((message) => !message || typeof message !== 'object' || Array.isArray(message))) return sendJson(res, 400, { error: { message: 'messages 格式或数量无效' } });
-    if (!['pocket-direct', 'pocket-writer'].includes(body.model)) return sendJson(res, 400, { error: { message: '未知网关模型' } });
+    if (typeof body.model !== 'string' || !MODEL_ID.test(body.model)) return sendJson(res, 400, { error: { message: '模型 ID 无效' } });
     if (body.metadata !== undefined && (!body.metadata || typeof body.metadata !== 'object' || Array.isArray(body.metadata))) return sendJson(res, 400, { error: { message: 'metadata 必须是对象' } });
     const metadata = body.metadata || {};
     const chatId = String(metadata.pocket_tavern_chat_id || '').trim();
@@ -280,7 +347,10 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
     if (stream) res.writeHead(200, { 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-cache, no-store', connection: 'keep-alive', 'x-accel-buffering': 'no' });
     let heartbeat = null;
     try {
-      const result = await runCompletion({ request: body, config: resolved, vault: store, upstream: remote, signal: abort.signal, skills,
+      // A model the upstream marks as non-reasoning gets no reasoning settings it would reject.
+      const target = ['pocket-direct', 'pocket-writer'].includes(body.model) ? resolved.upstreamModel : body.model;
+      const requestConfig = capability(models.find(target), 'supportsReasoning') === false ? { ...resolved, reasoningEffort: 'default' } : { ...resolved };
+      const result = await runCompletion({ request: body, config: requestConfig, vault: store, upstream: remote, signal: abort.signal, skills,
         onProgress: stream ? (_stage, partial) => {
           answer.push(partial);
           if (res.writableLength > MAX_STREAM_BACKLOG) abort.abort();

@@ -141,11 +141,11 @@ function idleError(idle, partial, cause) {
  * `idle.ms` bounds silence on the socket, both before the response headers and between stream chunks (0: no limit).
  * Each call gets its own connection so the idle timer never outlives it on a pooled socket.
  */
-function requestHttp(url, { headers, body, signal, idle }) {
+function requestHttp(url, { method = 'POST', headers, body, signal, idle }) {
   const transport = url.protocol === 'https:' ? https : http;
   return new Promise((resolve, reject) => {
     let settled = false;
-    const req = transport.request(url, { method: 'POST', headers, agent: false }, (response) => {
+    const req = transport.request(url, { method, headers, agent: false }, (response) => {
       settled = true;
       resolve(response);
     });
@@ -171,11 +171,33 @@ function requestHttp(url, { headers, body, signal, idle }) {
 
 export function createUpstream({ baseUrl, key, idleTimeoutMs = 900_000 }) {
   if (!baseUrl) throw new Error('upstreamBaseUrl is required');
-  const endpoint = new URL('chat/completions', `${String(baseUrl).replace(/\/+$/, '')}/`);
+  const root = `${String(baseUrl).replace(/\/+$/, '')}/`;
+  const endpoint = new URL('chat/completions', root);
   return {
+    /** Text models the upstream offers, as its own catalog entries (Venice keeps prices in model_spec). */
+    async models({ signal } = {}) {
+      const url = new URL('models', root);
+      if (url.hostname === 'api.venice.ai') url.searchParams.set('type', 'text');
+      const idle = { ms: 30_000, fired: false };
+      let response;
+      try {
+        response = await requestHttp(url, { method: 'GET', headers: { authorization: `Bearer ${key}`, accept: 'application/json' }, signal, idle });
+      } catch (error) {
+        if (error?.name === 'AbortError') throw error;
+        throw new UpstreamError(`读取上游模型列表失败：${idle.fired ? '30 秒无响应' : error?.message || '网络错误'}`, { code: 'models_unavailable', cause: error });
+      }
+      const text = await readResponse(response, 16 * 1024 * 1024).catch(() => '');
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        throw new UpstreamError(`上游模型列表 HTTP ${response.statusCode}`, { status: response.statusCode, code: 'models_unavailable' });
+      }
+      let json;
+      try { json = JSON.parse(text); } catch (error) { throw new UpstreamError('上游模型列表不是有效 JSON', { code: 'models_unavailable', cause: error }); }
+      const data = Array.isArray(json?.data) ? json.data : Array.isArray(json?.models) ? json.models : [];
+      return data.filter((model) => model && typeof model.id === 'string' && model.id && (!model.type || model.type === 'text'));
+    },
     /** `onProgress(result)` sees the accumulated result after every SSE event. */
-    async complete({ body, signal, onProgress } = {}) {
-      const idle = { ms: idleTimeoutMs, fired: false };
+    async complete({ body, signal, onProgress, idleTimeoutMs: idleOverride } = {}) {
+      const idle = { ms: idleOverride ?? idleTimeoutMs, fired: false };
       let response;
       try {
         response = await requestHttp(endpoint, {

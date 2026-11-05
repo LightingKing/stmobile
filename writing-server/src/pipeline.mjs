@@ -112,7 +112,8 @@ export async function runCompletion({ request, config, vault, upstream, signal, 
   const call = async (name, body, live = false) => {
     await onStage(name, 'started');
     try {
-      const result = await upstream.complete({ body, signal, onProgress: live && onProgress ? (partial) => onProgress(name, partial) : undefined });
+      const result = await upstream.complete({ body, signal, idleTimeoutMs: config.upstreamIdleTimeoutMs,
+        onProgress: live && onProgress ? (partial) => onProgress(name, partial) : undefined });
       Object.assign(totalUsage, mergeUsage(totalUsage, result.usage));
       current = await vault.updateRun(current, { stages: [...(current.stages || []), stage(name, 'complete', result)] });
       await onStage(name, 'complete', result);
@@ -145,10 +146,12 @@ export async function runCompletion({ request, config, vault, upstream, signal, 
   };
 
   try {
-    const direct = model === 'pocket-direct' || PURPOSE_DIRECT.has(purpose);
+    // pocket-direct / pocket-writer use the PC's default model; any other id is an upstream model sent as is.
+    const upstreamModel = ['pocket-direct', 'pocket-writer'].includes(model) ? config.upstreamModel : model;
+    const direct = model !== 'pocket-writer' || PURPOSE_DIRECT.has(purpose);
     // Without auto-revision every writer outcome (pass, notice or fallback) returns the draft text.
     const draftIsAnswer = direct || config.autoRevise !== true;
-    const draft = await call(direct ? 'direct' : 'draft', requestBody(request, config.upstreamModel, true, config), draftIsAnswer);
+    const draft = await call(direct ? 'direct' : 'draft', requestBody(request, upstreamModel, true, config), draftIsAnswer);
     current = await vault.updateRun(current, { draft });
     if (!draft.content && !draft.tool_calls?.length && !['content_filter', 'length'].includes(draft.finish_reason)) {
       throw new UpstreamError('上游返回空正文，已归档且不会把空结果作为回答', { code: 'empty_response', partial: draft });
