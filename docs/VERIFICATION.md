@@ -2,6 +2,28 @@
 
 最新验证日期：2026-11-05（Asia/Shanghai）；0.1.0 和 0.1.1 的历史记录为 2026-10-18。本文件区分源码实现、JVM/接口验证、APK 构建和 Android 设备验收。构建成功不能代替手机端验收。
 
+## 0.1.75（聊天里的 GIF 表情会动）
+
+- **动图表情**：在 Android 9 及以上，聊天中的 GIF 和动态 WebP 表情用系统自带的 `ImageDecoder` / `AnimatedImageDrawable` 循环播放，没有引入新库。
+  - 解码前先读文件头：只有 GIF，以及 VP8X 头里标了动画位的 WebP 才会尝试播放；PNG、JPEG 和静态 WebP 照旧显示静态图。单帧 GIF 也走静态路径。
+  - 播放尺寸跟静态图一样，长边缩到 384 像素，不会放大。
+  - 表情滚出屏幕就停止播放，并解除回调。
+  - 以下情况仍只显示第一帧：Android 8.x、系统“动画缩放”关闭时、设置页里的 52dp 缩略图（一屏缩略图同时播放太乱）。
+- 上一版导入的 194 张中有 70 张是 GIF：熊猫头 18、汪蛋 15、滑稽 11、熊本熊 10、猫猫 8、狗狗 7、鸽子 1。
+
+**验证与交付：**
+- **App 单测**：JVM 单测 **735 项：725 通过、10 跳过、0 失败、0 错误**。新增 `StickerAnimationTest` 2 项：
+  - 文件头识别：GIF87a / GIF89a、带或不带动画位的 VP8X WebP、简单 WebP、PNG、JPEG、太短或空的文件头；
+  - 缩小尺寸：横图、竖图、小图不放大、极端长宽比至少 1 像素。
+- **仪器测试**：新增 `StickerAnimationInstrumentedTest`。在 Android 9 及以上，两帧 GIF 应解码为 `AnimatedImageDrawable`，单帧 GIF 返回空。**已编译，未执行。**
+- **截图**：重新生成全部截图后，只恢复了 8 张已知会漂移的参考图（Chat / DeepSeekWriting / Research），其余参考图（包括表情包预览）没有变化。预览仍按静态图渲染。
+- **lint**：**0 错误、38 警告**，与上一版相同，没有 NewApi 告警。
+- **APK**：`aapt` 显示 versionName **0.1.75** / versionCode **76**。Release APK 大小 **19,296,742** 字节，SHA-256 `33E0899137F15DC614C0A456F3C2DC78B7B75FEA19E59E7772489A414CC08D80`，已复制到桌面 `PocketTavern-0.1.75.apk`。`apksigner` v2 验证通过，证书 SHA-256 `88fe7e1b467fbc42b7e9d3cdc10d560c15acf1b9f387aff99b4b69cef878b7e9` 与历史版本一致。release dex 中确认有 `AnimatedImageDrawable`、`ImageDecoder` 和 `areAnimatorsEnabled` 的引用。
+
+**未完成：**
+- 未在设备上看到动画实际播放。本机 `PocketTavern_API35` 模拟器再次因 `WHPX: Unexpected VP exit code 4` 退出。ADB 上的另一台设备不是已确认的测试机，未安装。
+- 需要在手机上确认：表情会动、滚动流畅、滚出屏幕后停止。
+
 ## 0.1.74（表情较多时只列名称；电脑上新增 10 个热门表情包）
 
 - **表情清单**：清单原先最多列 80 张。电脑上的表情超过 80 张后，排在后面的模型就看不到了。现在的规则：

@@ -258,6 +258,7 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
     // Sticker packs live on the PC; their images come from it and are cached on the phone.
     val stickers = remember(state.pcLink.stickerPacks) { state.pcLink.stickerPacks.orEmpty().flatMap { it.stickers } }
     val loadSticker = remember(actions) { { sticker: Sticker -> actions.pcStickerFile(sticker)?.let { decodeStickerFile(it) } } }
+    val animateSticker = remember(actions) { { sticker: Sticker -> actions.pcStickerFile(sticker)?.let { decodeAnimatedSticker(it) } } }
     var draft by rememberSaveable { mutableStateOf("") }
     var intent by rememberSaveable { mutableStateOf("auto") }
     // Top-down layout keeps the reading position fixed while the last message grows below it.
@@ -305,7 +306,7 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
                 LazyColumn(state = listState, modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 24.dp, bottom = 16.dp), verticalArrangement = Arrangement.spacedBy(24.dp)) {
                     items(chat.messages, key = { it.id }) { message ->
-                        ConversationMessage(message, assistantName, state.busy || state.loading, message.id == regenerationAnchorId, actions, onEdit, onBranch, stickers, loadSticker)
+                        ConversationMessage(message, assistantName, state.busy || state.loading, message.id == regenerationAnchorId, actions, onEdit, onBranch, stickers, loadSticker, animateSticker)
                     }
                 }
                 if (showLatest) FilledTonalIconButton(onClick = { followLatest = true; scope.launch {
@@ -407,7 +408,8 @@ private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attac
 
 @Composable
 private fun ConversationMessage(message: Message, assistantName: String, busy: Boolean, canRegenerate: Boolean, actions: AppActions, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit,
-                                stickers: List<Sticker> = emptyList(), loadSticker: (Sticker) -> androidx.compose.ui.graphics.ImageBitmap? = { null }) {
+                                stickers: List<Sticker> = emptyList(), loadSticker: (Sticker) -> androidx.compose.ui.graphics.ImageBitmap? = { null },
+                                animateSticker: (Sticker) -> android.graphics.drawable.Drawable? = { null }) {
     val user = message.role == "user"
     val tool = message.role == "tool"
     val notice = if (!user && !tool) messageNotice(message) else null
@@ -470,7 +472,7 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
                 user -> Surface(Modifier.fillMaxWidth(0.9f), shape = RoundedCornerShape(topStart = 20.dp, topEnd = 6.dp, bottomEnd = 20.dp, bottomStart = 20.dp), color = colors.primaryContainer) {
                     ReadingMarkdown(message.content.ifBlank { if (message.attachments.isNotEmpty()) "已发送附件" else "（空消息）" }, Modifier.padding(horizontal = 16.dp, vertical = 12.dp))
                 }
-                message.content.isNotBlank() -> AssistantTextWithSticker(message.content, message.status == "streaming", stickers, loadSticker)
+                message.content.isNotBlank() -> AssistantTextWithSticker(message.content, message.status == "streaming", stickers, loadSticker, loadAnimated = animateSticker)
                 message.status == "streaming" -> Text("正在构思…", style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
                 message.toolCallsJson != "[]" -> Text("工具调用记录", style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
                 notice != null -> Text(notice.text, style = MaterialTheme.typography.bodyMedium, color = if (notice.tone == MessageNoticeTone.ERROR) colors.error else colors.onSurfaceVariant)
