@@ -43,6 +43,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.core.graphics.withScale
 import app.pockettavern.domain.Sticker
 import app.pockettavern.engine.StickerMarkup
 import java.io.File
@@ -83,33 +84,41 @@ internal fun animatedTargetSize(width: Int, height: Int, maxPx: Int): Pair<Int, 
     return maxOf(1, (width * scale).roundToInt()) to maxOf(1, (height * scale).roundToInt())
 }
 
+/** A playing sticker and the pixel size it was decoded at. */
+internal class AnimatedSticker(val drawable: Drawable, val width: Int, val height: Int)
+
 /**
  * An animated GIF or WebP as a playing drawable, or null when the file is still, the system is older
- * than Android 9, or the user turned animations off; callers then show the first frame instead.
+ * than Android 10, or the user turned animations off; callers then show the first frame instead.
+ * Android 9 is left out because its legacy GL renderer draws nothing for an animated image.
  */
-internal fun decodeAnimatedSticker(file: File, maxPx: Int = 384): Drawable? {
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P || !ValueAnimator.areAnimatorsEnabled()) return null
+internal fun decodeAnimatedSticker(file: File, maxPx: Int = 384): AnimatedSticker? {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q || !ValueAnimator.areAnimatorsEnabled()) return null
     val head = ByteArray(32)
     val read = file.inputStream().use { it.read(head) }
     if (read <= 0 || !mayAnimate(head.copyOf(read))) return null
     return decodeAnimation(file, maxPx)
 }
 
-@RequiresApi(Build.VERSION_CODES.P)
-private fun decodeAnimation(file: File, maxPx: Int): Drawable? {
+@RequiresApi(Build.VERSION_CODES.Q)
+private fun decodeAnimation(file: File, maxPx: Int): AnimatedSticker? {
+    var size = 0 to 0
     val drawable = ImageDecoder.decodeDrawable(ImageDecoder.createSource(file)) { decoder, info, _ ->
-        val (width, height) = animatedTargetSize(info.size.width, info.size.height, maxPx)
-        decoder.setTargetSize(width, height)
+        size = animatedTargetSize(info.size.width, info.size.height, maxPx)
+        decoder.setTargetSize(size.first, size.second)
     }
     // A single-frame GIF decodes to a plain bitmap, which the still path already shows.
-    return (drawable as? AnimatedImageDrawable)?.apply { repeatCount = AnimatedImageDrawable.REPEAT_INFINITE }
+    val animated = drawable as? AnimatedImageDrawable ?: return null
+    animated.repeatCount = AnimatedImageDrawable.REPEAT_INFINITE
+    return AnimatedSticker(animated, size.first, size.second).takeIf { it.width > 0 && it.height > 0 }
 }
 
 /**
- * Draws a playing drawable in Compose: it runs while on screen and stops when it leaves; every
+ * Draws a playing sticker in Compose: it runs while on screen and stops when it leaves; every
  * frame the drawable asks for redraws the painter.
  */
-private class AnimatedStickerPainter(private val drawable: Drawable) : Painter(), RememberObserver {
+private class AnimatedStickerPainter(private val sticker: AnimatedSticker) : Painter(), RememberObserver {
+    private val drawable = sticker.drawable
     private var frame by mutableIntStateOf(0)
     private val main = Handler(Looper.getMainLooper())
     private val callback = object : Drawable.Callback {
@@ -118,13 +127,16 @@ private class AnimatedStickerPainter(private val drawable: Drawable) : Painter()
         override fun unscheduleDrawable(who: Drawable, what: Runnable) { main.removeCallbacks(what) }
     }
 
-    override val intrinsicSize: Size get() = Size(drawable.intrinsicWidth.toFloat(), drawable.intrinsicHeight.toFloat())
+    override val intrinsicSize: Size get() = Size(sticker.width.toFloat(), sticker.height.toFloat())
 
     override fun DrawScope.onDraw() {
         frame // read so each new frame redraws
+        // The drawable paints at its decoded pixel size whatever its bounds, so scale the canvas instead.
         drawIntoCanvas { canvas ->
-            drawable.setBounds(0, 0, size.width.roundToInt(), size.height.roundToInt())
-            drawable.draw(canvas.nativeCanvas)
+            canvas.nativeCanvas.withScale(size.width / sticker.width, size.height / sticker.height) {
+                drawable.setBounds(0, 0, sticker.width, sticker.height)
+                drawable.draw(this)
+            }
         }
     }
 
@@ -145,16 +157,16 @@ private class AnimatedStickerPainter(private val drawable: Drawable) : Painter()
 
 private sealed interface StickerPicture {
     class Still(val bitmap: ImageBitmap) : StickerPicture
-    class Moving(val drawable: Drawable) : StickerPicture
+    class Moving(val sticker: AnimatedSticker) : StickerPicture
 }
 
 /**
  * Loads off the main thread; [load] is injectable so previews can supply a bitmap directly. When
- * [loadAnimated] gives a playing drawable it is shown instead of the still first frame.
+ * [loadAnimated] gives a playing sticker it is shown instead of the still first frame.
  */
 @Composable
 internal fun StickerImage(sticker: Sticker, load: (Sticker) -> ImageBitmap?, modifier: Modifier = Modifier, size: Dp = 120.dp,
-                          loadAnimated: (Sticker) -> Drawable? = { null }) {
+                          loadAnimated: (Sticker) -> AnimatedSticker? = { null }) {
     // Previews render a single frame, so they load synchronously; the app decodes off the main thread.
     val inspection = LocalInspectionMode.current
     val picture by produceState<StickerPicture?>(if (inspection) runCatching { load(sticker) }.getOrNull()?.let { StickerPicture.Still(it) } else null, sticker.file) {
@@ -165,7 +177,7 @@ internal fun StickerImage(sticker: Sticker, load: (Sticker) -> ImageBitmap?, mod
     }
     val framed = modifier.size(size).clip(RoundedCornerShape(12.dp))
     when (val shown = picture) {
-        is StickerPicture.Moving -> Image(remember(shown) { AnimatedStickerPainter(shown.drawable) }, "表情：${sticker.key}", framed, contentScale = ContentScale.Fit)
+        is StickerPicture.Moving -> Image(remember(shown) { AnimatedStickerPainter(shown.sticker) }, "表情：${sticker.key}", framed, contentScale = ContentScale.Fit)
         is StickerPicture.Still -> Image(shown.bitmap, "表情：${sticker.key}", framed, contentScale = ContentScale.Fit)
         null -> Surface(modifier.size(size).semantics { contentDescription = "表情：${sticker.key}" }, shape = RoundedCornerShape(12.dp), color = MaterialTheme.colorScheme.surfaceVariant) {
             Box(contentAlignment = Alignment.Center) { Text(sticker.key, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
@@ -179,7 +191,7 @@ internal fun StickerImage(sticker: Sticker, load: (Sticker) -> ImageBitmap?, mod
  */
 @Composable
 internal fun AssistantTextWithSticker(content: String, streaming: Boolean, stickers: List<Sticker>, load: (Sticker) -> ImageBitmap?, modifier: Modifier = Modifier,
-                                      loadAnimated: (Sticker) -> Drawable? = { null }) {
+                                      loadAnimated: (Sticker) -> AnimatedSticker? = { null }) {
     val shown = if (streaming) StickerMarkup.hidePartial(content) else content
     val parsed = StickerMarkup.parse(shown)
     val sticker = parsed.names.firstNotNullOfOrNull { StickerMarkup.resolve(it, stickers) }

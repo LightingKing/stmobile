@@ -409,7 +409,7 @@ private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attac
 @Composable
 private fun ConversationMessage(message: Message, assistantName: String, busy: Boolean, canRegenerate: Boolean, actions: AppActions, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit,
                                 stickers: List<Sticker> = emptyList(), loadSticker: (Sticker) -> androidx.compose.ui.graphics.ImageBitmap? = { null },
-                                animateSticker: (Sticker) -> android.graphics.drawable.Drawable? = { null }) {
+                                animateSticker: (Sticker) -> AnimatedSticker? = { null }) {
     val user = message.role == "user"
     val tool = message.role == "tool"
     val notice = if (!user && !tool) messageNotice(message) else null

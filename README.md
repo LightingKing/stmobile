@@ -165,7 +165,7 @@ Skill 的 `SKILL.md` 和 ZIP 会做大小、条目数和路径穿越检查。Ski
 
 会话设置里选择发图频率（关闭 / 少 / 标准 / 多 / 每条），默认关闭。开启后每轮发送一份表情名称清单：不超过 80 张时每张附说明；更多时只列名称，以控制提示词长度，最多列 240 张，可在管理网页或手机上停用不常用的包。模型在回复末尾另起一行写 `[表情:名称]`，App 把它换成图片显示。是否允许本轮发图由 App 按最近 5 条回复决定（少 / 标准 / 多分别最多 1 / 2 / 4 张），剧情外纠错和重写不发；多余、未知或本轮不允许的标记在保存前去掉，之前回复里的标记不会再发回给模型。复制消息时不含标记。表情图片在电脑上，不进手机备份。
 
-导入时按以下顺序识别名称：`stickers.json`、带“ID”和图片路径列的 Markdown 表格（例如 dafeifish-codex 的 `references/memes.md`）、`manifest.json` 的 `files` 列表、`manifest.json` 所在目录（例如 dsh-meme，分类文件夹名作为标签），最后使用文件名。图片按文件头识别 PNG、JPEG、GIF 和 WebP。在 Android 9 及以上，聊天里的 GIF 和动态 WebP 会循环播放；Android 8、系统关闭了动画时，以及设置页的缩略图，都只显示第一帧。单张不超过 2 MB，每包最多 300 张，最多 20 个包。自制表情包可以附一个 `stickers.json`：
+导入时按以下顺序识别名称：`stickers.json`、带“ID”和图片路径列的 Markdown 表格（例如 dafeifish-codex 的 `references/memes.md`）、`manifest.json` 的 `files` 列表、`manifest.json` 所在目录（例如 dsh-meme，分类文件夹名作为标签），最后使用文件名。图片按文件头识别 PNG、JPEG、GIF 和 WebP。在 Android 10 及以上，聊天里的 GIF 和动态 WebP 会循环播放。以下情况只显示第一帧：Android 9 及以下（Android 9 的旧 OpenGL 渲染管线画不出动图）、系统关闭了动画时、设置页的缩略图。单张不超过 2 MB，每包最多 300 张，最多 20 个包。自制表情包可以附一个 `stickers.json`：
 
 ```json
 {"name": "我的表情", "license": "个人使用", "stickers": [
