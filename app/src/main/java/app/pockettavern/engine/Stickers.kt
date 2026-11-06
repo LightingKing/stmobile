@@ -104,11 +104,14 @@ object StickerGate {
 
 /** Prompt text: a stable list (cacheable) and a short per-turn instruction. */
 object StickerPrompt {
-    private const val MAX_LISTED = 80
+    private const val DETAILED = 80
+    private const val MAX_LISTED = 240
 
     fun list(stickers: List<Sticker>): String {
         val shown = stickers.take(MAX_LISTED)
-        val lines = shown.joinToString("\n") { sticker ->
+        // Past DETAILED the hints would cost too much prompt, so only the names are listed; they read like captions.
+        val lines = if (shown.size > DETAILED) shown.chunked(20).joinToString("\n") { row -> row.joinToString("、") { it.key } }
+        else shown.joinToString("\n") { sticker ->
             val hint = listOf(sticker.name.takeIf { it != sticker.key }.orEmpty(), sticker.description, sticker.tags.joinToString(" "))
                 .filter { it.isNotBlank() }.joinToString("；").take(48)
             if (hint.isBlank()) "- ${sticker.key}" else "- ${sticker.key}：$hint"

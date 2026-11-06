@@ -70,6 +70,23 @@ class StickerEngineTest {
         assertTrue(JSONArray(ContextEngine.build(data, chat, stickers).messagesJson).toString().contains("【表情包】"))
     }
 
+    @Test fun largeCollectionsAreListedByNameSoEveryStickerIsVisible() {
+        fun many(count: Int) = (1..count).map { Sticker(key = "表情$it", description = "说明$it", file = "p/$it.png") }
+        val listedKeys = { text: String -> text.lines().drop(1).flatMap { it.split("、") }.map { it.removePrefix("- ").substringBefore("：") } }
+
+        val detailed = StickerPrompt.list(many(80))
+        assertTrue(detailed.contains("- 表情80：说明80"))
+
+        val compact = StickerPrompt.list(many(229))
+        assertEquals(many(229).map { it.key }, listedKeys(compact))
+        assertFalse("hints are dropped once the list is long", compact.contains("说明1"))
+        assertFalse(compact.contains("未列出"))
+
+        val capped = StickerPrompt.list(many(250))
+        assertEquals(240, listedKeys(capped.substringBefore("\n（另有")).size)
+        assertTrue(capped.endsWith("（另有 10 张未列出，只能用上面的名称）"))
+    }
+
     @Test fun contextSendsTheListOnlyWhenOnAndNeverEchoesPastMarkers() {
         val history = listOf(Message(role = "user", content = "早"), reply("早呀\n\n[表情:smile]"), Message(role = "user", content = "吃了吗"))
         val pack = StickerPack(id = "p", name = "包", stickers = stickers)
