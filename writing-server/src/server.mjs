@@ -9,6 +9,7 @@ import { clientAddress, createAuthGuard } from './guard.mjs';
 import { capability, contextOf, createCatalog, displayName } from './catalog.mjs';
 import { STICKER_LIMITS, STICKER_UPLOAD_TYPE, StickerError, createStickerStore } from './stickers.mjs';
 import { DshError, createDshRuntime } from './dsh.mjs';
+import { ReachError, createReachRuntime } from './reach.mjs';
 import { MODEL_ID, SETTING_OPTIONS, applySettings, loadReviewSkill, saveSettings, settingsOf, validateSettings } from './config.mjs';
 
 const DEFAULT_CONFIG = {
@@ -180,7 +181,7 @@ function answerStream(res, id) {
   return { push, finish, fail };
 }
 
-export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null, catalog = null, stickers = null, dsh = null } = {}) {
+export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null, catalog = null, stickers = null, dsh = null, reach = null } = {}) {
   const resolved = { ...DEFAULT_CONFIG, ...config };
   const dataDir = resolved.dataDir || './writing-server-data';
   const store = vault || createVault({ dataDir });
@@ -190,6 +191,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
   const models = catalog || createCatalog({ upstream: remote });
   const stickerStore = stickers || createStickerStore({ dataDir });
   const dshRuntime = dsh || createDshRuntime({ dataDir, python: resolved.pythonPath || '' });
+  const reachRuntime = reach || createReachRuntime();
   const ready = Boolean(resolved.token && remote);
   const startedAt = new Date();
   // Generations in flight, one per chat and purpose. A repeat of the same request replaces the old one.
@@ -217,7 +219,8 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       backups: await backupStore.summary(),
       stickers: await stickerStore.summary(),
       dsh: await dshRuntime.status(),
-      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings', 'stickers', 'dsh_runtime'],
+      reach: await reachRuntime.status(),
+      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings', 'stickers', 'dsh_runtime', 'web_reach'],
     };
   }
 
@@ -366,6 +369,16 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
         const known = error instanceof DshError || error.status;
         if (!known) console.error('DSH call failed:', error?.code || error?.message);
         return sendJson(res, error.status || 500, { error: { message: known ? error.message : 'DSH 引擎调用失败', code: error.code || 'dsh_failed' } });
+      }
+    }
+    if (parsed.pathname === '/v1/pocket/reach' && req.method === 'POST') {
+      // One web search / page read from a phone chat, run by Agent Reach on this PC.
+      try {
+        return sendJson(res, 200, await reachRuntime.run(await readBody(req)));
+      } catch (error) {
+        const known = error instanceof ReachError || error.status;
+        if (!known) console.error('Agent Reach call failed:', error?.code || error?.message);
+        return sendJson(res, error.status || 500, { error: { message: known ? error.message : '联网查询失败', code: error.code || 'reach_failed' } });
       }
     }
     if (parsed.pathname === '/v1/stickers' || parsed.pathname.startsWith('/v1/stickers/')) return handleStickers(req, res, parsed);

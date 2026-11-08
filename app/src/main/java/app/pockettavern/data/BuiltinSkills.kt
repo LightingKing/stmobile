@@ -23,7 +23,7 @@ object BuiltinSkills {
     private const val UNLICENSED = "UNLICENSED"
     /** Reference files stay in APK assets; state stores only this hash-pinned marker. */
     const val ASSET_PREFIX = "builtin-asset:sha256="
-    val CATEGORIES = listOf("小说写作", "言情与关系", "角色扮演", "世界观", "社会常识", ADULT_CATEGORY)
+    val CATEGORIES = listOf("小说写作", "言情与关系", "角色扮演", "世界观", "社会常识", "联网工具", ADULT_CATEGORY)
     private val categories = CATEGORIES.toSet()
     private val licenses = setOf("MIT", "GPL-3.0", "AGPL-3.0", "CC-BY-4.0")
     private val commitPattern = Regex("[0-9a-fA-F]{40}")

@@ -43,6 +43,12 @@ async function loadStatus() {
       ['Python', esc(s.dsh?.python || '—')], ['引擎版本', esc((s.dsh?.commit || '').slice(0, 10) || '—')],
       ['说明', '手机上用电脑写作服务、勾选 DSH 成人互动的会话会通过这里运行引擎；存档在私密目录的 dsh\\data。'],
     ]);
+    $('reach-list').innerHTML = pairs([
+      ['状态', s.reach?.available ? '可用' : `不可用：${esc(s.reach?.error || '')}`],
+      ['版本', esc(s.reach?.version || '—')],
+      ['渠道', esc(Object.entries(s.reach?.channels || {}).map(([c, a]) => `${c}（${a.join('/')}）`).join('，') || '—')],
+      ['说明', '手机上用电脑写作服务、勾选“联网搜索”Skill 的会话可以搜网页、读链接；只开放免登录的渠道，不读取浏览器登录。'],
+    ]);
   } catch (error) {
     $('badge').textContent = `读不到服务：${error.message}`;
     $('badge').className = 'badge bad';

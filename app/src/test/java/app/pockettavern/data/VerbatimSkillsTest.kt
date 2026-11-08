@@ -79,7 +79,7 @@ class VerbatimSkillsTest {
         assertEquals(25, ids.size)
         (WITHDRAWN + BuiltinSkills.RETIRED.map { it.removePrefix("builtin-writing-") }).forEach { assertFalse(it, it in ids) }
         val all = BuiltinSkills.loadAll(read).map { it.id.removePrefix("builtin-writing-") }
-        assertEquals(listOf("pt-character-voice", "pt-china-common-sense"), all.drop(25))
+        assertEquals(listOf("pt-character-voice", "pt-china-common-sense", "pt-web-reach"), all.drop(25))
     }
 
     @Test fun skillsRetiredIn0165LeaveTheStoreAndEveryChatSelection() {
@@ -192,7 +192,7 @@ class VerbatimSkillsTest {
     }
 
     @Test fun skillsTabOffersTheNewCategories() {
-        assertEquals(listOf("小说写作", "言情与关系", "角色扮演", "世界观", "社会常识", "成人向"), BuiltinSkills.CATEGORIES)
+        assertEquals(listOf("小说写作", "言情与关系", "角色扮演", "世界观", "社会常识", "联网工具", "成人向"), BuiltinSkills.CATEGORIES)
         val counts = loaded.groupingBy { BuiltinSkills.bundledCategory(it) }.eachCount()
         assertEquals(mapOf("小说写作" to 9, "角色扮演" to 7, "成人向" to 9), counts)
     }

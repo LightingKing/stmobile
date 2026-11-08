@@ -10,7 +10,8 @@ import org.json.JSONObject
  * PC runs instead; elsewhere the Skill stays text rules only.
  */
 object DshTool {
-    const val SKILL_ID = "at-adult-tension-original"
+    // Installed records carry the bundled-catalog prefix; the bare catalog id never matches a chat's Skill.
+    const val SKILL_ID = "builtin-writing-at-adult-tension-original"
     const val NAME = "dsh_runtime"
 
     val COMMANDS = listOf(

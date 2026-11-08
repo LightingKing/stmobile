@@ -769,6 +769,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                                 KnowledgeVault.toolResponse(current(chatId),name,arguments,allowance)
                             })
                         } else if (name == DshTool.NAME) runDsh(arguments, current(chatId))
+                        else if (name == ReachTool.NAME) runReach(arguments, current(chatId))
                         else tools.execute(name,arguments,data.skills,data,current(chatId))
                     }
                     catch(error: Exception) { if(error is CancellationException) throw error; ToolResult("工具执行失败：${error.message}") }
@@ -1529,6 +1530,27 @@ class AppController(application: Application) : AndroidViewModel(application), A
         catch (error: Exception) { failure("PC_UNREACHABLE", error.message ?: "连不上电脑上的 DSH 引擎") }
     }
 
+    private suspend fun runReach(arguments: String, chat: Chat): ToolResult {
+        fun failure(code: String, message: String) = ToolResult(JSONObject().put("ok", false).put("items", JSONArray())
+            .put("error", JSONObject().put("code", code).put("message", message)).toString())
+        val provider = data.providers.firstOrNull { it.id == chat.providerId }?.takeIf { onPc(chat) }
+            ?: return failure("NOT_ON_PC", "联网搜索只能在使用电脑写作服务的会话里调用")
+        if (ToolRuntime.activeSkills(data.skills, data.settings, chat).none { it.id == ReachTool.SKILL_ID }) return failure("SKILL_OFF", "本会话没有启用联网搜索")
+        val args = runCatching { JSONObject(arguments) }.getOrNull() ?: return failure("BAD_INPUT", "工具参数不是 JSON")
+        val key = app.secrets.get(credentialId(provider)).takeIf { it.isNotBlank() } ?: return failure("PC_UNREACHABLE", "没有填写电脑写作服务的 Token")
+        return try {
+            val result = pcClient.reach(routed(provider), key, args)
+            if (result.length > MAX_REACH_RESULT_CHARS) failure("RESULT_TOO_LARGE", "返回内容过大；请换更具体的关键词或少读几条") else ToolResult(result)
+        } catch (error: CancellationException) { throw error }
+        catch (error: PcLinkException) {
+            // The PC refuses a malformed call with 400; the model can fix its arguments and try again.
+            val code = when (error.httpCode) { 400 -> "BAD_INPUT"; 503 -> "NOT_INSTALLED"; 504 -> "TIMEOUT"; 0 -> "PC_UNREACHABLE"; else -> "PC_ERROR" }
+            if (error.httpCode == 0) pcRouter.forget()
+            failure(code, error.message ?: "联网搜索失败")
+        }
+        catch (error: Exception) { failure("PC_UNREACHABLE", error.message ?: "连不上电脑上的联网搜索") }
+    }
+
     private val pcStickerCache get() = File(app.cacheDir, "pc-stickers")
 
     /** A PC sticker image, cached on the phone after the first fetch. Blocking: the image loader calls it off the main thread. */
@@ -1799,6 +1821,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         const val COMPACT_REQUEST_DEADLINE_MS = 900_000L
         const val MAX_STICKER_PACKS = 20
         private const val MAX_DSH_RESULT_CHARS = 200_000
+        private const val MAX_REACH_RESULT_CHARS = 60_000
         private val PC_STICKER_FILE = Regex("[0-9a-f]{12}/\\d{3}\\.(png|jpg|gif|webp)")
     }
 }

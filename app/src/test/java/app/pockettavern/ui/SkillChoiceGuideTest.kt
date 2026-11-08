@@ -24,7 +24,7 @@ class SkillChoiceGuideTest {
 
     @Test fun eachScenarioLeadsWithAnInstalledPrimaryInStableRoleOrder() {
         val skills = bundledMetadata()
-        assertEquals(27, skills.size)
+        assertEquals(28, skills.size)
         SkillScenario.entries.forEach { scenario ->
             val result = suggestSkills(skills.reversed(), scenario)
             // The trimmed catalog has a single common-sense Skill; no unrelated filler is invented.

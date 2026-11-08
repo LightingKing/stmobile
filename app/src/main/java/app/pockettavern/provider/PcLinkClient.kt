@@ -144,6 +144,12 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         parse(text).toString()
     }
 
+    /** One web search or page read, run by Agent Reach on the PC; the trimmed result JSON comes back as is. */
+    suspend fun reach(provider: ProviderConfig, key: String, call: JSONObject): String = withContext(Dispatchers.IO) {
+        val text = call(client, request(provider, key, "pocket/reach").post(call.toString().toRequestBody(JSON)).build()) { it.body?.string().orEmpty() }
+        parse(text).toString()
+    }
+
     /** Sticker packs kept on the PC. Their files are "<packId>/<NNN.ext>", fetched with [stickerImage]. */
     suspend fun stickerPacks(provider: ProviderConfig, key: String): List<StickerPack> = withContext(Dispatchers.IO) {
         val packs = parse(call(quick, request(provider, key, "stickers").get().build()) { it.body?.string().orEmpty() }).optJSONArray("packs") ?: JSONArray()

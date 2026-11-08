@@ -30,7 +30,7 @@ class SkillFiltersTest {
 
     @Test fun everyBundledMetadataRecordHasAnExplicitPurpose() {
         val bundled = bundledMetadata()
-        assertEquals(27, bundled.size)
+        assertEquals(28, bundled.size)
         bundled.forEach { skill ->
             assertFalse("Missing purpose for ${skill.id}", skillUse(skill) in setOf(SkillUse.ALL, SkillUse.CUSTOM))
         }

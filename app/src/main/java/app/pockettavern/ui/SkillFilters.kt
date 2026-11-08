@@ -15,6 +15,7 @@ enum class SkillUse(val label: String) {
     ROLEPLAY("互动角色扮演"),
     TAVERN("酒馆制作"),
     SOCIAL("社会常识"),
+    TOOLS("联网工具"),
     CUSTOM("自定义与其他")
 }
 
@@ -58,7 +59,7 @@ private val CURATED_SKILL_IDS = setOf(
     "tm-dialogue", "dp-character-style", "dp-chapter-direct", "tm-continuity",
     "tt-sp-roleplay", "fv-chat-doctor", "jw-game-facilitator", "an-roleplay-sandbox", "dv-roleplay-modes", "ds-roleplay-preset-original",
     // Existing personal-use and first-party boundaries remain available in the focused view.
-    "ai-deslop", "pt-no-invention", "pt-canon-boundaries", "pt-character-voice", "pt-china-common-sense"
+    "ai-deslop", "pt-no-invention", "pt-canon-boundaries", "pt-character-voice", "pt-china-common-sense", "pt-web-reach"
 )
 
 private fun isCuratedSkill(skill: SkillRecord): Boolean =
@@ -81,6 +82,7 @@ private val bundledSkillUses: Map<String, SkillUse> = buildMap {
         "va-velvet-ascent", "fv-chat-doctor", "tt-sp-roleplay", "jw-game-facilitator",
         "dv-roleplay-modes", "an-roleplay-sandbox", "at-adult-tension-original", "ds-roleplay-preset-original")
     assign(SkillUse.SOCIAL, "pt-china-common-sense")
+    assign(SkillUse.TOOLS, "pt-web-reach")
 }
 
 fun skillUse(skill: SkillRecord): SkillUse = bundledSkillUses[skill.id] ?: SkillUse.CUSTOM

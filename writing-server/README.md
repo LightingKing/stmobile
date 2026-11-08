@@ -118,7 +118,37 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
 - **代码来源**：`vendor/adult-tension/` 只收录上游固定提交 `26641ebe` 的 `scripts/` 和 `runtime/`（51 个 Python 文件），`MANIFEST.json` 记下每个文件的 git blob 哈希，每次启动都会校验。SKILL.md、`references/` 和 `content/`（211 个世界）直接用 App 收录的同一份，在这个提交下逐字节一致。上游没有声明许可证，这里只作个人使用。
 - **安全检查**：收录前查过源码，只用 Python 标准库，不联网，不启动其他程序，没有 `exec`/`eval`。数据只写在 `--data-dir` 指定的目录里，唯一例外是导出、导入存档可以指定任意路径，服务会拒绝这两个命令里的 `path` 字段。引擎的开发自检命令（`verify-content`、`smoke`）不开放。调用 Python 时只传最少的环境变量，Venice Key 等变量不会传进去。
 - **运行方式**：第一次调用时，把引擎和 App 的 Skill 文件拼成私密目录下的 `dsh/skill/`，存档放在 `dsh/data/`。`POST /v1/pocket/dsh`（`{"command", "input"}`）按顺序执行，每次最多 60 秒，返回引擎原样的 JSON（`ok`、`data`、`error`）。Python 默认依次找 `python`、`py -3`、`python3`，要求 3.10 及以上；也可以在 `config.json` 里写 `pythonPath`（只能在电脑上改）。`/v1/pocket/status` 的 `dsh` 字段显示引擎是否可用和 Python 版本。
-- **手机端**：只有会话使用电脑写作服务、模型支持工具、并且勾选了 DSH 成人互动时，模型才会拿到 `dsh_runtime` 工具，同时收到一句说明：SKILL.md 里在终端运行引擎的步骤，在这里改用这个工具。其他平台上，这个 Skill 仍然只用文字规则。
+- **手机端**：只有会话使用电脑写作服务、模型支持工具、并且勾选了 DSH 成人互动时，模型才会拿到 `dsh_runtime` 工具，同时收到一句说明：SKILL.md 里在终端运行引擎的步骤，在这里改用这个工具。其他平台上，这个 Skill 仍然只用文字规则。0.1.72–0.1.76 的 App 把 Skill ID 写错了，这个工具实际上一直没有出现；0.1.77 已修正。
+
+## 联网搜索（Agent Reach）
+
+0.1.77（服务 0.7.0）起，勾选了“联网搜索（电脑端）”Skill 的电脑会话可以联网。实际查询由这台电脑上的 [Agent Reach](https://github.com/Panniantong/Agent-Reach)（MIT）完成：
+
+| 渠道 | 能做什么 | 实际由谁完成 |
+| --- | --- | --- |
+| `web` | 搜索、读网页正文 | 搜索：Exa 的免费公开接口；读网页：先 Jina Reader，失败再用 Exa。两者都不需要密钥 |
+| `bilibili` | 搜索、视频信息、热门 | `bili-cli`，不登录 |
+| `youtube` | 搜索、视频信息、字幕 | `yt-dlp`；字幕可能被 YouTube 限流 |
+| `github` | 搜仓库、读仓库或 issue | GitHub 公开 API；这台电脑当前连不上，会返回 503 |
+| `v2ex` | 热帖、读帖子 | V2EX 公开接口 |
+
+- **安装**：在本目录运行 `install-agent-reach.ps1`。它的做法：
+  - 用 Python 3.10+ 在 `runtime/agent-reach/` 建一个独立虚拟环境，从 GitHub 安装固定提交 `c70ae6da`（1.6.1）。PyPI 上同名的 `agent-reach` 是另一个项目，不用。
+  - Agent Reach 的数据目录设在 `runtime/agent-reach-home/`（通过 `HOME`），再添加 B 站工具。
+  - `runtime/` 不进 git。
+- **没做的事**：
+  - 不运行 Agent Reach 自己的 `setup`。它会把自己的 Skill 链接进本机所有 AI 工具的目录（Claude Code、Codex、Cursor 等）。
+  - 需要登录的渠道（小红书、Twitter、Reddit 等）不开放。这类渠道会复制 Chrome 里的网站登录，或打开专用浏览器。
+- **安全检查**：收录前读过源码。
+  - 只访问各平台的公开接口，以及 Exa、Jina；读网页前会拒绝本机、局域网和内网地址。
+  - 服务调用它时只传最少的环境变量，Venice Key 不会传进去。
+- **调用方式**：`POST /v1/pocket/reach`，请求体为 `{"channel", "action", "query", "target", "limit"}`。
+  - 服务只接受上表里的渠道和动作，自己拼出固定的命令行，模型给的内容只作为参数。
+  - `read` 不指定渠道时，按链接选：B 站、YouTube、GitHub、V2EX 的链接用对应渠道，其余用 `web`。
+  - 每次最多 75 秒，最多 2 个同时进行。
+  - 返回结果去掉原始数据：搜索每条正文最多 600 字，读网页最多 1.2 万字，整体不超过 4 万字。
+  - `/v1/pocket/status` 的 `reach` 字段和管理网页显示是否可用。
+- **隐私**：搜索词和要读的链接会发给 Exa、Jina 或对应平台。
 
 ## 表情包
 

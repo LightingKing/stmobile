@@ -75,6 +75,8 @@ object ContextEngine {
         if (skills.isNotEmpty()) addSystem(if (toolsSupported) SKILL_CHAT_MODE_WITH_TOOLS else SKILL_CHAT_MODE_NO_TOOLS)
         val dshEngine = DshTool.available(skills, onPc, toolsSupported)
         if (dshEngine) addSystem(DshTool.PROMPT)
+        val webReach = ReachTool.available(skills, onPc, toolsSupported)
+        if (webReach) addSystem(ReachTool.PROMPT)
         val skillTokens = skills.map { skill ->
             val prompt = skillPrompt(skill, toolsSupported)
             addSystem(prompt, "skill")
@@ -93,6 +95,7 @@ object ContextEngine {
         }
         val toolArray = JSONArray(if (toolsSupported) ToolRuntime.definitionsForSkills(skills) else "[]")
         if (dshEngine) toolArray.put(DshTool.definition())
+        if (webReach) toolArray.put(ReachTool.definition())
 
         val validSummary = findValidSummary(chat)
         val cutoff = validSummary?.let { chat.messages.indexOfFirst { message -> message.id == it.throughMessageId } } ?: -1

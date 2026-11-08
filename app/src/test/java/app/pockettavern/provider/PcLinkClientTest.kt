@@ -143,6 +143,19 @@ class PcLinkClientTest {
         assertTrue(failure { client.runDsh(pc, "t", "doctor", org.json.JSONObject()) }.message!!.contains("版本过旧"))
     }
 
+    @Test fun webSearchRunsOnThePcAndRefusalsKeepTheirCode() {
+        server.enqueue(json("""{"ok":true,"channel":"web","action":"search","backend":"exa","items":[{"title":"t","url":"https://a.com","text":"x"}],"error":null}"""))
+        val result = org.json.JSONObject(runBlocking { client.reach(pc, "t", org.json.JSONObject().put("action", "search").put("query", "小猫")) })
+        assertEquals("exa", result.getString("backend"))
+        val request = server.takeRequest()
+        assertEquals("/v1/pocket/reach", request.path)
+        assertEquals("小猫", org.json.JSONObject(request.body.readUtf8()).getString("query"))
+        server.enqueue(json("""{"error":{"message":"不支持 xiaohongshu 的 search","code":"reach_unsupported"}}""", 400))
+        val refused = failure { client.reach(pc, "t", org.json.JSONObject().put("action", "search").put("channel", "xiaohongshu")) }
+        assertEquals(400, refused.httpCode)
+        assertTrue(refused.message!!.contains("不支持 xiaohongshu"))
+    }
+
     @Test fun refusalsExplainWhatToDo() {
         server.enqueue(json("""{"error":{"message":"未授权"}}""", 401))
         assertTrue(failure { client.status(pc, "wrong") }.message!!.contains("手机连接.txt"))
