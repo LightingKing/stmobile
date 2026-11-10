@@ -85,7 +85,6 @@ private val specificHints = buildMap<String, SkillChoiceHint> {
     add("se-sepia", "tm-deslop", "os-story-deslop", "ss-stop-slop", "anti-ai-slop-writing", whenToUse = "已有原文，觉得套话、点题、比喻和排比太多。", pairing = "去 AI 味先选一个，不要几个同时常驻；想修台词可再加对白辅助。")
     add("tm-dialogue", "dp-character-style", whenToUse = "NPC 台词都像一个人，或说话不符合身份。", pairing = "同类对白技能先试一个；可配正文或主扮演技能。")
     add("tm-continuity", whenToUse = "长篇的时间线、资源、人物认知或状态对不上。", pairing = "有较长前文或状态资料时再加；它不能找回没有发送给模型的内容。")
-    add("pt-web-reach", whenToUse = "想让模型查最新资料、读你贴的链接，或核对现实里的事实。", pairing = "可以和任何写作或扮演技能一起开；只在使用电脑写作服务、支持工具的模型上生效。")
     add("pt-china-common-sense", whenToUse = "现代中国背景下，人物的生活常识或处事细节出错。", pairing = "只在对应背景下添加；人物设定和具体情境优先。")
     add("fe-fictional-erotica", "hn-scene-writing", "dp-chapter-adult-original", whenToUse = "写虚构成年角色的亲密场景正文。", pairing = "场景写作先选一个；跨章时可加连续性，不需要同时开互动引擎。")
     add("ec-erotica-craft", whenToUse = "成人场景写得太淡、用代称或在关键处留白切走。", pairing = "辅助项，可配一个成人场景写作主技能；只管尺度和用词，不改情节。")
@@ -106,6 +105,5 @@ fun skillChoiceHint(skill: SkillRecord): SkillChoiceHint = specificHints[skill.i
     SkillUse.ROLEPLAY -> SkillChoiceHint("想由模型扮演人物或主持互动。", "先和其他主扮演技能选一个，再按需加对白或连续性辅助。")
     SkillUse.TAVERN -> SkillChoiceHint("准备制作角色卡或酒馆资源。", "制作阶段使用，游玩时通常不需要。")
     SkillUse.SOCIAL -> SkillChoiceHint("故事涉及现实社会常识和人际关系。", "只在对应背景下添加，人物设定和具体情境优先。")
-    SkillUse.TOOLS -> SkillChoiceHint("需要联网查资料或读链接。", "可与写作或扮演技能同时使用；需要电脑写作服务。")
     SkillUse.ALL, SkillUse.CUSTOM -> SkillChoiceHint("这是自定义或未分类技能，先看简介和详情是否符合本次任务。", "先单独试用，再决定是否与现有技能搭配。")
 }

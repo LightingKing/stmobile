@@ -75,7 +75,7 @@ object ContextEngine {
         if (skills.isNotEmpty()) addSystem(if (toolsSupported) SKILL_CHAT_MODE_WITH_TOOLS else SKILL_CHAT_MODE_NO_TOOLS)
         val dshEngine = DshTool.available(skills, onPc, toolsSupported)
         if (dshEngine) addSystem(DshTool.PROMPT)
-        val webReach = ReachTool.available(skills, onPc, toolsSupported)
+        val webReach = ReachTool.available(onPc, toolsSupported)
         if (webReach) addSystem(ReachTool.PROMPT)
         val skillTokens = skills.map { skill ->
             val prompt = skillPrompt(skill, toolsSupported)

@@ -122,7 +122,7 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
 
 ## 联网搜索（Agent Reach）
 
-0.1.77（服务 0.7.0）起，勾选了“联网搜索（电脑端）”Skill 的电脑会话可以联网。实际查询由这台电脑上的 [Agent Reach](https://github.com/Panniantong/Agent-Reach)（MIT）完成：
+0.1.77（服务 0.7.0）起，电脑会话可以联网；从 App 0.1.79 起，只要会话使用电脑写作服务、模型支持工具，就会自动带上联网工具，不需要再勾选 Skill。实际查询由这台电脑上的 [Agent Reach](https://github.com/Panniantong/Agent-Reach)（MIT）完成：
 
 | 渠道 | 能做什么 | 实际由谁完成 |
 | --- | --- | --- |

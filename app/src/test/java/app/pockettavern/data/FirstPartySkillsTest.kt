@@ -14,18 +14,18 @@ import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-/** The Skills written for this app: character voice, contemporary mainland China defaults and PC web search. */
+/** The two Skills written for this app: character voice and contemporary mainland China defaults. */
 class FirstPartySkillsTest {
     private val root = File("src/main/assets")
     private val read: (String) -> String = { File(root, it).readText() }
-    private val ids = listOf("builtin-writing-pt-character-voice", "builtin-writing-pt-china-common-sense", "builtin-writing-pt-web-reach")
+    private val ids = listOf("builtin-writing-pt-character-voice", "builtin-writing-pt-china-common-sense")
 
     @Test fun loadsDisabledNonAdultSkillsLabeledAsWrittenByThisApp() {
         val skills = BuiltinSkills.loadFirstParty(read)
         assertEquals(ids, skills.map { it.id })
-        assertEquals(listOf("说话风格符合角色设定", "中国国内世界观及社会常识", "联网搜索（电脑端）"), skills.map { it.name })
-        assertEquals(listOf("本应用编写 · 角色扮演", "本应用编写 · 社会常识", "本应用编写 · 联网工具"), skills.map { it.source })
-        assertEquals(listOf("角色扮演", "社会常识", "联网工具"), skills.map { BuiltinSkills.bundledCategory(it) })
+        assertEquals(listOf("说话风格符合角色设定", "中国国内世界观及社会常识"), skills.map { it.name })
+        assertEquals(listOf("本应用编写 · 角色扮演", "本应用编写 · 社会常识"), skills.map { it.source })
+        assertEquals(listOf("角色扮演", "社会常识"), skills.map { BuiltinSkills.bundledCategory(it) })
         skills.forEach { skill ->
             assertFalse(skill.id, skill.enabled)
             assertFalse(skill.id, skill.adult)
@@ -39,10 +39,10 @@ class FirstPartySkillsTest {
         }
     }
 
-    @Test fun allBundledSkillsAreUpstreamPlusTheFirstParty() {
+    @Test fun allBundledSkillsAreUpstreamPlusTheTwoFirstParty() {
         val all = BuiltinSkills.loadAll(read)
         val upstream = BuiltinSkills.load(read)
-        assertEquals(28, all.size)
+        assertEquals(27, all.size)
         assertEquals(25, upstream.size)
         assertEquals(ids, all.drop(upstream.size).map { it.id })
         assertTrue("first-party Skills show no star line", BuiltinSkills.loadStars(read).keys.none { it in ids })
@@ -98,7 +98,7 @@ class FirstPartySkillsTest {
     @Test fun writtenForDeepSeekFlashButSentTheSameForEveryModel() {
         val skills = BuiltinSkills.loadFirstParty(read)
         val voice = skills.first().files.getValue("SKILL.md")
-        val china = skills.single { it.id.endsWith("pt-china-common-sense") }.files.getValue("SKILL.md")
+        val china = skills.last().files.getValue("SKILL.md")
         listOf("示例对话", "人设", "描述", "不替代角色卡").forEach { assertTrue("voice points at the card: $it", voice.contains(it)) }
         assertTrue("China defaults stay short: ${china.length}", china.length <= 1_000)
         listOf("米兰达", "小费", "911", "先生/小姐").forEach { assertTrue("China skill replaces foreign default $it", china.contains(it)) }
@@ -112,7 +112,7 @@ class FirstPartySkillsTest {
             return (0 until messages.length()).map { messages.getJSONObject(it).optString("content") }.filter { it.startsWith("【Skill: ") }
         }
         val flash = skillPrompts("deepseek-v4-1-flash")
-        assertEquals(ids.size, flash.size)
+        assertEquals(2, flash.size)
         assertEquals(flash, skillPrompts("deepseek-v4-1-flash-1017"))
         assertEquals(flash, skillPrompts("venice-uncensored"))
     }

@@ -1537,7 +1537,6 @@ class AppController(application: Application) : AndroidViewModel(application), A
             .put("error", JSONObject().put("code", code).put("message", message)).toString())
         val provider = data.providers.firstOrNull { it.id == chat.providerId }?.takeIf { onPc(chat) }
             ?: return failure("NOT_ON_PC", "联网搜索只能在使用电脑写作服务的会话里调用")
-        if (ToolRuntime.activeSkills(data.skills, data.settings, chat).none { it.id == ReachTool.SKILL_ID }) return failure("SKILL_OFF", "本会话没有启用联网搜索")
         val args = runCatching { JSONObject(arguments) }.getOrNull() ?: return failure("BAD_INPUT", "工具参数不是 JSON")
         val key = app.secrets.get(credentialId(provider)).takeIf { it.isNotBlank() } ?: return failure("PC_UNREACHABLE", "没有填写电脑写作服务的 Token")
         return try {

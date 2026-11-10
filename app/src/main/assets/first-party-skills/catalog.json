@@ -1,5 +1,4 @@
 {"version":1,"skills":[
 {"id":"pt-character-voice","name":"说话风格符合角色设定","category":"角色扮演","description":"开了以后，每个角色按自己的角色卡说话：用词、句子长短、正式程度、口头禅跟着人设走，不同 NPC 不串成同一种网文腔。","sha256":"2d47dc67e2074785b3e50a14cae9b6633f6f811a9978da1c4eb7b0e77911e5fc"},
-{"id":"pt-china-common-sense","name":"中国国内世界观及社会常识","category":"社会常识","description":"开了以后，现代背景下纠正残留的欧美、日式设定：货币、App、称呼、机构、法律和城市生活按当代中国大陆写，角色卡或世界书另有设定时以设定为准。","sha256":"49166a53411c8ca483db399a3bc59d95108e46d41196cb524df2f14052394ce9"},
-{"id":"pt-web-reach","name":"联网搜索（电脑端）","category":"联网工具","description":"开了以后，使用电脑写作服务的会话能联网：搜网页、B 站、YouTube、GitHub、V2EX，读取链接正文，回答时注明来源。由电脑上的 Agent Reach 执行，只读、免登录；不连电脑时不可用。","sha256":"6a4bab479b3d476376f7e62ab5860acb2036eba25c1b9dbae8a3a83374280a97"}
+{"id":"pt-china-common-sense","name":"中国国内世界观及社会常识","category":"社会常识","description":"开了以后，现代背景下纠正残留的欧美、日式设定：货币、App、称呼、机构、法律和城市生活按当代中国大陆写，角色卡或世界书另有设定时以设定为准。","sha256":"49166a53411c8ca483db399a3bc59d95108e46d41196cb524df2f14052394ce9"}
 ]}

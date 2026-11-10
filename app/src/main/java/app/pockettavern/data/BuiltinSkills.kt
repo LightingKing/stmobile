@@ -23,7 +23,7 @@ object BuiltinSkills {
     private const val UNLICENSED = "UNLICENSED"
     /** Reference files stay in APK assets; state stores only this hash-pinned marker. */
     const val ASSET_PREFIX = "builtin-asset:sha256="
-    val CATEGORIES = listOf("小说写作", "言情与关系", "角色扮演", "世界观", "社会常识", "联网工具", ADULT_CATEGORY)
+    val CATEGORIES = listOf("小说写作", "言情与关系", "角色扮演", "世界观", "社会常识", ADULT_CATEGORY)
     private val categories = CATEGORIES.toSet()
     private val licenses = setOf("MIT", "GPL-3.0", "AGPL-3.0", "CC-BY-4.0")
     private val commitPattern = Regex("[0-9a-fA-F]{40}")
@@ -55,7 +55,9 @@ object BuiltinSkills {
         "dp-review-reader", "dp-set-concept", "dp-set-outline", "dp-set-style", "dp-tool-research",
         "dp-using-dreampowers", "cn-chinese-novelist", "sh-shuorenhua"
     ).mapTo(HashSet()) { "builtin-writing-$it" }
-    private val WITHDRAWN: Set<String> = WITHDRAWN_PATCHED + RETIRED
+    /** 0.1.77 shipped web search as a Skill; since 0.1.79 every chat on the PC has the tool without it. */
+    private val RETIRED_TOOLS = setOf("builtin-writing-pt-web-reach")
+    private val WITHDRAWN: Set<String> = WITHDRAWN_PATCHED + RETIRED + RETIRED_TOOLS
 
     /**
      * Reads the catalog and each referenced SKILL.md through the supplied asset reader.
