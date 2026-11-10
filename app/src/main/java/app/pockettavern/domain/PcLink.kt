@@ -94,6 +94,12 @@ object PcBackupPolicy {
         enabled && now - lastSuccessAt >= INTERVAL_MILLIS && now - lastAttemptAt >= RETRY_MILLIS
 }
 
+/** The PC platform the phone talks to: the one chosen in 电脑连接, otherwise the first PC platform. */
+fun chosenPcProvider(providers: List<ProviderConfig>, chosenId: String): ProviderConfig? {
+    val servers = providers.filter { it.kind.equals("writing-server", ignoreCase = true) }
+    return servers.firstOrNull { it.id == chosenId } ?: servers.firstOrNull()
+}
+
 /** "3.2 MB" / "640 KB" for backup sizes. */
 fun readableSize(bytes: Long): String = when {
     bytes >= 1024L * 1024 -> String.format(java.util.Locale.ROOT, "%.1f MB", bytes / 1024.0 / 1024.0)

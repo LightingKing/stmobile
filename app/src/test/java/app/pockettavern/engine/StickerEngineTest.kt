@@ -7,6 +7,7 @@ import app.pockettavern.domain.ProviderConfig
 import app.pockettavern.domain.Sticker
 import app.pockettavern.domain.StickerPack
 import app.pockettavern.domain.WorldEntry
+import app.pockettavern.domain.chosenPcProvider
 import org.json.JSONArray
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -85,6 +86,18 @@ class StickerEngineTest {
         val capped = StickerPrompt.list(many(250))
         assertEquals(240, listedKeys(capped.substringBefore("\n（另有")).size)
         assertTrue(capped.endsWith("（另有 10 张未列出，只能用上面的名称）"))
+    }
+
+    @Test fun savingTheChosenPcPlatformIsWhatLoadsItsStickers() {
+        val venice = ProviderConfig(id = "venice")
+        val home = ProviderConfig(id = "home", kind = "writing-server", baseUrl = "https://pt.example.com/v1")
+        val office = ProviderConfig(id = "office", kind = "Writing-Server", baseUrl = "https://office.example.com/v1")
+        // A new phone: nothing chosen yet, so its first PC platform is the one the stickers come from.
+        assertEquals(null, chosenPcProvider(listOf(venice), ""))
+        assertEquals("home", chosenPcProvider(listOf(venice, home), "")?.id)
+        assertEquals("home", chosenPcProvider(listOf(venice, home, office), "")?.id)
+        assertEquals("office", chosenPcProvider(listOf(venice, home, office), "office")?.id)
+        assertEquals("a removed choice falls back to the first PC platform", "home", chosenPcProvider(listOf(home, office), "gone")?.id)
     }
 
     @Test fun contextSendsTheListOnlyWhenOnAndNeverEchoesPastMarkers() {

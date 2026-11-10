@@ -271,6 +271,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
             mutable.value = mutable.value.copy(hasKeys=data.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet())
             if (previous != null && (credentialId(previous) != credentialId(normalized) || key.isNotBlank())) clearVeniceBalance(normalized.id)
             status("平台已保存")
+            // The sticker packs live on the PC: read them now, not only at the next app start.
+            if (chosenPcProvider(data.providers, pcStore.providerId)?.id == normalized.id) refreshPcStickers()
         }.onFailure { status(it.message ?: "保存失败") }
     }
     override fun deleteProvider(id: String) {
@@ -1585,10 +1587,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     private fun updatePcLink(transform: (PcLinkState) -> PcLinkState) { mutable.value = mutable.value.copy(pcLink = transform(mutable.value.pcLink)) }
 
     /** The writing-server platform chosen for this phone, or the only one there is. */
-    private fun pcProvider(): ProviderConfig? {
-        val servers = data.providers.filter { it.kind.equals("writing-server", ignoreCase = true) }
-        return servers.firstOrNull { it.id == pcStore.providerId } ?: servers.firstOrNull()
-    }
+    private fun pcProvider(): ProviderConfig? = chosenPcProvider(data.providers, pcStore.providerId)
 
     /** One PC job at a time. A quiet job (the automatic backup) skips silently when nothing is set up. */
     private fun pcJob(name: String, quiet: Boolean = false, block: suspend (ProviderConfig, String) -> Unit) {
