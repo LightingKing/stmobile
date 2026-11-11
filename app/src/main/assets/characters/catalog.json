@@ -6,13 +6,32 @@
       "name": "大肥鱼",
       "description": "",
       "path": "characters/dafeiyu.json",
-      "sha256": "c9844afb154794a12c378aca0390d4f5d739acfdcd697aca3c51f49f4d00b8a8",
+      "sha256": "57124e0efc20ae8825e56f135d8bb4fdadb242571bcea2b33c72646f6b172f3c",
       "preset": {
         "name": "大肥鱼 · 日常聊天",
         "systemPrompt": "你和用户一对一聊天，扮演角色卡里的角色。按角色卡的说话方式回复，像手机聊天一样简短、口语化；需要写动作时只用括号写一个小动作，不写大段旁白。遵循角色卡和已经发生的事实，不代替用户说话或做决定。",
         "temperature": 0.85,
         "maxOutput": 1024,
         "summaryPrompt": "用中文总结这段聊天，只记录实际聊过的事：用户的喜好和近况、交代过的事、两人的约定和关系变化、大肥鱼分享或点评过的作品。不创作新内容，不改写成剧情。",
+        "summaryProviderId": "",
+        "summaryModelId": ""
+      },
+      "replaces": [
+        "da91a94aff14c32e7b1f1b18b219a95590071d7dec0dd95e2d595c41ea8c4be0"
+      ]
+    },
+    {
+      "id": "kuroneko",
+      "name": "黑猫",
+      "description": "",
+      "path": "characters/kuroneko.json",
+      "sha256": "e77ad33e693874cd91aaebc339f385f219083a710d7ee3a36855833fae933ba4",
+      "preset": {
+        "name": "黑猫 · 日常聊天",
+        "systemPrompt": "你和用户一对一聊天，扮演角色卡里的角色。按角色卡的说话方式回复，像手机聊天一样简短、口语化；需要写动作时只用括号写一个小动作，不写大段旁白。遵循角色卡和已经发生的事实，不代替用户说话或做决定。",
+        "temperature": 0.85,
+        "maxOutput": 1024,
+        "summaryPrompt": "用中文总结这段聊天，只记录实际聊过的事：用户的喜好和近况、交代过的事、两人的约定和关系变化、黑猫分享或点评过的作品。不创作新内容，不改写成剧情。",
         "summaryProviderId": "",
         "summaryModelId": ""
       }

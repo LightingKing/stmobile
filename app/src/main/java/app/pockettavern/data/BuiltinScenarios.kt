@@ -26,7 +26,9 @@ object BuiltinScenarios {
         val description: String,
         val character: Character,
         val preset: Preset,
-        val worldEntries: List<WorldEntry>
+        val worldEntries: List<WorldEntry>,
+        /** Fingerprints ([contentHash]) of earlier shipped versions that an untouched install may swap for this one. */
+        val replaces: Set<String> = emptySet()
     )
 
     /** Reads catalog metadata and the referenced standard chara_card_v2 JSON files. */
@@ -84,7 +86,9 @@ object BuiltinScenarios {
                     )
                 }
             }
-            loaded += Entry(id, name, description, character, preset, worldEntries)
+            val replaces = item.optJSONArray("replaces")?.let { list -> (0 until list.length()).map { list.optString(it).lowercase() } }.orEmpty()
+            require(replaces.all { hashPattern.matches(it) }) { "内置剧本 replaces 无效：$id" }
+            loaded += Entry(id, name, description, character, preset, worldEntries, replaces.toSet())
         }
         return loaded
     }
@@ -97,7 +101,14 @@ object BuiltinScenarios {
         val presets = data.presets.toMutableList()
         val worldEntries = data.worldEntries.toMutableList()
         catalog.forEach { entry ->
-            if (!seenSet.add(entry.id)) return@forEach
+            if (!seenSet.add(entry.id)) {
+                // An earlier shipped version the user never edited is swapped for the new card.
+                val index = characters.indexOfFirst { it.id == entry.character.id }
+                if (index >= 0 && contentHash(characters[index]) in entry.replaces) {
+                    characters[index] = entry.character.copy(defaultPresetId = characters[index].defaultPresetId)
+                }
+                return@forEach
+            }
             val conflicts = characters.any { it.id == entry.character.id } ||
                 presets.any { it.id == entry.preset.id } ||
                 worldEntries.any { it.id in entry.worldEntries.map(WorldEntry::id) }
@@ -117,6 +128,10 @@ object BuiltinScenarios {
             settings = data.settings.copy(builtinScenariosSeen = seen.distinct())
         )
     }
+
+    /** The character's visible content, so an untouched shipped card can be recognised later. */
+    fun contentHash(character: Character): String = sha256(listOf(character.name, character.description, character.personality,
+        character.scenario, character.firstMessage, character.examples, character.systemPrompt).joinToString("\u0000").toByteArray(StandardCharsets.UTF_8))
 
     fun characterId(id: String): String = "$SCENARIO_PREFIX$id"
     fun presetId(id: String): String = "$SCENARIO_PREFIX$id-preset"

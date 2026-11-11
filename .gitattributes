@@ -3,3 +3,4 @@ app/src/main/assets/writing-skills/** -text -whitespace
 app/src/main/assets/scenarios/** -text -whitespace
 app/src/main/assets/first-party-skills/** -text -whitespace
 app/src/main/assets/characters/** -text -whitespace
+app/src/test/resources/builtin/** -text -whitespace
