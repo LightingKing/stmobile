@@ -18,6 +18,12 @@
       },
       "replaces": [
         "da91a94aff14c32e7b1f1b18b219a95590071d7dec0dd95e2d595c41ea8c4be0"
+      ],
+      "avatar": "characters/dafeiyu-avatar.png",
+      "avatar_sha256": "1d139b55467c8f754d84c38cba34f9a8829c64283b755431ef62d699acc07683",
+      "sticker_packs": [
+        "大肥鱼（dsh-meme）",
+        "大肥鱼表情（dafeifish-codex）"
       ]
     },
     {
@@ -25,7 +31,7 @@
       "name": "黑猫",
       "description": "",
       "path": "characters/kuroneko.json",
-      "sha256": "e77ad33e693874cd91aaebc339f385f219083a710d7ee3a36855833fae933ba4",
+      "sha256": "fd175234620e61566ce0441c474f30e504b4337e04f3017fc986740a2a78eee2",
       "preset": {
         "name": "黑猫 · 日常聊天",
         "systemPrompt": "你和用户一对一聊天，扮演角色卡里的角色。按角色卡的说话方式回复，像手机聊天一样简短、口语化；需要写动作时只用括号写一个小动作，不写大段旁白。遵循角色卡和已经发生的事实，不代替用户说话或做决定。",
@@ -34,7 +40,15 @@
         "summaryPrompt": "用中文总结这段聊天，只记录实际聊过的事：用户的喜好和近况、交代过的事、两人的约定和关系变化、黑猫分享或点评过的作品。不创作新内容，不改写成剧情。",
         "summaryProviderId": "",
         "summaryModelId": ""
-      }
+      },
+      "avatar": "characters/kuroneko-avatar.png",
+      "avatar_sha256": "df6f65bdedd29ec1ac58eda5e52f1b1d141dce62dba7787ad2d5175ff7637472",
+      "sticker_packs": [
+        "黑猫"
+      ],
+      "replaces": [
+        "f2fe069790ef8ee435bb9eba232881d02c9670799d35eb2481e7e59c66883e64"
+      ]
     }
   ]
 }

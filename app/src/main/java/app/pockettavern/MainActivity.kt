@@ -45,6 +45,15 @@ class MainActivity : ComponentActivity(), NativeHost {
             } catch(error:Exception) { controller.reportError("无法读取文件：${error.message}") }
         }
     }
+    private var avatarCharacterId = ""
+    private val avatarPicker = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        val characterId = avatarCharacterId
+        if (uri != null && characterId.isNotBlank()) lifecycleScope.launch {
+            try { controller.setCharacterAvatar(characterId, withContext(Dispatchers.IO) { readBounded(uri, 16 * 1024 * 1024) }) }
+            catch (error: Exception) { controller.reportError("无法读取图片：${error.message}") }
+        }
+    }
+    override fun pickAvatar(characterId: String) { avatarCharacterId = characterId; avatarPicker.launch(arrayOf("image/*")) }
     private val attachmentPicker=registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         if(uri!=null) lifecycleScope.launch {
             try {

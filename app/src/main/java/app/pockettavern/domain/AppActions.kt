@@ -105,6 +105,10 @@ interface AppActions {
     fun browseNow(chatId: String) { }
     /** Opens a 角色卡助手 chat on the PC; false when no PC model can call tools. */
     fun startCharacterBuilder(): Boolean = false
+    /** A character's avatar picture; blocking, call off the main thread. */
+    fun characterAvatar(avatar: String): androidx.compose.ui.graphics.ImageBitmap? = null
+    fun pickCharacterAvatar(characterId: String) { }
+    fun removeCharacterAvatar(characterId: String) { }
     fun stickerFile(sticker: Sticker): java.io.File? = null
     /** A sticker image from the PC, fetched once and then cached; blocking, call off the main thread. */
     fun pcStickerFile(sticker: Sticker): java.io.File? = null

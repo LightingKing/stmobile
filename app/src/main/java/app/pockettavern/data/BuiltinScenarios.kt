@@ -34,10 +34,14 @@ object BuiltinScenarios {
     /** Reads catalog metadata and the referenced standard chara_card_v2 JSON files. */
     fun load(readText: (String) -> String): List<Entry> = loadCatalog(readText, CATALOG_PATH, "scenarios", SCENARIO_PREFIX)
 
-    /** Built-in characters, such as 大肥鱼; their ids start with builtin-character-. */
-    fun loadCharacters(readText: (String) -> String): List<Entry> = loadCatalog(readText, CHARACTER_CATALOG_PATH, "characters", CHARACTER_PREFIX)
+    /**
+     * Built-in characters, such as 大肥鱼; their ids start with builtin-character-. With [readBytes]
+     * each avatar picture is checked against its pinned hash.
+     */
+    fun loadCharacters(readText: (String) -> String, readBytes: ((String) -> ByteArray)? = null): List<Entry> =
+        loadCatalog(readText, CHARACTER_CATALOG_PATH, "characters", CHARACTER_PREFIX, readBytes)
 
-    private fun loadCatalog(readText: (String) -> String, catalogPath: String, listKey: String, prefix: String): List<Entry> {
+    private fun loadCatalog(readText: (String) -> String, catalogPath: String, listKey: String, prefix: String, readBytes: ((String) -> ByteArray)? = null): List<Entry> {
         val root = JSONObject(readText(catalogPath))
         require(root.optInt("version", -1) == 1) { "内置剧本 catalog 版本不受支持" }
         val items = root.optJSONArray(listKey) ?: throw IllegalArgumentException("内置剧本 catalog 缺少 $listKey")
@@ -61,10 +65,20 @@ object BuiltinScenarios {
             require(sha256(source.toByteArray(StandardCharsets.UTF_8)) == sha256) { "内置剧本原文 SHA-256 不匹配：$id" }
             val parsed = Exchange.character(source.toByteArray(StandardCharsets.UTF_8))
             val characterId = "$prefix$id"
+            val avatarPath = item.optString("avatar").trim()
+            if (avatarPath.isNotEmpty()) {
+                require(avatarPath.startsWith("characters/") && avatarPath.endsWith(".png") && isSafeRelativePath(avatarPath)) { "内置角色头像路径无效：$id" }
+                val expected = item.optString("avatar_sha256").trim().lowercase()
+                require(hashPattern.matches(expected)) { "内置角色头像 sha256 无效：$id" }
+                if (readBytes != null) require(sha256(readBytes(avatarPath)) == expected) { "内置角色头像 SHA-256 不匹配：$id" }
+            }
+            val stickerPacks = item.optJSONArray("sticker_packs")?.let { list -> (0 until list.length()).map { list.optString(it).trim() } }.orEmpty().filter { it.isNotBlank() }
             val character = parsed.copy(
                 id = characterId,
                 name = name,
-                description = description.ifBlank { parsed.description }
+                description = description.ifBlank { parsed.description },
+                avatar = if (avatarPath.isEmpty()) "" else "asset:$avatarPath",
+                stickerPacks = stickerPacks
             )
 
             val presetJson = item.optJSONObject("preset") ?: throw IllegalArgumentException("内置剧本缺少 preset：$id")
@@ -102,10 +116,15 @@ object BuiltinScenarios {
         val worldEntries = data.worldEntries.toMutableList()
         catalog.forEach { entry ->
             if (!seenSet.add(entry.id)) {
-                // An earlier shipped version the user never edited is swapped for the new card.
                 val index = characters.indexOfFirst { it.id == entry.character.id }
-                if (index >= 0 && contentHash(characters[index]) in entry.replaces) {
-                    characters[index] = entry.character.copy(defaultPresetId = characters[index].defaultPresetId)
+                if (index >= 0) {
+                    val installed = characters[index]
+                    // An earlier shipped version the user never edited is swapped for the new card.
+                    var updated = if (contentHash(installed) in entry.replaces) entry.character.copy(defaultPresetId = installed.defaultPresetId) else installed
+                    // Avatars and own sticker packs came later: each is filled in once, never forced back.
+                    if (entry.character.avatar.isNotBlank() && seenSet.add("${entry.id}#avatar")) { seen += "${entry.id}#avatar"; if (updated.avatar.isBlank()) updated = updated.copy(avatar = entry.character.avatar) }
+                    if (entry.character.stickerPacks.isNotEmpty() && seenSet.add("${entry.id}#stickers")) { seen += "${entry.id}#stickers"; if (updated.stickerPacks.isEmpty()) updated = updated.copy(stickerPacks = entry.character.stickerPacks) }
+                    characters[index] = updated
                 }
                 return@forEach
             }
@@ -120,6 +139,8 @@ object BuiltinScenarios {
             // A conflicting record is treated as an already installed scenario. This avoids
             // overwriting a user's edits or reintroducing a deliberately deleted component.
             seen += entry.id
+            if (entry.character.avatar.isNotBlank()) { seen += "${entry.id}#avatar"; seenSet += "${entry.id}#avatar" }
+            if (entry.character.stickerPacks.isNotEmpty()) { seen += "${entry.id}#stickers"; seenSet += "${entry.id}#stickers" }
         }
         return data.copy(
             characters = characters,

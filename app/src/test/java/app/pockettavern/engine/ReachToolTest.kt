@@ -53,6 +53,27 @@ class ReachToolTest {
         }
     }
 
+    @Test fun pastSearchResultsAreNotSentAgainButTheCurrentTurnKeepsThem() {
+        val provider = ProviderConfig(id = "pc", kind = "writing-server", baseUrl = "http://192.168.1.22:8791/v1",
+            models = listOf(ModelInfo(id = "pocket-direct", type = "text", contextTokens = 200_000, supportsTools = true)))
+        fun call(id: String) = """[{"id":"$id","type":"function","function":{"name":"web_reach","arguments":"{\"action\":\"search\",\"query\":\"x\"}"}}]"""
+        val messages = listOf(
+            Message(role = "user", content = "查一下旧闻"),
+            Message(role = "assistant", content = "", toolCallsJson = call("old")),
+            Message(role = "tool", content = "OLD-PAGE-TEXT", toolCallId = "old"),
+            Message(role = "assistant", content = "旧闻的要点是甲，来源 https://a.example"),
+            Message(role = "user", content = "再查一下新闻"),
+            Message(role = "assistant", content = "", toolCallsJson = call("new")),
+            Message(role = "tool", content = "NEW-PAGE-TEXT", toolCallId = "new"),
+        )
+        val chat = Chat(id = "c", providerId = "pc", modelId = "pocket-direct", messages = messages)
+        val sent = ContextEngine.build(AppData(providers = listOf(provider), chats = listOf(chat)), chat, emptyList(), onPc = true).messagesJson
+        assertFalse("the earlier turn's page text is gone", sent.contains("OLD-PAGE-TEXT"))
+        assertTrue("its answer stays", sent.contains("旧闻的要点是甲"))
+        assertTrue("this turn's result is still there for the model to use", sent.contains("NEW-PAGE-TEXT"))
+        assertTrue(ReachTool.PROMPT.contains("只在本轮可见"))
+    }
+
     @Test fun theOldWebSearchSkillLeavesTheStoreAndChats() {
         val old = SkillRecord(id = "builtin-writing-pt-web-reach", name = "联网搜索（电脑端）", content = "x", enabled = true)
         val chat = Chat(id = "c", skillIds = listOf(old.id, "builtin-writing-tm-deslop"))

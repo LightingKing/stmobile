@@ -349,7 +349,7 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
             val liveFrequency = liveChat.stickerFrequency
             // Stickers live on the PC, so only a chat using the PC writing server can send them.
             val onPc = state.data.providers.firstOrNull { it.id == liveChat.providerId }?.kind.equals("writing-server", ignoreCase = true)
-            val stickerCount = if (onPc) state.pcLink.stickerPacks.orEmpty().filter { it.enabled }.sumOf { it.stickers.size } else 0
+            val stickerCount = if (onPc) app.pockettavern.engine.StickerGate.packsFor(state.data.characters.firstOrNull { it.id == liveChat.characterId }, state.pcLink.stickerPacks.orEmpty()).sumOf { it.stickers.size } else 0
             StickerFrequencyChooser(liveFrequency, stickerCount, !state.busy && !state.loading, onPc = onPc) {
                 actions.setChatStickerFrequency(chat.id, it)
             }
@@ -522,7 +522,7 @@ private fun CharactersTab(state: UiSession, actions: AppActions, onOpenChat: () 
         item { SectionTitle("角色卡", action = { Text("${characters.size} 个", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant) }) }
         if (characters.isEmpty()) item { EmptyState(Icons.Outlined.Group, if (query.isBlank()) "还没有角色卡" else "没有匹配的角色卡", "可以创建角色，或导入常见的 ST JSON / PNG 角色卡。", if (query.isBlank()) "新建角色" else null) { characterDialog = Character() } }
         items(characters, key = { it.id }) { character ->
-            CharacterCard(character, state, actions, onEdit = { characterDialog = it })
+            CharacterCard(character, state, actions, onEdit = { characterDialog = it }, onOpenChat = onOpenChat)
         }
         item {
             SectionTitle("世界书", action = {
@@ -544,7 +544,7 @@ private fun CharactersTab(state: UiSession, actions: AppActions, onOpenChat: () 
         if (state.data.memories.isEmpty()) item { Text("没有已保存的记忆。你可以把稳定信息固定到全局或当前会话。", Modifier.padding(horizontal = 16.dp), color = MaterialTheme.colorScheme.onSurfaceVariant) }
         items(state.data.memories, key = { it.id }) { memory -> MemoryCard(memory, actions) { memoryDialog = it } }
     }
-    characterDialog?.let { CharacterDialog(it, actions) { characterDialog = null } }
+    characterDialog?.let { CharacterDialog(it, state, actions) { characterDialog = null } }
     scenarioDelete?.let { scenario -> ConfirmDeleteDialog("剧本“${scenario.name.ifBlank { "未命名剧本" }}”", { actions.deleteCharacter(scenario.id); scenarioDelete = null }) { scenarioDelete = null } }
     worldDialog?.let { WorldEntryDialog(it, state, actions) { worldDialog = null } }
     memoryDialog?.let { MemoryDialog(it, state, actions) { memoryDialog = null } }
@@ -556,11 +556,14 @@ private fun Character.matchesCharacterSearch(query: String): Boolean {
 }
 
 @Composable
-private fun CharacterCard(character: Character, state: UiSession, actions: AppActions, onEdit: (Character) -> Unit) {
+private fun CharacterCard(character: Character, state: UiSession, actions: AppActions, onEdit: (Character) -> Unit, onOpenChat: () -> Unit = {}) {
     var confirmDelete by remember { mutableStateOf(false) }
+    val locked = state.busy || state.loading
     ElevatedCard(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp)) {
         Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
+                CharacterAvatar(character.avatar, character.name, 44.dp, actions::characterAvatar)
+                Spacer(Modifier.width(10.dp))
                 Text(character.name.ifBlank { "未命名角色" }, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
                 IconButton(onClick = { onEdit(character) }) { Icon(Icons.Outlined.Edit, "编辑角色") }
                 IconButton(onClick = { confirmDelete = true }) { Icon(Icons.Outlined.DeleteOutline, "删除角色") }
@@ -569,7 +572,8 @@ private fun CharacterCard(character: Character, state: UiSession, actions: AppAc
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 if (character.personality.isNotBlank()) Chip("有性格设定")
                 if (character.firstMessage.isNotBlank()) Chip("有开场白")
-                OutlinedButton(onClick = { actions.createChat(character.id) }) { Icon(Icons.Outlined.ChatBubbleOutline, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text("创建会话") }
+                // Creating the chat also opens it; before 0.1.83 the page stayed put and looked unresponsive.
+                OutlinedButton(onClick = { actions.createChat(character.id); onOpenChat() }, enabled = !locked) { Icon(Icons.Outlined.ChatBubbleOutline, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text("创建会话") }
             }
         }
     }
@@ -610,10 +614,29 @@ private fun MemoryCard(memory: Memory, actions: AppActions, onEdit: (Memory) -> 
     if (confirmDelete) ConfirmDeleteDialog("这条记忆", { actions.deleteMemory(memory.id); confirmDelete = false }) { confirmDelete = false }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun CharacterDialog(character: Character, actions: AppActions, onDismiss: () -> Unit) {
+private fun CharacterDialog(character: Character, state: UiSession, actions: AppActions, onDismiss: () -> Unit) {
     var value by remember { mutableStateOf(character) }
     FormDialog("${if (character.name.isBlank()) "新建" else "编辑"}角色", onDismiss, validate = { if (value.name.isBlank()) "请输入角色名称。" else null }, confirm = { actions.saveCharacter(value); onDismiss() }) {
+        // The avatar applies at once; it is only offered once the character exists.
+        val saved = state.data.characters.firstOrNull { it.id == character.id }
+        if (saved != null) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            CharacterAvatar(saved.avatar, saved.name, 56.dp, actions::characterAvatar)
+            OutlinedButton(onClick = { actions.pickCharacterAvatar(saved.id) }, enabled = !state.busy) { Text("更换头像") }
+            if (saved.avatar.isNotBlank()) TextButton(onClick = { actions.removeCharacterAvatar(saved.id) }, enabled = !state.busy) { Text("移除") }
+        }
+        val packNames = state.pcLink.stickerPacks.orEmpty().map { it.name }.distinct()
+        if (packNames.isNotEmpty()) {
+            Text("专属表情包（不选则用全部启用的表情包）", style = MaterialTheme.typography.labelLarge)
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                packNames.forEach { name ->
+                    FilterChip(selected = name in value.stickerPacks, onClick = {
+                        value = value.copy(stickerPacks = if (name in value.stickerPacks) value.stickerPacks - name else value.stickerPacks + name)
+                    }, label = { Text(name) })
+                }
+            }
+        }
         FormText("名称", value.name) { value = value.copy(name = it) }
         FormText("简介", value.description, 3) { value = value.copy(description = it) }
         FormText("性格", value.personality, 3) { value = value.copy(personality = it) }

@@ -29,6 +29,10 @@ object BackupArchive {
         data.stickerPacks.forEach { pack -> pack.stickers.forEach { sticker ->
             StickerStore.file(filesDir,sticker)?.let { sources["${StickerStore.DIR}/${sticker.file}"]=it }
         } }
+        // Avatars the user chose or imported; built-in ones ship with the app.
+        data.characters.forEach { character ->
+            CharacterAvatars.file(filesDir, character.avatar)?.takeIf { it.isFile }?.let { sources[character.avatar.removePrefix("file:")] = it }
+        }
         val state=DataCodec.encode(portable).toByteArray(Charsets.UTF_8)
         require(sources.size<2000 && sources.values.sumOf { it.length() }+state.size<=MAX_TOTAL) { "备份超过 128 MB，请先单独保存大型媒体" }
         target.parentFile?.mkdirs()
@@ -48,7 +52,7 @@ object BackupArchive {
                     require(++count<=2000) { "备份文件过多" }
                     val name=entry.name.replace('\\','/')
                     require(!name.startsWith('/') && ':' !in name && name.split('/').none { it==".." || it=="." }) { "备份路径不安全" }
-                    require(name=="state.json" || name.startsWith("media/") || name.startsWith("workspace/") || name.startsWith("${StickerStore.DIR}/")) { "备份包含未知文件" }
+                    require(name=="state.json" || name.startsWith("media/") || name.startsWith("workspace/") || name.startsWith("${StickerStore.DIR}/") || name.startsWith("${CharacterAvatars.DIR}/")) { "备份包含未知文件" }
                     val file=File(stage,name).canonicalFile
                     require(file.path.startsWith(stage.canonicalPath+File.separator)) { "备份路径越界" }
                     if(entry.isDirectory) { file.mkdirs(); continue }
@@ -89,7 +93,15 @@ object BackupArchive {
                     ok
                 })
             }.filter { it.stickers.isNotEmpty() }
-            return restored.copy(mediaJobs=jobs,stickerPacks=packs)
+            // An avatar missing from the archive falls back to none rather than failing the restore.
+            val characters=restored.characters.map { character ->
+                val target=CharacterAvatars.file(filesDir,character.avatar) ?: return@map character
+                val source=File(stage,character.avatar.removePrefix("file:")).canonicalFile
+                if(source.isFile && source.path.startsWith(File(stage,CharacterAvatars.DIR).canonicalPath+File.separator)) {
+                    target.parentFile?.mkdirs(); source.copyTo(target,overwrite=true); character
+                } else character.copy(avatar="")
+            }
+            return restored.copy(mediaJobs=jobs,stickerPacks=packs,characters=characters)
         } finally {
             check(stage.canonicalPath.startsWith(cacheDir.canonicalPath+File.separator))
             stage.deleteRecursively()

@@ -600,7 +600,9 @@ object ContextEngine {
                 val name = call?.optJSONObject("function")?.optString("name")
                 val id = call?.optString("id").orEmpty()
                 val supersededRead = skillReadKey(call)?.let { latestSkillRead[it] != index to callIndex } == true
-                if ((name in setOf("history_search", "history_read") || supersededRead) && id.isNotBlank()) {
+                // Web pages and search results are evidence for the turn that fetched them; the reply
+                // keeps what mattered, so their full text is not sent again with every later message.
+                if ((name in setOf("history_search", "history_read", ReachTool.NAME) || supersededRead) && id.isNotBlank()) {
                     removed += id
                     changed = true
                 } else retained.put(calls.get(callIndex))

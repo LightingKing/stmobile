@@ -1,6 +1,7 @@
 package app.pockettavern.engine
 
 import app.pockettavern.domain.AppData
+import app.pockettavern.domain.Character
 import app.pockettavern.domain.Chat
 import app.pockettavern.domain.ProviderConfig
 import app.pockettavern.domain.Sticker
@@ -73,12 +74,20 @@ object StickerGate {
 
     /**
      * Sticker packs live on the PC writing server, so a chat gets them only while it talks to
-     * one. [pcPacks] is what that PC holds, or null before it has been read.
+     * one. [pcPacks] is what that PC holds, or null before it has been read. A character that
+     * names its own packs gets only those, so 黑猫 never sends 大肥鱼's faces.
      */
-    fun forChat(chat: Chat, providers: List<ProviderConfig>, pcPacks: List<StickerPack>?): List<Sticker> {
+    fun forChat(chat: Chat, providers: List<ProviderConfig>, pcPacks: List<StickerPack>?, characters: List<Character> = emptyList()): List<Sticker> {
         val kind = providers.firstOrNull { it.id == chat.providerId }?.kind.orEmpty()
         if (!kind.equals("writing-server", ignoreCase = true)) return emptyList()
-        return pcPacks.orEmpty().filter { it.enabled }.flatMap { it.stickers }
+        return packsFor(characters.firstOrNull { it.id == chat.characterId }, pcPacks.orEmpty()).flatMap { it.stickers }
+    }
+
+    /** The enabled packs a character uses: the ones it names when any of them exist, otherwise all. */
+    fun packsFor(character: Character?, packs: List<StickerPack>): List<StickerPack> {
+        val enabled = packs.filter { it.enabled }
+        val own = character?.stickerPacks.orEmpty()
+        return enabled.filter { it.name in own }.ifEmpty { enabled }
     }
 
     fun decide(chat: Chat, available: Boolean): Turn {

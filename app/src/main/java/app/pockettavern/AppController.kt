@@ -4,6 +4,8 @@ import android.app.Application
 import android.net.Uri
 import android.os.Build
 import androidx.lifecycle.AndroidViewModel
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.core.graphics.scale
 import androidx.lifecycle.viewModelScope
 import app.pockettavern.data.*
 import app.pockettavern.domain.*
@@ -29,6 +31,7 @@ interface NativeHost {
     fun pickAttachment()
     fun openFile(file: File, mime: String)
     fun openDoubaoWebResearch(requestId: String, chatId: String, subject: String, categories: List<String>, allowFiction: Boolean, prompt: String) { }
+    fun pickAvatar(characterId: String) { }
 }
 
 internal fun applyChatSkillUpdate(
@@ -119,7 +122,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     private val builtinSkills by lazy { BuiltinSkills.loadAll(readAsset) }
     private val builtinScenarios by lazy {
         val read = { path: String -> app.assets.open(path).bufferedReader(Charsets.UTF_8).use { it.readText() } }
-        BuiltinScenarios.load(read) + BuiltinScenarios.loadCharacters(read)
+        BuiltinScenarios.load(read) + BuiltinScenarios.loadCharacters(read) { path -> app.assets.open(path).use { it.readBytes() } }
     }
     private val saves = StatePersistence<AppData>(
         CoroutineScope(viewModelScope.coroutineContext + Dispatchers.IO),
@@ -1045,8 +1048,69 @@ class AppController(application: Application) : AndroidViewModel(application), A
         change(data.copy(presets=data.presets.filterNot { it.id==preset.id }+preset))
     }
     override fun deletePreset(id: String) { if(data.presets.size<=1) { status("至少保留一个预设"); return }; change(data.copy(presets=data.presets.filterNot { it.id==id })) }
-    override fun saveCharacter(character: Character) { if(character.name.isBlank()) { status("请填写角色名称"); return }; change(data.copy(characters=data.characters.filterNot { it.id==character.id }+character)) }
-    override fun deleteCharacter(id: String) { change(data.copy(characters=data.characters.filterNot { it.id==id })) }
+    override fun saveCharacter(character: Character) {
+        if(character.name.isBlank()) { status("请填写角色名称"); return }
+        // The avatar changes through its own buttons; a dialog opened earlier must not undo that.
+        val avatar = data.characters.firstOrNull { it.id == character.id }?.avatar ?: character.avatar
+        change(data.copy(characters=data.characters.map { if (it.id == character.id) character.copy(avatar = avatar) else it }.let { list -> if (list.any { it.id == character.id }) list else list + character.copy(avatar = avatar) }))
+    }
+
+    private val avatarCache = android.util.LruCache<String, androidx.compose.ui.graphics.ImageBitmap>(24)
+
+    /** A character's picture, decoded small; blocking, so the UI calls it off the main thread. */
+    override fun characterAvatar(avatar: String): androidx.compose.ui.graphics.ImageBitmap? {
+        if (avatar.isBlank()) return null
+        avatarCache.get(avatar)?.let { return it }
+        val bytes = CharacterAvatars.assetPath(avatar)?.let { path -> runCatching { app.assets.open(path).use { it.readBytes() } }.getOrNull() }
+            ?: CharacterAvatars.file(app.filesDir, avatar)?.takeIf { it.isFile }?.readBytes() ?: return null
+        val bounds = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        android.graphics.BitmapFactory.decodeByteArray(bytes, 0, bytes.size, bounds)
+        var sample = 1
+        while (maxOf(bounds.outWidth, bounds.outHeight) / (sample * 2) >= 256) sample *= 2
+        val bitmap = android.graphics.BitmapFactory.decodeByteArray(bytes, 0, bytes.size, android.graphics.BitmapFactory.Options().apply { inSampleSize = sample }) ?: return null
+        return bitmap.asImageBitmap().also { avatarCache.put(avatar, it) }
+    }
+
+    override fun pickCharacterAvatar(characterId: String) { host?.pickAvatar(characterId) }
+
+    /** Stores the chosen picture as a square 512 px PNG and points the character at it. */
+    internal fun setCharacterAvatar(characterId: String, bytes: ByteArray) {
+        val character = data.characters.firstOrNull { it.id == characterId } ?: return status("角色不存在")
+        runCatching {
+            val avatar = storeAvatar(characterId, bytes)
+            CharacterAvatars.file(app.filesDir, character.avatar)?.delete()
+            change(data.copy(characters = data.characters.map { if (it.id == characterId) it.copy(avatar = avatar) else it }))
+            status("头像已更新")
+        }.onFailure { status("头像设置失败：${it.message ?: "图片无法读取"}") }
+    }
+
+    override fun removeCharacterAvatar(characterId: String) {
+        val character = data.characters.firstOrNull { it.id == characterId } ?: return
+        CharacterAvatars.file(app.filesDir, character.avatar)?.delete()
+        change(data.copy(characters = data.characters.map { if (it.id == characterId) it.copy(avatar = "") else it }))
+    }
+
+    private fun storeAvatar(characterId: String, bytes: ByteArray): String {
+        val bounds = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        android.graphics.BitmapFactory.decodeByteArray(bytes, 0, bytes.size, bounds)
+        require(bounds.outWidth > 0 && bounds.outHeight > 0) { "不是可识别的图片" }
+        var sample = 1
+        while (minOf(bounds.outWidth, bounds.outHeight) / (sample * 2) >= 512) sample *= 2
+        val decoded = requireNotNull(android.graphics.BitmapFactory.decodeByteArray(bytes, 0, bytes.size, android.graphics.BitmapFactory.Options().apply { inSampleSize = sample })) { "图片解码失败" }
+        val side = minOf(decoded.width, decoded.height)
+        // Portraits keep the top of the picture, where the face usually is.
+        val top = if (decoded.height > decoded.width) ((decoded.height - side) * 0.15).toInt() else (decoded.height - side) / 2
+        val square = android.graphics.Bitmap.createBitmap(decoded, (decoded.width - side) / 2, top, side, side)
+        val scaled = square.scale(512, 512)
+        val name = CharacterAvatars.newFileName(characterId, System.currentTimeMillis())
+        val target = File(File(app.filesDir, CharacterAvatars.DIR).apply { mkdirs() }, name)
+        target.outputStream().use { require(scaled.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it)) { "图片保存失败" } }
+        return "file:${CharacterAvatars.DIR}/$name"
+    }
+    override fun deleteCharacter(id: String) {
+        data.characters.firstOrNull { it.id == id }?.let { CharacterAvatars.file(app.filesDir, it.avatar)?.delete() }
+        change(data.copy(characters=data.characters.filterNot { it.id==id }))
+    }
     override fun saveMemory(memory: Memory) {
         runCatching {
             require(memory.text.isNotBlank() && memory.text.length<=8000) { "记忆内容应为 1–8000 字符" }
@@ -1505,7 +1569,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
 
     /** Stickers live on the PC, so only chats talking to the PC writing server get them. */
-    private fun stickersFor(chat: Chat): List<Sticker> = StickerGate.forChat(chat, data.providers, mutable.value.pcLink.stickerPacks)
+    private fun stickersFor(chat: Chat): List<Sticker> = StickerGate.forChat(chat, data.providers, mutable.value.pcLink.stickerPacks, data.characters)
 
     private fun buildContext(source: AppData, chat: Chat) = ContextEngine.build(source, chat, stickersFor(chat), onPc = onPc(chat))
 
@@ -1804,7 +1868,10 @@ class AppController(application: Application) : AndroidViewModel(application), A
                     }
                 }
                 "skill" -> { val skills=SkillImporter.importFile(name,bytes); change(data.copy(skills=data.skills+skills)); status("已安装 ${skills.size} 个 Skill。请检查权限并在会话中启用") }
-                "character" -> { val c=Exchange.character(bytes); saveCharacter(c); val root=runCatching { JSONObject(c.originalJson).optJSONObject("data")?.optJSONObject("character_book") }.getOrNull(); if(root!=null) change(data.copy(worldEntries=data.worldEntries+Exchange.worldbook(root.toString(),c.id))); status("角色卡已导入") }
+                "character" -> { val c=Exchange.character(bytes).let { card ->
+                    // A PNG card's picture becomes the character's avatar.
+                    if (bytes.size > 8 && bytes[0] == 0x89.toByte() && bytes[1] == 0x50.toByte()) card.copy(avatar = runCatching { storeAvatar(card.id, bytes) }.getOrDefault("")) else card
+                }; saveCharacter(c); val root=runCatching { JSONObject(c.originalJson).optJSONObject("data")?.optJSONObject("character_book") }.getOrNull(); if(root!=null) change(data.copy(worldEntries=data.worldEntries+Exchange.worldbook(root.toString(),c.id))); status("角色卡已导入") }
                 "worldbook" -> { val entries=Exchange.worldbook(bytes.toString(Charsets.UTF_8)); change(data.copy(worldEntries=data.worldEntries+entries)); status("已导入 ${entries.size} 个世界书条目") }
                 "chat" -> { val p=data.providers.firstOrNull(); val chat=Exchange.chat(bytes.toString(Charsets.UTF_8),p?.id ?: "",p?.models?.firstOrNull { it.type=="text" }?.id ?: ""); change(data.copy(chats=listOf(chat)+data.chats)); selectChat(chat.id); status("会话已导入并已打开") }
                 "preset" -> { val p=Exchange.preset(bytes.toString(Charsets.UTF_8),name.substringBeforeLast('.')); savePreset(p); status("预设已导入；不支持的 ST 扩展字段未执行") }

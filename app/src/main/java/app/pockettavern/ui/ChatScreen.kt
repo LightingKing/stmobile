@@ -274,6 +274,8 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
     val showLatest = !atBottom
     val latest = chat.messages.lastOrNull()
     val assistantName = state.data.characters.firstOrNull { it.id == chat.characterId }?.name?.ifBlank { null } ?: "酒馆助手"
+    val assistantAvatar = state.data.characters.firstOrNull { it.id == chat.characterId }?.avatar.orEmpty()
+    val loadAvatar = remember(actions) { { avatar: String -> actions.characterAvatar(avatar) } }
     val regenerationAnchorId = ConversationTurns.regenerationAnchor(chat)?.id
 
     fun pinToEnd() {
@@ -306,7 +308,8 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
                 LazyColumn(state = listState, modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 24.dp, bottom = 16.dp), verticalArrangement = Arrangement.spacedBy(24.dp)) {
                     items(chat.messages, key = { it.id }) { message ->
-                        ConversationMessage(message, assistantName, state.busy || state.loading, message.id == regenerationAnchorId, actions, onEdit, onBranch, stickers, loadSticker, animateSticker)
+                        ConversationMessage(message, assistantName, state.busy || state.loading, message.id == regenerationAnchorId, actions, onEdit, onBranch, stickers, loadSticker, animateSticker,
+                            assistantAvatar = assistantAvatar, loadAvatar = loadAvatar)
                     }
                 }
                 if (showLatest) FilledTonalIconButton(onClick = { followLatest = true; scope.launch {
@@ -417,7 +420,8 @@ private fun BrowseMarker(createdAt: Long) {
 @Composable
 private fun ConversationMessage(message: Message, assistantName: String, busy: Boolean, canRegenerate: Boolean, actions: AppActions, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit,
                                 stickers: List<Sticker> = emptyList(), loadSticker: (Sticker) -> androidx.compose.ui.graphics.ImageBitmap? = { null },
-                                animateSticker: (Sticker) -> AnimatedSticker? = { null }) {
+                                animateSticker: (Sticker) -> AnimatedSticker? = { null },
+                                assistantAvatar: String = "", loadAvatar: (String) -> androidx.compose.ui.graphics.ImageBitmap? = { null }) {
     if (message.role == "user" && message.intent == app.pockettavern.engine.VideoBrowse.INTENT) { BrowseMarker(message.createdAt); return }
     val user = message.role == "user"
     val tool = message.role == "tool"
@@ -434,7 +438,8 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
     Column(Modifier.fillMaxWidth(), horizontalAlignment = if (user) Alignment.End else Alignment.Start) {
         Row(Modifier.fillMaxWidth(if (user) 0.9f else 1f), verticalAlignment = Alignment.CenterVertically) {
             if (!user) {
-                Surface(shape = RoundedCornerShape(9.dp), color = if (tool) colors.surfaceContainerHigh else colors.primaryContainer) {
+                if (message.role == "assistant" && assistantAvatar.isNotBlank()) CharacterAvatar(assistantAvatar, assistantName, 30.dp, loadAvatar)
+                else Surface(shape = RoundedCornerShape(9.dp), color = if (tool) colors.surfaceContainerHigh else colors.primaryContainer) {
                     Icon(if (tool) Icons.Outlined.Code else Icons.AutoMirrored.Outlined.MenuBook, null, Modifier.padding(6.dp).size(17.dp), tint = colors.primary)
                 }
                 Spacer(Modifier.width(9.dp))
