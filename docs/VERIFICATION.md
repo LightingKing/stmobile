@@ -15,7 +15,10 @@
     - 成功后从 `Set-Cookie` 取 Cookie（跨域 URL 作为后备），补上 `buvid3/4`，按 bili-cli `save_credential` 的格式原子写入 Agent Reach 私密目录。
   - 管理网页新增“B 站登录”：扫码、显示账号名、退出。POST/DELETE 需要管理页请求头，GET 只读。
   - 联网工具新增 `bilibili subtitle`；手机状态里新增 `reach.bilibili_login`。
-  - 实测：生成了真实二维码，B 站轮询返回“等待扫码”。**尚未完成真实扫码登录**，需要用户用小号扫一次。
+  - 实测：生成了真实二维码，B 站轮询返回“等待扫码”。
+  - 2026-11-11 用户用小号扫码登录：
+    - 管理网页显示已登录，B 站 `nav` 接口确认账号有效；凭据各字段齐全（只检查有没有值，没有输出内容）；手机状态 `reach.bilibili_login=true`。
+    - 经正在运行的服务调用 B 站热门，再逐个读字幕：第 3 个视频读到 805 字字幕；前两个返回 `NOT_FOUND`，因为它们本来就没有字幕轨，不是登录问题。
 - **不读浏览器 Cookie**：审查时发现 bili-cli 自带 `browser_cookie3`，没有保存的登录时会去读 Chrome、Edge、Firefox 的 B 站 Cookie。0.7.0 的子进程环境里传了 `LOCALAPPDATA` 和 `APPDATA`，当时做字幕测试时它可能尝试过读取（结果是没取到）。0.8.0 起这两个变量不再传入，测试里也加了断言；去掉后 B 站搜索照常可用。
 - **自己刷视频（App）**：
   - 会话里新增 `browsePerDay`（0–3）和 `browseLog`，旧数据读进来默认关闭。
@@ -43,7 +46,6 @@
 - **APK**：`aapt` 显示 versionName **0.1.80** / versionCode **81**，manifest 里有 WorkManager 的组件。Release APK 大小 **19,528,579** 字节，SHA-256 `C54FC313A250EC077D7196A101E8E0C1F09A7B0E8A60C13D6A2FFD8F6200ECDD`。已放到桌面，替换了 0.1.79。`apksigner` v2 验证通过，证书与历史版本一致。
 
 **未完成：**
-- 没有用真实账号扫码登录 B 站，所以还没实测读到 B 站字幕。
 - 没有在手机上实际触发定时刷视频、弹通知，也没有让角色卡助手真的保存一张卡：都需要付费生成和手机操作。
 
 ## 0.1.79（联网搜索在电脑会话中默认开启，不再需要 Skill）
