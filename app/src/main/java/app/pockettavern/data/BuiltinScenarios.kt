@@ -8,9 +8,15 @@ import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import org.json.JSONObject
 
-/** Loads and reconciles immutable scenario bundles shipped with the app. */
+/**
+ * Loads and reconciles immutable scenario bundles shipped with the app, and the built-in
+ * characters (characters/catalog.json) that ship the same way but list under 角色卡.
+ */
 object BuiltinScenarios {
     private const val CATALOG_PATH = "scenarios/catalog.json"
+    private const val CHARACTER_CATALOG_PATH = "characters/catalog.json"
+    private const val SCENARIO_PREFIX = "builtin-scenario-"
+    private const val CHARACTER_PREFIX = "builtin-character-"
     private val idPattern = Regex("[a-z0-9][a-z0-9_-]{0,63}")
     private val hashPattern = Regex("[0-9a-fA-F]{64}")
 
@@ -24,10 +30,15 @@ object BuiltinScenarios {
     )
 
     /** Reads catalog metadata and the referenced standard chara_card_v2 JSON files. */
-    fun load(readText: (String) -> String): List<Entry> {
-        val root = JSONObject(readText(CATALOG_PATH))
+    fun load(readText: (String) -> String): List<Entry> = loadCatalog(readText, CATALOG_PATH, "scenarios", SCENARIO_PREFIX)
+
+    /** Built-in characters, such as 大肥鱼; their ids start with builtin-character-. */
+    fun loadCharacters(readText: (String) -> String): List<Entry> = loadCatalog(readText, CHARACTER_CATALOG_PATH, "characters", CHARACTER_PREFIX)
+
+    private fun loadCatalog(readText: (String) -> String, catalogPath: String, listKey: String, prefix: String): List<Entry> {
+        val root = JSONObject(readText(catalogPath))
         require(root.optInt("version", -1) == 1) { "内置剧本 catalog 版本不受支持" }
-        val items = root.optJSONArray("scenarios") ?: throw IllegalArgumentException("内置剧本 catalog 缺少 scenarios")
+        val items = root.optJSONArray(listKey) ?: throw IllegalArgumentException("内置剧本 catalog 缺少 $listKey")
         val ids = mutableSetOf<String>()
         val loaded = ArrayList<Entry>(items.length())
         for (index in 0 until items.length()) {
@@ -47,7 +58,7 @@ object BuiltinScenarios {
             val source = readText(path)
             require(sha256(source.toByteArray(StandardCharsets.UTF_8)) == sha256) { "内置剧本原文 SHA-256 不匹配：$id" }
             val parsed = Exchange.character(source.toByteArray(StandardCharsets.UTF_8))
-            val characterId = characterId(id)
+            val characterId = "$prefix$id"
             val character = parsed.copy(
                 id = characterId,
                 name = name,
@@ -57,7 +68,7 @@ object BuiltinScenarios {
             val presetJson = item.optJSONObject("preset") ?: throw IllegalArgumentException("内置剧本缺少 preset：$id")
             val preset = Exchange.preset(presetJson.toString(), "$name 预设").let {
                 require(it.maxOutput in 1..131072 && it.temperature in 0.0..2.0) { "内置剧本预设参数无效：$id" }
-                it.copy(id = presetId(id))
+                it.copy(id = "$prefix$id-preset")
             }
             val book = runCatching {
                 val cardRoot = JSONObject(parsed.originalJson)
@@ -68,7 +79,7 @@ object BuiltinScenarios {
                 imported.mapIndexed { entryIndex, entry ->
                     require(entry.searchRange in 0..10000) { "内置剧本世界书 searchRange 无效：$id#$entryIndex" }
                     entry.copy(
-                        id = worldEntryId(id, entryIndex),
+                        id = "$prefix$id-world-$entryIndex",
                         characterId = characterId
                     )
                 }
@@ -107,9 +118,9 @@ object BuiltinScenarios {
         )
     }
 
-    fun characterId(id: String): String = "builtin-scenario-$id"
-    fun presetId(id: String): String = "builtin-scenario-$id-preset"
-    fun worldEntryId(id: String, index: Int): String = "builtin-scenario-$id-world-$index"
+    fun characterId(id: String): String = "$SCENARIO_PREFIX$id"
+    fun presetId(id: String): String = "$SCENARIO_PREFIX$id-preset"
+    fun worldEntryId(id: String, index: Int): String = "$SCENARIO_PREFIX$id-world-$index"
 
     /** Resolves the preset used when a new chat is opened for a character. */
     fun presetIdForCharacter(character: Character?, presets: List<Preset>): String {

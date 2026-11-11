@@ -117,7 +117,10 @@ class AppController(application: Application) : AndroidViewModel(application), A
     private val readAsset: (String) -> String = { path -> app.assets.open(path).bufferedReader(Charsets.UTF_8).use { it.readText() } }
     private val tools = ToolRuntime(File(app.filesDir,"workspace").apply { mkdirs() }, { skill, path -> BuiltinSkills.readResource(readAsset, skill, path) }) { id -> key(id) }
     private val builtinSkills by lazy { BuiltinSkills.loadAll(readAsset) }
-    private val builtinScenarios by lazy { BuiltinScenarios.load { path -> app.assets.open(path).bufferedReader(Charsets.UTF_8).use { it.readText() } } }
+    private val builtinScenarios by lazy {
+        val read = { path: String -> app.assets.open(path).bufferedReader(Charsets.UTF_8).use { it.readText() } }
+        BuiltinScenarios.load(read) + BuiltinScenarios.loadCharacters(read)
+    }
     private val saves = StatePersistence<AppData>(
         CoroutineScope(viewModelScope.coroutineContext + Dispatchers.IO),
         write = { app.database.state().save(StateDocument(json=DataCodec.encode(it))) },
