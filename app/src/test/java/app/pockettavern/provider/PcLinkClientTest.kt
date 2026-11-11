@@ -66,6 +66,9 @@ class PcLinkClientTest {
         val unknown = runBlocking { client.status(pc, "t") }
         assertEquals(null, unknown.modelsAvailable)
         assertEquals("m", unknown.defaultModelId)
+        assertEquals("servers before 0.8.0 say nothing about Bilibili", null, unknown.bilibiliLogin)
+        server.enqueue(json("""{"version":"0.8.0","upstream":{"model":"m"},"reach":{"available":true,"bilibili_login":true},"backups":{}}"""))
+        assertEquals(true, runBlocking { client.status(pc, "t") }.bilibiliLogin)
     }
 
     @Test fun settingsAreReadAndOnlyChangesAreSent() {

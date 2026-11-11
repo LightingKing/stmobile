@@ -1,5 +1,5 @@
 import { spawn } from 'node:child_process';
-import { access } from 'node:fs/promises';
+import { access, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -17,7 +17,8 @@ const EXE = process.platform === 'win32' ? path.join('Scripts', 'agent-reach.exe
 /** channel -> action -> which argument it takes ('query', 'target' or none) and whether --limit applies. */
 export const REACH_ACTIONS = {
   web: { search: { arg: 'query', limit: true }, read: { arg: 'target' } },
-  bilibili: { search: { arg: 'query', limit: true }, read: { arg: 'target' }, hot: { limit: true } },
+  // Bilibili subtitles need the QR login made on the PC dashboard (bililogin.mjs).
+  bilibili: { search: { arg: 'query', limit: true }, read: { arg: 'target' }, hot: { limit: true }, subtitle: { arg: 'target' } },
   youtube: { search: { arg: 'query', limit: true }, read: { arg: 'target' }, subtitle: { arg: 'target' } },
   github: { search: { arg: 'query', limit: true }, read: { arg: 'target' } },
   v2ex: { hot: { limit: true }, read: { arg: 'target' } },
@@ -45,9 +46,13 @@ export class ReachError extends Error {
   constructor(message, status = 400, code = 'reach_error') { super(message); this.status = status; this.code = code; }
 }
 
-/** Only what Python needs, plus Agent Reach's private home; secrets in this process stay out. */
+/**
+ * Only what Python needs, plus Agent Reach's private home; secrets in this process stay out.
+ * LOCALAPPDATA and APPDATA are left out on purpose: they point at the user's browser profiles, and
+ * the bundled bili-cli would otherwise try to read Bilibili cookies from Chrome, Edge or Firefox.
+ */
 function childEnv(home) {
-  const keep = ['PATH', 'Path', 'SYSTEMROOT', 'SystemRoot', 'WINDIR', 'TEMP', 'TMP', 'USERPROFILE', 'LOCALAPPDATA', 'APPDATA', 'PATHEXT', 'COMSPEC',
+  const keep = ['PATH', 'Path', 'SYSTEMROOT', 'SystemRoot', 'WINDIR', 'TEMP', 'TMP', 'USERPROFILE', 'PATHEXT', 'COMSPEC',
     'HTTP_PROXY', 'HTTPS_PROXY', 'NO_PROXY', 'http_proxy', 'https_proxy', 'no_proxy'];
   const env = Object.fromEntries(keep.filter((name) => process.env[name] !== undefined).map((name) => [name, process.env[name]]));
   return { ...env, HOME: home, PYTHONIOENCODING: 'utf-8', PYTHONUTF8: '1' };
@@ -150,6 +155,7 @@ export function trimResult(envelope, action) {
 export function createReachRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn } = {}) {
   const exe = path.join(runtimeDir, 'agent-reach', EXE);
   const home = path.join(runtimeDir, 'agent-reach-home');
+  const biliCredential = path.join(home, '.agent-reach', 'sessions', 'bili-cli', '.bilibili-cli', 'credential.json');
   let running = 0;
   const waiting = [];
   let version = null;
@@ -183,7 +189,8 @@ export function createReachRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn } =
         if (answer?.ok !== true) throw new ReachError('Agent Reach 版本检查失败', 502, 'reach_bad_output');
         version = String(answer.result?.version ?? '');
       }
-      return { available: true, version, channels: Object.fromEntries(Object.entries(REACH_ACTIONS).map(([c, a]) => [c, Object.keys(a)])) };
+      const bilibiliLogin = await readFile(biliCredential, 'utf8').then((text) => Boolean(JSON.parse(text).sessdata)).catch(() => false);
+      return { available: true, version, bilibili_login: bilibiliLogin, channels: Object.fromEntries(Object.entries(REACH_ACTIONS).map(([c, a]) => [c, Object.keys(a)])) };
     } catch (error) {
       return { available: false, error: error.message };
     }

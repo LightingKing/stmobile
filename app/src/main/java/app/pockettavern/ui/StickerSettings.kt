@@ -101,6 +101,29 @@ internal fun StickerPacksCard(packs: List<StickerPack>?, busy: Boolean, onImport
 }
 
 /** Chat options: how often this chat may carry a sticker. The app enforces it from recent replies. */
+/** 自己刷视频 for one chat: off or 1–3 times a day, plus a button to try it now. */
+@Composable
+internal fun VideoBrowseChooser(perDay: Int, eligible: Boolean, onPc: Boolean, enabled: Boolean, loggedIn: Boolean?, onSelect: (Int) -> Unit, onBrowseNow: () -> Unit) {
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            (0..app.pockettavern.engine.VideoBrowse.MAX_PER_DAY).forEach { count ->
+                FilterChip(selected = perDay == count, onClick = { onSelect(count) }, enabled = enabled && (eligible || count == 0),
+                    label = { Text(if (count == 0) "关闭" else "每天 $count 次") })
+            }
+        }
+        Text(
+            when {
+                !onPc -> "要用电脑写作服务的模型才能自己刷视频。"
+                !eligible -> "当前模型不支持工具调用，换一个支持工具的模型后才能刷视频。"
+                else -> "角色会在 9:00–23:00 之间自己去 B 站刷视频，挑一个用自己的口吻发给你；你刚聊过的半小时内不打扰。每次调用一次模型，会产生费用。" +
+                    if (loggedIn == false) "电脑上还没扫码登录 B 站，只能看标题和简介，读不到字幕（在电脑管理网页的“联网搜索”里登录）。" else ""
+            },
+            style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        if (eligible) OutlinedButton(onBrowseNow, enabled = enabled) { Text("现在刷一次") }
+    }
+}
+
 @Composable
 internal fun StickerFrequencyChooser(current: String, available: Int, enabled: Boolean, onPc: Boolean = true, onSelect: (String) -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {

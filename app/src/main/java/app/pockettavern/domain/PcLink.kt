@@ -19,7 +19,9 @@ data class PcStatus(
     val defaultModelName: String = "",
     /** null until the PC has read its upstream's model list once. */
     val modelsAvailable: Int? = null,
-    val autoRevise: Boolean = false
+    val autoRevise: Boolean = false,
+    /** Whether Bilibili is logged in on the PC (subtitles for web search); null on older servers. */
+    val bilibiliLogin: Boolean? = null
 )
 
 /**

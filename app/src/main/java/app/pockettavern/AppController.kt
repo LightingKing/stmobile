@@ -158,6 +158,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 sessionPreferences.edit().putString(LAST_SELECTED_CHAT_ID, restoredSelection).apply()
                 mutable.value = mutable.value.copy(data=restored,selectedChatId=restoredSelection,loading=false,hasResearchSearchKey=app.secrets.has(DoubaoSearchClient.CREDENTIAL_ID),hasKeys=restored.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet(),skillStars=stars,missingBuiltinSkills=BuiltinSkills.missing(restored,builtinSkills),repairBackupChatIds=repairBackups)
                 if(restored != loaded) saves.submit(restored)
+                VideoBrowseWorker.schedule(app, restored.chats.any { it.browsePerDay > 0 })
+                pendingOpenChatId?.let { id -> pendingOpenChatId = null; if (restored.chats.any { it.id == id }) selectChat(id) }
                 restored.chats.forEach { repairPendingTools(it.id) }
                 refreshPcStickers()
             } catch (error: Exception) {
@@ -772,6 +774,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                             })
                         } else if (name == DshTool.NAME) runDsh(arguments, current(chatId))
                         else if (name == ReachTool.NAME) runReach(arguments, current(chatId))
+                        else if (name == CharacterCardTool.NAME) saveCharacterCard(arguments, current(chatId))
                         else tools.execute(name,arguments,data.skills,data,current(chatId))
                     }
                     catch(error: Exception) { if(error is CancellationException) throw error; ToolResult("工具执行失败：${error.message}") }
@@ -1576,6 +1579,82 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     override fun setChatStickerFrequency(chatId: String, frequency: String) {
         changeChat(chatId) { it.copy(stickerFrequency = StickerFrequency.of(frequency).id) }
+    }
+
+    override fun setChatBrowse(chatId: String, perDay: Int) {
+        changeChat(chatId) { it.copy(browsePerDay = perDay.coerceIn(0, VideoBrowse.MAX_PER_DAY)) }
+        VideoBrowseWorker.schedule(app, data.chats.any { it.browsePerDay > 0 })
+    }
+
+    override fun browseNow(chatId: String) { startBrowse(chatId, manual = true) { } }
+
+    override fun startCharacterBuilder(): Boolean {
+        if (mutable.value.loading || loadFailed || mutable.value.busy) { status("当前不能新建会话，请稍候"); return false }
+        val provider = pcProvider()
+        val model = provider?.models?.filter { it.type == "text" && !it.offline && it.supportsTools }
+            ?.let { models -> models.firstOrNull { it.id == "pocket-direct" } ?: models.firstOrNull() }
+        if (provider == null || model == null) { status("角色卡助手需要电脑写作服务平台和支持工具的模型；请先在模型页添加并刷新"); return false }
+        val chat = Chat(title = "角色卡助手", providerId = provider.id, modelId = model.id, task = CharacterCardTool.TASK,
+            messages = listOf(Message(role = "assistant", content = CharacterCardTool.GREETING)))
+        change(data.copy(chats = listOf(chat) + data.chats))
+        selectChat(chat.id)
+        return true
+    }
+
+    private fun saveCharacterCard(arguments: String, chat: Chat): ToolResult {
+        fun answer(ok: Boolean, extra: JSONObject.() -> Unit) = ToolResult(JSONObject().put("ok", ok).apply(extra).toString())
+        if (chat.task != CharacterCardTool.TASK) return answer(false) { put("error", "只有角色卡助手会话可以保存角色卡") }
+        val args = runCatching { JSONObject(arguments) }.getOrNull() ?: return answer(false) { put("error", "工具参数不是 JSON") }
+        val character = CharacterCardTool.character(args).getOrElse { return answer(false) { put("error", it.message ?: "角色卡无效") } }
+        change(data.copy(characters = data.characters + character))
+        return answer(true) { put("id", character.id); put("name", character.name); put("saved_to", "角色页") }
+    }
+
+    private var pendingOpenChatId: String? = null
+    internal fun openChatWhenReady(id: String) {
+        if (mutable.value.loading) pendingOpenChatId = id else if (data.chats.any { it.id == id }) selectChat(id)
+    }
+
+    private fun browseBlocker(chat: Chat): String? = when {
+        !onPc(chat) -> "自己刷视频只能在使用电脑写作服务的会话里用"
+        !VideoBrowse.eligible(chat, data.providers) -> "当前模型不支持工具调用，没法刷视频；换一个支持工具的模型"
+        else -> null
+    }
+
+    /**
+     * Adds the browse turn and generates the character's share. [onDone] gets "" on success, or why
+     * it did not run or failed. A manual run keeps going in the background like a sent message.
+     */
+    private fun startBrowse(chatId: String, manual: Boolean, onDone: (String) -> Unit): Boolean {
+        val chat = data.chats.firstOrNull { it.id == chatId } ?: run { onDone("会话不存在"); return false }
+        val refusal = when {
+            mutable.value.loading || loadFailed -> "本地数据尚未就绪"
+            mutable.value.busy -> "当前任务进行中"
+            else -> browseBlocker(chat)
+        }
+        if (refusal != null) { if (manual) status(refusal); onDone(refusal); return false }
+        val now = System.currentTimeMillis()
+        val turn = Message(role = "user", content = VideoBrowse.instruction(now, java.time.ZoneId.systemDefault()), intent = VideoBrowse.INTENT)
+        changeChat(chatId) { it.copy(messages = it.messages + turn, browseLog = (it.browseLog + now).takeLast(20)) }
+        action(backgroundGeneration = manual, onFinished = { error, cancelled -> onDone(error ?: if (cancelled) "已中断" else "") }) { generate(chatId) }
+        return true
+    }
+
+    /**
+     * Called by [VideoBrowseWorker] on the main thread: runs at most one chat whose browse is due and
+     * returns that chat with its new reply, or null when nothing ran or the run failed.
+     */
+    internal suspend fun runDueBrowse(): Pair<Chat, String>? {
+        withTimeoutOrNull(60_000) { while (mutable.value.loading) delay(500) }
+        if (mutable.value.loading || loadFailed || mutable.value.busy) return null
+        val now = System.currentTimeMillis()
+        val chat = data.chats.firstOrNull { it.browsePerDay > 0 && browseBlocker(it) == null && VideoBrowse.due(it, now, java.time.ZoneId.systemDefault()) } ?: return null
+        val done = CompletableDeferred<String>()
+        if (!startBrowse(chat.id, manual = false) { done.complete(it) }) return null
+        val error = withTimeoutOrNull(9 * 60_000L) { done.await() } ?: run { cancelOperation("自己刷视频超时"); return null }
+        if (error.isNotEmpty()) return null
+        val reply = current(chat.id).messages.lastOrNull()?.takeIf { it.role == "assistant" && it.status == "complete" && it.content.isNotBlank() } ?: return null
+        return current(chat.id) to StickerMarkup.strip(reply.content)
     }
 
     override fun stickerFile(sticker: Sticker): java.io.File? = StickerStore.file(app.filesDir, sticker)

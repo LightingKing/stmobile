@@ -47,7 +47,7 @@ async function loadStatus() {
       ['状态', s.reach?.available ? '可用' : `不可用：${esc(s.reach?.error || '')}`],
       ['版本', esc(s.reach?.version || '—')],
       ['渠道', esc(Object.entries(s.reach?.channels || {}).map(([c, a]) => `${c}（${a.join('/')}）`).join('，') || '—')],
-      ['说明', '手机上用电脑写作服务、勾选“联网搜索”Skill 的会话可以搜网页、读链接；只开放免登录的渠道，不读取浏览器登录。'],
+      ['说明', '手机上用电脑写作服务、模型支持工具的会话会自动带上联网搜索：搜网页、读链接、看视频字幕；角色“自己刷视频”也走这里。不读取浏览器里的登录。'],
     ]);
   } catch (error) {
     $('badge').textContent = `读不到服务：${error.message}`;
@@ -174,11 +174,51 @@ $('public-form').onsubmit = async (event) => {
   try { await api('/api/admin/connection', { method: 'PATCH', body: JSON.stringify({ publicBaseUrl: $('public-url').value }) }); await loadConnection(); }
   catch (error) { alert(error.message); }
 };
+let biliTimer = null;
+async function loadBili() {
+  const s = await api('/api/admin/bili');
+  $('bili-state').textContent = s.logged_in ? `已登录${s.name ? `：${s.name}` : ''}${s.valid === null ? '（暂时无法向 B 站确认）' : ''}` : (s.valid === false ? '登录已失效，请重新扫码' : '未登录：模型只能看到标题和简介，读不到字幕');
+  $('bili-logout').hidden = !s.logged_in;
+}
+async function pollBili() {
+  try {
+    const r = await api('/api/admin/bili/poll', { method: 'POST' });
+    if (r.state === 'scanned') $('bili-state').textContent = '已扫码，请在手机上确认登录';
+    if (r.state === 'waiting' || r.state === 'scanned') { biliTimer = setTimeout(pollBili, 2000); return; }
+    $('bili-qr').hidden = true;
+    $('bili-login').disabled = false;
+    if (r.state === 'expired') $('bili-state').textContent = '二维码已过期，请重新扫码';
+    else await loadBili();
+  } catch (error) {
+    $('bili-qr').hidden = true;
+    $('bili-login').disabled = false;
+    $('bili-state').textContent = `登录失败：${error.message}`;
+  }
+}
+$('bili-login').onclick = async () => {
+  clearTimeout(biliTimer);
+  $('bili-login').disabled = true;
+  try {
+    await api('/api/admin/bili/login', { method: 'POST' });
+    $('bili-qr').src = `/api/admin/bili/qr.png?t=${Date.now()}`;
+    $('bili-qr').hidden = false;
+    $('bili-state').textContent = '用 B 站 App 扫描二维码（3 分钟内有效）';
+    biliTimer = setTimeout(pollBili, 2000);
+  } catch (error) {
+    $('bili-login').disabled = false;
+    $('bili-state').textContent = `生成二维码失败：${error.message}`;
+  }
+};
+$('bili-logout').onclick = async () => {
+  if (!confirm('退出 B 站登录？之后模型读不到字幕。')) return;
+  await api('/api/admin/bili/login', { method: 'DELETE' });
+  await loadBili();
+};
 $('runs-refresh').onclick = () => loadRuns();
 $('logs-refresh').onclick = () => loadLogs();
 $('run-close').onclick = () => { $('run-detail').hidden = true; };
 
 const safely = (load) => load().catch((error) => console.warn(error));
-[loadStatus, loadConnection, loadRuns, loadSettings, loadBackups, loadStickers, loadLogs].forEach(safely);
+[loadStatus, loadConnection, loadRuns, loadSettings, loadBackups, loadStickers, loadLogs, loadBili].forEach(safely);
 setInterval(() => safely(loadStatus), 5000);
 setInterval(() => safely(loadRuns), 20000);

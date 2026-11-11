@@ -59,7 +59,8 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
             defaultModelId = json.optJSONObject("default_model")?.optString("id").orEmpty().ifBlank { upstream.optString("model") },
             defaultModelName = json.optJSONObject("default_model")?.optString("name").orEmpty(),
             modelsAvailable = if (json.has("models_available") && !json.isNull("models_available")) json.optInt("models_available") else null,
-            autoRevise = json.optBoolean("auto_revise")
+            autoRevise = json.optBoolean("auto_revise"),
+            bilibiliLogin = json.optJSONObject("reach")?.takeIf { it.has("bilibili_login") }?.optBoolean("bilibili_login")
         )
     }
 

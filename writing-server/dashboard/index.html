@@ -64,6 +64,11 @@
     <section id="reach">
       <h2>联网搜索（Agent Reach）</h2>
       <dl id="reach-list" class="pairs"></dl>
+      <h3>B 站登录（看字幕用）</h3>
+      <p class="hint">扫码登录后，模型能读 B 站视频的字幕，真正“看懂”视频；建议用小号。登录信息只保存在这台电脑上 Agent Reach 的私密目录里，不会读取浏览器里的登录。</p>
+      <div id="bili-state" class="hint">读取中…</div>
+      <div class="row"><button id="bili-login">扫码登录</button> <button id="bili-logout" class="danger" hidden>退出登录</button></div>
+      <img id="bili-qr" alt="B 站登录二维码" width="240" height="240" hidden>
     </section>
 
     <section id="logs">

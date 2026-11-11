@@ -50,3 +50,7 @@ pre { margin: 0; padding: 12px; white-space: pre-wrap; word-break: break-word; m
 .thumbs img { width: 56px; height: 56px; object-fit: contain; border-radius: 8px; background: #efeae0; }
 .muted { color: var(--muted); }
 .token { font-family: Consolas, monospace; }
+#reach h3 { font-size: 15px; margin: 18px 0 4px; }
+#reach .row { margin: 10px 0; display: flex; gap: 8px; }
+#bili-qr { display: block; margin-top: 8px; border: 8px solid #fff; border-radius: 8px; background: #fff; }
+#bili-qr[hidden] { display: none; }

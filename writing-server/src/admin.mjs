@@ -2,6 +2,7 @@ import http from 'node:http';
 import { open, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { BiliLoginError, createBiliLogin } from './bililogin.mjs';
 import { saveSettings } from './config.mjs';
 
 const UI = fileURLToPath(new URL('../dashboard/', import.meta.url));
@@ -50,7 +51,8 @@ function runSummary(run) {
  * other site cannot drive it: a rebinding DNS name fails the Host check, and every write needs a
  * custom header, which forces a CORS preflight that this server never answers.
  */
-export function createAdminServer({ requestListener, config, vault, dataDir }) {
+export function createAdminServer({ requestListener, config, vault, dataDir, biliLogin = null }) {
+  const bili = biliLogin || createBiliLogin();
   return http.createServer(async (req, res) => {
     try {
       const port = req.socket.localPort;
@@ -100,8 +102,19 @@ export function createAdminServer({ requestListener, config, vault, dataDir }) {
           data_dir: dataDir,
         });
       }
+      // Bilibili QR login for subtitles. Starting, polling and logging out are POST/DELETE, so they
+      // need the dashboard header; the GETs only read state or the current QR picture.
+      if (url.pathname === '/api/admin/bili' && req.method === 'GET') return send(res, 200, await bili.status({ check: true }));
+      if (url.pathname === '/api/admin/bili/qr.png' && req.method === 'GET') {
+        const png = bili.qrImage();
+        return png ? send(res, 200, png, 'image/png') : send(res, 404, { error: { message: '没有正在进行的扫码登录' } });
+      }
+      if (url.pathname === '/api/admin/bili/login' && req.method === 'POST') return send(res, 200, await bili.start());
+      if (url.pathname === '/api/admin/bili/poll' && req.method === 'POST') return send(res, 200, await bili.poll());
+      if (url.pathname === '/api/admin/bili/login' && req.method === 'DELETE') return send(res, 200, await bili.logout());
       return send(res, 404, { error: { message: '路径不存在' } });
     } catch (error) {
+      if (error instanceof BiliLoginError) return send(res, error.status, { error: { message: error.message, code: error.code } });
       if (!res.headersSent) send(res, 500, { error: { message: error?.message || '管理页出错' } });
     }
   });

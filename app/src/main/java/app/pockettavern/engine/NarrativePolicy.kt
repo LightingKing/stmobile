@@ -33,6 +33,7 @@ object NarrativePolicy {
             return "【剧情外纠错回应：本段是作者讨论，不是角色发言或剧情事件】\n${message.content}"
         }
         if (message.role != "user") return message.content
+        if (message.intent == VideoBrowse.INTENT && !currentUserTurn) return VideoBrowse.PAST_TURN
         if (!currentUserTurn) {
             return when (message.intent) {
                 "correction" -> "【历史作者更正：保留当时提出的事实修正，不是角色台词或剧情事件；本轮任务以最新用户消息为准】\n${message.content}"

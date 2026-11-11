@@ -149,6 +149,12 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
   - 返回结果去掉原始数据：搜索每条正文最多 600 字，读网页最多 1.2 万字，整体不超过 4 万字。
   - `/v1/pocket/status` 的 `reach` 字段和管理网页显示是否可用。
 - **隐私**：搜索词和要读的链接会发给 Exa、Jina 或对应平台。
+- **不读浏览器登录**：Agent Reach 自带的 bili-cli 里装有 `browser_cookie3`，没有保存的登录时会尝试读取本机 Chrome、Edge、Firefox 里的 B 站 Cookie。服务 0.8.0 起调用 Agent Reach 时不再传入 `LOCALAPPDATA` 和 `APPDATA`，它就找不到浏览器配置目录。
+- **B 站扫码登录（服务 0.8.0）**：在管理网页“联网搜索”一栏点“扫码登录”，用 B 站 App 扫码，建议用小号；登录后模型可以读 B 站视频字幕（`bilibili subtitle`）。
+  - bili-cli 0.6.2 自己的扫码登录已经失效：B 站把登录 Cookie 改放在 `Set-Cookie` 里。所以服务自己走 B 站网页版扫码流程：生成二维码、轮询，成功后从 `Set-Cookie` 取 Cookie。
+  - 登录信息写进 Agent Reach 私密目录下 bili-cli 读取的 `credential.json`，不经过手机、不写日志。管理网页可以查看登录的账号名，也可以退出登录。
+  - 生成、轮询、退出都是带管理页请求头的 POST/DELETE；GET 只读状态和当前二维码图片。
+  - `/v1/pocket/status` 的 `reach.bilibili_login` 告诉手机是否已登录。
 
 ## 表情包
 

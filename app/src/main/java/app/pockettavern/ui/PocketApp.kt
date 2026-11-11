@@ -353,6 +353,11 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
             StickerFrequencyChooser(liveFrequency, stickerCount, !state.busy && !state.loading, onPc = onPc) {
                 actions.setChatStickerFrequency(chat.id, it)
             }
+            Divider()
+            Text("自己刷视频", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            VideoBrowseChooser(liveChat.browsePerDay, app.pockettavern.engine.VideoBrowse.eligible(liveChat, state.data.providers), onPc,
+                !state.busy && !state.loading, state.pcLink.status?.bilibiliLogin,
+                onSelect = { actions.setChatBrowse(chat.id, it) }, onBrowseNow = { actions.browseNow(chat.id); onDismiss() })
         }
     }, confirmButton = { Button(enabled = !state.busy && !state.loading, onClick = {
         if (activeSummary != null && summaryText.isBlank()) {
@@ -482,6 +487,7 @@ private fun CharactersTab(state: UiSession, actions: AppActions, onOpenChat: () 
                 OutlinedTextField(query, { query = it }, Modifier.weight(1f), singleLine = true, leadingIcon = { Icon(Icons.Outlined.Search, null) }, placeholder = { Text("搜索角色或剧本") })
                 Spacer(Modifier.width(8.dp))
                 IconButton(onClick = { actions.importFile("character") }, enabled = !locked) { Icon(Icons.Outlined.FileUpload, "导入角色卡") }
+                IconButton(onClick = { if (actions.startCharacterBuilder()) onOpenChat() }, enabled = !locked) { Icon(Icons.Outlined.AutoAwesome, "AI 帮我做角色卡（可看视频）") }
                 IconButton(onClick = { characterDialog = Character() }, enabled = !locked) { Icon(Icons.Outlined.Add, "新建角色") }
             }
         }

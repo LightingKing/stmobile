@@ -406,10 +406,19 @@ private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attac
     }
 }
 
+/** Where the character went off to browse on its own; its share follows as a normal reply. */
+@Composable
+private fun BrowseMarker(createdAt: Long) {
+    val time = remember(createdAt) { SimpleDateFormat("HH:mm", Locale.CHINA).format(Date(createdAt)) }
+    Text("$time · 自己刷了会儿视频", Modifier.fillMaxWidth(), textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+        style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+}
+
 @Composable
 private fun ConversationMessage(message: Message, assistantName: String, busy: Boolean, canRegenerate: Boolean, actions: AppActions, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit,
                                 stickers: List<Sticker> = emptyList(), loadSticker: (Sticker) -> androidx.compose.ui.graphics.ImageBitmap? = { null },
                                 animateSticker: (Sticker) -> AnimatedSticker? = { null }) {
+    if (message.role == "user" && message.intent == app.pockettavern.engine.VideoBrowse.INTENT) { BrowseMarker(message.createdAt); return }
     val user = message.role == "user"
     val tool = message.role == "tool"
     val notice = if (!user && !tool) messageNotice(message) else null

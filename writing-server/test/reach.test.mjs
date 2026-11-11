@@ -25,6 +25,7 @@ async function installed(spawnImpl) {
 test('tool calls become fixed read-only commands; links go to their site or the web reader', () => {
   assert.deepEqual(buildArgs({ action: 'search', query: '原神 7.2' }).args, ['web', 'search', '--limit', '5', '--timeout', '45', '--', '原神 7.2']);
   assert.deepEqual(buildArgs({ channel: 'bilibili', action: 'hot', limit: 3 }).args, ['bilibili', 'hot', '--limit', '3', '--timeout', '45']);
+  assert.deepEqual(buildArgs({ channel: 'bilibili', action: 'subtitle', target: 'BV1GJ411x7h7' }).args, ['bilibili', 'subtitle', '--timeout', '45', '--', 'BV1GJ411x7h7']);
   // A query that looks like an option stays an argument.
   assert.deepEqual(buildArgs({ action: 'search', query: '--help' }).args.slice(-2), ['--', '--help']);
   assert.equal(buildArgs({ action: 'read', target: 'https://www.bilibili.com/video/BV1GJ411x7h7' }).channel, 'bilibili');
@@ -70,6 +71,8 @@ test('Agent Reach runs with its own home and none of the server secrets', async 
     assert.deepEqual(echoed.argv, ['web', 'search', '--limit', '5', '--timeout', '45', '--', '小猫']);
     assert.equal(echoed.home, path.join(runtimeDir, 'agent-reach-home'));
     assert.ok(!echoed.env.includes('VENICE_API_KEY_FOR_TEST'));
+    // Browser profile locations stay out, so the bundled bili-cli cannot read the user's browser cookies.
+    assert.ok(!echoed.env.includes('LOCALAPPDATA') && !echoed.env.includes('APPDATA'));
   } finally { delete process.env.VENICE_API_KEY_FOR_TEST; }
   const missing = createReachRuntime({ runtimeDir: path.join(runtimeDir, 'nowhere'), spawnImpl: fakeReach() });
   await assert.rejects(missing.run({ action: 'search', query: 'x' }), (error) => error.code === 'reach_not_installed');

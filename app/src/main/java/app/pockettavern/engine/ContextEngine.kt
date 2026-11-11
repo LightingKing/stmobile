@@ -77,6 +77,8 @@ object ContextEngine {
         if (dshEngine) addSystem(DshTool.PROMPT)
         val webReach = ReachTool.available(onPc, toolsSupported)
         if (webReach) addSystem(ReachTool.PROMPT)
+        val cardBuilder = CharacterCardTool.available(chat, toolsSupported)
+        if (cardBuilder) addSystem(CharacterCardTool.PROMPT)
         val skillTokens = skills.map { skill ->
             val prompt = skillPrompt(skill, toolsSupported)
             addSystem(prompt, "skill")
@@ -96,6 +98,7 @@ object ContextEngine {
         val toolArray = JSONArray(if (toolsSupported) ToolRuntime.definitionsForSkills(skills) else "[]")
         if (dshEngine) toolArray.put(DshTool.definition())
         if (webReach) toolArray.put(ReachTool.definition())
+        if (cardBuilder) toolArray.put(CharacterCardTool.definition())
 
         val validSummary = findValidSummary(chat)
         val cutoff = validSummary?.let { chat.messages.indexOfFirst { message -> message.id == it.throughMessageId } } ?: -1

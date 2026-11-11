@@ -93,6 +93,15 @@ class MainActivity : ComponentActivity(), NativeHost {
         savedInstanceState?.getString("exportSource")?.let { exportSource=File(it) }
         exportMime=savedInstanceState?.getString("exportMime") ?: "application/json"
         setContent { val state by controller.state.collectAsState(); PocketApp(state,controller) }
+        openChatFrom(intent)
+    }
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        openChatFrom(intent)
+    }
+    /** A 自己刷视频 notification opens the chat that sent it. */
+    private fun openChatFrom(intent: Intent?) {
+        if (intent?.action == VideoBrowseWorker.ACTION_OPEN_CHAT) intent.getStringExtra(VideoBrowseWorker.EXTRA_CHAT_ID)?.let(controller::openChatWhenReady)
     }
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putString("importKind",importKind); outState.putString("exportSource",exportSource?.absolutePath); outState.putString("exportMime",exportMime)

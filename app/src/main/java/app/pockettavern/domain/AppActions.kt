@@ -99,6 +99,12 @@ interface AppActions {
     fun deleteStickerPack(id: String) { }
     fun setStickerPackEnabled(id: String, enabled: Boolean) { }
     fun setChatStickerFrequency(chatId: String, frequency: String) { }
+    /** 自己刷视频: 0 turns it off, 1–3 is how many times a day. */
+    fun setChatBrowse(chatId: String, perDay: Int) { }
+    /** Browses once now, as the schedule would. */
+    fun browseNow(chatId: String) { }
+    /** Opens a 角色卡助手 chat on the PC; false when no PC model can call tools. */
+    fun startCharacterBuilder(): Boolean = false
     fun stickerFile(sticker: Sticker): java.io.File? = null
     /** A sticker image from the PC, fetched once and then cached; blocking, call off the main thread. */
     fun pcStickerFile(sticker: Sticker): java.io.File? = null

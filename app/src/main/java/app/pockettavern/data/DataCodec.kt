@@ -139,7 +139,10 @@ object DataCodec {
                 // Legacy value is intentionally ignored; writing guidance is
                 // now always supplied by NarrativePolicy.
                 expressionMode = "request",
-                stickerFrequency = app.pockettavern.engine.StickerFrequency.of(chat.stickerFrequency).id
+                stickerFrequency = app.pockettavern.engine.StickerFrequency.of(chat.stickerFrequency).id,
+                browsePerDay = chat.browsePerDay.coerceIn(0, app.pockettavern.engine.VideoBrowse.MAX_PER_DAY),
+                browseLog = chat.browseLog.orEmpty().filter { it > 0 }.takeLast(20),
+                task = chat.task.orEmpty().takeIf { it == app.pockettavern.engine.CharacterCardTool.TASK }.orEmpty()
             )
         },
         presets = data.presets.orEmpty().map { preset ->
