@@ -73,7 +73,7 @@ class OnDemandMemoryTest {
     }
 
     @Test fun previousMixedToolCallsKeepOtherToolsAndTheirResultsAsCompletePairs() {
-        val calls = JSONArray().put(call("memory", "history_search")).put(call("research", "public_research"))
+        val calls = JSONArray().put(call("memory", "history_search")).put(call("research", "workspace_read"))
         val chat = Chat(providerId = "p", modelId = "m", messages = listOf(
             Message(content = "核对资料"),
             Message(role = "assistant", content = "ASSISTANT_PROSE", toolCallsJson = calls.toString()),
@@ -105,7 +105,7 @@ class OnDemandMemoryTest {
             Message(role = "assistant", toolCallsJson = JSONArray().put(call("same-id", "history_read")).toString()),
             Message(role = "tool", content = "OLD_RECALL", toolCallId = "same-id"),
             Message(role = "assistant", content = "已核对"), Message(content = "再查公开资料"),
-            Message(role = "assistant", toolCallsJson = JSONArray().put(call("same-id", "public_research")).toString()),
+            Message(role = "assistant", toolCallsJson = JSONArray().put(call("same-id", "workspace_read")).toString()),
             Message(role = "tool", content = "KEEP_RESEARCH", toolCallId = "same-id"),
             Message(role = "assistant", content = "资料答复"), Message(content = "继续")
         ))
@@ -166,6 +166,8 @@ class OnDemandMemoryTest {
         assertTrue(limited.compression!!.projectedTokens < limited.budget)
         val uncapped = ContextEngine.build(data(settings = AppSettings(maxContextInputTokens = 0)), chat)
         assertTrue(uncapped.budget > 900_000)
-        assertFalse(uncapped.needsCompression)
+        // 0.2.1: a budget of 0 no longer means "never fold". History is folded by its own length.
+        assertTrue(uncapped.needsCompression)
+        assertEquals("HISTORY_LENGTH", uncapped.budgetBreakdown!!.triggerReason)
     }
 }

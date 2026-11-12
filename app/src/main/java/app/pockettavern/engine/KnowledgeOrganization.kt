@@ -11,6 +11,8 @@ data class KnowledgePage(val entity: String, val title: String, val aliases: Lis
 /** Local views over append-only notes. They never turn an old observation into a current fact. */
 object KnowledgeOrganization {
     val categories = listOf(
+        KnowledgeCategory("chapter", "章节"),
+        KnowledgeCategory("profile", "人物档案"),
         KnowledgeCategory("person", "人物"),
         KnowledgeCategory("relationship", "关系"),
         KnowledgeCategory("event", "事件"),

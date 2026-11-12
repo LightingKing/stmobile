@@ -335,6 +335,11 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
                 }
             }
         }
+        // A long unfolded stretch (an old novel) is folded only when the user says so: it costs several requests.
+        LaunchedEffect(chat.id, chat.messages.size, chat.summaries.size, chatBusy) { if (!chatBusy) actions.inspectContext(chat.id) }
+        val backlog = state.contextInspection?.takeIf { it.chatId == chat.id }?.let { MemoryOverviewModel.backlog(it) }
+        var backlogHidden by rememberSaveable(chat.id, backlog) { mutableStateOf(false) }
+        if (!chatBusy && !state.loading && backlog != null && !backlogHidden) MemoryBacklogBanner(backlog, onOrganize = { actions.compress() }, onLater = { backlogHidden = true })
         ConversationComposer(draft, { draft = it }, state.pendingAttachments, chatBusy, intent, { intent = it }, onAttach = { actions.pickAttachment() }, onRemove = { actions.removeAttachment(it) }, onSend = {
             if (chatBusy) actions.stop() else if (actions.sendWithIntent(draft.trim(), intent)) {
                 draft = ""; intent = "auto"; followLatest = true

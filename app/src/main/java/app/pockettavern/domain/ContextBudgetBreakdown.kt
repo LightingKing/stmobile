@@ -25,10 +25,18 @@ data class ContextBudgetBreakdown(
     val recentTokens: Int = 0,
     val projectedTokens: Int? = null,
     val triggerReason: String = "NONE",
-    val blockedReason: String = ""
+    val blockedReason: String = "",
+    /** Long-chat memory sent with the request: chapter digests and people files. */
+    val chapterTokens: Int = 0,
+    val profileTokens: Int = 0,
+    /** Turns sent as original text, and turns not yet folded into a chapter. */
+    val recentTurns: Int = 0,
+    val pendingTurns: Int = 0,
+    /** Turns the next fold would turn into chapters. */
+    val foldTurns: Int = 0
 ) {
     companion object {
-        val TRIGGER_REASONS = setOf("NONE", "UNKNOWN", "INPUT_LIMIT_REACHED", "MODEL_BUDGET_REACHED", "INPUT_LIMIT_THRESHOLD", "MODEL_THRESHOLD")
+        val TRIGGER_REASONS = setOf("NONE", "UNKNOWN", "INPUT_LIMIT_REACHED", "MODEL_BUDGET_REACHED", "INPUT_LIMIT_THRESHOLD", "MODEL_THRESHOLD", "HISTORY_LENGTH", "HISTORY_BACKLOG")
         val BLOCKED_REASONS = setOf("", "UNKNOWN", "FIXED_INPUT_EXCEEDS_BUDGET", "RECENT_TURN_EXCEEDS_BUDGET", "NO_ARCHIVABLE_HISTORY", "NO_EXPECTED_REDUCTION")
     }
 }

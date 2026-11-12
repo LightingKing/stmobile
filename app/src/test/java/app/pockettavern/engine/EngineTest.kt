@@ -57,7 +57,8 @@ class EngineTest {
         assertEquals(1, Regex(Regex.escape(passage)).findAll(json).count())
         assertEquals(1, Regex("第二段开头").findAll(json).count())
         assertEquals(1, Regex("第二段写完").findAll(json).count())
-        assertEquals(1, Regex("先写雪").findAll(json).count())
+        // 0.2.1: earlier turns go without their thinking text; only the open tool round keeps it.
+        assertEquals(0, Regex("先写雪").findAll(json).count())
     }
 
     @Test fun storyLoreUsesRecentNpcProseWithoutLeakingIntoOtherCharacters() {

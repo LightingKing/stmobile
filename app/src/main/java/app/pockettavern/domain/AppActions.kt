@@ -84,7 +84,10 @@ interface AppActions {
     fun restoreBuiltinSkill(id: String) { }
     fun saveSettings(settings: AppSettings)
     fun confirmAdultSkills(confirmed: Boolean) { }
+    /** Folds the open chat's unfolded history into chapters (all but the recent window). */
     fun compress()
+    /** Works out what [chatId]'s next request would send; the result lands in UiSession.contextInspection. */
+    fun inspectContext(chatId: String) { }
     fun rebuildHistory() { }
     fun exportMemoryDiagnostics() { }
     fun restoreSummary(id: String)

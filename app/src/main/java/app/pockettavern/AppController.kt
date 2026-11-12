@@ -207,7 +207,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 val loaded = withContext(Dispatchers.IO) { app.database.state().load()?.let { DataCodec.decode(it.json) } ?: AppData() }
                 val discardRepairBackups = withContext(Dispatchers.IO) { finishPendingRepairBackupDiscard(loaded) }
                 val seeded = withContext(Dispatchers.IO) {
-                    BuiltinScenarios.merge(BuiltinSkills.merge(loaded,builtinSkills),builtinScenarios)
+                    BuiltinScenarios.merge(BuiltinSkills.merge(loaded,builtinSkills),builtinScenarios).let { it.copy(settings = LongMemory.migrate(it.settings)) }
                 }
                 val stars = withContext(Dispatchers.IO) { BuiltinSkills.loadStars(readAsset) }
                 val restored = seeded.copy(chats=seeded.chats.map { chat -> chat.copy(messages=chat.messages.map { if(it.status=="streaming") it.copy(status="interrupted") else it }) })
@@ -1385,7 +1385,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
     override fun saveSettings(settings: AppSettings) {
         if(settings.keepRecentTurns !in 1..100 || settings.compressionThreshold !in 0.2..0.95 || settings.maxToolSteps !in 1..16 || settings.contextOverride !in 0..2000000 || settings.maxContextInputTokens !in 0..2000000) { status("设置超出允许范围"); return }
-        change(data.copy(settings=settings.copy(builtinSkillsSeen=data.settings.builtinSkillsSeen,builtinScenariosSeen=data.settings.builtinScenariosSeen,adultSkillsConfirmed=data.settings.adultSkillsConfirmed,builtinSkillsRevision=data.settings.builtinSkillsRevision))); status("设置已保存")
+        change(data.copy(settings=settings.copy(builtinSkillsSeen=data.settings.builtinSkillsSeen,builtinScenariosSeen=data.settings.builtinScenariosSeen,adultSkillsConfirmed=data.settings.adultSkillsConfirmed,builtinSkillsRevision=data.settings.builtinSkillsRevision,memoryRevision=data.settings.memoryRevision))); status("设置已保存")
     }
     override fun confirmAdultSkills(confirmed: Boolean) {
         if(mutable.value.busy) { status("请先停止当前任务"); return }
@@ -1457,7 +1457,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
             ))
         }, resume = checkpoint, onCheckpoint = { saved ->
             withContext(Dispatchers.IO) { compactCheckpoints.save(chatId,"memory_rebuild",checkpointIdentity,saved) }
-        }) { text ->
+        }, maxTurnsPerRequest = LongMemory.CHAPTER_TURNS) { text ->
             val payload=JSONArray()
                 .put(JSONObject().put("role","system").put("content",HistoryCompressor.systemPrompt(active.summaryPrompt)))
                 .put(JSONObject().put("role","user").put("content",text)).toString()
@@ -1528,6 +1528,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
     private suspend fun summarizeHoldingGate(chatId: String) {
         val chat=current(chatId)
         val built = buildContext(data, chat)
+        val summaryEnd = ContextEngine.resolveSummary(chat).effective?.let { s -> chat.messages.indexOfFirst { it.id == s.throughMessageId } } ?: -1
+        val knownProfiles = LongMemory.layers(chat, summaryEnd).profiles
         val slice = built.compression ?: error(overBudgetMessage("没有可安全压缩的旧消息", built))
         val active=preset(chat)
         val p=provider(active.summaryProviderId.ifBlank { chat.providerId })
@@ -1577,7 +1579,9 @@ class AppController(application: Application) : AndroidViewModel(application), A
                     resume = checkpoint,
                     onCheckpoint = { saved ->
                         withContext(Dispatchers.IO) { compactCheckpoints.save(chatId,"compression",checkpointIdentity,saved) }
-                    }
+                    },
+                    profiles = knownProfiles,
+                    maxTurnsPerRequest = LongMemory.CHAPTER_TURNS
                 ) { text ->
                     val segment = activeSegment
                     val segmentTotal = totalSegments
@@ -1642,6 +1646,27 @@ class AppController(application: Application) : AndroidViewModel(application), A
         if(chatLocked(selected?.id)) return
         selected?.let { changeChat(it.id) { c -> c.copy(activeSummaryId=id) } }
         status(if(id.isEmpty()) "已恢复完整原始上下文" else "已切换摘要版本")
+    }
+    private var inspectJob: Job? = null
+    override fun inspectContext(chatId: String) {
+        if (mutable.value.loading || loadFailed) return
+        val chat = data.chats.firstOrNull { it.id == chatId } ?: return
+        val snapshot = data
+        val stickers = stickersFor(chat)
+        val pc = onPc(chat)
+        inspectJob?.cancel()
+        inspectJob = viewModelScope.launch {
+            val result = runCatching {
+                withContext(Dispatchers.Default) {
+                    val built = ContextEngine.build(snapshot, chat, stickers, onPc = pc)
+                    val summaryEnd = ContextEngine.resolveSummary(chat).effective?.let { s -> chat.messages.indexOfFirst { it.id == s.throughMessageId } } ?: -1
+                    val layers = LongMemory.layers(chat, summaryEnd)
+                    ContextInspection(chat.id, built.budgetBreakdown ?: ContextBudgetBreakdown(), built.skillTokens, layers.chapters.size,
+                        layers.profiles.map(LongMemory::name), snapshot.memories.count { it.enabled && it.scope == "chat" && it.targetId == chat.id })
+                }
+            }.getOrNull() ?: return@launch
+            mutable.value = mutable.value.copy(contextInspection = result)
+        }
     }
     override fun previewContext() { runCatching { selected?.let { mutable.value=mutable.value.copy(contextPreview=buildContext(data, it).preview) } }.onFailure { status(it.message ?: "无法组装上下文") } }
     override fun dismissPreview() { mutable.value=mutable.value.copy(contextPreview="") }
@@ -2050,7 +2075,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                             val restored = withContext(Dispatchers.IO) {
                                 BackupArchive.restore(bytes,app.filesDir,app.cacheDir).let {
                                     val withSkills = BuiltinSkills.merge(it.copy(skills=it.skills.map { s -> s.copy(enabled=false,permissions=emptyList()) }),builtinSkills)
-                                    BuiltinScenarios.merge(withSkills,builtinScenarios)
+                                    BuiltinScenarios.merge(withSkills,builtinScenarios).let { merged -> merged.copy(settings = LongMemory.migrate(merged.settings)) }
                                 }
                             }
                             val discardIntent = RepairBackupDiscardMarker.prepared(DataCodec.fingerprint(restored))

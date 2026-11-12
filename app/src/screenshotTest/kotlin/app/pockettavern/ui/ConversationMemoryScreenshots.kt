@@ -192,3 +192,20 @@ fun conversationMemoryRebuildInvalidNarrowPreview() {
         ConversationMemoryContent(chat, completedRebuildPreviewState(chat), onRebuild = {}, onStop = {}, onDismiss = {}, initialSection = 0, initialSelectionId = "rebuilt", initialSource = MemoryBrowser.source(chat, chat.summaries.last()))
     }
 }
+
+@PreviewTest
+@Preview(name = "长篇记忆概览", showBackground = true, widthDp = 420, heightDp = 1100)
+@Composable
+fun conversationMemoryOverviewPreview() {
+    val chat = Chat(id = "novel", title = "极寒末世：从继承庄园开始", messages = listOf(app.pockettavern.domain.Message(id = "m", content = "继续")))
+    val breakdown = app.pockettavern.domain.ContextBudgetBreakdown(estimatedInputTokens = 31_200, skillTokens = 12_400, characterTokens = 1_100, presetTokens = 600,
+        profileTokens = 1_600, chapterTokens = 2_900, summaryTokens = 900, memoryTokens = 300, recentTokens = 9_400, recentTurns = 16, toolTokens = 1_100,
+        policyTokens = 900, triggerReason = "HISTORY_BACKLOG", foldTurns = 79)
+    val state = UiSession(loading = false, data = app.pockettavern.domain.AppData(chats = listOf(chat), memories = listOf(
+        app.pockettavern.domain.Memory(id = "p1", text = "林岚左手有旧伤，不能提重物。", scope = "chat", targetId = chat.id),
+        app.pockettavern.domain.Memory(id = "p2", text = "庄园地下室的钥匙在管家手里。", scope = "chat", targetId = chat.id))),
+        contextInspection = app.pockettavern.domain.ContextInspection(chat.id, breakdown, chapters = 12, profiles = listOf("林岚", "周行", "顾砚舟"), pinned = 2))
+    PocketTheme("light") {
+        ConversationMemoryContent(chat, state, onRebuild = {}, onStop = {}, onDismiss = {})
+    }
+}

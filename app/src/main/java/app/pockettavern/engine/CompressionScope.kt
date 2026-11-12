@@ -57,9 +57,13 @@ object CompressionScope {
             "MODEL_BUDGET_REACHED" -> "整轮输入超过模型可用输入容量"
             "INPUT_LIMIT_THRESHOLD" -> "整轮输入达到日常输入上限的压缩比例"
             "MODEL_THRESHOLD" -> "整轮输入达到模型容量的压缩比例"
+            "HISTORY_LENGTH" -> "未整理的历史已够一章，按篇幅整理（与 Skills 和输入上限无关）"
+            "HISTORY_BACKLOG" -> "还有 ${value.foldTurns} 轮没整理成章节；篇幅较长，需要你在会话里点“整理记忆”开始"
             else -> "尚未达到自动压缩触发线"
         }
         val fixedOther = listOf(value.presetTokens, value.characterTokens, value.memoryTokens, value.worldTokens, value.policyTokens).sumOf { it.toLong() }
+        val layers = value.chapterTokens.toLong() + value.profileTokens
+        val layerText = if (layers > 0) " · 人物档案与章节 ${number(layers)}" else ""
         val override = if (value.contextOverride > 0) " · 窗口设置 ${number(value.contextOverride)}，实际采用 ${number(value.effectiveWindow)}" else ""
         val configuredLimit = if (value.configuredInputLimit > 0) "日常上限设置 ${number(value.configuredInputLimit)}" else "日常上限设置为不限制"
         val blocked = when (value.blockedReason) {
@@ -70,7 +74,7 @@ object CompressionScope {
             else -> ""
         }
         return "整轮输入约 ${number(value.estimatedInputTokens)} tokens · 触发线 ${number(value.triggerTokens)}（${(value.threshold * 100).toInt()}%） · $limit ${number(value.inputBudget)}\n" +
-            "其中 Skills ${number(value.skillTokens)} · 当前摘要 ${number(value.summaryTokens)} · 近期对话 ${number(value.recentTokens)} · 其他固定内容 ${number(fixedOther)} · 工具定义 ${number(value.toolTokens)}\n" +
+            "其中 Skills ${number(value.skillTokens)} · 当前摘要 ${number(value.summaryTokens)}$layerText · 近期对话 ${number(value.recentTokens)} · 其他固定内容 ${number(fixedOther)} · 工具定义 ${number(value.toolTokens)}\n" +
             "模型窗口 ${number(value.modelWindow)}$override · $configuredLimit\n" +
             "正文预留 ${number(value.outputReserve)} · 思考预留 ${number(value.reasoningReserve)} · 安全余量 ${number(value.safetyReserve)}\n" +
             "$reason；待归档原文的 token 数只是整轮输入的一部分。$blocked"

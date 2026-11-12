@@ -36,7 +36,10 @@ import java.util.Locale
 @Composable
 internal fun ConversationMemoryScreen(chat: Chat, state: UiSession, actions: AppActions, onDismiss: () -> Unit) {
     Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
-        ConversationMemoryContent(chat, state, onRebuild = actions::rebuildHistory, onStop = actions::stop, onDismiss = onDismiss, onExportDiagnostics = actions::exportMemoryDiagnostics)
+        ConversationMemoryContent(chat, state, onRebuild = actions::rebuildHistory, onStop = actions::stop, onDismiss = onDismiss, onExportDiagnostics = actions::exportMemoryDiagnostics,
+            onOrganize = actions::compress, onInspect = { actions.inspectContext(chat.id) },
+            onSavePinned = { old, text -> actions.saveMemory((old ?: app.pockettavern.domain.Memory(scope = "chat", targetId = chat.id)).copy(text = text)) },
+            onDeletePinned = { actions.deleteMemory(it.id) })
     }
 }
 
@@ -55,7 +58,11 @@ internal fun ConversationMemoryContent(
     initialSource: MemorySource? = null,
     initialQuery: String = "",
     initialDetailQuery: String = "",
-    initialCategory: String = ""
+    initialCategory: String = "",
+    onOrganize: () -> Unit = {},
+    onInspect: () -> Unit = {},
+    onSavePinned: (app.pockettavern.domain.Memory?, String) -> Unit = { _, _ -> },
+    onDeletePinned: (app.pockettavern.domain.Memory) -> Unit = {}
 ) {
     var section by rememberSaveable(chat.id) { mutableIntStateOf(initialSection) }
     var category by rememberSaveable(chat.id) { mutableStateOf(initialCategory) }
@@ -77,6 +84,10 @@ internal fun ConversationMemoryContent(
     val previewRebuiltResult = remember(rebuildSnapshot, inspection) { if (inspection) rebuild?.let { MemoryBrowser.rebuildResult(chat, it) } else null }
     val rebuiltResult = if (inspection) previewRebuiltResult else rebuiltState?.takeIf { it.first == rebuildSnapshot }?.second
     val locked = state.chatBusy(chat.id) || state.loading
+    // Refreshed whenever the chat changes, so the numbers match what the next message sends.
+    LaunchedEffect(chat.id, chat.messages.size, chat.summaries.size, chat.knowledgeNotes.size, state.data.memories.size, locked) { if (!locked) onInspect() }
+    val inspected = state.contextInspection?.takeIf { it.chatId == chat.id }
+    val pinned = state.data.memories.filter { it.scope == "chat" && it.targetId == chat.id }
     val previewIndex = remember(chat, inspection) { if (inspection) MemoryBrowser.index(chat) else null }
     val index by produceState(previewIndex, chat.id, chat.summaries, chat.knowledgeNotes, chat.messages, chat.activeSummaryId) {
         value = previewIndex
@@ -154,6 +165,10 @@ internal fun ConversationMemoryContent(
                 OutlinedTextField(query, { query = it }, Modifier.fillMaxWidth().padding(horizontal = 16.dp), label = { Text(if (section == MemoryBrowser.ALL) "搜索全部内容" else "搜索当前分类", maxLines = 1, overflow = TextOverflow.Ellipsis) }, singleLine = true,
                     leadingIcon = { Icon(Icons.Outlined.Search, null) }, trailingIcon = { if (query.isNotBlank()) TextButton(onClick = { query = "" }) { Text("清除") } })
                 LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    if (query.isBlank() && section == MemoryBrowser.ALL) {
+                        item { MemoryOverviewCard(inspected, locked, onOrganize) }
+                        item { PinnedFactsCard(pinned, locked, onSavePinned, onDeletePinned) }
+                    }
                     item {
                         Text(if (organized) "续聊使用当前摘要；旧人物、关系与事件保存在知识库，需要时再查。点开条目可核对来源原文；文本附件也会一并查找。" else "摘要是有长度上限的导览。查找早期人物与剧情，请搜索全部分段记忆和原文；文本附件也会一并查找。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }

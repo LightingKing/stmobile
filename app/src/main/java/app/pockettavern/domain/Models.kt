@@ -63,7 +63,9 @@ data class Memory(val id: String = newId(), val text: String = "", val scope: St
 data class WorldEntry(val id: String = newId(), val name: String = "", val content: String = "", val keywords: List<String> = emptyList(), val always: Boolean = false, val enabled: Boolean = true, val characterId: String = "", val priority: Int = 0, val searchRange: Int = 0)
 data class SkillRecord(val id: String = newId(), val name: String = "", val description: String = "", val content: String = "", val files: Map<String,String> = emptyMap(), val enabled: Boolean = true, val permissions: List<String> = emptyList(), val source: String = "本地导入", val warnings: List<String> = emptyList(), val sourceUrl: String = "", val sourceCommit: String = "", val sourceLicense: String = "", val adult: Boolean = false)
 data class MediaJob(val id: String = newId(), val providerId: String = "", val modelId: String = "", val type: String = "", val requestJson: String = "{}", val queueId: String = "", val status: String = "", val resultJson: String = "", val filePath: String = "", val createdAt: Long = System.currentTimeMillis())
-data class AppSettings(val autoCompress: Boolean = true, val compressionThreshold: Double = 0.8, val keepRecentTurns: Int = 8, val contextOverride: Int = 0, val darkMode: String = "system", val userPersona: String = "", val maxToolSteps: Int = 8, val builtinSkillsSeen: List<String> = emptyList(), val builtinScenariosSeen: List<String> = emptyList(), val adultSkillsConfirmed: Boolean = false, val builtinSkillsRevision: Int = 0, val researchProviderId: String = "", val researchModelId: String = "", val researchSearchMode: String = "direct", val maxContextInputTokens: Int = 65_536)
+data class AppSettings(val autoCompress: Boolean = true, val compressionThreshold: Double = 0.8, val keepRecentTurns: Int = 16, val contextOverride: Int = 0, val darkMode: String = "system", val userPersona: String = "", val maxToolSteps: Int = 8, val builtinSkillsSeen: List<String> = emptyList(), val builtinScenariosSeen: List<String> = emptyList(), val adultSkillsConfirmed: Boolean = false, val builtinSkillsRevision: Int = 0, val researchProviderId: String = "", val researchModelId: String = "", val researchSearchMode: String = "direct", val maxContextInputTokens: Int = 65_536,
+    /** Which one-time memory setting changes this install has had; see LongMemory.migrate. */
+    val memoryRevision: Int = 0)
 data class AppData(val schemaVersion: Int = 1, val providers: List<ProviderConfig> = listOf(ProviderConfig(id="venice")), val chats: List<Chat> = emptyList(), val presets: List<Preset> = listOf(Preset(id="default",name="通用助手",systemPrompt="请用中文回答，遵循用户要求。准确区分事实与推测。"), Preset(id="roleplay",name="角色扮演",systemPrompt="遵循角色卡、世界设定和已发生的事实。用户控制自己的角色，不代替用户决定动作、台词、心理或选择。")), val characters: List<Character> = emptyList(), val memories: List<Memory> = emptyList(), val worldEntries: List<WorldEntry> = emptyList(), val skills: List<SkillRecord> = emptyList(), val mediaJobs: List<MediaJob> = emptyList(), val settings: AppSettings = AppSettings(), val stickerPacks: List<StickerPack> = emptyList())
 data class MemoryRebuildState(
     val chatId: String,
@@ -81,7 +83,9 @@ data class UiSession(val data: AppData = AppData(), val selectedChatId: String =
     /** Chats with a long task running, by chat id. [busy] is only for app-wide tasks such as a model refresh. */
     val chatTasks: Map<String, ChatTask> = emptyMap(),
     /** False shows the chat list; true shows the selected chat on top of it. */
-    val chatOpen: Boolean = false) {
+    val chatOpen: Boolean = false,
+    /** The latest look at what one chat's next request would send. */
+    val contextInspection: ContextInspection? = null) {
     fun chatBusy(chatId: String?): Boolean = chatId != null && chatId in chatTasks
 }
 /** GitHub star count recorded in the bundled catalog on [checkedAt]; null stars means it could not be read. */
