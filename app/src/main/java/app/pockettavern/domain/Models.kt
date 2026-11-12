@@ -49,7 +49,9 @@ data class ScenarioPerson(
 )
 data class Chat(val id: String = newId(), val title: String = "新会话", val providerId: String = "venice", val modelId: String = "", val presetId: String = "default", val characterId: String = "", val messages: List<Message> = emptyList(), val summaries: List<Summary> = emptyList(), val activeSummaryId: String = "", val skillIds: List<String> = emptyList(), val updatedAt: Long = System.currentTimeMillis(), val knowledgeNotes: List<KnowledgeNote> = emptyList(), val continuityNotes: String = "", val expressionMode: String = "request", val scenarioState: ScenarioState = ScenarioState(), val scenarioRoster: List<ScenarioPerson> = emptyList(), val stickerFrequency: String = "off", val browsePerDay: Int = 0, val browseLog: List<Long> = emptyList(), val task: String = "",
     /** Replies that arrived while the user was not looking at this chat. */
-    val unread: Int = 0)
+    val unread: Int = 0,
+    /** Background behind the messages; null for none. */
+    val look: ChatLook? = null)
 /**
  * Generation budgets are opt-in through [generationBudgetEnabled]. Stored
  * amounts stay editable while disabled and do not impose a request limit.
@@ -58,14 +60,19 @@ data class Chat(val id: String = newId(), val title: String = "新会话", val p
  * Venice's max_completion_tokens counts thinking and正文 together.
  */
 data class Preset(val id: String = newId(), val name: String = "新预设", val systemPrompt: String = "", val temperature: Double = 0.8, val maxOutput: Int = 2048, val summaryPrompt: String = "用中文准确总结已有对话中的人物、事实、约定、未解决事项和当前进度。保留关键细节，不添加推测或新事实。", val summaryProviderId: String = "", val summaryModelId: String = "", val reasoningEffort: String = "default", val includeVeniceSystemPrompt: Boolean = true, val reasoningBudget: Int = 0, val generationBudgetEnabled: Boolean = false)
-data class Character(val id: String = newId(), val name: String = "", val description: String = "", val personality: String = "", val scenario: String = "", val firstMessage: String = "", val examples: String = "", val systemPrompt: String = "", val userPersona: String = "", val originalJson: String = "", val defaultPresetId: String = "", val avatar: String = "", val stickerPacks: List<String> = emptyList())
+data class Character(val id: String = newId(), val name: String = "", val description: String = "", val personality: String = "", val scenario: String = "", val firstMessage: String = "", val examples: String = "", val systemPrompt: String = "", val userPersona: String = "", val originalJson: String = "", val defaultPresetId: String = "", val avatar: String = "", val stickerPacks: List<String> = emptyList(),
+    /** Background new chats with this character start with; null for none. */
+    val look: ChatLook? = null)
 data class Memory(val id: String = newId(), val text: String = "", val scope: String = "chat", val targetId: String = "", val enabled: Boolean = true, val locked: Boolean = false, val sourceMessageId: String = "", val updatedAt: Long = System.currentTimeMillis())
 data class WorldEntry(val id: String = newId(), val name: String = "", val content: String = "", val keywords: List<String> = emptyList(), val always: Boolean = false, val enabled: Boolean = true, val characterId: String = "", val priority: Int = 0, val searchRange: Int = 0)
 data class SkillRecord(val id: String = newId(), val name: String = "", val description: String = "", val content: String = "", val files: Map<String,String> = emptyMap(), val enabled: Boolean = true, val permissions: List<String> = emptyList(), val source: String = "本地导入", val warnings: List<String> = emptyList(), val sourceUrl: String = "", val sourceCommit: String = "", val sourceLicense: String = "", val adult: Boolean = false)
 data class MediaJob(val id: String = newId(), val providerId: String = "", val modelId: String = "", val type: String = "", val requestJson: String = "{}", val queueId: String = "", val status: String = "", val resultJson: String = "", val filePath: String = "", val createdAt: Long = System.currentTimeMillis())
 data class AppSettings(val autoCompress: Boolean = true, val compressionThreshold: Double = 0.8, val keepRecentTurns: Int = 16, val contextOverride: Int = 0, val darkMode: String = "system", val userPersona: String = "", val maxToolSteps: Int = 8, val builtinSkillsSeen: List<String> = emptyList(), val builtinScenariosSeen: List<String> = emptyList(), val adultSkillsConfirmed: Boolean = false, val builtinSkillsRevision: Int = 0, val researchProviderId: String = "", val researchModelId: String = "", val researchSearchMode: String = "direct", val maxContextInputTokens: Int = 65_536,
     /** Which one-time memory setting changes this install has had; see LongMemory.migrate. */
-    val memoryRevision: Int = 0)
+    val memoryRevision: Int = 0,
+    /** The user's own picture ("file:avatars/me-….png"), shown beside their messages when [showUserAvatar]. */
+    val userAvatar: String = "",
+    val showUserAvatar: Boolean = false)
 data class AppData(val schemaVersion: Int = 1, val providers: List<ProviderConfig> = listOf(ProviderConfig(id="venice")), val chats: List<Chat> = emptyList(), val presets: List<Preset> = listOf(Preset(id="default",name="通用助手",systemPrompt="请用中文回答，遵循用户要求。准确区分事实与推测。"), Preset(id="roleplay",name="角色扮演",systemPrompt="遵循角色卡、世界设定和已发生的事实。用户控制自己的角色，不代替用户决定动作、台词、心理或选择。")), val characters: List<Character> = emptyList(), val memories: List<Memory> = emptyList(), val worldEntries: List<WorldEntry> = emptyList(), val skills: List<SkillRecord> = emptyList(), val mediaJobs: List<MediaJob> = emptyList(), val settings: AppSettings = AppSettings(), val stickerPacks: List<StickerPack> = emptyList())
 data class MemoryRebuildState(
     val chatId: String,

@@ -1281,6 +1281,20 @@ private fun SettingsTab(state: UiSession, actions: AppActions) {
             Card(Modifier.fillMaxWidth().padding(horizontal = 12.dp)) {
                 Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     ChoiceRow("主题", listOf("system" to "跟随系统", "light" to "浅色", "dark" to "深色"), settings.darkMode) { actions.saveSettings(settings.copy(darkMode = it)) }
+                    val loadUserAvatar = remember(actions) { { avatar: String -> actions.characterAvatar(avatar) } }
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        CharacterAvatar(settings.userAvatar, "我", 44.dp, loadUserAvatar)
+                        Column(Modifier.weight(1f).padding(start = 12.dp)) {
+                            Text("我的头像", style = MaterialTheme.typography.bodyLarge)
+                            Text(when {
+                                settings.userAvatar.isBlank() -> "可选；选好后显示在你的每条消息旁"
+                                settings.showUserAvatar -> "显示在你的每条消息旁"
+                                else -> "已设置；在会话的「聊天外观」里打开显示"
+                            }, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        }
+                        TextButton(onClick = { actions.pickUserAvatar() }) { Text(if (settings.userAvatar.isBlank()) "选择" else "更换") }
+                        if (settings.userAvatar.isNotBlank()) TextButton(onClick = { actions.removeUserAvatar() }) { Text("移除") }
+                    }
                     OutlinedButton(onClick = { showPersona = true }, Modifier.fillMaxWidth()) { Icon(Icons.Outlined.PersonOutline, null); Spacer(Modifier.width(6.dp)); Text(if (settings.userPersona.isBlank()) "设置全局用户人设" else "编辑全局用户人设") }
                 }
             }

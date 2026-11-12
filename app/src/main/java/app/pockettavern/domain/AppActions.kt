@@ -120,6 +120,17 @@ interface AppActions {
     fun characterAvatar(avatar: String): androidx.compose.ui.graphics.ImageBitmap? = null
     fun pickCharacterAvatar(characterId: String) { }
     fun removeCharacterAvatar(characterId: String) { }
+    /** A chat's background and how it is toned down; null removes it. Takes effect at once. */
+    fun setChatLook(chatId: String, look: ChatLook?) { }
+    /** Opens the gallery; the picture becomes [chatId]'s background. */
+    fun pickChatBackground(chatId: String) { }
+    /** The background new chats with this character start with; null for none. */
+    fun setCharacterLook(characterId: String, look: ChatLook?) { }
+    /** A chosen background picture, decoded small for the blur level; blocking, call off the main thread. */
+    fun chatBackground(value: String, blur: Int): androidx.compose.ui.graphics.ImageBitmap? = null
+    fun pickUserAvatar() { }
+    fun removeUserAvatar() { }
+    fun setShowUserAvatar(show: Boolean) { }
     fun stickerFile(sticker: Sticker): java.io.File? = null
     /** A sticker image from the PC, fetched once and then cached; blocking, call off the main thread. */
     fun pcStickerFile(sticker: Sticker): java.io.File? = null

@@ -13,8 +13,8 @@ android {
         applicationId = "app.pockettavern"
         minSdk = 26
         targetSdk = 35
-        versionCode = 86
-        versionName = "0.2.1"
+        versionCode = 87
+        versionName = "0.2.2"
         testInstrumentationRunner = "android.test.InstrumentationTestRunner"
     }
     useLibrary("android.test.runner", false)
@@ -45,6 +45,8 @@ dependencies {
     screenshotTestImplementation("com.android.tools.screenshot:screenshot-validation-api:0.0.1-alpha10")
     screenshotTestImplementation("androidx.compose.ui:ui-tooling:1.7.6")
     implementation("androidx.core:core-ktx:1.15.0")
+    // Reads the rotation phone cameras store beside the picture (backgrounds, avatars).
+    implementation("androidx.exifinterface:exifinterface:1.3.2")
     implementation("androidx.tracing:tracing:1.2.0")
     implementation("androidx.activity:activity-compose:1.9.3")
     implementation("androidx.compose.ui:ui:1.7.6")

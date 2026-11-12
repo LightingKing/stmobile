@@ -142,14 +142,15 @@ object DataCodec {
                 stickerFrequency = app.pockettavern.engine.StickerFrequency.of(chat.stickerFrequency).id,
                 browsePerDay = chat.browsePerDay.coerceIn(0, app.pockettavern.engine.VideoBrowse.MAX_PER_DAY),
                 browseLog = chat.browseLog.orEmpty().filter { it > 0 }.takeLast(20),
-                task = chat.task.orEmpty().takeIf { it == app.pockettavern.engine.CharacterCardTool.TASK }.orEmpty()
+                task = chat.task.orEmpty().takeIf { it == app.pockettavern.engine.CharacterCardTool.TASK }.orEmpty(),
+                look = ChatBackgrounds.normalizeLook(runCatching { chat.look }.getOrNull())
             )
         },
         presets = data.presets.orEmpty().map { preset ->
             val reasoningBudget = runCatching { preset.reasoningBudget }.getOrNull() ?: 0
             preset.copy(id = preset.id.orEmpty().ifBlank { newId() }, name = preset.name.orEmpty(), systemPrompt = preset.systemPrompt.orEmpty(), summaryPrompt = preset.summaryPrompt.orEmpty(), summaryProviderId = preset.summaryProviderId.orEmpty(), summaryModelId = preset.summaryModelId.orEmpty(), reasoningEffort = preset.reasoningEffort.orEmpty().ifBlank { "default" }, reasoningBudget = reasoningBudget)
         }.ifEmpty { listOf(Preset(id = "default", name = "通用助手")) },
-        characters = data.characters.orEmpty().map { character -> character.copy(id = character.id.orEmpty().ifBlank { newId() }, name = character.name.orEmpty(), description = character.description.orEmpty(), personality = character.personality.orEmpty(), scenario = character.scenario.orEmpty(), firstMessage = character.firstMessage.orEmpty(), examples = character.examples.orEmpty(), systemPrompt = character.systemPrompt.orEmpty(), userPersona = character.userPersona.orEmpty(), originalJson = character.originalJson.orEmpty(), defaultPresetId = character.defaultPresetId.orEmpty(), avatar = CharacterAvatars.normalize(character.avatar), stickerPacks = character.stickerPacks.orEmpty().map { it.trim() }.filter { it.isNotBlank() }.distinct().take(20)) },
+        characters = data.characters.orEmpty().map { character -> character.copy(id = character.id.orEmpty().ifBlank { newId() }, name = character.name.orEmpty(), description = character.description.orEmpty(), personality = character.personality.orEmpty(), scenario = character.scenario.orEmpty(), firstMessage = character.firstMessage.orEmpty(), examples = character.examples.orEmpty(), systemPrompt = character.systemPrompt.orEmpty(), userPersona = character.userPersona.orEmpty(), originalJson = character.originalJson.orEmpty(), defaultPresetId = character.defaultPresetId.orEmpty(), avatar = CharacterAvatars.normalize(character.avatar), stickerPacks = character.stickerPacks.orEmpty().map { it.trim() }.filter { it.isNotBlank() }.distinct().take(20), look = ChatBackgrounds.normalizeLook(runCatching { character.look }.getOrNull())) },
         memories = data.memories.orEmpty().map { memory -> memory.copy(id = memory.id.orEmpty().ifBlank { newId() }, text = memory.text.orEmpty(), scope = memory.scope.orEmpty().ifBlank { "chat" }, targetId = memory.targetId.orEmpty(), sourceMessageId = memory.sourceMessageId.orEmpty()) },
         worldEntries = data.worldEntries.orEmpty().map { entry -> entry.copy(id = entry.id.orEmpty().ifBlank { newId() }, name = entry.name.orEmpty(), content = entry.content.orEmpty(), keywords = entry.keywords.orEmpty(), characterId = entry.characterId.orEmpty()) },
         skills = data.skills.orEmpty().map { skill -> skill.copy(id = skill.id.orEmpty().ifBlank { newId() }, name = skill.name.orEmpty(), description = skill.description.orEmpty(), content = skill.content.orEmpty(), files = skill.files.orEmpty(), permissions = skill.permissions.orEmpty(), source = skill.source.orEmpty(), warnings = skill.warnings.orEmpty(), sourceUrl = skill.sourceUrl.orEmpty(), sourceCommit = skill.sourceCommit.orEmpty(), sourceLicense = skill.sourceLicense.orEmpty()) },
@@ -205,7 +206,8 @@ object DataCodec {
             builtinScenariosSeen = settings.builtinScenariosSeen.orEmpty(),
             researchProviderId = settings.researchProviderId.orEmpty(),
             researchModelId = settings.researchModelId.orEmpty(),
-            researchSearchMode = settings.researchSearchMode.orEmpty().ifBlank { "direct" }
+            researchSearchMode = settings.researchSearchMode.orEmpty().ifBlank { "direct" },
+            userAvatar = CharacterAvatars.normalize(settings.userAvatar)
         )
     }
 

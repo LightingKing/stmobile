@@ -54,6 +54,22 @@ class MainActivity : ComponentActivity(), NativeHost {
         }
     }
     override fun pickAvatar(characterId: String) { avatarCharacterId = characterId; avatarPicker.launch(arrayOf("image/*")) }
+    private val userAvatarPicker = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        if (uri != null) lifecycleScope.launch {
+            try { controller.setUserAvatar(withContext(Dispatchers.IO) { readBounded(uri, 16 * 1024 * 1024) }) }
+            catch (error: Exception) { controller.reportError("无法读取图片：${error.message}") }
+        }
+    }
+    override fun pickUserAvatar() { userAvatarPicker.launch(arrayOf("image/*")) }
+    private var backgroundChatId = ""
+    private val backgroundPicker = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        val chatId = backgroundChatId
+        if (uri != null && chatId.isNotBlank()) lifecycleScope.launch {
+            try { controller.setChatBackgroundImage(chatId, withContext(Dispatchers.IO) { readBounded(uri, 32 * 1024 * 1024) }) }
+            catch (error: Exception) { controller.reportError("无法读取图片：${error.message}") }
+        }
+    }
+    override fun pickBackground(chatId: String) { backgroundChatId = chatId; backgroundPicker.launch(arrayOf("image/*")) }
     private val attachmentPicker=registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         if(uri!=null) lifecycleScope.launch {
             try {

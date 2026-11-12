@@ -33,6 +33,11 @@ object BackupArchive {
         data.characters.forEach { character ->
             CharacterAvatars.file(filesDir, character.avatar)?.takeIf { it.isFile }?.let { sources[character.avatar.removePrefix("file:")] = it }
         }
+        CharacterAvatars.file(filesDir, data.settings.userAvatar)?.takeIf { it.isFile }?.let { sources[data.settings.userAvatar.removePrefix("file:")] = it }
+        // Chosen backgrounds of chats and characters; built-in scenes are drawn by the app.
+        (data.chats.mapNotNull { it.look?.background } + data.characters.mapNotNull { it.look?.background }).forEach { value ->
+            ChatBackgrounds.file(filesDir, value)?.takeIf { it.isFile }?.let { sources[value.removePrefix("file:")] = it }
+        }
         val state=DataCodec.encode(portable).toByteArray(Charsets.UTF_8)
         require(sources.size<2000 && sources.values.sumOf { it.length() }+state.size<=MAX_TOTAL) { "备份超过 128 MB，请先单独保存大型媒体" }
         target.parentFile?.mkdirs()
@@ -52,7 +57,7 @@ object BackupArchive {
                     require(++count<=2000) { "备份文件过多" }
                     val name=entry.name.replace('\\','/')
                     require(!name.startsWith('/') && ':' !in name && name.split('/').none { it==".." || it=="." }) { "备份路径不安全" }
-                    require(name=="state.json" || name.startsWith("media/") || name.startsWith("workspace/") || name.startsWith("${StickerStore.DIR}/") || name.startsWith("${CharacterAvatars.DIR}/")) { "备份包含未知文件" }
+                    require(name=="state.json" || name.startsWith("media/") || name.startsWith("workspace/") || name.startsWith("${StickerStore.DIR}/") || name.startsWith("${CharacterAvatars.DIR}/") || name.startsWith("${ChatBackgrounds.DIR}/")) { "备份包含未知文件" }
                     val file=File(stage,name).canonicalFile
                     require(file.path.startsWith(stage.canonicalPath+File.separator)) { "备份路径越界" }
                     if(entry.isDirectory) { file.mkdirs(); continue }
@@ -101,7 +106,21 @@ object BackupArchive {
                     target.parentFile?.mkdirs(); source.copyTo(target,overwrite=true); character
                 } else character.copy(avatar="")
             }
-            return restored.copy(mediaJobs=jobs,stickerPacks=packs,characters=characters)
+            fun restoredFile(value: String, target: File?, dir: String): Boolean {
+                target ?: return false
+                val source=File(stage,value.removePrefix("file:")).canonicalFile
+                if(!source.isFile || !source.path.startsWith(File(stage,dir).canonicalPath+File.separator)) return false
+                target.parentFile?.mkdirs(); source.copyTo(target,overwrite=true); return true
+            }
+            // A missing picture falls back to none rather than failing the restore.
+            fun restoredLook(look: app.pockettavern.domain.ChatLook?): app.pockettavern.domain.ChatLook? = look?.takeIf {
+                ChatBackgrounds.builtin(it.background) != null || restoredFile(it.background, ChatBackgrounds.file(filesDir,it.background), ChatBackgrounds.DIR)
+            }
+            val userAvatar=restored.settings.userAvatar.takeIf { restoredFile(it, CharacterAvatars.file(filesDir,it), CharacterAvatars.DIR) }.orEmpty()
+            return restored.copy(mediaJobs=jobs,stickerPacks=packs,
+                characters=characters.map { it.copy(look=restoredLook(it.look)) },
+                chats=restored.chats.map { it.copy(look=restoredLook(it.look)) },
+                settings=restored.settings.copy(userAvatar=userAvatar, showUserAvatar=restored.settings.showUserAvatar && userAvatar.isNotEmpty()))
         } finally {
             check(stage.canonicalPath.startsWith(cacheDir.canonicalPath+File.separator))
             stage.deleteRecursively()

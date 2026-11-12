@@ -37,6 +37,8 @@ interface NativeHost {
     fun openFile(file: File, mime: String)
     fun openDoubaoWebResearch(requestId: String, chatId: String, subject: String, categories: List<String>, allowFiction: Boolean, prompt: String) { }
     fun pickAvatar(characterId: String) { }
+    fun pickBackground(chatId: String) { }
+    fun pickUserAvatar() { }
 }
 
 internal fun applyChatSkillUpdate(
@@ -542,7 +544,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val character=data.characters.find { it.id==characterId }
         val modelId = inherited?.second?.id ?: selectedProvider?.models?.firstOrNull { it.type=="text" && !it.offline }?.id.orEmpty()
         val presetId = BuiltinScenarios.presetIdForCharacter(character, data.presets)
-        val chat=Chat(title=character?.name?.takeIf { it.isNotBlank() } ?: "新会话",providerId=selectedProvider?.id ?: "",modelId=modelId,presetId=presetId,characterId=characterId,messages=character?.firstMessage?.takeIf { it.isNotBlank() }?.let { listOf(Message(role="assistant",content=it)) } ?: emptyList())
+        val chat=Chat(look=character?.look,title=character?.name?.takeIf { it.isNotBlank() } ?: "新会话",providerId=selectedProvider?.id ?: "",modelId=modelId,presetId=presetId,characterId=characterId,messages=character?.firstMessage?.takeIf { it.isNotBlank() }?.let { listOf(Message(role="assistant",content=it)) } ?: emptyList())
         change(data.copy(chats=listOf(chat)+data.chats)); rememberSelectedChat(chat.id); mutable.value=mutable.value.copy(selectedChatId=chat.id,chatOpen=true,pendingAttachments=emptyList())
     }
     override fun selectChat(id: String) {
@@ -1280,6 +1282,103 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     override fun pickCharacterAvatar(characterId: String) { host?.pickAvatar(characterId) }
 
+    // ---- chat backgrounds
+
+    override fun setChatLook(chatId: String, look: ChatLook?) {
+        if (mutable.value.loading || loadFailed || data.chats.none { it.id == chatId }) return
+        // Appearance changes nothing the model sees, so it is allowed while the chat replies, and it
+        // keeps the chat's place in the list.
+        changeChat(chatId, touch = false) { it.copy(look = ChatBackgrounds.normalizeLook(look)) }
+        pruneBackgrounds()
+    }
+
+    override fun pickChatBackground(chatId: String) { host?.pickBackground(chatId) }
+
+    /** Stores the chosen picture (longest side 1440 px, JPEG) and makes it [chatId]'s background. */
+    internal fun setChatBackgroundImage(chatId: String, bytes: ByteArray) {
+        val chat = data.chats.firstOrNull { it.id == chatId } ?: return status("会话不存在")
+        runCatching {
+            val value = storeBackground(bytes)
+            setChatLook(chatId, (chat.look ?: ChatLook()).copy(background = value))
+            status("背景已更换")
+        }.onFailure { status("背景设置失败：${it.message ?: "图片无法读取"}") }
+    }
+
+    override fun setCharacterLook(characterId: String, look: ChatLook?) {
+        if (mutable.value.loading || loadFailed || data.characters.none { it.id == characterId }) return
+        change(data.copy(characters = data.characters.map { if (it.id == characterId) it.copy(look = ChatBackgrounds.normalizeLook(look)) else it }))
+        pruneBackgrounds()
+    }
+
+    private val backgroundCache = android.util.LruCache<String, androidx.compose.ui.graphics.ImageBitmap>(4)
+
+    override fun chatBackground(value: String, blur: Int): androidx.compose.ui.graphics.ImageBitmap? {
+        val file = ChatBackgrounds.file(app.filesDir, value)?.takeIf { it.isFile } ?: return null
+        val key = "$value#$blur"
+        backgroundCache.get(key)?.let { return it }
+        val bounds = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        android.graphics.BitmapFactory.decodeFile(file.path, bounds)
+        if (bounds.outWidth <= 0) return null
+        val sample = ChatBackgrounds.sampleSize(bounds.outWidth, ChatBackgrounds.decodeWidth(blur))
+        var bitmap = android.graphics.BitmapFactory.decodeFile(file.path, android.graphics.BitmapFactory.Options().apply { inSampleSize = sample }) ?: return null
+        // Sampling halves at most; the blur levels need an exact small width.
+        val width = ChatBackgrounds.decodeWidth(blur)
+        if (blur > 0 && bitmap.width > width) bitmap = bitmap.scale(width, (bitmap.height * width / bitmap.width).coerceAtLeast(1))
+        return bitmap.asImageBitmap().also { backgroundCache.put(key, it) }
+    }
+
+    private fun storeBackground(bytes: ByteArray): String {
+        val bounds = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        android.graphics.BitmapFactory.decodeByteArray(bytes, 0, bytes.size, bounds)
+        require(bounds.outWidth > 0 && bounds.outHeight > 0) { "不是可识别的图片" }
+        var sample = 1
+        while (maxOf(bounds.outWidth, bounds.outHeight) / (sample * 2) >= ChatBackgrounds.MAX_SIDE) sample *= 2
+        var bitmap = upright(requireNotNull(android.graphics.BitmapFactory.decodeByteArray(bytes, 0, bytes.size, android.graphics.BitmapFactory.Options().apply { inSampleSize = sample })) {
+            "图片解码失败" }, bytes)
+        val longest = maxOf(bitmap.width, bitmap.height)
+        if (longest > ChatBackgrounds.MAX_SIDE) bitmap = bitmap.scale(bitmap.width * ChatBackgrounds.MAX_SIDE / longest, bitmap.height * ChatBackgrounds.MAX_SIDE / longest)
+        val name = ChatBackgrounds.newFileName(System.currentTimeMillis())
+        val dir = File(app.filesDir, ChatBackgrounds.DIR).apply { mkdirs() }
+        val part = File(dir, "$name.part")
+        part.outputStream().use { require(bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG, 85, it)) { "图片保存失败" } }
+        require(part.renameTo(File(dir, name))) { "图片保存失败" }
+        return "file:${ChatBackgrounds.DIR}/$name"
+    }
+
+    /** Deletes background pictures no chat or character uses any more. */
+    private fun pruneBackgrounds() {
+        if (mutable.value.loading || loadFailed) return
+        val keep = ChatBackgrounds.referenced(data)
+        viewModelScope.launch(Dispatchers.IO) {
+            File(app.filesDir, ChatBackgrounds.DIR).listFiles()?.filter { it.isFile && it.name.endsWith(".jpg") && it.name !in keep }?.forEach { it.delete() }
+        }
+    }
+
+    // ---- the user's own picture
+
+    override fun pickUserAvatar() { host?.pickUserAvatar() }
+
+    internal fun setUserAvatar(bytes: ByteArray) {
+        if (mutable.value.loading || loadFailed) return
+        runCatching {
+            val avatar = storeAvatar("me", bytes)
+            CharacterAvatars.file(app.filesDir, data.settings.userAvatar)?.delete()
+            change(data.copy(settings = data.settings.copy(userAvatar = avatar, showUserAvatar = true)))
+            status("我的头像已更新")
+        }.onFailure { status("头像设置失败：${it.message ?: "图片无法读取"}") }
+    }
+
+    override fun removeUserAvatar() {
+        if (mutable.value.loading || loadFailed) return
+        CharacterAvatars.file(app.filesDir, data.settings.userAvatar)?.delete()
+        change(data.copy(settings = data.settings.copy(userAvatar = "", showUserAvatar = false)))
+    }
+
+    override fun setShowUserAvatar(show: Boolean) {
+        if (mutable.value.loading || loadFailed) return
+        change(data.copy(settings = data.settings.copy(showUserAvatar = show && data.settings.userAvatar.isNotEmpty())))
+    }
+
     /** Stores the chosen picture as a square 512 px PNG and points the character at it. */
     internal fun setCharacterAvatar(characterId: String, bytes: ByteArray) {
         val character = data.characters.firstOrNull { it.id == characterId } ?: return status("角色不存在")
@@ -1297,13 +1396,27 @@ class AppController(application: Application) : AndroidViewModel(application), A
         change(data.copy(characters = data.characters.map { if (it.id == characterId) it.copy(avatar = "") else it }))
     }
 
+    /** Phone photos store their rotation separately; without it a portrait shows up sideways. */
+    private fun upright(bitmap: android.graphics.Bitmap, bytes: ByteArray): android.graphics.Bitmap {
+        val orientation = runCatching { androidx.exifinterface.media.ExifInterface(java.io.ByteArrayInputStream(bytes))
+            .getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, androidx.exifinterface.media.ExifInterface.ORIENTATION_NORMAL) }
+            .getOrDefault(androidx.exifinterface.media.ExifInterface.ORIENTATION_NORMAL)
+        val degrees = when (orientation) {
+            androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_90 -> 90f
+            androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_180 -> 180f
+            androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_270 -> 270f
+            else -> return bitmap
+        }
+        return android.graphics.Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, android.graphics.Matrix().apply { postRotate(degrees) }, true)
+    }
+
     private fun storeAvatar(characterId: String, bytes: ByteArray): String {
         val bounds = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
         android.graphics.BitmapFactory.decodeByteArray(bytes, 0, bytes.size, bounds)
         require(bounds.outWidth > 0 && bounds.outHeight > 0) { "不是可识别的图片" }
         var sample = 1
         while (minOf(bounds.outWidth, bounds.outHeight) / (sample * 2) >= 512) sample *= 2
-        val decoded = requireNotNull(android.graphics.BitmapFactory.decodeByteArray(bytes, 0, bytes.size, android.graphics.BitmapFactory.Options().apply { inSampleSize = sample })) { "图片解码失败" }
+        val decoded = upright(requireNotNull(android.graphics.BitmapFactory.decodeByteArray(bytes, 0, bytes.size, android.graphics.BitmapFactory.Options().apply { inSampleSize = sample })) { "图片解码失败" }, bytes)
         val side = minOf(decoded.width, decoded.height)
         // Portraits keep the top of the picture, where the face usually is.
         val top = if (decoded.height > decoded.width) ((decoded.height - side) * 0.15).toInt() else (decoded.height - side) / 2
@@ -1385,7 +1498,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
     override fun saveSettings(settings: AppSettings) {
         if(settings.keepRecentTurns !in 1..100 || settings.compressionThreshold !in 0.2..0.95 || settings.maxToolSteps !in 1..16 || settings.contextOverride !in 0..2000000 || settings.maxContextInputTokens !in 0..2000000) { status("设置超出允许范围"); return }
-        change(data.copy(settings=settings.copy(builtinSkillsSeen=data.settings.builtinSkillsSeen,builtinScenariosSeen=data.settings.builtinScenariosSeen,adultSkillsConfirmed=data.settings.adultSkillsConfirmed,builtinSkillsRevision=data.settings.builtinSkillsRevision,memoryRevision=data.settings.memoryRevision))); status("设置已保存")
+        change(data.copy(settings=settings.copy(builtinSkillsSeen=data.settings.builtinSkillsSeen,builtinScenariosSeen=data.settings.builtinScenariosSeen,adultSkillsConfirmed=data.settings.adultSkillsConfirmed,builtinSkillsRevision=data.settings.builtinSkillsRevision,memoryRevision=data.settings.memoryRevision,userAvatar=data.settings.userAvatar,showUserAvatar=data.settings.showUserAvatar))); status("设置已保存")
     }
     override fun confirmAdultSkills(confirmed: Boolean) {
         if(mutable.value.busy) { status("请先停止当前任务"); return }

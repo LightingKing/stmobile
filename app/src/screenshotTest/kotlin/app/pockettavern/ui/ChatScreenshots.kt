@@ -396,3 +396,48 @@ fun chatListDarkPreview() {
 fun chatListNarrowLargeTextPreview() {
     androidx.compose.runtime.CompositionLocalProvider(LocalClock provides { PREVIEW_NOW }) { PocketApp(chatListSession(), PreviewActions) }
 }
+
+private fun backgroundSession(scene: String, dark: Boolean): UiSession {
+    val heimao = Character(id = "preview-heimao", name = "黑猫", look = app.pockettavern.domain.ChatLook("builtin:$scene"))
+    val chat = previewChat(listOf(
+        Message(id = "b1", role = "assistant", content = "……这么晚还来找我，前辈也是夜之眷属么。\n（打了个哈欠）别误会，我才不是在等你。", createdAt = PREVIEW_TIME),
+        Message(id = "b2", role = "user", content = "新番看了吗，第一集我觉得还不错", createdAt = PREVIEW_TIME + 60_000L),
+        Message(id = "b3", role = "assistant", content = "哼，作画勉强及格，剧本嘛……三流。\n不过片尾那首歌，吾姑且认可了。", createdAt = PREVIEW_TIME + 120_000L),
+        Message(id = "b4", role = "user", content = "那周末一起补完？", createdAt = PREVIEW_TIME + 180_000L)
+    ), "黑猫").copy(characterId = heimao.id, look = app.pockettavern.domain.ChatLook("builtin:$scene", dim = 20, bubbleClear = 15))
+    return previewSession(chat = chat, settings = AppSettings(darkMode = if (dark) "dark" else "light")).let { it.copy(data = it.data.copy(characters = listOf(heimao))) }
+}
+
+@PreviewTest
+@Preview(name = "聊天背景夜空", showBackground = true, widthDp = 420, heightDp = 860)
+@androidx.compose.runtime.Composable
+fun chatBackgroundNightPreview() {
+    PocketApp(backgroundSession("night", dark = false), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "聊天背景海底深色", showBackground = true, widthDp = 420, heightDp = 860)
+@androidx.compose.runtime.Composable
+fun chatBackgroundSeaDarkPreview() {
+    PocketApp(backgroundSession("sea", dark = true), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "聊天背景暖灯窄屏大字", showBackground = true, widthDp = 320, heightDp = 760, fontScale = 1.5f)
+@androidx.compose.runtime.Composable
+fun chatBackgroundLampLargeTextPreview() {
+    PocketApp(backgroundSession("lamp", dark = false), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "聊天外观", showBackground = true, widthDp = 420, heightDp = 760)
+@androidx.compose.runtime.Composable
+fun chatAppearancePreview() {
+    val session = backgroundSession("night", dark = false)
+    val chat = session.data.chats.single()
+    PocketTheme("light") {
+        androidx.compose.material3.Surface {
+            ChatAppearanceContent(chat, session.data.characters.single(), AppSettings(userAvatar = ""), PreviewActions)
+        }
+    }
+}
