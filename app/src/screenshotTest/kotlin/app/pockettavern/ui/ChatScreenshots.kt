@@ -8,6 +8,7 @@ import app.pockettavern.domain.AppSettings
 import app.pockettavern.domain.Attachment
 import app.pockettavern.domain.Character
 import app.pockettavern.domain.Chat
+import app.pockettavern.domain.ChatTask
 import app.pockettavern.domain.CompressionProgress
 import app.pockettavern.domain.Memory
 import app.pockettavern.domain.MediaJob
@@ -23,6 +24,8 @@ private const val PREVIEW_PROVIDER = "preview-provider"
 private const val PREVIEW_MODEL = "preview-model"
 private const val PREVIEW_CHAT = "preview-chat"
 private const val PREVIEW_TIME = 1_735_689_600_000L
+/** A fixed "now" for the chat list, 13 hours after [PREVIEW_TIME]. */
+private const val PREVIEW_NOW = PREVIEW_TIME + 13 * 3_600_000L
 
 private val PreviewActions = object : AppActions {
     override fun saveProvider(provider: ProviderConfig, key: String) = Unit
@@ -95,9 +98,34 @@ private fun previewSession(
             settings = settings
         ),
         selectedChatId = chat?.id.orEmpty(),
-        busy = busy,
         loading = false,
-        pendingAttachments = pendingAttachments
+        pendingAttachments = pendingAttachments,
+        chatTasks = if (busy && chat != null) mapOf(chat.id to ChatTask()) else emptyMap(),
+        chatOpen = chat != null
+    )
+}
+
+/** The home list: two chats working at once, one waiting its turn, one with an unread share. */
+private fun chatListSession(dark: Boolean = false): UiSession {
+    val heimao = Character(id = "preview-heimao", name = "黑猫")
+    val dafeiyu = Character(id = "preview-dafeiyu", name = "大肥鱼")
+    fun chat(id: String, title: String, minutesAgo: Long, last: Message, characterId: String = "", unread: Int = 0, browse: Int = 0) = Chat(
+        id = id, title = title, providerId = PREVIEW_PROVIDER, modelId = PREVIEW_MODEL, presetId = PreviewPreset.id, characterId = characterId,
+        messages = listOf(Message(id = "$id-u", role = "user", content = "在吗", createdAt = PREVIEW_TIME), last),
+        updatedAt = PREVIEW_NOW - minutesAgo * 60_000L, unread = unread, browsePerDay = browse)
+    val chats = listOf(
+        chat("list-1", "黑猫", 0, Message(id = "l1", role = "user", content = "今天看了什么番？"), heimao.id),
+        chat("list-2", "极寒末世：从继承庄园开始", 0, Message(id = "l2", role = "user", content = "继续，写到暴风雪来的那一晚。")),
+        chat("list-3", "大肥鱼", 34, Message(id = "l3", role = "assistant", content = "主人主人！刚刷到一个猫猫开会的视频，笑死我了 [sticker:laugh]"), dafeiyu.id, unread = 1, browse = 2),
+        chat("list-4", "角色卡助手", 3, Message(id = "l4", role = "user", content = "帮我做一张图书管理员的角色卡")),
+        chat("list-5", "周报整理", 60 * 24 * 3, Message(id = "l5", role = "assistant", content = "好的，周报我帮你捋成了三段。")),
+        chat("list-6", "接口排查", 60 * 24 * 12, Message(id = "l6", role = "assistant", content = "", status = "error", errorMessage = "上游返回 502，请稍后重试"))
+    )
+    return UiSession(
+        data = AppData(providers = listOf(PreviewProvider), chats = chats, characters = listOf(heimao, dafeiyu), presets = listOf(PreviewPreset),
+            settings = AppSettings(darkMode = if (dark) "dark" else "light")),
+        selectedChatId = "list-1", loading = false,
+        chatTasks = mapOf("list-1" to ChatTask(), "list-2" to ChatTask(), "list-4" to ChatTask(queued = true))
     )
 }
 
@@ -346,4 +374,25 @@ fun chatPendingAttachmentsPreview() {
         Attachment("preview-attachment-2", "layout-reference.png", "image/png", "/preview/layout-reference.png")
     )
     PocketApp(previewSession(pendingAttachments = attachments), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "会话列表", showBackground = true, widthDp = 420, heightDp = 860)
+@androidx.compose.runtime.Composable
+fun chatListPreview() {
+    androidx.compose.runtime.CompositionLocalProvider(LocalClock provides { PREVIEW_NOW }) { PocketApp(chatListSession(), PreviewActions) }
+}
+
+@PreviewTest
+@Preview(name = "会话列表深色", showBackground = true, widthDp = 420, heightDp = 860)
+@androidx.compose.runtime.Composable
+fun chatListDarkPreview() {
+    androidx.compose.runtime.CompositionLocalProvider(LocalClock provides { PREVIEW_NOW }) { PocketApp(chatListSession(dark = true), PreviewActions) }
+}
+
+@PreviewTest
+@Preview(name = "会话列表窄屏大字", showBackground = true, widthDp = 320, heightDp = 760, fontScale = 1.5f)
+@androidx.compose.runtime.Composable
+fun chatListNarrowLargeTextPreview() {
+    androidx.compose.runtime.CompositionLocalProvider(LocalClock provides { PREVIEW_NOW }) { PocketApp(chatListSession(), PreviewActions) }
 }

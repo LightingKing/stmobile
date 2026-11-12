@@ -51,6 +51,14 @@ class ToolRuntime(
         client.dispatcher.cancelAll()
     }
 
+    /** Marks a request with the chat it serves, so stopping one chat leaves the others' calls alone. */
+    private class ChatTag(val chatId: String)
+
+    /** Cancels only [chatId]'s in-flight network tool call. */
+    fun cancel(chatId: String) {
+        client.dispatcher.runningCalls().filter { it.request().tag(ChatTag::class.java)?.chatId == chatId }.forEach { it.cancel() }
+    }
+
     suspend fun execute(
         name: String,
         argumentsJson: String,
@@ -88,7 +96,7 @@ class ToolRuntime(
             "workspace_write" -> writeWorkspace(args)
             "web_fetch" -> networkRequest(args, "GET", data, chat, false)
             "http_request" -> networkRequest(args, args.optString("method", "GET").uppercase(), data, chat, true)
-            "public_research" -> publicResearch(args)
+            "public_research" -> publicResearch(args, chat)
             "memory_search" -> memorySearch(args, data, chat)
             "memory_save" -> memorySave(args, data, chat)
             "skill_read" -> readSkill(args, skills)
@@ -141,7 +149,7 @@ class ToolRuntime(
         val uri = URI(url)
         if (uri.scheme?.lowercase() != "https") throw SecurityException("网络工具只允许 HTTPS")
         if (method !in setOf("GET", "POST", "PUT", "PATCH", "DELETE")) throw IllegalArgumentException("不支持的 HTTP 方法")
-        val builder = Request.Builder().url(url)
+        val builder = Request.Builder().url(url).tag(ChatTag::class.java, ChatTag(chat.id))
         val headers = args.optJSONObject("headers")
         if (headers != null) {
             val keys = headers.keys()
@@ -183,7 +191,7 @@ class ToolRuntime(
     }
 
     /** Read-only public web search. Search snippets are returned as sources, never as asserted facts. */
-    private suspend fun publicResearch(args: JSONObject): ToolResult {
+    private suspend fun publicResearch(args: JSONObject, chat: Chat): ToolResult {
         val categories = args.optJSONArray("categories")?.let { values ->
             (0 until values.length()).mapNotNull { ResearchCategory.fromWire(values.optString(it)) }
         }?.ifEmpty { ResearchCategory.values().toList() } ?: ResearchCategory.values().toList()
@@ -201,7 +209,7 @@ class ToolRuntime(
             for (searchUrl in PublicResearch.searchUrls(request)) {
                 currentCoroutineContext().ensureActive()
                 try {
-                    val http = Request.Builder().url(searchUrl).header("Accept", "text/html").header("User-Agent", "PocketTavern/0.1 public-research").get().build()
+                    val http = Request.Builder().url(searchUrl).tag(ChatTag::class.java, ChatTag(chat.id)).header("Accept", "text/html").header("User-Agent", "PocketTavern/0.1 public-research").get().build()
                     client.newCall(http).execute().use { response ->
                         val html = response.body?.byteStream()?.use(::readBounded).orEmpty()
                         if (!response.isSuccessful) throw IllegalStateException("公开搜索 HTTP ${response.code}")

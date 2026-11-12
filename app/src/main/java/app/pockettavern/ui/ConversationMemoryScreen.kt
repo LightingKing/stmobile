@@ -76,7 +76,7 @@ internal fun ConversationMemoryContent(
     }
     val previewRebuiltResult = remember(rebuildSnapshot, inspection) { if (inspection) rebuild?.let { MemoryBrowser.rebuildResult(chat, it) } else null }
     val rebuiltResult = if (inspection) previewRebuiltResult else rebuiltState?.takeIf { it.first == rebuildSnapshot }?.second
-    val locked = state.busy || state.loading
+    val locked = state.chatBusy(chat.id) || state.loading
     val previewIndex = remember(chat, inspection) { if (inspection) MemoryBrowser.index(chat) else null }
     val index by produceState(previewIndex, chat.id, chat.summaries, chat.knowledgeNotes, chat.messages, chat.activeSummaryId) {
         value = previewIndex
@@ -128,7 +128,7 @@ internal fun ConversationMemoryContent(
         Column(Modifier.fillMaxSize().padding(padding)) {
             if (rebuild != null) MemoryRebuildStatus(
                 rebuild, rebuiltResult,
-                canStop = !state.loading && rebuild.phase == "running" && state.busy,
+                canStop = !state.loading && rebuild.phase == "running" && state.chatBusy(chat.id),
                 onStop = onStop,
                 onViewResult = {
                     rebuiltResult?.key?.let {

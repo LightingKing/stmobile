@@ -44,7 +44,7 @@ internal fun DeepSeekWritingDialog(chat: Chat, state: UiSession, actions: AppAct
     val effectiveReserve = if (effort == "none") 0 else reasoningReserve
     val budgetValid = !generationBudgetEnabled || (maxOutput != null && effectiveReserve != null && limit != null &&
         maxOutput in 1..limit && effectiveReserve in 0..limit && maxOutput.toLong() + effectiveReserve <= limit.toLong())
-    val canApply = !state.busy && !state.loading && model?.offline == false && preset != null && DeepSeekWriting.isTarget(provider, chat.modelId) &&
+    val canApply = !state.chatBusy(chat.id) && !state.loading && model?.offline == false && preset != null && DeepSeekWriting.isTarget(provider, chat.modelId) &&
         reasoningCatalogReady && effort in capabilities.reasoningEffortOptions && budgetValid
     val appliedOutput = if (generationBudgetEnabled) maxOutput ?: initial.maxOutput else preset?.maxOutput ?: initial.maxOutput
     val appliedReserve = if (generationBudgetEnabled) {
@@ -70,7 +70,7 @@ internal fun DeepSeekWritingDialog(chat: Chat, state: UiSession, actions: AppAct
                 includePlatformPrompt = includePlatformPrompt,
                 onPlatformPromptChange = { includePlatformPrompt = it },
                 offline = model?.offline == true,
-                enabled = !state.busy,
+                enabled = !state.chatBusy(chat.id),
                 modifier = Modifier.heightIn(max = 560.dp)
             )
         },

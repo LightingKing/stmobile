@@ -179,7 +179,11 @@ fun PocketApp(state: UiSession, actions: AppActions) {
                     },
                     actions = {
                         if (state.loading) CircularProgressIndicator(Modifier.size(22.dp), strokeWidth = 2.dp)
-                        if (state.busy) LinearProgressIndicator(Modifier.width(56.dp).padding(end = 12.dp))
+                        // An app-wide task such as a model refresh. Chats do not wait for it.
+                        if (state.busy) {
+                            LinearProgressIndicator(Modifier.width(56.dp))
+                            TextButton(onClick = { actions.stopAppTask() }) { Text("停止") }
+                        }
                     }
                 )
                 }
@@ -285,7 +289,7 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
         Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text("上下文与记忆", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
             OutlinedButton(onClick = onPreview, Modifier.fillMaxWidth()) { Icon(Icons.Outlined.Visibility, null); Spacer(Modifier.width(6.dp)); Text("预览实际上下文") }
-            OutlinedButton(onClick = { actions.compress() }, Modifier.fillMaxWidth(), enabled = !state.busy) { Icon(Icons.Outlined.Cached, null); Spacer(Modifier.width(6.dp)); Text("压缩当前会话") }
+            OutlinedButton(onClick = { actions.compress() }, Modifier.fillMaxWidth(), enabled = !state.chatBusy(chat.id)) { Icon(Icons.Outlined.Cached, null); Spacer(Modifier.width(6.dp)); Text("压缩当前会话") }
             Text("每轮携带当前续聊摘要和近期对话；需要历史细节时，由支持工具的模型按需查询。知识库和完整原文保存在本机，可在会话记忆页查看与导出。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             if (!recallToolsAvailable) Text("当前模型目录未标记工具支持，暂不能自主查记忆。可刷新模型目录或切换支持工具的模型；仍可使用当前摘要并手动查看原文。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             OutlinedButton(onClick = { onMemory?.invoke() }, Modifier.fillMaxWidth(), enabled = onMemory != null) {
@@ -295,15 +299,15 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
             if (summaryControlsOpen) {
                 Text("这里的编辑和版本切换会改变后续对话使用的摘要。仅查看内容请使用“打开会话记忆”。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 if (activeSummary != null) {
-                    OutlinedTextField(summaryText, { summaryText = it; summaryError = null }, Modifier.fillMaxWidth().height(160.dp), enabled = !state.busy && !state.loading, label = { Text("编辑当前摘要（保存后生效）") })
+                    OutlinedTextField(summaryText, { summaryText = it; summaryError = null }, Modifier.fillMaxWidth().height(160.dp), enabled = !state.chatBusy(chat.id) && !state.loading, label = { Text("编辑当前摘要（保存后生效）") })
                     summaryError?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall) }
                 }
                 chat.summaries.sortedByDescending { it.createdAt }.forEach { summary ->
                     val through = chat.messages.indexOfFirst { it.id == summary.throughMessageId }
                     Text("${if (summary.id == chat.activeSummaryId) "当前版本" else "历史版本"} · ${summaryTime(summary.createdAt)} · ${if (through < 0) "来源范围缺失" else "至第 ${through + 1} 条消息"}", style = MaterialTheme.typography.bodySmall)
-                    if (summary.id != chat.activeSummaryId) TextButton(onClick = { actions.restoreSummary(summary.id) }, enabled = !state.busy && !state.loading) { Text("明确恢复此版本") }
+                    if (summary.id != chat.activeSummaryId) TextButton(onClick = { actions.restoreSummary(summary.id) }, enabled = !state.chatBusy(chat.id) && !state.loading) { Text("明确恢复此版本") }
                 }
-                OutlinedButton(onClick = { actions.restoreSummary("") }, Modifier.fillMaxWidth(), enabled = !state.busy && !state.loading) { Text("停用摘要，恢复全部原文上下文") }
+                OutlinedButton(onClick = { actions.restoreSummary("") }, Modifier.fillMaxWidth(), enabled = !state.chatBusy(chat.id) && !state.loading) { Text("停用摘要，恢复全部原文上下文") }
             }
             Divider()
             Text("本会话 Skills", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
@@ -323,10 +327,10 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
                                     if (!skill.enabled) Text("总开关关闭 · 不会注入", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.error)
                                     else skillCostById[skill.id]?.let { SkillCostLine(it) }
                                 }
-                                IconButton(enabled = !state.busy && index > 0, onClick = {
+                                IconButton(enabled = !state.chatBusy(chat.id) && index > 0, onClick = {
                                     selectedOrder = moveSkillInOrder(selectedOrder, skill.id, -1)
                                 }) { Icon(Icons.Outlined.ArrowUpward, if (index > 0) "将“${skill.name.ifBlank { "未命名 Skill" }}”提前到第 $index 位" else "“${skill.name.ifBlank { "未命名 Skill" }}”已在第 1 位") }
-                                IconButton(enabled = !state.busy && index < orderedSkills.lastIndex, onClick = {
+                                IconButton(enabled = !state.chatBusy(chat.id) && index < orderedSkills.lastIndex, onClick = {
                                     selectedOrder = moveSkillInOrder(selectedOrder, skill.id, 1)
                                 }) { Icon(Icons.Outlined.ArrowDownward, if (index < orderedSkills.lastIndex) "将“${skill.name.ifBlank { "未命名 Skill" }}”延后到第 ${index + 2} 位" else "“${skill.name.ifBlank { "未命名 Skill" }}”已在第 ${index + 1} 位") }
                             }
@@ -335,7 +339,7 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
                 }
             }
             Text("新勾选的 Skill 会追加到注入顺序末尾并自动打开“允许启用”；已经在本会话但总开关后来被关闭的 Skill 不会被悄然重新启用，请到 Skills 页明确打开。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            ChatSkillPicker(skills, selectedOrder.toSet(), state.busy || state.loading, costs = skillCostById, onSelect = { skill, checked ->
+            ChatSkillPicker(skills, selectedOrder.toSet(), state.chatBusy(chat.id) || state.loading, costs = skillCostById, onSelect = { skill, checked ->
                 if (checked && skill.adult && !state.data.settings.adultSkillsConfirmed) pendingAdult = skill.id
                 else selectedOrder = if (checked) (selectedOrder + skill.id).distinct() else selectedOrder.filterNot { it == skill.id }
             })
@@ -350,16 +354,16 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
             // Stickers live on the PC, so only a chat using the PC writing server can send them.
             val onPc = state.data.providers.firstOrNull { it.id == liveChat.providerId }?.kind.equals("writing-server", ignoreCase = true)
             val stickerCount = if (onPc) app.pockettavern.engine.StickerGate.packsFor(state.data.characters.firstOrNull { it.id == liveChat.characterId }, state.pcLink.stickerPacks.orEmpty()).sumOf { it.stickers.size } else 0
-            StickerFrequencyChooser(liveFrequency, stickerCount, !state.busy && !state.loading, onPc = onPc) {
+            StickerFrequencyChooser(liveFrequency, stickerCount, !state.chatBusy(chat.id) && !state.loading, onPc = onPc) {
                 actions.setChatStickerFrequency(chat.id, it)
             }
             Divider()
             Text("自己刷视频", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
             VideoBrowseChooser(liveChat.browsePerDay, app.pockettavern.engine.VideoBrowse.eligible(liveChat, state.data.providers), onPc,
-                !state.busy && !state.loading, state.pcLink.status?.bilibiliLogin,
+                !state.chatBusy(chat.id) && !state.loading, state.pcLink.status?.bilibiliLogin,
                 onSelect = { actions.setChatBrowse(chat.id, it) }, onBrowseNow = { actions.browseNow(chat.id); onDismiss() })
         }
-    }, confirmButton = { Button(enabled = !state.busy && !state.loading, onClick = {
+    }, confirmButton = { Button(enabled = !state.chatBusy(chat.id) && !state.loading, onClick = {
         if (activeSummary != null && summaryText.isBlank()) {
             summaryError = "摘要内容不能为空；如需重新生成，请在会话记忆页重建。"
             summaryControlsOpen = true

@@ -105,7 +105,7 @@ internal fun ResearchContent(
     var noteId by rememberSaveable(chat.id) { mutableStateOf(initialNoteId) }
     val notes = remember(chat.knowledgeNotes) { chat.knowledgeNotes.filter { it.sourceKind == "research" }.sortedByDescending { it.createdAt } }
     val note = notes.firstOrNull { it.id == noteId }
-    val locked = state.busy || state.loading
+    val locked = state.chatBusy(chat.id) || state.loading
     val hasKey = provider != null && provider.id in state.hasKeys
     val subjectLength = subject.codePointCount(0, subject.length)
     val ready = !locked && subject.trim().isNotBlank() && subjectLength <= 200 && selected.isNotEmpty() && provider != null && hasKey && modelId.trim().isNotBlank() && modelId.trim().length <= 200 && (searchMode == "native" || state.hasResearchSearchKey)

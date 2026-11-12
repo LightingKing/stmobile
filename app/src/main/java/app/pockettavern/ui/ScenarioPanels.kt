@@ -339,8 +339,8 @@ internal fun ScenarioStatusScreen(chat: Chat, state: UiSession, actions: AppActi
     ) {
         Column(Modifier.fillMaxWidth().wrapContentHeight().heightIn(max = panelMaxHeight)) {
             PanelHeader("剧本状态", "资源、兑换、升级和任务；数据来自当前会话与剧本世界书", Icons.Outlined.Inventory2, onDismiss) {
-                IconButton(onClick = { actions.organizeScenarioFromHistory(chat.id) }, enabled = !state.busy) { Icon(Icons.Outlined.AutoAwesome, "从历史对话整理") }
-                IconButton(onClick = { editOpen = true }, enabled = !state.busy) { Icon(Icons.Outlined.Edit, "编辑动态状态") }
+                IconButton(onClick = { actions.organizeScenarioFromHistory(chat.id) }, enabled = !state.chatBusy(chat.id)) { Icon(Icons.Outlined.AutoAwesome, "从历史对话整理") }
+                IconButton(onClick = { editOpen = true }, enabled = !state.chatBusy(chat.id)) { Icon(Icons.Outlined.Edit, "编辑动态状态") }
             }
             LazyColumn(Modifier.fillMaxWidth().wrapContentHeight().heightIn(max = panelMaxHeight - 96.dp), contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 28.dp)) {
                 item {
@@ -405,7 +405,7 @@ internal fun ScenarioStatusScreen(chat: Chat, state: UiSession, actions: AppActi
             }
         }
     }
-    if (editOpen) ScenarioStateEditor(chat.scenarioState, state.busy, onDismiss = { editOpen = false }) { actions.saveScenarioState(chat.id, it); editOpen = false }
+    if (editOpen) ScenarioStateEditor(chat.scenarioState, state.chatBusy(chat.id), onDismiss = { editOpen = false }) { actions.saveScenarioState(chat.id, it); editOpen = false }
 }
 
 @Composable
@@ -478,8 +478,8 @@ internal fun ScenarioRosterScreen(chat: Chat, state: UiSession, actions: AppActi
     ModalBottomSheet(onDismissRequest = onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true), containerColor = MaterialTheme.colorScheme.background) {
         Column(Modifier.fillMaxWidth().wrapContentHeight().heightIn(max = panelMaxHeight)) {
             PanelHeader("角色关系图", "人物、岗位、关系和当前状态；未记录的字段会明确标出", Icons.Outlined.AccountTree, onDismiss) {
-                IconButton(onClick = { actions.organizeScenarioFromHistory(chat.id) }, enabled = !state.busy) { Icon(Icons.Outlined.AutoAwesome, "从历史对话整理") }
-                IconButton(onClick = { editPerson = ScenarioPerson() }, enabled = !state.busy) { Icon(Icons.Outlined.Add, "新增人物") }
+                IconButton(onClick = { actions.organizeScenarioFromHistory(chat.id) }, enabled = !state.chatBusy(chat.id)) { Icon(Icons.Outlined.AutoAwesome, "从历史对话整理") }
+                IconButton(onClick = { editPerson = ScenarioPerson() }, enabled = !state.chatBusy(chat.id)) { Icon(Icons.Outlined.Add, "新增人物") }
             }
             LazyColumn(Modifier.fillMaxWidth().wrapContentHeight().heightIn(max = panelMaxHeight - 96.dp), state = listState, contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 28.dp)) {
                 item {
@@ -511,7 +511,7 @@ internal fun ScenarioRosterScreen(chat: Chat, state: UiSession, actions: AppActi
             }
         }
     }
-    editPerson?.let { person -> ScenarioPersonEditor(person, state.busy, onDismiss = { editPerson = null }) { next ->
+    editPerson?.let { person -> ScenarioPersonEditor(person, state.chatBusy(chat.id), onDismiss = { editPerson = null }) { next ->
         val updated = chat.scenarioRoster.filterNot { it.name == next.name } + next
         actions.saveScenarioRoster(chat.id, updated); editPerson = null
     } }

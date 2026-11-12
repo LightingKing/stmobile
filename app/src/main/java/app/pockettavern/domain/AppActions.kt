@@ -7,7 +7,10 @@ interface AppActions {
     /** Refreshes the Venice account or API-key balance shown on the model page. */
     fun refreshVeniceBalance(providerId: String) { }
     fun createChat(characterId: String = "")
+    /** Opens a chat on top of the chat list. */
     fun selectChat(id: String)
+    /** Back to the chat list; whatever the chat is doing keeps running. */
+    fun closeChat() { }
     fun updateChat(chat: Chat)
     /** Saves the user-confirmed dynamic scenario ledger for one chat. */
     fun saveScenarioState(chatId: String, state: ScenarioState) { }
@@ -56,7 +59,12 @@ interface AppActions {
     ) { }
     fun saveResearchSearchKey(key: String) { }
     fun applyDeepSeekWriting(chatId: String, effort: String, maxOutput: Int, includePlatformPrompt: Boolean, reasoningBudget: Int = 0, generationBudgetEnabled: Boolean = false) { }
+    /** Stops what the open chat is doing. Other chats keep going. */
     fun stop()
+    /** Stops the long task of one chat, whichever chat is open. */
+    fun stopChat(chatId: String) { }
+    /** Stops the app-wide task, such as a model refresh. */
+    fun stopAppTask() { }
     fun regenerate()
     fun editMessage(id: String, text: String)
     fun branchAt(messageId: String)

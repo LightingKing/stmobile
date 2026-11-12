@@ -15,6 +15,9 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.Semaphore
+import kotlinx.coroutines.sync.withLock
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
@@ -22,6 +25,8 @@ import java.io.FileOutputStream
 import java.nio.file.AtomicMoveNotSupportedException
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
+import kotlin.coroutines.AbstractCoroutineContextElement
+import kotlin.coroutines.CoroutineContext
 
 interface NativeHost {
     fun requestGenerationNotifications() { }
@@ -68,6 +73,42 @@ internal fun preferredChatId(chats: List<Chat>, persistedId: String = ""): Strin
     chats.firstOrNull { it.id == persistedId }?.id
         ?: chats.maxByOrNull { it.updatedAt }?.id.orEmpty()
 
+/**
+ * One long task of one chat: its coroutine, its own model connection and its stop reason. It rides
+ * in the coroutine context, so code deep inside a generation reaches the right connection.
+ */
+private class ChatRun(
+    val chatId: String,
+    val kind: String,
+    val background: Boolean,
+    newClient: (ChatRun) -> ProviderClient
+) : AbstractCoroutineContextElement(Key) {
+    companion object Key : CoroutineContext.Key<ChatRun>
+    /** What the request log calls this run's current request. */
+    val purpose = java.util.concurrent.atomic.AtomicReference("chat")
+    private val lazyClient = lazy { newClient(this) }
+    val client: ProviderClient by lazyClient
+    var job: Job? = null
+    var stopReason: String? = null
+    var queued = false
+    fun cancelRequest() { if (lazyClient.isInitialized()) client.cancel() }
+}
+
+/**
+ * One lease shared by every holder: opened by the first, closed after the last. The controller
+ * uses it for the foreground service that keeps background replies alive.
+ */
+internal class SharedLease<T : Any>(private val open: () -> T, private val close: (T) -> Unit) {
+    var current: T? = null
+        private set
+    private var holders = 0
+    fun acquire(): T { holders++; return current ?: open().also { current = it } }
+    fun release() {
+        if (holders == 0) return
+        if (--holders == 0) current?.let { current = null; close(it) }
+    }
+}
+
 class AppController(application: Application) : AndroidViewModel(application), AppActions {
     private val app = application as PocketApplication
     private val sessionPreferences = app.getSharedPreferences(SESSION_PREFERENCES, Application.MODE_PRIVATE)
@@ -94,6 +135,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     private val compactCheckpoints by lazy { CompactCheckpointStore(File(app.filesDir, "compact-pending")) }
     @Volatile private var requestPurpose = "chat"
     @Volatile var uiVisible = false
+        set(value) { field = value; if (value) markOpenChatRead() }
     private val providerClient = ProviderClient(onDiagnostic = { event ->
         runCatching { requestLogs.record(JSONObject(event).put("purpose", requestPurpose)
             .put("app_state", if (uiVisible) "foreground" else "background").toString()) }
@@ -130,12 +172,31 @@ class AppController(application: Application) : AndroidViewModel(application), A
         onError = { error -> viewModelScope.launch { status("保存失败：${error.message ?: "存储不可用"}") } }
     )
     private var loadFailed = false
+    /** The one app-wide task (model refresh, Skill install, billing check, media). Chats do not wait for it. */
     private var operation: Job? = null
     /** Balance lookups are independent read-only jobs and must not occupy the chat busy flag. */
     private val veniceBalanceJobs = mutableMapOf<String, Job>()
     private data class GenerationLease(val token: String = newId(), val ready: CompletableDeferred<Unit> = CompletableDeferred())
-    private var generationLease: GenerationLease? = null
+    /** One foreground service covers every background chat task and stops with the last one. */
+    private val leases = SharedLease(
+        open = {
+            GenerationLease().also { lease ->
+                host?.requestGenerationNotifications()
+                // A start refusal reaches every task waiting on this lease.
+                runCatching { GenerationService.start(app, lease.token) }.onFailure { lease.ready.completeExceptionally(it) }
+            }
+        },
+        close = { GenerationService.finish(app, it.token) }
+    )
     private var stopReason: String? = null
+    /** Long tasks by chat id. Only touched on the main thread. */
+    private val chatRuns = LinkedHashMap<String, ChatRun>()
+    private val replySlots = Semaphore(ChatTask.MAX_REPLIES)
+    /** Connections of all chat tasks share one pool; each task still has its own client and cancel. */
+    private val chatHttp = okhttp3.OkHttpClient()
+    /** The summary transport handles one request at a time, whichever chat needs it. */
+    private val compactGate = Mutex()
+    private var compactOwner: ChatRun? = null
     private var installationCall: okhttp3.Call? = null
     private val data get() = mutable.value.data
     private val selected get() = data.chats.find { it.id == mutable.value.selectedChatId }
@@ -182,16 +243,37 @@ class AppController(application: Application) : AndroidViewModel(application), A
         if (persist) saves.submit(value)
     }
     private fun status(text: String) { mutable.value = mutable.value.copy(status=text) }
-    private fun changeChat(id: String, persist: Boolean = true, transform: (Chat)->Chat) {
-        change(data.copy(chats=data.chats.map { if(it.id==id) transform(it).copy(updatedAt=System.currentTimeMillis()) else it }),persist)
+    /** [touch] false keeps the chat's time: streamed text must not reorder the chat list on every piece. */
+    private fun changeChat(id: String, persist: Boolean = true, touch: Boolean = true, transform: (Chat)->Chat) {
+        change(data.copy(chats=data.chats.map { if(it.id==id) transform(it).let { changed -> if (touch) changed.copy(updatedAt=System.currentTimeMillis()) else changed } else it }),persist)
     }
     private fun current(id: String): Chat = data.chats.find { it.id == id } ?: error("会话已删除")
     private fun provider(id: String): ProviderConfig = data.providers.find { it.id==id } ?: error("请先配置模型平台")
     private fun credentialId(provider: ProviderConfig): String = java.security.MessageDigest.getInstance("SHA-256").digest("${provider.id}|${provider.kind}|${provider.baseUrl.trim().trimEnd('/')}".toByteArray(Charsets.UTF_8)).joinToString("") { "%02x".format(it) }
     private fun key(id: String): String = app.secrets.get(credentialId(provider(id))).also { require(it.isNotBlank()) { "请在模型页面填写 API key" } }
     private fun preset(chat: Chat): Preset = data.presets.find { it.id==chat.presetId } ?: data.presets.first()
+    /** Saves the final state and runs the caller's check. Returns what to report and whether saving failed. */
+    private suspend fun settle(failure: String?, verifySavedState: (suspend () -> Unit)?): Pair<String?, Boolean> {
+        var result = failure
+        var saveFailed = false
+        runCatching { saves.flush(data) }.onFailure {
+            val saveError = "保存失败：${it.message ?: "存储不可用"}"
+            result = listOfNotNull(result, saveError).joinToString("\n")
+            saveFailed = true
+            status(saveError)
+        }
+        if (result == null && verifySavedState != null) {
+            runCatching { verifySavedState() }.onFailure {
+                val checkError = "保存后校验未通过：${it.message?.take(500) ?: "无法核对重建结果"}"
+                result = checkError
+                status(checkError)
+            }
+        }
+        return result to saveFailed
+    }
+
+    /** An app-wide task (model refresh, Skill install, billing check, media): one at a time. Chats keep working. */
     private fun action(
-        backgroundGeneration: Boolean = false,
         onStarted: () -> Unit = {},
         onFinished: (error: String?, cancelled: Boolean) -> Unit = { _, _ -> },
         verifySavedState: (suspend () -> Unit)? = null,
@@ -200,63 +282,163 @@ class AppController(application: Application) : AndroidViewModel(application), A
         if(mutable.value.loading) { status("正在读取本地数据，请稍候"); return }
         if(loadFailed) { status("请先恢复本地数据，已阻止新任务覆盖原数据库"); return }
         if(mutable.value.busy) { status("当前任务进行中，请先停止或等待完成"); return }
-        val lease = if (backgroundGeneration) GenerationLease() else null
-        generationLease = lease
         stopReason = null
         mutable.value = mutable.value.copy(busy=true,status="")
         onStarted()
         operation = viewModelScope.launch(start = CoroutineStart.LAZY) {
             var failure: String? = null
             var cancelled = false
-            var serviceReady = lease == null
-            try {
-                if (lease != null) {
-                    host?.requestGenerationNotifications()
-                    GenerationService.start(app, lease.token)
-                    withTimeout(10_000) { lease.ready.await() }
-                    serviceReady = true
-                }
-                block()
-            }
-            catch (_: TimeoutCancellationException) {
-                failure = if (serviceReady) "任务等待超时，请查看诊断日志后重试" else "后台生成服务未能及时启动，请返回应用后重试"
-                status(failure)
-            }
-            catch (_: CancellationException) { cancelled = true; failure = stopReason ?: "生成已中断；已收到的内容已保留，可重试"; status(failure) }
-            catch (error: Exception) { failure = error.message?.take(800) ?: "操作失败"; status(failure) }
+            try { block() }
+            catch (_: TimeoutCancellationException) { failure = "任务等待超时，请查看诊断日志后重试" }
+            catch (_: CancellationException) { cancelled = true; failure = stopReason ?: "任务已中断" }
+            catch (error: Exception) { failure = error.message?.take(800) ?: "操作失败" }
             finally {
-                // Keep the process foreground until the final text/status reached storage.
-                withContext(NonCancellable) {
-                    runCatching { saves.flush(data) }.onFailure {
-                        val saveError = "保存失败：${it.message ?: "存储不可用"}"
-                        failure = listOfNotNull(failure, saveError).joinToString("\n")
-                        cancelled = false
-                        status(saveError)
-                    }
-                    if (failure == null && verifySavedState != null) {
-                        runCatching { verifySavedState() }.onFailure {
-                            failure = "保存后校验未通过：${it.message?.take(500) ?: "无法核对重建结果"}"
-                            status(failure!!)
-                        }
-                    }
-                }
-                if (generationLease === lease) generationLease = null
-                lease?.let { GenerationService.finish(app, it.token) }
+                failure?.let { status(it) }
+                val settled = withContext(NonCancellable) { settle(failure, verifySavedState) }
+                if (settled.second) cancelled = false
                 mutable.value = mutable.value.copy(busy=false)
                 operation = null
-                onFinished(failure, cancelled)
+                onFinished(settled.first, cancelled)
             }
         }
         operation?.start()
     }
 
-    internal fun isGenerationActive(token: String): Boolean = generationLease?.token == token
+    private fun chatBusy(chatId: String?): Boolean = chatId != null && chatId in chatRuns
+
+    /** True, with the reason in the status line, while this chat has a task running. */
+    private fun chatLocked(chatId: String?): Boolean {
+        val task = chatId?.let { mutable.value.chatTasks[it] } ?: return false
+        status(ChatTasks.busyNotice(task))
+        return true
+    }
+
+    private fun chatTaskRefusal(chatId: String, kind: String): String? = when {
+        mutable.value.loading -> "正在读取本地数据，请稍候"
+        loadFailed -> "请先恢复本地数据，已阻止新任务覆盖原数据库"
+        else -> ChatTasks.refusal(mutable.value.chatTasks, chatId, kind)
+    }
+
+    private fun publishChatTasks() {
+        mutable.value = mutable.value.copy(chatTasks = chatRuns.mapValues { ChatTask(it.value.kind, it.value.queued) })
+        GenerationService.refresh()
+    }
+
+    /** A message about a chat the user is not looking at says which chat it is about. */
+    private fun chatStatus(chatId: String, text: String) {
+        val title = data.chats.firstOrNull { it.id == chatId }?.title?.takeIf { chatId != mutable.value.selectedChatId }
+        status(if (title == null) text else "「${title.take(16)}」$text")
+    }
+
+    private fun logRequest(event: String, purpose: String) {
+        runCatching { requestLogs.record(JSONObject(event).put("purpose", purpose)
+            .put("app_state", if (uiVisible) "foreground" else "background").toString()) }
+    }
+
+    /**
+     * A long task of one chat: a reply, or memory upkeep. Other chats and the settings stay usable;
+     * only this chat is busy until it ends. Returns false, with the reason in the status line, when
+     * it cannot start.
+     */
+    private fun chatTask(
+        chatId: String,
+        kind: String = ChatTask.REPLY,
+        background: Boolean = true,
+        onStarted: () -> Unit = {},
+        onFinished: (error: String?, cancelled: Boolean) -> Unit = { _, _ -> },
+        verifySavedState: (suspend () -> Unit)? = null,
+        block: suspend () -> Unit
+    ): Boolean {
+        chatTaskRefusal(chatId, kind)?.let { status(it); return false }
+        val run = ChatRun(chatId, kind, background) { owner ->
+            ProviderClient(client = chatHttp, onDiagnostic = { event -> logRequest(event, owner.purpose.get()) })
+        }
+        val lease = if (background) leases.acquire() else null
+        run.queued = kind == ChatTask.REPLY && ChatTasks.mustQueue(mutable.value.chatTasks)
+        chatRuns[chatId] = run
+        status("")
+        publishChatTasks()
+        onStarted()
+        run.job = viewModelScope.launch(run, start = CoroutineStart.LAZY) {
+            var failure: String? = null
+            var cancelled = false
+            var serviceReady = lease == null
+            try {
+                if (lease != null) {
+                    withTimeout(10_000) { lease.ready.await() }
+                    serviceReady = true
+                }
+                if (kind == ChatTask.REPLY) {
+                    if (!replySlots.tryAcquire()) {
+                        if (!run.queued) { run.queued = true; publishChatTasks() }
+                        replySlots.acquire()
+                    }
+                    try {
+                        if (run.queued) { run.queued = false; publishChatTasks() }
+                        block()
+                        markUnreadIfAway(chatId)
+                    } finally { replySlots.release() }
+                } else block()
+            }
+            catch (_: TimeoutCancellationException) {
+                failure = if (serviceReady) "任务等待超时，请查看诊断日志后重试" else "后台生成服务未能及时启动，请返回应用后重试"
+            }
+            catch (error: Exception) {
+                // A stopped request can surface as a provider error; the stop is still the reason.
+                if (error is CancellationException || !currentCoroutineContext().isActive) {
+                    cancelled = true
+                    failure = run.stopReason ?: "生成已中断；已收到的内容已保留，可重试"
+                } else failure = error.message?.take(800) ?: "操作失败"
+            }
+            finally {
+                failure?.let { chatStatus(chatId, it) }
+                // Keep the process foreground until the final text/status reached storage.
+                val settled = withContext(NonCancellable) { settle(failure, verifySavedState) }
+                if (settled.second) cancelled = false
+                if (chatRuns[chatId] === run) chatRuns.remove(chatId)
+                if (lease != null) leases.release()
+                publishChatTasks()
+                onFinished(settled.first, cancelled)
+            }
+        }
+        run.job?.start()
+        return true
+    }
+
+    /** The summary transport is shared: a chat waits here while another chat's memory is being written. */
+    private suspend fun <T> compacting(block: suspend () -> T): T {
+        val run = currentCoroutineContext()[ChatRun]
+        if (run != null && compactGate.isLocked && !run.queued) { run.queued = true; publishChatTasks() }
+        try {
+            return compactGate.withLock {
+                if (run?.queued == true) { run.queued = false; publishChatTasks() }
+                compactOwner = run
+                try { block() } finally { compactOwner = null }
+            }
+        } finally {
+            if (run?.queued == true) { run.queued = false; publishChatTasks() }
+        }
+    }
+
+    private fun stopRun(run: ChatRun, reason: String) {
+        run.stopReason = reason
+        run.job?.cancel()
+        run.cancelRequest()
+        if (compactOwner === run) compactClient.cancel()
+        tools.cancel(run.chatId)
+        if (run.kind == ChatTask.RESEARCH) { researchClient.cancel(); directSearchClient.cancel() }
+    }
+
+    internal fun isGenerationActive(token: String): Boolean = leases.current?.token == token
     internal fun onGenerationServiceReady(token: String) {
-        generationLease?.takeIf { it.token == token }?.ready?.complete(Unit)
+        leases.current?.takeIf { it.token == token }?.ready?.complete(Unit)
     }
     internal fun stopGenerationFromService(token: String, reason: String) {
-        if (isGenerationActive(token)) cancelOperation(reason)
+        // The notification covers every background task, so its stop button stops them all.
+        if (isGenerationActive(token)) chatRuns.values.filter { it.background }.forEach { stopRun(it, reason) }
     }
+    /** How many chats the background notification stands for. */
+    internal fun backgroundTaskCount(): Int = chatRuns.values.count { it.background }
     fun checkpoint() {
         if (!mutable.value.loading && !loadFailed) saves.submit(data)
     }
@@ -347,7 +529,6 @@ class AppController(application: Application) : AndroidViewModel(application), A
     override fun createChat(characterId: String) {
         if (mutable.value.loading) { status("正在读取本地数据，请稍候"); return }
         if (loadFailed) { status("本地数据读取失败，已阻止创建会话"); return }
-        if (mutable.value.busy) { status("当前任务进行中，请先停止或等待完成"); return }
         val inherited = selected?.let { currentChat ->
             data.providers.firstOrNull { it.id == currentChat.providerId }?.let { currentProvider ->
                 currentProvider.models.firstOrNull { model ->
@@ -362,35 +543,50 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val modelId = inherited?.second?.id ?: selectedProvider?.models?.firstOrNull { it.type=="text" && !it.offline }?.id.orEmpty()
         val presetId = BuiltinScenarios.presetIdForCharacter(character, data.presets)
         val chat=Chat(title=character?.name?.takeIf { it.isNotBlank() } ?: "新会话",providerId=selectedProvider?.id ?: "",modelId=modelId,presetId=presetId,characterId=characterId,messages=character?.firstMessage?.takeIf { it.isNotBlank() }?.let { listOf(Message(role="assistant",content=it)) } ?: emptyList())
-        change(data.copy(chats=listOf(chat)+data.chats)); rememberSelectedChat(chat.id); mutable.value=mutable.value.copy(selectedChatId=chat.id,pendingAttachments=emptyList())
+        change(data.copy(chats=listOf(chat)+data.chats)); rememberSelectedChat(chat.id); mutable.value=mutable.value.copy(selectedChatId=chat.id,chatOpen=true,pendingAttachments=emptyList())
     }
     override fun selectChat(id: String) {
         if (data.chats.none { it.id == id }) { status("会话不存在"); return }
         rememberSelectedChat(id)
-        mutable.value=mutable.value.copy(selectedChatId=id,pendingAttachments=emptyList())
+        mutable.value=mutable.value.copy(selectedChatId=id,chatOpen=true,pendingAttachments=emptyList())
+        markOpenChatRead()
+    }
+    override fun closeChat() { mutable.value=mutable.value.copy(chatOpen=false,pendingAttachments=emptyList()) }
+
+    /** The chat on screen has nothing unread. Opening a chat must not move it in the list, so its time stays. */
+    private fun markOpenChatRead() {
+        if (mutable.value.loading || loadFailed || !mutable.value.chatOpen) return
+        val id = mutable.value.selectedChatId
+        if (data.chats.any { it.id == id && it.unread != 0 }) change(data.copy(chats=data.chats.map { if (it.id == id) it.copy(unread=0) else it }))
+    }
+
+    /** A reply that finished while the user was elsewhere shows as unread in the chat list. */
+    private fun markUnreadIfAway(chatId: String) {
+        val watching = uiVisible && mutable.value.chatOpen && mutable.value.selectedChatId == chatId
+        if (!watching) change(data.copy(chats=data.chats.map { if (it.id == chatId) it.copy(unread=it.unread+1) else it }))
     }
     override fun updateChat(chat: Chat) {
-        if(mutable.value.busy) { status("请先停止当前任务再修改会话设置"); return }
+        if(chatLocked(chat.id)) return
         val blocked=if(data.settings.adultSkillsConfirmed) emptySet() else data.skills.filter { it.adult }.map { it.id }.toSet()
         if(chat.skillIds.any { it in blocked }) status("成人向 Skill 需要先确认已年满 18 岁，并仅用于成年角色")
         changeChat(chat.id) { chat.copy(skillIds=chat.skillIds.filterNot { it in blocked }) }
     }
     override fun saveScenarioState(chatId: String, state: ScenarioState) {
-        if (mutable.value.busy) { status("请先停止当前任务再保存剧本状态"); return }
+        if (chatLocked(chatId)) return
         if (data.chats.none { it.id == chatId }) { status("会话不存在"); return }
         changeChat(chatId) { it.copy(scenarioState = state.copy(updatedAt = System.currentTimeMillis(), source = state.source.ifBlank { "用户确认" })) }
         status("剧本状态已保存")
     }
     override fun saveScenarioRoster(chatId: String, roster: List<ScenarioPerson>) {
-        if (mutable.value.busy) { status("请先停止当前任务再保存人物名册"); return }
+        if (chatLocked(chatId)) return
         if (data.chats.none { it.id == chatId }) { status("会话不存在"); return }
         changeChat(chatId) { it.copy(scenarioRoster = roster) }
         status("人物名册已保存")
     }
     override fun organizeScenarioFromHistory(chatId: String) {
         if (data.chats.none { it.id == chatId }) { status("会话不存在"); return }
-        action(backgroundGeneration = true, onStarted = { status("正在读取历史对话，整理剧本状态和人物关系…") }) {
-            val changed = organizeScenarioFromHistoryInternal(chatId)
+        chatTask(chatId, ChatTask.ORGANIZE, onStarted = { status("正在读取历史对话，整理剧本状态和人物关系…") }) {
+            val changed = compacting { organizeScenarioFromHistoryInternal(chatId) }
             status(if (changed) "已根据历史对话整理剧本状态和人物关系" else "历史中没有发现可确认的新状态，原记录保持不变")
         }
     }
@@ -496,18 +692,21 @@ class AppController(application: Application) : AndroidViewModel(application), A
         return true
     }
     override fun deleteChat(id: String) {
-        if(mutable.value.busy || mutable.value.loading || loadFailed) { status("请等待本地数据读取完成并停止当前任务"); return }
+        if(mutable.value.loading || loadFailed) { status("请等待本地数据读取完成"); return }
+        if(chatLocked(id)) return
         val next = data.copy(chats=data.chats.filterNot { it.id==id },memories=data.memories.filterNot { it.scope=="chat" && it.targetId==id })
         change(next)
         val nextSelected = if(mutable.value.selectedChatId==id) preferredChatId(next.chats, "") else mutable.value.selectedChatId
         rememberSelectedChat(nextSelected)
         mutable.value=mutable.value.copy(
             selectedChatId=nextSelected,
+            chatOpen=mutable.value.chatOpen && mutable.value.selectedChatId != id,
             repairBackupChatIds=mutable.value.repairBackupChatIds
         )
         viewModelScope.launch {
             runCatching {
-                saves.flush(next)
+                // Other chats may have streamed text since: save what is current, not the earlier snapshot.
+                saves.flush(data)
                 val deleted = withContext(Dispatchers.IO) {
                     compactCheckpoints.clear(id, "compression")
                     compactCheckpoints.clear(id, "memory_rebuild")
@@ -519,7 +718,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
         }
     }
     override fun repairMessages(chatId: String, messageIds: Set<String>) {
-        if(mutable.value.busy || mutable.value.loading || loadFailed) { status("请等待会话空闲并完成本地数据读取后再修复"); return }
+        if(mutable.value.loading || loadFailed) { status("请等待本地数据读取完成后再修复"); return }
+        if(chatLocked(chatId)) return
         val originalData = data
         val originalChat = originalData.chats.firstOrNull { it.id == chatId } ?: run { status("找不到要修复的会话"); return }
         viewModelScope.launch {
@@ -531,28 +731,28 @@ class AppController(application: Application) : AndroidViewModel(application), A
                     writeRepairBackup(originalChat, cleaned)
                     discarded
                 }
-                if (data !== originalData) error("修复期间会话数据发生变化，已保留修复前快照，请重新打开预览")
-                change(originalData.copy(chats=originalData.chats.map { if (it.id == chatId) cleaned else it }))
+                // Other chats may be streaming meanwhile: only this chat has to be unchanged, and only it is written.
+                if (data.chats.firstOrNull { it.id == chatId } !== originalChat) error("修复期间会话数据发生变化，已保留修复前快照，请重新打开预览")
+                change(data.copy(chats=data.chats.map { if (it.id == chatId) cleaned else it }))
                 mutable.value = mutable.value.copy(repairBackupChatIds=(if (discardedOldSnapshots) emptySet() else mutable.value.repairBackupChatIds) + chatId)
                 status("已清理 ${originalChat.messages.size - cleaned.messages.size} 条消息；当前摘要和历史知识索引已重新对齐，可从原剧情继续，修复前快照可撤销")
             }.onFailure { status("会话修复未应用：${it.message ?: "未知错误"}") }
         }
     }
     override fun undoLastChatRepair(chatId: String) {
-        if (mutable.value.busy || mutable.value.loading || loadFailed) { status("请等待会话空闲并完成本地数据读取后再撤销"); return }
-        val originalData = data
-        if (originalData.chats.none { it.id == chatId }) { status("找不到会话"); return }
+        if (mutable.value.loading || loadFailed) { status("请等待本地数据读取完成后再撤销"); return }
+        if (chatLocked(chatId)) return
+        val originalChat = data.chats.firstOrNull { it.id == chatId } ?: run { status("找不到会话"); return }
         viewModelScope.launch {
             runCatching {
                 val previous = withContext(Dispatchers.IO) { readRepairBackup(chatId) }
                 require(previous.id == chatId) { "备份与当前会话身份不匹配" }
-                if (data !== originalData) error("撤销期间会话数据发生变化，请重试")
-                val currentChat = originalData.chats.first { it.id == chatId }
+                // Other chats may be streaming meanwhile: only this chat has to be unchanged, and only it is written.
+                val currentChat = data.chats.firstOrNull { it.id == chatId }?.takeIf { it === originalChat } ?: error("撤销期间会话数据发生变化，请重试")
                 require(ConversationRepair.snapshotAppliesTo(previous, currentChat)) { "修复快照不属于当前会话状态，已拒绝恢复" }
                 val restored = ConversationRepair.restore(previous, currentChat)
-                val restoredData = originalData.copy(chats=originalData.chats.map { if (it.id == chatId) restored else it })
-                change(restoredData)
-                saves.flush(restoredData)
+                change(data.copy(chats=data.chats.map { if (it.id == chatId) restored else it }))
+                saves.flush(data)
                 val backupDeleted = withContext(Dispatchers.IO) { repairBackupFile(chatId).let { it.delete() || !it.exists() } }
                 mutable.value = mutable.value.copy(repairBackupChatIds=mutable.value.repairBackupChatIds - chatId)
                 status(if (backupDeleted) {
@@ -640,7 +840,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
     override fun chooseModel(providerId: String, modelId: String) {
         if(mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
-        if(mutable.value.busy) { status("请先停止当前任务再切换模型"); return }
+        if(chatLocked(selected?.id)) return
         val candidate=data.providers.find { it.id==providerId }?.models?.find { it.id==modelId }
         if(candidate==null || candidate.type!="text" || candidate.offline) { status("请选择目录中可用的聊天模型，必要时先刷新"); return }
         if(selected==null) createChat()
@@ -656,9 +856,9 @@ class AppController(application: Application) : AndroidViewModel(application), A
     override fun sendWithIntent(text: String, intent: String): Boolean {
         if(text.isBlank() && mutable.value.pendingAttachments.isEmpty()) return false
         if(mutable.value.loading || loadFailed) { status("本地数据尚未就绪，消息未发送"); return false }
-        if(mutable.value.busy) { status("当前任务进行中"); return false }
         if(selected==null) createChat()
         val chat=selected ?: return false
+        chatTaskRefusal(chat.id, ChatTask.REPLY)?.let { status(it); return false }
         if(chat.modelId.isBlank()) { status("请先在模型页面刷新并选择聊天模型"); return false }
         val attachments=mutable.value.pendingAttachments
         val model=data.providers.find { it.id==chat.providerId }?.models?.find { it.id==chat.modelId }
@@ -668,7 +868,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
             changeChat(chat.id) { ConversationTurns.append(it,message).copy(title=if(it.messages.isEmpty() && it.title=="新会话") text.trim().take(24).ifBlank { "附件会话" } else it.title) }
             disableExcludedMemories(chat.id)
             mutable.value=mutable.value.copy(pendingAttachments=emptyList())
-            action(backgroundGeneration = true) { generate(chat.id) }
+            chatTask(chat.id) { generate(chat.id) }
             true
         } catch (error: Exception) {
             // Sending is invoked directly from a Compose click handler. A
@@ -681,6 +881,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     private suspend fun generate(chatId: String) {
         var liveId=""
         val generationId=newId()
+        val run = currentCoroutineContext()[ChatRun] ?: error("生成任务没有绑定会话")
         try {
             var chat=current(chatId)
             var context=buildContext(data, chat)
@@ -727,12 +928,12 @@ class AppController(application: Application) : AndroidViewModel(application), A
                     for (snapshot in updates) {
                         val persist=System.currentTimeMillis()-lastSave>900
                         if(persist) lastSave=System.currentTimeMillis()
-                        changeChat(chatId,persist) { c -> c.copy(messages=c.messages.map { if(it.id==assistant.id && it.status=="streaming") it.copy(content=snapshot.content,reasoning=snapshot.reasoning) else it }) }
+                        changeChat(chatId,persist,touch=false) { c -> c.copy(messages=c.messages.map { if(it.id==assistant.id && it.status=="streaming") it.copy(content=snapshot.content,reasoning=snapshot.reasoning) else it }) }
                     }
                 }
                 val result = try {
-                    requestPurpose = if (finalAnswerOnly) "chat_final" else "chat"
-                    providerClient.chat(routed(p),secret,before.modelId,outgoing,preset(before),toolDefinitions,
+                    run.purpose.set(if (finalAnswerOnly) "chat_final" else "chat")
+                    run.client.chat(routed(p),secret,before.modelId,outgoing,preset(before),toolDefinitions,
                         metadata = if (p.kind.equals("writing-server", ignoreCase = true)) mapOf(
                             "pocket_tavern_chat_id" to chatId,
                             "pocket_tavern_purpose" to "chat"
@@ -849,13 +1050,16 @@ class AppController(application: Application) : AndroidViewModel(application), A
         }
         if(result!=chat.messages) changeChat(chatId) { it.copy(messages=result) }
     }
-    override fun stop() = cancelOperation(
-        if (mutable.value.memoryRebuild?.phase == "running") "已停止记忆重建"
-        else "已停止；已收到的内容已保留"
-    )
+    /** Stops what the open chat is doing; other chats keep going. */
+    override fun stop() = stopChat(mutable.value.selectedChatId)
+    override fun stopChat(chatId: String) {
+        val run = chatRuns[chatId] ?: return
+        stopRun(run, if (run.kind == ChatTask.REBUILD) "已停止记忆重建" else "已停止；已收到的内容已保留")
+    }
+    override fun stopAppTask() = cancelOperation("已停止")
     private fun cancelOperation(reason: String) {
         stopReason = reason
-        operation?.cancel(); providerClient.cancel(); compactClient.cancel(); researchClient.cancel(); directSearchClient.cancel(); billingClient.cancel(); mediaClient.cancel(); tools.cancel(); installationCall?.cancel()
+        operation?.cancel(); providerClient.cancel(); billingClient.cancel(); mediaClient.cancel(); installationCall?.cancel()
     }
     private fun disableExcludedMemories(chatId: String) {
         val memories=ConversationTurns.disableExcludedMemories(current(chatId),data.memories)
@@ -864,21 +1068,21 @@ class AppController(application: Application) : AndroidViewModel(application), A
     override fun regenerate() {
         val chat=selected ?: return
         if(mutable.value.loading || loadFailed) { status("本地数据尚未就绪，未重新生成"); return }
-        if(mutable.value.busy) return
+        chatTaskRefusal(chat.id, ChatTask.REPLY)?.let { status(it); return }
         if(chat.messages.none { it.role=="user" && !it.contextExcluded }) { status("请先发送一条消息"); return }
         changeChat(chat.id) { ConversationTurns.regenerate(it) }
         disableExcludedMemories(chat.id)
-        action(backgroundGeneration = true) { generate(chat.id) }
+        chatTask(chat.id) { generate(chat.id) }
     }
     override fun setMessageContext(id: String, included: Boolean) {
-        if(mutable.value.busy) { status("请先停止当前生成"); return }
         val chat=selected ?: return
+        if(chatLocked(chat.id)) return
         changeChat(chat.id) { ConversationTurns.setIncluded(it,id,included) }
         disableExcludedMemories(chat.id)
         status(if(included) "已恢复该轮参与上下文；请确认与后续剧情一致" else "已保留原文并排除该轮；相关旧摘要会自动失效")
     }
     override fun saveContinuityNotes(chatId: String, text: String) {
-        if(mutable.value.busy) { status("请先停止当前生成"); return }
+        if(chatLocked(chatId)) return
         if(text.length>8000) { status("当前场景最多 8000 字符"); return }
         if(data.chats.none { it.id==chatId }) { status("会话已不存在"); return }
         changeChat(chatId) { it.copy(continuityNotes=text.trim()) }
@@ -944,8 +1148,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
         if (categories.isEmpty()) { status("至少选择一个研究范围"); return }
         var savedNoteId = ""
         var completionNotice = ""
-        action(
-            backgroundGeneration = true,
+        chatTask(
+            chatId, ChatTask.RESEARCH,
             onStarted = { status("正在调用豆包联网检索并整理人物资料…") },
             onFinished = { error, cancelled ->
                 if (error == null && !cancelled && savedNoteId.isNotBlank()) status(completionNotice)
@@ -993,8 +1197,9 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 } else {
                     require(sources.isNotEmpty()) { "搜索结果与查询对象无可靠对应关系，未保存资料；请补充姓名、职业或作品名后重试" }
                     status("已获取 ${sources.size} 条来源，正在让豆包整理六类资料…")
-                    requestPurpose = "research_summary"
-                    val summary = providerClient.chat(routed(researchProvider), key(researchProviderId), researchModelId.trim(),
+                    val run = currentCoroutineContext()[ChatRun] ?: error("研究任务没有绑定会话")
+                    run.purpose.set("research_summary")
+                    val summary = run.client.chat(routed(researchProvider), key(researchProviderId), researchModelId.trim(),
                         ResearchWorkflow.summaryMessages(request, sources, observedAt), Preset(temperature = 0.3, maxOutput = 10_000, generationBudgetEnabled = true),
                         metadata = if (researchProvider.kind.equals("writing-server", ignoreCase = true)) mapOf(
                             "pocket_tavern_chat_id" to chatId,
@@ -1023,15 +1228,16 @@ class AppController(application: Application) : AndroidViewModel(application), A
         }
     }
     override fun applyDeepSeekWriting(chatId: String, effort: String, maxOutput: Int, includePlatformPrompt: Boolean, reasoningBudget: Int, generationBudgetEnabled: Boolean) {
-        if (mutable.value.busy || mutable.value.loading || loadFailed) { status("请等待会话空闲并完成本地数据读取后再应用"); return }
+        if (mutable.value.loading || loadFailed) { status("请等待本地数据读取完成后再应用"); return }
+        if (chatLocked(chatId)) return
         runCatching {
             change(DeepSeekWriting.apply(data, chatId, effort, maxOutput, includePlatformPrompt, reasoningBudget, generationBudgetEnabled))
             status("DeepSeek 写作参数已应用，下一轮生效；可在预设中选回原方案")
         }.onFailure { status(it.message ?: "写作参数应用失败") }
     }
     override fun editMessage(id: String, text: String) {
-        if(mutable.value.busy) { status("请先停止当前生成"); return }
         val chat=selected ?: return
+        if(chatLocked(chat.id)) return
         changeChat(chat.id) { c -> c.copy(messages=c.messages.map { if(it.id==id) it.copy(content=text) else it }) }
         change(data.copy(memories=data.memories.map { memory ->
             if (memory.scope=="chat" && memory.targetId==chat.id && memory.sourceMessageId==id) memory.copy(enabled=false) else memory
@@ -1039,6 +1245,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
     override fun branchAt(messageId: String) {
         val chat=selected ?: return; val index=chat.messages.indexOfFirst { it.id==messageId }; if(index<0) return
+        if(chatLocked(chat.id)) return
         val branch=chat.copy(id=newId(),title=chat.title+" · 分支",messages=chat.messages.take(index+1),activeSummaryId="",summaries=emptyList())
         val copiedMemories=data.memories.filter { it.scope=="chat" && it.targetId==chat.id && (it.sourceMessageId.isBlank() || branch.messages.any { m -> m.id==it.sourceMessageId }) }.map { it.copy(id=newId(),targetId=branch.id) }
         change(data.copy(chats=listOf(branch)+data.chats,memories=data.memories+copiedMemories)); repairPendingTools(branch.id); selectChat(branch.id)
@@ -1131,8 +1338,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
     override fun saveSkill(skill: SkillRecord) { change(data.copy(skills=data.skills.filterNot { it.id==skill.id }+skill)) }
     override fun setSkillForCurrentChat(id: String, selected: Boolean) {
         if(mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
-        if(mutable.value.busy) { status("请先停止当前任务再修改会话 Skills"); return }
         val chat=this.selected ?: run { status("请先创建或选择会话"); return }
+        if(chatLocked(chat.id)) return
         runCatching {
             change(BuiltinSkills.selectForChat(data,chat.id,id,selected))
             status(if(selected) "Skill 已启用并加入当前会话" else "Skill 已移出当前会话，其它会话不受影响")
@@ -1140,7 +1347,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
     override fun updateChatSkills(chatId: String, skillIds: List<String>, summaries: List<Summary>) {
         if(mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
-        if(mutable.value.busy) { status("请先停止当前任务再修改会话 Skills"); return }
+        if(chatLocked(chatId)) return
         val blocked = if(data.settings.adultSkillsConfirmed) emptySet() else data.skills.filter { it.adult }.map { it.id }.toSet()
         runCatching {
             val updated = applyChatSkillUpdate(data,chatId,skillIds,summaries)
@@ -1187,12 +1394,12 @@ class AppController(application: Application) : AndroidViewModel(application), A
         change(data.copy(chats=chats,settings=data.settings.copy(adultSkillsConfirmed=confirmed)))
         status(if(confirmed) "已确认：成人向 Skills 仅用于成年角色" else "已关闭成人向 Skills，并从所有会话中移除")
     }
-    override fun compress() { selected?.id?.let { id -> action(backgroundGeneration = true) { summarize(id); status("摘要已保存，原始消息完整保留") } } }
+    override fun compress() { selected?.id?.let { id -> chatTask(id, ChatTask.COMPRESS) { summarize(id); status("摘要已保存，原始消息完整保留") } } }
     override fun rebuildHistory() {
         selected?.id?.let { id ->
             var expectedNoteIds: List<String>? = null
-            action(
-                backgroundGeneration = true,
+            chatTask(
+                id, ChatTask.REBUILD,
                 onStarted = { mutable.value = mutable.value.copy(memoryRebuild = MemoryRebuildState(chatId = id)) },
                 verifySavedState = {
                     val result = mutable.value.memoryRebuild?.takeIf { it.chatId == id }
@@ -1223,7 +1430,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                         status(message)
                     }
                 }
-            ) { expectedNoteIds = rebuildHistory(id) }
+            ) { expectedNoteIds = compacting { rebuildHistory(id) } }
         }
     }
     private suspend fun rebuildHistory(chatId: String): List<String> {
@@ -1282,7 +1489,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
         val chat = selected ?: run { status("请先选择会话"); return }
         val rebuild = mutable.value.memoryRebuild
-        val busy = mutable.value.busy
+        val busy = mutable.value.busy || chatBusy(chat.id)
         viewModelScope.launch {
             runCatching {
                 val report = withContext(Dispatchers.IO) {
@@ -1317,7 +1524,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
             }.onFailure { status("记忆诊断导出失败：${it.message ?: "无法导出"}") }
         }
     }
-    private suspend fun summarize(chatId: String) {
+    private suspend fun summarize(chatId: String) = compacting { summarizeHoldingGate(chatId) }
+    private suspend fun summarizeHoldingGate(chatId: String) {
         val chat=current(chatId)
         val built = buildContext(data, chat)
         val slice = built.compression ?: error(overBudgetMessage("没有可安全压缩的旧消息", built))
@@ -1431,7 +1639,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         }
     }
     override fun restoreSummary(id: String) {
-        if(mutable.value.busy) { status("请先等待当前任务完成再切换摘要"); return }
+        if(chatLocked(selected?.id)) return
         selected?.let { changeChat(it.id) { c -> c.copy(activeSummaryId=id) } }
         status(if(id.isEmpty()) "已恢复完整原始上下文" else "已切换摘要版本")
     }
@@ -1445,7 +1653,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
     override fun dismissDiagnostics() { mutable.value=mutable.value.copy(diagnostics="") }
     override fun clearDiagnostics() {
-        if(mutable.value.busy) { status("请等待当前任务完成后清空日志"); return }
+        if(mutable.value.busy || chatRuns.isNotEmpty()) { status("请等待当前任务和正在回复的会话完成后清空日志"); return }
         viewModelScope.launch {
             withContext(Dispatchers.IO) { requestLogs.clear() }
             status("本机请求日志已清空")
@@ -1656,7 +1864,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     override fun browseNow(chatId: String) { startBrowse(chatId, manual = true) { } }
 
     override fun startCharacterBuilder(): Boolean {
-        if (mutable.value.loading || loadFailed || mutable.value.busy) { status("当前不能新建会话，请稍候"); return false }
+        if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪，请稍候"); return false }
         val provider = pcProvider()
         val model = provider?.models?.filter { it.type == "text" && !it.offline && it.supportsTools }
             ?.let { models -> models.firstOrNull { it.id == "pocket-direct" } ?: models.firstOrNull() }
@@ -1694,17 +1902,12 @@ class AppController(application: Application) : AndroidViewModel(application), A
      */
     private fun startBrowse(chatId: String, manual: Boolean, onDone: (String) -> Unit): Boolean {
         val chat = data.chats.firstOrNull { it.id == chatId } ?: run { onDone("会话不存在"); return false }
-        val refusal = when {
-            mutable.value.loading || loadFailed -> "本地数据尚未就绪"
-            mutable.value.busy -> "当前任务进行中"
-            else -> browseBlocker(chat)
-        }
+        val refusal = chatTaskRefusal(chatId, ChatTask.REPLY) ?: browseBlocker(chat)
         if (refusal != null) { if (manual) status(refusal); onDone(refusal); return false }
         val now = System.currentTimeMillis()
         val turn = Message(role = "user", content = VideoBrowse.instruction(now, java.time.ZoneId.systemDefault()), intent = VideoBrowse.INTENT)
         changeChat(chatId) { it.copy(messages = it.messages + turn, browseLog = (it.browseLog + now).takeLast(20)) }
-        action(backgroundGeneration = manual, onFinished = { error, cancelled -> onDone(error ?: if (cancelled) "已中断" else "") }) { generate(chatId) }
-        return true
+        return chatTask(chatId, background = manual, onFinished = { error, cancelled -> onDone(error ?: if (cancelled) "已中断" else "") }) { generate(chatId) }
     }
 
     /**
@@ -1713,12 +1916,12 @@ class AppController(application: Application) : AndroidViewModel(application), A
      */
     internal suspend fun runDueBrowse(): Pair<Chat, String>? {
         withTimeoutOrNull(60_000) { while (mutable.value.loading) delay(500) }
-        if (mutable.value.loading || loadFailed || mutable.value.busy) return null
+        if (mutable.value.loading || loadFailed) return null
         val now = System.currentTimeMillis()
-        val chat = data.chats.firstOrNull { it.browsePerDay > 0 && browseBlocker(it) == null && VideoBrowse.due(it, now, java.time.ZoneId.systemDefault()) } ?: return null
+        val chat = data.chats.firstOrNull { it.browsePerDay > 0 && !chatBusy(it.id) && browseBlocker(it) == null && VideoBrowse.due(it, now, java.time.ZoneId.systemDefault()) } ?: return null
         val done = CompletableDeferred<String>()
         if (!startBrowse(chat.id, manual = false) { done.complete(it) }) return null
-        val error = withTimeoutOrNull(9 * 60_000L) { done.await() } ?: run { cancelOperation("自己刷视频超时"); return null }
+        val error = withTimeoutOrNull(9 * 60_000L) { done.await() } ?: run { chatRuns[chat.id]?.let { stopRun(it, "自己刷视频超时") }; return null }
         if (error.isNotEmpty()) return null
         val reply = current(chat.id).messages.lastOrNull()?.takeIf { it.role == "assistant" && it.status == "complete" && it.content.isNotBlank() } ?: return null
         return current(chat.id) to StickerMarkup.strip(reply.content)
@@ -1778,6 +1981,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     override fun restoreFromPc(backupId: String) {
         val backup = mutable.value.pcLink.backups?.firstOrNull { it.id == backupId } ?: return updatePcLink { it.copy(error = "请先刷新电脑上的备份列表") }
+        if (chatRuns.isNotEmpty()) return updatePcLink { it.copy(error = restoreBlockedByChats()) }
         if (mutable.value.busy || mutable.value.loading) return updatePcLink { it.copy(error = "请等待当前任务完成后再恢复") }
         pcJob("restore") { provider, key ->
             // What is about to be replaced goes to the PC first; unreadable local data has nothing worth keeping.
@@ -1819,15 +2023,19 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     /** The app left the screen: the moment for the automatic PC backup, when one is due. */
     fun onBackgrounded() {
-        if (loadFailed || mutable.value.loading || mutable.value.busy || !pcBackups.autoBackupDue()) return
+        if (loadFailed || mutable.value.loading || mutable.value.busy || chatRuns.isNotEmpty() || !pcBackups.autoBackupDue()) return
         pcJob("backup", quiet = true) { provider, key -> pcBackups.upload(provider, key, data, "auto") }
     }
+
+    private fun restoreBlockedByChats() = "有 ${chatRuns.size} 个会话正在回复或整理，请先停止或等它们完成后再恢复备份"
 
     fun importBytes(kind: String, name: String, bytes: ByteArray) {
         runCatching {
             require(!mutable.value.busy && !mutable.value.loading) { "请等待当前任务和本地数据读取完成后再导入" }
             when(kind) {
                 "backup" -> {
+                    // A restore replaces everything, so no chat may be writing into the data meanwhile.
+                    require(chatRuns.isEmpty()) { restoreBlockedByChats() }
                     val currentData = data
                     mutable.value=mutable.value.copy(loading=true)
                     viewModelScope.launch {
@@ -1854,7 +2062,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                             loadFailed=false
                             val restoredSelection = preferredChatId(restored.chats, sessionPreferences.getString(LAST_SELECTED_CHAT_ID, "").orEmpty())
                             rememberSelectedChat(restoredSelection)
-                            mutable.value=mutable.value.copy(data=restored,selectedChatId=restoredSelection,loading=false,hasResearchSearchKey=app.secrets.has(DoubaoSearchClient.CREDENTIAL_ID),hasKeys=restored.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet(),missingBuiltinSkills=BuiltinSkills.missing(restored,builtinSkills),repairBackupChatIds=emptySet(),memoryRebuild=null)
+                            mutable.value=mutable.value.copy(data=restored,selectedChatId=restoredSelection,chatOpen=false,loading=false,hasResearchSearchKey=app.secrets.has(DoubaoSearchClient.CREDENTIAL_ID),hasKeys=restored.providers.filter { app.secrets.has(credentialId(it)) }.map { it.id }.toSet(),missingBuiltinSkills=BuiltinSkills.missing(restored,builtinSkills),repairBackupChatIds=emptySet(),memoryRebuild=null)
                             status(if (cleanupComplete && !repairBackupDiscardMarker().exists()) "备份已恢复；技能权限需重新授予，未配置平台请重新填写密钥" else "备份已恢复；旧修复快照已停用，下次启动会继续清理")
                         } catch (error: Throwable) {
                             if (!databaseRestored) {
@@ -1954,7 +2162,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
         runCatching { app.getSystemService(android.net.ConnectivityManager::class.java)?.unregisterNetworkCallback(networkWatch) }
         veniceBalanceJobs.values.forEach { it.cancel() }
         veniceBalanceJobs.clear()
-        stop()
+        chatRuns.values.toList().forEach { stopRun(it, "应用已关闭") }
+        cancelOperation("应用已关闭")
         super.onCleared()
     }
 

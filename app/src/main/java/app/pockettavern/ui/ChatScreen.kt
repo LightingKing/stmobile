@@ -1,5 +1,6 @@
 package app.pockettavern.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,6 +16,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.automirrored.outlined.ArrowForward
 import androidx.compose.material.icons.automirrored.outlined.MenuBook
 import androidx.compose.material.icons.outlined.*
@@ -50,9 +52,11 @@ import java.util.Locale
 @Composable
 internal fun ChatTab(state: UiSession, actions: AppActions) {
     val chats = state.data.chats.sortedByDescending { it.updatedAt }
-    val chat = chats.firstOrNull { it.id == state.selectedChatId } ?: chats.firstOrNull()
+    // The chat list is home. A chat opens on top of it, and Back returns to the list.
+    val chat = chats.firstOrNull { it.id == state.selectedChatId }?.takeIf { state.chatOpen }
+    // Inside a chat, busy means this chat: other chats and app-wide tasks do not lock it.
+    val chatBusy = state.chatBusy(chat?.id)
     val conversationStates = rememberSaveableStateHolder()
-    var historyOpen by remember { mutableStateOf(false) }
     var historyDeleteId by rememberSaveable { mutableStateOf<String?>(null) }
     var modelsOpen by remember { mutableStateOf(false) }
     var optionsOpen by remember(chat?.id) { mutableStateOf(false) }
@@ -70,35 +74,22 @@ internal fun ChatTab(state: UiSession, actions: AppActions) {
     var editMessage by remember(chat?.id) { mutableStateOf<Message?>(null) }
     var branchMessage by remember(chat?.id) { mutableStateOf<Message?>(null) }
 
-    Column(Modifier.fillMaxSize()) {
-        ConversationHeader(chat, state, actions, onHistory = { historyOpen = true }, onModels = { modelsOpen = true },
-            onOptions = { optionsOpen = true }, onRename = { renameOpen = true }, onDelete = { deleteOpen = true },
-            onRepair = { repairOpen = true }, onUndoRepair = { undoRepairOpen = true }, onMemory = { memoryOpen = true },
-            onContinuity = { continuityOpen = true }, onResearch = { researchOpen = true }, onDeepSeekWriting = { deepSeekWritingOpen = true },
-            onScenarioStatus = { scenarioStatusOpen = true }, onScenarioRoster = { scenarioRosterOpen = true })
-        if (chat == null) {
-            ConversationWelcome(Modifier.weight(1f), "给想象，留一点空间。", "聊天、创作，或继续一个故事。\n你的会话会保存在这台设备上。") {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Button(onClick = { actions.createChat() }, contentPadding = PaddingValues(horizontal = 20.dp, vertical = 14.dp), enabled = !state.busy) {
-                        Icon(Icons.Outlined.Add, null, Modifier.size(18.dp))
-                        Spacer(Modifier.width(8.dp)); Text("开始新对话")
-                    }
-                    OutlinedButton(onClick = { actions.importFile("chat") }, contentPadding = PaddingValues(horizontal = 16.dp, vertical = 14.dp), enabled = !state.busy) {
-                        Icon(Icons.Outlined.FileUpload, null, Modifier.size(18.dp))
-                        Spacer(Modifier.width(6.dp)); Text("导入会话")
-                    }
-                }
-            }
-        } else {
+    if (chat == null) {
+        ChatList(chats, state, actions, onDelete = { historyDeleteId = it })
+    } else {
+        BackHandler { actions.closeChat() }
+        Column(Modifier.fillMaxSize()) {
+            ConversationHeader(chat, state, actions, onBack = { actions.closeChat() }, onModels = { modelsOpen = true },
+                onOptions = { optionsOpen = true }, onRename = { renameOpen = true }, onDelete = { deleteOpen = true },
+                onRepair = { repairOpen = true }, onUndoRepair = { undoRepairOpen = true }, onMemory = { memoryOpen = true },
+                onContinuity = { continuityOpen = true }, onResearch = { researchOpen = true }, onDeepSeekWriting = { deepSeekWritingOpen = true },
+                onScenarioStatus = { scenarioStatusOpen = true }, onScenarioRoster = { scenarioRosterOpen = true })
             conversationStates.SaveableStateProvider(chat.id) {
                 ConversationBody(chat, state, actions, Modifier.weight(1f), onEdit = { editMessage = it }, onBranch = { branchMessage = it }, onModels = { modelsOpen = true })
             }
         }
     }
 
-    if (historyOpen) ConversationHistory(chats, chat?.id, state.busy, onDismiss = { historyOpen = false }, onSelect = {
-        actions.selectChat(it); historyOpen = false
-    }, onCreate = { actions.createChat(); historyOpen = false }, onImport = { actions.importFile("chat"); historyOpen = false }, onDelete = { historyDeleteId = it })
     if (modelsOpen) ConversationModels(chat, state, actions) { modelsOpen = false }
     if (chat != null) {
         if (optionsOpen) ChatOptionsDialog(chat, state, actions, onDismiss = { optionsOpen = false }, onPreview = {
@@ -107,26 +98,26 @@ internal fun ChatTab(state: UiSession, actions: AppActions) {
         if (memoryOpen) ConversationMemoryScreen(chat, state, actions) { memoryOpen = false }
         if (scenarioStatusOpen) ScenarioStatusScreen(chat, state, actions) { scenarioStatusOpen = false }
         if (scenarioRosterOpen) ScenarioRosterScreen(chat, state, actions) { scenarioRosterOpen = false }
-        if (continuityOpen) ContinuityNotesDialog(chat, state.busy, onSave = { actions.saveContinuityNotes(chat.id, it) }) { continuityOpen = false }
+        if (continuityOpen) ContinuityNotesDialog(chat, chatBusy, onSave = { actions.saveContinuityNotes(chat.id, it) }) { continuityOpen = false }
         if (researchOpen) ResearchDialog(chat, state, actions) { researchOpen = false }
         if (deepSeekWritingOpen) DeepSeekWritingDialog(chat, state, actions) { deepSeekWritingOpen = false }
         if (renameOpen) RenameChatDialog(chat, actions) { renameOpen = false }
         if (deleteOpen) ConfirmDeleteDialog("会话“${chat.title}”", {
             actions.deleteChat(chat.id); deleteOpen = false
         }) { deleteOpen = false }
-        if (repairOpen) ConversationRepairDialog(chat, state.busy, actions) { repairOpen = false }
+        if (repairOpen) ConversationRepairDialog(chat, chatBusy, actions) { repairOpen = false }
         if (undoRepairOpen) AlertDialog(
             onDismissRequest = { undoRepairOpen = false },
             title = { Text("恢复修复前的会话？") },
             text = { Text("这会恢复修复时删掉的内容，并保留修复后新发送、新生成的剧情。修复后产生且仍有效的摘要和知识笔记也会继续保留。") },
-            confirmButton = { Button(onClick = { actions.undoLastChatRepair(chat.id); undoRepairOpen = false }, enabled = !state.busy) { Text("恢复快照") } },
+            confirmButton = { Button(onClick = { actions.undoLastChatRepair(chat.id); undoRepairOpen = false }, enabled = !chatBusy) { Text("恢复快照") } },
             dismissButton = { TextButton(onClick = { undoRepairOpen = false }) { Text("取消") } }
         )
         editMessage?.let { EditMessageDialog(it, actions) { editMessage = null } }
         branchMessage?.let { message ->
             AlertDialog(onDismissRequest = { branchMessage = null }, title = { Text("从这里继续") },
                 text = { Text("保留这条消息及之前的内容，创建一个独立的会话分支。原会话会保留。") },
-                confirmButton = { Button(onClick = { actions.branchAt(message.id); branchMessage = null }, enabled = !state.busy) { Text("创建分支") } },
+                confirmButton = { Button(onClick = { actions.branchAt(message.id); branchMessage = null }, enabled = !chatBusy) { Text("创建分支") } },
                 dismissButton = { TextButton(onClick = { branchMessage = null }) { Text("取消") } })
         }
     }
@@ -145,10 +136,13 @@ internal fun ChatTab(state: UiSession, actions: AppActions) {
 }
 
 @Composable
-private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppActions, onHistory: () -> Unit, onModels: () -> Unit, onOptions: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit, onRepair: () -> Unit, onUndoRepair: () -> Unit, onMemory: () -> Unit, onContinuity: () -> Unit, onResearch: () -> Unit, onDeepSeekWriting: () -> Unit, onScenarioStatus: () -> Unit, onScenarioRoster: () -> Unit) {
+private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppActions, onBack: () -> Unit, onModels: () -> Unit, onOptions: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit, onRepair: () -> Unit, onUndoRepair: () -> Unit, onMemory: () -> Unit, onContinuity: () -> Unit, onResearch: () -> Unit, onDeepSeekWriting: () -> Unit, onScenarioStatus: () -> Unit, onScenarioRoster: () -> Unit) {
     var menuOpen by remember(chat?.id) { mutableStateOf(false) }
     var presetOpen by remember(chat?.id) { mutableStateOf(false) }
     val colors = MaterialTheme.colorScheme
+    val chatBusy = state.chatBusy(chat?.id)
+    // Replies that arrived in other chats while this one is open.
+    val otherUnread = state.data.chats.count { it.id != chat?.id && it.unread > 0 }
     // Keep the scenario tools discoverable for imported/legacy chats too.  A
     // character-bound chat is enough to show the entry points; the panels
     // themselves still decide whether there is a world book, history vault or
@@ -158,43 +152,48 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
     } == true
     Column {
         Row(Modifier.fillMaxWidth().padding(start = 8.dp, end = 8.dp, top = 6.dp), verticalAlignment = Alignment.CenterVertically) {
-            IconButton(onClick = onHistory) { Icon(Icons.Outlined.Menu, "历史会话", Modifier.size(24.dp)) }
+            IconButton(onClick = onBack) {
+                BadgedBox(badge = { if (otherUnread > 0) Badge { Text(otherUnread.toString()) } }) {
+                    Icon(Icons.AutoMirrored.Outlined.ArrowBack, if (otherUnread > 0) "返回会话列表，$otherUnread 个会话有新回复" else "返回会话列表", Modifier.size(24.dp))
+                }
+            }
             Column(Modifier.weight(1f).padding(horizontal = 8.dp)) {
                 Text(chat?.title ?: "口袋酒馆", maxLines = 1, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
                 Text(if (chat == null) "随身的创作空间" else state.data.characters.firstOrNull { it.id == chat.characterId }?.name?.let { "与 $it 对话" } ?: "口袋酒馆 · 对话", style = MaterialTheme.typography.labelSmall, color = colors.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)
             }
-            IconButton(onClick = { actions.createChat() }, enabled = !state.busy) { Icon(Icons.Outlined.Add, "新建会话") }
+            IconButton(onClick = { actions.createChat() }) { Icon(Icons.Outlined.Add, "新建会话") }
             if (chat != null) Box {
                 // Imported/older scenario chats do not carry the built-in id,
                 // but they still have a world book or saved panel facts. Keep
                 // the two entry points visible for those chats too.
                 if (scenarioToolsVisible) {
-                    IconButton(onClick = onScenarioStatus, enabled = !state.busy) { Icon(Icons.Outlined.Inventory2, "打开剧本状态") }
-                    IconButton(onClick = onScenarioRoster, enabled = !state.busy) { Icon(Icons.Outlined.AccountTree, "打开角色关系图") }
+                    IconButton(onClick = onScenarioStatus, enabled = !chatBusy) { Icon(Icons.Outlined.Inventory2, "打开剧本状态") }
+                    IconButton(onClick = onScenarioRoster, enabled = !chatBusy) { Icon(Icons.Outlined.AccountTree, "打开角色关系图") }
                 }
                 IconButton(onClick = { menuOpen = true }) { Icon(Icons.Outlined.MoreHoriz, "会话菜单") }
                 DropdownMenu(menuOpen, { menuOpen = false }) {
                     if (ConversationTurns.regenerationAnchor(chat) != null) DropdownMenuItem(
                         text = { Text("重新生成本轮") }, leadingIcon = { Icon(Icons.Outlined.Refresh, null) },
-                        enabled = !state.busy && !state.loading,
+                        enabled = !chatBusy && !state.loading,
                         onClick = { menuOpen = false; actions.regenerate() })
                     DropdownMenuItem(text = { Text("会话记忆") }, leadingIcon = { Icon(Icons.Outlined.History, null) }, onClick = { menuOpen = false; onMemory() })
                     DropdownMenuItem(text = { Text("剧本状态面板") }, leadingIcon = { Icon(Icons.Outlined.Inventory2, null) }, onClick = { menuOpen = false; onScenarioStatus() })
                     DropdownMenuItem(text = { Text("角色关系图") }, leadingIcon = { Icon(Icons.Outlined.AccountTree, null) }, onClick = { menuOpen = false; onScenarioRoster() })
-                    DropdownMenuItem(text = { Text("当前场景与连贯性") }, leadingIcon = { Icon(Icons.Outlined.EditNote, null) }, enabled = !state.busy, onClick = { menuOpen = false; onContinuity() })
-                    DropdownMenuItem(text = { Text("联网研究人物/设定") }, leadingIcon = { Icon(Icons.Outlined.Search, null) }, enabled = !state.busy, onClick = { menuOpen = false; onResearch() })
+                    DropdownMenuItem(text = { Text("当前场景与连贯性") }, leadingIcon = { Icon(Icons.Outlined.EditNote, null) }, enabled = !chatBusy, onClick = { menuOpen = false; onContinuity() })
+                    DropdownMenuItem(text = { Text("联网研究人物/设定") }, leadingIcon = { Icon(Icons.Outlined.Search, null) }, enabled = !chatBusy, onClick = { menuOpen = false; onResearch() })
                     if (DeepSeekWriting.isTarget(state.data.providers.firstOrNull { it.id == chat.providerId }, chat.modelId)) {
-                        DropdownMenuItem(text = { Text("DeepSeek 写作调优") }, leadingIcon = { Icon(Icons.Outlined.Tune, null) }, enabled = !state.busy, onClick = { menuOpen = false; onDeepSeekWriting() })
+                        DropdownMenuItem(text = { Text("DeepSeek 写作调优") }, leadingIcon = { Icon(Icons.Outlined.Tune, null) }, enabled = !chatBusy, onClick = { menuOpen = false; onDeepSeekWriting() })
                     }
-                    DropdownMenuItem(text = { Text("记忆、压缩与 Skills") }, leadingIcon = { Icon(Icons.Outlined.Tune, null) }, enabled = !state.busy, onClick = { menuOpen = false; onOptions() })
-                    DropdownMenuItem(text = { Text("修复当前会话") }, leadingIcon = { Icon(Icons.Outlined.BuildCircle, null) }, enabled = !state.busy, onClick = { menuOpen = false; onRepair() })
-                    if (chat.id in state.repairBackupChatIds) DropdownMenuItem(text = { Text("恢复修复前历史") }, leadingIcon = { Icon(Icons.Outlined.History, null) }, enabled = !state.busy, onClick = { menuOpen = false; onUndoRepair() })
-                    DropdownMenuItem(text = { Text("重命名会话") }, leadingIcon = { Icon(Icons.Outlined.Edit, null) }, enabled = !state.busy, onClick = { menuOpen = false; onRename() })
+                    DropdownMenuItem(text = { Text("记忆、压缩与 Skills") }, leadingIcon = { Icon(Icons.Outlined.Tune, null) }, enabled = !chatBusy, onClick = { menuOpen = false; onOptions() })
+                    DropdownMenuItem(text = { Text("修复当前会话") }, leadingIcon = { Icon(Icons.Outlined.BuildCircle, null) }, enabled = !chatBusy, onClick = { menuOpen = false; onRepair() })
+                    if (chat.id in state.repairBackupChatIds) DropdownMenuItem(text = { Text("恢复修复前历史") }, leadingIcon = { Icon(Icons.Outlined.History, null) }, enabled = !chatBusy, onClick = { menuOpen = false; onUndoRepair() })
+                    DropdownMenuItem(text = { Text("重命名会话") }, leadingIcon = { Icon(Icons.Outlined.Edit, null) }, enabled = !chatBusy, onClick = { menuOpen = false; onRename() })
                     DropdownMenuItem(text = { Text("导出会话") }, leadingIcon = { Icon(Icons.Outlined.FileDownload, null) }, onClick = { menuOpen = false; actions.exportFile("chat", chat.id) })
                     DropdownMenuItem(text = { Text("导出 Obsidian 知识库") }, leadingIcon = { Icon(Icons.Outlined.FolderZip, null) }, onClick = { menuOpen = false; actions.exportFile("chat_vault", chat.id) })
                     DropdownMenuItem(text = { Text("导出 JSONL（兼容酒馆）") }, leadingIcon = { Icon(Icons.Outlined.DataObject, null) }, onClick = { menuOpen = false; actions.exportFile("chat_jsonl", chat.id) })
                     HorizontalDivider()
-                    DropdownMenuItem(text = { Text("删除会话", color = colors.error) }, leadingIcon = { Icon(Icons.Outlined.DeleteOutline, null, tint = colors.error) }, enabled = !state.busy, onClick = { menuOpen = false; onDelete() })
+                    DropdownMenuItem(text = { Text("删除会话", color = if (chatBusy) colors.onSurface.copy(alpha = 0.38f) else colors.error) },
+                        leadingIcon = { Icon(Icons.Outlined.DeleteOutline, null, tint = if (chatBusy) colors.onSurface.copy(alpha = 0.38f) else colors.error) }, enabled = !chatBusy, onClick = { menuOpen = false; onDelete() })
                 }
             }
             if (scenarioToolsVisible) {
@@ -206,13 +205,13 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
                     Text("剧本工具", style = MaterialTheme.typography.labelMedium, color = colors.onSurfaceVariant)
                     AssistChip(
                         onClick = onScenarioStatus,
-                        enabled = !state.busy,
+                        enabled = !chatBusy,
                         label = { Text("状态面板") },
                         leadingIcon = { Icon(Icons.Outlined.Inventory2, null, Modifier.size(16.dp)) }
                     )
                     AssistChip(
                         onClick = onScenarioRoster,
-                        enabled = !state.busy,
+                        enabled = !chatBusy,
                         label = { Text("人物关系") },
                         leadingIcon = { Icon(Icons.Outlined.AccountTree, null, Modifier.size(16.dp)) }
                     )
@@ -223,7 +222,7 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
             val provider = state.data.providers.firstOrNull { it.id == chat.providerId }
             val model = provider?.models?.firstOrNull { it.id == chat.modelId }
             Row(Modifier.fillMaxWidth().padding(start = 20.dp, end = 16.dp, bottom = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Surface(onClick = onModels, enabled = !state.busy, shape = CircleShape, color = colors.primaryContainer, modifier = Modifier.weight(1f)) {
+                Surface(onClick = onModels, enabled = !chatBusy, shape = CircleShape, color = colors.primaryContainer, modifier = Modifier.weight(1f)) {
                     Row(Modifier.padding(horizontal = 12.dp).heightIn(min = 44.dp), verticalAlignment = Alignment.CenterVertically) {
                         Icon(Icons.Outlined.AutoAwesome, null, Modifier.size(14.dp), tint = colors.primary)
                         Spacer(Modifier.width(6.dp))
@@ -236,13 +235,13 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
                     }
                 }
                 Box(Modifier.widthIn(max = 132.dp)) {
-                    TextButton(onClick = { presetOpen = true }, enabled = !state.busy, contentPadding = PaddingValues(horizontal = 8.dp)) {
+                    TextButton(onClick = { presetOpen = true }, enabled = !chatBusy, contentPadding = PaddingValues(horizontal = 8.dp)) {
                         Icon(Icons.AutoMirrored.Outlined.MenuBook, null, Modifier.size(16.dp)); Spacer(Modifier.width(5.dp))
                         Text(state.data.presets.firstOrNull { it.id == chat.presetId }?.name ?: "预设", maxLines = 1, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.labelMedium)
                     }
                     DropdownMenu(presetOpen, { presetOpen = false }) {
                         state.data.presets.forEach { preset ->
-                            DropdownMenuItem(text = { Text(preset.name) }, trailingIcon = { if (preset.id == chat.presetId) Icon(Icons.Outlined.Check, null) }, enabled = !state.busy,
+                            DropdownMenuItem(text = { Text(preset.name) }, trailingIcon = { if (preset.id == chat.presetId) Icon(Icons.Outlined.Check, null) }, enabled = !chatBusy,
                                 onClick = { actions.updateChat(chat.copy(presetId = preset.id)); presetOpen = false })
                         }
                     }
@@ -255,6 +254,8 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
 
 @Composable
 private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, modifier: Modifier, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit, onModels: () -> Unit) {
+    val task = state.chatTasks[chat.id]
+    val chatBusy = task != null
     // Sticker packs live on the PC; their images come from it and are cached on the phone.
     val stickers = remember(state.pcLink.stickerPacks) { state.pcLink.stickerPacks.orEmpty().flatMap { it.stickers } }
     val loadSticker = remember(actions) { { sticker: Sticker -> actions.pcStickerFile(sticker)?.let { decodeStickerFile(it) } } }
@@ -300,7 +301,7 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
         Box(Modifier.weight(1f).fillMaxWidth()) {
             if (chat.messages.isEmpty()) {
                 ConversationWelcome(Modifier.fillMaxSize(), "这一页，由你开始。", "一个想法、一段对白，\n或一个尚未讲完的故事。") {
-                    if (chat.modelId.isBlank()) TextButton(onClick = onModels, enabled = !state.busy) {
+                    if (chat.modelId.isBlank()) TextButton(onClick = onModels, enabled = !chatBusy) {
                         Text("先选择聊天模型"); Icon(Icons.AutoMirrored.Outlined.ArrowForward, null, Modifier.size(16.dp))
                     }
                 }
@@ -308,7 +309,7 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
                 LazyColumn(state = listState, modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 24.dp, bottom = 16.dp), verticalArrangement = Arrangement.spacedBy(24.dp)) {
                     items(chat.messages, key = { it.id }) { message ->
-                        ConversationMessage(message, assistantName, state.busy || state.loading, message.id == regenerationAnchorId, actions, onEdit, onBranch, stickers, loadSticker, animateSticker,
+                        ConversationMessage(message, assistantName, chatBusy || state.loading, message.id == regenerationAnchorId, actions, onEdit, onBranch, stickers, loadSticker, animateSticker,
                             assistantAvatar = assistantAvatar, loadAvatar = loadAvatar)
                     }
                 }
@@ -320,13 +321,13 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
                 }
             }
         }
-        val compression = state.compressionProgress?.takeIf { state.busy && it.chatId == chat.id }
+        val compression = state.compressionProgress?.takeIf { chatBusy && it.chatId == chat.id }
         if (compression != null) CompressionProgressCard(compression)
-        else if (state.busy && latest?.status != "streaming") Row(Modifier.padding(horizontal = 24.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        else if (chatBusy && latest?.status != "streaming") Row(Modifier.padding(horizontal = 24.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             CircularProgressIndicator(Modifier.size(12.dp), strokeWidth = 1.5.dp)
-            Text("任务进行中…", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(task?.let { ChatTasks.label(it) } ?: "任务进行中…", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
-        else if (!state.busy && !state.loading && chat.messages.lastOrNull { !it.contextExcluded }?.role == "tool") {
+        else if (!chatBusy && !state.loading && chat.messages.lastOrNull { !it.contextExcluded }?.role == "tool") {
             Surface(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 6.dp), color = MaterialTheme.colorScheme.secondaryContainer, shape = MaterialTheme.shapes.medium) {
                 Column(Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
                     Text("本轮停在工具步骤，尚未收到最终回复。已有记录保留。", style = MaterialTheme.typography.bodySmall)
@@ -334,8 +335,8 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
                 }
             }
         }
-        ConversationComposer(draft, { draft = it }, state.pendingAttachments, state.busy, intent, { intent = it }, onAttach = { actions.pickAttachment() }, onRemove = { actions.removeAttachment(it) }, onSend = {
-            if (state.busy) actions.stop() else if (actions.sendWithIntent(draft.trim(), intent)) {
+        ConversationComposer(draft, { draft = it }, state.pendingAttachments, chatBusy, intent, { intent = it }, onAttach = { actions.pickAttachment() }, onRemove = { actions.removeAttachment(it) }, onSend = {
+            if (chatBusy) actions.stop() else if (actions.sendWithIntent(draft.trim(), intent)) {
                 draft = ""; intent = "auto"; followLatest = true
             }
         })
@@ -363,7 +364,7 @@ private fun CompressionProgressCard(progress: CompressionProgress) {
 }
 
 @Composable
-private fun ConversationWelcome(modifier: Modifier, title: String, subtitle: String, action: @Composable () -> Unit) {
+internal fun ConversationWelcome(modifier: Modifier, title: String, subtitle: String, action: @Composable () -> Unit) {
     Box(modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
         Column(Modifier.padding(horizontal = 28.dp, vertical = 20.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(16.dp)) {
             Surface(color = MaterialTheme.colorScheme.primaryContainer, shape = RoundedCornerShape(topStart = 26.dp, topEnd = 26.dp, bottomEnd = 26.dp, bottomStart = 8.dp)) {
@@ -557,41 +558,6 @@ private fun MessageNoticeDetails(notice: MessageNotice, clipboard: androidx.comp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ConversationHistory(chats: List<Chat>, selectedId: String?, busy: Boolean, onDismiss: () -> Unit, onSelect: (String) -> Unit, onCreate: () -> Unit, onImport: () -> Unit, onDelete: (String) -> Unit) {
-    var query by rememberSaveable { mutableStateOf("") }
-    val visible = chats.filter { query.isBlank() || it.title.contains(query.trim(), true) }
-    ModalBottomSheet(onDismissRequest = onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true), containerColor = MaterialTheme.colorScheme.background) {
-        Column(Modifier.fillMaxWidth().fillMaxHeight(0.85f)) {
-            Row(Modifier.fillMaxWidth().padding(horizontal = 20.dp), verticalAlignment = Alignment.CenterVertically) {
-                Text("你的会话", Modifier.weight(1f), style = MaterialTheme.typography.headlineSmall)
-                OutlinedButton(onClick = onImport, enabled = !busy, contentPadding = PaddingValues(horizontal = 10.dp)) { Icon(Icons.Outlined.FileUpload, null, Modifier.size(18.dp)); Spacer(Modifier.width(3.dp)); Text("导入") }
-                FilledTonalButton(onClick = onCreate, enabled = !busy, contentPadding = PaddingValues(horizontal = 10.dp)) { Icon(Icons.Outlined.Add, null, Modifier.size(18.dp)); Spacer(Modifier.width(3.dp)); Text("新建") }
-            }
-            OutlinedTextField(query, { query = it }, Modifier.fillMaxWidth().padding(20.dp), placeholder = { Text("搜索会话名称") }, singleLine = true, shape = RoundedCornerShape(16.dp), leadingIcon = { Icon(Icons.Outlined.Search, null) })
-            LazyColumn(Modifier.weight(1f), contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                if (visible.isEmpty()) item { Text("没有找到会话", Modifier.padding(20.dp), color = MaterialTheme.colorScheme.onSurfaceVariant) }
-                items(visible, key = { it.id }) { chat ->
-                    Surface(onClick = { onSelect(chat.id) }, enabled = !busy, shape = RoundedCornerShape(16.dp), color = if (chat.id == selectedId) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.background) {
-                        Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                            Icon(Icons.Outlined.ChatBubbleOutline, null, Modifier.size(20.dp), tint = MaterialTheme.colorScheme.primary)
-                            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
-                                Text(chat.title, maxLines = 1, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.titleSmall)
-                                Text(chat.messages.lastOrNull { it.role != "tool" }?.content?.replace('\n', ' ')?.ifBlank { "暂无消息" } ?: "暂无消息", maxLines = 1, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                            }
-                            if (chat.id == selectedId) Icon(Icons.Outlined.Check, "当前会话", Modifier.size(18.dp), tint = MaterialTheme.colorScheme.primary)
-                            IconButton(onClick = { onDelete(chat.id) }, enabled = !busy) {
-                                Icon(Icons.Outlined.DeleteOutline, "删除会话", tint = MaterialTheme.colorScheme.error)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
 internal fun ConversationModels(
     chat: Chat?,
     state: UiSession,
@@ -686,7 +652,7 @@ internal fun ConversationModelsContent(
                 }
                 items(models, key = { "${it.first.id}:${it.second.type}:${it.second.id}" }) { (provider, model) ->
                     val selected = chat?.providerId == provider.id && chat.modelId == model.id
-                    Surface(onClick = { actions.chooseModel(provider.id, model.id); onDismiss() }, enabled = !state.busy, shape = RoundedCornerShape(14.dp), color = if (selected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.background) {
+                    Surface(onClick = { actions.chooseModel(provider.id, model.id); onDismiss() }, enabled = !state.chatBusy(chat?.id), shape = RoundedCornerShape(14.dp), color = if (selected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.background) {
                         Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
                             val label = modelRowLabel(provider, model)
                             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {

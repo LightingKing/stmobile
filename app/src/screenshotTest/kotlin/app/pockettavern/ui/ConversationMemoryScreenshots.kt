@@ -69,7 +69,7 @@ fun conversationMemoryPreview() {
 fun conversationMemoryNarrowLargeTextPreview() {
     val chat = memoryPreviewChat()
     PocketTheme("light") {
-        ConversationMemoryContent(chat, UiSession(loading = false, busy = true, memoryRebuild = MemoryRebuildState(chatId = chat.id, phase = "running", completed = 2, total = 5, message = "正在发送第 3 次请求（预计共 5 次）\n冷咖啡 · deepseek-v4-flash · 窗口 32768 tokens · 128 条原文", noteCount = 2)), onRebuild = {}, onStop = {}, onDismiss = {}, initialSection = 1)
+        ConversationMemoryContent(chat, UiSession(loading = false, chatTasks = mapOf(chat.id to app.pockettavern.domain.ChatTask(app.pockettavern.domain.ChatTask.REBUILD)), memoryRebuild = MemoryRebuildState(chatId = chat.id, phase = "running", completed = 2, total = 5, message = "正在发送第 3 次请求（预计共 5 次）\n冷咖啡 · deepseek-v4-flash · 窗口 32768 tokens · 128 条原文", noteCount = 2)), onRebuild = {}, onStop = {}, onDismiss = {}, initialSection = 1)
     }
 }
 

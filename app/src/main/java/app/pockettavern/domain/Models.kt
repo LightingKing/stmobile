@@ -47,7 +47,9 @@ data class ScenarioPerson(
     val ability: String = "", val activity: String = "", val clothing: String = "", val personality: String = "",
     val description: String = "", val status: String = "未知", val source: String = ""
 )
-data class Chat(val id: String = newId(), val title: String = "新会话", val providerId: String = "venice", val modelId: String = "", val presetId: String = "default", val characterId: String = "", val messages: List<Message> = emptyList(), val summaries: List<Summary> = emptyList(), val activeSummaryId: String = "", val skillIds: List<String> = emptyList(), val updatedAt: Long = System.currentTimeMillis(), val knowledgeNotes: List<KnowledgeNote> = emptyList(), val continuityNotes: String = "", val expressionMode: String = "request", val scenarioState: ScenarioState = ScenarioState(), val scenarioRoster: List<ScenarioPerson> = emptyList(), val stickerFrequency: String = "off", val browsePerDay: Int = 0, val browseLog: List<Long> = emptyList(), val task: String = "")
+data class Chat(val id: String = newId(), val title: String = "新会话", val providerId: String = "venice", val modelId: String = "", val presetId: String = "default", val characterId: String = "", val messages: List<Message> = emptyList(), val summaries: List<Summary> = emptyList(), val activeSummaryId: String = "", val skillIds: List<String> = emptyList(), val updatedAt: Long = System.currentTimeMillis(), val knowledgeNotes: List<KnowledgeNote> = emptyList(), val continuityNotes: String = "", val expressionMode: String = "request", val scenarioState: ScenarioState = ScenarioState(), val scenarioRoster: List<ScenarioPerson> = emptyList(), val stickerFrequency: String = "off", val browsePerDay: Int = 0, val browseLog: List<Long> = emptyList(), val task: String = "",
+    /** Replies that arrived while the user was not looking at this chat. */
+    val unread: Int = 0)
 /**
  * Generation budgets are opt-in through [generationBudgetEnabled]. Stored
  * amounts stay editable while disabled and do not impose a request limit.
@@ -75,7 +77,13 @@ data class MemoryRebuildState(
     val finishedAt: Long = 0
 )
 data class CompressionProgress(val chatId: String, val scope: String, val completed: Int = 0, val total: Int = 0, val message: String = "正在准备新增记忆…")
-data class UiSession(val data: AppData = AppData(), val selectedChatId: String = "", val busy: Boolean = false, val loading: Boolean = true, val status: String = "", val contextPreview: String = "", val hasKeys: Set<String> = emptySet(), val pendingAttachments: List<Attachment> = emptyList(), val appVersion: String = "", val diagnostics: String = "", val skillStars: Map<String, GitHubStars> = emptyMap(), val missingBuiltinSkills: List<SkillRecord> = emptyList(), val repairBackupChatIds: Set<String> = emptySet(), val memoryRebuild: MemoryRebuildState? = null, val hasResearchSearchKey: Boolean = false, val veniceBalances: Map<String, VeniceBalanceState> = emptyMap(), val compressionProgress: CompressionProgress? = null, val pcLink: PcLinkState = PcLinkState())
+data class UiSession(val data: AppData = AppData(), val selectedChatId: String = "", val busy: Boolean = false, val loading: Boolean = true, val status: String = "", val contextPreview: String = "", val hasKeys: Set<String> = emptySet(), val pendingAttachments: List<Attachment> = emptyList(), val appVersion: String = "", val diagnostics: String = "", val skillStars: Map<String, GitHubStars> = emptyMap(), val missingBuiltinSkills: List<SkillRecord> = emptyList(), val repairBackupChatIds: Set<String> = emptySet(), val memoryRebuild: MemoryRebuildState? = null, val hasResearchSearchKey: Boolean = false, val veniceBalances: Map<String, VeniceBalanceState> = emptyMap(), val compressionProgress: CompressionProgress? = null, val pcLink: PcLinkState = PcLinkState(),
+    /** Chats with a long task running, by chat id. [busy] is only for app-wide tasks such as a model refresh. */
+    val chatTasks: Map<String, ChatTask> = emptyMap(),
+    /** False shows the chat list; true shows the selected chat on top of it. */
+    val chatOpen: Boolean = false) {
+    fun chatBusy(chatId: String?): Boolean = chatId != null && chatId in chatTasks
+}
 /** GitHub star count recorded in the bundled catalog on [checkedAt]; null stars means it could not be read. */
 data class GitHubStars(val repo: String, val stars: Int?, val checkedAt: String)
 data class CompletionResult(val content: String = "", val reasoning: String = "", val toolCallsJson: String = "[]", val rawJson: String = "{}", val finishReason: String = "", val requestId: String = "")

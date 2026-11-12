@@ -162,17 +162,26 @@ class GenerationService : Service() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
+        // Several chats can be working at once; the one notification stands for all of them.
+        val count = runCatching { appController.backgroundTaskCount() }.getOrDefault(1)
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_generation)
             .setContentTitle("口袋酒馆")
-            .setContentText("正在生成回复，可切后台继续")
+            .setContentText(if (count > 1) "$count 个会话正在进行，可切后台继续" else "正在生成回复，可切后台继续")
             .setCategory(NotificationCompat.CATEGORY_PROGRESS)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .setContentIntent(openPending)
-            .addAction(NotificationCompat.Action(0, "停止生成", stopPending))
+            .addAction(NotificationCompat.Action(0, if (count > 1) "全部停止" else "停止生成", stopPending))
             .build()
+    }
+
+    /** The number of working chats changed: say so on the notification that is already showing. */
+    private fun refreshNotification() {
+        val token = synchronized(stateLock) { activeToken } ?: return
+        if (!foregroundStarted) return
+        runCatching { getSystemService(NotificationManager::class.java)?.notify(NOTIFICATION_ID, buildNotification(token)) }
     }
 
     private fun ensureNotificationChannel() {
@@ -286,6 +295,13 @@ class GenerationService : Service() {
             // If onStartCommand has not run yet, it will consult
             // isGenerationActive(token) and stop itself when the request is no
             // longer live. Do not retain an unbounded pending-token set.
+        }
+
+        /** Called by the controller whenever a chat task starts or ends. */
+        @JvmStatic
+        fun refresh() {
+            val service = synchronized(companionLock) { currentService?.get() } ?: return
+            service.refreshNotification()
         }
 
         internal fun holdsWakeLock(): Boolean {
