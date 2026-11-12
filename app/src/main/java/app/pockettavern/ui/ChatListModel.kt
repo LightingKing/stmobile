@@ -21,10 +21,12 @@ internal object ChatListModel {
         else -> false
     }
 
-    /** The last thing said in [chat], on one line, without sticker markup. */
-    fun preview(chat: Chat): String {
+    /** The last thing said in [chat], on one line, without sticker markup. In a group it names the speaker. */
+    fun preview(chat: Chat, speakerNames: List<String> = emptyList()): String {
         val last = chat.messages.lastOrNull(::spoken) ?: return "还没有消息"
-        val text = StickerMarkup.strip(last.content).replace(whitespace, " ").trim()
+        val plain = StickerMarkup.strip(last.content)
+        val said = if (last.role == "assistant" && speakerNames.isNotEmpty()) app.pockettavern.domain.GroupChats.lastLine(plain, speakerNames) else plain
+        val text = said.replace(whitespace, " ").trim()
         return when {
             last.status == "error" -> "回复出错：" + last.errorMessage.replace(whitespace, " ").trim().take(40).ifEmpty { "点开查看" }
             text.isNotEmpty() -> (if (last.role == "user") "你：" else "") + text.take(PREVIEW_CHARS)

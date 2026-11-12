@@ -1284,6 +1284,32 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     // ---- chat backgrounds
 
+    // ---- group chats
+
+    override fun createGroupChat(title: String, setup: GroupSetup): Boolean {
+        if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return false }
+        val clean = GroupChats.normalize(setup, data.characters.mapTo(hashSetOf()) { it.id }) ?: return false
+        GroupChats.problem(clean, title)?.let { status(it); return false }
+        // The same platform and model choice as a new chat, then the group on top.
+        val before = data.chats.size
+        createChat()
+        val id = mutable.value.selectedChatId
+        if (data.chats.size == before || data.chats.firstOrNull()?.id != id) return false
+        changeChat(id) { it.copy(title = title.trim().take(40), group = clean) }
+        return true
+    }
+
+    override fun updateGroup(chatId: String, title: String, setup: GroupSetup): Boolean {
+        if (mutable.value.loading || loadFailed) return false
+        if (chatLocked(chatId)) return false
+        val chat = data.chats.firstOrNull { it.id == chatId && it.group != null } ?: return false
+        val clean = GroupChats.normalize(setup, data.characters.mapTo(hashSetOf()) { it.id }) ?: return false
+        GroupChats.problem(clean, title)?.let { status(it); return false }
+        changeChat(chat.id, touch = false) { it.copy(title = title.trim().take(40), group = clean) }
+        status("群设置已保存，从下一条回复起生效")
+        return true
+    }
+
     override fun setChatLook(chatId: String, look: ChatLook?) {
         if (mutable.value.loading || loadFailed || data.chats.none { it.id == chatId }) return
         // Appearance changes nothing the model sees, so it is allowed while the chat replies, and it

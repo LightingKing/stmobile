@@ -33,8 +33,9 @@ internal fun CharacterAvatar(avatar: String, name: String, size: Dp, load: (Stri
         Image(image, "$name 的头像", shape, contentScale = ContentScale.Crop)
     } else {
         Box(shape.background(MaterialTheme.colorScheme.primaryContainer), contentAlignment = Alignment.Center) {
+            // The letter fills its circle at every font size: a picture does not grow with the text.
             Text(name.trim().take(1).ifBlank { "?" }, color = MaterialTheme.colorScheme.onPrimaryContainer, fontWeight = FontWeight.Bold,
-                fontSize = (size.value * 0.42f).sp)
+                fontSize = (size.value * 0.42f / androidx.compose.ui.platform.LocalDensity.current.fontScale).sp)
         }
     }
 }

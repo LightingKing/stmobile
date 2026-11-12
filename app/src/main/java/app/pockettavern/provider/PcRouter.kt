@@ -29,6 +29,8 @@ class PcRouter(
         .connectTimeout(800, TimeUnit.MILLISECONDS)
         .callTimeout(2, TimeUnit.SECONDS)
         .retryOnConnectionFailure(false)
+        // A dead reused connection would make the PC look absent from the LAN (see ProviderClient).
+        .connectionPool(okhttp3.ConnectionPool(0, 1, TimeUnit.SECONDS))
         .followRedirects(false)
         .followSslRedirects(false)
         .build()

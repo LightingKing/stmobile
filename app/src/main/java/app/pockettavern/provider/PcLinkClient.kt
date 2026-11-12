@@ -37,6 +37,9 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         .readTimeout(TRANSFER_IDLE_MINUTES, TimeUnit.MINUTES)
         .writeTimeout(TRANSFER_IDLE_MINUTES, TimeUnit.MINUTES)
         .retryOnConnectionFailure(false)
+        // A fresh connection each time: the PC's Node server closes idle ones after 5 s, before OkHttp
+        // would notice, and without retries a reused dead one fails the call (see ProviderClient).
+        .connectionPool(okhttp3.ConnectionPool(0, 1, TimeUnit.SECONDS))
         .followRedirects(false)
         .followSslRedirects(false)
         .build()

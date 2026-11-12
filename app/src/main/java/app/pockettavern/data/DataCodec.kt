@@ -143,7 +143,9 @@ object DataCodec {
                 browsePerDay = chat.browsePerDay.coerceIn(0, app.pockettavern.engine.VideoBrowse.MAX_PER_DAY),
                 browseLog = chat.browseLog.orEmpty().filter { it > 0 }.takeLast(20),
                 task = chat.task.orEmpty().takeIf { it == app.pockettavern.engine.CharacterCardTool.TASK }.orEmpty(),
-                look = ChatBackgrounds.normalizeLook(runCatching { chat.look }.getOrNull())
+                look = ChatBackgrounds.normalizeLook(runCatching { chat.look }.getOrNull()),
+                // Members of deleted characters stay listed; they are skipped wherever the group is used.
+                group = GroupChats.normalize(runCatching { chat.group }.getOrNull())
             )
         },
         presets = data.presets.orEmpty().map { preset ->

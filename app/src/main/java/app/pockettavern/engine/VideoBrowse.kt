@@ -24,7 +24,7 @@ object VideoBrowse {
     /** A chat on the PC writing server whose model can call tools. */
     fun eligible(chat: Chat, providers: List<ProviderConfig>): Boolean {
         val provider = providers.firstOrNull { it.id == chat.providerId } ?: return false
-        return chat.task.isBlank() && provider.kind.equals("writing-server", ignoreCase = true) && provider.models.firstOrNull { it.id == chat.modelId }?.supportsTools == true
+        return chat.task.isBlank() && chat.group == null && provider.kind.equals("writing-server", ignoreCase = true) && provider.models.firstOrNull { it.id == chat.modelId }?.supportsTools == true
     }
 
     /**

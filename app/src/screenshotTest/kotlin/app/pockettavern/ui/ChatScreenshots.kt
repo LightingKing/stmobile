@@ -441,3 +441,52 @@ fun chatAppearancePreview() {
         }
     }
 }
+
+private fun groupSession(dark: Boolean = false): UiSession {
+    val fish = Character(id = "g-fish", name = "大肥鱼")
+    val cat = Character(id = "g-cat", name = "黑猫")
+    val lin = Character(id = "g-lin", name = "林小满")
+    val setup = app.pockettavern.domain.GroupSetup(members = listOf(fish.id, cat.id, lin.id), scene = "周五深夜一起看新番", narrator = true,
+        relations = listOf(app.pockettavern.domain.GroupRelation(fish.id, cat.id, "觉得她嘴硬心软，最爱逗她"),
+            app.pockettavern.domain.GroupRelation(cat.id, fish.id, "嫌她吵，但每个梗都会接"),
+            app.pockettavern.domain.GroupRelation(lin.id, cat.id, "崇拜的同人前辈，有点怕她")))
+    val chat = previewChat(listOf(
+        Message(id = "g1", role = "user", content = "第三集看完了吗？", createdAt = PREVIEW_TIME),
+        Message(id = "g2", role = "assistant", content = "【大肥鱼】主人来啦！我们刚看到第三集，黑猫全程在挑刺 (/>ω<)/\n【旁白】黑猫把耳机往下拉了拉，没回头。\n【黑猫】吾只是在陈述事实。那个分镜，连同人社团都不如。", createdAt = PREVIEW_TIME + 60_000L),
+        Message(id = "g3", role = "user", content = "@林小满 你觉得呢？", createdAt = PREVIEW_TIME + 120_000L),
+        Message(id = "g4", role = "assistant", content = "【林小满】我、我觉得还挺好看的……不过黑猫前辈说的分镜问题，确实有一点。", createdAt = PREVIEW_TIME + 180_000L)
+    ), "深夜动画同好会").copy(group = setup)
+    return previewSession(chat = chat, settings = AppSettings(darkMode = if (dark) "dark" else "light")).let { it.copy(data = it.data.copy(characters = listOf(fish, cat, lin))) }
+}
+
+@PreviewTest
+@Preview(name = "群聊", showBackground = true, widthDp = 420, heightDp = 900)
+@androidx.compose.runtime.Composable
+fun chatGroupPreview() {
+    PocketApp(groupSession(), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "群聊深色窄屏大字", showBackground = true, widthDp = 320, heightDp = 820, fontScale = 1.4f)
+@androidx.compose.runtime.Composable
+fun chatGroupDarkLargeTextPreview() {
+    PocketApp(groupSession(dark = true), PreviewActions)
+}
+
+@PreviewTest
+@Preview(name = "群设置", showBackground = true, widthDp = 420, heightDp = 1200)
+@androidx.compose.runtime.Composable
+fun groupSettingsPreview() {
+    val session = groupSession()
+    PocketTheme("light") { GroupSetupContent(session, PreviewActions, session.data.chats.single()) { } }
+}
+
+@PreviewTest
+@Preview(name = "会话列表含群聊", showBackground = true, widthDp = 420, heightDp = 600)
+@androidx.compose.runtime.Composable
+fun chatListWithGroupPreview() {
+    val session = groupSession()
+    androidx.compose.runtime.CompositionLocalProvider(LocalClock provides { PREVIEW_NOW }) {
+        PocketApp(session.copy(chatOpen = false, chatTasks = emptyMap()), PreviewActions)
+    }
+}

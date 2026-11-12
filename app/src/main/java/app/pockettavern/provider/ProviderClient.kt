@@ -63,6 +63,11 @@ class ProviderClient(
         // its own finite timeouts through the constructor.
         .callTimeout(callTimeoutMillis, TimeUnit.MILLISECONDS)
         .retryOnConnectionFailure(false)
+        // Every request on a fresh connection. Node servers (the PC writing server too) close an idle
+        // connection after 5 s, OkHttp re-checks a pooled one only after 10 s, and a paid request is
+        // never retried: reusing one failed messages sent 5-10 s after the previous reply. The extra
+        // handshake is small next to a model's reply time.
+        .connectionPool(okhttp3.ConnectionPool(0, 1, TimeUnit.SECONDS))
         .followRedirects(false)
         .followSslRedirects(false)
         .build()

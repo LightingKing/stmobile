@@ -7,6 +7,7 @@ import app.pockettavern.domain.Chat
 import app.pockettavern.domain.CompressionSlice
 import app.pockettavern.domain.ContextBuild
 import app.pockettavern.domain.ContextBudgetBreakdown
+import app.pockettavern.domain.GroupChats
 import app.pockettavern.domain.Message
 import app.pockettavern.domain.Memory
 import app.pockettavern.domain.ModelInfo
@@ -63,7 +64,9 @@ object ContextEngine {
         // first; content that changes between turns (pinned facts, memories,
         // summary, keyword-triggered lore, scenario state) follows, then history.
         addSystem(preset.systemPrompt, "preset")
-        addSystem(characterPrompt(character, data.settings.userPersona), "character")
+        val group = chat.group
+        if (group != null) addSystem(GroupChats.cards(GroupChats.members(group, data.characters), data.settings.userPersona), "character")
+        else addSystem(characterPrompt(character, data.settings.userPersona), "character")
 
         val selectedSkills = ToolRuntime.activeSkills(data.skills, data.settings, chat)
         // Skills selected for the conversation are injected as-is after the
@@ -127,6 +130,7 @@ object ContextEngine {
         // Turn-varying context from here on.
         addSystem(NarrativePolicy.prompt(chat, preset, skills))
         val latestUserText = chat.messages.asReversed().firstOrNull { !it.contextExcluded && it.role == "user" }?.content.orEmpty()
+        if (group != null) addSystem(GroupChats.rules(group, data.characters, latestUserText), "policy")
         // Imported story lore can scan recent prose, so pronoun-only follow-ups retain
         // the NPC introduced in the previous response. Old entries keep their behavior.
         val worldScanText = recentProse(chat, 10_000)

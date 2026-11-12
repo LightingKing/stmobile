@@ -51,7 +51,9 @@ data class Chat(val id: String = newId(), val title: String = "新会话", val p
     /** Replies that arrived while the user was not looking at this chat. */
     val unread: Int = 0,
     /** Background behind the messages; null for none. */
-    val look: ChatLook? = null)
+    val look: ChatLook? = null,
+    /** Members, scene and relations when this is a group chat; null for a one-to-one chat. */
+    val group: GroupSetup? = null)
 /**
  * Generation budgets are opt-in through [generationBudgetEnabled]. Stored
  * amounts stay editable while disabled and do not impose a request limit.

@@ -80,6 +80,12 @@ object StickerGate {
     fun forChat(chat: Chat, providers: List<ProviderConfig>, pcPacks: List<StickerPack>?, characters: List<Character> = emptyList()): List<Sticker> {
         val kind = providers.firstOrNull { it.id == chat.providerId }?.kind.orEmpty()
         if (!kind.equals("writing-server", ignoreCase = true)) return emptyList()
+        val group = chat.group
+        if (group != null) {
+            val members = app.pockettavern.domain.GroupChats.members(group, characters)
+            val packs = if (members.isEmpty()) packsFor(null, pcPacks.orEmpty()) else members.flatMap { packsFor(it, pcPacks.orEmpty()) }.distinctBy { it.id }
+            return packs.flatMap { it.stickers }.distinctBy { it.key }
+        }
         return packsFor(characters.firstOrNull { it.id == chat.characterId }, pcPacks.orEmpty()).flatMap { it.stickers }
     }
 

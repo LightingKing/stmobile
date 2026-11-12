@@ -122,6 +122,10 @@ interface AppActions {
     fun removeCharacterAvatar(characterId: String) { }
     /** A chat's background and how it is toned down; null removes it. Takes effect at once. */
     fun setChatLook(chatId: String, look: ChatLook?) { }
+    /** Creates and opens a group chat; false, with the reason in the status line, when it cannot. */
+    fun createGroupChat(title: String, setup: GroupSetup): Boolean = false
+    /** Changes a group's name, members, scene, relations or speaking mode; applies from the next reply. */
+    fun updateGroup(chatId: String, title: String, setup: GroupSetup): Boolean = false
     /** Opens the gallery; the picture becomes [chatId]'s background. */
     fun pickChatBackground(chatId: String) { }
     /** The background new chats with this character start with; null for none. */

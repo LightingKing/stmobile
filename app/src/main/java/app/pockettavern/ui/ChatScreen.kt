@@ -73,6 +73,7 @@ internal fun ChatTab(state: UiSession, actions: AppActions) {
     var researchOpen by remember(chat?.id) { mutableStateOf(false) }
     var deepSeekWritingOpen by remember(chat?.id) { mutableStateOf(false) }
     var appearanceOpen by remember(chat?.id) { mutableStateOf(false) }
+    var groupOpen by remember(chat?.id) { mutableStateOf(false) }
     var editMessage by remember(chat?.id) { mutableStateOf<Message?>(null) }
     var branchMessage by remember(chat?.id) { mutableStateOf<Message?>(null) }
 
@@ -85,9 +86,9 @@ internal fun ChatTab(state: UiSession, actions: AppActions) {
                 onOptions = { optionsOpen = true }, onRename = { renameOpen = true }, onDelete = { deleteOpen = true },
                 onRepair = { repairOpen = true }, onUndoRepair = { undoRepairOpen = true }, onMemory = { memoryOpen = true },
                 onContinuity = { continuityOpen = true }, onResearch = { researchOpen = true }, onDeepSeekWriting = { deepSeekWritingOpen = true },
-                onScenarioStatus = { scenarioStatusOpen = true }, onScenarioRoster = { scenarioRosterOpen = true }, onAppearance = { appearanceOpen = true })
+                onScenarioStatus = { scenarioStatusOpen = true }, onScenarioRoster = { scenarioRosterOpen = true }, onAppearance = { appearanceOpen = true }, onGroup = { groupOpen = true })
             conversationStates.SaveableStateProvider(chat.id) {
-                ConversationBody(chat, state, actions, Modifier.weight(1f), onEdit = { editMessage = it }, onBranch = { branchMessage = it }, onModels = { modelsOpen = true }, onMemory = { memoryOpen = true })
+                ConversationBody(chat, state, actions, Modifier.weight(1f), onEdit = { editMessage = it }, onBranch = { branchMessage = it }, onModels = { modelsOpen = true }, onMemory = { memoryOpen = true }, onGroup = { groupOpen = true })
             }
         }
     }
@@ -103,6 +104,7 @@ internal fun ChatTab(state: UiSession, actions: AppActions) {
         if (continuityOpen) ContinuityNotesDialog(chat, chatBusy, onSave = { actions.saveContinuityNotes(chat.id, it) }) { continuityOpen = false }
         if (researchOpen) ResearchDialog(chat, state, actions) { researchOpen = false }
         if (deepSeekWritingOpen) DeepSeekWritingDialog(chat, state, actions) { deepSeekWritingOpen = false }
+        if (groupOpen && chat.group != null) GroupSetupDialog(state, actions, chat) { groupOpen = false }
         if (appearanceOpen) ChatAppearanceSheet(chat, state.data.characters.firstOrNull { it.id == chat.characterId }, state.data.settings, actions) { appearanceOpen = false }
         if (renameOpen) RenameChatDialog(chat, actions) { renameOpen = false }
         if (deleteOpen) ConfirmDeleteDialog("会话“${chat.title}”", {
@@ -139,7 +141,7 @@ internal fun ChatTab(state: UiSession, actions: AppActions) {
 }
 
 @Composable
-private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppActions, onBack: () -> Unit, onModels: () -> Unit, onOptions: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit, onRepair: () -> Unit, onUndoRepair: () -> Unit, onMemory: () -> Unit, onContinuity: () -> Unit, onResearch: () -> Unit, onDeepSeekWriting: () -> Unit, onScenarioStatus: () -> Unit, onScenarioRoster: () -> Unit, onAppearance: () -> Unit = {}) {
+private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppActions, onBack: () -> Unit, onModels: () -> Unit, onOptions: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit, onRepair: () -> Unit, onUndoRepair: () -> Unit, onMemory: () -> Unit, onContinuity: () -> Unit, onResearch: () -> Unit, onDeepSeekWriting: () -> Unit, onScenarioStatus: () -> Unit, onScenarioRoster: () -> Unit, onAppearance: () -> Unit = {}, onGroup: () -> Unit = {}) {
     var menuOpen by remember(chat?.id) { mutableStateOf(false) }
     var presetOpen by remember(chat?.id) { mutableStateOf(false) }
     val colors = MaterialTheme.colorScheme
@@ -162,13 +164,16 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
             }
             val character = state.data.characters.firstOrNull { it.id == chat?.characterId }
             val headerAvatar = remember(actions) { { avatar: String -> actions.characterAvatar(avatar) } }
-            if (chat != null) CharacterAvatar(character?.avatar.orEmpty(), character?.name?.ifBlank { null } ?: chat.title, 36.dp, headerAvatar)
+            val groupMembers = remember(chat?.group, state.data.characters) { chat?.group?.let { GroupChats.members(it, state.data.characters) }.orEmpty() }
+            if (chat?.group != null) GroupAvatar(groupMembers, 36.dp, headerAvatar)
+            else if (chat != null) CharacterAvatar(character?.avatar.orEmpty(), character?.name?.ifBlank { null } ?: chat.title, 36.dp, headerAvatar)
             val task = chat?.let { state.chatTasks[it.id] }
             Column(Modifier.weight(1f).padding(horizontal = 8.dp)) {
                 Text(chat?.title ?: "口袋酒馆", maxLines = 1, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
                 Text(when {
                     chat == null -> "随身的创作空间"
                     task != null -> ChatTasks.label(task)
+                    chat.group != null -> "${groupMembers.size} 位成员" + chat.group.scene.takeIf { it.isNotBlank() }?.let { " · 场景：" + it.replace('\n', ' ') }.orEmpty()
                     else -> character?.name?.let { "与 $it 对话" } ?: "口袋酒馆 · 对话"
                 }, style = MaterialTheme.typography.labelSmall, color = if (task != null) colors.primary else colors.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)
             }
@@ -185,6 +190,7 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
                         enabled = !chatBusy && !state.loading,
                         onClick = { menuOpen = false; actions.regenerate() })
                     DropdownMenuItem(text = { Text("会话记忆") }, leadingIcon = { Icon(Icons.Outlined.History, null) }, onClick = { menuOpen = false; onMemory() })
+                    if (chat.group != null) DropdownMenuItem(text = { Text("群设置") }, leadingIcon = { Icon(Icons.Outlined.Groups, null) }, onClick = { menuOpen = false; onGroup() })
                     DropdownMenuItem(text = { Text("聊天外观") }, leadingIcon = { Icon(Icons.Outlined.Palette, null) }, onClick = { menuOpen = false; onAppearance() })
                     DropdownMenuItem(text = { Text("剧本状态面板") }, leadingIcon = { Icon(Icons.Outlined.Inventory2, null) }, onClick = { menuOpen = false; onScenarioStatus() })
                     DropdownMenuItem(text = { Text("角色关系图") }, leadingIcon = { Icon(Icons.Outlined.AccountTree, null) }, onClick = { menuOpen = false; onScenarioRoster() })
@@ -265,7 +271,7 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
 }
 
 @Composable
-private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, modifier: Modifier, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit, onModels: () -> Unit, onMemory: () -> Unit = {}) {
+private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, modifier: Modifier, onEdit: (Message) -> Unit, onBranch: (Message) -> Unit, onModels: () -> Unit, onMemory: () -> Unit = {}, onGroup: () -> Unit = {}) {
     val task = state.chatTasks[chat.id]
     val chatBusy = task != null
     // Sticker packs live on the PC; their images come from it and are cached on the phone.
@@ -311,6 +317,22 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
 
     val look = chat.look
     val userAvatar = state.data.settings.userAvatar.takeIf { state.data.settings.showUserAvatar }.orEmpty()
+    // A group draws each speaker's part with her own picture; @ picks who answers the next message.
+    val group = chat.group
+    val groupMembers = remember(group, state.data.characters) { group?.let { GroupChats.members(it, state.data.characters) }.orEmpty() }
+    var mention by rememberSaveable(chat.id) { mutableStateOf<String?>(null) }
+    val groupView = remember(group, groupMembers, chat.messages) {
+        group?.let { setup ->
+            val namedFor = HashMap<String, String>()
+            var named: String? = null
+            chat.messages.forEach { message ->
+                if (message.contextExcluded) return@forEach
+                if (message.role == "user") named = GroupChats.mentioned(message.content, groupMembers)?.let(GroupChats::displayName)
+                else if (message.role == "assistant") named?.let { namedFor[message.id] = it }
+            }
+            GroupView(groupMembers.associateBy(GroupChats::displayName), GroupChats.speakerNames(setup, state.data.characters), namedFor)
+        }
+    }
     Column(modifier.fillMaxWidth()) {
         Box(Modifier.weight(1f).fillMaxWidth()) {
             // The picture stays behind the messages; the header and the input keep the plain background.
@@ -326,7 +348,7 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
                     contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 24.dp, bottom = 16.dp), verticalArrangement = Arrangement.spacedBy(24.dp)) {
                     items(chat.messages, key = { it.id }) { message ->
                         ConversationMessage(message, assistantName, chatBusy || state.loading, message.id == regenerationAnchorId, actions, onEdit, onBranch, stickers, loadSticker, animateSticker,
-                            assistantAvatar = assistantAvatar, loadAvatar = loadAvatar, backdrop = look, userAvatar = userAvatar)
+                            assistantAvatar = assistantAvatar, loadAvatar = loadAvatar, backdrop = look, userAvatar = userAvatar, group = groupView)
                     }
                 }
                 if (showLatest) FilledTonalIconButton(onClick = { followLatest = true; scope.launch {
@@ -357,9 +379,13 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
         var backlogHidden by rememberSaveable(chat.id, backlog) { mutableStateOf(false) }
         if (!chatBusy && !state.loading && backlog != null && !backlogHidden) MemoryBacklogBanner(backlog, onOrganize = { actions.compress() }, onLater = { backlogHidden = true })
         val chapters = remember(chat.knowledgeNotes) { chat.knowledgeNotes.count { it.kind == app.pockettavern.engine.LongMemory.CHAPTER } }
-        ConversationComposer(draft, { draft = it }, state.pendingAttachments, chatBusy, intent, { intent = it }, onAttach = { actions.pickAttachment() }, onRemove = { actions.removeAttachment(it) }, memoryChapters = chapters, onMemory = onMemory, onSend = {
-            if (chatBusy) actions.stop() else if (actions.sendWithIntent(draft.trim(), intent)) {
+        ConversationComposer(draft, { draft = it }, state.pendingAttachments, chatBusy, intent, { intent = it }, onAttach = { actions.pickAttachment() }, onRemove = { actions.removeAttachment(it) }, memoryChapters = chapters, onMemory = onMemory,
+            groupRow = if (group == null) null else ({ GroupComposerRow(group, groupMembers, mention, { mention = it }, onGroup) }), onSend = {
+            val text = if (group == null) draft.trim() else GroupChats.withMention(draft.trim(), groupMembers.firstOrNull { it.id == mention })
+            if (chatBusy) actions.stop() else if (actions.sendWithIntent(text, intent)) {
                 draft = ""; intent = "auto"; followLatest = true
+                // In a named-only group the choice stays; otherwise an @ is for one message.
+                if (group?.mode != GroupSetup.NAMED) mention = null
             }
         })
     }
@@ -400,9 +426,10 @@ internal fun ConversationWelcome(modifier: Modifier, title: String, subtitle: St
 }
 
 @Composable
-private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attachments: List<Attachment>, busy: Boolean, intent: String, onIntent: (String) -> Unit, onAttach: () -> Unit, onRemove: (String) -> Unit, memoryChapters: Int = 0, onMemory: () -> Unit = {}, onSend: () -> Unit) {
+private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attachments: List<Attachment>, busy: Boolean, intent: String, onIntent: (String) -> Unit, onAttach: () -> Unit, onRemove: (String) -> Unit, memoryChapters: Int = 0, onMemory: () -> Unit = {}, groupRow: (@Composable () -> Unit)? = null, onSend: () -> Unit) {
     val colors = MaterialTheme.colorScheme
     Column(Modifier.fillMaxWidth().padding(horizontal = 12.dp).padding(top = 4.dp, bottom = 10.dp)) {
+        groupRow?.invoke()
         Row(verticalAlignment = Alignment.Top) {
             Box(Modifier.weight(1f)) { WritingIntentSelector(intent, onIntent, enabled = !busy) }
             AssistChip(onClick = onMemory, label = { Text(if (memoryChapters > 0) "记忆 $memoryChapters 章" else "记忆") },
@@ -452,7 +479,7 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
                                 stickers: List<Sticker> = emptyList(), loadSticker: (Sticker) -> androidx.compose.ui.graphics.ImageBitmap? = { null },
                                 animateSticker: (Sticker) -> AnimatedSticker? = { null },
                                 assistantAvatar: String = "", loadAvatar: (String) -> androidx.compose.ui.graphics.ImageBitmap? = { null },
-                                backdrop: ChatLook? = null, userAvatar: String = "") {
+                                backdrop: ChatLook? = null, userAvatar: String = "", group: GroupView? = null) {
     if (message.role == "user" && message.intent == app.pockettavern.engine.VideoBrowse.INTENT) { BrowseMarker(message.createdAt, backdrop != null); return }
     val user = message.role == "user"
     val tool = message.role == "tool"
@@ -466,6 +493,8 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
     var skillsOpen by rememberSaveable(message.id) { mutableStateOf(false) }
     val time = remember(message.createdAt) { SimpleDateFormat("HH:mm", Locale.CHINA).format(Date(message.createdAt)) }
     val copyMessage = { clipboard.setText(AnnotatedString(StickerMarkup.strip(message.content))) }
+    // A group reply carries its speakers' names and pictures in its own parts.
+    val groupReply = group != null && message.role == "assistant"
     // Over a background every message is a card of its own, so the text never sits on the picture.
     val card = if (backdrop == null) Modifier.fillMaxWidth() else Modifier.fillMaxWidth(if (user) 0.9f else 1f)
         .clip(RoundedCornerShape(18.dp)).background((if (user) colors.primaryContainer else colors.surface).copy(alpha = backdrop.bubbleAlpha))
@@ -473,7 +502,8 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
     Box(Modifier.fillMaxWidth(), contentAlignment = if (user) Alignment.TopEnd else Alignment.TopStart) {
     Column(card, horizontalAlignment = if (user) Alignment.End else Alignment.Start) {
         Row(Modifier.fillMaxWidth(if (user && backdrop == null) 0.9f else 1f), verticalAlignment = Alignment.CenterVertically) {
-            if (!user) {
+            if (groupReply) Spacer(Modifier.weight(1f))
+            else if (!user) {
                 if (message.role == "assistant" && assistantAvatar.isNotBlank()) CharacterAvatar(assistantAvatar, assistantName, 30.dp, loadAvatar)
                 else Surface(shape = RoundedCornerShape(9.dp), color = if (tool) colors.surfaceContainerHigh else colors.primaryContainer) {
                     Icon(if (tool) Icons.Outlined.Code else Icons.AutoMirrored.Outlined.MenuBook, null, Modifier.padding(6.dp).size(17.dp), tint = colors.primary)
@@ -483,7 +513,7 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
                 Spacer(Modifier.weight(1f))
                 if (userAvatar.isNotBlank()) { CharacterAvatar(userAvatar, "我", 26.dp, loadAvatar); Spacer(Modifier.width(8.dp)) }
             }
-            Text(if (user) "你" else if (tool) "工具结果" else if (message.role == "assistant") assistantName else "系统消息", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.SemiBold, color = colors.onSurface, maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = if (user) Modifier else Modifier.weight(1f))
+            if (!groupReply) Text(if (user) "你" else if (tool) "工具结果" else if (message.role == "assistant") assistantName else "系统消息", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.SemiBold, color = colors.onSurface, maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = if (user) Modifier else Modifier.weight(1f))
             Spacer(Modifier.width(8.dp))
             Text(time, style = MaterialTheme.typography.labelSmall, color = colors.onSurfaceVariant)
             Box {
@@ -529,6 +559,7 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
                     ReadingMarkdown(message.content.ifBlank { if (message.attachments.isNotEmpty()) "已发送附件" else "（空消息）" },
                         if (backdrop == null) Modifier.padding(horizontal = 16.dp, vertical = 12.dp) else Modifier.padding(start = 2.dp, end = 8.dp, bottom = 2.dp))
                 }
+                message.content.isNotBlank() && groupReply -> GroupReplyView(message.id, message.content, message.status == "streaming", group!!, stickers, loadSticker, animateSticker, loadAvatar)
                 message.content.isNotBlank() -> AssistantTextWithSticker(message.content, message.status == "streaming", stickers, loadSticker, loadAnimated = animateSticker)
                 message.status == "streaming" -> Text("正在构思…", style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
                 message.toolCallsJson != "[]" -> Text("工具调用记录", style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)

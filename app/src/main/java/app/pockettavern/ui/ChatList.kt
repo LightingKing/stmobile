@@ -29,6 +29,7 @@ import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.DeleteOutline
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.FileUpload
+import androidx.compose.material.icons.outlined.Groups
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.Stop
 import androidx.compose.material3.Button
@@ -88,6 +89,7 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
     var query by rememberSaveable { mutableStateOf("") }
     var addOpen by remember { mutableStateOf(false) }
     var renameId by remember { mutableStateOf<String?>(null) }
+    var groupOpen by remember { mutableStateOf(false) }
     val characters = remember(state.data.characters) { state.data.characters.associateBy { it.id } }
     val loadAvatar = remember(actions) { { avatar: String -> actions.characterAvatar(avatar) } }
     val shown = remember(chats, characters, query) { chats.filter { ChatListModel.matches(it, characters[it.characterId], query) } }
@@ -106,6 +108,7 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
                 IconButton(onClick = { addOpen = true }) { Icon(Icons.Outlined.Add, "新建") }
                 DropdownMenu(addOpen, { addOpen = false }) {
                     DropdownMenuItem(text = { Text("新建会话") }, leadingIcon = { Icon(Icons.Outlined.ChatBubbleOutline, null) }, onClick = { addOpen = false; actions.createChat() })
+                    DropdownMenuItem(text = { Text("新建群聊") }, leadingIcon = { Icon(Icons.Outlined.Groups, null) }, onClick = { addOpen = false; groupOpen = true })
                     DropdownMenuItem(text = { Text("角色卡助手") }, leadingIcon = { Icon(Icons.Outlined.AutoAwesome, null) }, onClick = { addOpen = false; actions.startCharacterBuilder() })
                     DropdownMenuItem(text = { Text("导入会话") }, leadingIcon = { Icon(Icons.Outlined.FileUpload, null) }, onClick = { addOpen = false; actions.importFile("chat") })
                 }
@@ -131,13 +134,14 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
             style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
         LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(top = 4.dp, bottom = 12.dp)) {
             items(shown, key = { it.id }) { chat ->
-                ChatRow(chat, characters[chat.characterId], state.chatTasks[chat.id], ChatListModel.time(chat.updatedAt, now, zone), loadAvatar,
+                ChatRow(chat, characters[chat.characterId], state.chatTasks[chat.id], ChatListModel.time(chat.updatedAt, now, zone), loadAvatar, state.data.characters,
                     onOpen = { actions.selectChat(chat.id) }, onStop = { actions.stopChat(chat.id) },
                     onRename = { renameId = chat.id }, onDelete = { onDelete(chat.id) })
             }
         }
     }
     renameId?.let { id -> chats.firstOrNull { it.id == id }?.let { chat -> RenameChatDialog(chat, actions) { renameId = null } } }
+    if (groupOpen) GroupSetupDialog(state, actions, chat = null) { groupOpen = false }
 }
 
 @Composable
@@ -160,12 +164,14 @@ private fun ChatSearchField(query: String, onQuery: (String) -> Unit) {
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun ChatRow(
-    chat: Chat, character: Character?, task: ChatTask?, time: String, loadAvatar: (String) -> ImageBitmap?,
+    chat: Chat, character: Character?, task: ChatTask?, time: String, loadAvatar: (String) -> ImageBitmap?, allCharacters: List<Character>,
     onOpen: () -> Unit, onStop: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit
 ) {
     val colors = MaterialTheme.colorScheme
     var menuOpen by remember { mutableStateOf(false) }
-    val preview = remember(chat.messages) { ChatListModel.preview(chat) }
+    val members = remember(chat.group, allCharacters) { chat.group?.let { app.pockettavern.domain.GroupChats.members(it, allCharacters) }.orEmpty() }
+    val names = remember(chat.group, members) { chat.group?.let { app.pockettavern.domain.GroupChats.speakerNames(it, allCharacters) }.orEmpty() }
+    val preview = remember(chat.messages, names) { ChatListModel.preview(chat, names) }
     Box {
         Row(
             Modifier.fillMaxWidth()
@@ -173,12 +179,16 @@ private fun ChatRow(
                 .padding(horizontal = 20.dp, vertical = 12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            ChatAvatar(chat, character, loadAvatar)
+            if (chat.group != null) GroupAvatar(members, 52.dp, loadAvatar) else ChatAvatar(chat, character, loadAvatar)
             Spacer(Modifier.width(14.dp))
             Column(Modifier.weight(1f)) {
                 TitleWithTag(
                     title = { Text(chat.title, maxLines = 1, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold) },
-                    tag = if (chat.browsePerDay > 0) ({ ChatTag("自己刷视频") }) else null
+                    tag = when {
+                        chat.group != null -> ({ ChatTag("群聊 ${members.size}") })
+                        chat.browsePerDay > 0 -> ({ ChatTag("自己刷视频") })
+                        else -> null
+                    }
                 )
                 Spacer(Modifier.height(2.dp))
                 if (task != null) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
