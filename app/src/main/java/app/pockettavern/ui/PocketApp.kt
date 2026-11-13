@@ -628,13 +628,18 @@ private fun CharacterDialog(character: Character, state: UiSession, actions: App
     var value by remember { mutableStateOf(character) }
     FormDialog("${if (character.name.isBlank()) "新建" else "编辑"}角色", onDismiss, validate = { if (value.name.isBlank()) "请输入角色名称。" else null }, confirm = { actions.saveCharacter(value); onDismiss() }) {
         // Scenario cards are whole stories with their own world books; the drafter writes people.
-        if (!character.id.startsWith("builtin-scenario-")) CharacterDraftPanel(state, actions, value) { draft -> value = CharacterDrafts.merge(value, draft) }
+        if (!character.id.startsWith("builtin-scenario-")) CharacterDraftPanel(state, actions, value, onDraft = { draft -> value = CharacterDrafts.merge(value, draft) },
+            // A found picture becomes the avatar: at once for a saved character, with the first save for a new one.
+            onUsePicture = { pictureId -> actions.useResearchPicture(value.id, pictureId).also { if (it.isNotBlank()) value = value.copy(avatar = it) }.isNotBlank() })
         // The avatar applies at once; it is only offered once the character exists.
         val saved = state.data.characters.firstOrNull { it.id == character.id }
         if (saved != null) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             CharacterAvatar(saved.avatar, saved.name, 56.dp, actions::characterAvatar)
             OutlinedButton(onClick = { actions.pickCharacterAvatar(saved.id) }, enabled = !state.busy) { Text("更换头像") }
             if (saved.avatar.isNotBlank()) TextButton(onClick = { actions.removeCharacterAvatar(saved.id) }, enabled = !state.busy) { Text("移除") }
+        } else if (value.avatar.isNotBlank()) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            CharacterAvatar(value.avatar, value.name, 56.dp, actions::characterAvatar)
+            Text("头像已选好，保存角色后生效。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
         val packNames = state.pcLink.stickerPacks.orEmpty().map { it.name }.distinct()
         if (packNames.isNotEmpty()) {

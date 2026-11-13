@@ -155,6 +155,12 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
   - 登录信息写进 Agent Reach 私密目录下 bili-cli 读取的 `credential.json`，不经过手机、不写日志。管理网页可以查看登录的账号名，也可以退出登录。
   - 生成、轮询、退出都是带管理页请求头的 POST/DELETE；GET 只读状态和当前二维码图片。
   - `/v1/pocket/status` 的 `reach.bilibili_login` 告诉手机是否已登录。
+- **图片搜索（服务 0.9.0）**：`POST /v1/pocket/images`，参数 `{query, limit}`，给手机上“AI 写角色卡”的“先联网找资料”找角色图片。
+  - 用必应的图片搜索，不需要密钥。只访问必应的搜索结果页和必应自己的缩略图地址（`*.mm.bing.net`），不访问图片所在的网站；结果页被转到必应以外的地址时直接报错。
+  - 安全搜索固定为严格。
+  - 每次最多 8 张，每张缩略图不超过 400 KB，按文件头确认是 JPEG、PNG 或 WebP，以 base64 返回。
+  - 这个接口不作为聊天工具提供给模型，只有 App 的角色卡表格会调用。
+- **视频简介（服务 0.9.0）**：`bilibili read` 返回的内容以前没有正文，现在带上视频简介。
 
 ## 表情包
 

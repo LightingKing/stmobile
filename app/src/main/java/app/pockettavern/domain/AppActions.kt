@@ -122,9 +122,19 @@ interface AppActions {
     fun removeCharacterAvatar(characterId: String) { }
     /** A chat's background and how it is toned down; null removes it. Takes effect at once. */
     fun setChatLook(chatId: String, look: ChatLook?) { }
-    /** Writes a character card from a short idea (and the form so far) with the given model. */
-    fun draftCharacter(idea: String, base: Character, providerId: String, modelId: String) { }
+    /**
+     * Writes a character card from a short idea (and the form so far) with the given model.
+     * With [research] the PC first looks up the character's pages, videos and pictures; with
+     * [material] the card is rewritten from finds already made, without searching again.
+     */
+    fun draftCharacter(idea: String, base: Character, providerId: String, modelId: String, research: Boolean = false, material: CardMaterial? = null) { }
     fun cancelCharacterDraft() { }
+    /** Leaving the character form: stops a draft and forgets the pictures found for it. */
+    fun closeCharacterDraft() { }
+    /** A picture found for the card being drafted; blocking, call off the main thread. */
+    fun researchPicture(pictureId: String): androidx.compose.ui.graphics.ImageBitmap? = null
+    /** Makes a found picture the character's avatar. Returns the avatar for the form to keep, or "" when it failed. */
+    fun useResearchPicture(characterId: String, pictureId: String): String = ""
     /** Forgets a finished draft once the form has taken it. */
     fun clearCharacterDraft() { }
     /** Creates and opens a group chat; false, with the reason in the status line, when it cannot. */

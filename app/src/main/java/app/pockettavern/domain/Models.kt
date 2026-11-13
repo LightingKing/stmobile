@@ -120,4 +120,8 @@ data class Sticker(val key: String = "", val name: String = "", val description:
 data class StickerPack(val id: String = newId(), val name: String = "", val license: String = "", val source: String = "", val enabled: Boolean = true, val stickers: List<Sticker> = emptyList(), val importedAt: Long = System.currentTimeMillis())
 
 /** "AI 帮我写" in the character form: still writing, a finished card, or why it failed. */
-data class CharacterDraftState(val token: String = "", val running: Boolean = false, val result: Character? = null, val error: String = "")
+data class CharacterDraftState(val token: String = "", val running: Boolean = false, val result: Character? = null, val error: String = "",
+    /** What the draft is doing right now, for the progress line. */
+    val stage: String = "",
+    /** What was found online for this draft, when it searched. */
+    val material: CardMaterial? = null)

@@ -138,7 +138,8 @@ export function trimResult(envelope, action) {
       url: clip(item?.url, 1000),
       author: clip(item?.author, 120) || undefined,
       published_at: clip(item?.published_at, 40) || undefined,
-      text: clip(item?.text, perItem),
+      // A video read comes back without text; its description is in the raw record.
+      text: clip(item?.text || (typeof item?.raw?.description === 'string' ? item.raw.description : ''), perItem),
     })),
     error,
   });

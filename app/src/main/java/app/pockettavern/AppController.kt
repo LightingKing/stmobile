@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.Semaphore
 import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.sync.withPermit
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
@@ -1288,30 +1289,168 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     private val draftClient by lazy { ProviderClient(onDiagnostic = { event -> logRequest(event, "character_draft") }) }
     private var draftJob: Job? = null
+    /** Pictures found for the card being drafted, by [CardPicture.id]; forgotten when the form closes. */
+    private val researchPictures = java.util.concurrent.ConcurrentHashMap<String, ByteArray>()
+    private val researchBitmaps = java.util.concurrent.ConcurrentHashMap<String, androidx.compose.ui.graphics.ImageBitmap>()
+    /** Avatars made from found pictures for a character that is not saved yet. */
+    private val unsavedAvatars = HashSet<String>()
 
-    override fun draftCharacter(idea: String, base: Character, providerId: String, modelId: String) {
+    override fun draftCharacter(idea: String, base: Character, providerId: String, modelId: String, research: Boolean, material: CardMaterial?) {
         if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
         if (idea.isBlank() && !CharacterDrafts.hasContent(base)) { status("先写一两句你想要的角色"); return }
         val p = data.providers.firstOrNull { it.id == providerId } ?: run { status("请先选择生成用的模型"); return }
-        if (p.models.none { it.id == modelId && it.type == "text" && !it.offline }) { status("这个模型不可用，请换一个"); return }
+        val model = p.models.firstOrNull { it.id == modelId && it.type == "text" && !it.offline } ?: run { status("这个模型不可用，请换一个"); return }
         draftJob?.cancel(); draftClient.cancel()
         val token = newId()
-        mutable.value = mutable.value.copy(characterDraft = CharacterDraftState(token = token, running = true))
+        mutable.value = mutable.value.copy(characterDraft = CharacterDraftState(token = token, running = true, material = material))
         draftJob = viewModelScope.launch {
+            var found = material
             val outcome = try {
-                val response = draftClient.chat(routed(p), key(p.id), modelId, CharacterDrafts.messages(idea, base), CharacterDrafts.preset(),
-                    toolsJson = "[]", finalAnswerOnly = true)
-                CharacterDraftState(token, result = CharacterDrafts.parse(response.content).getOrThrow())
+                if (found == null && research) found = gatherMaterial(token, idea, base, p, modelId)
+                val usable = found?.takeIf { finds -> finds.sources.any { it.used } || finds.pictures.any { it.used } }
+                draftStage(token, if (usable == null) "正在写角色卡…" else "正在按资料写角色卡…")
+                // A model that sees pictures gets the first few the user has not struck out.
+                val shown = if (usable == null || !model.supportsVision) emptyList() else usable.pictures.filter { it.used }.take(CharacterResearch.MAX_SEEN_PICTURES)
+                    .mapNotNull { picture -> researchPictures[picture.id]?.let { picture.mime to android.util.Base64.encodeToString(it, android.util.Base64.NO_WRAP) } }
+                val messages = if (usable == null) CharacterDrafts.messages(idea, base)
+                    else CharacterResearch.draftMessages(idea, base, usable, shown, CharacterResearch.budgetChars(model.contextTokens))
+                val response = draftClient.chat(routed(p), key(p.id), modelId, messages, CharacterDrafts.preset(), toolsJson = "[]", finalAnswerOnly = true)
+                CharacterDraftState(token, result = CharacterDrafts.parse(response.content).getOrThrow(), material = found?.copy(picturesSeen = shown.size))
             } catch (cancelled: CancellationException) { throw cancelled }
-            catch (error: Exception) { CharacterDraftState(token, error = "角色卡没写成：" + (error.message?.take(300) ?: "请重试")) }
+            catch (stop: DraftStop) { CharacterDraftState(token, error = stop.message.orEmpty(), material = found) }
+            catch (error: Exception) { CharacterDraftState(token, error = "角色卡没写成：" + (error.message?.take(300) ?: "请重试"), material = found) }
             if (mutable.value.characterDraft?.token == token) mutable.value = mutable.value.copy(characterDraft = outcome)
         }
+    }
+
+    private fun draftStage(token: String, text: String) {
+        val draft = mutable.value.characterDraft ?: return
+        if (draft.token == token && draft.running) mutable.value = mutable.value.copy(characterDraft = draft.copy(stage = text))
+    }
+
+    /**
+     * Looks up the character's pages, videos and pictures through the PC: the drafting model says
+     * what to search for, then a fixed set of read-only lookups runs, two at a time. A lookup that
+     * fails is left out and noted; nothing found still leaves a card written from the idea.
+     */
+    private suspend fun gatherMaterial(token: String, idea: String, base: Character, drafter: ProviderConfig, modelId: String): CardMaterial {
+        val pc = pcProvider() ?: throw DraftStop("联网找资料要用电脑写作服务：先在“模型”页添加它，或者取消“先联网找资料”。")
+        val pcKey = app.secrets.get(credentialId(pc)).ifBlank { throw DraftStop("请先在“模型”页填写电脑写作服务的 Token。") }
+        researchPictures.clear(); researchBitmaps.clear()
+        draftStage(token, "正在想该搜什么…")
+        val plan = try {
+            val reply = draftClient.chat(routed(drafter), key(drafter.id), modelId, CharacterResearch.planMessages(idea, base), CharacterResearch.planPreset(),
+                toolsJson = "[]", finalAnswerOnly = true)
+            CharacterResearch.parsePlan(reply.content).getOrElse { CharacterResearch.fallbackPlan(idea, base) }
+        } catch (cancelled: CancellationException) { throw cancelled }
+        catch (error: Exception) { CharacterResearch.fallbackPlan(idea, base) }
+        if (plan.realPerson) throw DraftStop(CharacterResearch.REAL_PERSON)
+        val links = CharacterResearch.links(idea)
+        if (!plan.searches && links.isEmpty()) {
+            return CardMaterial(subject = plan.subject, notes = listOf(if (plan.original) CharacterResearch.NOTHING_TO_FIND else "没看出要找哪个角色，直接按你的描述写了；写上角色名和作品名再试会更准。"))
+        }
+        val route = routed(pc)
+        val gate = Semaphore(2)
+        val notes = mutableListOf<String>()
+        var unreachable = ""
+        var done = 0
+        var total = links.size + plan.queries.size + (if (plan.videoQuery.isNotBlank()) 1 else 0) + (if (plan.imageQuery.isNotBlank()) 1 else 0)
+        fun progress() = draftStage(token, "正在找资料（$done/$total）…")
+        suspend fun reach(call: JSONObject): String? = gate.withPermit {
+            try { pcClient.reach(route, pcKey, call, bounded = true) }
+            catch (cancelled: CancellationException) { throw cancelled }
+            catch (error: Exception) {
+                if (error is PcLinkException && error.httpCode !in setOf(400, 504)) {
+                    if (error.httpCode == 0) pcRouter.forget()
+                    if (unreachable.isBlank()) unreachable = error.message.orEmpty().take(160)
+                }
+                null
+            }
+        }
+        suspend fun <T> counted(block: suspend () -> T): T = try { block() } finally { done++; progress() }
+        /** A video's subtitles when it has them, otherwise its description. */
+        suspend fun video(source: CardSource): CardSource? = CharacterResearch.read(reach(CharacterResearch.subtitleCall(source.url)), source)
+            ?: CharacterResearch.read(reach(CharacterResearch.readCall(source.url)), source)
+        progress()
+        val first = coroutineScope {
+            val linkJobs = links.map { url -> async { counted {
+                val source = CardSource(kind = CardSource.LINK, title = CharacterResearch.site(url), url = url)
+                if (CharacterResearch.isVideo(url)) video(source) else CharacterResearch.read(reach(CharacterResearch.readCall(url)), source)
+            } } }
+            val pageJobs = plan.queries.map { query -> async { counted { CharacterResearch.hits(reach(CharacterResearch.searchCall(query)), CardSource.PAGE) } } }
+            val videoJob = plan.videoQuery.takeIf { it.isNotBlank() }?.let { query -> async { counted { CharacterResearch.hits(reach(CharacterResearch.videoSearchCall(query)), CardSource.VIDEO) } } }
+            val pictureJob = plan.imageQuery.takeIf { it.isNotBlank() }?.let { query -> async { counted { findPictures(route, pcKey, query, notes) } } }
+            FirstFinds(linkJobs.awaitAll(), pageJobs.awaitAll().flatten(), videoJob?.await().orEmpty(), pictureJob?.await().orEmpty())
+        }
+        links.zip(first.links).filter { it.second == null }.forEach { notes += "没读到 ${CharacterResearch.site(it.first)} 的链接" }
+        val linked = first.links.filterNotNull()
+        // A page or video the user linked is not listed a second time as a search result.
+        val pages = CharacterResearch.distinct(linked + first.pages).filter { it.kind == CardSource.PAGE }.take(CharacterResearch.MAX_PAGES)
+        val videos = CharacterResearch.distinct(linked + first.videos).filter { it.kind == CardSource.VIDEO }.take(CharacterResearch.MAX_VIDEOS)
+        val toRead = CharacterResearch.pagesToRead(pages)
+        val toWatch = videos.take(CharacterResearch.MAX_VIDEO_DETAILS)
+        total += toRead.size + toWatch.size
+        progress()
+        val detailed = coroutineScope {
+            (toRead.map { source -> async { counted { CharacterResearch.read(reach(CharacterResearch.readCall(source.url)), source) } } } +
+                toWatch.map { source -> async { counted { video(source) } } }).awaitAll().filterNotNull().associateBy { it.id }
+        }
+        if (unreachable.isNotBlank()) notes.add(0, unreachable)
+        else {
+            if (plan.queries.isNotEmpty() && pages.isEmpty()) notes += "没搜到相关网页"
+            if (plan.videoQuery.isNotBlank() && videos.isEmpty()) notes += "没搜到相关视频"
+        }
+        return CardMaterial(subject = plan.subject, sources = linked + (pages + videos).map { detailed[it.id] ?: it }, pictures = first.pictures, notes = notes)
+    }
+
+    /** Pictures of the character from the PC's image search; ones that are not pictures are dropped. */
+    private suspend fun findPictures(route: ProviderConfig, key: String, query: String, notes: MutableList<String>): List<CardPicture> = try {
+        pcClient.images(route, key, query, CharacterResearch.MAX_PICTURES).mapNotNull { found ->
+            val bounds = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
+            android.graphics.BitmapFactory.decodeByteArray(found.bytes, 0, found.bytes.size, bounds)
+            if (bounds.outWidth < 64 || bounds.outHeight < 64) null
+            else CardPicture(title = found.title, pageUrl = found.pageUrl, mime = found.mime).also { researchPictures[it.id] = found.bytes }
+        }.also { if (it.isEmpty()) notes += "没找到合适的图片" }
+    } catch (cancelled: CancellationException) { throw cancelled }
+    catch (error: PcLinkException) {
+        notes += if (error.httpCode == 404) "电脑上的写作服务还是旧版，不能找图片：更新到 0.9.0 并重启后再试" else "图片没找成：${error.message.orEmpty().take(120)}"
+        emptyList()
+    }
+    catch (error: Exception) { notes += "图片没找成"; emptyList() }
+
+    override fun researchPicture(pictureId: String): androidx.compose.ui.graphics.ImageBitmap? {
+        researchBitmaps[pictureId]?.let { return it }
+        val bytes = researchPictures[pictureId] ?: return null
+        val bitmap = android.graphics.BitmapFactory.decodeByteArray(bytes, 0, bytes.size) ?: return null
+        return bitmap.asImageBitmap().also { researchBitmaps[pictureId] = it }
+    }
+
+    override fun useResearchPicture(characterId: String, pictureId: String): String {
+        val bytes = researchPictures[pictureId] ?: return ""
+        return runCatching {
+            val avatar = storeAvatar(characterId, bytes)
+            val saved = data.characters.firstOrNull { it.id == characterId }
+            if (saved != null) {
+                CharacterAvatars.file(app.filesDir, saved.avatar)?.delete()
+                change(data.copy(characters = data.characters.map { if (it.id == characterId) it.copy(avatar = avatar) else it }))
+                status("头像已更新")
+            } else unsavedAvatars += avatar
+            avatar
+        }.getOrElse { status("头像设置失败：${it.message ?: "图片无法读取"}"); "" }
     }
 
     override fun cancelCharacterDraft() {
         draftJob?.cancel(); draftJob = null
         if (mutable.value.characterDraft?.running == true) draftClient.cancel()
         mutable.value = mutable.value.copy(characterDraft = null)
+    }
+
+    override fun closeCharacterDraft() {
+        cancelCharacterDraft()
+        researchPictures.clear(); researchBitmaps.clear()
+        // A picture chosen for a character that was never saved has nothing pointing at it.
+        unsavedAvatars.filter { avatar -> data.characters.none { it.avatar == avatar } }.forEach { CharacterAvatars.file(app.filesDir, it)?.delete() }
+        unsavedAvatars.clear()
     }
 
     override fun clearCharacterDraft() {
@@ -2379,3 +2518,9 @@ class AppController(application: Application) : AndroidViewModel(application), A
         private val PC_STICKER_FILE = Regex("[0-9a-f]{12}/\\d{3}\\.(png|jpg|gif|webp)")
     }
 }
+
+/** A draft that stops with a message for the user rather than an error. */
+private class DraftStop(message: String) : Exception(message)
+
+/** The first round of lookups for a character card. */
+private class FirstFinds(val links: List<CardSource?>, val pages: List<CardSource>, val videos: List<CardSource>, val pictures: List<CardPicture>)

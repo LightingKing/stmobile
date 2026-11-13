@@ -58,6 +58,11 @@ test('results keep what a chat needs and fit in the conversation', () => {
   const search = trimResult({ ok: true, items: Array.from({ length: 20 }, (_, i) => ({ title: `t${i}`, text: 'x'.repeat(2000) })) }, 'search');
   assert.equal(search.items.length, 10);
   assert.ok(search.items[0].text.length < 700);
+  // A video read has no text of its own: its description is what there is to read.
+  const video = trimResult({ ok: true, channel: 'bilibili', action: 'read', items: [{ title: 'V', url: 'https://www.bilibili.com/video/BV1', text: '', raw: { description: '角色介绍', owner: { mid: 1 } } }], error: null }, 'read');
+  assert.equal(video.items[0].text, '角色介绍');
+  assert.equal(trimResult({ ok: true, items: [{ title: 'V', text: '字幕', raw: { description: '简介' } }] }, 'subtitle').items[0].text, '字幕');
+  assert.equal(trimResult({ ok: true, items: [{ title: 'V', raw: { description: { not: 'text' } } }] }, 'read').items[0].text, '');
   const failed = trimResult({ ok: false, items: [], error: { code: 'RATE_LIMITED', message: 'm', hint: 'h', retry_after_seconds: 30 } }, 'search');
   assert.deepEqual(failed.error, { code: 'RATE_LIMITED', message: 'm', hint: 'h' });
 });

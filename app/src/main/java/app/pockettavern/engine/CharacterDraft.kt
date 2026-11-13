@@ -38,10 +38,10 @@ object CharacterDrafts {
 
     fun hasContent(character: Character): Boolean = values(character).values.any { it.isNotBlank() }
 
-    /** The request: the user's idea, plus the card so far when there is one. */
-    fun messages(idea: String, base: Character): String {
+    /** What the user asks for: the idea, plus the card so far when there is one. */
+    fun userText(idea: String, base: Character): String {
         val existing = values(base).filterValues { it.isNotBlank() }
-        val user = buildString {
+        return buildString {
             if (existing.isNotEmpty()) {
                 append("已有的角色卡如下。保留已经写好的设定，按我的要求修改，并补全空着的部分：\n")
                 append(JSONObject(existing as Map<*, *>).toString())
@@ -49,10 +49,12 @@ object CharacterDrafts {
             }
             append(if (idea.isBlank()) "请补全这张角色卡。" else "我的要求：${idea.trim()}")
         }
-        return JSONArray()
-            .put(JSONObject().put("role", "system").put("content", systemPrompt()))
-            .put(JSONObject().put("role", "user").put("content", user)).toString()
     }
+
+    /** The request: the user's idea, plus the card so far when there is one. */
+    fun messages(idea: String, base: Character): String = JSONArray()
+        .put(JSONObject().put("role", "system").put("content", systemPrompt()))
+        .put(JSONObject().put("role", "user").put("content", userText(idea, base))).toString()
 
     /** Room for a full card; a little warmth for variety. Thinking, if the model does it, is not limited. */
     fun preset(): Preset = Preset(temperature = 0.9, maxOutput = 4000)

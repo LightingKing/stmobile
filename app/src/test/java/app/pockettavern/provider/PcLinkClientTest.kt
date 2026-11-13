@@ -153,10 +153,39 @@ class PcLinkClientTest {
         val request = server.takeRequest()
         assertEquals("/v1/pocket/reach", request.path)
         assertEquals("小猫", org.json.JSONObject(request.body.readUtf8()).getString("query"))
+        // The character drafter's lookups use the same endpoint with a time limit.
+        server.enqueue(json("""{"ok":true,"items":[]}"""))
+        assertTrue(org.json.JSONObject(runBlocking { client.reach(pc, "t", org.json.JSONObject().put("action", "read").put("target", "https://a.com"), bounded = true) }).getBoolean("ok"))
+        assertEquals("/v1/pocket/reach", server.takeRequest().path)
         server.enqueue(json("""{"error":{"message":"不支持 xiaohongshu 的 search","code":"reach_unsupported"}}""", 400))
         val refused = failure { client.reach(pc, "t", org.json.JSONObject().put("action", "search").put("channel", "xiaohongshu")) }
         assertEquals(400, refused.httpCode)
         assertTrue(refused.message!!.contains("不支持 xiaohongshu"))
+    }
+
+    @Test fun picturesComeFromThePcAsBytesAndAnythingElseIsDropped() {
+        val jpeg = java.util.Base64.getEncoder().encodeToString(byteArrayOf(-1, -40, -1, 1, 2, 3))
+        val huge = java.util.Base64.getEncoder().encodeToString(ByteArray(600 * 1024))
+        server.enqueue(json("""{"ok":true,"query":"五更琉璃","source":"bing","items":[
+            {"title":"  黑猫  ","page_url":"https://baike.example/x","mime":"image/jpeg","bytes":6,"data":"$jpeg"},
+            {"title":"不是图片","page_url":"https://a.example/","mime":"text/html","data":"$jpeg"},
+            {"title":"坏数据","page_url":"https://a.example/","mime":"image/png","data":"***"},
+            {"title":"太大","page_url":"https://a.example/","mime":"image/png","data":"$huge"},
+            {"title":"出处不是网页","page_url":"javascript:alert(1)","mime":"image/webp","data":"$jpeg"}]}"""))
+        val pictures = runBlocking { client.images(pc, "t", "五更琉璃", 6) }
+        assertEquals(listOf("黑猫", "出处不是网页"), pictures.map { it.title })
+        assertEquals("https://baike.example/x", pictures[0].pageUrl)
+        assertEquals(6, pictures[0].bytes.size)
+        assertEquals("", pictures[1].pageUrl)
+        val request = server.takeRequest()
+        assertEquals("/v1/pocket/images", request.path)
+        assertEquals("Bearer t", request.getHeader("Authorization"))
+        val sent = org.json.JSONObject(request.body.readUtf8())
+        assertEquals("五更琉璃", sent.getString("query"))
+        assertEquals(6, sent.getInt("limit"))
+        // A PC still on the older server has no such endpoint.
+        server.enqueue(json("""{"error":{"message":"Not found"}}""", 404))
+        assertEquals(404, failure { client.images(pc, "t", "x", 6) }.httpCode)
     }
 
     @Test fun refusalsExplainWhatToDo() {

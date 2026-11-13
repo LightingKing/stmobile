@@ -26,6 +26,9 @@ import java.util.concurrent.TimeUnit
 
 class PcLinkException(message: String, val httpCode: Int = 0, cause: Throwable? = null) : IOException(message, cause)
 
+/** One picture the PC found: where it was shown, and the thumbnail itself. */
+class PcPicture(val title: String, val pageUrl: String, val mime: String, val bytes: ByteArray)
+
 /**
  * The PC writing server's own endpoints: status and phone backups. Uses the
  * provider's base URL and gateway token, under the same URL policy as chat.
@@ -45,6 +48,8 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         .build()
     // Status and the backup list are small: an offline PC should be reported quickly.
     private val quick = this.client.newBuilder().callTimeout(20, TimeUnit.SECONDS).build()
+    // An image search with its thumbnails, or one lookup for a character card: the PC itself gives up sooner than this.
+    private val search = this.client.newBuilder().callTimeout(90, TimeUnit.SECONDS).build()
 
     suspend fun status(provider: ProviderConfig, key: String): PcStatus = withContext(Dispatchers.IO) {
         val json = parse(call(quick, request(provider, key, "pocket/status").get().build()) { it.body?.string().orEmpty() })
@@ -148,10 +153,27 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         parse(text).toString()
     }
 
-    /** One web search or page read, run by Agent Reach on the PC; the trimmed result JSON comes back as is. */
-    suspend fun reach(provider: ProviderConfig, key: String, call: JSONObject): String = withContext(Dispatchers.IO) {
-        val text = call(client, request(provider, key, "pocket/reach").post(call.toString().toRequestBody(JSON)).build()) { it.body?.string().orEmpty() }
+    /**
+     * One web search or page read, run by Agent Reach on the PC; the trimmed result JSON comes back as is.
+     * [bounded] gives up after a minute and a half, for lookups nobody is waiting on one by one.
+     */
+    suspend fun reach(provider: ProviderConfig, key: String, call: JSONObject, bounded: Boolean = false): String = withContext(Dispatchers.IO) {
+        val text = call(if (bounded) search else client, request(provider, key, "pocket/reach").post(call.toString().toRequestBody(JSON)).build()) { it.body?.string().orEmpty() }
         parse(text).toString()
+    }
+
+    /** Pictures of a fictional character, found by the PC through an image search; small thumbnails, a few at most. */
+    suspend fun images(provider: ProviderConfig, key: String, query: String, limit: Int): List<PcPicture> = withContext(Dispatchers.IO) {
+        val body = JSONObject().put("query", query).put("limit", limit).toString().toRequestBody(JSON)
+        val items = parse(call(search, request(provider, key, "pocket/images").post(body).build()) { it.body?.string().orEmpty() }).optJSONArray("items") ?: JSONArray()
+        (0 until minOf(items.length(), MAX_PICTURES)).mapNotNull { index ->
+            val item = items.optJSONObject(index) ?: return@mapNotNull null
+            val mime = item.optString("mime").takeIf { it in PICTURE_TYPES } ?: return@mapNotNull null
+            val bytes = runCatching { java.util.Base64.getDecoder().decode(item.optString("data")) }.getOrNull()
+                ?.takeIf { it.isNotEmpty() && it.size <= MAX_PICTURE_BYTES } ?: return@mapNotNull null
+            val page = item.optString("page_url").takeIf { it.startsWith("https://") || it.startsWith("http://") }.orEmpty()
+            PcPicture(item.optString("title").trim().take(120), page.take(1000), mime, bytes)
+        }
     }
 
     /** Sticker packs kept on the PC. Their files are "<packId>/<NNN.ext>", fetched with [stickerImage]. */
@@ -281,6 +303,9 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         const val TRANSFER_IDLE_MINUTES = 10L
         private val ZIP = "application/zip".toMediaType()
         private val JSON = "application/json; charset=utf-8".toMediaType()
+        private val PICTURE_TYPES = setOf("image/jpeg", "image/png", "image/webp")
+        private const val MAX_PICTURES = 8
+        private const val MAX_PICTURE_BYTES = 512 * 1024
         private val STICKERS = "application/vnd.pocket-tavern.stickers".toMediaType()
         private const val MAX_STICKER_BYTES = 2 * 1024 * 1024
         private val STICKER_FILE = Regex("[0-9a-f]{12}/\\d{3}\\.(png|jpg|gif|webp)")
