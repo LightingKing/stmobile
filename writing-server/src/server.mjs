@@ -165,6 +165,13 @@ function answerStream(res, id) {
     if (!open()) return;
     role();
     push(result);
+    // A reply corrected after it was streamed (a lost character filled in) replaces what was sent:
+    // a `message` in place of a `delta` is the whole reply, which the phone has always accepted.
+    const content = String(result.content || '');
+    if (content !== sent.content) {
+      sse(res, { id, object: 'chat.completion.chunk', choices: [{ index: 0, message: { role: 'assistant', content } }] });
+      sent.content = content;
+    }
     if (result.tool_calls?.length) sse(res, chunk(id, { tool_calls: result.tool_calls }));
     sse(res, { id, object: 'chat.completion.chunk', choices: [{ index: 0, delta: {}, finish_reason: result.finish_reason || (result.tool_calls?.length ? 'tool_calls' : 'stop') }], usage: result.usage || undefined, pocket_tavern_warning: result.warning || undefined, pocket_tavern_notice: result.service_notice || undefined });
     res.write('data: [DONE]\n\n');
@@ -222,7 +229,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       stickers: await stickerStore.summary(),
       dsh: await dshRuntime.status(),
       reach: await reachRuntime.status(),
-      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings', 'stickers', 'dsh_runtime', 'web_reach', 'image_search'],
+      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings', 'stickers', 'dsh_runtime', 'web_reach', 'image_search', 'text_repair'],
     };
   }
 

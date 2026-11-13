@@ -1,5 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { UpstreamError, mergeUsage } from './upstream.mjs';
+import { REPAIR_LIMITS, applyRepair, damagedSpots, parseRepair, repairMessages, withoutDamage } from './repair.mjs';
 
 const PURPOSE_DIRECT = new Set(['summary', 'compact', 'rebuild']);
 
@@ -14,6 +15,7 @@ function requestBody(body, model, stream = false, config = {}) {
   result.model = model;
   result.stream = stream;
   delete result.metadata;
+  result.messages = withoutDamage(result.messages);
   if (isVeniceUpstream(config)) {
     const venice = { ...(result.venice_parameters || {}) };
     venice.include_venice_system_prompt = config.includeVeniceSystemPrompt === true;
@@ -125,6 +127,26 @@ export async function runCompletion({ request, config, vault, upstream, signal, 
     }
   };
 
+  /**
+   * A reply that arrived with characters cut apart (runs of U+FFFD) gets them filled in by one
+   * small request. Whatever goes wrong with that request, the reply is returned as it came.
+   */
+  const repaired = async (result, upstreamModel) => {
+    if (config.repairDamagedText === false || typeof result?.content !== 'string' || !result.content.includes('\ufffd')) return result;
+    const spots = damagedSpots(result.content);
+    if (spots.length === 0 || spots.length > REPAIR_LIMITS.spots) return result;
+    // No thinking for a one-character answer, where the settings name an effort the model accepts.
+    const quiet = { ...config, reasoningEffort: config.reasoningEffort && config.reasoningEffort !== 'default' ? 'none' : 'default' };
+    try {
+      const answer = await call('repair', requestBody({ messages: repairMessages(result.content, spots), temperature: 0, max_tokens: REPAIR_LIMITS.maxTokens }, upstreamModel, false, quiet));
+      const fixed = applyRepair(result.content, spots, parseRepair(answer.content, spots.length));
+      return fixed.repaired > 0 ? { ...result, content: fixed.text, repaired_characters: fixed.repaired } : result;
+    } catch (error) {
+      if (error?.name === 'AbortError') throw error;
+      return result;
+    }
+  };
+
   const fallback = async (warning, error, audit = null) => {
     const fallbackResult = {
       ...current.draft,
@@ -151,7 +173,7 @@ export async function runCompletion({ request, config, vault, upstream, signal, 
     const direct = model !== 'pocket-writer' || PURPOSE_DIRECT.has(purpose);
     // Without auto-revision every writer outcome (pass, notice or fallback) returns the draft text.
     const draftIsAnswer = direct || config.autoRevise !== true;
-    const draft = await call(direct ? 'direct' : 'draft', requestBody(request, upstreamModel, true, config), draftIsAnswer);
+    const draft = await repaired(await call(direct ? 'direct' : 'draft', requestBody(request, upstreamModel, true, config), draftIsAnswer), upstreamModel);
     current = await vault.updateRun(current, { draft });
     if (!draft.content && !draft.tool_calls?.length && !['content_filter', 'length'].includes(draft.finish_reason)) {
       throw new UpstreamError('上游返回空正文，已归档且不会把空结果作为回答', { code: 'empty_response', partial: draft });
@@ -193,7 +215,7 @@ export async function runCompletion({ request, config, vault, upstream, signal, 
         try {
           const revisionBody = reviewBody({ ...request, messages: revisionMessages }, config.upstreamModel, config);
           if (!fitsReviewWindow(revisionBody, config)) return await fallback('上下文容量估算不足，未发起付费修订，已返回草稿。', new Error('revision_context_estimate_exceeded'), parsed);
-          final = await call('revision', revisionBody);
+          final = await repaired(await call('revision', revisionBody), config.upstreamModel);
         } catch (error) {
           return await fallback('修订阶段失败，已返回原始草稿。', error, parsed);
         }

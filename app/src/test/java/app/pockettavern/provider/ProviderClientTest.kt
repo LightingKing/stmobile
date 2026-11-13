@@ -125,6 +125,38 @@ class ProviderClientTest {
         assertTrue(!ordinaryPayload.has("metadata"))
     }
 
+    /**
+     * PC server 0.10.0: a reply that arrived with a character cut apart is streamed as it came, then
+     * sent once more whole with the character filled in. The whole message replaces the streamed text.
+     */
+    @Test fun aWholeMessageAfterTheStreamReplacesTheDamagedText() = runBlocking {
+        server.enqueue(MockResponse().setHeader("Content-Type", "text/event-stream").setBody("""
+            data: {"choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}]}
+
+            data: {"choices":[{"index":0,"delta":{"reasoning_content":"想了想"},"finish_reason":null}]}
+
+            data: {"choices":[{"index":0,"delta":{"content":"父母都\ufffd\ufffd\ufffd，"},"finish_reason":null}]}
+
+            data: {"choices":[{"index":0,"delta":{"content":"她放学后要去打工。"},"finish_reason":null}]}
+
+            data: {"choices":[{"index":0,"message":{"role":"assistant","content":"父母都忙，她放学后要去打工。"}}]}
+
+            data: {"choices":[{"index":0,"delta":{},"finish_reason":"stop"}]}
+
+            data: [DONE]
+
+        """.trimIndent()))
+        val deltas = mutableListOf<app.pockettavern.domain.StreamDelta>()
+        val result = ProviderClient(allowInsecureHttpForTests = true).chat(provider(), "key", "model", "[]", Preset()) { deltas += it }
+        assertEquals("父母都忙，她放学后要去打工。", result.content)
+        assertEquals("the thinking shown so far stays", "想了想", result.reasoning)
+        assertEquals("stop", result.finishReason)
+        // What the chat screen builds from the deltas is the corrected text too.
+        val shown = deltas.fold(app.pockettavern.domain.StreamDelta()) { text, delta -> delta.appendTo(text) }
+        assertEquals("父母都忙，她放学后要去打工。", shown.content)
+        assertEquals(1, deltas.count { it.replaceContent })
+    }
+
     @Test fun missingToolIdGetsStableGeneratedId() = runBlocking {
         server.enqueue(MockResponse().setHeader("Content-Type", "text/event-stream").setBody("""
             data: {"choices":[{"delta":{"tool_calls":[{"index":0,"function":{"name":"lookup","arguments":"{}"}}]}}]}
