@@ -14,6 +14,7 @@ data class ChatTask(val kind: String = REPLY, val queued: Boolean = false) {
         const val REBUILD = "rebuild"
         const val ORGANIZE = "organize"
         const val RESEARCH = "research"
+        const val REPAIR = "repair"
 
         /** Upstream rate limits and cost: more replies than this wait their turn. */
         const val MAX_REPLIES = 3
@@ -28,6 +29,7 @@ object ChatTasks {
         task.kind == ChatTask.REBUILD -> "正在重建记忆…"
         task.kind == ChatTask.ORGANIZE -> "正在整理剧本…"
         task.kind == ChatTask.RESEARCH -> "正在研究资料…"
+        task.kind == ChatTask.REPAIR -> "正在修复乱码…"
         else -> "正在回复…"
     }
 

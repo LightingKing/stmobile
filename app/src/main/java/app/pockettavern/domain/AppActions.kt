@@ -129,6 +129,8 @@ interface AppActions {
      */
     fun draftCharacter(idea: String, base: Character, providerId: String, modelId: String, research: Boolean = false, material: CardMaterial? = null) { }
     fun cancelCharacterDraft() { }
+    /** Fills in the characters that saved replies of this chat lost on the way (shown as U+FFFD marks), with a few small requests. */
+    fun repairDamagedText(chatId: String) { }
     /** Leaving the character form: stops a draft and forgets the pictures found for it. */
     fun closeCharacterDraft() { }
     /** A picture found for the card being drafted; blocking, call off the main thread. */

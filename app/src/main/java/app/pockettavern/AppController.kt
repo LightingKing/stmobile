@@ -934,7 +934,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                         changeChat(chatId,persist,touch=false) { c -> c.copy(messages=c.messages.map { if(it.id==assistant.id && it.status=="streaming") it.copy(content=snapshot.content,reasoning=snapshot.reasoning) else it }) }
                     }
                 }
-                val result = try {
+                val received = try {
                     run.purpose.set(if (finalAnswerOnly) "chat_final" else "chat")
                     run.client.chat(routed(p),secret,before.modelId,outgoing,preset(before),toolDefinitions,
                         metadata = if (p.kind.equals("writing-server", ignoreCase = true)) mapOf(
@@ -950,6 +950,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
                     // Drain the last received text before cancellation marks this message.
                     withContext(NonCancellable) { collector.join() }
                 }
+                run.purpose.set("text_repair")
+                val result = repaired(run.client, routed(p), secret, before.modelId, received)
                 val calls=JSONArray(result.toolCallsJson)
                 // A provider may include the state marker alongside a tool call.
                 // Apply only when the marker is present; ordinary tool-planning
@@ -1285,6 +1287,66 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     // ---- chat backgrounds
 
+    // ---- characters a reply lost on the way
+
+    /**
+     * A reply that arrived with characters cut apart (runs of U+FFFD) gets them filled in with one
+     * small request to the same model. Whatever goes wrong with that request, the reply is kept as
+     * it came. Chats on a PC writing server from 0.10.0 arrive already repaired and cost nothing here.
+     */
+    private suspend fun repaired(client: ProviderClient, provider: ProviderConfig, key: String, modelId: String, result: CompletionResult): CompletionResult {
+        val spots = DamagedText.spots(result.content)
+        if (spots.isEmpty() || spots.size > DamagedText.MAX_SPOTS) return result
+        return try {
+            val answer = client.chat(provider, key, modelId, DamagedText.messages(spots.map { DamagedText.line(result.content, it) }), DamagedText.preset(),
+                toolsJson = "[]", finalAnswerOnly = true)
+            val fixed = DamagedText.apply(result.content, spots, DamagedText.parse(answer.content, spots.size))
+            if (fixed.repaired > 0) result.copy(content = fixed.text) else result
+        } catch (cancelled: CancellationException) { throw cancelled }
+        catch (error: Exception) { result }
+    }
+
+    /**
+     * Saved replies of one chat that lost characters before the repair existed: every damaged place
+     * is sent with its surrounding text, up to [DamagedText.MAX_SPOTS] per request, and accepted
+     * answers are written back. The chat is busy meanwhile, so nothing else changes its messages.
+     */
+    override fun repairDamagedText(chatId: String) {
+        val chat = data.chats.firstOrNull { it.id == chatId } ?: return
+        if (DamagedText.count(chat).first == 0) { status("这个会话里没有乱码"); return }
+        chatTask(chatId, ChatTask.REPAIR, onFinished = { error, cancelled -> if (error != null && !cancelled) chatStatus(chatId, "乱码没修成：$error") }) {
+            val run = currentCoroutineContext()[ChatRun] ?: error("任务没有启动")
+            val base = current(chatId)
+            val p = provider(base.providerId)
+            val secret = key(p.id)
+            run.purpose.set("text_repair")
+            val places = base.messages.filter { it.role == "assistant" && DamagedText.damaged(it.content) }.flatMap { message ->
+                DamagedText.spots(message.content).map { spot -> DamagedPlace(message.id, spot, DamagedText.line(message.content, spot)) }
+            }
+            val answers = arrayOfNulls<String>(places.size)
+            places.chunked(DamagedText.MAX_SPOTS).forEachIndexed { batch, lines ->
+                currentCoroutineContext().ensureActive()
+                val reply = run.client.chat(routed(p), secret, base.modelId, DamagedText.messages(lines.map { it.line }), DamagedText.preset(), toolsJson = "[]", finalAnswerOnly = true)
+                DamagedText.parse(reply.content, lines.size)?.forEachIndexed { index, answer -> answers[batch * DamagedText.MAX_SPOTS + index] = answer }
+            }
+            var filled = 0
+            val byMessage = places.withIndex().groupBy { it.value.messageId }
+            val patched = withContext(Dispatchers.Default) {
+                DamagedText.reseal(base, base.copy(messages = base.messages.map { message ->
+                    val found = byMessage[message.id] ?: return@map message
+                    val fixed = DamagedText.apply(message.content, found.map { it.value.spot }, found.map { answers[it.index] })
+                    filled += fixed.repaired
+                    if (fixed.repaired > 0) message.copy(content = fixed.text) else message
+                }))
+            }
+            changeChat(chatId, touch = false) { c ->
+                if (c.messages == base.messages) c.copy(messages = patched.messages, summaries = patched.summaries, knowledgeNotes = patched.knowledgeNotes) else c
+            }
+            val left = places.size - filled
+            chatStatus(chatId, if (left == 0) "已补上 $filled 处乱码" else "已补上 $filled 处乱码，还有 $left 处没补上")
+        }
+    }
+
     // ---- AI character drafts
 
     private val draftClient by lazy { ProviderClient(onDiagnostic = { event -> logRequest(event, "character_draft") }) }
@@ -1314,7 +1376,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
                     .mapNotNull { picture -> researchPictures[picture.id]?.let { picture.mime to android.util.Base64.encodeToString(it, android.util.Base64.NO_WRAP) } }
                 val messages = if (usable == null) CharacterDrafts.messages(idea, base)
                     else CharacterResearch.draftMessages(idea, base, usable, shown, CharacterResearch.budgetChars(model.contextTokens))
-                val response = draftClient.chat(routed(p), key(p.id), modelId, messages, CharacterDrafts.preset(), toolsJson = "[]", finalAnswerOnly = true)
+                val response = repaired(draftClient, routed(p), key(p.id), modelId,
+                    draftClient.chat(routed(p), key(p.id), modelId, messages, CharacterDrafts.preset(), toolsJson = "[]", finalAnswerOnly = true))
                 CharacterDraftState(token, result = CharacterDrafts.parse(response.content).getOrThrow(), material = found?.copy(picturesSeen = shown.size))
             } catch (cancelled: CancellationException) { throw cancelled }
             catch (stop: DraftStop) { CharacterDraftState(token, error = stop.message.orEmpty(), material = found) }
@@ -2523,3 +2586,6 @@ private class DraftStop(message: String) : Exception(message)
 
 /** The first round of lookups for a character card. */
 private class FirstFinds(val links: List<CardSource?>, val pages: List<CardSource>, val videos: List<CardSource>, val pictures: List<CardPicture>)
+
+/** One damaged place of a saved reply, with the text around it that the model is shown. */
+private class DamagedPlace(val messageId: String, val spot: DamagedText.Spot, val line: String)

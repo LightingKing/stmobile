@@ -547,7 +547,8 @@ object ContextEngine {
 
     private fun contentFor(message: Message, model: ModelInfo?, currentUserTurn: Boolean, turnNote: String = ""): Any {
         // Sticker markers are display-only; earlier replies go back to the model without them.
-        val prose = NarrativePolicy.messageContent(message, currentUserTurn).let { if (message.role == "assistant") StickerMarkup.strip(it) else it }
+        // Nor are the marks a damaged reply was saved with: the model should not read them as its own writing.
+        val prose = NarrativePolicy.messageContent(message, currentUserTurn).let { if (message.role == "assistant") DamagedText.strip(StickerMarkup.strip(it)) else it }
             .let { if (turnNote.isEmpty()) it else if (it.isBlank()) turnNote else "$it\n\n$turnNote" }
         if (message.attachments.isEmpty()) return prose
         val content = JSONArray()

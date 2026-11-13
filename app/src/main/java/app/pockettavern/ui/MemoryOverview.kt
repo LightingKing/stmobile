@@ -41,6 +41,7 @@ import androidx.compose.ui.unit.dp
 import app.pockettavern.domain.ContextBudgetBreakdown
 import app.pockettavern.domain.ContextInspection
 import app.pockettavern.domain.Memory
+import app.pockettavern.engine.DamagedText
 import app.pockettavern.engine.LongMemory
 
 internal data class OverviewRow(val label: String, val tokens: Int)
@@ -116,6 +117,20 @@ internal fun MemoryOverviewCard(value: ContextInspection?, locked: Boolean, onOr
                 Text(MemoryOverviewModel.backlogText(turns), style = MaterialTheme.typography.bodySmall, color = colors.primary)
                 Button(onClick = onOrganize, enabled = !locked, modifier = Modifier.fillMaxWidth()) { Text("整理记忆") }
             }
+        }
+    }
+}
+
+/** Saved replies that lost characters on the way: how many, and one button to have the model fill them in. */
+@Composable
+internal fun DamagedTextCard(messages: Int, places: Int, locked: Boolean, running: Boolean, onRepair: () -> Unit) {
+    val colors = MaterialTheme.colorScheme
+    ElevatedCard(Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Text("$messages 条回复里有乱码，共 $places 处", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+            Text("回复在传到手机的路上丢了字，显示成“\uFFFD”。可以让模型按前后文把每处补上一个字，要发 ${(places + DamagedText.MAX_SPOTS - 1) / DamagedText.MAX_SPOTS} 次很小的请求。补的字是推断的，记忆和摘要不受影响。",
+                style = MaterialTheme.typography.bodySmall, color = colors.onSurfaceVariant)
+            Button(onClick = onRepair, enabled = !locked, modifier = Modifier.fillMaxWidth()) { Text(if (running) "正在修复乱码…" else "修复乱码") }
         }
     }
 }

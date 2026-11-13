@@ -37,7 +37,7 @@ import java.util.Locale
 internal fun ConversationMemoryScreen(chat: Chat, state: UiSession, actions: AppActions, onDismiss: () -> Unit) {
     Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
         ConversationMemoryContent(chat, state, onRebuild = actions::rebuildHistory, onStop = actions::stop, onDismiss = onDismiss, onExportDiagnostics = actions::exportMemoryDiagnostics,
-            onOrganize = actions::compress, onInspect = { actions.inspectContext(chat.id) },
+            onOrganize = actions::compress, onInspect = { actions.inspectContext(chat.id) }, onRepairDamage = { actions.repairDamagedText(chat.id) },
             onSavePinned = { old, text -> actions.saveMemory((old ?: app.pockettavern.domain.Memory(scope = "chat", targetId = chat.id)).copy(text = text)) },
             onDeletePinned = { actions.deleteMemory(it.id) })
     }
@@ -62,7 +62,8 @@ internal fun ConversationMemoryContent(
     onOrganize: () -> Unit = {},
     onInspect: () -> Unit = {},
     onSavePinned: (app.pockettavern.domain.Memory?, String) -> Unit = { _, _ -> },
-    onDeletePinned: (app.pockettavern.domain.Memory) -> Unit = {}
+    onDeletePinned: (app.pockettavern.domain.Memory) -> Unit = {},
+    onRepairDamage: () -> Unit = {}
 ) {
     var section by rememberSaveable(chat.id) { mutableIntStateOf(initialSection) }
     var category by rememberSaveable(chat.id) { mutableStateOf(initialCategory) }
@@ -88,6 +89,7 @@ internal fun ConversationMemoryContent(
     LaunchedEffect(chat.id, chat.messages.size, chat.summaries.size, chat.knowledgeNotes.size, state.data.memories.size, locked) { if (!locked) onInspect() }
     val inspected = state.contextInspection?.takeIf { it.chatId == chat.id }
     val pinned = state.data.memories.filter { it.scope == "chat" && it.targetId == chat.id }
+    val damage = remember(chat.messages) { app.pockettavern.engine.DamagedText.count(chat) }
     val previewIndex = remember(chat, inspection) { if (inspection) MemoryBrowser.index(chat) else null }
     val index by produceState(previewIndex, chat.id, chat.summaries, chat.knowledgeNotes, chat.messages, chat.activeSummaryId) {
         value = previewIndex
@@ -167,6 +169,7 @@ internal fun ConversationMemoryContent(
                 LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     if (query.isBlank() && section == MemoryBrowser.ALL) {
                         item { MemoryOverviewCard(inspected, locked, onOrganize) }
+                        if (damage.first > 0) item { DamagedTextCard(damage.first, damage.second, locked, state.chatTasks[chat.id]?.kind == ChatTask.REPAIR, onRepairDamage) }
                         item { PinnedFactsCard(pinned, locked, onSavePinned, onDeletePinned) }
                     }
                     item {
