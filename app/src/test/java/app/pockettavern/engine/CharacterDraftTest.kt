@@ -21,8 +21,10 @@ class CharacterDraftTest {
         assertTrue(user.contains("毒舌的学姐"))
         assertFalse("a new card has nothing to keep", user.contains("已有的角色卡"))
         for (key in listOf("name", "description", "personality", "scenario", "first_message", "examples")) assertTrue(key, system.contains("- $key："))
-        assertTrue("no cards of real people", system.contains("不给现实中可识别的真人"))
+        assertTrue("who the card is about is the model's call", system.contains("写谁、怎么写由你判断"))
+        assertFalse("the app no longer rules real people out", system.contains("不给现实中可识别的真人"))
         assertTrue("romance needs adults", system.contains("必须明确是成年人"))
+        assertTrue("a real person's card stays public and not sexual", system.contains("不写性内容") && system.contains("隐私"))
         assertTrue(system.contains("只返回一个 JSON 对象"))
     }
 

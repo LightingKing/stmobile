@@ -131,7 +131,7 @@ internal fun CharacterDraftPanel(state: UiSession, actions: AppActions, form: Ch
                     Text(when {
                         !pcReady -> "要用电脑写作服务：在“模型”页添加后才能用。"
                         linked -> "会先读你贴的链接，再找这个角色的网页、视频和图片。"
-                        else -> "电脑先找这个角色的网页、视频和图片，再按资料写。适合动画、游戏、小说里已有的角色。"
+                        else -> "电脑先找这个角色的网页、视频和图片，再按资料写。找不找、找什么由模型判断。"
                     }, style = MaterialTheme.typography.bodySmall, color = colors.onSurfaceVariant)
                 }
             }

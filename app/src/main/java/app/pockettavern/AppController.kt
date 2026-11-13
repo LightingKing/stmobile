@@ -1344,10 +1344,9 @@ class AppController(application: Application) : AndroidViewModel(application), A
             CharacterResearch.parsePlan(reply.content).getOrElse { CharacterResearch.fallbackPlan(idea, base) }
         } catch (cancelled: CancellationException) { throw cancelled }
         catch (error: Exception) { CharacterResearch.fallbackPlan(idea, base) }
-        if (plan.realPerson) throw DraftStop(CharacterResearch.REAL_PERSON)
         val links = CharacterResearch.links(idea)
         if (!plan.searches && links.isEmpty()) {
-            return CardMaterial(subject = plan.subject, notes = listOf(if (plan.original) CharacterResearch.NOTHING_TO_FIND else "没看出要找哪个角色，直接按你的描述写了；写上角色名和作品名再试会更准。"))
+            return CardMaterial(subject = plan.subject, notes = listOf(CharacterResearch.NOTHING_TO_FIND))
         }
         val route = routed(pc)
         val gate = Semaphore(2)

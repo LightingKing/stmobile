@@ -8,7 +8,8 @@ import org.json.JSONObject
 /**
  * 角色卡助手: a chat whose task is making one character card. It can watch videos and read pages
  * through web_reach, drafts the card in the conversation, and saves it with one tool once the user
- * agrees. Only fictional or original characters: real, identifiable people are refused.
+ * agrees. Who the card is about is the model's call; two lines stay (adults for romance, and no
+ * sexual content or private details for real people).
  */
 object CharacterCardTool {
     const val TASK = "character_card"
@@ -19,8 +20,8 @@ object CharacterCardTool {
 
     const val PROMPT = "【角色卡助手】本会话的任务是帮用户做一张角色卡。用户给视频链接或要求参考视频时，用 web_reach 读视频信息和字幕（subtitle），网页用 read；资料不够就问用户。" +
         "先在对话里给出草稿：名称、简介（外貌、身份、背景）、性格、场景、开场白、示例对话，让用户确认或修改；用户明确同意保存后，再调用 character_card_save 保存，保存后告诉用户去“角色”页查看和修改。" +
-        "只做虚构或原创角色：不给现实中可识别的真人（主播、明星、网红或身边的人）做角色卡，不沿用真人的名字、长相或可识别特征；可以借鉴风格，但要另起名字和设定，并向用户说明。" +
-        "角色涉及恋爱或成人内容时必须是成年人。动画、游戏、小说里的虚构角色可以照原作整理。"
+        "做谁的角色卡、参考哪些资料由你判断，虚构角色、原创角色、历史人物或公众人物都可以。" +
+        "两条底线：角色涉及恋爱或成人内容时必须明确是成年人；对象是现实中的真人时，只按公开资料写其公开形象，不写性内容，也不写住址、联系方式、家人、未公开的身份这类隐私。"
 
     private val FIELDS = listOf(
         Triple("name", "角色名称", 60),
