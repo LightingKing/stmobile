@@ -94,7 +94,9 @@ data class UiSession(val data: AppData = AppData(), val selectedChatId: String =
     /** False shows the chat list; true shows the selected chat on top of it. */
     val chatOpen: Boolean = false,
     /** The latest look at what one chat's next request would send. */
-    val contextInspection: ContextInspection? = null) {
+    val contextInspection: ContextInspection? = null,
+    /** An AI character draft being written for the character form, or its result. */
+    val characterDraft: CharacterDraftState? = null) {
     fun chatBusy(chatId: String?): Boolean = chatId != null && chatId in chatTasks
 }
 /** GitHub star count recorded in the bundled catalog on [checkedAt]; null stars means it could not be read. */
@@ -116,3 +118,6 @@ data class Sticker(val key: String = "", val name: String = "", val description:
 
 /** Metadata only; the images live on disk so state saves stay small. */
 data class StickerPack(val id: String = newId(), val name: String = "", val license: String = "", val source: String = "", val enabled: Boolean = true, val stickers: List<Sticker> = emptyList(), val importedAt: Long = System.currentTimeMillis())
+
+/** "AI 帮我写" in the character form: still writing, a finished card, or why it failed. */
+data class CharacterDraftState(val token: String = "", val running: Boolean = false, val result: Character? = null, val error: String = "")

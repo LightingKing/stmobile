@@ -1284,6 +1284,40 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     // ---- chat backgrounds
 
+    // ---- AI character drafts
+
+    private val draftClient by lazy { ProviderClient(onDiagnostic = { event -> logRequest(event, "character_draft") }) }
+    private var draftJob: Job? = null
+
+    override fun draftCharacter(idea: String, base: Character, providerId: String, modelId: String) {
+        if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
+        if (idea.isBlank() && !CharacterDrafts.hasContent(base)) { status("先写一两句你想要的角色"); return }
+        val p = data.providers.firstOrNull { it.id == providerId } ?: run { status("请先选择生成用的模型"); return }
+        if (p.models.none { it.id == modelId && it.type == "text" && !it.offline }) { status("这个模型不可用，请换一个"); return }
+        draftJob?.cancel(); draftClient.cancel()
+        val token = newId()
+        mutable.value = mutable.value.copy(characterDraft = CharacterDraftState(token = token, running = true))
+        draftJob = viewModelScope.launch {
+            val outcome = try {
+                val response = draftClient.chat(routed(p), key(p.id), modelId, CharacterDrafts.messages(idea, base), CharacterDrafts.preset(),
+                    toolsJson = "[]", finalAnswerOnly = true)
+                CharacterDraftState(token, result = CharacterDrafts.parse(response.content).getOrThrow())
+            } catch (cancelled: CancellationException) { throw cancelled }
+            catch (error: Exception) { CharacterDraftState(token, error = "角色卡没写成：" + (error.message?.take(300) ?: "请重试")) }
+            if (mutable.value.characterDraft?.token == token) mutable.value = mutable.value.copy(characterDraft = outcome)
+        }
+    }
+
+    override fun cancelCharacterDraft() {
+        draftJob?.cancel(); draftJob = null
+        if (mutable.value.characterDraft?.running == true) draftClient.cancel()
+        mutable.value = mutable.value.copy(characterDraft = null)
+    }
+
+    override fun clearCharacterDraft() {
+        if (mutable.value.characterDraft?.running != true) mutable.value = mutable.value.copy(characterDraft = null)
+    }
+
     // ---- group chats
 
     override fun createGroupChat(title: String, setup: GroupSetup): Boolean {

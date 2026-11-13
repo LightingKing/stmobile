@@ -177,6 +177,8 @@ object ContextEngine {
 
         val live = chat.messages.drop(cutoff + 1)
         val currentUser = chat.messages.getOrNull(latestUserIndex)
+        // Placed beside the latest message, where models pay attention, instead of only at the top.
+        val skillNote = SkillReminder.note(skills, toolsSupported, currentUser?.intent.orEmpty())
         val liveGroups = turnGroups(live).map(::effectiveMessages).filter { it.isNotEmpty() }
         // Right after a full rebuild the summary reaches the last message, so the latest turns go
         // again as they were written: a model continuing a novel needs the prose, not only a
@@ -188,7 +190,7 @@ object ContextEngine {
         val candidates = withoutPastTurnBaggage(effectiveMessages(earlier.flatten() + live), currentUser?.id).filter(::isSent)
         val liveTokens = HashMap<String, Int>()
         val candidateJson = candidates.associate { message ->
-            val json = messageJson(message, model, currentUserTurn = message.id == currentUser?.id)
+            val json = messageJson(message, model, currentUserTurn = message.id == currentUser?.id, turnNote = if (message.id == currentUser?.id) skillNote else "")
             liveTokens[message.id] = estimateMessagesTokens(listOf(json))
             message.id to json
         }
@@ -532,8 +534,8 @@ object ContextEngine {
 
     private fun findValidSummary(chat: Chat): Summary? = resolveSummary(chat).effective
 
-    private fun messageJson(message: Message, model: ModelInfo?, currentUserTurn: Boolean): JSONObject {
-        val json = JSONObject().put("role", message.role).put("content", contentFor(message, model, currentUserTurn))
+    private fun messageJson(message: Message, model: ModelInfo?, currentUserTurn: Boolean, turnNote: String = ""): JSONObject {
+        val json = JSONObject().put("role", message.role).put("content", contentFor(message, model, currentUserTurn, turnNote))
         if (message.reasoning.isNotBlank()) json.put("reasoning_content", message.reasoning)
         if (message.toolCallsJson.isNotBlank() && message.toolCallsJson != "[]") {
             json.put("tool_calls_json", message.toolCallsJson)
@@ -543,9 +545,10 @@ object ContextEngine {
         return json
     }
 
-    private fun contentFor(message: Message, model: ModelInfo?, currentUserTurn: Boolean): Any {
+    private fun contentFor(message: Message, model: ModelInfo?, currentUserTurn: Boolean, turnNote: String = ""): Any {
         // Sticker markers are display-only; earlier replies go back to the model without them.
         val prose = NarrativePolicy.messageContent(message, currentUserTurn).let { if (message.role == "assistant") StickerMarkup.strip(it) else it }
+            .let { if (turnNote.isEmpty()) it else if (it.isBlank()) turnNote else "$it\n\n$turnNote" }
         if (message.attachments.isEmpty()) return prose
         val content = JSONArray()
         if (prose.isNotBlank()) content.put(JSONObject().put("type", "text").put("text", prose))

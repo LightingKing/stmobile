@@ -84,7 +84,7 @@ class SkillInjectionTest {
         val (data, chat) = chatData(listOf("builtin-writing-tm-dialogue"), tools = true, world = listOf(world))
         val texts = contents(data, chat).map { it.second }
         fun at(prefix: String) = texts.indexOfFirst { it.startsWith(prefix) }.also { assertTrue(prefix, it >= 0) }
-        val order = listOf(at("【预设】"), at("【Skill 使用方式】"), at("【Skill: "), at("【本轮 Skills 清单"), at("【避免重复回复】"), at("【世界书资料】"), texts.indexOf("开始"))
+        val order = listOf(at("【预设】"), at("【Skill 使用方式】"), at("【Skill: "), at("【本轮 Skills 清单"), at("【避免重复回复】"), at("【世界书资料】"), at("开始"))
         assertEquals(order.sorted(), order)
     }
 

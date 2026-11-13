@@ -357,7 +357,9 @@ class BuiltinSkillsTest {
             val after = contents.drop(line + 1)
             val firstChat = after.indexOfFirst { it.getString("role") != "system" }
             assertTrue(after.take(firstChat).all { it.getString("role") == "system" })
-            assertEquals("chat history follows unchanged", history.map { it.content }, after.drop(firstChat).map { it.getString("content") })
+            // 0.2.4: the latest message also carries the Skill note when Skills are selected; the history itself is unchanged.
+            assertEquals("chat history follows unchanged", history.map { it.content },
+                after.drop(firstChat).map { it.getString("content").substringBefore("\n\n" + app.pockettavern.engine.SkillReminder.HEADING) })
         }
     }
 

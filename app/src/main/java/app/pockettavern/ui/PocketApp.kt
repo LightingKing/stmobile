@@ -1,5 +1,7 @@
 package app.pockettavern.ui
 
+import app.pockettavern.engine.CharacterDrafts
+
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
@@ -313,6 +315,8 @@ internal fun ChatOptionsDialog(chat: Chat, state: UiSession, actions: AppActions
             Text("本会话 Skills", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
             Text("模型会按下列顺序从上到下注入 Skill 正文，然后再加入历史摘要和对话。排序只影响当前会话；未打开总开关的 Skill 不会注入。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             val orderedSkills = ToolRuntime.skillsInOrder(skills, selectedOrder)
+            if (orderedSkills.isNotEmpty()) Text("每次发消息时，会在你的消息旁提醒模型按这些 Skill 写，带参考文件的会先读文件。",
+                style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             if (orderedSkills.isNotEmpty()) SkillCostSummaryLine(skillCostSummary(orderedSkills, skillCostById, chatInputLimit(state.data, chat), state.data.settings.adultSkillsConfirmed))
             if (orderedSkills.isEmpty()) {
                 Text("当前会话还没有选择 Skill。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -623,6 +627,8 @@ private fun MemoryCard(memory: Memory, actions: AppActions, onEdit: (Memory) -> 
 private fun CharacterDialog(character: Character, state: UiSession, actions: AppActions, onDismiss: () -> Unit) {
     var value by remember { mutableStateOf(character) }
     FormDialog("${if (character.name.isBlank()) "新建" else "编辑"}角色", onDismiss, validate = { if (value.name.isBlank()) "请输入角色名称。" else null }, confirm = { actions.saveCharacter(value); onDismiss() }) {
+        // Scenario cards are whole stories with their own world books; the drafter writes people.
+        if (!character.id.startsWith("builtin-scenario-")) CharacterDraftPanel(state, actions, value) { draft -> value = CharacterDrafts.merge(value, draft) }
         // The avatar applies at once; it is only offered once the character exists.
         val saved = state.data.characters.firstOrNull { it.id == character.id }
         if (saved != null) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {

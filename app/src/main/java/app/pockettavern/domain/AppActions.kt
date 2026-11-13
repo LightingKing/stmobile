@@ -122,6 +122,11 @@ interface AppActions {
     fun removeCharacterAvatar(characterId: String) { }
     /** A chat's background and how it is toned down; null removes it. Takes effect at once. */
     fun setChatLook(chatId: String, look: ChatLook?) { }
+    /** Writes a character card from a short idea (and the form so far) with the given model. */
+    fun draftCharacter(idea: String, base: Character, providerId: String, modelId: String) { }
+    fun cancelCharacterDraft() { }
+    /** Forgets a finished draft once the form has taken it. */
+    fun clearCharacterDraft() { }
     /** Creates and opens a group chat; false, with the reason in the status line, when it cannot. */
     fun createGroupChat(title: String, setup: GroupSetup): Boolean = false
     /** Changes a group's name, members, scene, relations or speaking mode; applies from the next reply. */
