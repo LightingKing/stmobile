@@ -60,7 +60,11 @@ export const SOCIAL = {
     },
   },
   xiaohongshu: {
+    // Visitors get a web_session cookie as well, so the open page is asked whether it is logged in.
     name: '小红书', domains: ['xiaohongshu.com', 'xhslink.com'], loginUrl: 'https://www.xiaohongshu.com/explore', cookies: ['web_session'],
+    page: `(() => { const u = window.__INITIAL_STATE__ && window.__INITIAL_STATE__.user; if (!u) return null;
+      const v = (x) => (x && typeof x === 'object' && '_rawValue' in x ? x._rawValue : x && typeof x === 'object' && 'value' in x ? x.value : x);
+      const logged = v(u.loggedIn); return typeof logged === 'boolean' ? logged : null; })()`,
     actions: {
       search: { command: 'search', arg: 'query', limit: true },
       read: { command: 'note', arg: 'target' },
@@ -274,7 +278,11 @@ export function createSocialBrowser({ runtimeDir = RUNTIME, port = SOCIAL_PORT, 
   async function cdp(method, params = {}) {
     const info = await version();
     if (!info?.webSocketDebuggerUrl) throw new ReachError('专用浏览器没有运行', 503, 'social_browser_off');
-    const socket = new WebSocket(info.webSocketDebuggerUrl);
+    return cdpAt(info.webSocketDebuggerUrl, method, params);
+  }
+
+  async function cdpAt(url, method, params = {}) {
+    const socket = new WebSocket(url);
     try {
       await new Promise((resolve, reject) => {
         const timer = setTimeout(() => reject(new Error('timeout')), 5000);
@@ -368,6 +376,18 @@ export function createSocialBrowser({ runtimeDir = RUNTIME, port = SOCIAL_PORT, 
     await fetchImpl(`${endpoint}/json/close/${encodeURIComponent(id)}`, { signal: AbortSignal.timeout(5000) }).catch(() => null);
   }
 
+  /**
+   * Runs [expression] in an open tab of one of [domains] and returns its value, or null when no
+   * such tab is open. Used only to ask a page whether it is logged in.
+   */
+  async function evaluateOn(domains, expression) {
+    const response = await fetchImpl(`${endpoint}/json/list`, { signal: AbortSignal.timeout(3000) });
+    const tab = (await response.json()).find((target) => target.type === 'page' && onDomain(hostOf(String(target.url || '')), domains));
+    if (!tab?.webSocketDebuggerUrl) return null;
+    const result = await cdpAt(tab.webSocketDebuggerUrl, 'Runtime.evaluate', { expression, returnByValue: true });
+    return result?.result?.value ?? null;
+  }
+
   /** Names of the cookies set for each platform; values are never read out. */
   async function cookieNames() {
     const { cookies = [] } = await cdp('Storage.getCookies');
@@ -384,7 +404,7 @@ export function createSocialBrowser({ runtimeDir = RUNTIME, port = SOCIAL_PORT, 
     return mine.length;
   }
 
-  return { endpoint, profile, chrome, mode, ensureHeadless, openWindow, close, openTab, closeTab, cookieNames, forget };
+  return { endpoint, profile, chrome, mode, ensureHeadless, openWindow, close, openTab, closeTab, cookieNames, forget, evaluateOn };
 }
 
 function childEnv(home, extra) {
@@ -434,16 +454,34 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
     return logins;
   }
 
-  /** Which platforms are logged in, read from the running browser, or as last seen when it is closed. */
+  /**
+   * Which platforms are logged in, read from the running browser, or as last seen when it is
+   * closed. A platform whose cookies cannot tell (Xiaohongshu) is asked through its open page;
+   * with no such page, its last known state stands as long as its cookie is still there.
+   */
   async function logins({ live = true } = {}) {
     const known = await saved();
     if (!live || await dedicated.mode() === 'off') return known;
     try {
       const names = await dedicated.cookieNames();
       const now = new Date().toISOString();
-      const next = Object.fromEntries(Object.keys(SOCIAL).map((key) => [key, { logged_in: SOCIAL[key].cookies.some((name) => names[key].has(name)), checked_at: now }]));
+      const next = {};
+      for (const [key, platform] of Object.entries(SOCIAL)) {
+        let logged = platform.cookies.some((name) => names[key].has(name));
+        if (logged && platform.page) {
+          const answer = await dedicated.evaluateOn(platform.domains, platform.page).catch(() => null);
+          logged = answer === null ? known[key]?.logged_in === true : answer === true;
+        }
+        next[key] = { logged_in: logged, checked_at: now };
+      }
       return await save(next);
     } catch { return known; }
+  }
+
+  /** The platform said it needs a login: it counts as logged out until the next login. */
+  async function markLoggedOut(key) {
+    const known = await saved();
+    return save({ ...known, [key]: { logged_in: false, checked_at: new Date().toISOString() } });
   }
 
   async function installed() {
@@ -476,7 +514,7 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
       if (!envelope) return failed({ code: 'UPSTREAM_BROKEN', message: `OpenCLI 没有返回 JSON（退出码 ${result.code}）` });
       if (envelope.ok === false) {
         const error = socialError(envelope.error, platform.name);
-        if (error.code === 'NEED_LOGIN') await logins().catch(() => null);
+        if (error.code === 'NEED_LOGIN') await markLoggedOut(channel).catch(() => null);
         return failed(error);
       }
       return trimResult({ ok: true, channel, action, backend: 'opencli', items: socialItems(envelope.data ?? envelope), error: null }, action);

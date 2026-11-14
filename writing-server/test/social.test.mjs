@@ -89,7 +89,7 @@ test('platform failures are reported with the codes chats already know', () => {
 });
 
 /** A dedicated browser that records what it was asked to do. */
-function fakeBrowser({ mode = 'off', cookies = {} } = {}) {
+function fakeBrowser({ mode = 'off', cookies = {}, page = null } = {}) {
   const log = [];
   let current = mode;
   return {
@@ -105,6 +105,7 @@ function fakeBrowser({ mode = 'off', cookies = {} } = {}) {
     closeTab: async (id) => { log.push(`close-tab ${id}`); },
     cookieNames: async () => Object.fromEntries(Object.keys(SOCIAL).map((key) => [key, new Set(cookies[key] || [])])),
     forget: async (key) => { log.push(`forget ${key}`); cookies[key] = []; return 3; },
+    evaluateOn: async () => page,
   };
 }
 
@@ -164,6 +165,23 @@ test('logins are read from the cookie names; a platform known to be logged out i
   assert.equal((await closed.status()).platforms.twitter.logged_in, true);
 });
 
+test('Xiaohongshu visitors have the cookie too, so its page decides; a refused lookup marks a platform logged out', async () => {
+  const dir = await runtimeDir();
+  const visitor = createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser({ mode: 'window', cookies: { xiaohongshu: ['web_session'] }, page: false }) });
+  assert.equal((await visitor.logins()).xiaohongshu.logged_in, false);
+  const member = createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser({ mode: 'window', cookies: { xiaohongshu: ['web_session'] }, page: true }) });
+  assert.equal((await member.logins()).xiaohongshu.logged_in, true);
+  // Headless, with no Xiaohongshu page open: the last answer stands while the cookie is there.
+  const headless = createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser({ mode: 'headless', cookies: { xiaohongshu: ['web_session'] }, page: null }) });
+  assert.equal((await headless.logins()).xiaohongshu.logged_in, true);
+  const seen = [];
+  const refusing = createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser({ mode: 'headless', cookies: { xiaohongshu: ['web_session'] }, page: null }),
+    spawnImpl: fakeOpencli({ ok: false, error: { code: 'AUTH_REQUIRED', message: 'login required' } }, seen) });
+  assert.equal((await refusing.run({ channel: 'xiaohongshu', action: 'search', query: 'x' })).error.code, 'NEED_LOGIN');
+  assert.equal((await refusing.logins({ live: false })).xiaohongshu.logged_in, false);
+  assert.equal((await refusing.logins()).xiaohongshu.logged_in, false, 'and stays so while no page says otherwise');
+});
+
 test('a login failure from OpenCLI is reported as NEED_LOGIN; a login window blocks lookups', async () => {
   const dir = await runtimeDir();
   const seen = [];
@@ -178,7 +196,7 @@ test('a login failure from OpenCLI is reported as NEED_LOGIN; a login window blo
 
 test('the login window opens on the platform page and closing it records who is logged in', async () => {
   const dir = await runtimeDir();
-  const browser = fakeBrowser({ cookies: { xiaohongshu: ['web_session'] } });
+  const browser = fakeBrowser({ cookies: { xiaohongshu: ['web_session'] }, page: true });
   const social = createSocialRuntime({ runtimeDir: dir, browser });
   await social.openLogin('xiaohongshu');
   assert.deepEqual(browser.log, ['window https://www.xiaohongshu.com/explore']);

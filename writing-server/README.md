@@ -175,7 +175,10 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
   - OpenCLI 里能发帖、删帖、关注、点赞、评论的命令都不会被调用。
   - 同一平台一次只查一条，两个平台可以同时查。浏览器空闲 10 分钟后自动关闭。
   - 已知没登录的平台直接返回 `NEED_LOGIN`，不去访问。
-- **登录判断**：抖音和 TikTok 看 `sessionid`，微博看 `ALF`/`SSOLoginState`/`SCF`（游客也会有 `SUB`，不算），小红书看 `web_session`，X 看 `auth_token`。结果记在 `runtime/social-browser/logins.json`。
+- **登录判断**：抖音和 TikTok 看 `sessionid`，微博看 `ALF`/`SSOLoginState`/`SCF`（游客也会有 `SUB`，不算），X 看 `auth_token`。
+  - 小红书给访客也发 `web_session`，所以改为询问打开着的小红书页面是否已登录（页面状态里的 `user.loggedIn`）。没有打开的小红书页面时，沿用上一次的结果。
+  - 某个平台的查询返回需要登录时，记为未登录，直到下次登录。
+  - 结果记在 `runtime/social-browser/logins.json`。
 - **调试端口**：只监听 `127.0.0.1:9335`，这台电脑上的其他程序能控制这个专用浏览器，所以只在自己的电脑上用。
 - **TikTok 和 X 需要代理**：这台电脑经旁路由上网时，旁路由要把它们走代理。
 - **状态**：`/v1/pocket/status` 里的 `social.platforms` 告诉手机哪些平台已登录，功能列表里有 `social_reach`。
