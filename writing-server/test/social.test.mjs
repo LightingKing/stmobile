@@ -25,6 +25,10 @@ test('every offered action is one fixed read command; links and names become wha
   assert.deepEqual(head({ channel: 'weibo', action: 'posts', target: 'https://weibo.com/u/1234567890' }), ['weibo', 'user-posts', '1234567890']);
   assert.deepEqual(head({ channel: 'weibo', action: 'user', target: 'https://weibo.com/1234567890/Abcdef' }), ['weibo', 'user', '1234567890']);
   assert.deepEqual(head({ channel: 'weibo', action: 'comments', target: '5012345678901234' }), ['weibo', 'comments', '5012345678901234']);
+  // Seen on this PC: Weibo comments accept the short id that search results and post links carry.
+  assert.deepEqual(head({ channel: 'weibo', action: 'comments', target: 'RpGhPp9h1' }), ['weibo', 'comments', 'RpGhPp9h1']);
+  assert.deepEqual(head({ channel: 'weibo', action: 'comments', target: 'https://weibo.com/2857987344/RpGhPp9h1?refer_flag=1' }), ['weibo', 'comments', 'RpGhPp9h1']);
+  assert.deepEqual(head({ channel: 'weibo', action: 'comments', target: 'https://m.weibo.cn/detail/5012345678901234' }), ['weibo', 'comments', '5012345678901234']);
   assert.deepEqual(head({ channel: 'twitter', action: 'posts', target: 'https://x.com/someone/status/1' }), ['twitter', 'tweets', 'someone']);
   // A link alone picks its platform.
   assert.equal(buildSocialArgs({ action: 'read', target: 'https://v.douyin.com/abc123/' }).channel, 'douyin');
@@ -41,7 +45,7 @@ test('every offered action is one fixed read command; links and names become wha
     { channel: 'douyin', action: 'search', query: 'a\nb' },
     { channel: 'douyin', action: 'read', target: 'has space' },
     { channel: 'douyin', action: 'search', query: 'x', limit: 11 },
-    { channel: 'weibo', action: 'comments', target: 'https://weibo.com/123/Abc' },
+    { channel: 'weibo', action: 'comments', target: 'https://weibo.com/hot' },
     { channel: 'tiktok', action: 'user', target: 'https://www.tiktok.com/' },
     { channel: 'tiktok', action: 'user', target: '--version' },
     null, [],
@@ -63,8 +67,11 @@ test('links are told apart by their site, not by look-alike names', () => {
 test('OpenCLI rows become items a chat reads; notes given as fields become one item', () => {
   const posts = socialItems([{ rank: 1, desc: '黑猫的cos', author: '某人', url: 'https://www.douyin.com/video/1', plays: '1.2万', likes: 300 }]);
   assert.deepEqual(posts[0], { title: '黑猫的cos', url: 'https://www.douyin.com/video/1', author: '某人', published_at: '', text: '黑猫的cos\n（播放 1.2万，点赞 300）' });
-  const profile = socialItems({ screen_name: 'ruri', name: '五更', bio: '堕天圣黑猫', followers: 10, verified: true, location: '千叶' })[0];
+  const profile = socialItems({ screen_name: 'ruri', name: '五更', bio: '堕天圣黑猫', followers: 10, verified: true, location: '千叶', url: 'https://t.co/site' })[0];
   assert.equal(profile.title, '五更（@ruri）');
+  assert.equal(profile.url, 'https://x.com/ruri', 'the profile, not the website in its bio');
+  const weiboPost = socialItems([{ rank: 1, id: '5012345678901234', title: '微博正文', author: 'a', url: 'https://weibo.com/1/AbC' }])[0];
+  assert.match(weiboPost.text, /编号：5012345678901234$/, 'the number Weibo comments take');
   assert.match(profile.text, /^堕天圣黑猫\n所在地：千叶\n已认证\n（粉丝 10）$/);
   const note = socialItems([{ field: 'title', value: '黑猫仿妆' }, { field: 'desc', value: '正文' }, { field: 'author', value: '小红' }, { field: 'url', value: 'https://www.xiaohongshu.com/explore/1' }, { field: 'tags', value: ['cos', '黑猫'] }]);
   assert.equal(note.length, 1);
@@ -86,6 +93,9 @@ test('platform failures are reported with the codes chats already know', () => {
   assert.equal(socialError({ code: 'X', message: 'HTTP 429 Too Many Requests' }, 'X').code, 'RATE_LIMITED');
   assert.equal(socialError({ code: 'TIMEOUT', message: '' }, 'X').code, 'TIMEOUT');
   assert.equal(socialError({ code: 'COMMAND_EXEC', message: 'Douyin search did not render' }, '抖音').code, 'UPSTREAM_BROKEN');
+  // Seen on this PC: Douyin's search page showed a captcha to the logged-in headless browser.
+  assert.equal(socialError({ code: 'COMMAND_EXEC', message: 'Douyin search did not render result cards within the timeout. Open the same search in Chrome and verify login/security state before retrying.' }, '抖音').code, 'PLATFORM_BLOCKED');
+  assert.equal(socialError({ code: 'COMMAND_EXEC', message: 'Please log in to continue' }, '小红书').code, 'NEED_LOGIN');
 });
 
 /** A dedicated browser that records what it was asked to do. */
@@ -182,6 +192,23 @@ test('Xiaohongshu visitors have the cookie too, so its page decides; a refused l
   assert.equal((await refusing.logins()).xiaohongshu.logged_in, false, 'and stays so while no page says otherwise');
 });
 
+test('a verification wall is remembered for the dashboard until the next login', async () => {
+  const dir = await runtimeDir();
+  const seen = [];
+  const blocked = createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser({ mode: 'headless', cookies: { douyin: ['sessionid'] } }),
+    spawnImpl: fakeOpencli({ ok: false, error: { code: 'COMMAND_EXEC', message: 'Douyin search did not render result cards within the timeout. Open the same search in Chrome and verify login/security state before retrying.' } }, seen) });
+  assert.equal((await blocked.run({ channel: 'douyin', action: 'search', query: 'x' })).error.code, 'PLATFORM_BLOCKED');
+  const status = await createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser() }).status();
+  assert.equal(status.platforms.douyin.logged_in, true, 'still logged in');
+  // A live check of the cookies (the headless browser running) keeps the note.
+  const live = await createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser({ mode: 'headless', cookies: { douyin: ['sessionid'] } }) }).status();
+  assert.ok(live.platforms.douyin.blocked_at);
+  assert.ok(status.platforms.douyin.blocked_at);
+  assert.equal(status.platforms.douyin.verify, true);
+  const after = await createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser({ mode: 'window', cookies: { douyin: ['sessionid'] } }) }).finishLogin();
+  assert.equal(after.platforms.douyin.blocked_at, undefined);
+});
+
 test('a login failure from OpenCLI is reported as NEED_LOGIN; a login window blocks lookups', async () => {
   const dir = await runtimeDir();
   const seen = [];
@@ -200,6 +227,8 @@ test('the login window opens on the platform page and closing it records who is 
   const social = createSocialRuntime({ runtimeDir: dir, browser });
   await social.openLogin('xiaohongshu');
   assert.deepEqual(browser.log, ['window https://www.xiaohongshu.com/explore']);
+  await social.openLogin('douyin', { verify: true });
+  assert.ok(browser.log.at(-1).startsWith('window https://www.douyin.com/search/'), 'the page where Douyin shows its captcha');
   const done = await social.finishLogin();
   assert.equal(done.platforms.xiaohongshu.logged_in, true);
   assert.equal(browser.log.at(-1), 'close');

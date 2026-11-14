@@ -171,7 +171,7 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
   - 平时用的浏览器和里面的登录一律不读。
 - **查询**：手机仍然调用 `POST /v1/pocket/reach`。`channel` 是 `douyin`、`tiktok`、`weibo`、`xiaohongshu`、`twitter`，或者 `read` 等动作的链接属于这些网站时，服务改走专用浏览器：
   - 每次查询开一个独立的标签页，用 OpenCLI 的调试端口模式（`OPENCLI_CDP_ENDPOINT=http://127.0.0.1:9335`）执行一条固定的只读命令，结束后关掉标签页。
-  - 动作对应的命令：`search` 搜索；`read` 读单条（抖音 `detail`、小红书 `note`、X `thread`）；`user` 看账号资料；`posts` 看账号最近的作品或动态；`comments` 看评论（微博、小红书）。
+  - 动作对应的命令：`search` 搜索；`read` 读单条（抖音 `detail`、小红书 `note`、X `thread`）；`user` 看账号资料；`posts` 看账号最近的作品或动态；`comments` 看评论（微博、小红书，填帖子链接或 ID）。
   - OpenCLI 里能发帖、删帖、关注、点赞、评论的命令都不会被调用。
   - 同一平台一次只查一条，两个平台可以同时查。浏览器空闲 10 分钟后自动关闭。
   - 已知没登录的平台直接返回 `NEED_LOGIN`，不去访问。
@@ -179,6 +179,7 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
   - 小红书给访客也发 `web_session`，所以改为询问打开着的小红书页面是否已登录（页面状态里的 `user.loggedIn`）。没有打开的小红书页面时，沿用上一次的结果。
   - 某个平台的查询返回需要登录时，记为未登录，直到下次登录。
   - 结果记在 `runtime/social-browser/logins.json`。
+- **平台要求验证时**：查询返回 `PLATFORM_BLOCKED`，管理网页在该平台旁显示“已登录，但上次查询要求验证”和“去验证”按钮。按钮在专用窗口里打开出现验证的那一页（抖音是视频搜索页），手动完成后点“登录完成”。
 - **调试端口**：只监听 `127.0.0.1:9335`，这台电脑上的其他程序能控制这个专用浏览器，所以只在自己的电脑上用。
 - **TikTok 和 X 需要代理**：这台电脑经旁路由上网时，旁路由要把它们走代理。
 - **状态**：`/v1/pocket/status` 里的 `social.platforms` 告诉手机哪些平台已登录，功能列表里有 `social_reach`。

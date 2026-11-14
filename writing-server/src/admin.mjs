@@ -117,7 +117,7 @@ export function createAdminServer({ requestListener, config, vault, dataDir, bil
         if (!social) return send(res, 503, { error: { message: '社交平台功能没有启用' } });
         const platform = url.searchParams.get('platform') || '';
         if (url.pathname === '/api/admin/social' && req.method === 'GET') return send(res, 200, await social.status());
-        if (url.pathname === '/api/admin/social/login' && req.method === 'POST') return send(res, 200, await social.openLogin(platform));
+        if (url.pathname === '/api/admin/social/login' && req.method === 'POST') return send(res, 200, await social.openLogin(platform, { verify: url.searchParams.get('verify') === '1' }));
         if (url.pathname === '/api/admin/social/done' && req.method === 'POST') return send(res, 200, await social.finishLogin());
         if (url.pathname === '/api/admin/social/login' && req.method === 'DELETE') return send(res, 200, await social.logout(platform));
       }

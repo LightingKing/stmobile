@@ -223,15 +223,18 @@ async function loadSocial() {
   const s = await api('/api/admin/social');
   $('social-state').textContent = !s.available ? '还不能用：没有找到 OpenCLI 或 Chrome。' : s.mode === 'window' ? '登录窗口已打开：在窗口里登录，完成后点“登录完成”。' : s.mode === 'headless' ? '正在后台查询。' : '';
   $('social-done').hidden = s.mode !== 'window';
-  $('social-list').innerHTML = Object.entries(s.platforms || {}).map(([key, p]) => `<dt>${esc(p.name)}</dt><dd>${p.logged_in ? '已登录' : '未登录'}
+  $('social-list').innerHTML = Object.entries(s.platforms || {}).map(([key, p]) => `<dt>${esc(p.name)}</dt><dd>${p.logged_in ? (p.blocked_at ? '已登录，但上次查询要求验证' : '已登录') : '未登录'}
+    ${p.logged_in && p.blocked_at && p.verify ? `<button class="small" data-social-verify="${esc(key)}">去验证</button>` : ''}
     <button class="small" data-social-login="${esc(key)}">${p.logged_in ? '重新登录' : '登录'}</button>
     ${p.logged_in ? `<button class="small danger" data-social-logout="${esc(key)}">退出</button>` : ''}</dd>`).join('');
 }
 $('social-list').onclick = async (event) => {
   const login = event.target.closest('[data-social-login]');
+  const verify = event.target.closest('[data-social-verify]');
   const logout = event.target.closest('[data-social-logout]');
   try {
     if (login) await api(`/api/admin/social/login?platform=${encodeURIComponent(login.dataset.socialLogin)}`, { method: 'POST' });
+    if (verify) await api(`/api/admin/social/login?platform=${encodeURIComponent(verify.dataset.socialVerify)}&verify=1`, { method: 'POST' });
     if (logout && confirm('退出这个平台的登录？')) await api(`/api/admin/social/login?platform=${encodeURIComponent(logout.dataset.socialLogout)}`, { method: 'DELETE' });
   } catch (error) { alert(error.message); }
   await loadSocial();

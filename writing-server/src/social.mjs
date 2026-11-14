@@ -35,7 +35,9 @@ const PARALLEL = 2;
  */
 export const SOCIAL = {
   douyin: {
+    // Douyin puts its captcha on the video search page, which is where lookups go.
     name: '抖音', domains: ['douyin.com', 'iesdouyin.com'], loginUrl: 'https://www.douyin.com/', cookies: ['sessionid', 'sessionid_ss'],
+    verifyUrl: 'https://www.douyin.com/search/%E8%A7%92%E8%89%B2%E4%BB%8B%E7%BB%8D?type=video',
     actions: {
       search: { command: 'search', arg: 'query', limit: true },
       read: { command: 'detail', arg: 'target' },
@@ -117,11 +119,18 @@ function weiboUser(value) {
   return parts[0] || '';
 }
 
-/** Weibo comments take the numeric id of a post, as search results give it. */
+/**
+ * Weibo comments take a post's numeric id or its short id ("RpGhPp9h1", as search results and
+ * post links give it); a post link is turned into the latter.
+ */
 function weiboPost(value) {
-  const text = value.trim();
-  if (/^\d{6,20}$/.test(text)) return text;
-  throw new ReachError('微博评论需要微博的数字 ID（搜索结果里的 id），不能用链接', 400, 'reach_bad_target');
+  let text = value.trim();
+  if (/^https?:\/\//i.test(text)) {
+    const parts = new URL(text).pathname.split('/').filter(Boolean);
+    text = parts[0] === 'detail' || parts[0] === 'status' ? parts[1] || '' : parts.length >= 2 ? parts[1] : '';
+  }
+  if (/^\d{6,20}$/.test(text) || /^[A-Za-z0-9]{8,12}$/.test(text)) return text;
+  throw new ReachError('微博评论要填微博帖子的链接或 ID', 400, 'reach_bad_target');
 }
 
 /** Checks one call and turns it into the fixed OpenCLI argument list. Never a free command line. */
@@ -179,6 +188,10 @@ function commentLines(value) {
 
 /** One row of OpenCLI output as an item the chat model reads. */
 function rowItem(row) {
+  // A post's number lets the model ask for its comments or replies next (Weibo comments take it).
+  const number = [row.id, row.aweme_id].map(text).find((value) => /^\d{6,24}$/.test(value)) || '';
+  // An X profile's own `url` is the website in its bio; the profile itself is x.com/<name>.
+  const profile = row.screen_name && 'bio' in row && !('text' in row) ? `https://x.com/${text(row.screen_name)}` : '';
   const main = firstText(row.desc, row.text, row.bio, row.description, row.title);
   const counts = COUNTS.filter(([key]) => row[key] != null && row[key] !== '').map(([key, label]) => `${label} ${text(row[key])}`);
   const quoted = row.quoted_tweet && typeof row.quoted_tweet === 'object' ? firstText(row.quoted_tweet.text) : '';
@@ -188,10 +201,11 @@ function rowItem(row) {
     row.location && `所在地：${text(row.location)}`,
     row.verified === true && '已认证',
     counts.length && `（${[...new Set(counts)].join('，')}）`,
-    comments.length && `热评：${comments.join(' / ')}`].filter(Boolean).join('\n');
+    comments.length && `热评：${comments.join(' / ')}`,
+    number && `编号：${number}`].filter(Boolean).join('\n');
   return {
     title: firstText(row.title, row.word, row.screen_name && row.name ? `${row.name}（@${row.screen_name}）` : '', row.name, row.screen_name, row.nickname, row.username) || short(main),
-    url: firstText(row.url, row.share_url, row.profileUrl, row.profile_url),
+    url: firstText(profile, row.url, row.share_url, row.profileUrl, row.profile_url),
     author: firstText(row.author, row.screen_name, row.nickname, row.username),
     published_at: firstText(row.published_at, row.created_at, row.time, row.created, row.date, row.createTime, row.create_time),
     text: body,
@@ -216,11 +230,14 @@ export function socialError(error, platformName) {
   const code = String(error?.code ?? '').toUpperCase();
   const message = String(error?.message ?? '').slice(0, 400);
   const low = message.toLowerCase();
-  if (code.includes('AUTH') || code.includes('LOGIN') || /not logged|log in|login|sign in|登录/.test(low)) {
+  // Checked first: Douyin answers a verification wall with "…verify login/security state", which is not a lost login.
+  if (/captcha|验证码|安全验证|环境异常|risk|security state|verify/.test(low)) {
+    return { code: 'PLATFORM_BLOCKED', message, hint: `${platformName}要求验证：在管理网页打开${platformName}的登录窗口，完成页面上的验证后再试，查询放慢一些` };
+  }
+  if (code.includes('AUTH') || code.includes('LOGIN') || /not logged in|not signed in|please log ?in|login required|log in first|未登录|请登录|请先登录/.test(low)) {
     return { code: 'NEED_LOGIN', message: `电脑上的${platformName}没有登录或登录已过期`, hint: '在电脑的管理网页“社交平台”里重新登录' };
   }
   if (code === 'NOT_FOUND' || /no .*results|not found|没有找到/.test(low)) return { code: 'NOT_FOUND', message: message || '没有找到' };
-  if (/captcha|验证码|安全验证|环境异常|risk/.test(low)) return { code: 'PLATFORM_BLOCKED', message, hint: `${platformName}要求验证：在管理网页打开登录窗口完成验证后再试，查询放慢一些` };
   if (code.includes('RATE') || /429|too many|频繁/.test(low)) return { code: 'RATE_LIMITED', message, hint: '过一会儿再试' };
   if (code.includes('TIMEOUT') || /timeout|timed out|超时/.test(low)) return { code: 'TIMEOUT', message: message || '超时' };
   return { code: 'UPSTREAM_BROKEN', message: message || `${platformName}没有返回结果`, hint: error?.hint ? String(error.hint).slice(0, 300) : undefined };
@@ -459,7 +476,7 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
    * closed. A platform whose cookies cannot tell (Xiaohongshu) is asked through its open page;
    * with no such page, its last known state stands as long as its cookie is still there.
    */
-  async function logins({ live = true } = {}) {
+  async function logins({ live = true, clearBlocks = false } = {}) {
     const known = await saved();
     if (!live || await dedicated.mode() === 'off') return known;
     try {
@@ -472,7 +489,8 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
           const answer = await dedicated.evaluateOn(platform.domains, platform.page).catch(() => null);
           logged = answer === null ? known[key]?.logged_in === true : answer === true;
         }
-        next[key] = { logged_in: logged, checked_at: now };
+        // A verification note stays until the user has had the window open again.
+        next[key] = { logged_in: logged, checked_at: now, ...(!clearBlocks && logged && known[key]?.blocked_at ? { blocked_at: known[key].blocked_at } : {}) };
       }
       return await save(next);
     } catch { return known; }
@@ -482,6 +500,12 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
   async function markLoggedOut(key) {
     const known = await saved();
     return save({ ...known, [key]: { logged_in: false, checked_at: new Date().toISOString() } });
+  }
+
+  /** The platform showed a verification page: remembered until the user opens the window again. */
+  async function markBlocked(key) {
+    const known = await saved();
+    return save({ ...known, [key]: { ...(known[key] || { logged_in: true }), blocked_at: new Date().toISOString() } });
   }
 
   async function installed() {
@@ -515,6 +539,7 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
       if (envelope.ok === false) {
         const error = socialError(envelope.error, platform.name);
         if (error.code === 'NEED_LOGIN') await markLoggedOut(channel).catch(() => null);
+        if (error.code === 'PLATFORM_BLOCKED') await markBlocked(channel).catch(() => null);
         return failed(error);
       }
       return trimResult({ ok: true, channel, action, backend: 'opencli', items: socialItems(envelope.data ?? envelope), error: null }, action);
@@ -543,23 +568,24 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
       mode,
       platforms: Object.fromEntries(Object.entries(SOCIAL).map(([key, platform]) => [key, {
         name: platform.name, logged_in: known[key]?.logged_in === true, checked_at: known[key]?.checked_at || null,
+        blocked_at: known[key]?.blocked_at || null, verify: Boolean(platform.verifyUrl),
         actions: Object.keys(platform.actions),
       }])),
     };
   }
 
-  /** Opens the login window on one platform's page; the user logs in there. */
-  async function openLogin(key) {
+  /** Opens the login window on one platform's login page, or on its verification page; the user acts there. */
+  async function openLogin(key, { verify = false } = {}) {
     const platform = SOCIAL[key];
     if (!platform) throw new ReachError('不认识的平台');
     if (running > 0) throw new ReachError('有查询正在进行，稍后再开登录窗口', 409, 'social_busy');
-    await dedicated.openWindow(platform.loginUrl);
+    await dedicated.openWindow(verify && platform.verifyUrl ? platform.verifyUrl : platform.loginUrl);
     return { ok: true, mode: 'window' };
   }
 
   /** Reads who is logged in from the window, then closes it so lookups can use the profile. */
   async function finishLogin() {
-    const result = await logins();
+    const result = await logins({ clearBlocks: true });
     await dedicated.close();
     return { ok: true, platforms: result };
   }
