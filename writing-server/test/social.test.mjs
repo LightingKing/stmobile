@@ -7,7 +7,7 @@ import path from 'node:path';
 import { createServer } from '../src/server.mjs';
 import { createVault } from '../src/vault.mjs';
 import { createAdminServer } from '../src/admin.mjs';
-import { SOCIAL, buildSocialArgs, cookiesToRestore, createSocialRuntime, platformForLink, socialError, socialItems, userAgent } from '../src/social.mjs';
+import { SOCIAL, buildSocialArgs, cookiesToRestore, createSocialRuntime, douyinSearchRows, platformForLink, socialError, socialItems, userAgent } from '../src/social.mjs';
 
 /** OpenCLI's read commands this server may run; anything else (publish, delete, follow, like, comment…) never. */
 const READ_COMMANDS = new Set(['search', 'detail', 'user-videos', 'profile', 'user', 'user-posts', 'comments', 'note', 'thread', 'tweets']);
@@ -99,7 +99,7 @@ test('platform failures are reported with the codes chats already know', () => {
 });
 
 /** A dedicated browser that records what it was asked to do. */
-function fakeBrowser({ mode = 'off', cookies = {}, page = null, jar = [] } = {}) {
+function fakeBrowser({ mode = 'off', cookies = {}, page = null, jar = [], captured = null } = {}) {
   const log = [];
   let current = mode;
   const hooks = { started: null, closing: null };
@@ -108,6 +108,7 @@ function fakeBrowser({ mode = 'off', cookies = {}, page = null, jar = [] } = {})
     platformCookies: async () => jar.slice(),
     setCookies: async (list) => { log.push(`set ${list.map((c) => c.name).join(',')}`); jar.push(...list); return list.length; },
     visit: async (url) => { log.push(`visit ${url}`); return `V-${url}`; },
+    captureJson: async (url, pattern) => { log.push(`capture ${url} ${pattern.source}`); return captured; },
     log, chrome: { path: 'C:/chrome.exe', major: '157' },
     mode: async () => current,
     ensureHeadless: async () => {
@@ -146,18 +147,18 @@ async function runtimeDir() {
 test('a lookup runs OpenCLI on its own tab of the dedicated browser, with a private home and no secrets', async () => {
   const dir = await runtimeDir();
   const seen = [];
-  const browser = fakeBrowser({ cookies: { douyin: ['sessionid'] } });
-  const social = createSocialRuntime({ runtimeDir: dir, browser, spawnImpl: fakeOpencli({ ok: true, data: [{ desc: '黑猫', author: 'a', url: 'https://www.douyin.com/video/1' }] }, seen) });
+  const browser = fakeBrowser({ cookies: { weibo: ['ALF'] } });
+  const social = createSocialRuntime({ runtimeDir: dir, browser, spawnImpl: fakeOpencli({ ok: true, data: [{ desc: '黑猫', author: 'a', url: 'https://weibo.com/1/AbcdEfgh1' }] }, seen) });
   process.env.VENICE_API_KEY = 'must-not-leak';
   try {
-    const answer = await social.run({ channel: 'douyin', action: 'search', query: '五更琉璃', limit: 2 });
+    const answer = await social.run({ channel: 'weibo', action: 'search', query: '五更琉璃', limit: 2 });
     assert.equal(answer.ok, true);
     assert.equal(answer.backend, 'opencli');
     assert.equal(answer.items[0].title, '黑猫');
     const [{ command, args, env }] = seen;
     assert.equal(command, process.execPath);
     assert.ok(args[0].endsWith(path.join('opencli', 'dist', 'src', 'main.js')));
-    assert.deepEqual(args.slice(1), ['douyin', 'search', '--limit', '2', '-f', 'json', '--', '五更琉璃']);
+    assert.deepEqual(args.slice(1), ['weibo', 'search', '--limit', '2', '-f', 'json', '--', '五更琉璃']);
     assert.equal(env.OPENCLI_CDP_ENDPOINT, 'http://127.0.0.1:9335');
     assert.equal(env.OPENCLI_CDP_TARGET, 'pocket-test-tag');
     assert.equal(env.USERPROFILE, path.join(dir, 'social-browser', 'home'));
@@ -200,6 +201,36 @@ test('Xiaohongshu visitors have the cookie too, so its page decides; a refused l
   assert.equal((await refusing.run({ channel: 'xiaohongshu', action: 'search', query: 'x' })).error.code, 'NEED_LOGIN');
   assert.equal((await refusing.logins({ live: false })).xiaohongshu.logged_in, false);
   assert.equal((await refusing.logins()).xiaohongshu.logged_in, false, 'and stays so while no page says otherwise');
+});
+
+test('Douyin search reads the general search page’s own answer instead of the captcha-prone video page', async () => {
+  // The shape seen on this PC: data[].aweme_info with desc, author, statistics.
+  const answer = { status_code: 0, data: [
+    { type: 1, aweme_info: { aweme_id: '7706753957359602986', desc: '“听好咯，这份心意绝不认输” #五更琉璃', author: { nickname: 'XLB.' }, create_time: 1763000000, statistics: { digg_count: 1200, comment_count: 30 } } },
+    { type: 4, user_list: [{ nickname: 'not a video' }] },
+    { type: 1, aweme_info: { aweme_id: '7704347268241976787', desc: '第二条', author: { nickname: 'b' } } },
+  ] };
+  const { rows } = douyinSearchRows(answer, 5);
+  assert.equal(rows.length, 2);
+  assert.deepEqual([rows[0].url, rows[0].author, rows[0].created], ['https://www.douyin.com/video/7706753957359602986', 'XLB.', '2025-11-13']);
+  assert.equal(douyinSearchRows({ search_nil_info: { search_nil_type: 'verify_check' } }).error.code, 'PLATFORM_BLOCKED');
+  assert.equal(douyinSearchRows({ data: [] }).error.code, 'NOT_FOUND');
+  assert.equal(douyinSearchRows(null).error.code, 'TIMEOUT');
+
+  const dir = await runtimeDir();
+  await fs.mkdir(path.join(dir, 'social-browser'), { recursive: true });
+  await fs.writeFile(path.join(dir, 'social-browser', 'logins.json'), JSON.stringify({ douyin: { logged_in: true, blocked_at: '2026-11-15T00:00:00Z' } }));
+  const seen = [];
+  const browser = fakeBrowser({ cookies: { douyin: ['sessionid'] }, captured: answer });
+  const social = createSocialRuntime({ runtimeDir: dir, browser, spawnImpl: fakeOpencli({ ok: true, data: [] }, seen) });
+  const result = await social.run({ channel: 'douyin', action: 'search', query: '五更琉璃', limit: 1 });
+  assert.equal(result.ok, true);
+  assert.equal(result.backend, 'pocket');
+  assert.equal(result.items.length, 1);
+  assert.match(result.items[0].text, /点赞 1200/);
+  assert.equal(seen.length, 0, 'OpenCLI is not used for it');
+  assert.ok(browser.log.some((line) => line.startsWith('capture https://www.douyin.com/search/%E4%BA%94%E6%9B%B4%E7%90%89%E7%92%83?type=general')));
+  assert.equal((await social.status()).platforms.douyin.blocked_at, null, 'an answer clears the verification note');
 });
 
 test('saved cookies come back only when missing and not expired', () => {
@@ -260,9 +291,12 @@ test('keepalive visits every logged-in platform, reads the logins again and save
 test('a verification wall is remembered for the dashboard until the next login', async () => {
   const dir = await runtimeDir();
   const seen = [];
+  // Through OpenCLI (a Douyin video read) and through the server's own search alike.
   const blocked = createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser({ mode: 'headless', cookies: { douyin: ['sessionid'] } }),
-    spawnImpl: fakeOpencli({ ok: false, error: { code: 'COMMAND_EXEC', message: 'Douyin search did not render result cards within the timeout. Open the same search in Chrome and verify login/security state before retrying.' } }, seen) });
-  assert.equal((await blocked.run({ channel: 'douyin', action: 'search', query: 'x' })).error.code, 'PLATFORM_BLOCKED');
+    spawnImpl: fakeOpencli({ ok: false, error: { code: 'COMMAND_EXEC', message: 'Douyin page did not render within the timeout. Open the same page in Chrome and verify login/security state before retrying.' } }, seen) });
+  assert.equal((await blocked.run({ channel: 'douyin', action: 'read', target: 'https://www.douyin.com/video/1' })).error.code, 'PLATFORM_BLOCKED');
+  const walled = createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser({ mode: 'headless', cookies: { douyin: ['sessionid'] }, captured: { search_nil_info: { search_nil_type: 'verify_check' } } }) });
+  assert.equal((await walled.run({ channel: 'douyin', action: 'search', query: 'x' })).error.code, 'PLATFORM_BLOCKED');
   const status = await createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser() }).status();
   assert.equal(status.platforms.douyin.logged_in, true, 'still logged in');
   // A live check of the cookies (the headless browser running) keeps the note.

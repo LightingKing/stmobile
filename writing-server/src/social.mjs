@@ -43,7 +43,8 @@ export const SOCIAL = {
     name: '抖音', domains: ['douyin.com', 'iesdouyin.com'], loginUrl: 'https://www.douyin.com/', cookies: ['sessionid', 'sessionid_ss'], homeUrl: 'https://www.douyin.com/',
     verifyUrl: 'https://www.douyin.com/search/%E8%A7%92%E8%89%B2%E4%BB%8B%E7%BB%8D?type=video',
     actions: {
-      search: { command: 'search', arg: 'query', limit: true },
+      // Read from the general search page's own request: OpenCLI's video-search page gets a captcha.
+      search: { command: 'search', arg: 'query', limit: true, native: 'douyinSearch' },
       read: { command: 'detail', arg: 'target' },
       posts: { command: 'user-videos', arg: 'target', limit: true },
     },
@@ -175,7 +176,7 @@ export function buildSocialArgs(call) {
     args.push('--limit', String(limit));
   }
   args.push('-f', 'json', '--', positional);
-  return { channel, action, args };
+  return { channel, action, args, value: positional, limit: spec.limit ? Number(args[args.indexOf('--limit') + 1]) : 0 };
 }
 
 const text = (value) => (value == null ? '' : typeof value === 'string' ? value : typeof value === 'number' || typeof value === 'boolean' ? String(value) : '');
@@ -227,6 +228,25 @@ export function socialItems(data) {
       published_at: firstText(fields.time, fields.published_at, fields.date), text: body }];
   }
   return rows.filter((row) => row && typeof row === 'object').map(rowItem);
+}
+
+/**
+ * Douyin's general search answer ({data:[{aweme_info}]}) as rows, or the failure it stands for.
+ * Entries that are not videos (users, topics) are skipped.
+ */
+export function douyinSearchRows(json, limit = 5) {
+  if (!json || typeof json !== 'object') return { error: { code: 'TIMEOUT', message: '抖音搜索没有返回结果' } };
+  if (json.search_nil_info?.search_nil_type === 'verify_check') return { error: { code: 'PLATFORM_BLOCKED', message: '抖音要求验证' } };
+  const videos = (Array.isArray(json.data) ? json.data : []).map((entry) => entry?.aweme_info).filter((info) => info && info.aweme_id);
+  if (!videos.length) return { error: { code: 'NOT_FOUND', message: '抖音上没搜到' } };
+  return {
+    rows: videos.slice(0, limit).map((info) => ({
+      desc: String(info.desc || ''), author: String(info.author?.nickname || ''), aweme_id: String(info.aweme_id),
+      url: `https://www.douyin.com/video/${info.aweme_id}`,
+      created: Number(info.create_time) > 0 ? new Date(Number(info.create_time) * 1000).toISOString().slice(0, 10) : '',
+      likes: info.statistics?.digg_count, comments: info.statistics?.comment_count,
+    })),
+  };
 }
 
 /** OpenCLI's failure codes as the ones chats already know from Agent Reach. */
@@ -438,6 +458,54 @@ export function createSocialBrowser({ runtimeDir = RUNTIME, port = SOCIAL_PORT, 
     return params.length;
   }
 
+  /**
+   * Loads [url] in a tab of its own and returns the JSON of the first response whose address
+   * matches [pattern] (the page's own request for its data), or null when none arrives in time.
+   */
+  async function captureJson(url, pattern, timeoutMs = 25_000) {
+    const created = await fetchImpl(`${endpoint}/json/new?about:blank`, { method: 'PUT', signal: AbortSignal.timeout(5000) });
+    const target = await created.json();
+    const socket = new WebSocket(target.webSocketDebuggerUrl);
+    const waiters = new Map();
+    let nextId = 0;
+    let matched = null;
+    let finish;
+    const finished = new Promise((resolve) => { finish = resolve; });
+    const send = (method, params = {}) => new Promise((resolve, reject) => {
+      const id = ++nextId;
+      waiters.set(id, { resolve, reject });
+      socket.send(JSON.stringify({ id, method, params }));
+    });
+    try {
+      await new Promise((resolve, reject) => {
+        const timer = setTimeout(() => reject(new Error('timeout')), 5000);
+        socket.onopen = () => { clearTimeout(timer); resolve(); };
+        socket.onerror = () => { clearTimeout(timer); reject(new Error('cdp')); };
+      });
+      socket.onmessage = (event) => {
+        const message = JSON.parse(String(event.data));
+        if (message.id && waiters.has(message.id)) {
+          const waiter = waiters.get(message.id);
+          waiters.delete(message.id);
+          if (message.error) waiter.reject(new Error(message.error.message || 'cdp error')); else waiter.resolve(message.result || {});
+          return;
+        }
+        if (message.method === 'Network.responseReceived' && !matched && pattern.test(String(message.params?.response?.url || ''))) matched = message.params.requestId;
+        if (message.method === 'Network.loadingFinished' && matched && message.params?.requestId === matched) finish(matched);
+      };
+      await send('Network.enable');
+      await send('Page.navigate', { url });
+      const requestId = await Promise.race([finished, new Promise((resolve) => setTimeout(() => resolve(null), timeoutMs))]);
+      if (!requestId) return null;
+      const body = await send('Network.getResponseBody', { requestId });
+      const raw = body.base64Encoded ? Buffer.from(body.body || '', 'base64').toString('utf8') : String(body.body || '');
+      try { return JSON.parse(raw); } catch { return null; }
+    } finally {
+      try { socket.close(); } catch { /* closed */ }
+      await closeTab(target.id);
+    }
+  }
+
   /** Opens [url] in a tab of its own for [ms], then closes it: a visit that lets a site refresh its session. */
   async function visit(url, ms = KEEPALIVE_PAGE_MS) {
     const response = await fetchImpl(`${endpoint}/json/new?${encodeURIComponent(url)}`, { method: 'PUT', signal: AbortSignal.timeout(5000) });
@@ -455,7 +523,7 @@ export function createSocialBrowser({ runtimeDir = RUNTIME, port = SOCIAL_PORT, 
   }
 
   return { endpoint, profile, chrome, mode, ensureHeadless, openWindow, close, openTab, closeTab, cookieNames, forget, evaluateOn,
-    platformCookies, setCookies, visit, hooks };
+    platformCookies, setCookies, visit, captureJson, hooks };
 }
 
 function childEnv(home, extra) {
@@ -587,9 +655,25 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
     if (!existsSync(opencli)) throw new ReachError('电脑上还没有安装 OpenCLI：在 writing-server 目录运行 install-agent-reach.ps1', 503, 'reach_not_installed');
   }
 
+  /** A platform answered: a verification note from earlier no longer holds. */
+  async function clearBlocked(key) {
+    const known = await saved();
+    if (!known[key]?.blocked_at) return;
+    const { blocked_at: _, ...rest } = known[key];
+    await save({ ...known, [key]: rest });
+  }
+
+  /** Lookups this server does itself rather than through OpenCLI. */
+  const natives = {
+    async douyinSearch(query, limit) {
+      const json = await dedicated.captureJson(`https://www.douyin.com/search/${encodeURIComponent(query)}?type=general`, /\/aweme\/v1\/web\/general\/search\/single\//);
+      return douyinSearchRows(json, limit);
+    },
+  };
+
   /** One read from a chat or the character drafter. Platform failures come back as results (ok:false). */
   async function run(call) {
-    const { channel, action, args } = buildSocialArgs(call);
+    const { channel, action, args, value, limit } = buildSocialArgs(call);
     const platform = SOCIAL[channel];
     const failed = (error) => trimResult({ ok: false, channel, action, backend: 'opencli', items: [], error }, action);
     await installed();
@@ -602,6 +686,17 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
     let tab = null;
     try {
       const endpoint = await dedicated.ensureHeadless();
+      const native = platform.actions[action].native;
+      if (native) {
+        const answer = await natives[native](value, limit);
+        if (answer.error) {
+          if (answer.error.code === 'PLATFORM_BLOCKED') await markBlocked(channel).catch(() => null);
+          return failed({ ...answer.error, ...(answer.error.code === 'PLATFORM_BLOCKED' ? { hint: `${platform.name}要求验证：在管理网页点“去验证”完成后再试` } : {}) });
+        }
+        await clearBlocked(channel).catch(() => null);
+        await snapshot().catch(() => null);
+        return trimResult({ ok: true, channel, action, backend: 'pocket', items: socialItems(answer.rows), error: null }, action);
+      }
       tab = await dedicated.openTab();
       const result = await runProcess(spawnImpl, node, [opencli, ...args], {
         cwd: runtimeDir,
@@ -617,6 +712,7 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
         if (error.code === 'PLATFORM_BLOCKED') await markBlocked(channel).catch(() => null);
         return failed(error);
       }
+      await clearBlocked(channel).catch(() => null);
       await snapshot().catch(() => null);
       return trimResult({ ok: true, channel, action, backend: 'opencli', items: socialItems(envelope.data ?? envelope), error: null }, action);
     } finally {

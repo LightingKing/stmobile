@@ -173,6 +173,7 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
   - 每次查询开一个独立的标签页，用 OpenCLI 的调试端口模式（`OPENCLI_CDP_ENDPOINT=http://127.0.0.1:9335`）执行一条固定的只读命令，结束后关掉标签页。
   - 动作对应的命令：`search` 搜索；`read` 读单条（抖音 `detail`、小红书 `note`、X `thread`）；`user` 看账号资料；`posts` 看账号最近的作品或动态；`comments` 看评论（微博、小红书，填帖子链接或 ID）。
   - OpenCLI 里能发帖、删帖、关注、点赞、评论的命令都不会被调用。
+  - 抖音搜索例外（服务 0.12.1）：OpenCLI 用的视频搜索页会对后台浏览器反复弹验证码，所以改为在专用浏览器里打开抖音的“综合”搜索页，读取页面自己请求到的结果（`/aweme/v1/web/general/search/single/` 的 JSON），不经过 OpenCLI。
   - 同一平台一次只查一条，两个平台可以同时查。浏览器空闲 10 分钟后自动关闭。
   - 已知没登录的平台直接返回 `NEED_LOGIN`，不去访问。
 - **登录判断**：抖音和 TikTok 看 `sessionid`，微博看 `ALF`/`SSOLoginState`/`SCF`（游客也会有 `SUB`，不算），X 看 `auth_token`。
