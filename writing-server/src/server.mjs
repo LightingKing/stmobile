@@ -202,7 +202,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
   const dshRuntime = dsh || createDshRuntime({ dataDir, python: resolved.pythonPath || '' });
   const reachRuntime = reach || createReachRuntime();
   const imageSearch = images || createImageSearch();
-  const socialRuntime = social || createSocialRuntime();
+  const socialRuntime = social || createSocialRuntime({ schedule: resolved.socialKeepAlive !== false });
   const ready = Boolean(resolved.token && remote);
   const startedAt = new Date();
   // Generations in flight, one per chat and purpose. A repeat of the same request replaces the old one.

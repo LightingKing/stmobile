@@ -119,6 +119,7 @@ export function createAdminServer({ requestListener, config, vault, dataDir, bil
         if (url.pathname === '/api/admin/social' && req.method === 'GET') return send(res, 200, await social.status());
         if (url.pathname === '/api/admin/social/login' && req.method === 'POST') return send(res, 200, await social.openLogin(platform, { verify: url.searchParams.get('verify') === '1' }));
         if (url.pathname === '/api/admin/social/done' && req.method === 'POST') return send(res, 200, await social.finishLogin());
+        if (url.pathname === '/api/admin/social/keepalive' && req.method === 'POST') return send(res, 200, await social.keepAlive());
         if (url.pathname === '/api/admin/social/login' && req.method === 'DELETE') return send(res, 200, await social.logout(platform));
       }
       return send(res, 404, { error: { message: '路径不存在' } });

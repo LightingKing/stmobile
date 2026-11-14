@@ -7,7 +7,7 @@ import path from 'node:path';
 import { createServer } from '../src/server.mjs';
 import { createVault } from '../src/vault.mjs';
 import { createAdminServer } from '../src/admin.mjs';
-import { SOCIAL, buildSocialArgs, createSocialRuntime, platformForLink, socialError, socialItems, userAgent } from '../src/social.mjs';
+import { SOCIAL, buildSocialArgs, cookiesToRestore, createSocialRuntime, platformForLink, socialError, socialItems, userAgent } from '../src/social.mjs';
 
 /** OpenCLI's read commands this server may run; anything else (publish, delete, follow, like, comment…) never. */
 const READ_COMMANDS = new Set(['search', 'detail', 'user-videos', 'profile', 'user', 'user-posts', 'comments', 'note', 'thread', 'tweets']);
@@ -99,22 +99,32 @@ test('platform failures are reported with the codes chats already know', () => {
 });
 
 /** A dedicated browser that records what it was asked to do. */
-function fakeBrowser({ mode = 'off', cookies = {}, page = null } = {}) {
+function fakeBrowser({ mode = 'off', cookies = {}, page = null, jar = [] } = {}) {
   const log = [];
   let current = mode;
+  const hooks = { started: null, closing: null };
   return {
+    hooks, jar,
+    platformCookies: async () => jar.slice(),
+    setCookies: async (list) => { log.push(`set ${list.map((c) => c.name).join(',')}`); jar.push(...list); return list.length; },
+    visit: async (url) => { log.push(`visit ${url}`); return `V-${url}`; },
     log, chrome: { path: 'C:/chrome.exe', major: '157' },
     mode: async () => current,
     ensureHeadless: async () => {
       if (current === 'window') throw Object.assign(new Error('电脑上正在用登录窗口'), { status: 409, code: 'social_login_window' });
-      current = 'headless'; log.push('ensure'); return 'http://127.0.0.1:9335';
+      if (current === 'off') { current = 'headless'; await hooks.started?.(); }
+      log.push('ensure'); return 'http://127.0.0.1:9335';
     },
     openWindow: async (url) => { current = 'window'; log.push(`window ${url}`); },
-    close: async () => { current = 'off'; log.push('close'); return true; },
+    close: async () => { if (current !== 'off') await hooks.closing?.(); current = 'off'; log.push('close'); return true; },
     openTab: async () => { log.push('tab'); return { tag: 'pocket-test-tag', id: 'T1' }; },
     closeTab: async (id) => { log.push(`close-tab ${id}`); },
     cookieNames: async () => Object.fromEntries(Object.keys(SOCIAL).map((key) => [key, new Set(cookies[key] || [])])),
-    forget: async (key) => { log.push(`forget ${key}`); cookies[key] = []; return 3; },
+    forget: async (key) => {
+      log.push(`forget ${key}`); cookies[key] = [];
+      for (let i = jar.length - 1; i >= 0; i--) if (SOCIAL[key].domains.some((d) => String(jar[i].domain).replace(/^\./, '').endsWith(d))) jar.splice(i, 1);
+      return 3;
+    },
     evaluateOn: async () => page,
   };
 }
@@ -190,6 +200,61 @@ test('Xiaohongshu visitors have the cookie too, so its page decides; a refused l
   assert.equal((await refusing.run({ channel: 'xiaohongshu', action: 'search', query: 'x' })).error.code, 'NEED_LOGIN');
   assert.equal((await refusing.logins({ live: false })).xiaohongshu.logged_in, false);
   assert.equal((await refusing.logins()).xiaohongshu.logged_in, false, 'and stays so while no page says otherwise');
+});
+
+test('saved cookies come back only when missing and not expired', () => {
+  const now = Date.parse('2026-11-15T00:00:00Z');
+  const saved = [
+    { name: 'sessionid', domain: '.douyin.com', path: '/', value: 'a', expires: now / 1000 + 86400 },
+    { name: 'auth_token', domain: '.x.com', path: '/', value: 'b', expires: now / 1000 - 10 },
+    { name: 'SUB', domain: '.weibo.com', path: '/', value: 'c', session: true, expires: -1 },
+    { name: 'web_session', domain: '.xiaohongshu.com', path: '/', value: 'd', expires: now / 1000 + 86400 },
+  ];
+  const present = [{ name: 'web_session', domain: 'xiaohongshu.com', path: '/', value: 'newer' }];
+  assert.deepEqual(cookiesToRestore(saved, present, now).map((c) => c.name), ['sessionid', 'SUB'],
+    'expired ones stay gone; one the browser already has is not overwritten');
+});
+
+test('cookies are saved when a login finishes and before the browser closes, and put back when it starts', async () => {
+  const dir = await runtimeDir();
+  const jar = [{ name: 'sessionid', domain: '.douyin.com', path: '/', value: 'v', expires: Date.now() / 1000 + 86400 }];
+  const browser = fakeBrowser({ mode: 'window', cookies: { douyin: ['sessionid'] }, jar });
+  const social = createSocialRuntime({ runtimeDir: dir, browser });
+  await social.finishLogin();
+  const copy = JSON.parse(await fs.readFile(social.paths.cookiePath, 'utf8'));
+  assert.equal(copy.cookies[0].value, 'v');
+  // A later start with the cookie gone (Chrome dropped it, or the profile was lost) gets it back.
+  jar.length = 0;
+  await browser.ensureHeadless();
+  assert.ok(browser.log.includes('set sessionid'));
+  assert.equal(jar[0].name, 'sessionid');
+  // Logging out must not let the copy bring the login back.
+  await social.logout('douyin');
+  jar.length = 0;
+  const fresh = createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser({ jar: [] }) });
+  assert.equal(await fresh.restore(), 0);
+});
+
+test('keepalive visits every logged-in platform, reads the logins again and saves the cookies', async () => {
+  const dir = await runtimeDir();
+  await fs.mkdir(path.join(dir, 'social-browser'), { recursive: true });
+  await fs.writeFile(path.join(dir, 'social-browser', 'logins.json'), JSON.stringify({ weibo: { logged_in: true }, twitter: { logged_in: true }, douyin: { logged_in: false } }));
+  const jar = [{ name: 'ALF', domain: '.weibo.com', path: '/', value: '1', expires: Date.now() / 1000 + 86400 }];
+  const browser = fakeBrowser({ cookies: { weibo: ['ALF'] }, jar });
+  const social = createSocialRuntime({ runtimeDir: dir, browser });
+  const result = await social.keepAlive();
+  assert.deepEqual(result.visited, ['weibo', 'twitter']);
+  assert.deepEqual(result.logged_in, ['weibo']);
+  assert.deepEqual(result.lost, ['twitter'], 'a login that did not survive is reported');
+  assert.ok(browser.log.includes('visit https://weibo.com/') && browser.log.includes('visit https://x.com/home'));
+  assert.ok(browser.log.includes('close-tab V-https://weibo.com/'));
+  assert.equal(JSON.parse(await fs.readFile(social.paths.cookiePath, 'utf8')).cookies.length, 1);
+  const status = await social.status();
+  assert.deepEqual(status.keepalive.lost, ['twitter']);
+  assert.ok(status.cookies_saved_at);
+  // Not while the user has the login window open.
+  const windowed = createSocialRuntime({ runtimeDir: dir, browser: fakeBrowser({ mode: 'window' }) });
+  assert.deepEqual(await windowed.keepAlive(), { skipped: 'window' });
 });
 
 test('a verification wall is remembered for the dashboard until the next login', async () => {

@@ -223,6 +223,8 @@ async function loadSocial() {
   const s = await api('/api/admin/social');
   $('social-state').textContent = !s.available ? '还不能用：没有找到 OpenCLI 或 Chrome。' : s.mode === 'window' ? '登录窗口已打开：在窗口里登录，完成后点“登录完成”。' : s.mode === 'headless' ? '正在后台查询。' : '';
   $('social-done').hidden = s.mode !== 'window';
+  $('social-kept').textContent = [s.keepalive ? `上次保活：${time(s.keepalive.at)}${s.keepalive.lost?.length ? `，掉线：${s.keepalive.lost.join('、')}` : ''}` : '还没有保活过（服务启动 3 分钟后第一次，之后每 8 小时一次）',
+    s.cookies_saved_at ? `登录信息备份于 ${time(s.cookies_saved_at)}` : ''].filter(Boolean).join('；');
   $('social-list').innerHTML = Object.entries(s.platforms || {}).map(([key, p]) => `<dt>${esc(p.name)}</dt><dd>${p.logged_in ? (p.blocked_at ? '已登录，但上次查询要求验证' : '已登录') : '未登录'}
     ${p.logged_in && p.blocked_at && p.verify ? `<button class="small" data-social-verify="${esc(key)}">去验证</button>` : ''}
     <button class="small" data-social-login="${esc(key)}">${p.logged_in ? '重新登录' : '登录'}</button>
@@ -237,6 +239,13 @@ $('social-list').onclick = async (event) => {
     if (verify) await api(`/api/admin/social/login?platform=${encodeURIComponent(verify.dataset.socialVerify)}&verify=1`, { method: 'POST' });
     if (logout && confirm('退出这个平台的登录？')) await api(`/api/admin/social/login?platform=${encodeURIComponent(logout.dataset.socialLogout)}`, { method: 'DELETE' });
   } catch (error) { alert(error.message); }
+  await loadSocial();
+};
+$('social-keep').onclick = async () => {
+  $('social-keep').disabled = true;
+  try { const r = await api('/api/admin/social/keepalive', { method: 'POST' }); if (r.skipped) alert(r.skipped === 'window' ? '登录窗口开着，先点“登录完成”' : r.skipped === 'busy' ? '有查询正在进行，稍后再试' : '还没有登录任何平台'); }
+  catch (error) { alert(error.message); }
+  $('social-keep').disabled = false;
   await loadSocial();
 };
 $('social-done').onclick = async () => {

@@ -23,6 +23,10 @@ const CALL_TIMEOUT_SECONDS = 45;
 const KILL_AFTER_MS = 80_000;
 const START_WAIT_MS = 20_000;
 const IDLE_CLOSE_MS = 10 * 60_000;
+/** How often the logged-in platforms are visited to keep their sessions, and the first visit after a start. */
+export const KEEPALIVE_MS = 8 * 60 * 60_000;
+const KEEPALIVE_FIRST_MS = 3 * 60_000;
+const KEEPALIVE_PAGE_MS = 8_000;
 const MAX_OUTPUT_BYTES = 8 * 1024 * 1024;
 const MAX_QUERY = 300;
 const MAX_TARGET = 2000;
@@ -36,7 +40,7 @@ const PARALLEL = 2;
 export const SOCIAL = {
   douyin: {
     // Douyin puts its captcha on the video search page, which is where lookups go.
-    name: '抖音', domains: ['douyin.com', 'iesdouyin.com'], loginUrl: 'https://www.douyin.com/', cookies: ['sessionid', 'sessionid_ss'],
+    name: '抖音', domains: ['douyin.com', 'iesdouyin.com'], loginUrl: 'https://www.douyin.com/', cookies: ['sessionid', 'sessionid_ss'], homeUrl: 'https://www.douyin.com/',
     verifyUrl: 'https://www.douyin.com/search/%E8%A7%92%E8%89%B2%E4%BB%8B%E7%BB%8D?type=video',
     actions: {
       search: { command: 'search', arg: 'query', limit: true },
@@ -45,7 +49,7 @@ export const SOCIAL = {
     },
   },
   tiktok: {
-    name: 'TikTok', domains: ['tiktok.com'], loginUrl: 'https://www.tiktok.com/login', cookies: ['sessionid', 'sessionid_ss'],
+    name: 'TikTok', domains: ['tiktok.com'], loginUrl: 'https://www.tiktok.com/login', cookies: ['sessionid', 'sessionid_ss'], homeUrl: 'https://www.tiktok.com/foryou',
     actions: {
       search: { command: 'search', arg: 'query', limit: true },
       user: { command: 'profile', arg: 'target', target: username },
@@ -53,7 +57,7 @@ export const SOCIAL = {
     },
   },
   weibo: {
-    name: '微博', domains: ['weibo.com', 'weibo.cn'], loginUrl: 'https://weibo.com/login.php', cookies: ['ALF', 'SSOLoginState', 'SCF'],
+    name: '微博', domains: ['weibo.com', 'weibo.cn'], loginUrl: 'https://weibo.com/login.php', cookies: ['ALF', 'SSOLoginState', 'SCF'], homeUrl: 'https://weibo.com/',
     actions: {
       search: { command: 'search', arg: 'query', limit: true },
       user: { command: 'user', arg: 'target', target: weiboUser },
@@ -63,7 +67,7 @@ export const SOCIAL = {
   },
   xiaohongshu: {
     // Visitors get a web_session cookie as well, so the open page is asked whether it is logged in.
-    name: '小红书', domains: ['xiaohongshu.com', 'xhslink.com'], loginUrl: 'https://www.xiaohongshu.com/explore', cookies: ['web_session'],
+    name: '小红书', domains: ['xiaohongshu.com', 'xhslink.com'], loginUrl: 'https://www.xiaohongshu.com/explore', cookies: ['web_session'], homeUrl: 'https://www.xiaohongshu.com/explore',
     page: `(() => { const u = window.__INITIAL_STATE__ && window.__INITIAL_STATE__.user; if (!u) return null;
       const v = (x) => (x && typeof x === 'object' && '_rawValue' in x ? x._rawValue : x && typeof x === 'object' && 'value' in x ? x.value : x);
       const logged = v(u.loggedIn); return typeof logged === 'boolean' ? logged : null; })()`,
@@ -75,7 +79,7 @@ export const SOCIAL = {
     },
   },
   twitter: {
-    name: 'X', domains: ['x.com', 'twitter.com'], loginUrl: 'https://x.com/i/flow/login', cookies: ['auth_token'],
+    name: 'X', domains: ['x.com', 'twitter.com'], loginUrl: 'https://x.com/i/flow/login', cookies: ['auth_token'], homeUrl: 'https://x.com/home',
     actions: {
       search: { command: 'search', arg: 'query', limit: true },
       read: { command: 'thread', arg: 'target', limit: true },
@@ -273,6 +277,7 @@ export function createSocialBrowser({ runtimeDir = RUNTIME, port = SOCIAL_PORT, 
   const endpoint = `http://127.0.0.1:${port}`;
   let idleTimer = null;
   let starting = null;
+  const hooks = { started: null, closing: null };
 
   async function version() {
     try {
@@ -342,6 +347,7 @@ export function createSocialBrowser({ runtimeDir = RUNTIME, port = SOCIAL_PORT, 
   async function close() {
     clearTimeout(idleTimer);
     if (!await version()) return true;
+    await hooks.closing?.().catch(() => null);
     try { await cdp('Browser.close'); } catch { /* it may close before answering */ }
     return waitFor(async () => !await version(), 10_000);
   }
@@ -361,6 +367,7 @@ export function createSocialBrowser({ runtimeDir = RUNTIME, port = SOCIAL_PORT, 
       starting = (async () => {
         await launch('about:blank', true);
         if (!await waitFor(async () => Boolean(await version()), START_WAIT_MS)) throw new ReachError('专用浏览器没有启动', 503, 'social_browser_failed');
+        await hooks.started?.().catch(() => null);
       })();
       try { await starting; } finally { starting = null; }
     }
@@ -378,6 +385,7 @@ export function createSocialBrowser({ runtimeDir = RUNTIME, port = SOCIAL_PORT, 
     if (now === 'headless') await close();
     await launch(url, false);
     if (!await waitFor(async () => Boolean(await version()), START_WAIT_MS)) throw new ReachError('登录窗口没有打开', 503, 'social_browser_failed');
+    await hooks.started?.().catch(() => null);
   }
 
   /** A tab of its own for one lookup, found again by its unique title. */
@@ -413,6 +421,31 @@ export function createSocialBrowser({ runtimeDir = RUNTIME, port = SOCIAL_PORT, 
     return names;
   }
 
+  /** Every cookie of the five platforms, values included, for the saved copy of the logins. */
+  async function platformCookies() {
+    const { cookies = [] } = await cdp('Storage.getCookies');
+    return cookies.filter((cookie) => Object.values(SOCIAL).some((platform) => onDomain(String(cookie.domain || '').replace(/^\./, ''), platform.domains)));
+  }
+
+  /** Puts cookies back (the ones a closed browser dropped); returns how many were set. */
+  async function setCookies(list) {
+    if (!list.length) return 0;
+    const params = list.map(({ name, value, domain, path: cookiePath, secure, httpOnly, sameSite, expires, session, priority, sourceScheme, sourcePort, partitionKey }) => ({
+      name, value, domain, path: cookiePath, secure, httpOnly, sameSite, priority, sourceScheme, sourcePort,
+      ...(session || !(expires > 0) ? {} : { expires }), ...(partitionKey ? { partitionKey } : {}),
+    }));
+    await cdp('Storage.setCookies', { cookies: params });
+    return params.length;
+  }
+
+  /** Opens [url] in a tab of its own for [ms], then closes it: a visit that lets a site refresh its session. */
+  async function visit(url, ms = KEEPALIVE_PAGE_MS) {
+    const response = await fetchImpl(`${endpoint}/json/new?${encodeURIComponent(url)}`, { method: 'PUT', signal: AbortSignal.timeout(5000) });
+    const target = await response.json();
+    await new Promise((resolve) => setTimeout(resolve, ms));
+    return target.id;
+  }
+
   /** Forgets one platform's login by expiring its cookies in the dedicated profile. */
   async function forget(key) {
     const { cookies = [] } = await cdp('Storage.getCookies');
@@ -421,7 +454,8 @@ export function createSocialBrowser({ runtimeDir = RUNTIME, port = SOCIAL_PORT, 
     return mine.length;
   }
 
-  return { endpoint, profile, chrome, mode, ensureHeadless, openWindow, close, openTab, closeTab, cookieNames, forget, evaluateOn };
+  return { endpoint, profile, chrome, mode, ensureHeadless, openWindow, close, openTab, closeTab, cookieNames, forget, evaluateOn,
+    platformCookies, setCookies, visit, hooks };
 }
 
 function childEnv(home, extra) {
@@ -452,11 +486,26 @@ function runProcess(spawnImpl, command, args, { cwd, env, timeoutMs = KILL_AFTER
   });
 }
 
-export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, browser = null, node = process.execPath } = {}) {
+/**
+ * The cookies the logins rest on, as they were last seen. Chrome keeps lasting cookies itself, but
+ * drops session cookies when it closes and a profile can be lost; this copy puts back whatever is
+ * missing when the browser starts. Plain JSON in the private runtime folder, never in git.
+ */
+export function cookiesToRestore(saved, present, now = Date.now()) {
+  const key = (cookie) => `${cookie.name}\u0000${String(cookie.domain || '').replace(/^\./, '')}\u0000${cookie.path || '/'}`;
+  const have = new Set(present.map(key));
+  return saved.filter((cookie) => !have.has(key(cookie)) && (cookie.session || !(cookie.expires > 0) || cookie.expires * 1000 > now));
+}
+
+export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, browser = null, node = process.execPath, schedule = false, keepAliveMs = KEEPALIVE_MS } = {}) {
   const dedicated = browser || createSocialBrowser({ runtimeDir });
   const opencli = path.join(runtimeDir, OPENCLI_MAIN);
   const home = path.join(runtimeDir, 'social-browser', 'home');
   const statePath = path.join(runtimeDir, 'social-browser', 'logins.json');
+  const cookiePath = path.join(runtimeDir, 'social-browser', 'cookies.json');
+  const keepPath = path.join(runtimeDir, 'social-browser', 'keepalive.json');
+  let lastSnapshot = 0;
+  let keeping = null;
   let running = 0;
   const waiting = [];
   const busyPlatforms = new Set();
@@ -494,6 +543,32 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
       }
       return await save(next);
     } catch { return known; }
+  }
+
+  /** Saves the platforms' cookies; [force] skips the once-every-10-minutes limit. */
+  async function snapshot({ force = false } = {}) {
+    if (!force && Date.now() - lastSnapshot < 10 * 60_000) return null;
+    if (await dedicated.mode() === 'off') return null;
+    const cookies = await dedicated.platformCookies();
+    await mkdir(path.dirname(cookiePath), { recursive: true });
+    await writeFile(cookiePath, JSON.stringify({ saved_at: new Date().toISOString(), cookies }), { mode: 0o600 });
+    lastSnapshot = Date.now();
+    return cookies.length;
+  }
+
+  /** Puts back saved cookies the browser does not have (right after it starts). */
+  async function restore() {
+    let copy;
+    try { copy = JSON.parse(await readFile(cookiePath, 'utf8')); } catch { return 0; }
+    const missing = cookiesToRestore(Array.isArray(copy.cookies) ? copy.cookies : [], await dedicated.platformCookies());
+    const count = await dedicated.setCookies(missing);
+    if (count) console.log(`Social browser: put back ${count} saved cookies (${[...new Set(missing.map((c) => String(c.domain).replace(/^\./, '')))].join(', ')})`);
+    return count;
+  }
+
+  if (dedicated.hooks) {
+    dedicated.hooks.started = () => restore();
+    dedicated.hooks.closing = () => snapshot({ force: true });
   }
 
   /** The platform said it needs a login: it counts as logged out until the next login. */
@@ -542,6 +617,7 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
         if (error.code === 'PLATFORM_BLOCKED') await markBlocked(channel).catch(() => null);
         return failed(error);
       }
+      await snapshot().catch(() => null);
       return trimResult({ ok: true, channel, action, backend: 'opencli', items: socialItems(envelope.data ?? envelope), error: null }, action);
     } finally {
       if (tab) await dedicated.closeTab(tab.id);
@@ -559,10 +635,47 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
     return ['read', 'user', 'posts', 'comments'].includes(String(call.action ?? '')) && Boolean(platformForLink(String(call.target ?? '')));
   }
 
+  /**
+   * Visits the home page of every logged-in platform in the headless browser, so each site refreshes
+   * its session, then reads the logins again and saves the cookies. Skipped while the login window
+   * is open or a lookup runs.
+   */
+  async function keepAlive() {
+    if (keeping) return keeping;
+    keeping = (async () => {
+      if (await dedicated.mode() === 'window') return { skipped: 'window' };
+      if (running > 0) return { skipped: 'busy' };
+      const known = await saved();
+      const keys = Object.keys(SOCIAL).filter((key) => known[key]?.logged_in);
+      if (!keys.length) return { skipped: 'no logins' };
+      await dedicated.ensureHeadless();
+      const tabs = [];
+      for (const key of keys) tabs.push(await dedicated.visit(SOCIAL[key].homeUrl || SOCIAL[key].loginUrl).catch(() => null));
+      // Read with the pages still open: Xiaohongshu's login is asked of its page.
+      const after = await logins();
+      for (const id of tabs) await dedicated.closeTab(id);
+      const copied = await snapshot({ force: true }).catch(() => null);
+      const result = { at: new Date().toISOString(), visited: keys, logged_in: keys.filter((key) => after[key]?.logged_in), lost: keys.filter((key) => !after[key]?.logged_in), cookies: copied };
+      await writeFile(keepPath, JSON.stringify(result, null, 2)).catch(() => null);
+      return result;
+    })();
+    try { return await keeping; } finally { keeping = null; }
+  }
+
+  if (schedule && keepAliveMs > 0) {
+    const run = () => keepAlive().catch((error) => console.warn('Social keepalive failed:', error?.message));
+    setTimeout(run, KEEPALIVE_FIRST_MS).unref?.();
+    setInterval(run, keepAliveMs).unref?.();
+  }
+
   async function status() {
     const mode = await dedicated.mode().catch(() => 'off');
     const known = await logins({ live: mode !== 'off' });
+    const kept = await readFile(keepPath, 'utf8').then(JSON.parse).catch(() => null);
+    const copy = await readFile(cookiePath, 'utf8').then((text) => JSON.parse(text).saved_at).catch(() => null);
     return {
+      keepalive: kept ? { at: kept.at, lost: kept.lost || [] } : null,
+      cookies_saved_at: copy,
       available: existsSync(opencli) && Boolean(dedicated.chrome),
       browser: dedicated.chrome ? path.basename(dedicated.chrome.path) : '',
       mode,
@@ -586,6 +699,7 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
   /** Reads who is logged in from the window, then closes it so lookups can use the profile. */
   async function finishLogin() {
     const result = await logins({ clearBlocks: true });
+    await snapshot({ force: true }).catch(() => null);
     await dedicated.close();
     return { ok: true, platforms: result };
   }
@@ -595,8 +709,10 @@ export function createSocialRuntime({ runtimeDir = RUNTIME, spawnImpl = spawn, b
     if (await dedicated.mode() === 'off') await dedicated.ensureHeadless();
     const cleared = await dedicated.forget(key);
     const result = await logins();
+    // The saved copy must not bring a login back that the user ended.
+    await snapshot({ force: true }).catch(() => null);
     return { ok: true, cleared, platforms: result };
   }
 
-  return { run, handles, status, openLogin, finishLogin, logout, logins, paths: { opencli, home, statePath } };
+  return { run, handles, status, openLogin, finishLogin, logout, logins, keepAlive, snapshot, restore, paths: { opencli, home, statePath, cookiePath } };
 }
