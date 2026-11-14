@@ -15,7 +15,7 @@ object CharacterCardTool {
     const val TASK = "character_card"
     const val NAME = "character_card_save"
 
-    const val GREETING = "我是角色卡助手。告诉我你想做的角色：可以发 B 站或 YouTube 视频链接、网页，或者直接描述。" +
+    const val GREETING = "我是角色卡助手。告诉我你想做的角色：可以发 B 站、YouTube、抖音、小红书、微博、X 的链接或网页，或者直接描述。" +
         "我会去看视频和资料，先把角色卡草稿发给你确认，你说可以了我再保存到角色列表。"
 
     const val PROMPT = "【角色卡助手】本会话的任务是帮用户做一张角色卡。用户给视频链接或要求参考视频时，用 web_reach 读视频信息和字幕（subtitle），网页用 read；资料不够就问用户。" +

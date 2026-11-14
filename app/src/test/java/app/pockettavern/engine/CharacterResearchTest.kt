@@ -51,6 +51,63 @@ class CharacterResearchTest {
         assertFalse(CharacterResearch.RULES.contains("真人"))
     }
 
+    /** 0.2.8: the plan may also search the social platforms the PC is logged into. */
+    @Test fun thePlanCanAskForSocialPlatformsButOnlyTheOnesLoggedIn() {
+        val asked = JSONArray(CharacterResearch.planMessages("某个 UP 主", Character(), listOf("weibo", "douyin", "facebook"))).getJSONObject(0).getString("content")
+        assertTrue(asked.contains("- social：") && asked.contains("微博（weibo）、抖音（douyin）"))
+        assertFalse("a platform the app does not know is not offered", asked.contains("facebook"))
+        val none = JSONArray(CharacterResearch.planMessages("某个 UP 主", Character())).getJSONObject(0).getString("content")
+        assertFalse("no logins, no social search offered", none.contains("- social："))
+        val plan = CharacterResearch.parsePlan("{\"subject\":\"某人\",\"queries\":[],\"social\":[{\"platform\":\"Weibo\",\"query\":\"某人\"}," +
+            "{\"platform\":\"weibo\",\"query\":\"重复\"},{\"platform\":\"facebook\",\"query\":\"x\"},{\"platform\":\"douyin\",\"query\":\"  \"}," +
+            "{\"platform\":\"xiaohongshu\",\"query\":\"某人 日常\"},{\"platform\":\"twitter\",\"query\":\"a\"},{\"platform\":\"tiktok\",\"query\":\"b\"}]}").getOrThrow()
+        assertEquals(listOf("weibo" to "某人", "xiaohongshu" to "某人 日常", "twitter" to "a"), plan.social.map { it.platform to it.query })
+        assertTrue("a plan with only social searches still searches", plan.searches)
+        val call = CharacterResearch.socialSearchCall("weibo", "某人")
+        assertEquals(listOf("search", "weibo", "某人", 5), listOf(call.getString("action"), call.getString("channel"), call.getString("query"), call.getInt("limit")))
+    }
+
+    @Test fun socialLinksAreReadAsOnePostOrAsAnAccountsRecentPosts() {
+        fun shape(url: String) = CharacterResearch.socialLinkCall(url)?.let { listOf(it.getString("action"), it.getString("channel"), it.optString("target")) }
+        assertEquals(listOf("read", "douyin", "https://www.douyin.com/video/1"), shape("https://www.douyin.com/video/1"))
+        assertEquals(listOf("posts", "douyin", "https://www.douyin.com/user/MS4w"), shape("https://www.douyin.com/user/MS4w"))
+        assertEquals(listOf("read", "xiaohongshu", "https://www.xiaohongshu.com/explore/1?xsec_token=a"), shape("https://www.xiaohongshu.com/explore/1?xsec_token=a"))
+        assertEquals(listOf("posts", "xiaohongshu", "https://www.xiaohongshu.com/user/profile/5f"), shape("https://www.xiaohongshu.com/user/profile/5f"))
+        assertEquals(listOf("read", "twitter", "https://x.com/a/status/9"), shape("https://x.com/a/status/9"))
+        assertEquals(listOf("posts", "twitter", "https://x.com/a"), shape("https://x.com/a"))
+        assertEquals(listOf("posts", "tiktok", "@who"), shape("https://www.tiktok.com/@who/video/7"))
+        assertEquals(listOf("posts", "weibo", "123456"), shape("https://weibo.com/u/123456"))
+        assertEquals(listOf("posts", "weibo", "123456"), shape("https://weibo.com/123456/AbCd"))
+        assertNull(CharacterResearch.socialLinkCall("https://www.bilibili.com/video/BV1"))
+        assertNull(CharacterResearch.socialLinkCall("https://weibo.com/hot"))
+        assertEquals("douyin", CharacterResearch.platform("https://v.douyin.com/abc/"))
+        assertEquals("", CharacterResearch.platform("https://evildouyin.com/x"))
+        // An account's posts become one source the user can tick or untick.
+        val posts = """{"ok":true,"items":[{"title":"一","author":"某人","published_at":"2026-01-01","text":"第一条\n正文"},{"title":"二","author":"某人","text":"第二条"}]}"""
+        val linked = CharacterResearch.linkSource(posts, CardSource(kind = CardSource.LINK, title = "weibo.com", url = "https://weibo.com/u/1", platform = "weibo"))!!
+        assertEquals("某人 的最近动态", linked.title)
+        assertEquals("· （2026-01-01）第一条 正文\n· 第二条", linked.text)
+        assertTrue(linked.full)
+        assertNull(CharacterResearch.linkSource("""{"ok":false,"items":[],"error":{"code":"NEED_LOGIN"}}""", linked))
+    }
+
+    @Test fun failedPlatformSearchesSayWhyAndPostsSitBetweenPagesAndVideos() {
+        assertEquals("NEED_LOGIN", CharacterResearch.errorCode("""{"ok":false,"items":[],"error":{"code":"NEED_LOGIN"}}"""))
+        assertEquals("", CharacterResearch.errorCode("""{"ok":true,"items":[]}"""))
+        assertTrue(CharacterResearch.socialNote("douyin", "NEED_LOGIN").contains("抖音没有登录"))
+        assertTrue(CharacterResearch.socialNote("weibo", "").contains("微博上没搜到"))
+        assertTrue(CharacterResearch.socialNote("xiaohongshu", "PLATFORM_BLOCKED").contains("验证"))
+        val material = CardMaterial(sources = listOf(
+            CardSource(kind = CardSource.VIDEO, title = "视频", url = "https://www.bilibili.com/video/BV1", text = "字幕", full = true),
+            CardSource(kind = CardSource.POST, platform = "weibo", title = "一条微博", url = "https://weibo.com/1/2", author = "官方号", text = "微博正文"),
+            CardSource(kind = CardSource.PAGE, title = "百科", url = "https://baike.example/", text = "设定", full = true),
+            CardSource(kind = CardSource.LINK, platform = "xiaohongshu", title = "笔记", url = "https://www.xiaohongshu.com/explore/1", text = "笔记正文", full = true)))
+        val text = CharacterResearch.materialText(material, 18_000)
+        assertTrue(text.startsWith("〔资料 1 · 用户给的小红书链接〕笔记"))
+        assertTrue(text.contains("〔资料 3 · 微博〕一条微博（作者：官方号）"))
+        assertTrue(text.indexOf("百科") < text.indexOf("一条微博") && text.indexOf("一条微博") < text.indexOf("〔资料 4 · 视频〕"))
+    }
+
     @Test fun anUnreadablePlanFallsBackToTheNameOrAShortIdea() {
         assertEquals(listOf("黑猫 角色设定"), CharacterResearch.fallbackPlan("再傲娇一点，补几段示例对话，写得更细", Character(name = "黑猫")).queries)
         val short = CharacterResearch.fallbackPlan("初音未来 https://example.com/a", Character())

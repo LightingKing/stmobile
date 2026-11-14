@@ -67,8 +67,12 @@ class PcLinkClientTest {
         assertEquals(null, unknown.modelsAvailable)
         assertEquals("m", unknown.defaultModelId)
         assertEquals("servers before 0.8.0 say nothing about Bilibili", null, unknown.bilibiliLogin)
+        assertEquals("servers before 0.11.0 have no social platforms", emptyList<String>(), unknown.socialPlatforms)
         server.enqueue(json("""{"version":"0.8.0","upstream":{"model":"m"},"reach":{"available":true,"bilibili_login":true},"backups":{}}"""))
         assertEquals(true, runBlocking { client.status(pc, "t") }.bilibiliLogin)
+        server.enqueue(json("""{"version":"0.11.0","upstream":{"model":"m"},"backups":{},"social":{"available":true,"platforms":{
+            "weibo":{"name":"微博","logged_in":true},"douyin":{"name":"抖音","logged_in":false},"twitter":{"name":"X","logged_in":true}}}}"""))
+        assertEquals(listOf("twitter", "weibo"), runBlocking { client.status(pc, "t") }.socialPlatforms)
     }
 
     @Test fun settingsAreReadAndOnlyChangesAreSent() {

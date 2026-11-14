@@ -1401,14 +1401,18 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val pcKey = app.secrets.get(credentialId(pc)).ifBlank { throw DraftStop("请先在“模型”页填写电脑写作服务的 Token。") }
         researchPictures.clear(); researchBitmaps.clear()
         draftStage(token, "正在想该搜什么…")
+        // Which social platforms the PC is logged into decides which the plan may name.
+        val platforms = try { pcClient.status(routed(pc), pcKey).socialPlatforms }
+            catch (cancelled: CancellationException) { throw cancelled } catch (error: Exception) { emptyList() }
         val plan = try {
-            val reply = draftClient.chat(routed(drafter), key(drafter.id), modelId, CharacterResearch.planMessages(idea, base), CharacterResearch.planPreset(),
+            val reply = draftClient.chat(routed(drafter), key(drafter.id), modelId, CharacterResearch.planMessages(idea, base, platforms), CharacterResearch.planPreset(),
                 toolsJson = "[]", finalAnswerOnly = true)
             CharacterResearch.parsePlan(reply.content).getOrElse { CharacterResearch.fallbackPlan(idea, base) }
         } catch (cancelled: CancellationException) { throw cancelled }
         catch (error: Exception) { CharacterResearch.fallbackPlan(idea, base) }
+        val social = plan.social.filter { it.platform in platforms }
         val links = CharacterResearch.links(idea)
-        if (!plan.searches && links.isEmpty()) {
+        if (plan.queries.isEmpty() && plan.videoQuery.isBlank() && plan.imageQuery.isBlank() && social.isEmpty() && links.isEmpty()) {
             return CardMaterial(subject = plan.subject, notes = listOf(CharacterResearch.NOTHING_TO_FIND))
         }
         val route = routed(pc)
@@ -1416,7 +1420,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val notes = mutableListOf<String>()
         var unreachable = ""
         var done = 0
-        var total = links.size + plan.queries.size + (if (plan.videoQuery.isNotBlank()) 1 else 0) + (if (plan.imageQuery.isNotBlank()) 1 else 0)
+        var total = links.size + plan.queries.size + social.size + (if (plan.videoQuery.isNotBlank()) 1 else 0) + (if (plan.imageQuery.isNotBlank()) 1 else 0)
         fun progress() = draftStage(token, "正在找资料（$done/$total）…")
         suspend fun reach(call: JSONObject): String? = gate.withPermit {
             try { pcClient.reach(route, pcKey, call, bounded = true) }
@@ -1436,33 +1440,48 @@ class AppController(application: Application) : AndroidViewModel(application), A
         progress()
         val first = coroutineScope {
             val linkJobs = links.map { url -> async { counted {
-                val source = CardSource(kind = CardSource.LINK, title = CharacterResearch.site(url), url = url)
-                if (CharacterResearch.isVideo(url)) video(source) else CharacterResearch.read(reach(CharacterResearch.readCall(url)), source)
+                val source = CardSource(kind = CardSource.LINK, title = CharacterResearch.site(url), url = url, platform = CharacterResearch.platform(url))
+                val socialCall = CharacterResearch.socialLinkCall(url)
+                when {
+                    socialCall != null -> CharacterResearch.linkSource(reach(socialCall), source)
+                    CharacterResearch.isVideo(url) -> video(source)
+                    else -> CharacterResearch.read(reach(CharacterResearch.readCall(url)), source)
+                }
+            } } }
+            val socialJobs = social.map { query -> async { counted {
+                val result = reach(CharacterResearch.socialSearchCall(query.platform, query.query))
+                val found = CharacterResearch.hits(result, CardSource.POST).map { it.copy(platform = query.platform) }.take(CharacterResearch.MAX_POSTS)
+                if (found.isEmpty()) notes += CharacterResearch.socialNote(query.platform, CharacterResearch.errorCode(result))
+                found
             } } }
             val pageJobs = plan.queries.map { query -> async { counted { CharacterResearch.hits(reach(CharacterResearch.searchCall(query)), CardSource.PAGE) } } }
             val videoJob = plan.videoQuery.takeIf { it.isNotBlank() }?.let { query -> async { counted { CharacterResearch.hits(reach(CharacterResearch.videoSearchCall(query)), CardSource.VIDEO) } } }
             val pictureJob = plan.imageQuery.takeIf { it.isNotBlank() }?.let { query -> async { counted { findPictures(route, pcKey, query, notes) } } }
-            FirstFinds(linkJobs.awaitAll(), pageJobs.awaitAll().flatten(), videoJob?.await().orEmpty(), pictureJob?.await().orEmpty())
+            FirstFinds(linkJobs.awaitAll(), pageJobs.awaitAll().flatten(), videoJob?.await().orEmpty(), pictureJob?.await().orEmpty(), socialJobs.awaitAll().flatten())
         }
         links.zip(first.links).filter { it.second == null }.forEach { notes += "没读到 ${CharacterResearch.site(it.first)} 的链接" }
         val linked = first.links.filterNotNull()
         // A page or video the user linked is not listed a second time as a search result.
         val pages = CharacterResearch.distinct(linked + first.pages).filter { it.kind == CardSource.PAGE }.take(CharacterResearch.MAX_PAGES)
         val videos = CharacterResearch.distinct(linked + first.videos).filter { it.kind == CardSource.VIDEO }.take(CharacterResearch.MAX_VIDEOS)
+        val posts = CharacterResearch.distinct(linked + first.posts).filter { it.kind == CardSource.POST }
         val toRead = CharacterResearch.pagesToRead(pages)
         val toWatch = videos.take(CharacterResearch.MAX_VIDEO_DETAILS)
-        total += toRead.size + toWatch.size
+        val notesToRead = posts.filter { it.platform == "xiaohongshu" }.take(CharacterResearch.MAX_NOTE_READS)
+        total += toRead.size + toWatch.size + notesToRead.size
         progress()
         val detailed = coroutineScope {
             (toRead.map { source -> async { counted { CharacterResearch.read(reach(CharacterResearch.readCall(source.url)), source) } } } +
-                toWatch.map { source -> async { counted { video(source) } } }).awaitAll().filterNotNull().associateBy { it.id }
+                toWatch.map { source -> async { counted { video(source) } } } +
+                notesToRead.map { source -> async { counted { CharacterResearch.read(reach(CharacterResearch.readCall(source.url).put("channel", "xiaohongshu")), source) } } })
+                .awaitAll().filterNotNull().associateBy { it.id }
         }
         if (unreachable.isNotBlank()) notes.add(0, unreachable)
         else {
             if (plan.queries.isNotEmpty() && pages.isEmpty()) notes += "没搜到相关网页"
             if (plan.videoQuery.isNotBlank() && videos.isEmpty()) notes += "没搜到相关视频"
         }
-        return CardMaterial(subject = plan.subject, sources = linked + (pages + videos).map { detailed[it.id] ?: it }, pictures = first.pictures, notes = notes)
+        return CardMaterial(subject = plan.subject, sources = linked + (pages + posts + videos).map { detailed[it.id] ?: it }, pictures = first.pictures, notes = notes)
     }
 
     /** Pictures of the character from the PC's image search; ones that are not pictures are dropped. */
@@ -2585,7 +2604,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
 private class DraftStop(message: String) : Exception(message)
 
 /** The first round of lookups for a character card. */
-private class FirstFinds(val links: List<CardSource?>, val pages: List<CardSource>, val videos: List<CardSource>, val pictures: List<CardPicture>)
+private class FirstFinds(val links: List<CardSource?>, val pages: List<CardSource>, val videos: List<CardSource>, val pictures: List<CardPicture>, val posts: List<CardSource> = emptyList())
 
 /** One damaged place of a saved reply, with the text around it that the model is shown. */
 private class DamagedPlace(val messageId: String, val spot: DamagedText.Spot, val line: String)

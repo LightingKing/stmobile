@@ -21,7 +21,9 @@ data class PcStatus(
     val modelsAvailable: Int? = null,
     val autoRevise: Boolean = false,
     /** Whether Bilibili is logged in on the PC (subtitles for web search); null on older servers. */
-    val bilibiliLogin: Boolean? = null
+    val bilibiliLogin: Boolean? = null,
+    /** Social platforms logged in on the PC ("douyin", "weibo"…); empty on servers before 0.11.0. */
+    val socialPlatforms: List<String> = emptyList()
 )
 
 /**

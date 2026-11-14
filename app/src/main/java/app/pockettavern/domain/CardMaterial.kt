@@ -1,8 +1,10 @@
 package app.pockettavern.domain
 
-/** One thing found online for a character card: a page, a video, or a link the user gave. */
+/** One thing found online for a character card: a page, a video, a social post, or a link the user gave. */
 data class CardSource(
     val id: String = newId(), val kind: String = PAGE, val title: String = "", val url: String = "", val author: String = "",
+    /** For posts and links on Douyin, TikTok, Weibo, Xiaohongshu or X: which one ("weibo"). */
+    val platform: String = "",
     val text: String = "",
     /** The whole page or the video's subtitles were read, rather than a search result's summary. */
     val full: Boolean = false,
@@ -12,6 +14,7 @@ data class CardSource(
     companion object {
         const val PAGE = "page"
         const val VIDEO = "video"
+        const val POST = "post"
         const val LINK = "link"
     }
 }

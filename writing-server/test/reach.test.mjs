@@ -93,7 +93,7 @@ test('POST /v1/pocket/reach needs the token, refuses bad calls and reports statu
   const post = (body, token = 'tok') => fetch(`${base}/v1/pocket/reach`, { method: 'POST', headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: JSON.stringify(body) });
   try {
     assert.equal((await post({ action: 'search', query: 'x' }, 'wrong')).status, 401);
-    const refused = await post({ channel: 'xiaohongshu', action: 'search', query: 'x' });
+    const refused = await post({ channel: 'facebook', action: 'search', query: 'x' });
     assert.equal(refused.status, 400);
     assert.equal((await refused.json()).error.code, 'reach_unsupported');
     const ok = await post({ action: 'search', query: 'x' });

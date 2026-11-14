@@ -11,6 +11,7 @@ import { STICKER_LIMITS, STICKER_UPLOAD_TYPE, StickerError, createStickerStore }
 import { DshError, createDshRuntime } from './dsh.mjs';
 import { ReachError, createReachRuntime } from './reach.mjs';
 import { ImageSearchError, createImageSearch } from './images.mjs';
+import { createSocialRuntime } from './social.mjs';
 import { MODEL_ID, SETTING_OPTIONS, applySettings, loadReviewSkill, saveSettings, settingsOf, validateSettings } from './config.mjs';
 
 const DEFAULT_CONFIG = {
@@ -189,7 +190,7 @@ function answerStream(res, id) {
   return { push, finish, fail };
 }
 
-export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null, catalog = null, stickers = null, dsh = null, reach = null, images = null } = {}) {
+export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null, catalog = null, stickers = null, dsh = null, reach = null, images = null, social = null } = {}) {
   const resolved = { ...DEFAULT_CONFIG, ...config };
   const dataDir = resolved.dataDir || './writing-server-data';
   const store = vault || createVault({ dataDir });
@@ -201,6 +202,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
   const dshRuntime = dsh || createDshRuntime({ dataDir, python: resolved.pythonPath || '' });
   const reachRuntime = reach || createReachRuntime();
   const imageSearch = images || createImageSearch();
+  const socialRuntime = social || createSocialRuntime();
   const ready = Boolean(resolved.token && remote);
   const startedAt = new Date();
   // Generations in flight, one per chat and purpose. A repeat of the same request replaces the old one.
@@ -229,7 +231,8 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       stickers: await stickerStore.summary(),
       dsh: await dshRuntime.status(),
       reach: await reachRuntime.status(),
-      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings', 'stickers', 'dsh_runtime', 'web_reach', 'image_search', 'text_repair'],
+      social: await socialRuntime.status().catch(() => ({ available: false })),
+      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings', 'stickers', 'dsh_runtime', 'web_reach', 'image_search', 'text_repair', 'social_reach'],
     };
   }
 
@@ -381,9 +384,11 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       }
     }
     if (parsed.pathname === '/v1/pocket/reach' && req.method === 'POST') {
-      // One web search / page read from a phone chat, run by Agent Reach on this PC.
+      // One web search / page read from a phone chat, run by Agent Reach on this PC; Douyin,
+      // TikTok, Weibo, Xiaohongshu and X go to the dedicated logged-in browser instead.
       try {
-        return sendJson(res, 200, await reachRuntime.run(await readBody(req)));
+        const call = await readBody(req);
+        return sendJson(res, 200, socialRuntime.handles(call) ? await socialRuntime.run(call) : await reachRuntime.run(call));
       } catch (error) {
         const known = error instanceof ReachError || error.status;
         if (!known) console.error('Agent Reach call failed:', error?.code || error?.message);
@@ -499,6 +504,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
   server.pocket = {
     requestListener,
     vault: store,
+    social: socialRuntime,
     activeRequests: () => active.size,
     abortAll: () => { for (const item of active.values()) item.abort.abort(); },
   };

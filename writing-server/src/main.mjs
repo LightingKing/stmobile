@@ -68,7 +68,7 @@ try {
     process.exit(1);
   });
   // The dashboard is optional: a busy port is logged, the service runs on.
-  const admin = createAdminServer({ requestListener: server.pocket.requestListener, config, vault: server.pocket.vault, dataDir: config.dataDir });
+  const admin = createAdminServer({ requestListener: server.pocket.requestListener, config, vault: server.pocket.vault, dataDir: config.dataDir, social: server.pocket.social });
   admin.on('error', (error) => console.warn(`电脑管理页没有启动（${error.code || error.message}）。`));
   admin.listen(config.adminPort, '127.0.0.1', () => console.log(`Dashboard on http://127.0.0.1:${config.adminPort}/`));
   servers.push(admin);

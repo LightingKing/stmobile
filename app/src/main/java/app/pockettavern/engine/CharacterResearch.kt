@@ -25,6 +25,16 @@ object CharacterResearch {
     const val MAX_VIDEO_DETAILS = 2
     const val MAX_PICTURES = 6
     const val MAX_SEEN_PICTURES = 3
+    /** Social platforms one plan may search, and posts kept from each. */
+    const val MAX_SOCIAL = 3
+    const val MAX_POSTS = 5
+    /** Xiaohongshu search gives titles only; the first few notes are read in full. */
+    const val MAX_NOTE_READS = 2
+
+    /** The social platforms the PC can read once logged in, by the key the PC uses. */
+    val SOCIAL = linkedMapOf("douyin" to "抖音", "tiktok" to "TikTok", "weibo" to "微博", "xiaohongshu" to "小红书", "twitter" to "X")
+    private val SOCIAL_DOMAINS = mapOf("douyin" to listOf("douyin.com", "iesdouyin.com"), "tiktok" to listOf("tiktok.com"), "weibo" to listOf("weibo.com", "weibo.cn"),
+        "xiaohongshu" to listOf("xiaohongshu.com", "xhslink.com"), "twitter" to listOf("x.com", "twitter.com"))
 
     private const val QUERY_CHARS = 60
     private const val FULL_TEXT_CHARS = 6_000
@@ -34,9 +44,13 @@ object CharacterResearch {
 
     const val NOTHING_TO_FIND = "模型认为不需要上网找资料，直接按你的描述写了。"
 
+    /** One search on a social platform the plan asked for. */
+    data class SocialQuery(val platform: String, val query: String)
+
     /** What to look for; all of it is the model's choice. Empty terms mean that kind of find is not wanted. */
-    data class Plan(val subject: String = "", val queries: List<String> = emptyList(), val videoQuery: String = "", val imageQuery: String = "") {
-        val searches: Boolean get() = queries.isNotEmpty() || videoQuery.isNotBlank() || imageQuery.isNotBlank()
+    data class Plan(val subject: String = "", val queries: List<String> = emptyList(), val videoQuery: String = "", val imageQuery: String = "",
+        val social: List<SocialQuery> = emptyList()) {
+        val searches: Boolean get() = queries.isNotEmpty() || videoQuery.isNotBlank() || imageQuery.isNotBlank() || social.isNotEmpty()
     }
 
     const val PLAN_SYSTEM = "你在帮用户为一张角色卡找资料。用户会说想做哪个角色。判断这个角色是谁、需不需要上网找资料，给出搜索词。只返回一个 JSON 对象，不要任何其他文字，字段如下：\n" +
@@ -54,13 +68,22 @@ object CharacterResearch {
     /** Asking for a few search terms: short and steady. */
     fun planPreset(): Preset = Preset(temperature = 0.2, maxOutput = 600)
 
-    fun planMessages(idea: String, base: Character): String {
+    /** The part of the plan instructions about social platforms, naming only the ones logged in on the PC. */
+    fun socialGuide(platforms: List<String>): String {
+        val usable = platforms.filter { it in SOCIAL }
+        if (usable.isEmpty()) return ""
+        return "\n- social：最多 $MAX_SOCIAL 项，每项 {\"platform\":平台,\"query\":搜索词}，在这些平台里搜帖子和视频：" +
+            usable.joinToString("、") { "${SOCIAL.getValue(it)}（$it）" } + "。" +
+            "适合找真人、主播、UP 主、网红本人公开发的内容，虚拟角色或作品的官方号，以及粉丝的讨论和二创；搜索词用角色名或账号名，用不上就用空数组。"
+    }
+
+    fun planMessages(idea: String, base: Character, platforms: List<String> = emptyList()): String {
         val user = buildString {
             if (base.name.isNotBlank()) append("已有的角色卡：名称“${base.name.trim()}”，简介：${base.description.trim().take(300).ifBlank { "（空）" }}\n")
             append(if (idea.isBlank()) "请为这张角色卡找资料。" else "我的要求：${idea.trim()}")
         }
         return JSONArray()
-            .put(JSONObject().put("role", "system").put("content", PLAN_SYSTEM))
+            .put(JSONObject().put("role", "system").put("content", PLAN_SYSTEM + socialGuide(platforms)))
             .put(JSONObject().put("role", "user").put("content", user)).toString()
     }
 
@@ -73,7 +96,10 @@ object CharacterResearch {
         val root = JSONTokener(content.substring(start)).nextValue() as? JSONObject ?: error("搜索计划格式不对")
         val queries = (root.optJSONArray("queries") ?: JSONArray()).let { list -> (0 until list.length()).map { term(list.optString(it)) } }
             .filter { it.isNotBlank() }.distinct().take(2)
-        Plan(subject = term(root.optString("subject")), queries = queries, videoQuery = term(root.optString("video_query")), imageQuery = term(root.optString("image_query")))
+        val social = (root.optJSONArray("social") ?: JSONArray()).let { list -> (0 until list.length()).mapNotNull { list.optJSONObject(it) } }
+            .map { SocialQuery(it.optString("platform").trim().lowercase(), term(it.optString("query"))) }
+            .filter { it.platform in SOCIAL && it.query.isNotBlank() }.distinctBy { it.platform }.take(MAX_SOCIAL)
+        Plan(subject = term(root.optString("subject")), queries = queries, videoQuery = term(root.optString("video_query")), imageQuery = term(root.optString("image_query")), social = social)
     }
 
     /** When the model's plan cannot be read: search for the card's name, or for a short idea as it is. */
@@ -100,6 +126,73 @@ object CharacterResearch {
 
     /** A site's name for the list of finds: "baike.baidu.com". */
     fun site(url: String): String = host(url)
+
+    /** The social platform a link belongs to ("weibo"), or "". */
+    fun platform(url: String): String {
+        val host = host(url)
+        if (host.isBlank()) return ""
+        return SOCIAL_DOMAINS.entries.firstOrNull { (_, domains) -> domains.any { host == it || host.endsWith(".$it") } }?.key.orEmpty()
+    }
+
+    fun socialSearchCall(platform: String, query: String): JSONObject =
+        JSONObject().put("action", "search").put("channel", platform).put("query", query).put("limit", MAX_POSTS)
+
+    /**
+     * How a link on a social platform is read: one post (a Douyin video, a Xiaohongshu note, a
+     * tweet and its replies), or an account's recent posts when it is a profile or a platform
+     * without single-post reading (TikTok, Weibo). Null for links elsewhere.
+     */
+    fun socialLinkCall(url: String): JSONObject? {
+        val platform = platform(url)
+        if (platform.isEmpty()) return null
+        val parts = runCatching { URI(url).path.orEmpty() }.getOrDefault("").split('/').filter { it.isNotBlank() }
+        val posts = JSONObject().put("action", "posts").put("channel", platform).put("limit", MAX_POSTS)
+        val read = JSONObject().put("action", "read").put("channel", platform).put("target", url)
+        return when (platform) {
+            "douyin" -> if (parts.firstOrNull() == "user") posts.put("target", url) else read
+            "xiaohongshu" -> if (parts.take(2) == listOf("user", "profile")) posts.put("target", url) else read
+            "twitter" -> if (parts.getOrNull(1) == "status") read else posts.put("target", url)
+            "tiktok" -> parts.firstOrNull()?.takeIf { it.startsWith("@") }?.let { posts.put("target", it) }
+            "weibo" -> when {
+                parts.firstOrNull() == "u" && parts.size > 1 -> posts.put("target", parts[1])
+                parts.firstOrNull()?.all(Char::isDigit) == true -> posts.put("target", parts[0])
+                else -> null
+            }
+            else -> null
+        }
+    }
+
+    /** The error code a lookup came back with ("NEED_LOGIN"), or "" when it worked. */
+    fun errorCode(result: String?): String {
+        val root = runCatching { JSONObject(result.orEmpty()) }.getOrNull() ?: return ""
+        return if (root.optBoolean("ok")) "" else root.optJSONObject("error")?.optString("code").orEmpty()
+    }
+
+    /** What to tell the user when a platform search did not work. */
+    fun socialNote(platform: String, code: String): String {
+        val name = SOCIAL[platform] ?: platform
+        return when (code) {
+            "NEED_LOGIN" -> "电脑上的${name}没有登录，没搜它：在电脑的管理网页“社交平台”里登录"
+            "PLATFORM_BLOCKED" -> "${name}要求验证，这次没搜到：在电脑的管理网页打开登录窗口完成验证"
+            "RATE_LIMITED" -> "${name}查得太频繁，过一会儿再试"
+            "", "NOT_FOUND" -> "${name}上没搜到相关内容"
+            else -> "${name}这次没搜成"
+        }
+    }
+
+    /** An account's posts (or one post) read from a link, as one source. */
+    fun linkSource(result: String?, source: CardSource): CardSource? {
+        val found = items(result)
+        if (found.isEmpty()) return null
+        if (found.size == 1) return read(result, source)
+        val text = found.joinToString("\n") { item ->
+            val body = clean(item.optString("text")).ifBlank { item.optString("title").trim() }
+            val time = item.optString("published_at").trim()
+            "· " + (if (time.isNotBlank()) "（$time）" else "") + body.replace("\n", " ").take(400)
+        }
+        val author = found.firstNotNullOfOrNull { it.optString("author").trim().takeIf(String::isNotBlank) } ?: source.author
+        return source.copy(title = if (author.isNotBlank()) "$author 的最近动态" else source.title, author = author, text = text.take(FULL_TEXT_CHARS * 2), full = true)
+    }
 
     fun searchCall(query: String, limit: Int = 5): JSONObject = JSONObject().put("action", "search").put("channel", "web").put("query", query).put("limit", limit)
     fun videoSearchCall(query: String): JSONObject = JSONObject().put("action", "search").put("channel", "bilibili").put("query", query).put("limit", MAX_VIDEOS)
@@ -150,11 +243,13 @@ object CharacterResearch {
 
     private fun label(source: CardSource): String = when (source.kind) {
         CardSource.VIDEO -> "视频"
-        CardSource.LINK -> if (isVideo(source.url)) "用户给的视频" else "用户给的链接"
+        CardSource.POST -> SOCIAL[source.platform] ?: "社交平台"
+        CardSource.LINK -> SOCIAL[source.platform]?.let { "用户给的${it}链接" } ?: if (isVideo(source.url)) "用户给的视频" else "用户给的链接"
         else -> "网页"
     }
 
     private fun cap(source: CardSource): Int = when {
+        source.kind == CardSource.POST -> if (source.full) VIDEO_TEXT_CHARS else SUMMARY_CHARS
         source.kind == CardSource.VIDEO || isVideo(source.url) -> if (source.full) VIDEO_TEXT_CHARS else SUMMARY_CHARS
         source.full -> FULL_TEXT_CHARS
         else -> SUMMARY_CHARS
@@ -168,7 +263,7 @@ object CharacterResearch {
      * then search summaries and videos. Long texts are shortened together until the block fits.
      */
     fun materialText(material: CardMaterial, budgetChars: Int): String {
-        val order = mapOf(CardSource.LINK to 0, CardSource.PAGE to 1, CardSource.VIDEO to 3)
+        val order = mapOf(CardSource.LINK to 0, CardSource.PAGE to 1, CardSource.POST to 3, CardSource.VIDEO to 4)
         val used = material.sources.filter { it.used }.sortedBy { (order[it.kind] ?: 2) + if (it.kind == CardSource.PAGE && !it.full) 1 else 0 }
         if (used.isEmpty()) return ""
         var scale = 1.0

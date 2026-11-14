@@ -131,7 +131,7 @@ internal fun CharacterDraftPanel(state: UiSession, actions: AppActions, form: Ch
                     Text(when {
                         !pcReady -> "要用电脑写作服务：在“模型”页添加后才能用。"
                         linked -> "会先读你贴的链接，再找这个角色的网页、视频和图片。"
-                        else -> "电脑先找这个角色的网页、视频和图片，再按资料写。找不找、找什么由模型判断。"
+                        else -> "电脑先找这个角色的网页、视频、图片，以及电脑上登录过的抖音、微博、小红书等平台的动态，再按资料写。找不找、找什么由模型判断。"
                     }, style = MaterialTheme.typography.bodySmall, color = colors.onSurfaceVariant)
                 }
             }
@@ -172,8 +172,9 @@ private fun MaterialSection(material: CardMaterial, running: Boolean, canRewrite
     val uriHandler = LocalUriHandler.current
     var open by rememberSaveable { mutableStateOf(false) }
     var selected by remember(material.pictures.firstOrNull()?.id) { mutableStateOf("") }
-    val videos = material.sources.count { it.kind == CardSource.VIDEO || CharacterResearch.isVideo(it.url) }
-    val pages = material.sources.size - videos
+    val posts = material.sources.count { it.kind == CardSource.POST || (it.kind == CardSource.LINK && it.platform.isNotEmpty()) }
+    val videos = material.sources.count { it.kind == CardSource.VIDEO || (it.kind == CardSource.LINK && it.platform.isEmpty() && CharacterResearch.isVideo(it.url)) }
+    val pages = material.sources.size - videos - posts
     val found = material.sources.isNotEmpty() || material.pictures.isNotEmpty()
     HorizontalDivider()
     if (found) Text("找到的资料" + if (material.subject.isNotBlank()) "：${material.subject}" else "", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
@@ -201,7 +202,7 @@ private fun MaterialSection(material: CardMaterial, running: Boolean, canRewrite
     if (material.sources.isNotEmpty()) {
         Row(Modifier.fillMaxWidth().clickable(onClickLabel = if (open) "收起资料列表" else "展开资料列表", role = Role.Button) { open = !open }.padding(vertical = 6.dp),
             verticalAlignment = Alignment.CenterVertically) {
-            Text(listOfNotNull("$pages 个网页".takeIf { pages > 0 }, "$videos 个视频".takeIf { videos > 0 }).joinToString(" · ") +
+            Text(listOfNotNull("$pages 个网页".takeIf { pages > 0 }, "$videos 个视频".takeIf { videos > 0 }, "$posts 条动态".takeIf { posts > 0 }).joinToString(" · ") +
                 "（用了 ${material.sources.count { it.used }} 条）", Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium)
             Icon(if (open) Icons.Outlined.ExpandLess else Icons.Outlined.ExpandMore, null)
         }
@@ -224,9 +225,10 @@ private fun MaterialSection(material: CardMaterial, running: Boolean, canRewrite
 }
 
 private fun sourceLine(source: CardSource): String {
-    val video = source.kind == CardSource.VIDEO || CharacterResearch.isVideo(source.url)
-    val kind = when { source.kind == CardSource.LINK -> "你贴的链接"; video -> "视频"; else -> "网页" }
-    val depth = when { video && source.full -> "读了字幕或简介"; video -> "只有标题"; source.full -> "读了全文"; else -> "只有摘要" }
+    val platform = CharacterResearch.SOCIAL[source.platform]
+    val video = platform == null && (source.kind == CardSource.VIDEO || CharacterResearch.isVideo(source.url))
+    val kind = when { source.kind == CardSource.LINK -> if (platform != null) "你贴的${platform}链接" else "你贴的链接"; platform != null -> platform; video -> "视频"; else -> "网页" }
+    val depth = when { video && source.full -> "读了字幕或简介"; video -> "只有标题"; source.full -> "读了全文"; platform != null -> if (source.text.isBlank()) "只有标题" else "正文摘要"; else -> "只有摘要" }
     return listOf(depth, kind, source.author.ifBlank { CharacterResearch.site(source.url) }).filter { it.isNotBlank() }.joinToString(" · ")
 }
 

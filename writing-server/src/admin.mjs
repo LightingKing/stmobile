@@ -51,7 +51,7 @@ function runSummary(run) {
  * other site cannot drive it: a rebinding DNS name fails the Host check, and every write needs a
  * custom header, which forces a CORS preflight that this server never answers.
  */
-export function createAdminServer({ requestListener, config, vault, dataDir, biliLogin = null }) {
+export function createAdminServer({ requestListener, config, vault, dataDir, biliLogin = null, social = null }) {
   const bili = biliLogin || createBiliLogin();
   return http.createServer(async (req, res) => {
     try {
@@ -112,9 +112,18 @@ export function createAdminServer({ requestListener, config, vault, dataDir, bil
       if (url.pathname === '/api/admin/bili/login' && req.method === 'POST') return send(res, 200, await bili.start());
       if (url.pathname === '/api/admin/bili/poll' && req.method === 'POST') return send(res, 200, await bili.poll());
       if (url.pathname === '/api/admin/bili/login' && req.method === 'DELETE') return send(res, 200, await bili.logout());
+      // Social platforms: the login window opens on this PC's desktop; the user logs in there.
+      if (url.pathname.startsWith('/api/admin/social')) {
+        if (!social) return send(res, 503, { error: { message: '社交平台功能没有启用' } });
+        const platform = url.searchParams.get('platform') || '';
+        if (url.pathname === '/api/admin/social' && req.method === 'GET') return send(res, 200, await social.status());
+        if (url.pathname === '/api/admin/social/login' && req.method === 'POST') return send(res, 200, await social.openLogin(platform));
+        if (url.pathname === '/api/admin/social/done' && req.method === 'POST') return send(res, 200, await social.finishLogin());
+        if (url.pathname === '/api/admin/social/login' && req.method === 'DELETE') return send(res, 200, await social.logout(platform));
+      }
       return send(res, 404, { error: { message: '路径不存在' } });
     } catch (error) {
-      if (error instanceof BiliLoginError) return send(res, error.status, { error: { message: error.message, code: error.code } });
+      if (error instanceof BiliLoginError || (error?.status && error?.code)) return send(res, error.status, { error: { message: error.message, code: error.code } });
       if (!res.headersSent) send(res, 500, { error: { message: error?.message || '管理页出错' } });
     }
   });

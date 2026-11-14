@@ -43,7 +43,11 @@ class ReachToolTest {
         assertEquals(listOf("action"), (0 until parameters.getJSONArray("required").length()).map { parameters.getJSONArray("required").getString(it) })
         val channels = parameters.getJSONObject("properties").getJSONObject("channel").getJSONArray("enum")
         assertEquals(ReachTool.CHANNELS, (0 until channels.length()).map { channels.getString(it) })
-        assertFalse("login platforms are not offered", ReachTool.CHANNELS.any { it in setOf("xiaohongshu", "twitter", "reddit") })
+        // 0.2.8: the platforms the PC logs into in its own browser are offered; others still are not.
+        assertTrue(ReachTool.CHANNELS.containsAll(listOf("douyin", "tiktok", "weibo", "xiaohongshu", "twitter")))
+        assertFalse(ReachTool.CHANNELS.any { it in setOf("reddit", "facebook", "instagram") })
+        assertTrue(ReachTool.ACTIONS.containsAll(listOf("user", "posts", "comments")))
+        assertTrue("the model is told what a missing login looks like", ReachTool.PROMPT.contains("NEED_LOGIN"))
     }
 
     @Test fun otherPlatformsAndModelsWithoutToolsHaveNoSearch() {

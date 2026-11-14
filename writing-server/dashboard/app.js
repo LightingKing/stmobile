@@ -219,6 +219,28 @@ $('logs-refresh').onclick = () => loadLogs();
 $('run-close').onclick = () => { $('run-detail').hidden = true; };
 
 const safely = (load) => load().catch((error) => console.warn(error));
-[loadStatus, loadConnection, loadRuns, loadSettings, loadBackups, loadStickers, loadLogs, loadBili].forEach(safely);
+async function loadSocial() {
+  const s = await api('/api/admin/social');
+  $('social-state').textContent = !s.available ? '还不能用：没有找到 OpenCLI 或 Chrome。' : s.mode === 'window' ? '登录窗口已打开：在窗口里登录，完成后点“登录完成”。' : s.mode === 'headless' ? '正在后台查询。' : '';
+  $('social-done').hidden = s.mode !== 'window';
+  $('social-list').innerHTML = Object.entries(s.platforms || {}).map(([key, p]) => `<dt>${esc(p.name)}</dt><dd>${p.logged_in ? '已登录' : '未登录'}
+    <button class="small" data-social-login="${esc(key)}">${p.logged_in ? '重新登录' : '登录'}</button>
+    ${p.logged_in ? `<button class="small danger" data-social-logout="${esc(key)}">退出</button>` : ''}</dd>`).join('');
+}
+$('social-list').onclick = async (event) => {
+  const login = event.target.closest('[data-social-login]');
+  const logout = event.target.closest('[data-social-logout]');
+  try {
+    if (login) await api(`/api/admin/social/login?platform=${encodeURIComponent(login.dataset.socialLogin)}`, { method: 'POST' });
+    if (logout && confirm('退出这个平台的登录？')) await api(`/api/admin/social/login?platform=${encodeURIComponent(logout.dataset.socialLogout)}`, { method: 'DELETE' });
+  } catch (error) { alert(error.message); }
+  await loadSocial();
+};
+$('social-done').onclick = async () => {
+  try { await api('/api/admin/social/done', { method: 'POST' }); } catch (error) { alert(error.message); }
+  await loadSocial();
+};
+
+[loadStatus, loadConnection, loadRuns, loadSettings, loadBackups, loadStickers, loadLogs, loadBili, loadSocial].forEach(safely);
 setInterval(() => safely(loadStatus), 5000);
 setInterval(() => safely(loadRuns), 20000);
