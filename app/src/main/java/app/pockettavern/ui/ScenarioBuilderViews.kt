@@ -70,7 +70,7 @@ internal fun ScenarioBuilderStartDialog(state: UiSession, actions: AppActions, o
     val colors = MaterialTheme.colorScheme
     val choices = remember(state.data.providers, state.hasKeys) { scenarioModelChoices(state) }
     var model by remember { mutableStateOf(defaultScenarioModel(state, choices)) }
-    var skillIds by remember { mutableStateOf(ToolRuntime.skillsInOrder(state.data.skills, state.data.settings.scenarioSkillIds).map { it.id }) }
+    var skillIds by remember { mutableStateOf(ToolRuntime.skillsInOrder(state.data.skills, state.data.settings.scenarioSkillIds.ifEmpty { ScenarioBuilder.DEFAULT_BUILDER_SKILL_IDS }).map { it.id }) }
     var idea by rememberSaveable { mutableStateOf("") }
     var modelsOpen by remember { mutableStateOf(false) }
     var skillsOpen by remember { mutableStateOf(false) }

@@ -6,7 +6,7 @@ interface AppActions {
     fun refreshModels(id: String)
     /** Refreshes the Venice account or API-key balance shown on the model page. */
     fun refreshVeniceBalance(providerId: String) { }
-    fun createChat(characterId: String = "")
+    fun createChat(characterId: String = "", skillIds: List<String> = emptyList())
     /** Opens a chat on top of the chat list. */
     fun selectChat(id: String)
     /** Back to the chat list; whatever the chat is doing keeps running. */

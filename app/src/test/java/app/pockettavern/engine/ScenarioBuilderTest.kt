@@ -155,6 +155,21 @@ class ScenarioBuilderTest {
         assertTrue("its own entries have no people yet: none borrowed", ScenarioPanelData.people(ScenarioPanelData.entries(Chat(characterId = "user-scenario-b"), session)).isEmpty())
     }
 
+    @Test fun defaultBuilderSkillIdsAreThreeAndPlaySkillIdsAreTwo() {
+        // Builder defaults: dv-roleplay-modes + pt-character-voice + tm-dialogue
+        assertEquals(3, ScenarioBuilder.DEFAULT_BUILDER_SKILL_IDS.size)
+        assertTrue(ScenarioBuilder.DEFAULT_BUILDER_SKILL_IDS.all { it.startsWith("builtin-writing-") })
+        assertTrue(ScenarioBuilder.DEFAULT_BUILDER_SKILL_IDS.any { it.endsWith("dv-roleplay-modes") })
+        assertTrue(ScenarioBuilder.DEFAULT_BUILDER_SKILL_IDS.any { it.endsWith("pt-character-voice") })
+        assertTrue(ScenarioBuilder.DEFAULT_BUILDER_SKILL_IDS.any { it.endsWith("tm-dialogue") })
+        // Play defaults: pt-character-voice + tm-dialogue
+        assertEquals(2, ScenarioBuilder.DEFAULT_PLAY_SKILL_IDS.size)
+        assertTrue(ScenarioBuilder.DEFAULT_PLAY_SKILL_IDS.any { it.endsWith("pt-character-voice") })
+        assertTrue(ScenarioBuilder.DEFAULT_PLAY_SKILL_IDS.any { it.endsWith("tm-dialogue") })
+        // Play ids are a subset of builder ids
+        assertTrue(ScenarioBuilder.DEFAULT_BUILDER_SKILL_IDS.containsAll(ScenarioBuilder.DEFAULT_PLAY_SKILL_IDS))
+    }
+
     @Test fun theBuilderChatItsDraftAndItsSkillsSurviveABackup() {
         val skills = listOf(SkillRecord(id = "w", name = "世界观", enabled = false), SkillRecord(id = "x", name = "成人", adult = true))
         val data = applyScenarioSkillUpdate(AppData(skills = skills, presets = listOf(Preset(id = "roleplay")),

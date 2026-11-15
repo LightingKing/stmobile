@@ -25,6 +25,22 @@ object ScenarioBuilder {
     const val USER_PREFIX = "user-scenario-"
     private const val BUILTIN_PREFIX = "builtin-scenario-"
 
+    /** Default Skills for a new 剧本助手 chat. The user can override in the start dialog;
+     *  these are remembered per-install once a chat opens, so they serve both fresh installs
+     *  and existing installs where [AppSettings.scenarioSkillIds] is still empty. */
+    val DEFAULT_BUILDER_SKILL_IDS = listOf(
+        "builtin-writing-dv-roleplay-modes",   // DeepSeek 角色扮演思考模式
+        "builtin-writing-pt-character-voice",   // 说话风格
+        "builtin-writing-tm-dialogue",          // 网文对话与台词
+    )
+
+    /** Skills a new play chat for a user-made scenario starts with.
+     *  Chosen for dialogue quality; different from builder skills which focus on plot framing. */
+    val DEFAULT_PLAY_SKILL_IDS = listOf(
+        "builtin-writing-pt-character-voice",   // 说话风格
+        "builtin-writing-tm-dialogue",          // 网文对话与台词
+    )
+
     const val MAX_WORLD = 80
     const val MAX_PEOPLE = 30
     private const val MAX_KEYWORDS = 12

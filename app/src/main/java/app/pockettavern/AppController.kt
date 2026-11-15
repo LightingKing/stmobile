@@ -553,7 +553,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         veniceBalanceJobs[providerId] = job
         job.start()
     }
-    override fun createChat(characterId: String) {
+    override fun createChat(characterId: String, skillIds: List<String>) {
         if (mutable.value.loading) { status("正在读取本地数据，请稍候"); return }
         if (loadFailed) { status("本地数据读取失败，已阻止创建会话"); return }
         val inherited = selected?.let { currentChat ->
@@ -569,7 +569,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val character=data.characters.find { it.id==characterId }
         val modelId = inherited?.second?.id ?: selectedProvider?.models?.firstOrNull { it.type=="text" && !it.offline }?.id.orEmpty()
         val presetId = BuiltinScenarios.presetIdForCharacter(character, data.presets)
-        val chat=Chat(look=character?.look,title=character?.name?.takeIf { it.isNotBlank() } ?: "新会话",providerId=selectedProvider?.id ?: "",modelId=modelId,presetId=presetId,characterId=characterId,messages=character?.firstMessage?.takeIf { it.isNotBlank() }?.let { listOf(Message(role="assistant",content=it)) } ?: emptyList())
+        val chat=Chat(look=character?.look,title=character?.name?.takeIf { it.isNotBlank() } ?: "新会话",providerId=selectedProvider?.id ?: "",modelId=modelId,presetId=presetId,characterId=characterId,skillIds=skillIds,messages=character?.firstMessage?.takeIf { it.isNotBlank() }?.let { listOf(Message(role="assistant",content=it)) } ?: emptyList())
         change(data.copy(chats=listOf(chat)+data.chats)); rememberSelectedChat(chat.id); mutable.value=mutable.value.copy(selectedChatId=chat.id,chatOpen=true,pendingAttachments=emptyList())
     }
     override fun selectChat(id: String) {
@@ -2441,7 +2441,10 @@ class AppController(application: Application) : AndroidViewModel(application), A
     override fun startScenarioPlay(chatId: String) {
         val id = data.chats.firstOrNull { it.id == chatId }?.scenarioDraft?.scenarioId.orEmpty()
         if (id.isBlank() || data.characters.none { it.id == id }) { status("剧本还没有生成，或已被删除；先生成剧本"); return }
-        createChat(id)
+        // Seed the play chat with dialogue-quality skills; filters to what's actually installed + enabled.
+        val playSkills = ToolRuntime.skillsInOrder(data.skills, ScenarioBuilder.DEFAULT_PLAY_SKILL_IDS)
+            .filter { it.enabled }.map { it.id }
+        createChat(id, playSkills)
     }
 
     override fun removeScenarioDraftEntry(chatId: String, section: String, name: String) {
