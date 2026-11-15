@@ -52,6 +52,7 @@ import androidx.compose.material.icons.outlined.Group
 import androidx.compose.material.icons.outlined.History
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.MenuBook
+import androidx.compose.material.icons.outlined.PhotoLibrary
 import androidx.compose.material.icons.outlined.PersonOutline
 import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.material.icons.outlined.RemoveCircleOutline
@@ -579,7 +580,9 @@ private fun Character.matchesCharacterSearch(query: String): Boolean {
 @Composable
 private fun CharacterCard(character: Character, state: UiSession, actions: AppActions, onEdit: (Character) -> Unit, onOpenChat: () -> Unit = {}) {
     var confirmDelete by remember { mutableStateOf(false) }
+    var galleryOpen by remember { mutableStateOf(false) }
     val locked = state.busy || state.loading
+    val imageCount = remember(state.data.chats, character.id) { countGalleryImages(state.data.chats, character.id) }
     ElevatedCard(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp)) {
         Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -595,12 +598,25 @@ private fun CharacterCard(character: Character, state: UiSession, actions: AppAc
                 if (character.firstMessage.isNotBlank()) Chip("有开场白")
                 // Creating the chat also opens it; before 0.1.83 the page stayed put and looked unresponsive.
                 OutlinedButton(onClick = { actions.createChat(character.id); onOpenChat() }, enabled = !locked) { Icon(Icons.Outlined.ChatBubbleOutline, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text("创建会话") }
+                OutlinedButton(onClick = { galleryOpen = true }) {
+                    Icon(Icons.Outlined.PhotoLibrary, null, Modifier.size(16.dp)); Spacer(Modifier.width(4.dp))
+                    Text(if (imageCount > 0) "图片 $imageCount" else "图片")
+                }
             }
         }
     }
     if (confirmDelete) {
         val entries = state.data.worldEntries.count { it.characterId == character.id }
         ConfirmDeleteDialog("角色“${character.name.ifBlank { "未命名角色" }}”" + if (entries > 0) "和它的 $entries 条世界书" else "", { actions.deleteCharacter(character.id); confirmDelete = false }) { confirmDelete = false }
+    }
+    if (galleryOpen) {
+        CharacterGalleryDialog(
+            characterId = character.id,
+            characterName = character.name,
+            chats = state.data.chats,
+            actions = actions,
+            onDismiss = { galleryOpen = false }
+        )
     }
 }
 
@@ -973,7 +989,7 @@ private fun MediaDialog(provider: ProviderConfig, model: ModelInfo, state: UiSes
             if (type == "inpaint" || type == "upscale" || type == "asr") {
                 Text("请求中写入 @attachment 的字段会使用下面选中的真实文件；不会把文件内容显示在聊天文本里。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    OutlinedButton(onClick = { actions.pickAttachment() }) { Icon(Icons.Outlined.AttachFile, null); Spacer(Modifier.width(5.dp)); Text("选择文件") }
+                    OutlinedButton(onClick = { actions.pickFileAttachment() }) { Icon(Icons.Outlined.AttachFile, null); Spacer(Modifier.width(5.dp)); Text("选择文件") }
                     if (state.pendingAttachments.isEmpty()) Text("尚未选择文件", Modifier.padding(start = 8.dp), style = MaterialTheme.typography.labelSmall)
                 }
                 if (state.pendingAttachments.isNotEmpty()) Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {

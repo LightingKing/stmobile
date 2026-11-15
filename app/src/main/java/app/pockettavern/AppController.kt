@@ -34,7 +34,8 @@ interface NativeHost {
     fun importFile(kind: String)
     fun exportText(name: String, mime: String, content: String)
     fun exportBinary(name: String, mime: String, file: File)
-    fun pickAttachment()
+    fun pickImageAttachment()
+    fun pickFileAttachment()
     fun openFile(file: File, mime: String)
     fun openDoubaoWebResearch(requestId: String, chatId: String, subject: String, categories: List<String>, allowFiction: Boolean, prompt: String) { }
     fun pickAvatar(characterId: String) { }
@@ -2208,12 +2209,21 @@ class AppController(application: Application) : AndroidViewModel(application), A
         mutable.value=mutable.value.copy(diagnostics="$summary\n\n$result")
     }
     override fun importFile(kind: String) { host?.importFile(kind) }
-    override fun pickAttachment() { host?.pickAttachment() }
+    override fun pickImageAttachment() { host?.pickImageAttachment() }
+    override fun pickFileAttachment() { host?.pickFileAttachment() }
     override fun removeAttachment(id: String) { mutable.value=mutable.value.copy(pendingAttachments=mutable.value.pendingAttachments.filterNot { it.id==id }) }
+    override fun removeMessageAttachment(chatId: String, messageId: String, attachmentId: String) {
+        val data=mutable.value.data
+        val chat=data.chats.firstOrNull { it.id==chatId } ?: return
+        val updated=chat.copy(messages=chat.messages.map { msg ->
+            if (msg.id==messageId) msg.copy(attachments=msg.attachments.filterNot { it.id==attachmentId }) else msg
+        })
+        change(data.copy(chats=data.chats.map { if (it.id==chatId) updated else it }))
+    }
     fun addAttachment(name: String, mime: String, bytes: ByteArray) {
         runCatching {
             require(bytes.size<=8*1024*1024) { "单个附件限 8 MB" }
-            require(mutable.value.pendingAttachments.size<4) { "单次最多 4 个附件" }
+            require(mutable.value.pendingAttachments.size < 10) { "单次最多 10 个附件" }
             val attachment=if(mime.startsWith("image/") || mime.startsWith("audio/")) Attachment(name=name,mime=mime,dataUrl="data:$mime;base64,"+java.util.Base64.getEncoder().encodeToString(bytes)) else {
                 require(mime.startsWith("text/") || name.substringAfterLast('.').lowercase() in listOf("txt","md","json","csv","log")) { "当前聊天附件支持图片、音频和文本文件" }
                 Attachment(name=name,mime="text/plain",dataUrl=bytes.toString(Charsets.UTF_8))

@@ -99,8 +99,11 @@ interface AppActions {
     fun checkBilling() { }
     fun importFile(kind: String)
     fun exportFile(kind: String, id: String = "")
-    fun pickAttachment()
+    fun pickImageAttachment()
+    fun pickFileAttachment()
     fun removeAttachment(id: String)
+    /** Removes one attachment from a saved message (gallery: delete record only, not the file). */
+    fun removeMessageAttachment(chatId: String, messageId: String, attachmentId: String) {}
     fun runMedia(providerId: String, modelId: String, requestJson: String)
     fun pollMedia(id: String)
     fun openMedia(id: String)

@@ -386,7 +386,7 @@ private fun ConversationBody(chat: Chat, state: UiSession, actions: AppActions, 
         var backlogHidden by rememberSaveable(chat.id, backlog) { mutableStateOf(false) }
         if (!chatBusy && !state.loading && backlog != null && !backlogHidden) MemoryBacklogBanner(backlog, onOrganize = { actions.compress() }, onLater = { backlogHidden = true })
         val chapters = remember(chat.knowledgeNotes) { chat.knowledgeNotes.count { it.kind == app.pockettavern.engine.LongMemory.CHAPTER } }
-        ConversationComposer(draft, { draft = it }, state.pendingAttachments, chatBusy, intent, { intent = it }, onAttach = { actions.pickAttachment() }, onRemove = { actions.removeAttachment(it) }, memoryChapters = chapters, onMemory = onMemory,
+        ConversationComposer(draft, { draft = it }, state.pendingAttachments, chatBusy, intent, { intent = it }, onAttachImage = { actions.pickImageAttachment() }, onAttachFile = { actions.pickFileAttachment() }, onRemove = { actions.removeAttachment(it) }, memoryChapters = chapters, onMemory = onMemory,
             groupRow = if (group == null) null else ({ GroupComposerRow(group, groupMembers, mention, { mention = it }, onGroup) }), onSend = {
             val text = if (group == null) draft.trim() else GroupChats.withMention(draft.trim(), groupMembers.firstOrNull { it.id == mention })
             if (chatBusy) actions.stop() else if (actions.sendWithIntent(text, intent)) {
@@ -433,7 +433,7 @@ internal fun ConversationWelcome(modifier: Modifier, title: String, subtitle: St
 }
 
 @Composable
-private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attachments: List<Attachment>, busy: Boolean, intent: String, onIntent: (String) -> Unit, onAttach: () -> Unit, onRemove: (String) -> Unit, memoryChapters: Int = 0, onMemory: () -> Unit = {}, groupRow: (@Composable () -> Unit)? = null, onSend: () -> Unit) {
+private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attachments: List<Attachment>, busy: Boolean, intent: String, onIntent: (String) -> Unit, onAttachImage: () -> Unit, onAttachFile: () -> Unit, onRemove: (String) -> Unit, memoryChapters: Int = 0, onMemory: () -> Unit = {}, groupRow: (@Composable () -> Unit)? = null, onSend: () -> Unit) {
     val colors = MaterialTheme.colorScheme
     Column(Modifier.fillMaxWidth().padding(horizontal = 12.dp).padding(top = 4.dp, bottom = 10.dp)) {
         groupRow?.invoke()
@@ -453,7 +453,8 @@ private fun ConversationComposer(draft: String, onDraft: (String) -> Unit, attac
                     }
                 }
                 Row(Modifier.fillMaxWidth().padding(6.dp), verticalAlignment = Alignment.Bottom) {
-                    IconButton(onClick = onAttach, enabled = !busy) { Icon(Icons.Outlined.Add, "添加附件", tint = if (busy) colors.onSurface.copy(alpha = 0.38f) else colors.onSurfaceVariant) }
+                    IconButton(onClick = onAttachImage, enabled = !busy) { Icon(Icons.Outlined.Image, "添加图片", tint = if (busy) colors.onSurface.copy(alpha = 0.38f) else colors.onSurfaceVariant) }
+                    IconButton(onClick = onAttachFile, enabled = !busy) { Icon(Icons.Outlined.AttachFile, "添加文件", tint = if (busy) colors.onSurface.copy(alpha = 0.38f) else colors.onSurfaceVariant) }
                     BasicTextField(value = draft, onValueChange = onDraft, modifier = Modifier.weight(1f).heightIn(min = 48.dp).padding(vertical = 11.dp).semantics { contentDescription = "消息输入框" },
                         textStyle = MaterialTheme.typography.bodyLarge.copy(fontSize = 16.sp, lineHeight = 26.sp, color = colors.onSurface), maxLines = 5,
                         cursorBrush = SolidColor(colors.primary), decorationBox = { inner ->

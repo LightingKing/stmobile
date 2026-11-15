@@ -11,6 +11,7 @@ import android.provider.OpenableColumns
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -70,13 +71,29 @@ class MainActivity : ComponentActivity(), NativeHost {
         }
     }
     override fun pickBackground(chatId: String) { backgroundChatId = chatId; backgroundPicker.launch(arrayOf("image/*")) }
-    private val attachmentPicker=registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
-        if(uri!=null) lifecycleScope.launch {
-            try {
-                val name=displayName(uri); val mime=contentResolver.getType(uri) ?: "application/octet-stream"
-                val bytes=withContext(Dispatchers.IO) { readBounded(uri,8*1024*1024) }
-                controller.addAttachment(name,mime,bytes)
-            } catch(error:Exception) { controller.reportError("无法添加附件：${error.message}") }
+    /** Multi-select image attachments via the Android Photo Picker (API 33+); androidx backports to
+     *  ACTION_OPEN_DOCUMENT with image MIME + EXTRA_ALLOW_MULTIPLE on older devices. */
+    private val imageAttachmentPicker = registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia()) { uris ->
+        if (uris.isNotEmpty()) lifecycleScope.launch {
+            for (uri in uris) {
+                try {
+                    val name = displayName(uri); val mime = contentResolver.getType(uri) ?: "image/jpeg"
+                    val bytes = withContext(Dispatchers.IO) { readBounded(uri, 8 * 1024 * 1024) }
+                    controller.addAttachment(name, mime, bytes)
+                } catch (error: Exception) { controller.reportError("无法添加图片：${error.message}") }
+            }
+        }
+    }
+    /** Multi-select file attachments via the system file manager (ACTION_OPEN_DOCUMENT, any MIME). */
+    private val fileAttachmentPicker = registerForActivityResult(ActivityResultContracts.OpenMultipleDocuments()) { uris ->
+        if (uris.isNotEmpty()) lifecycleScope.launch {
+            for (uri in uris) {
+                try {
+                    val name = displayName(uri); val mime = contentResolver.getType(uri) ?: "application/octet-stream"
+                    val bytes = withContext(Dispatchers.IO) { readBounded(uri, 8 * 1024 * 1024) }
+                    controller.addAttachment(name, mime, bytes)
+                } catch (error: Exception) { controller.reportError("无法添加附件：${error.message}") }
+            }
         }
     }
     /** Photos, a video and text files for the character drafter; several at once. */
@@ -154,7 +171,8 @@ class MainActivity : ComponentActivity(), NativeHost {
         super.onStop()
     }
     override fun importFile(kind: String) { importKind=kind; importer.launch(arrayOf("*/*")) }
-    override fun pickAttachment() { attachmentPicker.launch(arrayOf("image/*","audio/*","text/*","application/json","application/octet-stream")) }
+    override fun pickImageAttachment() { imageAttachmentPicker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }
+    override fun pickFileAttachment() { fileAttachmentPicker.launch(arrayOf("*/*")) }
     override fun openDoubaoWebResearch(requestId: String, chatId: String, subject: String, categories: List<String>, allowFiction: Boolean, prompt: String) {
         val intent = Intent(this, DoubaoWebResearchActivity::class.java)
             .putExtra(DoubaoWebResearchActivity.EXTRA_REQUEST_ID, requestId)
