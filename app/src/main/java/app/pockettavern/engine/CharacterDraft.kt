@@ -51,9 +51,10 @@ object CharacterDrafts {
         }
     }
 
-    /** The request: the user's idea, plus the card so far when there is one. */
-    fun messages(idea: String, base: Character): String = JSONArray()
+    /** The request: the user's idea, plus the card so far when there is one, and the chosen Skills after the instructions. */
+    fun messages(idea: String, base: Character, skillTexts: List<String> = emptyList()): String = JSONArray()
         .put(JSONObject().put("role", "system").put("content", systemPrompt()))
+        .apply { skillTexts.forEach { put(JSONObject().put("role", "system").put("content", it)) } }
         .put(JSONObject().put("role", "user").put("content", userText(idea, base))).toString()
 
     /** Room for a full card; a little warmth for variety. Thinking, if the model does it, is not limited. */

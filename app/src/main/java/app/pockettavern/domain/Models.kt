@@ -74,7 +74,9 @@ data class AppSettings(val autoCompress: Boolean = true, val compressionThreshol
     val memoryRevision: Int = 0,
     /** The user's own picture ("file:avatars/me-….png"), shown beside their messages when [showUserAvatar]. */
     val userAvatar: String = "",
-    val showUserAvatar: Boolean = false)
+    val showUserAvatar: Boolean = false,
+    /** Skills the character drafter writes with, in order; kept between drafts. */
+    val draftSkillIds: List<String> = emptyList())
 data class AppData(val schemaVersion: Int = 1, val providers: List<ProviderConfig> = listOf(ProviderConfig(id="venice")), val chats: List<Chat> = emptyList(), val presets: List<Preset> = listOf(Preset(id="default",name="通用助手",systemPrompt="请用中文回答，遵循用户要求。准确区分事实与推测。"), Preset(id="roleplay",name="角色扮演",systemPrompt="遵循角色卡、世界设定和已发生的事实。用户控制自己的角色，不代替用户决定动作、台词、心理或选择。")), val characters: List<Character> = emptyList(), val memories: List<Memory> = emptyList(), val worldEntries: List<WorldEntry> = emptyList(), val skills: List<SkillRecord> = emptyList(), val mediaJobs: List<MediaJob> = emptyList(), val settings: AppSettings = AppSettings(), val stickerPacks: List<StickerPack> = emptyList())
 data class MemoryRebuildState(
     val chatId: String,
@@ -96,7 +98,9 @@ data class UiSession(val data: AppData = AppData(), val selectedChatId: String =
     /** The latest look at what one chat's next request would send. */
     val contextInspection: ContextInspection? = null,
     /** An AI character draft being written for the character form, or its result. */
-    val characterDraft: CharacterDraftState? = null) {
+    val characterDraft: CharacterDraftState? = null,
+    /** The user's own photos, video frames and text for the character form. */
+    val draftInputs: DraftInputs = DraftInputs()) {
     fun chatBusy(chatId: String?): Boolean = chatId != null && chatId in chatTasks
 }
 /** GitHub star count recorded in the bundled catalog on [checkedAt]; null stars means it could not be read. */
@@ -124,4 +128,6 @@ data class CharacterDraftState(val token: String = "", val running: Boolean = fa
     /** What the draft is doing right now, for the progress line. */
     val stage: String = "",
     /** What was found online for this draft, when it searched. */
-    val material: CardMaterial? = null)
+    val material: CardMaterial? = null,
+    /** Something the user should know about the draft that is not an error (Skill files left out). */
+    val notice: String = "")

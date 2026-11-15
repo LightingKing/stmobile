@@ -16,11 +16,34 @@ data class CardSource(
         const val VIDEO = "video"
         const val POST = "post"
         const val LINK = "link"
+        /** Text the user gave: a file they added or text they pasted. */
+        const val USER = "user"
     }
 }
 
-/** A picture found for the character. Its bytes stay in the phone's memory until the form closes. */
-data class CardPicture(val id: String = newId(), val title: String = "", val pageUrl: String = "", val mime: String = "image/jpeg", val used: Boolean = true)
+/**
+ * A picture for the character: found online, or one of the user's photos or video frames. Its bytes
+ * stay in the phone's memory until the form closes.
+ */
+data class CardPicture(val id: String = newId(), val title: String = "", val pageUrl: String = "", val mime: String = "image/jpeg", val used: Boolean = true,
+    val source: String = FOUND) {
+    val mine: Boolean get() = source != FOUND
+
+    companion object {
+        const val FOUND = "found"
+        const val PHOTO = "photo"
+        const val FRAME = "frame"
+    }
+}
+
+/** What the user added to the character form themselves, before or between drafts. */
+data class DraftInputs(val pictures: List<CardPicture> = emptyList(), val texts: List<CardSource> = emptyList(),
+    /** Files are being read. */
+    val busy: Boolean = false,
+    /** What could not be added, from the last batch. */
+    val notes: List<String> = emptyList()) {
+    val isEmpty: Boolean get() = pictures.isEmpty() && texts.isEmpty()
+}
 
 /** Everything found for one draft, shown to the user so wrong finds can be left out before a rewrite. */
 data class CardMaterial(

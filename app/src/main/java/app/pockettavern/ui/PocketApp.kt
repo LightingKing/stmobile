@@ -390,7 +390,8 @@ internal fun ChatSkillPicker(
     onSelect: (SkillRecord, Boolean) -> Unit,
     initialFilters: SkillFilters = SkillFilters(),
     initialScenario: SkillScenario = SkillScenario.ROLEPLAY,
-    costs: Map<String, Int> = emptyMap()
+    costs: Map<String, Int> = emptyMap(),
+    scope: String = "本会话"
 ) {
     var filters by rememberSkillFilters(initialFilters)
     var guided by rememberSaveable { mutableStateOf(initialFilters == SkillFilters()) }
@@ -402,7 +403,7 @@ internal fun ChatSkillPicker(
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         SkillSelectedSummary(skills, selectedIds, onShowSelected = {
             guided = false; filters = SkillFilters(status = SkillStatusFilter.SELECTED)
-        }, pendingEnableIds = selectedIds - originalSelection)
+        }, pendingEnableIds = selectedIds - originalSelection, scope = scope)
         SkillChoicePanel(guided, { guided = it }, scenario, { scenario = it })
         if (!guided) SkillFilterPanel(skills, filters, { filters = it }, selectedIds = selectedIds, compact = true)
         if (choices.isEmpty()) {

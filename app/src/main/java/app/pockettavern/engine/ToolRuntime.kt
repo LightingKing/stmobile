@@ -335,6 +335,10 @@ class ToolRuntime(
         return ToolResult(content.take(MAX_RESULT_BYTES))
     }
 
+    /** A Skill's reference file as text, for requests that cannot read files themselves; null for binary files. */
+    fun skillReference(skill: SkillRecord, path: String): String? =
+        readSkillResource(skill, path)?.takeUnless { it.startsWith("base64:") }
+
     private fun readSkillResource(skill: SkillRecord, path: String): String? {
         val direct = runCatching { resourceReader(skill, path) }
         if (direct.getOrNull() != null) return direct.getOrNull()

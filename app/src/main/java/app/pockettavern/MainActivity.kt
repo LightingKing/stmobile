@@ -79,6 +79,11 @@ class MainActivity : ComponentActivity(), NativeHost {
             } catch(error:Exception) { controller.reportError("无法添加附件：${error.message}") }
         }
     }
+    /** Photos, a video and text files for the character drafter; several at once. */
+    private val draftMaterialPicker = registerForActivityResult(ActivityResultContracts.OpenMultipleDocuments()) { uris ->
+        if (uris.isNotEmpty()) controller.addDraftMaterial(uris)
+    }
+    override fun pickDraftMaterial() { draftMaterialPicker.launch(arrayOf("image/*", "video/*", "text/*", "application/json", "application/octet-stream")) }
     private val exporter=registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         val uri=result.data?.data
         if(result.resultCode==RESULT_OK && uri!=null) {

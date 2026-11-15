@@ -209,7 +209,8 @@ object DataCodec {
             researchProviderId = settings.researchProviderId.orEmpty(),
             researchModelId = settings.researchModelId.orEmpty(),
             researchSearchMode = settings.researchSearchMode.orEmpty().ifBlank { "direct" },
-            userAvatar = CharacterAvatars.normalize(settings.userAvatar)
+            userAvatar = CharacterAvatars.normalize(settings.userAvatar),
+            draftSkillIds = settings.draftSkillIds.orEmpty().distinct()
         )
     }
 

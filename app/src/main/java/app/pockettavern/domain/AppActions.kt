@@ -127,7 +127,14 @@ interface AppActions {
      * With [research] the PC first looks up the character's pages, videos and pictures; with
      * [material] the card is rewritten from finds already made, without searching again.
      */
-    fun draftCharacter(idea: String, base: Character, providerId: String, modelId: String, research: Boolean = false, material: CardMaterial? = null) { }
+    fun draftCharacter(idea: String, base: Character, providerId: String, modelId: String, research: Boolean = false, material: CardMaterial? = null, notes: String = "") { }
+    /** Opens the system picker for photos, a video and text files for the character being drafted. */
+    fun pickDraftMaterial() { }
+    /** Strikes one of the user's pictures or texts out of the next draft, or brings it back. */
+    fun toggleDraftInput(id: String) { }
+    fun removeDraftInput(id: String) { }
+    /** The Skills the character drafter writes with; newly picked ones are switched on. */
+    fun setDraftSkills(skillIds: List<String>) { }
     fun cancelCharacterDraft() { }
     /** Fills in the characters that saved replies of this chat lost on the way (shown as U+FFFD marks), with a few small requests. */
     fun repairDamagedText(chatId: String) { }

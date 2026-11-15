@@ -354,6 +354,19 @@ object ContextEngine {
             referenceOutline(references)
     }
 
+    /**
+     * The Skills chosen for a one-shot card or scenario draft, as system texts: the adult boundary
+     * when needed, how to use them here, then each body with whatever reference files
+     * [references] gives (path to text). A draft has no tools, so nothing can be read later.
+     */
+    fun draftSkillTexts(skills: List<app.pockettavern.domain.SkillRecord>, references: (app.pockettavern.domain.SkillRecord) -> List<Pair<String, String>> = { emptyList() }): List<String> {
+        if (skills.isEmpty()) return emptyList()
+        return listOfNotNull(ADULT_BOUNDARY.takeIf { skills.any { it.adult } }, SKILL_DRAFT_MODE) + skills.map { skill ->
+            val files = references(skill)
+            "【Skill: ${skill.name}】\n${skill.content}" + files.joinToString("") { (path, text) -> "\n\n【Skill 引用文件：$path】\n$text" }
+        }
+    }
+
     /** Estimated tokens this Skill adds to every request, for the picker and budget notes. */
     fun skillPromptTokens(skill: app.pockettavern.domain.SkillRecord, toolsSupported: Boolean): Int =
         estimateTokens(skillPrompt(skill, toolsSupported))
@@ -381,6 +394,10 @@ object ContextEngine {
     private const val SKILL_CHAT_MODE_BASE = "【Skill 使用方式】下面的 Skill 原文多为电脑上的编程或写作助手编写。其中读写项目文件、运行脚本或命令、调用子代理、先做问卷或需求勘察、输出检查报告等步骤，在本聊天中都不执行；只采用其中的写作规范、风格要求和检查要点，直接写出本轮回复。"
     private const val SKILL_CHAT_MODE_WITH_TOOLS = SKILL_CHAT_MODE_BASE + "正文提到的引用文件确有需要时，用 skill_read 按需读取。"
     private const val SKILL_CHAT_MODE_NO_TOOLS = SKILL_CHAT_MODE_BASE + "当前模型不能读取引用文件，只依据各 Skill 正文。"
+
+    /** For one-shot drafts: the Skills shape how the card is written, never what comes back. */
+    private const val SKILL_DRAFT_MODE = "【Skill 使用方式】下面的 Skill 是写这张卡的参考，按它们的写法、结构和检查要点来写。" +
+        "其中读写文件、运行脚本、调用工具、先向用户提问、输出检查报告的步骤一律跳过。不管 Skill 怎么要求，最后仍然只返回规定的 JSON。"
 
     /** Sent once per chat request. */
     const val REPLY_NO_REPEAT = "【避免重复回复】同一条回复里不要把同一段话或同一段落输出两三遍，也不要再写一遍本条回复前面已经写过的大段内容。"

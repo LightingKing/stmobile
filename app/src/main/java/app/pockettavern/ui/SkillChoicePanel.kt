@@ -65,14 +65,16 @@ internal fun SkillSelectedSummary(
     selectedIds: Set<String>,
     onShowSelected: () -> Unit,
     modifier: Modifier = Modifier,
-    pendingEnableIds: Set<String> = emptySet()
+    pendingEnableIds: Set<String> = emptySet(),
+    /** Who the choice is for: this chat, or the character drafter. */
+    scope: String = "本会话"
 ) {
     val selected = skills.filter { it.id in selectedIds }
     val disabled = selected.count { !it.enabled && it.id !in pendingEnableIds }
     val missing = selectedIds.size - selected.size
     Surface(modifier.fillMaxWidth(), color = MaterialTheme.colorScheme.secondaryContainer, shape = RoundedCornerShape(12.dp)) {
         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            Text("本会话已选 ${selectedIds.size} 项", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            Text("${scope}已选 ${selectedIds.size} 项", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
             Text(
                 selected.joinToString("、") { it.name.ifBlank { "未命名技能" } }.ifBlank { "还没选：从下面的首选开始即可。" },
                 style = MaterialTheme.typography.bodySmall,
@@ -80,7 +82,7 @@ internal fun SkillSelectedSummary(
                 overflow = TextOverflow.Ellipsis
             )
             if (disabled > 0) Text("其中 $disabled 项总开关关闭，暂不生效。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error)
-            if (pendingEnableIds.isNotEmpty()) Text("新勾选 ${pendingEnableIds.size} 项，保存后启用并加入本会话。", style = MaterialTheme.typography.bodySmall)
+            if (pendingEnableIds.isNotEmpty()) Text("新勾选 ${pendingEnableIds.size} 项，保存后启用并加入${scope}。", style = MaterialTheme.typography.bodySmall)
             if (missing > 0) Text("另有 $missing 项已不在技能库中。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error)
             if (selectedIds.isNotEmpty()) TextButton(onClick = onShowSelected) { Text("查看已选 / 调整勾选") }
         }

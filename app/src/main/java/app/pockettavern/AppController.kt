@@ -40,6 +40,19 @@ interface NativeHost {
     fun pickAvatar(characterId: String) { }
     fun pickBackground(chatId: String) { }
     fun pickUserAvatar() { }
+    fun pickDraftMaterial() { }
+}
+
+/**
+ * The drafter's Skills: installed ones in the order given, adult ones only once the user has
+ * confirmed, newly picked ones switched on (as a chat's Skill picker does).
+ */
+internal fun applyDraftSkillUpdate(data: AppData, skillIds: List<String>): AppData {
+    val installed = ToolRuntime.skillsInOrder(data.skills, skillIds.distinct())
+    val allowed = installed.filter { !it.adult || data.settings.adultSkillsConfirmed }.map { it.id }
+    val newly = allowed.toSet() - data.settings.draftSkillIds.toSet()
+    return data.copy(settings = data.settings.copy(draftSkillIds = allowed),
+        skills = data.skills.map { if (it.id in newly && !it.enabled) it.copy(enabled = true) else it })
 }
 
 internal fun applyChatSkillUpdate(
@@ -1347,6 +1360,79 @@ class AppController(application: Application) : AndroidViewModel(application), A
         }
     }
 
+    // ---- the user's own material and Skills for the character drafter
+
+    /** Ids of pictures in [researchPictures] that the user added (photos, video frames): kept when a search starts again. */
+    private val userPictureIds = java.util.Collections.synchronizedSet(HashSet<String>())
+
+    override fun pickDraftMaterial() { host?.pickDraftMaterial() }
+
+    /** Photos, a video and text files the user chose for the character being drafted. */
+    internal fun addDraftMaterial(uris: List<android.net.Uri>) {
+        if (uris.isEmpty()) return
+        val before = mutable.value.draftInputs
+        mutable.value = mutable.value.copy(draftInputs = before.copy(busy = true, notes = emptyList()))
+        viewModelScope.launch {
+            val now = mutable.value.draftInputs
+            val prepared = try {
+                DraftMedia.prepare(app, uris, photos = now.pictures.count { it.source == CardPicture.PHOTO },
+                    videos = now.pictures.filter { it.source == CardPicture.FRAME }.map { it.title.substringBefore(" · ") }.distinct().size,
+                    textChars = now.texts.sumOf { it.text.length })
+            } catch (cancelled: CancellationException) { throw cancelled }
+            catch (error: Exception) { DraftMedia.Prepared(emptyList(), listOf("素材没能读取：${error.message?.take(120) ?: "请重试"}")) }
+            val pictures = prepared.pieces.filter { it.jpeg != null }.map { piece ->
+                CardPicture(title = piece.name, mime = "image/jpeg", source = if (piece.kind == DraftMedia.Kind.VIDEO) CardPicture.FRAME else CardPicture.PHOTO)
+                    .also { picture -> researchPictures[picture.id] = piece.jpeg!!; userPictureIds += picture.id }
+            }
+            val texts = prepared.pieces.filter { it.kind == DraftMedia.Kind.TEXT }.map { piece ->
+                CardSource(kind = CardSource.USER, title = piece.name, text = piece.text, full = true)
+            }
+            val latest = mutable.value.draftInputs
+            mutable.value = mutable.value.copy(draftInputs = latest.copy(pictures = latest.pictures + pictures, texts = latest.texts + texts, busy = false, notes = prepared.notes))
+        }
+    }
+
+    override fun toggleDraftInput(id: String) {
+        val inputs = mutable.value.draftInputs
+        mutable.value = mutable.value.copy(draftInputs = inputs.copy(
+            pictures = inputs.pictures.map { if (it.id == id) it.copy(used = !it.used) else it },
+            texts = inputs.texts.map { if (it.id == id) it.copy(used = !it.used) else it }))
+    }
+
+    override fun removeDraftInput(id: String) {
+        val inputs = mutable.value.draftInputs
+        researchPictures.remove(id); researchBitmaps.remove(id); userPictureIds.remove(id)
+        mutable.value = mutable.value.copy(draftInputs = inputs.copy(pictures = inputs.pictures.filterNot { it.id == id }, texts = inputs.texts.filterNot { it.id == id }))
+    }
+
+    override fun setDraftSkills(skillIds: List<String>) {
+        if (mutable.value.loading || loadFailed) return
+        change(applyDraftSkillUpdate(data, skillIds))
+    }
+
+    /**
+     * The selected Skills as system texts for a one-shot card request. A draft cannot read files on
+     * demand, so reference files are attached while they fit [REFERENCE_TOKEN_BUDGET]; the rest are
+     * named in the returned notice.
+     */
+    private fun draftSkillTexts(): Pair<List<String>, String> {
+        val skills = ToolRuntime.skillsInOrder(data.skills, data.settings.draftSkillIds)
+            .filter { it.enabled && (!it.adult || data.settings.adultSkillsConfirmed) }
+        if (skills.isEmpty()) return emptyList<String>() to ""
+        var budget = REFERENCE_TOKEN_BUDGET
+        val left = mutableListOf<String>()
+        val texts = ContextEngine.draftSkillTexts(skills) { skill ->
+            ToolRuntime.referencePaths(skill).mapNotNull { path ->
+                val text = runCatching { tools.skillReference(skill, path) }.getOrNull()
+                if (text.isNullOrBlank()) return@mapNotNull null
+                val cost = ContextEngine.estimateTokens(text)
+                if (cost > budget) { left += "《${skill.name}》$path"; null } else { budget -= cost; path to text }
+            }
+        }
+        val notice = if (left.isEmpty()) "" else "Skill 的 ${left.size} 个参考文件太大，没有附上（${left.take(3).joinToString("、")}${if (left.size > 3) " 等" else ""}）。"
+        return texts to notice
+    }
+
     // ---- AI character drafts
 
     private val draftClient by lazy { ProviderClient(onDiagnostic = { event -> logRequest(event, "character_draft") }) }
@@ -1357,9 +1443,11 @@ class AppController(application: Application) : AndroidViewModel(application), A
     /** Avatars made from found pictures for a character that is not saved yet. */
     private val unsavedAvatars = HashSet<String>()
 
-    override fun draftCharacter(idea: String, base: Character, providerId: String, modelId: String, research: Boolean, material: CardMaterial?) {
+    override fun draftCharacter(idea: String, base: Character, providerId: String, modelId: String, research: Boolean, material: CardMaterial?, notes: String) {
         if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
-        if (idea.isBlank() && !CharacterDrafts.hasContent(base)) { status("先写一两句你想要的角色"); return }
+        val inputs = mutable.value.draftInputs
+        if (inputs.busy) { status("素材还在处理，稍等一下"); return }
+        if (idea.isBlank() && !CharacterDrafts.hasContent(base) && inputs.isEmpty && notes.isBlank()) { status("先写一两句你想要的角色，或者添加素材"); return }
         val p = data.providers.firstOrNull { it.id == providerId } ?: run { status("请先选择生成用的模型"); return }
         val model = p.models.firstOrNull { it.id == modelId && it.type == "text" && !it.offline } ?: run { status("这个模型不可用，请换一个"); return }
         draftJob?.cancel(); draftClient.cancel()
@@ -1369,16 +1457,26 @@ class AppController(application: Application) : AndroidViewModel(application), A
             var found = material
             val outcome = try {
                 if (found == null && research) found = gatherMaterial(token, idea, base, p, modelId)
-                val usable = found?.takeIf { finds -> finds.sources.any { it.used } || finds.pictures.any { it.used } }
+                // The user's own material comes first: their texts, then their photos and video frames.
+                val pasted = notes.trim().take(DraftMedia.MAX_TEXT_CHARS).takeIf { it.isNotBlank() }
+                    ?.let { listOf(CardSource(kind = CardSource.USER, title = "你粘贴的资料", text = it, full = true)) }.orEmpty()
+                val combined = CardMaterial(subject = found?.subject.orEmpty(), notes = found?.notes.orEmpty(),
+                    sources = inputs.texts.filter { it.used } + pasted + found?.sources.orEmpty(),
+                    pictures = inputs.pictures.filter { it.used } + found?.pictures.orEmpty())
+                val usable = combined.takeIf { finds -> finds.sources.any { it.used } || finds.pictures.any { it.used } }
                 draftStage(token, if (usable == null) "正在写角色卡…" else "正在按资料写角色卡…")
-                // A model that sees pictures gets the first few the user has not struck out.
-                val shown = if (usable == null || !model.supportsVision) emptyList() else usable.pictures.filter { it.used }.take(CharacterResearch.MAX_SEEN_PICTURES)
-                    .mapNotNull { picture -> researchPictures[picture.id]?.let { picture.mime to android.util.Base64.encodeToString(it, android.util.Base64.NO_WRAP) } }
-                val messages = if (usable == null) CharacterDrafts.messages(idea, base)
-                    else CharacterResearch.draftMessages(idea, base, usable, shown, CharacterResearch.budgetChars(model.contextTokens))
+                val (skillTexts, skillNotice) = draftSkillTexts()
+                // A model that sees pictures gets the user's first, then a few found ones the user has not struck out.
+                val picked = if (usable == null || !model.supportsVision) emptyList() else CharacterResearch.picturesToShow(usable.pictures)
+                val shown = picked.mapNotNull { picture -> researchPictures[picture.id]?.let { picture.mime to android.util.Base64.encodeToString(it, android.util.Base64.NO_WRAP) } }
+                val skillTokens = skillTexts.sumOf { ContextEngine.estimateTokens(it) }
+                val messages = if (usable == null) CharacterDrafts.messages(idea, base, skillTexts)
+                    else CharacterResearch.draftMessages(idea, base, usable, shown, CharacterResearch.budgetChars(model.contextTokens - skillTokens),
+                        minePictures = picked.count { it.mine }, skillTexts = skillTexts)
                 val response = repaired(draftClient, routed(p), key(p.id), modelId,
                     draftClient.chat(routed(p), key(p.id), modelId, messages, CharacterDrafts.preset(), toolsJson = "[]", finalAnswerOnly = true))
-                CharacterDraftState(token, result = CharacterDrafts.parse(response.content).getOrThrow(), material = found?.copy(picturesSeen = shown.size))
+                CharacterDraftState(token, result = CharacterDrafts.parse(response.content).getOrThrow(), material = found?.copy(picturesSeen = shown.size - picked.count { it.mine }),
+                    notice = skillNotice)
             } catch (cancelled: CancellationException) { throw cancelled }
             catch (stop: DraftStop) { CharacterDraftState(token, error = stop.message.orEmpty(), material = found) }
             catch (error: Exception) { CharacterDraftState(token, error = "角色卡没写成：" + (error.message?.take(300) ?: "请重试"), material = found) }
@@ -1399,7 +1497,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     private suspend fun gatherMaterial(token: String, idea: String, base: Character, drafter: ProviderConfig, modelId: String): CardMaterial {
         val pc = pcProvider() ?: throw DraftStop("联网找资料要用电脑写作服务：先在“模型”页添加它，或者取消“先联网找资料”。")
         val pcKey = app.secrets.get(credentialId(pc)).ifBlank { throw DraftStop("请先在“模型”页填写电脑写作服务的 Token。") }
-        researchPictures.clear(); researchBitmaps.clear()
+        researchPictures.keys.removeIf { it !in userPictureIds }; researchBitmaps.keys.removeIf { it !in userPictureIds }
         draftStage(token, "正在想该搜什么…")
         // Which social platforms the PC is logged into decides which the plan may name.
         val platforms = try { pcClient.status(routed(pc), pcKey).socialPlatforms }
@@ -1528,7 +1626,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     override fun closeCharacterDraft() {
         cancelCharacterDraft()
-        researchPictures.clear(); researchBitmaps.clear()
+        researchPictures.clear(); researchBitmaps.clear(); userPictureIds.clear()
+        mutable.value = mutable.value.copy(draftInputs = DraftInputs())
         // A picture chosen for a character that was never saved has nothing pointing at it.
         unsavedAvatars.filter { avatar -> data.characters.none { it.avatar == avatar } }.forEach { CharacterAvatars.file(app.filesDir, it)?.delete() }
         unsavedAvatars.clear()
@@ -2288,6 +2387,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
             ?.let { models -> models.firstOrNull { it.id == "pocket-direct" } ?: models.firstOrNull() }
         if (provider == null || model == null) { status("角色卡助手需要电脑写作服务平台和支持工具的模型；请先在模型页添加并刷新"); return false }
         val chat = Chat(title = "角色卡助手", providerId = provider.id, modelId = model.id, task = CharacterCardTool.TASK,
+            skillIds = ToolRuntime.skillsInOrder(data.skills, data.settings.draftSkillIds).filter { it.enabled }.map { it.id },
             messages = listOf(Message(role = "assistant", content = CharacterCardTool.GREETING)))
         change(data.copy(chats = listOf(chat) + data.chats))
         selectChat(chat.id)
@@ -2596,6 +2696,8 @@ class AppController(application: Application) : AndroidViewModel(application), A
         const val MAX_STICKER_PACKS = 20
         private const val MAX_DSH_RESULT_CHARS = 200_000
         private const val MAX_REACH_RESULT_CHARS = 60_000
+        /** Skill reference files attached to a one-shot card draft, in estimated tokens. */
+        private const val REFERENCE_TOKEN_BUDGET = 6_000
         private val PC_STICKER_FILE = Regex("[0-9a-f]{12}/\\d{3}\\.(png|jpg|gif|webp)")
     }
 }
