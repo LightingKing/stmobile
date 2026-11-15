@@ -163,7 +163,7 @@ internal fun GroupSetupContent(state: UiSession, actions: AppActions, chat: Chat
     val colors = MaterialTheme.colorScheme
     val original = chat?.group ?: GroupSetup()
     // Scenario cards are whole stories, not people to chat with.
-    val candidates = remember(state.data.characters) { state.data.characters.filter { !it.id.startsWith("builtin-scenario-") } }
+    val candidates = remember(state.data.characters) { state.data.characters.filter { !app.pockettavern.engine.ScenarioBuilder.isScenario(it) } }
     val byId = remember(state.data.characters) { state.data.characters.associateBy { it.id } }
     val loadAvatar = remember(actions) { { avatar: String -> actions.characterAvatar(avatar) } }
     var title by rememberSaveable(chat?.id) { mutableStateOf(chat?.title.orEmpty()) }

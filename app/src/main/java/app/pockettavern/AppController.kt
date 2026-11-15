@@ -47,13 +47,24 @@ interface NativeHost {
  * The drafter's Skills: installed ones in the order given, adult ones only once the user has
  * confirmed, newly picked ones switched on (as a chat's Skill picker does).
  */
-internal fun applyDraftSkillUpdate(data: AppData, skillIds: List<String>): AppData {
+internal fun applyDraftSkillUpdate(data: AppData, skillIds: List<String>): AppData =
+    applyPickedSkills(data, skillIds, data.settings.draftSkillIds) { settings, picked -> settings.copy(draftSkillIds = picked) }
+
+/** The 剧本助手's Skills, kept the same way as the drafter's. */
+internal fun applyScenarioSkillUpdate(data: AppData, skillIds: List<String>): AppData =
+    applyPickedSkills(data, skillIds, data.settings.scenarioSkillIds) { settings, picked -> settings.copy(scenarioSkillIds = picked) }
+
+private fun applyPickedSkills(data: AppData, skillIds: List<String>, before: List<String>, keep: (AppSettings, List<String>) -> AppSettings): AppData {
     val installed = ToolRuntime.skillsInOrder(data.skills, skillIds.distinct())
     val allowed = installed.filter { !it.adult || data.settings.adultSkillsConfirmed }.map { it.id }
-    val newly = allowed.toSet() - data.settings.draftSkillIds.toSet()
-    return data.copy(settings = data.settings.copy(draftSkillIds = allowed),
+    val newly = allowed.toSet() - before.toSet()
+    return data.copy(settings = keep(data.settings, allowed),
         skills = data.skills.map { if (it.id in newly && !it.enabled) it.copy(enabled = true) else it })
 }
+
+/** A character, or a scenario, goes with the world-book entries that belong to it. */
+internal fun removeCharacter(data: AppData, id: String): AppData =
+    data.copy(characters = data.characters.filterNot { it.id == id }, worldEntries = data.worldEntries.filterNot { it.characterId == id })
 
 internal fun applyChatSkillUpdate(
     data: AppData,
@@ -1000,6 +1011,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                         } else if (name == DshTool.NAME) runDsh(arguments, current(chatId))
                         else if (name == ReachTool.NAME) runReach(arguments, current(chatId))
                         else if (name == CharacterCardTool.NAME) saveCharacterCard(arguments, current(chatId))
+                        else if (name == ScenarioBuilder.SAVE || name == ScenarioBuilder.READ || name == ScenarioBuilder.FINISH) runScenarioTool(name, arguments, current(chatId))
                         else tools.execute(name,arguments,data.skills,data,current(chatId))
                     }
                     catch(error: Exception) { if(error is CancellationException) throw error; ToolResult("工具执行失败：${error.message}") }
@@ -1808,7 +1820,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
     override fun deleteCharacter(id: String) {
         data.characters.firstOrNull { it.id == id }?.let { CharacterAvatars.file(app.filesDir, it.avatar)?.delete() }
-        change(data.copy(characters=data.characters.filterNot { it.id==id }))
+        change(removeCharacter(data, id))
     }
     override fun saveMemory(memory: Memory) {
         runCatching {
@@ -2401,6 +2413,68 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val character = CharacterCardTool.character(args).getOrElse { return answer(false) { put("error", it.message ?: "角色卡无效") } }
         change(data.copy(characters = data.characters + character))
         return answer(true) { put("id", character.id); put("name", character.name); put("saved_to", "角色页") }
+    }
+
+    override fun startScenarioBuilder(providerId: String, modelId: String, skillIds: List<String>, idea: String): Boolean {
+        if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪，请稍候"); return false }
+        val provider = data.providers.firstOrNull { it.id == providerId }
+        val model = provider?.models?.firstOrNull { it.id == modelId && it.type == "text" && !it.offline }
+        if (provider == null || model == null) { status("先选一个模型"); return false }
+        if (!model.supportsTools) { status("剧本助手要用支持工具调用的模型，才能把草稿记下来"); return false }
+        val picked = applyScenarioSkillUpdate(data, skillIds)
+        val chat = Chat(title = "剧本助手", providerId = provider.id, modelId = model.id, task = ScenarioBuilder.TASK,
+            skillIds = picked.settings.scenarioSkillIds, messages = listOf(Message(role = "assistant", content = ScenarioBuilder.GREETING)))
+        change(picked.copy(chats = listOf(chat) + picked.chats))
+        selectChat(chat.id)
+        if (idea.isNotBlank()) send(idea.trim())
+        return true
+    }
+
+    override fun finishScenario(chatId: String) {
+        if (chatBusy(chatId)) { status("助手还在回复，等它写完再生成"); return }
+        val before = data.chats.firstOrNull { it.id == chatId }?.scenarioDraft?.scenarioId.orEmpty()
+        ScenarioBuilder.finish(data, chatId).fold(
+            { (updated, character) -> change(updated); status("剧本《${character.name}》已${if (before.isNotBlank() && data.characters.any { it.id == before }) "更新" else "生成"}") },
+            { status(it.message ?: "剧本没能生成") })
+    }
+
+    override fun startScenarioPlay(chatId: String) {
+        val id = data.chats.firstOrNull { it.id == chatId }?.scenarioDraft?.scenarioId.orEmpty()
+        if (id.isBlank() || data.characters.none { it.id == id }) { status("剧本还没有生成，或已被删除；先生成剧本"); return }
+        createChat(id)
+    }
+
+    override fun removeScenarioDraftEntry(chatId: String, section: String, name: String) {
+        changeChat(chatId) { chat ->
+            val draft = chat.scenarioDraft ?: return@changeChat chat
+            chat.copy(scenarioDraft = draft.copy(world = if (section == "world") draft.world.filterNot { it.name == name } else draft.world,
+                people = if (section == "people") draft.people.filterNot { it.name == name } else draft.people, updatedAt = System.currentTimeMillis()))
+        }
+    }
+
+    /** The 剧本助手's draft tools; each reply is JSON with ok and either the result or an error. */
+    private fun runScenarioTool(name: String, arguments: String, chat: Chat): ToolResult {
+        fun answer(ok: Boolean, extra: JSONObject.() -> Unit) = ToolResult(JSONObject().put("ok", ok).apply(extra).toString())
+        if (chat.task != ScenarioBuilder.TASK) return answer(false) { put("error", "只有剧本助手会话可以用这个工具") }
+        val args = runCatching { JSONObject(arguments.ifBlank { "{}" }) }.getOrNull() ?: return answer(false) { put("error", "工具参数不是 JSON") }
+        val draft = chat.scenarioDraft ?: ScenarioDraft()
+        return when (name) {
+            ScenarioBuilder.SAVE -> ScenarioBuilder.applySave(draft, args).fold(
+                { (next, said) -> changeChat(chat.id) { it.copy(scenarioDraft = next) }
+                    answer(true) { put("saved", said); put("world_entries", next.world.size); put("people", next.people.size)
+                        ScenarioBuilder.missing(next).takeIf { it.isNotEmpty() }?.let { put("still_missing_to_build", JSONArray(it)) } } },
+                { error -> answer(false) { put("error", error.message ?: "保存失败") } })
+            ScenarioBuilder.READ -> ToolResult(ScenarioBuilder.read(draft, args))
+            else -> {
+                val updating = draft.scenarioId.isNotBlank() && data.characters.any { it.id == draft.scenarioId }
+                ScenarioBuilder.finish(data, chat.id).fold(
+                    { (updated, character) -> change(updated)
+                        answer(true) { put("scenario", character.name); put("updated", updating)
+                            put("world_entries", updated.worldEntries.count { it.characterId == character.id })
+                            put("next", "告诉用户：剧本已${if (updating) "更新" else "生成"}，在“角色”页的“剧本”里；点本会话顶部的“开始正式聊天”就能开一局，也可以继续修改。") } },
+                    { error -> answer(false) { put("error", error.message ?: "生成失败") } })
+            }
+        }
     }
 
     private var pendingOpenChatId: String? = null

@@ -248,23 +248,30 @@ private fun DraftSkillsRow(state: UiSession, running: Boolean, onOpen: () -> Uni
 }
 
 @Composable
-private fun DraftSkillsDialog(state: UiSession, actions: AppActions, onDismiss: () -> Unit) {
-    var selected by remember { mutableStateOf(ToolRuntime.skillsInOrder(state.data.skills, state.data.settings.draftSkillIds).map { it.id }) }
+private fun DraftSkillsDialog(state: UiSession, actions: AppActions, onDismiss: () -> Unit) = SkillPickDialog(state, actions, title = "写卡用的 Skills",
+    note = "写卡时，所选 Skill 的正文会附在请求里。写卡是一次性请求，模型不能再去读 Skill 的参考文件，篇幅不大的会直接附上。",
+    scope = "写卡", scenario = SkillScenario.VOICE, initial = state.data.settings.draftSkillIds, warnAbove = 20_000, heavyNote = "会挤占资料的篇幅",
+    onSave = actions::setDraftSkills, onDismiss = onDismiss)
+
+/** Picks Skills for something other than a chat (the drafter, a new 剧本助手); adult ones ask for the age confirmation first. */
+@Composable
+internal fun SkillPickDialog(state: UiSession, actions: AppActions, title: String, note: String, scope: String, scenario: SkillScenario, initial: List<String>,
+    warnAbove: Int, heavyNote: String = "每轮都会带上，会挤占聊天记录的篇幅", onSave: (List<String>) -> Unit, onDismiss: () -> Unit) {
+    var selected by remember { mutableStateOf(ToolRuntime.skillsInOrder(state.data.skills, initial).map { it.id }) }
     var pendingAdult by remember { mutableStateOf<String?>(null) }
     val costs = remember(state.data.skills) { skillCosts(state.data.skills, false) }
     val total = selected.sumOf { costs[it] ?: 0 }
-    AlertDialog(onDismissRequest = onDismiss, title = { Text("写卡用的 Skills") }, text = {
+    AlertDialog(onDismissRequest = onDismiss, title = { Text(title) }, text = {
         Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text("写卡时，所选 Skill 的正文会附在请求里。写卡是一次性请求，模型不能再去读 Skill 的参考文件，篇幅不大的会直接附上。",
-                style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            if (selected.isNotEmpty()) Text("约占 ${total} tokens" + if (total > 20_000) "，偏大：会挤占资料的篇幅" else "", style = MaterialTheme.typography.bodySmall,
-                color = if (total > 20_000) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant)
-            ChatSkillPicker(state.data.skills, selected.toSet(), false, costs = costs, initialFilters = SkillFilters(), initialScenario = SkillScenario.VOICE, scope = "写卡", onSelect = { skill, checked ->
+            Text(note, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            if (selected.isNotEmpty()) Text("约占 ${total} tokens" + if (total > warnAbove) "，偏大：$heavyNote" else "", style = MaterialTheme.typography.bodySmall,
+                color = if (total > warnAbove) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant)
+            ChatSkillPicker(state.data.skills, selected.toSet(), false, costs = costs, initialFilters = SkillFilters(), initialScenario = scenario, scope = scope, onSelect = { skill, checked ->
                 if (checked && skill.adult && !state.data.settings.adultSkillsConfirmed) pendingAdult = skill.id
                 else selected = if (checked) (selected + skill.id).distinct() else selected.filterNot { it == skill.id }
             })
         }
-    }, confirmButton = { Button(onClick = { actions.setDraftSkills(selected); onDismiss() }) { Text("保存") } },
+    }, confirmButton = { Button(onClick = { onSave(selected); onDismiss() }) { Text("保存") } },
         dismissButton = { TextButton(onClick = onDismiss) { Text("取消") } })
     pendingAdult?.let { id ->
         AdultSkillConfirmDialog(onConfirm = { actions.confirmAdultSkills(true); selected = (selected + id).distinct(); pendingAdult = null }) { pendingAdult = null }

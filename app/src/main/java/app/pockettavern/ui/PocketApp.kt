@@ -1,5 +1,7 @@
 package app.pockettavern.ui
 
+import androidx.compose.material.icons.outlined.AutoStories
+import app.pockettavern.engine.ScenarioBuilder
 import app.pockettavern.engine.CharacterDrafts
 
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -487,9 +489,10 @@ private fun CharactersTab(state: UiSession, actions: AppActions, onOpenChat: () 
     var worldExpanded by rememberSaveable { mutableStateOf(false) }
     var query by rememberSaveable { mutableStateOf("") }
     val locked = state.busy || state.loading
-    val allScenarios = state.data.characters.filter { it.id.startsWith("builtin-scenario-") }
+    var scenarioStart by remember { mutableStateOf(false) }
+    val allScenarios = state.data.characters.filter { ScenarioBuilder.isScenario(it) }
     val scenarios = allScenarios.filter { it.matchesCharacterSearch(query) }
-    val characters = state.data.characters.filter { !it.id.startsWith("builtin-scenario-") && it.matchesCharacterSearch(query) }
+    val characters = state.data.characters.filter { !ScenarioBuilder.isScenario(it) && it.matchesCharacterSearch(query) }
     LazyColumn(Modifier.fillMaxSize(), contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 24.dp)) {
         item {
             Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -500,11 +503,16 @@ private fun CharactersTab(state: UiSession, actions: AppActions, onOpenChat: () 
                 IconButton(onClick = { characterDialog = Character() }, enabled = !locked) { Icon(Icons.Outlined.Add, "新建角色") }
             }
         }
-        item { SectionTitle("剧本", action = { Text("${scenarios.size} 个", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant) }) }
+        item { SectionTitle("剧本", action = {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                TextButton(onClick = { scenarioStart = true }, enabled = !locked) { Icon(Icons.Outlined.AutoStories, null, Modifier.size(18.dp)); Spacer(Modifier.width(4.dp)); Text("AI 帮我做剧本") }
+                Text("${scenarios.size} 个", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+        }) }
         if (scenarios.isEmpty()) {
             item {
                 Text(
-                    if (query.isBlank()) "暂无内置剧本。安装剧本后会显示在这里。" else "没有匹配的剧本。",
+                    if (query.isBlank()) "还没有剧本。点“AI 帮我做剧本”，和剧本助手一起写一个。" else "没有匹配的剧本。",
                     Modifier.padding(horizontal = 16.dp, vertical = 2.dp),
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -554,7 +562,11 @@ private fun CharactersTab(state: UiSession, actions: AppActions, onOpenChat: () 
         items(state.data.memories, key = { it.id }) { memory -> MemoryCard(memory, actions) { memoryDialog = it } }
     }
     characterDialog?.let { CharacterDialog(it, state, actions) { characterDialog = null } }
-    scenarioDelete?.let { scenario -> ConfirmDeleteDialog("剧本“${scenario.name.ifBlank { "未命名剧本" }}”", { actions.deleteCharacter(scenario.id); scenarioDelete = null }) { scenarioDelete = null } }
+    scenarioDelete?.let { scenario ->
+        val entries = state.data.worldEntries.count { it.characterId == scenario.id }
+        ConfirmDeleteDialog("剧本“${scenario.name.ifBlank { "未命名剧本" }}”" + if (entries > 0) "和它的 $entries 条世界书" else "", { actions.deleteCharacter(scenario.id); scenarioDelete = null }) { scenarioDelete = null }
+    }
+    if (scenarioStart) ScenarioBuilderStartDialog(state, actions, onDismiss = { scenarioStart = false }, onStarted = onOpenChat)
     worldDialog?.let { WorldEntryDialog(it, state, actions) { worldDialog = null } }
     memoryDialog?.let { MemoryDialog(it, state, actions) { memoryDialog = null } }
 }
@@ -586,7 +598,10 @@ private fun CharacterCard(character: Character, state: UiSession, actions: AppAc
             }
         }
     }
-    if (confirmDelete) ConfirmDeleteDialog("角色“${character.name.ifBlank { "未命名角色" }}”", { actions.deleteCharacter(character.id); confirmDelete = false }) { confirmDelete = false }
+    if (confirmDelete) {
+        val entries = state.data.worldEntries.count { it.characterId == character.id }
+        ConfirmDeleteDialog("角色“${character.name.ifBlank { "未命名角色" }}”" + if (entries > 0) "和它的 $entries 条世界书" else "", { actions.deleteCharacter(character.id); confirmDelete = false }) { confirmDelete = false }
+    }
 }
 
 @Composable
@@ -629,7 +644,7 @@ private fun CharacterDialog(character: Character, state: UiSession, actions: App
     var value by remember { mutableStateOf(character) }
     FormDialog("${if (character.name.isBlank()) "新建" else "编辑"}角色", onDismiss, validate = { if (value.name.isBlank()) "请输入角色名称。" else null }, confirm = { actions.saveCharacter(value); onDismiss() }) {
         // Scenario cards are whole stories with their own world books; the drafter writes people.
-        if (!character.id.startsWith("builtin-scenario-")) CharacterDraftPanel(state, actions, value, onDraft = { draft -> value = CharacterDrafts.merge(value, draft) },
+        if (!ScenarioBuilder.isScenario(character)) CharacterDraftPanel(state, actions, value, onDraft = { draft -> value = CharacterDrafts.merge(value, draft) },
             // A found picture becomes the avatar: at once for a saved character, with the first save for a new one.
             onUsePicture = { pictureId -> actions.useResearchPicture(value.id, pictureId).also { if (it.isNotBlank()) value = value.copy(avatar = it) }.isNotBlank() })
         // The avatar applies at once; it is only offered once the character exists.

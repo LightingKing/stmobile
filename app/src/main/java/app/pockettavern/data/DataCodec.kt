@@ -142,7 +142,8 @@ object DataCodec {
                 stickerFrequency = app.pockettavern.engine.StickerFrequency.of(chat.stickerFrequency).id,
                 browsePerDay = chat.browsePerDay.coerceIn(0, app.pockettavern.engine.VideoBrowse.MAX_PER_DAY),
                 browseLog = chat.browseLog.orEmpty().filter { it > 0 }.takeLast(20),
-                task = chat.task.orEmpty().takeIf { it == app.pockettavern.engine.CharacterCardTool.TASK }.orEmpty(),
+                task = chat.task.orEmpty().takeIf { it == app.pockettavern.engine.CharacterCardTool.TASK || it == app.pockettavern.engine.ScenarioBuilder.TASK }.orEmpty(),
+                scenarioDraft = app.pockettavern.engine.ScenarioBuilder.normalize(runCatching { chat.scenarioDraft }.getOrNull()),
                 look = ChatBackgrounds.normalizeLook(runCatching { chat.look }.getOrNull()),
                 // Members of deleted characters stay listed; they are skipped wherever the group is used.
                 group = GroupChats.normalize(runCatching { chat.group }.getOrNull())
@@ -210,7 +211,8 @@ object DataCodec {
             researchModelId = settings.researchModelId.orEmpty(),
             researchSearchMode = settings.researchSearchMode.orEmpty().ifBlank { "direct" },
             userAvatar = CharacterAvatars.normalize(settings.userAvatar),
-            draftSkillIds = settings.draftSkillIds.orEmpty().distinct()
+            draftSkillIds = settings.draftSkillIds.orEmpty().distinct(),
+            scenarioSkillIds = settings.scenarioSkillIds.orEmpty().distinct()
         )
     }
 

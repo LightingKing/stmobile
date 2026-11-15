@@ -1,5 +1,6 @@
 package app.pockettavern.ui
 
+import androidx.compose.material.icons.outlined.AutoStories
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
@@ -90,6 +91,7 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
     var addOpen by remember { mutableStateOf(false) }
     var renameId by remember { mutableStateOf<String?>(null) }
     var groupOpen by remember { mutableStateOf(false) }
+    var scenarioOpen by remember { mutableStateOf(false) }
     val characters = remember(state.data.characters) { state.data.characters.associateBy { it.id } }
     val loadAvatar = remember(actions) { { avatar: String -> actions.characterAvatar(avatar) } }
     val shown = remember(chats, characters, query) { chats.filter { ChatListModel.matches(it, characters[it.characterId], query) } }
@@ -110,6 +112,7 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
                     DropdownMenuItem(text = { Text("新建会话") }, leadingIcon = { Icon(Icons.Outlined.ChatBubbleOutline, null) }, onClick = { addOpen = false; actions.createChat() })
                     DropdownMenuItem(text = { Text("新建群聊") }, leadingIcon = { Icon(Icons.Outlined.Groups, null) }, onClick = { addOpen = false; groupOpen = true })
                     DropdownMenuItem(text = { Text("角色卡助手") }, leadingIcon = { Icon(Icons.Outlined.AutoAwesome, null) }, onClick = { addOpen = false; actions.startCharacterBuilder() })
+                    DropdownMenuItem(text = { Text("剧本助手") }, leadingIcon = { Icon(Icons.Outlined.AutoStories, null) }, onClick = { addOpen = false; scenarioOpen = true })
                     DropdownMenuItem(text = { Text("导入会话") }, leadingIcon = { Icon(Icons.Outlined.FileUpload, null) }, onClick = { addOpen = false; actions.importFile("chat") })
                 }
             }
@@ -142,6 +145,7 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
     }
     renameId?.let { id -> chats.firstOrNull { it.id == id }?.let { chat -> RenameChatDialog(chat, actions) { renameId = null } } }
     if (groupOpen) GroupSetupDialog(state, actions, chat = null) { groupOpen = false }
+    if (scenarioOpen) ScenarioBuilderStartDialog(state, actions, onDismiss = { scenarioOpen = false })
 }
 
 @Composable

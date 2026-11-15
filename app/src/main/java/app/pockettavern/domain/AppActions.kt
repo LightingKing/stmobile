@@ -116,6 +116,14 @@ interface AppActions {
     fun browseNow(chatId: String) { }
     /** Opens a 角色卡助手 chat on the PC; false when no PC model can call tools. */
     fun startCharacterBuilder(): Boolean = false
+    /** Opens a 剧本助手 chat with this model and these Skills; [idea], when given, is sent as the first message. */
+    fun startScenarioBuilder(providerId: String, modelId: String, skillIds: List<String>, idea: String): Boolean = false
+    /** Builds or updates the scenario from a 剧本助手 chat's draft, without asking the model. */
+    fun finishScenario(chatId: String) { }
+    /** Starts a play chat with the scenario a 剧本助手 chat built. */
+    fun startScenarioPlay(chatId: String) { }
+    /** Removes one entry from a 剧本助手 chat's draft ("world" or "people"). */
+    fun removeScenarioDraftEntry(chatId: String, section: String, name: String) { }
     /** A character's avatar picture; blocking, call off the main thread. */
     fun characterAvatar(avatar: String): androidx.compose.ui.graphics.ImageBitmap? = null
     fun pickCharacterAvatar(characterId: String) { }

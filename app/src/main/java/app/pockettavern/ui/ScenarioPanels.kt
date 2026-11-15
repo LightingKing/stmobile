@@ -103,7 +103,11 @@ internal object ScenarioPanelData {
                 personHeader.containsMatchIn(it.content) ||
                 it.content.contains("【唯一关系名册】")
             ) }
+        // A card with world entries of its own never borrows another card's; the fallbacks below
+        // are for chats whose card id no longer has any entries (an old install, a replaced card).
+        val ownCard = chat.characterId.isNotBlank() && all.any { it.characterId == chat.characterId }
         val selected = when {
+            ownCard -> scoped
             scoped.any { scenarioEntryWords.containsMatchIn(it.name) || statusHeadings.containsMatchIn(it.content) || personHeader.containsMatchIn(it.content) } -> scoped
             scenario.isNotEmpty() -> scenario
             disabledScenario.isNotEmpty() -> disabledScenario

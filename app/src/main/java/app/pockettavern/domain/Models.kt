@@ -53,7 +53,9 @@ data class Chat(val id: String = newId(), val title: String = "新会话", val p
     /** Background behind the messages; null for none. */
     val look: ChatLook? = null,
     /** Members, scene and relations when this is a group chat; null for a one-to-one chat. */
-    val group: GroupSetup? = null)
+    val group: GroupSetup? = null,
+    /** What the 剧本助手 has written so far; only in its own chats. */
+    val scenarioDraft: ScenarioDraft? = null)
 /**
  * Generation budgets are opt-in through [generationBudgetEnabled]. Stored
  * amounts stay editable while disabled and do not impose a request limit.
@@ -76,7 +78,9 @@ data class AppSettings(val autoCompress: Boolean = true, val compressionThreshol
     val userAvatar: String = "",
     val showUserAvatar: Boolean = false,
     /** Skills the character drafter writes with, in order; kept between drafts. */
-    val draftSkillIds: List<String> = emptyList())
+    val draftSkillIds: List<String> = emptyList(),
+    /** Skills a new 剧本助手 chat starts with; kept between scenarios. */
+    val scenarioSkillIds: List<String> = emptyList())
 data class AppData(val schemaVersion: Int = 1, val providers: List<ProviderConfig> = listOf(ProviderConfig(id="venice")), val chats: List<Chat> = emptyList(), val presets: List<Preset> = listOf(Preset(id="default",name="通用助手",systemPrompt="请用中文回答，遵循用户要求。准确区分事实与推测。"), Preset(id="roleplay",name="角色扮演",systemPrompt="遵循角色卡、世界设定和已发生的事实。用户控制自己的角色，不代替用户决定动作、台词、心理或选择。")), val characters: List<Character> = emptyList(), val memories: List<Memory> = emptyList(), val worldEntries: List<WorldEntry> = emptyList(), val skills: List<SkillRecord> = emptyList(), val mediaJobs: List<MediaJob> = emptyList(), val settings: AppSettings = AppSettings(), val stickerPacks: List<StickerPack> = emptyList())
 data class MemoryRebuildState(
     val chatId: String,

@@ -82,6 +82,8 @@ object ContextEngine {
         if (webReach) addSystem(ReachTool.PROMPT)
         val cardBuilder = CharacterCardTool.available(chat, toolsSupported)
         if (cardBuilder) addSystem(CharacterCardTool.PROMPT)
+        val scenarioBuilder = chat.task == ScenarioBuilder.TASK
+        if (scenarioBuilder) addSystem(if (toolsSupported) ScenarioBuilder.PROMPT else ScenarioBuilder.NO_TOOLS)
         val skillTokens = skills.map { skill ->
             val prompt = skillPrompt(skill, toolsSupported)
             addSystem(prompt, "skill")
@@ -102,6 +104,7 @@ object ContextEngine {
         if (dshEngine) toolArray.put(DshTool.definition())
         if (webReach) toolArray.put(ReachTool.definition())
         if (cardBuilder) toolArray.put(CharacterCardTool.definition())
+        if (scenarioBuilder && toolsSupported) ScenarioBuilder.definitions().forEach { toolArray.put(it) }
 
         val validSummary = findValidSummary(chat)
         val cutoff = validSummary?.let { chat.messages.indexOfFirst { message -> message.id == it.throughMessageId } } ?: -1
@@ -152,6 +155,8 @@ object ContextEngine {
         }.sortedByDescending { it.priority }
         if (world.isNotEmpty()) addSystem("【世界书资料】\n" + world.joinToString("\n") { "- ${it.name}: ${it.content}" }, "world")
         addSystem(ScenarioStateSync.prompt(chat), "policy")
+        // The 剧本助手's draft changes every turn, so it comes with the other turn-varying parts.
+        if (scenarioBuilder) addSystem(ScenarioBuilder.view(chat.scenarioDraft), "policy")
         if (stickersOn) addSystem(StickerPrompt.turn(stickerTurn, StickerGate.recentKeys(chat)), "policy")
 
         val toolsTokens = if (toolDefinitions == "[]") 0 else estimateTokens(toolDefinitions)

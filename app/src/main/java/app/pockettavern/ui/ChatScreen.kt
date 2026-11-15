@@ -144,6 +144,7 @@ internal fun ChatTab(state: UiSession, actions: AppActions) {
 private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppActions, onBack: () -> Unit, onModels: () -> Unit, onOptions: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit, onRepair: () -> Unit, onUndoRepair: () -> Unit, onMemory: () -> Unit, onContinuity: () -> Unit, onResearch: () -> Unit, onDeepSeekWriting: () -> Unit, onScenarioStatus: () -> Unit, onScenarioRoster: () -> Unit, onAppearance: () -> Unit = {}, onGroup: () -> Unit = {}) {
     var menuOpen by remember(chat?.id) { mutableStateOf(false) }
     var presetOpen by remember(chat?.id) { mutableStateOf(false) }
+    var scenarioDraftOpen by remember(chat?.id) { mutableStateOf(false) }
     val colors = MaterialTheme.colorScheme
     val chatBusy = state.chatBusy(chat?.id)
     // Replies that arrived in other chats while this one is open.
@@ -174,6 +175,8 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
                     chat == null -> "随身的创作空间"
                     task != null -> ChatTasks.label(task)
                     chat.group != null -> "${groupMembers.size} 位成员" + chat.group.scene.takeIf { it.isNotBlank() }?.let { " · 场景：" + it.replace('\n', ' ') }.orEmpty()
+                    chat.task == app.pockettavern.engine.ScenarioBuilder.TASK -> "和助手一起写剧本"
+                    chat.task == app.pockettavern.engine.CharacterCardTool.TASK -> "和助手一起做角色卡"
                     else -> character?.name?.let { "与 $it 对话" } ?: "口袋酒馆 · 对话"
                 }, style = MaterialTheme.typography.labelSmall, color = if (task != null) colors.primary else colors.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)
             }
@@ -235,6 +238,10 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
                         leadingIcon = { Icon(Icons.Outlined.AccountTree, null, Modifier.size(16.dp)) }
                     )
                 }
+        }
+        if (chat != null && chat.task == app.pockettavern.engine.ScenarioBuilder.TASK) {
+            ScenarioBuilderChips(chat, state, actions) { scenarioDraftOpen = true }
+            if (scenarioDraftOpen) ScenarioDraftDialog(chat, state, actions) { scenarioDraftOpen = false }
         }
         if (chat != null) {
             val provider = state.data.providers.firstOrNull { it.id == chat.providerId }
