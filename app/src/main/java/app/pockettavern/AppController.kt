@@ -946,7 +946,14 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 val outgoingTokens = requestTokens(built)
                 require(outgoingTokens <= built.budget) { overBudgetMessage("本轮工具结果已保存，但最终回答的上下文超出预算", built) }
                 val userTurn=before.messages.lastOrNull { it.role=="user" && !it.contextExcluded }
-                val assistant=Message(role="assistant",status="streaming",intent=if(userTurn?.intent=="correction") "correction" else "dialogue",generationId=generationId,revisionOf=userTurn?.revisionOf.orEmpty(),
+                // Network retry: on NETWORK/TIMEOUT, wait for the app to come back (background) or
+                // do exponential backoff (foreground), then retry the same step from scratch.
+                var networkRetries = 0
+                var assistant = Message(role="assistant")  // placeholder; set properly inside the loop
+                var receivedResult: CompletionResult? = null
+                networkRetry@ while (receivedResult == null) {
+                    currentCoroutineContext().ensureActive()
+                assistant=Message(role="assistant",status="streaming",intent=if(userTurn?.intent=="correction") "correction" else "dialogue",generationId=generationId,revisionOf=userTurn?.revisionOf.orEmpty(),
                     skillSnapshotJson=SkillRuntimeSnapshot.manifest(ToolRuntime.activeSkills(data.skills,data.settings,before),model.supportsTools))
                 liveId=assistant.id
                 changeChat(chatId) { it.copy(messages=it.messages+assistant) }
@@ -959,22 +966,49 @@ class AppController(application: Application) : AndroidViewModel(application), A
                         changeChat(chatId,persist,touch=false) { c -> c.copy(messages=c.messages.map { if(it.id==assistant.id && it.status=="streaming") it.copy(content=snapshot.content,reasoning=snapshot.reasoning) else it }) }
                     }
                 }
-                val received = try {
+                try {
                     run.purpose.set(if (finalAnswerOnly) "chat_final" else "chat")
-                    run.client.chat(routed(p),secret,before.modelId,outgoing,preset(before),toolDefinitions,
-                        metadata = if (p.kind.equals("writing-server", ignoreCase = true)) mapOf(
-                            "pocket_tavern_chat_id" to chatId,
-                            "pocket_tavern_purpose" to "chat"
-                        ) else emptyMap(),
-                        finalAnswerOnly=finalAnswerOnly) { delta ->
-                        streamed=delta.appendTo(streamed)
-                        updates.trySend(streamed)
+                    receivedResult = try {
+                        run.client.chat(routed(p),secret,before.modelId,outgoing,preset(before),toolDefinitions,
+                            metadata = if (p.kind.equals("writing-server", ignoreCase = true)) mapOf(
+                                "pocket_tavern_chat_id" to chatId,
+                                "pocket_tavern_purpose" to "chat"
+                            ) else emptyMap(),
+                            finalAnswerOnly=finalAnswerOnly) { delta ->
+                            streamed=delta.appendTo(streamed)
+                            updates.trySend(streamed)
+                        }
+                    } finally {
+                        updates.close()
+                        // Drain the last received text before cancellation marks this message.
+                        withContext(NonCancellable) { collector.join() }
                     }
-                } finally {
-                    updates.close()
-                    // Drain the last received text before cancellation marks this message.
-                    withContext(NonCancellable) { collector.join() }
+                } catch (networkError: ProviderException) {
+                    // Only retry network/timeout errors; propagate everything else.
+                    if (networkError.kind !in setOf(ProviderException.Kind.NETWORK, ProviderException.Kind.TIMEOUT)
+                            || !currentCoroutineContext().isActive) throw networkError
+                    pcRouter.forget()
+                    // Show a "waiting" state so the user knows the app is reconnecting, not dead.
+                    changeChat(chatId) { c -> c.copy(messages=c.messages.map { if(it.id==liveId) it.copy(status="waiting", errorMessage="网络中断，等待恢复…", content="", reasoning="") else it }) }
+                    liveId = ""
+                    if (!uiVisible) {
+                        // App moved to background — the network outage is likely caused by that.
+                        // Wait up to 30 minutes for the user to return, polling every 5 s.
+                        val deadline = System.currentTimeMillis() + 30 * 60_000L
+                        while (!uiVisible && System.currentTimeMillis() < deadline) {
+                            currentCoroutineContext().ensureActive()
+                            delay(5_000)
+                        }
+                        if (!uiVisible) throw networkError
+                    } else {
+                        // App is in the foreground — exponential back-off: 2 s, 4 s, 8 s, then give up.
+                        networkRetries++
+                        if (networkRetries > 3) throw networkError
+                        delay(minOf(2_000L shl (networkRetries - 1), 8_000L))
+                    }
                 }
+                }
+                val received = receivedResult!!
                 run.purpose.set("text_repair")
                 val result = repaired(run.client, routed(p), secret, before.modelId, received)
                 val calls=JSONArray(result.toolCallsJson)

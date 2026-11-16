@@ -570,6 +570,7 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
                 message.content.isNotBlank() && groupReply -> GroupReplyView(message.id, message.content, message.status == "streaming", group!!, stickers, loadSticker, animateSticker, loadAvatar)
                 message.content.isNotBlank() -> AssistantTextWithSticker(message.content, message.status == "streaming", stickers, loadSticker, loadAnimated = animateSticker)
                 message.status == "streaming" -> Text("正在构思…", style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
+                message.status == "waiting" -> Text("等待网络恢复…", style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
                 message.toolCallsJson != "[]" -> Text("工具调用记录", style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
                 notice != null -> Text(notice.text, style = MaterialTheme.typography.bodyMedium, color = if (notice.tone == MessageNoticeTone.ERROR) colors.error else colors.onSurfaceVariant)
                 else -> Text("（暂无回复内容）", style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
@@ -586,6 +587,7 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
             }
             val status = when {
                 message.status == "streaming" -> "正在生成"
+                message.status == "waiting" -> "网络中断，切回应用后自动重试"
                 message.status == "stopped" -> "已停止 · 已保留生成内容"
                 message.status == "error" && message.finishReason.trim().lowercase(Locale.ROOT) in setOf("content_filter", "content-filter") -> ""
                 message.status == "error" -> "生成中断 · 可重试"
@@ -593,7 +595,7 @@ private fun ConversationMessage(message: Message, assistantName: String, busy: B
                 else -> ""
             }
             if (status.isNotBlank()) Row(Modifier.padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                if (message.status == "streaming") CircularProgressIndicator(Modifier.size(12.dp), strokeWidth = 1.5.dp)
+                if (message.status == "streaming" || message.status == "waiting") CircularProgressIndicator(Modifier.size(12.dp), strokeWidth = 1.5.dp)
                 Text(status, style = MaterialTheme.typography.labelSmall, color = if (message.status == "error") colors.error else colors.onSurfaceVariant)
             }
             if (notice != null && notice.detail.isNotBlank()) MessageNoticeDetails(notice, clipboard, message.content.isNotBlank())
