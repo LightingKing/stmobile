@@ -7,119 +7,235 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header>
-    <h1>口袋酒馆 · 电脑写作服务</h1>
-    <span id="badge" class="badge">读取中…</span>
-  </header>
-  <nav>
-    <a href="#overview">概览</a><a href="#worlds">小世界</a><a href="#connection">连接</a><a href="#runs">最近的请求</a><a href="#settings">电脑设置</a>
-    <a href="#backups">手机备份</a><a href="#stickers">表情包</a><a href="#dsh">DSH 引擎</a><a href="#reach">联网搜索</a><a href="#logs">日志</a>
-  </nav>
-  <main>
-    <section id="overview">
-      <h2>概览</h2>
-      <div id="overview-grid" class="grid"></div>
-    </section>
+<div class="shell">
+  <aside class="side">
+    <div class="brand"><b>口袋酒馆</b><span id="brand-version">电脑写作服务</span></div>
+    <nav class="nav" aria-label="页面">
+      <a href="#overview" data-page="overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h6V4H4zM14 20h6v-9h-6zM4 20h6v-4H4zM14 4v4h6V4z"/></svg>总览</a>
+      <a href="#models" data-page="models"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg>模型<span class="count" id="nav-models"></span></a>
+      <a href="#worlds" data-page="worlds"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>小世界<span class="count" id="nav-worlds"></span></a>
+      <a href="#phone" data-page="phone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>手机</a>
+      <a href="#reach" data-page="reach"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>联网</a>
+      <a href="#records" data-page="records"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg>记录</a>
+      <a href="#settings" data-page="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>设置</a>
+    </nav>
+    <div class="side-foot" id="side-foot"><div><span class="dot warn"></span>读取中…</div></div>
+  </aside>
 
-    <section id="worlds">
-      <h2>小世界 <button id="worlds-refresh" class="small">刷新</button></h2>
-      <p class="hint">世界在这台电脑上一直运行：居民按自己的作息生活，在群里聊天，也会私聊你。暂停会让整个世界的时间停住。每次推进和每次回应都是一次付费的模型请求，受下面每个世界自己的每日上限约束。</p>
-      <div id="world-list"></div>
-      <details id="world-import">
-        <summary>新建世界（粘贴世界 JSON）</summary>
-        <textarea id="world-pack" rows="10" spellcheck="false" placeholder='{"name":"…","setting":"…","residents":[{"name":"…","card":"…"}]}'></textarea>
-        <div class="row"><label><input type="checkbox" id="world-start-paused" checked> 创建后先暂停，确认后再点“恢复”</label></div>
-        <div class="row"><button id="world-create">创建</button> <span id="world-create-note" class="muted"></span></div>
-      </details>
-      <div id="world-detail" hidden>
-        <div class="world-head">
-          <strong id="world-name"></strong> <span id="world-state" class="badge"></span>
-          <button id="world-pause">暂停</button> <button id="world-tick" class="secondary">推进一次</button>
-          <button id="world-close" class="small">收起</button> <button id="world-delete" class="danger small">删除</button>
+  <main class="main">
+    <!-- 总览 -->
+    <section class="page" id="page-overview">
+      <div class="page-head"><h1>总览</h1><p id="today-label"></p></div>
+      <div class="tab-strip">
+        <div class="tab-top">
+          <h2>近 24 小时</h2>
+          <div class="figure"><strong id="fig-runs">—</strong><span>次请求</span></div>
+          <div class="figure"><strong id="fig-tokens">—</strong><span>tokens</span></div>
+          <div class="figure"><strong id="fig-failed">—</strong><span id="fig-failed-label">次出错</span></div>
+          <div class="legend"><span><i class="k-chat"></i>手机聊天</span><span><i class="k-world"></i>小世界</span><span><i class="k-memory"></i>整理记忆</span></div>
         </div>
-        <div id="world-tiles" class="grid"></div>
-        <p id="world-error" class="hint bad-text"></p>
-        <h3>居民</h3>
-        <div class="table-wrap"><table id="world-residents"></table></div>
-        <h3>时间线</h3>
-        <div id="world-tabs" class="tabs"></div>
-        <div id="world-timeline" class="timeline"></div>
-        <form id="world-say" class="inline">
-          <select id="world-channel"></select>
-          <input id="world-text" maxlength="2000" placeholder="以你的身份说话">
-          <button type="submit">发送</button> <span id="world-say-note" class="muted"></span>
-        </form>
-        <h3>设置</h3>
-        <form id="world-settings" class="form"></form>
-        <h3>日记与记忆</h3>
-        <div id="world-diary"></div>
+        <div class="ribbon" id="ribbon" role="img" aria-label="近 24 小时每次请求的时间和用量"></div>
+        <div class="axis" id="axis"></div>
+      </div>
+      <div class="cols">
+        <div class="block">
+          <h3>现在的情况</h3>
+          <div class="rows" id="health"><p class="empty">读取中…</p></div>
+        </div>
+        <div class="block">
+          <h3>最近的请求<span class="end"><a class="btn quiet" href="#records">全部记录</a></span></h3>
+          <div class="rows" id="recent"><p class="empty">读取中…</p></div>
+        </div>
       </div>
     </section>
 
-    <section id="connection">
-      <h2>连接</h2>
-      <dl id="connection-list" class="pairs"></dl>
-      <form id="public-form" class="inline">
-        <label>远程地址（NPS 域名）<input id="public-url" type="url" placeholder="https://你的域名/v1"></label>
-        <button type="submit">保存</button>
-      </form>
-      <p class="hint">手机在家时自动走局域网地址，在外面走远程地址。网关 Token 等同于密码，不要发给别人。</p>
-    </section>
-
-    <section id="runs">
-      <h2>最近的请求 <button id="runs-refresh" class="small">刷新</button></h2>
-      <div class="table-wrap"><table id="runs-table"></table></div>
-      <div id="run-detail" class="detail" hidden>
-        <div class="detail-head"><strong id="run-title"></strong><button id="run-close" class="small">关闭</button></div>
-        <pre id="run-text"></pre>
+    <!-- 模型 -->
+    <section class="page" id="page-models">
+      <div class="page-head"><h1>模型</h1><p>手机在“电脑”平台下看到的模型，都从这里的来源读取</p></div>
+      <div class="block">
+        <h3>模型来源</h3>
+        <div class="sources" id="source-list"><p class="empty">读取中…</p></div>
+        <button class="add-source" id="source-add" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span><b>添加来源</b><small>接入别的平台：中转站、DeepSeek、Kimi、OpenRouter、本机 Ollama……OpenAI 兼容的接口都行</small></span></button>
+      </div>
+      <div class="block">
+        <h3>全部模型<span class="end" id="model-count"></span></h3>
+        <div class="filters">
+          <input class="search" id="model-search" type="search" placeholder="搜模型名字，例如 kimi、deepseek、qwen" aria-label="搜索模型">
+          <span id="model-chips" class="filters"></span>
+        </div>
+        <div class="table-wrap"><table id="model-table"></table></div>
+        <p class="hint">虚线框的能力是平台没写、按别的来源里同一个模型推测的；不对的话在手机模型页“修改能力”里改。价格是平台给的每百万 tokens 美元价。</p>
       </div>
     </section>
 
-    <section id="settings">
-      <h2>电脑设置</h2>
-      <form id="settings-form" class="form"></form>
-      <p class="hint">保存后立即生效，和手机上“设置 → 电脑连接 → 电脑设置”是同一份。上游地址和 Venice Key 不在这里改。</p>
+    <!-- 小世界 -->
+    <section class="page" id="page-worlds">
+      <div id="worlds-home">
+        <div class="page-head"><h1>小世界</h1><p>在这台电脑上一直运行的世界；手机打开时同步</p><div class="tools"><button class="btn" id="world-new" type="button">新建世界</button></div></div>
+        <div class="worlds" id="world-list"><p class="empty">读取中…</p></div>
+        <p class="hint">居民按自己的作息生活、在群里聊天，也会私信你。每次推进和每次回应都是一次付费的模型请求，受每个世界自己的每日上限约束；暂停会让整个世界的时间停住。</p>
+      </div>
+      <div id="world-detail" hidden>
+        <a class="back" href="#worlds">← 全部小世界</a>
+        <div class="world-head">
+          <h1 id="world-name"></h1><span id="world-state" class="tag"></span>
+          <div class="actions">
+            <button class="btn" id="world-pause" type="button">暂停</button>
+            <button class="btn" id="world-tick" type="button">推进一次</button>
+            <button class="btn danger" id="world-delete" type="button">删除</button>
+          </div>
+        </div>
+        <dl class="facts" id="world-facts"></dl>
+        <p id="world-error" class="hint bad-text" hidden></p>
+        <div class="cols">
+          <div class="block">
+            <h3>时间线</h3>
+            <div id="world-tabs" class="tabs"></div>
+            <div id="world-timeline" class="timeline"></div>
+            <form id="world-say" class="say-form">
+              <select id="world-channel" aria-label="发到哪里"></select>
+              <input id="world-text" type="text" maxlength="2000" placeholder="以你的身份说话" aria-label="要说的话">
+              <button class="btn primary" type="submit">发送</button>
+            </form>
+            <p id="world-say-note" class="hint"></p>
+          </div>
+          <div class="block">
+            <h3>居民</h3>
+            <div class="rows" id="world-residents"></div>
+          </div>
+        </div>
+        <div class="block">
+          <h3>设置</h3>
+          <form id="world-settings" class="form"></form>
+        </div>
+        <div class="block">
+          <h3>日记与记忆</h3>
+          <div class="rows" id="world-diary"></div>
+        </div>
+      </div>
     </section>
 
-    <section id="backups">
-      <h2>手机备份</h2>
-      <div class="table-wrap"><table id="backups-table"></table></div>
+    <!-- 手机 -->
+    <section class="page" id="page-phone">
+      <div class="page-head"><h1>手机</h1><p>手机怎么连到这台电脑，以及存在这里的备份和表情包</p></div>
+      <div class="connect">
+        <dl class="kv" id="connection"><dt>读取中…</dt><dd></dd></dl>
+        <div class="how">
+          <p>手机上在“模型 → 添加平台 → 本机写作服务”里：接口地址填“在外面”的地址，局域网地址填“在家”的地址，API Key 填网关 Token。</p>
+          <p>在家时手机自动走局域网，出门走远程地址。网关 Token 等同于密码，不要发给别人。</p>
+        </div>
+      </div>
+      <div class="cols">
+        <div class="block">
+          <h3>手机备份<span class="end" id="backup-keep"></span></h3>
+          <div class="rows" id="backup-list"><p class="empty">读取中…</p></div>
+        </div>
+        <div class="block">
+          <h3>表情包</h3>
+          <div class="rows" id="sticker-list"><p class="empty">读取中…</p></div>
+        </div>
+      </div>
     </section>
 
-    <section id="stickers">
-      <h2>表情包</h2>
-      <div id="sticker-list"></div>
+    <!-- 联网 -->
+    <section class="page" id="page-reach">
+      <div class="page-head"><h1>联网</h1><p>搜网页、读链接、看 B 站字幕、查社交平台上的角色资料</p></div>
+      <div class="cols">
+        <div>
+          <div class="block">
+            <h3>联网搜索</h3>
+            <div class="rows" id="reach-list"><p class="empty">读取中…</p></div>
+            <p class="hint">手机上用电脑写作服务、模型能调工具的会话会自动带上联网搜索；角色“自己刷视频”也走这里。不读取浏览器里的登录。</p>
+          </div>
+          <div class="block">
+            <h3>B 站登录<span class="end">看字幕用，建议用小号</span></h3>
+            <div class="rows">
+              <div class="row"><span class="state off" id="bili-dot"></span><div><div class="what" id="bili-state">读取中…</div><div class="detail">登录后模型能读视频字幕，真正“看懂”视频。登录信息只存在这台电脑上。</div></div>
+                <div class="end"><button class="btn" id="bili-login" type="button">扫码登录</button><button class="btn quiet danger" id="bili-logout" type="button" hidden>退出</button></div></div>
+              <img id="bili-qr" alt="B 站登录二维码" width="220" height="220" hidden>
+            </div>
+          </div>
+        </div>
+        <div class="block">
+          <h3>社交平台<span class="end"><button class="btn quiet" id="social-keep" type="button">立即保活</button></span></h3>
+          <div class="rows" id="social-list"><p class="empty">读取中…</p></div>
+          <p class="hint" id="social-state"></p>
+          <p class="hint">点“登录”会在这台电脑上打开一个专用的 Chrome 窗口，在里面登录（扫码或账号都行），全部登录完点“登录完成”。建议用小号：查得太频繁时平台可能限制账号。</p>
+          <p class="hint" id="social-kept"></p>
+        </div>
+      </div>
     </section>
 
-    <section id="dsh">
-      <h2>DSH 成人互动引擎</h2>
-      <dl id="dsh-list" class="pairs"></dl>
+    <!-- 记录 -->
+    <section class="page" id="page-records">
+      <div class="page-head"><h1>记录</h1><p>最近 200 次请求的详情，和服务日志</p><div class="tools"><button class="btn" id="runs-refresh" type="button">刷新</button></div></div>
+      <div class="filters" id="run-filters"></div>
+      <div class="records" id="records">
+        <div class="table-wrap"><table id="runs-table"></table></div>
+        <div class="detail-panel" id="run-detail" hidden>
+          <div class="detail-head"><strong id="run-title"></strong><button class="btn quiet" id="run-close" type="button">关闭</button></div>
+          <pre id="run-text"></pre>
+        </div>
+      </div>
+      <div class="block">
+        <h3>服务日志<span class="end"><button class="btn quiet" id="logs-refresh" type="button">刷新</button></span></h3>
+        <pre id="log-view" class="log">读取中…</pre>
+      </div>
     </section>
 
-    <section id="reach">
-      <h2>联网搜索（Agent Reach）</h2>
-      <dl id="reach-list" class="pairs"></dl>
-      <h3>B 站登录（看字幕用）</h3>
-      <p class="hint">扫码登录后，模型能读 B 站视频的字幕，真正“看懂”视频；建议用小号。登录信息只保存在这台电脑上 Agent Reach 的私密目录里，不会读取浏览器里的登录。</p>
-      <div id="bili-state" class="hint">读取中…</div>
-      <div class="row"><button id="bili-login">扫码登录</button> <button id="bili-logout" class="danger" hidden>退出登录</button></div>
-      <img id="bili-qr" alt="B 站登录二维码" width="240" height="240" hidden>
-    </section>
-
-    <section id="social">
-      <h2>社交平台（找角色资料用）</h2>
-      <p class="hint">抖音、TikTok、微博、小红书、X 要登录才能搜。点“登录”会在这台电脑上打开一个专用的 Chrome 窗口，在里面登录（扫码或账号都行），全部登录完点“登录完成”。建议用小号：查得太频繁时平台可能限制账号。这个窗口的登录只保存在服务目录里，不会读取你平时用的浏览器。</p>
-      <div id="social-state" class="hint">读取中…</div>
-      <dl id="social-list" class="pairs"></dl>
-      <div class="row"><button id="social-done">登录完成</button> <button id="social-keep" class="small">立即保活</button></div>
-      <p id="social-kept" class="hint"></p>
-    </section>
-
-    <section id="logs">
-      <h2>日志 <button id="logs-refresh" class="small">刷新</button></h2>
-      <pre id="log-view" class="log"></pre>
+    <!-- 设置 -->
+    <section class="page" id="page-settings">
+      <div class="page-head"><h1>设置</h1><p>写作服务自己的设置，和手机“设置 → 电脑连接 → 电脑设置”是同一份，保存后立即生效</p></div>
+      <div class="block"><form id="settings-form" class="form"><p class="empty">读取中…</p></form></div>
+      <div class="cols">
+        <div class="block">
+          <h3>DSH 成人互动引擎</h3>
+          <div class="rows" id="dsh-list"></div>
+        </div>
+        <div class="block">
+          <h3>关于这台电脑上的服务</h3>
+          <div class="rows" id="about-list"></div>
+        </div>
+      </div>
     </section>
   </main>
-  <script src="/app.js"></script>
+</div>
+
+<dialog class="dialog" id="source-dialog" aria-labelledby="source-title">
+  <form id="source-form" method="dialog">
+    <h2 id="source-title">添加模型来源</h2>
+    <p class="lead" id="source-lead">填好地址和密钥，先试一下能不能读到模型，再保存。密钥只存在这台电脑上，不会发到手机。</p>
+    <div class="kinds" id="source-kinds">
+      <button class="kind" type="button" data-kind="openai"><b>OpenAI 兼容</b><span>中转站、DeepSeek、Kimi、OpenRouter</span></button>
+      <button class="kind" type="button" data-kind="venice"><b>Venice</b><span>再加一个 Venice 账号</span></button>
+      <button class="kind" type="button" data-kind="ollama"><b>本机 Ollama</b><span>不需要密钥</span></button>
+    </div>
+    <label class="field"><span>名字</span><input id="source-name" type="text" maxlength="20" autocomplete="off"><small id="source-name-hint">手机里这个来源的模型显示为“名字/模型”，例如“中转/k3.1-pro”</small></label>
+    <label class="field"><span>接口地址</span><input id="source-url" type="url" autocomplete="off" spellcheck="false"></label>
+    <label class="field" id="source-key-field"><span>密钥</span><input id="source-key" type="password" autocomplete="new-password" spellcheck="false"></label>
+    <label class="check" id="source-enabled-field"><input id="source-enabled" type="checkbox"> 启用（停用后手机上看不到这个来源的模型）</label>
+    <div class="test" id="source-test" hidden></div>
+    <div class="dialog-foot">
+      <button class="btn danger left" id="source-remove" type="button">删除来源</button>
+      <button class="btn" id="source-cancel" type="button">取消</button>
+      <button class="btn" id="source-try" type="button">试连</button>
+      <button class="btn primary" id="source-save" type="submit">保存来源</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="dialog wide" id="world-dialog" aria-labelledby="world-dialog-title">
+  <form id="world-form" method="dialog">
+    <h2 id="world-dialog-title">新建世界</h2>
+    <p class="lead">手机 App 可以把剧本“做成小世界”；这里粘贴世界 JSON 也能创建。</p>
+    <label class="field"><span>世界 JSON</span><textarea id="world-pack" class="json-box" spellcheck="false" placeholder='{"name":"…","setting":"…","residents":[{"name":"…","card":"…"}]}'></textarea></label>
+    <label class="check"><input type="checkbox" id="world-start-paused" checked> 创建后先暂停，确认后再点“恢复”</label>
+    <div class="test bad" id="world-create-note" hidden></div>
+    <div class="dialog-foot"><button class="btn" id="world-cancel" type="button">取消</button><button class="btn primary" type="submit">创建</button></div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/app.js"></script>
 </body>
 </html>

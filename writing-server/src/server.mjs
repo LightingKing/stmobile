@@ -1,12 +1,12 @@
 import http from 'node:http';
 import crypto from 'node:crypto';
 import { createReadStream, readFileSync } from 'node:fs';
-import { createUpstream } from './upstream.mjs';
 import { createVault } from './vault.mjs';
 import { runCompletion } from './pipeline.mjs';
 import { BackupError, createBackupStore } from './backups.mjs';
 import { clientAddress, createAuthGuard } from './guard.mjs';
-import { capability, contextOf, createCatalog, displayName } from './catalog.mjs';
+import { capability, contextOf, displayName } from './catalog.mjs';
+import { createSources } from './sources.mjs';
 import { STICKER_LIMITS, STICKER_UPLOAD_TYPE, StickerError, createStickerStore } from './stickers.mjs';
 import { DshError, createDshRuntime } from './dsh.mjs';
 import { ReachError, createReachRuntime } from './reach.mjs';
@@ -81,6 +81,7 @@ function modelList(config, catalog = []) {
   const fallbackContext = Number(config.contextTokens) > 0 ? Number(config.contextTokens) : DEFAULT_CONFIG.contextTokens;
   const fallback = catalog.find((entry) => entry.id === config.upstreamModel);
   const defaultName = displayName(fallback, config.upstreamModel);
+  const defaultHost = fallback?.pocket_source?.host || host;
   const tools = capability(fallback, 'supportsFunctionCalling') ?? true;
   const alias = (id, name) => ({
     id, object: 'model', name, owned_by: 'pocket-tavern', type: 'text',
@@ -88,14 +89,14 @@ function modelList(config, catalog = []) {
     supports_tools: tools, supports_vision: capability(fallback, 'supportsVision') ?? false,
     supports_reasoning: capability(fallback, 'supportsReasoning') ?? false, capabilities: { supportsTools: tools },
     ...(fallback?.model_spec?.pricing ? { pricing: fallback.model_spec.pricing } : {}),
-    upstream: { host, model: config.upstreamModel || '' },
+    upstream: { host: defaultHost, model: config.upstreamModel || '' },
   });
   return {
     object: 'list',
     data: [
       alias('pocket-direct', `默认模型 · ${defaultName}`),
       alias('pocket-writer', `${config.autoRevise ? '默认模型 + 自动修订（试验）' : '默认模型 + 审校建议'} · ${defaultName}`),
-      ...catalog.map((entry) => ({ ...entry, owned_by: 'pocket-tavern', upstream: { host, model: entry.id } })),
+      ...catalog.map((entry) => ({ ...entry, owned_by: 'pocket-tavern', upstream: { host: entry.pocket_source?.host || host, model: entry.id } })),
     ],
   };
 }
@@ -192,28 +193,46 @@ function answerStream(res, id) {
   return { push, finish, fail };
 }
 
-export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null, catalog = null, stickers = null, dsh = null, reach = null, images = null, social = null, worlds = null } = {}) {
+export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null, catalog = null, stickers = null, dsh = null, reach = null, images = null, social = null, worlds = null, sources: sourcesOption = null } = {}) {
   const resolved = { ...DEFAULT_CONFIG, ...config };
   const dataDir = resolved.dataDir || './writing-server-data';
   const store = vault || createVault({ dataDir });
   const backupStore = backups || createBackupStore({ dataDir, keep: resolved.backupKeep ?? 20 });
   const authGuard = guard || createAuthGuard();
-  const remote = upstream || (resolved.upstreamKey ? createUpstream({ baseUrl: resolved.upstreamBaseUrl, key: resolved.upstreamKey, idleTimeoutMs: resolved.upstreamIdleTimeoutMs }) : null);
-  const models = catalog || createCatalog({ upstream: remote });
+  /** The phone's last authorized request since start, for the dashboard: when, and over LAN or the tunnel. */
+  let lastPhone = null;
+  // Venice from config.json is the built-in source; the dashboard adds others (sources.mjs).
+  const sources = sourcesOption || createSources({
+    dataDir, upstream, catalog, currentModel: () => resolved.upstreamModel,
+    builtin: { baseUrl: resolved.upstreamBaseUrl, key: resolved.upstreamKey, idleTimeoutMs: resolved.upstreamIdleTimeoutMs },
+  });
   const stickerStore = stickers || createStickerStore({ dataDir });
   const dshRuntime = dsh || createDshRuntime({ dataDir, python: resolved.pythonPath || '' });
   const reachRuntime = reach || createReachRuntime();
   const imageSearch = images || createImageSearch();
   const socialRuntime = social || createSocialRuntime({ schedule: resolved.socialKeepAlive !== false });
-  const ready = Boolean(resolved.token && remote);
+  const ready = () => Boolean(resolved.token) && sources.configured();
+
+  /**
+   * Where a request for [model] goes: its source's client, the id that source knows the model by,
+   * and the config the pipeline needs (the source's address decides Venice-only parameters). The
+   * two aliases stand for the default model, which may live in any source.
+   */
+  function route(model) {
+    const alias = model === 'pocket-direct' || model === 'pocket-writer';
+    const hit = sources.resolve(alias ? resolved.upstreamModel : model);
+    const base = { ...resolved, upstreamModel: hit.model, upstreamBaseUrl: hit.source.baseUrl };
+    // A model the upstream marks as non-reasoning gets no reasoning settings it would reject.
+    const routed = capability(hit.entry, 'supportsReasoning') === false ? { ...base, reasoningEffort: 'default' } : base;
+    return { ...hit, config: routed, request: (body) => (alias ? body : { ...body, model: hit.model }) };
+  }
+
   /** One model request for a 小世界, through the same pipeline (archive, character repair) as phone chats. */
   async function worldRun({ worldId, model, messages, maxTokens, temperature, signal }) {
-    if (!remote) throw new WorldError('写作服务未配置上游 API Key', 503, 'not_ready');
-    const target = model === 'pocket-direct' ? resolved.upstreamModel : model;
-    const requestConfig = capability(models.find(target), 'supportsReasoning') === false ? { ...resolved, reasoningEffort: 'default' } : { ...resolved };
+    const hit = route(model);
     const result = await runCompletion({
-      request: { model, messages, max_tokens: maxTokens, temperature, stream: true, metadata: { pocket_tavern_chat_id: `world-${worldId}`, pocket_tavern_purpose: 'chat' } },
-      config: requestConfig, vault: store, upstream: remote, signal,
+      request: hit.request({ model, messages, max_tokens: maxTokens, temperature, stream: true, metadata: { pocket_tavern_chat_id: `world-${worldId}`, pocket_tavern_purpose: 'chat' } }),
+      config: hit.config, vault: store, upstream: hit.upstream, signal,
     });
     return { content: result.content, usage: result.usage };
   }
@@ -225,18 +244,23 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
   let settingsWrites = Promise.resolve();
 
   async function status(source) {
-    models.warm();
-    const fallback = models.find(resolved.upstreamModel);
+    sources.warm();
+    const fallback = sources.find(resolved.upstreamModel);
+    const listing = sources.list();
+    const loaded = listing.some((item) => item.models !== null);
     return {
-      ok: true, ready, service: 'pocket-tavern-writing-server', version: SERVER_VERSION,
+      ok: true, ready: ready(), service: 'pocket-tavern-writing-server', version: SERVER_VERSION,
       started_at: startedAt.toISOString(), uptime_seconds: Math.round((Date.now() - startedAt.getTime()) / 1000),
       listen: { hosts: resolved.listenHosts || [resolved.host], port: resolved.port },
       client_address: source,
-      upstream: { configured: Boolean(remote), host: upstreamHost(resolved), model: resolved.upstreamModel, idle_timeout_seconds: Math.round((resolved.upstreamIdleTimeoutMs ?? 900_000) / 1000) },
-      default_model: { id: resolved.upstreamModel, name: displayName(fallback, resolved.upstreamModel) },
-      // null until the upstream catalog has been read once.
-      models_available: models.loaded ? models.count : null,
-      models_error: models.error || undefined,
+      phone: lastPhone,
+      upstream: { configured: sources.configured(), host: upstreamHost(resolved), model: resolved.upstreamModel, idle_timeout_seconds: Math.round((resolved.upstreamIdleTimeoutMs ?? 900_000) / 1000) },
+      default_model: { id: resolved.upstreamModel, name: displayName(fallback, resolved.upstreamModel), source: fallback?.pocket_source?.name || '' },
+      // null until some source's catalog has been read once.
+      models_available: loaded ? listing.reduce((sum, item) => sum + (item.models || 0), 0) : null,
+      models_error: listing.filter((item) => item.error).map((item) => `${item.name}：${item.error}`).join('；') || undefined,
+      // No key material here, not even its last characters: this reaches the phone.
+      sources: listing.map(({ id, name, kind, host, builtin, enabled, ready: usable, models, error }) => ({ id, name, kind, host, builtin, enabled, ready: usable, models, error })),
       review_skill: resolved.reviewSkillSource?.id || 'none',
       auto_revise: resolved.autoRevise === true,
       archive: true,
@@ -247,7 +271,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       reach: await reachRuntime.status(),
       social: await socialRuntime.status().catch(() => ({ available: false })),
       worlds: await worldEngine.summary().catch(() => ({ count: 0, running: 0 })),
-      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings', 'stickers', 'dsh_runtime', 'web_reach', 'image_search', 'text_repair', 'social_reach', 'worlds'],
+      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings', 'stickers', 'dsh_runtime', 'web_reach', 'image_search', 'text_repair', 'social_reach', 'worlds', 'model_sources'],
     };
   }
 
@@ -264,8 +288,8 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
     try {
       const changes = validateSettings((await readBody(req))?.settings);
       if (changes.upstreamModel && changes.upstreamModel !== resolved.upstreamModel) {
-        const { models: available } = await models.list();
-        if (models.loaded && !available.some((entry) => entry.id === changes.upstreamModel)) {
+        const { models: available, loaded } = await sources.models();
+        if (loaded && !available.some((entry) => entry.id === changes.upstreamModel)) {
           return sendJson(res, 400, { error: { message: `上游没有这个模型：${changes.upstreamModel}`, code: 'unknown_model' } });
         }
       }
@@ -401,7 +425,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
 
   async function handler(req, res) {
     const parsed = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
-    if (parsed.pathname === '/healthz' && req.method === 'GET') return sendJson(res, 200, { ok: true, ready });
+    if (parsed.pathname === '/healthz' && req.method === 'GET') return sendJson(res, 200, { ok: true, ready: ready() });
     if (parsed.pathname === '/v1/pocket/hello' && req.method === 'GET') {
       // Lets a phone confirm a LAN address is this PC before sending the token over plain HTTP: it
       // proves knowing the token without revealing it. Only the LAN listener answers, so nobody can
@@ -422,9 +446,14 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       return sendJson(res, 401, { error: { message: '未授权', type: 'auth_error' } });
     }
     authGuard.succeed(source);
+    // The dashboard's own requests come through the admin listener and mark themselves; they are not the phone.
+    if (!req.pocketAdmin) {
+      const local = String(req.socket?.localAddress || '').replace(/^::ffff:/, '');
+      lastPhone = { at: new Date().toISOString(), address: source, via: resolved.lanMode === true && local === resolved.host ? 'lan' : 'remote' };
+    }
     if (parsed.pathname === '/v1/models' && req.method === 'GET') {
-      const { models: available, error } = await models.list({ refresh: parsed.searchParams.get('refresh') === 'true' });
-      return sendJson(res, 200, { ...modelList(resolved, available), ...(error ? { pocket_tavern_warning: error } : {}) });
+      const { models: available, errors } = await sources.models({ refresh: parsed.searchParams.get('refresh') === 'true' });
+      return sendJson(res, 200, { ...modelList(resolved, available), ...(errors.length ? { pocket_tavern_warning: errors.join('；') } : {}) });
     }
     if (parsed.pathname === '/v1/pocket/config') return handleSettings(req, res);
     if (parsed.pathname === '/v1/pocket/dsh' && req.method === 'POST') {
@@ -485,7 +514,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       return sendJson(res, 200, run);
     }
     if (parsed.pathname !== '/v1/chat/completions' || req.method !== 'POST') return sendJson(res, 404, { error: { message: '路径不存在' } });
-    if (!ready) return sendJson(res, 503, { error: { message: '写作服务未配置上游 API Key', type: 'not_ready' } });
+    if (!ready()) return sendJson(res, 503, { error: { message: '写作服务未配置上游 API Key', type: 'not_ready' } });
     let body;
     try { body = await readBody(req); } catch (error) { return sendJson(res, error.status || 400, errorPayload(error)); }
     if (!body || typeof body !== 'object' || Array.isArray(body) || !Array.isArray(body.messages) || !String(body.model || '').trim()) return sendJson(res, 400, { error: { message: '请求缺少 model 或 messages' } });
@@ -519,10 +548,8 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
     if (stream) res.writeHead(200, { 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-cache, no-store', connection: 'keep-alive', 'x-accel-buffering': 'no' });
     let heartbeat = null;
     try {
-      // A model the upstream marks as non-reasoning gets no reasoning settings it would reject.
-      const target = ['pocket-direct', 'pocket-writer'].includes(body.model) ? resolved.upstreamModel : body.model;
-      const requestConfig = capability(models.find(target), 'supportsReasoning') === false ? { ...resolved, reasoningEffort: 'default' } : { ...resolved };
-      const result = await runCompletion({ request: body, config: requestConfig, vault: store, upstream: remote, signal: abort.signal, skills,
+      const hit = route(body.model);
+      const result = await runCompletion({ request: hit.request(body), config: hit.config, vault: store, upstream: hit.upstream, signal: abort.signal, skills,
         onProgress: stream ? (_stage, partial) => {
           answer.push(partial);
           if (res.writableLength > MAX_STREAM_BACKLOG) abort.abort();
@@ -562,6 +589,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
     vault: store,
     social: socialRuntime,
     worlds: worldEngine,
+    sources,
     activeRequests: () => active.size + worldEngine.busy(),
     abortAll: () => { for (const item of active.values()) item.abort.abort(); worldEngine.abortAll(); },
   };

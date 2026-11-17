@@ -34,6 +34,9 @@ export function createCatalog({ upstream, ttlMs = 10 * 60_000, now = Date.now } 
     /** Starts a refresh without waiting, for callers that only report counts. */
     warm() { if (stale()) refresh(); },
     find(id) { return models.find((model) => model.id === id) || null; },
+    /** What the last read returned, without reading again. */
+    get cached() { return models; },
+    get fetchedAt() { return fetchedAt; },
     get loaded() { return fetchedAt > 0; },
     get count() { return models.length; },
     get error() { return error; },

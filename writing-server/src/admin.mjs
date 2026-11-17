@@ -1,3 +1,4 @@
+import crypto from 'node:crypto';
 import http from 'node:http';
 import { open, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
@@ -34,12 +35,18 @@ async function tail(file, lines) {
   } catch { return []; } finally { await handle?.close(); }
 }
 
-function runSummary(run) {
+const MEMORY_PURPOSES = new Set(['summary', 'compact', 'rebuild']);
+
+/** [worlds] maps a 小世界's chat hash (the vault hashes "world-<id>") to its name. */
+function runSummary(run, worlds = new Map()) {
   const created = Date.parse(run.created_at);
   const updated = Date.parse(run.updated_at);
   const usage = run.final?.usage || run.partial?.usage || null;
+  const world = worlds.get(run.chat_hash);
   return {
     run_id: run.run_id, chat_hash: run.chat_hash, model: run.model, purpose: run.purpose, status: run.status,
+    // What the dashboard's day strip colours by: a phone chat, a 小世界, or memory upkeep.
+    kind: MEMORY_PURPOSES.has(run.purpose) ? 'memory' : world ? 'world' : 'chat', world: world || undefined,
     created_at: run.created_at, duration_ms: Number.isFinite(created) && Number.isFinite(updated) ? updated - created : null,
     usage, warning: run.warning || run.final?.warning || undefined, error: run.error || undefined,
     stages: (run.stages || []).map((stage) => ({ name: stage.name, status: stage.status })),
@@ -51,8 +58,25 @@ function runSummary(run) {
  * other site cannot drive it: a rebinding DNS name fails the Host check, and every write needs a
  * custom header, which forces a CORS preflight that this server never answers.
  */
-export function createAdminServer({ requestListener, config, vault, dataDir, biliLogin = null, social = null }) {
+async function readJson(req, limit = 16 * 1024) {
+  let body = '';
+  for await (const chunk of req) {
+    body += chunk;
+    if (body.length > limit) throw Object.assign(new Error('内容过长'), { status: 413, code: 'too_large' });
+  }
+  try { return JSON.parse(body || '{}'); } catch { throw Object.assign(new Error('内容不是有效的 JSON'), { status: 400, code: 'invalid_json' }); }
+}
+
+const SOURCE_PATH = /^\/api\/admin\/sources(?:\/([a-z][a-z0-9-]{0,15}))?(?:\/(refresh))?$/;
+
+export function createAdminServer({ requestListener, config, vault, dataDir, biliLogin = null, social = null, sources = null, worlds = null }) {
   const bili = biliLogin || createBiliLogin();
+  const hash = (value) => crypto.createHash('sha256').update(String(value)).digest('hex').slice(0, 40);
+  async function worldNames() {
+    if (!worlds) return new Map();
+    const list = await worlds.list().catch(() => []);
+    return new Map(list.map((world) => [hash(`world-${world.id}`), world.name]));
+  }
   return http.createServer(async (req, res) => {
     try {
       const port = req.socket.localPort;
@@ -68,11 +92,13 @@ export function createAdminServer({ requestListener, config, vault, dataDir, bil
         // Same endpoints the phone uses, with this PC's own token.
         req.url = req.url.slice('/api'.length);
         req.headers.authorization = `Bearer ${config.token}`;
+        req.pocketAdmin = true;
         return requestListener(req, res);
       }
       if (url.pathname === '/api/admin/runs' && req.method === 'GET') {
         const limit = Math.min(Math.max(Number(url.searchParams.get('limit')) || 50, 1), 200);
-        return send(res, 200, { runs: (await vault.recentRuns(limit)).map(runSummary) });
+        const names = await worldNames();
+        return send(res, 200, { runs: (await vault.recentRuns(limit)).map((run) => runSummary(run, names)) });
       }
       const runMatch = url.pathname.match(RUN_PATH);
       if (runMatch && req.method === 'GET') {
@@ -121,6 +147,19 @@ export function createAdminServer({ requestListener, config, vault, dataDir, bil
         if (url.pathname === '/api/admin/social/done' && req.method === 'POST') return send(res, 200, await social.finishLogin());
         if (url.pathname === '/api/admin/social/keepalive' && req.method === 'POST') return send(res, 200, await social.keepAlive());
         if (url.pathname === '/api/admin/social/login' && req.method === 'DELETE') return send(res, 200, await social.logout(platform));
+      }
+      // Model sources: keys are entered here, on this PC only, and never sent back (only their last 4 characters).
+      const sourceMatch = url.pathname.match(SOURCE_PATH);
+      if (sourceMatch) {
+        if (!sources) return send(res, 503, { error: { message: '模型来源功能没有启用' } });
+        const [, id = '', action = ''] = sourceMatch;
+        if (!id && req.method === 'GET') return send(res, 200, { sources: sources.list() });
+        if (!id && req.method === 'POST') return send(res, 201, await sources.add(await readJson(req)));
+        if (id === 'test' && !action && req.method === 'POST') return send(res, 200, await sources.test(await readJson(req)));
+        if (id && action === 'refresh' && req.method === 'POST') return send(res, 200, await sources.refresh(id));
+        if (id && !action && req.method === 'PATCH') return send(res, 200, await sources.update(id, await readJson(req)));
+        if (id && !action && req.method === 'DELETE') return send(res, 200, await sources.remove(id));
+        return send(res, 405, { error: { message: '不支持这个操作' } });
       }
       return send(res, 404, { error: { message: '路径不存在' } });
     } catch (error) {

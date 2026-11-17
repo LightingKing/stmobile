@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>口袋酒馆 · 电脑写作服务（设计稿）</title>
+<style>
+:root {
+  --ink: #173C36;        /* sidebar, headings */
+  --ink-2: #24524A;
+  --paper: #EEF0EA;      /* page */
+  --sheet: #FBFBF8;      /* work surfaces */
+  --brass: #B8862F;      /* current item, primary action */
+  --brass-soft: #F3E8CF;
+  --text: #1F2A27;
+  --muted: #66706B;
+  --line: #D9DDD4;
+  --danger: #A3263A;
+  --chat: #2F7D5B;       /* request kinds on the day strip */
+  --world: #B8862F;
+  --memory: #5B7A95;
+  --serif-sign: "KaiTi", "STKaiti", "楷体", "Kaiti SC", serif;
+  --sans: "Segoe UI Variable Text", "Microsoft YaHei UI", "PingFang SC", "Noto Sans SC", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { font: 14px/1.6 var(--sans); color: var(--text); background: var(--paper); font-variant-numeric: tabular-nums; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+/* shell */
+.shell { display: grid; grid-template-columns: 232px 1fr; min-height: 100vh; }
+.side { background: var(--ink); color: #DCE6E1; display: flex; flex-direction: column; padding: 22px 14px 18px; position: sticky; top: 0; height: 100vh; }
+.brand { padding: 0 10px 22px; }
+.brand b { display: block; font: 400 28px/1.15 var(--serif-sign); color: #F4EBD5; letter-spacing: 2px; }
+.brand span { font-size: 12px; color: #9DB5AC; }
+.nav { display: grid; gap: 2px; }
+.nav button { all: unset; display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; color: #C9D8D2; cursor: pointer; }
+.nav button:hover { background: rgba(255,255,255,.06); color: #fff; }
+.nav button[aria-current="page"] { background: rgba(184,134,47,.18); color: #F4EBD5; box-shadow: inset 3px 0 0 var(--brass); }
+.nav svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.6; flex: none; }
+.nav .count { margin-left: auto; font-size: 12px; color: #9DB5AC; }
+.side-foot { margin-top: auto; padding: 14px 10px 0; border-top: 1px solid rgba(255,255,255,.1); font-size: 12px; color: #9DB5AC; display: grid; gap: 6px; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #6FCF97; margin-right: 6px; vertical-align: 1px; }
+.dot.off { background: #8A9690; }
+.dot.warn { background: #E2B04A; }
+
+.main { padding: 26px 40px 60px; max-width: 1180px; }
+.page-head { display: flex; align-items: flex-end; gap: 16px; margin-bottom: 20px; }
+.page-head h1 { margin: 0; font: 400 34px/1.1 var(--serif-sign); color: var(--ink); letter-spacing: 1px; }
+.page-head p { margin: 0 0 3px; color: var(--muted); }
+.page-head .tools { margin-left: auto; display: flex; gap: 8px; }
+.btn { border: 1px solid var(--line); background: var(--sheet); color: var(--text); border-radius: 8px; padding: 6px 14px; }
+.btn:hover { border-color: #BFC6BA; }
+.btn.primary { background: var(--brass); border-color: var(--brass); color: #fff; }
+.btn.primary:hover { background: #A57627; }
+.btn.quiet { border-color: transparent; background: transparent; color: var(--ink-2); padding: 6px 8px; }
+.btn.danger { color: var(--danger); }
+.page { display: none; }
+.page.on { display: block; }
+
+/* the day's tab */
+.tab-strip { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px 16px; margin-bottom: 26px; }
+.tab-top { display: flex; align-items: baseline; gap: 28px; flex-wrap: wrap; }
+.tab-top h2 { margin: 0; font: 400 22px var(--serif-sign); color: var(--ink); }
+.figure { display: flex; align-items: baseline; gap: 6px; }
+.figure strong { font-size: 26px; font-weight: 600; color: var(--ink); }
+.figure span { color: var(--muted); }
+.legend { margin-left: auto; display: flex; gap: 16px; color: var(--muted); font-size: 12px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.ribbon { position: relative; height: 92px; margin: 16px 0 4px; border-bottom: 1px solid var(--line);
+  background: repeating-linear-gradient(90deg, transparent 0, transparent calc(100%/24 - 1px), rgba(23,60,54,.06) calc(100%/24 - 1px), rgba(23,60,54,.06) calc(100%/24)); }
+.ribbon .night { position: absolute; top: 0; bottom: 0; background: rgba(23,60,54,.05); }
+.ribbon .mark { position: absolute; bottom: 0; width: 3px; border-radius: 2px 2px 0 0; }
+.ribbon .now { position: absolute; top: -6px; bottom: -4px; width: 0; border-left: 2px dashed var(--brass); }
+.ribbon .now span { position: absolute; top: -18px; left: -14px; font-size: 12px; color: var(--brass); }
+.axis { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
+
+/* overview */
+.cols { display: grid; grid-template-columns: 1.15fr 1fr; gap: 26px; align-items: start; }
+.block h3 { margin: 0 0 8px; font: 600 15px var(--sans); color: var(--ink); display: flex; align-items: center; gap: 10px; }
+.block h3 .btn { margin-left: auto; }
+.rows { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; }
+.row { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: center; padding: 12px 16px; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .what { font-weight: 600; }
+.row .detail { color: var(--muted); font-size: 13px; }
+.row .side-note { color: var(--muted); font-size: 13px; text-align: right; }
+.ok { color: var(--chat); }
+.warn-t { color: #A46F12; }
+.req { display: grid; grid-template-columns: 54px 10px 1fr auto; gap: 10px; align-items: center; padding: 9px 16px; border-top: 1px solid var(--line); }
+.req:first-child { border-top: 0; }
+.req time { color: var(--muted); font-size: 13px; }
+.req i { width: 8px; height: 8px; border-radius: 50%; }
+.req .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.req .n { color: var(--muted); font-size: 13px; }
+
+/* models */
+.sources { display: grid; gap: 12px; margin-bottom: 30px; }
+.source { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; display: grid; grid-template-columns: 44px 1fr auto; gap: 14px; align-items: center; }
+.source.default { border-color: #D8C090; box-shadow: inset 4px 0 0 var(--brass); }
+.badge { width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; font: 400 22px var(--serif-sign); color: #fff; }
+.source .name { font-weight: 600; font-size: 15px; display: flex; gap: 8px; align-items: center; }
+.tag { font-size: 12px; font-weight: 400; padding: 0 8px; border-radius: 999px; background: var(--brass-soft); color: #7A5714; }
+.tag.grey { background: #E4E8E1; color: var(--muted); }
+.source .meta { display: flex; gap: 22px; color: var(--muted); font-size: 13px; margin-top: 2px; flex-wrap: wrap; }
+.source .actions { display: flex; gap: 6px; }
+.add-source { border: 1.5px dashed #BFC6BA; border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; color: var(--ink-2); background: transparent; width: 100%; text-align: left; }
+.add-source:hover { border-color: var(--brass); color: var(--ink); }
+.filters { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+.search { flex: 1; min-width: 220px; border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; background: var(--sheet); font: inherit; }
+.chip { border: 1px solid var(--line); background: var(--sheet); border-radius: 999px; padding: 3px 12px; font-size: 13px; color: var(--muted); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+table { width: 100%; border-collapse: collapse; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+th { text-align: left; font-weight: 400; color: var(--muted); font-size: 13px; padding: 9px 14px; border-bottom: 1px solid var(--line); background: #F4F5F1; }
+td { padding: 10px 14px; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: 0; }
+td .sub { color: var(--muted); font-size: 12px; }
+.cap { display: inline-block; font-size: 12px; padding: 0 7px; border-radius: 4px; background: #E4EDE8; color: var(--ink-2); margin-right: 4px; }
+.cap.guess { background: transparent; border: 1px dashed #A9B7AF; color: var(--muted); }
+tr.is-default td:first-child { box-shadow: inset 3px 0 0 var(--brass); }
+
+/* dialog */
+.scrim { position: fixed; inset: 0; background: rgba(15,30,27,.42); display: none; place-items: center; }
+.scrim.on { display: grid; }
+.dialog { width: min(560px, 92vw); background: var(--sheet); border-radius: 16px; padding: 24px 26px 20px; box-shadow: 0 30px 80px rgba(10,25,22,.35); }
+.dialog h2 { margin: 0 0 4px; font: 400 26px var(--serif-sign); color: var(--ink); }
+.dialog p.lead { margin: 0 0 18px; color: var(--muted); }
+.kinds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+.kind { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; text-align: left; background: #fff; }
+.kind b { display: block; }
+.kind span { font-size: 12px; color: var(--muted); }
+.kind[aria-pressed="true"] { border-color: var(--brass); box-shadow: 0 0 0 2px var(--brass-soft); }
+.field { display: grid; gap: 4px; margin-bottom: 12px; }
+.field label { font-size: 13px; color: var(--muted); }
+.field input { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font: inherit; background: #fff; }
+.field .hint { font-size: 12px; color: var(--muted); }
+.test { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: #E9F2EC; color: var(--ink); margin: 6px 0 16px; font-size: 13px; }
+.dialog-foot { display: flex; justify-content: flex-end; gap: 8px; }
+
+/* worlds */
+.worlds { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+.world { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.world-top { padding: 16px 18px 12px; }
+.world-top h3 { margin: 0; font: 400 24px var(--serif-sign); color: var(--ink); display: flex; align-items: center; gap: 10px; }
+.world-top .clock { color: var(--muted); font-size: 13px; }
+.cast { display: flex; gap: 6px; margin-top: 10px; }
+.cast span { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 13px; }
+.lastline { padding: 10px 18px; border-top: 1px solid var(--line); background: #F4F5F1; font-size: 13px; color: var(--text); }
+.lastline b { color: var(--ink-2); font-weight: 600; margin-right: 6px; }
+.world-foot { display: flex; align-items: center; gap: 10px; padding: 10px 18px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.meter { flex: 1; height: 6px; border-radius: 3px; background: #E4E8E1; overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--brass); }
+
+/* phone page */
+.connect { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin-bottom: 26px; }
+.connect .how { color: var(--muted); font-size: 13px; margin-top: 12px; }
+.kv { display: grid; grid-template-columns: 110px 1fr; gap: 10px 16px; align-content: start; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+.secret { letter-spacing: 2px; }
+
+@media (max-width: 900px) {
+  .shell { grid-template-columns: 1fr; }
+  .side { position: static; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .brand { padding: 0 8px 0 4px; }
+  .nav { display: flex; flex-wrap: wrap; }
+  .side-foot { display: none; }
+  .main { padding: 20px; }
+  .cols, .connect { grid-template-columns: 1fr; }
+  .legend { margin-left: 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ribbon .mark { animation: rise .5s ease-out both; transform-origin: bottom; }
+  @keyframes rise { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <div class="brand"><b>口袋酒馆</b><span>电脑写作服务 0.16.0</span></div>
+    <nav class="nav" aria-label="页面">
+      <button data-page="overview" aria-current="page"><svg viewBox="0 0 24 24"><path d="M4 13h6V4H4zM14 20h6v-9h-6zM4 20h6v-4H4zM14 4v4h6V4z"/></svg>总览</button>
+      <button data-page="models"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg>模型<span class="count">3 个来源</span></button>
+      <button data-page="worlds"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>小世界<span class="count">2</span></button>
+      <button data-page="phone"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>手机</button>
+      <button data-page="reach"><svg viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>联网</button>
+      <button data-page="records"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg>记录</button>
+      <button data-page="settings"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>设置</button>
+    </nav>
+    <div class="side-foot">
+      <div><span class="dot"></span>运行中，已连续 6 小时</div>
+      <div>手机在家走局域网 192.168.1.22</div>
+      <div>外面走 pt.***.site</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <!-- 总览 -->
+    <section class="page on" id="overview">
+      <div class="page-head"><h1>总览</h1><p>11 月 17 日，星期二</p></div>
+      <div class="tab-strip">
+        <div class="tab-top">
+          <h2>今天的账</h2>
+          <div class="figure"><strong>63</strong><span>次请求</span></div>
+          <div class="figure"><strong>48.2 万</strong><span>tokens</span></div>
+          <div class="figure"><strong>3</strong><span>次出错，都已重试</span></div>
+          <div class="legend"><span><i style="background:var(--chat)"></i>手机聊天</span><span><i style="background:var(--world)"></i>小世界</span><span><i style="background:var(--memory)"></i>整理记忆</span></div>
+        </div>
+        <div class="ribbon" id="ribbon"><div class="night" style="left:calc(100%/24*1);width:calc(100%/24*7)"></div></div>
+        <div class="axis"><span>0 点</span><span>6 点</span><span>12 点</span><span>18 点</span><span>24 点</span></div>
+      </div>
+      <div class="cols">
+        <div class="block">
+          <h3>现在的情况</h3>
+          <div class="rows">
+            <div class="row"><span class="ok">●</span><div><div class="what">模型来源都能用</div><div class="detail">默认模型 DeepSeek V4.1 Flash（Venice）</div></div><div class="side-note">3 个来源<br>212 个模型</div></div>
+            <div class="row"><span class="ok">●</span><div><div class="what">手机刚连过</div><div class="detail">2 分钟前，走家里局域网</div></div><div class="side-note">口袋酒馆 0.4.3</div></div>
+            <div class="row"><span class="warn-t">●</span><div><div class="what">小世界「海边民宿」暂停中</div><div class="detail">「梧桐里 302」在运行，下次推进 21:30</div></div><div class="side-note"><button class="btn quiet">去看看</button></div></div>
+            <div class="row"><span class="ok">●</span><div><div class="what">手机备份</div><div class="detail">今天 08:12 自动备份，32 MB</div></div><div class="side-note">保留 20 份</div></div>
+            <div class="row"><span class="warn-t">●</span><div><div class="what">TikTok 没登录</div><div class="detail">抖音、微博、小红书、X 已登录</div></div><div class="side-note"><button class="btn quiet">去登录</button></div></div>
+          </div>
+        </div>
+        <div class="block">
+          <h3>最近的请求<button class="btn quiet">全部记录</button></h3>
+          <div class="rows" id="recent"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模型 -->
+    <section class="page" id="models">
+      <div class="page-head"><h1>模型</h1><p>手机在“电脑”平台下看到的模型，都从这里的来源读取</p></div>
+      <div class="block"><h3>模型来源</h3></div>
+      <div class="sources">
+        <div class="source default">
+          <div class="badge" style="background:#3B5BA5">威</div>
+          <div><div class="name">Venice <span class="tag">默认模型在这里</span></div>
+            <div class="meta"><span>api.venice.ai</span><span>密钥 ••••8f2a</span><span>145 个文字模型</span><span>10 分钟前读取</span></div></div>
+          <div class="actions"><button class="btn quiet">重新读取</button><button class="btn">编辑</button></div>
+        </div>
+        <div class="source">
+          <div class="badge" style="background:#7A4E9A">转</div>
+          <div><div class="name">我的中转 <span class="tag grey">OpenAI 兼容</span></div>
+            <div class="meta"><span>api.xx***.com/v1</span><span>密钥 ••••c31d</span><span>58 个模型</span><span>手机里显示为“中转/模型名”</span></div></div>
+          <div class="actions"><button class="btn quiet">重新读取</button><button class="btn">编辑</button></div>
+        </div>
+        <div class="source">
+          <div class="badge" style="background:#4F6B2F">本</div>
+          <div><div class="name">本机 Ollama <span class="tag grey">没有运行</span></div>
+            <div class="meta"><span>127.0.0.1:11434</span><span>不需要密钥</span><span>上次读到 9 个模型</span></div></div>
+          <div class="actions"><button class="btn quiet">重新读取</button><button class="btn">编辑</button></div>
+        </div>
+        <button class="add-source" id="open-add"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg><div><b>添加来源</b><div style="font-size:13px;color:var(--muted)">接入别的平台：中转站、DeepSeek、Kimi、OpenRouter、本机 Ollama……只要是 OpenAI 兼容的接口都行</div></div></button>
+      </div>
+      <div class="block"><h3>全部模型</h3></div>
+      <div class="filters">
+        <input class="search" placeholder="搜模型名字，例如 kimi、deepseek、qwen" aria-label="搜索模型">
+        <button class="chip" aria-pressed="true">全部来源</button><button class="chip">Venice</button><button class="chip">我的中转</button><button class="chip">能看图</button><button class="chip">能调工具</button>
+      </div>
+      <table>
+        <thead><tr><th>模型</th><th>来源</th><th>上下文</th><th>能力</th><th>价格（每百万 tokens）</th><th></th></tr></thead>
+        <tbody>
+          <tr class="is-default"><td><b>DeepSeek V4.1 Flash</b><div class="sub">deepseek-v4-1-flash-1017</div></td><td>Venice</td><td>100 万</td><td><span class="cap">工具</span><span class="cap">思考</span></td><td>输入 0.14 / 输出 0.28 美元</td><td><span class="tag">默认</span></td></tr>
+          <tr><td><b>Kimi K3.1 Pro</b><div class="sub">kimi-k3-1-pro</div></td><td>Venice</td><td>100 万</td><td><span class="cap">工具</span><span class="cap">看图</span><span class="cap">思考</span></td><td>输入 0.80 / 输出 3.20 美元</td><td><button class="btn quiet">设为默认</button></td></tr>
+          <tr><td><b>k3.1-pro</b><div class="sub">中转/k3.1-pro</div></td><td>我的中转</td><td>100 万</td><td><span class="cap guess" title="平台没写，按 Venice 上的同名模型推测">工具</span><span class="cap guess" title="平台没写，按 Venice 上的同名模型推测">看图</span></td><td class="sub">平台没给价格</td><td><button class="btn quiet">设为默认</button></td></tr>
+          <tr><td><b>Qwen3 235B</b><div class="sub">qwen3-235b-a22b</div></td><td>Venice</td><td>13 万</td><td><span class="cap">工具</span></td><td>输入 0.90 / 输出 4.50 美元</td><td><button class="btn quiet">设为默认</button></td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--muted);font-size:13px">虚线框的能力是平台没写、按别的来源上的同一个模型推测的；不对的话在手机模型页“修改能力”里改。</p>
+    </section>
+
+    <!-- 小世界 -->
+    <section class="page" id="worlds">
+      <div class="page-head"><h1>小世界</h1><p>在这台电脑上一直运行的世界；手机打开时同步</p><div class="tools"><button class="btn">粘贴世界 JSON</button></div></div>
+      <div class="worlds">
+        <article class="world">
+          <div class="world-top"><h3>梧桐里 302 <span class="tag" style="background:#DDEFE5;color:#245F45">运行中</span></h3>
+            <div class="clock">世界时间 11 月 17 日 周二 21:06，下次推进 21:30</div>
+            <div class="cast"><span style="background:#3F6B5A">林</span><span style="background:#7A5A32">周</span><span style="background:#3F5E8C">苏</span><span style="background:#8A4A5E">陈</span><span style="background:#4F6B2F">黑</span></div></div>
+          <div class="lastline"><b>苏糖</b>面打包回来了！林晚姐的葱油拌面放桌上了</div>
+          <div class="world-foot">今天 23/80 次请求<div class="meter"><i style="width:29%"></i></div><button class="btn quiet">打开</button></div>
+        </article>
+        <article class="world">
+          <div class="world-top"><h3>海边民宿 <span class="tag grey">暂停中</span></h3>
+            <div class="clock">世界时间停在 11 月 17 日 17:07</div>
+            <div class="cast"><span style="background:#5B4A8A">林</span><span style="background:#7A5A32">小</span><span style="background:#3F5E8C">老</span></div></div>
+          <div class="lastline"><b>开场</b>清晨，第一班渡轮靠岸。</div>
+          <div class="world-foot">今天 0/80 次请求<div class="meter"><i style="width:0"></i></div><button class="btn quiet">继续运行</button></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 手机 -->
+    <section class="page" id="phone">
+      <div class="page-head"><h1>手机</h1><p>手机怎么连到这台电脑，以及存在这里的备份和表情包</p></div>
+      <div class="connect">
+        <dl class="kv">
+          <dt>在家</dt><dd>http://192.168.1.22:8791/v1 <button class="btn quiet">复制</button></dd>
+          <dt>在外面</dt><dd>https://pt.***.site/v1 <button class="btn quiet">复制</button></dd>
+          <dt>网关 Token</dt><dd><span class="secret">a1b2••••••••••••9z0y</span> <button class="btn quiet">显示</button><button class="btn quiet">复制</button></dd>
+          <dt>上次连接</dt><dd>2 分钟前，口袋酒馆 0.4.3，走局域网</dd>
+        </dl>
+        <div class="how" style="max-width:240px;margin:0">手机上在“模型 → 添加平台 → 本机写作服务”里，接口地址填“在外面”，家里的局域网地址填“在家”，API Key 填网关 Token。</div>
+      </div>
+      <div class="cols">
+        <div class="block"><h3>手机备份<button class="btn quiet">保留 20 份</button></h3>
+          <div class="rows">
+            <div class="row"><span class="ok">●</span><div><div class="what">今天 08:12</div><div class="detail">自动备份，32.4 MB，App 0.4.3</div></div><div class="side-note"><button class="btn quiet">下载</button></div></div>
+            <div class="row"><span class="ok">●</span><div><div class="what">昨天 23:40</div><div class="detail">手动备份，31.9 MB，App 0.4.2</div></div><div class="side-note"><button class="btn quiet">下载</button></div></div>
+          </div></div>
+        <div class="block"><h3>表情包</h3>
+          <div class="rows">
+            <div class="row"><span class="ok">●</span><div><div class="what">熊猫头</div><div class="detail">32 张，已启用</div></div><div class="side-note"><button class="btn quiet">管理</button></div></div>
+            <div class="row"><span class="ok">●</span><div><div class="what">黑猫</div><div class="detail">18 张，只给黑猫用</div></div><div class="side-note"><button class="btn quiet">管理</button></div></div>
+          </div></div>
+      </div>
+    </section>
+
+    <section class="page" id="reach"><div class="page-head"><h1>联网</h1><p>搜网页、读链接、看 B 站字幕、查社交平台；登录状态和保活</p></div><p style="color:var(--muted)">（这一页把现在的“联网搜索”“B 站登录”“社交平台”三块合在一起，按同样的列表样式排；设计稿略。）</p></section>
+    <section class="page" id="records"><div class="page-head"><h1>记录</h1><p>每次请求的详情和服务日志</p></div><p style="color:var(--muted)">（“最近的请求”变成可筛选的列表：按用途、模型、成功/失败；点一行在右侧展开详情。日志放在下面。设计稿略。）</p></section>
+    <section class="page" id="settings"><div class="page-head"><h1>设置</h1><p>写作服务自己的设置，和手机“电脑设置”是同一份</p></div><p style="color:var(--muted)">（思考强度、审校、上游最长等待、保留备份份数等，按“说明在左、选项在右”的表单排；设计稿略。）</p></section>
+  </main>
+</div>
+
+<div class="scrim" id="add-dialog" role="dialog" aria-modal="true" aria-labelledby="add-title">
+  <div class="dialog">
+    <h2 id="add-title">添加模型来源</h2>
+    <p class="lead">填好地址和密钥，先试一下能不能读到模型，再保存。密钥只存在这台电脑上，不会发到手机。</p>
+    <div class="kinds">
+      <button class="kind" aria-pressed="true"><b>OpenAI 兼容</b><span>中转站、DeepSeek、Kimi、OpenRouter</span></button>
+      <button class="kind"><b>Venice</b><span>再加一个 Venice 账号</span></button>
+      <button class="kind"><b>本机 Ollama</b><span>不需要密钥</span></button>
+    </div>
+    <div class="field"><label for="f-name">名字</label><input id="f-name" value="我的中转"><span class="hint">手机里这个来源的模型显示为“名字/模型”，例如“中转/k3.1-pro”</span></div>
+    <div class="field"><label for="f-url">接口地址</label><input id="f-url" value="https://api.xx***.com/v1"></div>
+    <div class="field"><label for="f-key">密钥</label><input id="f-key" type="password" value="sk-xxxxxxxxxxxxxxxx"></div>
+    <div class="test">✓ 读到了 58 个模型，其中 kimi、deepseek、qwen 系列 31 个能调工具</div>
+    <div class="dialog-foot"><button class="btn" id="close-add">取消</button><button class="btn">再试一次</button><button class="btn primary">保存来源</button></div>
+  </div>
+</div>
+
+<script>
+// Sample data for the mockup only.
+const ribbon = document.getElementById('ribbon');
+const kinds = { chat: 'var(--chat)', world: 'var(--world)', memory: 'var(--memory)' };
+const marks = [];
+const add = (h, m, kind, tokens) => marks.push({ t: h + m / 60, kind, tokens });
+[[0,40],[0,52],[9,5],[9,12],[9,30],[10,2],[10,15],[11,20],[11,24],[12,48],[13,10],[13,40],[14,5],[19,2],[19,40],[20,11],[20,30],[20,48],[21,0]].forEach(([h,m]) => add(h, m, 'chat', 4000 + Math.random() * 20000));
+for (let t = 11.3; t < 21; t += 0.5) if (!(t > 14.2 && t < 18.3)) add(Math.floor(t), (t % 1) * 60, 'world', 3500 + Math.random() * 1500);
+for (let t = 18.3; t < 20.1; t += 0.25) add(Math.floor(t), (t % 1) * 60, 'world', 4000 + Math.random() * 1200);
+[[10,20],[13,12],[20,33]].forEach(([h,m]) => add(h, m, 'memory', 30000 + Math.random() * 20000));
+const max = Math.log(60000);
+marks.forEach((mk, i) => {
+  const el = document.createElement('div');
+  el.className = 'mark';
+  el.style.left = `calc(${(mk.t / 24) * 100}% - 1px)`;
+  el.style.height = `${Math.max(10, (Math.log(mk.tokens) / max) * 86)}px`;
+  el.style.background = kinds[mk.kind];
+  el.style.animationDelay = `${i * 8}ms`;
+  ribbon.append(el);
+});
+const now = document.createElement('div');
+now.className = 'now'; now.style.left = `${(21.1 / 24) * 100}%`; now.innerHTML = '<span>现在</span>';
+ribbon.append(now);
+
+const recent = [
+  ['21:06', 'world', '梧桐里 302 推进一次', '4.1k'],
+  ['21:00', 'chat', '黑猫｜“你今天又熬夜？”', '18.3k'],
+  ['20:48', 'chat', '剧本助手｜极寒末世 第 3 章', '22.0k'],
+  ['20:36', 'world', '梧桐里 302 推进一次', '3.9k'],
+  ['20:33', 'memory', '整理记忆｜长篇《雾港旧事》', '41.6k'],
+  ['20:30', 'chat', '大肥鱼｜看了个 B 站视频', '9.7k'],
+];
+document.getElementById('recent').innerHTML = recent.map(([t, k, what, n]) =>
+  `<div class="req"><time>${t}</time><i style="background:${kinds[k]}"></i><span class="t">${what}</span><span class="n">${n}</span></div>`).join('');
+
+document.querySelectorAll('.nav button').forEach((button) => button.addEventListener('click', () => {
+  document.querySelectorAll('.nav button').forEach((b) => b.removeAttribute('aria-current'));
+  button.setAttribute('aria-current', 'page');
+  document.querySelectorAll('.page').forEach((p) => p.classList.toggle('on', p.id === button.dataset.page));
+}));
+document.getElementById('open-add').onclick = () => document.getElementById('add-dialog').classList.add('on');
+document.getElementById('close-add').onclick = () => document.getElementById('add-dialog').classList.remove('on');
+const hash = location.hash.slice(1);
+if (hash === 'add') { document.querySelector('[data-page="models"]').click(); document.getElementById('open-add').click(); }
+else if (hash) document.querySelector(`[data-page="${hash}"]`)?.click();
+</script>
+</body>
+</html>
