@@ -33,8 +33,13 @@ data class SummaryResolution(
 
 /** Builds the exact OpenAI-compatible message list used for the next request. */
 object ContextEngine {
-    private const val DEFAULT_CONTEXT = 32_768
+    private const val DEFAULT_CONTEXT = ModelWindows.FALLBACK
     private const val SAFETY_FLOOR = 512
+    /**
+     * The share of the input budget kept for the conversation (summary and recent turns). Skills are
+     * only left out when, with all of them, the fixed part of the request would eat into this.
+     */
+    internal const val CONVERSATION_SHARE = 0.25
     /** Normally preserve the latest exchange; emergency recovery may summarize the entire source span. */
     private const val MIN_KEPT_TURNS = 2
 
@@ -43,6 +48,18 @@ object ContextEngine {
      * [onPc] says the chat uses the PC writing server, which runs engines the phone cannot (DSH).
      */
     fun build(data: AppData, chat: Chat, stickers: List<Sticker> = StickerGate.stickers(data), onPc: Boolean = false): ContextBuild {
+        val full = build(data, chat, stickers, onPc, skillCap = Int.MAX_VALUE)
+        val budget = full.budgetBreakdown ?: return full
+        if (budget.skillTokens == 0) return full
+        // Compressing history can still make room while the fixed part leaves a quarter of the budget.
+        val conversation = (budget.inputBudget * CONVERSATION_SHARE).toInt()
+        val fixed = budget.estimatedInputTokens - budget.recentTokens - budget.summaryTokens
+        if (fixed + conversation <= budget.inputBudget) return full
+        // It does not: the Skills get what is left once the rest of the fixed part and that quarter are counted.
+        return build(data, chat, stickers, onPc, skillCap = (budget.inputBudget - conversation - (fixed - budget.skillTokens)).coerceAtLeast(0))
+    }
+
+    private fun build(data: AppData, chat: Chat, stickers: List<Sticker>, onPc: Boolean, skillCap: Int): ContextBuild {
         val preset = data.presets.firstOrNull { it.id == chat.presetId }
             ?: data.presets.firstOrNull()
             ?: Preset(id = chat.presetId)
@@ -68,12 +85,36 @@ object ContextEngine {
         if (group != null) addSystem(GroupChats.cards(GroupChats.members(group, data.characters), data.settings.userPersona), "character")
         else addSystem(characterPrompt(character, data.settings.userPersona), "character")
 
+        // The budget first: it decides how many of the selected Skills fit.
+        val modelWindow = ModelWindows.of(model, data.providers)
+        val contextWindow = ModelWindows.effective(model, data.providers, data.settings.contextOverride)
+        val reserve = maxOf(SAFETY_FLOOR, (contextWindow * 0.05).toInt())
+        // Only an explicitly sent budget consumes its own reservation. With
+        // the optional budget off, saved numbers are dormant; the provider
+        // selects its generation limit and the existing safety margin remains.
+        val budgetSent = preset.generationBudgetEnabled || provider?.kind?.equals("anthropic", ignoreCase = true) == true
+        val generationReserve = if (!budgetSent) 0 else if (provider?.kind?.equals("venice", ignoreCase = true) == true) {
+            VeniceModelCapabilities.from(model).totalCompletionBudget(preset).coerceAtMost(Int.MAX_VALUE.toLong()).toInt()
+        } else preset.maxOutput
+        val modelInputBudget = (contextWindow - generationReserve.coerceAtLeast(0) - reserve).coerceAtLeast(1)
+        // A large model window is a transport ceiling, not a requirement to refill
+        // every request. This spending limit triggers compaction without truncating
+        // source messages or reducing the summary model's available input window.
+        val budget = data.settings.maxContextInputTokens.takeIf { it > 0 }
+            ?.let { minOf(it, modelInputBudget) } ?: modelInputBudget
+        val threshold = data.settings.compressionThreshold.coerceIn(0.1, 1.0)
+        val trigger = (budget * threshold).toInt()
+        val keepTurns = data.settings.keepRecentTurns.coerceAtLeast(1)
+
         val selectedSkills = ToolRuntime.activeSkills(data.skills, data.settings, chat)
+        val toolsSupported = model?.supportsTools == true
         // Skills selected for the conversation are injected as-is after the
         // global adult-skill gate in ToolRuntime. NarrativePolicy supplies
-        // writing guidance; it does not create a separate tone switch.
-        val skills = selectedSkills
-        val toolsSupported = model?.supportsTools == true
+        // writing guidance; it does not create a separate tone switch. Skills
+        // that cannot fit the model are left out of this turn instead of
+        // refusing to send; the chat says which.
+        val fitted = fitSkills(selectedSkills, toolsSupported, skillCap)
+        val skills = fitted.first
         if (skills.any { it.adult }) addSystem(ADULT_BOUNDARY)
         if (skills.isNotEmpty()) addSystem(if (toolsSupported) SKILL_CHAT_MODE_WITH_TOOLS else SKILL_CHAT_MODE_NO_TOOLS)
         val dshEngine = DshTool.available(skills, onPc, toolsSupported)
@@ -160,25 +201,6 @@ object ContextEngine {
         if (stickersOn) addSystem(StickerPrompt.turn(stickerTurn, StickerGate.recentKeys(chat)), "policy")
 
         val toolsTokens = if (toolDefinitions == "[]") 0 else estimateTokens(toolDefinitions)
-        val modelWindow = model?.contextTokens?.takeIf { it > 0 } ?: DEFAULT_CONTEXT
-        val contextWindow = data.settings.contextOverride.takeIf { it > 0 }?.let { minOf(it, modelWindow) } ?: modelWindow
-        val reserve = maxOf(SAFETY_FLOOR, (contextWindow * 0.05).toInt())
-        // Only an explicitly sent budget consumes its own reservation. With
-        // the optional budget off, saved numbers are dormant; the provider
-        // selects its generation limit and the existing safety margin remains.
-        val budgetSent = preset.generationBudgetEnabled || provider?.kind?.equals("anthropic", ignoreCase = true) == true
-        val generationReserve = if (!budgetSent) 0 else if (provider?.kind?.equals("venice", ignoreCase = true) == true) {
-            VeniceModelCapabilities.from(model).totalCompletionBudget(preset).coerceAtMost(Int.MAX_VALUE.toLong()).toInt()
-        } else preset.maxOutput
-        val modelInputBudget = (contextWindow - generationReserve.coerceAtLeast(0) - reserve).coerceAtLeast(1)
-        // A large model window is a transport ceiling, not a requirement to refill
-        // every request. This spending limit triggers compaction without truncating
-        // source messages or reducing the summary model's available input window.
-        val budget = data.settings.maxContextInputTokens.takeIf { it > 0 }
-            ?.let { minOf(it, modelInputBudget) } ?: modelInputBudget
-        val threshold = data.settings.compressionThreshold.coerceIn(0.1, 1.0)
-        val trigger = (budget * threshold).toInt()
-        val keepTurns = data.settings.keepRecentTurns.coerceAtLeast(1)
 
         val live = chat.messages.drop(cutoff + 1)
         val currentUser = chat.messages.getOrNull(latestUserIndex)
@@ -270,9 +292,36 @@ object ContextEngine {
             chapterTokens = categories["chapter"] ?: 0, profileTokens = categories["profile"] ?: 0,
             recentTurns = turnGroups(sentLive).size, pendingTurns = liveGroups.size, foldTurns = foldTurns
         )
-        val preview = CompressionScope.describeBudget(breakdown) + "\n\n" +
+        val skipped = fitted.second.map { it.name.ifBlank { "未命名 Skill" } }
+        val skippedNote = if (skipped.isEmpty()) "" else "\n" + skippedSkillsNote(skipped, breakdown)
+        val preview = CompressionScope.describeBudget(breakdown) + skippedNote + "\n\n" +
             buildPreview(previewMessagesJson(messagesJson), toolDefinitions, estimated, budget, validSummary, skills.size)
-        return ContextBuild(messagesJson, estimated, budget, needsCompression, preview, toolDefinitions, skillTokens, compression, breakdown)
+        return ContextBuild(messagesJson, estimated, budget, needsCompression, preview, toolDefinitions, skillTokens, compression, breakdown, skipped)
+    }
+
+    /**
+     * The selected Skills that fit in [cap] tokens, in the chat's order, and the ones left out. All of
+     * them go when they fit together; otherwise each goes while it still fits, so a smaller one later
+     * in the list can take the room a large one could not use.
+     */
+    internal fun fitSkills(skills: List<app.pockettavern.domain.SkillRecord>, toolsSupported: Boolean, cap: Int): Pair<List<app.pockettavern.domain.SkillRecord>, List<app.pockettavern.domain.SkillRecord>> {
+        val costs = skills.map { skillPromptTokens(it, toolsSupported) }
+        if (costs.sum() <= cap) return skills to emptyList()
+        val kept = mutableListOf<app.pockettavern.domain.SkillRecord>()
+        val left = mutableListOf<app.pockettavern.domain.SkillRecord>()
+        var used = 0
+        skills.forEachIndexed { index, skill ->
+            if (used + costs[index] <= cap) { kept += skill; used += costs[index] } else left += skill
+        }
+        return kept to left
+    }
+
+    /** Says which limit left the Skills out: the daily input budget in 设置, or the model itself. */
+    fun skippedSkillsNote(names: List<String>, breakdown: app.pockettavern.domain.ContextBudgetBreakdown?): String {
+        val spending = breakdown != null && breakdown.configuredInputLimit in 1 until breakdown.modelInputBudget
+        val limit = if (spending) "日常输入预算约 ${"%,d".format(breakdown!!.inputBudget)} tokens" else "模型容量约 ${"%,d".format(breakdown?.effectiveWindow ?: 0)} tokens"
+        val fix = if (spending) "在设置里提高日常输入预算，或少选几个 Skill" else "换更大窗口的模型、少选几个 Skill，或在设置里填写这个模型的上下文窗口"
+        return "$limit，放不下全部 Skills：本轮没带上 ${names.joinToString("、")}。$fix，就能全部带上。"
     }
 
     private fun isSent(message: Message): Boolean {
@@ -288,7 +337,7 @@ object ContextEngine {
         val modelId = preset.summaryModelId.ifBlank { chat.modelId }
         val summaryProvider = data.providers.firstOrNull { it.id == providerId }
         val summaryModel = summaryProvider?.models?.firstOrNull { it.id == modelId }
-        val window = MemoryRebuilder.effectiveWindow(summaryModel?.contextTokens ?: DEFAULT_CONTEXT, data.settings.contextOverride)
+        val window = ModelWindows.effective(summaryModel, data.providers, data.settings.contextOverride)
         val requested = HistoryCompressor.outputLimit(window)
         val output = if (summaryProvider?.kind == "venice") {
             minOf(requested, VeniceModelCapabilities.from(summaryModel).maxCompletionTokens ?: requested)

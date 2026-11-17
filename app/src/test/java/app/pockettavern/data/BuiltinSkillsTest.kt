@@ -318,8 +318,11 @@ class BuiltinSkillsTest {
     @Test fun skillPromptsGetNoAppendedNote() {
         val root = File("src/main/assets")
         val loaded = BuiltinSkills.load { File(root, it).readText() }
-        val chat = Chat(id = "c", messages = listOf(Message(role = "user", content = "开始")))
-        var data = AppData(chats = listOf(chat), skills = loaded)
+        // A model with room for all five; a chat without one is planned at the 32,768 fallback, where 0.3.4 leaves Skills out.
+        val provider = app.pockettavern.domain.ProviderConfig(id = "p", models = listOf(app.pockettavern.domain.ModelInfo(id = "m", type = "text", contextTokens = 200_000,
+            rawJson = """{"id":"m","context_length":200000}""")))
+        val chat = Chat(id = "c", providerId = "p", modelId = "m", messages = listOf(Message(role = "user", content = "开始")))
+        var data = AppData(providers = listOf(provider), chats = listOf(chat), skills = loaded)
         listOf("tm-deslop", "tm-dialogue", "tm-continuity", "dp-character-style", "tt-sp-roleplay").forEach {
             data = BuiltinSkills.selectForChat(data, "c", "builtin-writing-$it", true)
         }

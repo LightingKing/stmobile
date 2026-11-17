@@ -3,7 +3,13 @@ package app.pockettavern.domain
 import java.util.UUID
 
 fun newId(): String = UUID.randomUUID().toString()
-data class ProviderConfig(val id: String = newId(), val name: String = "Venice", val kind: String = "venice", val baseUrl: String = "https://api.venice.ai/api/v1", val models: List<ModelInfo> = emptyList(), val refreshedAt: Long = 0, val lanBaseUrl: String = "")
+data class ProviderConfig(val id: String = newId(), val name: String = "Venice", val kind: String = "venice", val baseUrl: String = "https://api.venice.ai/api/v1", val models: List<ModelInfo> = emptyList(), val refreshedAt: Long = 0, val lanBaseUrl: String = "",
+    /** The user's corrections by model id; applied again after every refresh (see engine.ModelCapabilities). */
+    val modelEdits: Map<String, ModelEdit> = emptyMap())
+/** What the user says a model can do, where its platform says otherwise or nothing; null or 0 keeps the platform's value. */
+data class ModelEdit(val vision: Boolean? = null, val tools: Boolean? = null, val contextTokens: Int = 0) {
+    val isEmpty: Boolean get() = vision == null && tools == null && contextTokens <= 0
+}
 data class ModelInfo(val id: String = "", val name: String = "", val type: String = "text", val contextTokens: Int = 32768, val supportsTools: Boolean = false, val supportsVision: Boolean = false, val supportsReasoning: Boolean = false, val offline: Boolean = false, val rawJson: String = "{}")
 data class Attachment(val id: String = newId(), val name: String = "", val mime: String = "", val path: String = "", val dataUrl: String = "")
 data class Message(val id: String = newId(), val role: String = "user", val content: String = "", val reasoning: String = "", val toolCallsJson: String = "[]", val toolCallId: String = "", val status: String = "complete", val createdAt: Long = System.currentTimeMillis(), val attachments: List<Attachment> = emptyList(), val errorMessage: String = "", val finishReason: String = "", val requestId: String = "", val contextExcluded: Boolean = false, val intent: String = "dialogue", val generationId: String = "", val revisionOf: String = "", val qualityNotice: String = "", val skillSnapshotJson: String = "")
@@ -113,7 +119,9 @@ data class CompletionResult(val content: String = "", val reasoning: String = ""
 data class StreamDelta(val content: String = "", val reasoning: String = "", val replaceContent: Boolean = false) {
     fun appendTo(text: StreamDelta): StreamDelta = StreamDelta(if (replaceContent) content else text.content + content, text.reasoning + reasoning)
 }
-data class ContextBuild(val messagesJson: String, val estimatedTokens: Int, val budget: Int, val needsCompression: Boolean, val preview: String, val toolDefinitions: String = "[]", val skillTokens: List<Pair<String, Int>> = emptyList(), val compression: CompressionSlice? = null, val budgetBreakdown: ContextBudgetBreakdown? = null)
+data class ContextBuild(val messagesJson: String, val estimatedTokens: Int, val budget: Int, val needsCompression: Boolean, val preview: String, val toolDefinitions: String = "[]", val skillTokens: List<Pair<String, Int>> = emptyList(), val compression: CompressionSlice? = null, val budgetBreakdown: ContextBudgetBreakdown? = null,
+    /** Names of selected Skills left out of this request because the model could not take them all. */
+    val skippedSkills: List<String> = emptyList())
 /** [messages] are only the turns not yet covered by [previousSummary]; [sourceHash] covers the whole prefix. */
 data class CompressionSlice(val messages: List<Message>, val throughMessageId: String, val sourceHash: String, val previousSummary: String = "", val projectedTokens: Int = 0)
 

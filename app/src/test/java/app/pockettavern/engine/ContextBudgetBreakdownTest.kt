@@ -83,13 +83,15 @@ class ContextBudgetBreakdownTest {
         assertEquals("NONE", b.triggerReason)
     }
 
-    @Test fun aLargeSkillThatAloneExceedsBudgetDoesNotTriggerPaidRepeatedCompression() {
+    @Test fun aLargeSkillThatAloneExceedsBudgetIsLeftOutInsteadOfBlockingTheRequest() {
+        // Before 0.3.4 this request could not be sent at all (FIXED_INPUT_EXCEEDS_BUDGET).
         val skill = SkillRecord(id = "skill", name = "超大资料", content = "设".repeat(50_000), enabled = true)
         val chat = chat(history(10)).copy(skillIds = listOf(skill.id))
         val built = ContextEngine.build(data().copy(skills = listOf(skill)), chat)
-        assertTrue(built.estimatedTokens > built.budget)
-        assertFalse("Compacting dialogue cannot fix a fixed prompt that already exceeds the cap", built.needsCompression)
-        assertEquals("FIXED_INPUT_EXCEEDS_BUDGET", built.budgetBreakdown!!.blockedReason)
+        assertEquals(listOf("超大资料"), built.skippedSkills)
+        assertTrue(built.estimatedTokens <= built.budget)
+        assertFalse("Compacting dialogue was never the fix for an oversized Skill", built.needsCompression)
+        assertEquals("", built.budgetBreakdown!!.blockedReason)
     }
 
     @Test fun theOnlyKeptCurrentTurnCannotBeFixedByRepeatedlySummarizingOlderTurns() {

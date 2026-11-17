@@ -511,7 +511,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         val reports=mutableListOf<String>()
         for(p in targets) {
             try {
-                val models=providerClient.models(routed(p),key(p.id))
+                val models=ModelCapabilities.refreshed(p.id, providerClient.models(routed(p),key(p.id)), data.providers, p.modelEdits)
                 change(data.copy(providers=data.providers.map { if(it.id==p.id) it.copy(models=models,refreshedAt=System.currentTimeMillis()) else it }))
                 reports+="${p.name}：${models.size} 个模型"
             } catch(error:Exception) {
@@ -521,6 +521,14 @@ class AppController(application: Application) : AndroidViewModel(application), A
             }
         }
         status(reports.joinToString("；"))
+    }
+
+    override fun editModel(providerId: String, modelId: String, edit: ModelEdit?) {
+        if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
+        val p = data.providers.firstOrNull { it.id == providerId } ?: run { status("找不到平台"); return }
+        if (p.models.none { it.id == modelId }) { status("找不到这个模型，请先刷新模型目录"); return }
+        change(data.copy(providers = data.providers.map { if (it.id == providerId) ModelCapabilities.withEdit(it, modelId, edit) else it }))
+        status(if (edit == null || edit.isEmpty) "已清除修改；刷新模型目录后恢复为平台提供的值" else "已保存模型能力")
     }
 
     override fun refreshVeniceBalance(providerId: String) {
@@ -628,7 +636,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         require(modelId.isNotBlank()) { "请先选择可用的整理模型" }
         val model = p.models.find { it.id == modelId }
         require(model != null && model.type == "text" && !model.offline) { "整理模型不可用，请刷新模型目录后重试" }
-        val window = MemoryRebuilder.effectiveWindow(model.contextTokens, data.settings.contextOverride)
+        val window = ModelWindows.effective(model, data.providers, data.settings.contextOverride)
         val output = HistoryCompressor.outputLimit(window)
         val organizePreset = DeepSeekWriting.summaryPreset(active, p, model, output)
         val secret = key(p.id)
@@ -914,6 +922,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
             var chat=current(chatId)
             var context=buildContext(data, chat)
             recordContextBudget(context)
+            noteSkippedSkills(chatId, context)
             if(context.needsCompression && data.settings.autoCompress) { summarize(chatId); chat=current(chatId); context=buildContext(data, chat) }
             require(context.estimatedTokens<=context.budget) { overBudgetMessage("上下文超出预算：请压缩历史、减少固定内容或调整上下文窗口",context) }
             val p=provider(chat.providerId); val secret=key(p.id); val model=p.models.find { it.id==chat.modelId }
@@ -1095,6 +1104,15 @@ class AppController(application: Application) : AndroidViewModel(application), A
             .put("context_tool_tokens", budget.toolTokens).put("context_model_window", budget.modelWindow)
             .put("context_daily_limit", budget.configuredInputLimit).toString()) }
     }
+    /** Which Skills a chat was last told about leaving out, so the note comes once per change, not every turn. */
+    private val skippedSkillNotes = java.util.concurrent.ConcurrentHashMap<String, List<String>>()
+    private fun noteSkippedSkills(chatId: String, context: ContextBuild) {
+        val skipped = context.skippedSkills
+        if (skippedSkillNotes[chatId] == skipped) return
+        skippedSkillNotes[chatId] = skipped
+        if (skipped.isNotEmpty()) status(ContextEngine.skippedSkillsNote(skipped, context.budgetBreakdown))
+    }
+
     private fun overBudgetMessage(base: String, context: ContextBuild): String {
         val heavy=context.skillTokens.sortedByDescending { it.second }.take(3).joinToString("、") { "${it.first} 约 ${it.second}" }
         val detail="（估算 ${context.estimatedTokens}/${context.budget} tokens"+(if(heavy.isBlank()) "" else "；已选 Skills：$heavy tokens")+"；可减少固定内容、保留轮数，或到设置提高日常输入预算；预算仍受模型容量限制）"
@@ -1518,7 +1536,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 val shown = picked.mapNotNull { picture -> researchPictures[picture.id]?.let { picture.mime to android.util.Base64.encodeToString(it, android.util.Base64.NO_WRAP) } }
                 val skillTokens = skillTexts.sumOf { ContextEngine.estimateTokens(it) }
                 val messages = if (usable == null) CharacterDrafts.messages(idea, base, skillTexts)
-                    else CharacterResearch.draftMessages(idea, base, usable, shown, CharacterResearch.budgetChars(model.contextTokens - skillTokens),
+                    else CharacterResearch.draftMessages(idea, base, usable, shown, CharacterResearch.budgetChars(ModelWindows.of(model, data.providers) - skillTokens),
                         minePictures = picked.count { it.mine }, skillTexts = skillTexts)
                 val response = repaired(draftClient, routed(p), key(p.id), modelId,
                     draftClient.chat(routed(p), key(p.id), modelId, messages, CharacterDrafts.preset(), toolsJson = "[]", finalAnswerOnly = true))
@@ -1981,7 +1999,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         require(modelId.isNotBlank()) { "请选择摘要模型" }
         val summaryModel=p.models.find { it.id==modelId }
         require(summaryModel!=null && summaryModel.type=="text" && !summaryModel.offline) { "摘要模型不可用，请刷新目录并重新选择" }
-        val window=MemoryRebuilder.effectiveWindow(summaryModel.contextTokens,data.settings.contextOverride)
+        val window=ModelWindows.effective(summaryModel,data.providers,data.settings.contextOverride)
         val output=HistoryCompressor.outputLimit(window)
         val secret=key(p.id)
         val summaryPreset=DeepSeekWriting.summaryPreset(active,p,summaryModel,output)
@@ -2076,7 +2094,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
         require(modelId.isNotBlank()) { "请选择摘要模型" }
         val summaryModel=p.models.find { it.id==modelId }
         require(summaryModel!=null && summaryModel.type=="text" && !summaryModel.offline) { "摘要模型不可用，请刷新目录并重新选择" }
-        val window=MemoryRebuilder.effectiveWindow(summaryModel.contextTokens,data.settings.contextOverride)
+        val window=ModelWindows.effective(summaryModel,data.providers,data.settings.contextOverride)
         val output=HistoryCompressor.outputLimit(window)
         val summaryPreset=DeepSeekWriting.summaryPreset(active,p,summaryModel,output)
         val secret=key(p.id)

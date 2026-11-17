@@ -104,6 +104,9 @@ object DataCodec {
                 kind = provider.kind.orEmpty().ifBlank { "openai" },
                 baseUrl = provider.baseUrl.orEmpty().ifBlank { "https://api.venice.ai/api/v1" },
                 lanBaseUrl = provider.lanBaseUrl.orEmpty().trim(),
+                // Older saves have no corrections; a bad window is dropped rather than failing the load.
+                modelEdits = provider.modelEdits.orEmpty().filterKeys { it.isNotBlank() }
+                    .mapValues { (_, edit) -> edit.copy(contextTokens = edit.contextTokens.takeIf { it in 1..10_000_000 } ?: 0) },
                 models = provider.models.orEmpty().map { model ->
                     model.copy(
                         id = model.id.orEmpty(), name = model.name.orEmpty(), type = model.type.orEmpty().ifBlank { "text" },

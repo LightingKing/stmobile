@@ -131,6 +131,8 @@ import app.pockettavern.domain.Memory
 import app.pockettavern.domain.ModelCatalog
 import app.pockettavern.domain.Message
 import app.pockettavern.domain.ModelInfo
+import app.pockettavern.domain.ModelEdit
+import app.pockettavern.engine.ModelWindows
 import app.pockettavern.domain.Preset
 import app.pockettavern.domain.ProviderConfig
 import app.pockettavern.domain.SkillRecord
@@ -894,6 +896,9 @@ private fun formatVeniceAmount(value: java.math.BigDecimal?): String =
 @Composable
 private fun ModelCard(provider: ProviderConfig, model: ModelInfo, state: UiSession, actions: AppActions, onMedia: () -> Unit) {
     var showRaw by remember { mutableStateOf(false) }
+    var editing by remember { mutableStateOf(false) }
+    val window = remember(model, state.data.providers) { ModelWindows.of(model, state.data.providers) }
+    val edited = provider.modelEdits[model.id] != null
     val supportedMedia = setOf("image", "inpaint", "upscale", "tts", "asr", "video", "music", "embedding", "decision")
     val modelType = model.type.lowercase(Locale.ROOT)
     val isMedia = modelType in supportedMedia
@@ -908,19 +913,71 @@ private fun ModelCard(provider: ProviderConfig, model: ModelInfo, state: UiSessi
                 else Text("仅展示 · 待适配", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
             Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(5.dp)) {
-                Chip("${model.contextTokens / 1000}k 上下文")
+                Chip(if (window >= 1_000_000 && window % 1_000_000 == 0) "${window / 1_000_000}M 上下文" else "${window / 1000}k 上下文")
+                if (edited) Chip("已手动修改")
                 if (model.supportsTools) Chip("工具")
                 if (model.supportsVision) Chip("视觉")
                 if (model.supportsReasoning) Chip("推理")
                 if (model.offline) Chip("离线")
             }
             ModelPriceBlock(model, provider.kind)
-            TextButton(onClick = { showRaw = !showRaw }) { Text(if (showRaw) "收起原始能力" else "查看原始能力") }
+            Row {
+                if (model.type == "text") TextButton(onClick = { editing = true }) { Text("修改能力") }
+                TextButton(onClick = { showRaw = !showRaw }) { Text(if (showRaw) "收起原始能力" else "查看原始能力") }
+            }
             if (showRaw) SelectionContainer { Text(model.rawJson, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
             if (isMedia && !isVenice) Text("媒体工具目前仅支持 Venice；该模型可查看能力，但不会发送媒体请求。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error)
             else if (!isMedia && model.type != "text") Text("此模型类型仅保留在目录中，不会被应用发送请求。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error)
         }
     }
+    if (editing) ModelEditDialog(provider, model, state.data.providers, actions) { editing = false }
+}
+
+/**
+ * Vision, tools and the window for one model. Relays often list bare ids, which used to arrive with
+ * no vision and a 32,768 window; what is set here stays through every refresh.
+ */
+@Composable
+private fun ModelEditDialog(provider: ProviderConfig, model: ModelInfo, providers: List<ProviderConfig>, actions: AppActions, onDismiss: () -> Unit) {
+    val current = provider.modelEdits[model.id]
+    var vision by remember { mutableStateOf(model.supportsVision) }
+    var tools by remember { mutableStateOf(model.supportsTools) }
+    var window by remember { mutableStateOf(current?.contextTokens?.takeIf { it > 0 }?.toString().orEmpty()) }
+    val typed = window.toIntOrNull()
+    val windowError = window.isNotBlank() && (typed == null || typed !in 1024..10_000_000)
+    AlertDialog(onDismissRequest = onDismiss, title = { Text("修改模型能力") }, text = {
+        Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            Text("${model.name.ifBlank { model.id }} · ${provider.name}", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
+            Text("有的平台不写模型能做什么，App 只能当作不支持。这里改了以后，刷新模型目录也会保留。",
+                style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Column(Modifier.weight(1f)) { Text("视觉"); Text("能看你发的图片", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
+                Switch(vision, { vision = it })
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Column(Modifier.weight(1f)) { Text("工具调用"); Text("剧本助手、角色卡助手、联网搜索都要用", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
+                Switch(tools, { tools = it })
+            }
+            OutlinedTextField(window, { window = it.filter(Char::isDigit).take(8) }, Modifier.fillMaxWidth(), singleLine = true,
+                label = { Text("上下文窗口（tokens）") }, placeholder = { Text("留空：用平台提供或推测的值") }, isError = windowError,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number))
+            Text(if (windowError) "填 1024 到 10,000,000 之间的数" else "现在按 ${"%,d".format(ModelWindows.of(model, providers))} tokens 计算",
+                style = MaterialTheme.typography.labelSmall, color = if (windowError) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant)
+        }
+    }, confirmButton = {
+        TextButton(enabled = !windowError, onClick = {
+            // Only what the user changed, or corrected before, is kept as a correction.
+            val edit = ModelEdit(vision = if (vision != model.supportsVision) vision else current?.vision,
+                tools = if (tools != model.supportsTools) tools else current?.tools, contextTokens = typed ?: 0)
+            actions.editModel(provider.id, model.id, edit)
+            onDismiss()
+        }) { Text("保存") }
+    }, dismissButton = {
+        Row {
+            if (current != null) TextButton(onClick = { actions.editModel(provider.id, model.id, null); onDismiss() }) { Text("清除修改") }
+            TextButton(onClick = onDismiss) { Text("取消") }
+        }
+    })
 }
 
 @Composable

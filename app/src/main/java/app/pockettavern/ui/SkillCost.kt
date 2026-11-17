@@ -33,7 +33,7 @@ internal fun skillCosts(skills: List<SkillRecord>, toolsSupported: Boolean): Map
 /** Daily input limit from settings, capped by the model window when the catalog knows it. */
 internal fun chatInputLimit(data: AppData, chat: Chat): Int {
     val window = data.providers.firstOrNull { it.id == chat.providerId }?.models?.firstOrNull { it.id == chat.modelId }
-        ?.contextTokens?.takeIf { it > 0 }
+        ?.let { app.pockettavern.engine.ModelWindows.of(it, data.providers) }
     val configured = data.settings.maxContextInputTokens.takeIf { it > 0 }
     return listOfNotNull(configured, window).minOrNull() ?: 32_768
 }
