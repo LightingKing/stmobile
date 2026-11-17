@@ -162,6 +162,44 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
   - 这个接口不作为聊天工具提供给模型，只有 App 的角色卡表格会调用。
 - **视频简介（服务 0.9.0）**：`bilibili read` 返回的内容以前没有正文，现在带上视频简介。
 
+## 小世界（服务 0.13.0）
+
+一个世界在这台电脑上一直运行：居民按自己的作息生活，在群里聊天，也会私聊用户。手机只是窗口，界面从 App 0.4.0 起提供；在那之前用管理页的“小世界”一栏查看和操作。设计见 `docs/design/world/DESIGN.md`。
+
+- **存在哪**：私密目录的 `worlds/<世界 id>/`：
+  - `world.json`：设定、叙事规则、用户的身份、居民（最多 8 位）、世界书、模型和设置。居民是世界自己的，和手机上的角色卡无关。
+  - `state.json`：世界时间、每位居民现在的状态和记忆、今天和累计的用量。
+  - `timeline.jsonl`：群聊、私信和事件，每条有序号，手机按序号同步。
+  - `diary.jsonl`：世界里每一天一章。
+- **怎么运转**：
+  - 世界时间跟现实时间一起走。暂停时停住，恢复后从停住的那一刻接着走。
+  - 每隔“推进间隔”（默认 30 分钟）发一次请求：把设定、居民档案和状态、最近的事件和聊天、日记交给“导演”，它返回这段时间里谁的状态变了、发生了什么事、群里说了什么、谁私聊了用户（JSON）。
+  - 用户在群里或私信里说话时立刻发一次请求，让相关的人回应，不等下一次推进。世界暂停时不能说话。
+  - 世界里过了一天，下一次推进后再发一次请求，把那一天写成一章日记，并更新每个人记得的事。
+  - 群里的话所有人都知道；私信只有那位居民知道，私聊时其他人回的私信会被丢掉；事件只有在场的人知道。这些写在请求里，靠模型遵守，不是硬隔离。
+  - 电脑关机期间世界时间照走，但不补跑错过的推进：服务启动约 2 分钟后补一次，请求里写明过去了多久、只概括重要变化。
+- **花费上限**（每个世界自己的设置，管理页可改）：
+  - 每天最多推进 40 次、请求 80 次（推进、回应、写日记都算请求，失败的请求也算）。到上限当天不再推进；请求用完时也不再回应。按这台电脑的日期在 0 点清零。
+  - 安静时段默认 1:00–8:00（按世界时间），不推进。
+  - 用户超过 24 小时没看（手机或管理页带 `seen=1` 读取），推进间隔加倍；超过 48 小时变成 4 倍。一看就恢复。
+  - `config.json` 里写 `"worldSchedule": false`，所有世界停止自动推进（还能读取）。没有配置 Venice Key 时也不会推进。
+- **请求怎么发**：和手机聊天走同一条管线，用 `pocket-direct`（电脑的默认模型）或世界里选的上游模型，不走审校；思考强度按电脑设置；有乱码时照常补字。记录出现在管理页“最近的请求”里，会话 ID 是 `world-<世界 id>`。
+- **接口**（和其他 `/v1/pocket/*` 一样要网关 Token）：
+
+  | 请求 | 作用 |
+  | --- | --- |
+  | `GET /v1/pocket/worlds` | 世界列表：世界时间、状态、未读数、最后一条消息、今天的用量 |
+  | `POST /v1/pocket/worlds` | 新建世界（世界 JSON，见下） |
+  | `GET /v1/pocket/worlds/<id>` | 世界的全部设定、居民状态、下次推进时间 |
+  | `PATCH /v1/pocket/worlds/<id>` | 改设定文字、世界书、模型或设置（`settings` 只传要改的项） |
+  | `POST /v1/pocket/worlds/<id>/pause`、`/resume` | 暂停、恢复 |
+  | `POST /v1/pocket/worlds/<id>/tick` | 立刻推进一次（计入上限） |
+  | `GET /v1/pocket/worlds/<id>/messages?since=<序号>` 或 `?tail=<条数>` | 读时间线；加 `seen=1` 表示用户看过了 |
+  | `POST /v1/pocket/worlds/<id>/messages` | 用户说话：`{"channel":"group"或"dm:r1","text":"…"}`，返回用户这条和回应 |
+  | `GET /v1/pocket/worlds/<id>/diary` | 日记和每个人记得的事 |
+  | `DELETE /v1/pocket/worlds/<id>` | 删除世界和它的全部记录 |
+- **世界 JSON**：例子是 `examples/world-302.json`（四个合租室友的日常世界，用来测试）。必填 `name`、`setting`、`residents`（每位 `name`、`card`，可选 `aliases` 和开始时的 `location`/`activity`/`mood`/`plan`/`notes`）；可选 `summary`、`rules`、`userRole`、`userName`（居民怎么称呼用户）、`groupName`、`opening`（创建时作为第一条事件）、`startAt`（世界的起始时间，默认现在）、`startPaused`（先暂停，确认后再恢复）、`worldBook`（`name`、`content`、`keywords`、`always`）、`model`、`settings`（`tickMinutes` 15–120、`quietStart`/`quietEnd`、`dailyTicks`、`dailyCalls`、`slowWhenAway`）。
+
 ## 社交平台（服务 0.11.0）
 
 抖音、TikTok、微博、小红书、X 只回答登录过的浏览器。服务为它们准备了一个专用的 Chrome 资料目录（`runtime/social-browser/profile`），由用户登录一次；之后查询时在后台以无界面方式打开它，用 OpenCLI（随 Agent Reach 安装在 `runtime/agent-reach-home`）读取。

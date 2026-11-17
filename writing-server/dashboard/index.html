@@ -12,13 +12,48 @@
     <span id="badge" class="badge">读取中…</span>
   </header>
   <nav>
-    <a href="#overview">概览</a><a href="#connection">连接</a><a href="#runs">最近的请求</a><a href="#settings">电脑设置</a>
+    <a href="#overview">概览</a><a href="#worlds">小世界</a><a href="#connection">连接</a><a href="#runs">最近的请求</a><a href="#settings">电脑设置</a>
     <a href="#backups">手机备份</a><a href="#stickers">表情包</a><a href="#dsh">DSH 引擎</a><a href="#reach">联网搜索</a><a href="#logs">日志</a>
   </nav>
   <main>
     <section id="overview">
       <h2>概览</h2>
       <div id="overview-grid" class="grid"></div>
+    </section>
+
+    <section id="worlds">
+      <h2>小世界 <button id="worlds-refresh" class="small">刷新</button></h2>
+      <p class="hint">世界在这台电脑上一直运行：居民按自己的作息生活，在群里聊天，也会私聊你。暂停会让整个世界的时间停住。每次推进和每次回应都是一次付费的模型请求，受下面每个世界自己的每日上限约束。</p>
+      <div id="world-list"></div>
+      <details id="world-import">
+        <summary>新建世界（粘贴世界 JSON）</summary>
+        <textarea id="world-pack" rows="10" spellcheck="false" placeholder='{"name":"…","setting":"…","residents":[{"name":"…","card":"…"}]}'></textarea>
+        <div class="row"><label><input type="checkbox" id="world-start-paused" checked> 创建后先暂停，确认后再点“恢复”</label></div>
+        <div class="row"><button id="world-create">创建</button> <span id="world-create-note" class="muted"></span></div>
+      </details>
+      <div id="world-detail" hidden>
+        <div class="world-head">
+          <strong id="world-name"></strong> <span id="world-state" class="badge"></span>
+          <button id="world-pause">暂停</button> <button id="world-tick" class="secondary">推进一次</button>
+          <button id="world-close" class="small">收起</button> <button id="world-delete" class="danger small">删除</button>
+        </div>
+        <div id="world-tiles" class="grid"></div>
+        <p id="world-error" class="hint bad-text"></p>
+        <h3>居民</h3>
+        <div class="table-wrap"><table id="world-residents"></table></div>
+        <h3>时间线</h3>
+        <div id="world-tabs" class="tabs"></div>
+        <div id="world-timeline" class="timeline"></div>
+        <form id="world-say" class="inline">
+          <select id="world-channel"></select>
+          <input id="world-text" maxlength="2000" placeholder="以你的身份说话">
+          <button type="submit">发送</button> <span id="world-say-note" class="muted"></span>
+        </form>
+        <h3>设置</h3>
+        <form id="world-settings" class="form"></form>
+        <h3>日记与记忆</h3>
+        <div id="world-diary"></div>
+      </div>
     </section>
 
     <section id="connection">

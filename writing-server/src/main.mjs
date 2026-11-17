@@ -51,6 +51,7 @@ try {
     stopping = true;
     console.log(`Stopping: ${reason}.`);
     for (const instance of servers) instance.close();
+    server.pocket.worlds.stop();
     const deadline = Date.now() + STOP_GRACE_MS;
     while (server.pocket.activeRequests() > 0 && Date.now() < deadline) await new Promise((resolve) => setTimeout(resolve, 500));
     server.pocket.abortAll();
@@ -73,6 +74,10 @@ try {
   admin.listen(config.adminPort, '127.0.0.1', () => console.log(`Dashboard on http://127.0.0.1:${config.adminPort}/`));
   servers.push(admin);
   await writeFile(pidFile, String(process.pid), { mode: 0o600 });
+  // 小世界 keep living only while there is an upstream to ask.
+  if (config.upstreamKey && config.worldSchedule !== false) {
+    server.pocket.worlds.start().then((count) => { if (count) console.log(`小世界：${count} 个世界开始运行。`); }).catch((error) => console.warn(`小世界没有启动：${error.message}`));
+  }
   console.log(`Pocket writing server listening on ${hosts.map((host) => `${host}:${config.port}`).join(', ')}`);
   console.log(config.upstreamKey ? 'Upstream credential configured; writing quality is not yet verified.' : 'Upstream credential missing. Models, status and backups available; generation disabled.');
   for (const event of ['SIGINT', 'SIGTERM']) process.once(event, () => shutdown(event));

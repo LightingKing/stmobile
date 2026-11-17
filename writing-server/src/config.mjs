@@ -162,6 +162,8 @@ export async function loadConfig(dataDir = defaultDataDir()) {
     pythonPath: typeof raw.pythonPath === 'string' ? raw.pythonPath.trim() : '',
     // The internet address phones use (shown on the dashboard); the server itself never calls it.
     publicBaseUrl: typeof raw.publicBaseUrl === 'string' ? raw.publicBaseUrl.trim() : '',
+    // false keeps every 小世界 still (no scheduled model requests); the phone can still read them.
+    worldSchedule: raw.worldSchedule !== false,
     // The PC dashboard, on 127.0.0.1 only.
     adminPort: boundedInteger(raw.adminPort, port + 1, 1024, 65535, '管理页端口'),
   };

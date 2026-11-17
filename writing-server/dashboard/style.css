@@ -54,3 +54,31 @@ pre { margin: 0; padding: 12px; white-space: pre-wrap; word-break: break-word; m
 #reach .row { margin: 10px 0; display: flex; gap: 8px; }
 #bili-qr { display: block; margin-top: 8px; border: 8px solid #fff; border-radius: 8px; background: #fff; }
 #bili-qr[hidden] { display: none; }
+#worlds h3 { font-size: 15px; margin: 18px 0 6px; }
+#worlds .row { margin: 8px 0; display: flex; gap: 8px; align-items: center; }
+#world-import { margin-top: 10px; }
+#world-import summary { cursor: pointer; color: var(--accent); }
+#world-pack { width: 100%; font: 13px/1.5 Consolas, "Microsoft YaHei UI", monospace; border: 1px solid var(--line); border-radius: 8px; padding: 8px; margin-top: 8px; }
+.world-row { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; padding: 8px 0; border-top: 1px solid var(--line); cursor: pointer; }
+.world-row:first-child { border-top: 0; }
+.world-row:hover { background: #f3efe6; }
+.world-row .preview { color: var(--muted); font-size: 13px; flex-basis: 100%; }
+.world-head { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 16px 0 10px; padding-top: 12px; border-top: 1px solid var(--line); }
+.world-head strong { font-size: 16px; }
+.unread { background: var(--bad); color: #fff; border-radius: 999px; padding: 0 8px; font-size: 12px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.tabs button { background: transparent; color: var(--accent); font-size: 13px; padding: 1px 10px; }
+.tabs button.active { background: var(--accent); color: #fff; }
+.timeline { border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; max-height: 520px; overflow-y: auto; background: #fff; }
+.timeline .item { padding: 4px 0; }
+.timeline .meta { color: var(--muted); font-size: 12px; }
+.timeline .who { font-weight: 600; margin-right: 6px; }
+.timeline .event { color: var(--muted); font-style: italic; }
+.timeline .mine .who { color: var(--accent); }
+.timeline .text { white-space: pre-wrap; }
+.timeline .channel { color: var(--warn); font-size: 12px; margin-left: 6px; }
+#world-say { margin-top: 8px; }
+#world-say input { min-width: 360px; flex: 1; }
+.bad-text { color: var(--bad); }
+.chapter { border-top: 1px solid var(--line); padding: 8px 0; white-space: pre-wrap; }
+.chapter:first-child { border-top: 0; }

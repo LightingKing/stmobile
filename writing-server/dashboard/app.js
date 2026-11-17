@@ -36,6 +36,7 @@ async function loadStatus() {
       tile('上游最长等待', minutes(s.upstream?.idle_timeout_seconds ?? 900)), tile('审校 Skill', s.review_skill),
       tile('手机备份', `${s.backups?.count ?? 0} 份 · ${size(s.backups?.total_bytes)}`),
       tile('表情包', `${s.stickers?.packs ?? 0} 个包 · ${s.stickers?.stickers ?? 0} 张`),
+      tile('小世界', `${s.worlds?.count ?? 0} 个 · ${s.worlds?.running ?? 0} 个运行中`),
       tile('监听', (s.listen?.hosts || []).map((h) => `${h}:${s.listen.port}`).join('，')),
     ].join('');
     $('dsh-list').innerHTML = pairs([
@@ -253,6 +254,196 @@ $('social-done').onclick = async () => {
   await loadSocial();
 };
 
-[loadStatus, loadConnection, loadRuns, loadSettings, loadBackups, loadStickers, loadLogs, loadBili, loadSocial].forEach(safely);
+// ---- 小世界
+const HOLDS = { paused: '已暂停', calls: '今天的请求次数用完了', ticks: '今天的推进次数用完了', quiet: '安静时段（居民在睡觉）' };
+let worldModels = null;
+const world = { id: null, items: [], next: 0, info: null, tab: 'all' };
+
+function worldBadge(w) {
+  if (w.busy) return ['正在推进…', 'badge'];
+  if (w.hold) return [HOLDS[w.hold] || w.hold, w.hold === 'paused' ? 'badge bad' : 'badge'];
+  return ['运行中', 'badge ok'];
+}
+
+async function loadWorlds() {
+  const { data } = await api('/api/v1/pocket/worlds');
+  $('world-list').innerHTML = data.length ? data.map((w) => {
+    const [label, cls] = worldBadge(w);
+    const last = w.last_message ? `${w.last_message.time} ${w.last_message.name}：${w.last_message.text}` : '还没有消息';
+    return `<div class="world-row" data-world="${esc(w.id)}"><strong>${esc(w.name)}</strong><span class="${cls}">${esc(label)}</span>` +
+      `<span class="muted">世界时间 ${esc(w.world_time_label)} · ${esc(w.residents.length)} 位居民 · 今天 ${esc(w.usage.calls)}/${esc(w.settings.dailyCalls)} 次请求</span>` +
+      `${w.unread ? `<span class="unread">${esc(w.unread)}</span>` : ''}<span class="preview">${esc(last.length > 120 ? `${last.slice(0, 120)}…` : last)}</span></div>`;
+  }).join('') : '<p class="muted">还没有世界。手机 App 0.4.0 起可以把剧本“做成小世界”；现在可以在下面粘贴世界 JSON 创建。</p>';
+  $('world-list').querySelectorAll('[data-world]').forEach((row) => { row.onclick = () => openWorld(row.dataset.world); });
+}
+
+function residentName(id) { return world.info?.definition.residents.find((r) => r.id === id)?.name || id; }
+
+function renderTabs() {
+  const residents = world.info.definition.residents;
+  const tabs = [['all', '全部'], ['group', `群聊「${world.info.definition.groupName}」`], ...residents.map((r) => [`dm:${r.id}`, `私信 · ${r.name}`]), ['event', '事件']];
+  $('world-tabs').innerHTML = tabs.map(([key, label]) => {
+    const count = key.startsWith('dm:') ? world.items.filter((item) => item.channel === key).length : 0;
+    return `<button type="button" data-tab="${esc(key)}" class="${world.tab === key ? 'active' : ''}">${esc(label)}${count ? ` (${count})` : ''}</button>`;
+  }).join('');
+  $('world-tabs').querySelectorAll('[data-tab]').forEach((button) => { button.onclick = () => { world.tab = button.dataset.tab; renderTabs(); renderTimeline(); }; });
+  const channels = [['group', `群聊「${world.info.definition.groupName}」`], ...residents.map((r) => [`dm:${r.id}`, `私信 ${r.name}`])];
+  const chosen = world.tab.startsWith('dm:') || world.tab === 'group' ? world.tab : $('world-channel').value || 'group';
+  $('world-channel').innerHTML = channels.map(([key, label]) => `<option value="${esc(key)}"${key === chosen ? ' selected' : ''}>${esc(label)}</option>`).join('');
+}
+
+function renderTimeline() {
+  const box = $('world-timeline');
+  const atBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 40;
+  const shown = world.items.filter((item) => world.tab === 'all' || (world.tab === 'event' ? item.kind === 'event' : item.channel === world.tab));
+  box.innerHTML = shown.length ? shown.map((item) => {
+    if (item.kind === 'event') {
+      const who = item.who?.length ? `（${item.who.map(residentName).join('、')}）` : '';
+      return `<div class="item event"><span class="meta">${esc(item.time)}</span> ${esc(item.text)}${esc(who)}</div>`;
+    }
+    const channel = world.tab === 'all' && item.channel !== 'group' ? `<span class="channel">私信 · ${esc(residentName(item.channel.slice(3)))}</span>` : '';
+    return `<div class="item${item.from === 'user' ? ' mine' : ''}"><span class="meta">${esc(item.time)}</span> <span class="who">${esc(item.from === 'user' ? `${item.name}（你）` : item.name)}</span>${channel}<div class="text">${esc(item.text)}</div></div>`;
+  }).join('') : '<p class="muted">这里还没有内容。</p>';
+  if (atBottom) box.scrollTop = box.scrollHeight;
+}
+
+function renderWorldInfo() {
+  const w = world.info;
+  const [label, cls] = worldBadge(w);
+  $('world-name').textContent = w.name;
+  $('world-state').textContent = label;
+  $('world-state').className = cls;
+  $('world-pause').textContent = w.paused ? '恢复' : '暂停';
+  const tokens = (w.usage.prompt_tokens || 0) + (w.usage.completion_tokens || 0);
+  $('world-tiles').innerHTML = [
+    tile('世界时间', w.world_time_label),
+    tile('下次推进', w.paused ? '暂停中' : w.next_tick_at ? time(new Date(w.next_tick_at).toISOString()) : HOLDS[w.hold] || '—'),
+    tile('推进间隔', `${w.interval_minutes} 分钟${w.interval_minutes > w.settings.tickMinutes ? '（你不在，已放慢）' : ''}`),
+    tile('今天推进', `${w.usage.ticks} / ${w.settings.dailyTicks}`),
+    tile('今天请求', `${w.usage.calls} / ${w.settings.dailyCalls}`),
+    tile('今天 tokens', `${tokens.toLocaleString()}（输入 ${(w.usage.prompt_tokens || 0).toLocaleString()}）`),
+    tile('累计请求', `${w.totals.calls} 次 · ${((w.totals.prompt_tokens || 0) + (w.totals.completion_tokens || 0)).toLocaleString()} tokens`),
+    tile('模型', w.model === 'pocket-direct' ? '默认模型' : w.model),
+  ].join('');
+  $('world-error').textContent = w.last_error ? `上次出错（${time(new Date(w.last_error.at).toISOString())}）：${w.last_error.message}` : '';
+  $('world-residents').innerHTML = '<tr><th>居民</th><th>在哪</th><th>在做什么</th><th>心情</th><th>打算</th></tr>' + w.residents.map((r) =>
+    `<tr><td>${esc(r.name)}</td><td>${esc(r.location || '—')}</td><td>${esc(r.activity || '—')}</td><td>${esc(r.mood || '—')}</td><td>${esc(r.plan || '—')}</td></tr>`).join('');
+}
+
+async function renderWorldSettings() {
+  const w = world.info;
+  if (!worldModels) worldModels = await api('/api/v1/models').then((m) => m.data.filter((x) => x.id !== 'pocket-writer')).catch(() => []);
+  const models = worldModels.map((m) => [m.id, m.id === 'pocket-direct' ? '默认模型' : m.model_spec?.name || m.name || m.id]);
+  if (!models.some(([id]) => id === w.model)) models.unshift([w.model, w.model]);
+  const select = (name, options, value) => `<select name="${name}">${options.map(([v, label]) => `<option value="${esc(v)}"${String(v) === String(value) ? ' selected' : ''}>${esc(label)}</option>`).join('')}</select>`;
+  const s = w.settings;
+  $('world-settings').innerHTML = [
+    ['推进间隔', select('tickMinutes', [15, 20, 30, 45, 60, 90, 120].map((m) => [m, `${m} 分钟`]), s.tickMinutes)],
+    ['安静时段', `<input type="time" name="quietStart" value="${esc(s.quietStart)}"> 到 <input type="time" name="quietEnd" value="${esc(s.quietEnd)}">（两个时间相同表示没有安静时段）`],
+    ['每天最多推进', `<input type="number" name="dailyTicks" min="0" max="200" value="${esc(s.dailyTicks)}"> 次`],
+    ['每天最多请求', `<input type="number" name="dailyCalls" min="1" max="400" value="${esc(s.dailyCalls)}"> 次（推进、回应、写日记都算）`],
+    ['你超过一天没看就放慢', `<input type="checkbox" name="slowWhenAway"${s.slowWhenAway ? ' checked' : ''}>`],
+    ['模型', select('model', models, w.model)],
+  ].map(([label, input]) => `<label>${esc(label)}</label><div>${input}</div>`).join('') +
+    '<div class="full"><button type="submit">保存</button> <span id="world-settings-note" class="muted"></span></div>';
+}
+
+$('world-settings').onsubmit = async (event) => {
+  event.preventDefault();
+  const form = event.target;
+  const settings = {
+    tickMinutes: Number(form.tickMinutes.value), quietStart: form.quietStart.value, quietEnd: form.quietEnd.value,
+    dailyTicks: Number(form.dailyTicks.value), dailyCalls: Number(form.dailyCalls.value), slowWhenAway: form.slowWhenAway.checked,
+  };
+  try {
+    world.info = await api(`/api/v1/pocket/worlds/${world.id}`, { method: 'PATCH', body: JSON.stringify({ settings, model: form.model.value }) });
+    renderWorldInfo();
+    $('world-settings-note').textContent = '已保存';
+  } catch (error) { $('world-settings-note').textContent = `保存失败：${error.message}`; }
+};
+
+async function loadDiary() {
+  const { entries, residents } = await api(`/api/v1/pocket/worlds/${world.id}/diary`);
+  const notes = residents.filter((r) => r.notes).map((r) => `<div class="chapter"><strong>${esc(r.name)}记得的事</strong>\n${esc(r.notes)}</div>`).join('');
+  const chapters = [...entries].reverse().map((e) => `<div class="chapter"><strong>${esc(e.day)}</strong>\n${esc(e.text)}</div>`).join('');
+  $('world-diary').innerHTML = notes + chapters || '<p class="muted">世界里每过一天写一章日记，同时更新每个人记得的事。</p>';
+}
+
+async function openWorld(id) {
+  world.id = id; world.items = []; world.next = 0; world.tab = 'all';
+  world.info = await api(`/api/v1/pocket/worlds/${id}`);
+  const first = await api(`/api/v1/pocket/worlds/${id}/messages?tail=300&seen=1`);
+  world.items = first.items;
+  world.next = first.next;
+  $('world-detail').hidden = false;
+  renderWorldInfo(); renderTabs(); renderTimeline();
+  $('world-timeline').scrollTop = $('world-timeline').scrollHeight;
+  await Promise.all([renderWorldSettings(), loadDiary()]);
+  loadWorlds();
+}
+
+async function refreshWorld() {
+  if (!world.id || $('world-detail').hidden) return;
+  const update = await api(`/api/v1/pocket/worlds/${world.id}/messages?since=${world.next}&seen=1`);
+  const known = new Set(world.items.map((item) => item.seq));
+  const fresh = update.items.filter((item) => !known.has(item.seq));
+  world.items.push(...fresh);
+  world.next = update.next;
+  world.info = { ...world.info, ...update.world };
+  renderWorldInfo();
+  if (fresh.length) { renderTabs(); renderTimeline(); loadDiary(); }
+}
+
+$('world-say').onsubmit = async (event) => {
+  event.preventDefault();
+  const text = $('world-text').value.trim();
+  if (!text || !world.id) return;
+  const button = event.target.querySelector('button');
+  button.disabled = true;
+  $('world-say-note').textContent = '等她们回应…（一次付费请求）';
+  try {
+    await api(`/api/v1/pocket/worlds/${world.id}/messages`, { method: 'POST', body: JSON.stringify({ channel: $('world-channel').value, text }) });
+    $('world-text').value = '';
+    $('world-say-note').textContent = '';
+  } catch (error) { $('world-say-note').textContent = error.message; }
+  button.disabled = false;
+  await refreshWorld();
+};
+$('world-pause').onclick = async () => {
+  world.info = { ...world.info, ...await api(`/api/v1/pocket/worlds/${world.id}/${world.info.paused ? 'resume' : 'pause'}`, { method: 'POST' }) };
+  renderWorldInfo(); loadWorlds();
+};
+$('world-tick').onclick = async () => {
+  if (!confirm('现在推进一次？这是一次付费请求，计入今天的上限。')) return;
+  $('world-tick').disabled = true;
+  try { const r = await api(`/api/v1/pocket/worlds/${world.id}/tick`, { method: 'POST' }); if (r.error) alert(r.error); }
+  catch (error) { alert(error.message); }
+  $('world-tick').disabled = false;
+  await refreshWorld(); loadWorlds();
+};
+$('world-close').onclick = () => { $('world-detail').hidden = true; world.id = null; };
+$('world-delete').onclick = async () => {
+  if (!confirm(`删除世界「${world.info.name}」？所有聊天、事件和日记都会删掉，无法恢复。`)) return;
+  await api(`/api/v1/pocket/worlds/${world.id}`, { method: 'DELETE' });
+  $('world-detail').hidden = true; world.id = null;
+  loadWorlds();
+};
+$('world-create').onclick = async () => {
+  let pack;
+  try { pack = JSON.parse($('world-pack').value); } catch { $('world-create-note').textContent = '不是有效的 JSON'; return; }
+  if (pack && typeof pack === 'object' && pack.startPaused === undefined) pack.startPaused = $('world-start-paused').checked;
+  try {
+    const created = await api('/api/v1/pocket/worlds', { method: 'POST', body: JSON.stringify(pack) });
+    $('world-pack').value = '';
+    $('world-create-note').textContent = created.paused ? `已创建「${created.name}」，暂停中：点“恢复”后大约半小时第一次推进，也可以点“推进一次”。` : `已创建「${created.name}」，大约一分钟后第一次推进。`;
+    $('world-import').open = false;
+    await loadWorlds();
+    await openWorld(created.id);
+  } catch (error) { $('world-create-note').textContent = `创建失败：${error.message}`; }
+};
+$('worlds-refresh').onclick = () => { safely(loadWorlds); safely(refreshWorld); };
+
+[loadStatus, loadWorlds, loadConnection, loadRuns, loadSettings, loadBackups, loadStickers, loadLogs, loadBili, loadSocial].forEach(safely);
 setInterval(() => safely(loadStatus), 5000);
 setInterval(() => safely(loadRuns), 20000);
+setInterval(() => { safely(refreshWorld); safely(loadWorlds); }, 10000);

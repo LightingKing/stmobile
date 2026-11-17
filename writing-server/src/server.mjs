@@ -12,6 +12,7 @@ import { DshError, createDshRuntime } from './dsh.mjs';
 import { ReachError, createReachRuntime } from './reach.mjs';
 import { ImageSearchError, createImageSearch } from './images.mjs';
 import { createSocialRuntime } from './social.mjs';
+import { WorldError, createWorldEngine } from './world.mjs';
 import { MODEL_ID, SETTING_OPTIONS, applySettings, loadReviewSkill, saveSettings, settingsOf, validateSettings } from './config.mjs';
 
 const DEFAULT_CONFIG = {
@@ -28,6 +29,7 @@ const MAX_STREAM_BACKLOG = 8 * 1024 * 1024;
 const SUPERSEDE_WAIT_MS = 10_000;
 const UPLOAD_IDLE_MS = 60_000;
 const BACKUP_PATH = /^\/v1\/backups\/(\d{8}-\d{6}-[0-9a-f]{6})$/;
+const WORLD_PATH = /^\/v1\/pocket\/worlds\/(w[0-9a-f]{12})(?:\/(pause|resume|tick|messages|diary))?$/;
 
 function safeToken(expected, provided) {
   const a = Buffer.from(String(expected || ''));
@@ -190,7 +192,7 @@ function answerStream(res, id) {
   return { push, finish, fail };
 }
 
-export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null, catalog = null, stickers = null, dsh = null, reach = null, images = null, social = null } = {}) {
+export function createServer({ config = {}, vault = null, upstream = null, skills = null, backups = null, guard = null, catalog = null, stickers = null, dsh = null, reach = null, images = null, social = null, worlds = null } = {}) {
   const resolved = { ...DEFAULT_CONFIG, ...config };
   const dataDir = resolved.dataDir || './writing-server-data';
   const store = vault || createVault({ dataDir });
@@ -204,6 +206,18 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
   const imageSearch = images || createImageSearch();
   const socialRuntime = social || createSocialRuntime({ schedule: resolved.socialKeepAlive !== false });
   const ready = Boolean(resolved.token && remote);
+  /** One model request for a 小世界, through the same pipeline (archive, character repair) as phone chats. */
+  async function worldRun({ worldId, model, messages, maxTokens, temperature, signal }) {
+    if (!remote) throw new WorldError('写作服务未配置上游 API Key', 503, 'not_ready');
+    const target = model === 'pocket-direct' ? resolved.upstreamModel : model;
+    const requestConfig = capability(models.find(target), 'supportsReasoning') === false ? { ...resolved, reasoningEffort: 'default' } : { ...resolved };
+    const result = await runCompletion({
+      request: { model, messages, max_tokens: maxTokens, temperature, stream: true, metadata: { pocket_tavern_chat_id: `world-${worldId}`, pocket_tavern_purpose: 'chat' } },
+      config: requestConfig, vault: store, upstream: remote, signal,
+    });
+    return { content: result.content, usage: result.usage };
+  }
+  const worldEngine = worlds || createWorldEngine({ dataDir, run: worldRun });
   const startedAt = new Date();
   // Generations in flight, one per chat and purpose. A repeat of the same request replaces the old one.
   const active = new Map();
@@ -232,7 +246,8 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       dsh: await dshRuntime.status(),
       reach: await reachRuntime.status(),
       social: await socialRuntime.status().catch(() => ({ available: false })),
-      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings', 'stickers', 'dsh_runtime', 'web_reach', 'image_search', 'text_repair', 'social_reach'],
+      worlds: await worldEngine.summary().catch(() => ({ count: 0, running: 0 })),
+      features: ['live_stream', 'supersede', 'backups', 'auth_throttle', 'model_choice', 'settings', 'stickers', 'dsh_runtime', 'web_reach', 'image_search', 'text_repair', 'social_reach', 'worlds'],
     };
   }
 
@@ -303,6 +318,41 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       const known = error instanceof StickerError || error.status;
       if (!known) console.error('Sticker request failed:', error?.code || error?.message);
       return sendJson(res, error.status || 500, { error: { message: known ? error.message : '表情包操作失败', code: error.code || 'stickers_failed' } });
+    }
+  }
+
+  /** 小世界: the world lives here; the phone lists worlds, reads their timeline and speaks in them. */
+  async function handleWorlds(req, res, parsed) {
+    try {
+      if (parsed.pathname === '/v1/pocket/worlds') {
+        if (req.method === 'GET') return sendJson(res, 200, { object: 'list', data: await worldEngine.list() });
+        if (req.method === 'POST') return sendJson(res, 201, await worldEngine.create(await readBody(req)));
+        return sendJson(res, 405, { error: { message: '只支持 GET 和 POST' } });
+      }
+      const match = parsed.pathname.match(WORLD_PATH);
+      if (!match) return sendJson(res, 404, { error: { message: '路径不存在' } });
+      const [, id, action = ''] = match;
+      const route = `${req.method} ${action}`;
+      if (route === 'GET ') return sendJson(res, 200, await worldEngine.get(id));
+      if (route === 'PATCH ') return sendJson(res, 200, await worldEngine.update(id, await readBody(req)));
+      if (route === 'DELETE ') return sendJson(res, 200, await worldEngine.remove(id));
+      if (route === 'POST pause') return sendJson(res, 200, await worldEngine.pause(id));
+      if (route === 'POST resume') return sendJson(res, 200, await worldEngine.resume(id));
+      if (route === 'POST tick') return sendJson(res, 200, await worldEngine.tick(id));
+      if (route === 'GET diary') return sendJson(res, 200, await worldEngine.diary(id));
+      if (route === 'GET messages') {
+        const query = parsed.searchParams;
+        return sendJson(res, 200, await worldEngine.messages(id, { since: Number(query.get('since')) || 0, tail: Number(query.get('tail')) || 0, limit: Number(query.get('limit')) || 200, seen: query.get('seen') === '1' }));
+      }
+      if (route === 'POST messages') {
+        const body = await readBody(req);
+        return sendJson(res, 200, await worldEngine.say(id, { channel: body?.channel, text: body?.text }));
+      }
+      return sendJson(res, 405, { error: { message: '不支持这个操作' } });
+    } catch (error) {
+      const known = error instanceof WorldError || error.status;
+      if (!known) console.error('World request failed:', error?.code || error?.message);
+      return sendJson(res, error.status || 500, { error: { message: known ? error.message : '小世界操作失败', code: error.code || 'world_failed' } });
     }
   }
 
@@ -408,6 +458,7 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
     if (parsed.pathname === '/v1/stickers' || parsed.pathname.startsWith('/v1/stickers/')) return handleStickers(req, res, parsed);
     if (parsed.pathname === '/v1/pocket/status' && req.method === 'GET') return sendJson(res, 200, await status(source));
     if (parsed.pathname === '/v1/backups' || parsed.pathname.startsWith('/v1/backups/')) return handleBackups(req, res, parsed);
+    if (parsed.pathname === '/v1/pocket/worlds' || parsed.pathname.startsWith('/v1/pocket/worlds/')) return handleWorlds(req, res, parsed);
     if (parsed.pathname === '/v1/runs' && req.method === 'GET') {
       const chatId = parsed.searchParams.get('chat_id') || '';
       if (!chatId) return sendJson(res, 400, { error: { message: '缺少 chat_id' } });
@@ -505,8 +556,9 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
     requestListener,
     vault: store,
     social: socialRuntime,
-    activeRequests: () => active.size,
-    abortAll: () => { for (const item of active.values()) item.abort.abort(); },
+    worlds: worldEngine,
+    activeRequests: () => active.size + worldEngine.busy(),
+    abortAll: () => { for (const item of active.values()) item.abort.abort(); worldEngine.abortAll(); },
   };
   return server;
 }
