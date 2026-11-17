@@ -31,6 +31,7 @@ import androidx.compose.material.icons.outlined.DeleteOutline
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.FileUpload
 import androidx.compose.material.icons.outlined.Groups
+import androidx.compose.material.icons.outlined.Public
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.Stop
 import androidx.compose.material3.Button
@@ -92,6 +93,11 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
     var renameId by remember { mutableStateOf<String?>(null) }
     var groupOpen by remember { mutableStateOf(false) }
     var scenarioOpen by remember { mutableStateOf(false) }
+    var worldPickOpen by remember { mutableStateOf(false) }
+    var worldScenario by remember { mutableStateOf<Character?>(null) }
+    val worlds = state.worlds.list.orEmpty()
+    // 小世界 live on the PC; their rows refresh while the list is on screen.
+    androidx.compose.runtime.LaunchedEffect(Unit) { while (true) { actions.refreshWorlds(); kotlinx.coroutines.delay(60_000) } }
     val characters = remember(state.data.characters) { state.data.characters.associateBy { it.id } }
     val loadAvatar = remember(actions) { { avatar: String -> actions.characterAvatar(avatar) } }
     val shown = remember(chats, characters, query) { chats.filter { ChatListModel.matches(it, characters[it.characterId], query) } }
@@ -113,11 +119,12 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
                     DropdownMenuItem(text = { Text("新建群聊") }, leadingIcon = { Icon(Icons.Outlined.Groups, null) }, onClick = { addOpen = false; groupOpen = true })
                     DropdownMenuItem(text = { Text("角色卡助手") }, leadingIcon = { Icon(Icons.Outlined.AutoAwesome, null) }, onClick = { addOpen = false; actions.startCharacterBuilder() })
                     DropdownMenuItem(text = { Text("剧本助手") }, leadingIcon = { Icon(Icons.Outlined.AutoStories, null) }, onClick = { addOpen = false; scenarioOpen = true })
+                    DropdownMenuItem(text = { Text("新建小世界") }, leadingIcon = { Icon(Icons.Outlined.Public, null) }, onClick = { addOpen = false; worldPickOpen = true })
                     DropdownMenuItem(text = { Text("导入会话") }, leadingIcon = { Icon(Icons.Outlined.FileUpload, null) }, onClick = { addOpen = false; actions.importFile("chat") })
                 }
             }
         }
-        if (chats.isEmpty()) {
+        if (chats.isEmpty() && worlds.isEmpty()) {
             ConversationWelcome(Modifier.weight(1f), "给想象，留一点空间。", "聊天、创作，或继续一个故事。\n你的会话会保存在这台设备上。") {
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     Button(onClick = { actions.createChat() }, contentPadding = PaddingValues(horizontal = 20.dp, vertical = 14.dp)) {
@@ -133,9 +140,10 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
             return@Column
         }
         ChatSearchField(query) { query = it }
-        if (shown.isEmpty()) Text("没有找到“${query.trim()}”", Modifier.fillMaxWidth().padding(horizontal = 24.dp, vertical = 20.dp),
+        if (shown.isEmpty() && query.isNotBlank()) Text("没有找到“${query.trim()}”", Modifier.fillMaxWidth().padding(horizontal = 24.dp, vertical = 20.dp),
             style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
         LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(top = 4.dp, bottom = 12.dp)) {
+            if (query.isBlank()) items(worlds, key = { "world-${it.id}" }) { world -> WorldRow(world) { actions.openWorld(world.id) } }
             items(shown, key = { it.id }) { chat ->
                 ChatRow(chat, characters[chat.characterId], state.chatTasks[chat.id], ChatListModel.time(chat.updatedAt, now, zone), loadAvatar, state.data.characters,
                     onOpen = { actions.selectChat(chat.id) }, onStop = { actions.stopChat(chat.id) },
@@ -146,6 +154,8 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
     renameId?.let { id -> chats.firstOrNull { it.id == id }?.let { chat -> RenameChatDialog(chat, actions) { renameId = null } } }
     if (groupOpen) GroupSetupDialog(state, actions, chat = null) { groupOpen = false }
     if (scenarioOpen) ScenarioBuilderStartDialog(state, actions, onDismiss = { scenarioOpen = false })
+    if (worldPickOpen) WorldScenarioPicker(state, onPick = { worldPickOpen = false; worldScenario = it }, onDismiss = { worldPickOpen = false })
+    worldScenario?.let { MakeWorldDialog(it, state, actions, onDismiss = { worldScenario = null }) }
 }
 
 @Composable

@@ -6,6 +6,20 @@ interface AppActions {
     fun refreshModels(id: String)
     /** Refreshes the Venice account or API-key balance shown on the model page. */
     fun refreshVeniceBalance(providerId: String) { }
+    // 小世界 (server 0.13.0): the worlds live on the PC; these read them and speak in them.
+    fun refreshWorlds() { }
+    fun openWorld(id: String) { }
+    fun closeWorld() { }
+    fun refreshOpenWorld() { }
+    /** [channel] is "group" or "dm:<resident id>". */
+    fun sayInWorld(channel: String, text: String) { }
+    fun setWorldPaused(paused: Boolean) { }
+    fun tickWorld() { }
+    fun saveWorldSettings(settings: WorldSettings) { }
+    fun loadWorldDiary() { }
+    fun deleteWorld() { }
+    /** 做成小世界 from a scenario: the picked world book entries become its residents. */
+    fun makeWorld(scenarioId: String, residentEntryIds: List<String>, userName: String, startPaused: Boolean) { }
     /** Corrects what one model can do (vision, tools, window); null removes the correction. */
     fun editModel(providerId: String, modelId: String, edit: ModelEdit?) { }
     fun createChat(characterId: String = "", skillIds: List<String> = emptyList())

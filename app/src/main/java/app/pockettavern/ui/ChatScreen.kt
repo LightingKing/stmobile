@@ -52,6 +52,8 @@ import java.util.Locale
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun ChatTab(state: UiSession, actions: AppActions) {
+    // A 小世界 opens over the list like a chat does.
+    state.worlds.open?.let { world -> WorldScreen(world, state, actions); return }
     val chats = state.data.chats.sortedByDescending { it.updatedAt }
     // The chat list is home. A chat opens on top of it, and Back returns to the list.
     val chat = chats.firstOrNull { it.id == state.selectedChatId }?.takeIf { state.chatOpen }

@@ -48,7 +48,8 @@ internal fun ScenarioCard(
     onContinue: () -> Unit,
     onNewGame: () -> Unit,
     onEdit: () -> Unit = {},
-    onDelete: () -> Unit = {}
+    onDelete: () -> Unit = {},
+    onMakeWorld: (() -> Unit)? = null
 ) {
     var menuOpen by remember { mutableStateOf(false) }
     ElevatedCard(
@@ -85,6 +86,11 @@ internal fun ScenarioCard(
                         DropdownMenuItem(
                             text = { Text("查看设定") },
                             onClick = { menuOpen = false; onEdit() }
+                        )
+                        if (onMakeWorld != null) DropdownMenuItem(
+                            text = { Text("做成小世界") },
+                            onClick = { menuOpen = false; onMakeWorld() },
+                            enabled = !busy
                         )
                         DropdownMenuItem(
                             text = { Text("删除剧本") },

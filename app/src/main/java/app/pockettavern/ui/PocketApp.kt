@@ -493,6 +493,7 @@ private fun CharactersTab(state: UiSession, actions: AppActions, onOpenChat: () 
     var query by rememberSaveable { mutableStateOf("") }
     val locked = state.busy || state.loading
     var scenarioStart by remember { mutableStateOf(false) }
+    var worldScenario by remember { mutableStateOf<Character?>(null) }
     val allScenarios = state.data.characters.filter { ScenarioBuilder.isScenario(it) }
     val scenarios = allScenarios.filter { it.matchesCharacterSearch(query) }
     val characters = state.data.characters.filter { !ScenarioBuilder.isScenario(it) && it.matchesCharacterSearch(query) }
@@ -536,7 +537,8 @@ private fun CharactersTab(state: UiSession, actions: AppActions, onOpenChat: () 
                     onOpenChat()
                 },
                 onEdit = { characterDialog = scenario },
-                onDelete = { scenarioDelete = scenario }
+                onDelete = { scenarioDelete = scenario },
+                onMakeWorld = { worldScenario = scenario }
             )
         }
         item { SectionTitle("角色卡", action = { Text("${characters.size} 个", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant) }) }
@@ -570,6 +572,7 @@ private fun CharactersTab(state: UiSession, actions: AppActions, onOpenChat: () 
         ConfirmDeleteDialog("剧本“${scenario.name.ifBlank { "未命名剧本" }}”" + if (entries > 0) "和它的 $entries 条世界书" else "", { actions.deleteCharacter(scenario.id); scenarioDelete = null }) { scenarioDelete = null }
     }
     if (scenarioStart) ScenarioBuilderStartDialog(state, actions, onDismiss = { scenarioStart = false }, onStarted = onOpenChat)
+    worldScenario?.let { MakeWorldDialog(it, state, actions, onDismiss = { worldScenario = null }, onMade = onOpenChat) }
     worldDialog?.let { WorldEntryDialog(it, state, actions) { worldDialog = null } }
     memoryDialog?.let { MemoryDialog(it, state, actions) { memoryDialog = null } }
 }

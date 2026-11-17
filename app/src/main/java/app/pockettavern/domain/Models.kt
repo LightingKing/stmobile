@@ -110,7 +110,9 @@ data class UiSession(val data: AppData = AppData(), val selectedChatId: String =
     /** An AI character draft being written for the character form, or its result. */
     val characterDraft: CharacterDraftState? = null,
     /** The user's own photos, video frames and text for the character form. */
-    val draftInputs: DraftInputs = DraftInputs()) {
+    val draftInputs: DraftInputs = DraftInputs(),
+    /** 小世界 on the PC as last read, and the one open on screen. */
+    val worlds: WorldsState = WorldsState()) {
     fun chatBusy(chatId: String?): Boolean = chatId != null && chatId in chatTasks
 }
 /** GitHub star count recorded in the bundled catalog on [checkedAt]; null stars means it could not be read. */

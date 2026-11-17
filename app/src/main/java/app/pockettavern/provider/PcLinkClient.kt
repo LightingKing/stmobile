@@ -7,6 +7,9 @@ import app.pockettavern.domain.PcStatus
 import app.pockettavern.domain.ProviderConfig
 import app.pockettavern.domain.Sticker
 import app.pockettavern.domain.StickerPack
+import app.pockettavern.domain.WorldDetail
+import app.pockettavern.domain.WorldSettings
+import app.pockettavern.domain.WorldSummary
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.HttpUrl
@@ -232,6 +235,65 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         }
     }
 
+    // ---- 小世界 (server 0.13.0): the worlds live on the PC; these read them and speak in them.
+
+    suspend fun worlds(provider: ProviderConfig, key: String): List<WorldSummary> = withContext(Dispatchers.IO) {
+        WorldJson.list(parse(call(quick, request(provider, key, "pocket/worlds").get().build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    suspend fun world(provider: ProviderConfig, key: String, id: String): WorldDetail = withContext(Dispatchers.IO) {
+        WorldJson.detail(parse(call(quick, request(provider, key, worldPath(id)).get().build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    /** Creates a world from the JSON [app.pockettavern.engine.WorldPack] made; the PC checks every field again. */
+    suspend fun createWorld(provider: ProviderConfig, key: String, pack: JSONObject): WorldDetail = withContext(Dispatchers.IO) {
+        WorldJson.detail(parse(call(quick, request(provider, key, "pocket/worlds").post(pack.toString().toRequestBody(JSON)).build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    /** Lines after [since], or the last [tail] lines; [seen] tells the PC the user is looking (resets its slow-down). */
+    suspend fun worldMessages(provider: ProviderConfig, key: String, id: String, since: Long = 0, tail: Int = 0, seen: Boolean = true): WorldJson.Page = withContext(Dispatchers.IO) {
+        val url = base(provider).newBuilder().addPathSegments("${worldPath(id)}/messages").apply {
+            if (tail > 0) addQueryParameter("tail", tail.toString()) else addQueryParameter("since", since.toString())
+            if (seen) addQueryParameter("seen", "1")
+        }.build()
+        WorldJson.page(parse(call(quick, authorized(key).url(url).get().build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    /** The user speaks in the group ("group") or privately ("dm:r1"); the answer is one model request on the PC. */
+    suspend fun sayInWorld(provider: ProviderConfig, key: String, id: String, channel: String, text: String): WorldJson.Page = withContext(Dispatchers.IO) {
+        val body = JSONObject().put("channel", channel).put("text", text).toString().toRequestBody(JSON)
+        WorldJson.page(parse(call(client, request(provider, key, "${worldPath(id)}/messages").post(body).build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    suspend fun setWorldPaused(provider: ProviderConfig, key: String, id: String, paused: Boolean): WorldSummary = withContext(Dispatchers.IO) {
+        val empty = ByteArray(0).toRequestBody(JSON)
+        WorldJson.summary(parse(call(quick, request(provider, key, "${worldPath(id)}/${if (paused) "pause" else "resume"}").post(empty).build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    /** Moves the world on once, now; returns the PC's note when the director's answer was unusable. */
+    suspend fun tickWorld(provider: ProviderConfig, key: String, id: String): String = withContext(Dispatchers.IO) {
+        val empty = ByteArray(0).toRequestBody(JSON)
+        parse(call(client, request(provider, key, "${worldPath(id)}/tick").post(empty).build(), plain = true) { it.body?.string().orEmpty() }).optString("error")
+    }
+
+    suspend fun saveWorld(provider: ProviderConfig, key: String, id: String, settings: WorldSettings): WorldDetail = withContext(Dispatchers.IO) {
+        val body = JSONObject().put("settings", WorldJson.settingsPatch(settings)).toString().toRequestBody(JSON)
+        WorldJson.detail(parse(call(quick, request(provider, key, worldPath(id)).patch(body).build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    suspend fun worldDiary(provider: ProviderConfig, key: String, id: String): WorldJson.Diary = withContext(Dispatchers.IO) {
+        WorldJson.diary(parse(call(quick, request(provider, key, "${worldPath(id)}/diary").get().build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    suspend fun deleteWorld(provider: ProviderConfig, key: String, id: String) = withContext(Dispatchers.IO) {
+        call(quick, request(provider, key, worldPath(id)).delete().build(), plain = true) { }
+    }
+
+    private fun worldPath(id: String): String {
+        if (!WORLD_ID.matches(id)) throw PcLinkException("世界编号无效")
+        return "pocket/worlds/$id"
+    }
+
     private fun stickerPack(json: JSONObject): StickerPack {
         val stickers = json.optJSONArray("stickers") ?: JSONArray()
         return StickerPack(
@@ -253,26 +315,32 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         throw PcLinkException(error.message ?: "电脑地址无效")
     }
 
-    private fun request(provider: ProviderConfig, key: String, path: String): Request.Builder {
+    private fun request(provider: ProviderConfig, key: String, path: String): Request.Builder =
+        authorized(key).url(base(provider).newBuilder().addPathSegments(path).build())
+
+    private fun authorized(key: String): Request.Builder {
         if (key.isBlank()) throw PcLinkException("请先在平台页填写电脑写作服务的 Token")
-        return Request.Builder().url(base(provider).newBuilder().addPathSegments(path).build()).header("Authorization", "Bearer ${key.trim()}")
+        return Request.Builder().header("Authorization", "Bearer ${key.trim()}")
     }
 
-    private fun <T> call(transport: OkHttpClient, request: Request, read: (Response) -> T): T {
+    /** [plain]: the PC's own explanation is shown as it is (小世界 refusals such as a paused world or a used-up day). */
+    private fun <T> call(transport: OkHttpClient, request: Request, plain: Boolean = false, read: (Response) -> T): T {
         val response = try { transport.newCall(request).execute() } catch (error: IOException) {
             throw PcLinkException("连不上电脑上的写作服务。请确认电脑已开机、服务在运行，手机与电脑在同一网络或远程地址可用。", cause = error)
         }
         return response.use {
-            if (!it.isSuccessful) throw failure(it)
+            if (!it.isSuccessful) throw failure(it, plain)
             try { read(it) } catch (error: PcLinkException) { throw error } catch (error: IOException) {
                 throw PcLinkException("与电脑的连接中断，请重试", cause = error)
             }
         }
     }
 
-    private fun failure(response: Response): PcLinkException {
+    private fun failure(response: Response, plain: Boolean = false): PcLinkException {
         val message = runCatching { JSONObject(response.body?.string().orEmpty()).optJSONObject("error")?.optString("message") }.getOrNull().orEmpty()
-        val text = when (response.code) {
+        // A wrong token is throttled with Retry-After; a world's own refusals come without it.
+        val own = plain && message.isNotBlank() && message != "路径不存在" && response.code != 401 && (response.code != 429 || response.header("Retry-After") == null)
+        val text = if (own) message else when (response.code) {
             401 -> "网关 Token 不正确。请对照电脑上的“手机连接.txt”重新填写这个平台的 API Key。"
             429 -> {
                 val minutes = ((response.header("Retry-After")?.toLongOrNull() ?: 900L) + 59) / 60
@@ -311,6 +379,7 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         private const val MAX_PICTURE_BYTES = 512 * 1024
         private val STICKERS = "application/vnd.pocket-tavern.stickers".toMediaType()
         private const val MAX_STICKER_BYTES = 2 * 1024 * 1024
+        private val WORLD_ID = Regex("w[0-9a-f]{12}")
         private val STICKER_FILE = Regex("[0-9a-f]{12}/\\d{3}\\.(png|jpg|gif|webp)")
     }
 }

@@ -523,6 +523,176 @@ class AppController(application: Application) : AndroidViewModel(application), A
         status(reports.joinToString("；"))
     }
 
+    // ---- 小世界: the worlds live on the PC writing server; the phone shows what it last read of them.
+
+    private var worldListLoading = false
+    private var openWorldLoading = false
+    private fun updateWorlds(transform: (WorldsState) -> WorldsState) { mutable.value = mutable.value.copy(worlds = transform(mutable.value.worlds)) }
+    private fun updateOpenWorld(id: String, transform: (OpenWorld) -> OpenWorld) =
+        updateWorlds { state -> state.open?.takeIf { it.id == id }?.let { state.copy(open = transform(it)) } ?: state }
+    private fun updateWorldInList(summary: WorldSummary?) {
+        if (summary == null) return
+        updateWorlds { state -> state.copy(list = state.list?.map { if (it.id == summary.id) summary else it }) }
+    }
+
+    /** The chosen PC platform and its token; null when there is none to ask. */
+    private fun worldLink(): Pair<ProviderConfig, String>? {
+        val provider = pcProvider() ?: return null
+        val key = app.secrets.get(credentialId(provider)).takeIf { it.isNotBlank() } ?: return null
+        return provider to key
+    }
+
+    private fun worldFailure(error: Exception): String {
+        if (error is PcLinkException && error.httpCode == 0) pcRouter.forget()
+        return error.message ?: "电脑连接失败"
+    }
+
+    /** One world job in the background; failures go to the open world's error line. */
+    private fun worldJob(id: String, busy: String, block: suspend (ProviderConfig, String) -> Unit) {
+        val (provider, key) = worldLink() ?: return status("小世界在电脑写作服务上运行；请先在模型页添加电脑平台并填写 Token")
+        if (busy.isNotEmpty()) updateOpenWorld(id) { it.copy(busy = busy, error = "") }
+        viewModelScope.launch {
+            try { block(routed(provider), key) }
+            catch (error: CancellationException) { throw error }
+            catch (error: Exception) { val message = worldFailure(error); updateOpenWorld(id) { it.copy(error = message) } }
+            finally { if (busy.isNotEmpty()) updateOpenWorld(id) { it.copy(busy = "") } }
+        }
+    }
+
+    override fun refreshWorlds() {
+        if (worldListLoading || mutable.value.loading) return
+        val (provider, key) = worldLink() ?: return updateWorlds { it.copy(list = emptyList(), error = "") }
+        worldListLoading = true
+        viewModelScope.launch {
+            try { val list = pcClient.worlds(routed(provider), key); updateWorlds { it.copy(list = list, error = "") } }
+            catch (error: CancellationException) { throw error }
+            catch (error: Exception) {
+                // A PC older than 0.13.0 has no worlds: nothing to show, nothing to complain about.
+                val message = worldFailure(error)
+                updateWorlds { it.copy(list = if (error is PcLinkException && error.httpCode == 404) emptyList() else it.list, error = if (error is PcLinkException && error.httpCode == 404) "" else message) }
+            }
+            finally { worldListLoading = false }
+        }
+    }
+
+    override fun openWorld(id: String) {
+        if (worldLink() == null) return status("小世界在电脑写作服务上运行；请先在模型页添加电脑平台并填写 Token")
+        mutable.value = mutable.value.copy(chatOpen = false, worlds = mutable.value.worlds.copy(open = OpenWorld(id = id)))
+        worldJob(id, "load") { provider, key ->
+            val detail = pcClient.world(provider, key, id)
+            val page = pcClient.worldMessages(provider, key, id, tail = 300)
+            updateOpenWorld(id) { it.copy(detail = Worlds.refreshed(detail, page.world), items = Worlds.merge(it.items, page.items), next = maxOf(it.next, page.next)) }
+            updateWorldInList(page.world)
+        }
+    }
+
+    override fun closeWorld() {
+        updateWorlds { it.copy(open = null) }
+        refreshWorlds()
+    }
+
+    override fun refreshOpenWorld() {
+        val open = mutable.value.worlds.open ?: return
+        if (openWorldLoading || open.detail == null) return
+        val (provider, key) = worldLink() ?: return
+        openWorldLoading = true
+        viewModelScope.launch {
+            try {
+                val page = pcClient.worldMessages(routed(provider), key, open.id, since = open.next)
+                updateOpenWorld(open.id) { it.copy(items = Worlds.merge(it.items, page.items), next = maxOf(it.next, page.next),
+                    detail = it.detail?.let { detail -> Worlds.refreshed(detail, page.world) }, error = "") }
+                updateWorldInList(page.world)
+            }
+            catch (error: CancellationException) { throw error }
+            catch (error: Exception) { val message = worldFailure(error); updateOpenWorld(open.id) { it.copy(error = message) } }
+            finally { openWorldLoading = false }
+        }
+    }
+
+    override fun sayInWorld(channel: String, text: String) {
+        val open = mutable.value.worlds.open ?: return
+        val message = text.trim()
+        if (message.isEmpty() || open.pending != null) return
+        if (message.length > WorldLimits.USER_TEXT) return status("一条消息最多 ${WorldLimits.USER_TEXT} 字")
+        val pending = WorldItem(seq = -1, kind = "message", channel = channel, from = "user", name = open.detail?.userName.orEmpty(), text = message, time = "发送中")
+        updateOpenWorld(open.id) { it.copy(pending = pending, error = "") }
+        worldJob(open.id, "") { provider, key ->
+            try {
+                val page = pcClient.sayInWorld(provider, key, open.id, channel, message)
+                // The reply's lines are shown now; [next] stays, so the following read also picks up
+                // anything the world did in between.
+                updateOpenWorld(open.id) { it.copy(pending = null, items = Worlds.merge(it.items, page.items), detail = it.detail?.let { detail -> Worlds.refreshed(detail, page.world) }) }
+            } catch (error: Exception) {
+                updateOpenWorld(open.id) { it.copy(pending = null) }
+                throw error
+            } finally { refreshOpenWorld() }
+        }
+    }
+
+    override fun setWorldPaused(paused: Boolean) {
+        val open = mutable.value.worlds.open ?: return
+        worldJob(open.id, if (paused) "pause" else "resume") { provider, key ->
+            val summary = pcClient.setWorldPaused(provider, key, open.id, paused)
+            updateOpenWorld(open.id) { it.copy(detail = it.detail?.let { detail -> Worlds.refreshed(detail, summary) }) }
+            updateWorldInList(summary)
+            status(if (paused) "世界已暂停，时间停在 ${summary.worldTimeLabel}" else "世界继续运行")
+        }
+    }
+
+    override fun tickWorld() {
+        val open = mutable.value.worlds.open ?: return
+        worldJob(open.id, "tick") { provider, key ->
+            val note = pcClient.tickWorld(provider, key, open.id)
+            if (note.isNotBlank()) updateOpenWorld(open.id) { it.copy(error = note) }
+            refreshOpenWorld()
+        }
+    }
+
+    override fun saveWorldSettings(settings: WorldSettings) {
+        val open = mutable.value.worlds.open ?: return
+        Worlds.settingsProblem(settings)?.let { return status(it) }
+        worldJob(open.id, "settings") { provider, key ->
+            val detail = pcClient.saveWorld(provider, key, open.id, settings)
+            updateOpenWorld(open.id) { it.copy(detail = detail) }
+            updateWorldInList(detail.summary)
+            status("世界设置已保存")
+        }
+    }
+
+    override fun loadWorldDiary() {
+        val open = mutable.value.worlds.open ?: return
+        worldJob(open.id, "diary") { provider, key ->
+            val diary = pcClient.worldDiary(provider, key, open.id)
+            updateOpenWorld(open.id) { it.copy(diary = diary.entries, memories = diary.memories) }
+        }
+    }
+
+    override fun deleteWorld() {
+        val open = mutable.value.worlds.open ?: return
+        worldJob(open.id, "delete") { provider, key ->
+            pcClient.deleteWorld(provider, key, open.id)
+            updateWorlds { state -> state.copy(open = null, list = state.list?.filterNot { it.id == open.id }) }
+            status("世界已删除")
+        }
+    }
+
+    override fun makeWorld(scenarioId: String, residentEntryIds: List<String>, userName: String, startPaused: Boolean) {
+        val scenario = data.characters.firstOrNull { it.id == scenarioId } ?: return status("找不到这个剧本")
+        val pack = WorldPack.build(scenario, data.worldEntries, residentEntryIds, userName, startPaused).getOrElse { return status(it.message ?: "没能做成小世界") }
+        val (provider, key) = worldLink() ?: return status("小世界在电脑写作服务上运行；请先在模型页添加电脑平台并填写 Token")
+        status("正在电脑上建世界…")
+        viewModelScope.launch {
+            try {
+                val detail = pcClient.createWorld(routed(provider), key, pack)
+                updateWorlds { state -> state.copy(list = listOf(detail.summary) + state.list.orEmpty().filterNot { it.id == detail.summary.id }) }
+                status(if (detail.summary.paused) "小世界「${detail.summary.name}」已建好，暂停中；在世界页点“继续”开始" else "小世界「${detail.summary.name}」已建好，约一分钟后开始")
+                openWorld(detail.summary.id)
+            }
+            catch (error: CancellationException) { throw error }
+            catch (error: Exception) { status("没能做成小世界：${worldFailure(error)}") }
+        }
+    }
+
     override fun editModel(providerId: String, modelId: String, edit: ModelEdit?) {
         if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
         val p = data.providers.firstOrNull { it.id == providerId } ?: run { status("找不到平台"); return }
