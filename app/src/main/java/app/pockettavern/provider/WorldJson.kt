@@ -27,7 +27,8 @@ object WorldJson {
             settings = WorldSettings(
                 tickMinutes = settings.optInt("tickMinutes", defaults.tickMinutes), quietStart = settings.optString("quietStart", defaults.quietStart),
                 quietEnd = settings.optString("quietEnd", defaults.quietEnd), dailyTicks = settings.optInt("dailyTicks", defaults.dailyTicks),
-                dailyCalls = settings.optInt("dailyCalls", defaults.dailyCalls), slowWhenAway = settings.optBoolean("slowWhenAway", defaults.slowWhenAway)
+                dailyCalls = settings.optInt("dailyCalls", defaults.dailyCalls), slowWhenAway = settings.optBoolean("slowWhenAway", defaults.slowWhenAway),
+                dailyDms = settings.optInt("dailyDms", defaults.dailyDms)
             ),
             model = json.optString("model", "pocket-direct"), residents = residents(json.optJSONArray("residents")),
             nextTickAt = if (json.has("next_tick_at") && !json.isNull("next_tick_at")) json.optLong("next_tick_at") else null,
@@ -74,6 +75,7 @@ object WorldJson {
     fun settingsPatch(settings: WorldSettings): JSONObject = JSONObject()
         .put("tickMinutes", settings.tickMinutes).put("quietStart", settings.quietStart).put("quietEnd", settings.quietEnd)
         .put("dailyTicks", settings.dailyTicks).put("dailyCalls", settings.dailyCalls).put("slowWhenAway", settings.slowWhenAway)
+        .put("dailyDms", settings.dailyDms)
 
     private fun usage(json: JSONObject?) = WorldUsage(
         ticks = json?.optInt("ticks") ?: 0, calls = json?.optInt("calls") ?: 0,

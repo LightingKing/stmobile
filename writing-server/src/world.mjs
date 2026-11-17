@@ -52,9 +52,13 @@ export const WORLD_DEFAULTS = {
   dailyTicks: 40,
   dailyCalls: 80,
   slowWhenAway: true,
+  /** Rounds per world day in which a resident may write to the user first (replies do not count); 0: never. */
+  dailyDms: 6,
 };
 
-const SETTING_RANGES = { tickMinutes: [15, 120], dailyTicks: [0, 200], dailyCalls: [1, 400] };
+const SETTING_RANGES = { tickMinutes: [15, 120], dailyTicks: [0, 200], dailyCalls: [1, 400], dailyDms: [0, 30] };
+/** Someone the user has not answered does not write again within this much world time. */
+const DM_WAIT_MS = 12 * 60 * 60_000;
 const HHMM = /^([01]\d|2[0-3]):([0-5]\d)$/;
 const WORLD_ID = /^w[0-9a-f]{12}$/;
 const RESIDENT_ID = /^r\d{1,4}$/;
@@ -265,7 +269,7 @@ export const DIRECTOR_RULES = `你是一个持续运行的小世界的导演。�
 怎么写：
 - 居民按自己的性格、作息、工作和关系行动。大多数时候大家在忙自己的事；群里有话才说，没话就不说。深夜大家多半在睡觉。
 - 群聊和私信要像真实的手机聊天：短句、口语，可以分几条发，可以用表情符号或颜文字，符合各自的说话习惯；不写成小说旁白，不加动作描写，不加引号。
-- 私信只在有理由时发：想到用户、有事要说、分享见闻、回应用户。不要每次都发。
+- 私信要少而有分量：大多数时候没有人私信用户，只有确实有事、真的想到用户、或要回应用户时才发。一次推进最多一个人私信。用户还没回某人的私信时，那个人不追着再发，有话可以在群里说。
 - “事件”是这段时间里发生的、值得记下的事，第三人称一两句话，比如谁去了哪、谁和谁吵了一架、谁收到了快递。没有就留空。
 - 用户在这个世界里的身份见下方。用户的言行只由用户自己决定：不要替用户说话、行动或表态，也不要假装用户回复了。
 - 谁知道什么：群里的话群里所有人都看得到；用户和某位居民的私信只有这两个人知道；事件只有在场的人知道，除非有人说出去。居民不能说出自己不该知道的事。
@@ -364,13 +368,14 @@ export function directorMessages({ def, state, timeline, diary, timeZone }, { mo
     `【群「${def.groupName}」最近的消息】\n${group.length ? group.map((item) => itemLine(def, item, timeZone)).join('\n') : '（暂无）'}`,
     dmBlocks.length ? `【私信】\n${dmBlocks.join('\n\n')}` : '',
     book ? `【相关的世界书】\n${book}` : '',
+    mode === 'tick' ? dmSituationText(def, dmSituation({ def, timeline, timeZone }, worldNow), timeZone) : '',
   ].filter(Boolean);
   let ask;
   if (mode === 'tick') {
     const elapsed = worldNow - fromWorld;
     ask = `请推进世界：从 ${timeLabel(fromWorld, timeZone)} 到 ${timeLabel(worldNow, timeZone)}，过去了 ${elapsedText(elapsed)}。`;
     if (elapsed > DAY) ask += `这段时间比较长，只概括最重要的变化，群聊和私信只写最近的几条。`;
-    else ask += '这段时间里群聊一般 0 到 6 条，私信一般 0 到 1 条，按实际情况来，没有就留空。';
+    else ask += '这段时间里群聊一般 0 到 6 条；私信大多数时候没有，按实际情况来，没有就留空。';
     const lastUser = [...timeline].reverse().find((item) => item.kind === 'message');
     if (lastUser?.from === 'user') ask += '用户的消息还没有人回，先自然地回应。';
   } else if (mode === 'group') {
@@ -382,6 +387,39 @@ export function directorMessages({ def, state, timeline, diary, timeZone }, { mo
     { role: 'system', content: stablePrompt(def) },
     { role: 'user', content: `${sections.join('\n\n')}\n\n${ask}` },
   ];
+}
+
+/**
+ * How private messages stand at [worldNow]: in how many rounds of this world day residents wrote to
+ * the user first, the day's limit, and who is still waiting for the user's answer (wrote last in
+ * their private chat, less than 12 hours of world time ago).
+ */
+export function dmSituation({ def, timeline, timeZone }, worldNow) {
+  const today = dayOf(worldNow, timeZone);
+  const rounds = new Set(timeline
+    .filter((item) => item.kind === 'message' && String(item.channel).startsWith('dm:') && item.from !== 'user' && String(item.tick || '').startsWith('t') && dayOf(item.worldAt, timeZone) === today)
+    .map((item) => item.tick));
+  const waiting = def.residents.map((r) => {
+    const last = [...timeline].reverse().find((item) => item.kind === 'message' && item.channel === `dm:${r.id}`);
+    return last && last.from !== 'user' && worldNow - last.worldAt < DM_WAIT_MS ? { id: r.id, name: r.name, at: last.worldAt } : null;
+  }).filter(Boolean);
+  const cap = def.settings?.dailyDms ?? WORLD_DEFAULTS.dailyDms;
+  return { rounds: rounds.size, cap, waiting, spent: rounds.size >= cap };
+}
+
+function dmSituationText(def, situation, timeZone) {
+  const lines = [`今天居民主动私信用户 ${situation.rounds} 次，每天最多 ${situation.cap} 次。`];
+  if (situation.spent) lines.push('今天的次数已经用完：这次 dms 必须留空，有话在群里说。');
+  for (const who of situation.waiting) lines.push(`${who.name}上次私信用户在 ${shortLabel(who.at, timeZone)}，用户还没回：这次${who.name}不要再私信用户。`);
+  return `【私信情况】\n${lines.join('\n')}`;
+}
+
+/** The private messages a round may keep: one sender, nobody the user has not answered, within the day's limit. */
+export function limitDms(dms, situation) {
+  if (!dms.length || situation.spent) return [];
+  const sender = dms[0].from;
+  if (situation.waiting.some((who) => who.id === sender)) return [];
+  return dms.filter((line) => line.from === sender);
 }
 
 /** The first JSON object in a reply, tolerating code fences, inline thinking and text around it. */
@@ -501,6 +539,8 @@ export function createWorldEngine({ dataDir, run, now = Date.now, timeZone = 'As
         const dir = path.join(root, entry.name);
         try {
           const def = await readJson(path.join(dir, 'world.json'));
+          // Settings added in later versions take their defaults.
+          def.settings = { ...WORLD_DEFAULTS, ...(def.settings || {}) };
           const state = await readJson(path.join(dir, 'state.json'));
           worlds.set(def.id, { def, state, dir, timeline: await readLines(path.join(dir, 'timeline.jsonl')), diary: await readLines(path.join(dir, 'diary.jsonl')), queue: Promise.resolve(), writes: Promise.resolve(), busy: 0 });
         } catch (error) { log.warn?.(`小世界 ${entry.name} 读不出来，已跳过：${error.message}`); }
@@ -674,13 +714,17 @@ export function createWorldEngine({ dataDir, run, now = Date.now, timeZone = 'As
         await saveState(world);
         return { items: [], error: world.state.lastError.message };
       }
+      // The model is asked to keep private messages rare; these rules hold whatever it answers.
+      const offered = decision.dms.length;
+      decision.dms = limitDms(decision.dms, dmSituation(snapshot(world), worldNow));
+      const droppedDms = offered - decision.dms.length;
       const items = applyDecision(world, decision, { worldNow, fromWorld, tick: tickId });
       world.state.lastTickAt = at;
       world.state.lastTickWorldAt = worldNow;
       world.state.lastError = null;
       await writeDiary(world, worldNow);
       await saveState(world);
-      return { items };
+      return droppedDms ? { items, dropped_dms: droppedDms } : { items };
     }));
   }
 

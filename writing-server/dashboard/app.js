@@ -342,6 +342,7 @@ async function renderWorldSettings() {
     ['安静时段', `<input type="time" name="quietStart" value="${esc(s.quietStart)}"> 到 <input type="time" name="quietEnd" value="${esc(s.quietEnd)}">（两个时间相同表示没有安静时段）`],
     ['每天最多推进', `<input type="number" name="dailyTicks" min="0" max="200" value="${esc(s.dailyTicks)}"> 次`],
     ['每天最多请求', `<input type="number" name="dailyCalls" min="1" max="400" value="${esc(s.dailyCalls)}"> 次（推进、回应、写日记都算）`],
+    ['每天最多主动私信', `<input type="number" name="dailyDms" min="0" max="30" value="${esc(s.dailyDms ?? 6)}"> 次（居民先私信你的次数，按世界里的一天算；回你的消息不算；0 = 从不先私信）`],
     ['你超过一天没看就放慢', `<input type="checkbox" name="slowWhenAway"${s.slowWhenAway ? ' checked' : ''}>`],
     ['模型', select('model', models, w.model)],
   ].map(([label, input]) => `<label>${esc(label)}</label><div>${input}</div>`).join('') +
@@ -354,6 +355,7 @@ $('world-settings').onsubmit = async (event) => {
   const settings = {
     tickMinutes: Number(form.tickMinutes.value), quietStart: form.quietStart.value, quietEnd: form.quietEnd.value,
     dailyTicks: Number(form.dailyTicks.value), dailyCalls: Number(form.dailyCalls.value), slowWhenAway: form.slowWhenAway.checked,
+    dailyDms: Number(form.dailyDms.value),
   };
   try {
     world.info = await api(`/api/v1/pocket/worlds/${world.id}`, { method: 'PATCH', body: JSON.stringify({ settings, model: form.model.value }) });

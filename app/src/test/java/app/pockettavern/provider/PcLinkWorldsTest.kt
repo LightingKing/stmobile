@@ -129,6 +129,7 @@ class PcLinkWorldsTest {
         val settings = JSONObject(patch.body.readUtf8()).getJSONObject("settings")
         assertEquals(60, settings.getInt("tickMinutes"))
         assertEquals(50, settings.getInt("dailyCalls"))
+        assertEquals(6, settings.getInt("dailyDms"))
         assertEquals("01:00", settings.getString("quietStart"))
         server.enqueue(json(JSONObject(summary).put("paused", true).put("hold", "paused").toString()))
         val paused = runBlocking { client.setWorldPaused(pc, "token", "wcfad81922177", true) }
@@ -149,6 +150,10 @@ class PcLinkWorldsTest {
         assertEquals("推进间隔无效", Worlds.settingsProblem(WorldSettings(tickMinutes = 25)))
         assertTrue(Worlds.settingsProblem(WorldSettings(quietStart = "1点"))!!.contains("HH:MM"))
         assertTrue(Worlds.settingsProblem(WorldSettings(dailyCalls = 0))!!.contains("1 到 400"))
+        assertNull(Worlds.settingsProblem(WorldSettings(dailyDms = 0)))
+        assertTrue(Worlds.settingsProblem(WorldSettings(dailyDms = 31))!!.contains("0 到 30"))
+        // A PC before 0.15.0 sends no dailyDms: the phone shows the default.
+        assertEquals(6, WorldJson.summary(JSONObject().put("id", "w000000000001").put("settings", JSONObject().put("dailyCalls", 8))).settings.dailyDms)
     }
 
     private fun failure(block: suspend () -> Unit): PcLinkException = try {

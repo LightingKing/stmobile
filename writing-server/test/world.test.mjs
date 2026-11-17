@@ -405,3 +405,81 @@ test('the server routes resident and diary edits', async () => {
     assert.deepEqual((await facts.json()).definition.facts, ['团子对芒果过敏']);
   } finally { await new Promise((resolve) => server.close(resolve)); }
 });
+
+/** A director that proposes [dms] (resident names) in every round, and answers private messages. */
+function dmModel(dms) {
+  const calls = [];
+  const run = async ({ messages }) => {
+    const ask = messages.at(-1).content;
+    calls.push({ system: messages[0].content, ask });
+    const answer = ask.includes('用户刚刚私聊了')
+      ? { dms: [{ from: '苏糖', text: '回你啦' }] }
+      : { group: [], events: [], residents: [], dms: dms.map((name) => ({ from: name, text: `${name}想你了` })) };
+    return { content: JSON.stringify(answer), usage: { prompt_tokens: 10, completion_tokens: 5 } };
+  };
+  return { run, calls };
+}
+
+test('one resident at most writes privately per round, and the prompt asks for rare messages', async () => {
+  const model = dmModel(['苏糖', '林晚']);
+  const { engine } = await engineAt(at('2026-11-17T10:00:00+08:00'), { model });
+  const { id } = await engine.create(EXAMPLE);
+  const result = await engine.tick(id);
+  assert.deepEqual(result.items.map((item) => [item.channel, item.text]), [['dm:r3', '苏糖想你了']]);
+  assert.equal(result.dropped_dms, 1);
+  assert.match(model.calls[0].system, /私信要少而有分量/);
+  assert.match(model.calls[0].ask, /【私信情况】\n今天居民主动私信用户 0 次，每天最多 6 次。/);
+});
+
+test('someone the user has not answered does not write again for twelve hours of world time', async () => {
+  const model = dmModel(['苏糖']);
+  const { engine, clock } = await engineAt(at('2026-11-17T10:00:00+08:00'), { model });
+  const { id } = await engine.create(EXAMPLE);
+  assert.equal((await engine.tick(id)).items.length, 1);
+  clock.now += HOUR;
+  const second = await engine.tick(id);
+  assert.equal(second.items.length, 0);
+  assert.equal(second.dropped_dms, 1);
+  assert.match(model.calls.at(-1).ask, /苏糖上次私信用户在 11-17 10:00，用户还没回：这次苏糖不要再私信用户。/);
+  clock.now += 12 * HOUR;
+  assert.equal((await engine.tick(id)).items.length, 1, 'a new day, a new message');
+  // Replies are never held back.
+  assert.equal((await engine.say(id, { channel: 'dm:r3', text: '在呢' })).items.length, 2);
+});
+
+test('the daily limit counts rounds per world day, and 0 means residents never write first', async () => {
+  const proposals = ['苏糖'];
+  const model = dmModel(proposals);
+  const { engine, clock } = await engineAt(at('2026-11-17T09:00:00+08:00'), { model });
+  const { id } = await engine.create({ ...EXAMPLE, settings: { dailyDms: 1 } });
+  assert.equal((await engine.tick(id)).items.length, 1);
+  // Next round 林晚 would write: nobody is waiting on her, but today's one round is used.
+  proposals.splice(0, proposals.length, '林晚');
+  clock.now += HOUR;
+  const spent = await engine.tick(id);
+  assert.equal(spent.items.length, 0);
+  assert.equal(spent.dropped_dms, 1);
+  assert.match(model.calls.at(-1).ask, /今天居民主动私信用户 1 次，每天最多 1 次。\n今天的次数已经用完：这次 dms 必须留空/);
+  // The next world day she may.
+  clock.now = at('2026-11-18T09:00:00+08:00');
+  assert.equal((await engine.tick(id)).items.map((item) => item.text).join(), '林晚想你了');
+
+  const quiet = await engineAt(at('2026-11-17T09:00:00+08:00'), { model: dmModel(['林晚']) });
+  const silent = await quiet.engine.create({ ...EXAMPLE, settings: { dailyDms: 0 } });
+  assert.equal((await quiet.engine.tick(silent.id)).items.length, 0);
+  assert.equal((await quiet.engine.say(silent.id, { channel: 'dm:r3', text: '在吗' })).items.length, 2, 'answers still come');
+  await assert.rejects(quiet.engine.update(silent.id, { settings: { dailyDms: 31 } }), /0–30/);
+});
+
+test('a world made before the private-message limit gets the default when it loads', async () => {
+  const { engine, model, dataDir, clock } = await engineAt(at('2026-11-17T10:00:00+08:00'));
+  const { id } = await engine.create(EXAMPLE);
+  await engine.flush();
+  const file = path.join(dataDir, 'worlds', id, 'world.json');
+  const def = JSON.parse(await fs.readFile(file, 'utf8'));
+  delete def.settings.dailyDms;
+  await fs.writeFile(file, JSON.stringify(def));
+  const reloaded = createWorldEngine({ dataDir, run: model.run, now: () => clock.now, log: { log() {}, warn() {}, error() {} }, checkEveryMs: 0 });
+  assert.equal((await reloaded.get(id)).settings.dailyDms, 6);
+});
+

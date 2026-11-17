@@ -448,6 +448,7 @@ private fun WorldPane(open: OpenWorld, detail: WorldDetail, actions: AppActions,
     var settings by remember(summary.settings) { mutableStateOf(summary.settings) }
     var ticks by remember(summary.settings) { mutableStateOf(summary.settings.dailyTicks.toString()) }
     var calls by remember(summary.settings) { mutableStateOf(summary.settings.dailyCalls.toString()) }
+    var dms by remember(summary.settings) { mutableStateOf(summary.settings.dailyDms.toString()) }
     val zone = remember { ZoneId.systemDefault() }
     Column(modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
         val next = summary.nextTickAt?.let { ClockFormat.format(Instant.ofEpochMilli(it).atZone(zone)) }
@@ -482,11 +483,15 @@ private fun WorldPane(open: OpenWorld, detail: WorldDetail, actions: AppActions,
             OutlinedTextField(ticks, { ticks = it.filter(Char::isDigit).take(3) }, Modifier.weight(1f), label = { Text("每天最多推进") }, singleLine = true, keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number))
             OutlinedTextField(calls, { calls = it.filter(Char::isDigit).take(3) }, Modifier.weight(1f), label = { Text("每天最多请求") }, singleLine = true, keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number))
         }
+        OutlinedTextField(dms, { dms = it.filter(Char::isDigit).take(2) }, Modifier.fillMaxWidth(), label = { Text("每天最多主动私信") }, singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number))
+        Text("居民先私信你的次数（世界里的一天）；回你的消息不算，0 表示从不先私信。另外一次推进最多一个人私信你，你还没回的人 12 小时内不再私信你。",
+            style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Row(verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1f)) { Text("你不在时放慢"); Text("超过一天没看，间隔变成 2 倍；两天变成 4 倍", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
             Switch(settings.slowWhenAway, { settings = settings.copy(slowWhenAway = it) })
         }
-        val edited = settings.copy(dailyTicks = ticks.toIntOrNull() ?: -1, dailyCalls = calls.toIntOrNull() ?: -1)
+        val edited = settings.copy(dailyTicks = ticks.toIntOrNull() ?: -1, dailyCalls = calls.toIntOrNull() ?: -1, dailyDms = dms.toIntOrNull() ?: -1)
         val problem = Worlds.settingsProblem(edited)
         problem?.let { Text(it, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.error) }
         Button(onClick = { actions.saveWorldSettings(edited) }, enabled = problem == null && edited != summary.settings && open.busy.isEmpty()) { Text("保存设置") }

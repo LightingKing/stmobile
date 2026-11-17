@@ -11,7 +11,9 @@ data class WorldUsage(val ticks: Int = 0, val calls: Int = 0, val promptTokens: 
 /** Each world's pace and limits, as the PC checks them (ranges in [WorldLimits]). */
 data class WorldSettings(
     val tickMinutes: Int = 30, val quietStart: String = "01:00", val quietEnd: String = "08:00",
-    val dailyTicks: Int = 40, val dailyCalls: Int = 80, val slowWhenAway: Boolean = true
+    val dailyTicks: Int = 40, val dailyCalls: Int = 80, val slowWhenAway: Boolean = true,
+    /** Rounds per world day in which a resident may write to the user first (PC 0.15.0); 0: never. */
+    val dailyDms: Int = 6
 )
 
 object WorldLimits {
@@ -20,6 +22,7 @@ object WorldLimits {
     val TICK_MINUTES = listOf(15, 20, 30, 45, 60, 90, 120)
     val DAILY_TICKS = 0..200
     val DAILY_CALLS = 1..400
+    val DAILY_DMS = 0..30
     private val HHMM = Regex("([01]\\d|2[0-3]):[0-5]\\d")
     fun validTime(value: String) = HHMM.matches(value)
 }
@@ -112,6 +115,7 @@ object Worlds {
         !WorldLimits.validTime(settings.quietStart) || !WorldLimits.validTime(settings.quietEnd) -> "安静时段要写成 HH:MM，例如 01:00"
         settings.dailyTicks !in WorldLimits.DAILY_TICKS -> "每天推进次数要在 0 到 200 之间"
         settings.dailyCalls !in WorldLimits.DAILY_CALLS -> "每天请求次数要在 1 到 400 之间"
+        settings.dailyDms !in WorldLimits.DAILY_DMS -> "每天主动私信次数要在 0 到 30 之间"
         else -> null
     }
 

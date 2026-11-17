@@ -181,6 +181,7 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
 - **花费上限**（每个世界自己的设置，管理页可改）：
   - 每天最多推进 40 次、请求 80 次（推进、回应、写日记都算请求，失败的请求也算）。到上限当天不再推进；请求用完时也不再回应。按这台电脑的日期在 0 点清零。
   - 安静时段默认 1:00–8:00（按世界时间），不推进。
+  - 私信（服务 0.15.0）：一次推进最多一位居民私信你；你还没回某人的私信时，那个人 12 小时（世界时间）内不再私信你；居民先私信你的次数每天（世界里的一天）最多 6 次，可改成 0–30 次，0 表示从不先私信。回你的消息不受限制。请求里会写明今天已经私信了几次、谁在等你回，这些规则由服务端强制执行，不只靠模型遵守。
   - 用户超过 24 小时没看（手机或管理页带 `seen=1` 读取），推进间隔加倍；超过 48 小时变成 4 倍。一看就恢复。
   - `config.json` 里写 `"worldSchedule": false`，所有世界停止自动推进（还能读取）。没有配置 Venice Key 时也不会推进。
 - **请求怎么发**：和手机聊天走同一条管线，用 `pocket-direct`（电脑的默认模型）或世界里选的上游模型，不走审校；思考强度按电脑设置；有乱码时照常补字。记录出现在管理页“最近的请求”里，会话 ID 是 `world-<世界 id>`。
@@ -201,7 +202,7 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
   | `POST /v1/pocket/worlds/<id>/residents` | 加一位居民（字段同世界 JSON 里的居民），最多 8 位（服务 0.14.0） |
   | `PATCH`、`DELETE /v1/pocket/worlds/<id>/residents/<r编号>` | 改居民的名字、别名、设定、状态或记得的事（只传要改的项），或让他搬走；搬走的人说过的话留在时间线里，编号不会再给别人（服务 0.14.0） |
   | `DELETE /v1/pocket/worlds/<id>` | 删除世界和它的全部记录 |
-- **世界 JSON**：例子是 `examples/world-302.json`（四个合租室友的日常世界，用来测试）。必填 `name`、`setting`、`residents`（每位 `name`、`card`，可选 `aliases` 和开始时的 `location`/`activity`/`mood`/`plan`/`notes`）；可选 `summary`、`rules`、`userRole`、`userName`（居民怎么称呼用户）、`groupName`、`opening`（创建时作为第一条事件）、`startAt`（世界的起始时间，默认现在）、`startPaused`（先暂停，确认后再恢复）、`worldBook`（`name`、`content`、`keywords`、`always`）、`model`、`settings`（`tickMinutes` 15–120、`quietStart`/`quietEnd`、`dailyTicks`、`dailyCalls`、`slowWhenAway`）。
+- **世界 JSON**：例子是 `examples/world-302.json`（四个合租室友的日常世界，用来测试）。必填 `name`、`setting`、`residents`（每位 `name`、`card`，可选 `aliases` 和开始时的 `location`/`activity`/`mood`/`plan`/`notes`）；可选 `summary`、`rules`、`userRole`、`userName`（居民怎么称呼用户）、`groupName`、`opening`（创建时作为第一条事件）、`startAt`（世界的起始时间，默认现在）、`startPaused`（先暂停，确认后再恢复）、`worldBook`（`name`、`content`、`keywords`、`always`）、`model`、`settings`（`tickMinutes` 15–120、`quietStart`/`quietEnd`、`dailyTicks`、`dailyCalls`、`slowWhenAway`、`dailyDms` 0–30）。
 
 ## 社交平台（服务 0.11.0）
 
