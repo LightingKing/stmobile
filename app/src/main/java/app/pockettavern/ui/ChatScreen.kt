@@ -177,7 +177,7 @@ private fun ConversationHeader(chat: Chat?, state: UiSession, actions: AppAction
                     chat == null -> "随身的创作空间"
                     task != null -> ChatTasks.label(task)
                     chat.group != null -> "${groupMembers.size} 位成员" + chat.group.scene.takeIf { it.isNotBlank() }?.let { " · 场景：" + it.replace('\n', ' ') }.orEmpty()
-                    chat.task == app.pockettavern.engine.ScenarioBuilder.TASK -> "和助手一起写剧本"
+                    chat.task == app.pockettavern.engine.ScenarioBuilder.TASK -> if (chat.scenarioDraft?.worldMode == true) "和助手一起建小世界" else "和助手一起写剧本"
                     chat.task == app.pockettavern.engine.CharacterCardTool.TASK -> "和助手一起做角色卡"
                     else -> character?.name?.let { "与 $it 对话" } ?: "口袋酒馆 · 对话"
                 }, style = MaterialTheme.typography.labelSmall, color = if (task != null) colors.primary else colors.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)

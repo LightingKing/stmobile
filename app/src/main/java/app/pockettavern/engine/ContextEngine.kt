@@ -124,7 +124,7 @@ object ContextEngine {
         val cardBuilder = CharacterCardTool.available(chat, toolsSupported)
         if (cardBuilder) addSystem(CharacterCardTool.PROMPT)
         val scenarioBuilder = chat.task == ScenarioBuilder.TASK
-        if (scenarioBuilder) addSystem(if (toolsSupported) ScenarioBuilder.PROMPT else ScenarioBuilder.NO_TOOLS)
+        if (scenarioBuilder) addSystem(if (toolsSupported) ScenarioBuilder.prompt(chat.scenarioDraft) else ScenarioBuilder.NO_TOOLS)
         val skillTokens = skills.map { skill ->
             val prompt = skillPrompt(skill, toolsSupported)
             addSystem(prompt, "skill")
@@ -145,7 +145,7 @@ object ContextEngine {
         if (dshEngine) toolArray.put(DshTool.definition())
         if (webReach) toolArray.put(ReachTool.definition())
         if (cardBuilder) toolArray.put(CharacterCardTool.definition())
-        if (scenarioBuilder && toolsSupported) ScenarioBuilder.definitions().forEach { toolArray.put(it) }
+        if (scenarioBuilder && toolsSupported) ScenarioBuilder.definitions(chat.scenarioDraft?.worldMode == true).forEach { toolArray.put(it) }
 
         val validSummary = findValidSummary(chat)
         val cutoff = validSummary?.let { chat.messages.indexOfFirst { message -> message.id == it.throughMessageId } } ?: -1

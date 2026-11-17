@@ -281,6 +281,11 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         WorldJson.detail(parse(call(quick, request(provider, key, worldPath(id)).patch(body).build(), plain = true) { it.body?.string().orEmpty() }))
     }
 
+    /** Changes a world's own texts and world book (the 世界助手 building again); only the fields in [changes]. */
+    suspend fun patchWorld(provider: ProviderConfig, key: String, id: String, changes: JSONObject): WorldDetail = withContext(Dispatchers.IO) {
+        WorldJson.detail(parse(call(quick, request(provider, key, worldPath(id)).patch(changes.toString().toRequestBody(JSON)).build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
     suspend fun worldDiary(provider: ProviderConfig, key: String, id: String): WorldJson.Diary = withContext(Dispatchers.IO) {
         WorldJson.diary(parse(call(quick, request(provider, key, "${worldPath(id)}/diary").get().build(), plain = true) { it.body?.string().orEmpty() }))
     }

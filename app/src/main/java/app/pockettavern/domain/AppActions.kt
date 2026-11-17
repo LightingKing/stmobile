@@ -29,6 +29,10 @@ interface AppActions {
     fun saveWorldFacts(facts: List<String>) { }
     /** New private messages from any world, as notifications (all worlds on this phone). */
     fun setWorldNotifications(enabled: Boolean) { }
+    /** 世界助手: a builder chat whose draft becomes a 小世界 on the PC. */
+    fun startWorldBuilder(providerId: String, modelId: String, skillIds: List<String>, idea: String): Boolean = false
+    /** Builds (or updates) the world of a 世界助手 chat; [startPaused] applies to a new world only. */
+    fun finishWorld(chatId: String, startPaused: Boolean) { }
     /** 做成小世界 from a scenario: the picked world book entries become its residents. */
     fun makeWorld(scenarioId: String, residentEntryIds: List<String>, userName: String, startPaused: Boolean) { }
     /** Corrects what one model can do (vision, tools, window); null removes the correction. */

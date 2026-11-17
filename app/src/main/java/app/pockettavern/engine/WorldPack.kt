@@ -1,6 +1,8 @@
 package app.pockettavern.engine
 
 import app.pockettavern.domain.Character
+import app.pockettavern.domain.ScenarioDraft
+import app.pockettavern.domain.WorldDetail
 import app.pockettavern.domain.WorldEntry
 import app.pockettavern.domain.WorldLimits
 import org.json.JSONArray
@@ -48,6 +50,92 @@ object WorldPack {
         return JSONObject().put("name", name).put("card", parts.ifBlank { name }.take(6000))
     }
 
+    /**
+     * A 世界助手 draft as the world JSON: its people are the residents, its world entries the world
+     * book. A draft without a core setting uses its always-on entries (or their names) instead.
+     */
+    fun fromDraft(draft: ScenarioDraft, startPaused: Boolean): Result<JSONObject> = runCatching {
+        val missing = ScenarioBuilder.missing(draft.copy(worldMode = true))
+        require(missing.isEmpty()) { "还缺：${missing.joinToString("、")}" }
+        require(draft.people.size <= WorldLimits.RESIDENTS) { "小世界最多 ${WorldLimits.RESIDENTS} 位居民" }
+        val residents = residentsJson(draft.people.map { Triple(it.name.trim().take(30), it.content, it.keywords) })
+        val book = JSONArray()
+        draft.world.take(BOOK_ENTRIES).forEach { book.put(bookEntry(it.name, it.content, it.keywords, it.always)) }
+        val setting = draft.setting.trim()
+            .ifBlank { draft.world.filter { it.always }.joinToString("\n") { "${it.name}：${it.content}" } }
+            .ifBlank { "世界观见世界书：" + draft.world.joinToString("、") { it.name } }
+        JSONObject()
+            .put("name", draft.title.trim().take(40))
+            .put("summary", draft.summary.trim().take(500))
+            .put("setting", setting.take(8000))
+            .put("rules", draft.rules.trim().take(4000))
+            .put("userRole", draft.userRole.trim().take(2000))
+            .put("userName", draft.userName.trim().take(20))
+            .put("groupName", draft.groupName.trim().take(30))
+            .put("opening", draft.opening.trim().take(4000))
+            .put("worldBook", book)
+            .put("residents", residents)
+            .put("startPaused", startPaused)
+    }
+
+    /** What building a draft again does to the world it already made. */
+    class WorldSync(
+        /** World fields to PATCH (blank names left out: the PC requires them). */
+        val patch: JSONObject,
+        /** Resident id to the card and aliases to set, for residents whose name is still in the draft. */
+        val updates: List<Pair<String, JSONObject>>,
+        val adds: List<JSONObject>,
+        /** Residents no longer in the draft, by id; they move out (what they said stays). */
+        val removes: List<String>,
+    ) {
+        val isEmpty: Boolean get() = updates.isEmpty() && adds.isEmpty() && removes.isEmpty()
+    }
+
+    /** Residents are matched by name: a renamed one moves out and comes back as new. */
+    fun syncPlan(pack: JSONObject, current: WorldDetail): WorldSync {
+        val patch = JSONObject()
+        listOf("name", "summary", "setting", "rules", "userRole").forEach { key -> patch.put(key, pack.optString(key)) }
+        listOf("userName", "groupName").forEach { key -> pack.optString(key).takeIf { it.isNotBlank() }?.let { patch.put(key, it) } }
+        patch.put("worldBook", pack.optJSONArray("worldBook") ?: JSONArray())
+        val wanted = pack.optJSONArray("residents") ?: JSONArray()
+        val existing = current.summary.residents
+        val updates = mutableListOf<Pair<String, JSONObject>>()
+        val adds = mutableListOf<JSONObject>()
+        val kept = mutableSetOf<String>()
+        for (index in 0 until wanted.length()) {
+            val resident = wanted.getJSONObject(index)
+            val name = resident.optString("name")
+            val match = existing.firstOrNull { it.name == name }
+            if (match == null) { adds += resident; continue }
+            kept += match.id
+            val aliases = resident.optJSONArray("aliases")?.let { list -> (0 until list.length()).map { list.optString(it) } }.orEmpty()
+            if (match.card != resident.optString("card") || match.aliases != aliases) {
+                updates += match.id to JSONObject().put("card", resident.optString("card")).put("aliases", JSONArray(aliases))
+            }
+        }
+        return WorldSync(patch, updates, adds, existing.filter { it.id !in kept }.map { it.id })
+    }
+
+    /** Residents from (name, text, keywords): the 【角色：】 heading dropped, other residents' names never an alias. */
+    private fun residentsJson(people: List<Triple<String, String, List<String>>>): JSONArray {
+        val names = people.map { it.first }
+        require(names.none { it.isBlank() }) { "有一位居民没有名字" }
+        names.groupBy { it }.filterValues { it.size > 1 }.keys.firstOrNull()?.let { throw IllegalArgumentException("有两位居民都叫“$it”，只留一位") }
+        val used = names.toMutableSet()
+        val residents = JSONArray()
+        people.forEach { (name, content, keywords) ->
+            val aliases = keywords.map { it.trim() }.filter { it.isNotEmpty() && it.length <= 30 && it !in used }.distinct().take(6)
+            used += aliases
+            residents.put(JSONObject().put("name", name).put("aliases", JSONArray(aliases)).put("card", content.replace(PERSON, "").trim().ifBlank { name }.take(6000)))
+        }
+        return residents
+    }
+
+    private fun bookEntry(name: String, content: String, keywords: List<String>, always: Boolean): JSONObject =
+        JSONObject().put("name", name.ifBlank { content.take(20) }.trim().take(60)).put("content", content.trim().take(6000))
+            .put("keywords", JSONArray(keywords.map { it.trim() }.filter { it.isNotEmpty() && it.length <= 30 }.distinct().take(12)))
+            .put("always", always)
+
     /** "用户扮演谷若尘，……" → 谷若尘; blank when the role does not say. */
     fun guessUserName(userPersona: String): String = ROLE.find(userPersona)?.groupValues?.get(1)?.trim().orEmpty().take(20)
 
@@ -60,27 +148,12 @@ object WorldPack {
         val chosen = residentIds.distinct().mapNotNull { id -> pool.firstOrNull { it.id == id } }
         require(chosen.isNotEmpty()) { "至少选一位居民" }
         require(chosen.size <= WorldLimits.RESIDENTS) { "一个世界最多 ${WorldLimits.RESIDENTS} 位居民" }
-        val names = chosen.map(::personName)
-        names.groupBy { it }.filterValues { it.size > 1 }.keys.firstOrNull()?.let { throw IllegalArgumentException("有两位居民都叫“$it”，只留一位") }
-        require(names.none { it.isBlank() }) { "有一位居民没有名字" }
-        val used = names.toMutableSet()
-        val residents = JSONArray()
-        chosen.forEachIndexed { index, entry ->
-            val name = names[index]
-            val aliases = entry.keywords.map { it.trim() }.filter { it.isNotEmpty() && it.length <= 30 && it !in used }.distinct().take(6)
-            used += aliases
-            residents.put(JSONObject().put("name", name).put("aliases", JSONArray(aliases))
-                .put("card", entry.content.replace(PERSON, "").trim().ifBlank { name }.take(6000)))
-        }
+        val residents = residentsJson(chosen.map { Triple(personName(it), it.content, it.keywords) })
         val book = JSONArray()
         pool.filter { it.id !in chosen.map { c -> c.id } }
             .sortedWith(compareByDescending<WorldEntry> { it.always }.thenByDescending { it.priority })
             .take(BOOK_ENTRIES)
-            .forEach { entry ->
-                book.put(JSONObject().put("name", entry.name.ifBlank { entry.content.take(20) }.trim().take(60)).put("content", entry.content.trim().take(6000))
-                    .put("keywords", JSONArray(entry.keywords.map { it.trim() }.filter { it.isNotEmpty() && it.length <= 30 }.distinct().take(12)))
-                    .put("always", entry.always))
-            }
+            .forEach { entry -> book.put(bookEntry(entry.name, entry.content, entry.keywords, entry.always)) }
         val name = scenario.name.trim().ifBlank { "小世界" }
         JSONObject()
             .put("name", name.take(40))

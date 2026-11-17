@@ -2791,7 +2791,67 @@ class AppController(application: Application) : AndroidViewModel(application), A
         return true
     }
 
+    override fun startWorldBuilder(providerId: String, modelId: String, skillIds: List<String>, idea: String): Boolean {
+        if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪，请稍候"); return false }
+        val provider = data.providers.firstOrNull { it.id == providerId }
+        val model = provider?.models?.firstOrNull { it.id == modelId && it.type == "text" && !it.offline }
+        if (provider == null || model == null) { status("先选一个模型"); return false }
+        if (!model.supportsTools) { status("世界助手要用支持工具调用的模型，才能把草稿记下来"); return false }
+        val picked = applyScenarioSkillUpdate(data, skillIds)
+        val chat = Chat(title = "世界助手", providerId = provider.id, modelId = model.id, task = ScenarioBuilder.TASK,
+            skillIds = picked.settings.scenarioSkillIds, scenarioDraft = ScenarioDraft(worldMode = true),
+            messages = listOf(Message(role = "assistant", content = ScenarioBuilder.WORLD_GREETING)))
+        change(picked.copy(chats = listOf(chat) + picked.chats))
+        selectChat(chat.id)
+        if (idea.isNotBlank()) send(idea.trim())
+        return true
+    }
+
+    override fun finishWorld(chatId: String, startPaused: Boolean) {
+        if (chatBusy(chatId)) { status("助手还在回复，等它写完再建"); return }
+        status("正在电脑上建世界…")
+        viewModelScope.launch {
+            buildWorld(chatId, startPaused).fold(
+                { (detail, created) -> status(if (created) "小世界「${detail.summary.name}」已建好${if (detail.summary.paused) "，暂停中" else ""}；点顶部的“打开小世界”" else "小世界「${detail.summary.name}」已更新") },
+                { status(it.message ?: "没能建成小世界") })
+        }
+    }
+
+    /**
+     * Builds the 世界助手 chat's world on the PC, or brings the one it built in line with the draft:
+     * texts and world book patched, residents matched by name (edited, added, moved out). Returns the
+     * world and whether it was new. A world deleted on the PC meanwhile is built again.
+     */
+    private suspend fun buildWorld(chatId: String, startPaused: Boolean): Result<Pair<WorldDetail, Boolean>> = runCatching {
+        val draft = current(chatId).scenarioDraft?.takeIf { it.worldMode } ?: throw IllegalArgumentException("这个会话没有世界草稿")
+        val pack = WorldPack.fromDraft(draft, startPaused).getOrThrow()
+        val (provider, key) = worldLink() ?: throw IllegalStateException("小世界在电脑写作服务上运行；请先在模型页添加电脑平台并填写 Token")
+        val route = routed(provider)
+        val existing = draft.worldId.takeIf { it.isNotBlank() }?.let { id ->
+            try { pcClient.world(route, key, id) } catch (error: PcLinkException) { if (error.httpCode == 404) null else throw error }
+        }
+        val detail = if (existing == null) pcClient.createWorld(route, key, pack) else {
+            val plan = WorldPack.syncPlan(pack, existing)
+            var latest = pcClient.patchWorld(route, key, existing.summary.id, plan.patch)
+            // Keep at least one resident while others move out, and never more than eight at a time.
+            val keepOne = existing.summary.residents.size - plan.removes.size < 1
+            val early = if (keepOne) plan.removes.dropLast(1) else plan.removes
+            early.forEach { latest = pcClient.removeWorldResident(route, key, existing.summary.id, it) }
+            plan.updates.forEach { (id, changes) -> latest = pcClient.updateWorldResident(route, key, existing.summary.id, id, changes) }
+            plan.adds.forEachIndexed { index, resident ->
+                latest = pcClient.addWorldResident(route, key, existing.summary.id, resident)
+                if (keepOne && index == 0) latest = pcClient.removeWorldResident(route, key, existing.summary.id, plan.removes.last())
+            }
+            latest
+        }
+        val now = System.currentTimeMillis()
+        changeChat(chatId) { chat -> chat.copy(scenarioDraft = chat.scenarioDraft?.copy(worldId = detail.summary.id, builtAt = maxOf(now, chat.scenarioDraft.updatedAt))) }
+        updateWorlds { state -> state.copy(list = listOf(detail.summary) + state.list.orEmpty().filterNot { it.id == detail.summary.id }) }
+        detail to (existing == null)
+    }
+
     override fun finishScenario(chatId: String) {
+        if (current(chatId).scenarioDraft?.worldMode == true) return finishWorld(chatId, startPaused = true)
         if (chatBusy(chatId)) { status("助手还在回复，等它写完再生成"); return }
         val before = data.chats.firstOrNull { it.id == chatId }?.scenarioDraft?.scenarioId.orEmpty()
         ScenarioBuilder.finish(data, chatId).fold(
@@ -2800,7 +2860,12 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
 
     override fun startScenarioPlay(chatId: String) {
-        val id = data.chats.firstOrNull { it.id == chatId }?.scenarioDraft?.scenarioId.orEmpty()
+        val draft = data.chats.firstOrNull { it.id == chatId }?.scenarioDraft
+        if (draft?.worldMode == true) {
+            if (draft.worldId.isBlank()) { status("世界还没有建成"); return }
+            return openWorld(draft.worldId)
+        }
+        val id = draft?.scenarioId.orEmpty()
         if (id.isBlank() || data.characters.none { it.id == id }) { status("剧本还没有生成，或已被删除；先生成剧本"); return }
         // Seed the play chat with dialogue-quality skills; filters to what's actually installed + enabled.
         val playSkills = ToolRuntime.skillsInOrder(data.skills, ScenarioBuilder.DEFAULT_PLAY_SKILL_IDS)
@@ -2817,7 +2882,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
 
     /** The 剧本助手's draft tools; each reply is JSON with ok and either the result or an error. */
-    private fun runScenarioTool(name: String, arguments: String, chat: Chat): ToolResult {
+    private suspend fun runScenarioTool(name: String, arguments: String, chat: Chat): ToolResult {
         fun answer(ok: Boolean, extra: JSONObject.() -> Unit) = ToolResult(JSONObject().put("ok", ok).apply(extra).toString())
         if (chat.task != ScenarioBuilder.TASK) return answer(false) { put("error", "只有剧本助手会话可以用这个工具") }
         val args = runCatching { JSONObject(arguments.ifBlank { "{}" }) }.getOrNull() ?: return answer(false) { put("error", "工具参数不是 JSON") }
@@ -2829,7 +2894,14 @@ class AppController(application: Application) : AndroidViewModel(application), A
                         ScenarioBuilder.missing(next).takeIf { it.isNotEmpty() }?.let { put("still_missing_to_build", JSONArray(it)) } } },
                 { error -> answer(false) { put("error", error.message ?: "保存失败") } })
             ScenarioBuilder.READ -> ToolResult(ScenarioBuilder.read(draft, args))
-            else -> {
+            else -> if (draft.worldMode) {
+                // New worlds start paused: nothing is spent until the user has looked and pressed ▶.
+                buildWorld(chat.id, startPaused = true).fold(
+                    { (detail, created) -> answer(true) { put("world", detail.summary.name); put("updated", !created); put("residents", detail.summary.residents.size)
+                        put("paused", detail.summary.paused)
+                        put("next", "告诉用户：小世界已${if (created) "建好，先暂停着" else "更新"}；点本会话顶部的“打开小世界”查看，看过后按 ▶ 让世界开始运行。也可以继续修改。") } },
+                    { error -> answer(false) { put("error", error.message ?: "没能建成小世界") } })
+            } else {
                 val updating = draft.scenarioId.isNotBlank() && data.characters.any { it.id == draft.scenarioId }
                 ScenarioBuilder.finish(data, chat.id).fold(
                     { (updated, character) -> change(updated)

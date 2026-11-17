@@ -513,12 +513,15 @@ private fun WorldFact(label: String, value: String) {
 
 /** ＋ → 新建小世界: pick the scenario first. */
 @Composable
-internal fun WorldScenarioPicker(state: UiSession, onPick: (Character) -> Unit, onDismiss: () -> Unit) {
+internal fun WorldScenarioPicker(state: UiSession, onPick: (Character) -> Unit, onDismiss: () -> Unit, onAssistant: () -> Unit = {}) {
     val scenarios = state.data.characters.filter { ScenarioBuilder.isScenario(it) }
     AlertDialog(onDismissRequest = onDismiss, title = { Text("新建小世界") }, text = {
         Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Text("小世界从剧本做：剧本里的人物住进世界，世界观照搬。选一个剧本：", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            if (scenarios.isEmpty()) Text("还没有剧本。先用“剧本助手”做一个。")
+            Button(onClick = onAssistant, Modifier.fillMaxWidth()) { Text("和世界助手一起从零建") }
+            Text("助手会和你一位一位定下居民的性格、作息、目标和关系，然后在电脑上建成世界。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            HorizontalDivider(Modifier.padding(vertical = 6.dp))
+            Text("或者从已有的剧本做：剧本里的人物住进世界，世界观照搬。选一个剧本：", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            if (scenarios.isEmpty()) Text("还没有剧本。")
             scenarios.forEach { scenario ->
                 Surface(Modifier.fillMaxWidth().clickable { onPick(scenario) }, shape = RoundedCornerShape(10.dp), color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.6f)) {
                     Column(Modifier.padding(10.dp)) {

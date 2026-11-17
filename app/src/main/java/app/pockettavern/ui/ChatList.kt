@@ -95,6 +95,7 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
     var scenarioOpen by remember { mutableStateOf(false) }
     var worldPickOpen by remember { mutableStateOf(false) }
     var worldScenario by remember { mutableStateOf<Character?>(null) }
+    var worldAssistantOpen by remember { mutableStateOf(false) }
     val worlds = state.worlds.list.orEmpty()
     // 小世界 live on the PC; their rows refresh while the list is on screen.
     androidx.compose.runtime.LaunchedEffect(Unit) { while (true) { actions.refreshWorlds(); kotlinx.coroutines.delay(60_000) } }
@@ -154,7 +155,9 @@ internal fun ChatList(chats: List<Chat>, state: UiSession, actions: AppActions, 
     renameId?.let { id -> chats.firstOrNull { it.id == id }?.let { chat -> RenameChatDialog(chat, actions) { renameId = null } } }
     if (groupOpen) GroupSetupDialog(state, actions, chat = null) { groupOpen = false }
     if (scenarioOpen) ScenarioBuilderStartDialog(state, actions, onDismiss = { scenarioOpen = false })
-    if (worldPickOpen) WorldScenarioPicker(state, onPick = { worldPickOpen = false; worldScenario = it }, onDismiss = { worldPickOpen = false })
+    if (worldPickOpen) WorldScenarioPicker(state, onPick = { worldPickOpen = false; worldScenario = it }, onDismiss = { worldPickOpen = false },
+        onAssistant = { worldPickOpen = false; worldAssistantOpen = true })
+    if (worldAssistantOpen) ScenarioBuilderStartDialog(state, actions, onDismiss = { worldAssistantOpen = false }, world = true)
     worldScenario?.let { MakeWorldDialog(it, state, actions, onDismiss = { worldScenario = null }) }
 }
 
