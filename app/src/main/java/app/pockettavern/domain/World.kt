@@ -26,7 +26,7 @@ object WorldLimits {
 
 data class WorldResident(
     val id: String, val name: String, val location: String = "", val activity: String = "", val mood: String = "",
-    val plan: String = "", val notes: String = "", val card: String = ""
+    val plan: String = "", val notes: String = "", val card: String = "", val aliases: List<String> = emptyList()
 )
 
 /** One line of a world's timeline: a message in the group or a private chat, or an event. */
@@ -49,7 +49,9 @@ data class WorldSummary(
     val nextTickAt: Long? = null, val intervalMinutes: Int = 30, val lastError: String = "", val seq: Long = 0
 )
 
-data class WorldDetail(val summary: WorldSummary, val groupName: String = "", val userName: String = "", val userRole: String = "", val setting: String = "")
+data class WorldDetail(val summary: WorldSummary, val groupName: String = "", val userName: String = "", val userRole: String = "", val setting: String = "",
+    /** 要记住的事: lines the user wrote that every request of the world carries. */
+    val facts: List<String> = emptyList())
 
 data class WorldDiaryEntry(val day: String, val text: String)
 
@@ -57,7 +59,9 @@ data class WorldDiaryEntry(val day: String, val text: String)
 data class OpenWorld(
     val id: String, val detail: WorldDetail? = null, val items: List<WorldItem> = emptyList(), val next: Long = 0,
     val pending: WorldItem? = null, val error: String = "", val busy: String = "",
-    val diary: List<WorldDiaryEntry>? = null, val memories: Map<String, String> = emptyMap()
+    val diary: List<WorldDiaryEntry>? = null, val memories: Map<String, String> = emptyMap(),
+    /** Where to land when it opens, e.g. "dm:r1" from a notification; [focusToken] changes with every such open. */
+    val focus: String = "", val focusToken: Long = 0
 )
 
 data class WorldsState(val list: List<WorldSummary>? = null, val error: String = "", val open: OpenWorld? = null)
@@ -86,11 +90,20 @@ object Worlds {
         residents.map { resident -> resident to items.lastOrNull { it.channel == "dm:${resident.id}" } }
             .sortedByDescending { it.second?.seq ?: -1 }
 
-    /** A fresh summary from the PC, keeping the residents' cards the detail already had. */
+    /** A fresh summary from the PC, keeping the residents' cards and aliases the detail already had. */
     fun refreshed(detail: WorldDetail, summary: WorldSummary?): WorldDetail {
         if (summary == null || summary.id != detail.summary.id) return detail
-        val cards = detail.summary.residents.associate { it.id to it.card }
-        return detail.copy(summary = summary.copy(residents = summary.residents.map { it.copy(card = cards[it.id].orEmpty()) }))
+        val known = detail.summary.residents.associateBy { it.id }
+        return detail.copy(summary = summary.copy(residents = summary.residents.map { it.copy(card = known[it.id]?.card.orEmpty(), aliases = known[it.id]?.aliases.orEmpty()) }))
+    }
+
+    /** Private messages residents sent after [afterSeq]: what a new-message notification is about. */
+    fun newDms(items: List<WorldItem>, afterSeq: Long): List<WorldItem> = items.filter { it.seq > afterSeq && it.channel.startsWith("dm:") && !it.fromUser && !it.isEvent }
+
+    /** "苏糖发来 2 条私信" or, from several people, "苏糖、林晚发来 3 条私信"; the last line follows. */
+    fun noticeTitle(world: String, dms: List<WorldItem>): String {
+        val names = dms.map { it.name }.filter { it.isNotBlank() }.distinct()
+        return "$world · ${names.take(3).joinToString("、")}${if (names.size > 3) " 等" else ""}" + if (dms.size > 1) "发来 ${dms.size} 条私信" else ""
     }
 
     /** Why these settings would be refused by the PC, or null. */

@@ -35,6 +35,19 @@ object WorldPack {
 
     fun personName(entry: WorldEntry): String = (PERSON.find(entry.content)?.groupValues?.get(1) ?: entry.name).trim().take(30)
 
+    /**
+     * A character card copied into a world as a resident: the card's own text in labelled parts,
+     * within the resident limit. The card itself is not linked; editing one leaves the other alone.
+     */
+    fun residentFromCharacter(character: Character): JSONObject {
+        val parts = listOf("简介" to character.description, "性格" to character.personality, "背景" to character.scenario,
+            "说话示例" to character.examples, "补充规则" to character.systemPrompt)
+            .filter { it.second.isNotBlank() }
+            .joinToString("\n\n") { (label, value) -> "【$label】\n${value.trim()}" }
+        val name = character.name.trim().ifBlank { "新居民" }.take(30)
+        return JSONObject().put("name", name).put("card", parts.ifBlank { name }.take(6000))
+    }
+
     /** "用户扮演谷若尘，……" → 谷若尘; blank when the role does not say. */
     fun guessUserName(userPersona: String): String = ROLE.find(userPersona)?.groupValues?.get(1)?.trim().orEmpty().take(20)
 

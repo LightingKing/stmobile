@@ -18,6 +18,17 @@ interface AppActions {
     fun saveWorldSettings(settings: WorldSettings) { }
     fun loadWorldDiary() { }
     fun deleteWorld() { }
+    /** Residents of the open world: add one (from scratch or a character card copied in), edit, move out. */
+    fun addWorldResident(name: String, card: String, aliases: List<String>) { }
+    fun addWorldResidentFromCharacter(characterId: String) { }
+    fun editWorldResident(residentId: String, name: String, card: String, aliases: List<String>, notes: String) { }
+    fun removeWorldResident(residentId: String) { }
+    /** The open world's memory: diary chapters and 要记住的事. */
+    fun editWorldDiary(day: String, text: String) { }
+    fun removeWorldDiary(day: String) { }
+    fun saveWorldFacts(facts: List<String>) { }
+    /** New private messages from any world, as notifications (all worlds on this phone). */
+    fun setWorldNotifications(enabled: Boolean) { }
     /** 做成小世界 from a scenario: the picked world book entries become its residents. */
     fun makeWorld(scenarioId: String, residentEntryIds: List<String>, userName: String, startPaused: Boolean) { }
     /** Corrects what one model can do (vision, tools, window); null removes the correction. */

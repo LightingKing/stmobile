@@ -39,14 +39,16 @@ object WorldJson {
     /** One world in full: its summary plus the parts of its definition the phone shows. */
     fun detail(json: JSONObject): WorldDetail {
         val definition = json.optJSONObject("definition") ?: JSONObject()
-        val cards = definition.optJSONArray("residents")?.let { list ->
-            (0 until list.length()).mapNotNull { list.optJSONObject(it) }.associate { it.optString("id") to it.optString("card") }
-        }.orEmpty()
+        val defined = definition.optJSONArray("residents").objects().associateBy { it.optString("id") }
         val summary = summary(json)
         return WorldDetail(
-            summary = summary.copy(residents = summary.residents.map { it.copy(card = cards[it.id].orEmpty()) }),
+            summary = summary.copy(residents = summary.residents.map { resident ->
+                val source = defined[resident.id]
+                resident.copy(card = source?.optString("card").orEmpty(), aliases = source?.optJSONArray("aliases").strings())
+            }),
             groupName = definition.optString("groupName").ifBlank { "${summary.name}群" }, userName = definition.optString("userName"),
-            userRole = definition.optString("userRole"), setting = definition.optString("setting")
+            userRole = definition.optString("userRole"), setting = definition.optString("setting"),
+            facts = definition.optJSONArray("facts").strings().filter { it.isNotBlank() }
         )
     }
 

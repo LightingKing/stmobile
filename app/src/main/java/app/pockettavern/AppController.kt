@@ -255,6 +255,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 if(restored != loaded) saves.submit(restored)
                 VideoBrowseWorker.schedule(app, restored.chats.any { it.browsePerDay > 0 })
                 pendingOpenChatId?.let { id -> pendingOpenChatId = null; if (restored.chats.any { it.id == id }) selectChat(id) }
+                pendingOpenWorld?.let { (id, channel) -> pendingOpenWorld = null; openWorld(id, channel) }
                 restored.chats.forEach { repairPendingTools(it.id) }
                 refreshPcStickers()
             } catch (error: Exception) {
@@ -560,11 +561,16 @@ class AppController(application: Application) : AndroidViewModel(application), A
     }
 
     override fun refreshWorlds() {
-        if (worldListLoading || mutable.value.loading) return
+        // Off screen the notification worker does the looking; the list's own loop waits.
+        if (worldListLoading || mutable.value.loading || !uiVisible) return
         val (provider, key) = worldLink() ?: return updateWorlds { it.copy(list = emptyList(), error = "") }
         worldListLoading = true
         viewModelScope.launch {
-            try { val list = pcClient.worlds(routed(provider), key); updateWorlds { it.copy(list = list, error = "") } }
+            try {
+                val list = pcClient.worlds(routed(provider), key)
+                updateWorlds { it.copy(list = list, error = "") }
+                WorldNotifyWorker.schedule(app, list.isNotEmpty() && !data.settings.worldNotificationsOff)
+            }
             catch (error: CancellationException) { throw error }
             catch (error: Exception) {
                 // A PC older than 0.13.0 has no worlds: nothing to show, nothing to complain about.
@@ -575,14 +581,134 @@ class AppController(application: Application) : AndroidViewModel(application), A
         }
     }
 
-    override fun openWorld(id: String) {
+    override fun openWorld(id: String) = openWorld(id, "")
+
+    /** [focus] "dm:r1" lands on that private chat (a notification's tap). */
+    private fun openWorld(id: String, focus: String) {
         if (worldLink() == null) return status("小世界在电脑写作服务上运行；请先在模型页添加电脑平台并填写 Token")
-        mutable.value = mutable.value.copy(chatOpen = false, worlds = mutable.value.worlds.copy(open = OpenWorld(id = id)))
+        mutable.value = mutable.value.copy(chatOpen = false, worlds = mutable.value.worlds.copy(open = OpenWorld(id = id, focus = focus, focusToken = System.nanoTime())))
         worldJob(id, "load") { provider, key ->
             val detail = pcClient.world(provider, key, id)
             val page = pcClient.worldMessages(provider, key, id, tail = 300)
             updateOpenWorld(id) { it.copy(detail = Worlds.refreshed(detail, page.world), items = Worlds.merge(it.items, page.items), next = maxOf(it.next, page.next)) }
             updateWorldInList(page.world)
+            markWorldNotified(id, page.next)
+        }
+    }
+
+    private var pendingOpenWorld: Pair<String, String>? = null
+    /** A notification's tap: the world opens once local data has loaded. */
+    internal fun openWorldWhenReady(id: String, channel: String) {
+        if (mutable.value.loading) pendingOpenWorld = id to channel else openWorld(id, channel)
+    }
+
+    // What each world's new-message notification has already covered, by world id (this phone only).
+    private val worldNotices by lazy { app.getSharedPreferences("world-notices", android.content.Context.MODE_PRIVATE) }
+    private fun markWorldNotified(id: String, seq: Long) {
+        if (seq > worldNotices.getLong(id, -1)) worldNotices.edit().putLong(id, seq).apply()
+    }
+
+    /**
+     * Called by [WorldNotifyWorker]: private messages residents sent since the last look, by world.
+     * Reading does not count as the user seeing them. A world met for the first time starts from now;
+     * nothing is shown while the app is on screen (the world rows show it), but it is still counted.
+     */
+    internal suspend fun checkWorldDms(): List<Pair<WorldSummary, List<WorldItem>>> {
+        withTimeoutOrNull(60_000) { while (mutable.value.loading) delay(500) }
+        if (mutable.value.loading || loadFailed || data.settings.worldNotificationsOff) return emptyList()
+        val (provider, key) = worldLink() ?: return emptyList()
+        val route = routed(provider)
+        val worlds = runCatching { pcClient.worlds(route, key) }.getOrElse { return emptyList() }
+        updateWorlds { it.copy(list = worlds) }
+        val found = mutableListOf<Pair<WorldSummary, List<WorldItem>>>()
+        for (world in worlds) {
+            val last = worldNotices.getLong(world.id, -1)
+            if (last < 0) { markWorldNotified(world.id, world.seq); continue }
+            if (world.seq <= last) continue
+            val page = runCatching { pcClient.worldMessages(route, key, world.id, since = last, seen = false) }.getOrNull() ?: continue
+            markWorldNotified(world.id, maxOf(page.next, world.seq))
+            val dms = Worlds.newDms(page.items, last)
+            if (dms.isNotEmpty() && !uiVisible) found += world to dms
+        }
+        return found
+    }
+
+    override fun setWorldNotifications(enabled: Boolean) {
+        if (mutable.value.loading || loadFailed) { status("本地数据尚未就绪"); return }
+        change(data.copy(settings = data.settings.copy(worldNotificationsOff = !enabled)))
+        WorldNotifyWorker.schedule(app, enabled && !mutable.value.worlds.list.isNullOrEmpty())
+        if (enabled) host?.requestGenerationNotifications()
+        status(if (enabled) "小世界有人私聊你时会通知（约每 15 分钟查一次电脑）" else "已关闭小世界私信通知")
+    }
+
+    override fun addWorldResident(name: String, card: String, aliases: List<String>) {
+        val open = mutable.value.worlds.open ?: return
+        if (name.isBlank() || card.isBlank()) return status("名字和设定都要填")
+        val resident = JSONObject().put("name", name.trim()).put("card", card.trim()).put("aliases", JSONArray(aliases.map { it.trim() }.filter { it.isNotEmpty() }))
+        worldJob(open.id, "residents") { provider, key ->
+            val detail = pcClient.addWorldResident(provider, key, open.id, resident)
+            updateOpenWorld(open.id) { it.copy(detail = detail) }
+            status("${name.trim()} 住进了世界")
+        }
+    }
+
+    override fun addWorldResidentFromCharacter(characterId: String) {
+        val open = mutable.value.worlds.open ?: return
+        val character = data.characters.firstOrNull { it.id == characterId } ?: return status("找不到这张角色卡")
+        val resident = WorldPack.residentFromCharacter(character)
+        worldJob(open.id, "residents") { provider, key ->
+            val detail = pcClient.addWorldResident(provider, key, open.id, resident)
+            updateOpenWorld(open.id) { it.copy(detail = detail) }
+            status("${resident.optString("name")} 住进了世界（复制了角色卡，之后改角色卡不影响世界）")
+        }
+    }
+
+    override fun editWorldResident(residentId: String, name: String, card: String, aliases: List<String>, notes: String) {
+        val open = mutable.value.worlds.open ?: return
+        if (name.isBlank() || card.isBlank()) return status("名字和设定都要填")
+        val changes = JSONObject().put("name", name.trim()).put("card", card.trim()).put("notes", notes.trim())
+            .put("aliases", JSONArray(aliases.map { it.trim() }.filter { it.isNotEmpty() }))
+        worldJob(open.id, "residents") { provider, key ->
+            val detail = pcClient.updateWorldResident(provider, key, open.id, residentId, changes)
+            updateOpenWorld(open.id) { it.copy(detail = detail) }
+            status("已保存")
+        }
+    }
+
+    override fun removeWorldResident(residentId: String) {
+        val open = mutable.value.worlds.open ?: return
+        worldJob(open.id, "residents") { provider, key ->
+            val detail = pcClient.removeWorldResident(provider, key, open.id, residentId)
+            updateOpenWorld(open.id) { it.copy(detail = detail) }
+            status("已搬出世界；说过的话还留在时间线里")
+        }
+    }
+
+    override fun editWorldDiary(day: String, text: String) {
+        val open = mutable.value.worlds.open ?: return
+        if (text.isBlank()) return status("日记内容是空的")
+        worldJob(open.id, "diary") { provider, key ->
+            val diary = pcClient.editWorldDiary(provider, key, open.id, day, text.trim())
+            updateOpenWorld(open.id) { it.copy(diary = diary.entries, memories = diary.memories) }
+            status("日记已保存")
+        }
+    }
+
+    override fun removeWorldDiary(day: String) {
+        val open = mutable.value.worlds.open ?: return
+        worldJob(open.id, "diary") { provider, key ->
+            val diary = pcClient.removeWorldDiary(provider, key, open.id, day)
+            updateOpenWorld(open.id) { it.copy(diary = diary.entries, memories = diary.memories) }
+        }
+    }
+
+    override fun saveWorldFacts(facts: List<String>) {
+        val open = mutable.value.worlds.open ?: return
+        val cleaned = facts.map { it.trim() }.filter { it.isNotEmpty() }
+        if (cleaned.size > 30 || cleaned.any { it.length > 300 }) return status("要记住的事最多 30 条，每条 300 字以内")
+        worldJob(open.id, "facts") { provider, key ->
+            val detail = pcClient.saveWorldFacts(provider, key, open.id, cleaned)
+            updateOpenWorld(open.id) { it.copy(detail = detail) }
         }
     }
 
@@ -593,7 +719,9 @@ class AppController(application: Application) : AndroidViewModel(application), A
 
     override fun refreshOpenWorld() {
         val open = mutable.value.worlds.open ?: return
-        if (openWorldLoading || open.detail == null) return
+        // The screen's loop keeps running in the background; reading there would tell the PC the user
+        // is looking (no slow-down) and swallow the new-message notifications.
+        if (openWorldLoading || open.detail == null || !uiVisible) return
         val (provider, key) = worldLink() ?: return
         openWorldLoading = true
         viewModelScope.launch {
@@ -602,6 +730,7 @@ class AppController(application: Application) : AndroidViewModel(application), A
                 updateOpenWorld(open.id) { it.copy(items = Worlds.merge(it.items, page.items), next = maxOf(it.next, page.next),
                     detail = it.detail?.let { detail -> Worlds.refreshed(detail, page.world) }, error = "") }
                 updateWorldInList(page.world)
+                markWorldNotified(open.id, page.next)
             }
             catch (error: CancellationException) { throw error }
             catch (error: Exception) { val message = worldFailure(error); updateOpenWorld(open.id) { it.copy(error = message) } }

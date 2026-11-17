@@ -41,6 +41,8 @@ export const WORLD_LIMITS = {
   eventText: 300,
   perTick: { group: 8, dms: 4, events: 6 },
   chapter: 1500,
+  facts: 30,
+  fact: 300,
 };
 
 export const WORLD_DEFAULTS = {
@@ -55,6 +57,8 @@ export const WORLD_DEFAULTS = {
 const SETTING_RANGES = { tickMinutes: [15, 120], dailyTicks: [0, 200], dailyCalls: [1, 400] };
 const HHMM = /^([01]\d|2[0-3]):([0-5]\d)$/;
 const WORLD_ID = /^w[0-9a-f]{12}$/;
+const RESIDENT_ID = /^r\d{1,4}$/;
+const DAY_ID = /^\d{4}-\d{2}-\d{2}$/;
 const MINUTE = 60_000;
 const HOUR = 60 * MINUTE;
 const DAY = 24 * HOUR;
@@ -188,30 +192,44 @@ function validateBook(entries) {
   });
 }
 
+/** One resident from the phone or the dashboard; [seen] holds names and aliases already taken. */
+function validateResident(source, id, seen) {
+  if (!source || typeof source !== 'object' || Array.isArray(source)) throw new WorldError('居民内容必须是对象', 400, 'invalid_world');
+  const name = field(source, 'name', WORLD_LIMITS.residentName, '居民名字', { required: true });
+  const aliases = Array.isArray(source.aliases) ? [...new Set(source.aliases.map(text).filter((alias) => alias && alias !== name))] : [];
+  if (aliases.length > WORLD_LIMITS.aliases || aliases.some((alias) => alias.length > WORLD_LIMITS.residentName)) throw new WorldError(`别名最多 ${WORLD_LIMITS.aliases} 个，每个 ${WORLD_LIMITS.residentName} 字以内`, 400, 'invalid_world');
+  for (const key of [name, ...aliases]) {
+    if (seen.has(key)) throw new WorldError(`居民名字或别名重复：${key}`, 400, 'invalid_world');
+    seen.add(key);
+  }
+  return {
+    id, name, aliases,
+    card: field(source, 'card', WORLD_LIMITS.card, `${name}的设定`, { required: true }),
+    start: {
+      location: field(source, 'location', WORLD_LIMITS.stateField, '位置'),
+      activity: field(source, 'activity', WORLD_LIMITS.stateField, '活动'),
+      mood: field(source, 'mood', WORLD_LIMITS.stateField, '心情'),
+      plan: field(source, 'plan', WORLD_LIMITS.stateField, '打算'),
+      notes: field(source, 'notes', WORLD_LIMITS.notes, '记忆'),
+    },
+  };
+}
+
 function validateResidents(list) {
   if (!Array.isArray(list) || list.length === 0) throw new WorldError('世界里至少要有一位居民', 400, 'invalid_world');
   if (list.length > WORLD_LIMITS.residents) throw new WorldError(`一个世界最多 ${WORLD_LIMITS.residents} 位居民`, 400, 'invalid_world');
   const seen = new Set();
-  return list.map((source, index) => {
-    const name = field(source, 'name', WORLD_LIMITS.residentName, '居民名字', { required: true });
-    const aliases = Array.isArray(source?.aliases) ? source.aliases.map(text).filter(Boolean) : [];
-    if (aliases.length > WORLD_LIMITS.aliases || aliases.some((alias) => alias.length > WORLD_LIMITS.residentName)) throw new WorldError(`别名最多 ${WORLD_LIMITS.aliases} 个`, 400, 'invalid_world');
-    for (const key of [name, ...aliases]) {
-      if (seen.has(key)) throw new WorldError(`居民名字或别名重复：${key}`, 400, 'invalid_world');
-      seen.add(key);
-    }
-    return {
-      id: `r${index + 1}`, name, aliases,
-      card: field(source, 'card', WORLD_LIMITS.card, `${name}的设定`, { required: true }),
-      start: {
-        location: field(source, 'location', WORLD_LIMITS.stateField, '位置'),
-        activity: field(source, 'activity', WORLD_LIMITS.stateField, '活动'),
-        mood: field(source, 'mood', WORLD_LIMITS.stateField, '心情'),
-        plan: field(source, 'plan', WORLD_LIMITS.stateField, '打算'),
-        notes: field(source, 'notes', WORLD_LIMITS.notes, '记忆'),
-      },
-    };
-  });
+  return list.map((source, index) => validateResident(source, `r${index + 1}`, seen));
+}
+
+/** Things the user wants every request to remember (要记住的事), one short line each. */
+export function validateFacts(list) {
+  if (list == null) return [];
+  if (!Array.isArray(list)) throw new WorldError('facts 必须是数组', 400, 'invalid_world');
+  const facts = list.map(text).filter(Boolean);
+  if (facts.length > WORLD_LIMITS.facts) throw new WorldError(`要记住的事最多 ${WORLD_LIMITS.facts} 条`, 400, 'invalid_world');
+  if (facts.some((fact) => fact.length > WORLD_LIMITS.fact)) throw new WorldError(`要记住的事每条最多 ${WORLD_LIMITS.fact} 字`, 400, 'invalid_world');
+  return facts;
 }
 
 /** A world definition from what the phone (or the dashboard) sends; throws WorldError on anything off. */
@@ -233,6 +251,7 @@ export function validatePack(pack) {
     startAt,
     startPaused: pack.startPaused === true,
     worldBook: validateBook(pack.worldBook),
+    facts: validateFacts(pack.facts),
     residents: validateResidents(pack.residents),
     model: validateModel(pack.model),
     settings: validateSettings(pack.settings),
@@ -294,6 +313,7 @@ function stablePrompt(def) {
     `【世界】${def.name}${def.summary ? `\n${def.summary}` : ''}`,
     `【设定】\n${def.setting}`,
     def.rules ? `【叙事规则】\n${def.rules}` : '',
+    def.facts?.length ? `【要记住的事】（用户写下的，始终成立）\n${def.facts.map((fact) => `- ${fact}`).join('\n')}` : '',
     `【用户的身份】\n居民们叫用户「${def.userName}」。${def.userRole || '用户是这个世界里的一员。'}`,
     `【群聊】大家（包括用户）都在群「${def.groupName}」里。`,
     `【居民】\n${residents}`,
@@ -504,6 +524,24 @@ export function createWorldEngine({ dataDir, run, now = Date.now, timeZone = 'As
   }
   const saveState = (world) => persist(world, () => writeJson(path.join(world.dir, 'state.json'), world.state));
   const saveDef = (world) => persist(world, () => writeJson(path.join(world.dir, 'world.json'), world.def));
+  const saveDiary = (world) => persist(world, () => writeFile(path.join(world.dir, 'diary.jsonl'), world.diary.map((entry) => `${JSON.stringify(entry)}\n`).join(''), { mode: 0o600 }));
+
+  /** The next resident id, never one an earlier resident had, so old private chats stay theirs. */
+  function nextResidentId(world) {
+    const used = [...world.def.residents.map((r) => r.id), ...world.timeline.map((item) => item.from), ...world.timeline.map((item) => String(item.channel || '').replace(/^dm:/, '')), ...(world.def.retiredResidents || [])];
+    const top = used.filter((id) => RESIDENT_ID.test(String(id))).reduce((max, id) => Math.max(max, Number(String(id).slice(1))), 0);
+    return `r${top + 1}`;
+  }
+
+  function needResident(world, rid) {
+    const resident = RESIDENT_ID.test(String(rid)) ? world.def.residents.find((r) => r.id === rid) : null;
+    if (!resident) throw new WorldError('这位居民不在这个世界里', 404, 'resident_not_found');
+    return resident;
+  }
+
+  function takenNames(world, except = null) {
+    return new Set(world.def.residents.filter((r) => r.id !== except).flatMap((r) => [r.name, ...r.aliases]));
+  }
 
   /** One request or one tick at a time per world; the user's message waits for a running tick. */
   function locked(world, task) {
@@ -724,6 +762,7 @@ export function createWorldEngine({ dataDir, run, now = Date.now, timeZone = 'As
           } else if (key === 'model') next.model = validateModel(value);
           else if (key === 'settings') next.settings = validateSettings(value, world.def.settings);
           else if (key === 'worldBook') next.worldBook = validateBook(value);
+          else if (key === 'facts') next.facts = validateFacts(value);
           else throw new WorldError(`不能修改：${key}`, 400, 'invalid_world');
         }
         world.def = next;
@@ -823,7 +862,85 @@ export function createWorldEngine({ dataDir, run, now = Date.now, timeZone = 'As
 
     async diary(id) {
       const world = await need(id);
-      return { entries: world.diary, residents: world.def.residents.map((r) => ({ id: r.id, name: r.name, notes: world.state.residents[r.id]?.notes || '' })) };
+      return { entries: world.diary, facts: world.def.facts || [], residents: world.def.residents.map((r) => ({ id: r.id, name: r.name, notes: world.state.residents[r.id]?.notes || '' })) };
+    },
+
+    /** Rewrites one day's chapter in the user's words; the diary file is written again in full. */
+    async editDiary(id, day, body) {
+      const world = await need(id);
+      if (!DAY_ID.test(String(day))) throw new WorldError('日期格式应为 YYYY-MM-DD', 400, 'invalid_day');
+      const value = text(body);
+      if (!value) throw new WorldError('日记内容是空的', 400, 'invalid_day');
+      if (value.length > WORLD_LIMITS.chapter) throw new WorldError(`一章日记最多 ${WORLD_LIMITS.chapter} 字`, 400, 'invalid_day');
+      return locked(world, async () => {
+        const entry = world.diary.find((item) => item.day === day);
+        if (!entry) throw new WorldError('这一天没有日记', 404, 'day_not_found');
+        entry.text = value;
+        entry.edited = true;
+        await saveDiary(world);
+        return this.diary(id);
+      });
+    },
+
+    async removeDiary(id, day) {
+      const world = await need(id);
+      return locked(world, async () => {
+        const before = world.diary.length;
+        world.diary = world.diary.filter((item) => item.day !== day);
+        if (world.diary.length === before) throw new WorldError('这一天没有日记', 404, 'day_not_found');
+        await saveDiary(world);
+        return this.diary(id);
+      });
+    },
+
+    /** A new resident (from the phone, often a character card copied in); it joins at the world's current moment. */
+    async addResident(id, body) {
+      const world = await need(id);
+      return locked(world, async () => {
+        if (world.def.residents.length >= WORLD_LIMITS.residents) throw new WorldError(`一个世界最多 ${WORLD_LIMITS.residents} 位居民`, 400, 'invalid_world');
+        const resident = validateResident(body, nextResidentId(world), takenNames(world));
+        world.def = { ...world.def, residents: [...world.def.residents, resident] };
+        world.state.residents[resident.id] = Object.fromEntries(Object.entries(resident.start).filter(([, value]) => value));
+        await saveDef(world);
+        await saveState(world);
+        log.log?.(`小世界 ${world.def.name} 加入居民：${resident.name}`);
+        return this.get(id);
+      });
+    },
+
+    /** Edits a resident's card, names or what they remember; fields not sent stay as they are. */
+    async updateResident(id, rid, body) {
+      const world = await need(id);
+      if (!body || typeof body !== 'object' || Array.isArray(body)) throw new WorldError('居民内容必须是对象', 400, 'invalid_world');
+      return locked(world, async () => {
+        const current = needResident(world, rid);
+        const state = world.state.residents[rid] || {};
+        const merged = validateResident({
+          name: body.name ?? current.name, aliases: body.aliases ?? current.aliases, card: body.card ?? current.card,
+          location: body.location ?? state.location, activity: body.activity ?? state.activity, mood: body.mood ?? state.mood,
+          plan: body.plan ?? state.plan, notes: body.notes ?? state.notes,
+        }, rid, takenNames(world, rid));
+        world.def = { ...world.def, residents: world.def.residents.map((r) => (r.id === rid ? { ...merged, start: current.start } : r)) };
+        world.state.residents[rid] = Object.fromEntries(Object.entries(merged.start).filter(([, value]) => value));
+        await saveDef(world);
+        await saveState(world);
+        return this.get(id);
+      });
+    },
+
+    /** Moves a resident out. What they said stays in the timeline; their id is never given to anyone else. */
+    async removeResident(id, rid) {
+      const world = await need(id);
+      return locked(world, async () => {
+        const resident = needResident(world, rid);
+        if (world.def.residents.length <= 1) throw new WorldError('世界里至少要留一位居民', 400, 'invalid_world');
+        world.def = { ...world.def, residents: world.def.residents.filter((r) => r.id !== rid), retiredResidents: [...(world.def.retiredResidents || []), rid] };
+        delete world.state.residents[rid];
+        await saveDef(world);
+        await saveState(world);
+        log.log?.(`小世界 ${world.def.name} 搬走居民：${resident.name}`);
+        return this.get(id);
+      });
     },
 
     async remove(id) {

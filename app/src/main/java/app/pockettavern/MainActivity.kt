@@ -146,9 +146,12 @@ class MainActivity : ComponentActivity(), NativeHost {
         super.onNewIntent(intent)
         openChatFrom(intent)
     }
-    /** A 自己刷视频 notification opens the chat that sent it. */
+    /** A 自己刷视频 notification opens the chat that sent it; a 小世界 one opens that private chat. */
     private fun openChatFrom(intent: Intent?) {
         if (intent?.action == VideoBrowseWorker.ACTION_OPEN_CHAT) intent.getStringExtra(VideoBrowseWorker.EXTRA_CHAT_ID)?.let(controller::openChatWhenReady)
+        if (intent?.action == WorldNotifyWorker.ACTION_OPEN_WORLD) intent.getStringExtra(WorldNotifyWorker.EXTRA_WORLD_ID)?.let { id ->
+            controller.openWorldWhenReady(id, intent.getStringExtra(WorldNotifyWorker.EXTRA_CHANNEL).orEmpty())
+        }
     }
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putString("importKind",importKind); outState.putString("exportSource",exportSource?.absolutePath); outState.putString("exportMime",exportMime)

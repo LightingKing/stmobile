@@ -191,12 +191,15 @@ DSH 成人互动（`at-adult-tension-original`，上游 `daha1216/dsh-adult-tens
   | `GET /v1/pocket/worlds` | 世界列表：世界时间、状态、未读数、最后一条消息、今天的用量 |
   | `POST /v1/pocket/worlds` | 新建世界（世界 JSON，见下） |
   | `GET /v1/pocket/worlds/<id>` | 世界的全部设定、居民状态、下次推进时间 |
-  | `PATCH /v1/pocket/worlds/<id>` | 改设定文字、世界书、模型或设置（`settings` 只传要改的项） |
+  | `PATCH /v1/pocket/worlds/<id>` | 改设定文字、世界书、要记住的事（`facts`，最多 30 条、每条 300 字，每次请求都带上）、模型或设置（`settings` 只传要改的项） |
   | `POST /v1/pocket/worlds/<id>/pause`、`/resume` | 暂停、恢复 |
   | `POST /v1/pocket/worlds/<id>/tick` | 立刻推进一次（计入上限） |
   | `GET /v1/pocket/worlds/<id>/messages?since=<序号>` 或 `?tail=<条数>` | 读时间线；加 `seen=1` 表示用户看过了 |
   | `POST /v1/pocket/worlds/<id>/messages` | 用户说话：`{"channel":"group"或"dm:r1","text":"…"}`，返回用户这条和回应 |
-  | `GET /v1/pocket/worlds/<id>/diary` | 日记和每个人记得的事 |
+  | `GET /v1/pocket/worlds/<id>/diary` | 日记、要记住的事和每个人记得的事 |
+  | `PATCH`、`DELETE /v1/pocket/worlds/<id>/diary/<YYYY-MM-DD>` | 改写（`{"text":"…"}`）或删除某一天的日记（服务 0.14.0） |
+  | `POST /v1/pocket/worlds/<id>/residents` | 加一位居民（字段同世界 JSON 里的居民），最多 8 位（服务 0.14.0） |
+  | `PATCH`、`DELETE /v1/pocket/worlds/<id>/residents/<r编号>` | 改居民的名字、别名、设定、状态或记得的事（只传要改的项），或让他搬走；搬走的人说过的话留在时间线里，编号不会再给别人（服务 0.14.0） |
   | `DELETE /v1/pocket/worlds/<id>` | 删除世界和它的全部记录 |
 - **世界 JSON**：例子是 `examples/world-302.json`（四个合租室友的日常世界，用来测试）。必填 `name`、`setting`、`residents`（每位 `name`、`card`，可选 `aliases` 和开始时的 `location`/`activity`/`mood`/`plan`/`notes`）；可选 `summary`、`rules`、`userRole`、`userName`（居民怎么称呼用户）、`groupName`、`opening`（创建时作为第一条事件）、`startAt`（世界的起始时间，默认现在）、`startPaused`（先暂停，确认后再恢复）、`worldBook`（`name`、`content`、`keywords`、`always`）、`model`、`settings`（`tickMinutes` 15–120、`quietStart`/`quietEnd`、`dailyTicks`、`dailyCalls`、`slowWhenAway`）。
 

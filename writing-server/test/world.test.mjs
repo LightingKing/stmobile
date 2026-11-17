@@ -334,3 +334,74 @@ test('the server routes 小世界 through the real pipeline and keeps the token 
     assert.equal((await call(`${base}/${created.id}`, { method: 'DELETE' })).status, 200);
   } finally { await new Promise((resolve) => server.close(resolve)); }
 });
+
+test('residents can be added, edited and moved out; the id of a removed resident is never reused', async () => {
+  const { engine, clock } = await engineAt(at('2026-11-17T14:00:00+08:00'));
+  const { id } = await engine.create(EXAMPLE);
+  await engine.say(id, { channel: 'dm:r1', text: '在吗' });
+  const added = await engine.addResident(id, { name: '王阿姨', card: '一楼房东，六十多岁，爱管闲事但心软。', aliases: ['房东', '王阿姨'], location: '一楼' });
+  const auntie = added.residents.find((r) => r.name === '王阿姨');
+  assert.equal(auntie.id, 'r5');
+  assert.equal(auntie.location, '一楼');
+  assert.deepEqual(added.definition.residents.at(-1).aliases, ['房东']);
+  await assert.rejects(engine.addResident(id, { name: '林晚', card: '重名' }), /重复/);
+  const edited = await engine.updateResident(id, 'r1', { card: '26 岁，插画师，最近在学做饭。', notes: '新室友喜欢团子。' });
+  assert.equal(edited.definition.residents[0].card, '26 岁，插画师，最近在学做饭。');
+  assert.equal(edited.residents[0].notes, '新室友喜欢团子。');
+  assert.equal(edited.residents[0].location, '自己的卧室', 'fields not sent stay as they were');
+  await assert.rejects(engine.updateResident(id, 'r2', { name: '苏糖' }), /重复/);
+  await assert.rejects(engine.updateResident(id, 'r9', { card: 'x' }), (error) => error.status === 404);
+  const moved = await engine.removeResident(id, 'r1');
+  assert.deepEqual(moved.residents.map((r) => r.id), ['r2', 'r3', 'r4', 'r5']);
+  // 林晚's private chat stays hers in the timeline; the next newcomer is r6, not r1.
+  assert.ok((await engine.messages(id, { since: 0 })).items.some((item) => item.channel === 'dm:r1' && item.name === '林晚'));
+  const next = await engine.addResident(id, { name: '小周', card: '新来的快递员' });
+  assert.equal(next.residents.at(-1).id, 'r6');
+  for (const name of ['甲', '乙', '丙']) await engine.addResident(id, { name, card: 'x' });
+  assert.equal((await engine.get(id)).residents.length, 8);
+  await assert.rejects(engine.addResident(id, { name: '丁', card: 'x' }), /最多 8 位/);
+  clock.now += 31 * MINUTE;
+  await engine.flush();
+});
+
+test('what the user wants remembered goes into every request, and diary chapters can be rewritten or removed', async () => {
+  const { engine, clock, model, dataDir } = await engineAt(at('2026-11-17T22:00:00+08:00'));
+  const { id } = await engine.create(EXAMPLE);
+  await engine.update(id, { facts: ['新室友叫阿遥，在出版社做编辑', '  ', '团子对芒果过敏'] });
+  await live(engine, clock, 12);
+  const tick = model.calls.filter((call) => call.ask.includes('请推进世界')).at(-1);
+  assert.match(tick.system, /【要记住的事】（用户写下的，始终成立）\n- 新室友叫阿遥，在出版社做编辑\n- 团子对芒果过敏/);
+  await assert.rejects(engine.update(id, { facts: ['x'.repeat(301)] }), /300 字/);
+  const diary = await engine.diary(id);
+  assert.deepEqual(diary.facts, ['新室友叫阿遥，在出版社做编辑', '团子对芒果过敏']);
+  const [day] = diary.entries.map((entry) => entry.day);
+  const rewritten = await engine.editDiary(id, day, '这一天阿遥搬了进来，大家吃了火锅。');
+  assert.equal(rewritten.entries[0].text, '这一天阿遥搬了进来，大家吃了火锅。');
+  await assert.rejects(engine.editDiary(id, '2020-01-01', '无'), (error) => error.status === 404);
+  await assert.rejects(engine.editDiary(id, 'today', '无'), (error) => error.status === 400);
+  await engine.flush();
+  const reloaded = createWorldEngine({ dataDir, run: model.run, now: () => clock.now, log: { log() {}, warn() {}, error() {} }, checkEveryMs: 0 });
+  assert.equal((await reloaded.diary(id)).entries[0].text, '这一天阿遥搬了进来，大家吃了火锅。');
+  assert.equal((await reloaded.removeDiary(id, day)).entries.length, 0);
+});
+
+test('the server routes resident and diary edits', async () => {
+  const dataDir = await fs.mkdtemp(path.join(os.tmpdir(), 'pocket-world-edit-'));
+  const server = createServer({ config: { token: 'test-token', dataDir }, vault: createVault({ dataDir }),
+    upstream: { complete: async () => ({ id: 'x', content: '{}', reasoning: '', tool_calls: [], finish_reason: 'stop', usage: {} }) } });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  const base = `http://127.0.0.1:${server.address().port}/v1/pocket/worlds`;
+  const call = (url, init = {}) => fetch(url, { ...init, headers: { authorization: 'Bearer test-token', 'content-type': 'application/json' } });
+  try {
+    const { id } = await (await call(base, { method: 'POST', body: JSON.stringify({ ...EXAMPLE, startPaused: true }) })).json();
+    const added = await call(`${base}/${id}/residents`, { method: 'POST', body: JSON.stringify({ name: '王阿姨', card: '房东' }) });
+    assert.equal(added.status, 201);
+    assert.equal((await added.json()).residents.length, 5);
+    assert.equal((await (await call(`${base}/${id}/residents/r5`, { method: 'PATCH', body: JSON.stringify({ notes: '记得收房租' }) })).json()).residents[4].notes, '记得收房租');
+    assert.equal((await call(`${base}/${id}/residents/r5`, { method: 'DELETE' })).status, 200);
+    assert.equal((await call(`${base}/${id}/residents/r5`, { method: 'DELETE' })).status, 404);
+    assert.equal((await call(`${base}/${id}/diary/2026-01-01`, { method: 'PATCH', body: JSON.stringify({ text: '无' }) })).status, 404);
+    const facts = await call(`${base}/${id}`, { method: 'PATCH', body: JSON.stringify({ facts: ['团子对芒果过敏'] }) });
+    assert.deepEqual((await facts.json()).definition.facts, ['团子对芒果过敏']);
+  } finally { await new Promise((resolve) => server.close(resolve)); }
+});

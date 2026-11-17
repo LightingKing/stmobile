@@ -289,6 +289,45 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         call(quick, request(provider, key, worldPath(id)).delete().build(), plain = true) { }
     }
 
+    /** Adds a resident ({name, card, aliases?}) to a world; the PC refuses a ninth or a name already taken. */
+    suspend fun addWorldResident(provider: ProviderConfig, key: String, id: String, resident: JSONObject): WorldDetail = withContext(Dispatchers.IO) {
+        WorldJson.detail(parse(call(quick, request(provider, key, "${worldPath(id)}/residents").post(resident.toString().toRequestBody(JSON)).build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    /** Sends only the fields to change (name, aliases, card, notes…). */
+    suspend fun updateWorldResident(provider: ProviderConfig, key: String, id: String, residentId: String, changes: JSONObject): WorldDetail = withContext(Dispatchers.IO) {
+        WorldJson.detail(parse(call(quick, request(provider, key, residentPath(id, residentId)).patch(changes.toString().toRequestBody(JSON)).build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    suspend fun removeWorldResident(provider: ProviderConfig, key: String, id: String, residentId: String): WorldDetail = withContext(Dispatchers.IO) {
+        WorldJson.detail(parse(call(quick, request(provider, key, residentPath(id, residentId)).delete().build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    suspend fun editWorldDiary(provider: ProviderConfig, key: String, id: String, day: String, text: String): WorldJson.Diary = withContext(Dispatchers.IO) {
+        val body = JSONObject().put("text", text).toString().toRequestBody(JSON)
+        WorldJson.diary(parse(call(quick, request(provider, key, diaryPath(id, day)).patch(body).build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    suspend fun removeWorldDiary(provider: ProviderConfig, key: String, id: String, day: String): WorldJson.Diary = withContext(Dispatchers.IO) {
+        WorldJson.diary(parse(call(quick, request(provider, key, diaryPath(id, day)).delete().build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    /** 要记住的事, the whole list at once. */
+    suspend fun saveWorldFacts(provider: ProviderConfig, key: String, id: String, facts: List<String>): WorldDetail = withContext(Dispatchers.IO) {
+        val body = JSONObject().put("facts", org.json.JSONArray(facts)).toString().toRequestBody(JSON)
+        WorldJson.detail(parse(call(quick, request(provider, key, worldPath(id)).patch(body).build(), plain = true) { it.body?.string().orEmpty() }))
+    }
+
+    private fun residentPath(id: String, residentId: String): String {
+        if (!RESIDENT_ID.matches(residentId)) throw PcLinkException("居民编号无效")
+        return "${worldPath(id)}/residents/$residentId"
+    }
+
+    private fun diaryPath(id: String, day: String): String {
+        if (!DAY_ID.matches(day)) throw PcLinkException("日记日期无效")
+        return "${worldPath(id)}/diary/$day"
+    }
+
     private fun worldPath(id: String): String {
         if (!WORLD_ID.matches(id)) throw PcLinkException("世界编号无效")
         return "pocket/worlds/$id"
@@ -380,6 +419,8 @@ class PcLinkClient(client: OkHttpClient = OkHttpClient(), private val allowInsec
         private val STICKERS = "application/vnd.pocket-tavern.stickers".toMediaType()
         private const val MAX_STICKER_BYTES = 2 * 1024 * 1024
         private val WORLD_ID = Regex("w[0-9a-f]{12}")
+        private val RESIDENT_ID = Regex("r[0-9]{1,4}")
+        private val DAY_ID = Regex("[0-9]{4}-[0-9]{2}-[0-9]{2}")
         private val STICKER_FILE = Regex("[0-9a-f]{12}/\\d{3}\\.(png|jpg|gif|webp)")
     }
 }

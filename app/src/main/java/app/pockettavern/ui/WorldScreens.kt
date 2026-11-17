@@ -130,8 +130,11 @@ internal fun WorldScreen(open: OpenWorld, state: UiSession, actions: AppActions)
     BackHandler { actions.closeWorld() }
     LaunchedEffect(open.id) { while (true) { delay(15_000); actions.refreshOpenWorld() } }
     val detail = open.detail
-    var tab by rememberSaveable(open.id) { mutableStateOf(0) }
-    var dmTarget by rememberSaveable(open.id) { mutableStateOf<String?>(null) }
+    // A notification's tap lands on the private chat it is about.
+    var tab by rememberSaveable(open.id) { mutableStateOf(if (open.focus.startsWith("dm:")) 1 else 0) }
+    var dmTarget by rememberSaveable(open.id) { mutableStateOf(open.focus.takeIf { it.startsWith("dm:") }?.removePrefix("dm:")) }
+    // The world may already be on screen (or kept from before) when a notification opens it again.
+    LaunchedEffect(open.focusToken) { if (open.focus.startsWith("dm:")) { tab = 1; dmTarget = open.focus.removePrefix("dm:") } }
     Column(Modifier.fillMaxSize()) {
         WorldHeader(open, detail, onBack = { if (tab == 1 && dmTarget != null) dmTarget = null else actions.closeWorld() }, actions)
         if (open.error.isNotBlank()) Surface(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp), shape = RoundedCornerShape(10.dp), color = MaterialTheme.colorScheme.errorContainer) {
@@ -147,7 +150,7 @@ internal fun WorldScreen(open: OpenWorld, state: UiSession, actions: AppActions)
         val summary = detail.summary
         val dmCount = open.items.count { it.channel.startsWith("dm:") && !it.fromUser }
         TabRow(selectedTabIndex = tab) {
-            listOf("群聊", if (dmCount > 0) "私信 $dmCount" else "私信", "居民", "世界").forEachIndexed { index, label ->
+            listOf("群聊", if (dmCount > 0) "私信 $dmCount" else "私信", "居民", "记忆", "世界").forEachIndexed { index, label ->
                 Tab(selected = tab == index, onClick = { tab = index; if (index != 1) dmTarget = null }, text = { Text(label, maxLines = 1) })
             }
         }
@@ -166,8 +169,9 @@ internal fun WorldScreen(open: OpenWorld, state: UiSession, actions: AppActions)
                 else WorldConversation(Worlds.dmLines(open.items, target.id), open.pending?.takeIf { it.channel == "dm:${target.id}" }, detail, blocked,
                     hint = "私聊 ${target.name}（别人看不到）", Modifier.weight(1f), title = "和 ${target.name} 的私信") { actions.sayInWorld("dm:${target.id}", it) }
             }
-            2 -> ResidentsPane(summary.residents, Modifier.weight(1f))
-            else -> WorldPane(open, detail, actions, Modifier.weight(1f))
+            2 -> ResidentsPane(summary.residents, state, actions, open.busy.isEmpty(), Modifier.weight(1f))
+            3 -> MemoryPane(open, detail, actions, Modifier.weight(1f))
+            else -> WorldPane(open, detail, actions, !state.data.settings.worldNotificationsOff, Modifier.weight(1f))
         }
     }
 }
@@ -265,8 +269,18 @@ private fun DmThreads(items: List<WorldItem>, residents: List<WorldResident>, mo
 }
 
 @Composable
-private fun ResidentsPane(residents: List<WorldResident>, modifier: Modifier) {
+private fun ResidentsPane(residents: List<WorldResident>, state: UiSession, actions: AppActions, idle: Boolean, modifier: Modifier) {
+    var adding by remember { mutableStateOf(false) }
+    var editing by remember { mutableStateOf<WorldResident?>(null) }
+    var creating by remember { mutableStateOf(false) }
+    var moving by remember { mutableStateOf<WorldResident?>(null) }
     LazyColumn(modifier.fillMaxWidth(), contentPadding = PaddingValues(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        item {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("${residents.size}/${WorldLimits.RESIDENTS} 位居民", Modifier.weight(1f), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                OutlinedButton(onClick = { adding = true }, enabled = idle && residents.size < WorldLimits.RESIDENTS) { Text("添加居民") }
+            }
+        }
         items(residents, key = { it.id }) { resident ->
             var cardOpen by rememberSaveable(resident.id) { mutableStateOf(false) }
             Surface(Modifier.fillMaxWidth(), shape = RoundedCornerShape(14.dp), color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.6f)) {
@@ -277,7 +291,9 @@ private fun ResidentsPane(residents: List<WorldResident>, modifier: Modifier) {
                         }
                         Spacer(Modifier.width(10.dp))
                         Text(resident.name, Modifier.weight(1f), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
-                        if (resident.card.isNotBlank()) TextButton(onClick = { cardOpen = !cardOpen }) { Text(if (cardOpen) "收起设定" else "设定") }
+                        if (resident.card.isNotBlank()) TextButton(onClick = { cardOpen = !cardOpen }) { Text(if (cardOpen) "收起" else "设定") }
+                        TextButton(onClick = { editing = resident }, enabled = idle) { Text("编辑") }
+                        TextButton(onClick = { moving = resident }, enabled = idle && residents.size > 1) { Text("搬走", color = MaterialTheme.colorScheme.error) }
                     }
                     listOf("在哪" to resident.location, "在做" to resident.activity, "心情" to resident.mood, "打算" to resident.plan).filter { it.second.isNotBlank() }.forEach { (label, value) ->
                         Text("$label：$value", style = MaterialTheme.typography.bodyMedium)
@@ -288,10 +304,144 @@ private fun ResidentsPane(residents: List<WorldResident>, modifier: Modifier) {
             }
         }
     }
+    if (adding) {
+        val cards = state.data.characters.filter { !ScenarioBuilder.isScenario(it) }
+        AlertDialog(onDismissRequest = { adding = false }, title = { Text("添加居民") }, text = {
+            Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                OutlinedButton(onClick = { adding = false; creating = true }, Modifier.fillMaxWidth()) { Text("新建一位居民") }
+                Text("或者把一张角色卡复制进来（复制的是卡上的文字，之后改角色卡不影响世界）：", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                if (cards.isEmpty()) Text("还没有角色卡。", style = MaterialTheme.typography.bodySmall)
+                cards.forEach { card ->
+                    val taken = residents.any { it.name == card.name.trim() || card.name.trim() in it.aliases }
+                    Surface(Modifier.fillMaxWidth().clickable(enabled = !taken) { adding = false; actions.addWorldResidentFromCharacter(card.id) },
+                        shape = RoundedCornerShape(10.dp), color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = if (taken) 0.3f else 0.6f)) {
+                        Column(Modifier.padding(10.dp)) {
+                            Text(card.name.ifBlank { "未命名角色" } + if (taken) "（世界里已有同名居民）" else "", fontWeight = FontWeight.SemiBold)
+                            if (card.description.isNotBlank()) Text(card.description, maxLines = 2, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.bodySmall)
+                        }
+                    }
+                }
+            }
+        }, confirmButton = { TextButton(onClick = { adding = false }) { Text("取消") } })
+    }
+    if (creating) ResidentDialog(null, onDismiss = { creating = false }) { name, card, aliases, _ -> creating = false; actions.addWorldResident(name, card, aliases) }
+    editing?.let { resident -> ResidentDialog(resident, onDismiss = { editing = null }) { name, card, aliases, notes -> editing = null; actions.editWorldResident(resident.id, name, card, aliases, notes) } }
+    moving?.let { resident ->
+        AlertDialog(onDismissRequest = { moving = null }, title = { Text("让 ${resident.name} 搬走？") },
+            text = { Text("${resident.name} 说过的话会留在时间线里，私信也还在，但之后不再出现在世界里。") },
+            confirmButton = { TextButton(onClick = { moving = null; actions.removeWorldResident(resident.id) }) { Text("搬走", color = MaterialTheme.colorScheme.error) } },
+            dismissButton = { TextButton(onClick = { moving = null }) { Text("取消") } })
+    }
+}
+
+/** A new resident ([resident] null) or an existing one: name, other names, card, and what they remember. */
+@Composable
+private fun ResidentDialog(resident: WorldResident?, onDismiss: () -> Unit = {}, onSave: (String, String, List<String>, String) -> Unit) {
+    var name by remember(resident?.id) { mutableStateOf(resident?.name.orEmpty()) }
+    var aliases by remember(resident?.id) { mutableStateOf(resident?.aliases.orEmpty().joinToString("、")) }
+    var card by remember(resident?.id) { mutableStateOf(resident?.card.orEmpty()) }
+    var notes by remember(resident?.id) { mutableStateOf(resident?.notes.orEmpty()) }
+    AlertDialog(onDismissRequest = onDismiss, title = { Text(if (resident == null) "新建居民" else "编辑 ${resident.name}") }, text = {
+        Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            OutlinedTextField(name, { name = it.take(30) }, Modifier.fillMaxWidth(), singleLine = true, label = { Text("名字") })
+            OutlinedTextField(aliases, { aliases = it.take(200) }, Modifier.fillMaxWidth(), singleLine = true, label = { Text("别的叫法（用、分开，可不填）") })
+            OutlinedTextField(card, { card = it.take(6000) }, Modifier.fillMaxWidth().height(200.dp), label = { Text("设定：身份、外貌、性格、作息、和别人的关系") })
+            if (resident != null) OutlinedTextField(notes, { notes = it.take(600) }, Modifier.fillMaxWidth().height(120.dp), label = { Text("记得的事（每天写日记时会更新）") })
+        }
+    }, confirmButton = {
+        TextButton(enabled = name.isNotBlank() && card.isNotBlank(), onClick = {
+            onSave(name, card, aliases.split('、', ',', '，', ' ').map { it.trim() }.filter { it.isNotEmpty() && it != name.trim() }.distinct().take(6), notes)
+        }) { Text("保存") }
+    }, dismissButton = { TextButton(onClick = onDismiss) { Text("取消") } })
+}
+
+/**
+ * What the world remembers: lines the user wants kept in every request (要记住的事), what each
+ * resident remembers, and the diary, one chapter per world day. All of it can be changed.
+ */
+@Composable
+private fun MemoryPane(open: OpenWorld, detail: WorldDetail, actions: AppActions, modifier: Modifier) {
+    LaunchedEffect(open.id) { if (open.diary == null) actions.loadWorldDiary() }
+    val idle = open.busy.isEmpty()
+    var newFact by rememberSaveable(open.id) { mutableStateOf("") }
+    var notesFor by remember { mutableStateOf<WorldResident?>(null) }
+    var editingDay by remember { mutableStateOf<app.pockettavern.domain.WorldDiaryEntry?>(null) }
+    var removingDay by remember { mutableStateOf<String?>(null) }
+    LazyColumn(modifier.fillMaxWidth(), contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        item {
+            Text("要记住的事", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            Text("写在这里的每一条，世界每次推进和回应都会带上，居民当它是确定的事实。比如你的名字和工作、你们之间说定的事。",
+                style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        }
+        items(detail.facts.withIndex().toList(), key = { "fact-${it.index}-${it.value.hashCode()}" }) { (index, fact) ->
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("· $fact", Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium)
+                TextButton(onClick = { actions.saveWorldFacts(detail.facts.filterIndexed { i, _ -> i != index }) }, enabled = idle) { Text("删除") }
+            }
+        }
+        item {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                OutlinedTextField(newFact, { newFact = it.take(300) }, Modifier.weight(1f), singleLine = true, placeholder = { Text("加一条") })
+                TextButton(onClick = { actions.saveWorldFacts(detail.facts + newFact); newFact = "" }, enabled = idle && newFact.isNotBlank() && detail.facts.size < 30) { Text("添加") }
+            }
+            HorizontalDivider(Modifier.padding(top = 8.dp))
+        }
+        item { Text("每个人记得的事", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold) }
+        items(detail.summary.residents, key = { "notes-${it.id}" }) { resident ->
+            Row(verticalAlignment = Alignment.Top) {
+                Column(Modifier.weight(1f)) {
+                    Text(resident.name, fontWeight = FontWeight.SemiBold)
+                    Text(resident.notes.ifBlank { "还没有；世界里过完一天、写日记时会记下" }, style = MaterialTheme.typography.bodySmall,
+                        color = if (resident.notes.isBlank()) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.onSurface)
+                }
+                TextButton(onClick = { notesFor = resident }, enabled = idle) { Text(if (resident.notes.isBlank()) "补充" else "修改") }
+            }
+        }
+        item {
+            HorizontalDivider(Modifier.padding(vertical = 4.dp))
+            Text("日记", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            if (open.diary == null) Text("读取中…", style = MaterialTheme.typography.bodySmall)
+            else if (open.diary.isEmpty()) Text("世界里每过一天，会写一章日记。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        }
+        items(open.diary.orEmpty().asReversed(), key = { "day-${it.day}" }) { entry ->
+            Surface(Modifier.fillMaxWidth(), shape = RoundedCornerShape(10.dp), color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)) {
+                Column(Modifier.padding(10.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(entry.day, Modifier.weight(1f), fontWeight = FontWeight.SemiBold)
+                        TextButton(onClick = { editingDay = entry }, enabled = idle) { Text("修改") }
+                        TextButton(onClick = { removingDay = entry.day }, enabled = idle) { Text("删除", color = MaterialTheme.colorScheme.error) }
+                    }
+                    Text(entry.text, style = MaterialTheme.typography.bodySmall)
+                }
+            }
+        }
+    }
+    notesFor?.let { resident ->
+        var notes by remember(resident.id) { mutableStateOf(resident.notes) }
+        AlertDialog(onDismissRequest = { notesFor = null }, title = { Text("${resident.name} 记得的事") }, text = {
+            OutlinedTextField(notes, { notes = it.take(600) }, Modifier.fillMaxWidth().height(180.dp), label = { Text("对你的印象、答应过的事、关系的变化") })
+        }, confirmButton = {
+            TextButton(onClick = { notesFor = null; actions.editWorldResident(resident.id, resident.name, resident.card, resident.aliases, notes) }) { Text("保存") }
+        }, dismissButton = { TextButton(onClick = { notesFor = null }) { Text("取消") } })
+    }
+    editingDay?.let { entry ->
+        var text by remember(entry.day) { mutableStateOf(entry.text) }
+        AlertDialog(onDismissRequest = { editingDay = null }, title = { Text("${entry.day} 的日记") }, text = {
+            OutlinedTextField(text, { text = it.take(1500) }, Modifier.fillMaxWidth().height(260.dp))
+        }, confirmButton = {
+            TextButton(enabled = text.isNotBlank(), onClick = { editingDay = null; actions.editWorldDiary(entry.day, text) }) { Text("保存") }
+        }, dismissButton = { TextButton(onClick = { editingDay = null }) { Text("取消") } })
+    }
+    removingDay?.let { day ->
+        AlertDialog(onDismissRequest = { removingDay = null }, title = { Text("删除 $day 的日记？") },
+            text = { Text("之后的推进不会再看到这一章。时间线里的聊天和事件不受影响。") },
+            confirmButton = { TextButton(onClick = { removingDay = null; actions.removeWorldDiary(day) }) { Text("删除", color = MaterialTheme.colorScheme.error) } },
+            dismissButton = { TextButton(onClick = { removingDay = null }) { Text("取消") } })
+    }
 }
 
 @Composable
-private fun WorldPane(open: OpenWorld, detail: WorldDetail, actions: AppActions, modifier: Modifier) {
+private fun WorldPane(open: OpenWorld, detail: WorldDetail, actions: AppActions, notificationsOn: Boolean, modifier: Modifier) {
     val summary = detail.summary
     var confirmTick by remember { mutableStateOf(false) }
     var confirmDelete by remember { mutableStateOf(false) }
@@ -309,18 +459,13 @@ private fun WorldPane(open: OpenWorld, detail: WorldDetail, actions: AppActions,
         WorldFact("累计", "请求 ${summary.totals.calls} 次 · ${"%,d".format(summary.totals.tokens)} tokens")
         if (summary.lastError.isNotBlank()) Text("上次出错：${summary.lastError}", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error)
         Text("每次推进、每次回应、每天的日记都是一次付费请求，计入上面的上限。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            OutlinedButton(onClick = { confirmTick = true }, enabled = open.busy.isEmpty() && !summary.paused) { Text("现在推进一次") }
-            OutlinedButton(onClick = { actions.loadWorldDiary() }, enabled = open.busy.isEmpty()) { Text("日记与记忆") }
-        }
-        open.diary?.let { diary ->
-            if (diary.isEmpty() && open.memories.isEmpty()) Text("世界里每过一天写一章日记，并更新每个人记得的事。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            open.memories.forEach { (name, notes) -> Text("$name 记得：$notes", style = MaterialTheme.typography.bodySmall) }
-            diary.asReversed().forEach { entry ->
-                Surface(Modifier.fillMaxWidth(), shape = RoundedCornerShape(10.dp), color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)) {
-                    Column(Modifier.padding(10.dp)) { Text(entry.day, fontWeight = FontWeight.SemiBold); Text(entry.text, style = MaterialTheme.typography.bodySmall) }
-                }
+        OutlinedButton(onClick = { confirmTick = true }, enabled = open.busy.isEmpty() && !summary.paused) { Text("现在推进一次") }
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Column(Modifier.weight(1f)) {
+                Text("有人私聊我时通知")
+                Text("手机约每 15 分钟问一次电脑有没有新私信，只是查询，不花钱；对所有小世界生效", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
+            Switch(notificationsOn, { actions.setWorldNotifications(it) })
         }
         HorizontalDivider()
         Text("设置", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)

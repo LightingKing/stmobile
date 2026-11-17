@@ -29,7 +29,7 @@ const MAX_STREAM_BACKLOG = 8 * 1024 * 1024;
 const SUPERSEDE_WAIT_MS = 10_000;
 const UPLOAD_IDLE_MS = 60_000;
 const BACKUP_PATH = /^\/v1\/backups\/(\d{8}-\d{6}-[0-9a-f]{6})$/;
-const WORLD_PATH = /^\/v1\/pocket\/worlds\/(w[0-9a-f]{12})(?:\/(pause|resume|tick|messages|diary))?$/;
+const WORLD_PATH = /^\/v1\/pocket\/worlds\/(w[0-9a-f]{12})(?:\/(pause|resume|tick|messages|diary|residents)(?:\/([A-Za-z0-9-]{1,20}))?)?$/;
 
 function safeToken(expected, provided) {
   const a = Buffer.from(String(expected || ''));
@@ -331,8 +331,8 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       }
       const match = parsed.pathname.match(WORLD_PATH);
       if (!match) return sendJson(res, 404, { error: { message: '路径不存在' } });
-      const [, id, action = ''] = match;
-      const route = `${req.method} ${action}`;
+      const [, id, action = '', sub = ''] = match;
+      const route = `${req.method} ${action}${sub ? '/:sub' : ''}`;
       if (route === 'GET ') return sendJson(res, 200, await worldEngine.get(id));
       if (route === 'PATCH ') return sendJson(res, 200, await worldEngine.update(id, await readBody(req)));
       if (route === 'DELETE ') return sendJson(res, 200, await worldEngine.remove(id));
@@ -340,6 +340,11 @@ export function createServer({ config = {}, vault = null, upstream = null, skill
       if (route === 'POST resume') return sendJson(res, 200, await worldEngine.resume(id));
       if (route === 'POST tick') return sendJson(res, 200, await worldEngine.tick(id));
       if (route === 'GET diary') return sendJson(res, 200, await worldEngine.diary(id));
+      if (route === 'PATCH diary/:sub') return sendJson(res, 200, await worldEngine.editDiary(id, sub, (await readBody(req))?.text));
+      if (route === 'DELETE diary/:sub') return sendJson(res, 200, await worldEngine.removeDiary(id, sub));
+      if (route === 'POST residents') return sendJson(res, 201, await worldEngine.addResident(id, await readBody(req)));
+      if (route === 'PATCH residents/:sub') return sendJson(res, 200, await worldEngine.updateResident(id, sub, await readBody(req)));
+      if (route === 'DELETE residents/:sub') return sendJson(res, 200, await worldEngine.removeResident(id, sub));
       if (route === 'GET messages') {
         const query = parsed.searchParams;
         return sendJson(res, 200, await worldEngine.messages(id, { since: Number(query.get('since')) || 0, tail: Number(query.get('tail')) || 0, limit: Number(query.get('limit')) || 200, seen: query.get('seen') === '1' }));
